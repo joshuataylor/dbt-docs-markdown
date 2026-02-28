@@ -1,0 +1,7 @@
+/tmp
+
+# Ignore docs/ except .md files
+docs/**
+!docs/**/
+!docs/**/*.md
+!docs/**/.gitkeep
