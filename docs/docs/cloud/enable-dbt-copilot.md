@@ -1,0 +1,100 @@
+# Enable dbt Copilot [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+
+Enable Copilot, an AI-powered assistant, in dbt to speed up your development and focus on delivering quality data.
+
+This page explains how to enable Copilot in dbt to speed up your development and allow you to focus on delivering quality data.
+
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+
+* Available in the dbt platform only.
+* Must have a [dbt Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/pricing).
+  <!-- -->
+  * Certain features like [BYOK](#bringing-your-own-openai-api-key-byok), [natural prompts in Canvas](https://docs.getdbt.com/docs/cloud/build-canvas-copilot.md), and more are only available on Enterprise and Enterprise+ plans.
+* Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md) to receive ongoing updates.
+* By default, Copilot deployments use a central OpenAI API key managed by dbt Labs. Alternatively, you can [bring your own OpenAI API key](#bringing-your-own-openai-api-key-byok)(BYOK).
+  <!-- -->
+  * For BYOK, make sure to enable the latest text generation models as well as the `text-embedding-3-small` model.
+* Opt-in to AI features by following the steps in the next section in your **Account settings**.
+
+## Enable dbt Copilot[​](#enable-dbt-copilot "Direct link to Enable dbt Copilot")
+
+To opt in to Copilot, a dbt admin can follow these steps:
+
+1. Navigate to **Account settings** in the navigation menu.
+2. Under **Settings**, confirm the account you're enabling.
+3. Click **Edit** in the top right corner.
+4. Enable the **Enable account access to dbt Copilot features** option.
+5. Click **Save**. You should now have Copilot AI enabled for use.
+
+Note: To disable (only after enabled), repeat steps 1 to 3, toggle off in step 4, and repeat step 5.
+
+[![Example of the 'Enable account access to dbt Copilot features' option in Account settings](/img/docs/deploy/example-account-settings.png?v=2 "Example of the 'Enable account access to dbt Copilot features' option in Account settings")](#)Example of the 'Enable account access to dbt Copilot features' option in Account settings
+
+## Bringing your own OpenAI API key (BYOK) [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#bringing-your-own-openai-api-key-byok- "Direct link to bringing-your-own-openai-api-key-byok-")
+
+Once AI features have been enabled, you can provide your organization's OpenAI API key. dbt will then leverage your OpenAI account and terms to power Copilot. This will incur billing charges to your organization from OpenAI for requests made by Copilot.
+
+Configure AI keys using:
+
+* dbt Labs-managed OpenAI API key
+* Your own OpenAI API key
+* Azure OpenAI
+
+### AI integrations[​](#ai-integrations "Direct link to AI integrations")
+
+Once AI features have been [enabled](https://docs.getdbt.com/docs/cloud/enable-dbt-copilot.md#enable-dbt-copilot), you can use dbt Labs' AI integration or bring-your-own provider to support AI-powered dbt features like [Copilot](https://docs.getdbt.com/docs/cloud/dbt-copilot.md) and [Ask dbt](https://docs.getdbt.com/docs/cloud-integrations/snowflake-native-app.md).
+
+dbt supports AI integrations for dbt Labs-managed OpenAI keys, Self-managed OpenAI keys, or Self-managed Azure OpenAI keys.
+
+Note, if you bring your own provider, you will incur API calls and associated charges for features used in dbt. Bringing your own provider is available for Enterprise or Enterprise+ plans.
+
+To configure the AI integration in your dbt account, a dbt admin can perform the following steps:
+
+1. Click on your account name and select **Account settings** in the side menu.
+2. Under **Settings**, click **Copilot**.
+3. Under **API Keys**, click the **Pencil** icon to the right of **OpenAI** to configure the AI integration.
+   <!-- -->
+   [![Example of the AI integration page](/img/docs/dbt-cloud/account-integration-ai.png?v=2 "Example of the AI integration page")](#)Example of the AI integration page
+4. Configure the AI integration for either **dbt Labs OpenAI**, **OpenAI**, or **Azure OpenAI**. The following tabs will walk you through the process.
+
+* dbt Labs OpenAI
+* OpenAI
+* Azure OpenAI
+
+1. Select the toggle for **dbt Labs** to use dbt Labs' managed OpenAI key.
+2. Click **Save**.
+
+[![Example of the dbt Labs integration page](/img/docs/dbt-cloud/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
+
+Bringing your own OpenAI key is available for Enterprise or Enterprise+ plans.
+
+1. Select the toggle for **OpenAI** to use your own OpenAI key.
+2. Enter the API key.
+3. Click **Save**.
+
+[![Example of the OpenAI integration page](/img/docs/dbt-cloud/account-integration-openai.png?v=2 "Example of the OpenAI integration page")](#)Example of the OpenAI integration page
+
+Data residency limitation
+
+OpenAI projects with [data residency controls](https://platform.openai.com/docs/guides/your-data#data-residency-controls) enabled and configured for the United States (project region set to US) don't currently support BYOK. These projects can only use the API key in the dbt platform configuration. Specifying custom endpoints required for data residency isn’t yet supported, and we’re evaluating a solution for this.
+
+To use BYOK, ensure your OpenAI project doesn’t have data residency controls enabled. Projects without project region settings will use the standard OpenAI endpoint (`https://api.openai.com`) and support BYOK.
+
+Bringing your own Azure OpenAI key is available for Enterprise or Enterprise+ plans.
+
+To learn about deploying your own OpenAI model on Azure, refer to [Deploy models on Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai). Configure credentials for your Azure OpenAI deployment in dbt the following way:
+
+1. Locate your Azure OpenAI configuration in your Azure Deployment details page.
+2. Enter your Azure OpenAI API key.
+3. Enter the **Endpoint**, **API Version**, and **Deployment / Model Name**.
+4. Click **Save**.
+
+[![Example of Azure OpenAI integration section](/img/docs/dbt-cloud/account-integration-azure-manual.png?v=2 "Example of Azure OpenAI integration section")](#)Example of Azure OpenAI integration section
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
