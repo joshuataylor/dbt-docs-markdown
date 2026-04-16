@@ -1,36 +1,58 @@
 # About data tests property
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
 
-models/\<filename>.yml
+## Description
+
+The `data_tests` property defines assertions about a column, <Term id="table" />, or <Term id="view" />. The property contains a list of [generic data tests](/docs/build/data-tests#generic-data-tests), referenced by name, which can include the four built-in generic tests available in dbt. For example, you can add data tests that ensure a column contains no duplicates and zero null values. Any arguments or [configurations](/reference/data-test-configs) passed to those data tests should be nested below the `arguments` property.
+
+Once these data tests are defined, you can validate their correctness by running `dbt test`.
+
+To help you get started, the examples below show how to define the `data_tests` property on different resource types (models, sources, seeds, snapshots, and analyses).
+
+<Tabs
+  defaultValue="models"
+  values={[
+    { label: 'Models', value: 'models', },
+    { label: 'Sources', value: 'sources', },
+    { label: 'Seeds', value: 'seeds', },
+    { label: 'Snapshots', value: 'snapshots', },
+    { label: 'Analyses', value: 'analyses', },
+  ]
+}>
+
+<TabItem value="models">
+
+<File name='models/<filename>.yml'>
 
 ```yml
 
 models:
   - name: <model_name>
     data_tests:
-      - <test_name>:
+      - [<test_name>](#custom-data-test-name):
           arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
             <argument_name>: <argument_value>
-          config:
-            <test_config>: <config-value>
+          [config](/reference/resource-properties/config):
+            [<test_config>](/reference/data-test-configs): <config-value>
 
-    columns:
+    [columns](/reference/resource-properties/columns):
       - name: <column_name>
         data_tests:
-          - <test_name>
-          - <test_name>:
+          - [<test_name>](#custom-data-test-name)
+          - [<test_name>](#custom-data-test-name):
               arguments:
                 <argument_name>: <argument_value>
-              config:
-                <test_config>: <config-value>
+              [config](/reference/resource-properties/config):
+                [<test_config>](/reference/data-test-configs): <config-value>
 ```
 
-models/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="sources">
+
+<File name='models/<filename>.yml'>
 
 ```yml
 
@@ -39,95 +61,111 @@ sources:
     tables:
     - name: <table_name>
       data_tests:
-        - <test_name>
-        - <test_name>:
+        - [<test_name>](#custom-data-test-name)
+        - [<test_name>](#custom-data-test-name):
             arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
               <argument_name>: <argument_value>
-            config:
-              <test_config>: <config-value>
+            [config](/reference/resource-properties/config):
+              [<test_config>](/reference/data-test-configs): <config-value>
 
       columns:
         - name: <column_name>
           data_tests:
-            - <test_name>
-            - <test_name>:
+            - [<test_name>](#custom-data-test-name)
+            - [<test_name>](#custom-data-test-name):
                 arguments:
                   <argument_name>: <argument_value>
-                config:
-                  <test_config>: <config-value>
+                [config](/reference/resource-properties/config):
+                  [<test_config>](/reference/data-test-configs): <config-value>
+
 ```
 
-seeds/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="seeds">
+
+<File name='seeds/<filename>.yml'>
 
 ```yml
 
 seeds:
   - name: <seed_name>
     data_tests:
-      - <test_name>
-      - <test_name>:
+      - [<test_name>](#custom-data-test-name)
+      - [<test_name>](#custom-data-test-name):
           arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
             <argument_name>: <argument_value>
-          config:
-            <test_config>: <config-value>
+          [config](/reference/resource-properties/config):
+            [<test_config>](/reference/data-test-configs): <config-value>
 
     columns:
       - name: <column_name>
         data_tests:
-          - <test_name>
-          - <test_name>:
+          - [<test_name>](#custom-data-test-name)
+          - [<test_name>](#custom-data-test-name):
               arguments:
                 <argument_name>: <argument_value>
-              config:
-                <test_config>: <config-value>
+              [config](/reference/resource-properties/config):
+                [<test_config>](/reference/data-test-configs): <config-value>
+
 ```
 
-snapshots/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="snapshots">
+
+<File name='snapshots/<filename>.yml'>
 
 ```yml
 
 snapshots:
   - name: <snapshot_name>
     data_tests:
-      - <test_name>
-      - <test_name>:
+      - [<test_name>](#custom-data-test-name)
+      - [<test_name>](#custom-data-test-name):
           arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
             <argument_name>: <argument_value>
-          config:
-            <test_config>: <config-value>
+          [config](/reference/resource-properties/config):
+            [<test_config>](/reference/data-test-configs): <config-value>
 
     columns:
       - name: <column_name>
         data_tests:
-          - <test_name>
-          - <test_name>:
+          - [<test_name>](#custom-data-test-name)
+          - [<test_name>](#custom-data-test-name):
               arguments:
                 <argument_name>: <argument_value>
-              config:
-                <test_config>: <config-value>
+              [config](/reference/resource-properties/config):
+                [<test_config>](/reference/data-test-configs): <config-value>
+
 ```
+
+</File>
+
+</TabItem>
+
+
+<TabItem value="analyses">
 
 This feature is not implemented for analyses.
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+</TabItem>
 
-* [Data testing guide](https://docs.getdbt.com/docs/build/data-tests.md)
+</Tabs>
 
-## Description[​](#description "Direct link to Description")
-
-The `data_tests` property defines assertions about a column, table, or view. The property contains a list of [generic data tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests), referenced by name, which can include the four built-in generic tests available in dbt. For example, you can add data tests that ensure a column contains no duplicates and zero null values. Any arguments or [configurations](https://docs.getdbt.com/reference/data-test-configs.md) passed to those data tests should be nested below the `arguments` property.
-
-Once these data tests are defined, you can validate their correctness by running `dbt test`.
-
-## Out-of-the-box data tests[​](#out-of-the-box-data-tests "Direct link to Out-of-the-box data tests")
+## Out-of-the-box data tests
 
 There are four generic data tests that are available out of the box, for everyone using dbt.
 
-### `not_null`[​](#not_null "Direct link to not_null")
+### `not_null`
 
 This data test validates that there are no `null` values present in a column.
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -137,15 +175,20 @@ models:
       - name: order_id
         data_tests:
           - not_null
+      ...
 ```
 
-### `unique`[​](#unique "Direct link to unique")
+</File>
+
+You can add an arguments block for test inputs and a config block for options like `severity` or `where`. Refer to [Data test configurations](/reference/data-test-configs?version=2.0#data-test-specific-configurations) for the full list. If you see a deprecation warning about test arguments, refer to [Deprecations](/reference/deprecations?version=2.0) for test-related warnings.
+
+### `unique`
 
 This data test validates that there are no duplicate values present in a field.
-
+                
 The config and where clause are optional.
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -159,13 +202,15 @@ models:
                 where: "order_id > 21"
 ```
 
-### `accepted_values`[​](#accepted_values "Direct link to accepted_values")
+</File>
+
+### `accepted_values`
 
 This data test validates that all of the non-`null` values in a column are present in a supplied list of `values`. If any values other than those provided in the list are present, then the data test will fail.
 
 The `accepted_values` test supports an optional `quote` parameter which, by default, will single-quote the list of accepted values in the test query. To test non-strings (like integers or boolean values) explicitly set the `quote` config to `false`.
 
-schema.yml
+<File name='schema.yml'>
 
 ```yaml
 
@@ -186,13 +231,15 @@ models:
                 quote: false
 ```
 
-### `relationships`[​](#relationships "Direct link to relationships")
+</File>
 
-This data test validates that all of the records in a child table have a corresponding record in a parent table. This property is referred to as "referential integrity". This test automatically excludes `NULL` values from validation, consistent with how database foreign key constraints work. Use the `not_null` test separately if `NULL` values should cause failures.
+### `relationships`
+
+This data test validates that all of the records in a child <Term id="table" /> have a corresponding record in a parent table. This property is referred to as "referential integrity". This test automatically excludes `NULL` values from validation, consistent with how database foreign key constraints work. Use the `not_null` test separately if `NULL` values should cause failures.
 
 The following example tests that every order's `customer_id` maps back to a valid `customer`.
 
-schema.yml
+<File name='schema.yml'>
 
 ```yaml
 
@@ -207,15 +254,16 @@ models:
                 field: id
 ```
 
-The `to` argument accepts a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) – this means you can pass it a `ref` to a model (e.g. `ref('customers')`), or a `source` (e.g. `source('jaffle_shop', 'customers')`).
+</File>
 
-## Additional examples[​](#additional-examples "Direct link to Additional examples")
+The `to` argument accepts a [Relation](/reference/dbt-classes#relation) – this means you can pass it a `ref` to a model (e.g. `ref('customers')`), or a `source` (e.g. `source('jaffle_shop', 'customers')`).
 
-### Test an expression[​](#test-an-expression "Direct link to Test an expression")
+## Additional examples
 
+### Test an expression
 Some data tests require multiple columns, so it doesn't make sense to nest them under the `columns:` key. In this case, you can apply the data test to the model (or source, seed, or snapshot) instead:
 
-models/orders.yml
+<File name='models/orders.yml'>
 
 ```yaml
 
@@ -231,14 +279,15 @@ models:
           arguments:
             expression: "order_total = subtotal + tax_paid"
 ```
+</File>
 
 This example focuses on testing expressions to ensure that `order_items_subtotal` equals `subtotal` and `order_total` correctly sums `subtotal` and `tax_paid`.
 
-### Use custom generic data test[​](#use-custom-generic-data-test "Direct link to Use custom generic data test")
+### Use custom generic data test
 
 If you've defined your own custom generic data test, you can use that as the `test_name`:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -248,18 +297,20 @@ models:
       - name: order_id
         data_tests:
           - primary_key  # name of my custom generic test
+
 ```
 
-Check out the guide on writing a [custom generic data test](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md) for more information.
+</File>
 
-### Custom data test name[​](#custom-data-test-name "Direct link to Custom data test name")
+Check out the guide on writing a [custom generic data test](/best-practices/writing-custom-generic-tests) for more information.
+
+### Custom data test name
 
 By default, dbt will synthesize a name for your generic data test by concatenating:
-
-* test name (`not_null`, `unique`, etc)
-* model name (or source/seed/snapshot)
-* column name (if relevant)
-* arguments (if relevant, e.g. `values` for `accepted_values`)
+- test name (`not_null`, `unique`, etc)
+- model name (or source/seed/snapshot)
+- column name (if relevant)
+- arguments (if relevant, e.g. `values` for `accepted_values`)
 
 It does not include any configurations for the data test. If the concatenated name is too long, dbt will use a truncated and hashed version instead. The goal is to preserve unique identifiers for all resources in your project, including tests.
 
@@ -267,7 +318,7 @@ You may also define your own name for a specific data test, via the `name` prope
 
 **When might you want this?** dbt's default approach can result in some wonky (and ugly) data test names. By defining a custom name, you get full control over how the data test will appear in log messages and metadata artifacts. You'll also be able to select the data test by that name.
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -283,6 +334,8 @@ models:
               config:
                 where: "order_date = current_date"
 ```
+
+</File>
 
 ```sh
 $ dbt test --select unexpected_order_status_today
@@ -301,11 +354,11 @@ $ dbt test --select unexpected_order_status_today
 12:43:41  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 ```
 
-A data test's name must be unique for all tests defined on a given model-column combination. If you give the same name to data tests defined on several different columns, or across several different models, then `dbt test --select <repeated_custom_name>` will select them all.
+A data test's name must be unique for all tests defined on a given model-column combination. If you give the same name to data tests defined on several different columns, or across several different models, then `dbt test --select <repeated_custom_name>` will select them all. 
 
 **When might you need this?** In cases where you have defined the same data test twice, with only a difference in configuration, dbt will consider these data tests to be duplicates:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -327,6 +380,8 @@ models:
                 where: "order_date = (current_date - interval '1 day')" # PostgreSQL syntax
 ```
 
+</File>
+
 ```sh
 Compilation Error
   dbt found two tests with the name "accepted_values_orders_status__placed__shipped__completed__returned" defined on column "status" in "models.orders".
@@ -341,7 +396,7 @@ Compilation Error
 
 By providing a custom name, you help dbt differentiate data tests:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -364,6 +419,8 @@ models:
                 where: "order_date = (current_date - interval '1 day')" # PostgreSQL
 ```
 
+</File>
+
 ```sh
 $ dbt test
 12:48:03  Running with dbt=1.1.0-b1
@@ -383,15 +440,15 @@ $ dbt test
 12:48:04  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
 
-**If using [`store_failures`](https://docs.getdbt.com/reference/resource-configs/store_failures.md):** dbt uses each data test's name as the name of the table in which to store any failing records. If you have defined a custom name for one data test, that custom name will also be used for its table of failures. You may optionally configure an [`alias`](https://docs.getdbt.com/reference/resource-configs/alias.md) for the data test, to separately control both the name of the data test (for metadata) and the name of its database table (for storing failures).
+**If using [`store_failures`](/reference/resource-configs/store_failures):** dbt uses each data test's name as the name of the table in which to store any failing records. If you have defined a custom name for one data test, that custom name will also be used for its table of failures. You may optionally configure an [`alias`](/reference/resource-configs/alias) for the data test, to separately control both the name of the data test (for metadata) and the name of its database table (for storing failures).
 
-### Alternative format for defining tests[​](#alternative-format-for-defining-tests "Direct link to Alternative format for defining tests")
+### Alternative format for defining tests
 
 When defining a generic data test with several arguments and configurations, the YAML can look and feel unwieldy. If you find it easier, you can define the same data test properties as top-level keys of a single dictionary, by providing the data test name as `test_name` instead. It's totally up to you.
 
 This example is identical to the one above:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -412,10 +469,8 @@ models:
               where: "order_date = current_date"
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
+## Related documentation
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Data testing guide](/docs/build/data-tests)

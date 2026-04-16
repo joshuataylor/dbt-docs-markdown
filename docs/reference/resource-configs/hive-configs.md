@@ -1,36 +1,30 @@
 # Cloudera Hive configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-hive plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+## Configuring tables
 
-| Option          | Description                                                                                                                      | Required? | Example                              |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------ |
-| partition\_by   | partition by a column, typically a directory per partition is created                                                            | No        | partition\_by=\['name']              |
-| clustered\_by   | second level division of a partitioned column                                                                                    | No        | clustered\_by=\['age']               |
-| file\_format    | underlying storage format of the table, see <https://cwiki.apache.org/confluence/display/Hive/FileFormats> for supported formats | No        | file\_format='PARQUET'               |
-| location        | storage location, typically an hdfs path                                                                                         | No        | LOCATION='/user/etl/destination'     |
-| comment         | comment for the table                                                                                                            | No        | comment='this is the cleanest model' |
-| external        | is this an external table - true / false                                                                                         | No        | external=true                        |
-| tbl\_properties | any metadata can be stored as key/value pair with the table                                                                      | No        | tbl\_properties="('dbt\_test'='1')"  |
-| table\_type     | indicates the type of the table                                                                                                  | No        | table\_type="iceberg"                |
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-hive plugin, in addition to the standard [model configs](/reference/model-configs).
 
-Search table...
+| Option  | Description                                        | Required?               | Example                  |
+|---------|----------------------------------------------------|-------------------------|--------------------------|
+| partition_by | partition by a column, typically a directory per partition is created | No | partition_by=['name'] |
+| clustered_by | second level division of a partitioned column  | No | clustered_by=['age'] |
+| file_format | underlying storage format of the table, see https://cwiki.apache.org/confluence/display/Hive/FileFormats for supported formats | No | file_format='PARQUET' |
+| location | storage location, typically an hdfs path | No | LOCATION='/user/etl/destination' |
+| comment | comment for the table | No | comment='this is the cleanest model' |
+| external | is this an external table - true / false | No | external=true |
+| tbl_properties | any metadata can be stored as key/value pair with the table | No | tbl_properties="('dbt_test'='1')" |
+| table_type | indicates the type of the table | No | table_type="iceberg" |
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 Supported modes for incremental model:
+ - **`append`** (default): Insert new records without updating or overwriting any existing data.
+ - **`insert_overwrite`**: For new records, insert data. When used along with partition clause, update data for changed record and insert data for new records. 
 
-* **`append`** (default): Insert new records without updating or overwriting any existing data.
-* **`insert_overwrite`**: For new records, insert data. When used along with partition clause, update data for changed record and insert data for new records.
+## Example: Using partition_by config option
 
-## Example: Using partition\_by config option[​](#example-using-partition_by-config-option "Direct link to Example: Using partition_by config option")
-
-hive\_partition\_by.sql
+<File name='hive_partition_by.sql'>
 
 ```sql
 {{
@@ -54,12 +48,6 @@ with source_data as (
 select * from source_data
 ```
 
-In the above example, a sample table is created with partition\_by and other config options. One thing to note when using partition\_by option is that the select query should always have the column name used in partition\_by option as the last one, as can be seen for the `city` column name used in the above query. If the partition\_by clause is not the same as the last column in select statement, Hive will flag an error when trying to create the model.
+</File>
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+In the above example, a sample table is created with partition_by and other config options. One thing to note when using partition_by option is that the select query should always have the column name used in partition_by option as the last one, as can be seen for the ```city``` column name used in the above query. If the partition_by clause is not the same as the last column in select statement, Hive will flag an error when trying to create the model.

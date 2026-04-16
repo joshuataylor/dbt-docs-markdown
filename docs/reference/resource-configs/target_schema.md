@@ -1,52 +1,53 @@
-# target\_schema
 
-note
+:::note
 
-Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [schema](https://docs.getdbt.com/reference/resource-configs/schema.md) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro.
+Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [schema](/reference/resource-configs/schema) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro. 
 
-Try it now in the [dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
+Try it now in the [<Constant name="dbt" /> **Latest** release track](/docs/dbt-versions/cloud-release-tracks).
 
-dbt\_project.yml
+:::
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +target_schema: string
+
 ```
 
-snapshots/\<filename>.sql
+</File>
+
+<File name='snapshots/<filename>.sql'>
 
 ```jinja2
 {{ config(
       target_schema="string"
 ) }}
+
 ```
 
-## Description[​](#description "Direct link to Description")
+</File>
 
-The schema that dbt should build a [snapshot](https://docs.getdbt.com/docs/build/snapshots.md) table into. When `target_schema` is provided, snapshots build into the same `target_schema`, no matter who is running them.
+## Description
+The schema that dbt should build a [snapshot](/docs/build/snapshots) <Term id="table" /> into. When `target_schema` is provided, snapshots build into the same `target_schema`, no matter who is running them.
 
 On **BigQuery**, this is analogous to a `dataset`.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
-<!-- -->
+<VersionBlock firstVersion="1.9">In dbt Core v1.9+ and <Constant name="dbt" /> **Latest** release track, this is not a required parameter. </VersionBlock>
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
+### Build all snapshots in a schema named `snapshots`
 
-### Build all snapshots in a schema named `snapshots`[​](#build-all-snapshots-in-a-schema-named-snapshots "Direct link to build-all-snapshots-in-a-schema-named-snapshots")
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
   +target_schema: snapshots
+
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

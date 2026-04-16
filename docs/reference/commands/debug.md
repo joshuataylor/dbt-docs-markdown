@@ -1,28 +1,26 @@
 # About dbt debug command
 
-Use dbt debug to test database connections and check system setup.
 
-`dbt debug` is a utility function to test the database connection and display information for debugging purposes, such as the validity of your project file, the [dbt version](https://docs.getdbt.com/reference/dbt-jinja-functions/dbt_version.md), and your installation of any requisite dependencies (like `git` when you run `dbt deps`).
+`dbt debug` is a utility function to test the database connection and display information for debugging purposes, such as the validity of your project file, the [dbt version](/reference/dbt-jinja-functions/dbt_version), and your installation of any requisite dependencies (like `git` when you run `dbt deps`).
 
 It checks your database connection, local configuration, and system setup across multiple axes to help identify potential issues before running dbt commands.
 
 By default, `dbt debug` validates:
+- **Database connection** (for configured profiles)
+- **dbt project setup** (like `dbt_project.yml` validity)
+- **System environment** (OS, Python version, installed dbt version)
+- **Required dependencies** (such as `git` for `dbt deps`)
+- **Adapter details** (installed adapter versions and compatibility)
 
-* **Database connection** (for configured profiles)
-* **dbt project setup** (like `dbt_project.yml` validity)
-* **System environment** (OS, Python version, installed dbt version)
-* **Required dependencies** (such as `git` for `dbt deps`)
-* **Adapter details** (installed adapter versions and compatibility)
+*Note: Not to be confused with [debug-level logging](/reference/global-configs/logs#debug-level-logging) through the `--debug` option which increases verbosity.
 
-\*Note: Not to be confused with [debug-level logging](https://docs.getdbt.com/reference/global-configs/logs.md#debug-level-logging) through the `--debug` option which increases verbosity.
+## Flags
 
-## Flags[​](#flags "Direct link to Flags")
+Most of the `dbt debug` flags apply to the <Constant name="core" /> CLI. Some flags also work in <Constant name="platform_cli" />, but only `--connection` is supported in the <Constant name="studio_ide" />.
 
-Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in dbt CLI, but only `--connection` is supported in the Studio IDE.
-
-* dbt Core CLI: Supports all flags.
-* Studio IDE: Only supports dbt `debug` and `dbt debug --connection`.
-* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md) command to interact with your dbt environment.
+- <Constant name="core" /> CLI: Supports all flags.
+- <Constant name="studio_ide" />: Only supports dbt `debug` and `dbt debug --connection`.
+- <Constant name="platform_cli" />: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](/reference/commands/dbt-environment) command to interact with your <Constant name="dbt" /> environment. 
 
 `dbt debug` supports the following flags in your terminal when using the command line interface (CLI):
 
@@ -104,7 +102,7 @@ Options:
  --log-path PATH         
                 Configure the 'log-path'. Only applies this
                 setting for the current run. Overrides the
-                'DBT_LOG_PATH' if it is set.
+                'DBT_LOG_PATH' (v1.10 and earlier) or 'DBT_ENGINE_LOG_PATH' (v1.11 or later) when set.
 
  --partial-parse / --no-partial-parse
                 Allow for partial parsing by looking for and
@@ -232,9 +230,10 @@ Options:
 
  -h, --help           
                 Show this message and exit.
-```
+ ```
 
-## Example usage[​](#example-usage "Direct link to Example usage")
+
+## Example usage
 
 Only test the connection to the data platform and skip the other checks `dbt debug` looks for:
 
@@ -251,18 +250,10 @@ To view your profiles.yml file, run:
 open /Users/alice/.dbt
 ```
 
-Test the connection in the Studio IDE:
+Test the connection in the <Constant name="studio_ide" />:
 
 ```text
 dbt debug --connection
 ```
 
-[![Test the connection in the Studio IDE](/img/reference/dbt-debug-ide.png?v=2 "Test the connection in the Studio IDE")](#)Test the connection in the Studio IDE
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<Lightbox src="/img/reference/dbt-debug-ide.png" title="Test the connection in the Studio IDE" />

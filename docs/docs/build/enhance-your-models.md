@@ -1,23 +1,19 @@
 # Enhance your models
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/materializations.md)
 
-#### [Materializations](https://docs.getdbt.com/docs/build/materializations.md)
+<div className="grid--2-col">
 
-[Learn how to use materializations to make dbt models persist in a data platform.](https://docs.getdbt.com/docs/build/materializations.md)
+<Card
+    title="Materializations"
+    body="Learn how to use materializations to make dbt models persist in a data platform."
+    link="/docs/build/materializations"
+    icon="dbt-bit"/>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/incremental-models.md)
+<Card
+    title="Incremental models"
+    body="Learn how to use incremental models so you can limit the amount of data that needs to be transformed."
+    link="/docs/build/incremental-models"
+    icon="dbt-bit"/>
 
-#### [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md)
-
-[Learn how to use incremental models so you can limit the amount of data that needs to be transformed.](https://docs.getdbt.com/docs/build/incremental-models.md)
-
+</div>
 <br />
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

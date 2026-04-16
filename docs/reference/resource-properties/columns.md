@@ -1,12 +1,18 @@
-# columns
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
+<Tabs
+  defaultValue="models"
+  values={[
+    { label: 'Models', value: 'models', },
+    { label: 'Sources', value: 'sources', },
+    { label: 'Seeds', value: 'seeds', },
+    { label: 'Snapshots', value: 'snapshots', },
+    { label: 'Analyses', value: 'analyses', },
+  ]
+}>
 
-models/\<filename>.yml
+<TabItem value="models">
+
+<File name='models/<filename>.yml'>
 
 ```yml
 
@@ -15,17 +21,23 @@ models:
     columns:
       - name: <column_name>
         data_type: <string>
-        description: <markdown_string>
-        quote: true | false
-        data_tests: ...
+        [description](/reference/resource-properties/description): <markdown_string>
+        [quote](/reference/resource-properties/columns#quote): true | false
+        [data_tests](/reference/resource-properties/data-tests): ...
         config:
-          tags: ...
-          meta: ...
+          [tags](/reference/resource-configs/tags): ...
+          [meta](/reference/resource-configs/meta): ...
       - name: <another_column>
         ...
 ```
 
-models/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="sources">
+
+<File name='models/<filename>.yml'>
 
 ```yml
 
@@ -35,18 +47,25 @@ sources:
     - name: <table_name>
       columns:
         - name: <column_name>
-          description: <markdown_string>
+          [description](/reference/resource-properties/description): <markdown_string>
           data_type: <string>
-          quote: true | false
-          data_tests: ...
+          [quote](/reference/resource-properties/columns#quote): true | false
+          [data_tests](/reference/resource-properties/data-tests): ...
           config:
-            tags: ...
-            meta: ...
+            [tags](/reference/resource-configs/tags): ...
+            [meta](/reference/resource-configs/meta): ...
         - name: <another_column>
           ...
+
 ```
 
-seeds/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="seeds">
+
+<File name='seeds/<filename>.yml'>
 
 ```yml
 
@@ -54,18 +73,24 @@ seeds:
   - name: <seed_name>
     columns:
       - name: <column_name>
-        description: <markdown_string>
+        [description](/reference/resource-properties/description): <markdown_string>
         data_type: <string>
-        quote: true | false
-        data_tests: ...
+        [quote](/reference/resource-properties/columns#quote): true | false
+        [data_tests](/reference/resource-properties/data-tests): ...
         config:
-          tags: ...
-          meta: ...
+          [tags](/reference/resource-configs/tags): ...
+          [meta](/reference/resource-configs/meta): ...
       - name: <another_column>
             ...
 ```
 
-snapshots/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="snapshots">
+
+<File name='snapshots/<filename>.yml'>
 
 ```yml
 
@@ -73,17 +98,25 @@ snapshots:
   - name: <snapshot_name>
     columns:
       - name: <column_name>
-        description: <markdown_string>
+        [description](/reference/resource-properties/description): <markdown_string>
         data_type: <string>
-        quote: true | false
-        data_tests: ...
+        [quote](/reference/resource-properties/columns#quote): true | false
+        [data_tests](/reference/resource-properties/data-tests): ...
         config:
-          tags: ...
-          meta: ...
+          [tags](/reference/resource-configs/tags): ...
+          [meta](/reference/resource-configs/meta): ...
       - name: <another_column>
+
 ```
 
-analyses/\<filename>.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="analyses">
+
+<File name='analyses/<filename>.yml'>
 
 ```yml
 
@@ -91,36 +124,47 @@ analyses:
   - name: <analysis_name>
     columns:
       - name: <column_name>
-        description: <markdown_string>
+        [description](/reference/resource-properties/description): <markdown_string>
         data_type: <string>
       - name: <another_column>
+
 ```
 
+</File>
+
+</TabItem>
+
+</Tabs>
+
 Columns are not resources in and of themselves. Instead, they are child properties of another resource type. They can define sub-properties that are similar to properties defined at the resource level:
+- `tags`
+- `meta`
+- `data_tests`
+- `description`
 
-* `tags`
-* `meta`
-* `data_tests`
-* `description`
-
-Because columns are not resources, their `tags` and `meta` properties are not true configurations even when nested under a `config` block. They do not inherit the `tags` or `meta` values of their parent resources. However, you can select a generic test, defined on a column, using tags applied to its column or top-level resource; see [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md#run-tests-on-tagged-columns).
+Because columns are not resources, their `tags` and `meta` properties are not true configurations even when nested under a `config` block. They do not inherit the `tags` or `meta` values of their parent resources. However, you can select a generic test, defined on a column, using tags applied to its column or top-level resource; see [test selection examples](/reference/node-selection/test-selection-examples#run-tests-on-tagged-columns).
 
 Columns may optionally define a `data_type`, which is necessary for:
+- Enforcing a model [contract](/reference/resource-configs/contract)
+- Use in other packages or plugins, such as the [`external`](/reference/resource-properties/external) property of sources and [`dbt-external-tables`](https://hub.getdbt.com/dbt-labs/dbt_external_tables/latest/)
 
-* Enforcing a model [contract](https://docs.getdbt.com/reference/resource-configs/contract.md)
-* Use in other packages or plugins, such as the [`external`](https://docs.getdbt.com/reference/resource-properties/external.md) property of sources and [`dbt-external-tables`](https://hub.getdbt.com/dbt-labs/dbt_external_tables/latest/)
-
-### `quote`[​](#quote "Direct link to quote")
+### `quote`
 
 The `quote` field can be used to enable or disable quoting for column names.
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
+<Tabs
+  defaultValue="models"
+  values={[
+    { label: 'Models', value: 'models', },
+    { label: 'Sources', value: 'sources', },
+    { label: 'Seeds', value: 'seeds', },
+    { label: 'Snapshots', value: 'snapshots', },
+    { label: 'Analyses', value: 'analyses', },
+  ]
+}>
+<TabItem value="models">
 
-models/schema.yml
+<File name='models/schema.yml'>
 
 ```yml
 
@@ -129,9 +173,16 @@ models:
     columns:
       - name: column_name
         quote: true | false
+
 ```
 
-models/schema.yml
+</File>
+
+</TabItem>
+
+<TabItem value="sources">
+
+<File name='models/schema.yml'>
 
 ```yml
 
@@ -142,9 +193,16 @@ sources:
         columns:
           - name: column_name
             quote: true | false
+
 ```
 
-seeds/schema.yml
+</File>
+
+</TabItem>
+
+<TabItem value="seeds">
+
+<File name='seeds/schema.yml'>
 
 ```yml
 
@@ -153,9 +211,16 @@ seeds:
     columns:
       - name: column_name
         quote: true | false
+
 ```
 
-snapshots/schema.yml
+</File>
+
+</TabItem>
+
+<TabItem value="snapshots">
+
+<File name='snapshots/schema.yml'>
 
 ```yml
 
@@ -164,9 +229,16 @@ snapshots:
     columns:
       - name: column_name
         quote: true | false
+
 ```
 
-analysis/schema.yml
+</File>
+
+</TabItem>
+
+<TabItem value="analyses">
+
+<File name='analysis/schema.yml'>
 
 ```yml
 
@@ -175,35 +247,35 @@ analyses:
     columns:
       - name: column_name
         quote: true | false
+
 ```
 
-### Default[​](#default "Direct link to Default")
+</File>
 
+</TabItem>
+
+</Tabs>
+
+### Default
 The default quoting value is `false`
 
-### Explanation[​](#explanation "Direct link to Explanation")
-
+### Explanation
 This is particularly relevant to those using Snowflake, where quoting can be particularly fickle.
 
 This property is useful when:
-
-* A source table has a column that needs to be quoted to be selected, for example, to preserve column casing
-* A seed was created with `quote_columns: true` ([docs](https://docs.getdbt.com/reference/resource-configs/quote_columns.md)) on Snowflake
-* A model uses quotes in the SQL, potentially to work around the use of reserved words
-
+- A source <Term id="table" /> has a column that needs to be quoted to be selected, for example, to preserve column casing
+- A seed was created with `quote_columns: true` ([docs](/reference/resource-configs/quote_columns)) on Snowflake
+- A model uses quotes in the SQL, potentially to work around the use of reserved words
 ```sql
 select user_group as "group"
 ```
 
 Without setting `quote: true`:
+- [Data tests](/docs/build/data-tests) applied to this column may fail due to invalid SQL
+- Documentation may not render correctly, e.g. `group` and `"group"` may not be matched as the same column name.
 
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md) applied to this column may fail due to invalid SQL
-* Documentation may not render correctly, e.g. `group` and `"group"` may not be matched as the same column name.
-
-### Example[​](#example "Direct link to Example")
-
-#### Add data tests to a quoted column in a source table[​](#add-data-tests-to-a-quoted-column-in-a-source-table "Direct link to Add data tests to a quoted column in a source table")
-
+### Example
+#### Add data tests to a quoted column in a source table
 This is especially relevant if using Snowflake:
 
 ```yml
@@ -217,11 +289,12 @@ sources:
             quote: true
             data_tests:
               - not_null
+
 ```
 
 Without `quote: true`, the following error will occur:
 
-```text
+```
 $ dbt test -s source:stripe.*
 Running with dbt=0.16.1
 Found 7 models, 22 tests, 0 snapshots, 0 analyses, 130 macros, 0 operations, 0 seed files, 4 sources
@@ -242,25 +315,17 @@ Database Error in test source_not_null_stripe_payment_order_id (models/staging/s
 ```
 
 This is because dbt is trying to run:
-
 ```sql
 select count(*)
 from raw.stripe.payment
 where orderID is null
+
 ```
 
 Instead of:
-
 ```sql
 select count(*)
 from raw.stripe.payment
 where "orderID" is null
+
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

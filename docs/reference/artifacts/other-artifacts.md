@@ -1,44 +1,37 @@
 # Other artifact files
 
-### index.html[​](#indexhtml "Direct link to index.html")
 
-**Produced by:** [`docs generate`](https://docs.getdbt.com/reference/commands/cmd-docs.md)
+### index.html
 
-This file is the skeleton of the [auto-generated dbt documentation website](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md). The contents of the site are populated by the [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) and [catalog](https://docs.getdbt.com/reference/artifacts/catalog-json.md).
+**Produced by:** [`docs generate`](/reference/commands/cmd-docs)
+
+This file is the skeleton of the [auto-generated dbt documentation website](/docs/explore/build-and-view-your-docs). The contents of the site are populated by the [manifest](/reference/artifacts/manifest-json) and [catalog](catalog-json).
 
 Note: the source code for `index.json` comes from the [dbt-docs repo](https://github.com/dbt-labs/dbt-docs). Head over there if you want to make a bug report, suggestion, or contribution relating to the documentation site.
 
-### partial\_parse.msgpack[​](#partial_parsemsgpack "Direct link to partial_parse.msgpack")
+### partial_parse.msgpack
 
-**Produced by:** [manifest commands](https://docs.getdbt.com/reference/artifacts/manifest-json.md) + [`parse`](https://docs.getdbt.com/reference/commands/parse.md)
+**Produced by:** [manifest commands](/reference/artifacts/manifest-json) + [`parse`](/reference/commands/parse)
 
-This file is used to store a compressed representation of files dbt has parsed. If you have [partial parsing](https://docs.getdbt.com/reference/parsing.md#partial-parsing) enabled, dbt will use this file to identify the files that have changed and avoid re-parsing the rest.
+This file is used to store a compressed representation of files dbt has parsed. If you have [partial parsing](/reference/parsing#partial-parsing) enabled, dbt will use this file to identify the files that have changed and avoid re-parsing the rest.
 
-### graph.gpickle[​](#graphgpickle "Direct link to graph.gpickle")
+### graph.gpickle
 
-**Produced by:** commands supporting [node selection](https://docs.getdbt.com/reference/node-selection/syntax.md)
+**Produced by:** commands supporting [node selection](/reference/node-selection/syntax)
 
 Stores the network representation of the dbt resource DAG.
 
-### graph\_summary.json[​](#graph_summaryjson "Direct link to graph_summary.json")
+### graph_summary.json
 
-**Produced by:** [manifest commands](https://docs.getdbt.com/reference/artifacts/manifest-json.md)
+**Produced by:** [manifest commands](/reference/artifacts/manifest-json)
 
-This file is useful for investigating performance issues in dbt Core's graph algorithms.
+This file is useful for investigating performance issues in <Constant name="core" />'s graph algorithms.
 
-It is more anonymized and compact than [`manifest.json`](https://docs.getdbt.com/reference/artifacts/manifest-json.md) and [`graph.gpickle`](#graph.gpickle).
+It is more anonymized and compact than [`manifest.json`](/reference/artifacts/manifest-json) and [`graph.gpickle`](#graph.gpickle).
 
 It includes that information at two separate points in time:
-
-1. `linked` — immediately after the graph is linked together, and
-2. `with_test_edges` — after test edges have been added.
+1. `linked` &mdash; immediately after the graph is linked together, and
+2. `with_test_edges` &mdash; after test edges have been added.
 
 Each of those points in time contains the `name` and `type` of each node and `succ` contains the keys of its child nodes.
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

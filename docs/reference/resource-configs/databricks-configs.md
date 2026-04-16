@@ -1,31 +1,27 @@
 # Databricks configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-databricks plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+## Configuring tables
 
-dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md). All other table configurations were also supported in 1.8.
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-databricks plugin, in addition to the standard [model configs](/reference/model-configs).
 
-| Option                        | Description                                                                                                                                                                                                        | Required?                               | Model support    | Example                     |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | ---------------- | --------------------------- |
-| table\_format                 | Whether or not to provision [Iceberg](https://docs.databricks.com/en/delta/uniform.html) compatibility for the materialization                                                                                     | Optional                                | SQL, Python      | `iceberg`                   |
-| file\_format †                | The file format to use when creating tables (`parquet`, `delta`, `hudi`, `csv`, `json`, `text`, `jdbc`, `orc`, `hive` or `libsvm`).                                                                                | Optional                                | SQL, Python      | `delta`                     |
-| location\_root                | The created table uses the specified directory to store its data. The table alias is appended to it.                                                                                                               | Optional                                | SQL, Python      | `/mnt/root`                 |
-| include\_full\_name\_in\_path | Whether to use the full table path to qualify the location root. If this is set, the database, schema, and table alias are all appended to the location root.                                                      | Optional                                | SQL, Python      | `true`                      |
-| partition\_by                 | Partition the created table by the specified columns. A directory is created for each partition.                                                                                                                   | Optional                                | SQL, Python      | `date_day`                  |
-| liquid\_clustered\_by^        | Cluster the created table by the specified columns. Clustering method is based on [Delta's Liquid Clustering feature](https://docs.databricks.com/en/delta/clustering.html). Available since dbt-databricks 1.6.2. | Optional                                | SQL, Python      | `date_day`                  |
-| auto\_liquid\_cluster+        | The created table is [automatically clustered by Databricks](https://docs.databricks.com/aws/en/delta/clustering#automatic-liquid-clustering). Available since dbt-databricks 1.10.0                               | Optional                                | SQL, Python      | `auto_liquid_cluster: true` |
-| clustered\_by                 | Each partition in the created table will be split into a fixed number of buckets by the specified columns.                                                                                                         | Optional                                | SQL, Python      | `country_code`              |
-| buckets                       | The number of buckets to create while clustering                                                                                                                                                                   | Required if `clustered_by` is specified | SQL, Python      | `8`                         |
-| tblproperties                 | [Tblproperties](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html) to be set on the created table                                                                           | Optional                                | SQL, Python\*    | `{'this.is.my.key': 12}`    |
-| databricks\_tags              | [Tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) to be set on the created table                                                                                                      | Optional                                | SQL ‡ , Python ‡ | `{'my_tag': 'my_value'}`    |
-| compression                   | Set the compression algorithm.                                                                                                                                                                                     | Optional                                | SQL, Python      | `zstd`                      |
+dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [<Constant name="dbt" /> **Latest** release track](/docs/dbt-versions/cloud-release-tracks). All other table configurations were also supported in 1.8.
 
-Search table...
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Option    | Description| Required?     | Model support   | Example      |
+|-------------|--------|-----------|-----------------|---------------|
+| table_format   | Whether or not to provision [Iceberg](https://docs.databricks.com/en/delta/uniform.html) compatibility for the materialization     | Optional     | SQL, Python     | `iceberg`    |
+| file_format <sup>†</sup>        | The file format to use when creating tables (`parquet`, `delta`, `hudi`, `csv`, `json`, `text`, `jdbc`, `orc`, `hive` or `libsvm`).   | Optional     | SQL, Python     | `delta`     |
+| location_root       | The created table uses the specified directory to store its data. The table alias is appended to it.     | Optional  | SQL, Python     | `/mnt/root`  |
+| include_full_name_in_path   | Whether to use the full table path to qualify the location root. If this is set, the database, schema, and table alias are all appended to the location root. | Optional  | SQL, Python     | `true`  |
+| partition_by        | Partition the created table by the specified columns. A directory is created for each partition. | Optional   | SQL, Python     | `date_day`  |
+| liquid_clustered_by<sup>^</sup>  | Cluster the created table by the specified columns. Clustering method is based on [Delta's Liquid Clustering feature](https://docs.databricks.com/en/delta/clustering.html). Available since dbt-databricks 1.6.2. | Optional          | SQL, Python     | `date_day` |
+| auto_liquid_cluster\+ | The created table is [automatically clustered by Databricks](https://docs.databricks.com/aws/en/delta/clustering#automatic-liquid-clustering).  Available since dbt-databricks 1.10.0 | Optional | SQL, Python | `auto_liquid_cluster: true` |
+| clustered_by        | Each partition in the created table will be split into a fixed number of buckets by the specified columns.      | Optional     | SQL, Python     | `country_code`           |
+| buckets    | The number of buckets to create while clustering   | Required if `clustered_by` is specified   | SQL, Python     | `8`        |
+| tblproperties   | [Tblproperties](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html) to be set on the created table   | Optional     | SQL, Python*    | `{'this.is.my.key': 12}` |
+| databricks_tags     | [Tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) to be set on the created table     | Optional    | SQL <sup>‡</sup> , Python <sup>‡</sup> | `{'my_tag': 'my_value'}` |
+| compression   | Set the compression algorithm.   | Optional    | SQL, Python     | `zstd`    |
 
 \* We do not yet have a PySpark API to set tblproperties at table creation, so this feature is primarily to allow users to anotate their python-derived tables with tblproperties.
 
@@ -33,80 +29,63 @@ Search table...
 
 ‡ `databricks_tags` are applied via `ALTER` statements. Tags cannot be removed via dbt-databricks once applied. To remove tags, use Databricks directly or a post-hook.
 
-^ When `liquid_clustered_by` is enabled, dbt-databricks issues an `OPTIMIZE` (Liquid Clustering) operation after each run. To disable this behavior, set the variable `DATABRICKS_SKIP_OPTIMIZE=true`, which can be passed into the dbt run command (`dbt run --vars "{'databricks_skip_optimize': true}"`) or set as an environment variable. See [issue #802](https://github.com/databricks/dbt-databricks/issues/802).
+<sup>^</sup> When `liquid_clustered_by` is enabled, dbt-databricks issues an `OPTIMIZE` (Liquid Clustering) operation after each run. To disable this behavior, set the variable `DATABRICKS_SKIP_OPTIMIZE=true`, which can be passed into the dbt run command (`dbt run --vars "{'databricks_skip_optimize': true}"`) or set as an environment variable. See [issue #802](https://github.com/databricks/dbt-databricks/issues/802).
 
 \+ Do not use `liquid_clustered_by` and `auto_liquid_cluster` on the same model.
 
-In dbt-databricks v1.10, there are several new model configurations options gated behind the `use_materialization_v2` flag. For details, see the [documentation of Databricks behavior flags](https://docs.getdbt.com/reference/global-configs/databricks-changes.md).
+In dbt-databricks v1.10, there are several new model configurations options gated behind the `use_materialization_v2` flag.
+For details, see the [documentation of Databricks behavior flags](/reference/global-configs/databricks-changes).
 
-### Python submission methods[​](#python-submission-methods "Direct link to Python submission methods")
+### Python submission methods
+_Available in versions 1.9 or higher_
 
-*Available in versions 1.9 or higher*
-
-In dbt-databricks v1.9 (try it now in [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md)), you can use these four options for `submission_method`:
+In dbt-databricks v1.9 (try it now in [the <Constant name="dbt" /> **Latest** release track](/docs/dbt-versions/cloud-release-tracks)), you can use these four options for `submission_method`: 
 
 * `all_purpose_cluster`: Executes the python model either directly using the [command api](https://docs.databricks.com/api/workspace/commandexecution) or by uploading a notebook and creating a one-off job run
-
 * `job_cluster`: Creates a new job cluster to execute an uploaded notebook as a one-off job run
-
 * `serverless_cluster`: Uses a [serverless cluster](https://docs.databricks.com/en/jobs/run-serverless-jobs.html) to execute an uploaded notebook as a one-off job run
-
 * `workflow_job`: Creates/updates a reusable workflow and uploaded notebook, for execution on all-purpose, job, or serverless clusters.
-
-  <!-- -->
-
-  caution
-
-  This approach gives you maximum flexibility, but will create persistent artifacts in Databricks (the workflow) that users could run outside of dbt.
+   :::caution 
+   This approach gives you maximum flexibility, but will create persistent artifacts in Databricks (the workflow) that users could run outside of dbt.
+   :::
 
 We are currently in a transitionary period where there is a disconnect between old submission methods (which were grouped by compute), and the logically distinct submission methods (command, job run, workflow).
 
 As such, the supported config matrix is somewhat complicated:
 
-| Config                | Use                                                                                                                         | Default            | `all_purpose_cluster`\* | `job_cluster` | `serverless_cluster` | `workflow_job` |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- | ------------- | -------------------- | -------------- |
-| `create_notebook`     | if false, use Command API, otherwise upload notebook and use job run                                                        | `false`            | ✅                      | ❌            | ❌                   | ❌             |
-| `timeout`             | maximum time to wait for command/job to run                                                                                 | `0` (No timeout)   | ✅                      | ✅            | ✅                   | ✅             |
-| `job_cluster_config`  | configures a [new cluster](https://docs.databricks.com/api/workspace/jobs/submit#tasks-new_cluster) for running the model   | `{}`               | ❌                      | ✅            | ❌                   | ✅             |
-| `access_control_list` | directly configures [access control](https://docs.databricks.com/api/workspace/jobs/submit#access_control_list) for the job | `{}`               | ✅                      | ✅            | ✅                   | ✅             |
-| `packages`            | list of packages to install on the executing cluster                                                                        | `[]`               | ✅                      | ✅            | ✅                   | ✅             |
-| `index_url`           | url to install `packages` from                                                                                              | `None` (uses pypi) | ✅                      | ✅            | ✅                   | ✅             |
-| `additional_libs`     | directly configures [libraries](https://docs.databricks.com/api/workspace/jobs/submit#tasks-libraries)                      | `[]`               | ✅                      | ✅            | ✅                   | ✅             |
-| `python_job_config`   | additional configuration for jobs/workflows (see table below)                                                               | `{}`               | ✅                      | ✅            | ✅                   | ✅             |
-| `cluster_id`          | id of existing all purpose cluster to execute against                                                                       | `None`             | ✅                      | ❌            | ❌                   | ✅             |
-| `http_path`           | path to existing all purpose cluster to execute against                                                                     | `None`             | ✅                      | ❌            | ❌                   | ❌             |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Config                | Use                                                                  | Default            | `all_purpose_cluster`* | `job_cluster` | `serverless_cluster` | `workflow_job` |
+| --------------------- | -------------------------------------------------------------------- | ------------------ | ---------------------- | ------------- | -------------------- | -------------- |
+| `create_notebook`     | if false, use Command API, otherwise upload notebook and use job run | `false`            | ✅                     | ❌             | ❌                   | ❌             |
+| `timeout`             | maximum time to wait for command/job to run                          | `0` (No timeout)   | ✅                     | ✅             | ✅                   | ✅             |
+| `job_cluster_config`  | configures a [new cluster](https://docs.databricks.com/api/workspace/jobs/submit#tasks-new_cluster) for running the model | `{}` | ❌ | ✅ | ❌            | ✅             |
+| `access_control_list` | directly configures [access control](https://docs.databricks.com/api/workspace/jobs/submit#access_control_list) for the job | `{}` | ✅ | ✅ | ✅          | ✅             |
+| `packages`            | list of packages to install on the executing cluster                 | `[]`               | ✅                     | ✅             | ✅                   | ✅             |
+| `index_url`           | url to install `packages` from                                       | `None` (uses pypi) | ✅                     | ✅             | ✅                   | ✅             |
+| `additional_libs`     | directly configures [libraries](https://docs.databricks.com/api/workspace/jobs/submit#tasks-libraries) | `[]` | ✅ | ✅             | ✅                   | ✅             |
+| `python_job_config`   | additional configuration for jobs/workflows (see table below)        | `{}`               | ✅                     | ✅             | ✅                   | ✅             |
+| `cluster_id`          | id of existing all purpose cluster to execute against                | `None`             | ✅                     | ❌             | ❌                   | ✅             |
+| `http_path`           | path to existing all purpose cluster to execute against              | `None`             | ✅                     | ❌             | ❌                   | ❌             |
 
 \* Only `timeout` and `cluster_id`/`http_path` are supported when `create_notebook` is false
 
 With the introduction of the `workflow_job` submission method, we chose to segregate further configuration of the python model submission under a top level configuration named `python_job_config`. This keeps configuration options for jobs and workflows namespaced in such a way that they do not interfere with other model config, allowing us to be much more flexible with what is supported for job execution.
 
-The support matrix for this feature is divided into `workflow_job` and all others (assuming `all_purpose_cluster` with `create_notebook`==true). Each config option listed must be nested under `python_job_config`:
+The support matrix for this feature is divided into `workflow_job` and all others (assuming `all_purpose_cluster` with `create_notebook`==true).
+Each config option listed must be nested under `python_job_config`:
 
-| Config                                                                           | Use                                                                                                                | Default | `workflow_job` | All others |
-| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------- | -------------- | ---------- |
-| `name`                                                                           | The name to give (or used to look up) the created workflow                                                         | `None`  | ✅             | ❌         |
-| `grants`                                                                         | A simplified way to specify access control for the workflow                                                        | `{}`    | ✅             | ✅         |
-| `existing_job_id`                                                                | Id to use to look up the created workflow (in place of `name`)                                                     | `None`  | ✅             | ❌         |
-| `post_hook_tasks`                                                                | [Tasks](https://docs.databricks.com/api/workspace/jobs/create#tasks) to include after the model notebook execution | `[]`    | ✅             | ❌         |
-| `additional_task_settings`                                                       | Additional [task config](https://docs.databricks.com/api/workspace/jobs/create#tasks) to include in the model task | `{}`    | ✅             | ❌         |
-| [Other job run settings](https://docs.databricks.com/api/workspace/jobs/submit)  | Config will be copied into the request, outside of the model task                                                  | `None`  | ❌             | ✅         |
-| [Other workflow settings](https://docs.databricks.com/api/workspace/jobs/create) | Config will be copied into the request, outside of the model task                                                  | `None`  | ✅             | ❌         |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Config                     | Use                                                                                                                     | Default | `workflow_job` | All others |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ---------- |
+| `name`                     | The name to give (or used to look up) the created workflow                                                              | `None`  | ✅             | ❌          |
+| `grants`                   | A simplified way to specify access control for the workflow                                                             | `{}`    | ✅             | ✅          |
+| `existing_job_id`          | Id to use to look up the created workflow (in place of `name`)                                                          | `None`  | ✅             | ❌          |
+| `post_hook_tasks`          | [Tasks](https://docs.databricks.com/api/workspace/jobs/create#tasks) to include after the model notebook execution      | `[]`    | ✅             | ❌          |
+| `additional_task_settings` | Additional [task config](https://docs.databricks.com/api/workspace/jobs/create#tasks) to include in the model task     | `{}`    | ✅             | ❌          |
+| [Other job run settings](https://docs.databricks.com/api/workspace/jobs/submit) | Config will be copied into the request, outside of the model task  | `None`  | ❌             | ✅          |
+| [Other workflow settings](https://docs.databricks.com/api/workspace/jobs/create) | Config will be copied into the request, outside of the model task | `None`  | ✅             | ❌          |
 
 This example uses the new configuration options in the previous table:
 
-schema.yml
+<File name='schema.yml'>
 
 ```yaml
 models:
@@ -153,30 +132,27 @@ models:
           manage: []
 ```
 
-## Configuring columns[​](#configuring-columns "Direct link to Configuring columns")
+</File>
 
-*Available in versions 1.10 or higher*
 
-When materializing models of various types, you may include several optional column-level configs that are specific to the dbt-databricks plugin, in addition to the standard [column configs](https://docs.getdbt.com/reference/resource-properties/columns.md). Support for column tags and column masks were added in dbt-databricks v1.10.4.
+## Configuring columns
+_Available in versions 1.10 or higher_
 
-| Option           | Description                                                                                                                                                                                               | Required? | Model support | Materialization support                                | Example                                           |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- | ------------------------------------------------------ | ------------------------------------------------- |
-| databricks\_tags | [Tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) to be set on individual columns                                                                                            | Optional  | SQL†, Python† | Table, Incremental, Materialized View, Streaming Table | `{'data_classification': 'pii'}`                  |
-| column\_mask     | [Column mask](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-column-mask) configuration for dynamic data masking. Accepts `function` and optional `using_columns` properties\* | Optional  | SQL, Python   | Table, Incremental, Streaming Table                    | `{'function': 'my_catalog.my_schema.mask_email'}` |
+When materializing models of various types, you may include several optional column-level configs that are specific to the dbt-databricks plugin, in addition to the standard [column configs](/reference/resource-properties/columns). Support for column tags and column masks were added in dbt-databricks v1.10.4.
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Option    | Description   | Required?| Model support | Materialization support | Example  |
+|-----------|---------------|----------|---------------|----------------------------|----------|
+| databricks_tags     | [Tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) to be set on individual columns    | Optional    |  SQL†, Python† | Table, Incremental, Materialized View, Streaming Table  | `{'data_classification': 'pii'}`  |
+| column_mask   | [Column mask](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-column-mask) configuration for dynamic data masking. Accepts `function` and optional `using_columns` properties*  | Optional     | SQL, Python   | Table, Incremental, Streaming Table | `{'function': 'my_catalog.my_schema.mask_email'}`   |
 
 \* `using_columns` supports all parameter types listed in [Databricks column mask parameters](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-column-mask#parameters).
+
 
 † `databricks_tags` are applied via `ALTER` statements. Tags cannot be removed via dbt-databricks once applied. To remove tags, use Databricks directly or a post-hook.
 
 This example uses the column-level configurations in the previous table:
 
-schema.yml
+<File name='schema.yml'>
 
 ```yaml
 models:
@@ -193,44 +169,54 @@ models:
           using_columns: "customer_id, 'literal string'"
 ```
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+</File>
 
-*Available in versions 1.9 or higher*
+## Incremental models
+_Available in versions 1.9 or higher_
 
-Breaking change in v1.11.0
+:::caution Breaking change in v1.11.0
 
-dbt-databricks v1.11.0 requires Databricks Runtime 12.2 LTS or higher for incremental models
+<details> 
+<summary>dbt-databricks v1.11.0 requires Databricks Runtime 12.2 LTS or higher for incremental models</summary>
 
 This version introduces a fix for column order mismatches in incremental models by using Databricks' `INSERT BY NAME` syntax (available since DBR 12.2). This prevents data corruption that could occur when column order changed in models using `on_schema_change: sync_all_columns`.
 
 If you're using an older runtime:
-
-* Pin your `dbt-databricks` version to `1.10.x`
-* Or upgrade to DBR 12.2 LTS or higher
+- Pin your `dbt-databricks` version to `1.10.x` 
+- Or upgrade to DBR 12.2 LTS or higher
 
 This breaking change affects all incremental strategies: `append`, `insert_overwrite`, `replace_where`, `delete+insert`, and `merge` (via intermediate table creation).
 
 For more details on v1.11.0 changes, see the [dbt-databricks v1.11.0 changelog](https://github.com/databricks/dbt-databricks/blob/main/CHANGELOG.md).
 
-dbt-databricks plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of six values:
+</details> 
 
-* `append`: Insert new records without updating or overwriting any existing data.
-* `insert_overwrite`: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
-* `merge`(default; Delta and Hudi file format only): Match records based on a `unique_key`, updating old records, and inserting new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
-* `replace_where` (Delta file format only): Match records based on `incremental_predicates`, replacing all records that match the predicates from the existing table with records matching the predicates from the new data. (If no `incremental_predicates` are specified, all new data is inserted, similar to `append`.)
-* `delete+insert` (Delta file format only, available in v1.11+): Match records based on a required `unique_key`, delete matching records, and insert new records. Optionally filter using `incremental_predicates`.
-* `microbatch` (Delta file format only): Implements the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) using `replace_where` with predicates generated based `event_time`.
+:::
 
+dbt-databricks plugin leans heavily on the [`incremental_strategy` config](/docs/build/incremental-strategy). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of six values:
+ - `append`: Insert new records without updating or overwriting any existing data.
+ - `insert_overwrite`: If `partition_by` is specified, overwrite partitions in the <Term id="table" /> with new data. If no `partition_by` is specified, overwrite the entire table with new data.
+ - `merge`(default; Delta and Hudi file format only): Match records based on a `unique_key`, updating old records, and inserting new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
+ - `replace_where` (Delta file format only): Match records based on `incremental_predicates`, replacing all records that match the predicates from the existing table with records matching the predicates from the new data. (If no `incremental_predicates` are specified, all new data is inserted, similar to `append`.)
+ - `delete+insert` (Delta file format only, available in v1.11+): Match records based on a required `unique_key`, delete matching records, and insert new records. Optionally filter using `incremental_predicates`.
+ - `microbatch` (Delta file format only): Implements the [microbatch strategy](/docs/build/incremental-microbatch) using `replace_where` with predicates generated based `event_time`.
+ 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
-### The `append` strategy[​](#the-append-strategy "Direct link to the-append-strategy")
+### The `append` strategy
 
-Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
+Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy _cannot_ update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
 
-databricks\_incremental.sql
+<File name='databricks_incremental.sql'>
 
 ```sql
 {{ config(
@@ -245,8 +231,11 @@ select * from {{ ref('events') }}
   where event_ts > (select max(event_ts) from {{ this }})
 {% endif %}
 ```
+</File>
+</TabItem>
+<TabItem value="run">
 
-databricks\_incremental.sql
+<File name='databricks_incremental.sql'>
 
 ```sql
 create temporary view databricks_incremental__dbt_tmp as
@@ -261,24 +250,34 @@ insert into table analytics.databricks_incremental
     select `date_day`, `users` from databricks_incremental__dbt_tmp
 ```
 
-### The `insert_overwrite` strategy[​](#the-insert_overwrite-strategy "Direct link to the-insert_overwrite-strategy")
+</File>
+</TabItem>
+</Tabs>
 
-The `insert_overwrite` strategy updates data in a table by replacing existing records instead of just adding new ones. This strategy is most effective when specified alongside a `partition_by` or `liquid_clustered_by` clause in your model config, which helps identify the specific partitions or clusters affected by your query. dbt will run an [atomic `insert into ... replace on` statement](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-dml-insert-into#replace-on) that dynamically replaces all partitions/clusters included in your query, instead of rebuilding the entire table.
+### The `insert_overwrite` strategy
 
-**Important!** Be sure to re-select *all* of the relevant data for a partition or cluster when using this incremental strategy.
+The `insert_overwrite` strategy updates data in a table by replacing existing records instead of just adding new ones. This strategy is most effective when specified alongside a `partition_by` or `liquid_clustered_by` clause in your model config, which helps identify the specific partitions or clusters affected by your query. dbt will run an [atomic `insert into ... replace on` statement](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-dml-insert-into#replace-on) that dynamically replaces all partitions/clusters included in your query, instead of rebuilding the entire table. 
 
-When using `liquid_clustered_by`, the `replace on` keys used will be the same as the `liquid_clustered_by` keys (same as `partition_by` behavior).
+**Important!** Be sure to re-select _all_ of the relevant data for a partition or cluster when using this incremental strategy. 
 
-When you set [`use_replace_on_for_insert_overwrite`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `True` (in SQL warehouses or when using cluster computes) dbt dynamically overwrites partitions and only replaces the partitions or clusters returned by your model query. dbt runs a [partitionOverwriteMode='dynamic' `insert overwrite` statement](https://docs.databricks.com/aws/en/delta/selective-overwrite#dynamic-partition-overwrites-with-partitionoverwritemode-legacyl), which helps reduce unnecessary overwrites and improves performance.
+When using `liquid_clustered_by`, the `replace on` keys used will be the same as the `liquid_clustered_by` keys (same as `partition_by` behavior). 
 
-When you set [`use_replace_on_for_insert_overwrite`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `False` in SQL warehouses, dbt truncates (empties) the entire table before inserting new data. This replaces all rows in the table each time the model runs, which can increase run time and cost for large datasets
+When you set [`use_replace_on_for_insert_overwrite`](/reference/global-configs/databricks-changes#use-replace-on-for-insert_overwrite-strategy) to `True` (in SQL warehouses or when using cluster computes) dbt dynamically overwrites partitions and only replaces the partitions or clusters returned by your model query. dbt runs a [partitionOverwriteMode='dynamic' `insert overwrite` statement](https://docs.databricks.com/aws/en/delta/selective-overwrite#dynamic-partition-overwrites-with-partitionoverwritemode-legacyl), which helps reduce unnecessary overwrites and improves performance. 
+
+When you set [`use_replace_on_for_insert_overwrite`](/reference/global-configs/databricks-changes#use-replace-on-for-insert_overwrite-strategy) to `False` in SQL warehouses, dbt truncates (empties) the entire table before inserting new data. This replaces all rows in the table each time the model runs, which can increase run time and cost for large datasets
 
 If you don't specify `partition_by` or `liquid_clustered_by`, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` and `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
 
-databricks\_incremental.sql
+<File name='databricks_incremental.sql'>
 
 ```sql
 {{ config(
@@ -310,7 +309,11 @@ from new_events
 group by 1
 ```
 
-databricks\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='databricks_incremental.sql'>
 
 ```sql
 create temporary view databricks_incremental__dbt_tmp as
@@ -339,22 +342,31 @@ insert overwrite table analytics.databricks_incremental
     select `date_day`, `users` from databricks_incremental__dbt_tmp
 ```
 
-### The `merge` strategy[​](#the-merge-strategy "Direct link to the-merge-strategy")
+</File>
+</TabItem>
+</Tabs>
+
+### The `merge` strategy
 
 The `merge` incremental strategy requires:
-
-* `file_format: delta or hudi`
-* Databricks Runtime 5.1 and above for delta file format
-* Apache Spark for hudi file format
+- `file_format: delta or hudi`
+- Databricks Runtime 5.1 and above for delta file format
+- Apache Spark for hudi file format
 
 The Databricks adapter will run an [atomic `merge` statement](https://docs.databricks.com/spark/latest/spark-sql/language-manual/merge-into.html) similar to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
 Specifying `merge` as the incremental strategy is optional since it's the default strategy used when none is specified.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+]
+}>
+<TabItem value="source">
 
-merge\_incremental.sql
+<File name='merge_incremental.sql'>
 
 ```sql
 {{ config(
@@ -382,7 +394,11 @@ from events
 group by 1
 ```
 
-target/run/merge\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='target/run/merge_incremental.sql'>
 
 ```sql
 create temporary view merge_incremental__dbt_tmp as
@@ -413,25 +429,36 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
     when not matched then insert *
 ```
 
+</File>
+
+</TabItem>
+</Tabs>
+
 Beginning with 1.9, `merge` behavior can be modified with the following additional configuration options:
 
-* `target_alias`, `source_alias`: Aliases for the target and source to allow you to describe your merge conditions more naturally. These default to `DBT_INTERNAL_DEST` and `DBT_INTERNAL_SOURCE`, respectively.
-* `skip_matched_step`: If set to `true`, the 'matched' clause of the merge statement will not be included.
-* `skip_not_matched_step`: If set to `true`, the 'not matched' clause will not be included.
-* `matched_condition`: Condition to apply to the `WHEN MATCHED` clause. You should use the `target_alias` and `source_alias` to write a conditional expression, such as `DBT_INTERNAL_DEST.col1 = hash(DBT_INTERNAL_SOURCE.col2, DBT_INTERNAL_SOURCE.col3)`. This condition further restricts the matched set of rows.
-* `not_matched_condition`: Condition to apply to the `WHEN NOT MATCHED [BY TARGET]` clause. This condition further restricts the set of rows in the target that do not match the source that will be inserted into the merged table.
-* `not_matched_by_source_condition`: Condition to apply to the further filter `WHEN NOT MATCHED BY SOURCE` clause. Only used in conjunction with `not_matched_by_source_action`.
-* `not_matched_by_source_action`: The action to apply when the condition is met. Configure as an expression. For example: `not_matched_by_source_action: "update set t.attr1 = 'deleted', t.tech_change_ts = current_timestamp()"`.
-* `merge_with_schema_evolution`: If set to `true`, the merge statement includes the `WITH SCHEMA EVOLUTION` clause.
+- `target_alias`, `source_alias`: Aliases for the target and source to allow you to describe your merge conditions more naturally.  These default to `DBT_INTERNAL_DEST` and `DBT_INTERNAL_SOURCE`, respectively.
+- `skip_matched_step`: If set to `true`, the 'matched' clause of the merge statement will not be included.
+- `skip_not_matched_step`: If set to `true`, the 'not matched' clause will not be included.
+- `matched_condition`: Condition to apply to the `WHEN MATCHED` clause.  You should use the `target_alias` and `source_alias` to write a conditional expression, such as `DBT_INTERNAL_DEST.col1 = hash(DBT_INTERNAL_SOURCE.col2, DBT_INTERNAL_SOURCE.col3)`.  This condition further restricts the matched set of rows.
+- `not_matched_condition`: Condition to apply to the `WHEN NOT MATCHED [BY TARGET]` clause.  This condition further restricts the set of rows in the target that do not match the source that will be inserted into the merged table.
+- `not_matched_by_source_condition`: Condition to apply to the further filter `WHEN NOT MATCHED BY SOURCE` clause.  Only used in conjunction with `not_matched_by_source_action`.
+- `not_matched_by_source_action`: The action to apply when the condition is met. Configure as an expression. For example: `not_matched_by_source_action: "update set t.attr1 = 'deleted', t.tech_change_ts = current_timestamp()"`.
+- `merge_with_schema_evolution`: If set to `true`, the merge statement includes the `WITH SCHEMA EVOLUTION` clause.
 
 For more details on the meaning of each merge clause, please see [the Databricks documentation](https://docs.databricks.com/en/sql/language-manual/delta-merge-into.html).
 
 The following is an example demonstrating the use of these new options:
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+]
+}>
+<TabItem value="source">
 
-merge\_incremental\_options.sql
+<File name='merge_incremental_options.sql'>
 
 ```sql
 {{ config(
@@ -456,7 +483,11 @@ from
     {{ ref('source_table') }} as s
 ```
 
-target/run/merge\_incremental\_options.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='target/run/merge_incremental_options.sql'>
 
 ```sql
 create temporary view merge_incremental__dbt_tmp as
@@ -511,23 +542,35 @@ when not matched by source
     then delete
 ```
 
-### The `replace_where` strategy[​](#the-replace_where-strategy "Direct link to the-replace_where-strategy")
+</File>
+
+</TabItem>
+</Tabs>
+
+### The `replace_where` strategy
 
 The `replace_where` incremental strategy requires:
+- `file_format: delta`
+- Databricks Runtime 12.0 and above
 
-* `file_format: delta`
-* Databricks Runtime 12.0 and above
+dbt will run an [atomic `replace where` statement](https://docs.databricks.com/en/delta/selective-overwrite.html#arbitrary-selective-overwrite-with-replacewhere) which selectively overwrites data matching one or more `incremental_predicates` specified as a string or array.  Only rows matching the predicates will be inserted.  If no `incremental_predicates` are specified, dbt will perform an atomic insert, as with `append`.  
 
-dbt will run an [atomic `replace where` statement](https://docs.databricks.com/en/delta/selective-overwrite.html#arbitrary-selective-overwrite-with-replacewhere) which selectively overwrites data matching one or more `incremental_predicates` specified as a string or array. Only rows matching the predicates will be inserted. If no `incremental_predicates` are specified, dbt will perform an atomic insert, as with `append`.
+:::caution
 
-caution
+`replace_where` inserts data into columns in the order provided, rather than by column name.  If you reorder columns and the data is compatible with the existing schema, you may silently insert values into an unexpected column.  If the incoming data is incompatible with the existing schema, you will instead receive an error.
 
-`replace_where` inserts data into columns in the order provided, rather than by column name. If you reorder columns and the data is compatible with the existing schema, you may silently insert values into an unexpected column. If the incoming data is incompatible with the existing schema, you will instead receive an error.
+:::
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+]
+}>
+<TabItem value="source">
 
-replace\_where\_incremental.sql
+<File name='replace_where_incremental.sql'>
 
 ```sql
 {{ config(
@@ -555,7 +598,11 @@ from events
 group by 1
 ```
 
-target/run/replace\_where\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='target/run/replace_where_incremental.sql'>
 
 ```sql
 create temporary view replace_where__dbt_tmp as
@@ -584,15 +631,19 @@ insert into analytics.replace_where_incremental
     table `replace_where__dbt_tmp`
 ```
 
-### The `delete+insert` strategy[​](#the-deleteinsert-strategy "Direct link to the-deleteinsert-strategy")
+</File>
 
-*Available in versions 1.11 or higher*
+</TabItem>
+</Tabs>
+
+### The `delete+insert` strategy
+
+_Available in versions 1.11 or higher_
 
 The `delete+insert` incremental strategy requires:
-
-* `file_format: delta`
-* A required `unique_key` configuration
-* Databricks Runtime 12.2 LTS or higher
+- `file_format: delta`
+- A required `unique_key` configuration
+- Databricks Runtime 12.2 LTS or higher
 
 The `delete+insert` strategy is a simpler alternative to the `merge` strategy for cases where you want to replace matching records without the complexity of updating specific columns. This strategy works in two steps:
 
@@ -600,20 +651,25 @@ The `delete+insert` strategy is a simpler alternative to the `merge` strategy fo
 2. **Insert**: Insert all new rows from the staging data.
 
 This strategy is particularly useful when:
-
-* You want to replace entire records rather than update specific columns
-* Your business logic requires a clean "remove and replace" approach
-* You need a simpler incremental strategy than `merge` for full record replacement
+- You want to replace entire records rather than update specific columns
+- Your business logic requires a clean "remove and replace" approach
+- You need a simpler incremental strategy than `merge` for full record replacement
 
 When using Databricks Runtime 17.1 or higher, dbt uses the efficient [`INSERT INTO ... REPLACE ON` syntax](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-dml-insert-into#replace-on) to perform this operation atomically. For older runtime versions, dbt executes separate `DELETE` and `INSERT` statements.
 
 You can optionally use `incremental_predicates` to further filter which records are processed, providing more control over which rows are deleted and inserted.
 
-* Source code
-* Run code (DBR 17.1+)
-* Run code (DBR < 17.1)
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code (DBR 17.1+)', value: 'run_new', },
+    { label: 'Run code (DBR < 17.1)', value: 'run_legacy', },
+]
+}>
+<TabItem value="source">
 
-delete\_insert\_incremental.sql
+<File name='delete_insert_incremental.sql'>
 
 ```sql
 {{ config(
@@ -641,7 +697,11 @@ from new_events
 group by 1
 ```
 
-target/run/delete\_insert\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run_new">
+
+<File name='target/run/delete_insert_incremental.sql'>
 
 ```sql
 create temporary view delete_insert_incremental__dbt_tmp as
@@ -669,7 +729,12 @@ replace on (target.user_id <=> temp.user_id)
    from delete_insert_incremental__dbt_tmp where date_day >= date_add(current_date, -1)) as temp
 ```
 
-target/run/delete\_insert\_incremental.sql
+</File>
+
+</TabItem>
+<TabItem value="run_legacy">
+
+<File name='target/run/delete_insert_incremental.sql'>
 
 ```sql
 create temporary view delete_insert_incremental__dbt_tmp as
@@ -703,18 +768,30 @@ from delete_insert_incremental__dbt_tmp
 where date_day >= date_add(current_date, -1)
 ```
 
-### The `microbatch` strategy[​](#the-microbatch-strategy "Direct link to the-microbatch-strategy")
+</File>
 
-*Available in versions 1.9 or higher*
+</TabItem>
+</Tabs>
 
-The Databricks adapter implements the `microbatch` strategy using `replace_where`. Note the requirements and caution statements for `replace_where` above. For more information about this strategy, see the [microbatch reference page](https://docs.getdbt.com/docs/build/incremental-microbatch.md).
+
+### The `microbatch` strategy
+
+_Available in versions 1.9 or higher_
+
+The Databricks adapter implements the `microbatch` strategy using `replace_where`. Note the requirements and caution statements for `replace_where` above. For more information about this strategy, see the [microbatch reference page](/docs/build/incremental-microbatch).
 
 In the following example, the upstream table `events` have been annotated with an `event_time` column called `ts` in its schema file.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+]
+}>
+<TabItem value="source">
 
-microbatch\_incremental.sql
+<File name='microbatch_incremental.sql'>
 
 ```sql
 {{ config(
@@ -739,7 +816,11 @@ from events
 group by 1, 2
 ```
 
-target/run/replace\_where\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='target/run/replace_where_incremental.sql'>
 
 ```sql
 create temporary view replace_where__dbt_tmp as
@@ -763,20 +844,20 @@ insert into analytics.replace_where_incremental
     table `replace_where__dbt_tmp`
 ```
 
-## Python model configuration[​](#python-model-configuration "Direct link to Python model configuration")
+</File>
 
-The Databricks adapter supports Python models. Databricks uses PySpark as the processing framework for these models.
+</TabItem>
+</Tabs>
+
+## Python model configuration
+
+The Databricks adapter supports Python models. Databricks uses PySpark as the processing framework for these models. 
 
 **Submission methods:** Databricks supports a few different mechanisms to submit PySpark code, each with relative advantages. Some are better for supporting iterative development, while others are better for supporting lower-cost production deployments. The options are:
-
-* `all_purpose_cluster` (default): dbt will run your Python model using the cluster ID configured as `cluster` in your connection profile or for this specific model. These clusters are more expensive but also much more responsive. We recommend using an interactive all-purpose cluster for quicker iteration in development.
-
-  <!-- -->
-
-  * `create_notebook: True`: dbt will upload your model's compiled PySpark code to a notebook in the namespace `/Shared/dbt_python_model/{schema}`, where `{schema}` is the configured schema for the model, and execute that notebook to run using the all-purpose cluster. The appeal of this approach is that you can easily open the notebook in the Databricks UI for debugging or fine-tuning right after running your model. Remember to copy any changes into your dbt `.py` model code before re-running.
-  * `create_notebook: False` (default): dbt will use the [Command API](https://docs.databricks.com/dev-tools/api/1.2/index.html#run-a-command), which is slightly faster.
-
-* `job_cluster`: dbt will upload your model's compiled PySpark code to a notebook in the namespace `/Shared/dbt_python_model/{schema}`, where `{schema}` is the configured schema for the model, and execute that notebook to run using a short-lived jobs cluster. For each Python model, Databricks will need to spin up the cluster, execute the model's PySpark transformation, and then spin down the cluster. As such, job clusters take longer before and after model execution, but they're also less expensive, so we recommend these for longer-running Python models in production. To use the `job_cluster` submission method, your model must be configured with `job_cluster_config`, which defines key-value properties for `new_cluster`, as defined in the [JobRunsSubmit API](https://docs.databricks.com/dev-tools/api/latest/jobs.html#operation/JobsRunsSubmit).
+- `all_purpose_cluster` (default): dbt will run your Python model using the cluster ID configured as `cluster` in your connection profile or for this specific model. These clusters are more expensive but also much more responsive. We recommend using an interactive all-purpose cluster for quicker iteration in development.
+  - `create_notebook: True`: dbt will upload your model's compiled PySpark code to a notebook in the namespace `/Shared/dbt_python_model/{schema}`, where `{schema}` is the configured schema for the model, and execute that notebook to run using the all-purpose cluster. The appeal of this approach is that you can easily open the notebook in the Databricks UI for debugging or fine-tuning right after running your model. Remember to copy any changes into your dbt `.py` model code before re-running.
+  - `create_notebook: False` (default): dbt will use the [Command API](https://docs.databricks.com/dev-tools/api/1.2/index.html#run-a-command), which is slightly faster.
+- `job_cluster`: dbt will upload your model's compiled PySpark code to a notebook in the namespace `/Shared/dbt_python_model/{schema}`, where `{schema}` is the configured schema for the model, and execute that notebook to run using a short-lived jobs cluster. For each Python model, Databricks will need to spin up the cluster, execute the model's PySpark transformation, and then spin down the cluster. As such, job clusters take longer before and after model execution, but they're also less expensive, so we recommend these for longer-running Python models in production. To use the `job_cluster` submission method, your model must be configured with `job_cluster_config`, which defines key-value properties for `new_cluster`, as defined in the [JobRunsSubmit API](https://docs.databricks.com/dev-tools/api/latest/jobs.html#operation/JobsRunsSubmit).
 
 You can configure each model's `submission_method` in all the standard ways you supply configuration:
 
@@ -789,7 +870,6 @@ def model(dbt, session):
     )
     ...
 ```
-
 ```yml
 models:
   - name: my_python_model
@@ -799,7 +879,6 @@ models:
         spark_version: ...
         node_type_id: ...
 ```
-
 ```yml
 # dbt_project.yml
 models:
@@ -816,21 +895,26 @@ If not configured, `dbt-spark` will use the built-in defaults: the all-purpose c
 **Installing packages:** When using all-purpose clusters, we recommend installing packages which you will be using to run your Python models.
 
 **Related docs:**
+- [PySpark DataFrame syntax](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.html)
+- [Databricks: Introduction to DataFrames - Python](https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
 
-* [PySpark DataFrame syntax](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.DataFrame.html)
-* [Databricks: Introduction to DataFrames - Python](https://docs.databricks.com/spark/latest/dataframes-datasets/introduction-to-dataframes-python.html)
+## Selecting compute per model
 
-## Selecting compute per model[​](#selecting-compute-per-model "Direct link to Selecting compute per model")
+Beginning in version 1.7.2, you can assign which compute resource to use on a per-model basis.
+For SQL models, you can select a SQL Warehouse (serverless or provisioned) or an all purpose cluster.
+For details on how this feature interacts with python models, see [Specifying compute for Python models](#specifying-compute-for-python-models).
 
-Beginning in version 1.7.2, you can assign which compute resource to use on a per-model basis. For SQL models, you can select a SQL Warehouse (serverless or provisioned) or an all purpose cluster. For details on how this feature interacts with python models, see [Specifying compute for Python models](#specifying-compute-for-python-models).
+:::note
 
-note
+This is an optional setting. If you do not configure this as shown below,  we will default to the compute specified by http_path in the top level of the output section in your profile. 
+This is also the compute that will be used for tasks not associated with a particular model, such as gathering metadata for all tables in a schema.
 
-This is an optional setting. If you do not configure this as shown below, we will default to the compute specified by http\_path in the top level of the output section in your profile. This is also the compute that will be used for tasks not associated with a particular model, such as gathering metadata for all tables in a schema.
+:::
+
 
 To take advantage of this capability, you will need to add compute blocks to your profile:
 
-profile.yml
+<File name='profiles.yml'>
 
 ```yaml
 
@@ -872,15 +956,22 @@ profile-name:
         Compute2:
           http_path: '/some/other/path' # Required of each alternate compute
       ...
+
 ```
 
-The new compute section is a map of user chosen names to objects with an http\_path property. Each compute is keyed by a name which is used in the model definition/configuration to indicate which compute you wish to use for that model/selection of models. We recommend choosing a name that is easily recognized as the compute resources you're using, such as the name of the compute resource inside the Databricks UI.
+</File>
 
-note
+The new compute section is a map of user chosen names to objects with an http_path property.
+Each compute is keyed by a name which is used in the model definition/configuration to indicate which compute you wish to use for that model/selection of models. 
+We recommend choosing a name that is easily recognized as the compute resources you're using, such as the name of the compute resource inside the Databricks UI. 
 
-You need to use the same set of names for compute across your outputs, though you may supply different http\_paths, allowing you to use different computes in different deployment scenarios.
+:::note
 
-To configure this inside of dbt, use the [extended attributes feature](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes-) on the desired environments:
+You need to use the same set of names for compute across your outputs, though you may supply different http_paths, allowing you to use different computes in different deployment scenarios.
+
+:::
+
+To configure this inside of <Constant name="dbt" />, use the [extended attributes feature](/docs/dbt-cloud-environments#extended-attributes-) on the desired environments:
 
 ```yaml
 
@@ -889,13 +980,15 @@ compute:
     http_path: /SOME/OTHER/PATH
   Compute2:
     http_path: /SOME/OTHER/PATH
+
 ```
 
-### Specifying the compute for models[​](#specifying-the-compute-for-models "Direct link to Specifying the compute for models")
+### Specifying the compute for models
 
-As with many other configuration options, you can specify the compute for a model in multiple ways, using `databricks_compute`. In your `dbt_project.yml`, the selected compute can be specified for all the models in a given directory:
+As with many other configuration options, you can specify the compute for a model in multiple ways, using `databricks_compute`.
+In your `dbt_project.yml`, the selected compute can be specified for all the models in a given directory:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yaml
 
@@ -909,11 +1002,14 @@ models:
 
 snapshots:
   +databricks_compute: "Compute1"     # all Snapshot models are configured to use `Compute1`.
+
 ```
+
+</File>
 
 For an individual model the compute can be specified in the model config in your schema file.
 
-schema.yml
+<File name='schema.yml'>
 
 ```yaml
 
@@ -924,11 +1020,15 @@ models:
     columns:
       - name: id
         data_type: int
+
 ```
+
+</File>
+
 
 Alternatively the warehouse can be specified in the config of a model's SQL file.
 
-model.sql
+<File name='model.sql'>
 
 ```sql
 
@@ -939,84 +1039,93 @@ model.sql
   )
 }}
 select * from {{ ref('seed') }}
+
 ```
+
+</File>
+
 
 To validate that the specified compute is being used, look for lines in your dbt.log like:
 
-```text
+```
 Databricks adapter ... using default compute resource.
 ```
 
 or
 
-```text
+```
 Databricks adapter ... using compute resource <name of compute>.
 ```
 
-### Specifying compute for Python models[​](#specifying-compute-for-python-models "Direct link to Specifying compute for Python models")
+### Specifying compute for Python models
 
-Materializing a python model requires execution of SQL as well as python. Specifically, if your python model is incremental, the current execution pattern involves executing python to create a staging table that is then merged into your target table using SQL. The python code needs to run on an all purpose cluster (or serverless cluster, see [Python Submission Methods](#python-submission-methods)), while the SQL code can run on an all purpose cluster or a SQL Warehouse.
+Materializing a python model requires execution of SQL as well as python.
+Specifically, if your python model is incremental, the current execution pattern involves executing python to create a staging table that is then merged into your target table using SQL.
+The python code needs to run on an all purpose cluster (or serverless cluster, see [Python Submission Methods](#python-submission-methods)), while the SQL code can run on an all purpose cluster or a SQL Warehouse.
 
-When you specify your `databricks_compute` for a python model, you are currently only specifying which compute to use when running the model-specific SQL. If you wish to use a different compute for executing the python itself, you must specify an alternate compute in the config for the model. For example:
+When you specify your `databricks_compute` for a python model, you are currently only specifying which compute to use when running the model-specific SQL.
+If you wish to use a different compute for executing the python itself, you must specify an alternate compute in the config for the model.
+For example:
 
-model.py
+<File name="model.py">
 
-```python
+ ```python
 
 def model(dbt, session):
-   dbt.config(
-     http_path="sql/protocolv1/..."
-   )
+    dbt.config(
+      http_path="sql/protocolv1/..."
+    )
+
 ```
+
+</File>
 
 If your default compute is a SQL Warehouse, you will need to specify an all purpose cluster `http_path` in this way.
 
-## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
+## Persisting model descriptions
 
-Relation-level docs persistence is supported. For more information on configuring docs persistence, see [the docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+Relation-level docs persistence is supported. For more
+information on configuring docs persistence, see [the docs](/reference/resource-configs/persist_docs).
 
-When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
+When the `persist_docs` option is configured appropriately, you'll be able to
+see model descriptions in the `Comment` field of `describe [table] extended`
+or `show table extended in [database] like '*'`.
 
-## Query tags[​](#query-tags "Direct link to Query tags")
-
-*Available in versions 1.11 or higher*
+## Query tags
+_Available in versions 1.11 or higher_
 
 [Query tags](https://docs.databricks.com/aws/en/sql/user/queries/query-tags) are a Databricks feature that allows you to attach custom key-value metadata to SQL queries. This metadata appears in system tables and query history, making it useful for tracking query costs, debugging, and auditing.
 
-Feature availability
+:::note Feature availability
 
 Query tags may not yet be available in all Databricks workspaces. Check the [Databricks documentation](https://docs.databricks.com/aws/en/sql/user/queries/query-tags) for the latest information on feature availability.
 
+:::
+
 dbt-databricks supports setting query tags at both the connection level (in your profile) and the model level (in model configs). When you run dbt, it automatically includes default tags containing dbt metadata, such as the model name and dbt version.
 
-### Default query tags[​](#default-query-tags "Direct link to Default query tags")
+### Default query tags
 
 dbt-databricks automatically adds the following tags to every query:
 
-| Tag key                    | Description                                                     |
-| -------------------------- | --------------------------------------------------------------- |
-| `@@dbt_model_name`         | The name of the model being executed                            |
-| `@@dbt_core_version`       | The version of dbt-core being used                              |
-| `@@dbt_databricks_version` | The version of dbt-databricks being used                        |
-| `@@dbt_materialized`       | The materialization type (table, view, incremental, and so on.) |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Tag key | Description |
+|---------|-------------|
+| `@@dbt_model_name` | The name of the model being executed |
+| `@@dbt_core_version` | The version of dbt-core being used |
+| `@@dbt_databricks_version` | The version of dbt-databricks being used |
+| `@@dbt_materialized` | The materialization type (table, view, incremental, and so on.) |
 
 These reserved keys cannot be overridden by user-defined tags.
 
-### Configuring query tags[​](#configuring-query-tags "Direct link to Configuring query tags")
+### Configuring query tags
 
 You can set query tags at the connection level in your profile or at the model level in your model config. Model-level tags take precedence over connection-level tags.
 
-#### Connection-level query tags[​](#connection-level-query-tags "Direct link to Connection-level query tags")
+#### Connection-level query tags
 
-To set query tags for all queries in a connection, add the `query_tags` parameter to your `profile.yml` file as a JSON string:
+To set query tags for all queries in a connection, add the `query_tags` parameter to your `profiles.yml` file as a JSON string:
 
-\~/.dbt/profiles.yml
+<File name='~/.dbt/profiles.yml'>
 
 ```yaml
 your_profile_name:
@@ -1032,11 +1141,13 @@ your_profile_name:
       query_tags: '{"team": "analytics", "project": "customer_360"}'
 ```
 
-#### Model-level query tags[​](#model-level-query-tags "Direct link to Model-level query tags")
+</File>
+
+#### Model-level query tags
 
 To set query tags for a specific model, use the `query_tags` config:
 
-models/my\_model.sql
+<File name='models/my_model.sql'>
 
 ```sql
 {{ config(
@@ -1046,9 +1157,11 @@ models/my\_model.sql
 select * from {{ ref('upstream_model') }}
 ```
 
+</File>
+
 You can also configure query tags in your `dbt_project.yml` for groups of models:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yaml
 models:
@@ -1059,7 +1172,9 @@ models:
       +query_tags: {'department': 'finance'}
 ```
 
-### Tag precedence and merging[​](#tag-precedence-and-merging "Direct link to Tag precedence and merging")
+</File>
+
+### Tag precedence and merging
 
 When query tags are defined at multiple levels, they are merged with the following precedence (highest to lowest):
 
@@ -1069,35 +1184,39 @@ When query tags are defined at multiple levels, they are merged with the followi
 
 If the same key appears at multiple levels, the higher-precedence value wins.
 
-Why connection-level tags?
+:::note Why connection-level tags?
 
 Due to how dbt merges configs, specifying `query_tags` at the model level in `config()` or `schema.yml` will **replace** any `query_tags` you defined in `dbt_project.yml` rather than merging them. This is standard dbt behavior for dictionary configs.
 
 To work around this limitation, dbt-databricks accepts `query_tags` in your connection profile (`profiles.yml`). Connection-level tags are always merged with model-level tags, allowing you to define common tags once in your profile and selectively add or override specific keys at the model level.
 
 **Recommended pattern:**
+- Define shared tags (team, project, environment) in your profile's `query_tags`
+- Use model-level `query_tags` when you need to add model-specific tags
 
-* Define shared tags (team, project, environment) in your profile's `query_tags`
-* Use model-level `query_tags` when you need to add model-specific tags
+:::
 
-### Limitations[​](#limitations "Direct link to Limitations")
+### Limitations
 
-* **Maximum 20 tags**: The total number of query tags (including default tags) cannot exceed 20.
-* **Value length**: Tag values must be at most 128 characters. Default tag values that exceed this limit are automatically truncated.
-* **Special characters**: Backslash (`\`), comma (`,`), and colon (`:`) characters in tag values are automatically escaped. A warning is logged when escaping occurs.
-* **Reserved keys**: The keys `@@dbt_model_name`, `@@dbt_core_version`, `@@dbt_databricks_version`, and `@@dbt_materialized` are reserved and cannot be used in user-defined tags.
+- **Maximum 20 tags**: The total number of query tags (including default tags) cannot exceed 20.
+- **Value length**: Tag values must be at most 128 characters. Default tag values that exceed this limit are automatically truncated.
+- **Special characters**: Backslash (`\`), comma (`,`), and colon (`:`) characters in tag values are automatically escaped. A warning is logged when escaping occurs.
+- **Reserved keys**: The keys `@@dbt_model_name`, `@@dbt_core_version`, `@@dbt_databricks_version`, and `@@dbt_materialized` are reserved and cannot be used in user-defined tags.
 
-### Viewing query tags[​](#viewing-query-tags "Direct link to Viewing query tags")
+### Viewing query tags
 
 Query tags appear in Databricks system tables and query history. For information on how to query and analyze query tags, see the [Databricks query tags documentation](https://docs.databricks.com/aws/en/sql/user/queries/query-tags).
 
-## Default file format configurations[​](#default-file-format-configurations "Direct link to Default file format configurations")
+## Default file format configurations
 
-To access advanced incremental strategies features, such as [snapshots](https://docs.getdbt.com/reference/commands/snapshot.md) and the `merge` incremental strategy, you will want to use the Delta or Hudi file format as the default file format when materializing models as tables.
+To access advanced incremental strategies features, such as 
+[snapshots](/reference/commands/snapshot) and the `merge` incremental strategy, you will want to
+use the Delta or Hudi file format as the default file format when materializing models as tables.
 
-It's quite convenient to do this by setting a top-level configuration in your project file:
+It's quite convenient to do this by setting a top-level configuration in your
+project file:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 models:
@@ -1110,13 +1229,17 @@ snapshots:
   +file_format: delta # or hudi
 ```
 
-## Materialized views and streaming tables[​](#materialized-views-and-streaming-tables "Direct link to Materialized views and streaming tables")
+</File>
 
-[Materialized views](https://docs.databricks.com/en/sql/user/materialized-views.html) and [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html) are alternatives to incremental tables that are powered by [Delta Live Tables](https://docs.databricks.com/en/delta-live-tables/index.html). See [What are Delta Live Tables?](https://docs.databricks.com/en/delta-live-tables/index.html#what-are-delta-live-tables-datasets) for more information and use cases.
+
+## Materialized views and streaming tables
+
+[Materialized views](https://docs.databricks.com/en/sql/user/materialized-views.html) and [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html) are alternatives to incremental tables that are powered by [Delta Live Tables](https://docs.databricks.com/en/delta-live-tables/index.html).
+See [What are Delta Live Tables?](https://docs.databricks.com/en/delta-live-tables/index.html#what-are-delta-live-tables-datasets) for more information and use cases.
 
 In order to adopt these materialization strategies, you will need a workspace that is enabled for Unity Catalog and serverless SQL Warehouses.
 
-materialized\_view\.sql
+<File name='materialized_view.sql'>
 
 ```sql
 {{ config(
@@ -1124,9 +1247,11 @@ materialized\_view\.sql
  ) }}
 ```
 
+</File>
+
 or
 
-streaming\_table.sql
+<File name='streaming_table.sql'>
 
 ```sql
 {{ config(
@@ -1134,25 +1259,22 @@ streaming\_table.sql
  ) }}
 ```
 
-We support [on\_configuration\_change](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) for most available properties of these materializations. The following table summarizes our configuration support:
+</File>
 
-| Databricks Concept                                                                                                              | Config Name                                                                           | MV/ST support                         | Version |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------- | ------- |
-| [PARTITIONED BY](https://docs.databricks.com/en/sql/language-manual/sql-ref-partition.html#partitioned-by)                      | `partition_by`                                                                        | MV/ST                                 | All     |
-| [CLUSTER BY](https://docs.databricks.com/en/delta/clustering.html)                                                              | `liquid_clustered_by`                                                                 | MV/ST                                 | v1.11+  |
-| COMMENT                                                                                                                         | [`description`](https://docs.getdbt.com/reference/resource-properties/description.md) | MV/ST                                 | All     |
-| [TBLPROPERTIES](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html#tblproperties)         | `tblproperties`                                                                       | MV/ST                                 | All     |
-| [TAGS](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html)                                                  | `databricks_tags`                                                                     | MV/ST                                 | v1.11+  |
-| [SCHEDULE CRON](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-create-materialized-view.html#parameters) | `schedule: { 'cron': '\<cron schedule\>', 'time_zone_value': '\<time zone value\>' }` | MV/ST                                 | All     |
-| query                                                                                                                           | defined by your model SQL                                                             | on\_configuration\_change for MV only | All     |
+We support [on_configuration_change](/reference/resource-configs/on_configuration_change) for most available properties of these materializations.
+The following table summarizes our configuration support:
 
-Search table...
+| Databricks Concept | Config Name | MV/ST support | Version |
+| ------------------ | ------------| ------------- | ------- |
+| [PARTITIONED BY](https://docs.databricks.com/en/sql/language-manual/sql-ref-partition.html#partitioned-by) | `partition_by` | MV/ST | All |
+| [CLUSTER BY](https://docs.databricks.com/en/delta/clustering.html) | `liquid_clustered_by` | MV/ST | v1.11+ |
+| COMMENT | [`description`](/reference/resource-properties/description) | MV/ST | All |
+| [TBLPROPERTIES](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html#tblproperties) | `tblproperties` | MV/ST | All |
+| [TAGS](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) | `databricks_tags` | MV/ST | v1.11+ |
+| [SCHEDULE CRON](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-create-materialized-view.html#parameters) | `schedule: { 'cron': '\<cron schedule\>', 'time_zone_value': '\<time zone value\>' }` | MV/ST | All |
+| query | defined by your model SQL | on_configuration_change for MV only | All |
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-mv\_example.sql
+<File name='mv_example.sql'>
 
 ```sql
 
@@ -1168,25 +1290,25 @@ mv\_example.sql
     },
 ) }}
 select * from {{ ref('my_seed') }}
+
 ```
 
-### Configuration details[​](#configuration-details "Direct link to Configuration details")
+</File>
 
-#### partition\_by[​](#partition_by "Direct link to partition_by")
+### Configuration details
 
+#### partition_by
 `partition_by` works the same as for views and tables, i.e. can be a single column, or an array of columns to partition by.
 
-#### liquid\_clustered\_by[​](#liquid_clustered_by "Direct link to liquid_clustered_by")
-
-*Available in versions 1.11 or higher*
+#### liquid_clustered_by
+_Available in versions 1.11 or higher_
 
 `liquid_clustered_by` enables [liquid clustering](https://docs.databricks.com/en/delta/clustering.html) for materialized views and streaming tables. Liquid clustering optimizes query performance by co-locating similar data within the same files, particularly beneficial for queries with selective filters on the clustered columns.
 
 **Note:** You cannot use both `partition_by` and `liquid_clustered_by` on the same materialization, as Databricks doesn't allow combining these features.
 
-#### databricks\_tags[​](#databricks_tags "Direct link to databricks_tags")
-
-*Available in versions 1.11 or higher*
+#### databricks_tags
+_Available in versions 1.11 or higher_
 
 `databricks_tags` allows you to apply [Unity Catalog tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html) to your materialized views and streaming tables for data governance and organization. Tags are key-value pairs that can be used for data classification, access control policies, and metadata management.
 
@@ -1199,39 +1321,38 @@ select * from {{ ref('my_seed') }}
 
 Tags are applied via `ALTER` statements after the materialization is created. Once applied, tags cannot be removed through dbt-databricks configuration changes. To remove tags, you must use Databricks directly or a post-hook.
 
-#### description[​](#description "Direct link to description")
-
+#### description
 As with views and tables, adding a `description` to your configuration will lead to a table-level comment getting added to your materialization.
 
-#### tblproperties[​](#tblproperties "Direct link to tblproperties")
-
+#### tblproperties
 `tblproperties` works the same as for views and tables with an important exception: the adapter maintains a list of keys that are set by Databricks when making an materialized view or streaming table which are ignored for the purpose of determining configuration changes.
 
-#### schedule[​](#schedule "Direct link to schedule")
+#### schedule
+Use this to set the refresh schedule for the model.  If you use the `schedule` key, a `cron` key is required in the associated dictionary, but `time_zone_value` is optional (see the example above).  The `cron` value should be formatted as documented by Databricks.
+If a schedule is set on the materialization in Databricks and your dbt project does not specify a schedule for it (when `on_configuration_change` is set to `apply`), the refresh schedule will be set to manual when you next run the project.
+Even when schedules are set, dbt will request that the materialization be refreshed manually when run.
 
-Use this to set the refresh schedule for the model. If you use the `schedule` key, a `cron` key is required in the associated dictionary, but `time_zone_value` is optional (see the example above). The `cron` value should be formatted as documented by Databricks. If a schedule is set on the materialization in Databricks and your dbt project does not specify a schedule for it (when `on_configuration_change` is set to `apply`), the refresh schedule will be set to manual when you next run the project. Even when schedules are set, dbt will request that the materialization be refreshed manually when run.
+#### query
+For materialized views, if the compiled query for the model differs from the query in the database, we will the take the configured `on_configuration_change` action.
+Changes to query are not currently detectable for streaming tables; see the next section for details.
 
-#### query[​](#query "Direct link to query")
-
-For materialized views, if the compiled query for the model differs from the query in the database, we will the take the configured `on_configuration_change` action. Changes to query are not currently detectable for streaming tables; see the next section for details.
-
-### on\_configuration\_change[​](#on_configuration_change "Direct link to on_configuration_change")
-
+### on_configuration_change 
 `on_configuration_change` is supported for materialized views and streaming tables, though the two materializations handle it different ways.
 
-#### Materialized Views[​](#materialized-views "Direct link to Materialized Views")
+#### Materialized Views
+Currently, the only change that can be applied without recreating the materialized view in Databricks is to update the schedule.
+This is due to limitations in the Databricks SQL API.
 
-Currently, the only change that can be applied without recreating the materialized view in Databricks is to update the schedule. This is due to limitations in the Databricks SQL API.
+#### Streaming Tables
+For streaming tables, only changes to the partitioning currently requires the table be dropped and recreated.
+For any other supported configuration change, we use `CREATE OR REFRESH` (plus an `ALTER` statement for changes to the schedule) to apply the changes.
+There is currently no mechanism for the adapter to detect if the streaming table query has changed, so in this case, regardless of the behavior requested by on_configuration_change, we will use a `create or refresh` statement (assuming `partitioned by` hasn't changed); this will cause the query to be applied to future rows without rerunning on any previously processed rows.
+If your source data is still available, running with '--full-refresh' will reprocess the available data with the updated current query.
 
-#### Streaming Tables[​](#streaming-tables "Direct link to Streaming Tables")
-
-For streaming tables, only changes to the partitioning currently requires the table be dropped and recreated. For any other supported configuration change, we use `CREATE OR REFRESH` (plus an `ALTER` statement for changes to the schedule) to apply the changes. There is currently no mechanism for the adapter to detect if the streaming table query has changed, so in this case, regardless of the behavior requested by on\_configuration\_change, we will use a `create or refresh` statement (assuming `partitioned by` hasn't changed); this will cause the query to be applied to future rows without rerunning on any previously processed rows. If your source data is still available, running with '--full-refresh' will reprocess the available data with the updated current query.
-
-## Setting table properties[​](#setting-table-properties "Direct link to Setting table properties")
-
+## Setting table properties
 [Table properties](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html) can be set with your configuration for tables or views using `tblproperties`:
 
-with\_table\_properties.sql
+<File name='with_table_properties.sql'>
 
 ```sql
 {{ config(
@@ -1242,9 +1363,13 @@ with\_table\_properties.sql
  ) }}
 ```
 
-caution
+</File>
 
-These properties are sent directly to Databricks without validation in dbt, so be thoughtful with how you use this feature. You will need to do a full refresh of incremental materializations if you change their `tblproperties`.
+:::caution
+
+These properties are sent directly to Databricks without validation in dbt, so be thoughtful with how you use this feature.  You will need to do a full refresh of incremental materializations if you change their `tblproperties`.
+
+:::
 
 One application of this feature is making `delta` tables compatible with `iceberg` readers using the [Universal Format](https://docs.databricks.com/en/delta/uniform.html).
 
@@ -1257,12 +1382,5 @@ One application of this feature is making `delta` tables compatible with `iceber
  ) }}
 ```
 
-`tblproperties` can be specified for python models, but they will be applied via an `ALTER` statement after table creation. This is due to a limitation in PySpark.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+`tblproperties` can be specified for python models, but they will be applied via an `ALTER` statement after table creation.
+This is due to a limitation in PySpark.

@@ -1,67 +1,284 @@
 # Model configurations
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Models](https://docs.getdbt.com/docs/build/models.md)
-* [`run` command](https://docs.getdbt.com/reference/commands/run.md)
+import ConfigResource from '/snippets/_config-description-resource.md';
+import ConfigGeneral from '/snippets/_config-description-general.md';
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
+## Related documentation
+* [Models](/docs/build/models)
+* [`run` command](/reference/commands/run)
 
-### Model-specific configurations[​](#model-specific-configurations "Direct link to Model-specific configurations")
+## Available configurations
+### Model-specific configurations
 
-Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
+<ConfigResource meta={frontMatter.meta}/>
 
-The following resource-specific configurations are only available to <!-- -->Models:
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project file', value: 'project-yaml', },
+    { label: 'Property file', value: 'property-yaml', },
+    { label: 'SQL file config', value: 'config', },
+  ]
+}>
+<TabItem value="project-yaml">
 
-* Project file
-* Property file
-* SQL file config
+<File name='dbt_project.yml'>
 
-dbt\_project.yml
+<VersionBlock lastVersion="1.9">
 
-models/\<model\_name>.sql
+```yaml
+models:
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[materialized](/reference/resource-configs/materialized): <materialization_name>
+    [+](/reference/resource-configs/plus-prefix)[sql_header](/reference/resource-configs/sql_header): <string>
+    [+](/reference/resource-configs/plus-prefix)[on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail #only for materialized views on supported adapters
+    [+](/reference/resource-configs/plus-prefix)[unique_key](/reference/resource-configs/unique_key): <column_name_or_expression>
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+```
 
-General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
+</VersionBlock>
 
-* Project file
-* Property file
-* SQL file config
+<VersionBlock firstVersion="1.10">
 
-dbt\_project.yml
+```yaml
+models:
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[materialized](/reference/resource-configs/materialized): <materialization_name>
+    [+](/reference/resource-configs/plus-prefix)[sql_header](/reference/resource-configs/sql_header): <string>
+    [+](/reference/resource-configs/plus-prefix)[on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail #only for materialized views on supported adapters
+    [+](/reference/resource-configs/plus-prefix)[unique_key](/reference/resource-configs/unique_key): <column_name_or_expression>
+    [+](/reference/resource-configs/plus-prefix)[freshness](/reference/resource-configs/freshness): <dict>
 
-models/properties.yml
+  ```
 
-models/\<model\_name>.sql
+</VersionBlock>
+</File>
 
-### Warehouse-specific configurations[​](#warehouse-specific-configurations "Direct link to Warehouse-specific configurations")
+</TabItem>
 
-* [BigQuery configurations](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md)
-* [Redshift configurations](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md)
-* [Snowflake configurations](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md)
-* [Databricks configurations](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md)
-* [Spark configurations](https://docs.getdbt.com/reference/resource-configs/spark-configs.md)
+<TabItem value="property-yaml">
 
-## Configuring models[​](#configuring-models "Direct link to Configuring models")
+<VersionBlock lastVersion="1.9">
 
-Model configurations are applied hierarchically. You can configure models from within an installed package and also from within your dbt project in the following ways, listed in order of precedence:
+<File name='models/properties.yml'>
+
+```yaml
+
+models:
+  - name: [<model-name>]
+    config:
+      [materialized](/reference/resource-configs/materialized): <materialization_name>
+      [sql_header](/reference/resource-configs/sql_header): <string>
+      [on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail #only for materialized views on supported adapters
+      [unique_key](/reference/resource-configs/unique_key): <column_name_or_expression>
+
+```
+</File>
+</VersionBlock>
+
+<VersionBlock firstVersion="1.10">
+
+Note, most model configurations are defined under `config`, while `build_after` is set under `freshness`.
+
+<File name='models/properties.yml'>
+
+```yaml
+
+models:
+  - name: [<model-name>]
+    config:
+      [materialized](/reference/resource-configs/materialized): <materialization_name>
+      [sql_header](/reference/resource-configs/sql_header): <string>
+      [on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail #only for materialized views on supported adapters
+      [unique_key](/reference/resource-configs/unique_key): <column_name_or_expression>
+      [freshness](/reference/resource-configs/freshness):
+        # build_after is nested under freshness. Available on dbt platform Enterprise tiers only.
+        build_after: <dict>
+```
+
+</File>
+</VersionBlock>
+</TabItem>
+
+
+<TabItem value="config">
+
+<File name='models/<model_name>.sql'>
+
+<VersionBlock lastVersion="1.9">
+
+```sql
+
+{{ config(
+    [materialized](/reference/resource-configs/materialized)="<materialization_name>",
+    [sql_header](/reference/resource-configs/sql_header)="<string>"
+    [on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail #only for materialized views for supported adapters
+    [unique_key](/reference/resource-configs/unique_key)='column_name_or_expression'
+) }}
+
+```
+
+</VersionBlock>
+
+<VersionBlock firstVersion="1.10">
+
+```sql
+
+{{ config(
+    [materialized](/reference/resource-configs/materialized)="<materialization_name>",
+    [sql_header](/reference/resource-configs/sql_header)="<string>"
+    [on_configuration_change](/reference/resource-configs/on_configuration_change): apply | continue | fail # only for materialized views for supported adapters
+    [unique_key](/reference/resource-configs/unique_key)='column_name_or_expression'
+    [freshness](/reference/resource-configs/freshness)=<dict>
+) }}
+```
+
+</VersionBlock>
+
+</File>
+
+</TabItem>
+
+</Tabs>
+
+
+### General configurations
+
+<ConfigGeneral />
+
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project file', value: 'project-yaml', },
+    { label: 'Property file', value: 'property-yaml', },
+    { label: 'SQL file config', value: 'config', },
+  ]
+}>
+
+<TabItem value="project-yaml">
+
+<File name='dbt_project.yml'>
+
+<VersionBlock firstVersion="1.9">
+
+```yaml
+models:
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[enabled](/reference/resource-configs/enabled): true | false
+    [+](/reference/resource-configs/plus-prefix)[tags](/reference/resource-configs/tags): <string> | [<string>]
+    [+](/reference/resource-configs/plus-prefix)[pre-hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+    [+](/reference/resource-configs/plus-prefix)[post-hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+    [+](/reference/resource-configs/plus-prefix)[database](/reference/resource-configs/database): <string>
+    [+](/reference/resource-configs/plus-prefix)[schema](/reference/resource-properties/schema): <string>
+    [+](/reference/resource-configs/plus-prefix)[alias](/reference/resource-configs/alias): <string>
+    [+](/reference/resource-configs/plus-prefix)[persist_docs](/reference/resource-configs/persist_docs): <dict>
+    [+](/reference/resource-configs/plus-prefix)[full_refresh](/reference/resource-configs/full_refresh): <boolean>
+    [+](/reference/resource-configs/plus-prefix)[meta](/reference/resource-configs/meta): {<dictionary>}
+    [+](/reference/resource-configs/plus-prefix)[grants](/reference/resource-configs/grants): {<dictionary>}
+    [+](/reference/resource-configs/plus-prefix)[contract](/reference/resource-configs/contract): {<dictionary>}
+    [+](/reference/resource-configs/plus-prefix)[event_time](/reference/resource-configs/event-time): my_time_field
+
+```
+</VersionBlock>
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='models/properties.yml'>
+
+<VersionBlock firstVersion="1.9">
+
+```yaml
+
+models:
+  - name: [<model-name>]
+    config:
+      [enabled](/reference/resource-configs/enabled): true | false
+      [tags](/reference/resource-configs/tags): <string> | [<string>]
+      [pre_hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+      [post_hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+      [database](/reference/resource-configs/database): <string>
+      [schema](/reference/resource-properties/schema): <string>
+      [alias](/reference/resource-configs/alias): <string>
+      [persist_docs](/reference/resource-configs/persist_docs): <dict>
+      [full_refresh](/reference/resource-configs/full_refresh): <boolean>
+      [meta](/reference/resource-configs/meta): {<dictionary>}
+      [grants](/reference/resource-configs/grants): {<dictionary>}
+      [contract](/reference/resource-configs/contract): {<dictionary>}
+      [event_time](/reference/resource-configs/event-time): my_time_field
+```
+
+</VersionBlock>
+</File>
+
+</TabItem>
+
+<TabItem value="config">
+
+<File name='models/<model_name>.sql'>
+
+
+<VersionBlock firstVersion="1.9">
+
+```sql
+
+{{ config(
+    [enabled](/reference/resource-configs/enabled)=true | false,
+    [tags](/reference/resource-configs/tags)="<string>" | ["<string>"],
+    [pre_hook](/reference/resource-configs/pre-hook-post-hook)="<sql-statement>" | ["<sql-statement>"],
+    [post_hook](/reference/resource-configs/pre-hook-post-hook)="<sql-statement>" | ["<sql-statement>"],
+    [database](/reference/resource-configs/database)="<string>",
+    [schema](/reference/resource-properties/schema)="<string>",
+    [alias](/reference/resource-configs/alias)="<string>",
+    [persist_docs](/reference/resource-configs/persist_docs)={<dict>},
+    [meta](/reference/resource-configs/meta)={<dict>},
+    [grants](/reference/resource-configs/grants)={<dict>},
+    [contract](/reference/resource-configs/contract)={<dictionary>},
+    [event_time](/reference/resource-configs/event-time)='my_time_field',
+
+) }}
+
+```
+</VersionBlock>
+
+</File>
+
+</TabItem>
+
+</Tabs>
+
+### Warehouse-specific configurations
+* [BigQuery configurations](/reference/resource-configs/bigquery-configs)
+* [Redshift configurations](/reference/resource-configs/redshift-configs)
+* [Snowflake configurations](/reference/resource-configs/snowflake-configs)
+* [Databricks configurations](/reference/resource-configs/databricks-configs)
+* [Spark configurations](/reference/resource-configs/spark-configs)
+
+## Configuring models 
+
+Model configurations are applied hierarchically. You can configure models from within an installed package and also from within your dbt project in the following ways, listed in order of precedence: 
 
 1. Using a `config()` Jinja macro within a model.
-2. Using a `config` [resource property](https://docs.getdbt.com/reference/model-properties.md) in a `.yml` file.
-3. From the project YAML file (`dbt_project.yml`), under the `models:` key. In this case, the model that's nested the deepest will have the highest priority.
+2. Using a `config` [resource property](/reference/model-properties) in a `.yml` file.
+3. From the project YAML file (`dbt_project.yml`), under the `models:` key. In this case, the model that's nested the deepest will have the highest priority. 
 
-The most specific configuration always takes precedence. In the project YAML file, for example, configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project. To apply a configuration to a model or directory of models, define the [resource path](https://docs.getdbt.com/reference/resource-configs/resource-path.md) as nested dictionary keys.
+The most specific configuration always takes precedence. In the project YAML file, for example, configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project. To apply a configuration to a model or directory of models, define the [resource path](/reference/resource-configs/resource-path) as nested dictionary keys.
 
-Model configurations in your root dbt project have *higher* precedence than configurations in installed packages. This enables you to override the configurations of installed packages, providing more control over your dbt runs.
+Model configurations in your root dbt project have _higher_ precedence than configurations in installed packages. This enables you to override the configurations of installed packages, providing more control over your dbt runs. 
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-### Configuring directories of models in `dbt_project.yml`[​](#configuring-directories-of-models-in-dbt_projectyml "Direct link to configuring-directories-of-models-in-dbt_projectyml")
+### Configuring directories of models in `dbt_project.yml`
 
 To configure models in your `dbt_project.yml` file, use the `models:` configuration option. Be sure to namespace your configurations to your project (shown below):
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 
@@ -83,13 +300,17 @@ models:
         +materialized: ephemeral
 
       ...
+
+
 ```
 
-### Apply configurations to one model only[​](#apply-configurations-to-one-model-only "Direct link to Apply configurations to one model only")
+</File>
+
+### Apply configurations to one model only
 
 Some types of configurations are specific to a particular model. In these cases, placing configurations in the `dbt_project.yml` file can be unwieldy. Instead, you can specify these configurations at the top of a model `.sql` file, or in its individual YAML properties.
 
-models/events/base/base\_events.sql
+<File name='models/events/base/base_events.sql'>
 
 ```sql
 {{
@@ -103,7 +324,9 @@ models/events/base/base\_events.sql
 select * from {{ ref('raw_events') }}
 ```
 
-models/events/base/properties.yml
+</File>
+
+<File name='models/events/base/properties.yml'>
 
 ```yaml
 
@@ -120,10 +343,33 @@ models:
         description: "Type of event recorded (click, purchase, etc.)"
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
+<VersionBlock firstVersion="1.10">
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+### Configuring source freshness
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+The model `freshness` config rebuilds models only when new source or upstream data is available. This is useful for models that depend on other models but only need to be updated periodically. For more information, see [freshness](/reference/resource-configs/freshness).
+
+Note that for every `freshness` config, you're required to either set values for both `count` and `period`, or set `freshness: null`. This requirement applies to all `freshness` types: `freshness.warn_after`, `freshness.error_after`, and `freshness.build_after`.
+
+See the following example of a `my_model.yml` file using the `freshness` config:
+
+<File name="models/my_model.yml">
+  
+```yml
+models:
+  - name: stg_orders
+    config:
+      freshness:
+        build_after:  # build this model no more often than every X amount of time, as long as it has new data. Available only on dbt platform Enterprise tiers. 
+          count: <positive_integer>
+          period: minute | hour | day
+          updates_on: any | all # optional config
+```
+  
+</File>
+
+</VersionBlock>
+
+

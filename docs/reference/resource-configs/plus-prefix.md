@@ -1,21 +1,17 @@
 # Using the + prefix
 
-Use the + prefix to help clarify the difference between resource paths and configs in dbt\_project.yml files.
 
-The `+` prefix is a dbt syntax feature which helps disambiguate between [resource paths](https://docs.getdbt.com/reference/resource-configs/resource-path.md) and configs in [`dbt_project.yml` files](https://docs.getdbt.com/reference/dbt_project.yml.md).
+The `+` prefix is a dbt syntax feature which helps disambiguate between [resource paths](/reference/resource-configs/resource-path) and configs in [`dbt_project.yml` files](/reference/dbt_project.yml).
 
-* It is not compatible with `dbt_project.yml` files that use [`config-version`](https://docs.getdbt.com/reference/project-configs/config-version.md) 1.
+- It is not compatible with `dbt_project.yml` files that use [`config-version`](/reference/project-configs/config-version) 1. 
+- It doesn't apply to:
+  - `config()` Jinja macro within a resource file
+  - config property in a `.yml` file.
 
-* It doesn't apply to:
-
-  <!-- -->
-
-  * `config()` Jinja macro within a resource file
-  * config property in a `.yml` file.
 
 For example:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 name: jaffle_shop
@@ -30,18 +26,19 @@ models:
       +materialized: table
 ```
 
+</File>
+
 Throughout this documentation, we've tried to be consistent in using the `+` prefix in `dbt_project.yml` files.
 
-However, the leading `+` is in fact *only required* when you need to disambiguate between resource paths and configs. For example, when:
+However, the leading `+` is in fact _only required_ when you need to disambiguate between resource paths and configs. For example, when:
+- A config accepts a dictionary as its inputs. As an example, the [`persist_docs` config](/reference/resource-configs/persist_docs).
+- Or, a config shares a key with part of a resource path. For example, if you had a directory of models named `tags`.
 
-* A config accepts a dictionary as its inputs. As an example, the [`persist_docs` config](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
-* Or, a config shares a key with part of a resource path. For example, if you had a directory of models named `tags`.
+import MissingPrefix from '/snippets/_missing-prefix.md';
 
-<!-- -->
+<MissingPrefix />
 
-dbt has deprecated specifying configurations without [the `+` prefix](https://docs.getdbt.com/reference/dbt_project.yml#the--prefix) in `dbt_project.yml`. Only folder and file names can be specified without the `+` prefix within resource configurations in `dbt_project.yml`.
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 name: jaffle_shop
@@ -66,14 +63,11 @@ models:
         # Note: you don't _need_ a leading + here,
         # but it wouldn't hurt.
         materialized: view
+
+
 ```
 
-**Note:** The use of the `+` prefix in `dbt_project.yml` is distinct from the use of `+` to control config merge behavior (clobber vs. add) in other config settings (specific resource `.yml` and `.sql` files). Currently, the only config which supports `+` for controlling config merge behavior is [`grants`](https://docs.getdbt.com/reference/resource-configs/grants.md#grant-config-inheritance).
+</File>
 
-## Was this page helpful?
+**Note:** The use of the `+` prefix in `dbt_project.yml` is distinct from the use of `+` to control config merge behavior (clobber vs. add) in other config settings (specific resource `.yml` and `.sql` files). Currently, the only config which supports `+` for controlling config merge behavior is [`grants`](/reference/resource-configs/grants#grant-config-inheritance).
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

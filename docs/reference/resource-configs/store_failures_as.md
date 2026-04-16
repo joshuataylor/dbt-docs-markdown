@@ -1,20 +1,19 @@
-# store\_failures\_as
 
-For the `test` resource type, `store_failures_as` is an optional config that specifies how test failures should be stored in the database. If [`store_failures`](https://docs.getdbt.com/reference/resource-configs/store_failures.md) is also configured, `store_failures_as` takes precedence.
+For the `test` resource type, `store_failures_as` is an optional config that specifies how test failures should be stored in the database. If [`store_failures`](/reference/resource-configs/store_failures) is also configured, `store_failures_as` takes precedence. 
 
 The three supported values are:
 
-* `ephemeral` — nothing stored in the database (default)
-* `table` — test failures stored as a database table
-* `view` — test failures stored as a database view
+- `ephemeral` &mdash; nothing stored in the database (default)
+- `table` &mdash; test failures stored as a database table
+- `view` &mdash; test failures stored as a database view
 
-You can configure it in all the same places as `store_failures`, including singular tests (.sql files), generic tests (.yml files), and dbt\_project.yml.
+You can configure it in all the same places as `store_failures`, including singular tests (.sql files), generic tests (.yml files), and dbt_project.yml.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
-#### Singular test[​](#singular-test "Direct link to Singular test")
+#### Singular test
 
-[Singular test](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests) in `tests/singular/check_something.sql` file
+[Singular test](/docs/build/data-tests#singular-data-tests) in `tests/singular/check_something.sql` file
 
 ```sql
 {{ config(store_failures_as="table") }}
@@ -24,9 +23,9 @@ select 1 as id
 where 1=0
 ```
 
-#### Generic test[​](#generic-test "Direct link to Generic test")
+#### Generic test
 
-[Generic tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) in `models/_models.yml` file
+[Generic tests](/docs/build/data-tests#generic-data-tests) in `models/_models.yml` file
 
 ```yaml
 models:
@@ -42,7 +41,7 @@ models:
                 store_failures_as: ephemeral
 ```
 
-#### Project level[​](#project-level "Direct link to Project level")
+#### Project level
 
 Config in `dbt_project.yml`
 
@@ -61,21 +60,13 @@ data_tests:
       +store_failures_as: ephemeral
 ```
 
-### "Clobbering" configs[​](#clobbering-configs "Direct link to \"Clobbering\" configs")
+### "Clobbering" configs
 
 As with most other configurations, `store_failures_as` is "clobbered" when applied hierarchically. Whenever a more specific value is available, it will completely replace the less specific value.
 
-Additional resources:
+Additional resources: 
 
-* [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md#related-documentation)
-* [Data test-specific configurations](https://docs.getdbt.com/reference/data-test-configs.md#test-data-specific-configurations)
-* [Configuring directories of models in dbt\_project.yml](https://docs.getdbt.com/reference/model-configs.md#configuring-directories-of-models-in-dbt_projectyml)
-* [Config inheritance](https://docs.getdbt.com/reference/define-configs.md#config-inheritance)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Data test configurations](/reference/data-test-configs#related-documentation)
+- [Data test-specific configurations](/reference/data-test-configs#test-data-specific-configurations)
+- [Configuring directories of models in dbt_project.yml](/reference/model-configs#configuring-directories-of-models-in-dbt_projectyml)
+- [Config inheritance](/reference/define-configs#config-inheritance)

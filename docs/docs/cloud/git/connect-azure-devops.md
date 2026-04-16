@@ -1,33 +1,26 @@
-# Connect to Azure DevOps [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Connect to Azure DevOps
 
-Available for dbt Enterprise and Enterprise+
 
-Connecting an Azure DevOps cloud account is available for organizations using the dbt Enterprise or Enterprise+ plans.
+# Connect to Azure DevOps <Lifecycle status="managed,managed_plus" />
 
-dbt's native Azure DevOps integration does not support Azure DevOps Server (on-premise). Instead, you can [import a project by git URL](https://docs.getdbt.com/docs/cloud/git/import-a-project-by-git-url.md) to connect to an Azure DevOps Server.
+<Snippet path="available-enterprise-tier-only" />
 
-## About Azure DevOps and dbt[​](#about-azure-devops-and-dbt "Direct link to About Azure DevOps and dbt")
 
-Connect your Azure DevOps cloud account in dbt to unlock new product experiences:
+## About Azure DevOps and dbt
 
-* Import new Azure DevOps repos with a couple clicks during dbt project setup.
-* Clone repos using HTTPS rather than SSH
-* Enforce user authorization with OAuth 2.0.
-* Carry Azure DevOps user repository permissions (read / write access) through to Studio IDE or dbt CLI's git actions.
-* Trigger Continuous integration (CI) builds when pull requests are opened in Azure DevOps.
+Connect your Azure DevOps cloud account in <Constant name="dbt" /> to unlock new product experiences:
 
-Currently, there are multiple methods for integrating Azure DevOps with dbt. The following methods are available to all accounts:
+- Import new Azure DevOps repos with a couple clicks during <Constant name="dbt" /> project setup.
+- Clone repos using HTTPS rather than SSH
+- Enforce user authorization with OAuth 2.0.
+- Carry Azure DevOps user repository permissions (read / write access) through to <Constant name="studio_ide" /> or <Constant name="dbt" /> CLI's git actions.
+- Trigger Continuous integration (CI) builds when pull requests are opened in Azure DevOps.
 
-* [**Service principal (recommended)**](https://docs.getdbt.com/docs/cloud/git/setup-service-principal.md)
-* [**Service user (legacy)**](https://docs.getdbt.com/docs/cloud/git/setup-service-user.md)
-* [**Service user to service principal migration**](https://docs.getdbt.com/docs/cloud/git/setup-service-principal.md#migrate-to-service-principal)
 
-No matter which approach you take, you will need admins for dbt, Azure Entra ID, and Azure DevOps to complete the integration. For more information, follow the setup guide that's right for you.
+Currently, there are multiple methods for integrating Azure DevOps with <Constant name="dbt" />. The following methods are available to all accounts: 
 
-## Was this page helpful?
+- [**Service principal (recommended)**](/docs/cloud/git/setup-service-principal)
+- [**Service user (legacy)**](/docs/cloud/git/setup-service-user)
+- [**Service user to service principal migration**](/docs/cloud/git/setup-service-principal#migrate-to-service-principal)
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+No matter which approach you take, you will need admins for <Constant name="dbt" />, Azure Entra ID, and Azure DevOps to complete the integration. For more information, follow the setup guide that's right for you. 

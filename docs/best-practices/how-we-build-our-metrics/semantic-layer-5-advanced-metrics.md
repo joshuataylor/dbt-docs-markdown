@@ -1,20 +1,23 @@
 # More advanced metrics
 
-## More advanced metric types[​](#more-advanced-metric-types "Direct link to More advanced metric types")
 
-We're not limited to just passing measures through to our metrics, we can also *combine* measures to model more advanced metrics.
 
-* 🍊 **Ratio** metrics are, as the name implies, about **comparing two metrics as a numerator and a denominator** to form a new metric, for instance the percentage of order items that are food items instead of drinks.
-* 🧱 **Derived** metrics are when we want to **write an expression** that calculates a metric **using multiple metrics**. A classic example here is our gross profit calculated by subtracting costs from revenue.
-* ➕ **Cumulative** metrics calculate all of a **measure over a given window**, such as the past week, or if no window is supplied, the all-time total of that measure.
 
-## Ratio metrics[​](#ratio-metrics "Direct link to Ratio metrics")
+## More advanced metric types
 
-* 🔢 We need to establish one measure that will be our **numerator**, and one that will be our **denominator**.
-* 🥪 Let's calculate the **percentage** of our Jaffle Shop revenue that **comes from food items**.
-* 💰 We already have our denominator, revenue, but we'll want to **make a new metric for our numerator** called `food_revenue`.
+We're not limited to just passing measures through to our metrics, we can also _combine_ measures to model more advanced metrics.
 
-models/marts/orders.yml
+- 🍊 **Ratio** metrics are, as the name implies, about **comparing two metrics as a numerator and a denominator** to form a new metric, for instance the percentage of order items that are food items instead of drinks.
+- 🧱 **Derived** metrics are when we want to **write an expression** that calculates a metric **using multiple metrics**. A classic example here is our gross profit calculated by subtracting costs from revenue.
+- ➕ **Cumulative** metrics calculate all of a **measure over a given window**, such as the past week, or if no window is supplied, the all-time total of that measure.
+
+## Ratio metrics
+
+- 🔢 We need to establish one measure that will be our **numerator**, and one that will be our **denominator**.
+- 🥪 Let's calculate the **percentage** of our Jaffle Shop revenue that **comes from food items**.
+- 💰 We already have our denominator, revenue, but we'll want to **make a new metric for our numerator** called `food_revenue`.
+
+<File name="models/marts/orders.yml" />
 
 ```yml
 - name: food_revenue
@@ -25,9 +28,9 @@ models/marts/orders.yml
     measure: food_revenue
 ```
 
-* 📝 Now we can set up our ratio metric.
+- 📝 Now we can set up our ratio metric.
 
-models/marts/orders.yml
+<File name="models/marts/orders.yml" />
 
 ```yml
 - name: food_revenue_pct
@@ -39,20 +42,15 @@ models/marts/orders.yml
     denominator: revenue
 ```
 
-## Derived metrics[​](#derived-metrics "Direct link to Derived metrics")
+## Derived metrics
 
-* 🆙 Now let's really have some fun. One of the most important metrics for any business is not just revenue, but *revenue growth*. Let's use a derived metric to build month-over-month revenue.
+- 🆙 Now let's really have some fun. One of the most important metrics for any business is not just revenue, but _revenue growth_. Let's use a derived metric to build month-over-month revenue.
+- ⚙️ A derived metric has a couple key components:
+  - 📚 A list of metrics to build on. These can be manipulated and filtered in various way, here we'll use the `offset_window` property to lag by a month.
+  - 🧮 An expression that performs a calculation with these metrics.
+- With these parts we can assemble complex logic that would otherwise need to be 'frozen' in logical models.
 
-* ⚙️ A derived metric has a couple key components:
-
-  <!-- -->
-
-  * 📚 A list of metrics to build on. These can be manipulated and filtered in various way, here we'll use the `offset_window` property to lag by a month.
-  * 🧮 An expression that performs a calculation with these metrics.
-
-* With these parts we can assemble complex logic that would otherwise need to be 'frozen' in logical models.
-
-models/marts/orders.yml
+<File name="models/marts/orders.yml" />
 
 ```yml
 - name: revenue_growth_mom
@@ -69,12 +67,12 @@ models/marts/orders.yml
         alias: revenue_prev_month
 ```
 
-## Cumulative metrics[​](#cumulative-metrics "Direct link to Cumulative metrics")
+## Cumulative metrics
 
-* ➕ Lastly, lets build a **cumulative metric**. In keeping with our theme of business priorities, let's continue with revenue and build an **all-time revenue metric** for any given time window.
-* 🪟 All we need to do is indicate the type is `cumulative` and not supply a `window` in the `type_params`, which indicates we want cumulative for the entire time period our end users select.
+- ➕ Lastly, lets build a **cumulative metric**. In keeping with our theme of business priorities, let's continue with revenue and build an **all-time revenue metric** for any given time window.
+- 🪟 All we need to do is indicate the type is `cumulative` and not supply a `window` in the `type_params`, which indicates we want cumulative for the entire time period our end users select.
 
-models/marts/orders.yml
+<File name="models/marts/orders.yml" />
 
 ```yml
 - name: cumulative_revenue
@@ -84,11 +82,3 @@ models/marts/orders.yml
   type_params:
     measure: revenue
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1,10 +1,9 @@
-# overrides
 
-Deprecation
+:::warning Deprecation
+The `overrides` property is [deprecated in v1.10](/reference/deprecations#sourceoverridedeprecation). You can [enable or disable a source](/reference/source-configs#configuring-sources) from a package instead.
+:::
 
-The `overrides` property is [deprecated in v1.10](https://docs.getdbt.com/reference/deprecations.md#sourceoverridedeprecation). You can [enable or disable a source](https://docs.getdbt.com/reference/source-configs.md#configuring-sources) from a package instead.
-
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yml
 
@@ -16,29 +15,31 @@ sources:
     schema: ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
 
-Override a source defined in an included package. The properties defined in the overriding source will be applied on top of the base properties of the overridden source.
+## Definition
+Override a source defined in an included package. The properties defined
+in the overriding source will be applied on top of the base properties of the
+overridden source.
 
 The following source properties can be overridden:
+ - [description](/reference/resource-properties/description)
+ - [meta](/reference/resource-configs/meta)
+ - [database](/reference/resource-properties/database)
+ - [schema](/reference/resource-properties/schema)
+ - [loader](/reference/resource-properties/loader)
+ - [quoting](/reference/resource-properties/quoting)
+ - [freshness](/reference/resource-properties/freshness)
+ - [loaded_at_field](/reference/resource-properties/freshness#loaded_at_field)
+ - [tags](/reference/resource-configs/tags)
 
-* [description](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [meta](https://docs.getdbt.com/reference/resource-configs/meta.md)
-* [database](https://docs.getdbt.com/reference/resource-properties/database.md)
-* [schema](https://docs.getdbt.com/reference/resource-properties/schema.md)
-* [loader](https://docs.getdbt.com/reference/resource-properties/loader.md)
-* [quoting](https://docs.getdbt.com/reference/resource-properties/quoting.md)
-* [freshness](https://docs.getdbt.com/reference/resource-properties/freshness.md)
-* [loaded\_at\_field](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_field)
-* [tags](https://docs.getdbt.com/reference/resource-configs/tags.md)
+## Examples
+### Supply your database and schema name for a source defined in a package
 
-## Examples[​](#examples "Direct link to Examples")
+This example is based on the [Fivetran GitHub Source package](https://github.com/fivetran/dbt_github_source/blob/830ba43ac2948e4853a3c167ab7ee88b8b425fa0/models/src_github.yml#L3-L29).
+Here, the database and schema are overridden in the parent dbt project which includes the `github_source` package.
 
-### Supply your database and schema name for a source defined in a package[​](#supply-your-database-and-schema-name-for-a-source-defined-in-a-package "Direct link to Supply your database and schema name for a source defined in a package")
-
-This example is based on the [Fivetran GitHub Source package](https://github.com/fivetran/dbt_github_source/blob/830ba43ac2948e4853a3c167ab7ee88b8b425fa0/models/src_github.yml#L3-L29). Here, the database and schema are overridden in the parent dbt project which includes the `github_source` package.
-
-models/src\_github.yml
+<File name='models/src_github.yml'>
 
 ```yml
 
@@ -48,13 +49,16 @@ sources:
 
     database: RAW
     schema: github_data
+
 ```
 
-### Configure your own source freshness for a source table in a package[​](#configure-your-own-source-freshness-for-a-source-table-in-a-package "Direct link to Configure your own source freshness for a source table in a package")
+</File>
 
-You can override configurations at both the source and the table level
+### Configure your own source freshness for a source table in a package
 
-models/src\_github.yml
+You can override configurations at both the source and the <Term id="table" /> level
+
+<File name='models/src_github.yml'>
 
 ```yml
 
@@ -80,12 +84,7 @@ sources:
             error_after:
               count: 4
               period: day
+
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

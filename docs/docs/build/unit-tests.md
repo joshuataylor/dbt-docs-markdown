@@ -1,84 +1,54 @@
 # Unit tests
 
-💡Did you know\...
 
-Available from dbt v
+<VersionCallout version="1.8" />
 
-<!-- -->
+Historically, dbt's test coverage was confined to [“data” tests](/docs/build/data-tests), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed _after_ building a model. 
 
-1.8
+There is an additional type of test in dbt: unit tests. In software programming, unit tests validate small portions of your functional code, and they work much the same way here. Unit tests allow you to validate your SQL modeling logic on a small set of static inputs _before_ you materialize your full model in production. Unit tests enable test-driven development, benefiting developer efficiency and code reliability. 
 
-<!-- -->
+import UnitTestsPrereqs from '/snippets/_unit-tests-prereqs.md';
 
-or with the
+<UnitTestsPrereqs />
 
-<!-- -->
+#### Adapter-specific caveats
+- You must specify all fields in a BigQuery `STRUCT` in a unit test. You cannot use only a subset of fields in a `STRUCT`.
+- Redshift customers need to be aware of a [limitation when building unit tests](/reference/resource-configs/redshift-configs#unit-test-limitations) that requires a workaround.
+- Redshift sources need to be in the same database as the models.
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-Historically, dbt's test coverage was confined to [“data” tests](https://docs.getdbt.com/docs/build/data-tests.md), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed *after* building a model.
-
-There is an additional type of test to dbt - unit tests. In software programming, unit tests validate small portions of your functional code, and they work much the same way here. Unit tests allow you to validate your SQL modeling logic on a small set of static inputs *before* you materialize your full model in production. Unit tests enable test-driven development, benefiting developer efficiency and code reliability.
-
-## Before you begin[​](#before-you-begin "Direct link to Before you begin")
-
-* We currently only support unit testing SQL models.
-* We currently only support adding unit tests to models in your *current* project.
-* We currently *don't* support unit testing models that use the [`materialized view`](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) materialization.
-* We currently *don't* support unit testing models that use recursive SQL.
-* We currently *don't* support unit testing models that use introspective queries.
-* If your model has multiple versions, by default the unit test will run on *all* versions of your model. Read [unit testing versioned models](https://docs.getdbt.com/reference/resource-properties/unit-testing-versions.md) for more information.
-* Unit tests must be defined in a YML file in your [`models/` directory](https://docs.getdbt.com/reference/project-configs/model-paths.md).
-* Table names must be aliased in order to unit test `join` logic.
-* Include all [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) or [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) model references in the unit test configuration as `input`s to avoid "node not found" errors during compilation.
-
-#### Adapter-specific caveats[​](#adapter-specific-caveats "Direct link to Adapter-specific caveats")
-
-* You must specify all fields in a BigQuery `STRUCT` in a unit test. You cannot use only a subset of fields in a `STRUCT`.
-* Redshift customers need to be aware of a [limitation when building unit tests](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#unit-test-limitations) that requires a workaround.
-* Redshift sources need to be in the same database as the models.
-
-tip
-
+:::tip
 Check out our [Unit tests on-demand course](https://learn.getdbt.com/learn/course/unit-testing/welcome-to-unit-testing-5min/introduction-to-unit-testing) to learn how to add unit tests and more!
+:::
 
-Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/unit-tests.md) for more details about formatting your unit tests.
+Read the [reference doc](/reference/resource-properties/unit-tests) for more details about formatting your unit tests.
 
-### When to add a unit test to your model[​](#when-to-add-a-unit-test-to-your-model "Direct link to When to add a unit test to your model")
+### When to add a unit test to your model
 
 You should unit test a model:
+- When your SQL contains complex logic:
+    - Regex
+    - Date math
+    - Window functions
+    - `case when` statements when there are many `when`s
+    - Truncation
+- When you're writing custom logic to process input data, similar to creating a function.
+- We don't recommend conducting unit testing for functions like `min()` since these functions are tested extensively by the warehouse. If an unexpected issue arises, it's more likely a result of issues in the underlying data rather than the function itself. Therefore, fixture data in the unit test won't provide valuable information.
+- Logic for which you had bugs reported before.
+- Edge cases not yet seen in your actual data that you want to handle.
+- Prior to refactoring the transformation logic (especially if the refactor is significant).
+- Models with high "criticality" (public, contracted models or models directly upstream of an exposure).
 
-* When your SQL contains complex logic:
+### When to run unit tests
 
-  <!-- -->
+dbt Labs strongly recommends only running unit tests in development or CI environments. Since the inputs of the unit tests are static, there's no need to use additional compute cycles running them in production. Use them in development for a test-driven approach and CI to ensure changes don't break them. 
 
-  * Regex
-  * Date math
-  * Window functions
-  * `case when` statements when there are many `when`s
-  * Truncation
+Use the [resource type](/reference/global-configs/resource-type) flag `--exclude-resource-type` or the <VersionBlock lastVersion="1.10">`DBT_EXCLUDE_RESOURCE_TYPES`</VersionBlock><VersionBlock firstVersion="1.11">`DBT_ENGINE_EXCLUDE_RESOURCE_TYPES`</VersionBlock> environment variable to exclude unit tests from your production builds and save compute. 
 
-* When you're writing custom logic to process input data, similar to creating a function.
+## Unit testing a model
 
-* We don't recommend conducting unit testing for functions like `min()` since these functions are tested extensively by the warehouse. If an unexpected issue arises, it's more likely a result of issues in the underlying data rather than the function itself. Therefore, fixture data in the unit test won't provide valuable information.
+This example creates a new `dim_customers` model with a field `is_valid_email_address` that calculates whether or not the customer’s email is valid: 
 
-* Logic for which you had bugs reported before.
-
-* Edge cases not yet seen in your actual data that you want to handle.
-
-* Prior to refactoring the transformation logic (especially if the refactor is significant).
-
-* Models with high "criticality" (public, contracted models or models directly upstream of an exposure).
-
-### When to run unit tests[​](#when-to-run-unit-tests "Direct link to When to run unit tests")
-
-dbt Labs strongly recommends only running unit tests in development or CI environments. Since the inputs of the unit tests are static, there's no need to use additional compute cycles running them in production. Use them in development for a test-driven approach and CI to ensure changes don't break them.
-
-Use the [resource type](https://docs.getdbt.com/reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the `DBT_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
-
-## Unit testing a model[​](#unit-testing-a-model "Direct link to Unit testing a model")
-
-This example creates a new `dim_customers` model with a field `is_valid_email_address` that calculates whether or not the customer’s email is valid:
+<file name='dim_customers.sql'>
 
 ```sql
 with customers as (
@@ -114,8 +84,11 @@ check_valid_emails as (
 
 select * from check_valid_emails
 ```
+</file>
 
 The logic posed in this example can be challenging to validate. You can add a unit test to this model to ensure the `is_valid_email_address` logic captures all known edge cases: emails without `.`, emails without `@`, and emails from invalid domains.
+
+<file name='dbt_project.yml'> 
 
 ```yaml
 unit_tests:
@@ -124,49 +97,112 @@ unit_tests:
     model: dim_customers
     given:
       - input: ref('stg_customers')
+        format: dict
         rows:
           - {email: cool@example.com,    email_top_level_domain: example.com}
           - {email: cool@unknown.com,    email_top_level_domain: unknown.com}
           - {email: badgmail.com,        email_top_level_domain: gmail.com}
           - {email: missingdot@gmailcom, email_top_level_domain: gmail.com}
       - input: ref('top_level_email_domains')
+        format: dict
         rows:
           - {tld: example.com}
           - {tld: gmail.com}
     expect:
+      format: dict
       rows:
         - {email: cool@example.com,    is_valid_email_address: true}
         - {email: cool@unknown.com,    is_valid_email_address: false}
         - {email: badgmail.com,        is_valid_email_address: false}
         - {email: missingdot@gmailcom, is_valid_email_address: false}
+
+```
+</file>
+
+The previous example defines the mock data using the inline `dict` format, but you can also use `csv` or `sql` either inline or in a separate fixture file. Store your fixture files in a `fixtures` subdirectory in any of your [test paths](/reference/project-configs/test-paths). For example, `tests/fixtures/my_unit_test_fixture.sql`. 
+
+The following examples show how to define mock data and expected output using `csv` and `sql`.
+
+<File name='models/schema.yml'>
+
+```yaml
+unit_tests:
+  - name: test_is_valid_email_address__csv
+    model: dim_customers
+    given:
+      - input: ref('stg_customers')
+        format: dict
+        rows:
+          - {email: cool@example.com,    email_top_level_domain: example.com}
+          - {email: cool@unknown.com,    email_top_level_domain: unknown.com}
+          - {email: badgmail.com,        email_top_level_domain: gmail.com}
+          - {email: missingdot@gmailcom, email_top_level_domain: gmail.com}
+      - input: ref('top_level_email_domains')
+        format: csv
+        rows: |
+          tld
+          example.com
+          gmail.com
+    expect:
+      format: csv
+      fixture: valid_email_address_fixture_output
 ```
 
-The previous example defines the mock data using the inline `dict` format, but you can also use `csv` or `sql` either inline or in a separate fixture file. Store your fixture files in a `fixtures` subdirectory in any of your [test paths](https://docs.getdbt.com/reference/project-configs/test-paths.md). For example, `tests/fixtures/my_unit_test_fixture.sql`.
+</File>
 
-When using the `dict` or `csv` format, you only have to define the mock data for the columns relevant to you. This enables you to write succinct and *specific* unit tests.
+<File name='models/schema.yml'>
 
-note
+```yaml
+unit_tests:
+  - name: test_is_valid_email_address__sql
+    model: dim_customers
+    given:
+      - input: ref('stg_customers')
+        format: dict
+        rows:
+          - {email: cool@example.com,    email_top_level_domain: example.com}
+          - {email: cool@unknown.com,    email_top_level_domain: unknown.com}
+          - {email: badgmail.com,        email_top_level_domain: gmail.com}
+          - {email: missingdot@gmailcom, email_top_level_domain: gmail.com}
+      - input: ref('top_level_email_domains')
+        format: sql
+        rows: |
+          select 'example.com' as tld union all
+          select 'gmail.com' as tld
+    expect:
+      format: sql
+      fixture: valid_email_address_fixture_output
+```
+
+</File>
+
+When using the `dict` or `csv` format, you only have to define the mock data for the columns relevant to you. This enables you to write succinct and _specific_ unit tests.
+
+:::note
 
 The direct parents of the model that you’re unit testing (in this example, `stg_customers` and `top_level_email_domains`) need to exist in the warehouse before you can execute the unit test.
 
-Use the [`--empty`](https://docs.getdbt.com/reference/commands/build.md#the---empty-flag) flag to build an empty version of the models to save warehouse spend.
+Use the [`--empty`](/reference/commands/build#the---empty-flag) flag to build an empty version of the models to save warehouse spend. 
 
 ```bash
 
 dbt run --select "stg_customers top_level_email_domains" --empty
+
 ```
 
 Alternatively, use `dbt build` to, in lineage order:
 
-* Run the unit tests on your model.
-* Materialize your model in the warehouse.
-* Run the data tests on your model.
+- Run the unit tests on your model.
+- Materialize your model in the warehouse.
+- Run the data tests on your model.
 
-Now you’re ready to run this unit test. You have a couple of options for commands depending on how specific you want to be:
+:::
 
-* `dbt test --select dim_customers` runs *all* of the tests on `dim_customers`.
-* `dbt test --select "dim_customers,test_type:unit"` runs all of the *unit* tests on `dim_customers`.
-* `dbt test --select test_is_valid_email_address` runs the test named `test_is_valid_email_address`.
+Now you’re ready to run this unit test. You have a couple of options for commands depending on how specific you want to be: 
+
+- `dbt test --select dim_customers` runs _all_ of the tests on `dim_customers`.
+- `dbt test --select "dim_customers,test_type:unit"` runs all of the _unit_ tests on `dim_customers`.
+- `dbt test --select test_is_valid_email_address` runs the test named `test_is_valid_email_address`.
 
 ```shell
 
@@ -199,6 +235,7 @@ actual differs from expected:
 16:03:51    compiled Code at models/marts/unit_tests.yml
 16:03:51  
 16:03:51  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+
 ```
 
 The clever regex statement wasn’t as clever as initially thought, as the model incorrectly flagged `cool@example.com` as an invalid email address.
@@ -222,29 +259,30 @@ dbt test --select test_is_valid_email_address
 16:09:13  Completed successfully
 16:09:13  
 16:09:13  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+
 ```
 
-Your model is now ready for production! Adding this unit test helped catch an issue with the SQL logic *before* you materialized `dim_customers` in your warehouse and will better ensure the reliability of this model in the future.
+Your model is now ready for production! Adding this unit test helped catch an issue with the SQL logic _before_ you materialized `dim_customers` in your warehouse and will better ensure the reliability of this model in the future. 
 
-## Unit testing incremental models[​](#unit-testing-incremental-models "Direct link to Unit testing incremental models")
+## Unit testing incremental models
 
 When configuring your unit test, you can override the output of macros, vars, or environment variables. This enables you to unit test your incremental models in "full refresh" and "incremental" modes.
 
-note
+:::note
+Incremental models need to exist in the database before running unit tests or doing a `dbt build`. Use the [`--empty` flag](/reference/commands/build#the---empty-flag) to build an empty version of the models to save warehouse spend. You can also optionally select only your incremental models using the [`--select` flag](/reference/node-selection/syntax#shorthand).
 
-Incremental models need to exist in the database first before running unit tests or doing a `dbt build`. Use the [`--empty` flag](https://docs.getdbt.com/reference/commands/build.md#the---empty-flag) to build an empty version of the models to save warehouse spend. You can also optionally select only your incremental models using the [`--select` flag](https://docs.getdbt.com/reference/node-selection/syntax.md#shorthand).
+  ```shell
+  dbt run --select "config.materialized:incremental" --empty
+  ```
 
-```shell
-dbt run --select "config.materialized:incremental" --empty
-```
+  After running the command, you can then perform a regular `dbt build` for that model and then run your unit test.
+:::
 
-After running the command, you can then perform a regular `dbt build` for that model and then run your unit test.
-
-When testing an incremental model, the expected output is the **result of the materialization** (what will be merged/inserted), not the resulting model itself (what the final table will look like after the merge/insert).
+When testing an incremental model, the expected output is the __result of the materialization__ (what will be merged/inserted), not the resulting model itself (what the final table will look like after the merge/insert).
 
 For example, say you have an incremental model in your project:
 
-my\_incremental\_model.sql
+<File name='my_incremental_model.sql'>
 
 ```sql
 
@@ -258,11 +296,14 @@ select * from {{ ref('events') }}
 {% if is_incremental() %}
 where event_time > (select max(event_time) from {{ this }})
 {% endif %}
+
 ```
+
+</File>
 
 You can define unit tests on `my_incremental_model` to ensure your incremental logic is working as expected:
 
-```yml
+```yaml
 
 unit_tests:
   - name: my_incremental_model_full_refresh_mode
@@ -300,15 +341,16 @@ unit_tests:
       rows:
         - {event_id: 2, event_time: 2020-01-02}
         - {event_id: 3, event_time: 2020-01-03}
+
 ```
 
 There is currently no way to unit test whether the dbt framework inserted/merged the records into your existing model correctly, but [we're investigating support for this in the future](https://github.com/dbt-labs/dbt-core/issues/8664).
 
-## Unit testing a model that depends on ephemeral model(s)[​](#unit-testing-a-model-that-depends-on-ephemeral-models "Direct link to Unit testing a model that depends on ephemeral model(s)")
+## Unit testing a model that depends on ephemeral model(s)
 
 If you want to unit test a model that depends on an ephemeral model, you must use `format: sql` for that input.
 
-```yml
+```yaml
 unit_tests:
   - name: my_unit_test
     model: dim_customers
@@ -316,36 +358,29 @@ unit_tests:
       - input: ref('ephemeral_model')
         format: sql
         rows: |
-          select 1 as id, 'emily' as name
+          select 1 as id, 'emily' as first_name
     expect:
       rows:
         - {id: 1, first_name: emily}
 ```
 
-## Unit test exit codes[​](#unit-test-exit-codes "Direct link to Unit test exit codes")
+
+## Unit test exit codes
 
 Unit test successes and failures are represented by two exit codes:
-
-* Pass (0)
-* Fail (1)
+- Pass (0)
+- Fail (1)
 
 Exit codes differ from data test success and failure outputs because they don't directly reflect failing data tests. Data tests are queries designed to check specific conditions in your data, and they return one row per failed test case (for example, the number of values with duplicates for the `unique` test). dbt reports the number of failing records as failures. Whereas, each unit test represents one 'test case', so results are always 0 (pass) or 1 (fail) regardless of how many records failed within that test case.
 
-Learn about [exit codes](https://docs.getdbt.com/reference/exit-codes.md) for more information.
+Learn about [exit codes](/reference/exit-codes) for more information.
 
-## Additional resources[​](#additional-resources "Direct link to Additional resources")
 
-* [Unit testing reference page](https://docs.getdbt.com/reference/resource-properties/unit-tests.md)
-* [Supported data formats for mock data](https://docs.getdbt.com/reference/resource-properties/data-formats.md)
-* [Unit testing versioned models](https://docs.getdbt.com/reference/resource-properties/unit-testing-versions.md)
-* [Unit test inputs](https://docs.getdbt.com/reference/resource-properties/unit-test-input.md)
-* [Unit test overrides](https://docs.getdbt.com/reference/resource-properties/unit-test-overrides.md)
-* [Platform-specific data types](https://docs.getdbt.com/reference/resource-properties/data-types.md)
+## Additional resources
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Unit testing reference page](/reference/resource-properties/unit-tests)
+- [Supported data formats for mock data](/reference/resource-properties/data-formats)
+- [Unit testing versioned models](/reference/resource-properties/unit-testing-versions)
+- [Unit test inputs](/reference/resource-properties/unit-test-input)
+- [Unit test overrides](/reference/resource-properties/unit-test-overrides)
+- [Platform-specific data types](/reference/resource-properties/data-types)

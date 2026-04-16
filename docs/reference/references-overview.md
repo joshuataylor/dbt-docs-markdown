@@ -1,73 +1,76 @@
 # About References
 
-The References section contains reference materials for developing with dbt, which includes dbt and dbt Core.
 
-Learn how to add more configurations to your dbt project or adapter, use properties for extra ability, refer to dbt commands, use powerful Jinja functions to streamline your dbt project, and understand how to use dbt artifacts.<br />
+The References section contains reference materials for developing with dbt, which includes <Constant name="dbt" /> and <Constant name="core" />.
 
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/dbt_project.yml.md)
+Learn how to add more configurations to your dbt project or adapter, use properties for extra ability, refer to dbt commands, use powerful Jinja functions to streamline your dbt project, and understand how to use dbt artifacts.  <br />
 
-#### [Project configurations](https://docs.getdbt.com/reference/dbt_project.yml.md)
+<div className="grid--3-col">
 
-[Customize and configure your dbt project to optimize performance.](https://docs.getdbt.com/reference/dbt_project.yml.md)
+<Card
+    title="Project configurations"
+    body="Customize and configure your dbt project to optimize performance."
+    link="/reference/dbt_project.yml"
+    icon="computer"/>
 
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/resource-configs.md)
+<Card
+    title="Platform-specific configurations"
+    body="Learn how to optimize performance with data platform-specific configurations in dbt and dbt Core."
+    link="/reference/resource-configs"
+    icon="computer"/>
 
-#### [Platform-specific configurations](https://docs.getdbt.com/reference/resource-configs.md)
+<Card
+    title="Resource configurations and properties"
+    body="Properties and configurations that provide extra abilities to your projects resources."
+    link="/reference/configs-and-properties"
+    icon="computer"/>
 
-[Learn how to optimize performance with data platform-specific configurations in dbt and dbt Core.](https://docs.getdbt.com/reference/resource-configs.md)
+<Card
+    title="Semantic Layer configurations"
+    body="Complete configuration reference for semantic models, metrics, and dimensions in the dbt Semantic Layer."
+    link="/reference/semantic-layer-reference"
+    icon="computer"/>
 
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/configs-and-properties.md)
+<Card
+    title="dbt Commands"
+    body="Outlines the commands supported by dbt and their relevant flags."
+    link="/reference/dbt-commands"
+    icon="computer"/>
 
-#### [Resource configurations and properties](https://docs.getdbt.com/reference/configs-and-properties.md)
+<Card
+    title="dbt Jinja functions and context variables"
+    body="Additional functions and variables to the Jinja context that are useful when working with a dbt project."
+    link="/reference/dbt-jinja-functions-context-variables"
+    icon="computer"/>
 
-[Properties and configurations that provide extra abilities to your projects resources.](https://docs.getdbt.com/reference/configs-and-properties.md)
+<Card
+    title="dbt Artifacts"
+    body="Information on dbt-generated Artifacts and how you can use them."
+    link="/reference/artifacts/dbt-artifacts"
+    icon="computer"/>
 
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/dbt-commands.md)
+<Card
+    title="Snowflake permissions artifacts"
+    body="Provides an example Snowflake database role permissions."
+    link="/reference/database-permissions/snowflake-permissions"
+    icon="computer"/>
 
-#### [dbt Commands](https://docs.getdbt.com/reference/dbt-commands.md)
+<Card
+    title="Databricks permissions artifacts"
+    body="Provides an example Databricks database role permissions."
+    link="/reference/database-permissions/databricks-permissions"
+    icon="computer"/>
 
-[Outlines the commands supported by dbt and their relevant flags.](https://docs.getdbt.com/reference/dbt-commands.md)
+<Card
+    title="Redshift permissions artifacts"
+    body="Provides an example Redshift database role permissions."
+    link="/reference/database-permissions/redshift-permissions"
+    icon="computer"/>
 
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md)
+<Card
+    title="Postgres permissions artifacts"
+    body="Provides an example Postgres database role permissions."
+    link="/reference/database-permissions/postgres-permissions"
+    icon="computer"/>
 
-#### [dbt Jinja functions and context variables](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md)
-
-[Additional functions and variables to the Jinja context that are useful when working with a dbt project.](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md)
-
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md)
-
-#### [dbt Artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md)
-
-[Information on dbt-generated Artifacts and how you can use them.](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md)
-
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md)
-
-#### [Snowflake permissions artifacts](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md)
-
-[Provides an example Snowflake database role permissions.](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md)
-
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/database-permissions/databricks-permissions.md)
-
-#### [Databricks permissions artifacts](https://docs.getdbt.com/reference/database-permissions/databricks-permissions.md)
-
-[Provides an example Databricks database role permissions.](https://docs.getdbt.com/reference/database-permissions/databricks-permissions.md)
-
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md)
-
-#### [Redshift permissions artifacts](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md)
-
-[Provides an example Redshift database role permissions.](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md)
-
-[![](/img/icons/computer.svg)](https://docs.getdbt.com/reference/database-permissions/postgres-permissions.md)
-
-#### [Postgres permissions artifacts](https://docs.getdbt.com/reference/database-permissions/postgres-permissions.md)
-
-[Provides an example Postgres database role permissions.](https://docs.getdbt.com/reference/database-permissions/postgres-permissions.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

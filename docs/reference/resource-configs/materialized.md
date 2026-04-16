@@ -1,65 +1,80 @@
-# materialized
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project YAML file', value: 'project-yaml', },
+    { label: 'Properties YAML file', value: 'property-yaml', },
+    { label: 'SQL file config', value: 'config', },
+  ]
+}>
 
-dbt\_project.yml
+
+<TabItem value="project-yaml">
+
+<File name='dbt_project.yml'>
 
 ```yaml
-config-version: 2
+[config-version](/reference/project-configs/config-version): 2
 
 models:
-  <resource-path>:
-    +materialized: <materialization_name>
+  [<resource-path>](/reference/resource-configs/resource-path):
+    +materialized: [<materialization_name>](/docs/build/materializations#materializations)
 ```
 
-models/properties.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='models/properties.yml'>
 
 ```yaml
 
 models:
   - name: <model_name>
     config:
-      materialized: <materialization_name>
+      materialized: [<materialization_name>](/docs/build/materializations#materializations)
+
 ```
 
-models/\<model\_name>.sql
+</File>
+
+</TabItem>
+
+
+<TabItem value="config">
+
+<File name='models/<model_name>.sql'>
 
 ```jinja
 {{ config(
-  materialized="<materialization_name>"
+  materialized="[<materialization_name>](/docs/build/materializations#materializations)"
 ) }}
 
 select ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
 
-[Materializations](https://docs.getdbt.com/docs/build/materializations.md#materializations) are strategies for persisting dbt models in a warehouse. These are the materialization types built into dbt:
+</TabItem>
 
-* `ephemeral` — [ephemeral](https://docs.getdbt.com/docs/build/materializations.md#ephemeral) models are not directly built into the database
-* `table` — a model is rebuilt as a [table](https://docs.getdbt.com/docs/build/materializations.md#table) on each run
-* `view` — a model is rebuilt as a [view](https://docs.getdbt.com/docs/build/materializations.md#view) on each run
-* `materialized_view` — allows the creation and maintenance of [materialized views](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) in the target database
-* `incremental` — [incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental) models allow dbt to insert or update records into a table since the last time that model was run
+</Tabs>
 
-You can also configure [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
+## Definition 
 
-## Creation Precedence[​](#creation-precedence "Direct link to Creation Precedence")
+[Materializations](/docs/build/materializations#materializations) are strategies for persisting dbt models in a warehouse. These are the materialization types built into dbt:
 
-Materializations are implemented following this "drop through" life cycle:
+- `ephemeral` &mdash; [ephemeral](/docs/build/materializations#ephemeral) models are not directly built into the database
+- `table` &mdash; a model is rebuilt as a [table](/docs/build/materializations#table) on each run
+- `view` &mdash; a model is rebuilt as a [view](/docs/build/materializations#view) on each run
+- `materialized_view` &mdash; allows the creation and maintenance of [materialized views](/docs/build/materializations#materialized-view) in the target database
+- `incremental` &mdash; [incremental](/docs/build/materializations#incremental) models allow dbt to insert or update records into a `table` since the last time that model was run
 
-1. If a model does not exist with the provided path, create the new model.
-2. If a model exists, but has a different type, drop the existing model and create the new model.
-3. If [`--full-refresh`](https://docs.getdbt.com/reference/resource-configs/full_refresh.md) is supplied, replace the existing model regardless of configuration changes and the [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) setting.
-4. If there are no configuration changes, perform the default action for that type (e.g. apply refresh for a materialized view).
-5. Determine whether to apply the configuration changes according to the `on_configuration_change` setting.
+You can also configure [custom materializations](/guides/create-new-materializations?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
 
-## Was this page helpful?
+import Creationprecedence from '/snippets/_creation-precedence.md';
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<Creationprecedence /> 

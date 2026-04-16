@@ -1,43 +1,29 @@
 # Use Databricks workflows to run dbt jobs
 
-[Back to guides](https://docs.getdbt.com/guides.md)
 
-Databricks
+<div style={{maxWidth: '900px'}}>
 
-dbt Core
+## Introduction
 
-dbt platform
+Using Databricks workflows to call the <Constant name="dbt" /> job API can be useful for several reasons:
 
-Orchestration
+1. **Integration with other ETL processes** &mdash; If you're already running other ETL processes in Databricks, you can use a Databricks workflow to trigger a <Constant name="dbt" /> job after those processes are done.
+2. **Utilizes <Constant name="dbt" /> jobs features &mdash;** <Constant name="dbt" /> gives the ability to monitor job progress, manage historical logs and documentation, optimize model timing, and much [more](/docs/deploy/deploy-jobs).
+3. [**Separation of concerns &mdash;**](https://en.wikipedia.org/wiki/Separation_of_concerns) Detailed logs for dbt jobs in the <Constant name="dbt" /> environment can lead to more modularity and efficient debugging. By doing so, it becomes easier to isolate bugs quickly while still being able to see the overall status in Databricks.
+4. **Custom job triggering &mdash;** Use a Databricks workflow to trigger <Constant name="dbt" /> jobs based on custom conditions or logic that aren't natively supported by <Constant name="dbt" />'s scheduling feature. This can give you more flexibility in terms of when and how your <Constant name="dbt" /> jobs run.
 
-Intermediate
+### Prerequisites
 
-[Menu ]()
+- Active [Enterprise or Enterprise+ <Constant name="dbt" /> account](https://www.getdbt.com/pricing/)
+- You must have a configured and existing [<Constant name="dbt" /> deploy job](/docs/deploy/deploy-jobs)
+- Active Databricks account with access to [Data Science and Engineering workspace](https://docs.databricks.com/workspace-index.html) and [Manage secrets](https://docs.databricks.com/security/secrets/index.html)
+- [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html)
+  - **Note**: You only need to set up your authentication. Once you have set up your Host and Token and are able to run `databricks workspace ls /Users/<someone@example.com>`, you can proceed with the rest of this guide.
 
+## Set up a Databricks secret scope
 
-
-## Introduction[​](#introduction "Direct link to Introduction")
-
-Using Databricks workflows to call the dbt job API can be useful for several reasons:
-
-1. **Integration with other ETL processes** — If you're already running other ETL processes in Databricks, you can use a Databricks workflow to trigger a dbt job after those processes are done.
-2. **Utilizes dbt jobs features —** dbt gives the ability to monitor job progress, manage historical logs and documentation, optimize model timing, and much [more](https://docs.getdbt.com/docs/deploy/deploy-jobs.md).
-3. [**Separation of concerns —**](https://en.wikipedia.org/wiki/Separation_of_concerns) Detailed logs for dbt jobs in the dbt environment can lead to more modularity and efficient debugging. By doing so, it becomes easier to isolate bugs quickly while still being able to see the overall status in Databricks.
-4. **Custom job triggering —** Use a Databricks workflow to trigger dbt jobs based on custom conditions or logic that aren't natively supported by dbt's scheduling feature. This can give you more flexibility in terms of when and how your dbt jobs run.
-
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
-
-* Active [Enterprise or Enterprise+ dbt account](https://www.getdbt.com/pricing/)
-* You must have a configured and existing [dbt deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md)
-* Active Databricks account with access to [Data Science and Engineering workspace](https://docs.databricks.com/workspace-index.html) and [Manage secrets](https://docs.databricks.com/security/secrets/index.html)
-* [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html)
-  * **Note**: You only need to set up your authentication. Once you have set up your Host and Token and are able to run `databricks workspace ls /Users/<someone@example.com>`, you can proceed with the rest of this guide.
-
-## Set up a Databricks secret scope[​](#set-up-a-databricks-secret-scope "Direct link to Set up a Databricks secret scope")
-
-1. Retrieve \*\*[personal access token](https://docs.getdbt.com/docs/dbt-cloud-apis/user-tokens.md) \*\*or \*\*[Service account token](https://docs.getdbt.com/docs/dbt-cloud-apis/service-tokens.md#generating-service-account-tokens) \*\*from dbt
-
-2. Set up a **Databricks secret scope**, which is used to securely store your dbt API key.
+1. Retrieve **[personal access token](/docs/dbt-cloud-apis/user-tokens) **or **[Service account token](/docs/dbt-cloud-apis/service-tokens#generating-service-account-tokens) **from <Constant name="dbt" />
+2. Set up a **Databricks secret scope**, which is used to securely store your <Constant name="dbt" /> API key. 
 
 3. Enter the **following commands** in your terminal:
 
@@ -49,13 +35,14 @@ databricks secrets put --scope  <YOUR_SECRET_SCOPE> --key  <YOUR_SECRET_KEY> --s
 
 4. Replace **`<YOUR_SECRET_SCOPE>`** and **`<YOUR_SECRET_KEY>`** with your own unique identifiers. Click [here](https://docs.databricks.com/security/secrets/index.html) for more information on secrets.
 
-5. Replace **`<YOUR_DBT_CLOUD_API_KEY>`** with the actual API key value that you copied from dbt in step 1.
+5. Replace **`<YOUR_DBT_CLOUD_API_KEY>`** with the actual API key value that you copied from <Constant name="dbt" /> in step 1.
 
-## Create a Databricks Python notebook[​](#create-a-databricks-python-notebook "Direct link to Create a Databricks Python notebook")
 
-1. [Create a **Databricks Python notebook**](https://docs.databricks.com/notebooks/notebooks-manage.html), which executes a Python script that calls the dbt job API.
+## Create a Databricks Python notebook
 
-2. Write a **Python script** that utilizes the `requests` library to make an HTTP POST request to the dbt job API endpoint using the required parameters. Here's an example script:
+1. [Create a **Databricks Python notebook**](https://docs.databricks.com/notebooks/notebooks-manage.html), which executes a Python script that calls the <Constant name="dbt" /> job API. 
+
+2. Write a **Python script** that utilizes the `requests` library to make an HTTP POST request to the <Constant name="dbt" /> job API endpoint using the required parameters. Here's an example script:
 
 ```python
 import enum
@@ -86,7 +73,7 @@ def _trigger_job() -> int:
         url=f"https://{base_url}/api/v2/accounts/{account_id}/jobs/{job_id}/run/",
         headers={'Authorization': f"Token {api_key}"},
         json={
-            # Optionally pass a description that can be viewed within the <Constant name="cloud" /> API.
+            # Optionally pass a description that can be viewed within the <Constant name="dbt" /> API.
             # See the API docs for additional parameters that can be passed in,
             # including `schema_override` 
             'cause': f"Triggered by Databricks Workflows.",
@@ -130,17 +117,22 @@ if __name__ == '__main__':
 
 3. Replace **`<YOUR_SECRET_SCOPE>`** and **`<YOUR_SECRET_KEY>`** with the values you used [previously](#set-up-a-databricks-secret-scope)
 
-4. Replace **`<YOUR_BASE_URL>`** and **`<YOUR_ACCOUNT_ID>`** with the correct values of your environment and [Access URL](https://docs.getdbt.com/docs/cloud/about-cloud/access-regions-ip-addresses.md) for your region and plan.
+4. Replace **`<YOUR_BASE_URL>`** and **`<YOUR_ACCOUNT_ID>`** with the correct values of your environment and [Access URL](/docs/cloud/about-cloud/access-regions-ip-addresses) for your region and plan.
 
-   * To find these values, navigate to dbt, select **Deploy -> Jobs**. Select the Job you want to run and copy the URL. For example: `https://YOUR_ACCESS_URL/deploy/000000/projects/111111/jobs/222222` and therefore valid code would be:
+    * To find these values, navigate to <Constant name="dbt" />, select **Deploy -> Jobs**.  Select the Job you want to run and copy the URL. For example: `https://YOUR_ACCESS_URL/deploy/000000/projects/111111/jobs/222222`
+    and therefore valid code would be:
 
-Your URL is structured `https://<YOUR_BASE_URL>/deploy/<YOUR_ACCOUNT_ID>/projects/<YOUR_PROJECT_ID>/jobs/<YOUR_JOB_ID>` account\_id = 000000 job\_id = 222222 base\_url = "cloud.getdbt.com"
+Your URL is structured `https://<YOUR_BASE_URL>/deploy/<YOUR_ACCOUNT_ID>/projects/<YOUR_PROJECT_ID>/jobs/<YOUR_JOB_ID>`
+    account_id = 000000
+    job_id = 222222
+    base_url =  "cloud.getdbt.com"
 
-5. Run the Notebook. It will fail, but you should see **a `job_id` widget** at the top of your notebook.
+
+5. Run the Notebook.  It will fail, but you should see **a `job_id` widget** at the top of your notebook.
 
 6. In the widget, **enter your `job_id`** from step 4.
 
-7. **Run the Notebook again** to trigger the dbt job. Your results should look similar to the following:
+7. **Run the Notebook again** to trigger the <Constant name="dbt" /> job. Your results should look similar to the following:
 
 ```bash
 job_run_id = 123456
@@ -159,14 +151,15 @@ DbtJobRunStatus.RUNNING
 DbtJobRunStatus.SUCCESS
 ```
 
-You can cancel the job from dbt if necessary.
+You can cancel the job from <Constant name="dbt" /> if necessary.
 
-## Configure the workflows to run the dbt jobs[​](#configure-the-workflows-to-run-the-dbt-jobs "Direct link to Configure the workflows to run the dbt jobs")
+## Configure the workflows to run the dbt jobs
 
-You can set up workflows directly from the notebook OR by adding this notebook to one of your existing workflows:
+You can set up workflows directly from the notebook OR by adding this notebook to one of your existing workflows: 
 
-* Create a workflow from existing Notebook
-* Add the Notebook to existing workflow
+<Tabs>
+
+<TabItem value="createexisting" label="Create a workflow from existing Notebook">
 
 1. Click **Schedule** on the upper right side of the page
 2. Click **Add a schedule**
@@ -175,37 +168,32 @@ You can set up workflows directly from the notebook OR by adding this notebook t
 5. Click **Create**
 6. Click **Run Now** to test the job
 
-1) Open Existing **Workflow**
-2) Click **Tasks**
-3) Press **“+” icon** to add a new task
-4) Enter the **following**:
+</TabItem>
 
-| Field      | Value                         |
-| ---------- | ----------------------------- |
-| Task name  | `<unique_task_name>`          |
-| Type       | Notebook                      |
-| Source     | Workspace                     |
-| Path       | `</path/to/notebook>`         |
-| Cluster    | `<your_compute_cluster>`      |
+<TabItem value="addexisting" label="Add the Notebook to existing workflow">
+
+1. Open Existing **Workflow**
+2. Click **Tasks**
+3. Press **“+” icon** to add a new task
+4. Enter the **following**:
+
+| Field | Value |
+|---|---|
+| Task name | `<unique_task_name>` |
+| Type | Notebook |
+| Source | Workspace |
+| Path | `</path/to/notebook>` |
+| Cluster | `<your_compute_cluster>` |
 | Parameters | `job_id`: `<your_dbt_job_id>` |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 5. Select **Save Task**
 6. Click **Run Now** to test the workflow
 
-Multiple Workflow tasks can be set up using the same notebook by configuring the `job_id` parameter to point to different dbt jobs.
+</TabItem>
+</Tabs>
 
-Using Databricks workflows to access the dbt job API can improve integration of your data pipeline processes and enable scheduling of more complex workflows.
+Multiple Workflow tasks can be set up using the same notebook by configuring the `job_id` parameter to point to different <Constant name="dbt" /> jobs. 
 
-## Was this page helpful?
+Using Databricks workflows to access the <Constant name="dbt" /> job API can improve integration of your data pipeline processes and enable scheduling of more complex workflows.
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

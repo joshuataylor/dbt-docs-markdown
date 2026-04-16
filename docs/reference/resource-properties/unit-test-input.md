@@ -1,25 +1,17 @@
 # Input for unit tests
 
+
 Use inputs in your unit tests to reference a specific model or source for the test:
 
-* For `input:`, use a string that represents a `ref` or `source` call:
+-  For `input:`, use a string that represents a `ref` or `source` call:
+    - `ref('my_model')` or `ref('my_model', v='2')` or `ref('dougs_project', 'users')`
+    - `source('source_schema', 'source_name')`
+- Optionally use for seeds:
+    - If you don’t supply an input for a seed, we will use the seed _as_ the input.
+    - If you do supply an input for a seed, we will use that input instead.
+- Use “empty” inputs by setting rows to an empty list `rows: []`
 
-  <!-- -->
-
-  * `ref('my_model')` or `ref('my_model', v='2')` or `ref('dougs_project', 'users')`
-  * `source('source_schema', 'source_name')`
-
-* Optionally use for seeds:
-
-  <!-- -->
-
-  * If you don’t supply an input for a seed, we will use the seed *as* the input.
-  * If you do supply an input for a seed, we will use that input instead.
-
-* Use “empty” inputs by setting rows to an empty list `rows: []`
-
-models/schema.yml
-
+<File name='models/schema.yml'>
 ```yml
 unit_tests:
   - name: test_is_valid_email_address # this is the unique name of the test
@@ -36,12 +28,6 @@ unit_tests:
          - {tld: example.com}
          - {tld: gmail.com}
 ...
+
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

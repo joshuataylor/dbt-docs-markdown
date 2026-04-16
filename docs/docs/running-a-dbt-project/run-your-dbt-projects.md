@@ -1,42 +1,58 @@
 # Run your dbt projects
 
-You can run your dbt projects with [dbt](https://docs.getdbt.com/docs/cloud/about-cloud/dbt-cloud-features.md) or [dbt Core](https://github.com/dbt-labs/dbt-core):
 
-* **dbt**: A hosted application where you can develop directly from a web browser using the [Studio IDE](https://docs.getdbt.com/docs/cloud/studio-ide/develop-in-studio.md). It also natively supports developing using a command line interface, [dbt CLI](https://docs.getdbt.com/docs/cloud/cloud-cli-installation.md). Among other features, dbt provides:
+You can run your dbt projects locally or using the [<Constant name="dbt_platform" />](/docs/cloud/about-cloud/dbt-cloud-features) with the dbt framework.
 
-  * Development environment to help you build, test, run, and [version control](https://docs.getdbt.com/docs/cloud/git/git-version-control.md) your project faster.
-  * Share your [dbt project's documentation](https://docs.getdbt.com/docs/build/documentation.md) with your team.
-  * Integrates with the Studio IDE, allowing you to run development tasks and environment in the dbt UI for a seamless experience.
-  * The dbt CLI to develop and run dbt commands against your dbt development environment from your local command line.
-  * For more details, refer to [Develop dbt](https://docs.getdbt.com/docs/cloud/about-develop-dbt.md).
+## Common commands
 
-* **dbt Core**: An open source project where you can develop from the [command line](https://docs.getdbt.com/docs/core/installation-overview.md).
+In dbt, the commands you commonly use are:
 
-The dbt CLI and dbt Core are both command line tools that enable you to run dbt commands. The key distinction is the dbt CLI is tailored for dbt's infrastructure and integrates with all its [features](https://docs.getdbt.com/docs/cloud/about-cloud/dbt-cloud-features.md).
+- [dbt run](/reference/commands/run) &mdash; Run the models you defined in your project
+- [dbt build](/reference/commands/build) &mdash; Build and test your selected resources such as models, seeds, snapshots, and tests
+- [dbt test](/reference/commands/test) &mdash; Execute the tests you defined for your project
 
-The command line is available from your computer's terminal application such as Terminal and iTerm. With the command line, you can run commands and do other work from the current working directory on your computer. Before running the dbt project from the command line, make sure you are working in your dbt project directory. Learning terminal commands such as `cd` (change directory), `ls` (list directory contents), and `pwd` (present working directory) can help you navigate the directory structure on your system.
+For all dbt commands and their arguments (flags), see the [dbt command reference](/reference/dbt-commands). To list all dbt commands from the command line, run `dbt --help`. To list a specific command's arguments, run `dbt COMMAND_NAME --help`.
 
-In dbt or dbt Core, the commands you commonly use are:
+<Expandable alt_header="New to the command line?">
 
-* [dbt run](https://docs.getdbt.com/reference/commands/run.md) — Runs the models you defined in your project
-* [dbt build](https://docs.getdbt.com/reference/commands/build.md) — Builds and tests your selected resources such as models, seeds, snapshots, and tests
-* [dbt test](https://docs.getdbt.com/reference/commands/test.md) — Executes the tests you defined for your project
+If you're new to the command line:
+1. Open your computer's terminal application (such as Terminal or iTerm) to access the command line. 
+2. Make sure you navigate to your dbt project directory before running any dbt commands. 
+3. These terminal commands help you navigate your file system: `cd` (change directory), `ls` (list directory contents), and `pwd` (present working directory).
 
-For information on all dbt commands and their arguments (flags), see the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md). If you want to list all dbt commands from the command line, run `dbt --help`. To list a dbt command’s specific arguments, run `dbt COMMAND_NAME --help` .
+</Expandable>
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Where to run dbt
 
-* [How we set up our computers for working on dbt projects](https://discourse.getdbt.com/t/how-we-set-up-our-computers-for-working-on-dbt-projects/243)
-* [Model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* [dbt CLI](https://docs.getdbt.com/docs/cloud/cloud-cli-installation.md)
-* [Cloud Studio IDE features](https://docs.getdbt.com/docs/cloud/studio-ide/develop-in-studio.md#ide-features)
-* [Does dbt offer extract and load functionality?](https://docs.getdbt.com/faqs/Project/transformation-tool.md)
-* [Why does dbt compile need a data platform connection](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md)
+import DbtFramework from '/snippets/_dbt-framework.md';
 
-## Was this page helpful?
+<DbtFramework />
 
-YesNo
+### dbt platform
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+The <Constant name="dbt_platform" /> is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or locally using the <Constant name="fusion_engine" /> or <Constant name="core" /> engine.
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Develop in your browser using the <Constant name="studio_ide" />](/docs/cloud/studio-ide/develop-in-studio)
+- [Seamless drag-and-drop development with <Constant name="canvas" />](/docs/cloud/canvas)
+- [Run dbt commands from your local command line](#dbt-local-development) using dbt VS Code extension or <Constant name="platform_cli" /> (both which integrate seamlessly with the <Constant name="dbt_platform" /> project(s)).
+
+For more details, see [About dbt plans](https://www.getdbt.com/pricing).
+
+### dbt local development
+
+You can run dbt locally with the <Constant name="fusion_engine" /> or the <Constant name="core" /> engine:
+
+- [Install the dbt VS Code extension](/docs/about-dbt-extension) &mdash; Combines <Constant name="fusion_engine" /> performance with visual features like autocomplete, inline errors, and lineage. Includes [<Term id="lsp" /> features](/docs/about-dbt-lsp) and suitable for users with <Constant name="dbt_platform"/> projects or running dbt locally without a <Constant name="dbt_platform" /> project. _Recommended for local development._
+- [Install the Fusion CLI](/docs/local/install-dbt?version=2#get-started) &mdash; <Constant name="fusion_engine" /> from the command line, but doesn't include <Term id="lsp" /> features.
+- [Install the <Constant name="platform_cli" />](/docs/cloud/cloud-cli-installation) &mdash; The <Constant name="dbt_platform" /> CLI, which allows you to run dbt commands against your <Constant name="dbt_platform" /> development environment from your local command line. Requires a <Constant name="dbt_platform" /> project.
+- [Install <Constant name="core" />](/docs/local/install-dbt) &mdash; The open-source, Python-based CLI that uses the <Constant name="core" /> engine. Doesn't include <Term id="lsp" /> features.
+
+## Related docs
+
+- [About the dbt VS Code extension](/docs/about-dbt-extension)
+- [<Constant name="dbt" /> features](/docs/cloud/about-cloud/dbt-cloud-features)
+- [Model selection syntax](/reference/node-selection/syntax)
+- [<Constant name="dbt" /> CLI](/docs/cloud/cloud-cli-installation)
+- [<Constant name="studio_ide" /> features](/docs/cloud/studio-ide/develop-in-studio#ide-features)
+- [Does dbt offer extract and load functionality?](/faqs/Project/transformation-tool)
+- [Why does dbt compile need a data platform connection](/faqs/Warehouse/db-connection-dbt-compile)

@@ -1,31 +1,19 @@
-# dbt\_valid\_to\_current
 
-💡Did you know\...
+<VersionCallout version="1.9" />
 
-Available from dbt v
-
-<!-- -->
-
-1.9
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-snapshots/schema.yml
+<File name='snapshots/schema.yml'>
 
 ```yaml
 snapshots:
   - name: my_snapshot
     config:
       dbt_valid_to_current: "string"
+
 ```
 
-snapshots/\<filename>.sql
+</File>
+
+<File name='snapshots/<filename>.sql'>
 
 ```sql
 {{
@@ -38,35 +26,41 @@ snapshots/\<filename>.sql
 }}
 ```
 
-dbt\_project.yml
+</File>
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +dbt_valid_to_current: "string"
 ```
 
-## Description[​](#description "Direct link to Description")
+</File>
+
+## Description
 
 Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` for current records in the snapshot table.
 
 This approach makes it easier to assign a custom date, work in a join, or perform range-based filtering that requires an end date.
 
-warning
+:::warning
 
-To avoid any unintentional data modification, dbt will *not* automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
+To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
 
-Any new records inserted *after* applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (like '9999-12-31'), instead of the default `NULL` value.
+Any new records inserted _after_ applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (like '9999-12-31'), instead of the default `NULL` value.
 
-### Considerations[​](#considerations "Direct link to Considerations")
+:::
 
-* **Date expressions** — Provide a hardcoded date expression compatible with your data platform, such as `to_date('9999-12-31')`. Note that syntax may vary by warehouse (for example, `to_date('YYYY-MM-DD'`) or `date(YYYY, MM, DD)`).
+### Considerations
 
-* **Jinja limitation** — `dbt_valid_to_current` only accepts static SQL expressions. Jinja expressions (like `{{ var('my_future_date') }}`) are not supported.
+- **Date expressions** &mdash; Provide a hardcoded date expression compatible with your data platform, such as `to_date('9999-12-31')`. Note that syntax may vary by warehouse (for example, `to_date('YYYY-MM-DD'`) or `date(YYYY, MM, DD)`).
 
-* **Deferral and `state:modified`** — Changes to `dbt_valid_to_current` are compatible with deferral and `--select state:modified`. When this configuration changes, it'll appear in `state:modified` selections, raising a warning to manually make the necessary snapshot updates.
+- **Jinja limitation** &mdash; `dbt_valid_to_current` only accepts static SQL expressions. Jinja expressions (like `{{ var('my_future_date') }}`) are not supported.
 
-## Default[​](#default "Direct link to Default")
+- **Deferral and `state:modified`** &mdash; Changes to `dbt_valid_to_current` are compatible with deferral and `--select state:modified`. When this configuration changes, it'll appear in `state:modified` selections, raising a warning to manually make the necessary snapshot updates.
+
+## Default
 
 By default, `dbt_valid_to` is set to `NULL` for current (most recent) records in your snapshot table. This means that these records are still valid and have no defined end date.
 
@@ -74,19 +68,20 @@ If you prefer to use a specific value instead of `NULL` for `dbt_valid_to` in cu
 
 The value assigned to `dbt_valid_to_current` should be a string representing a valid date or timestamp, depending on your database's requirements. Use expressions that work within the data platform.
 
-## Impact on snapshot records[​](#impact-on-snapshot-records "Direct link to Impact on snapshot records")
+
+## Impact on snapshot records
 
 When you set `dbt_valid_to_current`, it affects how dbt manages the `dbt_valid_to` column in your snapshot table:
 
-* **For existing records** — To avoid any unintentional data modification, dbt will *not* automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
+- **For existing records** &mdash; To avoid any unintentional data modification, dbt will _not_ automatically adjust the current value in the existing `dbt_valid_to` column. Existing current records will still have `dbt_valid_to` set to `NULL`.
 
-* **For new records** — Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
+- **For new records** &mdash;  Any new records inserted after applying the `dbt_valid_to_current` configuration will have `dbt_valid_to` set to the specified value (for example, '9999-12-31'), instead of `NULL`.
 
 This means your snapshot table will have current records with `dbt_valid_to` values of both `NULL` (from existing data) and the new specified value (from new data). If you'd rather have consistent `dbt_valid_to` values for current records, you can manually update existing records in your snapshot table (where `dbt_valid_to` is `NULL`) to match your `dbt_valid_to_current` value.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-snapshots/schema.yml
+<File name='snapshots/schema.yml'>
 
 ```yaml
 snapshots:
@@ -105,23 +100,11 @@ snapshots:
           (like `'9999-12-31'`).
 ```
 
-The resulting snapshot table contains the configured dbt\_valid\_to column value:
+</File>
 
-| id | dbt\_scd\_id         | dbt\_updated\_at | dbt\_valid\_from | dbt\_valid\_to |
-| -- | -------------------- | ---------------- | ---------------- | -------------- |
-| 1  | 60a1f1dbdf899a4dd... | 2024-10-02 ...   | 2024-10-02 ...   | 9999-12-31 ... |
-| 2  | b1885d098f8bcff51... | 2024-10-02 ...   | 2024-10-02 ...   | 9999-12-31 ... |
+The resulting snapshot table contains the configured dbt_valid_to column value:
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+| id | dbt_scd_id           |    dbt_updated_at    |       dbt_valid_from |     dbt_valid_to     |
+| -- | -------------------- | -------------------- | -------------------- | -------------------- |
+|  1 | 60a1f1dbdf899a4dd... | 2024-10-02 ...       | 2024-10-02 ...       | 9999-12-31 ...       |
+|  2 | b1885d098f8bcff51... | 2024-10-02 ...       | 2024-10-02 ...       | 9999-12-31 ...       |

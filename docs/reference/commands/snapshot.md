@@ -1,31 +1,22 @@
 # About dbt snapshot command
 
-The `dbt snapshot` command executes the [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md) defined in your project.
 
-dbt will look for Snapshots in the `snapshot-paths` paths defined in your `dbt_project.yml` file. By default, the `snapshot-paths` path is `snapshots/`.
+The `dbt snapshot` command executes the [Snapshots](/docs/build/snapshots) defined in your project. Snapshots record changes to your source data over time by implementing [type-2 Slowly Changing Dimensions](https://en.wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row). Run `dbt snapshot` on a schedule (for example, daily) to capture changes in your source tables.
 
-**Usage:**
+Define snapshots in YAML with a strategy and `unique_key`; refer to [Snapshot configurations](/reference/snapshot-configs) for details on how to set them up. You can also run snapshots as part of [dbt build](/reference/commands/build).
 
-```text
-$ dbt snapshot --help
-usage: dbt snapshot [-h] [--profiles-dir PROFILES_DIR]
-                                     [--profile PROFILE] [--target TARGET]
-                                     [--vars VARS] [--bypass-cache]
-                                     [--threads THREADS]
-                                     [--select SELECTOR [SELECTOR ...]]
-                                     [--exclude EXCLUDE [EXCLUDE ...]]
+dbt looks for snapshots in the directories listed in `snapshot-paths` in your `dbt_project.yml` file. By default, dbt uses the `snapshots/` directory. You can specify multiple paths if you organize snapshots in more than one folder.
 
-optional arguments:
-  --select SELECTOR [SELECTOR ...]
-                        Specify the snapshots to include in the run.
-  --exclude EXCLUDE [EXCLUDE ...]
-                        Specify the snapshots to exclude in the run.
+## Usage
+
+To view the full list of supported options in your terminal, run:
+
 ```
+dbt snapshot --help
+```
+Use `--select` or `--exclude` to choose which snapshots run. For selection syntax, refer to [Node selection syntax](/reference/node-selection/syntax). For other flags (such as `--threads`, `--target`, and logging options), see [About flags (global configs)](/reference/global-configs/about-global-configs).
 
-## Was this page helpful?
+import SnapshotCompiledSql from '/snippets/_snapshot-compiled-sql.md';
 
-YesNo
+<SnapshotCompiledSql />
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

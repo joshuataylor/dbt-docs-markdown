@@ -1,10 +1,11 @@
 # How do I create dependencies between models?
 
-When you use the `ref` [function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), dbt automatically infers the dependencies between models.
+
+When you use the `ref` [function](/reference/dbt-jinja-functions/ref), dbt automatically infers the dependencies between models.
 
 For example, consider a model, `customer_orders`, like so:
 
-models/customer\_orders.sql
+<File name='models/customer_orders.sql'>
 
 ```sql
 select
@@ -14,7 +15,10 @@ select
     count(order_id) as number_of_orders
 from {{ ref('stg_orders') }}
 group by 1
+
 ```
+
+</File>
 
 **There's no need to explicitly define these dependencies.** dbt will understand that the `stg_orders` model needs to be built before the above model (`customer_orders`). When you execute `dbt run`, you will see these being built in order:
 
@@ -35,12 +39,4 @@ Found 2 models, 28 data tests, 0 snapshots, 0 analyses, 130 macros, 0 operations
 Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
 
-To learn more about building a dbt project, we recommend you complete the [quickstart guide](https://docs.getdbt.com/guides.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+To learn more about building a dbt project, we recommend you complete the [quickstart guide](/guides).

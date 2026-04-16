@@ -1,19 +1,27 @@
 # Microsoft Fabric Data Warehouse configurations
 
-This page describes configuration options specific to the `dbt-fabric` adapter for Microsoft Fabric Data Warehouse. It outlines supported materializations, incremental strategies (including [merge](#merge) and ]microbatch]\(#microbatch)), cross-warehouse references, warehouse snapshots, and profile setup.
 
-## Materializations[​](#materializations "Direct link to Materializations")
+This page describes configuration options specific to the `dbt-fabric` adapter for Microsoft Fabric Data Warehouse. It outlines supported materializations, incremental strategies (including [merge](#merge) and [microbatch](#microbatch)), cross-warehouse references, warehouse snapshots, and profile setup.
+
+## Materializations
 
 Ephemeral materialization is not supported due to T-SQL not supporting nested CTEs. It may work in some cases when you're working with very simple ephemeral models.
 
-### Tables[​](#tables "Direct link to Tables")
+### Tables
 
 Tables are the default materialization in dbt-fabric. When you configure a model as a table, dbt will create or replace the table in Fabric Data Warehouse on each run.
 
-* Model config
-* Project config
+<Tabs
+defaultValue="model"
+values={[
+{label: 'Model config', value: 'model'},
+{label: 'Project config', value: 'project'}
+]}
+>
 
-models/example.sql
+<TabItem value="model">
+
+<File name="models/example.sql">
 
 ```sql
 {{
@@ -26,7 +34,13 @@ select *
 from ...
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="project">
+
+<File name="dbt_project.yml">
 
 ```yaml
 models:
@@ -36,10 +50,15 @@ models:
       materialized: table
 ```
 
-> **Limitation:** Nested CTE aren't supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
+</File>
 
-## Table Clone[​](#table-clone "Direct link to Table Clone")
+</TabItem>
 
+</Tabs>
+
+> **Limitation:** Nested <Term id="cte"/> aren't supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
+
+## Table Clone
 The `table_clone` materialization creates a physical copy of an existing table using Fabric’s cloning capabilities. This is useful for versioning, branching, or snapshot-like workflows.
 
 ```sql
@@ -48,26 +67,27 @@ select * from staging_table
 ```
 
 **Notes:**
+- The source table must exist in the target warehouse.
+- Cloning preserves the schema and data state at the time of creation.
+- Ideal for scenarios requiring fast, zero-copy duplication for testing or rollback.
 
-* The source table must exist in the target warehouse.
-* Cloning preserves the schema and data state at the time of creation.
-* Ideal for scenarios requiring fast, zero-copy duplication for testing or rollback.
+## Seeds
 
-## Seeds[​](#seeds "Direct link to Seeds")
-
-By default, `dbt-fabric` will attempt to insert seed files in batches of 400 rows. If this exceeds Microsoft Fabric Data Warehouse 2100 parameter limit, the adapter will automatically limit to the highest safe value possible.
+By default, `dbt-fabric` will attempt to insert seed files in batches of 400 rows.
+If this exceeds Microsoft Fabric Data Warehouse 2100 parameter limit, the adapter will automatically limit to the highest safe value possible.
 
 To set a different default seed value, you can set the variable `max_batch_size` in your project configuration.
 
-dbt\_project.yml
+<File name="dbt_project.yml">
 
 ```yaml
 vars:
   max_batch_size: 200 # Any integer less than or equal to 2100 will do.
 ```
 
-## Views[​](#views "Direct link to Views")
+</File>
 
+## Views
 You can create views using the `view` materialization:
 
 ```sql
@@ -85,24 +105,25 @@ models:
 
 > **Limitation:** Nested CTEs (Common Table Expressions) are not supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
 
-Columns in source tables can not have any constraints. If, for example, any column has a `NOT NULL` constraint, an error will be thrown.
+## Snapshots
 
-## Indexes[​](#indexes "Direct link to Indexes")
+Columns in source tables can not have any constraints.
+If, for example, any column has a `NOT NULL` constraint, an error will be thrown.
+
+## Indexes
 
 Indexes are not supported by Microsoft Fabric Data Warehouse. Any Indexes provided as a configuration is ignored by the adapter.
 
-## Grants with auto provisioning[​](#grants-with-auto-provisioning "Direct link to Grants with auto provisioning")
+## Grants with auto provisioning
 
 Grants with auto provisioning is not supported by Microsoft Fabric Data Warehouse at this time.
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 Incremental materializations are supported with multiple strategies. In **dbt-fabric**, the **default strategy is `merge`**, introduced in v1.9.7. Other supported strategies include `append`, `delete+insert`, and `microbatch`.
 
-### Merge (default)[​](#merge-default "Direct link to Merge (default)")
-
+### Merge (default)
 The `merge` strategy automatically updates existing records and inserts new ones based on the configured `unique_key`.
 
 ```sql
@@ -118,8 +139,7 @@ select * from source_table
 {% endif %}
 ```
 
-### Append[​](#append "Direct link to Append")
-
+### Append
 Appends new records to the existing dataset.
 
 ```sql
@@ -131,9 +151,7 @@ Appends new records to the existing dataset.
 }}
 select * from new_data
 ```
-
-### Delete+Insert[​](#deleteinsert "Direct link to Delete+Insert")
-
+### Delete+Insert
 Deletes and re-inserts based on `unique_key`.
 
 ```sql
@@ -147,8 +165,7 @@ Deletes and re-inserts based on `unique_key`.
 select * from updated_data
 ```
 
-### Microbatch[​](#microbatch "Direct link to Microbatch")
-
+### Microbatch
 The `microbatch` strategy processes data in bounded time intervals using an event timestamp column.
 
 ```sql
@@ -163,20 +180,17 @@ The `microbatch` strategy processes data in bounded time intervals using an even
 
 select * from raw_events
 ```
+#### Notes
+- [`event_time`](/reference/resource-configs/event-time) must be a valid timestamp column.
+- dbt processes each batch independently, allowing efficient incremental refresh of large time-series datasets.
+- If you don't specify a `unique_key`, dbt-fabric defaults to `append`.
 
-#### Notes[​](#notes "Direct link to Notes")
-
-* [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) must be a valid timestamp column.
-* dbt processes each batch independently, allowing efficient incremental refresh of large time-series datasets.
-* If you don't specify a `unique_key`, dbt-fabric defaults to `append`.
-
-For more details, see [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md).
-
-## Permissions[​](#permissions "Direct link to Permissions")
+For more details, see [Incremental models](/docs/build/incremental-models).
+## Permissions
 
 The Microsoft Entra identity (user or service principal) must be a Fabric Workspace admin to work on the database level at this time. Fine grain access control will be incorporated in the future.
 
-## Cross-warehouse references[​](#cross-warehouse-references "Direct link to Cross-warehouse references")
+## Cross-warehouse references
 
 The dbt-fabric adapter supports cross-warehouse queries using `source()` or `ref()` macros.
 
@@ -189,7 +203,6 @@ select * from {{ ref('customer_dim') }}
 Ensure that the corresponding model or source definitions specify the correct `database:` parameter to reference another Fabric Warehouse.
 
 Example `sources.yml`:
-
 ```yaml
 sources:
   - name: sales_dw
@@ -198,16 +211,15 @@ sources:
     tables:
       - name: transactions
 ```
-
 > To use cross-warehouse references or warehouse snapshots, ensure the identity configured here has access to all referenced Fabric Warehouses.
 
-## Warehouse snapshots[​](#warehouse-snapshots "Direct link to Warehouse snapshots")
+## Warehouse snapshots
 
 Microsoft Fabric warehouse snapshots are read-only copies of your warehouse at a specific moment, kept for up to 30 days. They allow analysts query a stable dataset, even while ELT processes are updating the warehouse. By moving the snapshot’s timestamp forward, changes are applied all at once (atomically).
 
-dbt-fabric supports warehouse snapshots, which helps track changes in Fabric Data Warehouse objects between dbt runs. Fabric automatically creates snapshots *before* and *after* you run the `dbt run`, `dbt build`, or `dbt snapshot` commands.
+dbt-fabric supports warehouse snapshots, which helps track changes in Fabric Data Warehouse objects between dbt runs. Fabric automatically creates snapshots _before_ and _after_ you run the `dbt run`, `dbt build`, or `dbt snapshot` commands.
 
-To use them, your `profiles.yml` must include the `workspace_id` and the warehouse snapshot name so dbt can create the snapshot as a child item of your warehouse.
+To use them, your `profiles.yml` must include the `workspace_id` and the warehouse snapshot name so dbt can create the snapshot as a child item of your warehouse. 
 
 Learn more [here](https://learn.microsoft.com/en-us/fabric/data-warehouse/warehouse-snapshot)
 
@@ -229,19 +241,11 @@ fabric_dw:
 - After execution, the warehouse snapshot is created with snapshot timestamp.
 
 For additional details:
-- dbt snapshot documentation
-- Fabric adapter snapshots reference
+- [dbt snapshot documentation](/docs/build/snapshots)
+- [Fabric adapter snapshots reference](/reference/resource-configs/fabric-configs)
 
 
 ## dbt-utils
 
-Not supported at this time. However, dbt-fabric offers some dbt-utils macros. Please check out the tsql-utils package.
-```
+Not supported at this time. However, dbt-fabric offers some dbt-utils macros. Please check out the [tsql-utils package](https://github.com/dbt-msft/tsql-utils).
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

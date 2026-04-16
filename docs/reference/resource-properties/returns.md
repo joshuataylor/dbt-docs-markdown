@@ -1,22 +1,8 @@
 # returns
 
-💡Did you know\...
+<VersionCallout version="1.11" /> 
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-functions/\<filename>.yml
+<File name='functions/<filename>.yml'>
 
 ```yml
 
@@ -26,38 +12,40 @@ functions:
     returns:
       data_type: <string> # required, warehouse-specific
       description: <markdown_string> # optional
+
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
+
+## Definition
 
 The `returns` property defines the output of a user-defined function (UDF). This is a required property for all functions and specifies what data type the function will return when executed.
 
-## Properties[​](#properties "Direct link to Properties")
+## Properties
 
-### data\_type (required)[​](#data_type-required "Direct link to data_type (required)")
+### data_type (required)
 
 The `data_type` field specifies the data type that the function returns. This is a required field and must match the data types supported by your specific data platform.
 
-Warehouse-specific data types
-
+:::important Warehouse-specific data types
 The `data_type` values are warehouse-specific. Use the data type syntax that your warehouse requires:
-
-* **Snowflake**: `STRING`, `NUMBER`, `BOOLEAN`, `TIMESTAMP_NTZ`, `VARIANT`, etc.
-* **BigQuery**: `STRING`, `INT64`, `BOOL`, `TIMESTAMP`, `ARRAY<STRING>`, `STRUCT`, etc.
-* **Redshift**: `VARCHAR`, `INTEGER`, `BOOLEAN`, `TIMESTAMP`, `SUPER`, etc.
-* **Postgres**: `TEXT`, `INTEGER`, `BOOLEAN`, `TIMESTAMP`, `JSONB`, etc.
+- **Snowflake**: `STRING`, `NUMBER`, `BOOLEAN`, `TIMESTAMP_NTZ`, `VARIANT`, etc.
+- **BigQuery**: `STRING`, `INT64`, `BOOL`, `TIMESTAMP`, `ARRAY<STRING>`, `STRUCT`, etc.
+- **Redshift**: `VARCHAR`, `INTEGER`, `BOOLEAN`, `TIMESTAMP`, `SUPER`, etc.
+- **Postgres**: `TEXT`, `INTEGER`, `BOOLEAN`, `TIMESTAMP`, `JSONB`, etc.
 
 Refer to your warehouse documentation for the complete list of supported data types and their syntax.
+:::
 
-### description[​](#description "Direct link to description")
+### description
 
 An optional markdown string describing what the function returns. This is helpful for documentation purposes.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Simple scalar function[​](#simple-scalar-function "Direct link to Simple scalar function")
+### Simple scalar function
 
-functions/schema.yml
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -73,9 +61,11 @@ functions:
       description: Returns true if the string is a valid email format, false otherwise
 ```
 
-### Function with complex return type[​](#function-with-complex-return-type "Direct link to Function with complex return type")
+</File>
 
-functions/schema.yml
+### Function with complex return type
+
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -92,9 +82,11 @@ functions:
       description: The calculated profit margin as a percentage
 ```
 
-### BigQuery function with ARRAY return type[​](#bigquery-function-with-array-return-type "Direct link to BigQuery function with ARRAY return type")
+</File>
 
-functions/schema.yml
+### BigQuery function with ARRAY return type
+
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -109,17 +101,12 @@ functions:
       description: An array of individual tag strings
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+</File>
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [Arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
+## Related documentation
 
-## Was this page helpful?
+- [User-defined functions](/docs/build/udfs)
+- [Function properties](/reference/function-properties)
+- [Function configurations](/reference/function-configs)
+- [Arguments](/reference/resource-properties/function-arguments)
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

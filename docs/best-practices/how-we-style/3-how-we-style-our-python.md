@@ -1,19 +1,20 @@
 # How we style our Python
 
-## Python tooling[​](#python-tooling "Direct link to Python tooling")
 
-* 🐍 Python has a more mature and robust ecosystem for formatting and linting (helped by the fact that it doesn't have a million distinct dialects). We recommend using those tools to format and lint your code in the style you prefer.
+## Python tooling
 
-* 🛠️ Our current recommendations are
+- 🐍 Python has a more mature and robust ecosystem for formatting and linting (helped by the fact that it doesn't have a million distinct dialects). We recommend using those tools to format and lint your code in the style you prefer.
 
-  * [black](https://pypi.org/project/black/) formatter
-  * [ruff](https://pypi.org/project/ruff/) linter
+- 🛠️ Our current recommendations are
 
-  info
+  - [black](https://pypi.org/project/black/) formatter
+  - [ruff](https://pypi.org/project/ruff/) linter
 
-  ☁️ dbt comes with the [black formatter built-in](https://docs.getdbt.com/docs/cloud/studio-ide/lint-format.md) to automatically lint and format their Python. You don't need to download or configure anything, just click `Format` in a Python model and you're good to go!
+  :::info
+  ☁️ <Constant name="dbt" /> comes with the [black formatter built-in](/docs/cloud/studio-ide/lint-format) to automatically lint and format their Python. You don't need to download or configure anything, just click `Format` in a Python model and you're good to go!
+  :::
 
-## Example Python[​](#example-python "Direct link to Example Python")
+## Example Python
 
 ```python
 import pandas as pd
@@ -39,11 +40,3 @@ def model(dbt, session):
     )
     return orders_df
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

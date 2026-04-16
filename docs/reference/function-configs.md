@@ -1,114 +1,143 @@
 # Function configurations
 
-💡Did you know\...
 
-Available from dbt v
+import ConfigResource from '/snippets/_config-description-resource.md';
+import ConfigGeneral from '/snippets/_config-description-general.md';
 
-<!-- -->
+<VersionCallout version="1.11" /> 
 
-1.11
+## Available configurations
+### Function-specific configurations
 
-<!-- -->
+<ConfigResource meta={frontMatter.meta} />
 
-or with the
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project YAML file', value: 'project-yaml', },
+    { label: 'Properties YAML file', value: 'property-yaml', },
+  ]
+}>
+<TabItem value="project-yaml">
 
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
-
-### Function-specific configurations[​](#function-specific-configurations "Direct link to Function-specific configurations")
-
-Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
-
-The following resource-specific configurations are only available to <!-- -->Functions:
-
-* Project YAML file
-* Properties YAML file
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 functions:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     # Function-specific configs are defined in the properties YAML file
     # See functions/schema.yml examples below
+
 ```
 
-functions/schema.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='functions/schema.yml'>
 
 ```yaml
 
 functions:
   - name: [<function-name>]
     config:
-      type: scalar  # optional, defaults to scalar. Eventually will include aggregate | table
-      volatility: deterministic | stable | non-deterministic # optional
-      runtime_version: <string> # required for Python UDFs
-      entry_point: <string> # required for Python UDFs
+      [type](/reference/resource-configs/type): scalar  # optional, defaults to scalar. Eventually will include aggregate | table
+      [volatility](/reference/resource-configs/volatility): deterministic | stable | non-deterministic # optional
+      [runtime_version](/reference/resource-configs/runtime-version): <string> # required for Python UDFs
+      [entry_point](/reference/resource-configs/entry-point): <string> # required for Python UDFs
       # Standard configs that apply to functions
-      database: <string>
-      schema: <string>
-      alias: <string>
-      tags: <string> | [<string>]
-      meta: {<dictionary>}
+      [database](/reference/resource-configs/database): <string>
+      [schema](/reference/resource-properties/schema): <string>
+      [alias](/reference/resource-configs/alias): <string>
+      [tags](/reference/resource-configs/tags): <string> | [<string>]
+      [meta](/reference/resource-configs/meta): {<dictionary>}
+
 ```
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+</File>
 
-General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
+</TabItem>
 
-Database, schema, and alias configuration
+</Tabs>
 
+### General configurations
+
+<ConfigGeneral />
+
+:::note Database, schema, and alias configuration
 Functions support `database`, `schema`, and `alias` configurations just like models. These determine where the function is created in your warehouse. The function will use the standard dbt configuration precedence (specific config > project config > target profile defaults).
+:::
 
-* Project YAML file
-* Properties YAML file
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project YAML file', value: 'project-yaml', },
+    { label: 'Properties YAML file', value: 'property-yaml', },
+  ]
+}>
 
-dbt\_project.yml
+<TabItem value="project-yaml">
+
+<File name='dbt_project.yml'>
 
 ```yaml
 functions:
-  <resource-path>:
-    +enabled: true | false
-    +tags: <string> | [<string>]
-    +database: <string>
-    +schema: <string>
-    +alias: <string>
-    +meta: {<dictionary>}
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[enabled](/reference/resource-configs/enabled): true | false
+    [+](/reference/resource-configs/plus-prefix)[tags](/reference/resource-configs/tags): <string> | [<string>]
+    [+](/reference/resource-configs/plus-prefix)[database](/reference/resource-configs/database): <string>
+    [+](/reference/resource-configs/plus-prefix)[schema](/reference/resource-properties/schema): <string>
+    [+](/reference/resource-configs/plus-prefix)[alias](/reference/resource-configs/alias): <string>
+    [+](/reference/resource-configs/plus-prefix)[meta](/reference/resource-configs/meta): {<dictionary>}
+
 ```
 
-functions/schema.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='functions/schema.yml'>
 
 ```yaml
 
 functions:
   - name: [<function-name>]
     config:
-      enabled: true | false
-      tags: <string> | [<string>]
-      database: <string>
-      schema: <string>
-      alias: <string>
-      meta: {<dictionary>}
+      [enabled](/reference/resource-configs/enabled): true | false
+      [tags](/reference/resource-configs/tags): <string> | [<string>]
+      [database](/reference/resource-configs/database): <string>
+      [schema](/reference/resource-properties/schema): <string>
+      [alias](/reference/resource-configs/alias): <string>
+      [meta](/reference/resource-configs/meta): {<dictionary>}
+
 ```
 
-## Configuring functions[​](#configuring-functions "Direct link to Configuring functions")
+</File>
 
+</TabItem>
+</Tabs>
+
+
+## Configuring functions
 Functions are configured in YAML files, either in `dbt_project.yml` or within an individual function's YAML properties file. The function body is defined in a SQL file in the `functions/` directory.
 
-Function configurations, like model configurations, are applied hierarchically. For more info, refer to [config inheritance](https://docs.getdbt.com/reference/define-configs.md#config-inheritance).
+Function configurations, like model configurations, are applied hierarchically. For more info, refer to [config inheritance](/reference/define-configs#config-inheritance). 
 
-Functions respect the same name-generation macros as models: [`generate_database_name`](https://docs.getdbt.com/docs/build/custom-databases.md), [`generate_schema_name`](https://docs.getdbt.com/docs/build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name), and [`generate_alias_name`](https://docs.getdbt.com/docs/build/custom-aliases.md).
+Functions respect the same name-generation macros as models: [`generate_database_name`](/docs/build/custom-databases), [`generate_schema_name`](/docs/build/custom-schemas#how-does-dbt-generate-a-models-schema-name), and [`generate_alias_name`](/docs/build/custom-aliases).
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
+#### Apply the `schema` configuration to all functions
+To apply a configuration to all functions, including those in any installed [packages](/docs/build/packages), nest the configuration directly under the `functions` key:
 
-#### Apply the `schema` configuration to all functions[​](#apply-the-schema-configuration-to-all-functions "Direct link to apply-the-schema-configuration-to-all-functions")
-
-To apply a configuration to all functions, including those in any installed [packages](https://docs.getdbt.com/docs/build/packages.md), nest the configuration directly under the `functions` key:
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 
@@ -116,13 +145,15 @@ functions:
   +schema: udf_schema
 ```
 
-#### Apply the `schema` configuration to all functions in your project[​](#apply-the-schema-configuration-to-all-functions-in-your-project "Direct link to apply-the-schema-configuration-to-all-functions-in-your-project")
+</File>
 
-To apply a configuration to all functions in your project only (i.e. *excluding* any functions in installed packages), provide your [project name](https://docs.getdbt.com/reference/project-configs/name.md) as part of the resource path.
+
+#### Apply the `schema` configuration to all functions in your project
+To apply a configuration to all functions in your project only (i.e. _excluding_ any functions in installed packages), provide your [project name](/reference/project-configs/name.md) as part of the resource path.
 
 For a project named `jaffle_shop`:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 
@@ -131,13 +162,15 @@ functions:
     +schema: udf_schema
 ```
 
+</File>
+
 Similarly, you can use the name of an installed package to configure functions in that package.
 
-#### Apply the `schema` configuration to one function only[​](#apply-the-schema-configuration-to-one-function-only "Direct link to apply-the-schema-configuration-to-one-function-only")
+#### Apply the `schema` configuration to one function only
 
 To apply a configuration to one function only in a properties file, specify the configuration in the function's `config` block:
 
-functions/schema.yml
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -147,9 +180,11 @@ functions:
       schema: udf_schema
 ```
 
+</File>
+
 To apply a configuration to one function only in `dbt_project.yml`, provide the full resource path (including the project name and subdirectories). For a project named `jaffle_shop`, with a function file at `functions/is_positive_int.sql`:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 functions:
@@ -158,14 +193,17 @@ functions:
       +schema: udf_schema
 ```
 
-## Example function configuration[​](#example-function-configuration "Direct link to Example function configuration")
+</File>
+
+
+## Example function configuration
 
 The following example shows how to configure functions in a project named `jaffle_shop` that has two function files:
+- `functions/is_positive_int.sql`
+- `functions/marketing/clean_url.sql`
 
-* `functions/is_positive_int.sql`
-* `functions/marketing/clean_url.sql`
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 name: jaffle_shop
@@ -181,7 +219,9 @@ functions:
       +schema: marketing_udfs # this will take precedence
 ```
 
-functions/schema.yml
+</File>
+
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -202,10 +242,4 @@ functions:
       description: Returns true if the string represents a positive integer
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

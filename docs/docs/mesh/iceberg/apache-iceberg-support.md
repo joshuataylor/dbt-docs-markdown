@@ -1,41 +1,38 @@
 # Apache Iceberg Support
 
+
 Apache Iceberg is an open standard table format that brings greater portability and interoperability to the data ecosystem. By standardizing how data is stored and accessed, Iceberg enables teams to work across different engines and platforms with confidence. It has many components to it but the main ones that dbt interacts with are:
 
-* **Iceberg Table Format** - an open-source table format. Tables materialized in iceberg table format are stored on a user’s infrastructure, such as a S3 Bucket.
-* **Iceberg Data Catalog** - an open-source metadata management system that tracks the schema, partition, and versions of Iceberg tables.
-* **Iceberg REST Protocol** (also referred to as Iceberg REST API) is how engines can support and speak to other Iceberg-compatible catalogs.
+- **Iceberg Table Format** - an open-source table format. Tables materialized in iceberg table format are stored on a user’s infrastructure, such as a S3 Bucket.
+- **Iceberg Data Catalog** - an open-source metadata management system that tracks the schema, partition, and versions of Iceberg tables.
+- **Iceberg REST Protocol** (also referred to as Iceberg REST API) is how engines can support and speak to other Iceberg-compatible catalogs.
 
 dbt abstracts the complexity of table formats so teams can focus on delivering reliable, well-modeled data. Our initial integration with Iceberg supports table materializations and catalog integrations, allowing users to define and manage Iceberg tables directly in their dbt projects. To learn more, click on one of the following tiles
 
-[![](/img/icons/dbt-icon.svg)](https://docs.getdbt.com/docs/mesh/iceberg/about-catalogs.md)
+<div className="grid--4-col">
 
-#### [Using dbt + Iceberg Catalog overview](https://docs.getdbt.com/docs/mesh/iceberg/about-catalogs.md)
+<Card
+    title="Using dbt + Iceberg Catalog overview"
+    body="dbt support for Apache Iceberg"
+    link="/docs/mesh/iceberg/about-catalogs"
+    icon="dbt-icon"/>
 
-[dbt support for Apache Iceberg](https://docs.getdbt.com/docs/mesh/iceberg/about-catalogs.md)
+<Card
+    title="Snowflake"
+    body="Snowflake Iceberg Configurations"
+    link="/docs/mesh/iceberg/snowflake-iceberg-support"
+    icon="snowflake"/>
 
-[![](/img/icons/snowflake.svg)](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md)
+<Card
+    title="BigQuery"
+    body="BigQuery Iceberg Configurations"
+    link="/docs/mesh/iceberg/bigquery-iceberg-support"
+    icon="bigquery"/>
 
-#### [Snowflake](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md)
+<Card
+    title="Databricks"
+    body="Databricks Iceberg Configurations"
+    link="/docs/mesh/iceberg/databricks-iceberg-support"
+    icon="databricks"/>
 
-[Snowflake Iceberg Configurations](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md)
-
-[![](/img/icons/bigquery.svg)](https://docs.getdbt.com/docs/mesh/iceberg/bigquery-iceberg-support.md)
-
-#### [BigQuery](https://docs.getdbt.com/docs/mesh/iceberg/bigquery-iceberg-support.md)
-
-[BigQuery Iceberg Configurations](https://docs.getdbt.com/docs/mesh/iceberg/bigquery-iceberg-support.md)
-
-[![](/img/icons/databricks.svg)](https://docs.getdbt.com/docs/mesh/iceberg/databricks-iceberg-support.md)
-
-#### [Databricks](https://docs.getdbt.com/docs/mesh/iceberg/databricks-iceberg-support.md)
-
-[Databricks Iceberg Configurations](https://docs.getdbt.com/docs/mesh/iceberg/databricks-iceberg-support.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

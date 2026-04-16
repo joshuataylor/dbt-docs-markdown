@@ -1,48 +1,127 @@
-# strategy
 
-* timestamp
-* check
+<Tabs
+  defaultValue="timestamp"
+  values={[
+    { label: 'timestamp', value: 'timestamp', },
+    { label: 'check', value: 'check', }
+  ]
+}>
+<TabItem value="timestamp">
 
-dbt\_project.yml
+<VersionBlock firstVersion="1.9">
+
+<File name='snapshots/<filename>.yml'>
+  
+  ```yaml
+  snapshots:
+  - [name: snapshot_name](/reference/resource-configs/snapshot_name):
+    relation: source('my_source', 'my_table')
+    config:
+      strategy: timestamp
+      updated_at: column_name
+  ```
+</File>
+</VersionBlock>
+
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +strategy: timestamp
     +updated_at: column_name
+
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="check">
+
+<VersionBlock firstVersion="1.9">
+
+<File name='snapshots/<filename>.yml'>
+  
+  ```yaml
+  snapshots:
+  - [name: snapshot_name](/reference/resource-configs/snapshot_name):
+    relation: source('my_source', 'my_table')
+    config:
+      strategy: check
+      check_cols: [column_name] | "all"
+  ```
+</File>
+</VersionBlock>
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +strategy: check
     +check_cols: [column_name] | all
+
 ```
 
-## Description[​](#description "Direct link to Description")
+</File>
 
-The snapshot strategy dbt should use to detect record changes. Read the guide to [snapshots](https://docs.getdbt.com/docs/build/snapshots.md#detecting-row-changes) to understand the differences between the two.
+</TabItem>
 
-## Default[​](#default "Direct link to Default")
+</Tabs>
 
+## Description
+The snapshot strategy dbt should use to detect record changes. Read the guide to [snapshots](/docs/build/snapshots#detecting-row-changes) to understand the differences between the two.
+
+## Default
 This is a **required configuration**. There is no default value.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
+### Use the timestamp strategy
 
-### Use the timestamp strategy[​](#use-the-timestamp-strategy "Direct link to Use the timestamp strategy")
+<VersionBlock firstVersion="1.9">
+<File name='snapshots/timestamp_example.yml'>
 
-<!-- -->
+```yaml
+snapshots:
+  - name: orders_snapshot_timestamp
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      strategy: timestamp
+      unique_key: id
+      updated_at: updated_at
 
-### Use the check strategy[​](#use-the-check-strategy "Direct link to Use the check strategy")
+```
 
-<!-- -->
+</File>
+</VersionBlock>
 
-### Advanced: define and use custom snapshot strategy[​](#advanced-define-and-use-custom-snapshot-strategy "Direct link to Advanced: define and use custom snapshot strategy")
 
+### Use the check strategy
+
+<VersionBlock firstVersion="1.9">
+<File name='snapshots/check_example.yml'>
+
+```yaml
+snapshots:
+  - name: orders_snapshot_check
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      unique_key: id
+      strategy: check
+      check_cols:
+        - status
+        - is_cancelled
+
+```
+</File>
+</VersionBlock>
+
+### Advanced: define and use custom snapshot strategy
 Behind the scenes, snapshot strategies are implemented as macros, named `snapshot_<strategy>_strategy`
-
 * [Source code](https://github.com/dbt-labs/dbt-adapters/blob/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/materializations/snapshots/strategies.sql#L52) for the timestamp strategy
 * [Source code](https://github.com/dbt-labs/dbt-adapters/blob/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/materializations/snapshots/strategies.sql#L136) for the check strategy
 
@@ -51,10 +130,18 @@ It's possible to implement your own snapshot strategy by adding a macro with the
 1. Create a macro named `snapshot_timestamp_with_deletes_strategy`. Use the existing code as a guide and adjust as needed.
 2. Use this strategy via the `strategy` configuration:
 
-## Was this page helpful?
+<VersionBlock firstVersion="1.9">
+<File name='snapshots/<filename>.yml'>
 
-YesNo
+```yaml
+snapshots:
+  - name: my_custom_snapshot
+    relation: source('my_source', 'my_table')
+    config:
+      strategy: timestamp_with_deletes
+      updated_at: updated_at_column
+      unique_key: id
+```
+</File>
+</VersionBlock>
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1,27 +1,25 @@
 # Amazon Redshift adapter behavior changes
 
-The following are the current [behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) that are specific to `dbt-redshift`:
 
-| Flag                                                                                                       | `dbt-redshift`: Intro | `dbt-redshift`: Maturity | Status |
-| ---------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------ | ------ |
-| [`restrict_direct_pg_catalog_access`](#restrict_direct_pg_catalog_access-flag)                             | 1.9.0                 | TBD                      | Active |
-| [`redshift_skip_autocommit_transaction_statements`](#redshift_skip_autocommit_transaction_statements-flag) | 1.12.0                | TBD                      | Active |
+The following are the current [behavior change flags](/docs/reference/global-configs/behavior-changes.md#behavior-change-flags) that are specific to `dbt-redshift`:
 
-Search table...
+<SimpleTable>
+| Flag                          | `dbt-redshift`: Intro | `dbt-redshift`: Maturity | Status |
+| ----------------------------- | --------------------- | ------------------------ | ------ |
+| [`redshift_skip_autocommit_transaction_statements`](#redshift_skip_autocommit_transaction_statements-flag) | 1.12.0 | TBD | Active |
+</SimpleTable>
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+<!--
+## `restrict_direct_pg_catalog_access` flag
 
-## `restrict_direct_pg_catalog_access` flag[​](#restrict_direct_pg_catalog_access-flag "Direct link to restrict_direct_pg_catalog_access-flag")
-
-Originally, the `dbt-redshift` adapter was built on top of the `dbt-postgres` adapter and used Postgres tables for metadata access. When this flag is enabled, the adapter uses the Redshift API (through the Python client) if available, or queries Redshift's `information_schema` tables instead of using the `pg_` tables *for some metadata queries*.
+Originally, the `dbt-redshift` adapter was built on top of the `dbt-postgres` adapter and used Postgres tables for metadata access. When this flag is enabled, the adapter uses the Redshift API (through the Python client) if available, or queries Redshift's `information_schema` tables instead of using the `pg_` tables _for some metadata queries_.
 
 Note that this flag does not apply to all metadata queries emitted by the adapter. For example, a list relations query may continue to query `information_schema` even when the flag is disabled.
 
 While you shouldn't notice any behavior changes due to this change, however, to be cautious dbt Labs is gating it behind a behavior-change flag and encouraging you to test it before it becoming the default.
+-->
 
-## `redshift_skip_autocommit_transaction_statements` flag[​](#redshift_skip_autocommit_transaction_statements-flag "Direct link to redshift_skip_autocommit_transaction_statements-flag")
+## `redshift_skip_autocommit_transaction_statements` flag
 
 The `redshift_skip_autocommit_transaction_statements` flag is `True` by default.
 
@@ -29,37 +27,31 @@ When `autocommit=True` (the default since `dbt-redshift 1.5`), each statement is
 
 With the `redshift_skip_autocommit_transaction_statements` flag enabled, dbt skips sending transaction management statements when you enable autocommit, reducing unnecessary round trips and improving performance.
 
-#### Key behaviors[​](#key-behaviors "Direct link to Key behaviors")
+#### Key behaviors
 
 When both the flag and autocommit are `True`:
 
-* `begin()` skips sending `BEGIN`
-* `commit()` skips sending `COMMIT`
-* `rollback_if_open()` skips sending `ROLLBACK`
+- `begin()` skips sending `BEGIN`
+- `commit()` skips sending `COMMIT`
+- `rollback_if_open()` skips sending `ROLLBACK`
 
 dbt still maintains its internal `transaction_open` state to preserve compatibility with dbt’s transaction tracking, even when actual statements are skipped.
 
-### Preserving legacy behavior[​](#preserving-legacy-behavior "Direct link to Preserving legacy behavior")
+### Preserving legacy behavior
 
 To preserve the legacy behavior of sending `BEGIN`/`COMMIT`/`ROLLBACK` statements even when autocommit is enabled, set the flag to `False` in your `dbt_project.yml`:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yaml
 flags:
   redshift_skip_autocommit_transaction_statements: false
 ```
 
-### Backward compatibility[​](#backward-compatibility "Direct link to Backward compatibility")
+</File>
 
-* **`autocommit=False`**: Unchanged. Explicit transactions still work as before regardless of this flag.
-* **`autocommit=True` with flag (default)**: Skips unnecessary transaction statements for better performance.
-* **`autocommit=True` without flag**: Sends `BEGIN`/`COMMIT`/`ROLLBACK` (legacy behavior).
+### Backward compatibility
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- **`autocommit=False`**: Unchanged. Explicit transactions still work as before regardless of this flag.
+- **`autocommit=True` with flag (default)**: Skips unnecessary transaction statements for better performance.
+- **`autocommit=True` without flag**: Sends `BEGIN`/`COMMIT`/`ROLLBACK` (legacy behavior).

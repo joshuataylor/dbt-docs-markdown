@@ -1,14 +1,23 @@
 # About graph context variable
 
-The `graph` context variable contains information about the *nodes* in your dbt project. Models, sources, tests, and snapshots are all examples of nodes in dbt projects.
 
-Heads up
+The `graph` context variable contains information about the _nodes_ in your dbt
+project. Models, sources, tests, and snapshots are all examples of nodes in dbt
+projects.
 
-dbt actively builds the `graph` variable during the [parsing phase](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) of running dbt projects, so some properties of the `graph` context variable will be missing or incorrect during parsing. Please read the information below carefully to understand how to effectively use this variable.
+:::danger Heads up
 
-### The graph context variable[​](#the-graph-context-variable "Direct link to The graph context variable")
+dbt actively builds the `graph` variable during the [parsing phase](/reference/dbt-jinja-functions/execute) of
+running dbt projects, so some properties of the `graph` context variable will be
+missing or incorrect during parsing. Please read the information below carefully
+to understand how to effectively use this variable.
 
-The `graph` context variable is a dictionary which maps node ids onto dictionary representations of those nodes. A simplified example might look like:
+:::
+
+### The graph context variable
+
+The `graph` context variable is a dictionary which maps node ids onto dictionary
+representations of those nodes. A simplified example might look like:
 
 ```json
 {
@@ -66,13 +75,19 @@ The `graph` context variable is a dictionary which maps node ids onto dictionary
 }
 ```
 
-The exact contract for these model and source nodes is not currently documented, but that will change in the future.
+The exact contract for these model and source nodes is not currently documented,
+but that will change in the future.
 
-### Accessing models[​](#accessing-models "Direct link to Accessing models")
+### Accessing models
 
-The `model` entries in the `graph` dictionary will be incomplete or incorrect during parsing. If accessing the models in your project via the `graph` variable, be sure to use the [execute](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) flag to ensure that this code only executes at run-time and not at parse-time. Do not use the `graph` variable to build your DAG, as the resulting dbt behavior will be undefined and likely incorrect. Example usage:
+The `model` entries in the `graph` dictionary will be incomplete or incorrect
+during parsing. If accessing the models in your project via the `graph`
+variable, be sure to use the [execute](/reference/dbt-jinja-functions/execute) flag to ensure that this code
+only executes at run-time and not at parse-time. Do not use the `graph` variable
+to build your DAG, as the resulting dbt behavior will be undefined and likely
+incorrect. Example usage:
 
-graph-usage.sql
+<File name='graph-usage.sql'>
 
 ```sql
 
@@ -107,13 +122,16 @@ model.snowplow.snowplow_sessions, materialized: table
 */
 ```
 
-### Accessing sources[​](#accessing-sources "Direct link to Accessing sources")
+</File>
 
-To access the sources in your dbt project programmatically, use the `sources` attribute of the `graph` object.
+### Accessing sources
+
+To access the sources in your dbt project programmatically, use the `sources`
+attribute of the `graph` object.
 
 Example usage:
 
-models/events\_unioned.sql
+<File name='models/events_unioned.sql'>
 
 ```sql
 /*
@@ -143,15 +161,19 @@ select * from (
   select * from raw.snowplow.event_checkout
 )
 */
+
 ```
 
-### Accessing exposures[​](#accessing-exposures "Direct link to Accessing exposures")
+</File>
 
-To access the exposures in your dbt project programmatically, use the `exposures` attribute of the `graph` object.
+### Accessing exposures
+
+To access the exposures in your dbt project programmatically, use the `exposures`
+attribute of the `graph` object.
 
 Example usage:
 
-models/my\_important\_view\_model.sql
+<File name='models/my_important_view_model.sql'>
 
 ```sql
 {# Include a SQL comment naming all of the exposures that this model feeds into #}
@@ -179,15 +201,18 @@ models/my\_important\_view\_model.sql
 --   * our_metrics (dashboard)
 --   * my_sync (application)
 */
+
 ```
 
-### Accessing metrics[​](#accessing-metrics "Direct link to Accessing metrics")
+</File>
+
+### Accessing metrics
 
 To access the metrics in your dbt project programmatically, use the `metrics` attribute of the `graph` object.
 
 Example usage:
 
-macros/get\_metric.sql
+<File name='macros/get_metric.sql'>
 
 ```sql
 {% macro get_metric_sql_for(metric_name) %}
@@ -211,13 +236,15 @@ macros/get\_metric.sql
 {% endmacro %}
 ```
 
-### Accessing groups[​](#accessing-groups "Direct link to Accessing groups")
+</File>
+
+### Accessing groups
 
 To access the groups in your dbt project programmatically, use the `groups` attribute of the `graph` object.
 
 Example usage:
 
-macros/get\_group.sql
+<File name='macros/get_group.sql'>
 
 ```sql
 
@@ -232,10 +259,4 @@ macros/get\_group.sql
 {% endmacro %}
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

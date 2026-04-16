@@ -1,31 +1,26 @@
+# dbt AI and intelligence
+
+
 # About dbt AI and intelligence
 
+<IntroText>
 dbt AI and intelligence is a suite of features that helps you use AI to accelerate your data analytics and intelligence workflows.
+</IntroText>
 
-Whether you're using AI to generate code, tests, and documentation, to scale your data teams with autonomous agents, or to build your own custom agents, we have you covered. The following features in dbt can help you optimize your workflows.
+Whether you're generating code, tests, and documentation with inline AI assistance, delegating complex workflows to autonomous agents, or building your own custom agents with MCP &mdash; dbt has you covered.
 
-[![](/img/icons/dbt-copilot.svg)](https://docs.getdbt.com/docs/dbt-ai/dbt-agents.md)
+<div className="grid--2-col">
 
-#### [dbt Agents](https://docs.getdbt.com/docs/dbt-ai/dbt-agents.md)
+<Card
+    title="dbt Copilot"
+    body="dbt's AI experience — bringing inline code assistance and autonomous agents (like the Developer agent) together across your analytics development lifecycle."
+    link="/docs/cloud/dbt-copilot-overview"
+    icon="dbt-copilot"/>
 
-[dbt Agents come with a suite of native AI agents that turn structured dbt context into auditable actions that let you build, manage, and consume governed data at scale.](https://docs.getdbt.com/docs/dbt-ai/dbt-agents.md)
+<Card
+    title="dbt MCP"
+    body="Build your own custom agents and copilots with the local or remote dbt MCP server."
+    link="/docs/dbt-ai/about-mcp"
+    icon="dbt-copilot"/>
 
-[![](/img/icons/dbt-copilot.svg)](https://docs.getdbt.com/docs/cloud/dbt-copilot.md)
-
-#### [dbt Copilot](https://docs.getdbt.com/docs/cloud/dbt-copilot.md)
-
-[dbt Copilot is a powerful, AI-powered assistant fully integrated into your dbt platform experience—designed to accelerate your analytics workflows.](https://docs.getdbt.com/docs/cloud/dbt-copilot.md)
-
-[![](/img/icons/dbt-copilot.svg)](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-
-#### [dbt MCP](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-
-[Build your own custom agents and copilots with the local or remote dbt MCP server today.](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

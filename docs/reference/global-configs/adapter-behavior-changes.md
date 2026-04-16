@@ -1,29 +1,29 @@
 # About adapter-specific behavior changes
 
-Some adapters can display behavior changes when certain flags are enabled. The following sections contain details about these adapter-specific behavior changes.
 
-[![](/img/icons/databricks.svg)](https://docs.getdbt.com/reference/global-configs/databricks-changes.md)
 
-#### [Databricks](https://docs.getdbt.com/reference/global-configs/databricks-changes.md)
+Some adapters can display behavior changes when certain flags are enabled. The following sections contain details about these adapter-specific behavior changes. 
 
-[Behavior changes for the Databricks adapter.](https://docs.getdbt.com/reference/global-configs/databricks-changes.md)
 
-[![](/img/icons/redshift.svg)](https://docs.getdbt.com/reference/global-configs/redshift-changes.md)
+<div className="grid--3-col">
 
-#### [Redshift](https://docs.getdbt.com/reference/global-configs/redshift-changes.md)
+<Card
+    title="Databricks"
+    body="Behavior changes for the Databricks adapter."
+    link="reference/global-configs/databricks-changes"
+    icon="databricks"/>
 
-[Behavior changes for the Amazon Redshift adapter.](https://docs.getdbt.com/reference/global-configs/redshift-changes.md)
 
-[![](/img/icons/snowflake.svg)](https://docs.getdbt.com/reference/global-configs/snowflake-changes.md)
+<Card
+    title="Redshift"
+    body="Behavior changes for the Amazon Redshift adapter."
+    link="reference/global-configs/redshift-changes"
+    icon="redshift"/>
 
-#### [Snowflake](https://docs.getdbt.com/reference/global-configs/snowflake-changes.md)
-
-[Behavior changes for the Snowflake adapter.](https://docs.getdbt.com/reference/global-configs/snowflake-changes.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<Card
+    title="Snowflake"
+    body="Behavior changes for the Snowflake adapter."
+    link="reference/global-configs/snowflake-changes"
+    icon="snowflake"/>
+    
+</div>

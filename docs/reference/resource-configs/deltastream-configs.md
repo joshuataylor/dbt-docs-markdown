@@ -1,63 +1,47 @@
+# DeltaStream configurations
+
+
 # DeltaStream resource configurations
 
-## Supported materializations[​](#supported-materializations "Direct link to Supported materializations")
+## Supported materializations
 
 DeltaStream supports several unique materialization types that align with its streaming processing capabilities:
 
-### Standard materializations[​](#standard-materializations "Direct link to Standard materializations")
+### Standard materializations
 
-| Materialization     | Description                                                                       |
-| ------------------- | --------------------------------------------------------------------------------- |
-| `ephemeral`         | This materialization uses common table expressions in DeltaStream under the hood. |
-| `table`             | Traditional batch table materialization                                           |
-| `materialized_view` | Continuously updated view that automatically refreshes as underlying data changes |
+| Materialization     | Description                                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------------------|
+| `ephemeral`         | This materialization uses common table expressions in DeltaStream under the hood.                        |
+| `table`             | Traditional batch table materialization                                                                  |
+| `materialized_view` | Continuously updated view that automatically refreshes as underlying data changes                        |
 
-Search table...
+### Streaming materializations
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Materialization | Description                                                                                              |
+|-----------------|----------------------------------------------------------------------------------------------------------|
+| `stream`        | Pure streaming transformation that processes data in real-time                                           |
+| `changelog`     | Change data capture (CDC) stream that tracks changes in data                                             |
 
-### Streaming materializations[​](#streaming-materializations "Direct link to Streaming materializations")
+### Infrastructure materializations
 
-| Materialization | Description                                                    |
-| --------------- | -------------------------------------------------------------- |
-| `stream`        | Pure streaming transformation that processes data in real-time |
-| `changelog`     | Change data capture (CDC) stream that tracks changes in data   |
+| Materialization      | Description                                                                                              |
+|----------------------|----------------------------------------------------------------------------------------------------------|
+| `store`              | External system connection (Kafka, PostgreSQL, etc.)                                                     |
+| `entity`             | Entity definition within a store                                                                         |
+| `database`           | Database definition                                                                                      |
+| `compute_pool`       | Compute pool definition for resource management                                                          |
+| `function`           | User-defined functions (UDFs) in Java                                                                    |
+| `function_source`    | JAR file sources for UDFs                                                                                |
+| `descriptor_source`  | Protocol buffer schema sources                                                                           |
+| `schema_registry`    | Schema registry connections (Confluent, and so on.)                                                            |
 
-Search table...
+## SQL model configurations
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Infrastructure materializations[​](#infrastructure-materializations "Direct link to Infrastructure materializations")
-
-| Materialization     | Description                                          |
-| ------------------- | ---------------------------------------------------- |
-| `store`             | External system connection (Kafka, PostgreSQL, etc.) |
-| `entity`            | Entity definition within a store                     |
-| `database`          | Database definition                                  |
-| `compute_pool`      | Compute pool definition for resource management      |
-| `function`          | User-defined functions (UDFs) in Java                |
-| `function_source`   | JAR file sources for UDFs                            |
-| `descriptor_source` | Protocol buffer schema sources                       |
-| `schema_registry`   | Schema registry connections (Confluent, and so on.)  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL model configurations[​](#sql-model-configurations "Direct link to SQL model configurations")
-
-### Table materialization[​](#table-materialization "Direct link to Table materialization")
+### Table materialization
 
 Creates a traditional batch table for aggregated data:
 
 **Project YAML file configuration:**
-
 ```yaml
 models:
   <resource-path>:
@@ -65,7 +49,6 @@ models:
 ```
 
 **SQL configuration:**
-
 ```sql
 {{ config(materialized = "table") }}
 
@@ -76,12 +59,11 @@ FROM {{ ref('transactions') }}
 GROUP BY date
 ```
 
-### Stream materialization[​](#stream-materialization "Direct link to Stream materialization")
+### Stream materialization
 
 Creates a continuous streaming transformation:
 
 **Project YAML file configuration:**
-
 ```yaml
 models:
   <resource-path>:
@@ -95,7 +77,6 @@ models:
 ```
 
 **SQL configuration:**
-
 ```sql
 {{ config(
     materialized='stream',
@@ -116,29 +97,22 @@ FROM {{ ref('source_stream') }}
 WHERE action = 'purchase'
 ```
 
-#### Stream configuration options[​](#stream-configuration-options "Direct link to Stream configuration options")
+#### Stream configuration options
 
-| Option         | Description                                                                       | Required? |
-| -------------- | --------------------------------------------------------------------------------- | --------- |
-| `materialized` | How the model will be materialized. Must be `stream` to create a streaming model. | Required  |
-| `topic`        | The topic name for the stream output.                                             | Required  |
-| `value.format` | Format for the stream values (like 'json', 'avro').                               | Required  |
-| `key.format`   | Format for the stream keys (like 'primitive', 'json').                            | Optional  |
-| `key.type`     | Data type for the stream keys (like 'VARCHAR', 'BIGINT').                         | Optional  |
-| `timestamp`    | Column name to use as the event timestamp.                                        | Optional  |
+| Option         | Description                                                                                   | Required? |
+|----------------|-----------------------------------------------------------------------------------------------|-----------|
+| `materialized` | How the model will be materialized. Must be `stream` to create a streaming model.             | Required  |
+| `topic`        | The topic name for the stream output.                                                         | Required  |
+| `value.format` | Format for the stream values (like 'json', 'avro').                                          | Required  |
+| `key.format`   | Format for the stream keys (like 'primitive', 'json').                                       | Optional  |
+| `key.type`     | Data type for the stream keys (like 'VARCHAR', 'BIGINT').                                    | Optional  |
+| `timestamp`    | Column name to use as the event timestamp.                                                    | Optional  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Changelog materialization[​](#changelog-materialization "Direct link to Changelog materialization")
+### Changelog materialization
 
 Captures changes in the data stream:
 
 **Project YAML file configuration:**
-
 ```yaml
 models:
   <resource-path>:
@@ -150,7 +124,6 @@ models:
 ```
 
 **SQL configuration:**
-
 ```sql
 {{ config(
     materialized='changelog',
@@ -168,27 +141,20 @@ SELECT
 FROM {{ ref('orders_stream') }}
 ```
 
-#### Changelog configuration options[​](#changelog-configuration-options "Direct link to Changelog configuration options")
+#### Changelog configuration options
 
-| Option         | Description                                                                          | Required? |
-| -------------- | ------------------------------------------------------------------------------------ | --------- |
-| `materialized` | How the model will be materialized. Must be `changelog` to create a changelog model. | Required  |
-| `topic`        | The topic name for the changelog output.                                             | Required  |
-| `value.format` | Format for the changelog values (like 'json', 'avro').                               | Required  |
-| `primary_key`  | List of column names that uniquely identify rows for change tracking.                | Required  |
+| Option         | Description                                                                                   | Required? |
+|----------------|-----------------------------------------------------------------------------------------------|-----------|
+| `materialized` | How the model will be materialized. Must be `changelog` to create a changelog model.          | Required  |
+| `topic`        | The topic name for the changelog output.                                                      | Required  |
+| `value.format` | Format for the changelog values (like 'json', 'avro').                                       | Required  |
+| `primary_key`  | List of column names that uniquely identify rows for change tracking.                         | Required  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Materialized view[​](#materialized-view "Direct link to Materialized view")
+### Materialized view
 
 Creates a continuously updated view:
 
 **SQL configuration:**
-
 ```sql
 {{ config(materialized='materialized_view') }}
 
@@ -199,19 +165,19 @@ FROM {{ ref('purchase_events') }}
 GROUP BY product_id
 ```
 
-## YAML-only resource configurations[​](#yaml-only-resource-configurations "Direct link to YAML-only resource configurations")
+## YAML-only resource configurations
 
 DeltaStream supports two types of model definitions for infrastructure components:
 
-1. **Managed Resources (Models)** - Automatically included in the dbt DAG
+1. **Managed Resources (Models)** - Automatically included in the dbt <Term id="dag"/>
 2. **Unmanaged Resources (Sources)** - Created on-demand using specific macros
 
-### Should you use managed or unmanaged resources?[​](#should-you-use-managed-or-unmanaged-resources "Direct link to Should you use managed or unmanaged resources?")
+### Should you use managed or unmanaged resources?
 
-* Use managed resources if you plan to recreate all the infrastructure in different environments and/or use graph operators to execute only the creation of specific resources and downstream transformations.
-* Otherwise, it might be simpler to use unmanaged resources to avoid placeholder files.
+- Use managed resources if you plan to recreate all the infrastructure in different environments and/or use graph operators to execute only the creation of specific resources and downstream transformations.
+- Otherwise, it might be simpler to use unmanaged resources to avoid placeholder files.
 
-### Managed resources (models)[​](#managed-resources-models "Direct link to Managed resources (models)")
+### Managed resources (models)
 
 Managed resources are automatically included in the dbt DAG and defined as models:
 
@@ -331,7 +297,7 @@ models:
 -- Placeholder
 ```
 
-### Unmanaged resources (sources)[​](#unmanaged-resources-sources "Direct link to Unmanaged resources (sources)")
+### Unmanaged resources (sources)
 
 Unmanaged resources are defined as sources and created on-demand using specific macros:
 
@@ -457,9 +423,9 @@ dbt run-operation create_sources
 dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
 ```
 
-## Store configurations[​](#store-configurations "Direct link to Store configurations")
+## Store configurations
 
-### Kafka store[​](#kafka-store "Direct link to Kafka store")
+### Kafka store
 
 ```yaml
 - name: my_kafka_store
@@ -472,7 +438,7 @@ dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
       tls.ca_cert_file: "@/certs/us-east-1/self-signed-kafka-ca.crt"
 ```
 
-### PostgreSQL store[​](#postgresql-store "Direct link to PostgreSQL store")
+### PostgreSQL store
 
 ```yaml
 - name: postgres_store
@@ -486,7 +452,7 @@ dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
       postgres.password: "password"
 ```
 
-## Entity configuration[​](#entity-configuration "Direct link to Entity configuration")
+## Entity configuration
 
 ```yaml
 - name: kinesis_entity
@@ -497,7 +463,7 @@ dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
       'kinesis.shards': 3
 ```
 
-## Compute pool configuration[​](#compute-pool-configuration "Direct link to Compute pool configuration")
+## Compute pool configuration
 
 ```yaml
 - name: processing_pool
@@ -508,9 +474,9 @@ dbt run-operation create_source_by_name --args '{source_name: infrastructure}'
       'compute_pool.timeout_min': 5
 ```
 
-## Referencing resources[​](#referencing-resources "Direct link to Referencing resources")
+## Referencing resources
 
-### Managed resources[​](#managed-resources "Direct link to Managed resources")
+### Managed resources
 
 Use the standard `ref()` function:
 
@@ -518,7 +484,7 @@ Use the standard `ref()` function:
 select * from {{ ref('my_kafka_stream') }}
 ```
 
-### Unmanaged resources[​](#unmanaged-resources "Direct link to Unmanaged resources")
+### Unmanaged resources
 
 Use the `source()` function:
 
@@ -526,34 +492,29 @@ Use the `source()` function:
 SELECT * FROM {{ source('infrastructure', 'user_events_stream') }}
 ```
 
-## Seeds[​](#seeds "Direct link to Seeds")
+## Seeds
 
 Load CSV data into existing DeltaStream entities using the `seed` materialization. Unlike traditional dbt seeds that create new tables, DeltaStream seeds insert data into pre-existing entities.
 
-### Configuration[​](#configuration "Direct link to Configuration")
+### Configuration
 
 Seeds must be configured in YAML with the following properties:
 
 **Required:**
 
-* `entity`: The name of the target entity to insert data into
+- `entity`: The name of the target entity to insert data into
 
 **Optional:**
 
-* `store`: The name of the store containing the entity (omit if entity is not in a store)
+- `store`: The name of the store containing the entity (omit if entity is not in a store)
+- `with_params`: A dictionary of parameters for the WITH clause
+- `quote_columns`: Control which columns get quoted. Default: `false` (no columns quoted). Can be:
+  - `true`: Quote all columns
+  - `false`: Quote no columns (default)
+  - `string`: If set to `'*'`, quote all columns
+  - `list`: List of column names to quote
 
-* `with_params`: A dictionary of parameters for the WITH clause
-
-* `quote_columns`: Control which columns get quoted. Default: `false` (no columns quoted). Can be:
-
-  <!-- -->
-
-  * `true`: Quote all columns
-  * `false`: Quote no columns (default)
-  * `string`: If set to `'*'`, quote all columns
-  * `list`: List of column names to quote
-
-### Example configuration[​](#example-configuration "Direct link to Example configuration")
+### Example configuration
 
 **With Store (quoting enabled):**
 
@@ -572,30 +533,30 @@ seeds:
       quote_columns: true  # Quote all columns
 ```
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
 1. Place CSV files in your `seeds/` directory
 2. Configure seeds in YAML with the required `entity` parameter
 3. Optionally specify `store` if the entity is in a store
 4. Run `dbt seed` to load the data
 
-Important
-
+:::info Important
 The target entity must already exist in DeltaStream before running seeds. Seeds only insert data, they do not create entities.
+:::
 
-## Function and source materializations[​](#function-and-source-materializations "Direct link to Function and source materializations")
+## Function and source materializations
 
 DeltaStream supports user-defined functions (UDFs) and their dependencies through specialized materializations.
 
-### File attachment support[​](#file-attachment-support "Direct link to File attachment support")
+### File attachment support
 
 The adapter provides seamless file attachment for function sources and descriptor sources:
 
-* **Standardized Interface**: Common file handling logic for both function sources and descriptor sources
-* **Path Resolution**: Supports both absolute paths and relative paths (including `@` syntax for project-relative paths)
-* **Automatic Validation**: Files are validated for existence and accessibility before attachment
+- **Standardized Interface**: Common file handling logic for both function sources and descriptor sources
+- **Path Resolution**: Supports both absolute paths and relative paths (including `@` syntax for project-relative paths)
+- **Automatic Validation**: Files are validated for existence and accessibility before attachment
 
-### Function source[​](#function-source "Direct link to Function source")
+### Function source
 
 Creates a function source from a JAR file containing Java functions:
 
@@ -613,7 +574,7 @@ Creates a function source from a JAR file containing Java functions:
 SELECT 1 as placeholder
 ```
 
-### Descriptor source[​](#descriptor-source "Direct link to Descriptor source")
+### Descriptor source
 
 Creates a descriptor source from compiled protocol buffer descriptor files:
 
@@ -631,15 +592,16 @@ Creates a descriptor source from compiled protocol buffer descriptor files:
 SELECT 1 as placeholder
 ```
 
-Note
-
+:::info Note
 Descriptor sources require compiled `.desc` files, not raw `.proto` files. Compile your protobuf schemas using:
 
 ```bash
 protoc --descriptor_set_out=schemas/my_schemas.desc schemas/my_schemas.proto
 ```
 
-### Function[​](#function "Direct link to Function")
+:::
+
+### Function
 
 Creates a user-defined function that references a function source:
 
@@ -662,7 +624,7 @@ Creates a user-defined function that references a function source:
 SELECT 1 as placeholder
 ```
 
-### Schema registry[​](#schema-registry "Direct link to Schema registry")
+### Schema registry
 
 Creates a schema registry connection:
 
@@ -685,11 +647,11 @@ Creates a schema registry connection:
 SELECT 1 as placeholder
 ```
 
-## Query management macros[​](#query-management-macros "Direct link to Query management macros")
+## Query management macros
 
 DeltaStream dbt adapter provides macros to help you manage and terminate running queries directly from dbt.
 
-### List all queries[​](#list-all-queries "Direct link to List all queries")
+### List all queries
 
 The `list_all_queries` macro displays all queries currently known to DeltaStream, including their state, owner, and SQL:
 
@@ -697,7 +659,7 @@ The `list_all_queries` macro displays all queries currently known to DeltaStream
 dbt run-operation list_all_queries
 ```
 
-### Describe query[​](#describe-query "Direct link to Describe query")
+### Describe query
 
 Use the `describe_query` macro to check the logs and details of a specific query:
 
@@ -705,7 +667,7 @@ Use the `describe_query` macro to check the logs and details of a specific query
 dbt run-operation describe_query --args '{query_id: "<QUERY_ID>"}'
 ```
 
-### Terminate a specific query[​](#terminate-a-specific-query "Direct link to Terminate a specific query")
+### Terminate a specific query
 
 Use the `terminate_query` macro to terminate a query by its ID:
 
@@ -713,7 +675,7 @@ Use the `terminate_query` macro to terminate a query by its ID:
 dbt run-operation terminate_query --args '{query_id: "<QUERY_ID>"}'
 ```
 
-### Terminate all running queries[​](#terminate-all-running-queries "Direct link to Terminate all running queries")
+### Terminate all running queries
 
 Use the `terminate_all_queries` macro to terminate all currently running queries:
 
@@ -721,7 +683,7 @@ Use the `terminate_all_queries` macro to terminate all currently running queries
 dbt run-operation terminate_all_queries
 ```
 
-### Restart a query[​](#restart-a-query "Direct link to Restart a query")
+### Restart a query
 
 Use the `restart_query` macro to restart a failed query by its ID:
 
@@ -729,9 +691,9 @@ Use the `restart_query` macro to restart a failed query by its ID:
 dbt run-operation restart_query --args '{query_id: "<QUERY_ID>"}'
 ```
 
-## Application macro[​](#application-macro "Direct link to Application macro")
+## Application macro
 
-### Execute multiple statements as a unit[​](#execute-multiple-statements-as-a-unit "Direct link to Execute multiple statements as a unit")
+### Execute multiple statements as a unit
 
 The `application` macro allows you to execute multiple DeltaStream SQL statements as a single unit of work with all-or-nothing semantics:
 
@@ -746,9 +708,9 @@ dbt run-operation application --args '{
 }'
 ```
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
-### Function source readiness[​](#function-source-readiness "Direct link to Function source readiness")
+### Function source readiness
 
 If you encounter "function source is not ready" errors when creating functions:
 
@@ -757,29 +719,18 @@ If you encounter "function source is not ready" errors when creating functions:
 3. **Dependency Order**: Ensure function sources are created before dependent functions
 4. **Manual Retry**: If automatic retry fails, wait a few minutes and retry the operation
 
-### File attachment issues[​](#file-attachment-issues "Direct link to File attachment issues")
+### File attachment issues
 
 For problems with file attachments in function sources and descriptor sources:
 
 1. **File Paths**: Use `@/path/to/file` syntax for project-relative paths
-
 2. **File Types**:
-
-   * Function sources require `.jar` files
-   * Descriptor sources require compiled `.desc` files (not `.proto`)
-
+   - Function sources require `.jar` files
+   - Descriptor sources require compiled `.desc` files (not `.proto`)
 3. **File Validation**: The adapter validates file existence before attempting attachment
-
 4. **Compilation**: For descriptor sources, ensure protobuf files are compiled:
 
    ```bash
    protoc --descriptor_set_out=output.desc input.proto
    ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

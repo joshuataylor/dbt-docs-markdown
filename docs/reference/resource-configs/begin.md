@@ -1,34 +1,21 @@
 # begin
 
-💡Did you know\...
 
-Available from dbt v
+<VersionCallout version="1.9" />
 
-<!-- -->
+## Definition
 
-1.9
+Set the `begin` config to the timestamp value at which your [microbatch incremental model](/docs/build/incremental-microbatch) data should begin &mdash; at the point the data becomes relevant for the microbatch model.  
 
-<!-- -->
+You can configure `begin` for a [model](/docs/build/models) in your project YAML file (`dbt_project.yml`), properties YAML file, or SQL file config. The value for `begin` must be a string representing an ISO-formatted date, _or_ date and time, _or_ [relative dates](#set-begin-to-use-relative-dates). Check out the [examples](#examples) in the next section for more details.
 
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-## Definition[​](#definition "Direct link to Definition")
-
-Set the `begin` config to the timestamp value at which your [microbatch incremental model](https://docs.getdbt.com/docs/build/incremental-microbatch.md) data should begin — at the point the data becomes relevant for the microbatch model.
-
-You can configure `begin` for a [model](https://docs.getdbt.com/docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or SQL file config. The value for `begin` must be a string representing an ISO-formatted date, *or* date and time, *or* [relative dates](#set-begin-to-use-relative-dates). Check out the [examples](#examples) in the next section for more details.
-
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples set `2024-01-01 00:00:00` as the `begin` config for the `user_sessions` model.
 
-#### Example in the `dbt_project.yml` file[​](#example-in-the-dbt_projectyml-file "Direct link to example-in-the-dbt_projectyml-file")
+#### Example in the `dbt_project.yml` file
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 models:
@@ -36,10 +23,11 @@ models:
     user_sessions:
       +begin: "2024-01-01 00:00:00"
 ```
+</File>
 
-#### Example in a property YAML file[​](#example-in-a-property-yaml-file "Direct link to Example in a property YAML file")
+#### Example in a property YAML file
 
-models/properties.yml
+<File name='models/properties.yml'>
 
 ```yml
 models:
@@ -48,9 +36,11 @@ models:
       begin: "2024-01-01 00:00:00"
 ```
 
-#### Example in a SQL config block for a model[​](#example-in-a-sql-config-block-for-a-model "Direct link to Example in a SQL config block for a model")
+</File>
 
-models/user\_sessions.sql
+#### Example in a SQL config block for a model
+
+<File name="models/user_sessions.sql">
 
 ```sql
 {{ config(
@@ -58,9 +48,11 @@ models/user\_sessions.sql
 ) }}
 ```
 
-#### Set `begin` to use relative dates[​](#set-begin-to-use-relative-dates "Direct link to set-begin-to-use-relative-dates")
+</File> 
 
-To configure `begin` to use relative dates, you can use modules variables [`modules.datetime`](https://docs.getdbt.com/reference/dbt-jinja-functions/modules.md#datetime) and [`modules.pytz`](https://docs.getdbt.com/reference/dbt-jinja-functions/modules.md#pytz) to dynamically specify relative timestamps, such as yesterday's date or the start of the current week.
+#### Set `begin` to use relative dates
+
+To configure `begin` to use relative dates, you can use modules variables [`modules.datetime`](/reference/dbt-jinja-functions/modules#datetime) and [`modules.pytz`](/reference/dbt-jinja-functions/modules#pytz) to dynamically specify relative timestamps, such as yesterday's date or the start of the current week.
 
 For example, to set `begin` to yesterday's date:
 
@@ -76,11 +68,3 @@ For example, to set `begin` to yesterday's date:
     )
 }}
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

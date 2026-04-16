@@ -1,49 +1,44 @@
 # Available dbt versions
 
-Whether you're using the CLI or working within the dbt platform, your environments are aligned with a versioned release of dbt.
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/core.md)
+Whether you're using the CLI or working within the <Constant name="dbt_platform" />, your environments are aligned with a versioned release of dbt.
 
-#### [About dbt Core versions](https://docs.getdbt.com/docs/dbt-versions/core.md)
+<div className="grid--3-col">
 
-[Information about how dbt Core is versioned and how to target those versions.](https://docs.getdbt.com/docs/dbt-versions/core.md)
+<Card
+    title="About dbt versions"
+    body="Learn about semantic versioning for dbt engines, and how long those versions are supported."
+    link="/docs/dbt-versions"
+    icon="dbt-bit"/>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md)
+<Card
+    title="About release tracks"
+    body="Learn about how versions of dbt align with the release tracks available on the dbt platform."
+    link="/docs/dbt-versions/cloud-release-tracks"
+    icon="dbt-bit"/>
 
-#### [About release tracks](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md)
+<Card
+    title="Upgrade versions in dbt platform"
+    body="Instructions for upgrading your dbt platform projects to the latest version of dbt, including the Fusion Engine."
+    link="/docs/dbt-versions/upgrade-dbt-version-in-cloud"
+    icon="dbt-bit"/>
 
-[Learn about how versions of dbt align with the release tracks available on the dbt platform.](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md)
+<Card
+    title="Product lifecycles"
+    body="Learn about the dbt product lifecycles from beta through end of life."
+    link="/docs/dbt-versions/product-lifecycles"
+    icon="dbt-bit"/>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-version-in-cloud.md)
+<Card
+    title="Preview new dbt platform features"
+    body="Learn how to enable self-service beta and preview features for your dbt platform account."
+    link="/docs/dbt-versions/experimental-features"
+    icon="dbt-bit"/>
 
-#### [Upgrade versions in dbt platform](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-version-in-cloud.md)
+<Card
+    title="dbt version upgrade guides"
+    body="All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more."
+    link="/docs/dbt-versions/core-upgrade"
+    icon="dbt-bit"/>
 
-[Instructions for upgrading your dbt platform projects to the latest version of dbt, including the Fusion Engine.](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-version-in-cloud.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md)
-
-#### [Product lifecycles](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md)
-
-[Learn about the dbt product lifecycles from beta through end of life.](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md)
-
-#### [Preview new dbt platform features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md)
-
-[Learn how to enable self-service beta and preview features for your dbt platform account.](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md)
-
-#### [dbt version upgrade guides](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md)
-
-[All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more.](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md)
-
-<br />
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div> <br />

@@ -1,24 +1,33 @@
-# group
 
-* Models
-* Seeds
-* Snapshots
-* Tests
-* Analyses
-* Metrics
-* Semantic models
-* Saved queries
-
-dbt\_project.yml
+<Tabs
+  defaultValue="models"
+  values={[
+    { label: 'Models', value: 'models', },
+    { label: 'Seeds', value: 'seeds', },
+    { label: 'Snapshots', value: 'snapshots', },
+    { label: 'Tests', value: 'tests', },
+    { label: 'Analyses', value: 'analyses', },
+    { label: 'Metrics', value: 'metrics', },
+    { label: 'Semantic models', value: 'semantic models', },
+    { label: 'Saved queries', value: 'saved queries',} ,
+  ]
+}>
+<TabItem value="models">
+ 
+<File name='dbt_project.yml'>
 
 ```yml
 models:
 
-  <resource-path>:
+  [<resource-path>](resource-path):
     +group: GROUP_NAME
+
 ```
 
-models/schema.yml
+
+</File>
+
+<File name='models/schema.yml'>
 
 ```yml
 
@@ -26,9 +35,12 @@ models:
   - name: MODEL_NAME
     config:
       group: GROUP # changed to config in v1.10
+
 ```
 
-models/\<modelname>.sql
+</File>
+
+<File name='models/<modelname>.sql'>
 
 ```sql
 
@@ -37,17 +49,26 @@ models/\<modelname>.sql
 ) }}
 
 select ...
+
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="seeds">
+
+<File name='dbt_project.yml'>
 
 ```yml
 models:
-  <resource-path>:
+  [<resource-path>](resource-path):
     +group: GROUP_NAME
 ```
 
-seeds/properties.yml
+</File>
+
+<File name='seeds/properties.yml'>
 
 ```yml
 seeds:
@@ -56,18 +77,40 @@ seeds:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="snapshots">
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](resource-path):
     +group: GROUP_NAME
 ```
 
-snapshots/\<filename>.sql
+</File>
+
+<VersionBlock firstVersion="1.9">
+<File name='snapshots/properties.yml'>
+
+```yaml
+
+snapshots:
+  - name: snapshot_name
+    [config](/reference/resource-properties/config):
+      group: GROUP_NAME
+```
+
+</File>
+</VersionBlock>
+
+<File name='snapshots/<filename>.sql'>
 
 ```sql
-{% snapshot snapshot_name %}
+{% snapshot [snapshot_name](snapshot_name) %}
 
 {{ config(
   group='GROUP_NAME'
@@ -78,15 +121,23 @@ select ...
 {% endsnapshot %}
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="tests">
+
+<File name='dbt_project.yml'>
 
 ```yml
 data_tests:
-  <resource-path>:
+  [<resource-path>](resource-path):
     +group: GROUP_NAME
 ```
 
-tests/properties.yml
+</File>
+
+<File name='tests/properties.yml'>
 
 ```yml
 
@@ -98,7 +149,9 @@ tests/properties.yml
             group: GROUP_NAME
 ```
 
-tests/\<filename>.sql
+</File>
+
+<File name='tests/<filename>.sql'>
 
 ```sql
 {% test <testname>() %}
@@ -112,7 +165,10 @@ select ...
 {% endtest %}
 ```
 
-tests/\<filename>.sql
+</File>
+
+<File name='tests/<filename>.sql'>
+
 
 ```sql
 {{ config(
@@ -120,7 +176,13 @@ tests/\<filename>.sql
 ) }}
 ```
 
-analyses/\<filename>.yml
+</File>
+
+</TabItem>
+
+<TabItem value="analyses">
+
+<File name='analyses/<filename>.yml'>
 
 ```yml
 
@@ -130,15 +192,24 @@ analyses:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="metrics">
+
+<File name='dbt_project.yml'>
 
 ```yaml
 metrics:
-  <resource-path>:
-    +group: GROUP_NAME
+  [<resource-path>](resource-path):
+    [+](plus-prefix)group: GROUP_NAME
 ```
 
-models/metrics.yml
+</File>
+
+<File name='models/metrics.yml'>
 
 ```yaml
 
@@ -146,25 +217,69 @@ metrics:
   - name: [METRIC_NAME]
     config:
       group: GROUP_NAME
+
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="semantic models">
+
+<File name='dbt_project.yml'>
 
 ```yaml
 semantic-models:
-  <resource-path>:
-    +group: GROUP_NAME
+  [<resource-path>](resource-path):
+    [+](plus-prefix)group: GROUP_NAME
 ```
 
-dbt\_project.yml
+</File>
+
+<VersionBlock lastVersion="1.11">
+<File name='models/semantic_models.yml'>
+
+```yaml
+semantic_models:
+  - name: SEMANTIC_MODEL_NAME
+    config:
+      group: GROUP_NAME
+```
+
+</File>
+</VersionBlock>
+
+<VersionBlock firstVersion="1.12">
+<File name='models/file_name.yml'>
+
+```yaml
+models:
+  - name: model_name
+    semantic_model:
+      enabled: true
+      group: group_name
+
+```
+
+</File>
+</VersionBlock>
+
+</TabItem>
+
+<TabItem value="saved queries">
+
+<File name='dbt_project.yml'>
 
 ```yaml
 saved-queries:
-  <resource-path>:
-    +group: GROUP_NAME
+  [<resource-path>](resource-path):
+    [+](plus-prefix)group: GROUP_NAME
 ```
 
-models/semantic\_models.yml
+</File>
+
+<File name='models/semantic_models.yml'>
 
 ```yaml
 saved_queries:
@@ -173,21 +288,24 @@ saved_queries:
       group: GROUP_NAME
 ```
 
+</File>
+
+</TabItem>
+
+</Tabs>
+
 Note that for backwards compatibility, `group` is supported as a top-level key, but without the capabilities of config inheritance.
 
-## Definition[​](#definition "Direct link to Definition")
-
+## Definition
 An optional configuration for assigning a group to a resource. When a resource is grouped, dbt will allow it to reference private models within the same group.
 
-For more details on reference access between resources in groups, check out [model access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups).
+For more details on reference access between resources in groups, check out [model access](/docs/mesh/govern/model-access#groups).
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
+### Prevent a 'marketing' group model from referencing a private 'finance' group model
+This is useful if you want to prevent other groups from building on top of models that are rapidly changing, experimental, or otherwise internal to a group or team. 
 
-### Prevent a 'marketing' group model from referencing a private 'finance' group model[​](#prevent-a-marketing-group-model-from-referencing-a-private-finance-group-model "Direct link to Prevent a 'marketing' group model from referencing a private 'finance' group model")
-
-This is useful if you want to prevent other groups from building on top of models that are rapidly changing, experimental, or otherwise internal to a group or team.
-
-models/schema.yml
+<File name='models/schema.yml'>
 
 ```yml
 models:
@@ -199,12 +317,14 @@ models:
     config:
       group: marketing # changed to config in v1.10
 ```
+</File>
 
-models/marketing\_model.sql
+<File name='models/marketing_model.sql'>
 
 ```sql
 select * from {{ ref('finance_model') }}
 ```
+</File>
 
 ```shell
 $ dbt run -s marketing_model
@@ -214,15 +334,7 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   which is not allowed because the referenced node is private to the finance group.
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
-* [Model Access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups)
-* [Defining groups](https://docs.getdbt.com/docs/build/groups.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+* [Model Access](/docs/mesh/govern/model-access#groups)
+* [Defining groups](/docs/build/groups)

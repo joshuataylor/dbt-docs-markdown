@@ -1,68 +1,67 @@
 # Deployment environments
 
-Deployment environments in dbt are crucial for deploying dbt jobs in production and using features or integrations that depend on dbt metadata or results. To execute dbt, environments determine the settings used during job runs, including:
 
-* The version of dbt Core that will be used to run your project
-* The warehouse connection information (including the target database/schema settings)
-* The version of your code to execute
+Deployment environments in <Constant name="dbt" /> are crucial for deploying dbt jobs in production and using features or integrations that depend on dbt metadata or results. To execute dbt, environments determine the settings used during job runs, including:
 
-A dbt project can have multiple deployment environments, providing you the flexibility and customization to tailor the execution of dbt jobs. You can use deployment environments to [create and schedule jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs), [enable continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md), or more based on your specific needs or requirements.
+- The version of <Constant name="core" /> that will be used to run your project
+- The warehouse connection information (including the target database/schema settings)
+- The version of your code to execute
 
-Learn how to manage dbt environments
+A <Constant name="dbt" /> project can have multiple deployment environments, providing you the flexibility and customization to tailor the execution of dbt jobs. You can use deployment environments to [create and schedule jobs](/docs/deploy/deploy-jobs#create-and-schedule-jobs), [enable continuous integration](/docs/deploy/continuous-integration), or more based on your specific needs or requirements.
 
-To learn different approaches to managing dbt environments and recommendations for your organization's unique needs, read [dbt environment best practices](https://docs.getdbt.com/guides/set-up-ci.md).
+:::tip Learn how to manage <Constant name="dbt" /> environments
+To learn different approaches to managing <Constant name="dbt" /> environments and recommendations for your organization's unique needs, read [<Constant name="dbt" /> environment best practices](/guides/set-up-ci).
+:::
 
-Learn more about development vs. deployment environments in [dbt Environments](https://docs.getdbt.com/docs/dbt-cloud-environments.md).
+Learn more about development vs. deployment environments in [<Constant name="dbt" /> Environments](/docs/dbt-cloud-environments).
 
 There are three types of deployment environments:
+- **Production**: Environment for transforming data and building pipelines for production use.
+- **Staging**: Environment for working with production tools while limiting access to production data.
+- **General**: General use environment for deployment development. 
 
-* **Production**: Environment for transforming data and building pipelines for production use.
-* **Staging**: Environment for working with production tools while limiting access to production data.
-* **General**: General use environment for deployment development.
+We highly recommend using the `Production` environment type for the final, source of truth deployment data. There can be only one environment marked for final production workflows and we don't recommend using a `General` environment for this purpose. 
 
-We highly recommend using the `Production` environment type for the final, source of truth deployment data. There can be only one environment marked for final production workflows and we don't recommend using a `General` environment for this purpose.
+## Create a deployment environment
 
-## Create a deployment environment[​](#create-a-deployment-environment "Direct link to Create a deployment environment")
+To create a new <Constant name="dbt" /> deployment environment, navigate to **Orchestration** > **Environments** and then click **Create Environment**. Select **Deployment** as the environment type. The option will be greyed out if you already have a development environment.
 
-To create a new dbt deployment environment, navigate to **Deploy** -> **Environments** and then click **Create Environment**. Select **Deployment** as the environment type. The option will be greyed out if you already have a development environment.
+<Lightbox src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/create-deploy-env.png" width="85%" title="Navigate to Orchestration > Environments to create a deployment environment" />
 
-[![Navigate to Deploy ->  Environments to create a deployment environment](/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/create-deploy-env.png?v=2 "Navigate to Deploy ->  Environments to create a deployment environment")](#)Navigate to Deploy -> Environments to create a deployment environment
+### Set as production environment
 
-### Set as production environment[​](#set-as-production-environment "Direct link to Set as production environment")
+In <Constant name="dbt" />, each project can have one designated deployment environment, which serves as its production environment. This production environment is _essential_ for using features like <Constant name="catalog" /> and cross-project references. It acts as the source of truth for the project's production state in <Constant name="dbt" />.
 
-In dbt, each project can have one designated deployment environment, which serves as its production environment. This production environment is *essential* for using features like Catalog and cross-project references. It acts as the source of truth for the project's production state in dbt.
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/prod-settings-1.png" width="100%" title="Set your production environment as the default environment in your Environment Settings"/>
 
-[![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-cloud/using-dbt-cloud/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")](#)Set your production environment as the default environment in your Environment Settings
+### Semantic Layer
 
-### Semantic Layer[​](#semantic-layer "Direct link to Semantic Layer")
+For customers using the <Constant name="semantic_layer" />, the next section of environment settings is the <Constant name="semantic_layer" /> configurations. [The <Constant name="semantic_layer" /> setup guide](/docs/use-dbt-semantic-layer/setup-sl) has the most up-to-date setup instructions.
 
-For customers using the Semantic Layer, the next section of environment settings is the Semantic Layer configurations. [The Semantic Layer setup guide](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) has the most up-to-date setup instructions.
+You can also leverage the dbt Job scheduler to [validate your semantic nodes in a CI job](/docs/deploy/ci-jobs#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
 
-You can also leverage the dbt Job scheduler to [validate your semantic nodes in a CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
+## Staging environment
 
-## Staging environment[​](#staging-environment "Direct link to Staging environment")
+Use a staging environment to grant developers access to deployment workflows and tools while controlling access to production data. Staging environments enable you to achieve more granular control over permissions, data warehouse connections, and data isolation — within the purview of a single project in <Constant name="dbt" />.
 
-Use a Staging environment to grant developers access to deployment workflows and tools while controlling access to production data. Staging environments enable you to achieve more granular control over permissions, data warehouse connections, and data isolation — within the purview of a single project in dbt.
+### Git workflow
 
-### Git workflow[​](#git-workflow "Direct link to Git workflow")
-
-You can approach this in a couple of ways, but the most straightforward is configuring Staging with a long-living branch (for example, `staging`) similar to but separate from the primary branch (for example, `main`).
+You can approach this in a couple of ways, but the most straightforward is configuring staging with a long-living branch (for example, `staging`) similar to, but separate from the primary branch (for example, `main`). 
 
 In this scenario, the workflows would ideally move upstream from the Development environment -> Staging environment -> Production environment with developer branches feeding into the `staging` branch, then ultimately merging into `main`. In many cases, the `main` and `staging` branches will be identical after a merge and remain until the next batch of changes from the `development` branches are ready to be elevated. We recommend setting branch protection rules on `staging` similar to `main`.
 
 Some customers prefer to connect Development and Staging to their `main` branch and then cut release branches on a regular cadence (daily or weekly), which feeds into Production.
 
-### Why use a staging environment[​](#why-use-a-staging-environment "Direct link to Why use a staging environment")
+### Why use a staging environment
 
-These are the primary motivations for using a Staging environment:
-
-1. An additional validation layer before changes are deployed into Production. You can deploy, test, and explore your dbt models in Staging.
+These are the primary motivations for using a staging environment:
+1. An additional validation layer before changes are deployed into production. You can deploy, test, and explore your dbt models in staging.
 2. Clear isolation between development workflows and production data. It enables developers to work in metadata-powered ways, using features like deferral and cross-project references, without accessing data in production deployments.
-3. Provide developers with the ability to create, edit, and trigger ad hoc jobs in the Staging environment, while keeping the Production environment locked down using [environment-level permissions](https://docs.getdbt.com/docs/cloud/manage-access/environment-permissions.md).
+3. Provide developers with the ability to create, edit, and trigger ad hoc jobs in the staging environment, while keeping the production environment locked down using [environment-level permissions](/docs/cloud/manage-access/environment-permissions). 
 
 **Conditional configuration of sources** enables you to point to "prod" or "non-prod" source data, depending on the environment you're running in. For example, this source will point to `<DATABASE>.sensitive_source.table_with_pii`, where `<DATABASE>` is dynamically resolved based on an environment variable.
 
-models/sources.yml
+<File name="models/sources.yml">
 
 ```yaml
 sources:
@@ -72,174 +71,191 @@ sources:
       - name: table_with_pii
 ```
 
+</File>
+
 There is exactly one source (`sensitive_source`), and all downstream dbt models select from it as `{{ source('sensitive_source', 'table_with_pii') }}`. The code in your project and the shape of the DAG remain consistent across environments. By setting it up in this way, rather than duplicating sources, you get some important benefits.
 
-**Cross-project references in dbt Mesh:** Let's say you have `Project B` downstream of `Project A` with cross-project refs configured in the models. When developers work in the IDE for `Project B`, cross-project refs will resolve to the Staging environment of `Project A`, rather than production. You'll get the same results with those refs when jobs are run in the Staging environment. Only the Production environment will reference the Production data, keeping the data and access isolated without needing separate projects.
+**Cross-project references in dbt Mesh:** Let's say you have `Project B` downstream of `Project A` with cross-project refs configured in the models. When developers work in the IDE for `Project B`, cross-project refs will resolve to the staging environment of `Project A`, rather than production. You'll get the same results with those refs when jobs are run in the staging environment. Only the production environment will reference the production data, keeping the data and access isolated without needing separate projects.
 
-**Faster development enabled by deferral:** If `Project B` also has a Staging deployment, then references to unbuilt upstream models within `Project B` will resolve to that environment, using [deferral](https://docs.getdbt.com/docs/cloud/about-cloud-develop-defer.md), rather than resolving to the models in Production. This saves developers time and warehouse spend, while preserving clear separation of environments.
+**Faster development enabled by deferral:** If `Project B` also has a staging deployment, then references to unbuilt upstream models<VersionBlock firstVersion="1.11"> and [user-defined functions (UDFs)](/docs/build/udfs)</VersionBlock> within `Project B` will resolve to that environment using [deferral](/docs/cloud/about-cloud-develop-defer), rather than resolving to the models<VersionBlock firstVersion="1.11"> and functions</VersionBlock> in production. This saves developers time and warehouse spend, while preserving clear separation of environments.
 
-Finally, the Staging environment has its own view in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), giving you a full view of your prod and pre-prod data.
+Finally, the staging environment has its own view in [<Constant name="catalog" />](/docs/explore/explore-projects), giving you a full view of your prod and pre-prod data.
 
-[![Explore in a staging environment](/img/docs/collaborate/dbt-explorer/explore-staging-env.png?v=2 "Explore in a staging environment")](#)Explore in a staging environment
+<Lightbox src="/img/docs/collaborate/dbt-explorer/explore-staging-env.png" width="85%" title="Explore in a staging environment" />
 
-### Create a Staging environment[​](#create-a-staging-environment "Direct link to Create a Staging environment")
 
-In the dbt, navigate to **Deploy** -> **Environments** and then click **Create Environment**. Select **Deployment** as the environment type. The option will be greyed out if you already have a development environment.
+### Create a Staging environment
 
-[![Create a staging environment](/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/create-staging-environment.png?v=2 "Create a staging environment")](#)Create a staging environment
+
+<Lightbox src="/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/create-staging-environment.png" width="85%" title="Create a staging environment" />
+
 
 Follow the steps outlined in [deployment credentials](#deployment-connection) to complete the remainder of the environment setup.
 
 We recommend that the data warehouse credentials be for a dedicated user or service principal.
 
-## Deployment connection[​](#deployment-connection "Direct link to Deployment connection")
+## Deployment connection
 
-Warehouse Connections
+:::info Warehouse Connections
 
-Warehouse connections are created and managed at the account-level for dbt accounts and assigned to an environment. To change warehouse type, we recommend creating a new environment.
+Warehouse connections are created and managed at the account-level for <Constant name="dbt" /> accounts and assigned to an environment. To change warehouse type, we recommend creating a new environment.
 
-Each project can have multiple connections (Snowflake account, Redshift host, Bigquery project, Databricks host, and so on.) of the same warehouse type. Some details of that connection (databases/schemas/and so on.) can be overridden within this section of the dbt environment settings.
+Each project can have multiple connections (Snowflake account, Redshift host, Bigquery project, Databricks host, and so on.) of the same warehouse type. Some details of that connection (databases/schemas/and so on.) can be overridden within this section of the <Constant name="dbt" /> environment settings.
+:::
 
 This section determines the exact location in your warehouse dbt should target when building warehouse objects! This section will look a bit different depending on your warehouse provider.
 
-For all warehouses, use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override missing or inactive (grayed-out) settings.
+For all warehouses, use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override missing or inactive (grayed-out) settings.
 
-* Postgres
-* Redshift
-* Snowflake
-* Bigquery
-* Spark
-* Databricks
+<WHCode>
 
-This section will not appear if you are using Postgres, as all values are inferred from the project's connection. Use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override these values.
 
-This section will not appear if you are using Redshift, as all values are inferred from the project's connection. Use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override these values.
+<div warehouse="Postgres">
 
-[![Snowflake Deployment Connection Settings](/img/docs/collaborate/snowflake-deploy-env-deploy-connection.png?v=2 "Snowflake Deployment Connection Settings")](#)Snowflake Deployment Connection Settings
+This section will not appear if you are using Postgres, as all values are inferred from the project's connection. Use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override these values.
 
-#### Editable fields[​](#editable-fields "Direct link to Editable fields")
+</div>
 
-* **Role**: Snowflake role
-* **Database**: Target database
-* **Warehouse**: Snowflake warehouse
+<div warehouse="Redshift">
 
-This section will not appear if you are using Bigquery, as all values are inferred from the project's connection. Use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override these values.
+This section will not appear if you are using Redshift, as all values are inferred from the project's connection. Use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override these values.
 
-This section will not appear if you are using Spark, as all values are inferred from the project's connection. Use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override these values.
+</div>
 
-[![Databricks Deployment Connection Settings](/img/docs/collaborate/databricks-deploy-env-deploy-connection.png?v=2 "Databricks Deployment Connection Settings")](#)Databricks Deployment Connection Settings
+<div warehouse="Snowflake">
 
-#### Editable fields[​](#editable-fields-1 "Direct link to Editable fields")
+<Lightbox src="/img/docs/collaborate/snowflake-deploy-env-deploy-connection.png" width="85%" title="Snowflake Deployment Connection Settings"/>
 
-* **Catalog** (optional): [Unity Catalog namespace](https://docs.getdbt.com/docs/core/connect-data-platform/databricks-setup.md)
+#### Editable fields
 
-### Deployment credentials[​](#deployment-credentials "Direct link to Deployment credentials")
+- **Role**: Snowflake role
+- **Database**: Target database
+- **Warehouse**: Snowflake warehouse
 
-This section allows you to determine the credentials that should be used when connecting to your warehouse. The authentication methods may differ depending on the warehouse and dbt tier you are on.
+</div>
 
-For all warehouses, use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override missing or inactive (grayed-out) settings. For credentials, we recommend wrapping extended attributes in [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) (`password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'`) to avoid displaying the secret value in the text box and the logs.
+<div warehouse="Bigquery">
 
-* Postgres
-* Redshift
-* Snowflake
-* Bigquery
-* Spark
-* Databricks
+This section will not appear if you are using Bigquery, as all values are inferred from the project's connection. Use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override these values.
 
-[![Postgres Deployment Credentials Settings](/img/docs/collaborate/postgres-deploy-env-deploy-credentials.png?v=2 "Postgres Deployment Credentials Settings")](#)Postgres Deployment Credentials Settings
+</div>
 
-#### Editable fields[​](#editable-fields-2 "Direct link to Editable fields")
+<div warehouse="Spark">
 
-* **Username**: Postgres username to use (most likely a service account)
-* **Password**: Postgres password for the listed user
-* **Schema**: Target schema
+This section will not appear if you are using Spark, as all values are inferred from the project's connection. Use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override these values.
 
-[![Redshift Deployment Credentials Settings](/img/docs/collaborate/postgres-deploy-env-deploy-credentials.png?v=2 "Redshift Deployment Credentials Settings")](#)Redshift Deployment Credentials Settings
+</div>
 
-#### Editable fields[​](#editable-fields-3 "Direct link to Editable fields")
+<div warehouse="Databricks">
 
-* **Username**: Redshift username to use (most likely a service account)
-* **Password**: Redshift password for the listed user
-* **Schema**: Target schema
+<Lightbox src="/img/docs/collaborate/databricks-deploy-env-deploy-connection.png" width="85%" title="Databricks Deployment Connection Settings"/>
 
-[![Snowflake Deployment Credentials Settings](/img/docs/collaborate/snowflake-deploy-env-deploy-credentials.png?v=2 "Snowflake Deployment Credentials Settings")](#)Snowflake Deployment Credentials Settings
+#### Editable fields
 
-#### Editable fields[​](#editable-fields-4 "Direct link to Editable fields")
+- **Catalog** (optional): [Unity Catalog namespace](/docs/local/connect-data-platform/databricks-setup)
 
-* **Auth Method**: This determines the way dbt connects to your warehouse
-  <!-- -->
-  * One of: \[**Username & Password**, **Key Pair**]
+</div>
 
-* If **Username & Password**:
+</WHCode>
 
-  <!-- -->
 
-  * **Username**: username to use (most likely a service account)
-  * **Password**: password for the listed user
+### Deployment credentials
 
-* If **Key Pair**:
+This section allows you to determine the credentials that should be used when connecting to your warehouse. The authentication methods may differ depending on the warehouse and <Constant name="dbt" /> tier you are on.
 
-  <!-- -->
+For all warehouses, use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override missing or inactive (grayed-out) settings. For credentials, we recommend wrapping extended attributes in [environment variables](/docs/build/environment-variables) (`password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'`) to avoid displaying the secret value in the text box and the logs.
 
-  * **Username**: username to use (most likely a service account)
-  * **Private Key**: value of the Private SSH Key (optional in the user interface, but required for key pair authentication when dbt runs)
-  * **Private Key Passphrase**: value of the Private SSH Key Passphrase (optional, only if required)
+<WHCode>
 
-* **Schema**: Target Schema for this environment
+<div warehouse="Postgres">
 
-[![Bigquery Deployment Credentials Settings](/img/docs/collaborate/bigquery-deploy-env-deploy-credentials.png?v=2 "Bigquery Deployment Credentials Settings")](#)Bigquery Deployment Credentials Settings
+<Lightbox src="/img/docs/collaborate/postgres-deploy-env-deploy-credentials.png" width="85%" title="Postgres Deployment Credentials Settings"/>
 
-#### Editable fields[​](#editable-fields-5 "Direct link to Editable fields")
+#### Editable fields
 
-* **Dataset**: Target dataset
+- **Username**: Postgres username to use (most likely a service account)
+- **Password**: Postgres password for the listed user
+- **Schema**: Target schema
 
-Use [extended attributes](https://docs.getdbt.com/docs/dbt-cloud-environments.md#extended-attributes) to override missing or inactive (grayed-out) settings. For credentials, we recommend wrapping extended attributes in [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) (`password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'`) to avoid displaying the secret value in the text box and the logs.
+</div>
 
-[![Spark Deployment Credentials Settings](/img/docs/collaborate/spark-deploy-env-deploy-credentials.png?v=2 "Spark Deployment Credentials Settings")](#)Spark Deployment Credentials Settings
+<div warehouse="Redshift">
 
-#### Editable fields[​](#editable-fields-6 "Direct link to Editable fields")
+<Lightbox src="/img/docs/collaborate/postgres-deploy-env-deploy-credentials.png" width="85%" title="Redshift Deployment Credentials Settings"/>
 
-* **Token**: Access token
-* **Schema**: Target schema
+#### Editable fields
 
-[![Databricks Deployment Credentials Settings](/img/docs/collaborate/spark-deploy-env-deploy-credentials.png?v=2 "Databricks Deployment Credentials Settings")](#)Databricks Deployment Credentials Settings
+- **Username**: Redshift username to use (most likely a service account)
+- **Password**: Redshift password for the listed user
+- **Schema**: Target schema
 
-#### Editable fields[​](#editable-fields-7 "Direct link to Editable fields")
+</div>
 
-* **Token**: Access token
-* **Schema**: Target schema
+<div warehouse="Snowflake">
 
-## Delete an environment[​](#delete-an-environment "Direct link to Delete an environment")
+<Lightbox src="/img/docs/collaborate/snowflake-deploy-env-deploy-credentials.png" width="85%" title="Snowflake Deployment Credentials Settings"/>
 
-<!-- -->
+#### Editable fields
 
-Deleting an environment automatically deletes its associated job(s). If you want to keep those jobs, move them to a different environment first.
+- **Auth Method**: This determines the way dbt connects to your warehouse
+  - One of: [**Username & Password**, **Key Pair**]
+- If **Username & Password**:
+  - **Username**: username to use (most likely a service account)
+  - **Password**: password for the listed user
+- If **Key Pair**:
+  - **Username**: username to use (most likely a service account)
+  - **Private Key**: value of the Private SSH Key (optional in the user interface, but required for key pair authentication when dbt runs)
+  - **Private Key Passphrase**: value of the Private SSH Key Passphrase (optional, only if required)
+- **Schema**: Target Schema for this environment
 
-Follow these steps to delete an environment in dbt:
+</div>
 
-1. Click **Deploy** on the navigation header and then click **Environments**
-2. Select the environment you want to delete.
-3. Click **Settings** on the top right of the page and then click **Edit**.
-4. Scroll to the bottom of the page and click **Delete** to delete the environment.
+<div warehouse="Bigquery">
 
-[![Delete an environment](/img/docs/dbt-cloud/cloud-configuring-dbt-cloud/delete-environment.png?v=2 "Delete an environment")](#)Delete an environment
+<Lightbox src="/img/docs/collaborate/bigquery-deploy-env-deploy-credentials.png" width="85%" title="Bigquery Deployment Credentials Settings"/>
 
-5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the environment immediately. This action cannot be undone. However, you can create a new environment with the same information if the deletion was made in error.
-6. Refresh your page and the deleted environment should now be gone. To delete multiple environments, you'll need to perform these steps to delete each one.
+#### Editable fields
 
-If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
+- **Dataset**: Target dataset
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+Use [extended attributes](/docs/dbt-cloud-environments#extended-attributes) to override missing or inactive (grayed-out) settings. For credentials, we recommend wrapping extended attributes in [environment variables](/docs/build/environment-variables) (`password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'`) to avoid displaying the secret value in the text box and the logs.
 
-* [dbt environment best practices](https://docs.getdbt.com/guides/set-up-ci.md)
-* [Deploy jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md)
-* [CI jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
-* [Delete a job or environment in dbt](https://docs.getdbt.com/faqs/Environments/delete-environment-job.md)
+</div>
 
-## Was this page helpful?
+<div warehouse="Spark">
 
-YesNo
+<Lightbox src="/img/docs/collaborate/spark-deploy-env-deploy-credentials.png" width="85%" title="Spark Deployment Credentials Settings"/>
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+#### Editable fields
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- **Token**: Access token
+- **Schema**: Target schema
+
+</div>
+
+<div warehouse="Databricks">
+
+<Lightbox src="/img/docs/collaborate/spark-deploy-env-deploy-credentials.png" width="85%" title="Databricks Deployment Credentials Settings"/>
+
+#### Editable fields
+
+- **Token**: Access token
+- **Schema**: Target schema
+
+</div>
+
+</WHCode>
+
+## Delete an environment
+
+import DeleteEnvironment from '/snippets/_delete-environment.md';
+
+<DeleteEnvironment />
+
+## Related docs
+
+- [<Constant name="dbt" /> environment best practices](/guides/set-up-ci)
+- [Deploy jobs](/docs/deploy/deploy-jobs)
+- [CI jobs](/docs/deploy/continuous-integration)
+- [Delete a job or environment in <Constant name="dbt" />](/faqs/Environments/delete-environment-job)
+

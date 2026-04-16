@@ -1,20 +1,27 @@
-# sql\_header
 
-`sql_header` does not support Jinja or macros like `ref` and `source`
+:::info `sql_header` does not support Jinja or macros like `ref` and `source`
 
-Unlike [pre-hooks and post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md), macros like [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md), and references like [`{{ this }}`](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md), aren't supported.
+Unlike [pre-hooks and post-hooks](/reference/resource-configs/pre-hook-post-hook), macros like [`ref`](/reference/dbt-jinja-functions/ref), [`source`](/reference/dbt-jinja-functions/source), and references like [`{{ this }}`](/reference/dbt-jinja-functions/this), aren't supported.
 
-The primary function of `set_sql_header` is fairly limited. It's intended to:
+The primary function of `set_sql_header` is fairly limited. It's intended to: 
+- [Create UDFs](/reference/resource-configs/sql_header#create-a-bigquery-temporary-udf)
+- [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery) 
+- [Set temporary session parameters](/reference/resource-configs/sql_header#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
 
-* [Create UDFs](https://docs.getdbt.com/reference/resource-configs/sql_header.md#create-a-bigquery-temporary-udf)
-* [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery)
-* [Set temporary session parameters](https://docs.getdbt.com/reference/resource-configs/sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
+:::
 
-- Models
-- Seeds
-- Snapshots
+<Tabs
+  defaultValue="models"
+  values={[
+    { label: 'Models', value: 'models', },
+    { label: 'Seeds', value: 'seeds', },
+    { label: 'Snapshots', value: 'snapshots', },
+    { label: 'Property file', value: 'property-yaml', },
+  ]
+}>
+<TabItem value="models">
 
-models/\<modelname>.sql
+<File name='models/<modelname>.sql'>
 
 ```sql
 {{ config(
@@ -22,24 +29,40 @@ models/\<modelname>.sql
 ) }}
 
 select ...
+
+
 ```
 
-dbt\_project.yml
+</File>
+
+<File name='dbt_project.yml'>
 
 ```yml
-config-version: 2
+[config-version](/reference/project-configs/config-version): 2
 
 models:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +sql_header: <sql-statement>
+
 ```
+
+</File>
+
+</TabItem>
+
+
+<TabItem value="seeds">
 
 This config is not implemented for seeds
 
-snapshots/\<filename>.sql
+</TabItem>
+
+<TabItem value="snapshots">
+
+<File name='snapshots/<filename>.sql'>
 
 ```sql
-{% snapshot snapshot_name %}
+{% snapshot [snapshot_name](snapshot_name) %}
 
 {{ config(
   sql_header="<sql-statement>"
@@ -48,35 +71,92 @@ snapshots/\<filename>.sql
 select ...
 
 {% endsnapshot %}
+
 ```
 
-dbt\_project.yml
+</File>
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +sql_header: <sql-statement>
+
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
 
+</TabItem>
+
+<TabItem value="property-yaml">
+
+Setting `sql_header` in the `config` of a [generic data test](/docs/build/data-tests) is available starting in <Constant name="core" /> v1.12. Enable the [`require_sql_header_in_test_configs`](/reference/global-configs/behavior-changes#sql_header-in-data-tests) flag to use `sql_header` in `properties.yml` for generic data tests.
+
+
+Here's an example of a model-level configuration:
+
+<File name="models/properties.yml">
+
+```yaml
+models:
+  - name: orders
+    data_tests:
+      - unique:
+          name: unique_orders_order_id
+          arguments:
+            column_name: order_id
+          config:
+            sql_header: "-- SQL_HEADER_TEST_MARKER"
+```
+</File>
+
+You can also use `sql_header` for column-level data tests:
+
+<File name="models/properties.yml">
+
+```yaml
+models:
+  - name: orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null:
+              name: not_null_orders_order_id
+              config:
+                sql_header: "-- SQL_HEADER_TEST_MARKER"
+```
+
+</File>
+
+</TabItem>
+
+</Tabs>
+
+
+## Definition
 An optional configuration to inject SQL above the `create table as` and `create view as` statements that dbt executes when building models and snapshots.
 
 `sql_header`s can be set using the config, or by `call`-ing the `set_sql_header` macro (example below).
 
-## Comparison to pre-hooks[​](#comparison-to-pre-hooks "Direct link to Comparison to pre-hooks")
+<VersionBlock firstVersion="1.12">
 
-[Pre-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md) also provide an opportunity to execute SQL before model creation, as a *preceding* query. In comparison, SQL in a `sql_header` is run in the same *query* as the `create table|view as` statement.
+You can also set `sql_header` in the `config` of a [generic data test](/docs/build/data-tests) at the model or column level in your `properties.yml` file. Use `sql_header` to define SQL that should run before the test executes (for example, to create temporary functions, set session parameters, or declare variables required by the test query). dbt runs this SQL before executing the test.
+
+Enable the [`require_sql_header_in_test_configs`](/reference/global-configs/behavior-changes#sql_header-in-data-tests) flag to use `sql_header` for data tests. For more information, refer to [Data test configurations](/reference/data-test-configs).
+
+</VersionBlock>
+
+## Comparison to pre-hooks
+[Pre-hooks](/reference/resource-configs/pre-hook-post-hook) also provide an opportunity to execute SQL before model creation, as a _preceding_ query. In comparison, SQL in a `sql_header` is run in the same _query_ as the `create table|view as` statement.
 
 As a result, this makes it more useful for [Snowflake session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html) and [BigQuery Temporary UDFs](https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions#sql-udf-examples).
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Set Snowflake session parameters for a particular model[​](#set-snowflake-session-parameters-for-a-particular-model "Direct link to Set Snowflake session parameters for a particular model")
-
+### Set Snowflake session parameters for a particular model
 This uses the config block syntax:
-
-models/my\_model.sql
+<File name='models/my_model.sql'>
 
 ```sql
 {{ config(
@@ -86,9 +166,11 @@ models/my\_model.sql
 select * from {{ ref('other_model') }}
 ```
 
-### Set Snowflake session parameters for all models[​](#set-snowflake-session-parameters-for-all-models "Direct link to Set Snowflake session parameters for all models")
+</File>
 
-dbt\_project.yml
+### Set Snowflake session parameters for all models
+
+<File name='dbt_project.yml'>
 
 ```yml
 config-version: 2
@@ -97,11 +179,13 @@ models:
   +sql_header: "alter session set timezone = 'Australia/Sydney';"
 ```
 
-### Create a BigQuery Temporary UDF[​](#create-a-bigquery-temporary-udf "Direct link to Create a BigQuery Temporary UDF")
+</File>
+
+### Create a BigQuery Temporary UDF
 
 This example calls the `set_sql_header` macro. This macro is a convenience wrapper which you may choose to use if you have a multi-line SQL statement to inject. You do not need to use the `sql_header` configuration key in this case.
 
-models/my\_model.sql
+<File name='models/my_model.sql'>
 
 ```sql
 -- Supply a SQL header:
@@ -122,10 +206,6 @@ models/my\_model.sql
 select yes_no_to_boolean(yes_no) from {{ ref('other_model') }}
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

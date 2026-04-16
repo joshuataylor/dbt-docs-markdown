@@ -1,80 +1,69 @@
-# Merge jobs in dbt [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Merge jobs in dbt
 
-You can set up a merge job to implement a continuous deployment (CD) workflow in dbt. The merge job triggers a dbt job to run when someone merges Git pull requests into production. This workflow creates a seamless development experience where changes made in code will automatically update production data. Also, you can use this workflow for running `dbt compile` to update your environment's manifest so subsequent CI job runs are more performant.
 
-By using CD in dbt, you can take advantage of deferral to build only the edited model and any downstream changes. With merge jobs, state will be updated almost instantly, always giving the most up-to-date state information in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
+# Merge jobs in dbt <Lifecycle status="self_service,managed" />
 
-Triggering merge jobs in monorepos
+You can set up a merge job to implement a continuous deployment (CD) workflow in <Constant name="dbt" />. The merge job triggers a dbt job to run when someone merges Git pull requests into production. This workflow creates a seamless development experience where changes made in code will automatically update production data.
 
+You can also use a merge job to refresh an environment’s `manifest.json` so downstream [CI jobs](/docs/deploy/ci-jobs) stay fast. For example, run [`dbt compile`](/reference/commands/compile) or, to avoid warehouse work entirely, [`dbt parse --no-partial-parse`](/reference/commands/parse) in a dedicated environment—the same one your CI jobs defer to under **Compare changes against**, so the manifest those pull request runs compare against updates quickly. Use the same base branch that environment tracks (for example, `main` or a [custom branch](/faqs/Environments/custom-branch-settings) such as `develop`). If merge also kicks off a long `dbt build`, consider a separate merge triggered job that runs _only_ `dbt parse --no-partial-parse` so the manifest updates before the build finishes.
+
+By using CD in <Constant name="dbt" />, you can take advantage of deferral to build only the edited model and any downstream changes. With merge jobs, state will be updated almost instantly, always giving the most up-to-date state information in [<Constant name="catalog" />](/docs/explore/explore-projects).
+
+:::note Triggering merge jobs in monorepos
 If you have a monorepo with several dbt projects, merging a single pull request in one of your projects will trigger jobs for all projects connected to the monorepo. To address this, you can use separate target branches per project (for example, `main-project-a`, `main-project-b`) to separate CI triggers.
+:::
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
+- You have a <Constant name="dbt" /> account. 
+- You have set up a [connection with your <Constant name="git" /> provider](/docs/cloud/git/git-configuration-in-dbt-cloud). This integration lets <Constant name="dbt" /> run jobs on your behalf for job triggering.
+   - If you're using a native [GitLab](/docs/cloud/git/connect-gitlab) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
+- For deferral (which is the default), make sure there has been at least one successful job run in the environment you defer to.
 
-* You have a dbt account.
-* You have set up a [connection with your Git provider](https://docs.getdbt.com/docs/cloud/git/git-configuration-in-dbt-cloud.md). This integration lets dbt run jobs on your behalf for job triggering.
-  <!-- -->
-  * If you're using a native [GitLab](https://docs.getdbt.com/docs/cloud/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
-* For deferral (which is the default), make sure there has been at least one successful job run in the environment you defer to.
+## Set up job trigger on Git merge {#set-up-merge-jobs}
 
-## Set up job trigger on Git merge[​](#set-up-merge-jobs "Direct link to Set up job trigger on Git merge")
+1. On your deployment environment page, click **Create job** > **Merge job**. 
+1. Options in the **Job settings** section:
+    - **Job name** &mdash; Specify the name for the merge job.
+    - **Description** &mdash; Provide a description about the job.
+    - **Environment** &mdash; By default, it’s set to the environment you created the job from.
+1. In the **<Constant name="git" /> trigger** section, the **Run on merge** option is enabled by default. Every time a PR merges (to a base
+branch configured in the environment) in your <Constant name="git" /> repo, this job will get triggered to run. 
+1. Options in the **Execution settings** section:
+    - **Commands** &mdash; By default, it includes the `dbt build --select state:modified+` command. This informs <Constant name="dbt" /> to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](/docs/deploy/job-commands) that you want to be invoked when this job runs.
+    - **Compare changes against** &mdash; By default, it's set to compare changes against the environment you created the job from. This option allows <Constant name="dbt" /> to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG. To change the default settings, you can select **No deferral**, **This job** for self-deferral, or choose a different environment. 
+1. (optional) Options in the **Advanced settings** section: 
+    - **Environment variables** &mdash; Define [environment variables](/docs/build/environment-variables) to customize the behavior of your project when this job runs.
+    - **Target name** &mdash; Define the [target name](/docs/build/custom-target-names). Similar to environment variables, this option lets you customize the behavior of the project. 
+    - **Run timeout** &mdash; Cancel this job if the run time exceeds the timeout value.
+    - **dbt version** &mdash; By default, it’s set to inherit the [dbt version](/docs/dbt-versions) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
+    - **Threads** &mdash; By default, it’s set to 4 [threads](/docs/local/profiles.yml#understanding-threads). Increase the thread count to increase model execution concurrency.
 
-1. On your deployment environment page, click **Create job** > **Merge job**.
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/example-create-merge-job.png" title="Example of creating a merge job"/>
 
-2. Options in the **Job settings** section:
+## Verify push events in Git
 
-   <!-- -->
+Merge jobs require push events so make sure they've been enabled in your <Constant name="git" /> provider, especially if you have an already-existing <Constant name="git" /> integration. However, for a new integration setup, you can skip this check since push events are typically enabled by default. 
 
-   * **Job name** — Specify the name for the merge job.
-   * **Description** — Provide a description about the job.
-   * **Environment** — By default, it’s set to the environment you created the job from.
+<Expandable alt_header="GitHub example" >
 
-3. In the **Git trigger** section, the **Run on merge** option is enabled by default. Every time a PR merges (to a base branch configured in the environment) in your Git repo, this job will get triggered to run.
+The following is a GitHub example of when the push events are already set: 
 
-4. Options in the **Execution settings** section:
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/example-github-push-events.png" title="Example of the Pushes option enabled in the GitHub settings"/>
 
-   <!-- -->
+</Expandable>
 
-   * **Commands** — By default, it includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when this job runs.
-   * **Compare changes against** — By default, it's set to compare changes against the environment you created the job from. This option allows dbt to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG. To change the default settings, you can select **No deferral**, **This job** for self-deferral, or choose a different environment.
-
-5. (optional) Options in the **Advanced settings** section:
-
-   <!-- -->
-
-   * **Environment variables** — Define [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) to customize the behavior of your project when this job runs.
-   * **Target name** — Define the [target name](https://docs.getdbt.com/docs/build/custom-target-names.md). Similar to environment variables, this option lets you customize the behavior of the project.
-   * **Run timeout** — Cancel this job if the run time exceeds the timeout value.
-   * **dbt version** — By default, it’s set to inherit the [dbt version](https://docs.getdbt.com/docs/dbt-versions/core.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
-   * **Threads** — By default, it’s set to 4 [threads](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles.md#understanding-threads). Increase the thread count to increase model execution concurrency.
-
-[![Example of creating a merge job](/img/docs/dbt-cloud/using-dbt-cloud/example-create-merge-job.png?v=2 "Example of creating a merge job")](#)Example of creating a merge job
-
-## Verify push events in Git[​](#verify-push-events-in-git "Direct link to Verify push events in Git")
-
-Merge jobs require push events so make sure they've been enabled in your Git provider, especially if you have an already-existing Git integration. However, for a new integration setup, you can skip this check since push events are typically enabled by default.
-
- GitHub example
-
-The following is a GitHub example of when the push events are already set:
-
-[![Example of the Pushes option enabled in the GitHub settings](/img/docs/dbt-cloud/using-dbt-cloud/example-github-push-events.png?v=2 "Example of the Pushes option enabled in the GitHub settings")](#)Example of the Pushes option enabled in the GitHub settings
-
- GitLab example
+<Expandable alt_header="GitLab example" >
 
 The following is a GitLab example of when the push events are already set:
 
-[![Example of the Push events option enabled in the GitLab settings](/img/docs/dbt-cloud/using-dbt-cloud/example-gitlab-push-events.png?v=2 "Example of the Push events option enabled in the GitLab settings")](#)Example of the Push events option enabled in the GitLab settings
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/example-gitlab-push-events.png" title="Example of the Push events option enabled in the GitLab settings"/>
 
- Azure DevOps example
+</Expandable>
 
-The following is an example of creating a new **Code pushed** trigger in Azure DevOps. Create a new service hooks subscription when code pushed events haven't been set:
+<Expandable alt_header="Azure DevOps example" >
 
-[![Example of creating a new trigger to push events in Azure Devops](/img/docs/dbt-cloud/using-dbt-cloud/example-azuredevops-new-event.png?v=2 "Example of creating a new trigger to push events in Azure Devops")](#)Example of creating a new trigger to push events in Azure Devops
+The following is an example of creating a new **Code pushed** trigger in Azure DevOps. Create a new service hooks subscription when code pushed events haven't been set: 
 
-## Was this page helpful?
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/example-azuredevops-new-event.png" title="Example of creating a new trigger to push events in Azure Devops"/>
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</Expandable>

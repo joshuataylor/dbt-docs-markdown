@@ -1,18 +1,20 @@
 # dbt Classes
 
-dbt has a number of classes it uses to represent objects in a data warehouse, parts of a dbt project, and the results of a command.
+
+dbt has a number of classes it uses to represent objects in a <Term id="data-warehouse" />, parts of a dbt project, and the results of a command.
 
 These classes are often useful when building advanced dbt models and macros.
 
-## Relation[​](#relation "Direct link to Relation")
+## Relation
 
-The `Relation` object is used to interpolate schema and table names into SQL code with appropriate quoting. This object should *always* be used instead of interpolating values with `{{ schema }}.{{ table }}` directly. Quoting of the Relation object can be configured using the [`quoting` config](https://docs.getdbt.com/reference/project-configs/quoting.md).
+The `Relation` object is used to interpolate schema and <Term id="table" /> names into SQL code with appropriate quoting. This object should _always_ be used instead of interpolating values with `{{ schema }}.{{ table }}` directly. Quoting of the Relation object can be configured using the [`quoting` config](/reference/project-configs/quoting).
 
-### Creating relations[​](#creating-relations "Direct link to Creating relations")
+
+### Creating relations
 
 A `Relation` can be created by calling the `create` class method on the `Relation` class.
 
-Relation.create
+<File name='Relation.create'>
 
 ```python
 class Relation:
@@ -26,11 +28,12 @@ class Relation:
   """
 ```
 
-### Using relations[​](#using-relations "Direct link to Using relations")
+</File>
 
-In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) or [`this`](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md).
+### Using relations
 
-relation\_usage.sql
+In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](/reference/dbt-jinja-functions/ref), [`source`](/reference/dbt-jinja-functions/source) or  [`this`](/reference/dbt-jinja-functions/this).
+<File name='relation_usage.sql'>
 
 ```jinja2
 {% set relation = api.Relation.create(schema='snowplow', identifier='events') %}
@@ -55,13 +58,16 @@ relation\_usage.sql
 
 -- Return true if the relation is a cte
 {{ relation.is_cte }}
+
 ```
 
-## Column[​](#column "Direct link to Column")
+</File>
 
+
+## Column
 The `Column` object is used to encode information about a column in a relation.
 
-column.py
+<File name='column.py'>
 
 ```python
 class Column(object):
@@ -85,36 +91,37 @@ col.string_type() # character varying(255)
 col.numeric_type('numeric', 12, 4) # numeric(12,4)
 ```
 
-### Column API[​](#column-api "Direct link to Column API")
+</File>
 
-### Properties[​](#properties "Direct link to Properties")
+### Column API
 
-* **char\_size**: Returns the maximum size for character varying columns
-* **column**: Returns the name of the column
-* **data\_type**: Returns the data type of the column (with size/precision/scale included)
-* **dtype**: Returns the data type of the column (without any size/precision/scale included)
-* **name**: Returns the name of the column (identical to `column`, provided as an alias).
-* **numeric\_precision**: Returns the maximum precision for fixed decimal columns
-* **numeric\_scale**: Returns the maximum scale for fixed decimal columns
-* **quoted**: Returns the name of the column wrapped in quotes
+### Properties
 
-### Instance methods[​](#instance-methods "Direct link to Instance methods")
+- **char_size**: Returns the maximum size for character varying columns
+- **column**: Returns the name of the column
+- **data_type**: Returns the data type of the column (with size/precision/scale included)
+- **dtype**: Returns the data type of the column (without any size/precision/scale included)
+- **name**: Returns the name of the column (identical to `column`, provided as an alias).
+- **numeric_precision**: Returns the maximum precision for fixed decimal columns
+- **numeric_scale**: Returns the maximum scale for fixed decimal columns
+- **quoted**: Returns the name of the column wrapped in quotes
 
-* **is\_string()**: Returns True if the column is a String type (eg. text, varchar), else False
-* **is\_numeric()**: Returns True if the column is a fixed-precision Numeric type (eg. `numeric`), else False
-* **is\_number()**: Returns True if the column is a number-y type (eg. `numeric`, `int`, `float`, or similar), else False
-* **is\_integer()**: Returns True if the column is an integer (eg. `int`, `bigint`, `serial` or similar), else False
-* **is\_float()**: Returns True if the column is a float type (eg. `float`, `float64`, or similar), else False
-* **string\_size()**: Returns the width of the column if it is a string type, else, an exception is raised
+### Instance methods
 
-### Static methods[​](#static-methods "Direct link to Static methods")
+- **is_string()**: Returns True if the column is a String type (eg. text, varchar), else False
+- **is_numeric()**: Returns True if the column is a fixed-precision Numeric type (eg. `numeric`), else False
+- **is_number()**: Returns True if the column is a number-y type (eg. `numeric`, `int`, `float`, or similar), else False
+- **is_integer()**: Returns True if the column is an integer (eg. `int`, `bigint`, `serial` or similar), else False
+- **is_float()**: Returns True if the column is a float type (eg. `float`, `float64`, or similar), else False
+- **string_size()**: Returns the width of the column if it is a string type, else, an exception is raised
 
-* **string\_type(size)**: Returns a database-useable representation of the string type (eg. `character varying(255)`)
-* **numeric\_type(dtype, precision, scale)**: Returns a database-useable representation of the numeric type (eg. `numeric(12, 4)`)
+### Static methods
+- **string_type(size)**:  Returns a database-useable representation of the string type (eg. `character varying(255)`)
+- **numeric_type(dtype, precision, scale)**: Returns a database-useable representation of the numeric type (eg. `numeric(12, 4)`)
 
-### Using columns[​](#using-columns "Direct link to Using columns")
+### Using columns
 
-column\_usage.sql
+<File name='column_usage.sql'>
 
 ```jinja2
 -- String column
@@ -162,50 +169,38 @@ column\_usage.sql
 {{ api.Column.numeric_type('numeric', 12, 4) }}
 ```
 
-## BigQuery columns[​](#bigquery-columns "Direct link to BigQuery columns")
+</File>
 
+## BigQuery columns
 The `Column` type is overridden as a `BigQueryColumn` in BigQuery dbt projects. This object works the same as the `Column` type described above, with the exception of extra properties and methods:
 
-### Properties[​](#properties-1 "Direct link to Properties")
+### Properties
+- **fields**: Returns the list of subfields contained within a field (if the column is a STRUCT)
+- **mode**: Returns the "mode" of the column, eg. `REPEATED`
 
-* **fields**: Returns the list of subfields contained within a field (if the column is a STRUCT)
-* **mode**: Returns the "mode" of the column, eg. `REPEATED`
-
-### Instance methods[​](#instance-methods-1 "Direct link to Instance methods")
-
+### Instance methods
 **flatten()**: Return a flattened list of `BigQueryColumns` in which subfields are expanded into their own columns. For example, this nested field:
 
-```text
+```
 [{"hits": {"pageviews": 1, "bounces": 0}}]
 ```
 
 will be expanded to:
-
-```text
+```
 [{"hits.pageviews": 1, "hits.bounces": 0}]
 ```
 
-## Result objects[​](#result-objects "Direct link to Result objects")
+## Result objects
 
-The execution of a resource in dbt generates a `Result` object. This object contains information about the executed node, timing, status, and metadata returned by the adapter. At the end of an invocation, dbt records these objects in [`run_results.json`](https://docs.getdbt.com/reference/artifacts/run-results-json.md).
+The execution of a resource in dbt generates a `Result` object. This object contains information about the executed node, timing, status, and metadata returned by the adapter. At the end of an invocation, dbt records these objects in [`run_results.json`](/reference/artifacts/run-results-json).
 
-* `node`: Full object representation of the dbt resource (model, seed, snapshot, test) executed, including its `unique_id`
-* `status`: dbt's interpretation of runtime success, failure, or error
-* `thread_id`: Which thread executed this node? E.g. `Thread-1`
-* `execution_time`: Total time spent executing this node, measured in seconds.
-* `timing`: Array that breaks down execution time into steps (often `compile` + `execute`)
-* `message`: How dbt will report this result on the CLI, based on information returned from the database
+- `node`: Full object representation of the dbt resource (model, seed, snapshot, test) executed, including its `unique_id`
+- `status`: dbt's interpretation of runtime success, failure, or error
+- `thread_id`: Which thread executed this node? E.g. `Thread-1`
+- `execution_time`: Total time spent executing this node, measured in seconds.
+- `timing`: Array that breaks down execution time into steps (often `compile` + `execute`)
+- `message`: How dbt will report this result on the CLI, based on information returned from the database
 
-<!-- -->
+import RowsAffected from '/snippets/_run-result.md'; 
 
-* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](https://docs.getdbt.com/docs/build/data-tests.md).
-  <!-- -->
-  * `rows_affected` returns the number of rows modified by the last statement executed. In cases where the query's row count can't be determined or isn't applicable (such as when creating a view), a [standard value](https://peps.python.org/pep-0249/#rowcount) of `-1` is returned for `rowcount`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<RowsAffected/>

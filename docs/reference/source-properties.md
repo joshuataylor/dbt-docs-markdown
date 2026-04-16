@@ -1,98 +1,103 @@
 # Source properties
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Using sources](https://docs.getdbt.com/docs/build/sources.md)
-* [Declaring resource properties](https://docs.getdbt.com/reference/configs-and-properties.md)
+## Related documentation
+- [Using sources](/docs/build/sources)
+- [Declaring resource properties](/reference/configs-and-properties)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
-<!-- -->
+import PropsCallout from '/snippets/_config-prop-callout.md';
 
-Source properties can be declared in any `properties.yml` file in your `models/` directory (as defined by the [`model-paths` config](https://docs.getdbt.com/reference/project-configs/model-paths.md)). Source properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
+Source properties can be declared in any `properties.yml` file in your `models/` directory (as defined by the [`model-paths` config](/reference/project-configs/model-paths)). <PropsCallout title={frontMatter.title}/>  <br /> 
+
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yml
 
 sources:
   - name: <string> # required
-    description: <markdown_string>
-    database: <database_name>
-    schema: <schema_name>
-    loader: <string>
+    [description](/reference/resource-properties/description): <markdown_string>
+    [database](/reference/resource-properties/database): <database_name>
+    [schema](/reference/resource-properties/schema): <schema_name>
+    [loader](/reference/resource-properties/loader): <string>
 
     # requires v1.1+
-    config:
-      <source_config>: <config_value>
-      freshness:
+    [config](/reference/resource-properties/config):
+      [<source_config>](source-configs): <config_value>
+      [freshness](/reference/resource-properties/freshness):
       # changed to config in v1.10
-      loaded_at_field: <column_name>
+      [loaded_at_field](/reference/resource-properties/freshness#loaded_at_field): <column_name>
         warn_after:
-          count: <positive_integer>
-          period: minute | hour | day
+          [count](/reference/resource-properties/freshness#count): <positive_integer>
+          [period](/reference/resource-properties/freshness#period): minute | hour | day
         error_after:
-          count: <positive_integer>
-          period: minute | hour | day
-        filter: <where-condition>
-      meta: {<dictionary>} # changed to config in v1.10
-      tags: [<string>] # changed to config in v1.10
+          [count](/reference/resource-properties/freshness#count): <positive_integer>
+          [period](/reference/resource-properties/freshness#period): minute | hour | day
+        [filter](/reference/resource-properties/freshness#filter): <where-condition>
+      [meta](/reference/resource-configs/meta): {<dictionary>} # changed to config in v1.10
+      [tags](/reference/resource-configs/tags): [<string>] # changed to config in v1.10
 
     # deprecated in v1.10
-    overrides: <string>
+    [overrides](/reference/resource-properties/overrides): <string>
 
-    quoting:
+    [quoting](/reference/resource-properties/quoting):
       database: true | false
       schema: true | false
       identifier: true | false
 
     tables:
       - name: <string> #required
-        description: <markdown_string>
-        identifier: <table_name>
-        data_tests:
+        [description](/reference/resource-properties/description): <markdown_string>
+        [identifier](/reference/resource-properties/identifier): <table_name>
+        [data_tests](/reference/resource-properties/data-tests):
           - <test>
           - ... # declare additional tests
-        config:
-          loaded_at_field: <column_name>
-          meta: {<dictionary>}
-          tags: [<string>]
-          freshness:
+        [config](/reference/resource-properties/config):
+          [loaded_at_field](/reference/resource-properties/freshness#loaded_at_field): <column_name>
+          [meta](/reference/resource-configs/meta): {<dictionary>}
+          [tags](/reference/resource-configs/tags): [<string>]
+          [freshness](/reference/resource-properties/freshness):
             warn_after:
-              count: <positive_integer>
-              period: minute | hour | day
+              [count](/reference/resource-properties/freshness#count): <positive_integer>
+              [period](/reference/resource-properties/freshness#period): minute | hour | day
             error_after:
-              count: <positive_integer>
-              period: minute | hour | day
-            filter: <where-condition>
+              [count](/reference/resource-properties/freshness#count): <positive_integer>
+              [period](/reference/resource-properties/freshness#period): minute | hour | day
+            [filter](/reference/resource-properties/freshness#filter): <where-condition>
 
-        quoting:
+        [quoting](/reference/resource-properties/quoting):
           database: true | false
           schema: true | false
           identifier: true | false
-        external: {<dictionary>}
+        [external](/reference/resource-properties/external): {<dictionary>}
         columns:
           - name: <column_name> # required
-            description: <markdown_string>
-            quote: true | false
-            data_tests:
+            [description](/reference/resource-properties/description): <markdown_string>
+            [quote](/reference/resource-properties/columns#quote): true | false
+            [data_tests](/reference/resource-properties/data-tests):
               - <test>
               - ... # declare additional tests
-            config:
-              meta: {<dictionary>}
-              tags: [<string>]
+            [config](/reference/resource-properties/config):
+              [meta](/reference/resource-configs/meta): {<dictionary>}
+              [tags](/reference/resource-configs/tags): [<string>]
           - name: ... # declare properties of additional columns
 
       - name: ... # declare properties of additional source tables
 
   - name: ... # declare properties of additional sources
+
 ```
 
-## Example[​](#example "Direct link to Example")
+</File>
 
-models/\<filename>.yml
+
+## Example
+
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -143,10 +148,4 @@ sources:
               - unique
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

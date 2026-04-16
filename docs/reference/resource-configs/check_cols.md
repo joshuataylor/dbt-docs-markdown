@@ -1,38 +1,88 @@
-# check\_cols
 
-dbt\_project.yml
+<VersionBlock firstVersion="1.9">
+<File name="snapshots/<filename>.yml">
+  
+  ```yml
+  snapshots:
+  - name: snapshot_name
+    relation: source('my_source', 'my_table')
+    config:
+      schema: string
+      unique_key: column_name_or_expression
+      strategy: check
+      check_cols:
+        - column_name
+  ```
+  
+</File>
+</VersionBlock>
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +strategy: check
     +check_cols: [column_name] | all
+
 ```
 
-## Description[​](#description "Direct link to Description")
+</File>
 
+## Description
 A list of columns within the results of your snapshot query to check for changes.
 
 Alternatively, use all columns using the `all` value (however this may be less performant).
 
-This parameter is **required if using the `check` [strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md)**.
+This parameter is **required if using the `check` [strategy](/reference/resource-configs/strategy)**.
 
-## Default[​](#default "Direct link to Default")
-
+## Default
 No default is provided.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Check a list of columns for changes[​](#check-a-list-of-columns-for-changes "Direct link to Check a list of columns for changes")
+### Check a list of columns for changes
 
-<!-- -->
+<VersionBlock firstVersion="1.9">
 
-### Check all columns for changes[​](#check-all-columns-for-changes "Direct link to Check all columns for changes")
+<File name="snapshots/orders_snapshot_check.yml">
 
-## Was this page helpful?
+```yaml
+snapshots:
+  - name: orders_snapshot_check
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      unique_key: id
+      strategy: check
+      check_cols:
+        - status
+        - is_cancelled
+```
+</File>
 
-YesNo
+To select from this snapshot in a downstream model: `select * from {{ ref('orders_snapshot_check') }}`
+</VersionBlock>
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+### Check all columns for changes
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<VersionBlock firstVersion="1.9">
+
+<File name="orders_snapshot_check.yml">
+
+```yaml
+snapshots:
+  - name: orders_snapshot_check
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      unique_key: id
+      strategy: check
+      check_cols: all
+  ```
+</File>
+
+To select from this snapshot in a downstream model: `select * from {{ ref('orders_snapshot_check') }}`
+</VersionBlock>
+
+

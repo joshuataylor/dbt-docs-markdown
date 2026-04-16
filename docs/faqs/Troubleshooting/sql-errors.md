@@ -1,5 +1,7 @@
 # What happens if the SQL in my query is bad or I get a database error?
 
+
+
 If there's a mistake in your SQL, dbt will return the error that your database returns.
 
 ```shell
@@ -23,12 +25,4 @@ Database Error in model customers (models/customers.sql)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
-Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](https://docs.getdbt.com/faqs/Runs/checking-logs.md) to debug any errors.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](/faqs/Runs/checking-logs) to debug any errors.

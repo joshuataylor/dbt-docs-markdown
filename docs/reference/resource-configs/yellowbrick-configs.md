@@ -1,29 +1,34 @@
 # Yellowbrick configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+
+## Incremental materialization strategies
 
 The dbt-yellowbrick adapter supports the following incremental materialization strategies:
 
-* `append` (default when `unique_key` is not defined)
-* `delete+insert` (default when `unique_key` is defined)
+- `append` (default when `unique_key` is not defined)
+- `delete+insert` (default when `unique_key` is defined)
 
 All of these strategies are inherited from the dbt-postgres adapter.
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
-
-To improve query performance, tables in Yellowbrick Data support several optimizations that can be defined as model-level configurations in dbt. These will be applied to `CREATE TABLE` DDL statements generated at compile or run time. Note that these settings will have no effect on models set to `view` or `ephemeral`.
+## Performance optimizations
+    
+To improve query performance, tables in Yellowbrick Data support several optimizations that can be defined 
+as model-level configurations in dbt.  These will be applied to `CREATE TABLE` <Term id="ddl" /> statements 
+generated at compile or run time. Note that these settings will have no effect on models set to `view` or `ephemeral`.
 
 dbt-yellowbrick supports the following Yellowbrick-specific features when defining tables:
+- `dist` - applies a single-column distribution key, or sets the distribution to `RANDOM` or `REPLICATE`
+- `sort_col` - applies the `SORT ON (column)` clause that names a single column to sort on before data is stored on media
+- `cluster_cols` - applies the `CLUSTER ON (column, column, ...)` clause that names up to four columns to cluster on before data is stored 
+on the media
 
-* `dist` - applies a single-column distribution key, or sets the distribution to `RANDOM` or `REPLICATE`
-* `sort_col` - applies the `SORT ON (column)` clause that names a single column to sort on before data is stored on media
-* `cluster_cols` - applies the `CLUSTER ON (column, column, ...)` clause that names up to four columns to cluster on before data is stored on the media
+A table that has sorted or clustered columns facilitates the skipping of blocks when tables are scanned with 
+restrictions applied in the query.  Further details can be found in the [Yellowbrick Data Warehouse](https://docs.yellowbrick.com/latest/ybd_sqlref/clustered_tables.html#clustered-tables) 
+documentation.
 
-A table that has sorted or clustered columns facilitates the skipping of blocks when tables are scanned with restrictions applied in the query. Further details can be found in the [Yellowbrick Data Warehouse](https://docs.yellowbrick.com/latest/ybd_sqlref/clustered_tables.html#clustered-tables) documentation.
+### Some example model configurations
 
-### Some example model configurations[​](#some-example-model-configurations "Direct link to Some example model configurations")
-
-* `DISTRIBUTE REPLICATE` with a `SORT` column...
+* ```DISTRIBUTE REPLICATE``` with a ```SORT``` column...
 
 ```sql
 {{
@@ -47,8 +52,7 @@ from
     {{ source('premdb_public','team') }} stg
 where
     stg.name is not null
-```
-
+``` 
 gives the following model output:
 
 ```sql
@@ -70,12 +74,11 @@ where
 distribute REPLICATE
 sort on (stadium_capacity);
 ```
-
 <br />
 
-* `DISTRIBUTE` on a single column and define up to four `CLUSTER` columns...
+* ```DISTRIBUTE``` on a single column and define up to four ```CLUSTER``` columns...
 
-```sql
+```sql 
 {{
   config(
     materialized = 'table',
@@ -137,18 +140,10 @@ distribute on (match_key)
 cluster on (season_key, match_date_key, home_team_key, away_team_key);
 ```
 
-## Cross-database materializations[​](#cross-database-materializations "Direct link to Cross-database materializations")
+## Cross-database materializations
 
 Yellowbrick supports cross-database queries and the dbt-yellowbrick adapter will permit cross-database reads into a specific target on the same appliance instance.
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 This initial implementation of the dbt adapter for Yellowbrick Data Warehouse may not support some use cases. We strongly advise validating all records or transformations resulting from the adapter output.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

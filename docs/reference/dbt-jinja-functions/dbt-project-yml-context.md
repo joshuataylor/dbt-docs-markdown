@@ -1,21 +1,22 @@
-# About dbt\_project.yml context
+# About dbt_project.yml context
 
-The following context methods and variables are available when configuring resources in the `dbt_project.yml` file. This applies to the `models:`, `seeds:`, and `snapshots:` keys in the `dbt_project.yml` file.
+
+The following context methods and variables are available when configuring
+resources in the `dbt_project.yml` file. This applies to the `models:`, `seeds:`,
+and `snapshots:` keys in the `dbt_project.yml` file.
 
 **Available context methods:**
-
-* [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-* [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) (*Note: only variables defined with `--vars` are available*)
+- [env_var](/reference/dbt-jinja-functions/env_var)
+- [var](/reference/dbt-jinja-functions/var) <VersionBlock lastVersion="1.11">(_Note: Only variables defined with `--vars` are available_)</VersionBlock><VersionBlock firstVersion="1.12">(_Note: Variables defined in `vars.yml` or with `--vars` are available_)</VersionBlock>
 
 **Available context variables:**
+- [target](/reference/dbt-jinja-functions/target)
+- [builtins](/reference/dbt-jinja-functions/builtins)
+- [dbt_version](/reference/dbt-jinja-functions/dbt_version)
 
-* [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md)
-* [builtins](https://docs.getdbt.com/reference/dbt-jinja-functions/builtins.md)
-* [dbt\_version](https://docs.getdbt.com/reference/dbt-jinja-functions/dbt_version.md)
+### Example configuration
 
-### Example configuration[​](#example-configuration "Direct link to Example configuration")
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 name: my_project
@@ -30,10 +31,4 @@ models:
       +materialized: "{{ 'view' if target.name == 'dev' else 'table' }}"
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

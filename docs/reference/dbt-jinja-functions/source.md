@@ -1,31 +1,30 @@
 # About source function
 
+
 ```sql
 select * from {{ source("source_name", "table_name") }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 This function:
+- Returns a [Relation](/reference/dbt-classes#relation) for a [source](/docs/build/sources)
+- Creates dependencies between a source and the current model, which is useful for documentation and [node selection](/reference/node-selection/syntax)
+- Compiles to the full object name in the database
 
-* Returns a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) for a [source](https://docs.getdbt.com/docs/build/sources.md)
-* Creates dependencies between a source and the current model, which is useful for documentation and [node selection](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* Compiles to the full object name in the database
 
-## Related guides[​](#related-guides "Direct link to Related guides")
+## Related guides
+- [Using sources](/docs/build/sources)
 
-* [Using sources](https://docs.getdbt.com/docs/build/sources.md)
-
-## Arguments[​](#arguments "Direct link to Arguments")
-
+## Arguments
 * `source_name`: The `name:` defined under a `sources:` key
 * `table_name`: The `name:` defined under a `tables:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Consider a source defined as follows:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -38,9 +37,11 @@ sources:
       - name: orders
 ```
 
+</File>
+
 Select from the source in a model:
 
-models/orders.sql
+<File name='models/orders.sql'>
 
 ```sql
 select
@@ -49,12 +50,7 @@ select
 from {{ source('jaffle_shop', 'customers') }}
 
 left join {{ source('jaffle_shop', 'orders') }} using (customer_id)
+
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

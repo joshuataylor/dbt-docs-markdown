@@ -1,6 +1,7 @@
 # Don't nest your curlies
 
-### Poetry[​](#poetry "Direct link to Poetry")
+
+### Poetry
 
 **Don't Nest Your Curlies**
 
@@ -14,11 +15,11 @@
 >
 > and check if you're nesting your curlies.
 
-### Jinja[​](#jinja "Direct link to Jinja")
+### Jinja
 
 When writing Jinja code in a dbt project, it may be tempting to nest expressions inside of each other. Take this example:
 
-```text
+```
   {{ dbt_utils.date_spine(
       datepart="day",
       start_date=[ USE JINJA HERE ]
@@ -28,9 +29,10 @@ When writing Jinja code in a dbt project, it may be tempting to nest expressions
 
 To nest a Jinja expression inside of another Jinja expression, simply place the desired code (without curly brackets) directly into the expression.
 
-**Correct example** Here, the return value of the `var()` context method is supplied as the `start_date` argument to the `date_spine` macro. Great!
+**Correct example**
+Here, the return value of the `var()` context method is supplied as the `start_date` argument to the `date_spine` macro. Great!
 
-```text
+```
   {{ dbt_utils.date_spine(
       datepart="day",
       start_date=var('start_date')
@@ -38,9 +40,10 @@ To nest a Jinja expression inside of another Jinja expression, simply place the 
   }}
 ```
 
-**Incorrect example** Once we've denoted that we're inside a Jinja expression (using the `{{` syntax), no further curly brackets are required inside of the Jinja expression. This code will supply a literal string value, `"{{ var('start_date') }}"`, as the `start_date` argument to the `date_spine` macro. This is probably not what you actually want to do!
+**Incorrect example**
+Once we've denoted that we're inside a Jinja expression (using the `{{` syntax), no further curly brackets are required inside of the Jinja expression. This code will supply a literal string value, `"{{ var('start_date') }}"`, as the `start_date` argument to the `date_spine` macro. This is probably not what you actually want to do!
 
-```text
+```
 -- Do not do this! It will not work!
 
   {{ dbt_utils.date_spine(
@@ -63,24 +66,16 @@ select * from {{ ref('my_model') }}
 
 {# This does not #}
 {% set query_sql = "select * from {{ ref('my_model')}}" %}
+
 ```
 
-### An exception[​](#an-exception "Direct link to An exception")
+### An exception
 
 There is one exception to this rule: curlies inside of curlies are acceptable in hooks (ie. `on-run-start`, `on-run-end`, `pre-hook`, and `post-hook`).
 
 Code like this is both valid, and encouraged:
-
-```text
+```
 {{ config(post_hook="grant select on {{ this }} to role bi_role") }}
 ```
 
-So why are curlies inside of curlies allowed in this case? Here, we actually *want* the string literal `"grant select on {{ this }} ..."` to be saved as the configuration value for the post-hook in this model. This string will be re-rendered when the model runs, resulting in a sensible SQL expression like `grant select on "schema"."table"....` being executed against the database. These hooks are a special exception to the rule stated above.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+So why are curlies inside of curlies allowed in this case? Here, we actually _want_ the string literal `"grant select on {{ this }} ..."` to be saved as the configuration value for the post-hook in this model. This string will be re-rendered when the model runs, resulting in a sensible SQL expression like `grant select on "schema"."table"....` being executed against the database. These hooks are a special exception to the rule stated above.

@@ -1,57 +1,56 @@
 # Artifacts
 
-When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the dbt platform, namely: [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [dbt Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs), and [source freshness reporting](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness).
 
-## Create dbt Artifacts[​](#create-dbt-artifacts "Direct link to Create dbt Artifacts")
+When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the <Constant name="dbt_platform" />, namely: [<Constant name="catalog" />](/docs/explore/explore-projects), [dbt Docs](/docs/explore/build-and-view-your-docs#dbt-docs), and [source freshness reporting](/docs/build/sources#source-data-freshness).
 
-[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) uses the metadata provided by the [Discovery API](https://docs.getdbt.com/docs/dbt-cloud-apis/discovery-api.md) to display the details about [the state of your project](https://docs.getdbt.com/docs/dbt-cloud-apis/project-state.md). It uses metadata from your staging and production [deployment environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md).
+## Create dbt Artifacts
 
-Catalog automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project — meaning it's always automatically updated after each job run.
+[<Constant name="catalog" />](/docs/explore/explore-projects#generate-metadata) uses the metadata provided by the [Discovery API](/docs/dbt-cloud-apis/discovery-api) to display the details about [the state of your project](/docs/dbt-cloud-apis/project-state). It uses metadata from your staging and production [deployment environments](/docs/deploy/deploy-environments).
 
-To view a resource, its metadata, and what commands are needed, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+<Constant name="catalog" /> automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project &mdash; meaning it's always automatically updated after each job run.
 
- For dbt Docs
+To view a resource, its metadata, and what commands are needed, refer to [generate metadata](/docs/explore/explore-projects#generate-metadata) for more details.
 
-The following steps are for legacy dbt Docs only. For the current documentation experience, see [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
+<Expandable alt_header="For dbt Docs">
+
+The following steps are for legacy dbt Docs only. For the current documentation experience, see [dbt <Constant name="catalog" />](/docs/explore/explore-projects).
 
 While running any job can produce artifacts, you should only associate one production job with a given project to produce the project's artifacts. You can designate this connection on the **Project details** page. To access this page:
 
-1. From the dbt platform, click on your account name in the left side menu and select **Account settings**.
-2. Select your project, and click **Edit** in the lower right.
+1. From the <Constant name="dbt_platform" />, click on your account name in the left side menu and select **Account settings**.
+2. Select your project, and click **Edit** in the lower right. 
 3. Under **Artifacts**, select the jobs you want to produce documentation and source freshness artifacts for.
 
-[![Configuring Artifacts](/img/docs/dbt-cloud/using-dbt-cloud/project-level-artifact-updated.png?v=2 "Configuring Artifacts")](#)Configuring Artifacts
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/project-level-artifact-updated.png" width="70%" title="Configuring Artifacts"/>
 
 If you don't see your job listed, you might need to edit the job and select **Run source freshness** and **Generate docs on run**.
 
-[![Editing the job to generate artifacts](/img/docs/dbt-cloud/using-dbt-cloud/edit-job-generate-artifacts.png?v=2 "Editing the job to generate artifacts")](#)Editing the job to generate artifacts
+<Lightbox src="/img/docs/dbt-cloud/using-dbt-cloud/edit-job-generate-artifacts.png" title="Editing the job to generate artifacts"/>
 
-When you add a production job to a project, dbt updates the content and provides links to the production documentation and source freshness artifacts it generated for that project. You can see these links by clicking **Deploy** in the upper left, selecting **Jobs**, and then selecting the production job. From the job page, you can select a specific run to see how artifacts were updated for that run only.
+When you add a production job to a project, <Constant name="dbt" /> updates the content and provides links to the production documentation and source freshness artifacts it generated for that project. You can see these links by clicking **Deploy** in the upper left, selecting **Jobs**, and then selecting the production job. From the job page, you can select a specific run to see how artifacts were updated for that run only.
 
-### Documentation[​](#documentation "Direct link to Documentation")
+</Expandable>
 
-Navigate to [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
+### Documentation
 
-To view a resource, its metadata, and what commands are needed, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+Navigate to [<Constant name="catalog" />](/docs/explore/explore-projects) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
+
+To view a resource, its metadata, and what commands are needed, refer to [generate metadata](/docs/explore/explore-projects#generate-metadata) for more details.
 
 Both the job's commands and the docs generate step (triggered by the **Generate docs on run** checkbox) must succeed during the job invocation to update the documentation.
 
- For dbt Docs
+<Expandable alt_header="For dbt Docs">
 
-When set up, dbt updates the Documentation link in the header tab so it links to documentation for this job. This link always directs you to the latest version of the documentation for your project.
+When set up, <Constant name="dbt" /> updates the Documentation link in the header tab so it links to documentation for this job. This link always directs you to the latest version of the documentation for your project.
 
-### Source Freshness[​](#source-freshness "Direct link to Source Freshness")
+</Expandable>
 
-To view the latest source freshness result, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more detail. Then navigate to Catalog through the **Explore** link.
+### Source Freshness
 
- For dbt Docs
+To view the latest source freshness result, refer to [generate metadata](/docs/explore/explore-projects#generate-metadata) for more detail. Then navigate to <Constant name="catalog" /> through the **Explore** link.
+
+<Expandable alt_header="For dbt Docs">
 
 Configuring a job for the Source Freshness artifact setting also updates the data source link under **Orchestration** > **Data sources**. The link points to the latest Source Freshness report for the selected job.
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</Expandable>

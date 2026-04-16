@@ -1,71 +1,59 @@
-### Already using dbt? Start here[​](#already-using-dbt-start-here "Direct link to Already using dbt? Start here")
+# Get started with Fusion
 
-Upgrade your existing projects to the dbt Fusion engine and learn about the tools available to you once you're there!
 
-[](https://docs.getdbt.com/docs/install-dbt-extension.md)
+### New to dbt? Start here
 
-[](https://docs.getdbt.com/docs/install-dbt-extension.md)
+Once you've caught up on everything [<Constant name="fusion" /> has to offer](/docs/fusion/about-fusion), begin your journey with the most powerful data transformation engine available! 
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/install-dbt-extension.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+<div className="grid--3-col">
 
-#### dbt VS Code extension
+<Card
+    title="Install Fusion + VS Code extension"
+    body="Learn how to install and configure our most robust set of tools for local development."
+    link="/docs/local/install-dbt?version=2#get-started"
+    icon="dbt-bit"
+    lifecycle="preview"/>
 
-Add the dbt VS Code extension to your existing development workflows for both dbt platform and the CLI.
+<Card
+    title="Install Fusion CLI only"
+    body="Learn how to install and configure the dbt Fusion engine from your command line."
+    link="/docs/local/install-dbt?version=2#get-started"
+    icon="dbt-bit"
+    lifecycle="preview"/>
 
-[](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md)
+<Card
+    title="Sign up for the dbt platform"
+    body="Create a cloud-based dbt platform account to unlock the full potential of the Fusion engine."
+    link="https://www.getdbt.com/signup"
+    icon="dbt-bit"/>
 
-[](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md)
+</div>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md)[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Already using dbt? Start here
 
-#### Guide: Prepare to upgrade to Fusion
+Upgrade your existing projects to the <Constant name="fusion_engine" /> and learn about the tools available to you once you're there!
 
-Step-by-step guide to prepare your dbt platform projects for upgrading to Fusion.
+<div className="grid--3-col">
 
-[](https://docs.getdbt.com/guides/upgrade-to-fusion.md)
+<Card
+    title="dbt VS Code extension"
+    body="Add the dbt VS Code extension to your existing development workflows for both dbt platform and the CLI."
+    link="/docs/install-dbt-extension"
+    icon="dbt-bit"
+    lifecycle="preview"/>
 
-[](https://docs.getdbt.com/guides/upgrade-to-fusion.md)
+<Card
+    title="Guide: Prepare to upgrade to Fusion"
+    body="Step-by-step guide to prepare your dbt platform projects for upgrading to Fusion."
+    link="/guides/prepare-fusion-upgrade"
+    icon="dbt-bit"
+    lifecycle="private_preview"/>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/guides/upgrade-to-fusion.md)[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+<Card
+    title="Guide: Upgrade to Fusion"
+    body="Learn how to upgrade your eligible projects on the dbt platform to the Fusion engine with this comprehensive guide."
+    link="/guides/upgrade-to-fusion"
+    icon="dbt-bit"
+    lifecycle="private_preview"/>
 
-#### Guide: Upgrade to Fusion
-
-Learn how to upgrade your eligible projects on the dbt platform to the Fusion engine with this comprehensive guide.
-
-### New to dbt? Start here[​](#new-to-dbt-start-here "Direct link to New to dbt? Start here")
-
-Once you've caught up on everything [Fusion has to offer](https://docs.getdbt.com/docs/fusion/about-fusion.md), begin your journey with the most powerful data transformation engine available!
-
-[](https://docs.getdbt.com/docs/fusion/install-dbt-extension.md)
-
-[](https://docs.getdbt.com/docs/fusion/install-dbt-extension.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/fusion/install-dbt-extension.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-#### Install Fusion + VS Code extension
-
-Learn how to install and configure our most robust set of tools for local development.
-
-[](https://docs.getdbt.com/docs/fusion/install-fusion-cli.md)
-
-[](https://docs.getdbt.com/docs/fusion/install-fusion-cli.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/fusion/install-fusion-cli.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-#### Install Fusion CLI only
-
-Learn how to install and configure the dbt Fusion engine from your command line.
-
-[![](/img/icons/dbt-bit.svg)](https://www.getdbt.com/signup)
-
-#### [Sign up for the dbt platform](https://www.getdbt.com/signup)
-
-[Create a cloud-based dbt platform account to unlock the full potential of the Fusion engine.](https://www.getdbt.com/signup)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

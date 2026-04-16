@@ -1,15 +1,16 @@
 # About profiles.yml context
 
-The following context methods are available when configuring resources in the `profiles.yml` file.
+
+The following context methods are available when configuring
+resources in the `profiles.yml` file.
 
 **Available context methods:**
+- [env_var](/reference/dbt-jinja-functions/env_var)
+- [var](/reference/dbt-jinja-functions/var) (_Note: only variables defined with `--vars` are available_)
 
-* [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-* [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) (*Note: only variables defined with `--vars` are available*)
+### Example usage
 
-### Example usage[​](#example-usage "Direct link to Example usage")
-
-\~/.dbt/profiles.yml
+<File name="~/.dbt/profiles.yml">
 
 ```yml
 jaffle_shop:
@@ -26,10 +27,4 @@ jaffle_shop:
       threads: 4
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

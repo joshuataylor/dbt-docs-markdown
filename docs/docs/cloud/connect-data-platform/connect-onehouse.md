@@ -1,70 +1,60 @@
 # Connect Onehouse
 
-dbt supports connecting to [Onehouse SQL](https://www.onehouse.ai/product/quanton) using the Apache Spark Connector with the Thrift method.
 
-note
 
-Connect to a Onehouse SQL Cluster with the [dbt-spark](https://docs.getdbt.com/docs/cloud/connect-data-platform/connect-apache-spark.md) adapter.\*\*
+<Constant name="dbt" /> supports connecting to [Onehouse SQL](https://www.onehouse.ai/product/quanton) using the Apache Spark Connector with the Thrift method.
 
-## Requirements[​](#requirements "Direct link to Requirements")
+:::note
+Connect to a Onehouse SQL Cluster with the [dbt-spark](/docs/cloud/connect-data-platform/connect-apache-spark) adapter.**
+:::
 
-* For dbt, ensure your Onehouse SQL endpoint is accessible via external DNS/IP, whitelisting dbt IPs.
+## Requirements
 
-## What works[​](#what-works "Direct link to What works")
+* For <Constant name="dbt" />, ensure your Onehouse SQL endpoint is accessible via external DNS/IP, whitelisting <Constant name="dbt" /> IPs.
+
+## What works 
 
 * All dbt Commands, including: `dbt clean`, `dbt compile`, `dbt debug`, `dbt seed`, and `dbt run`.
 * dbt materializations: `table` and `incremental`
 * Apache Hudi table types of Merge on Read (MoR) and Copy on Write (CoW). It is recommended to use MoR for mutable workloads.
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 * Views are not supported
 * `dbt seed` has row / record limits.
 * `dbt seed` only supports Copy on Write tables.
 
-## dbt connection[​](#dbt-connection "Direct link to dbt connection")
+## dbt connection
 
 Fill in the following fields when creating an **Apache Spark** warehouse connection using the Thrift connection method:
 
-| Field                 | Description                                                     | Examples                    |
-| --------------------- | --------------------------------------------------------------- | --------------------------- |
-| Method                | The method for connecting to Spark                              | Thrift                      |
-| Hostname              | The hostname of your Onehouse SQL Cluster endpoint              | `yourProject.sparkHost.com` |
-| Port                  | The port to connect to Spark on                                 | 10000                       |
-| Cluster               | Onehouse does not use this field                                |                             |
-| Connection Timeout    | Number of seconds after which to timeout a connection           | 10                          |
-| Connection Retries    | Number of times to attempt connecting to cluster before failing | 0                           |
-| Organization          | Onehouse does not use this field                                |                             |
-| User                  | Optional. Not enabled by default.                               | dbt\_cloud\_user            |
-| Auth                  | Optional, supply if using Kerberos. Not enabled by default.     | `KERBEROS`                  |
-| Kerberos Service Name | Optional, supply if using Kerberos. Not enabled by default.     | `hive`                      |
+| Field | Description | Examples |
+| ----- | ----------- | -------- |
+| Method | The method for connecting to Spark | Thrift |
+| Hostname | The hostname of your Onehouse SQL Cluster endpoint | `yourProject.sparkHost.com` |
+| Port | The port to connect to Spark on | 10000 |
+| Cluster | Onehouse does not use this field | |
+| Connection Timeout | Number of seconds after which to timeout a connection | 10 |
+| Connection Retries | Number of times to attempt connecting to cluster before failing | 0 |
+| Organization | Onehouse does not use this field | |
+| User | Optional. Not enabled by default. | dbt_cloud_user |
+| Auth | Optional, supply if using Kerberos. Not enabled by default. | `KERBEROS` |
+| Kerberos Service Name | Optional, supply if using Kerberos. Not enabled by default. | `hive` |
 
-Search table...
+<Lightbox src="/img/onehouse/onehouse-dbt.png" width="70%" title="Onehouse configuration"/>
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+## dbt project
 
-[![Onehouse configuration](/img/onehouse/onehouse-dbt.png?v=2 "Onehouse configuration")](#)Onehouse configuration
+We recommend that you set default configurations on the dbt_project.yml to ensure that the adapter executes with Onehouse compatible sql
 
-## dbt project[​](#dbt-project "Direct link to dbt project")
+| Field | Description | Required | Default  | Recommended |
+| ----- | ----------- | -------- | -------- | -------- |
+| materialized | materialization the project/directory will default to | Yes | without input, `view`  |  `table` |
+| file_format | table format the project will default to  | Yes |  N/A | hudi   |
+| location_root | Location of the database in DFS | Yes | N/A  | `<your_database_location_dfs>`  |
+| hoodie.table.type | Merge on Read or Copy on Write | No | cow  | mor   |
 
-We recommend that you set default configurations on the dbt\_project.yml to ensure that the adapter executes with Onehouse compatible sql
-
-| Field             | Description                                           | Required | Default               | Recommended                    |
-| ----------------- | ----------------------------------------------------- | -------- | --------------------- | ------------------------------ |
-| materialized      | materialization the project/directory will default to | Yes      | without input, `view` | `table`                        |
-| file\_format      | table format the project will default to              | Yes      | N/A                   | hudi                           |
-| location\_root    | Location of the database in DFS                       | Yes      | N/A                   | `<your_database_location_dfs>` |
-| hoodie.table.type | Merge on Read or Copy on Write                        | No       | cow                   | mor                            |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-dbt\_project.yml template
+dbt_project.yml template
 
 ```yml
       +materialized: table | incremental
@@ -74,8 +64,7 @@ dbt\_project.yml template
          hoodie.table.type: mor | cow
 ```
 
-A dbt\_project.yml example if using jaffle shop would be
-
+A dbt_project.yml example if using jaffle shop would be
 ```sql
 models:
   jaffle_shop:
@@ -89,10 +78,4 @@ models:
       +materialized: table
 ```
 
-## Was this page helpful?
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

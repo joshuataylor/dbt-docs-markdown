@@ -1,17 +1,18 @@
 # About return function
 
-**Args**:
 
-* `data`: The data to return to the caller
+__Args__:
 
-The `return` function can be used in macros to return data to the caller. The type of the data (dict, list, int, etc) will be preserved through the `return` call. You can use the `return` function in the following ways within your macros: as an expression or as a statement.
+ * `data`: The data to return to the caller
 
-* Expression — Use an expression when the goal is to output a string from the macro.
-* Statement with a `do` tag — Use a statement with a `do` tag to execute the return function without generating an output string. This is particularly useful when you want to perform actions without necessarily inserting their results directly into the template.
+The `return` function can be used in macros to return data to the caller. The type of the data (dict, list, int, etc) will be preserved through the `return` call.  You can use the `return` function in the following ways within your macros: as an expression or as a statement.
 
-In the following example, `{{ return([1,2,3]) }}` acts as an *expression* that directly outputs a string, making it suitable for directly inserting returned values into SQL code.
+- Expression &mdash; Use an expression when the goal is to output a string from the macro.
+- Statement with a `do` tag &mdash; Use a statement with a `do` tag to execute the return function without generating an output string.  This is particularly useful when you want to perform actions without necessarily inserting their results directly into the template. 
 
-macros/get\_data.sql
+In the following example, `{{ return([1,2,3]) }}` acts as an _expression_ that directly outputs a string, making it suitable for directly inserting returned values into SQL code.
+
+<File name='macros/get_data.sql'>
 
 ```sql
 {% macro get_data() %}
@@ -21,11 +22,13 @@ macros/get\_data.sql
 {% endmacro %}
 ```
 
-Alternatively, you can use a statement with a [do](https://jinja.palletsprojects.com/en/3.0.x/extensions/#expression-statement) tag (or expression-statements) to execute the return function without generating an output string.
+</File>
 
-In the following example ,`{% do return([1,2,3]) %}` acts as a *statement* that executes the return action but does not output a string:
+Alternatively, you can use a statement with a [do](https://jinja.palletsprojects.com/en/3.0.x/extensions/#expression-statement) tag (or expression-statements) to execute the return function without generating an output string.  
 
-macros/get\_data.sql
+In the following example ,`{% do return([1,2,3]) %}` acts as a _statement_ that executes the return action but does not output a string:
+
+<File name='macros/get_data.sql'>
 
 ```sql
 {% macro get_data() %}
@@ -35,7 +38,10 @@ macros/get\_data.sql
 {% endmacro %}
 ```
 
-models/my\_model.sql
+</File>
+
+
+<File name='models/my_model.sql'>
 
 ```sql
 
@@ -47,10 +53,4 @@ select
   {% endfor %}
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

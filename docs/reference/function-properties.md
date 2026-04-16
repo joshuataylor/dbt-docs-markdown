@@ -1,57 +1,45 @@
 # Function properties
 
-💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
+<VersionCallout version="1.11" /> 
 
 Function properties can be declared in `.yml` files under a `functions` key.
 
 We recommend that you put them in the `functions/` directory. You can name these files `schema.yml` or `whatever_you_want.yml`, and nest them in subfolders within that directory.
 
-functions/\<filename>.yml
+<File name='functions/<filename>.yml'>
 
 ```yml
 
 functions:
   - name: <string> # required
-    description: <markdown_string> # optional
-    config: # optional
-      <function_config>: <config_value>
-      type: scalar | aggregate # optional, defaults to scalar.
-      volatility: deterministic | stable | non-deterministic # optional
-      runtime_version: <string> # required for Python UDFs
-      entry_point: <string> # required for Python UDFs
-      docs:
+    [description](/reference/resource-properties/description): <markdown_string> # optional
+    [config](/reference/resource-properties/config): # optional
+      [<function_config>](/reference/function-configs): <config_value>
+      [type](/reference/resource-configs/type): scalar | aggregate # optional, defaults to scalar.
+      [volatility](/reference/resource-configs/volatility): deterministic | stable | non-deterministic # optional
+      [runtime_version](/reference/resource-configs/runtime-version): <string> # required for Python UDFs
+      [entry_point](/reference/resource-configs/entry-point): <string> # required for Python UDFs
+      [docs](/reference/resource-configs/docs):
         show: true | false
         node_color: <color_id> # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
-    arguments: # optional
+    [arguments](/reference/resource-properties/function-arguments): # optional
       - name: <string> # required if arguments is specified
         data_type: <string> # required if arguments is specified, warehouse-specific
         description: <markdown_string> # optional
         default_value: <string | boolean | integer> # optional, available in Snowflake and Postgres
       - name: ... # declare additional arguments
-    returns: # required
+    [returns](/reference/resource-properties/returns): # required
       data_type: <string> # required, warehouse-specific
       description: <markdown_string> # optional
 
   - name: ... # declare properties of additional functions
 ```
+</File>
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-functions/schema.yml
+<File name='functions/schema.yml'>
 
 ```yml
 
@@ -71,11 +59,4 @@ functions:
       data_type: boolean
       description: Returns true if the input string represents a positive integer, false otherwise
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

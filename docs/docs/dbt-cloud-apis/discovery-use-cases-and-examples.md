@@ -1,36 +1,32 @@
 # Use cases and examples for the Discovery API
 
-With the Discovery API, you can query the metadata in dbt to learn more about your dbt deployments and the data it generates to analyze them and make improvements.
+
+With the Discovery API, you can query the metadata in <Constant name="dbt" /> to learn more about your dbt deployments and the data it generates to analyze them and make improvements.
 
 You can use the API in a variety of ways to get answers to your business questions. Below describes some of the uses of the API and is meant to give you an idea of the questions this API can help you answer.
 
-| Use case                    | Outcome                                                                                              | Example questions                                                                                                                  |
-| --------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [Performance](#performance) | Identify inefficiencies in pipeline execution to reduce infrastructure costs and improve timeliness. | - What’s the latest status of each model?<br />- Do I need to run this model?<br />- How long did my DAG take to run?              |
-| [Quality](#quality)         | Monitor data source freshness and test results to resolve issues and drive trust in data.            | - How fresh are my data sources?<br />- Which tests and models failed?<br />- What’s my project’s test coverage?                   |
-| [Discovery](#discovery)     | Find and understand relevant datasets and semantic nodes with rich context and metadata.             | - What do these tables and columns mean?<br />- What's the full data lineage at a model level?<br />- Which metrics can I query?   |
-| [Governance](#governance)   | Audit data development and facilitate collaboration within and between teams.                        | - Who is responsible for this model?<br />- How do I contact the model’s owner?<br />- Who can use this model?                     |
-| [Development](#development) | Understand dataset changes and usage and gauge impacts to inform project definition.                 | - How is this metric used in BI tools?<br />- Which nodes depend on this data source?<br />- How has a model changed? What impact? |
+| Use case | Outcome | <div style={{width:'400px'}}>Example questions</div> |
+| --- | --- | --- |
+| [Performance](#performance) | Identify inefficiencies in pipeline execution to reduce infrastructure costs and improve timeliness. | <ul><li>What’s the latest status of each model?</li> <li>Do I need to run this model?</li><li>How long did my DAG take to run?</li> </ul>|
+| [Quality](#quality) | Monitor data source freshness and test results to resolve issues and drive trust in data. | <ul><li>How fresh are my data sources?</li><li>Which tests and models failed?</li><li>What’s my project’s test coverage?</li></ul>  |
+| [Discovery](#discovery) | Find and understand relevant datasets and semantic nodes with rich context and metadata. | <ul><li>What do these tables and columns mean?</li><li>What's the full data lineage at a model level?</li><li>Which metrics can I query?</li> </ul> |
+| [Governance](#governance) | Audit data development and facilitate collaboration within and between teams. | <ul><li>Who is responsible for this model?</li><li>How do I contact the model’s owner?</li><li>Who can use this model?</li></ul>|
+| [Development](#development) | Understand dataset changes and usage and gauge impacts to inform project definition. | <ul><li>How is this metric used in BI tools?</li><li>Which nodes depend on this data source?</li><li>How has a model changed? What impact?</li> </ul>|
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Performance[​](#performance "Direct link to Performance")
+## Performance
 
 You can use the Discovery API to identify inefficiencies in pipeline execution to reduce infrastructure costs and improve timeliness. Below are example questions and queries you can run.
 
 For performance use cases, people typically query the historical or latest applied state across any part of the DAG (for example, models) using the `environment`, `modelHistoricalRuns`, or job-level endpoints.
 
-### How long did each model take to run?[​](#how-long-did-each-model-take-to-run "Direct link to How long did each model take to run?")
+### How long did each model take to run?
 
 It’s helpful to understand how long it takes to build models (tables) and tests to execute during a dbt run. Longer model build times result in higher infrastructure costs and fresh data arriving later to stakeholders. Analyses like these can be in observability tools or ad-hoc queries, like in a notebook.
 
-[![Model timing visualization in dbt](/img/docs/dbt-cloud/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")](#)Model timing visualization in dbt
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/model-timing.png" width="200%" title="Model timing visualization in dbt"/>
 
-Example query with code
+<details>
+<summary>Example query with code</summary>
 
 Data teams can monitor the performance of their models, identify bottlenecks, and optimize the overall data pipeline by fetching execution details like `executionTime` and `runElapsedTime`:
 
@@ -89,6 +85,7 @@ query ModelHistoricalRuns(
 
 3. Use the query results to plot a graph of the longest running model’s historical run time and execution time trends.
 
+<!-- TODO: TEST THIS PYTHON CODE WORKS WITH NEW API AND DOCS! -->
 ```python
 # Import libraries
 import os
@@ -159,15 +156,19 @@ plt.show()
 
 Plotting examples:
 
-[![The plot of runElapsedTime over time](/img/docs/dbt-cloud/discovery-api/plot-of-runelapsedtime.png?v=2 "The plot of runElapsedTime over time")](#)The plot of runElapsedTime over time
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/plot-of-runelapsedtime.png" width="80%" title="The plot of runElapsedTime over time"/>
 
-[![The plot of executionTime over time](/img/docs/dbt-cloud/discovery-api/plot-of-executiontime.png?v=2 "The plot of executionTime over time")](#)The plot of executionTime over time
 
-### What’s the latest state of each model?[​](#whats-the-latest-state-of-each-model "Direct link to What’s the latest state of each model?")
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/plot-of-executiontime.png" width="80%" title="The plot of executionTime over time"/>
+
+</details>
+
+### What’s the latest state of each model?
 
 The Discovery API provides information about the applied state of models and how they arrived in that state. You can retrieve the status information from the most recent run and most recent successful run (execution) from the `environment` endpoint and dive into historical runs using job-based and `modelByEnvironment` endpoints.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 The API returns full identifier information (`database.schema.alias`) and the `executionInfo` for both the most recent run and most recent successful run from the database:
 
@@ -203,14 +204,16 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What happened with my job run?[​](#what-happened-with-my-job-run "Direct link to What happened with my job run?")
+</details>
+
+### What happened with my job run?
 
 You can query the metadata at the job level to review results for specific runs. This is helpful for historical analysis of deployment performance or optimizing particular jobs.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 Deprecated example:
-
 ```graphql
 query ($jobId: Int!, $runId: Int!) {
   models(jobId: $jobId, runId: $runId) {
@@ -241,13 +244,16 @@ query ($jobId: BigInt!, $runId: BigInt!) {
 }
 ```
 
-### What’s changed since the last run?[​](#whats-changed-since-the-last-run "Direct link to What’s changed since the last run?")
+</details>
 
+### What’s changed since the last run?
 Unnecessary runs incur higher infrastructure costs and load on the data team and their systems. A model doesn’t need to be run if it’s a view and there's no code change since the last run, or if it’s a table/incremental with no code change since last run and source data has not been updated since the last run.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 With the API, you can compare the `rawCode` between the definition and applied state, and review when the sources were last loaded (source `maxLoadedAt` relative to model `executeCompletedAt`) given the `materializedType` of the model:
+
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -294,19 +300,23 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Quality[​](#quality "Direct link to Quality")
+</details>
 
-You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
+## Quality
+
+You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](/docs/deploy/webhooks), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
 
 For quality use cases, people typically query the historical or latest applied state, often in the upstream part of the DAG (for example, sources), using the `environment` or `environment { applied { modelHistoricalRuns } }` endpoints.
 
-### Which models and tests failed to run?[​](#which-models-and-tests-failed-to-run "Direct link to Which models and tests failed to run?")
+### Which models and tests failed to run?
 
 By filtering on the latest status, you can get lists of models that failed to build and tests that failed during their most recent execution. This is helpful when diagnosing issues with the deployment that result in delayed or incorrect data.
 
-Example query with code
+<details>
+<summary>Example query with code</summary>
 
 1. Get the latest run results across all jobs in the environment and return only the models and tests that errored/failed.
+
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -339,6 +349,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 2. Review the historical execution and test failure rate (up to 20 runs) for a given model, such as a frequently used and important dataset.
 
+
 ```graphql
 query ($environmentId: BigInt!, $uniqueId: String!, $lastRunCount: Int) {
   environment(id: $environmentId) {
@@ -359,11 +370,17 @@ query ($environmentId: BigInt!, $uniqueId: String!, $lastRunCount: Int) {
 
 3. Identify the runs and plot the historical trends of failure/error rates.
 
-### When was the data my model uses last refreshed?[​](#when-was-the-data-my-model-uses-last-refreshed "Direct link to When was the data my model uses last refreshed?")
 
-You can get the metadata on the latest execution for a particular model or across all models in your project. For instance, investigate when each model or snapshot that's feeding into a given model was last executed or the source or seed was last loaded to gauge the *freshness* of the data.
+</details>
 
-Example query with code
+
+### When was the data my model uses last refreshed?
+
+You can get the metadata on the latest execution for a particular model or across all models in your project. For instance, investigate when each model or snapshot that's feeding into a given model was last executed or the source or seed was last loaded to gauge the _freshness_ of the data.
+
+<details>
+<summary>Example query with code</summary>
+
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -416,6 +433,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
+<!-- TODO: TEST THIS PYTHON CODE WORKS WITH NEW API AND DOCS! -->
 ```python
 # Extract graph nodes from response
 def extract_nodes(data):
@@ -468,15 +486,19 @@ def create_freshness_graph(models_df, sources_df):
 
 Graph example:
 
-[![A lineage graph with source freshness information](/img/docs/dbt-cloud/discovery-api/lineage-graph-with-freshness-info.png?v=2 "A lineage graph with source freshness information")](#)A lineage graph with source freshness information
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/lineage-graph-with-freshness-info.png" width="75%" title="A lineage graph with source freshness information"/>
 
-### Are my data sources fresh?[​](#are-my-data-sources-fresh "Direct link to Are my data sources fresh?")
+</details>
 
-Checking [source freshness](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
 
-[![Source freshness page in dbt](/img/docs/dbt-cloud/discovery-api/source-freshness-page.png?v=2 "Source freshness page in dbt")](#)Source freshness page in dbt
+### Are my data sources fresh?
 
-Example query
+Checking [source freshness](/docs/build/sources#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
+
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/source-freshness-page.png" width="75%" title="Source freshness page in dbt"/>
+
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -520,11 +542,14 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What’s the test coverage and status?[​](#whats-the-test-coverage-and-status "Direct link to What’s the test coverage and status?")
+</details>
 
-[Data tests](https://docs.getdbt.com/docs/build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
+### What’s the test coverage and status?
 
-Example query
+[Data tests](/docs/build/data-tests) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
+
+<details>
+<summary>Example query</summary>
 
 For the following example, the `parents` are the nodes (code) that's being tested and `executionInfo` describes the latest test results:
 
@@ -555,11 +580,17 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### How is this model contracted and versioned?[​](#how-is-this-model-contracted-and-versioned "Direct link to How is this model contracted and versioned?")
+</details>
+
+### How is this model contracted and versioned?
 
 To enforce the shape of a model's definition, you can define contracts on models and their columns. You can also specify model versions to keep track of discrete stages in its evolution and use the appropriate one.
 
-Example query
+<!-- TODO: The description above is not accurate for the desired query below because only applied models can query catalogs, so the query is changed to `environment.applied`. We need to change the description to refer to the applied state, or do not query `catalog` from the definition state node. -->
+
+<details>
+<summary>Example query</summary>
+
 
 ```graphql
 query {
@@ -591,17 +622,20 @@ query {
 }
 ```
 
-## Discovery[​](#discovery "Direct link to Discovery")
+</details>
+
+## Discovery
 
 You can use the Discovery API to find and understand relevant datasets and semantic nodes with rich context and metadata. Below are example questions and queries you can run.
 
 For discovery use cases, people typically query the latest applied or definition state, often in the downstream part of the DAG (for example, mart models or metrics), using the `environment` endpoint.
 
-### What does this dataset and its columns mean?[​](#what-does-this-dataset-and-its-columns-mean "Direct link to What does this dataset and its columns mean?")
+### What does this dataset and its columns mean?
 
 Query the Discovery API to map a table/view in the data platform to the model in the dbt project; then, retrieve metadata about its meaning, including descriptive metadata from its YAML file and catalog information from its YAML file and the schema.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -635,17 +669,250 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-### What's the full data lineage at a model level?[​](#whats-the-full-data-lineage-at-a-model-level "Direct link to What's the full data lineage at a model level?")
+<!-- TODO: Revise this section to use the `environment.definition.lineage` endpoints instead of querying all nodes
+
+### What’s the full data lineage?
+
+Lineage, enabled by the `ref` function, is at the core of dbt. Understanding lineage provides many benefits, such as understanding the structure and relationships of datasets (and metrics) and performing impact-and-root-cause analyses to resolve or present issues given changes to definitions or source data. With the Discovery API, you can construct lineage using the `parents` nodes or its `children` and query the entire upstream lineage using `ancestors`.
+
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/example-dag.png" width="80%" title="Example of a DAG"/>
+
+<details>
+<summary>Example query with code</summary>
+
+1. Query all project nodes
+
+```graphql
+query Lineage($environmentId: BigInt!, $first: Int!) {
+  environment(id: $environmentId) {
+    definition {
+      sources(first: $first) {
+        edges {
+          node {
+            uniqueId
+            name
+            resourceType
+            children {
+              uniqueId
+              name
+              resourceType
+            }
+          }
+        }
+      }
+      seeds(first: $first) {
+        edges {
+          node {
+            uniqueId
+            name
+            resourceType
+            children {
+              uniqueId
+              name
+              resourceType
+            }
+          }
+        }
+      }
+      snapshots(first: $first) {
+        edges {
+          node {
+            uniqueId
+            name
+            resourceType
+            parents {
+              uniqueId
+              name
+              resourceType
+            }
+            children {
+              uniqueId
+              name
+              resourceType
+            }
+          }
+        }
+      }
+      models(first: $first) {
+        edges {
+          node {
+            uniqueId
+            name
+            resourceType
+            parents {
+              uniqueId
+              name
+              resourceType
+            }
+            children {
+              uniqueId
+              name
+              resourceType
+            }
+          }
+        }
+      }
+      exposures(first: $first) {
+        edges {
+          node {
+            uniqueId
+            name
+            resourceType
+            parents {
+              uniqueId
+              name
+              resourceType
+            }
+          }
+        }
+      }
+      # metrics and semanticModels coming soon...
+    }
+  }
+}
+```
+
+Then, extract the node definitions and create a lineage graph. You can traverse downstream from sources and seeds (adding an edge from each node with children to its children) or iterate through each node’s parents (if it has them). Remember that models, snapshots, and metrics can have parents and children, whereas sources and seeds have only children and exposures only have parents.
+
+
+2. Extract the node definitions, construct a lineage graph, and plot the graph.
+
+```python
+# TODO: TEST THIS PYTHON CODE WORKS WITH NEW API AND DOCS!
+import networkx as nx
+import os
+import matplotlib.pyplot as plt
+import pandas as pd
+import requests
+from collections import defaultdict
+
+# Write Discovery API query
+gql_query = """
+query Definition($environmentId: BigInt!, $first: Int!) {
+*[ADD QUERY HERE]*
+}
+
+"""
+
+# Define query variables
+variables = {
+    "environmentId": *[ADD ENV ID HERE]*,
+    "first": 500
+}
+
+
+# Query the API
+def query_discovery_api(auth_token, gql_query, variables):
+    response = requests.post('https://metadata.cloud.getdbt.com/beta/graphql',
+        headers={"authorization": "Bearer "+auth_token, "content-type": "application/json"},
+        json={"query": gql_query, "variables": variables})
+    data = response.json()['data']['environment']
+
+    return data
+
+
+# Extract nodes for graph
+def extract_node_definitions(api_response):
+    nodes = []
+    node_types = ["models", "sources", "seeds", "snapshots", "exposures"]  # support for metrics and semanticModels coming soon
+    for node_type in node_types:
+        if node_type in api_response["definition"]:
+            for node_edge in api_response["definition"][node_type]["edges"]:
+                node_edge["node"]["type"] = node_type
+                nodes.append(node_edge["node"])
+    nodes_df = pd.DataFrame(nodes)
+		return nodes_df
+
+
+# Construct the graph
+def create_generic_lineage_graph(nodes_df):
+    G = nx.DiGraph()
+    for _, node in nodes_df.iterrows():
+        G.add_node(node["uniqueId"], name=node["name"], type=node["type"])
+    for _, node in nodes_df.iterrows():
+        if node["type"] not in ["sources", "seeds"]:
+          for parent in node["parents"]:
+              G.add_edge(parent["uniqueId"], node["uniqueId"])
+    return G
+
+
+# Assign graph layers
+def assign_layers(G):
+    layers = {}
+    layer_counts = defaultdict(int)
+    for node in nx.topological_sort(G):
+        layer = 0
+        for parent in G.predecessors(node):
+            layer = max(layers[parent] + 1, layer)
+        layers[node] = layer
+        layer_counts[layer] += 1
+    nx.set_node_attributes(G, layers, "layer")
+    return layer_counts
+
+
+# Plot the lineage graph
+def plot_generic_graph(G):
+    plt.figure(figsize=(10, 6.5))
+
+    # Assign layers to the nodes
+    layer_counts = assign_layers(G)
+
+    # Use the multipartite_layout to create a layered layout
+    pos = nx.multipartite_layout(G, subset_key="layer", align='vertical', scale=2)
+
+    # Adjust the y-coordinate of nodes to spread them out
+    y_offset = 1.0
+    for node, coords in pos.items():
+        layer = G.nodes[node]["layer"]
+        coords[1] = (coords[1] - 0.5) * (y_offset * layer_counts[layer])
+
+    # Define a color mapping for node types
+    type_color_map = {
+        "models": "blue",
+        "sources": "green",
+        "seeds": "lightgreen",
+        "snapshots": "lightblue",
+        "metrics": "red",
+        "exposures": "orange"
+    }
+
+    node_colors = [type_color_map[G.nodes[n].get("type")] for n in G.nodes()]
+    nx.draw(G, pos, node_color=node_colors, node_shape="s", node_size=3000, bbox=dict(facecolor="white", edgecolor='gray', boxstyle='round,pad=0.1'), edgecolors='Gray', alpha=0.8, with_labels=True, labels={n: G.nodes[n].get('name') for n in G.nodes()}, font_size=11, font_weight="bold")
+    plt.axis("off")
+    plt.show()
+
+
+query_response = query_discovery_api(auth_token, gql_query, variables)
+
+nodes_df = extract_node_definitions(query_response)
+
+G = create_generic_lineage_graph(nodes_df)
+
+plot_generic_graph(G)
+```
+
+Graph example:
+
+<Lightbox src="/img/docs/dbt-cloud/discovery-api/lineage-graph.png" width="75%" title="A lineage graph"/>
+
+
+</details>
+
+-->
+
+### What's the full data lineage at a model level?
 
 The Discovery API enables access to comprehensive model-level data lineage by exposing:
 
-* Upstream dependencies of models, including relationships to [sources](https://docs.getdbt.com/docs/build/sources.md), [seeds](https://docs.getdbt.com/docs/build/seeds.md), and [snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-* Model execution metadata such as run status, execution time, and freshness
-* Column-level details, including tests and descriptions
-* References between models to reconstruct lineage across your project
+- Upstream dependencies of models, including relationships to [sources](/docs/build/sources), [seeds](/docs/build/seeds), and [snapshots](/docs/build/snapshots) 
+- Model execution metadata such as run status, execution time, and freshness
+- Column-level details, including tests and descriptions
+- References between models to reconstruct lineage across your project
 
-Example query
+<details>
+<summary>Example query</summary>
 
 Here's a GraphQL query example that retrieves full model-level data lineage using the Discovery API:
 
@@ -675,12 +942,14 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-### Which metrics are available?[​](#which-metrics-are-available "Direct link to Which metrics are available?")
+### Which metrics are available?
 
-You can define and query metrics using the [Semantic Layer](https://docs.getdbt.com/docs/build/about-metricflow.md), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
+You can define and query metrics using the [<Constant name="semantic_layer" />](/docs/build/about-metricflow), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
 
-Example query
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -707,17 +976,20 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Governance[​](#governance "Direct link to Governance")
+</details>
+
+## Governance
 
 You can use the Discovery API to audit data development and facilitate collaboration within and between teams.
 
 For governance use cases, people tend to query the latest definition state, often in the downstream part of the DAG (for example, public models), using the `environment` endpoint.
 
-### Who is responsible for this model?[​](#who-is-responsible-for-this-model "Direct link to Who is responsible for this model?")
+### Who is responsible for this model?
 
 You can define and surface the groups each model is associated with. Groups contain information like owner. This can help you identify which team owns certain models and who to contact about them.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -753,12 +1025,15 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-### Who can use this model?[​](#who-can-use-this-model "Direct link to Who can use this model?")
+### Who can use this model?
 
 You can enable people the ability to specify the level of access for a given model. In the future, public models will function like APIs to unify project lineage and enable reuse of models using cross-project refs.
 
-Example query
+
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -777,7 +1052,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-***
+---
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -794,20 +1069,22 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-## Development[​](#development "Direct link to Development")
+## Development
 
 You can use the Discovery API to understand dataset changes and usage and gauge impacts to inform project definition. Below are example questions and queries you can run.
 
 For development use cases, people typically query the historical or latest definition or applied state across any part of the DAG using the `environment` endpoint.
 
-### How is this model or metric used in downstream tools?[​](#how-is-this-model-or-metric-used-in-downstream-tools "Direct link to How is this model or metric used in downstream tools?")
+### How is this model or metric used in downstream tools?
+[Exposures](/docs/build/exposures) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
 
-[Exposures](https://docs.getdbt.com/docs/build/exposures.md) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
+<Lightbox src="/img/docs/collaborate/dbt-explorer/data-tile-pass.jpg" width="60%" title="Embed data health tiles in your dashboards to distill trust signals for data consumers." />
 
-[![Embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.jpg?v=2 "Embed data health tiles in your dashboards to distill trust signals for data consumers.")](#)Embed data health tiles in your dashboards to distill trust signals for data consumers.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 Below is an example that reviews an exposure and the models used in it including when they were last executed.
 
@@ -839,12 +1116,14 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-### How has this model changed over time?[​](#how-has-this-model-changed-over-time "Direct link to How has this model changed over time?")
+### How has this model changed over time?
 
 The Discovery API provides historical information about any resource in your project. For instance, you can view how a model has evolved over time (across recent runs) given changes to its shape and contents.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 Review the differences in `compiledCode` or `columns` between runs or plot the “Approximate Size” and “Row Count” `stats` over time:
 
@@ -876,14 +1155,16 @@ query (
   }
 }
 ```
+</details>
 
-### Which nodes depend on this data source?[​](#which-nodes-depend-on-this-data-source "Direct link to Which nodes depend on this data source?")
+### Which nodes depend on this data source?
 
 dbt lineage begins with data sources. For a given source, you can look at which nodes are its children then iterate downstream to get the full list of dependencies.
 
 Currently, querying beyond 1 generation (defined as a direct parent-to-child) is not supported. To see the grandchildren of a node, you need to make two queries: one to get the node and its children, and another to get the children nodes and their children.
 
-Example query
+<details>
+<summary>Example query</summary>
 
 ```graphql
 query ($environmentId: BigInt!, $first: Int!) {
@@ -912,15 +1193,8 @@ query ($environmentId: BigInt!, $first: Int!) {
   }
 }
 ```
+</details>
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
-* [Query Discovery API](https://docs.getdbt.com/docs/dbt-cloud-apis/discovery-querying.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Query Discovery API](/docs/dbt-cloud-apis/discovery-querying)

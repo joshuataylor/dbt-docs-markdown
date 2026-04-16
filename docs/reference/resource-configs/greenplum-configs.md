@@ -1,18 +1,19 @@
 # Greenplum configurations
 
-## Performance Optimizations[​](#performance-optimizations "Direct link to Performance Optimizations")
 
+## Performance Optimizations
+    
 Tables in Greenplum have powerful optimization configurations to improve query performance:
-
-* distribution
-* column orientation
-* compression
-* `appendonly` toggle
-* partitions
-
+ 
+ - distribution
+ - column orientation
+ - compression
+ - `appendonly` toggle
+ - partitions
+ 
 Supplying these values as model-level configurations apply the corresponding settings in the generated `CREATE TABLE`(except partitions). Note that these settings will have no effect for models set to `view`.
 
-### Distribution[​](#distribution "Direct link to Distribution")
+### Distribution
 
 In Greenplum, you can choose a [distribution key](https://gpdb.docs.pivotal.io/6-4/admin_guide/distribution.html), that will be used to sort data by segments. Joining on the partition will become more performant after specifying distribution.
 
@@ -46,7 +47,7 @@ Also you can choose `DISTRIBUTED REPLICATED` option:
 select ...
 ```
 
-### Column orientation[​](#column-orientation "Direct link to Column orientation")
+### Column orientation
 
 Greenpum supports two type of [orientation](https://gpdb.docs.pivotal.io/6-6/admin_guide/ddl/ddl-storage.html#topic39) row and column:
 
@@ -63,14 +64,13 @@ Greenpum supports two type of [orientation](https://gpdb.docs.pivotal.io/6-6/adm
 select ...
 ```
 
-### Compression[​](#compression "Direct link to Compression")
+### Compression
 
 Compression allows reducing read-write time. Greenplum suggest several [algorithms](https://gpdb.docs.pivotal.io/6-6/admin_guide/ddl/ddl-storage.html#topic40) algotihms to compress append-optimized tables:
-
-* RLE\_TYPE(only for column oriented table)
-* ZLIB
-* ZSTD
-* QUICKLZ
+ - RLE_TYPE(only for column oriented table)
+ - ZLIB
+ - ZSTD 
+ - QUICKLZ
 
 ```sql
 {{
@@ -90,17 +90,16 @@ select ...
 
 As you can see, you can also specify `compresslevel` and `blocksize`.
 
-### Partition[​](#partition "Direct link to Partition")
+### Partition
 
 Greenplum does not support partitions with `create table as` [construction](https://gpdb.docs.pivotal.io/6-9/ref_guide/sql_commands/CREATE_TABLE_AS.html), so you need to build model in two steps
-
+    
 1. create table schema
 2. insert data
 
 To implement partitions into your dbt-model you need to specify the following config parameters:
-
-* `fields_string` - definition of columns name, type and constraints
-* `raw_partition` - partition specification
+ - `fields_string` - definition of columns name, type and constraints
+ - `raw_partition` - partition specification 
 
 ```sql
 {% set fields_string %}
@@ -130,11 +129,3 @@ To implement partitions into your dbt-model you need to specify the following co
 
 select *
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

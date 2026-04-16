@@ -1,85 +1,87 @@
-# Data health signals [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Data health signals
 
-Data health signals offer a quick, at-a-glance view of data health when browsing your resources in Catalog. They keep you informed on the status of your resource's health using the indicators **Healthy**, **Caution**, **Degraded**, or **Unknown**.
 
-Note, we don’t calculate data health for non-dbt resources.
+# Data health signals <Lifecycle status="preview,starter,managed,managed_plus" />
 
-* Supported resources are [models](https://docs.getdbt.com/docs/build/models.md), [sources](https://docs.getdbt.com/docs/build/sources.md), and [exposures](https://docs.getdbt.com/docs/build/exposures.md).
-* For accurate health data, ensure the resource is up-to-date and had a recent job run.
-* Each data health signal reflects key data health components, such as test success status, missing resource descriptions, missing tests, absence of builds in 30-day windows, [and more](#data-health-signal-criteria).
+Data health signals offer a quick, at-a-glance view of data health when browsing your resources in <Constant name="catalog" />. They keep you informed on the status of your resource's health using the indicators **Healthy**, **Caution**, **Degraded**, or **Unknown**.
 
-[![View data health signals for your models.](/img/docs/collaborate/dbt-explorer/data-health-signal.jpg?v=2 "View data health signals for your models.")](#)View data health signals for your models.
+Note,  we don’t calculate data health for non-dbt resources.
 
-## Access data health signals[​](#access-data-health-signals "Direct link to Access data health signals")
+- Supported resources are [models](/docs/build/models), [sources](/docs/build/sources), and [exposures](/docs/build/exposures).
+- For accurate health data, ensure the resource is up-to-date and had a recent job run.
+- Each data health signal reflects key data health components, such as test success status, missing resource descriptions, missing tests, absence of builds in 30-day windows, [and more](#data-health-signal-criteria).
+
+
+<Lightbox src="/img/docs/collaborate/dbt-explorer/data-health-signal.jpg" width="55%" title="View data health signals for your models."/> 
+
+## Access data health signals
 
 Access data health signals in the following places:
+- In the [search function](/docs/explore/explore-projects#search-resources) or under **Models**, **Sources**, or **Exposures** in the **Resource** tab.  
+  - For sources, the data health signal also indicates the [source freshness](/docs/deploy/source-freshness) status.
+- In the **Health** column on [each resource's details page](/docs/explore/explore-projects#view-resource-details). Hover over or click the signal to view detailed information.
+- In the **Health** column of public models tables.
+- In the [DAG lineage graph](/docs/explore/explore-projects#project-lineage). Click any node to open the node details panel where you can view it and its details.
+- In [Data health tiles](/docs/explore/data-tile) through an embeddable iFrame and visible in your BI dashboard.
 
-* In the [search function](https://docs.getdbt.com/docs/explore/explore-projects.md#search-resources) or under **Models**, **Sources**, or **Exposures** in the **Resource** tab.
-  <!-- -->
-  * For sources, the data health signal also indicates the [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) status.
-* In the **Health** column on [each resource's details page](https://docs.getdbt.com/docs/explore/explore-projects.md#view-resource-details). Hover over or click the signal to view detailed information.
-* In the **Health** column of public models tables.
-* In the [DAG lineage graph](https://docs.getdbt.com/docs/explore/explore-projects.md#project-lineage). Click any node to open the node details panel where you can view it and its details.
-* In [Data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md) through an embeddable iFrame and visible in your BI dashboard.
+<Lightbox src="/img/docs/collaborate/dbt-explorer/data-health-signal.gif" width="95%" title="Access data health signals in multiple places in dbt Catalog."/> 
 
-[![Access data health signals in multiple places in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-health-signal.gif?v=2 "Access data health signals in multiple places in dbt Catalog.")](#)Access data health signals in multiple places in dbt Catalog.
-
-## Data health signal criteria[​](#data-health-signal-criteria "Direct link to Data health signal criteria")
+## Data health signal criteria
 
 Each resource has a health state that is determined by specific set of criteria. Select the following tabs to view the criteria for that resource type.
-
-* Models
-* Sources
-* Exposures
+<Tabs>
+<TabItem value="models" label="Models">
 
 The health state of a model is determined by the following criteria:
+<!-- TODO: remove the 'tbd' lines in the table once meta 4025 is done -->
+| **Health state** | **Criteria**   |
+|-------------------|---------------|
+| ✅ **Healthy**    | All of the following must be true:<br /><br /> - Built successfully in the last run<br />- Built in the last 30 days<br />- Model has tests configured<br />- All tests passed<br />- All upstream [sources are fresh](/docs/build/sources#source-data-freshness) or freshness is not applicable (set to `null`)<br />- Has a description |
+| 🟡 **Caution**   | One of the following must be true: <br /><br />- Not built in the last 30 days<br />- Tests are not configured<br />- Tests return warnings<br />- One or more upstream sources are stale:<br />&nbsp;&nbsp;&nbsp;&nbsp;- Has a freshness check configured<br />&nbsp;&nbsp;&nbsp;&nbsp;- Freshness check ran in the past 30 days<br />&nbsp;&nbsp;&nbsp;&nbsp;- Freshness check returned a warning<br />- Missing a description |
+| 🔴 **Degraded**  | One of the following must be true: <br /><br />- Model failed to build<br />- Model has failing tests<br />- One or more upstream sources are stale:<br />&nbsp;&nbsp;&nbsp;&nbsp;- Freshness check hasn’t run in the past 30 days<br />&nbsp;&nbsp;&nbsp;&nbsp;- Freshness check returned an error |
+| ⚪ **Unknown**    | - Unable to determine health of resource; no job runs have processed the resource.         |
 
-| **Health state** | **Criteria**                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ **Healthy**   | All of the following must be true:<br /><br />- Built successfully in the last run<br />- Built in the last 30 days<br />- Model has tests configured<br />- All tests passed<br />- All upstream [sources are fresh](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) or freshness is not applicable (set to `null`)<br />- Has a description  |
-| 🟡 **Caution**   | One of the following must be true:<br /><br />- Not built in the last 30 days<br />- Tests are not configured<br />- Tests return warnings<br />- One or more upstream sources are stale:<br />    - Has a freshness check configured<br />    - Freshness check ran in the past 30 days<br />    - Freshness check returned a warning<br />- Missing a description |
-| 🔴 **Degraded**  | One of the following must be true:<br /><br />- Model failed to build<br />- Model has failing tests<br />- One or more upstream sources are stale:<br />    - Freshness check hasn’t run in the past 30 days<br />    - Freshness check returned an error                                                                                                          |
-| ⚪ **Unknown**   | - Unable to determine health of resource; no job runs have processed the resource.                                                                                                                                                                                                                                                                                  |
+</TabItem>
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+<TabItem value="sources" label="Sources">
 
 The health state of a source is determined by the following criteria:
 
-| **Health state** | **Criteria**                                                                                                                                                                                             |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ Healthy       | All of the following must be true:<br /><br />- Freshness check configured<br />- Freshness check passed<br />- Freshness check ran in the past 30 days<br />- Has a description                         |
-| 🟡 Caution       | One of the following must be true:<br /><br />- Freshness check returned a warning<br />- Freshness check not configured<br />- Freshness check not run in the past 30 days<br />- Missing a description |
-| 🔴 Degraded      | - Freshness check returned an error                                                                                                                                                                      |
-| ⚪ Unknown       | Unable to determine health of resource; no job runs have processed the resource.                                                                                                                         |
+| **Health state** | **Criteria**   |
+|-------------------|---------------|
+| ✅ Healthy	| All of the following must be true: <br /><br />- Freshness check configured<br />- Freshness check passed<br />- Freshness check ran in the past 30 days<br />- Has a description |
+| 🟡 Caution	| One of the following must be true: <br /><br />- Freshness check returned a warning<br />- Freshness check not configured<br />- Freshness check not run in the past 30 days<br />- Missing a description |
+| 🔴 Degraded	| - Freshness check returned an error |
+| ⚪ Unknown	| Unable to determine health of resource; no job runs have processed the resource.     |
 
-Search table...
+</TabItem>
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+<TabItem value="exposures" label="Exposures">
 
 The health state of an exposure is determined by the following criteria:
 
-| **Health state** | **Criteria**                                                                                                                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ Healthy       | All of the following must be true:<br /><br />- Underlying sources are fresh<br />- Underlying models built successfully<br />- Underlying models’ tests passing<br />                                                                      |
-| 🟡 Caution       | One of the following must be true:<br /><br />- At least one underlying source’s freshness checks returned a warning<br />- At least one underlying model was skipped<br />- At least one underlying model’s tests returned a warning<br /> |
-| 🔴 Degraded      | One of the following must be true:<br /><br />- At least one underlying source’s freshness checks returned an error<br />- At least one underlying model did not build successfully<br />- At least one model’s tests returned an error     |
+| **Health state** | **Criteria**   |
+|-------------------|---------------|
+| ✅ Healthy	| All of the following must be true: <br /><br />- Underlying sources are fresh<br />- Underlying models built successfully<br />- Underlying models’ tests passing<br /><!-- - Freshness must be applicable <br /> - (TBD) Underlying models built in the last 30 days --> |
+| 🟡 Caution	| One of the following must be true: <br /><br />- At least one underlying source’s freshness checks returned a warning<br />- At least one underlying model was skipped<br />- At least one underlying model’s tests returned a warning<br /><!-- - (TBD) At least one model not built in the last 30 days --> |   
+| 🔴 Degraded	| One of the following must be true: <br /><br />- At least one underlying source’s freshness checks returned an error<br />- At least one underlying model did not build successfully<br />- At least one model’s tests returned an error |
 
-Search table...
+</TabItem>
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+<!-- TODO: Add source collection health once META-3973/3971 are completed 
+<TabItem value="source-collection" label="Source collection health">
 
-## Was this page helpful?
+The health state of a source collection is determined by the following criteria:
 
-YesNo
+Functions as an aggregate of underlying sources
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+| **Health state** | **Criteria**   |
+|-------------------|---------------|
+| ✅ Healthy	| - All underlying sources have freshness checks configured OR<br />- All passed their freshness checks OR<br />- All freshness checks ran in the past 30 days OR<br /> - All sources have a description |
+| 🟡 Caution	| - One or more sources lack freshness checks OR<br />- One or more freshness checks returned a warning OR<br />- One or more freshness checks not run in the past 30 days OR<br />- One or more sources missing a description |
+| 🔴 Degraded	| - One or more underlying sources’ freshness checks returned error |
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</TabItem>
+-->
+
+</Tabs>

@@ -1,6 +1,9 @@
 # arguments (for macros)
 
-macros/\<filename>.yml
+
+import MacroArgsNote from '/snippets/_validate-macro-args.md';
+
+<File name='macros/<filename>.yml'>
 
 ```yml
 
@@ -9,33 +12,35 @@ macros:
   - name: <macro name>
     arguments:
       - name: <arg name>
-        type: <string>
+        [type](#supported-types): <string>
         description: <markdown_string>
+
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
+
+## Definition
 
 The `arguments` property is used to define the parameters that a resource can accept. Each argument can have a `name`, a `type` field, and an optional `description`.
 
-For **macros**, you can add `arguments` to a [macro property](https://docs.getdbt.com/reference/macro-properties.md), which helps in documenting the macro and understanding what inputs it requires.
+For **macros**, you can add `arguments` to a [macro property](/reference/macro-properties), which helps in documenting the macro and understanding what inputs it requires.
 
-## type[​](#type "Direct link to type")
+## type
 
-<!-- -->
+<VersionBlock lastVersion="1.9">
 
-<!-- -->
+The data type of your argument. This is only used for documentation purposes — there are no restrictions on the values you can use here.
 
-tip
+</VersionBlock>
+<VersionBlock firstVersion="1.10">
 
-From dbt Core v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
+The data type of your argument. Setting [`validate_macro_args`](/reference/global-configs/behavior-changes#macro-argument-validation) to `true` ensures that documented macro argument names match those in the macro definition and validates their types against the [supported types](#supported-types). When set to `false`, `type` is only used for documentation purposes and there are no restrictions on the values you can specify.
 
-* Infer arguments from the macro and includes them in the [manifest.json](https://docs.getdbt.com/reference/artifacts/manifest-json.md) file if no arguments are documented.
-* Raise a warning if documented argument names don't match the macro definition.
-* Raise a warning if `type` fields don't follow [supported formats](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
+</VersionBlock>
 
-Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#macro-argument-validation).
+<MacroArgsNote />
 
-macros/\<filename>.yml
+<File name='macros/<filename>.yml'>
 
 ```yml
 
@@ -44,36 +49,43 @@ macros:
     arguments:
       - name: <arg name>
         type: <string>
+
 ```
 
-### Supported types[​](#supported-types "Direct link to Supported types")
+</File>
 
-From dbt Core v1.10, when you use the [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#macro-argument-validation) flag, dbt supports the following types for macro arguments:
+### Supported types
 
-* `string` or `str`
-* `boolean` or `bool`
-* `integer` or `int`
-* `float`
-* `any`
-* `list[<Type>]`, for example, `list[string]`
-* `dict[<Type>, <Type>]`, for example, `dict[str, list[int]]`
-* `optional[<Type>]`, for example, `optional[integer]`
-* [`relation`](https://docs.getdbt.com/reference/dbt-classes.md#relation)
-* [`column`](https://docs.getdbt.com/reference/dbt-classes.md#column)
+From <Constant name="core" /> v1.10, when you use the [`validate_macro_args`](/reference/global-configs/behavior-changes#macro-argument-validation) flag, dbt supports the following types for macro arguments:
+
+- `string` or `str`
+- `boolean` or `bool`
+- `integer` or `int`
+- `float`
+- `any`
+- `list[<Type>]`, for example, `list[string]`
+- `dict[<Type>, <Type>]`, for example, `dict[str, list[int]]`
+- `optional[<Type>]`, for example, `optional[integer]`
+- [`relation`](/reference/dbt-classes#relation)
+- [`column`](/reference/dbt-classes#column)
 
 Note that the types follow a Python-like style but are used for documentation and validation only. They are not Python types.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-macros/cents\_to\_dollars.sql
+
+<File name='macros/cents_to_dollars.sql'>
 
 ```sql
 {% macro cents_to_dollars(column_name, scale=2) %}
     ({{ column_name }} / 100)::numeric(16, {{ scale }})
 {% endmacro %}
+
 ```
 
-macros/cents\_to\_dollars.yml
+</File>
+
+<File name='macros/cents_to_dollars.yml'>
 
 ```yml
 
@@ -86,17 +98,12 @@ macros:
       - name: scale
         type: integer
         description: "The number of decimal places to round to. Default is 2."
+
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+</File>
 
-* [Macro properties](https://docs.getdbt.com/reference/macro-properties.md)
-* [Arguments (for functions)](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
+## Related documentation
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Macro properties](/reference/macro-properties)
+- [Arguments (for functions)](/reference/resource-properties/function-arguments)

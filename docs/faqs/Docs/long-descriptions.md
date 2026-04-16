@@ -1,7 +1,6 @@
 # How do I write long-form explanations in my descriptions?
 
 If you need more than a sentence to explain a model, you can:
-
 1. Split your description over multiple lines using `>`. Interior line breaks are removed and Markdown can be used. This method is recommended for simple, single-paragraph descriptions:
 
 ```yml
@@ -26,12 +25,4 @@ models:
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
 
-3. Use a [docs block](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+3. Use a [docs block](/docs/build/documentation#using-docs-blocks) to write the description in a separate Markdown file.

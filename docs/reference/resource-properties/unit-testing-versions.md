@@ -1,8 +1,9 @@
 # Unit testing versioned SQL models
 
-If your model has multiple versions, the default unit test will run on *all* versions of your model. To specify version(s) of your model to unit test, use `include` or `exclude` for the desired versions in your model versions config:
 
-models/schema.yml
+If your model has multiple versions, the default unit test will run on _all_ versions of your model. To specify version(s) of your model to unit test, use `include` or `exclude` for the desired versions in your model versions config:
+
+<File name='models/schema.yml'>
 
 ```yaml
 
@@ -29,12 +30,6 @@ unit_tests:
       exclude: 
         - 1
     ...
+
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

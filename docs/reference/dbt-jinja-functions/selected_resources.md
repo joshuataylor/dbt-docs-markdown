@@ -1,16 +1,22 @@
-# About selected\_resources context variable
+# About selected_resources context variable
 
-The `selected_resources` context variable contains a list of all the *nodes* selected by the current dbt command.
+
+The `selected_resources` context variable contains a list of all the _nodes_ 
+selected by the current dbt command. 
 
 Currently, this variable is not accessible when using the command `run-operation`.
 
-Warning!
+:::danger Warning!
 
-dbt actively builds the graph during the [parsing phase](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) of running dbt projects, so the `selected_resources` context variable will be empty during parsing. Please read the information on this page to effectively use this variable.
+dbt actively builds the graph during the [parsing phase](/reference/dbt-jinja-functions/execute) of
+running dbt projects, so the `selected_resources` context variable will be
+empty during parsing. Please read the information on this page to effectively use this variable.
 
-### Usage[​](#usage "Direct link to Usage")
+:::
 
-The `selected_resources` context variable is a list of all the resources selected by the current dbt command selector. Its value depends on the usage of parameters like `--select`, `--exclude` and `--selector`.
+### Usage
+
+The `selected_resources` context variable is a list of all the resources selected by the current dbt command selector. Its value depends on the usage of parameters like <VersionBlock lastVersion="1.11">`--select`, `--exclude` and `--selector`.</VersionBlock><VersionBlock firstVersion="1.12">`--select` and `--exclude`.</VersionBlock>
 
 For a given run it will look like:
 
@@ -18,11 +24,13 @@ For a given run it will look like:
 ["model.my_project.model1", "model.my_project.model2", "snapshot.my_project.my_snapshot"]
 ```
 
-Each value corresponds to a key in the `nodes` object within the [graph](https://docs.getdbt.com/reference/dbt-jinja-functions/graph.md) context variable.
+Each value corresponds to a key in the `nodes` object within the [graph](/reference/dbt-jinja-functions/graph) context variable.
 
-It can be used in macros in a `pre-hook`, `post-hook`, `on-run-start` or `on-run-end` to evaluate what nodes are selected and trigger different logic whether a particular node is selected or not.
+It can be used in macros in a `pre-hook`, `post-hook`, `on-run-start` or `on-run-end` 
+to evaluate what nodes are selected and trigger different logic whether a particular node
+is selected or not.
 
-check-node-selected.sql
+<File name='check-node-selected.sql'>
 
 ```sql
 
@@ -56,10 +64,4 @@ check-node-selected.sql
 */
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

@@ -1,38 +1,75 @@
-# invalidate\_hard\_deletes legacy
+# invalidate_hard_deletes
+
+
+# invalidate_hard_deletes <Lifecycle status="legacy" />
+
+<IntroText>
 
 Legacy opt-in configuration to enable invalidating hard deleted records while snapshotting the query.
 
-This is a legacy config — Use the [`hard_deletes`](https://docs.getdbt.com/reference/resource-configs/hard-deletes.md) config instead.
+</IntroText>
 
-In dbt release tracks and dbt Core 1.9 and higher, the [`hard_deletes`](https://docs.getdbt.com/reference/resource-configs/hard-deletes.md) config replaces the `invalidate_hard_deletes` config for better control over how to handle deleted rows from the source.
+:::warning This is a legacy config &mdash; Use the [`hard_deletes`](/reference/resource-configs/hard-deletes) config instead.
 
-For new snapshots, set the config to `hard_deletes='invalidate'` instead of `invalidate_hard_deletes=true`. For existing snapshots, [arrange an update](https://docs.getdbt.com/reference/snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
+In <Constant name="dbt" /> release tracks and dbt Core 1.9 and higher, the [`hard_deletes`](/reference/resource-configs/hard-deletes) config replaces the `invalidate_hard_deletes` config for better control over how to handle deleted rows from the source. 
 
-<!-- -->
+For new snapshots, set the config to `hard_deletes='invalidate'` instead of `invalidate_hard_deletes=true`. For existing snapshots, [arrange an update](/reference/snapshot-configs#snapshot-configuration-migration) of pre-existing tables before enabling this setting. 
+:::
 
-dbt\_project.yml
+<VersionBlock firstVersion="1.9">
+
+<File name='snapshots/<filename>.yml'>
+
+```yaml
+snapshots:
+  - name: snapshot
+    relation: source('my_source', 'my_table')
+    [config](/reference/snapshot-configs):
+      strategy: timestamp
+      invalidate_hard_deletes: true | false
+```
+
+</File>
+
+
+</VersionBlock>
+
+<File name='dbt_project.yml'>
 
 ```yml
 snapshots:
-  <resource-path>:
+  [<resource-path>](/reference/resource-configs/resource-path):
     +strategy: timestamp
     +invalidate_hard_deletes: true
+
 ```
 
-## Description[​](#description "Direct link to Description")
+</File>
 
+## Description
 Opt-in feature to enable invalidating hard deleted records while snapshotting the query.
 
-## Default[​](#default "Direct link to Default")
 
+## Default
 By default the feature is disabled.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-## Was this page helpful?
+<VersionBlock firstVersion="1.9">
+<File name='snapshots/orders.yml'>
 
-YesNo
+```yaml
+snapshots:
+  - name: orders_snapshot
+    relation: source('jaffle_shop', 'orders')
+    config:
+      schema: snapshots
+      database: analytics
+      unique_key: id
+      strategy: timestamp
+      updated_at: updated_at
+      invalidate_hard_deletes: true
+  ```
+</File>
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</VersionBlock>

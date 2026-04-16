@@ -1,36 +1,37 @@
 # Exposure properties
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Using exposures](https://docs.getdbt.com/docs/build/exposures.md)
-* [Declaring resource properties](https://docs.getdbt.com/reference/configs-and-properties.md)
+## Related documentation
+- [Using exposures](/docs/build/exposures)
+- [Declaring resource properties](/reference/configs-and-properties)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
-<!-- -->
+import PropsCallout from '/snippets/_config-prop-callout.md';
 
-Exposures are defined in `properties.yml` files nested under an `exposures:` key. You may define `exposures` in YAML files that also define `sources` or `models`. Exposure properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
+Exposures are defined in `properties.yml` files nested under an `exposures:` key. You may define `exposures` in YAML files that also define `sources` or `models`. <PropsCallout title={frontMatter.title}/>  <br /> 
 
-Note that while most exposure properties must be configured directly in these YAML files, you can set the [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) config at the [project level](#project-level-configs) in the`dbt_project.yml` file.
+Note that while most exposure properties must be configured directly in these YAML files, you can set the [`enabled`](/reference/resource-configs/enabled) config at the [project level](#project-level-configs) in the`dbt_project.yml` file.
+
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory.
 
 Exposure names must contain only letters, numbers, and underscores (no spaces or special characters). For a short human-friendly name with title casing, spaces, and special characters, use the `label` property.
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yml
 
 exposures:
   - name: <string_with_underscores>
-    description: <markdown_string>
+    [description](/reference/resource-properties/description): <markdown_string>
     type: {dashboard, notebook, analysis, ml, application}
     url: <string>
     maturity: {high, medium, low}  # Indicates level of confidence or stability in the exposure
-    enabled: true | false
-    config: # 'tags' and 'meta' changed to config in v1.10
-      tags: [<string>] 
-      meta: {<dictionary>}
+    [enabled](/reference/resource-configs/enabled): true | false
+    [config](/reference/resource-properties/config): # 'tags' and 'meta' changed to config in v1.10
+      [tags](/reference/resource-configs/tags): [<string>] 
+      [meta](/reference/resource-configs/meta): {<dictionary>}
       enabled: true | false
     owner: # supports 'name' and 'email' only
       name: <string>
@@ -46,10 +47,11 @@ exposures:
 
   - name: ... # declare properties of additional exposures
 ```
+</File>
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-models/jaffle/exposures.yml
+<File name='models/jaffle/exposures.yml'>
 
 ```yaml
 
@@ -97,11 +99,13 @@ exposures:
     owner: { email: summer-intern@jaffleshop.com }
 ```
 
-#### Project-level configs[​](#project-level-configs "Direct link to Project-level configs")
+</File>
 
-You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](https://docs.getdbt.com/reference/resource-configs/enabled.md) is supported:
+#### Project-level configs
 
-dbt\_project.yml
+You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](/reference/resource-configs/enabled) is supported:
+
+<File name="dbt_project.yml">
 
 ```yml
 name: 'project_name'
@@ -112,10 +116,4 @@ exposures:
   +enabled: true
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

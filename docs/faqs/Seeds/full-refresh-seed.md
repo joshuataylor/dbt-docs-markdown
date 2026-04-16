@@ -1,9 +1,15 @@
-# The columns of my seed changed, and now I get an error when running the \`seed\` command, what should I do?
+# The columns of my seed changed, and now I get an error when running the `seed` command, what should I do?
 
 If you changed the columns of your seed, you may get a `Database Error`:
 
-* Snowflake
-* Redshift
+<Tabs
+  defaultValue="snowflake"
+  values={[
+    { label: 'Snowflake', value: 'snowflake', },
+    { label: 'Redshift', value: 'redshift', }
+  ]
+}>
+<TabItem value="snowflake">
 
 ```shell
 $ dbt seed
@@ -24,7 +30,11 @@ Database Error in seed country_codes (seeds/country_codes.csv)
   invalid identifier 'COUNTRY_NAME'
 
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+
 ```
+
+</TabItem>
+<TabItem value="redshift">
 
 ```shell
 $ dbt seed
@@ -46,24 +56,20 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
+</TabItem>
+
+</Tabs>
+
 In this case, you should rerun the command with a `--full-refresh` flag, like so:
 
-```text
+```
 dbt seed --full-refresh
 ```
 
 **Why is this the case?**
 
-When you typically run dbt seed, dbt truncates the existing table and reinserts the data. This pattern avoids a `drop cascade` command, which may cause downstream objects (that your BI users might be querying!) to get dropped.
+When you typically run dbt seed, dbt truncates the existing <Term id="table" /> and reinserts the data. This pattern avoids a `drop cascade` command, which may cause downstream objects (that your BI users might be querying!) to get dropped.
 
 However, when column names are changed, or new columns are added, these statements will fail as the table structure has changed.
 
 The `--full-refresh` flag will force dbt to `drop cascade` the existing table before rebuilding it.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

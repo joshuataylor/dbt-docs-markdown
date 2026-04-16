@@ -1,27 +1,38 @@
 # Semantic manifest
 
-**Produced by:** Any command that parses your project. This includes all commands *except* [`deps`](https://docs.getdbt.com/reference/commands/deps.md), [`clean`](https://docs.getdbt.com/reference/commands/clean.md), [`debug`](https://docs.getdbt.com/reference/commands/debug.md), and [`init`](https://docs.getdbt.com/reference/commands/init.md).
 
-dbt creates an [artifact](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) file called the *Semantic Manifest* (`semantic_manifest.json`), which MetricFlow requires to build and run metric queries properly for the dbt Semantic Layer. This artifact contains comprehensive information about your dbt Semantic Layer. It is an internal file that acts as the integration point with MetricFlow.
+**Produced by:**  Any command that parses your project. This includes all commands _except_ [`deps`](/reference/commands/deps), [`clean`](/reference/commands/clean), [`debug`](/reference/commands/debug), and [`init`](/reference/commands/init).
 
-By using the semantic manifest produced by dbt Core, MetricFlow will instantiate a data flow plan and generate SQL from Semantic Layer query requests. It's a valuable reference that you can use to understand the structure and details of your data models.
+dbt creates an [artifact](/reference/artifacts/dbt-artifacts) file called the _Semantic Manifest_ (`semantic_manifest.json`), which MetricFlow requires to build and run metric queries properly for the dbt Semantic Layer. This artifact contains comprehensive information about your dbt Semantic Layer. It is an internal file that acts as the integration point with MetricFlow. 
 
-Similar to the [`manifest.json` file](https://docs.getdbt.com/reference/artifacts/manifest-json.md), the `semantic_manifest.json` file also lives in the [target directory](https://docs.getdbt.com/reference/global-configs/json-artifacts.md) of your dbt project where dbt stores various artifacts (such as compiled models and tests) generated during the execution of your project.
+By using the semantic manifest produced by <Constant name="core" />, MetricFlow will instantiate a data flow plan and generate SQL from <Constant name="semantic_layer" /> query requests. It's a valuable reference that you can use to understand the structure and details of your data models.
+
+Similar to the [`manifest.json` file](/reference/artifacts/manifest-json), the `semantic_manifest.json` file also lives in the [target directory](/reference/global-configs/json-artifacts) of your dbt project where dbt stores various artifacts (such as compiled models and tests) generated during the execution of your project.
 
 There are two reasons why `semantic_manifest.json` exists alongside `manifest.json`:
 
-* Deserialization: `dbt-core` and MetricFlow use different libraries for handling data serialization.
-* Efficiency and performance: MetricFlow and the dbt Semantic Layer need specific semantic details from the manifest. By trimming down the information printed into `semantic_manifest.json`, the process becomes more efficient and enables faster data handling between `dbt-core` and MetricFlow.
+- Deserialization: `dbt-core` and MetricFlow use different libraries for handling data serialization.
+- Efficiency and performance: MetricFlow and the dbt Semantic Layer need specific semantic details from the manifest. By trimming down the information printed into `semantic_manifest.json`, the process becomes more efficient and enables faster data handling between `dbt-core` and MetricFlow.
 
-## Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
+## Top-level keys
+<VersionBlock firstVersion="1.12">
+Top-level keys for the semantic manifest are:
+-  `semantic_models` &mdash; Starting points of data with entities and dimensions, and correspond to models in your dbt project. 
+-  `metrics` &mdash; Functions combining entities, dimensions, and so on to define quantitative indicators.
+- `project_configuration` &mdash; Contains information around your project configurations
+- `saved_queries` &mdash; Saves commonly used queries in MetricFlow
+</VersionBlock>
+<VersionBlock lastVersion="1.9">
+Top-level keys for the semantic manifest are:
+-  `semantic_models` &mdash; Starting points of data with entities, dimensions, and measures, and correspond to models in your dbt project. 
+-  `metrics` &mdash; Functions combining measures, constraints, and so on to define quantitative indicators.
+- `project_configuration` &mdash; Contains information around your project configurations
+- `saved_queries` &mdash; Saves commonly used queries in MetricFlow
+</VersionBlock>
 
-<!-- -->
+### Example
 
-<!-- -->
-
-### Example[​](#example "Direct link to Example")
-
-target/semantic\_manifest.json
+<File name="target/semantic_manifest.json"> 
 
 ```json
 {
@@ -107,15 +118,9 @@ target/semantic\_manifest.json
 }
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+</File>
 
-* [Semantic Layer API](https://docs.getdbt.com/docs/dbt-cloud-apis/sl-api-overview.md)
-* [About dbt artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md)
+## Related docs
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [<Constant name="semantic_layer" /> API](/docs/dbt-cloud-apis/sl-api-overview)
+- [About dbt artifacts](/reference/artifacts/dbt-artifacts)

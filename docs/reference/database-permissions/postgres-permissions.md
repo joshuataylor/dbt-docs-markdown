@@ -1,10 +1,12 @@
 # Postgres Permissions
 
+
+
 In Postgres, permissions are used to control who can perform certain actions on different database objects. Use SQL statements to manage permissions in a Postgres database.
 
-## Example Postgres permissions[​](#example-postgres-permissions "Direct link to Example Postgres permissions")
+## Example Postgres permissions
 
-The following example provides you with the SQL statements you can use to manage permissions. These examples allow you to run dbt smoothly without encountering permission issues, such as creating schemas, reading existing data, and accessing the information schema.
+The following example provides you with the SQL statements you can use to manage permissions. These examples allow you to run dbt smoothly without encountering permission issues, such as creating schemas, reading existing data, and accessing the information schema. 
 
 **Note** that `database_name`, `source_schema`, `destination_schema`, and `user_name` are placeholders and you can replace them as needed for your organization's naming convention.
 
@@ -28,11 +30,3 @@ alter default privileges in schema destination_schema grant insert, update, dele
 ```
 
 Check out the [official documentation](https://www.postgresql.org/docs/current/sql-grant.html) for more information.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

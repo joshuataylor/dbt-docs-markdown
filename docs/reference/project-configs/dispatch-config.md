@@ -1,6 +1,7 @@
 # dispatch (config)
 
-dbt\_project.yml
+
+<File name='dbt_project.yml'>
 
 ```yml
 dispatch:
@@ -10,15 +11,18 @@ dispatch:
     search_order: [packagename]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
 
-Optionally override the [dispatch](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md) search locations for macros in certain namespaces. If not specified, `dispatch` will look in your root project *first*, by default, and then look for implementations in the package named by `macro_namespace`.
+## Definition
 
-## Examples[​](#examples "Direct link to Examples")
+Optionally override the [dispatch](/reference/dbt-jinja-functions/dispatch) search locations for macros in certain namespaces. If not specified, `dispatch` will look in your root project _first_, by default, and then look for implementations in the package named by `macro_namespace`.
+
+## Examples
+
 
 I want to "shim" the `dbt_utils` package with the `spark_utils` compatibility package.
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 dispatch:
@@ -26,11 +30,13 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
+</File>
+
 I've reimplemented certain macros from the `dbt_utils` package in my root project (`'my_root_project'`), and I want my versions to take precedence. Otherwise, fall back to the versions in `dbt_utils`.
 
-*Note: This is the default behavior. You may optionally choose to express that search order explicitly as:*
+_Note: This is the default behavior. You may optionally choose to express that search order explicitly as:_
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 dispatch:
@@ -38,10 +44,4 @@ dispatch:
     search_order: ['my_root_project', 'dbt_utils']
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

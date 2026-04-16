@@ -21,7 +21,7 @@ insert into dbt_alice.my_table (
 )
 ```
 
-In comparison, dbt would build this table using a `create table as` statement:
+In comparison, dbt would build this <Term id="table" /> using a `create table as` statement:
 
 ```sql
 create table dbt_alice.my_table as (
@@ -33,14 +33,6 @@ So long as your model queries return the correct column type, the table you crea
 
 To define additional column options:
 
-* Rather than enforcing uniqueness and not-null constraints on your column, use dbt's [data testing](https://docs.getdbt.com/docs/build/data-tests.md) functionality to check that your assertions about your model hold true.
+* Rather than enforcing uniqueness and not-null constraints on your column, use dbt's [data testing](/docs/build/data-tests) functionality to check that your assertions about your model hold true.
 * Rather than creating default values for a column, use SQL to express defaults (e.g. `coalesce(updated_at, current_timestamp()) as updated_at`)
-* In edge-cases where you *do* need to alter a column (e.g. column-level encoding on Redshift), consider implementing this via a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+* In edge-cases where you _do_ need to alter a column (e.g. column-level encoding on Redshift), consider implementing this via a [post-hook](/reference/resource-configs/pre-hook-post-hook).

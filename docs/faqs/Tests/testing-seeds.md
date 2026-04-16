@@ -1,10 +1,11 @@
 # How do I test and document seeds?
 
-To test and document seeds, use a [properties file](https://docs.getdbt.com/reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
 
-## Example[​](#example "Direct link to Example")
+To test and document seeds, use a [properties file](/reference/configs-and-properties) and nest the configurations under a `seeds:` key
 
-seeds/properties.yml
+## Example
+
+<File name='seeds/properties.yml'>
 
 ```yml
 seeds:
@@ -21,10 +22,4 @@ seeds:
           - not_null
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

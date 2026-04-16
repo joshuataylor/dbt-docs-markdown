@@ -1,149 +1,140 @@
-# dbt\_project.yml
 
-The dbt\_project.yml file is a required file for all dbt projects. It contains important information that tells dbt how to operate your project.
+Every [dbt project](/docs/build/projects) needs a `dbt_project.yml` file — this is how dbt knows a directory is a dbt project. It also contains important information that tells dbt how to operate your project. It works as follows:
 
-Every [dbt project](https://docs.getdbt.com/docs/build/projects.md) needs a `dbt_project.yml` file — this is how dbt knows a directory is a dbt project. It also contains important information that tells dbt how to operate your project. It works as follows:
+- dbt uses [YAML](https://yaml.org/) in a few different places. If you're new to YAML, it would be worth learning how arrays, dictionaries, and strings are represented.
+- By default, dbt looks for the `dbt_project.yml` in your current working directory and its parents, but you can set a different directory using the `--project-dir` flag or the <VersionBlock lastVersion="1.10">`DBT_PROJECT_DIR`</VersionBlock><VersionBlock firstVersion="1.11">`DBT_ENGINE_PROJECT_DIR`</VersionBlock> environment variable.
+- Specify your <Constant name="dbt" /> project ID in the `dbt_project.yml` file using `project-id` under the `dbt-cloud` config. Find your project ID in your <Constant name="dbt" /> project URL: For example, in `https://YOUR_ACCESS_URL/11/projects/123456`, the project ID is `123456`.
 
-* dbt uses [YAML](https://yaml.org/) in a few different places. If you're new to YAML, it would be worth learning how arrays, dictionaries, and strings are represented.
 
-* By default, dbt looks for the `dbt_project.yml` in your current working directory and its parents, but you can set a different directory using the `--project-dir` flag or the `DBT_PROJECT_DIR` environment variable.
+- Note, you can't set up a "property" in the `dbt_project.yml` file if it's not a config (an example is [macros](/reference/macro-properties)). This applies to all types of resources. Refer to [Configs and properties](/reference/configs-and-properties) for more detail.
 
-* Specify your dbt project ID in the `dbt_project.yml` file using `project-id` under the `dbt-cloud` config. Find your project ID in your dbt project URL: For example, in `https://YOUR_ACCESS_URL/11/projects/123456`, the project ID is `123456`.
-
-* Note, you can't set up a "property" in the `dbt_project.yml` file if it's not a config (an example is [macros](https://docs.getdbt.com/reference/macro-properties.md)). This applies to all types of resources. Refer to [Configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for more detail.
-
-## Example[​](#example "Direct link to Example")
+## Example
 
 The following example is a list of all available configurations in the `dbt_project.yml` file:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
-name: string
+[name](/reference/project-configs/name): string
 
-config-version: 2
-version: version
+[config-version](/reference/project-configs/config-version): 2
+[version](/reference/project-configs/version): version
 
-profile: profilename
+[profile](/reference/project-configs/profile): profilename
 
-model-paths: [directorypath]
-seed-paths: [directorypath]
-test-paths: [directorypath]
-analysis-paths: [directorypath]
-macro-paths: [directorypath]
-snapshot-paths: [directorypath]
-docs-paths: [directorypath]
-asset-paths: [directorypath]
-function-paths: [directorypath]
+[model-paths](/reference/project-configs/model-paths): [directorypath]
+[seed-paths](/reference/project-configs/seed-paths): [directorypath]
+[test-paths](/reference/project-configs/test-paths): [directorypath]
+[analysis-paths](/reference/project-configs/analysis-paths): [directorypath]
+[macro-paths](/reference/project-configs/macro-paths): [directorypath]
+[snapshot-paths](/reference/project-configs/snapshot-paths): [directorypath]
+[docs-paths](/reference/project-configs/docs-paths): [directorypath]
+[asset-paths](/reference/project-configs/asset-paths): [directorypath]
+[function-paths](/reference/project-configs/function-paths): [directorypath]
 
-packages-install-path: directorypath
+[packages-install-path](/reference/project-configs/packages-install-path): directorypath
 
-clean-targets: [directorypath]
+[clean-targets](/reference/project-configs/clean-targets): [directorypath]
 
-query-comment: string
+[query-comment](/reference/project-configs/query-comment): string
 
-require-dbt-version: version-range | [version-range]
+[require-dbt-version](/reference/project-configs/require-dbt-version): version-range | [version-range]
 
-flags:
-  <global-configs>
+[flags](/reference/global-configs/project-flags):
+  [<global-configs>](/reference/global-configs/project-flags)
 
-dbt-cloud:
-  project-id: project_id # Required
-  defer-env-id: environment_id # Optional
-  account-host: account-host # Defaults to 'cloud.getdbt.com'; Required if use a different Access URL
+[dbt-cloud](/docs/cloud/cloud-cli-installation):
+  [project-id](/docs/cloud/configure-cloud-cli#configure-the-dbt-cli): project_id # Required
+  [defer-env-id](/docs/cloud/about-cloud-develop-defer#defer-in-dbt-cli): environment_id # Optional
+  [account-host](/docs/cloud/about-cloud/access-regions-ip-addresses): account-host # Defaults to 'cloud.getdbt.com'; Required if use a different Access URL
 
-exposures:
-  +enabled: true | false
+[analyses](/docs/build/analyses): # Requires the require_corrected_analysis_fqns flag; available starting v1.12
+  [<analysis-configs>](/reference/analysis-properties)
 
-quoting:
+[exposures](/docs/build/exposures):
+  +[enabled](/reference/resource-configs/enabled): true | false
+
+[quoting](/reference/project-configs/quoting):
   database: true | false
   schema: true | false
   identifier: true | false
   snowflake_ignore_case: true | false  # Fusion-only config. Aligns with Snowflake's session parameter QUOTED_IDENTIFIERS_IGNORE_CASE behavior. 
                                        # Ignored by dbt Core and other adapters.
 metrics:
-  <metric-configs>
+  [<metric-configs>](/docs/build/metrics-overview)
 
 models:
-  <model-configs>
+  [<model-configs>](/reference/model-configs)
 
 seeds:
-  <seed-configs>
+  [<seed-configs>](/reference/seed-configs)
 
 semantic-models:
-  <semantic-model-configs>
+  [<semantic-model-configs>](/docs/build/semantic-models)
 
 saved-queries:
-  <saved-queries-configs>
+  [<saved-queries-configs>](/docs/build/saved-queries)
 
 snapshots:
-  <snapshot-configs>
+  [<snapshot-configs>](/reference/snapshot-configs)
 
 sources:
-  <source-configs>
+  [<source-configs>](source-configs)
   
 data_tests:
-  <test-configs>
+  [<test-configs>](/reference/data-test-configs)
 
 vars:
-  <variables>
+  [<variables>](/docs/build/project-variables)
 
-on-run-start: sql-statement | [sql-statement]
-on-run-end: sql-statement | [sql-statement]
+[on-run-start](/reference/project-configs/on-run-start-on-run-end): sql-statement | [sql-statement]
+[on-run-end](/reference/project-configs/on-run-start-on-run-end): sql-statement | [sql-statement]
 
-dispatch:
+[dispatch](/reference/project-configs/dispatch-config):
   - macro_namespace: packagename
     search_order: [packagename]
 
-restrict-access: true | false
+[restrict-access](/docs/mesh/govern/model-access): true | false
 
 functions:
-  <function-configs>
+  [<function-configs>](/reference/function-configs)
+
 ```
 
-## The `+` prefix[​](#the--prefix "Direct link to the--prefix")
+</File>
 
-<!-- -->
+## The `+` prefix
 
-dbt demarcates between a folder name and a configuration by using a `+` prefix before the configuration name. The `+` prefix is used for configs *only* and applies to `dbt_project.yml` under the corresponding resource key. It doesn't apply to:
+import PlusPrefix from '/snippets/_plus-prefix.md';
 
-* `config()` Jinja macro within a resource file
-* config property in a `.yml` file.
+<PlusPrefix />
 
-For more info, see the [Using the `+` prefix](https://docs.getdbt.com/reference/resource-configs/plus-prefix.md).
-
-## Naming convention[​](#naming-convention "Direct link to Naming convention")
+## Naming convention
 
 It's important to follow the correct YAML naming conventions for the configs in your `dbt_project.yml` file to ensure dbt can process them properly. This is especially true for resource types with more than one word.
 
-* Use dashes (`-`) when configuring resource types with multiple words in your `dbt_project.yml` file. Here's an example for [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md#configure-saved-query):
+- Use dashes (`-`) when configuring resource types with multiple words in your `dbt_project.yml` file. Here's an example for [saved queries](/docs/build/saved-queries#configure-saved-query):
 
-  dbt\_project.yml
+    <File name="dbt_project.yml">
 
-  ```yml
-  saved-queries:  # Use dashes for resource types in the dbt_project.yml file.
-    my_saved_query:
-      +cache:
-        enabled: true
-  ```
-
-* Use underscore (`_`) when configuring resource types with multiple words for YAML files other than the `dbt_project.yml` file. For example, here's the same saved queries resource in the `semantic_models.yml` file:
-
-  models/semantic\_models.yml
-
-  ```yml
-  saved_queries:  # Use underscores everywhere outside the dbt_project.yml file.
-    - name: saved_query_name
-      ... # Rest of the saved queries configuration.
-      config:
-        cache:
+    ```yml
+    saved-queries:  # Use dashes for resource types in the dbt_project.yml file.
+      my_saved_query:
+        +cache:
           enabled: true
-  ```
+    ```
+    </File>
 
-## Was this page helpful?
+- Use underscore (`_`) when configuring resource types with multiple words for YAML files other than the `dbt_project.yml` file. For example, here's the same saved queries resource in the `semantic_models.yml` file:
 
-YesNo
+    <File name="models/semantic_models.yml">
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+    ```yml
+    saved_queries:  # Use underscores everywhere outside the dbt_project.yml file.
+      - name: saved_query_name
+        ... # Rest of the saved queries configuration.
+        config:
+          cache:
+            enabled: true
+    ```
+    </File>

@@ -1,145 +1,125 @@
+# About cross-database macros
+
+
 # Cross-database macros
 
 These macros benefit three different user groups:
+- If you maintain a package, your package is more likely to work on other adapters by using these macros (rather than a specific database's SQL syntax)
+- If you maintain an adapter, your adapter is more likely to support more packages by implementing (and testing) these macros.
+- If you're an end user, more packages and adapters are likely to "just work" for you (without you having to do anything).
 
-* If you maintain a package, your package is more likely to work on other adapters by using these macros (rather than a specific database's SQL syntax)
-* If you maintain an adapter, your adapter is more likely to support more packages by implementing (and testing) these macros.
-* If you're an end user, more packages and adapters are likely to "just work" for you (without you having to do anything).
-
-Note
-
+:::note Note
 Please make sure to take a look at the [SQL expressions section](#sql-expressions) to understand quoting syntax for string values and date literals.
+:::
 
-## All functions (alphabetical)[​](#all-functions-alphabetical "Direct link to All functions (alphabetical)")
+## All functions (alphabetical)
 
-* [Cross-database macros](#cross-database-macros)
-
-  * [All functions (alphabetical)](#all-functions-alphabetical)
-
-  * [Data type functions](#data-type-functions)
-
-    * [type\_bigint](#type_bigint)
-    * [type\_boolean](#type_boolean)
-    * [type\_float](#type_float)
-    * [type\_int](#type_int)
-    * [type\_numeric](#type_numeric)
-    * [type\_string](#type_string)
-    * [type\_timestamp](#type_timestamp)
-    * [current\_timestamp](#current_timestamp)
-
-  * [Set functions](#set-functions)
-
-    * [except](#except)
-    * [intersect](#intersect)
-
-  * [Array functions](#array-functions)
-
-    * [array\_append](#array_append)
-    * [array\_concat](#array_concat)
-    * [array\_construct](#array_construct)
-
-  * [String functions](#string-functions)
-
-    * [concat](#concat)
-    * [hash](#hash)
-    * [length](#length)
-    * [position](#position)
-    * [replace](#replace)
-    * [right](#right)
-    * [split\_part](#split_part)
-
-  * [String literal functions](#string-literal-functions)
-
-    * [escape\_single\_quotes](#escape_single_quotes)
-    * [string\_literal](#string_literal)
-
-  * [Aggregate and window functions](#aggregate-and-window-functions)
-
-    * [any\_value](#any_value)
-    * [bool\_or](#bool_or)
-    * [listagg](#listagg)
-
-  * [Cast functions](#cast-functions)
-
-    * [cast](#cast)
-    * [cast\_bool\_to\_text](#cast_bool_to_text)
-    * [safe\_cast](#safe_cast)
-
-  * [Date and time functions](#date-and-time-functions)
-
-    * [date](#date)
-    * [dateadd](#dateadd)
-    * [datediff](#datediff)
-    * [date\_trunc](#date_trunc)
-    * [last\_day](#last_day)
-
-  * [Date and time parts](#date-and-time-parts)
-
-  * [SQL expressions](#sql-expressions)
+- [Cross-database macros](#cross-database-macros)
+  - [All functions (alphabetical)](#all-functions-alphabetical)
+  - [Data type functions](#data-type-functions)
+    - [type\_bigint](#type_bigint)
+    - [type\_boolean](#type_boolean)
+    - [type\_float](#type_float)
+    - [type\_int](#type_int)
+    - [type\_numeric](#type_numeric)
+    - [type\_string](#type_string)
+    - [type\_timestamp](#type_timestamp)
+    - [current\_timestamp](#current_timestamp)
+  - [Set functions](#set-functions)
+    - [except](#except)
+    - [intersect](#intersect)
+  - [Array functions](#array-functions)
+    - [array\_append](#array_append)
+    - [array\_concat](#array_concat)
+    - [array\_construct](#array_construct)
+  - [String functions](#string-functions)
+    - [concat](#concat)
+    - [hash](#hash)
+    - [length](#length)
+    - [position](#position)
+    - [replace](#replace)
+    - [right](#right)
+    - [split\_part](#split_part)
+  - [String literal functions](#string-literal-functions)
+    - [escape\_single\_quotes](#escape_single_quotes)
+    - [string\_literal](#string_literal)
+  - [Aggregate and window functions](#aggregate-and-window-functions)
+    - [any\_value](#any_value)
+    - [bool\_or](#bool_or)
+    - [listagg](#listagg)
+  - [Cast functions](#cast-functions)
+    - [cast](#cast)
+    - [cast\_bool\_to\_text](#cast_bool_to_text)
+    - [safe\_cast](#safe_cast)
+  - [Comparison functions](#comparison-functions)
+    - [equals](#equals)
+  - [Date and time functions](#date-and-time-functions)
+    - [date](#date)
+    - [dateadd](#dateadd)
+    - [datediff](#datediff)
+    - [date\_trunc](#date_trunc)
+    - [last\_day](#last_day)
+  - [Date and time parts](#date-and-time-parts)
+  - [SQL expressions](#sql-expressions)
 
 [**Data type functions**](#data-type-functions)
+- [type_bigint](#type_bigint)
+- [type_boolean](#type_boolean)
+- [type_float](#type_float)
+- [type_int](#type_int)
+- [type_numeric](#type_numeric)
+- [type_string](#type_string)
+- [type_timestamp](#type_timestamp)
 
-* [type\_bigint](#type_bigint)
-* [type\_boolean](#type_boolean)
-* [type\_float](#type_float)
-* [type\_int](#type_int)
-* [type\_numeric](#type_numeric)
-* [type\_string](#type_string)
-* [type\_timestamp](#type_timestamp)
 
 [**Set functions**](#set-functions)
-
-* [except](#except)
-* [intersect](#intersect)
+- [except](#except)
+- [intersect](#intersect)
 
 [**Array functions**](#array-functions)
-
-* [array\_append](#array_append)
-* [array\_concat](#array_concat)
-* [array\_construct](#array_construct)
+- [array_append](#array_append)
+- [array_concat](#array_concat)
+- [array_construct](#array_construct)
 
 [**String functions**](#string-functions)
-
-* [concat](#concat)
-* [hash](#hash)
-* [length](#length)
-* [position](#position)
-* [replace](#replace)
-* [right](#right)
-* [split\_part](#split_part)
+- [concat](#concat)
+- [hash](#hash)
+- [length](#length)
+- [position](#position)
+- [replace](#replace)
+- [right](#right)
+- [split_part](#split_part)
 
 [**String literal functions**](#string-literal-functions)
-
-* [escape\_single\_quotes](#escape_single_quotes)
-* [string\_literal](#string_literal)
+- [escape_single_quotes](#escape_single_quotes)
+- [string_literal](#string_literal)
 
 [**Aggregate and window functions**](#aggregate-and-window-functions)
-
-* [any\_value](#any_value)
-* [bool\_or](#bool_or)
-* [listagg](#listagg)
+- [any_value](#any_value)
+- [bool_or](#bool_or)
+- [listagg](#listagg)
 
 [**Cast functions**](#cast-functions)
+- [cast](#cast)
+- [cast_bool_to_text](#cast_bool_to_text)
+- [safe_cast](#safe_cast)
 
-* [cast](#cast)
-* [cast\_bool\_to\_text](#cast_bool_to_text)
-* [safe\_cast](#safe_cast)
+[**Comparison functions**](#comparison-functions)
+- [equals](#equals)
 
 [**Date and time functions**](#date-and-time-functions)
+- [date](#date)
+- [dateadd](#dateadd)
+- [datediff](#datediff)
+- [date_trunc](#date_trunc)
+- [last_day](#last_day)
 
-* [date](#date)
-* [dateadd](#dateadd)
-* [datediff](#datediff)
-* [date\_trunc](#date_trunc)
-* [last\_day](#last_day)
+## Data type functions
 
-## Data type functions[​](#data-type-functions "Direct link to Data type functions")
+### type_bigint
+__Args__:
 
-### type\_bigint[​](#type_bigint "Direct link to type_bigint")
-
-**Args**:
-
-* None
+ * None
 
 This macro yields the database-specific data type for a `BIGINT`.
 
@@ -155,11 +135,11 @@ This macro yields the database-specific data type for a `BIGINT`.
 bigint
 ```
 
-### type\_boolean[​](#type_boolean "Direct link to type_boolean")
+### type_boolean
 
-**Args**:
+__Args__:
 
-* None
+ * None
 
 This macro yields the database-specific data type for a `BOOLEAN`.
 
@@ -175,11 +155,11 @@ This macro yields the database-specific data type for a `BOOLEAN`.
 BOOLEAN
 ```
 
-### type\_float[​](#type_float "Direct link to type_float")
+### type_float
 
-**Args**:
+__Args__:
 
-* None
+ * None
 
 This macro yields the database-specific data type for a `FLOAT`.
 
@@ -195,11 +175,10 @@ This macro yields the database-specific data type for a `FLOAT`.
 FLOAT
 ```
 
-### type\_int[​](#type_int "Direct link to type_int")
+### type_int
+__Args__:
 
-**Args**:
-
-* None
+ * None
 
 This macro yields the database-specific data type for an `INT`.
 
@@ -215,11 +194,11 @@ This macro yields the database-specific data type for an `INT`.
 INT
 ```
 
-### type\_numeric[​](#type_numeric "Direct link to type_numeric")
+### type_numeric
 
-**Args**:
+__Args__:
 
-* None
+ * None
 
 This macro yields the database-specific data type for a `NUMERIC`.
 
@@ -235,11 +214,10 @@ This macro yields the database-specific data type for a `NUMERIC`.
 numeric(28,6)
 ```
 
-### type\_string[​](#type_string "Direct link to type_string")
+### type_string
+__Args__:
 
-**Args**:
-
-* None
+ * None
 
 This macro yields the database-specific data type for `TEXT`.
 
@@ -255,11 +233,10 @@ This macro yields the database-specific data type for `TEXT`.
 TEXT
 ```
 
-### type\_timestamp[​](#type_timestamp "Direct link to type_timestamp")
+### type_timestamp
+__Args__:
 
-**Args**:
-
-* None
+ * None
 
 This macro yields the database-specific data type for a `TIMESTAMP` (which may or may not match the behavior of `TIMESTAMP WITHOUT TIMEZONE` from ANSI SQL-92).
 
@@ -275,40 +252,37 @@ This macro yields the database-specific data type for a `TIMESTAMP` (which may o
 TIMESTAMP
 ```
 
-### current\_timestamp[​](#current_timestamp "Direct link to current_timestamp")
+### current_timestamp
 
 This macro returns the current date and time for the system. Depending on the adapter:
 
-* The result may be an aware or naive timestamp.
-* The result may correspond to the start of the statement or the start of the transaction.
+- The result may be an aware or naive timestamp.
+- The result may correspond to the start of the statement or the start of the transaction.
+
 
 **Args**
-
-* None
+- None
 
 **Usage**
-
-* You can use the `current_timestamp()` macro within your dbt SQL files like this:
+- You can use the `current_timestamp()` macro within your dbt SQL files like this:
 
 ```sql
 {{ dbt.current_timestamp() }}
 ```
-
 **Sample output (PostgreSQL)**
 
 ```sql
 now()
 ```
 
-## Set functions[​](#set-functions "Direct link to Set functions")
+## Set functions
 
-### except[​](#except "Direct link to except")
+### except
+__Args__:
 
-**Args**:
+ * None
 
-* None
-
-`except` is one of the set operators specified ANSI SQL-92 (along with `union` and `intersect`) and is akin to [set difference](https://en.wikipedia.org/wiki/Complement_\(set_theory\)#Relative_complement).
+`except` is one of the set operators specified ANSI SQL-92 (along with `union` and `intersect`) and is akin to [set difference](https://en.wikipedia.org/wiki/Complement_(set_theory)#Relative_complement).
 
 **Usage**:
 
@@ -322,13 +296,12 @@ now()
 except
 ```
 
-### intersect[​](#intersect "Direct link to intersect")
+### intersect
+__Args__:
 
-**Args**:
+ * None
 
-* None
-
-`intersect` is one of the set operators specified ANSI SQL-92 (along with `union` and `except`) and is akin to [set intersection](https://en.wikipedia.org/wiki/Intersection_\(set_theory\)).
+`intersect` is one of the set operators specified ANSI SQL-92 (along with `union` and `except`) and is akin to [set intersection](https://en.wikipedia.org/wiki/Intersection_(set_theory)).
 
 **Usage**:
 
@@ -342,14 +315,13 @@ except
 intersect
 ```
 
-## Array functions[​](#array-functions "Direct link to Array functions")
+## Array functions
 
-### array\_append[​](#array_append "Direct link to array_append")
+### array_append
+__Args__:
 
-**Args**:
-
-* `array` (required): The array to append to.
-* `new_element` (required): The element to be appended. This element must *match the data type of the existing elements* in the array in order to match PostgreSQL functionality and *not null* to match BigQuery functionality.
+ * `array` (required): The array to append to.
+ * `new_element` (required): The element to be appended. This element must *match the data type of the existing elements* in the array in order to match PostgreSQL functionality and *not null* to match BigQuery functionality.
 
 This macro appends an element to the end of an array and returns the appended array.
 
@@ -369,12 +341,11 @@ array_append(array_column, 5)
 array_append(array_column, 'blue')
 ```
 
-### array\_concat[​](#array_concat "Direct link to array_concat")
+### array_concat
+__Args__:
 
-**Args**:
-
-* `array_1` (required): The array to append to.
-* `array_2` (required): The array to be appended to `array_1`. This array must match the data type of `array_1` in order to match PostgreSQL functionality.
+ * `array_1` (required): The array to append to.
+ * `array_2` (required): The array to be appended to `array_1`. This array must match the data type of `array_1` in order to match PostgreSQL functionality.
 
 This macro returns the concatenation of two arrays.
 
@@ -390,12 +361,11 @@ This macro returns the concatenation of two arrays.
 array_cat(array_column_1, array_column_2)
 ```
 
-### array\_construct[​](#array_construct "Direct link to array_construct")
+### array_construct
+__Args__:
 
-**Args**:
-
-* `inputs` (optional): The list of array contents. If not provided, this macro will create an empty array. All inputs must be the *same data type* in order to match PostgreSQL functionality and *not null* to match BigQuery functionality.
-* `data_type` (optional): Specifies the data type of the constructed array. This is only relevant when creating an empty array (will otherwise use the data type of the inputs). If `inputs` are `data_type` are both not provided, this macro will create an empty array of type integer.
+ * `inputs` (optional): The list of array contents. If not provided, this macro will create an empty array. All inputs must be the *same data type* in order to match PostgreSQL functionality and *not null* to match BigQuery functionality.
+ * `data_type` (optional): Specifies the data type of the constructed array. This is only relevant when creating an empty array (will otherwise use the data type of the inputs). If `inputs` are `data_type` are both not provided, this macro will create an empty array of type integer.
 
 This macro returns an array constructed from a set of inputs.
 
@@ -417,13 +387,12 @@ array[ 1 , 2 , 3 , 4 ]
 array[ 'blue' , 'green' ]
 ```
 
-## String functions[​](#string-functions "Direct link to String functions")
+## String functions
 
-### concat[​](#concat "Direct link to concat")
+### concat
+__Args__:
 
-**Args**:
-
-* `fields`: Jinja array of [attribute names or expressions](#sql-expressions).
+ * `fields`: Jinja array of [attribute names or expressions](#sql-expressions).
 
 This macro combines a list of strings together.
 
@@ -445,11 +414,10 @@ first_part_column || '.' || second_part_column
 first_part_column || ',' || second_part_column
 ```
 
-### hash[​](#hash "Direct link to hash")
+### hash
+__Args__:
 
-**Args**:
-
-* `field`: [attribute name or expression](#sql-expressions).
+ * `field`: [attribute name or expression](#sql-expressions).
 
 This macro provides a hash (such as [MD5](https://en.wikipedia.org/wiki/MD5)) of an [expression](#sql-expressions) cast as a string.
 
@@ -471,11 +439,11 @@ md5(cast('Pennsylvania' as
 ))
 ```
 
-### length[​](#length "Direct link to length")
+### length
+__Args__:
 
-**Args**:
+ * `expression`: string [expression](#sql-expressions).
 
-* `expression`: string [expression](#sql-expressions).
 
 This macro calculates the number of characters in a string.
 
@@ -493,12 +461,11 @@ This macro calculates the number of characters in a string.
     )
 ```
 
-### position[​](#position "Direct link to position")
+### position
+__Args__:
 
-**Args**:
-
-* `substring_text`: [attribute name or expression](#sql-expressions).
-* `string_text`: [attribute name or expression](#sql-expressions).
+ * `substring_text`: [attribute name or expression](#sql-expressions).
+ * `string_text`: [attribute name or expression](#sql-expressions).
 
 This macro searches for the first occurrence of `substring_text` within `string_text` and returns the 1-based position if found.
 
@@ -521,13 +488,12 @@ This macro searches for the first occurrence of `substring_text` within `string_
     )
 ```
 
-### replace[​](#replace "Direct link to replace")
+### replace
+__Args__:
 
-**Args**:
-
-* `field`: [attribute name or expression](#sql-expressions).
-* `old_chars`: [attribute name or expression](#sql-expressions).
-* `new_chars`: [attribute name or expression](#sql-expressions).
+ * `field`: [attribute name or expression](#sql-expressions).
+ * `old_chars`: [attribute name or expression](#sql-expressions).
+ * `new_chars`: [attribute name or expression](#sql-expressions).
 
 This macro updates a string and replaces all occurrences of one substring with another. The precise behavior may vary slightly from one adapter to another.
 
@@ -554,12 +520,11 @@ This macro updates a string and replaces all occurrences of one substring with a
     )
 ```
 
-### right[​](#right "Direct link to right")
+### right
+__Args__:
 
-**Args**:
-
-* `string_text`: [attribute name or expression](#sql-expressions).
-* `length_expression`: numeric [expression](#sql-expressions).
+ * `string_text`: [attribute name or expression](#sql-expressions).
+ * `length_expression`: numeric [expression](#sql-expressions).
 
 This macro returns the N rightmost characters from a string.
 
@@ -584,9 +549,8 @@ This macro returns the N rightmost characters from a string.
     )
 ```
 
-### split\_part[​](#split_part "Direct link to split_part")
-
-**Args**:
+### split_part
+__Args__:
 
 * `string_text` (required): Text to be split into parts.
 * `delimiter_text` (required): Text representing the delimiter to split by.
@@ -619,15 +583,14 @@ When referencing a column, use one pair of quotes. When referencing a string, us
         )
 ```
 
-## String literal functions[​](#string-literal-functions "Direct link to String literal functions")
+## String literal functions
 
-### escape\_single\_quotes[​](#escape_single_quotes "Direct link to escape_single_quotes")
+### escape_single_quotes
+__Args__:
 
-**Args**:
+ * `value`: Jinja string literal value
 
-* `value`: Jinja string literal value
-
-This macro adds escape characters for any single quotes within the provided string literal. Note: if given a column, it will only operate on the column *name*, not the values within the column.
+This macro adds escape characters for any single quotes within the provided string literal. Note: if given a column, it will only operate on the column _name_, not the values within the column.
 
 To escape quotes for column values, consider a macro like [replace](#replace) or a regular expression replace.
 
@@ -645,15 +608,14 @@ they''re
 ain''t ain''t a word
 ```
 
-### string\_literal[​](#string_literal "Direct link to string_literal")
+### string_literal
+__Args__:
 
-**Args**:
-
-* `value`: Jinja string value
+ * `value`: Jinja string value
 
 This macro converts a Jinja string into a SQL string literal.
 
-To cast column values to a string, consider a macro like [safe\_cast](#safe_cast) or an ordinary cast.
+To cast column values to a string, consider a macro like [safe_cast](#safe_cast) or an ordinary cast.
 
 **Usage**:
 
@@ -667,13 +629,12 @@ select {{ dbt.string_literal("Pennsylvania") }}
 select 'Pennsylvania'
 ```
 
-## Aggregate and window functions[​](#aggregate-and-window-functions "Direct link to Aggregate and window functions")
+## Aggregate and window functions
 
-### any\_value[​](#any_value "Direct link to any_value")
+### any_value
+__Args__:
 
-**Args**:
-
-* `expression`: an [expression](#sql-expressions).
+ * `expression`: an [expression](#sql-expressions).
 
 This macro returns some value of the expression from the group. The selected value is non-deterministic (rather than random).
 
@@ -689,11 +650,10 @@ This macro returns some value of the expression from the group. The selected val
 any(column_name)
 ```
 
-### bool\_or[​](#bool_or "Direct link to bool_or")
+### bool_or
+__Args__:
 
-**Args**:
-
-* `expression`: [attribute name or expression](#sql-expressions).
+ * `expression`: [attribute name or expression](#sql-expressions).
 
 This macro returns the logical `OR` of all non-`NULL` expressions -- `true` if at least one record in the group evaluates to `true`.
 
@@ -715,14 +675,13 @@ bool_or(string_column = 'Pennsylvania')
 bool_or(column1 = column2)
 ```
 
-### listagg[​](#listagg "Direct link to listagg")
+### listagg
+__Args__:
 
-**Args**:
-
-* `measure` (required): The [attribute name or expression](#sql-expressions) that determines the values to be concatenated. To only include distinct values add keyword `DISTINCT` to beginning of expression (example: 'DISTINCT column\_to\_agg').
-* `delimiter_text` (required): Text representing the delimiter to separate concatenated values by.
-* `order_by_clause` (optional): An expression (typically one or more column names separated by commas) that determines the order of the concatenated values.
-* `limit_num` (optional): Specifies the maximum number of values to be concatenated.
+ * `measure` (required): The [attribute name or expression](#sql-expressions) that determines the values to be concatenated. To only include distinct values add keyword `DISTINCT` to beginning of expression (example: 'DISTINCT column_to_agg').
+ * `delimiter_text` (required): Text representing the delimiter to separate concatenated values by.
+ * `order_by_clause` (optional): An expression (typically one or more column names separated by commas) that determines the order of the concatenated values.
+ * `limit_num` (optional): Specifies the maximum number of values to be concatenated.
 
 This macro returns the concatenated input values from a group of rows separated by a specified delimiter.
 
@@ -746,16 +705,18 @@ array_to_string(
         )
 ```
 
-## Cast functions[​](#cast-functions "Direct link to Cast functions")
+## Cast functions
 
-### cast[​](#cast "Direct link to cast")
+### cast
 
-**Availability**: dbt v1.8 or higher. For more information, select the version from the documentation navigation menu.
+**Availability**:
+dbt v1.8 or higher. For more information, select the version from the documentation navigation menu.
 
-**Args**:
 
-* `field`: [attribute name or expression](#sql-expressions).
-* `type`: data type to convert to
+__Args__:
+
+ * `field`: [attribute name or expression](#sql-expressions).
+ * `type`: data type to convert to
 
 This macro casts a value to the specified data type. Unlike [safe\_cast](#safe_cast), this macro will raise an error when the cast fails.
 
@@ -775,11 +736,11 @@ This macro casts a value to the specified data type. Unlike [safe\_cast](#safe_c
     cast('2016-03-09' as date)
 ```
 
-### cast\_bool\_to\_text[​](#cast_bool_to_text "Direct link to cast_bool_to_text")
 
-**Args**:
+### cast_bool_to_text
+__Args__:
 
-* `field`: boolean [attribute name or expression](#sql-expressions).
+ * `field`: boolean [attribute name or expression](#sql-expressions).
 
 This macro casts a boolean value to a string.
 
@@ -822,12 +783,11 @@ This macro casts a boolean value to a string.
 )
 ```
 
-### safe\_cast[​](#safe_cast "Direct link to safe_cast")
+### safe_cast
+__Args__:
 
-**Args**:
-
-* `field`: [attribute name or expression](#sql-expressions).
-* `type`: data type to convert to
+ * `field`: [attribute name or expression](#sql-expressions).
+ * `type`: data type to convert to
 
 For databases that support it, this macro will return `NULL` when the cast fails (instead of raising an error).
 
@@ -847,20 +807,52 @@ For databases that support it, this macro will return `NULL` when the cast fails
     cast('2016-03-09' as date)
 ```
 
-## Date and time functions[​](#date-and-time-functions "Direct link to Date and time functions")
+## Comparison functions
 
-### date[​](#date "Direct link to date")
+Comparison functions are macros that compare two SQL expressions and return a boolean SQL expression (for example, `TRUE`, `FALSE`, or `UNKNOWN`).
 
-**Availability**: dbt v1.8 or later. For more information, select the version from the documentation navigation menu.
+### equals 
 
-**Args**:
+__Args__:
 
-* `year`: an integer
-* `month`: an integer
-* `day`: an integer
+- `a`: [attribute name or expression](#sql-expressions).
+- `b`: [attribute name or expression](#sql-expressions).
+
+This macro compares two expressions for equality.
+
+By default, the `equals()` macro follows SQL's [three-valued logic (3VL)](https://modern-sql.com/concept/three-valued-logic), so `NULL = NULL` evaluates to `UNKNOWN` rather than `TRUE`.
+
+When the [`enable_truthy_nulls_equals_macro`](/reference/global-configs/behavior-changes#null-safe-equality-equals-macro) flag is enabled, `equals()` behaves like the [`IS NOT DISTINCT FROM`](https://modern-sql.com/feature/is-distinct-from) SQL operator and treats two `NULL` values as the same.
+
+**Usage**:
+
+```sql
+{{ dbt.equals("column_a", "column_b") }}
+{{ dbt.equals("id", "previous_id") }}
+```
+
+**Sample output (PostgreSQL with [`enable_truthy_nulls_equals_macro`](/reference/global-configs/behavior-changes#null-safe-equality-equals-macro) enabled)**:
+
+```sql
+(column_a IS NOT DISTINCT FROM column_b)
+(id IS NOT DISTINCT FROM previous_id)
+```
+
+## Date and time functions
+
+### date
+
+**Availability**:
+dbt v1.8 or later. For more information, select the version from the documentation navigation menu.
+
+__Args__:
+
+ * `year`: an integer
+ * `month`: an integer
+ * `day`: an integer
 
 This macro converts the `year`, `month`, and `day` into an SQL `DATE` type.
-
+ 
 **Usage**:
 
 ```sql
@@ -873,13 +865,12 @@ This macro converts the `year`, `month`, and `day` into an SQL `DATE` type.
 to_date('2023-10-04', 'YYYY-MM-DD')
 ```
 
-### dateadd[​](#dateadd "Direct link to dateadd")
+### dateadd
+__Args__:
 
-**Args**:
-
-* `datepart`: [date or time part](#date-and-time-parts).
-* `interval`: integer count of the `datepart` to add (can be positive or negative)
-* `from_date_or_timestamp`: date/time [expression](#sql-expressions).
+ * `datepart`: [date or time part](#date-and-time-parts).
+ * `interval`: integer count of the `datepart` to add (can be positive or negative)
+ * `from_date_or_timestamp`: date/time [expression](#sql-expressions).
 
 This macro adds a time/day interval to the supplied date/timestamp. Note: The `datepart` argument is database-specific.
 
@@ -897,13 +888,12 @@ This macro adds a time/day interval to the supplied date/timestamp. Note: The `d
     '2016-03-09' + ((interval '10 month') * (-2))
 ```
 
-### datediff[​](#datediff "Direct link to datediff")
+### datediff
+__Args__:
 
-**Args**:
-
-* `first_date`: date/time [expression](#sql-expressions).
-* `second_date`: date/time [expression](#sql-expressions).
-* `datepart`: [date or time part](#date-and-time-parts).
+ * `first_date`: date/time [expression](#sql-expressions).
+ * `second_date`: date/time [expression](#sql-expressions).
+ * `datepart`: [date or time part](#date-and-time-parts).
 
 This macro calculates the difference between two dates.
 
@@ -926,12 +916,11 @@ This macro calculates the difference between two dates.
         (date_part('year', (column)::date) - date_part('year', ('2016-03-09')::date))
 ```
 
-### date\_trunc[​](#date_trunc "Direct link to date_trunc")
+### date_trunc
+__Args__:
 
-**Args**:
-
-* `datepart`: [date or time part](#date-and-time-parts).
-* `date`: date/time [expression](#sql-expressions).
+ * `datepart`: [date or time part](#date-and-time-parts).
+ * `date`: date/time [expression](#sql-expressions).
 
 This macro truncates / rounds a timestamp to the first instant for the given [date or time part](#date-and-time-parts).
 
@@ -951,19 +940,17 @@ date_trunc('month', updated_at)
 date_trunc('year', '2016-03-09')
 ```
 
-### last\_day[​](#last_day "Direct link to last_day")
+### last_day
+__Args__:
 
-**Args**:
-
-* `date`: date/time [expression](#sql-expressions).
-* `datepart`: [date or time part](#date-and-time-parts).
+ * `date`: date/time [expression](#sql-expressions).
+ * `datepart`: [date or time part](#date-and-time-parts).
 
 This macro gets the last day for a given date and datepart.
 
 **Usage**:
-
-* The `datepart` argument is database-specific.
-* This macro currently only supports dateparts of `month` and `quarter`.
+- The `datepart` argument is database-specific.
+- This macro currently only supports dateparts of `month` and `quarter`.
 
 ```sql
 {{ dbt.last_day("created_at", "month") }}
@@ -984,10 +971,9 @@ cast(
         as date)
 ```
 
-## Date and time parts[​](#date-and-time-parts "Direct link to Date and time parts")
+## Date and time parts
 
 Often supported date and time parts (case insensitive):
-
 * `year`
 * `quarter`
 * `month`
@@ -1000,21 +986,21 @@ Often supported date and time parts (case insensitive):
 * `microsecond`
 * `nanosecond`
 
-This listing is not meant to be exhaustive, and some of these date and time parts may not be supported for particular adapters. Some macros may not support all date and time parts. Some adapters may support more or less precision.
+This listing is not meant to be exhaustive, and some of these date and time parts may not be supported for particular adapters.
+Some macros may not support all date and time parts. Some adapters may support more or less precision.
 
-## SQL expressions[​](#sql-expressions "Direct link to SQL expressions")
+## SQL expressions
 
 A SQL expression may take forms like the following:
+- function
+- column name
+- date literal
+- string literal
+- &lt;other data type&gt; literal (number, etc)
+- `NULL`
 
-* function
-* column name
-* date literal
-* string literal
-* \<other data type> literal (number, etc)
-* `NULL`
-
-Example: Suppose there is an `orders` table with a column named `order_date`. The following shows 3 different types of expressions:
-
+Example:
+Suppose there is an `orders` table with a column named `order_date`. The following shows 3 different types of expressions:
 ```sql
 select
     date_trunc(month, order_date) as expression_function,
@@ -1029,17 +1015,8 @@ from orders
 Note that the string literal example includes single quotes. (Note: the string literal character may vary per database. For this example, we suppose a single quote.) To refer to a SQL string literal in Jinja, surrounding double quotes are required.
 
 So within Jinja, the string values would be:
-
-* `"date_trunc(month, order_date)"`
-* `"order_date"`
-* `"'2016-03-09'"`
-* `"'Pennsylvania'"`
-* `"NULL"`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- `"date_trunc(month, order_date)"`
+- `"order_date"`
+- `"'2016-03-09'"`
+- `"'Pennsylvania'"`
+- `"NULL"`

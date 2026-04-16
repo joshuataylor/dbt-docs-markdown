@@ -1,66 +1,55 @@
 # How to use prompts for dbt Copilot
 
-[Back to guides](https://docs.getdbt.com/guides.md)
 
-dbt Copilot
+<div style={{maxWidth: '900px'}}>
 
-AI
+## Overview
 
-Best practices
+<IntroText>
+Learn how to write effective prompts for dbt <Constant name="copilot" /> to generate accurate SQL, models, metrics, and macros. Each recipe is self-contained with its own realistic example.
+</IntroText>
 
-Beginner
-
-[Menu ]()
-
-
-
-## Overview[​](#overview "Direct link to Overview")
-
-Learn how to write effective prompts for dbt Copilot to generate accurate SQL, models, metrics, and macros. Each recipe is self-contained with its own realistic example.
-
-dbt Copilot is an AI assistant that generates SQL, YAML, documentation, tests, semantic models, and macros based on your project's context. The quality of output depends on the clarity of your prompts.
+dbt <Constant name="copilot" /> is an AI assistant that generates SQL, YAML, documentation, tests, semantic models, and macros based on your project's context. The quality of output depends on the clarity of your prompts.
 
 This cookbook provides independent recipes for common prompting tasks. Jump to any section that matches your current need.
 
 This cookbook covers the following topics:
+<!-- no toc -->
+- [Prompt best practices](https://docs.getdbt.com/guides/prompt-cookbook?step=2)
+- [Generate SQL queries](https://docs.getdbt.com/guides/prompt-cookbook?step=3)
+- [Use what you already have](https://docs.getdbt.com/guides/prompt-cookbook?step=4)
+- [Create semantic models and metrics](https://docs.getdbt.com/guides/prompt-cookbook?step=5)
+- [Create reusable macros](https://docs.getdbt.com/guides/prompt-cookbook?step=6)
+- [Troubleshoot errors and issues](https://docs.getdbt.com/guides/prompt-cookbook?step=7)
+- [Conclusion](https://docs.getdbt.com/guides/prompt-cookbook?step=8)
 
-* [Prompt best practices](https://docs.getdbt.com/guides/prompt-cookbook?step=2)
-* [Generate SQL queries](https://docs.getdbt.com/guides/prompt-cookbook?step=3)
-* [Use what you already have](https://docs.getdbt.com/guides/prompt-cookbook?step=4)
-* [Create semantic models and metrics](https://docs.getdbt.com/guides/prompt-cookbook?step=5)
-* [Create reusable macros](https://docs.getdbt.com/guides/prompt-cookbook?step=6)
-* [Troubleshoot errors and issues](https://docs.getdbt.com/guides/prompt-cookbook?step=7)
-* [Conclusion](https://docs.getdbt.com/guides/prompt-cookbook?step=8)
+## Prompt best practices
 
-## Prompt best practices[​](#prompt-best-practices "Direct link to Prompt best practices")
+Writing effective prompts is about giving <Constant name="copilot" /> the right context and clear direction. Follow these principles:
+- [Provide rich context](#provide-rich-context)
+- [Break complex logic into smaller steps](#break-complex-logic-into-smaller-steps)
+- [State the business question, not just the output](#state-the-business-question-not-just-the-output)
+- [Be clear and explicit about the result](#be-clear-and-explicit-about-the-result)
 
-Writing effective prompts is about giving Copilot the right context and clear direction. Follow these principles:
-
-* [Provide rich context](#provide-rich-context)
-* [Break complex logic into smaller steps](#break-complex-logic-into-smaller-steps)
-* [State the business question, not just the output](#state-the-business-question-not-just-the-output)
-* [Be clear and explicit about the result](#be-clear-and-explicit-about-the-result)
-
-### Provide rich context[​](#provide-rich-context "Direct link to Provide rich context")
+### Provide rich context
 
 In your prompt, include table names, column types, and example values to describe how they relate to each other.
 
 Include the following:
 
-* Table relationships (such as `orders` connects to `customers` on `customer_id`)
-* Data types (such as `signup_date` is a timestamp)
-* Sample values (such as `plan_type` can be "monthly" or "annual")
+- Table relationships (such as `orders` connects to `customers` on `customer_id`)
+- Data types (such as `signup_date` is a timestamp)
+- Sample values (such as `plan_type` can be "monthly" or "annual")
 
-tip
-
-The following example uses SQL terminology (like data types and joins) because it's generating a SQL query. However, the principle of providing rich context applies to all Copilot tasks—whether you're generating macros, documentation, or YAML configurations.
+:::tip
+The following example uses SQL terminology (like data types and joins) because it's generating a SQL query. However, the principle of providing rich context applies to all <Constant name="copilot" /> tasks—whether you're generating macros, documentation, or YAML configurations.
+:::
 
 **Example: Santi's neighborhood café**
 
 Let's say you run a neighborhood café and folks get a free drink after 10 visits:
 
 **Without rich context** (vague):
-
 ```text
 I need a query using customers, subscriptions, and activity tables to see weekly regulars.
 ```
@@ -87,13 +76,13 @@ and compare conversion rates: do high-frequency punch-card users convert to our
 
 **Why it works:** The AI now knows exact data types, how tables relate, what values to expect, and the specific business logic (3+ visits/week defines "regulars").
 
-### Break complex logic into smaller steps[​](#break-complex-logic-into-smaller-steps "Direct link to Break complex logic into smaller steps")
+### Break complex logic into smaller steps
 
-Common misconception
-
+:::tip Common misconception
 Many users try to ask for everything at once in a single prompt. Breaking your request into smaller, sequential steps consistently produces better results.
+:::
 
-For multi-part tasks, write them as a sequence of clear instructions. Copilot handles step-by-step logic better than complex, all-in-one requests.
+For multi-part tasks, write them as a sequence of clear instructions. <Constant name="copilot" /> handles step-by-step logic better than complex, all-in-one requests.
 
 **Example:**
 
@@ -103,9 +92,9 @@ For multi-part tasks, write them as a sequence of clear instructions. Copilot ha
 3. Join to subscription data and group by plan tier.
 ```
 
-**Why this works:** Each step is clear and actionable. You can always iterate on your prompt to refine results — start simple, then build complexity.
+**Why this works:** Each step is clear and actionable. You can always iterate on your prompt to refine results &mdash; start simple, then build complexity.
 
-### State the business question, not just the output[​](#state-the-business-question-not-just-the-output "Direct link to State the business question, not just the output")
+### State the business question, not just the output
 
 Describe the decision or insight the query supports, and avoid only technical-like prompts. This means, instead of "count users", you can say "count active users per week to analyze engagement trends."
 
@@ -125,15 +114,15 @@ to all products. If not, we'll improve the feature before expanding.
 
 **Why it works:** You've described the feature, the behavior you're measuring, specific success criteria (20%+ lift), and the decision you'll make based on results.
 
-### Be clear and explicit about the result[​](#be-clear-and-explicit-about-the-result "Direct link to Be clear and explicit about the result")
+### Be clear and explicit about the result
 
 Define the expected output clearly. Mention the expected columns in the final result and state whether results should be sorted, limited, or filtered.
 
 **What to specify:**
 
-* Expected column names and formats
-* Sort order and any limits (for example, "top 10 products by revenue")
-* Output format examples (for example, "`conversion_rate` as a percentage")
+- Expected column names and formats
+- Sort order and any limits (for example, "top 10 products by revenue")
+- Output format examples (for example, "`conversion_rate` as a percentage")
 
 **Example: The fitness challenge**
 
@@ -150,7 +139,7 @@ show how many upgraded to paid within 30 days and what their average workouts lo
 
 **Why it works:** Specific metrics that are ready to present.
 
-## Generate SQL queries[​](#generate-sql-queries "Direct link to Generate SQL queries")
+## Generate SQL queries
 
 Let's say you want to build a query to find top-spending customers.
 
@@ -174,7 +163,7 @@ Output:
 Sort by total_spent descending, limit to 10 rows.
 ```
 
-**What Copilot generates:**
+**What <Constant name="copilot" /> generates:**
 
 ```sql
 select
@@ -192,22 +181,21 @@ limit 10
 ```
 
 **Why it works:**
+- Clear context about tables and their relationship
+- Specific business question with a defined time period
+- Explicit output requirements and sorting logic
 
-* Clear context about tables and their relationship
-* Specific business question with a defined time period
-* Explicit output requirements and sorting logic
+**Pro tip:** Start simple, then iterate. If <Constant name="copilot" />'s first attempt isn't perfect, no worries! Refine your prompt with more specific details and let <Constant name="copilot" /> do its magic, it usually gets there in the end ✨
 
-**Pro tip:** Start simple, then iterate. If Copilot's first attempt isn't perfect, no worries! Refine your prompt with more specific details and let Copilot do its magic, it usually gets there in the end ✨
+## Use what you already have
 
-## Use what you already have[​](#use-what-you-already-have "Direct link to Use what you already have")
+You don't need to write everything from scratch. Pull in documentation, definitions, and sample data you already have—it helps <Constant name="copilot" /> understand your specific business context.
 
-You don't need to write everything from scratch. Pull in documentation, definitions, and sample data you already have—it helps Copilot understand your specific business context.
+:::tip dbt Insights integration
+When using <Constant name="copilot" /> in [<Constant name="insights" />](/docs/explore/dbt-insights), you can easily cross-reference between <Constant name="copilot" />'s generated SQL and metadata from [dbt Catalog](/docs/explore/explore-projects). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
+:::
 
-dbt Insights integration
-
-When using Copilot in [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md), you can easily cross-reference between Copilot's generated SQL and metadata from [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
-
-### Define your business rules[​](#define-your-business-rules "Direct link to Define your business rules")
+### Define your business rules
 
 Instead of just saying "active customer," explain the rule:
 
@@ -218,9 +206,9 @@ Net revenue = gross sales minus discounts and returns
 
 **Pull from:** Metrics glossaries, KPI catalogs, product requirement docs, data dictionaries
 
-### Show sample values[​](#show-sample-values "Direct link to Show sample values")
+### Show sample values
 
-Give Copilot examples of what the data actually looks like, especially edge cases:
+Give <Constant name="copilot" /> examples of what the data actually looks like, especially edge cases:
 
 ```text
 Order statuses:
@@ -231,7 +219,7 @@ Order statuses:
 
 **Pull from:** Data profiling reports, QA test datasets, BI dashboard filters
 
-### Start with a draft, refine later[​](#start-with-a-draft-refine-later "Direct link to Start with a draft, refine later")
+### Start with a draft, refine later
 
 Frame your model first, then iterate. Start with a clean outline that gets the basic structure right:
 
@@ -243,11 +231,11 @@ on customer_id. Filter to the last 30 days for preview only.
 
 **Pull from:** Source-to-target mapping sheets (join keys and transformations), data dictionaries (primary and foreign keys)
 
-## Create semantic models and metrics[​](#create-semantic-models-and-metrics "Direct link to Create semantic models and metrics")
+## Create semantic models and metrics
 
-Fast-track your semantic layer strategy with AI-generated YAML using Copilot.
+Fast-track your semantic layer strategy with AI-generated YAML using <Constant name="copilot" />.
 
-dbt platform provides built-in generation buttons that automatically [generate code](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md), [documentation](https://docs.getdbt.com/docs/build/documentation.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md), and [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](https://docs.getdbt.com/docs/cloud/studio-ide/develop-copilot.md), [Canvas](https://docs.getdbt.com/docs/cloud/build-canvas-copilot.md), and [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md).
+<Constant name="dbt_platform" /> provides built-in generation buttons that automatically  [generate code](/docs/cloud/use-dbt-copilot), [documentation](/docs/build/documentation), [data tests](/docs/build/data-tests), [metrics](/docs/build/metrics-overview), and [semantic models](/docs/build/semantic-models) for you with the click of a button in the [<Constant name="studio_ide" />](/docs/cloud/studio-ide/develop-copilot), [<Constant name="canvas" />](/docs/cloud/build-canvas-copilot), and [<Constant name="insights" />](/docs/explore/dbt-insights).
 
 These features understand your model's structure and generate YAML in the correct location.
 
@@ -258,31 +246,30 @@ These features understand your model's structure and generate YAML in the correc
 3. Select **Semantic model** to create a semantic model based on your SQL model
 4. Review and refine the generated YAML as needed
 
-You can also use Copilot to generate documentation, tests, and metrics.
+You can also use <Constant name="copilot" /> to generate documentation, tests, and metrics.
 
 These built-in features automatically understand your model's columns, data types, and relationships, which means you don't need to manually describe your schema or copy-paste between file types.
 
 **Typical workflow:**
-
-1. Build your SQL model using Copilot conversational prompts
+1. Build your SQL model using <Constant name="copilot" /> conversational prompts
 2. Use built-in buttons to add documentation, tests, and semantic models
 3. Refine the generated YAML as needed
 
-For more details, check out the [dbt Copilot](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md) docs.
+For more details, check out the [dbt Copilot](/docs/cloud/use-dbt-copilot) docs.
 
-## Create reusable macros[​](#create-reusable-macros "Direct link to Create reusable macros")
+## Create reusable macros
 
-In this section, we'll look at how to create reusable macros using Copilot.
+In this section, we'll look at how to create reusable macros using <Constant name="copilot" />.
 
-* [Turn repetitive code into reusable logic](#turn-repetitive-code-into-reusable-logic)
-* [Lower the barrier to entry](#lower-the-barrier-to-entry)
-* [Accelerate complex logic design](#accelerate-complex-logic-design)
+- [Turn repetitive code into reusable logic](#turn-repetitive-code-into-reusable-logic)
+- [Lower the barrier to entry](#lower-the-barrier-to-entry)
+- [Accelerate complex logic design](#accelerate-complex-logic-design)
 
-### Turn repetitive code into reusable logic[​](#turn-repetitive-code-into-reusable-logic "Direct link to Turn repetitive code into reusable logic")
+### Turn repetitive code into reusable logic
 
 A junior analyst keeps copy-pasting CASE statements across models.
 
-**What to give Copilot:**
+**What to give <Constant name="copilot" />:**
 
 ```text
 Turn this CASE pattern into a reusable macro:
@@ -302,11 +289,11 @@ Macro requirements:
 
 **Why it works:** Clear input (the CASE statement), clear requirements, clear output expectations.
 
-### Lower the barrier to entry[​](#lower-the-barrier-to-entry "Direct link to Lower the barrier to entry")
+### Lower the barrier to entry
 
 You need a macro but don't know Jinja syntax well.
 
-**What to ask Copilot:**
+**What to ask <Constant name="copilot" />:**
 
 ```text
 I need a macro that calculates the number of days between two date columns, 
@@ -319,13 +306,13 @@ Parameters:
 Include a docstring explaining how to use it.
 ```
 
-**Outcome:** Copilot generates proper Jinja syntax, handles parameters, and includes documentation. You learn Jinja patterns while getting working code.
+**Outcome:** <Constant name="copilot" /> generates proper Jinja syntax, handles parameters, and includes documentation. You learn Jinja patterns while getting working code.
 
-### Accelerate complex logic design[​](#accelerate-complex-logic-design "Direct link to Accelerate complex logic design")
+### Accelerate complex logic design
 
 This is best for advanced users who are comfortable with Jinja.
 
-**What to ask Copilot:**
+**What to ask <Constant name="copilot" />:**
 
 ```text
 I need a macro that builds a grouped aggregation with optional filters.
@@ -339,20 +326,19 @@ Parameters:
 Include defaults and guardrails for empty lists.
 Add a docstring with parameter descriptions and usage example.
 ```
+**Why this works:** You've outlined the interface (parameters) and edge cases (empty lists), letting <Constant name="copilot" /> handle the Jinja boilerplate while you focus on design. This approach accelerates iteration so you can refine the structure without getting stuck in syntax details.
 
-**Why this works:** You've outlined the interface (parameters) and edge cases (empty lists), letting Copilot handle the Jinja boilerplate while you focus on design. This approach accelerates iteration so you can refine the structure without getting stuck in syntax details.
+## Troubleshoot errors and issues
 
-## Troubleshoot errors and issues[​](#troubleshoot-errors-and-issues "Direct link to Troubleshoot errors and issues")
+<Constant name="copilot" /> acts as a fast, context-aware reviewer for failing SQL and macros. It reads errors, inspects your query structure, and suggests minimal fixes. Troubleshooting with <Constant name="copilot" /> gives you:
 
-Copilot acts as a fast, context-aware reviewer for failing SQL and macros. It reads errors, inspects your query structure, and suggests minimal fixes. Troubleshooting with Copilot gives you:
+- Faster diagnosis by using plain-language translation of errors with likely root causes
+- Safer fixes by biasing toward small, targeted changes
+- Better learning by generating explanations you can paste into docs or PR descriptions
 
-* Faster diagnosis by using plain-language translation of errors with likely root causes
-* Safer fixes by biasing toward small, targeted changes
-* Better learning by generating explanations you can paste into docs or PR descriptions
+### Troubleshoot errors
 
-### Troubleshoot errors[​](#troubleshoot-errors "Direct link to Troubleshoot errors")
-
-When something breaks, give Copilot the error message, your code, and what you expected to happen. Here are a couple of examples to show you how to use Copilot to troubleshoot errors.
+When something breaks, give <Constant name="copilot" /> the error message, your code, and what you expected to happen. Here are a couple of examples to show you how to use <Constant name="copilot" /> to troubleshoot errors.
 
 **Example: SQL error**
 
@@ -384,51 +370,50 @@ When I call {{ calculate_discount(100, 0.1) }} I expect 10 but get an error.
 Show me the rendered SQL from target/compiled and explain what's wrong.
 ```
 
-**Tip:** Include your warehouse type (Snowflake, BigQuery, Databricks and so on.) — this is because the syntax can vary across data platforms.
+**Tip:** Include your warehouse type (Snowflake, BigQuery, Databricks and so on.) &mdash; this is because the syntax can vary across data platforms.
 
-## Conclusion[​](#conclusion "Direct link to Conclusion")
+## Conclusion
 
-Congrats, you've now learned some tips on how to create and use prompts for dbt Copilot 🎉! You can:
+<ConfettiTrigger>
+Congrats, you've now learned some tips on how to create and use prompts for dbt <Constant name="copilot" />  🎉! You can:
 
-* Boost your prompting skills by providing rich context and stating clear business questions. Applicable for SQL, macros, documentation, tests, metrics, and semantic models.
-* Amplify your workflow by using existing documentation and project context
-* Generate Jinja macros to build more scalable and maintainable systems
-* Troubleshoot your code to diagnose issues fast and apply safe, explainable fixes
+- Boost your prompting skills by providing rich context and stating clear business questions. Applicable for SQL, macros, documentation, tests, metrics, and semantic models.
+- Amplify your workflow by using existing documentation and project context
+- Generate Jinja macros to build more scalable and maintainable systems
+- Troubleshoot your code to diagnose issues fast and apply safe, explainable fixes
 
-### Quick reference checklist[​](#quick-reference-checklist "Direct link to Quick reference checklist")
+### Quick reference checklist
 
-When writing prompts for dbt Copilot:
+When writing prompts for dbt <Constant name="copilot" />:
 
-* ✅ Provide rich context: Table names, columns, data types, relationships, sample values
-* ✅ Break down complex logic: Write multi-part queries as a sequence of steps
-* ✅ State the business question: What decision or insight you're supporting, not just "write a query"
-* ✅ Be clear and explicit: Expected columns, sort order, filters, and output format
+- ✅ Provide rich context: Table names, columns, data types, relationships, sample values
+- ✅ Break down complex logic: Write multi-part queries as a sequence of steps
+- ✅ State the business question: What decision or insight you're supporting, not just "write a query"
+- ✅ Be clear and explicit: Expected columns, sort order, filters, and output format
+
 
 For troubleshooting:
 
-* ✅ Include complete error messages: Full warehouse error with line numbers
-* ✅ Show the failing code: Both the dbt model and compiled SQL (from `target/compiled/`)
-* ✅ Provide sample data: Representative rows that trigger the issue
-* ✅ State your warehouse: Snowflake, BigQuery, Databricks, etc.
+- ✅ Include complete error messages: Full warehouse error with line numbers
+- ✅ Show the failing code: Both the dbt model and compiled SQL (from `target/compiled/`)
+- ✅ Provide sample data: Representative rows that trigger the issue
+- ✅ State your warehouse: Snowflake, BigQuery, Databricks, etc.
 
-### Next steps[​](#next-steps "Direct link to Next steps")
+### Next steps
 
-Start with one task—automating documentation, generating a test, or refactoring a model—and build the habit from there.
+Start with one task—automating documentation, generating a test, or refactoring a model—and build the habit from there. 
 
-The more you use Copilot, the more you'll discover ways to accelerate your analytics engineering workflow.
+The more you use <Constant name="copilot" />, the more you'll discover ways to accelerate your analytics engineering workflow.
 
-Check out the following docs to learn more about how to use Copilot:
 
-* [About dbt Copilot](https://docs.getdbt.com/docs/cloud/dbt-copilot.md)
-* [Generate resources](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md#generate-resources)
-* [Generate and edit SQL inline](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md#generate-and-edit-sql-inline)
-* [Build visual models](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md#build-visual-models)
-* [Build queries](https://docs.getdbt.com/docs/cloud/use-dbt-copilot.md#build-queries)
+Check out the following docs to learn more about how to use <Constant name="copilot" />:
 
-## Was this page helpful?
+- [About dbt Copilot](/docs/cloud/dbt-copilot)
+- [Generate resources](/docs/cloud/use-dbt-copilot#generate-resources)
+- [Generate and edit SQL inline](/docs/cloud/use-dbt-copilot#generate-and-edit-sql-inline)
+- [Build visual models](/docs/cloud/use-dbt-copilot#build-visual-models)
+- [Build queries](/docs/cloud/use-dbt-copilot#build-queries)
 
-YesNo
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</ConfettiTrigger>
+</div>

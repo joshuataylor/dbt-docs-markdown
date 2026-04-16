@@ -1,7 +1,7 @@
 # Exclude models from your run
 
-### Excluding models[​](#excluding-models "Direct link to Excluding models")
 
+### Excluding models
 dbt provides an `--exclude` flag with the same semantics as `--select`. Models specified with the `--exclude` flag will be removed from the set of models selected with `--select`.
 
 ```bash
@@ -21,11 +21,3 @@ dbt seed --exclude "account_parent_mappings"    # load all seeds except account_
 # snapshot
 dbt snapshot --exclude "snap_order_statuses"    # execute all snapshots except snap_order_statuses
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

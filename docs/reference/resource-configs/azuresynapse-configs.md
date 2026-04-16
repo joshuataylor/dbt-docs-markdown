@@ -1,17 +1,25 @@
 # Microsoft Azure Synapse DWH configurations
 
-All [configuration options for the Microsoft SQL Server adapter](https://docs.getdbt.com/reference/resource-configs/mssql-configs.md) also apply to this adapter.
+
+All [configuration options for the Microsoft SQL Server adapter](mssql-configs) also apply to this adapter.
 
 Additionally, the configuration options below are available.
 
-### Indices and distributions[​](#indices-and-distributions "Direct link to Indices and distributions")
+### Indices and distributions
 
 The main index and the distribution type can be set for models that are materialized to tables.
 
-* Model config
-* Project config
+<Tabs
+    defaultValue="model"
+    values={[
+        {label: 'Model config', value: 'model'},
+        {label: 'Project config', value: 'project'}
+    ]}
+>
 
-models/example.sql
+<TabItem value="model">
+
+<File name="models/example.sql">
 
 ```sql
 {{
@@ -25,7 +33,13 @@ select *
 from ...
 ```
 
-dbt\_project.yml
+</File>
+
+</TabItem>
+
+<TabItem value="project">
+
+<File name="dbt_project.yml">
 
 ```yaml
 models:
@@ -35,6 +49,12 @@ models:
       materialized: table
       index: HEAP
 ```
+
+</File>
+
+</TabItem>
+
+</Tabs>
 
 The following are the supported index types:
 
@@ -48,11 +68,3 @@ The following are the supported distribution types:
 * `ROUND_ROBIN` (default)
 * `HASH(COLUMN_NAME)`
 * `REPLICATE`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1,35 +1,34 @@
 # Organize your outputs
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/custom-schemas.md)
 
-#### [Custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md)
+<div className="grid--2-col">
 
-[Learn how to use the `schema` configuration key to specify a custom schema.](https://docs.getdbt.com/docs/build/custom-schemas.md)
+<Card
+    title="Custom schemas"
+    body="Learn how to use the <code>schema</code> configuration key to specify a custom schema."
+    link="/docs/build/custom-schemas"
+    icon="dbt-bit"/>
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/custom-databases.md)
+<Card
+    title="Custom databases"
+    body="Learn how to use the <code>database</code> configuration key to specify a custom database."
+    link="/docs/build/custom-databases"
+    icon="dbt-bit"/>
 
-#### [Custom databases](https://docs.getdbt.com/docs/build/custom-databases.md)
-
-[Learn how to use the `database` configuration key to specify a custom database.](https://docs.getdbt.com/docs/build/custom-databases.md)
-
+</div>
 <br />
+<div className="grid--2-col">
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/custom-aliases.md)
+<Card
+    title="Custom aliases"
+    body="Learn how to use the <code>alias</code> model configuration to change the name of a model's identifier in the database."
+    link="/docs/build/custom-aliases"
+    icon="dbt-bit"/>
 
-#### [Custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md)
+<Card
+    title="Custom target names"
+    body="Learn how to define a custom target name for a dbt job."
+    link="/docs/build/custom-target-names"
+    icon="dbt-bit"/>
 
-[Learn how to use the `alias` model configuration to change the name of a model's identifier in the database.](https://docs.getdbt.com/docs/build/custom-aliases.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/build/custom-target-names.md)
-
-#### [Custom target names](https://docs.getdbt.com/docs/build/custom-target-names.md)
-
-[Learn how to define a custom target name for a dbt job.](https://docs.getdbt.com/docs/build/custom-target-names.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

@@ -1,6 +1,6 @@
 # Advanced configuration usage
 
-## Alternative SQL file config syntax[​](#alternative-sql-file-config-syntax "Direct link to Alternative SQL file config syntax")
+## Alternative SQL file config syntax
 
 Some configurations may contain characters (e.g. dashes) that cannot be parsed as a Jinja argument. For example, the following would return an error:
 
@@ -17,7 +17,8 @@ While dbt provides an alias for any core configurations (for example, you should
 
 If you want to specify these configurations inside of a model, use the alternative config block syntax:
 
-models/events/base/base\_events.sql
+
+<File name='models/events/base/base_events.sql'>
 
 ```sql
 {{
@@ -31,10 +32,9 @@ models/events/base/base\_events.sql
 select ...
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<!---
+## Hierarchies / overriding configs / precedence
+For Drew to do
+--->

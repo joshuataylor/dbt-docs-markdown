@@ -1,62 +1,146 @@
 # Seed configurations
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
 
-### Seed-specific configurations[​](#seed-specific-configurations "Direct link to Seed-specific configurations")
+import ConfigResource from '/snippets/_config-description-resource.md';
+import ConfigGeneral from '/snippets/_config-description-general.md';
 
-Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
 
-The following resource-specific configurations are only available to <!-- -->Seeds:
+## Available configurations
+### Seed-specific configurations
 
-* Project file
-* Property file
+<ConfigResource meta={frontMatter.meta} />
 
-dbt\_project.yml
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project file', value: 'project-yaml', },
+    { label: 'Property file', value: 'property-yaml', },
+  ]
+}>
+<TabItem value="project-yaml">
+
+<File name='dbt_project.yml'>
 
 ```yml
 seeds:
-  <resource-path>:
-    +quote_columns: true | false
-    +column_types: {column_name: datatype}
-    +delimiter: <string>
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[quote_columns](/reference/resource-configs/quote_columns): true | false
+    [+](/reference/resource-configs/plus-prefix)[column_types](/reference/resource-configs/column_types): {column_name: datatype}
+    [+](/reference/resource-configs/plus-prefix)[delimiter](/reference/resource-configs/delimiter): <string>
+
 ```
 
-seeds/properties.yml
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='seeds/properties.yml'>
 
 ```yaml
 
 seeds:
   - name: [<seed-name>]
     config:
-      quote_columns: true | false
-      column_types: {column_name: datatype}
-      delimiter: <string>
+      [quote_columns](/reference/resource-configs/quote_columns): true | false
+      [column_types](/reference/resource-configs/column_types): {column_name: datatype}
+      [delimiter](/reference/resource-configs/delimiter): <string>
+
 ```
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+</File>
 
-General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
+</TabItem>
 
-* Project file
-* Property file
+</Tabs>
 
-dbt\_project.yml
+### General configurations
 
-seeds/properties.yml
+<ConfigGeneral />
 
-## Configuring seeds[​](#configuring-seeds "Direct link to Configuring seeds")
+<Tabs
+  groupId="config-languages"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project file', value: 'project-yaml', },
+    { label: 'Property file', value: 'property-yaml', },
+  ]
+}>
 
+<TabItem value="project-yaml">
+
+<File name='dbt_project.yml'>
+
+<VersionBlock firstVersion="1.9">
+
+```yaml
+seeds:
+  [<resource-path>](/reference/resource-configs/resource-path):
+    [+](/reference/resource-configs/plus-prefix)[enabled](/reference/resource-configs/enabled): true | false
+    [+](/reference/resource-configs/plus-prefix)[tags](/reference/resource-configs/tags): <string> | [<string>]
+    [+](/reference/resource-configs/plus-prefix)[pre-hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+    [+](/reference/resource-configs/plus-prefix)[post-hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+    [+](/reference/resource-configs/plus-prefix)[database](/reference/resource-configs/database): <string>
+    [+](/reference/resource-configs/plus-prefix)[schema](/reference/resource-properties/schema): <string>
+    [+](/reference/resource-configs/plus-prefix)[alias](/reference/resource-configs/alias): <string>
+    [+](/reference/resource-configs/plus-prefix)[persist_docs](/reference/resource-configs/persist_docs): <dict>
+    [+](/reference/resource-configs/plus-prefix)[full_refresh](/reference/resource-configs/full_refresh): <boolean>
+    [+](/reference/resource-configs/plus-prefix)[meta](/reference/resource-configs/meta): {<dictionary>}
+    [+](/reference/resource-configs/plus-prefix)[grants](/reference/resource-configs/grants): {<dictionary>}
+    [+](/reference/resource-configs/plus-prefix)[event_time](/reference/resource-configs/event-time): my_time_field
+
+```
+</VersionBlock>
+</File>
+
+</TabItem>
+
+
+<TabItem value="property-yaml">
+
+<File name='seeds/properties.yml'>
+
+<VersionBlock firstVersion="1.9">
+
+```yaml
+
+seeds:
+  - name: [<seed-name>]
+    config:
+      [enabled](/reference/resource-configs/enabled): true | false
+      [tags](/reference/resource-configs/tags): <string> | [<string>]
+      [pre_hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+      [post_hook](/reference/resource-configs/pre-hook-post-hook): <sql-statement> | [<sql-statement>]
+      [database](/reference/resource-configs/database): <string>
+      [schema](/reference/resource-properties/schema): <string>
+      [alias](/reference/resource-configs/alias): <string>
+      [persist_docs](/reference/resource-configs/persist_docs): <dict>
+      [full_refresh](/reference/resource-configs/full_refresh): <boolean>
+      [meta](/reference/resource-configs/meta): {<dictionary>}
+      [grants](/reference/resource-configs/grants): {<dictionary>}
+      [event_time](/reference/resource-configs/event-time): my_time_field
+
+```
+</VersionBlock>
+
+</File>
+
+</TabItem>
+</Tabs>
+
+## Configuring seeds
 Seeds can only be configured from YAML files, either in `dbt_project.yml` or within an individual seed's YAML properties. It is not possible to configure a seed from within its CSV file.
 
 Seed configurations, like model configurations, are applied hierarchically — configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project, and configurations defined in a specific seed's properties will override configurations defined in `dbt_project.yml`.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
+#### Apply the `schema` configuration to all seeds
+To apply a configuration to all seeds, including those in any installed [packages](/docs/build/packages), nest the configuration directly under the `seeds` key:
 
-#### Apply the `schema` configuration to all seeds[​](#apply-the-schema-configuration-to-all-seeds "Direct link to apply-the-schema-configuration-to-all-seeds")
-
-To apply a configuration to all seeds, including those in any installed [packages](https://docs.getdbt.com/docs/build/packages.md), nest the configuration directly under the `seeds` key:
-
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 
@@ -64,13 +148,15 @@ seeds:
   +schema: seed_data
 ```
 
-#### Apply the `schema` configuration to all seeds in your project[​](#apply-the-schema-configuration-to-all-seeds-in-your-project "Direct link to apply-the-schema-configuration-to-all-seeds-in-your-project")
+</File>
 
-To apply a configuration to all seeds in your project only (i.e. *excluding* any seeds in installed packages), provide your [project name](https://docs.getdbt.com/reference/project-configs/name.md) as part of the resource path.
+
+#### Apply the `schema` configuration to all seeds in your project
+To apply a configuration to all seeds in your project only (i.e. _excluding_ any seeds in installed packages), provide your [project name](/reference/project-configs/name.md) as part of the resource path.
 
 For a project named `jaffle_shop`:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 
@@ -79,13 +165,14 @@ seeds:
     +schema: seed_data
 ```
 
+</File>
+
 Similarly, you can use the name of an installed package to configure seeds in that package.
 
-#### Apply the `schema` configuration to one seed only[​](#apply-the-schema-configuration-to-one-seed-only "Direct link to apply-the-schema-configuration-to-one-seed-only")
-
+#### Apply the `schema` configuration to one seed only
 To apply a configuration to one seed only, provide the full resource path (including the project name, and subdirectories).
 
-seeds/marketing/properties.yml
+<File name='seeds/marketing/properties.yml'>
 
 ```yml
 
@@ -95,9 +182,11 @@ seeds:
       schema: seed_data
 ```
 
+</File>
+
 In older versions of dbt, you must define configurations in `dbt_project.yml` and include the full resource path (including the project name, and subdirectories). For a project named `jaffle_shop`, with a seed file at `seeds/marketing/utm_parameters.csv`, this would look like:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yml
 seeds:
@@ -107,15 +196,17 @@ seeds:
         +schema: seed_data
 ```
 
-## Example seed configuration[​](#example-seed-configuration "Direct link to Example seed configuration")
+</File>
 
+
+## Example seed configuration
 The following is a valid seed configuration for a project with:
-
 * `name: jaffle_shop`
 * A seed file at `seeds/country_codes.csv`, and
 * A seed file at `seeds/marketing/utm_parameters.csv`
 
-dbt\_project.yml
+
+<File name='dbt_project.yml'>
 
 ```yml
 name: jaffle_shop
@@ -134,10 +225,4 @@ seeds:
       +schema: marketing # this will take precedence
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

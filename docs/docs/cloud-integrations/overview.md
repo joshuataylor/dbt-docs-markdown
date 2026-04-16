@@ -1,31 +1,30 @@
 # About dbt integrations
 
-Many data applications integrate with dbt, enabling you to leverage the power of dbt for a variety of use cases and workflows.
 
-## Integrations with dbt[​](#integrations-with-dbt "Direct link to Integrations with dbt")
+Many data applications integrate with <Constant name="dbt" />, enabling you to leverage the power of dbt for a variety of use cases and workflows.
 
-[![](/img/icons/vsce.svg)](https://docs.getdbt.com/docs/about-dbt-extension.md)
+## Integrations with dbt
 
-#### [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
+<div className="grid--3-col">
 
-[The dbt extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. The best way to experience all the power of the new dbt Fusion engine while developing locally.](https://docs.getdbt.com/docs/about-dbt-extension.md)
+<Card
+    title="dbt VS Code extension"
+    body="The dbt extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. The best way to experience all the power of the new dbt Fusion engine while developing locally."
+    link="/docs/about-dbt-extension"
+    icon="vsce"
+    showBorderBeam
+    />
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/cloud-integrations/downstream-exposures.md)
+<Card
+    title="Visualize and orchestrate downstream exposures"
+    body="Configure downstream exposures automatically from dashboards and understand how models are used in downstream tools. Proactively refresh the underlying data sources during scheduled dbt jobs."
+    link="docs/cloud-integrations/downstream-exposures"
+    icon="dbt-bit"/>
 
-#### [Visualize and orchestrate downstream exposures](https://docs.getdbt.com/docs/cloud-integrations/downstream-exposures.md)
+<Card
+    title="dbt Semantic layer integrations"
+    body="Review a wide range of partners you can integrate and query with the dbt Semantic Layer."
+    link="/docs/cloud-integrations/avail-sl-integrations"
+    icon="dbt-bit"/>
 
-[Configure downstream exposures automatically from dashboards and understand how models are used in downstream tools. Proactively refresh the underlying data sources during scheduled dbt jobs.](https://docs.getdbt.com/docs/cloud-integrations/downstream-exposures.md)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/cloud-integrations/avail-sl-integrations.md)
-
-#### [dbt Semantic layer integrations](https://docs.getdbt.com/docs/cloud-integrations/avail-sl-integrations.md)
-
-[Review a wide range of partners you can integrate and query with the dbt Semantic Layer.](https://docs.getdbt.com/docs/cloud-integrations/avail-sl-integrations.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

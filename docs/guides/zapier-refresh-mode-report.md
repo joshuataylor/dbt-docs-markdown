@@ -1,53 +1,42 @@
 # Refresh a Mode dashboard when a job completes
 
-[Back to guides](https://docs.getdbt.com/guides.md)
 
-Webhooks
+<div style={{maxWidth: '900px'}}>
 
-Advanced
+## Introduction
 
-[Menu ]()
+This guide will teach you how to refresh a Mode dashboard when a <Constant name="dbt" /> job has completed successfully and there is fresh data available. The integration will:
 
+ - Receive a webhook notification in Zapier
+ - Trigger a refresh of a Mode report
 
+Although we are using the Mode API for a concrete example, the principles are readily transferrable to your [tool](https://learn.hex.tech/docs/develop-logic/hex-api/api-reference#operation/RunProject) [of](https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/refresh-dataset) [choice](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm#update_workbook_now). 
 
-## Introduction[​](#introduction "Direct link to Introduction")
-
-This guide will teach you how to refresh a Mode dashboard when a dbt job has completed successfully and there is fresh data available. The integration will:
-
-* Receive a webhook notification in Zapier
-* Trigger a refresh of a Mode report
-
-Although we are using the Mode API for a concrete example, the principles are readily transferrable to your [tool](https://learn.hex.tech/docs/develop-logic/hex-api/api-reference#operation/RunProject) [of](https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/refresh-dataset) [choice](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_ref.htm#update_workbook_now).
-
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 In order to set up the integration, you should have familiarity with:
+- [<Constant name="dbt" /> Webhooks](/docs/deploy/webhooks)
+- Zapier
+- The [Mode API](https://mode.com/developer/api-reference/introduction/)
 
-* [dbt Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
-* Zapier
-* The [Mode API](https://mode.com/developer/api-reference/introduction/)
+## Create a new Zap in Zapier
+Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](/docs/deploy/webhooks#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead. 
 
-## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
+Press **Continue**, then copy the webhook URL. 
 
-Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](https://docs.getdbt.com/docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
+![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/img/guides/orchestration/webhooks/zapier-common/catch-raw-hook.png)
 
-Press **Continue**, then copy the webhook URL.
-
-![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
-
-## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
-
-See [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**, and you need to change the **Jobs** list to only contain any jobs whose completion should trigger a report refresh.
+## Configure a new webhook in dbt
+See [Create a webhook subscription](/docs/deploy/webhooks#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**, and you need to change the **Jobs** list to only contain any jobs whose completion should trigger a report refresh.
 
 Make note of the Webhook Secret Key for later.
 
-Once you've tested the endpoint in dbt, go back to Zapier and click **Test Trigger**, which will create a sample webhook body based on the test event dbt sent.
+Once you've tested the endpoint in <Constant name="dbt" />, go back to Zapier and click **Test Trigger**, which will create a sample webhook body based on the test event <Constant name="dbt" /> sent.
 
-The sample body's values are hard-coded and not reflective of your project, but they give Zapier a correctly-shaped object during development.
+The sample body's values are hard-coded and not reflective of your project, but they give Zapier a correctly-shaped object during development. 
 
-## Store secrets[​](#store-secrets "Direct link to Store secrets")
-
-In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](https://docs.getdbt.com/docs/dbt-cloud-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-cloud-apis/service-tokens.md), as well as a [Mode API token and secret](https://mode.com/developer/api-reference/authentication/).
+## Store secrets 
+In the next step, you will need the Webhook Secret Key from the prior step, and a <Constant name="dbt" /> [personal access token](/docs/dbt-cloud-apis/user-tokens) or [service account token](/docs/dbt-cloud-apis/service-tokens), as well as a [Mode API token and secret](https://mode.com/developer/api-reference/authentication/). 
 
 Zapier allows you to [store secrets](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps), which prevents your keys from being displayed in plaintext in the Zap code. You will be able to access them via the [StoreClient utility](https://help.zapier.com/hc/en-us/articles/8496293969549-Store-data-from-code-steps-with-StoreClient).
 
@@ -55,32 +44,27 @@ This guide assumes the names for the secret keys are: `DBT_WEBHOOK_KEY`, `MODE_A
 
 This guide uses a short-lived code action to store the secrets, but you can also use a tool like Postman to interact with the [REST API](https://store.zapier.com/) or create a separate Zap and call the [Set Value Action](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps#3-set-a-value-in-your-store-0-3).
 
-### a. Create a Storage by Zapier connection[​](#a-create-a-storage-by-zapier-connection "Direct link to a. Create a Storage by Zapier connection")
+### a. Create a Storage by Zapier connection
+If you haven't already got one, go to [https://zapier.com/app/connections/storage](https://zapier.com/app/connections/storage) and create a new connection. Remember the UUID secret you generate for later. 
 
-If you haven't already got one, go to <https://zapier.com/app/connections/storage> and create a new connection. Remember the UUID secret you generate for later.
-
-### b. Add a temporary code step[​](#b-add-a-temporary-code-step "Direct link to b. Add a temporary code step")
-
-Choose **Run Python** as the Event. Run the following code:
-
-```python
+### b. Add a temporary code step
+Choose **Run Python** as the Event. Run the following code: 
+```python 
 store = StoreClient('abc123') #replace with your UUID secret
-store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with your <Constant name="cloud" /> API token
+store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with your <Constant name="dbt" /> API token
 store.set('MODE_API_TOKEN', 'abc123') #replace with your Mode API Token
 store.set('MODE_API_SECRET', 'abc123') #replace with your Mode API Secret
 ```
-
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
-## Add a code action[​](#add-a-code-action "Direct link to Add a code action")
-
-Select **Code by Zapier** as the App, and **Run Python** as the Event.
+## Add a code action
+Select **Code by Zapier** as the App, and **Run Python** as the Event. 
 
 In the **Set up action** area, add two items to **Input Data**: `raw_body` and `auth_header`. Map those to the `1. Raw Body` and `1. Headers Http Authorization` fields from the **Catch Raw Hook** step above.
 
-![Screenshot of the Zapier UI, showing the mappings of raw\_body and auth\_header](/assets/images/run-python-40333883c6a20727c02d25224d0e40a4.png)
+![Screenshot of the Zapier UI, showing the mappings of raw_body and auth_header](/img/guides/orchestration/webhooks/zapier-common/run-python.png)
 
-In the **Code** field, paste the following code, replacing `YOUR_SECRET_HERE` in the StoreClient constructor with the secret you created when setting up the Storage by Zapier integration (not your dbt secret), and setting the `account_username` and `report_token` variables to actual values.
+In the **Code** field, paste the following code, replacing `YOUR_SECRET_HERE` in the StoreClient constructor with the secret you created when setting up the Storage by Zapier integration (not your <Constant name="dbt" /> secret), and setting the `account_username` and `report_token` variables to actual values.
 
 The code below will validate the authenticity of the request, then send a [`run report` command to the Mode API](https://mode.com/developer/api-reference/analytics/report-runs/#runReport) for the given report token.
 
@@ -106,7 +90,7 @@ password = secret_store.get('MODE_API_SECRET')
 signature = hmac.new(hook_secret.encode('utf-8'), raw_body.encode('utf-8'), hashlib.sha256).hexdigest()
 
 if signature != auth_header:
-  raise Exception("Calculated signature doesn't match contents of the Authorization header. This webhook may not have been sent from <Constant name="cloud" />.")
+  raise Exception("Calculated signature doesn't match contents of the Authorization header. This webhook may not have been sent from <Constant name="dbt" />.")
 
 full_body = json.loads(raw_body)
 hook_data = full_body['data'] 
@@ -137,14 +121,7 @@ if hook_data['runStatus'] == "Success":
 return
 ```
 
-## Test and deploy[​](#test-and-deploy "Direct link to Test and deploy")
-
+## Test and deploy
 You can iterate on the Code step by modifying the code and then running the test again. When you're happy with it, you can publish your Zap.
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</div>

@@ -1,47 +1,49 @@
 # Microsoft Fabric Spark configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+## Configuring tables
 
-| Option                                 | Description                                                                                                                                                                                                                                                                       | Required?                               | Example                                                                                                                                                                                                                                                                            |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| file\_format                           | The file format to use when creating tables (`parquet`, `delta`, `csv`).                                                                                                                                                                                                          | Optional                                | `delta`                                                                                                                                                                                                                                                                            |
-| location\_root [1](#user-content-fn-1) | The specified directory used to store table data. The table alias is appended to it.                                                                                                                                                                                              | Optional                                | `Files/<folder>` or `Tables/<tableName>`                                                                                                                                                                                                                                           |
-| partition\_by                          | Partition the table by the specified columns. A directory is created for each partition.                                                                                                                                                                                          | Optional                                | `date_day`                                                                                                                                                                                                                                                                         |
-| clustered\_by                          | Each partition in the table will be split into a fixed number of buckets by the specified columns.                                                                                                                                                                                | Optional                                | `country_code`                                                                                                                                                                                                                                                                     |
-| buckets                                | The number of buckets to create while clustering                                                                                                                                                                                                                                  | Required if `clustered_by` is specified | `8`                                                                                                                                                                                                                                                                                |
-| tblproperties                          | The table properties configure table behavior. Properties differ depending on the file format, see reference docs ([Parquet](https://spark.apache.org/docs/3.5.4/sql-data-sources-parquet.html#data-source-option), [Delta](https://docs.delta.io/latest/table-properties.html)). | Optional                                | `Provider=delta Location=abfss://.../Files/tables/sales_data TableProperty.created.by=data_engineering_team TableProperty.purpose=sales analytics CreatedBy=Delta Lake CreatedAt=2024-12-01 14:21:00 Format=Parquet PartitionColumns=region MinReaderVersion=1 MinWriterVersion=2` |
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](/reference/model-configs).
 
-Search table...
+| Option  | Description          | Required?        | <div style={{width:'350px'}}>Example</div>       |
+|---------|----------------------|------------------|--------------------------------------------------|
+| file_format | The file format to use when creating tables (`parquet`, `delta`, `csv`). | Optional | `delta`|
+| location_root [^1]  | The specified directory used to store table data. The table alias is appended to it.                               | Optional                | `Files/<folder>` or `Tables/<tableName>`              |
+| partition_by  | Partition the table by the specified columns. A directory is created for each partition.                                   | Optional                | `date_day`              |
+| clustered_by  | Each partition in the table will be split into a fixed number of buckets by the specified columns.                         | Optional               | `country_code`              |
+| buckets  | The number of buckets to create while clustering                                                                                   | Required if `clustered_by` is specified                | `8`              |
+| tblproperties | The table properties configure table behavior. Properties differ depending on the file format, see reference docs ([Parquet](https://spark.apache.org/docs/3.5.4/sql-data-sources-parquet.html#data-source-option), [Delta](https://docs.delta.io/latest/table-properties.html)). | Optional |<code>Provider=delta Location=abfss://.../Files/tables/sales_data TableProperty.created.by=data_engineering_team TableProperty.purpose=sales analytics CreatedBy=Delta Lake CreatedAt=2024-12-01 14:21:00 Format=Parquet PartitionColumns=region MinReaderVersion=1 MinWriterVersion=2</code> |
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+[^1]: If you configure `location_root`, dbt specifies a location path in the `create table` statement. This changes the table from "managed" to "external" in Fabric Lakehouse.
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
-dbt seeks to offer useful, intuitive modeling abstractions by means of its built-in configurations and materializations. Because there is so much variance between Spark clusters out in the world—not to mention the powerful features offered to open source users by the Delta file format and custom runtime—making sense of all the available options is an undertaking in its own right.
+dbt seeks to offer useful, intuitive modeling abstractions by means of its built-in configurations and <Term id="materialization">materializations</Term>. Because there is so much variance between Spark clusters out in the world—not to mention the powerful features offered to open source users by the Delta file format and custom runtime—making sense of all the available options is an undertaking in its own right.
 
-For that reason, the dbt-fabricspark plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
-
-* **`append`** (default): Insert new records without updating or overwriting any existing data.
-* **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
-* **`merge`** (Delta file format only): Match records based on a `unique_key`; update old records, insert new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
-* `microbatch` Implements the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) using `event_time` to define time-based ranges for filtering data.
+For that reason, the dbt-fabricspark plugin leans heavily on the [`incremental_strategy` config](/docs/build/incremental-strategy). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
+ - **`append`** (default): Insert new records without updating or overwriting any existing data.
+ - **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the <Term id="table" /> with new data. If no `partition_by` is specified, overwrite the entire table with new data.
+ - **`merge`** (Delta file format only): Match records based on a `unique_key`; update old records, insert new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
+- `microbatch` Implements the [microbatch strategy](/docs/build/incremental-microbatch) using `event_time` to define time-based ranges for filtering data. 
 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
-### The `append` strategy[​](#the-append-strategy "Direct link to the-append-strategy")
+### The `append` strategy
 
-Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Fabric Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
+Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Fabric Spark versions. However, this strategy _cannot_ update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
 Specifying `append` as the incremental strategy is optional, since it's the default strategy used when none is specified.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
 
-fabricspark\_incremental.sql
+<File name='fabricspark_incremental.sql'>
 
 ```sql
 {{ config(
@@ -56,8 +58,11 @@ select * from {{ ref('events') }}
   where event_ts > (select max(event_ts) from {{ this }})
 {% endif %}
 ```
+</File>
+</TabItem>
+<TabItem value="run">
 
-fabricspark\_incremental.sql
+<File name='fabricspark_incremental.sql'>
 
 ```sql
 create temporary view fabricspark_incremental__dbt_tmp as
@@ -72,20 +77,30 @@ insert into table analytics.fabricspark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
 
-### The `insert_overwrite` strategy[​](#the-insert_overwrite-strategy "Direct link to the-insert_overwrite-strategy")
+</File>
+</TabItem>
+</Tabs>
 
-This strategy is most effective when specified alongside a `partition_by` clause in your model config. dbt will run an [atomic `insert overwrite` statement](https://spark.apache.org/docs/3.0.0-preview/sql-ref-syntax-dml-insert-overwrite-table.html) that dynamically replaces all partitions included in your query. Be sure to re-select *all* of the relevant data for a partition when using this incremental strategy.
+### The `insert_overwrite` strategy
+
+This strategy is most effective when specified alongside a `partition_by` clause in your model config. dbt will run an [atomic `insert overwrite` statement](https://spark.apache.org/docs/3.0.0-preview/sql-ref-syntax-dml-insert-overwrite-table.html) that dynamically replaces all partitions included in your query. Be sure to re-select _all_ of the relevant data for a partition when using this incremental strategy.
 
 If no `partition_by` is specified, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` + `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
 **Usage notes:**
+- This strategy is not supported for tables with `file_format: delta`.
 
-* This strategy is not supported for tables with `file_format: delta`.
 
-- Source code
-- Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
 
-fabricspark\_incremental.sql
+<File name='fabricspark_incremental.sql'>
 
 ```sql
 {{ config(
@@ -117,7 +132,11 @@ from events
 group by 1
 ```
 
-fabricspark\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='fabricspark_incremental.sql'>
 
 ```sql
 create temporary view fabricspark_incremental__dbt_tmp as
@@ -146,19 +165,28 @@ insert overwrite table analytics.fabricspark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
 
-### The `merge` strategy[​](#the-merge-strategy "Direct link to the-merge-strategy")
+</File>
+</TabItem>
+</Tabs>
+
+### The `merge` strategy
 
 **Usage notes:** The `merge` incremental strategy requires:
-
-* `file_format: delta`
-* Fabric Spark Runtime 3.0 and above for delta file format
+- `file_format: delta`
+- Fabric Spark Runtime 3.0 and above for delta file format
 
 dbt will run an atomic `merge` statement which looks nearly identical to the default merge behavior on Fabric Warehouse or SQL database or Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+]
+}>
+<TabItem value="source">
 
-merge\_incremental.sql
+<File name='merge_incremental.sql'>
 
 ```sql
 {{ config(
@@ -186,7 +214,11 @@ from events
 group by 1
 ```
 
-target/run/merge\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='target/run/merge_incremental.sql'>
 
 ```sql
 create temporary view merge_incremental__dbt_tmp as
@@ -217,23 +249,37 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
     when not matched then insert *
 ```
 
-## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
+</File>
 
-Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+</TabItem>
+</Tabs>
 
-When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
+## Persisting model descriptions
 
-## Always `schema`, never `database`[​](#always-schema-never-database "Direct link to always-schema-never-database")
+Relation-level docs persistence is supported in dbt. For more
+information on configuring docs persistence, see [the docs](/reference/resource-configs/persist_docs).
 
-Fabric Spark uses the terms "schema" and "database" interchangeably. dbt understands `database` to exist at a higher level than `schema`. As such, you should *never* use or set `database` as a node config or in the target profile when running dbt-fabricspark. Move over, the adapter does not support schemas within Lakehouse.
+When the `persist_docs` option is configured appropriately, you'll be able to
+see model descriptions in the `Comment` field of `describe [table] extended`
+or `show table extended in [database] like '*'`.
 
-## Default file format configurations[​](#default-file-format-configurations "Direct link to Default file format configurations")
+## Always `schema`, never `database`
 
-To access advanced incremental strategies features, such as [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) and the `merge` incremental strategy, you will want to use the Delta file format as the default file format when materializing models as tables.
+Fabric Spark uses the terms "schema" and "database" interchangeably. dbt understands
+`database` to exist at a higher level than `schema`. As such, you should _never_
+use or set `database` as a node config or in the target profile when running dbt-fabricspark. 
+Move over, the adapter does not support schemas within Lakehouse.
 
-It's quite convenient to do this by setting a top-level configuration in your project file:
+## Default file format configurations
 
-dbt\_project.yml
+To access advanced incremental strategies features, such as 
+[snapshots](/docs/build/snapshots) and the `merge` incremental strategy, you will want to
+use the Delta file format as the default file format when materializing models as tables.
+
+It's quite convenient to do this by setting a top-level configuration in your
+project file:
+
+<File name='dbt_project.yml'>
 
 ```yml
 models:
@@ -246,16 +292,4 @@ snapshots:
   +file_format: delta
 ```
 
-<!-- -->
-
-## Footnotes[​](#footnote-label "Direct link to Footnotes")
-
-1. If you configure `location_root`, dbt specifies a location path in the `create table` statement. This changes the table from "managed" to "external" in Fabric Lakehouse. [↩](#user-content-fnref-1)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

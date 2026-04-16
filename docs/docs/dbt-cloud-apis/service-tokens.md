@@ -1,63 +1,67 @@
-# Service account tokens [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Service account tokens
 
-Service account tokens enable you to securely authenticate with the dbt API by assigning each token a narrow set of permissions that more precisely manages access to the API. While similar to [personal access tokens](https://docs.getdbt.com/docs/dbt-cloud-apis/user-tokens.md), service account tokens belong to an account rather than a user.
 
-You can use service account tokens for system-level integrations that do not run on behalf of any one user. Assign any permission sets available in dbt to your service account token, which can vary slightly depending on your plan:
+# Service account tokens <Lifecycle status="self_service,managed,managed_plus" />
+
+Service account tokens enable you to securely authenticate with the <Constant name="dbt" /> API by assigning each token a narrow set of permissions that more precisely manages access to the API. While similar to [personal access tokens](user-tokens), service account tokens belong to an account rather than a user.
+
+You can use service account tokens for system-level integrations that do not run on behalf of any one user. Assign any permission sets available in <Constant name="dbt" /> to your service account token, which can vary slightly depending on your plan:
 
 * Enterprise and Enterprise+ plans can apply any permission sets available to service tokens.
-* Developer and Starter plans can apply Semantic Layer permissions set to service tokens.
-* Legacy Team plans can apply Account Admin, Member, Job Admin, Read-Only, Metadata, and Semantic Layer permissions set to service tokens.
+* Developer and Starter plans can apply  <Constant name="semantic_layer" /> permissions set to service tokens.
+* Legacy Team plans can apply Account Admin, Member, Job Admin, Read-Only, Metadata, and <Constant name="semantic_layer" /> permissions set to service tokens.
 
-You can assign as many permission sets as needed to one token. For more on permissions sets, see "[Enterprise Permissions](https://docs.getdbt.com/docs/cloud/manage-access/enterprise-permissions.md)."
+You can assign as many permission sets as needed to one token. For more on permissions sets, see "[Enterprise Permissions](/docs/cloud/manage-access/enterprise-permissions)."
 
-## Generate service account tokens[​](#generate-service-account-tokens "Direct link to Generate service account tokens")
+## Generate service account tokens
 
-You can generate service tokens if you have a Developer [license](https://docs.getdbt.com/docs/cloud/manage-access/seats-and-users.md) and account admin [permissions](https://docs.getdbt.com/docs/cloud/manage-access/about-user-access.md#permission-sets). To create a service token in dbt, follow these steps:
+You can generate service tokens if you have a Developer [license](/docs/cloud/manage-access/seats-and-users) and account admin [permissions](/docs/cloud/manage-access/about-user-access#permission-sets). To create a service token in <Constant name="dbt" />, follow these steps:
 
-1. From dbt, click on your account name in the left side menu and select **Account settings**.
+1. From <Constant name="dbt" />, click on your account name in the left side menu and select **Account settings**.
 2. On the left sidebar, click on **Service Tokens**.
 3. Click the **+ New Token** button to generate a new token.
 4. Once the token is generated, you won't be able to view this token again so make sure to save it somewhere safe.
 
-## Permissions for service account tokens[​](#permissions-for-service-account-tokens "Direct link to Permissions for service account tokens")
+## Permissions for service account tokens
 
-You can assign service account tokens to any permission set available in dbt. When you assign a permission set to a token, you will also be able to choose whether to grant those permissions to all projects in the account or to specific projects.
+You can assign service account tokens to any permission set available in <Constant name="dbt" />. When you assign a permission set to a token, you will also be able to choose whether to grant those permissions to all projects in the account or to specific projects.
 
-### Team plans using service account tokens[​](#team-plans-using-service-account-tokens "Direct link to Team plans using service account tokens")
+### Team plans using service account tokens
 
-The following permissions can be assigned to a service account token on a Team plan. Refer to [Enterprise permissions](https://docs.getdbt.com/docs/cloud/manage-access/enterprise-permissions.md) for more information about these roles.
+The following permissions can be assigned to a service account token on a Team plan. Refer to [Enterprise permissions](/docs/cloud/manage-access/enterprise-permissions) for more information about these roles. 
 
-* Account Admin — Account Admin service tokens have full `read + write` access to an account, so please use them with caution. A Team plan refers to this permission set as an "Owner role."
-* Billing Admin
-* Job Admin
-* Metadata Only
-* Member
-* Read-only
-* Semantic Layer Only
+- Account Admin &mdash; Account Admin service tokens have full `read + write` access to an account, so please use them with caution.  A Team plan refers to this permission set as an "Owner role."
+- Billing Admin
+- Job Admin 
+- Metadata Only
+- Member
+- Read-only 
+- <Constant name="semantic_layer" /> Only 
 
-### Enterprise plans using service account tokens[​](#enterprise-plans-using-service-account-tokens "Direct link to Enterprise plans using service account tokens")
+### Enterprise plans using service account tokens
 
-Refer to [Enterprise permissions](https://docs.getdbt.com/docs/cloud/manage-access/enterprise-permissions.md) for more information about these roles.
+Refer to [Enterprise permissions](/docs/cloud/manage-access/enterprise-permissions) for more information about these roles. 
 
-* Account Admin — Account Admin service tokens have full `read + write` access to an account, so please use them with caution.
-* Account Viewer
-* Admin
-* Analyst
-* Billing Admin
-* Database Admin
-* Developer
-* Git Admin
-* Job Admin
-* Job Runner
-* Job Viewer
-* Manage marketplace apps
-* Metadata Only
-* Semantic Layer Only
-* Security Admin
-* Stakeholder
-* Team Admin
+- Account Admin &mdash; Account Admin service tokens have full `read + write` access to an account, so please use them with caution. 
+- Account Viewer
+- Admin
+- Analyst
+- Billing Admin
+- Database Admin
+- Developer
+- <Constant name="git" /> Admin
+- Job Admin
+- Job Runner
+- Job Viewer
+- Manage marketplace apps
+- Metadata Only
+- Read-only
+- <Constant name="semantic_layer" /> Only 
+- Security Admin
+- Stakeholder
+- Team Admin
 
-## Service token update[​](#service-token-update "Direct link to Service token update")
+## Service token update
 
 On July 18, 2023, dbt Labs changed how tokens are generated and validated to increase performance. These improvements only apply to tokens created after July 18, 2023.
 
@@ -66,42 +70,10 @@ Old tokens remain valid, but if they are used in high-frequency API invocations,
 To rotate your token:
 
 1. Navigate to **Account settings** and click **Service tokens** on the left side pane.
-2. Verify the **Created** date for the token is *on or before* July 18, 2023.
+2. Verify the **Created** date for the token is _on or before_ July 18, 2023.
 3. Click **+ New Token** on the top right side of the screen. Ensure the new token has the same permissions as the old one.
 4. Copy the new token and replace the old one in your systems. Store it in a safe place, as it will not be available again once the creation screen is closed.
-5. Delete the old token in dbt by clicking the **trash can icon**. *Only take this action after the new token is in place to avoid service disruptions*.
+5. Delete the old token in <Constant name="dbt" /> by clicking the **trash can icon**. _Only take this action after the new token is in place to avoid service disruptions_.
 
-## FAQs[​](#faqs "Direct link to FAQs")
-
-I'm receiving a 403 error 'Forbidden: Access denied' when using service tokens
-
-All [service token](https://docs.getdbt.com/docs/dbt-cloud-apis/service-tokens.md) traffic is subject to IP restrictions.
-
-When using a service token, the following 403 response error indicates the IP is not on the allowlist. To resolve this, you should add your third-party integration CIDRs (network addresses) to your allowlist.
-
-The following is an example of the 403 response error:
-
-```json
-        {
-            "status": {
-                "code": 403,
-                "is_success": False,
-                "user_message": ("Forbidden: Access denied"),
-                "developer_message": None,
-            },
-            "data": {
-                "account_id": <account_id>,
-                "user_id": <user_id>,
-                "is_service_token": <boolean describing if it's a service token request>,
-                "account_access_denied": True,
-            },
-        }
-```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+## FAQs
+<FAQ path="Troubleshooting/ip-restrictions" />

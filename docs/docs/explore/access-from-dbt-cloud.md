@@ -1,64 +1,53 @@
 # Access Catalog from dbt platform features
 
-Access Catalog from other features and products inside dbt, ensuring you have a seamless experience navigating between resources and lineage in your project.
 
-This page explains how to access Catalog from various dbt features, including the Studio IDE and jobs. While the primary way to navigate to Catalog is by clicking **Catalog** in the navigation, you can also access it from other dbt features.
+Access <Constant name="catalog" /> from other features and products inside <Constant name="dbt" />, ensuring you have a seamless experience navigating between resources and lineage in your project. 
 
-### Studio IDE[​](#studio-ide "Direct link to Studio IDE")
+This page explains how to access <Constant name="catalog" /> from various <Constant name="dbt" /> features, including the <Constant name="studio_ide" /> and jobs. While the primary way to navigate to <Constant name="catalog" /> is by clicking **Catalog** in the navigation, you can also access it from other <Constant name="dbt" /> features.
 
-You can enhance your project navigation and editing experience by directly accessing resources from the [Studio IDE](https://docs.getdbt.com/docs/cloud/studio-ide/develop-in-studio.md) to Catalog for model, seed, or snapshot files. This workflow offers a seamless transition between the Studio IDE and Catalog, allowing you to quickly navigate between viewing project metadata and making updates to your models or other resources without switching contexts.
+### Studio IDE 
+You can enhance your project navigation and editing experience by directly accessing resources from the [<Constant name="studio_ide" />](/docs/cloud/studio-ide/develop-in-studio) to <Constant name="catalog" /> for model, seed, or snapshot files. This workflow offers a seamless transition between the <Constant name="studio_ide" /> and <Constant name="catalog" />, allowing you to quickly navigate between viewing project metadata and making updates to your models or other resources without switching contexts.
 
-#### Access Catalog from the IDE[​](#access-catalog-from-the-ide "Direct link to Access Catalog from the IDE")
+#### Access Catalog from the IDE
+- In your model, seed, or snapshot file, click the **View in <Constant name="catalog" />** icon to the right of your file breadcrumb (under the file name tab). 
+- This opens the model, seed, or snapshot file in a new tab, allowing you to view resources/lineage directly in <Constant name="catalog" />. 
 
-* In your model, seed, or snapshot file, click the **View in Catalog** icon to the right of your file breadcrumb (under the file name tab).
-* This opens the model, seed, or snapshot file in a new tab, allowing you to view resources/lineage directly in Catalog.
+<Lightbox src="/img/docs/collaborate/dbt-explorer/explorer-from-ide.jpg" title="Access dbt Catalog from the IDE by clicking on the 'View in Explorer' icon next to the file breadcrumbs. " />
 
-[![Access dbt Catalog from the IDE by clicking on the 'View in Explorer' icon next to the file breadcrumbs. ](/img/docs/collaborate/dbt-explorer/explorer-from-ide.jpg?v=2 "Access dbt Catalog from the IDE by clicking on the 'View in Explorer' icon next to the file breadcrumbs. ")](#)Access dbt Catalog from the IDE by clicking on the 'View in Explorer' icon next to the file breadcrumbs.
+### Canvas
 
-### Canvas[​](#canvas "Direct link to Canvas")
+Seamlessly access <Constant name="catalog" /> via <Constant name="canvas" /> to bring your workflow to life with visual editing.
 
-Seamlessly access Catalog via Canvas to bring your workflow to life with visual editing.
+#### Access Catalog from Canvas
 
-#### Access Catalog from Canvas[​](#access-catalog-from-canvas "Direct link to Access Catalog from Canvas")
+Steps here
+[Roxi to check with Greg and team and will add images on response]
 
-Steps here \[Roxi to check with Greg and team and will add images on response]
+### Lineage tab in jobs
+The **Lineage tab** in <Constant name="dbt" /> jobs displays the lineage associated with the [job run](/docs/deploy/jobs). Access <Constant name="catalog" /> directly from this tab, allowing you understand dependencies/relationships of resources in your project.
 
-### Lineage tab in jobs[​](#lineage-tab-in-jobs "Direct link to Lineage tab in jobs")
+#### Access Catalog from the lineage tab
+- From a job, select the **Lineage tab**. 
+- Double-click the node in the lineage to open a new tab and view its metadata directly in <Constant name="catalog" />.
 
-The **Lineage tab** in dbt jobs displays the lineage associated with the [job run](https://docs.getdbt.com/docs/deploy/jobs.md). Access Catalog directly from this tab, allowing you understand dependencies/relationships of resources in your project.
+<Lightbox src="/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif" title="Access dbt Catalog from the lineage tab by double-clicking on the lineage node." />
 
-#### Access Catalog from the lineage tab[​](#access-catalog-from-the-lineage-tab "Direct link to Access Catalog from the lineage tab")
+### Model timing tab in jobs <Lifecycle status="self_service,managed,managed_plus"/>
 
-* From a job, select the **Lineage tab**.
-* Double-click the node in the lineage to open a new tab and view its metadata directly in Catalog.
+The [model timing tab](/docs/deploy/run-visibility#model-timing) in <Constant name="dbt" /> jobs displays the composition, order, and time taken by each model in a job run. 
 
-[![Access dbt Catalog from the lineage tab by double-clicking on the lineage node.](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Access dbt Catalog from the lineage tab by double-clicking on the lineage node.")](#)Access dbt Catalog from the lineage tab by double-clicking on the lineage node.
+Access <Constant name="catalog" /> directly from the **modeling timing tab**, which helps you investigate resources, diagnose performance bottlenecks, understand dependencies/relationships of slow-running models, and potentially make changes to improve their performance.
 
-### Model timing tab in jobs [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#model-timing-tab-in-jobs- "Direct link to model-timing-tab-in-jobs-")
+#### Access Catalog from the model timing tab
+- From a job, select the **model timing tab**.
+- Hover over a resource and click on **View on <Constant name="catalog" />** to view the resource metadata directly in <Constant name="catalog" />. 
 
-The [model timing tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) in dbt jobs displays the composition, order, and time taken by each model in a job run.
+<Lightbox src="/img/docs/collaborate/dbt-explorer/explorer-from-model-timing.jpg" title="Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'." />
 
-Access Catalog directly from the **modeling timing tab**, which helps you investigate resources, diagnose performance bottlenecks, understand dependencies/relationships of slow-running models, and potentially make changes to improve their performance.
+### dbt Insights <Lifecycle status="managed,managed_plus" />
 
-#### Access Catalog from the model timing tab[​](#access-catalog-from-the-model-timing-tab "Direct link to Access Catalog from the model timing tab")
+Access <Constant name="catalog" /> directly from [<Constant name="insights" />](/docs/explore/access-dbt-insights) to view the project lineage and project resources with access to tables, columns, metrics, dimensions, and more.
 
-* From a job, select the **model timing tab**.
-* Hover over a resource and click on **View on Catalog** to view the resource metadata directly in Catalog.
+To access <Constant name="catalog" /> from <Constant name="insights" />, click the **<Constant name="catalog" />** icon in the Query console sidebar menu and search for the resource you're interested in.
 
-[![Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.](/img/docs/collaborate/dbt-explorer/explorer-from-model-timing.jpg?v=2 "Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.")](#)Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.
-
-### dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#dbt-insights- "Direct link to dbt-insights-")
-
-Access Catalog directly from [Insights](https://docs.getdbt.com/docs/explore/access-dbt-insights.md) to view the project lineage and project resources with access to tables, columns, metrics, dimensions, and more.
-
-To access Catalog from Insights, click the **Catalog** icon in the Query console sidebar menu and search for the resource you're interested in.
-
-[![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+<Lightbox src="/img/docs/dbt-insights/insights-explorer.png" width="90%" title="dbt Insights integrated with dbt Catalog" />

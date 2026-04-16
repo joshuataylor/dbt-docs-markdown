@@ -1,41 +1,48 @@
 # AWS Glue configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-glue plugin, in addition to the [Apache Spark model configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#configuring-tables).
+<!----
+To-do:
+- use the reference doc structure for this article/split into separate articles
+--->
 
-| Option           | Description                                                                                                                                                                                                                  | Required? | Example                            |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------- |
-| custom\_location | By default, the adapter will store your data in the following path: `location path`/`database`/`table`. If you don't want to follow that default behaviour, you can use this parameter to set your own custom location on S3 | No        | `s3://mycustombucket/mycustompath` |
+## Configuring tables
 
-Search table...
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-glue plugin, in addition to the [Apache Spark model configuration](/reference/resource-configs/spark-configs#configuring-tables).
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Option  | Description                                        | Required?               | Example                  |
+|---------|----------------------------------------------------|-------------------------|--------------------------|
+| custom_location  | By default, the adapter will store your data in the following path: `location path`/`database`/`table`. If you don't want to follow that default behaviour, you can use this parameter to set your own custom location on S3 | No | `s3://mycustombucket/mycustompath`              |
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 dbt seeks to offer useful, intuitive modeling abstractions by means of its built-in configurations and materializations.
 
-For that reason, the dbt-glue plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
-
-* **`append`** (default): Insert new records without updating or overwriting any existing data.
-* **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
-* **`merge`** (Apache Hudi only): Match records based on a `unique_key`; update old records, insert new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
+For that reason, the dbt-glue plugin leans heavily on the [`incremental_strategy` config](/docs/build/incremental-strategy). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
+ - **`append`** (default): Insert new records without updating or overwriting any existing data.
+ - **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
+ - **`merge`** (Apache Hudi only): Match records based on a `unique_key`; update old records, insert new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
-**Notes:** The default strategie is **`insert_overwrite`**
+**Notes:**
+The default strategie is **`insert_overwrite`**
 
-### The `append` strategy[​](#the-append-strategy "Direct link to the-append-strategy")
+### The `append` strategy
 
-Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
+Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy _cannot_ update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
-* Source code
-* Run code
 
-glue\_incremental.sql
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
+
+<File name='glue_incremental.sql'>
 
 ```sql
 {{ config(
@@ -50,8 +57,11 @@ select * from {{ ref('events') }}
   where event_ts > (select max(event_ts) from {{ this }})
 {% endif %}
 ```
+</File>
+</TabItem>
+<TabItem value="run">
 
-glue\_incremental.sql
+<File name='glue_incremental.sql'>
 
 ```sql
 create view spark_incremental__dbt_tmp as
@@ -68,18 +78,28 @@ insert into table analytics.spark_incremental
 
 ;
 
-drop view spark\_incremental\_\_dbt\_tmp
+drop view spark_incremental__dbt_tmp
 
-### The `insert_overwrite` strategy[​](#the-insert_overwrite-strategy "Direct link to the-insert_overwrite-strategy")
+</File>
+</TabItem>
+</Tabs>
 
-This strategy is most effective when specified alongside a `partition_by` clause in your model config. dbt will run an [atomic `insert overwrite` statement](https://spark.apache.org/docs/3.1.2/sql-ref-syntax-dml-insert-overwrite-table.html) that dynamically replaces all partitions included in your query. Be sure to re-select *all* of the relevant data for a partition when using this incremental strategy.
+### The `insert_overwrite` strategy
+
+This strategy is most effective when specified alongside a `partition_by` clause in your model config. dbt will run an [atomic `insert overwrite` statement](https://spark.apache.org/docs/3.1.2/sql-ref-syntax-dml-insert-overwrite-table.html) that dynamically replaces all partitions included in your query. Be sure to re-select _all_ of the relevant data for a partition when using this incremental strategy.
 
 If no `partition_by` is specified, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` + `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
-* Source code
-* Run code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+    { label: 'Run code', value: 'run', },
+  ]
+}>
+<TabItem value="source">
 
-spark\_incremental.sql
+<File name='spark_incremental.sql'>
 
 ```sql
 {{ config(
@@ -111,7 +131,11 @@ from events
 group by 1
 ```
 
-spark\_incremental.sql
+</File>
+</TabItem>
+<TabItem value="run">
+
+<File name='spark_incremental.sql'>
 
 ```sql
 create view spark_incremental__dbt_tmp as
@@ -144,26 +168,35 @@ insert overwrite table analytics.spark_incremental
 drop view spark_incremental__dbt_tmp
 ```
 
+</File>
+</TabItem>
+</Tabs>
+
 Specifying `insert_overwrite` as the incremental strategy is optional, since it's the default strategy used when none is specified.
 
-### The `merge` strategy[​](#the-merge-strategy "Direct link to the-merge-strategy")
+### The `merge` strategy
 
 **Usage notes:** The `merge` incremental strategy requires:
+- `file_format: hudi`
+- AWS Glue runtime 2 with hudi libraries as extra jars
 
-* `file_format: hudi`
-* AWS Glue runtime 2 with hudi libraries as extra jars
-
-You can add hudi libraries as extra jars in the classpath using extra\_jars options in your profiles.yml. Here is an example:
-
+You can add hudi libraries as extra jars in the classpath using extra_jars options in your profiles.yml.
+Here is an example:
 ```yml
 extra_jars: "s3://dbt-glue-hudi/Dependencies/hudi-spark.jar,s3://dbt-glue-hudi/Dependencies/spark-avro_2.11-2.4.4.jar"
 ```
 
 dbt will run an [atomic `merge` statement](https://hudi.apache.org/docs/writing_data#spark-datasource-writer) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
-* Source code
+<Tabs
+  defaultValue="source"
+  values={[
+    { label: 'Source code', value: 'source', },
+  ]
+}>
+<TabItem value="source">
 
-hudi\_incremental.sql
+<File name='hudi_incremental.sql'>
 
 ```sql
 {{ config(
@@ -191,18 +224,15 @@ from events
 group by 1
 ```
 
-## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
+</File>
+</TabItem>
+</Tabs>
 
-Relation-level docs persistence is inherited from dbt-spark, for more details, check [Apache Spark model configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#persisting-model-descriptions).
 
-## Always `schema`, never `database`[​](#always-schema-never-database "Direct link to always-schema-never-database")
+## Persisting model descriptions
 
-This section is also inherited from dbt-spark, for more details, check [Apache Spark model configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#always-schema-never-database).
+Relation-level docs persistence is inherited from dbt-spark, for more details, check [Apache Spark model configuration](/reference/resource-configs/spark-configs#persisting-model-descriptions).
 
-## Was this page helpful?
+## Always `schema`, never `database`
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+This section is also inherited from dbt-spark, for more details, check [Apache Spark model configuration](/reference/resource-configs/spark-configs#always-schema-never-database).

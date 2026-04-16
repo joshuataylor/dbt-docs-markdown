@@ -1,14 +1,13 @@
 # Platform-specific data types
 
-Unit tests are designed to test for the expected *values*, not for the data types themselves. dbt takes the value you provide and attempts to cast it to the data type as inferred from the input and output models.
+
+Unit tests are designed to test for the expected _values_, not for the data types themselves. dbt takes the value you provide and attempts to cast it to the data type as inferred from the input and output models. 
 
 How you specify input and expected values in your unit test YAML definitions are largely consistent across data warehouses, with some variation for more complex data types. The following are platform-specific data types:
 
-* Snowflake
-* BigQuery
-* Redshift
-* Spark
-* Postgres
+<WHCode>
+
+<div warehouse="Snowflake">
 
 ```yml
 
@@ -33,7 +32,12 @@ unit_tests:
            str_array_field: ['a','b','c']
            int_array_field: [1, 2, 3]
            binary_field: 19E1FFDCCB6CDEE788BF631C1C4905D1
+
 ```
+
+</div>
+
+<div warehouse="BigQuery">
 
 ```yml
 
@@ -61,7 +65,14 @@ unit_tests:
            struct_array_field: ['struct(st_geogpoint(75, 45) as my_point)', 'struct(st_geogpoint(75, 35) as my_point)']
            # Make sure to include all the fields in a BigQuery `struct` within the unit test.
            # It's not currently possible to use only a subset of columns in a 'struct'
+
+
 ```
+
+</div>
+
+
+<div warehouse="Redshift">
 
 ```yml
 
@@ -79,9 +90,14 @@ unit_tests:
            timestamp_field: 2013-11-03 00:00:00-0
            timestamptz_field: 2013-11-03 00:00:00-0
            json_field: '{"bar": "baz", "balance": 7.77, "active": false}'
+
 ```
 
 Currently, the `array` is not supported.
+
+</div>
+
+<div warehouse="Spark">
 
 ```yml
 
@@ -102,7 +118,12 @@ unit_tests:
            int_array_field: 'array(1, 2, 3)'
            map_field: 'map("10", "t", "15", "f", "20", NULL)'
            named_struct_field: 'named_struct("a", 1, "b", 2, "c", 3)'
+
+
 ```
+</div>
+
+<div warehouse="Postgres">
 
 ```yml
 
@@ -122,14 +143,11 @@ unit_tests:
            timestamp_field: 2013-11-03 00:00:00-0
            timestamptz_field: 2013-11-03 00:00:00-0
            json_field: '{"bar": "baz", "balance": 7.77, "active": false}'
+
 ```
 
 Currently, the `array` is not supported.
 
-## Was this page helpful?
+</div>
 
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</WHCode>

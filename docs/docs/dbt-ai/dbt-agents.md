@@ -1,76 +1,75 @@
-# dbt Agents overview [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt Agents overview
 
-[dbt Agents](https://www.getdbt.com/product/dbt-agents), available on [dbt Enterprise-tier plans](https://www.getdbt.com/pricing), are a suite of native AI agents that turn structured dbt context into auditable actions. These agents help you build, manage, and consume governed data at scale by bringing intelligence to every step of the analytics development lifecycle.
 
-info
+# dbt Agents overview <Lifecycle status="beta,managed,managed_plus"/>
 
-dbt Agents are currently in beta or coming soon. Contact your account manager for early access.
+[dbt Agents](https://www.getdbt.com/product/dbt-agents), available on [dbt Enterprise-tier plans](https://www.getdbt.com/pricing), are a suite of native AI agents that turn structured dbt context into auditable actions. These agents help you build, manage, and consume governed data at scale by bringing intelligence to every step of the analytics development lifecycle. 
+
+:::info 
+Some dbt Agents are in beta; others are coming soon. Contact your account manager for early access.
 
 See [available agents](#available-agents) to find out what's available.
+:::
 
 dbt Agents are built on top of dbt's structured context to provide accurate, auditable, and governed results:
 
-* Semantic Layer — Metrics, dimensions, and business logic
-* Metadata — Lineage, tests, documentation, and ownership
-* Governance — Access policies, data quality rules, and contracts
+- Semantic Layer &mdash; Metrics, dimensions, and business logic
+- Metadata &mdash; Lineage, tests, documentation, and ownership
+- Governance &mdash; Access policies, data quality rules, and contracts
 
 Having dbt as the standard context layer for agentic analytics means that dbt Agents are built on top of this context to provide accurate results rather than hallucinated or inconsistent answers.
 
-[YouTube video player](https://www.youtube.com/embed/VMkRXWkEcKk?si=vPNG0T8w8q3g3ugT)
+<div style={{display: 'flex', justifyContent: 'center', margin: '20px 0'}}>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VMkRXWkEcKk?si=vPNG0T8w8q3g3ugT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
-## Key benefits[​](#key-benefits "Direct link to Key benefits")
+## Key benefits
 
-* Faster development — Engineers and analysts ship data products faster with AI assistance.
-* Better decisions — Business users get accurate answers grounded in governed data.
-* Auditability — Every agent action includes transparent SQL, lineage, and policies.
-* Scalability — Routine tasks are automated so teams can focus on high-value work.
+- Faster development &mdash; Engineers and analysts ship data products faster with AI assistance.
+- Better decisions &mdash; Business users get accurate answers grounded in governed data.
+- Auditability &mdash; Every agent action includes transparent SQL, lineage, and policies.
+- Scalability &mdash; Routine tasks are automated so teams can focus on high-value work.
 
-## Available agents[​](#available-agents "Direct link to Available agents")
+## Available agents
+dbt offers several specialized agents, each designed for specific workflows in the analytics lifecycle to help you scale your data teams across the <Constant name="dbt_platform" />.
 
-dbt offers several specialized agents, each designed for specific workflows in the analytics lifecycle to help you scale your data teams across the dbt platform.
+The following agents are available. Contact your account manager for early access to agents that are in beta or coming soon.
 
-dbt Agents are currently in beta or coming soon. Contact your account manager for early access.
+#### Analyst agent <Lifecycle status="beta"/>
 
-#### Analyst agent [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#analyst-agent- "Direct link to analyst-agent-")
+Use <Constant name="copilot" /> to analyze your data and get contextualized results in real time by asking natural language questions to the [<Constant name="insights" />](/docs/explore/dbt-insights) [Analyst agent](/docs/dbt-ai/analyst-agent). 
 
-Use Copilot to analyze your data and get contextualized results in real time by asking natural language questions to the [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md) [Analyst agent](https://docs.getdbt.com/docs/dbt-ai/analyst-agent.md).
+Chat with your data, get accurate answers powered by the [dbt Semantic Layer](/docs/use-dbt-semantic-layer/dbt-sl). That means consistent, explainable results with transparent SQL, lineage, and policies.
 
-Chat with your data, get accurate answers powered by the [dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md). That means consistent, explainable results with transparent SQL, lineage, and policies.
+The Analyst agent is a beta feature. Enable beta features under **Account settings** > **Personal profile** > **Experimental features**. For more information, see [Preview new dbt platform features](/docs/dbt-versions/experimental-features). 
 
-The Analyst agent is a beta feature. Enable beta features under **Account settings** > **Personal profile** > **Experimental features**. For more information, see [Preview new dbt platform features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md).
+#### Developer agent <Lifecycle status="beta,managed,managed_plus"/>
 
-#### Discovery agent [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#discovery-agent- "Direct link to discovery-agent-")
+The <Constant name="dev_agent" /> is the next evolution of <Constant name="copilot" /> in the <Constant name="studio_ide" />, purpose-built to streamline the developer experience. Describe the data product or change you want &mdash; the agent writes or refactors models, validates with <Constant name="fusion_engine" />, and runs against your warehouse with full context. Stay in flow in the [<Constant name="studio_ide" />](/docs/cloud/studio-ide/develop-in-studio).
 
-Find the right, approved dataset fast in Catalog. The Discovery agent surfaces definitions, freshness, tests, owners, and lineage right where you work.
+The agent always has access to the latest dbt-recommended guidance through [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) &mdash; curated instructions and scripts managed by dbt Labs, available out of the box with no configuration required.
+
+For setup instructions and available use cases, see [<Constant name="dev_agent" />](/docs/dbt-ai/developer-agent).
+
+#### Discovery agent <Lifecycle status="private_beta"/>
+
+Find the right, approved dataset fast in <Constant name="catalog" />. The Discovery agent surfaces definitions, freshness, tests, owners, and lineage right where you work.
 
 To request access to the Discovery agent, contact your account manager.
 
-#### Observability agent Coming soon[​](#observability-agent- "Direct link to observability-agent-")
+#### Observability agent <Lifecycle status="Coming soon"/>
 
-The Observability agent in the dbt platform's orchestrator helps you monitor jobs, pinpoint likely root causes, and cut resolution time. It's designed to reduce noise and cuts down on investigation and debugging time — no more digging through logs.
+The Observability agent autonomously and continuously monitors pipelines, flags likely root causes in context, and guides fixes — resulting in faster mean time to resolution, higher reliability, and streamlined ticket queues. No more digging through logs.
 
-#### Developer agent Coming soon[​](#developer-agent- "Direct link to developer-agent-")
+#### dbt MCP server
 
-The Developer agent helps you describe the data question or product you want; the agent writes or refactors models, validates with Fusion, and runs against your warehouse with full context.
+Build your own custom agents and copilots with the local or remote dbt MCP server. The [Model Context Protocol (MCP)](/docs/dbt-ai/about-mcp) makes dbt's structured context available to any AI system.
 
-It helps you understand model logic, predict downstream impact, flag duplicate logic, and validate changes before merge. It runs directly in VS Code or Studio IDE, powered by dbt's context, so every change can be shipped quickly and safely.
+## Related docs
 
-#### dbt MCP server[​](#dbt-mcp-server "Direct link to dbt MCP server")
-
-Build your own custom agents and copilots with the local or remote dbt MCP server. The [Model Context Protocol (MCP)](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md) makes dbt's structured context available to any AI system.
-
-## Related docs[​](#related-docs "Direct link to Related docs")
-
-* [About dbt AI and intelligence](https://docs.getdbt.com/docs/dbt-ai/about-dbt-ai.md)
-* [dbt Copilot](https://docs.getdbt.com/docs/cloud/dbt-copilot.md)
-* [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-* [dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md)
-* [dbt Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [About dbt AI and intelligence](/docs/dbt-ai/about-dbt-ai)
+- [<Constant name="dev_agent" />](/docs/dbt-ai/developer-agent)
+- [dbt Copilot](/docs/cloud/dbt-copilot)
+- [dbt MCP server](/docs/dbt-ai/about-mcp)
+- [dbt Semantic Layer](/docs/use-dbt-semantic-layer/dbt-sl)
+- [dbt Insights](/docs/explore/dbt-insights)

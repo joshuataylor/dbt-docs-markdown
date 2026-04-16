@@ -1,10 +1,11 @@
 # About doc function
 
-The `doc` function is used to reference docs blocks in the description field of schema.yml files. It is analogous to the `ref` function. For more information, consult the [Documentation guide](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md).
+
+The `doc` function is used to reference docs blocks in the description field of schema.yml files. It is analogous to the `ref` function. For more information, consult the [Documentation guide](/docs/explore/build-and-view-your-docs).
 
 Usage:
 
-orders.md
+<File name='orders.md'>
 
 ```jinja2
 
@@ -17,7 +18,11 @@ orders.md
 {% enddocs %}
 ```
 
-schema.yml
+</File>
+
+
+
+<File name='schema.yml'>
 
 ```yaml
 
@@ -26,10 +31,4 @@ models:
     description: "{{ doc('orders') }}"
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

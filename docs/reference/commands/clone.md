@@ -1,18 +1,18 @@
 # About dbt clone command
 
-The `dbt clone` command clones selected nodes from the [specified state](https://docs.getdbt.com/reference/node-selection/syntax.md#establishing-state) to the target schema(s). This command makes use of the `clone` materialization:
 
-* If your data platform supports zero-copy cloning of tables (Snowflake, Databricks, or BigQuery), and this model exists as a table in the source environment, dbt will create it in your target environment as a clone.
-* Otherwise, dbt will create a simple pointer view (`select * from` the source object)
-* By default, `dbt clone` will not recreate pre-existing relations in the current target. To override this, use the `--full-refresh` flag.
-* You may want to specify a higher number of [threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md) to decrease execution time since individual clone statements are independent of one another.
+The `dbt clone` command clones selected nodes from the [specified state](/reference/node-selection/syntax#establishing-state) to the target schema(s). This command makes use of the `clone` materialization:
+- If your data platform supports zero-copy cloning of tables (Snowflake, Databricks, or BigQuery), and this model exists as a table in the source environment, dbt will create it in your target environment as a clone.
+- Otherwise, dbt will create a simple pointer view (`select * from` the source object)
+- By default, `dbt clone` will not recreate pre-existing relations in the current target. To override this, use the `--full-refresh` flag. 
+- You may want to specify a higher number of [threads](/docs/running-a-dbt-project/using-threads) to decrease execution time since individual clone statements are independent of one another.
 
 The `clone` command is useful for:
+- blue/green continuous deployment (on data warehouses that support zero-copy cloning tables)
+- cloning current production state into development schema(s)
+- handling incremental models in <Constant name="dbt" /> CI jobs (on data warehouses that support zero-copy cloning tables)
+- testing code changes on downstream dependencies in your BI tool
 
-* blue/green continuous deployment (on data warehouses that support zero-copy cloning tables)
-* cloning current production state into development schema(s)
-* handling incremental models in dbt CI jobs (on data warehouses that support zero-copy cloning tables)
-* testing code changes on downstream dependencies in your BI tool
 
 ```bash
 # clone all of my models from specified state to my target schema(s)
@@ -28,36 +28,26 @@ dbt clone --state path/to/artifacts --full-refresh
 dbt clone --state path/to/artifacts --threads 50
 ```
 
-### When to use `dbt clone` instead of [deferral](https://docs.getdbt.com/reference/node-selection/defer.md)?[​](#when-to-use-dbt-clone-instead-of-deferral "Direct link to when-to-use-dbt-clone-instead-of-deferral")
+### When to use `dbt clone` instead of [deferral](/reference/node-selection/defer)?
 
 Unlike deferral, `dbt clone` requires some compute and creation of additional objects in your data warehouse. In many cases, deferral is a cheaper and simpler alternative to `dbt clone`. However, `dbt clone` covers additional use cases where deferral may not be possible.
 
-For example, by creating actual data warehouse objects, `dbt clone` allows you to test out your code changes on downstream dependencies *outside of dbt* (such as a BI tool).
+For example, by creating actual data warehouse objects, `dbt clone` allows you to test out your code changes on downstream dependencies _outside of dbt_ (such as a BI tool). 
 
-As another example, you could `clone` your modified incremental models as the first step of your dbt CI job to prevent costly `full-refresh` builds for warehouses that support zero-copy cloning.
+As another example, you could `clone` your modified incremental models as the first step of your <Constant name="dbt" /> CI job to prevent costly `full-refresh` builds for warehouses that support zero-copy cloning.
 
-## Cloning in dbt[​](#cloning-in-dbt "Direct link to Cloning in dbt")
+## Cloning in dbt
 
-You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](https://docs.getdbt.com/docs/cloud/studio-ide/develop-in-studio.md) and the [dbt CLI](https://docs.getdbt.com/docs/cloud/cloud-cli-installation.md) and relies on the [`--defer`](https://docs.getdbt.com/reference/node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](https://docs.getdbt.com/docs/cloud/about-cloud-develop-defer.md).
+You can clone nodes between states in <Constant name="dbt" /> using the `dbt clone` command. This is available in the [<Constant name="studio_ide" />](/docs/cloud/studio-ide/develop-in-studio) and the [<Constant name="platform_cli" />](/docs/cloud/cloud-cli-installation) and  relies on the [`--defer`](/reference/node-selection/defer) feature. For more details on defer in <Constant name="dbt" />, read [Using defer in <Constant name="dbt" />](/docs/cloud/about-cloud-develop-defer).
 
-* **Using dbt CLI** — The `dbt clone` command in the dbt CLI automatically includes the `--defer` flag. This means you can use the `dbt clone` command without any additional setup.
+- **Using <Constant name="platform_cli" />** &mdash; The `dbt clone` command in the <Constant name="platform_cli" /> automatically includes the `--defer` flag. This means you can use the `dbt clone` command without any additional setup.
 
-* **Using Studio IDE** — To use the `dbt clone` command in the Studio IDE, follow these steps before running the `dbt clone` command:
+- **Using <Constant name="studio_ide" />** &mdash; To use the `dbt clone` command in the <Constant name="studio_ide" />, follow these steps before running the `dbt clone` command:
 
-  * Set up your **Production environment** and have a successful job run.
-
-  * Enable **Defer to production** by toggling the switch in the lower-right corner of the command bar.
-
-    [![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-cloud/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")](#)Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
-
-  * Run the `dbt clone` command from the command bar.
-
-Check out [this Developer blog post](https://docs.getdbt.com/blog/to-defer-or-to-clone) for more details on best practices when to use `dbt clone` vs. deferral.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+  - Set up your **Production environment** and have a successful job run.
+  - Enable **Defer to production** by toggling the switch in the lower-right corner of the command bar.
+    <Lightbox src="/img/docs/dbt-cloud/defer-toggle.png" width="80%" title="Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE."/>
+  - Run the `dbt clone` command from the command bar.
+  
+  
+Check out [this Developer blog post](/blog/to-defer-or-to-clone) for more details on best practices when to use `dbt clone` vs. deferral.

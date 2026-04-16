@@ -1,22 +1,8 @@
-# entry\_point
+# entry_point
 
-💡Did you know\...
+<VersionCallout version="1.11" /> 
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/cloud-release-tracks.md).
-
-functions/\<filename>.yml
+<File name='functions/<filename>.yml'>
 
 ```yml
 functions:
@@ -25,28 +11,23 @@ functions:
       entry_point: <string> # required for Python UDFs
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+</File>
+
+## Definition
 
 When creating Python UDFs, specify the Python function to be called in `entry_point`.
 
 Python UDFs are currently supported in Snowflake and BigQuery. Each warehouse uses a different name for the entry point function. The following table shows what they’re called:
 
-| Warehouse | How `entry_point` is used                           |
-| --------- | --------------------------------------------------- |
-| Snowflake | Becomes the `HANDLER` name in `LANGUAGE PYTHON UDF` |
-| BigQuery  | Becomes the `entry_point` in `OPTIONS(...)`         |
+| Warehouse  | How `entry_point` is used | 
+| -- | -- | 
+| Snowflake | Becomes the `HANDLER` name in `LANGUAGE PYTHON UDF` | 
+| BigQuery |  Becomes the `entry_point` in `OPTIONS(...)` |  
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Example[​](#example "Direct link to Example")
-
+## Example
 For example, if you have a Python UDF in `functions/my_function.py` with the following code which uses the function `main` as the entry point:
 
-functions/my\_function.py
+<File name='functions/my_function.py'>
 
 ```python
 import re
@@ -66,9 +47,11 @@ def main(a_string: str) -> int:
     return _to_flag(_digits_only(a_string))
 ```
 
+</File>
+
 After defining the UDF, you can specify `main` as the `entry_point` in the YAML file. `entry_point: main` points to the `main` function as the entry point for the UDF, while `_digits_only` and `_to_flag` are helper functions.
 
-functions/schema.yml
+<File name='functions/schema.yml'>
 
 ```yaml
 functions:
@@ -82,23 +65,18 @@ functions:
         data_type: string
     returns:
       data_type: integer
+
 ```
+</File>
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [Type](https://docs.getdbt.com/reference/resource-configs/type.md)
-* [Volatility](https://docs.getdbt.com/reference/resource-configs/volatility.md)
-* [runtime\_version](https://docs.getdbt.com/reference/resource-configs/runtime-version.md)
-* [Arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
-* [Returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+## Related documentation
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [User-defined functions](/docs/build/udfs)
+- [Function properties](/reference/function-properties)
+- [Function configurations](/reference/function-configs)
+- [Type](/reference/resource-configs/type)
+- [Volatility](/reference/resource-configs/volatility)
+- [runtime_version](/reference/resource-configs/runtime-version)
+- [Arguments](/reference/resource-properties/function-arguments)
+- [Returns](/reference/resource-properties/returns)

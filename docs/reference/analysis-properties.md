@@ -1,33 +1,64 @@
 # Analysis properties
 
-We recommend you define analysis properties in your `analyses/` directory, which is illustrated in the [`analysis-paths`](https://docs.getdbt.com/reference/project-configs/analysis-paths.md) configuration. Analysis properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
+
+import PropsCallout from '/snippets/_config-prop-callout.md';
+import AnalysesProjectLevelConfig from '/snippets/_analyses-project-level-config.md';
+
+<VersionBlock lastVersion="1.11">
+
+We recommend you define analysis properties in your `analyses/` directory, which is illustrated in the [`analysis-paths`](/reference/project-configs/analysis-paths) configuration. <PropsCallout title={frontMatter.title}/>  <br /> 
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `analyses/` or `models/` directory.
+</VersionBlock>
 
-analyses/\<filename>.yml
+<VersionBlock firstVersion="1.12">
+
+We recommend you define analysis properties in your `analyses/` directory, which is illustrated in the [`analysis-paths`](/reference/project-configs/analysis-paths) configuration. You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `analyses/` or `models/` directory.
+
+</VersionBlock>
+
+<File name='analyses/<filename>.yml'>
 
 ```yml
 
 analyses:
   - name: <analysis_name> # required
-    description: <markdown_string>
+    [description](/reference/resource-properties/description): <markdown_string>
     config:
-      docs: # changed to config in v1.10
+      [enabled](/reference/resource-configs/enabled): true | false
+      [docs](/reference/resource-configs/docs): # changed to config in v1.10
         show: true | false
         node_color: <color_id> # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
-      tags: <string> | [<string>]
+      [tags](/reference/resource-configs/tags): <string> | [<string>]
     columns:
       - name: <column_name>
-        description: <markdown_string>
+        [description](/reference/resource-properties/description): <markdown_string>
       - name: ... # declare properties of additional columns
 
   - name: ... # declare properties of additional analyses
+
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
+<VersionBlock firstVersion="1.12">
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+<AnalysesProjectLevelConfig />
 
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+:::info Beta feature
+The project-level configuration for analyses is a beta feature in <Constant name="core" /> v1.12.
+:::
+
+<File name='dbt_project.yml'>
+
+```yaml
+flags:
+  require_corrected_analysis_fqns: true
+
+analyses:
+  +[enabled](/reference/resource-configs/enabled): true | false
+```
+
+</File>
+
+</VersionBlock>

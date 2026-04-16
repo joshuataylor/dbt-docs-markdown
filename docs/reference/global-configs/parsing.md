@@ -1,43 +1,44 @@
 # Parsing
 
-### Partial Parsing[​](#partial-parsing "Direct link to Partial Parsing")
 
-The `PARTIAL_PARSE` flag can turn partial parsing on or off in your project. See [the docs on parsing](https://docs.getdbt.com/reference/parsing.md#partial-parsing) for more details.
+### Partial Parsing
 
-dbt\_project.yml
+The `PARTIAL_PARSE` flag can turn partial parsing on or off in your project. See [the docs on parsing](/reference/parsing#partial-parsing) for more details.
+
+<File name='dbt_project.yml'>
 
 ```yaml
 
 flags:
   partial_parse: true
+
 ```
 
-Usage
+</File>
+
+<File name='Usage'>
 
 ```text
 dbt run --no-partial-parse
 ```
 
-### Static parser[​](#static-parser "Direct link to Static parser")
+</File>
 
-The `STATIC_PARSER` config can enable or disable the use of the static parser. See [the docs on parsing](https://docs.getdbt.com/reference/parsing.md#static-parser) for more details.
+### Static parser
 
-profiles.yml
+The `STATIC_PARSER` config can enable or disable the use of the static parser. See [the docs on parsing](/reference/parsing#static-parser) for more details.
+
+<File name='profiles.yml'>
 
 ```yaml
 
 config:
   static_parser: true
+
 ```
 
-### Experimental parser[​](#experimental-parser "Direct link to Experimental parser")
+</File>
+
+### Experimental parser
 
 Not currently in use.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

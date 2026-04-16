@@ -1,14 +1,23 @@
 # Starrocks configurations
 
-## Model Configuration[​](#model-configuration "Direct link to Model Configuration")
+
+## Model Configuration
 
 A dbt model can be configured using the following syntax:
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+<Tabs
+  groupId="config-fact"
+  defaultValue="project-yaml"
+  values={[
+    { label: 'Project YAML file', value: 'project-yaml', },
+    { label: 'Properties YAML file', value: 'property-yaml', },
+    { label: 'SQL file config', value: 'config', },
+  ]
+}>
 
-dbt\_project.yml
+
+<TabItem value="project-yaml">
+<File name='dbt_project.yml'>
 
 ```yaml
 models:
@@ -24,7 +33,11 @@ models:
     refresh_method: 'async' // only for materialized view default manual
 ```
 
-models/properties.yml
+</File>
+</TabItem>
+
+<TabItem value="property-yaml">
+<File name='models/properties.yml'>
 
 ```yaml
 models:
@@ -41,7 +54,11 @@ models:
       refresh_method: 'async' // only for materialized view default manual
 ```
 
-models/\<model\_name>.sql
+</File>
+</TabItem>
+
+<TabItem value="config">
+<File name='models/<model_name>.sql'>
 
 ```jinja
 {{ config(
@@ -54,12 +71,15 @@ models/\<model\_name>.sql
     ....
 ) }}
 ```
+</File>
+</TabItem>
+</Tabs>
 
-### Configuration Description[​](#configuration-description "Direct link to Configuration Description")
+### Configuration Description
 
 | Option              | Description                                                                                                                                                                                  |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `materialized`      | How the model will be materialized into Starrocks. Supports view, table, incremental, ephemeral, and materialized\_view.                                                                     |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `materialized`      | How the model will be materialized into Starrocks. Supports view, table, incremental, ephemeral, and materialized_view.                                                                      |
 | `keys`              | Which columns serve as keys.                                                                                                                                                                 |
 | `table_type`        | Table type, supported are PRIMARY or DUPLICATE or UNIQUE.                                                                                                                                    |
 | `distributed_by`    | Specifies the column of data distribution. If not specified, it defaults to random.                                                                                                          |
@@ -69,14 +89,7 @@ models/\<model\_name>.sql
 | `properties`        | The table properties configuration of Starrocks. ([Starrocks table properties](https://docs.starrocks.io/en-us/latest/sql-reference/sql-statements/data-definition/CREATE_TABLE#properties)) |
 | `refresh_method`    | How to refresh materialized views.                                                                                                                                                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Read From Catalog[​](#read-from-catalog "Direct link to Read From Catalog")
-
+## Read From Catalog
 First you need to add this catalog to starrocks. The following is an example of hive.
 
 ```sql
@@ -86,9 +99,7 @@ PROPERTIES (
     "type"="hive"
 );
 ```
-
 How to add other types of catalogs can be found in the documentation. [Catalog Overview](https://docs.starrocks.io/en-us/latest/data_source/catalog/catalog_overview) Then write the sources.yaml file.
-
 ```yaml
 sources:
   - name: external_example
@@ -96,17 +107,7 @@ sources:
     tables:
       - name: hive_table_name
 ```
-
 Finally, you might use below marco quote
-
 ```jinja
 {{ source('external_example', 'hive_table_name') }}
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

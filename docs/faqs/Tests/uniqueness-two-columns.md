@@ -1,38 +1,38 @@
 # Can I test the uniqueness of two columns?
 
+
 Yes, there's a few different options for testing the uniqueness of two columns.
 
-Consider an orders table that contains records from multiple countries, and the combination of ID and country code is unique:
 
-| order\_id | country\_code |
-| --------- | ------------- |
-| 1         | AU            |
-| 2         | AU            |
-| ...       | ...           |
-| 1         | US            |
-| 2         | US            |
-| ...       | ...           |
+Consider an orders <Term id="table" /> that contains records from multiple countries, and the combination of ID and country code is unique:
 
-Search table...
+| order_id | country_code |
+|----------|--------------|
+| 1        | AU           |
+| 2        | AU           |
+| ...      | ...          |
+| 1        | US           |
+| 2        | US           |
+| ...      | ...          |
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Here are some approaches:
 
-#### 1. Create a unique key in the model and test that[​](#1-create-a-unique-key-in-the-model-and-test-that "Direct link to 1. Create a unique key in the model and test that")
+#### 1. Create a unique key in the model and test that
 
-models/orders.sql
+<File name='models/orders.sql'>
 
 ```sql
 
 select
   country_code || '-' || order_id as surrogate_key,
   ...
+
 ```
 
-models/orders.yml
+</File>
+
+<File name='models/orders.yml'>
 
 ```yml
 models:
@@ -43,9 +43,12 @@ models:
           - unique
 ```
 
-#### 2. Test an expression[​](#2-test-an-expression "Direct link to 2. Test an expression")
+</File>
 
-models/orders.yml
+
+#### 2. Test an expression
+
+<File name='models/orders.yml'>
 
 ```yml
 models:
@@ -56,11 +59,14 @@ models:
             column_name: "(country_code || '-' || order_id)"
 ```
 
-#### 3. Use the `dbt_utils.unique_combination_of_columns` test[​](#3-use-the-dbt_utilsunique_combination_of_columns-test "Direct link to 3-use-the-dbt_utilsunique_combination_of_columns-test")
+</File>
 
-This is especially useful for large datasets since it is more performant. Check out the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) for more information.
 
-models/orders.yml
+#### 3. Use the `dbt_utils.unique_combination_of_columns` test
+
+This is especially useful for large datasets since it is more performant. Check out the docs on [packages](/docs/build/packages) for more information.
+
+<File name='models/orders.yml'>
 
 ```yml
 models:
@@ -73,10 +79,4 @@ models:
               - order_id
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

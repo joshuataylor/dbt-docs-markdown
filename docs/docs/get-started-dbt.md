@@ -1,109 +1,112 @@
 # dbt Quickstarts
 
-Begin your dbt journey by trying one of our quickstarts, which provides a step-by-step guide to help you set up [dbt](#the-dbt-platform) or [dbt Core](#dbt-local-installations) with a [variety of data platforms](https://docs.getdbt.com/docs/cloud/connect-data-platform/about-connections.md).
 
-## The dbt platform (formerly dbt Cloud)[​](#the-dbt-platform "Direct link to The dbt platform (formerly dbt Cloud)")
+Begin your dbt journey by choosing how you want to develop:
 
-dbt is a scalable solution that enables you to develop, test, deploy, and explore data products using a single, fully managed software service. It enables teams with diverse skills to build reliable data products at any scale, with capabilities including:
+- [**<Constant name="dbt_platform" />** ](#the-dbt-platform) &mdash; Develop in your browser (<Constant name="studio_ide" /> or <Constant name="canvas" />) or use local tools (VS Code extension, <Constant name="platform_cli" />) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [<Constant name="fusion_engine" />](/docs/fusion) and [<Constant name="core" />](/docs/local/install-dbt) engines.
+- [**Local only**](#dbt-local-installations) &mdash; Use local tools ([VS Code extension](/docs/about-dbt-extension), [Fusion CLI](/docs/local/install-dbt?version=2#get-started), or [<Constant name="core" />](/docs/local/install-dbt)) to develop and run dbt on your own infrastructure. You can use local tools with or without a <Constant name="dbt_platform" /> account.
+- **Local + <Constant name="dbt_platform" />** &mdash; Use the VS Code extension or <Constant name="platform_cli" /> with a <Constant name="dbt_platform" /> account to develop locally while leveraging platform features like CI/CD, documentation hosting, <Constant name="insights" />, <Constant name="canvas" />, and more.
 
-* Development experiences tailored to multiple personas (in-browser [Studio IDE](https://docs.getdbt.com/docs/cloud/studio-ide/develop-in-studio.md) or locally with the [dbt CLI](https://docs.getdbt.com/docs/cloud/cloud-cli-installation.md)).
-* Out-of-the-box [CI/CD workflows](https://docs.getdbt.com/docs/deploy/ci-jobs.md).
-* The [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) for consistent metrics that can be delivered to any endpoint.
-* Domain ownership of data with multi-project [Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) setups.
-* [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) for collaborative data discovery and understanding.
+## The dbt platform
 
-Learn more about [dbt features](https://docs.getdbt.com/docs/cloud/about-cloud/dbt-cloud-features.md) and [start your free trial](https://www.getdbt.com/signup/) today.
+<Constant name="dbt" /> provides a fully managed environment to develop, run, and deploy dbt projects—with CI/CD, documentation hosting, and more. Learn more about [<Constant name="dbt" /> features](/docs/cloud/about-cloud/dbt-cloud-features) and [start your free trial](https://www.getdbt.com/signup/) today. 
 
-[![](/img/icons/athena.svg)](https://docs.getdbt.com/guides/athena)
+The <Constant name="fusion_engine" /> adds managed execution, [state-aware orchestration](/docs/deploy/state-aware-about), and a unified development experience so you can focus on building rather than infrastructure.
 
-#### [Quickstart for dbt and Amazon Athena](https://docs.getdbt.com/guides/athena)
+Choose your warehouse to get started with a quickstart:
 
-[Integrate dbt with Amazon Athena for your data transformations.](https://docs.getdbt.com/guides/athena)
+<div className="grid--3-col">
 
-[![](/img/icons/azure-synapse-analytics-2.svg)](https://docs.getdbt.com/guides/azure-synapse-analytics)
+<Card
+    title="Quickstart for dbt and Amazon Athena"
+    body="Integrate dbt with Amazon Athena for your data transformations."
+    link="https://docs.getdbt.com/guides/athena"
+    icon="athena"/>
 
-#### [Quickstart for dbt and Azure Synapse Analytics](https://docs.getdbt.com/guides/azure-synapse-analytics)
+<Card
+    title="Quickstart for dbt and Azure Synapse Analytics"
+    body="Discover how to integrate dbt with Azure Synapse Analytics for your data transformations."
+    link="https://docs.getdbt.com/guides/azure-synapse-analytics"
+    icon="azure-synapse-analytics-2"/>
 
-[Discover how to integrate dbt with Azure Synapse Analytics for your data transformations.](https://docs.getdbt.com/guides/azure-synapse-analytics)
+<Card
+    title="Quickstart for dbt and BigQuery"
+    body="Discover how to leverage dbt with BigQuery to streamline your analytics workflows."
+    link="https://docs.getdbt.com/guides/bigquery"
+    icon="bigquery"/>
 
-[![](/img/icons/bigquery.svg)](https://docs.getdbt.com/guides/bigquery)
+<Card
+    title="Quickstart for dbt and Databricks"
+    body="Learn how to integrate dbt with Databricks for efficient data processing and analysis."
+    link="https://docs.getdbt.com/guides/databricks"
+    icon="databricks"/>
 
-#### [Quickstart for dbt and BigQuery](https://docs.getdbt.com/guides/bigquery)
+<Card
+    title="Quickstart for dbt and Microsoft Fabric"
+    body="Explore the synergy between dbt and Microsoft Fabric to optimize your data transformations."
+    link="https://docs.getdbt.com/guides/microsoft-fabric"
+    icon="fabric"/>
 
-[Discover how to leverage dbt with BigQuery to streamline your analytics workflows.](https://docs.getdbt.com/guides/bigquery)
+<Card
+    title="Quickstart for dbt and Redshift"
+    body="Learn how to connect dbt to Redshift for more agile data transformations."
+    link="https://docs.getdbt.com/guides/redshift"
+    icon="redshift"/>
 
-[![](/img/icons/databricks.svg)](https://docs.getdbt.com/guides/databricks)
+<Card
+    title="Quickstart for dbt and Snowflake"
+    body="Unlock the full potential of using dbt with Snowflake for your data transformations."
+    link="https://docs.getdbt.com/guides/snowflake"
+    icon="snowflake"/>
 
-#### [Quickstart for dbt and Databricks](https://docs.getdbt.com/guides/databricks)
+<Card
+    title="Quickstart for dbt and Starburst Galaxy"
+    body="Leverage dbt with Starburst Galaxy to enhance your data transformation workflows."
+    link="https://docs.getdbt.com/guides/starburst-galaxy"
+    icon="starburst"/>
 
-[Learn how to integrate dbt with Databricks for efficient data processing and analysis.](https://docs.getdbt.com/guides/databricks)
+<Card
+    title="Quickstart for dbt and Teradata"
+    body="Discover and use dbt with Teradata to enhance your data transformation workflows."
+    link="https://docs.getdbt.com/guides/teradata"
+    icon="teradata"/>
 
-[![](/img/icons/fabric.svg)](https://docs.getdbt.com/guides/microsoft-fabric)
+</div>
 
-#### [Quickstart for dbt and Microsoft Fabric](https://docs.getdbt.com/guides/microsoft-fabric)
+## dbt local installations
 
-[Explore the synergy between dbt and Microsoft Fabric to optimize your data transformations.](https://docs.getdbt.com/guides/microsoft-fabric)
+When you install dbt locally, you get command-line tools and the VS Code extension that enable you to transform data using analytics engineering best practices.
 
-[![](/img/icons/redshift.svg)](https://docs.getdbt.com/guides/redshift)
+You can use local tools with or without a <Constant name="dbt_platform" /> account. With an account, the VS Code extension and <Constant name="platform_cli" /> sync with your platform project for CI/CD, documentation, and more. Without an account, you run dbt entirely on your own infrastructure.
 
-#### [Quickstart for dbt and Redshift](https://docs.getdbt.com/guides/redshift)
+Develop locally using the <Constant name="fusion_engine" /> or <Constant name="core" /> engine.
 
-[Learn how to connect dbt to Redshift for more agile data transformations.](https://docs.getdbt.com/guides/redshift)
+<div className="grid--3-col">
 
-[![](/img/icons/snowflake.svg)](https://docs.getdbt.com/guides/snowflake)
+<Card
+    title="dbt Fusion engine from a manual install"
+    body="Learn how to install dbt Fusion and set up a project."
+    link="/guides/fusion?step=2"
+    icon="dbt-bit"/>
+<Card
+    title="dbt Core from a manual install"
+    body="Learn how to install dbt Core and set up a project."
+    link="/guides/manual-install"
+    icon="dbt-bit"/>
 
-#### [Quickstart for dbt and Snowflake](https://docs.getdbt.com/guides/snowflake)
+<Card
+    title="Quickstart for dbt with DuckDB"
+    body="Learn how to connect dbt to DuckDB."
+    link="/guides/duckdb?step=1"
+    icon="duckdb-seeklogo"/>
+</div>
 
-[Unlock the full potential of using dbt with Snowflake for your data transformations.](https://docs.getdbt.com/guides/snowflake)
-
-[![](/img/icons/starburst.svg)](https://docs.getdbt.com/guides/starburst-galaxy)
-
-#### [Quickstart for dbt and Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy)
-
-[Leverage dbt with Starburst Galaxy to enhance your data transformation workflows.](https://docs.getdbt.com/guides/starburst-galaxy)
-
-[![](/img/icons/teradata.svg)](https://docs.getdbt.com/guides/teradata)
-
-#### [Quickstart for dbt and Teradata](https://docs.getdbt.com/guides/teradata)
-
-[Discover and use dbt with Teradata to enhance your data transformation workflows.](https://docs.getdbt.com/guides/teradata)
-
-## dbt local installations[​](#dbt-local-installations "Direct link to dbt local installations")
-
-[dbt Core and dbt Fusion engine](https://docs.getdbt.com/docs/about-dbt-install.md) provide command-line tools that enable data practitioners to transform data using analytics engineering best practices. These tools suit individuals and small technical teams who prefer manual setup and customization, support community adapters, and follow open-source standards.
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/guides/fusion.md?step=2)
-
-#### [dbt Fusion engine from a manual install](https://docs.getdbt.com/guides/fusion.md?step=2)
-
-[Learn how to install dbt Fusion and set up a project.](https://docs.getdbt.com/guides/fusion.md?step=2)
-
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/guides/manual-install.md)
-
-#### [dbt Core from a manual install](https://docs.getdbt.com/guides/manual-install.md)
-
-[Learn how to install dbt Core and set up a project.](https://docs.getdbt.com/guides/manual-install.md)
-
-[![](/img/icons/duckdb.svg)](https://docs.getdbt.com/guides/duckdb.md?step=1)
-
-#### [Quickstart for dbt Core using DuckDB](https://docs.getdbt.com/guides/duckdb.md?step=1)
-
-[Learn how to connect to DuckDB.](https://docs.getdbt.com/guides/duckdb.md?step=1)
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 Expand your dbt knowledge and expertise with these additional resources:
 
-* [Join the monthly demos](https://www.getdbt.com/resources/webinars/dbt-cloud-demos-with-experts) to see dbt in action and ask questions.
-* [dbt AWS marketplace](https://aws.amazon.com/marketplace/pp/prodview-tjpcf42nbnhko) contains information on how to deploy dbt on AWS, user reviews, and more.
-* [Best practices](https://docs.getdbt.com/best-practices.md) contains information on how dbt Labs approaches building projects through our current viewpoints on structure, style, and setup.
-* [dbt Learn](https://learn.getdbt.com) offers free online courses that cover dbt fundamentals, advanced topics, and more.
-* [Join the dbt Community](https://www.getdbt.com/community/join-the-community) to learn how other data practitioners globally are using dbt, share your own experiences, and get help with your dbt projects.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+- [Join the monthly demos](https://www.getdbt.com/resources/webinars/dbt-cloud-demos-with-experts) to see <Constant name="dbt" /> in action and ask questions.
+- [<Constant name="dbt" /> AWS marketplace](https://aws.amazon.com/marketplace/pp/prodview-tjpcf42nbnhko) contains information on how to deploy <Constant name="dbt" /> on AWS, user reviews, and more.
+- [Best practices](/best-practices) contains information on how dbt Labs approaches building projects through our current viewpoints on structure, style, and setup.
+- [dbt Learn](https://learn.getdbt.com) offers free online courses that cover dbt fundamentals, advanced topics, and more.
+- [Join the dbt Community](https://www.getdbt.com/community/join-the-community) to learn how other data practitioners globally are using dbt, share your own experiences, and get help with your dbt projects.

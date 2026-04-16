@@ -1,15 +1,21 @@
-# limit
 
-Limit the number of failures that will be returned by a test query. We recommend using this config when working with large datasets and [storing failures in the database](https://docs.getdbt.com/reference/resource-configs/store_failures.md).
+Limit the number of failures that will be returned by a test query. We recommend using this config when working with large datasets and [storing failures in the database](/reference/resource-configs/store_failures).
 
-* Specific test
-* One-off test
-* Generic test block
-* Project level
+<Tabs
+  defaultValue="specific"
+  values={[
+    { label: 'Specific test', value: 'specific', },
+    { label: 'One-off test', value: 'one_off', },
+    { label: 'Generic test block', value: 'generic', },
+    { label: 'Project level', value: 'project', },
+  ]
+}>
+
+<TabItem value="specific">
 
 Configure a specific instance of a generic (schema) test:
 
-models/\<filename>.yml
+<File name='models/<filename>.yml'>
 
 ```yaml
 
@@ -25,9 +31,15 @@ models:
                 limit: 1000  # will only include the first 1000 failures
 ```
 
+</File>
+
+</TabItem>
+
+<TabItem value="one_off">
+
 Configure a one-off (data) test:
 
-tests/\<filename>.sql
+<File name='tests/<filename>.sql'>
 
 ```sql
 {{ config(limit = 1000) }}
@@ -35,9 +47,15 @@ tests/\<filename>.sql
 select ...
 ```
 
+</File>
+
+</TabItem>
+
+<TabItem value="generic">
+
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
-macros/\<filename>.sql
+<File name='macros/<filename>.sql'>
 
 ```sql
 {% test <testname>(model, column_name) %}
@@ -49,9 +67,15 @@ select ...
 {% endtest %}
 ```
 
+</File>
+
+</TabItem>
+
+<TabItem value="project">
+
 Set the default for all tests in a package or project:
 
-dbt\_project.yml
+<File name='dbt_project.yml'>
 
 ```yaml
 data_tests:
@@ -61,10 +85,8 @@ data_tests:
     +limit: 50 # tests in <package_name>
 ```
 
-## Was this page helpful?
+</File>
 
-YesNo
+</TabItem>
 
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</Tabs>

@@ -1,22 +1,23 @@
 # About dbt parse command
 
+
 The `dbt parse` command parses and validates the contents of your dbt project. If your project contains Jinja or YAML syntax errors, the command will fail.
 
-It will also produce an artifact with detailed timing information, which is useful to understand parsing times for large projects. Refer to [Project parsing](https://docs.getdbt.com/reference/parsing.md) for more information.
+It will also produce an artifact with detailed timing information, which is useful to understand parsing times for large projects. Refer to [Project parsing](/reference/parsing) for more information.
 
-Starting in v1.5, `dbt parse` will write or return a [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md), enabling you to introspect dbt's understanding of all the resources in your project. Since `dbt parse` doesn't connect to your warehouse, [this manifest will not contain any compiled code](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md).
+Starting in v1.5, `dbt parse` will write or return a [manifest](/reference/artifacts/manifest-json), enabling you to introspect dbt's understanding of all the resources in your project. Since `dbt parse` doesn't connect to your warehouse, [this manifest will not contain any compiled code](/faqs/Warehouse/db-connection-dbt-compile).
 
-By default, the Studio IDE will attempt a "partial" parse, which means it'll only check changes since the last parse (new or updated parts of your project when you make changes). Since the Studio IDE automatically parses in the background whenever you save your work, manually running `dbt parse` yourself is likely to be fast because it's just looking at recent changes.
+By default, the <Constant name="studio_ide" /> will attempt a "partial" parse, which means it'll only check changes since the last parse (new or updated parts of your project when you make changes). Since the <Constant name="studio_ide" /> automatically parses in the background whenever you save your work, manually running `dbt parse` yourself is likely to be fast because it's just looking at recent changes.
 
 As an option, you can tell dbt to check the entire project from scratch by using the `--no-partial-parse` flag. This makes dbt perform a full re-parse of the project, not just the recent changes.
 
-```text
+```
 $ dbt parse
 13:02:52  Running with dbt=1.5.0
 13:02:53  Performance info: target/perf_info.json
 ```
 
-target/perf\_info.json
+<File name='target/perf_info.json'>
 
 ```json
 {
@@ -82,10 +83,4 @@ target/perf\_info.json
 }
 ```
 
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+</File>

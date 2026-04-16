@@ -1,31 +1,35 @@
 # Migrate to the latest YAML spec
 
-The latest Semantic Layer specification creates an open standard for defining metrics and dimensions that works across multiple platforms. It simplifies authorship by embedding semantic annotations alongside each model, replacing measures with simple metrics, and promoting frequently used options to top-level keys.
 
-With the new spec, you get simpler configuration without losing flexibility, faster onboarding for new contributors, and a clearer path to consistent, governed metrics across your organization.
 
-Availability
+The latest Semantic Layer specification creates an open standard for defining metrics and dimensions that works across multiple platforms. It simplifies authorship by embedding semantic annotations alongside each model, replacing measures with simple metrics, and promoting frequently used options to top-level keys. 
 
-The new YAML spec is currently only available in the dbt Fusion engine, and will be coming soon to the dbt platform **Latest** release track and dbt Core v1.12.
+With the new spec, you get simpler configuration without losing flexibility, faster onboarding for new contributors, and a clearer path to consistent, governed metrics across your organization. 
 
-For more information about availability, reach out to your account manager or post in the [#dbt-semantic-layer](https://getdbt.slack.com/archives/C046L0VTVR6) channel in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/).
+import LatestYamlSpecAvailability from '/snippets/_latest-yaml-spec-availability.md';
 
-## Changes in the latest spec[​](#changes-in-the-latest-spec "Direct link to Changes in the latest spec")
+<LatestYamlSpecAvailability />
+
+## Changes in the latest spec 
 
 This section highlights the key updates in the latest metrics spec and compares them to the legacy spec.
 
-* [Semantic models](#semantic-models): These define the business logic for your metrics by specifying entities, dimensions, and how they relate to your data models. In the new spec, `semantic_model` is nested directly under each model in `models:` instead of being a top-level key.
-* [Entities and dimensions](#entities-and-dimensions): Entities are the people, places, or things you want to group or join your metrics by (like `user_id` or `order_id`), while dimensions are the attributes you use to filter or slice your data (like `status` or `region`). In the new spec, both are defined directly under `columns:`.
-* [Time dimension](#time-dimension): Time dimensions are the date or timestamp columns that let you analyze metrics over time (like `order_date` or `created_at`). In the new spec, set `agg_time_dimension` at the model level as the default time dimension for all metrics, with the option to override per metric. Define `granularity` at the column level instead of using the deprecated `time_granularity`.
-* [Simple metrics](#simple-metrics): Metrics that directly reference a single column expression within a semantic model, without any additional columns involved. Simple metrics replace measures in the new spec. Use `type: simple` metrics defined directly within the model to replace measures.
-* [Advanced metrics](#advanced-metrics): These are metrics that combine or build upon other metrics, such as ratios, conversions, or derived calculations. In the new spec, define simple metrics inside the model, and create cross‑model metrics under a top‑level `metrics` block. Top-level key is required for any metric that depends on metrics or dimensions defined in a different semantic model.
-* [`type_params`](#type_params): This is a wrapper key in the legacy spec that contains metric-specific configurations (for example, `expr`, `join_to_timespine`). `type_params` is deprecated in the new spec and these parameters are promoted to top-level keys within each metric definition.
+- [Semantic models](#semantic-models): These define the business logic for your metrics by specifying entities, dimensions, and how they relate to your data models. In the new spec, `semantic_model` is nested directly under each model in `models:` instead of being a top-level key.
+- [Entities and dimensions](#entities-and-dimensions): Entities are the people, places, or things you want to group or join your metrics by (like `user_id` or `order_id`), while dimensions are the attributes you use to filter or slice your data (like `status` or `region`). In the new spec, both are defined directly under `columns:`.
+- [Time dimension](#time-dimension): Time dimensions are the date or timestamp columns that let you analyze metrics over time (like `order_date` or `created_at`). In the new spec, set `agg_time_dimension` at the model level as the default time dimension for all metrics, with the option to override per metric. Define `granularity` at the column level instead of using the deprecated `time_granularity`.
+- [Simple metrics](#simple-metrics): Metrics that directly reference a single column expression within a semantic model, without any additional columns involved. Simple metrics replace measures in the new spec. Use `type: simple` metrics defined directly within the model to replace measures.
+- [Advanced metrics](#advanced-metrics): These are metrics that combine or build upon other metrics, such as ratios, conversions, or derived calculations. In the new spec, define simple metrics inside the model, and create cross‑model metrics under a top‑level `metrics` block. Top-level key is required for any metric that depends on metrics or dimensions defined in a different semantic model.
+- [`type_params`](#type_params): This is a wrapper key in the legacy spec that contains metric-specific configurations (for example, `expr`, `join_to_timespine`). `type_params` is deprecated in the new spec and these parameters are promoted to top-level keys within each metric definition.
 
-### Semantic models[​](#semantic-models "Direct link to Semantic models")
+### Semantic models
 
 The `semantic_model` key is embedded under `models`.
 
-#### New spec
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 models:
@@ -34,8 +38,11 @@ models:
       enabled: true # required
       name: fct_orders_semantic_model # optional override; defaults to value of model.name
 ```
+</div>
 
-#### Legacy spec
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 semantic_models:
@@ -43,11 +50,23 @@ semantic_models:
      model: ref('orders')
 ```
 
-### Entities and dimensions[​](#entities-and-dimensions "Direct link to Entities and dimensions")
+</div>
+
+</div>
+
+import SLMeshLatestSpec from '/snippets/_sl-mesh-latest-spec.md';
+
+<SLMeshLatestSpec/>
+
+### Entities and dimensions
 
 Entities and dimensions are defined directly under columns, creating a 1:1 relationship between the physical columns and their semantic definitions.
 
-#### New spec
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 models:
@@ -78,7 +97,11 @@ models:
           type: categorical
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 semantic_models:
@@ -101,12 +124,21 @@ semantic_models:
         expr: order_status
 ```
 
-### Time dimension[​](#time-dimension "Direct link to Time dimension")
+</div>
 
-* `agg_time_dimension`: Set once at the model level as the default time dimension for all metrics in that semantic model. You can still override it per metric with `agg_time_dimension`.
-* `time granularity`: Deprecated in the new spec. Define the native grain on the time dimension column with `granularity` (for example, `hour`, `day`).
+</div>
 
-#### New spec
+
+### Time dimension
+
+- `agg_time_dimension`: Set once at the model level as the default time dimension for all metrics in that semantic model. You can still override it per metric with `agg_time_dimension`.
+- `time granularity`: Deprecated in the new spec. Define the native grain on the time dimension column with `granularity` (for example, `hour`, `day`).
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 models:
@@ -141,7 +173,11 @@ models:
         agg_time_dimension: created_at # override to use created_at as the time dimension
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 semantic_models:
@@ -172,11 +208,19 @@ metrics:
       measure: active_subscriptions
 ```
 
-### Simple metrics[​](#simple-metrics "Direct link to Simple metrics")
+</div>
+
+</div>
+
+### Simple metrics
 
 Measures are deprecated in the new spec and are replaced with simple metrics.
 
-#### New spec
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 models:
@@ -200,7 +244,11 @@ models:
         expr: amount_pretax
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 semantic_models:
@@ -226,11 +274,20 @@ metrics:
       measure: lifetime_spend_pretax
 ```
 
-### Advanced metrics[​](#advanced-metrics "Direct link to Advanced metrics")
+</div>
+
+</div>
+
+
+### Advanced metrics
 
 Define simple metrics inside the model, and create cross‑model metrics under a top‑level `metrics` block. Top-level key is required for any metric that depends on metrics or dimensions defined in a different semantic model.
 
-#### New spec
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 # define simple metrics where the data lives
@@ -262,7 +319,11 @@ metrics:
     denominator: sessions
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 semantic_models:
@@ -285,18 +346,26 @@ metrics:
       denominator: { measure: sessions }
 ```
 
-### `type_params`[​](#type_params "Direct link to type_params")
+</div>
+
+</div>
+
+### `type_params`
 
 The `type_params` key is deprecated. The following are direct keys on the metric:
 
-* `expr`
-* `percentile`
-* `percentile_type`
-* `non_additive_dimension: { name, window_agg, group_by }`
-* `join_to_timespine`
-* `fill_nulls_with`
+- `expr`
+- `percentile`
+- `percentile_type`
+- `non_additive_dimension: { name, window_agg, group_by }`
+- `join_to_timespine`
+- `fill_nulls_with`
 
-#### New spec
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yml
 models:
@@ -312,7 +381,11 @@ models:
         percentile_type: discrete
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yml
 metrics:
@@ -324,9 +397,17 @@ metrics:
       percentile_type: discrete
 ```
 
-For [derived metrics](https://docs.getdbt.com/docs/build/derived.md), `type_params.metrics` is renamed `input_metrics`.
+</div>
 
-#### New spec
+</div>
+
+For [derived metrics](/docs/build/derived), `type_params.metrics` is renamed `input_metrics`.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yaml
 metrics:
@@ -343,7 +424,11 @@ metrics:
         alias: bookings_7_days_ago
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yaml
 - name: d7_booking_change
@@ -360,9 +445,17 @@ metrics:
         alias: bookings_7_days_ago
 ```
 
-For [ratio metrics](https://docs.getdbt.com/docs/build/ratio.md), `numerator` and `denominator` are now direct keys on the metric.
+</div>
 
-#### New spec
+</div>
+
+For [ratio metrics](/docs/build/ratio), `numerator` and `denominator` are now direct keys on the metric.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yaml
 metrics:
@@ -372,7 +465,11 @@ metrics:
     denominator: sessions
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yaml
 metrics:
@@ -383,12 +480,19 @@ metrics:
       denominator: sessions
 ```
 
-For [cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md):
+</div>
 
-* `type_params.measure` is renamed `input_metric` and must reference a metric.
-* `type_params.cumulative_type_params` values are direct keys on the metric: `window`, `grain_to_date`, and `period_agg`.
+</div>
 
-#### New spec
+For [cumulative metrics](/docs/build/cumulative):
+- `type_params.measure` is renamed `input_metric` and must reference a metric.
+- `type_params.cumulative_type_params` values are direct keys on the metric: `window`, `grain_to_date`, and `period_agg`.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yaml
 metrics:
@@ -400,7 +504,11 @@ metrics:
     period_agg: sum
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yaml
 metrics:
@@ -414,15 +522,22 @@ metrics:
         period_agg: sum
 ```
 
-For [conversion metrics](https://docs.getdbt.com/docs/build/conversion.md), the following `type_params.conversion_type_params` values are direct keys on the metric:
+</div>
 
-* `entity`
-* `calculation`
-* `base_metric` (previously `base_measure`)
-* `conversion_metric` (previously `conversion_measure`)
-* `constant_properties`
+</div>
 
-#### New spec
+For [conversion metrics](/docs/build/conversion), the following `type_params.conversion_type_params` values are direct keys on the metric: 
+- `entity`
+- `calculation`
+- `base_metric` (previously `base_measure`)
+- `conversion_metric` (previously `conversion_measure`)
+- `constant_properties`
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '20px'}}>
+
+<div>
+
+<h4 style={{marginTop: 0}}>New spec</h4>
 
 ```yaml
 metrics:
@@ -437,7 +552,11 @@ metrics:
         conversion_property: plan
 ```
 
-#### Legacy spec
+</div>
+
+<div>
+
+<h4 style={{marginTop: 0}}>Legacy spec</h4>
 
 ```yaml
 metrics:
@@ -453,17 +572,25 @@ metrics:
           plan: pro
 ```
 
-## Migrating to the latest spec[​](#migrating-to-the-latest-spec "Direct link to Migrating to the latest spec")
+</div>
 
-Migrate your legacy metrics to the latest YAML spec using the dbt-autofix tool in your CLI, the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md), or dbt platform's Studio IDE.
+</div>
 
-<!-- -->
+## Migrating to the latest spec
 
-note
+:::note Studio IDE YAML validation
+The <Constant name="studio_ide" /> validates dbt YAML using JSON Schema from the [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project. These definitions are aligned with the <Constant name="fusion_engine" /> and apply across all [<Constant name="dbt_platform" /> release tracks](/docs/dbt-versions/cloud-release-tracks), including when your development environment is still running <Constant name="core" />.
 
-[dbt Copilot](https://docs.getdbt.com/docs/cloud/dbt-copilot.md) doesn't yet support generating semantic models with the latest YAML spec.
+If the <Constant name="studio_ide" /> flags your YAML as invalid but <Constant name="dbt" /> commands succeed, trust your run results. Share examples with [dbt Support](mailto:support@getdbt.com) or your account team so the schema can be updated.
+:::
 
-### Package compatibility[​](#package-compatibility "Direct link to Package compatibility")
+Migrate your legacy metrics to the latest YAML spec using the dbt-autofix tool in your CLI, the [dbt VS Code extension](/docs/about-dbt-extension), or <Constant name="dbt_platform"/>'s <Constant name="studio_ide" />.
+
+import CopilotLimitation from '/snippets/_copilot-limitation.md';
+
+<CopilotLimitation />
+
+### Package compatibility
 
 If your project uses dbt packages (listed in `packages.yml`) that define metrics or semantic models, the package maintainer must update those packages to use the latest YAML spec.
 
@@ -475,68 +602,58 @@ To update packages, a package maintainer should:
 
 2. Validate the changes by running:
 
-* For Fusion and dbt users in the dbt platform CLI or locally with a valid `dbt_cloud.yml`:
+  - For Fusion and dbt users in the dbt platform CLI or locally with a valid `dbt_cloud.yml`:
 
-  ```bash
-  dbt parse
-  dbt sl validate
-  ```
+    ```bash
+    dbt parse
+    dbt sl validate
+    ```
 
-  When using `dbt sl validate` locally, the command validates your local semantic manifest, and not the platform's manifest. This means your uncommitted local changes are included in the validation.
+    When using `dbt sl validate` locally, the command validates your local semantic manifest, and not the platform's manifest. This means your uncommitted local changes are included in the validation.
 
-* For Fusion CLI users not connected to dbt platform and using local MetricFlow:
+  - For Fusion CLI users not connected to dbt platform and using local MetricFlow:
 
-  ```bash
-  dbt parse
-  mf validate-configs
-  ```
+    ```bash
+    dbt parse
+    mf validate-configs
+    ```
 
 3. Release a new version of the package with the updated metrics definitions.
 
-After a compatible version is released, update your project to [install the new package version](https://docs.getdbt.com/docs/build/packages.md). You can then migrate your metrics to the latest spec with the following steps, depending on which tool you're using.
+After a compatible version is released, update your project to [install the new package version](/docs/build/packages). You can then migrate your metrics to the latest spec with the following steps, depending on which tool you're using.
 
-* [Using the CLI or VS Code extension](#using-the-cli-or-vs-code-extension)
-* [Using the Studio IDE](#using-the-studio-ide)
+<!--no toc-->
+- [Using the CLI or VS Code extension](#using-the-cli-or-vs-code-extension)
+- [Using the Studio IDE](#using-the-studio-ide)
 
-### Using the CLI or VS Code extension[​](#using-the-cli-or-vs-code-extension "Direct link to Using the CLI or VS Code extension")
+### Using the CLI or VS Code extension
 
 The [dbt-autofix tool](https://github.com/dbt-labs/dbt-autofix) rewrites legacy metrics YAML into the latest format and produces a clear, reviewable diff in version control. Make sure you have installed the latest version of the autofix tool before migrating to the new spec using the CLI or the dbt VS Code extension.
 
 1. In your CLI or in the VS Code extension, run the following command:
 
-   ```bash
-   dbt-autofix deprecations --semantic-layer
-   ```
+    ```bash
+    dbt-autofix deprecations --semantic-layer
+    ```
 
 2. Review the diff and resolve all flagged items.
 
 3. Run parsing and validations:
 
-   ```bash
-   dbt parse
-   mf validate-configs
-   ```
+    ```bash
+    dbt parse
+    mf validate-configs
+    ```
 
-### Using the Studio IDE[​](#using-the-studio-ide "Direct link to Using the Studio IDE")
+### Using the Studio IDE
 
-Convert your metrics in the Studio IDE in the dbt platform without having to install the `dbt-autofix` tool.
+Convert your metrics in the <Constant name="studio_ide" /> in the <Constant name="dbt_platform" /> without having to install the `dbt-autofix` tool.
 
-1. Navigate to the Studio IDE by clicking **Studio** in the left menu.
-
+1. Navigate to the <Constant name="studio_ide" /> by clicking **Studio** in the left menu.
 2. Make sure to save and commit your work before proceeding. The autofix command may overwrite any unsaved changes.
+3. In the <Constant name="studio_ide" />, run the following command:
 
-3. In the Studio IDE, run the following command:
-
-   ```bash
-   dbt-autofix deprecations --semantic-layer
-   ```
-
-4. Click **Commit and sync** in the top left of the Studio IDE to commit these changes to the project repository.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
+    ```bash
+    dbt-autofix deprecations --semantic-layer
+    ```
+4. Click **Commit and sync** in the top left of the <Constant name="studio_ide" /> to commit these changes to the project repository.
