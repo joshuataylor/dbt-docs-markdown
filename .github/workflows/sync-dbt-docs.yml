@@ -1,0 +1,93 @@
+name: Sync dbt docs
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  DOCS_REMOTE: https://github.com/dbt-labs/docs.getdbt.com.git
+  DOCS_CLONE_DIR: ${{ github.workspace }}/docs.getdbt.com
+  BUILD_DOCS_DIR: ${{ github.workspace }}/dbt-docs-patcher/docs
+
+jobs:
+  sync:
+    name: Sync dbt docs
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v6
+        with:
+          path: ${{ github.workspace }}/dbt-docs-patcher
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone docs.getdbt.com
+        run: git clone --depth 1 --quiet "$DOCS_REMOTE" "$DOCS_CLONE_DIR"
+
+      - name: Restore docs.getdbt.com node_modules cache
+        id: cache-node-modules-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
+          key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install npm dependencies
+        if: steps.cache-node-modules-restore.outputs.cache-hit != 'true'
+        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        run: npm install
+
+      - name: Save node_modules to cache
+        if: always() && steps.cache-node-modules-restore.outputs.cache-hit != 'true'
+        id: cache-node-modules-save
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
+          key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Build docs site
+        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        env:
+          SKIP_LINK_CHECK: "true"
+          DOCS_ENV: build
+        run: |
+          npm exec -- docusaurus clear
+          npm run build -- --no-minify
+
+      - name: Copy markdown files
+        run: |
+          rm -rf "$BUILD_DOCS_DIR"
+          mkdir -p "$BUILD_DOCS_DIR"
+          rsync -a -m --include='*/' --include='*.md' --exclude='*' "$DOCS_CLONE_DIR/website/build/" "$BUILD_DOCS_DIR/"
+          touch "$BUILD_DOCS_DIR/.gitkeep"
+
+          total_md_files=$(find "$BUILD_DOCS_DIR" -type f -name "*.md" | wc -l)
+          echo "Copied $total_md_files markdown files to $BUILD_DOCS_DIR"
+
+      - name: Commit and push to main
+        working-directory: ${{ github.workspace }}/dbt-docs-patcher
+        run: |
+          # always change file for this to ensure we have a commit if there are changes to the markdown files
+          rm -rf docs/test.md || true
+          mkdir -p docs
+          touch docs/test.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git status
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            timestamp=$(TZ='UTC' date +'%Y_%m_%d__%H_%M_%S')
+            git commit -m "Regenerate dbt documentation as of $timestamp"
+            git push origin main
+          fi
