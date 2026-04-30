@@ -2,7 +2,7 @@
 
 
 
-All [service token](/docs/dbt-cloud-apis/service-tokens) traffic is subject to IP restrictions.
+All [service token](/docs/dbt-apis/service-tokens) traffic is subject to IP restrictions.
 
 When using a service token, the following 403 response error indicates the IP is not on the allowlist. To resolve this, you should add your third-party integration CIDRs (network addresses) to your allowlist.
 
