@@ -578,6 +578,7 @@ models:
       - name: order_id
         entity:
           type: primary
+          name: order_id
       - name: customer_id
         entity:
           name: customer
@@ -641,6 +642,7 @@ models:
       - name: order_id
         entity:
           type: primary
+          name: order_id
       - name: customer_id
         entity:
           name: customer
@@ -735,6 +737,7 @@ models:
       - name: order_id
         entity:
           type: primary
+          name: order_id
       - name: customer_id
         entity:
           name: customer
@@ -931,6 +934,7 @@ models:
       - name: order_id
         entity:
           type: primary
+          name: order_id
       - name: customer_id
         entity:
           name: customer
