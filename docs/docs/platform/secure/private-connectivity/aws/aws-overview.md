@@ -1,7 +1,7 @@
 # AWS private connectivity
 
 
-import SetUpPages from '/snippets/_available-tiers-private-connection.md';
+import SetUpPages from '/snippets/_available-tiers-enterprise-plus.md';
 import AWSMatrix from '/snippets/_aws-private-connectivity-matrix.md';
 
 <SetUpPages />

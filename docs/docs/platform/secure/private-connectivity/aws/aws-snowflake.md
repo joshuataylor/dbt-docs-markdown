@@ -3,10 +3,10 @@
 
 # Configuring Snowflake PrivateLink <Lifecycle status="managed_plus" />
 
-import SetUpPages from '/snippets/_available-tiers-private-connection.md';
+import SetUpPages from '/snippets/_available-tiers-enterprise-plus.md';
 import CloudProviders from '/snippets/_private-connection-across-providers.md';
 
-<SetUpPages features={'/snippets/_available-tiers-private-connection.md'}/>
+<SetUpPages features={'/snippets/_available-tiers-enterprise-plus.md'}/>
 
 The following steps walk you through the setup of an AWS-hosted Snowflake PrivateLink endpoint in a <Constant name="dbt" /> multi-tenant environment.
 
@@ -127,7 +127,7 @@ Subject: New Multi-Tenant (Azure or AWS) PrivateLink Request
 - SYSTEM$GET_PRIVATELINK_CONFIG output:
 - *Use privatelink-account-url or regionless-privatelink-account-url?:
 - **Create Internal Stage PrivateLink endpoint? (Y/N):
-- dbt AWS multi-tenant environment (US, EMEA, AU):
+- dbt AWS multi-tenant environment (US, EMEA, AU, JP):
 ```
 
 </Expandable>

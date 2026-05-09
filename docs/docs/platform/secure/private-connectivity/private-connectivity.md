@@ -1,7 +1,7 @@
 # About private connectivity
 
 
-import SetUpPages from '/snippets/_available-tiers-private-connection.md';
+import SetUpPages from '/snippets/_available-tiers-enterprise-plus.md';
 import CloudProviders from '/snippets/_private-connection-across-providers.md';
 import PrivateLinkHostnameWarning from '/snippets/_private-connection-hostname-restriction.md';
 
