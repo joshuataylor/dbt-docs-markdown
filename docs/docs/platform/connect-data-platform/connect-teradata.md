@@ -3,7 +3,7 @@
 
 # Connect Teradata <Lifecycle status="preview" />
 
-Your environment(s) must be on a supported [release track](/docs/dbt-versions/cloud-release-tracks) to use the Teradata connection.
+Your environment(s) must be on a supported [release track](/docs/dbt-versions/dbt-release-tracks) to use the Teradata connection.
 
 | Field                         | Description                                                                                   | Type           | Required? | Example |
 | ----------------------------- | --------------------------------------------------------------------------------------------- | -------------- | --------- | ------- |

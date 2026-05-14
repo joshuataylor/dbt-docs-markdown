@@ -3,7 +3,7 @@
 
 :::note
 
-This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your <Constant name="dbt" /> environment, read [Upgrade dbt version in Cloud](/docs/dbt-versions/upgrade-dbt-version-in-cloud).
+This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your <Constant name="dbt" /> environment, read [Upgrade dbt version in Cloud](/docs/dbt-versions/upgrade-dbt-platform-version).
 
 :::
 

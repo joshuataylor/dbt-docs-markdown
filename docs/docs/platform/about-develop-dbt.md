@@ -14,7 +14,7 @@ Choose the option that best fits your needs:
   <Card
     title="dbt CLI"
     body="Allows you to develop and run dbt commands from your local command line or code editor against your dbt development environment."
-    link="/docs/platform/cloud-cli-installation"
+    link="/docs/platform/dbt-cli-installation"
     icon="dbt-bit"/>
 
   <Card
