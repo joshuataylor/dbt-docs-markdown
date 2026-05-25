@@ -1,4 +1,6 @@
 
+import MacroAccessRestrictions from '/snippets/_macro-access-restrictions.md';
+
 <File name='models/<schema>.yml'>
 
 ```yml
@@ -95,6 +97,8 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
+
+<MacroAccessRestrictions />
 
 ## Default
 
