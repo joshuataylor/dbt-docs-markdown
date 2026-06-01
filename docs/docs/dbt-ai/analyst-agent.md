@@ -1,9 +1,14 @@
-# Analyst agent
+# dbt Copilot in Insights
 
 
-# Analyst agent  <Lifecycle status="beta,managed,managed_plus"/>
+# dbt Copilot in Insights  <Lifecycle status="beta,managed,managed_plus"/>
 
-The Analyst agent lets you chat with your data and get accurate answers powered by the [dbt Semantic Layer](/docs/use-dbt-semantic-layer/dbt-sl). Unlike generic AI chat interfaces, the Analyst agent provides consistent, explainable results with transparent SQL, lineage, and data policies.
+dbt Copilot in Insights lets you chat with your data and get accurate answers powered by the [dbt Semantic Layer](/docs/use-dbt-semantic-layer/dbt-sl). Unlike generic AI chat interfaces, <Constant name="wizard" /> in <Constant name="insights" /> provides consistent, explainable results with transparent SQL, lineage, and data policies.
+
+import CopilotWizardDifferences from '/snippets/_copilot-wizard-diff.md';
+
+<CopilotWizardDifferences/>
+
 
 ## Prerequisites 
 
@@ -14,7 +19,7 @@ The Analyst agent lets you chat with your data and get accurate answers powered 
 - Have a <Constant name="dbt" /> [developer license](/docs/platform/manage-access/seats-and-users) with access to <Constant name="insights" />.
 - Configured [developer credentials](/docs/platform/studio-ide/develop-in-studio#get-started-with-the-studio-ide).
 
-## Using the Analyst agent
+## Using dbt Copilot in Insights
 
 import AnalystAgentsCopilot from '/snippets/_analyst_agents-copilot.md';
 

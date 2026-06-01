@@ -7,6 +7,10 @@ Learn how to navigate the state-aware orchestration interface for better visibil
 
 </IntroText>
 
+import SaoDeprecated from '/snippets/_sao-deprecated.md';
+
+<SaoDeprecated />
+
 ## Models built and reused chart
 
 When you go to your **Account home**, you'll see a chart showing the number of models built and reused, giving you visibility into how state-aware orchestration is optimizing your data builds. This chart helps you to:
@@ -74,3 +78,9 @@ State-aware orchestration uses a cached hash of both code and data state for eac
 - After clearing the cache, the next run rebuilds every model from scratch. Subsequent runs rely on the regenerated cache.
 <Lightbox src="/img/docs/dbt-platform/using-dbt-platform/sao-clear-cache.png" width="90%" title="Clear cache button"/>
 
+## Related docs
+
+- [About dbt State](/docs/deploy/dbt-state-about)
+- [Set up dbt State](/docs/deploy/dbt-state-setup)
+- [dbt State configs](/reference/resource-configs/dbt-state-configs)
+- [Migrate to dbt State](/docs/deploy/dbt-state-migration)
