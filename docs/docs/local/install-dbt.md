@@ -61,13 +61,6 @@ dbt Core is the open-source engine for running dbt locally. It is available in t
 The <Constant name="fusion_engine" /> provides faster parsing, compilation, and execution. Choose your preferred installation method:
 
 <Tabs>
-<TabItem value="vscode" label="VS Code extension" default>
-
-import InstallExtension from '/snippets/_install-dbt-extension.md'; 
-
-<InstallExtension/>
-
-</TabItem>
 
 <TabItem value="cli" label="Fusion CLI">
 
@@ -180,6 +173,14 @@ Common issues and resolutions:
 import AboutFusion from '/snippets/_about-fusion.md';
 
 <AboutFusion />
+
+</TabItem>
+
+<TabItem value="vscode" label="VS Code extension" default>
+
+import InstallExtension from '/snippets/_install-dbt-extension.md'; 
+
+<InstallExtension/>
 
 </TabItem>
 </Tabs>
