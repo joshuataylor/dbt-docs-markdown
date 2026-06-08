@@ -27,7 +27,7 @@ Use the `providers` subcommand to enable a provider and store credentials:
 
 ```bash
 wizard providers list
-wizard providers configure openai_subscription    # or openai, anthropic, bedrock, azure, snowflake
+wizard providers configure openai_subscription    # or openai, bedrock, azure, gemini, snowflake
 wizard providers enable openai_subscription
 ```
 
@@ -50,7 +50,7 @@ Credentials are stored in `~/.dbt/wizard/provider-auth.json`. Provider settings 
 
 The first time you start <Constant name="wizard" /> in a project, onboarding prompts you to choose a provider:
 
-1. At the **Configure a Provider** prompt, select your provider (OpenAI subscription, OpenAI API key, Anthropic, Amazon Bedrock, Azure, or Snowflake).
+1. At the **Configure a Provider** prompt, select your provider (OpenAI subscription, OpenAI API key, Anthropic, Amazon Bedrock, Azure, Google Gemini, or Snowflake).
 2. Paste your API key or cloud credential details when prompted, then press **Enter**.
 3. Choose an AI model to finish.
 
