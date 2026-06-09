@@ -1,9 +1,9 @@
-# Non-interactive mode
+# Headless mode
 
 
 import WizardFeedbackCallout from '/snippets/_wizard-feedback-callout.md';
 
-# Non-interactive mode <Lifecycle status="beta"/>
+# Headless mode <Lifecycle status="beta"/>
 
 <IntroText>
 <Constant name="wizard" /> can run without the interactive TUI — useful for scripts, CI pipelines, pre-commit hooks, and any workflow where you want a one-shot result without human-in-the-loop approval.
@@ -88,9 +88,9 @@ wizard review --commit abc1234
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 ```
 
-## Permissions in non-interactive mode
+## Permissions in headless mode
 
-In non-interactive `exec` mode, Wizard runs without interactive approval prompts. Pre-grant the sandbox permissions you need:
+In headless `exec` mode, Wizard runs without interactive approval prompts. Pre-grant the sandbox permissions you need:
 
 ```bash
 # Read-only analysis (default — safe for CI)
