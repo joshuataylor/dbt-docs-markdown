@@ -3,6 +3,8 @@
 
 # Connect BigQuery <ProductCard text="Fusion compatible" />
 
+To see which BigQuery functions are supported in <Constant name="fusion"/> in `strict` mode, refer to [BigQuery function support](/reference/resource-configs/bigquery-function-support).
+
 ## Required permissions
 
 import BigQueryPerms from '/snippets/_bigquery-permissions.md';
