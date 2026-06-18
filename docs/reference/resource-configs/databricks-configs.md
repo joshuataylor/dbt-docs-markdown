@@ -171,6 +171,35 @@ models:
 
 </File>
 
+## Setting row filters
+_Available in versions 1.12 or higher_
+
+You can set `row_filter` to apply a [Unity Catalog row filter](https://docs.databricks.com/aws/en/tables/row-and-column-filters) to a model, restricting which rows a query returns based on a SQL UDF. dbt applies the filter with a `WITH ROW FILTER` clause when it creates the relation, and emits `ALTER ... SET ROW FILTER` / `ALTER ... DROP ROW FILTER` to add, update, or remove the filter on subsequent runs.
+
+`row_filter` is an optional model-level config. When you set it, both of the following properties are required:
+
+| Property   | Description   | Required?| Example  |
+|------------|---------------|----------|----------|
+| function   | The row-filter UDF to apply. Provide either an unqualified name (dbt qualifies it with the model's catalog and schema) or a fully qualified `catalog.schema.function`. dbt rejects a two-part schema.function name as ambiguous. | Yes | `region_filter` |
+| columns    | The columns passed as arguments to the filter function. Can be a single string or a list. Required when `function` is set. | Yes | `[region]` |
+
+Row filters are supported on the `table`, `incremental`, `materialized_view`, and `streaming_table` materializations. They are _not_ supported on regular views or on Hive Metastore relations. Configuring `row_filter` on either raises a compiler error.
+
+This example applies a row filter to a model:
+
+<File name='schema.yml'>
+
+```yaml
+models:
+  - name: orders
+    config:
+      row_filter:
+        function: my_catalog.my_schema.region_filter
+        columns: [region]
+```
+
+</File>
+
 ## Incremental models
 _Available in versions 1.9 or higher_
 
@@ -1323,6 +1352,17 @@ _Available in versions 1.11 or higher_
     databricks_tags={'pii': 'contains_email', 'team': 'analytics'}
 ) }}
 ```
+
+`dbt-databricks` v1.12+ adds support for key-only tags. To set a tag that has a key but no value, set the tag's value to an empty string `''` or to `None`:
+
+```sql
+{{ config(
+    materialized='streaming_table',
+    databricks_tags={'sensitive': '', 'reviewed': None}
+) }}
+```
+
+This applies to both table-level and column-level `databricks_tags`. Non-string values, such as numbers or booleans, are converted to strings.
 
 Tags are applied via `ALTER` statements after the materialization is created. Once applied, tags cannot be removed through dbt-databricks configuration changes. To remove tags, you must use Databricks directly or a post-hook.
 
