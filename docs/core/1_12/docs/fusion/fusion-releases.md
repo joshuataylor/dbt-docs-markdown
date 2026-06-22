@@ -112,9 +112,9 @@ Planned Promotion
 
 [v2.0.0-preview.190](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview190 "View this release in the dbt Fusion changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **kczimm**Jun 19, 2026, 05:50 PM
+Released by: **johnchappelledbt**Jun 22, 2026, 07:18 PM
 
-INC-6945
+Automated ST promotion
 
 [v2.0.0-preview.189](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview189 "View this release in the dbt Fusion changelog")GoodDevCanaryLateststable
 
