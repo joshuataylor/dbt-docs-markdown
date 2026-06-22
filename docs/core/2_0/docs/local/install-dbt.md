@@ -42,6 +42,10 @@ To upgrade to a newer version:
 dbt system update
 ```
 
+note
+
+`dbtf system update` installs Fusion globally — it updates your `PATH` in `~/.zshrc` and creates a `dbtf` alias. To manage multiple versions or isolate your install, use separate shell profiles or virtual environments.
+
  CDN installation for Windows
 
 ```powershell
