@@ -1,0 +1,241 @@
+# Source configurations
+
+## Available configurations[​](#available-configurations "Direct link to Available configurations")
+
+Sources configurations support [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md), [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md), and [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md)
+
+### General configurations[​](#general-configurations "Direct link to General configurations")
+
+General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
+
+* Project YAML file
+* Properties YAML file
+
+dbt\_project.yml
+
+```yaml
+sources:
+  <resource-path>:
+    +enabled: true | false
+    +event_time: my_time_field
+    +freshness:
+      warn_after:  
+        count: <positive_integer>
+        period: minute | hour | day
+    +meta:
+      key: value
+```
+
+models/properties.yml
+
+```yaml
+
+sources:
+  - name: [<source-name>]
+    database: <database-name>
+    schema: <schema-name>
+    config:
+      enabled: true | false
+      event_time: my_time_field
+      meta: {<dictionary>}
+      freshness:
+        warn_after:  
+          count: <positive_integer>
+          period: minute | hour | day
+
+    tables:
+      - name: [<source-table-name>]
+        config:
+          enabled: true | false
+          event_time: my_time_field
+          meta: {<dictionary>}
+```
+
+## Configuring sources[​](#configuring-sources "Direct link to Configuring sources")
+
+Sources can be configured via a `config:` block within their `.yml` definitions, or from the `dbt_project.yml` file under the `sources:` key. This configuration is most useful for configuring sources imported from [a package](https://docs.getdbt.com/docs/build/packages.md).
+
+You can disable sources imported from a package to prevent them from rendering in the documentation, or to prevent [source freshness checks](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) from running on source tables imported from packages.
+
+* **Note**: To disable a source table nested in a properties YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that properties YAML file, as well as the source name and the table name in the project YAML file (`dbt_project.yml`).<br /><br />The following example shows how to disable a source table nested in a properties YAML file in a subfolder:
+
+  dbt\_project.yml
+
+  ```yaml
+  sources:
+    your_project_name:
+      subdirectory_name:
+        source_name:
+          source_table_name:
+            +enabled: false
+            +event_time: my_time_field
+  ```
+
+### Examples[​](#examples "Direct link to Examples")
+
+The following examples show how to configure sources in your dbt project.
+
+— [Disable all sources imported from a package](#disable-all-sources-imported-from-a-package)<br />— [Conditionally enable a single source](#conditionally-enable-a-single-source)<br />— [Disable a single source from a package](#disable-a-single-source-from-a-package)<br />— [Configure a source with an `event_time`](#configure-a-source-with-an-event_time)<br />— [Configure meta to a source](#configure-meta-to-a-source)<br />— [Configure source freshness](#configure-source-freshness)<br />
+
+#### Disable all sources imported from a package[​](#disable-all-sources-imported-from-a-package "Direct link to Disable all sources imported from a package")
+
+To apply a configuration to all sources included from a [package](https://docs.getdbt.com/docs/build/packages.md), state your configuration under the [project name](https://docs.getdbt.com/reference/project-configs/name.md) in the `sources:` config as a part of the resource path.
+
+dbt\_project.yml
+
+```yml
+sources:
+  events:
+    +enabled: false
+```
+
+#### Conditionally enable a single source[​](#conditionally-enable-a-single-source "Direct link to Conditionally enable a single source")
+
+When defining a source, you can disable the entire source, or specific source tables, using the inline `config` property. You can also specify `database` and `schema` to override the target database and schema:
+
+models/sources.yml
+
+```yml
+
+sources:
+  - name: my_source
+    database: raw
+    schema: my_schema
+    config:
+      enabled: true
+    tables:
+      - name: my_source_table  # enabled
+      - name: ignore_this_one  # not enabled
+        config:
+          enabled: false
+```
+
+You can configure specific source tables, and use [variables](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) as the input to that configuration:
+
+models/sources.yml
+
+```yml
+
+sources:
+  - name: my_source
+    tables:
+      - name: my_source_table
+        config:
+          enabled: "{{ var('my_source_table_enabled', false) }}"
+```
+
+#### Disable a single source from a package[​](#disable-a-single-source-from-a-package "Direct link to Disable a single source from a package")
+
+To disable a specific source from another package, qualify the resource path for your configuration with both a package name and a source name. In this case, we're disabling the `clickstream` source from the `events` package.
+
+dbt\_project.yml
+
+```yml
+sources:
+  events:
+    clickstream:
+      +enabled: false
+```
+
+Similarly, you can disable a specific table from a source by qualifying the resource path with a package name, source name, and table name:
+
+dbt\_project.yml
+
+```yml
+sources:
+  events:
+    clickstream:
+      pageviews:
+        +enabled: false
+```
+
+#### Configure a source with an `event_time`[​](#configure-a-source-with-an-event_time "Direct link to configure-a-source-with-an-event_time")
+
+To configure a source with an `event_time`, specify the `event_time` field in the source configuration. This field is used to represent the actual timestamp of the event, rather than something like a loading date.
+
+For example, if you had a source table called `clickstream` in the `events` source, you can use the timestamp for each event in the `event_timestamp` column as follows:
+
+dbt\_project.yml
+
+```yaml
+sources:
+  events:
+    clickstream:
+      +event_time: event_timestamp
+```
+
+In this example, the `event_time` is set to `event_timestamp`, which has the exact time each clickstream event happened. Not only is this required for the [incremental microbatching strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md), but when you compare data across [CI and production](https://docs.getdbt.com/docs/deploy/advanced-ci.md#speeding-up-comparisons) environments, dbt will use `event_timestamp` to filter and match data by this event-based timeframe, ensuring that only overlapping timeframes are compared.
+
+#### Configure meta to a source[​](#configure-meta-to-a-source "Direct link to Configure meta to a source")
+
+Use the `meta` field to assign metadata information to sources. This is useful for tracking additional context, documentation, logging, and more.
+
+For example, you can add `meta` information to a `clickstream` source to include information about the data source system:
+
+dbt\_project.yml
+
+```yaml
+sources:
+  events:
+    clickstream:
+      +meta:
+        source_system: "Google analytics"
+        data_owner: "marketing_team"
+```
+
+#### Configure source freshness[​](#configure-source-freshness "Direct link to Configure source freshness")
+
+Use a `freshness` block to define expectations about how frequently a table is updated with new data, and to raise warnings and errors when those expectation are not met.
+
+dbt compares the most recently updated timestamp calculated from a column, warehouse metadata, or custom query against the current timestamp when the freshness check is running.
+
+You can provide one or both of the `warn_after` and `error_after` parameters. If neither is provided, then dbt will not calculate freshness snapshots for the tables in this source. For more information, see [freshness](https://docs.getdbt.com/reference/resource-properties/freshness.md).
+
+See the following example of a `dbt_project.yml` file using the `freshness` config:
+
+dbt\_project.yml
+
+```yml
+sources:
+  <resource-path>:
+    +freshness:
+      warn_after:  
+        count: 4
+        period: hour
+```
+
+## Example source configuration[​](#example-source-configuration "Direct link to Example source configuration")
+
+The following is a valid source configuration for a project with:
+
+* `name: jaffle_shop`
+* A package called `events` containing multiple source tables
+
+dbt\_project.yml
+
+```yml
+name: jaffle_shop
+config-version: 2
+...
+sources:
+  # project names
+  jaffle_shop:
+    +enabled: true
+
+  events:
+    # source names
+    clickstream:
+      # table names
+      pageviews:
+        +enabled: false
+      link_clicks:
+        +enabled: true
+```
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

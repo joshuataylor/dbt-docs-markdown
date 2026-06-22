@@ -1,0 +1,154 @@
+# About flags (global configs)
+
+In dbt, "flags" (also called "global configs" and often configured with [environment variables](https://docs.getdbt.com/reference/global-configs/environment-variable-configs.md)) are settings for fine-tuning *how* dbt runs your project. They differ from [resource-specific configs](https://docs.getdbt.com/reference/configs-and-properties.md) that tell dbt *what* to run.
+
+Flags control things like the visual output of logs, whether to treat specific warning messages as errors, or whether to "fail fast" after encountering the first error. Flags are "global" configs because they are available for all dbt commands and they can be set in multiple places.
+
+You can use flags with the dbt Fusion engine or dbt Core engine through the CLI during local development or in dbt platform.
+
+There is a significant overlap between dbt's flags and dbt's command line options, but there are differences:
+
+* Certain flags can only be set in [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md) and cannot be overridden for specific invocations by using CLI options.
+* If a CLI option is supported by specific commands, rather than supported by all commands ("global"), it is generally not considered to be a "flag".
+
+You can configure flags in `dbt_project.yml`, environment variables, and CLI options. For details, refer to [environment variable configs](https://docs.getdbt.com/reference/global-configs/environment-variable-configs.md).
+
+### Setting flags[​](#setting-flags "Direct link to Setting flags")
+
+<!-- -->
+
+There are multiple ways of setting flags, which depend on the use case:
+
+* **[CLI options](https://docs.getdbt.com/reference/global-configs/command-line-options.md):** Define behavior specific to *this invocation*. Supported for all dbt commands.
+* **[Environment variables](https://docs.getdbt.com/reference/global-configs/environment-variable-configs.md):** Define different behavior in different runtime environments (development vs. production vs. [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md)), or different behavior for different users in development (based on personal preferences).
+* **[Project-level `flags` in `dbt_project.yml`](https://docs.getdbt.com/reference/global-configs/project-flags.md):** Define version-controlled defaults for everyone running this project. Also, opt in or out of [behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) to manage your migration off legacy functionality.
+* **[User settings (`~/.dbt/user_settings.yml`)](https://docs.getdbt.com/reference/global-configs/user-settings.md):** Define personal preferences that apply across all projects on your machine. Written automatically by `dbt login`.
+
+The most specific setting "wins." CLI options take the highest precedence, followed by environment variables, then `dbt_project.yml`, and finally `user_settings.yml`. If you set the flag in none of those places, it will use the default value defined within dbt.
+
+Most flags can be set in all three places:
+
+```yaml
+# dbt_project.yml
+flags:
+  # set default for running this project -- anywhere, anytime, by anyone
+  fail_fast: true
+```
+
+<!-- -->
+
+```bash
+# set this environment variable to 'True' (bash syntax)
+export DBT_ENGINE_FAIL_FAST=1
+dbt run
+```
+
+```bash
+dbt run --fail-fast # set to True for this specific invocation
+dbt run --no-fail-fast # set to False
+```
+
+There are two categories of exceptions:
+
+1. **Flags setting file paths:** Flags for file paths that are relevant to runtime execution (for example, `--log-path` or `--state`) cannot be set in `dbt_project.yml`. To override defaults, pass CLI options or set environment variables (`DBT_ENGINE_LOG_PATH` and `DBT_ENGINE_STATE`). Flags that tell dbt where to find project resources (for example, `model-paths`) are set in `dbt_project.yml`, but as a top-level key, outside the `flags` dictionary; these configs are expected to be fully static and never vary based on the command or execution environment.
+2. **Opt-in flags:** Flags opting in or out of [behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) can *only* be defined in `dbt_project.yml`. These are intended to be set in version control and migrated via pull/merge request. Their values should not diverge indefinitely across invocations, environments, or users.
+
+### Accessing flags[​](#accessing-flags "Direct link to Accessing flags")
+
+Custom user-defined logic, written in Jinja, can check the values of flags using [the `flags` context variable](https://docs.getdbt.com/reference/dbt-jinja-functions/flags.md).
+
+```yaml
+# dbt_project.yml
+
+on-run-start:
+  - '{{ log("I will stop at the first sign of trouble", info = true) if flags.FAIL_FAST }}'
+```
+
+## Available flags[​](#available-flags "Direct link to Available flags")
+
+Because the values of `flags` can differ across invocations, we strongly advise against using `flags` as an input to configurations or dependencies (`ref` + `source`) that dbt resolves [during parsing](https://docs.getdbt.com/reference/parsing.md#known-limitations).
+
+### Common flag examples[​](#common-flag-examples "Direct link to Common flag examples")
+
+Use the `--target` flag to specify which target (environment) to use when running dbt commands. For example:
+
+```bash
+dbt run --target dev
+dbt run --target prod
+dbt build --target staging
+```
+
+The `--target` flag allows you to run the same dbt project against different environments without modifying your configuration files. Define the target in your `profiles.yml` file. Learn more about [connection profiles and targets](https://docs.getdbt.com/docs/local/profiles.yml.md#understanding-targets-in-profiles).
+
+Use this table to compare all available flags and how to configure them across interfaces:
+
+* **dbt CLI**: Indicates whether the flag is supported in the [dbt platform-supported CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md).
+* **Type / default**: Shows the accepted value type and default.
+* **In project**: Indicates whether you can set the flag in `dbt_project.yml`.
+* **Env var**: Shows the corresponding environment variable name, when available. In general, v1.10 and earlier use the `DBT_` prefix, while v1.11+ uses the `DBT_ENGINE_` prefix.
+* **CLI flags**: Lists command-line options for setting the flag for a specific invocation.
+
+<!-- -->
+
+| Flag                                                                                                                                                    | dbt CLI?     | Type / default                                                                    | In project?             | Env var                                                              | CLI flags                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [cache\_selected\_only](https://docs.getdbt.com/reference/global-configs/cache.md)                                                                      | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_CACHE_SELECTED_ONLY`                                     | `--cache-selected-only`<br />`--no-cache-selected-only`                                                                    |
+| [clean\_project\_files\_only](https://docs.getdbt.com/reference/commands/clean.md#--clean-project-files-only)                                           | ❌           | boolean<br />default: True                                                        | ❌                      | `DBT_ENGINE_CLEAN_PROJECT_FILES_ONLY`                                | `--clean-project-files-only`<br />`--no-clean-project-files-only`                                                          |
+| [debug](https://docs.getdbt.com/reference/global-configs/logs.md#debug-level-logging)                                                                   | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_DEBUG`                                                   | `--debug`<br />`--no-debug`                                                                                                |
+| [defer](https://docs.getdbt.com/reference/node-selection/defer.md)                                                                                      | ✅ (default) | boolean<br />default: False                                                       | ❌                      | `DBT_ENGINE_DEFER`                                                   | `--defer`<br />`--no-defer`                                                                                                |
+| [defer\_state](https://docs.getdbt.com/reference/node-selection/defer.md)                                                                               | ❌           | path<br />default: None                                                           | ❌                      | `DBT_ENGINE_DEFER_STATE`                                             | `--defer-state`                                                                                                            |
+| [favor\_state](https://docs.getdbt.com/reference/node-selection/defer.md#favor-state)                                                                   | ✅           | boolean<br />default: False                                                       | ❌                      | `DBT_ENGINE_FAVOR_STATE`                                             | `--favor-state`<br />`--no-favor-state`                                                                                    |
+| [empty](https://docs.getdbt.com/docs/build/empty-flag.md)                                                                                               | ✅           | boolean<br />default: False                                                       | ❌                      | `DBT_ENGINE_EMPTY`                                                   | `--empty`<br />`--no-empty`                                                                                                |
+| [event\_time\_start](https://docs.getdbt.com/reference/dbt-jinja-functions/model.md#batch-properties-for-microbatch-models)                             | ✅           | datetime<br />default: None                                                       | ❌                      | `DBT_ENGINE_EVENT_TIME_START`                                        | `--event-time-start`                                                                                                       |
+| [event\_time\_end](https://docs.getdbt.com/reference/dbt-jinja-functions/model.md#batch-properties-for-microbatch-models)                               | ✅           | datetime<br />default: None                                                       | ❌                      | `DBT_ENGINE_EVENT_TIME_END`                                          | `--event-time-end`                                                                                                         |
+| [fail\_fast](https://docs.getdbt.com/reference/global-configs/failing-fast.md)                                                                          | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_FAIL_FAST`                                               | `--fail-fast`<br />`-x`<br />`--no-fail-fast`                                                                              |
+| [full\_refresh](https://docs.getdbt.com/reference/resource-configs/full_refresh.md)                                                                     | ✅           | boolean<br />default: False                                                       | ✅ (as resource config) | `DBT_ENGINE_FULL_REFRESH`                                            | `--full-refresh`<br />`--no-full-refresh`                                                                                  |
+| [indirect\_selection](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md#syntax-examples)                                      | ❌           | enum<br />default: eager                                                          | ✅                      | `DBT_ENGINE_INDIRECT_SELECTION`                                      | `--indirect-selection`                                                                                                     |
+| [introspect](https://docs.getdbt.com/reference/commands/compile.md#introspective-queries)                                                               | ❌           | boolean<br />default: True                                                        | ❌                      | `DBT_ENGINE_INTROSPECT`                                              | `--introspect`<br />`--no-introspect`                                                                                      |
+| [log\_cache\_events](https://docs.getdbt.com/reference/global-configs/logs.md#logging-relational-cache-events)                                          | ❌           | boolean<br />default: False                                                       | ❌                      | `DBT_ENGINE_LOG_CACHE_EVENTS`                                        | `--log-cache-events`<br />`--no-log-cache-events`                                                                          |
+| [log\_format\_file](https://docs.getdbt.com/reference/global-configs/logs.md#log-formatting)                                                            | ❌           | enum<br />default: default (text)                                                 | ✅                      | `DBT_ENGINE_LOG_FORMAT_FILE`                                         | `--log-format-file`                                                                                                        |
+| [log\_format](https://docs.getdbt.com/reference/global-configs/logs.md#log-formatting)                                                                  | ❌           | enum<br />default: default (text)                                                 | ✅                      | `DBT_ENGINE_LOG_FORMAT`                                              | `--log-format`                                                                                                             |
+| [log\_level\_file](https://docs.getdbt.com/reference/global-configs/logs.md#log-level)                                                                  | ❌           | enum<br />default: debug                                                          | ✅                      | `DBT_ENGINE_LOG_LEVEL_FILE`                                          | `--log-level-file`                                                                                                         |
+| [log\_level](https://docs.getdbt.com/reference/global-configs/logs.md#log-level)                                                                        | ❌           | enum<br />default: info                                                           | ✅                      | `DBT_ENGINE_LOG_LEVEL`                                               | `--log-level`                                                                                                              |
+| [log\_path](https://docs.getdbt.com/reference/global-configs/logs.md)                                                                                   | ❌           | path<br />default: None (uses `logs/`)                                            | ❌                      | `DBT_ENGINE_LOG_PATH`                                                | `--log-path`                                                                                                               |
+| [manage\_state](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) (v1.12+)                                                                        | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_MANAGE_STATE`                                            | `--manage-state`<br />`--no-manage-state`                                                                                  |
+| [partial\_parse](https://docs.getdbt.com/reference/global-configs/parsing.md#partial-parsing)                                                           | ✅           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_PARTIAL_PARSE`                                           | `--partial-parse`<br />`--no-partial-parse`                                                                                |
+| [populate\_cache](https://docs.getdbt.com/reference/global-configs/cache.md)                                                                            | ✅           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_POPULATE_CACHE`                                          | `--populate-cache`<br />`--no-populate-cache`                                                                              |
+| [print](https://docs.getdbt.com/reference/global-configs/print-output.md#suppress-print-messages-in-stdout)                                             | ❌           | boolean<br />default: True                                                        | ❌                      | `DBT_ENGINE_PRINT`                                                   | `--print`<br />`--no-print`                                                                                                |
+| [printer\_width](https://docs.getdbt.com/reference/global-configs/print-output.md#printer-width)                                                        | ❌           | int<br />default: 80                                                              | ✅                      | `DBT_ENGINE_PRINTER_WIDTH`                                           | `--printer-width`                                                                                                          |
+| [profile](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#about-profiles)                                                   | ❌           | string<br />default: None                                                         | ✅ (as top-level key)   | `DBT_ENGINE_PROFILE`                                                 | [`--profile`](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#overriding-profiles-and-targets) |
+| [profiles\_dir](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#about-profiles)                                             | ❌           | path<br />default: None (current dir, then HOME dir)                              | ❌                      | `DBT_ENGINE_PROFILES_DIR`                                            | `--profiles-dir`                                                                                                           |
+| [project\_dir](https://docs.getdbt.com/reference/dbt_project.yml.md)                                                                                    | ❌           | path<br />default: (empty)                                                        | ❌                      | `DBT_ENGINE_PROJECT_DIR`                                             | `--project-dir`                                                                                                            |
+| [quiet](https://docs.getdbt.com/reference/global-configs/logs.md#suppress-non-error-logs-in-output)                                                     | ✅           | boolean<br />default: False                                                       | ❌                      | `DBT_ENGINE_QUIET`                                                   | `--quiet`                                                                                                                  |
+| [resource-type](https://docs.getdbt.com/reference/global-configs/resource-type.md) (v1.8+)                                                              | ✅           | string<br />default: None                                                         | ❌                      | `DBT_ENGINE_RESOURCE_TYPES`<br />`DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` | `--resource-type`<br />`--exclude-resource-type`                                                                           |
+| [sample](https://docs.getdbt.com/docs/build/sample-flag.md)                                                                                             | ✅           | string<br />default: None                                                         | ❌                      | `DBT_ENGINE_SAMPLE`                                                  | `--sample`                                                                                                                 |
+| [send\_anonymous\_usage\_stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md)                                                        | ❌           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS`                              | `--send-anonymous-usage-stats`<br />`--no-send-anonymous-usage-stats`                                                      |
+| [source\_freshness\_run\_project\_hooks](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#source_freshness_run_project_hooks) | ❌           | boolean<br />default: True                                                        | ✅                      | ❌                                                                   | ❌                                                                                                                         |
+| [sqlparse](https://docs.getdbt.com/reference/global-configs/sqlparse.md)                                                                                | ❌           | YAML map<br />default: MAX\_GROUPING\_DEPTH and MAX\_GROUPING\_TOKENS set to null | ❌                      | `DBT_ENGINE_SQLPARSE`                                                | `--sqlparse`                                                                                                               |
+| [state](https://docs.getdbt.com/reference/node-selection/defer.md)                                                                                      | ❌           | path<br />default: none                                                           | ❌                      | `DBT_ENGINE_STATE`, `DBT_ENGINE_DEFER_STATE`                         | `--state`<br />`--defer-state`                                                                                             |
+| [static\_parser](https://docs.getdbt.com/reference/global-configs/parsing.md#static-parser)                                                             | ❌           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_STATIC_PARSER`                                           | `--static-parser`<br />`--no-static-parser`                                                                                |
+| [store\_failures](https://docs.getdbt.com/reference/resource-configs/store_failures.md)                                                                 | ✅           | boolean<br />default: False                                                       | ✅ (as resource config) | `DBT_ENGINE_STORE_FAILURES`                                          | `--store-failures`<br />`--no-store-failures`                                                                              |
+| [target\_path](https://docs.getdbt.com/reference/global-configs/json-artifacts.md)                                                                      | ❌           | path<br />default: None (uses `target/`)                                          | ❌                      | `DBT_ENGINE_TARGET_PATH`                                             | `--target-path`                                                                                                            |
+| [target](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#about-profiles)                                                    | ❌           | string<br />default: None                                                         | ❌                      | `DBT_ENGINE_TARGET`                                                  | [`--target`](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles#overriding-profiles-and-targets)  |
+| [use\_colors\_file](https://docs.getdbt.com/reference/global-configs/logs.md#color)                                                                     | ❌           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_USE_COLORS_FILE`                                         | `--use-colors-file`<br />`--no-use-colors-file`                                                                            |
+| [use\_colors](https://docs.getdbt.com/reference/global-configs/print-output.md#print-color)                                                             | ❌           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_USE_COLORS`                                              | `--use-colors`<br />`--no-use-colors`                                                                                      |
+| [use\_experimental\_parser](https://docs.getdbt.com/reference/global-configs/parsing.md#experimental-parser)                                            | ❌           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_USE_EXPERIMENTAL_PARSER`                                 | `--use-experimental-parser`<br />`--no-use-experimental-parser`                                                            |
+| [use\_v2\_parser](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser)                                                         | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_USE_V2_PARSER`                                           | `--use-v2-parser`                                                                                                          |
+| [version\_check](https://docs.getdbt.com/reference/global-configs/version-compatibility.md)                                                             | ❌           | boolean<br />default: varies                                                      | ✅                      | `DBT_ENGINE_VERSION_CHECK`                                           | `--version-check`<br />`--no-version-check`                                                                                |
+| [warn\_error\_options](https://docs.getdbt.com/reference/global-configs/warnings.md)                                                                    | ✅           | dict<br />default:                                                                | ✅                      | `DBT_ENGINE_WARN_ERROR_OPTIONS`                                      | `--warn-error-options`                                                                                                     |
+| [warn\_error](https://docs.getdbt.com/reference/global-configs/warnings.md)                                                                             | ✅           | boolean<br />default: False                                                       | ✅                      | `DBT_ENGINE_WARN_ERROR`                                              | `--warn-error`                                                                                                             |
+| [write\_json](https://docs.getdbt.com/reference/global-configs/json-artifacts.md)                                                                       | ✅           | boolean<br />default: True                                                        | ✅                      | `DBT_ENGINE_WRITE_JSON`                                              | `--write-json`<br />`--no-write-json`                                                                                      |
+
+Search table...
+
+|                  |   |   |   |   |
+| ---------------- | - | - | - | - |
+| Loading table... |   |   |   |   |
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

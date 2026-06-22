@@ -1,0 +1,42 @@
+# How we style our Jinja
+
+## Jinja style guide[​](#jinja-style-guide "Direct link to Jinja style guide")
+
+* 🫧 When using Jinja delimiters, use spaces on the inside of your delimiter, like `{{ this }}` instead of `{{this}}`
+* 🆕 Use newlines to visually indicate logical blocks of Jinja.
+* 4️⃣ Indent 4 spaces into a Jinja block to indicate visually that the code inside is wrapped by that block.
+* ❌ Don't worry (too much) about Jinja whitespace control, focus on your project code being readable. The time you save by not worrying about whitespace control will far outweigh the time you spend in your compiled code where it might not be perfect.
+
+## Examples of Jinja style[​](#examples-of-jinja-style "Direct link to Examples of Jinja style")
+
+```jinja
+{% macro make_cool(uncool_id) %}
+
+    do_cool_thing({{ uncool_id }})
+
+{% endmacro %}
+```
+
+```sql
+select
+    entity_id,
+    entity_type,
+    {% if this %}
+
+        {{ that }},
+
+    {% else %}
+
+        {{ the_other_thing }},
+
+    {% endif %}
+    {{ make_cool('uncool_id') }} as cool_id
+```
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

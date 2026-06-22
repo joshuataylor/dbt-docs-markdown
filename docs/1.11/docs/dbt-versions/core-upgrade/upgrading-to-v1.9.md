@@ -1,0 +1,160 @@
+# Upgrading to v1.9
+
+## Resources[​](#resources "Direct link to Resources")
+
+* [dbt Core 1.9 changelog](https://github.com/dbt-labs/dbt-core/blob/1.9.latest/CHANGELOG.md)
+* [dbt Core CLI Installation guide](https://docs.getdbt.com/docs/local/install-dbt.md)
+* [dbt platform upgrade guide](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#fusion-release-tracks)
+
+## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+
+dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+
+Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.9! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.9 final release.
+
+## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+
+Features and functionality new in dbt v1.9.
+
+### Microbatch `incremental_strategy`[​](#microbatch-incremental_strategy "Direct link to microbatch-incremental_strategy")
+
+info
+
+If you use a custom microbatch macro, set the [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy) behavior flag in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
+
+Incremental models are, and have always been, a *performance optimization* — for datasets that are too large to be dropped and recreated from scratch every time you do a `dbt run`. Learn more about [incremental models](https://docs.getdbt.com/docs/build/incremental-models-overview.md).
+
+Historically, managing incremental models involved several manual steps and responsibilities, including:
+
+* Add a snippet of dbt code (in an `is_incremental()` block) that uses the already-existing table (`this`) as a rough bookmark, so that only new data gets processed.
+* Pick one of the strategies for smushing old and new data together (`append`, `delete+insert`, or `merge`).
+* If anything goes wrong, or your schema changes, you can always "full-refresh", by running the same simple query that rebuilds the whole table from scratch.
+
+While this works for many use-cases, there’s a clear limitation with this approach: *Some datasets are just too big to fit into one query.*
+
+Starting in Core 1.9, you can use the new [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md#what-is-microbatch-in-dbt) to optimize your largest datasets -- **process your event data in discrete periods with their own SQL queries, rather than all at once.** The benefits include:
+
+* Simplified query design: Write your model query for a single batch of data. dbt will use your `event_time`, `lookback`, and `batch_size` configurations to automatically generate the necessary filters for you, making the process more streamlined and reducing the need for you to manage these details.
+* Independent batch processing: dbt automatically breaks down the data to load into smaller batches based on the specified `batch_size` and processes each batch independently, improving efficiency and reducing the risk of query timeouts. If some of your batches fail, you can use `dbt retry` to load only the failed batches.
+* Targeted reprocessing: To load a *specific* batch or batches, you can use the CLI arguments `--event-time-start` and `--event-time-end`.
+* [Automatic parallel batch execution](https://docs.getdbt.com/docs/build/parallel-batch-execution.md): Process multiple batches at the same time, instead of one after the other (sequentially) for faster processing of your microbatch models. dbt intelligently auto-detects if your batches can run in parallel, while also allowing you to manually override parallel execution with the [`concurrent_batches` config](https://docs.getdbt.com/reference/resource-properties/concurrent_batches.md).
+
+Currently microbatch is supported on these adapters with more to come:
+
+* postgres
+* redshift
+* snowflake
+* bigquery
+* spark
+* databricks
+
+### Snapshots improvements[​](#snapshots-improvements "Direct link to Snapshots improvements")
+
+Beginning in dbt Core 1.9, we've streamlined snapshot configuration and added a handful of new configurations to make dbt **snapshots easier to configure, run, and customize.** These improvements include:
+
+* New snapshot specification: Snapshots can now be configured in a YAML file, which provides a cleaner and more consistent set up.
+* New `snapshot_meta_column_names` config: Allows you to customize the names of meta fields (for example, `dbt_valid_from`, `dbt_valid_to`, etc.) that dbt automatically adds to snapshots. This increases flexibility to tailor metadata to your needs.
+* `target_schema` is now optional for snapshots: When omitted, snapshots will use the schema defined for the current environment.
+* Standard `schema` and `database` configs supported: Snapshots will now be consistent with other dbt resource types. You can specify where environment-aware snapshots should be stored.
+* Warning for incorrect `updated_at` data type: To ensure data integrity, you'll see a warning if the `updated_at` field specified in the snapshot configuration is not the proper data type or timestamp.
+* Set a custom current indicator for the value of `dbt_valid_to`: Use the [`dbt_valid_to_current` config](https://docs.getdbt.com/reference/resource-configs/dbt_valid_to_current.md) to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date). By default, this value is `NULL`. When configured, dbt will use the specified value instead of `NULL` for `dbt_valid_to` for current records in the snapshot table.
+* Use the [`hard_deletes`](https://docs.getdbt.com/reference/resource-configs/hard-deletes.md) configuration to get more control on how to handle deleted rows from the source. Supported methods are `ignore` (default), `invalidate` (replaces legacy `invalidate_hard_deletes=true`), and `new_record`. Setting `hard_deletes='new_record'` allows you to track hard deletes by adding a new record when row becomes "deleted" in source.
+
+Read more about [Snapshots meta fields](https://docs.getdbt.com/docs/build/snapshots.md#snapshot-meta-fields).
+
+To learn how to safely migrate existing snapshots, refer to [Snapshot configuration migration](https://docs.getdbt.com/reference/snapshot-configs.md#snapshot-configuration-migration) for more information.
+
+### Some `properties` moved to `configs`[​](#some-properties-moved-to-configs "Direct link to some-properties-moved-to-configs")
+
+The following `properties` were moved to `configs` in [Core v1.10](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.10.md) and backported to Core v1.9:
+
+* [`freshness`](https://docs.getdbt.com/reference/resource-properties/freshness.md) for sources
+* [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md) under `columns`
+* [`tags`](https://docs.getdbt.com/reference/resource-configs/tags.md) under `columns`
+
+### `state:modified` improvements[​](#statemodified-improvements "Direct link to statemodified-improvements")
+
+We’ve made improvements to `state:modified` behaviors to help reduce the risk of false positives and negatives. Read more about [the `state:modified` behavior flag](#managing-changes-to-legacy-behaviors) that unlocks this improvement:
+
+* Added environment-aware enhancements for environments where the logic purposefully differs (for example, materializing as a table in `prod` but a `view` in dev).
+
+### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
+
+dbt Core v1.9 has a handful of new flags for [managing changes to legacy behaviors](https://docs.getdbt.com/reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
+
+You can read more about each of these behavior changes in the following links:
+
+* (Introduced, disabled by default) [`state_modified_compare_more_unrendered_values`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#source-definitions-for-statemodified). Set to `true` to persist `unrendered_config` during model parsing and `unrendered_database`/`unrendered_schema` during source parsing, then compare on unrendered values during `state:modified` checks. This reduces false positives from environment-aware logic, but requires rebuilding your state directory; without a rebuild, `state:modified` may select nodes with Jinja in YAML configs that haven't actually changed.
+* (Introduced, disabled by default) [`skip_nodes_if_on_run_start_fails` project config flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#failures-in-on-run-start-hooks). If the flag is set and **any** `on-run-start` hook fails, mark all selected nodes as skipped.
+  <!-- -->
+  * `on-run-start/end` hooks are **always** run, regardless of whether they passed or failed last time.
+
+- (Introduced, disabled by default) [`require_nested_cumulative_type_params`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#cumulative-metrics). If the flag is set to `true`, users will receive an error instead of a warning if they're not properly formatting cumulative metrics using the new [`cumulative_type_params`](https://docs.getdbt.com/docs/build/cumulative.md#parameters) nesting.
+- (Introduced, disabled by default) [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy). Set to `true` if you use a custom microbatch macro to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
+
+## Adapter-specific features and functionalities[​](#adapter-specific-features-and-functionalities "Direct link to Adapter-specific features and functionalities")
+
+<!-- -->
+
+Snowflake column size change
+
+[Snowflake plans to increase](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-2118) the default column size for string and binary data types in September 2026. `dbt-snowflake` versions below v1.10.6 may fail to build certain incremental models when this change is deployed.
+
+ Assess impact and required actions
+
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+
+* Contain string columns with collation defined
+* Use the `on_schema_change='sync_all_columns'` config
+
+To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+
+```bash
+dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
+```
+
+* If the command returns `No nodes selected!`, no action is required.
+
+* If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
+
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
+  * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
+
+  This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
+
+### Redshift[​](#redshift "Direct link to Redshift")
+
+* Support IAM Role auth
+
+### Snowflake[​](#snowflake "Direct link to Snowflake")
+
+* Iceberg Table Format — Support will be available on three out-of-the-box materializations: table, incremental, dynamic tables.
+* Breaking change — When upgrading from dbt 1.8 to 1.9 `{{ target.account }}` replaces underscores with dashes. For example, if the `target.account` is set to `sample_company`, then the compiled code now generates `sample-company`. [Refer to the `dbt-snowflake` issue](https://github.com/dbt-labs/dbt-snowflake/issues/1286) for more information.
+
+### Bigquery[​](#bigquery "Direct link to Bigquery")
+
+* Can cancel running queries on keyboard interrupt
+* Auto-drop intermediate tables created by incremental models to save resources
+
+### Spark[​](#spark "Direct link to Spark")
+
+* Support overriding the ODBC driver connection string which now enables you to provide custom connections
+
+## Quick hits[​](#quick-hits "Direct link to Quick hits")
+
+We also made some quality-of-life improvements in Core 1.9, enabling you to:
+
+* Maintain data quality now that dbt returns an error (versioned models) or warning (unversioned models) when someone [removes a contracted model by deleting, renaming, or disabling](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md#how-are-breaking-changes-handled) it.
+* Document [data tests](https://docs.getdbt.com/reference/resource-properties/description.md).
+* Use `ref` and `source` in [foreign key constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md).
+* Use `dbt test` with the `--resource-type` / `--exclude-resource-type` flag, making it possible to include or exclude data tests (`test`) or unit tests (`unit_test`).
+* The [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) config is now available for unit tests. Defaults to `true` if not defined.
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

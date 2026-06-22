@@ -1,0 +1,60 @@
+# Use subagents with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Subagents let dbt Wizard spin up focused agents to handle parts of a larger task, such as exploring your project, making changes, or reviewing results. dbt Wizard orchestrates them and consolidates the results back into your session.
+
+Use subagents when you can split a task into independent pieces of work. They're useful for reviewing a large pull request, debugging a failed job, adding tests across multiple models, or researching documentation while another agent inspects your project.
+
+For smaller, direct tasks, you usually don't need subagents. Ask a single question, like "What does this model do?" or "Fix this failing test," without splitting the work across agents.
+
+Subagents use more tokens than handling the same task in a single-agent session. Use them when the task benefits from dividing the work.
+
+See it in action and share your feedback
+
+Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube.com/watch?v=-lIzh1xQWMA).
+
+We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
+
+Thanks so much for your help in improving dbt Wizard and dbt data development!
+
+## How subagents work[​](#how-subagents-work "Direct link to How subagents work")
+
+An agent is a role that describes a type of work, like `explorer`, `worker`, or `test_writer`.
+
+A subagent is a running instance of one of those roles. For example, if you start two explorer agents to answer two different questions, you have two subagents that share the same agent role.
+
+dbt Wizard handles orchestration for you. It starts subagents, routes work to them, waits for their results, and consolidates their output into your session.
+
+You can use subagents in the following ways:
+
+| How subagents start                                                                                  | Example                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| You ask to split up the work.                                                                        | `Review PR #123. Use one agent to map what changed, one to check tests and downstream impact, and one to look up the relevant dbt docs.` |
+| dbt Wizard automatically uses a configured agent because your task matches that agent's description. | `Add tests for stg_customers and check whether similar staging models are missing tests.`                                                |
+
+## Built-in agents[​](#built-in-agents "Direct link to Built-in agents")
+
+dbt Wizard ships with built-in agents that it can spawn without any configuration. Several are purpose-built for dbt work:
+
+| Agent         | What it's for                                                                                                                                                                                         | Example                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `explorer`    | Answers specific, well-scoped questions about your project. Fast and read-only — spawn several in parallel for independent questions.                                                                 | `Use explorer to explain what depends on fct_orders.`                           |
+| `worker`      | Performs execution and production work, such as implementing part of a feature, fixing tests or bugs, or splitting a large refactor into independent chunks.                                          | `Use worker to update these staging models to follow our naming convention.`    |
+| `validation`  | Provides dbt validation. After model edits, runs structured validation — SQL check, `dbt run` with `--defer`, prod vs. dev comparison, and impact analysis — to validate changes before you merge.    | `Use validation to check whether my changes to int_payments are safe to merge.` |
+| `test_writer` | Improves dbt test coverage. Analyzes project metadata and warehouse data to find coverage gaps, validates assumptions with queries, and writes `schema.yml` tests for models with low or no coverage. | `Use test_writer to add tests to stg_customers.`                                |
+
+You don't need to declare these — dbt Wizard routes to them automatically when a task fits, or you can ask for one by name.
+
+## Related docs[​](#related-docs "Direct link to Related docs")
+
+* [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
+* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+* [Use subagents locally](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md)
+* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
+
+## Was this page helpful?
+
+YesNo
+
+[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
