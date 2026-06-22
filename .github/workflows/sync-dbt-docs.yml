@@ -57,38 +57,11 @@ jobs:
           key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Patch Docusaurus
-        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        working-directory: ${{ env.DOCS_CLONE_DIR }}
         run: |
-          # Disable buildRawMarkdownData (raw MDX source .md files) and enable
-          # llms-txt per-page .md generation (derived from rendered HTML, so
-          # partials are inlined and components like <FAQ> are expanded).
-          sed -i 's|path.resolve("plugins/buildRawMarkdownData"),|// path.resolve("plugins/buildRawMarkdownData"),|' docusaurus.config.js
-          sed -i 's/enableMarkdownFiles: false/enableMarkdownFiles: true/' docusaurus.config.js
-
-          # Downgrade broken-link errors to warnings so the build completes even
-          # when version-filtered pages are absent for a given build pass.
-          sed -i 's/onBrokenLinks: "throw"/onBrokenLinks: "warn"/' docusaurus.config.js
-          sed -i 's/onBrokenMarkdownLinks: "throw"/onBrokenMarkdownLinks: "warn"/' docusaurus.config.js
-
-          # Remove the loading guard from VersionBlock so SSR renders version-
-          # appropriate content. Without this, VersionBlock returns null during
-          # static builds and all version-gated content is absent.
-          node - <<'EOF'
-          const fs = require('fs');
-          let src = fs.readFileSync('src/components/versionBlock/index.js', 'utf8');
-          src = src.replace(
-            "import React, { useState, useEffect, useContext } from 'react'",
-            "import React, { useContext } from 'react'"
-          );
-          src = src.replace('\n  const [loading, setLoading] = useState(true);\n', '\n');
-          src = src.replace(
-            '\n  // Hide until version is resolved from context (prevents hydration mismatch)\n  useEffect(() => {\n    version && setLoading(false);\n  }, [version]);\n',
-            '\n'
-          );
-          src = src.replace('return loading ? null : <>{children}</>;', 'return <>{children}</>;');
-          fs.writeFileSync('src/components/versionBlock/index.js', src);
-          console.log('Patched VersionBlock');
-          EOF
+          curl -fsSL \
+            "https://github.com/joshuataylor/docs.getdbt.com/compare/dbt-labs:current...feature/markdown-docs-gen.diff" \
+            | git apply
 
       - name: Build version docs
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
