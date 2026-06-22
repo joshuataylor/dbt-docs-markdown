@@ -12,12 +12,15 @@ A GitHub Actions workflow runs every two hours and produces one set of `.md` fil
 
 ```
 docs/
-  2.0/    # dbt Fusion / dbt Core v2 (dbt platform stable)
-  1.12/   # dbt Core v1.12 / dbt platform latest
-  1.11/   # dbt Core v1.11
+  fusion/
+    2_0/    # version=2.0&name=Fusion (dbt platform stable)
+  core/
+    2_0/    # version=2.0&name=Core (dbt Core v2.0 alpha)
+    1_12/   # version=1.12&name=Core (dbt platform latest)
+    1_11/   # version=1.11&name=Core
 ```
 
-Each file is a fully rendered page: partials inlined, components expanded, version-appropriate content only. The set of versions is read dynamically from `dbt-versions.js` in the source repo, so new versions are picked up automatically.
+Each file is a fully rendered page: partials inlined, components expanded, with only the content appropriate for that version and product. The set of builds is derived dynamically from `dbt-versions.js` in the source repo, so new versions and products are picked up automatically.
 
 ## How it works
 
@@ -29,10 +32,10 @@ The dbt docs repo ships two markdown generators. The default one (`buildRawMarkd
 
 **2. Fix VersionBlock for static builds**
 
-The `VersionBlock` React component guards its content with a `loading` state that is always `true` during SSR and only cleared client-side. This means every `<VersionBlock>` returns `null` in the static HTML regardless of which version is active -- all version-gated content is silently absent from a normal build.
+The `VersionBlock` React component guards its content with a `loading` state that is always `true` during SSR and only cleared client-side. This means every `<VersionBlock>` returns `null` in the static HTML regardless of which version or product is active -- all version-gated content is silently absent from a normal build.
 
-The workflow removes the loading guard so SSR renders based on the context version. Without this, switching the default version would have no effect on the output.
+The workflow removes the loading guard so SSR renders based on the context version and product. Without this, switching the default version would have no effect on the output.
 
-**3. Build once per version**
+**3. Build once per (product, version)**
 
-`VersionBlock` reads the active version from React context, which defaults to the first non-beta entry in `dbt-versions.js`. The workflow reads that file with Node.js to discover all non-beta versions, then for each version: patches `VersionContext.js` to hard-code that version as the default, runs a full Docusaurus build, and copies the resulting `.md` files to `docs/<version>/`.
+`VersionBlock` filters on both version and product name (`<VersionBlock firstVersion="2.0" product="Fusion">`). The workflow reads `dbt-versions.js` with Node.js to discover all unique (product, version) combinations, then for each: patches `VersionContext.js` to hard-code the appropriate subProduct as the default, runs a full Docusaurus build, and copies the resulting `.md` files to `docs/<name>/<version>/`.

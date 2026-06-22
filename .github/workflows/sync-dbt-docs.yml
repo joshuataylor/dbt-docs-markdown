@@ -96,39 +96,44 @@ jobs:
           SKIP_LINK_CHECK: "true"
           DOCS_ENV: build
         run: |
-          # Derive version -> default subProduct mapping directly from dbt-versions.js.
-          # Picks the first non-beta subProduct for each unique version, matching the
-          # same logic as getDefaultSubProductName() in VersionContext.js.
+          # Derive (version, product name, subProduct) from dbt-versions.js.
+          # For each product, picks the first non-beta subProduct per version (falling
+          # back to the first beta if no non-beta exists for that product+version).
+          # This mirrors resolveSubProductFromProductAndVersion() in VersionContext.js.
           declare -A SUBPRODUCTS
-          VERSIONS=()
-          while IFS=$'\t' read -r version subproduct; do
-            SUBPRODUCTS["$version"]="$subproduct"
-            VERSIONS+=("$version")
+          BUILD_KEYS=()
+          while IFS=$'\t' read -r version name subproduct; do
+            key="$name/$version"
+            SUBPRODUCTS["$key"]="$subproduct"
+            BUILD_KEYS+=("$key")
           done < <(node - <<'JSEOF'
           const { products } = require('./dbt-versions');
-          const seen = new Set();
           for (const product of products) {
+            const versionsSeen = new Set();
             for (const sp of product.subProducts) {
-              if (!sp.isBeta && !seen.has(sp.version)) {
-                seen.add(sp.version);
-                process.stdout.write(sp.version + '\t' + sp.name + '\n');
+              if (!versionsSeen.has(sp.version)) {
+                versionsSeen.add(sp.version);
+                const chosen = product.subProducts.find(s => s.version === sp.version && !s.isBeta) || sp;
+                process.stdout.write(sp.version.replace(/\./g, '_') + '\t' + product.name.toLowerCase() + '\t' + chosen.name + '\n');
               }
             }
           }
           JSEOF
           )
-          echo "Versions to build: ${VERSIONS[*]}"
+          echo "Builds to run: ${BUILD_KEYS[*]}"
 
           rm -rf "$BUILD_DOCS_DIR"
           mkdir -p "$BUILD_DOCS_DIR"
           touch "$BUILD_DOCS_DIR/.gitkeep"
 
-          for VERSION in "${VERSIONS[@]}"; do
-            SUBPRODUCT="${SUBPRODUCTS[$VERSION]}"
-            echo "--- Building version $VERSION (subProduct: $SUBPRODUCT) ---"
+          for KEY in "${BUILD_KEYS[@]}"; do
+            NAME="${KEY%%/*}"
+            VERSION="${KEY##*/}"
+            SUBPRODUCT="${SUBPRODUCTS[$KEY]}"
+            echo "--- Building $NAME $VERSION (subProduct: $SUBPRODUCT) ---"
 
             # Restore VersionContext.js then set the desired default subProduct so
-            # that SSR renders version-appropriate content for this build pass.
+            # that SSR renders version- and product-appropriate content for this pass.
             git checkout -- src/stores/VersionContext.js
             SUBPRODUCT="$SUBPRODUCT" python3 - <<'PYEOF'
           import os
@@ -146,12 +151,12 @@ jobs:
             npm exec -- docusaurus clear
             npm run build -- --no-minify
 
-            DEST="$BUILD_DOCS_DIR/$VERSION"
+            DEST="$BUILD_DOCS_DIR/$NAME/$VERSION"
             mkdir -p "$DEST"
             rsync -a -m --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
 
             md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
-            echo "Copied $md_count markdown files to docs/$VERSION/"
+            echo "Copied $md_count markdown files to docs/$NAME/$VERSION/"
           done
 
       - name: Commit and push to main
