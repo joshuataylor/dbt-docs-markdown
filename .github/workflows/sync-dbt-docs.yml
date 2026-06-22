@@ -56,32 +56,107 @@ jobs:
           path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
           key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Build docs site
+      - name: Patch Docusaurus
+        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        run: |
+          # Disable buildRawMarkdownData (raw MDX source .md files) and enable
+          # llms-txt per-page .md generation (derived from rendered HTML, so
+          # partials are inlined and components like <FAQ> are expanded).
+          sed -i 's|path.resolve("plugins/buildRawMarkdownData"),|// path.resolve("plugins/buildRawMarkdownData"),|' docusaurus.config.js
+          sed -i 's/enableMarkdownFiles: false/enableMarkdownFiles: true/' docusaurus.config.js
+
+          # Downgrade broken-link errors to warnings so the build completes even
+          # when version-filtered pages are absent for a given build pass.
+          sed -i 's/onBrokenLinks: "throw"/onBrokenLinks: "warn"/' docusaurus.config.js
+          sed -i 's/onBrokenMarkdownLinks: "throw"/onBrokenMarkdownLinks: "warn"/' docusaurus.config.js
+
+          # Remove the loading guard from VersionBlock so SSR renders version-
+          # appropriate content. Without this, VersionBlock returns null during
+          # static builds and all version-gated content is absent.
+          node - <<'EOF'
+          const fs = require('fs');
+          let src = fs.readFileSync('src/components/versionBlock/index.js', 'utf8');
+          src = src.replace(
+            "import React, { useState, useEffect, useContext } from 'react'",
+            "import React, { useContext } from 'react'"
+          );
+          src = src.replace('\n  const [loading, setLoading] = useState(true);\n', '\n');
+          src = src.replace(
+            '\n  // Hide until version is resolved from context (prevents hydration mismatch)\n  useEffect(() => {\n    version && setLoading(false);\n  }, [version]);\n',
+            '\n'
+          );
+          src = src.replace('return loading ? null : <>{children}</>;', 'return <>{children}</>;');
+          fs.writeFileSync('src/components/versionBlock/index.js', src);
+          console.log('Patched VersionBlock');
+          EOF
+
+      - name: Build version docs
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
         env:
           SKIP_LINK_CHECK: "true"
           DOCS_ENV: build
         run: |
-          npm exec -- docusaurus clear
-          npm run build -- --no-minify
+          # Derive version -> default subProduct mapping directly from dbt-versions.js.
+          # Picks the first non-beta subProduct for each unique version, matching the
+          # same logic as getDefaultSubProductName() in VersionContext.js.
+          declare -A SUBPRODUCTS
+          VERSIONS=()
+          while IFS=$'\t' read -r version subproduct; do
+            SUBPRODUCTS["$version"]="$subproduct"
+            VERSIONS+=("$version")
+          done < <(node - <<'JSEOF'
+          const { products } = require('./dbt-versions');
+          const seen = new Set();
+          for (const product of products) {
+            for (const sp of product.subProducts) {
+              if (!sp.isBeta && !seen.has(sp.version)) {
+                seen.add(sp.version);
+                process.stdout.write(sp.version + '\t' + sp.name + '\n');
+              }
+            }
+          }
+          JSEOF
+          )
+          echo "Versions to build: ${VERSIONS[*]}"
 
-      - name: Copy markdown files
-        run: |
           rm -rf "$BUILD_DOCS_DIR"
           mkdir -p "$BUILD_DOCS_DIR"
-          rsync -a -m --include='*/' --include='*.md' --exclude='*' "$DOCS_CLONE_DIR/website/build/" "$BUILD_DOCS_DIR/"
           touch "$BUILD_DOCS_DIR/.gitkeep"
 
-          total_md_files=$(find "$BUILD_DOCS_DIR" -type f -name "*.md" | wc -l)
-          echo "Copied $total_md_files markdown files to $BUILD_DOCS_DIR"
+          for VERSION in "${VERSIONS[@]}"; do
+            SUBPRODUCT="${SUBPRODUCTS[$VERSION]}"
+            echo "--- Building version $VERSION (subProduct: $SUBPRODUCT) ---"
+
+            # Restore VersionContext.js then set the desired default subProduct so
+            # that SSR renders version-appropriate content for this build pass.
+            git checkout -- src/stores/VersionContext.js
+            SUBPRODUCT="$SUBPRODUCT" python3 - <<'PYEOF'
+          import os
+          with open('src/stores/VersionContext.js') as f:
+              content = f.read()
+          content = content.replace(
+              'const defaultSubProductName = getDefaultSubProductName();',
+              'const defaultSubProductName = "' + os.environ['SUBPRODUCT'] + '";'
+          )
+          with open('src/stores/VersionContext.js', 'w') as f:
+              f.write(content)
+          print('Patched VersionContext for', os.environ['SUBPRODUCT'])
+          PYEOF
+
+            npm exec -- docusaurus clear
+            npm run build -- --no-minify
+
+            DEST="$BUILD_DOCS_DIR/$VERSION"
+            mkdir -p "$DEST"
+            rsync -a -m --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
+
+            md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
+            echo "Copied $md_count markdown files to docs/$VERSION/"
+          done
 
       - name: Commit and push to main
         working-directory: ${{ github.workspace }}/dbt-docs-patcher
         run: |
-          # always change file for this to ensure we have a commit if there are changes to the markdown files
-          rm -rf docs/test.md || true
-          mkdir -p docs
-          touch docs/test.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/
