@@ -7,7 +7,7 @@ You can use deploy jobs to build production data assets. Deploy jobs make it eas
 * Environment name
 * Sources and documentation info, if applicable
 * Job run details, including run timing, [model timing data](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing), and [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
-* Detailed run steps with logs and their run step statuses
+* Detailed run steps with logs and their run step statuses. For Fusion runs, you can also download OpenTelemetry logs from individual steps. Refer to [Downloading logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs).
 
 You can create a deploy job and configure it to run on [scheduled days and times](#schedule-days), enter a [custom cron schedule](#cron-schedule), or [trigger the job after another job completes](#trigger-on-job-completion).
 
@@ -191,6 +191,7 @@ To view the change history:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
+* [Run visibility](https://docs.getdbt.com/docs/deploy/run-visibility.md)
 * [Artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
 * [Continuous integration (CI) jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md)
 * [Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)

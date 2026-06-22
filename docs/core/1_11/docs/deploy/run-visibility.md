@@ -45,10 +45,17 @@ To verify the actual count, use the up and down buttons on each status to naviga
 
 <!-- -->
 
-#### Downloading logs[​](#downloading-logs "Direct link to Downloading logs")
+#### Downloading logs[​](#access-logs "Direct link to Downloading logs")
 
 * To download logs for an individual step, select the step in the **Run summary** tab and click **Download** > **Download logs**.
+
 * Note that when viewing debug logs, the log output is truncated. To view and export all debug logs for an individual step, click **Download** > **Download all debug logs**.
+
+* You can download OpenTelemetry (OTel) logs for Fusion job command steps as a Parquet file. The file contains structured step-level log data that you can query or inspect outside dbt.
+
+To download it, go to the **Run summary** tab in the job, select a step and click **Download** > **Download OTel log** to export a Parquet file
+
+This option only appears when the step emitted an OTel log artifact. Some steps, such as `dbt deps`, don't produce one. For analysis examples, refer to [Querying telemetry data](https://docs.getdbt.com/docs/fusion/telemetry.md?version=2.0\&name=Fusion#querying-telemetry-data).
 
 [![Download logs](/img/docs/dbt-platform/deployment/download-logs.png?v=2 "Download logs")](#)Download logs
 
