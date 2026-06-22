@@ -63,11 +63,3 @@ We most commonly see the ORDER BY clause used in data work to:
 * Control the ordering of window function partitions (ex. `row_number() over (partition by user_id order by updated_at)`)
 
 This isn’t an extensive list of where your team may be using the ORDER BY clause throughout your dbt models, ad hoc queries, and BI tool logic, but it contains some common scenarios analytics engineers face day-to-day.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

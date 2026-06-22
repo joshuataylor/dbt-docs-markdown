@@ -179,11 +179,3 @@ You can read more about each of these behavior changes in the following links:
 * `dbt seed` now supports the [`--empty`](https://docs.getdbt.com/reference/commands/seed.md#the---empty-flag) flag. Use it to create seed tables with the correct schema but without loading any data.
 * dbt Core now automatically loads environment variables from a `.env` file in your current working directory. Shell environment variables take precedence over `.env` values. New projects created with `dbt init` include `.env` in the default `.gitignore`. For more information, refer to [About env\_var function](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md#using-the-env-file).
 * `dbt compile` writes compiled SQL for [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) to `target/compiled/`, consistent with models, tests, analyses, and functions. Each snapshot gets its own output file, named from the snapshot identifier, so multiple snapshot blocks in the same source file do not share one compiled path. For more information, refer to [About dbt compile](https://docs.getdbt.com/reference/commands/compile.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

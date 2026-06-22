@@ -343,11 +343,3 @@ For more details, see Google's documentation on [controlling third-party app acc
 If the connection still fails after your administrator trusts the OAuth client in Google Workspace, ask your GCP project administrator to check whether a Google Cloud [Organization Policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview) restricts external OAuth clients. The relevant constraint is `constraints/iam.allowedExternalOAuthClients`.
 
 If neither of these steps resolves the issue, contact [dbt Support](https://docs.getdbt.com/community/resources/getting-help#dbt-cloud-support) with the approximate time of the failed connection attempt and the email address you used to authenticate with Google.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

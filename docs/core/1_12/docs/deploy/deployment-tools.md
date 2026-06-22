@@ -108,11 +108,3 @@ If your organization uses [Prefect](https://www.prefect.io/), the way you will r
 * [Webhooks for your jobs](https://docs.getdbt.com/docs/deploy/webhooks.md)
 * [Orchestration guides](https://docs.getdbt.com/guides.md)
 * [Commands for your production deployment](https://discourse.getdbt.com/t/what-are-the-dbt-commands-you-run-in-your-production-deployment-of-dbt/366)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

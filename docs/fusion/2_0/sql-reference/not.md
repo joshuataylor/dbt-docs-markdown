@@ -54,11 +54,3 @@ Search table...
 ## NOT operator example use cases[​](#not-operator-example-use-cases "Direct link to NOT operator example use cases")
 
 There are probably many scenarios where you’d want to use the NOT operators in your WHERE clauses or case statements, but we commonly see NOT operators used to remove nulls or boolean-identifed deleted rows in source data in [staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md). This removal of unnecessary rows can potentially help the performance of downstream [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) and [mart models](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

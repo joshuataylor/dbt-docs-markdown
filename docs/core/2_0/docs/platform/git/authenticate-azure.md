@@ -174,11 +174,3 @@ To migrate from one git provider to another, refer to the following steps to avo
 7. That's it, you should now be connected to the new Git provider! 🎉
 
 Note — As a tip, we recommend you refresh your page and Studio IDE before performing any actions.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

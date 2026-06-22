@@ -67,11 +67,3 @@ When you've resolved all the merge conflicts, the last step would be to commit t
 [![Conflict has been resolved](/img/docs/dbt-platform/platform-ide/commit-resolve.png?v=2 "Conflict has been resolved")](#)Conflict has been resolved
 
 [![Commit Changes pop up box to commit your changes](/img/docs/dbt-platform/platform-ide/commit-changes.png?v=2 "Commit Changes pop up box to commit your changes")](#)Commit Changes pop up box to commit your changes
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

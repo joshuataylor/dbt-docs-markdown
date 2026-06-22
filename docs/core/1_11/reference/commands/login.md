@@ -298,11 +298,3 @@ Check your inbox for the verification email, or [contact dbt Support](https://do
 * [`dbt init`](https://docs.getdbt.com/reference/commands/init.md) — Use during first-time project setup; prompts you to run `dbt login` to unlock authenticated features.
 * [`dbt deps`](https://docs.getdbt.com/reference/commands/deps.md) — Installs packages for a dbt project.
 * [`dbt debug`](https://docs.getdbt.com/reference/commands/debug.md) — Tests your dbt project and connection configuration.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -178,11 +178,3 @@ For configuring cloud storage access using DuckDB's Secrets Manager or fsspec fi
 Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md).
 
 For adapter source code, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

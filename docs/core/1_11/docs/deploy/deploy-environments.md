@@ -163,11 +163,3 @@ If you're having any issues, feel free to [contact us](mailto:support@getdbt.com
 * [Deploy jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md)
 * [CI jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
 * [Delete a job or environment in dbt](https://docs.getdbt.com/faqs/Environments/delete-environment-job.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

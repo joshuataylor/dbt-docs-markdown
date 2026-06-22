@@ -98,11 +98,3 @@ The configuration side panel has the following:
 * Code — This section allows you to view the underlying SQL code for the data transformation.
 
 [![A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.](/img/docs/dbt-platform/canvas/config-panel.png?v=2 "A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.")](#)A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

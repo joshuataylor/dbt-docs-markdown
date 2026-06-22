@@ -961,11 +961,3 @@ Archived release notes for dbt from 2023
   * You no longer encounter a `Something went wrong` message when previewing a model
   * You can now see repository status in the IDE, and the IDE finds the SSH folder
   * Scroll bars and download CSV no longer flicker within the preview pane
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

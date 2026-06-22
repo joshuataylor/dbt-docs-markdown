@@ -365,11 +365,3 @@ The `latest_version_pointer_enabled_by_default` flag is set to `false` by defaul
 When you set it to `true`, dbt automatically creates a [latest version pointer](https://docs.getdbt.com/docs/mesh/govern/model-versions.md#pointing-to-the-latest-version) view for every versioned model in the project, without requiring per-model configuration. The pointer view is named after the model's base name (for example, `dim_customers`) and always points to the relation for the model with `is_latest_version: true` (for example, `dim_customers_v2`).
 
 Without this flag, you must opt in per model by setting [`latest_version_pointer.enabled: true`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) in the model config.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -123,11 +123,3 @@ You can read more about each of these behavior changes in the following links:
 * To improve performance, dbt now issues a single (batch) query when calculating `source freshness` through metadata, instead of executing a query per source.
 * Syntax for `DBT_ENV_SECRET_` has changed to `DBT_ENV_SECRET` and no longer requires the closing underscore.
 * The `--select` flag now reliably limits `catalog.json` to the selected nodes in all projects, regardless of project size. In earlier versions, node selectors were ignored for projects with 100 or more nodes, and sources were omitted from `catalog.json` entirely when more than 100 nodes were selected.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

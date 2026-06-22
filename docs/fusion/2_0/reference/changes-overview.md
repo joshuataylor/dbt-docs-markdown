@@ -76,11 +76,3 @@ If you're upgrading to Fusion, you should:
 * [Upgrading to Fusion](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion readiness checklist](https://docs.getdbt.com/docs/fusion/fusion-readiness.md)
 * [Events and logging](https://docs.getdbt.com/reference/events-logging.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

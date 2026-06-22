@@ -78,11 +78,3 @@ Are you using a user API key today to access dbt APIs in any of your workflows? 
    The option to rotate API keys is used for existing API keys, not for replacing them with PATs. You do not need to replace your API key with a PAT in the dbt UI.
 
 4. Ensure that you’re using a PAT only where it's needed. For flows that require a service account, please use a service token.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

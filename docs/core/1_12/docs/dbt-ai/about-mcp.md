@@ -116,11 +116,3 @@ Your [dbt platform data retention policy](https://www.getdbt.com/security) deter
 
 * [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) — full list of variables and tool configuration for local MCP
 * For more information, refer to our blog on [Introducing the dbt MCP Server](https://docs.getdbt.com/blog/introducing-dbt-mcp-server#getting-started).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

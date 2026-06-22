@@ -140,11 +140,3 @@ return
 ## Test and deploy[​](#test-and-deploy "Direct link to Test and deploy")
 
 You can iterate on the Code step by modifying the code and then running the test again. When you're happy with it, you can publish your Zap.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

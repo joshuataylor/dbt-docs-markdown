@@ -25,11 +25,3 @@ You can test your models, generate documentation, create snapshots, and more!
 SQL dialects tend to diverge the most in DML and DDL (rather than in `select` statements) — check out the example [here](https://docs.getdbt.com/faqs/Models/sql-dialect.md). By writing less SQL, it can make a migration to a new database technology easier.
 
 If you do need to write custom DML, there are ways to do this in dbt using [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

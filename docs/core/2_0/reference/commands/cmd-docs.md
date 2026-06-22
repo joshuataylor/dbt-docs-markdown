@@ -111,11 +111,3 @@ Search table...
 See the [dbt Docs v2 API contracts](https://github.com/dbt-labs/fs/blob/main/fs/sa/crates/dbt-docs-server/API-CONTRACTS.md#get-apiv1sources) for the full list of available endpoints.
 
 This makes dbt Docs v2 a natural context source for MCP servers. If you're using a coding agent like Claude Code, you can point it at a running dbt Docs v2 instance to give it rich, structured metadata about your dbt project without installing dbt locally.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

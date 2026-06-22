@@ -12,11 +12,3 @@ If available, the `invocation_id` is:
 **Example usage**: You can use the following example code for all data platforms. Remember to replace `TABLE_NAME` with the actual name of your target table:
 
 `select '{{ invocation_id }}' as test_id from TABLE_NAME`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

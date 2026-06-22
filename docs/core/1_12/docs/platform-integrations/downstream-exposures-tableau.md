@@ -222,11 +222,3 @@ This beta capability requires deployment jobs on [Latest](https://docs.getdbt.co
 * You can control the frequency of these refreshes by configuring environment variables.
 
 To set up and proactively run exposures with the dbt job scheduler, refer to [Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

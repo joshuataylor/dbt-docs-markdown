@@ -212,11 +212,3 @@ Insights offers a robust save feature for quickly finding the queries you use mo
   * That’s a great question! Catalog helps you understand your dbt project's structure, resources, lineage, and metrics, offering context for your data.
   * Insights builds on that context, allowing you to write, run, and iterate on SQL queries directly in dbt. It’s designed for ad-hoc or exploratory analysis and empowers business users and analysts to explore data, ask questions, and collaborate seamlessly.
   * Catalog provides the context, while Insights enables action.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

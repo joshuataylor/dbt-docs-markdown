@@ -139,11 +139,3 @@ For SQL writing, project performance review, or project building, refer to dbt P
 
 * List of [dbt Consulting Partners](https://www.getdbt.com/partner-directory).
 * dbt Labs' [Services](https://www.getdbt.com/dbt-labs/services/).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

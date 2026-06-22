@@ -27,11 +27,3 @@ The Discovery API *schema* provides all the pieces necessary to query and intera
 #### [Model Historical Runs schema](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied-modelHistoricalRuns.md)
 
 [Query information about a model's run history.](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied-modelHistoricalRuns.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

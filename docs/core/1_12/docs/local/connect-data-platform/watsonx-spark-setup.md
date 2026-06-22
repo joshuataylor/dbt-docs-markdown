@@ -135,11 +135,3 @@ Search table...
 * **Supports only HTTP**: No support for ODBC, Thrift, or session-based connections.
 * **Limited dbt Support**: Not fully compatible with dbt.
 * **Metadata Persistence**: Some dbt features, such as column descriptions, may not persist in all table formats.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

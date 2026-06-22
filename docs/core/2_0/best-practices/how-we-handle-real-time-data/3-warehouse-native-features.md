@@ -147,11 +147,3 @@ Here are some resources for each warehouse:
 
 * [dbt blog: Announcing materialized views](https://docs.getdbt.com/blog/announcing-materialized-views)
 * [dbt blog: Optimizing query run time with materialization schedules](https://www.getdbt.com/blog/optimizing-query-run-time-with-materialization-schedules/)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

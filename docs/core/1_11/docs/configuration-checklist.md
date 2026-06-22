@@ -125,11 +125,3 @@ Once you've completed this checklist, you're ready to start your dbt platform jo
   Review our [best practices](https://docs.getdbt.com/best-practices.md) for practical advice on structuring and deploying your dbt projects.
 * <!-- -->
   Become familiar with the [references](https://docs.getdbt.com/reference/references-overview.md), as they are the product dictionary and offer detailed implementation examples.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

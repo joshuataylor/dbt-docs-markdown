@@ -179,11 +179,3 @@ The standard behavior of dbt is:
 **Note** With an [ephemeral model](https://docs.getdbt.com/docs/build/materializations.md), dbt will always apply the prefix `__dbt__cte__` to the CTE identifier. This means that if an alias is set on an ephemeral model, then its CTE identifier will be `__dbt__cte__{{ alias }}`, but if no alias is set then its identifier will be `__dbt__cte__{{ filename }}`.
 
 To learn more about changing the way that dbt generates a relation's `identifier`, read [Using Aliases](https://docs.getdbt.com/docs/build/custom-aliases.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

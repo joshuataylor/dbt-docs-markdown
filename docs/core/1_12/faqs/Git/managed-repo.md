@@ -7,11 +7,3 @@ When you're ready to do this, [contact the dbt Labs Support team](mailto:support
 1. From dbt, click on your account name in the left side menu and select **Account settings**.
 2. Click **Projects**, and then select your project.
 3. Under **Repository** in the project details page, you can find your managed repo URL.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

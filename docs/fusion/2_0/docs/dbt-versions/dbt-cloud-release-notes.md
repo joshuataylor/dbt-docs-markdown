@@ -196,11 +196,3 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **New:** The [Semantic Layer querying](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#semantic-layer-querying) within dbt Insights is now generally available (GA), enabling you to build SQL queries against the Semantic Layer without writing SQL code.
 
 * **Enhancement**: Eligible dbt platform accounts in the Fusion private preview can now use [Exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

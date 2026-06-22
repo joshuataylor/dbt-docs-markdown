@@ -27,11 +27,3 @@ You should use service tokens broadly for any production workflow where you need
 * **dbt CLI** — Use a PAT since the dbt CLI works within the context of a user (the user is making the requests and has to operate within the context of their user account).
 * **Testing a custom script and staging Terraform or Postman** — We recommend using a PAT as this is a developmental workflow and is scoped to the user making the changes. When you push this script or Terraform into production, use a service token instead.
 * **API endpoints requiring user context** — Use PATs to authenticate to any API endpoint that requires user context (for example, endpoints to create and update user credentials).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

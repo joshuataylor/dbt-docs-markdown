@@ -27,11 +27,3 @@ For full transparency, you can see all the event definitions in [`tracking.py`](
   dbt Core users can also use the `DO_NOT_TRACK` environment variable to enable or disable sending anonymous data. For more information, see [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md).
 
   `DO_NOT_TRACK=1` is the same as `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

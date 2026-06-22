@@ -17,11 +17,3 @@ These settings are intended for dbt administrators. If you need a more detailed 
 
 * To set up dbt, you'll need to have a dbt account with administrator access. If you still need to create a dbt account, [sign up today](https://getdbt.com) on our North American servers or [contact us](https://getdbt.com/contact) for international options.
 * To have the best experience using dbt, we recommend you use modern and up-to-date web browsers like Chrome, Safari, Edge, and Firefox.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

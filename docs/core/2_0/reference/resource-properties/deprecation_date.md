@@ -90,11 +90,3 @@ Strategies similar to [here](https://discourse.getdbt.com/t/faq-cleaning-up-remo
 dbt-bigquery can set an [`hours_to_expiration`](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#controlling-table-expiration) that translates to `expiration_timestamp` within BigQuery.
 
 dbt does not automatically synchronize `deprecation_date` and `hours_to_expiration`, but users may want to coordinate them in some fashion (such as setting a model to expire 48 hours after its `deprecation_date`). Expired tables in BigQuery will be deleted and their storage reclaimed.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

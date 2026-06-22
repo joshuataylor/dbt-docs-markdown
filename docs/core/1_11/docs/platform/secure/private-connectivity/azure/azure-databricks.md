@@ -59,11 +59,3 @@ Once you've completed the setup in the Databricks environment, you can configure
 5. Select the private endpoint from the dropdown (this automatically populates the hostname/account field).
 6. Configure the remaining data platform details.
 7. Test your connection and save it.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

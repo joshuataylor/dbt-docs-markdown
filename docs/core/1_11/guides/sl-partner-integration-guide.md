@@ -186,11 +186,3 @@ These are recommendations on how to evolve a Semantic Layer integration and not 
 * [Use the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) to learn about the product.
 * [Build your metrics](https://docs.getdbt.com/docs/build/build-metrics-intro.md) for more info about MetricFlow and its components.
 * [Semantic Layer integrations page](https://www.getdbt.com/product/semantic-layer-integrations) for information about the available partner integrations.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

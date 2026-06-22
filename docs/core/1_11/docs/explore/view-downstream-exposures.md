@@ -73,11 +73,3 @@ This view visualizes the dependencies and relationships in your project. For Tab
 [![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
 [![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

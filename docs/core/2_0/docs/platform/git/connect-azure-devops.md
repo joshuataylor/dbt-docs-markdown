@@ -23,11 +23,3 @@ Currently, there are multiple methods for integrating Azure DevOps with dbt. The
 * [**Service user to service principal migration**](https://docs.getdbt.com/docs/platform/git/setup-service-principal.md#migrate-to-service-principal)
 
 No matter which approach you take, you will need admins for dbt, Azure Entra ID, and Azure DevOps to complete the integration. For more information, follow the setup guide that's right for you.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -373,11 +373,3 @@ There are a couple important concepts to understand here:
 ## Migrate Stores procedures[​](#migrate-stores-procedures "Direct link to Migrate Stores procedures")
 
 The techniques shared above are useful ways to get started converting the individual DML statements that are often found in stored procedures. Using these types of patterns, legacy procedural code can be rapidly transitioned to dbt models that are much more readable, maintainable, and benefit from software engineering best practices like DRY principles. Additionally, once transformations are rewritten as dbt models, it becomes much easier to test the transformations to ensure that the data being used downstream is high-quality and trustworthy.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

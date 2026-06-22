@@ -59,11 +59,3 @@ Why is this important? dbt uses and creates a significant amount of metadata. Be
 ### Limitations[​](#limitations "Direct link to Limitations")
 
 To ensure that your compute engine has access to the catalog, you must provide the networking and permissions are set up correctly. This means that if you are using X warehouse with Y catalog but want to read Y catalog from Z warehouse, you need to ensure that Z warehouse can connect to Y catalog. If IP restrictions are turned on, you must resolve this by removing restrictions on allowlisting (only possible if the warehouse supports static IP addresses) or setting something like Privatelink to support this.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

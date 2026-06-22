@@ -233,11 +233,3 @@ For more information, consult the [managing environments in dbt Core](https://do
 * [Customize dbt models database, schema, and alias](https://docs.getdbt.com/guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
 * [Custom database](https://docs.getdbt.com/docs/build/custom-databases.md) to learn how to customize dbt model database
 * [Custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md) to learn how to customize dbt model alias name
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

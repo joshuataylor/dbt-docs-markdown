@@ -73,11 +73,3 @@ The query above using the CTE utilizes more lines compared to the simpler query 
 ## SQL HAVING clause syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-having-clause-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL HAVING clause syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
 [Snowflake](https://docs.snowflake.com/en/sql-reference/constructs/having.html), [Databricks](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-qry-select-having.html), [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#having_clause), and [Redshift](https://docs.aws.amazon.com/redshift/latest/dg/r_HAVING_clause.html) all support the HAVING clause and the syntax for using HAVING is the same across each of those data warehouses.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

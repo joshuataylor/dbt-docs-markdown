@@ -223,11 +223,3 @@ Yes, either through [Airflow's email/slack](https://www.astronomer.io/guides/err
 ### How should I plan my dbt + Airflow implementation?[​](#how-should-i-plan-my-dbt--airflow-implementation "Direct link to How should I plan my dbt + Airflow implementation?")
 
 Check out [this recording](https://www.youtube.com/watch?v=n7IIThR8hGk) of a dbt meetup for some tips.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

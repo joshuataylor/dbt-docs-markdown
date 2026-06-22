@@ -47,11 +47,3 @@ Whether you use a Git integration that natively connects with dbt or prefer to w
 #### [Availability of CI features by Git provider](https://docs.getdbt.com/docs/deploy/continuous-integration.md#git-providers-who-support-ci)
 
 [Learn which Git providers have native support for Continuous Integration workflows](https://docs.getdbt.com/docs/deploy/continuous-integration.md#git-providers-who-support-ci)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

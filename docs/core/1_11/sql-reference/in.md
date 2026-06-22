@@ -39,11 +39,3 @@ The IN operator, like most of the SQL operators, are not syntactically different
 ## IN operator use cases[​](#in-operator-use-cases "Direct link to IN operator use cases")
 
 Use the IN condition to filter out inappropriate or inaccurate rows from a query or database schema object based on parameters you define and understand. We guarantee there’s an IN somewhere in your dbt project 😀
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

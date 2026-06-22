@@ -144,11 +144,3 @@ As breaking up monolithic dbt projects into smaller, connected projects, potenti
 Overall, consistency is more important than any of these specific conventions. As your project grows and your experience with dbt deepens, you will undoubtedly find aspects of the above structure you want to change. While we recommend this approach for the majority of projects, every organization is unique! The only dogmatic advice we’ll put forward here is that when you find aspects of the above structure you wish to change, think intently about your reasoning and document for your team *how* and *why* you are deviating from these conventions. To that end, we highly encourage you to fork this guide and add it to your project’s README, wiki, or docs so you can quickly create and customize those artifacts.
 
 Finally, we emphasize that this guide is a living document! It will certainly change and grow as dbt and dbt Labs evolve. We invite you to join in — discuss, comment, and contribute regarding suggested changes or new elements to cover.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

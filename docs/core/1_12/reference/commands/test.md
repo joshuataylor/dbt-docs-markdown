@@ -34,11 +34,3 @@ dbt test --select "one_specific_model,test_type:unit"
 ```
 
 For more information on writing tests, read the [data testing](https://docs.getdbt.com/docs/build/data-tests.md) and [unit testing](https://docs.getdbt.com/docs/build/unit-tests.md) documentation.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

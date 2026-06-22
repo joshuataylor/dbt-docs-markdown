@@ -84,11 +84,3 @@ Since the `updated_at` configuration only takes a column name, rather than an ex
 3. Run `dbt snapshot` to execute the snapshot.
 
 Alternatively, you can also create an ephemeral model to performs the required transformations. Then, you reference this model in your snapshot's `relation` key.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

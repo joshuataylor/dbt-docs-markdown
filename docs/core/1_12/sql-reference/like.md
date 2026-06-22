@@ -80,11 +80,3 @@ You may see the LIKE operator used in analytics engineering work to:
 * Filter out employee email records based on a similar email address pattern (ex. `where email_address not like '%@dbtlabs.com'`)
 
 This isn’t an extensive list of where your team may be using the LIKE operator throughout your dbt models, but contains some common scenarios analytics engineers face day-to-day.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

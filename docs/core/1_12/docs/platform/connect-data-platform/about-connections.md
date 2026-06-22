@@ -148,11 +148,3 @@ dbt will always connect to your data platform from the IP addresses specified in
 Be sure to allow traffic from these IPs in your firewall, and include them in any database grants.
 
 Allowing these IP addresses only enables the connection to your data warehouse. However, you might want to send API requests from your restricted network to the dbt API. Using the dbt API requires allowing the `cloud.getdbt.com` subdomain. For more on the dbt architecture, see [Deployment architecture](https://docs.getdbt.com/docs/platform/about-platform/architecture.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

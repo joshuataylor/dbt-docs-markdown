@@ -124,11 +124,3 @@ If OAuth verification does not complete successfully, double check that:
 For additional troubleshooting — including email verification issues, MFA double prompts, and SSO enforcement behavior — refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
 
 ## Learn more[​](#learn-more "Direct link to Learn more")
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

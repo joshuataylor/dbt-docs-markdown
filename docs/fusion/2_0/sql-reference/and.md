@@ -54,11 +54,3 @@ Search table...
 ## AND operator syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#and-operator-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to AND operator syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
 Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the AND operator with the same syntax for it across each platform.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

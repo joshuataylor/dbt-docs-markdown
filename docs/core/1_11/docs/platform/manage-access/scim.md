@@ -86,11 +86,3 @@ Configure SCIM for your identity provider and optionally manage licenses:
 * **[Set up SCIM with Okta](https://docs.getdbt.com/docs/platform/manage-access/scim-okta.md)** — User and group provisioning, profile updates, and [license management](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) (Okta only).
 * **[Set up SCIM with Entra ID](https://docs.getdbt.com/docs/platform/manage-access/scim-entra-id.md)** — User and group provisioning and profile updates, plus assigning users to the SCIM app.
 * **[SCIM FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md)** — Common questions and troubleshooting for SCIM provisioning.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

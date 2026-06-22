@@ -163,11 +163,3 @@ To automate seat assignments in Okta, use the Profile Editor to map Okta group m
    * **Default behavior:** Users not in the `dbt_developers` group will default to Read-Only.
 
 Adding or removing users from these Okta groups automatically updates their dbt app profile and triggers a SCIM update to synchronize the `licenseType` in dbt. Admins also have the option of using **Manual Push** in the Okta app to synchronize the changes.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

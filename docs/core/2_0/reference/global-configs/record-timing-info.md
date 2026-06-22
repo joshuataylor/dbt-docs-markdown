@@ -17,11 +17,3 @@ Alternatively, you can use [`py-spy`](https://github.com/benfred/py-spy) to coll
 python -m pip install py-spy
 sudo py-spy record -s -f speedscope -- dbt parse
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

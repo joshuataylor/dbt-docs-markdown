@@ -1157,11 +1157,3 @@ Search table...
 ## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
 
 You must specify all fields in a BigQuery `STRUCT` for [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md). You cannot use only a subset of fields in a `STRUCT`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

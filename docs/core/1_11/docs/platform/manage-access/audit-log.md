@@ -364,11 +364,3 @@ You can use the audit log to export all historical audit results for security, c
 * **For events beyond 90 days** — Select **Export All**. The Account Admin or Account Viewer will receive an email link to download a CSV file of all the events that occurred in your organization.
 
 [![View audit log export options](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-section.png?v=2 "View audit log export options")](#)View audit log export options
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

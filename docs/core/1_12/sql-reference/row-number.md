@@ -75,11 +75,3 @@ We most commonly see the ROW\_NUMBER function used in data work to:
 * Paired with QUALIFY statement, filter CTEs, queries, or models to capture one unique row per specified partition with the ROW\_NUMBER function. This is particularly useful when you need to remove duplicate rows from a dataset (but use this wisely!).
 
 This isn’t an extensive list of where your team may be using the ROW\_NUMBER function throughout your dbts some common scenarios analytics engineers face day-to-day.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

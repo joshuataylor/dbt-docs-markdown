@@ -63,11 +63,3 @@ If your Git Provider does not explicitly support the uploading of public GPG key
  What if my Git provider requires that all commits are signed?
 
 If your Git provider is configured to enforce commit verification, then unsigned commits will be rejected. To avoid this, ensure that you have followed all previous steps to generate a keypair, and uploaded the public key to the provider.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

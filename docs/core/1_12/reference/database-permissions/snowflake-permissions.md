@@ -168,11 +168,3 @@ grant monitor on all schemas in database database_name to role role_name;
 grant select on all tables in database database_name to role role_name;
 grant select on all views in database database_name to role role_name;
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

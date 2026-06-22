@@ -281,11 +281,3 @@ models:
 
 * dbt accounts for the [`copy_grants` configuration](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#copying-grants) when calculating which grants need to be added or removed.
 * Granting to / revoking from is only fully supported for Snowflake roles (not [database roles](https://docs.snowflake.com/user-guide/security-access-control-overview#types-of-roles)).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1559,11 +1559,3 @@ No changes of note this week.
 ### Behavior changes[​](#behavior-changes-17 "Direct link to Behavior changes")
 
 * **dbt platform:** dbt Core "versionless" renamed to "latest" so it's consistent and clear across tenants.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

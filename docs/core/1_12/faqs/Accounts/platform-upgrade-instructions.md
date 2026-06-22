@@ -86,11 +86,3 @@ Why did I receive a **Failed payment** error email?
 This means we were unable to charge the credit card you have on file, or you have not provided an updated card for payment. If you're a current account owner with a card on file, contact your credit card issuer to inquire as to why your card was declined or update the credit card on your account.
 
 Your Account Owner can update payment details in the **Account Settings** -> **Billing** page. Click **Edit** next to your card details, double check your information is up-to-date, and we'll give it another go at the next billing run.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

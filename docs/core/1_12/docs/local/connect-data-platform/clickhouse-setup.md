@@ -128,11 +128,3 @@ See the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt)
 We welcome contributions from the community to help improve the `dbt-ClickHouse` adapter. Whether you're fixing a bug, adding a new feature, or enhancing the documentation, your efforts are greatly appreciated!
 
 Please take a moment to read our [Contribution Guide](https://github.com/ClickHouse/dbt-clickhouse/blob/main/CONTRIBUTING.md) to get started. The guide provides detailed instructions on setting up your environment, running tests, and submitting pull requests.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -222,11 +222,3 @@ Each CLI session is saved locally. This is separate from platform conversations,
 * [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
 * [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
 * [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -108,11 +108,3 @@ Search table...
 ## Notes[​](#notes "Direct link to Notes")
 
 * dbt-ibmdb2 is built on the ibm\_db python package and there are some known encoding issues related to z/OS.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

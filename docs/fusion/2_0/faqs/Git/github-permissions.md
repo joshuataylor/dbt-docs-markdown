@@ -40,11 +40,3 @@ Disconnect the GitHub and dbt integration in dbt.
 ## Support[​](#support "Direct link to Support")
 
 If you've tried these workarounds and are still experiencing this behavior — reach out to the [dbt Support](mailto:support@getdbt.com) team and we'll be happy to help!
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

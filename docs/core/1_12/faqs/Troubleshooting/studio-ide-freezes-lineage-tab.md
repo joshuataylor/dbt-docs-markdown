@@ -73,11 +73,3 @@ If freezing continues after trying these workarounds, [contact dbt Support](mail
 * Browser and version
 * Approximate number of open model tabs
 * Whether the issue happens only when the **Lineage** tab is active
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

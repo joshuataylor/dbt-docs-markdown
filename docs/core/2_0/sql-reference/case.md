@@ -72,11 +72,3 @@ Instead, it’s important to know *why* you’d want to use them in your data wo
 * Establish mappings between raw data and more general buckets of data (see example earlier in the page); note that if you find yourself creating many case when scenarios for a mapping that doesn’t change over time, you’ll likely want to import that mapping either as its own dbt model or data source (a good use case for [seeds](https://docs.getdbt.com/docs/build/seeds.md))
 * If you find yourself creating the same case when statement throughout your models, consider abstracting that case when into its own model or into a DRY [macro](https://docs.getdbt.com/docs/build/jinja-macros.md)
 * Generate more business-user friendly columns values that can be easily comprehended by business users
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

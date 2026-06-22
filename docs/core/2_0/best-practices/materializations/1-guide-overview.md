@@ -48,11 +48,3 @@ We’ll explore this in-depth throughout, but the basic guideline is **start as 
 * 🔍 **Start with a view.** When the view gets too long to *query* for end users,
 * ⚒️ **Make it a table.** When the table gets too long to *build* in your dbt Jobs,
 * 📚 **Build it incrementally.** That is, layer the data on in chunks as it comes in.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

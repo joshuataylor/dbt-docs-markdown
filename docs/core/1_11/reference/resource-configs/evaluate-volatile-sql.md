@@ -90,11 +90,3 @@ dbt State treats `getdate()` as static code. The node remains reusable as long a
 
 * [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
 * [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -63,11 +63,3 @@ The resulting semantic models (and metrics, when defined in your OSI documents) 
 * dbt scans only the root project's OSI directories (configured through [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md), default `OSI/`). OSI files in installed dependency packages are ignored.
 * Each OSI dataset source must resolve to a dbt model. OSI documents that reference sources, seeds, snapshots, or external tables are not supported.
 * If the OSI converter encounters unsupported metric types or other constructs, those elements are dropped and dbt emits a warning (event code `I078`), but parsing continues. Warnings appear in the CLI and in `logs/dbt.log`; for more information, refer to [Events and logs](https://docs.getdbt.com/reference/events-logging.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

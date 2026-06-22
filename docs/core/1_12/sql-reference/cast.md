@@ -64,11 +64,3 @@ You know at one point you’re going to need to cast a column to a different dat
 * BI tools require certain fields to be specific data types
 
 A key thing to remember when you’re casting data is the user experience in your end BI tool: are business users expecting `customer_id` to be filtered on 1 or '1'? What is more intuitive for them? If one `id` field is an integer, all `id` fields should be integers. Just like all data modeling, consistency and standardization is key when determining when and what to cast.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

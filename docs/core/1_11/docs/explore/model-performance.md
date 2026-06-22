@@ -95,11 +95,3 @@ For **Build time** and **Build count** tabs:
 
 * Click on any data point in the charts to see a detailed table listing all job runs for that day.
 * Each row in the table provides a direct link to the run details if you want to investigate further.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -195,11 +195,3 @@ In the Google Cloud Console, navigate to **Monitoring** → **Metrics Explorer**
 Enable logging on your load balancer's backend service to capture request details. Navigate to your backend service, click **Edit**, and enable **Logging** with a sample rate of 1.0 for troubleshooting.
 
 For more information, see [Private Service Connect monitoring](https://cloud.google.com/vpc/docs/monitor-private-service-connect-connections) and [Load Balancer logging](https://cloud.google.com/load-balancing/docs/https/https-logging-monitoring).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

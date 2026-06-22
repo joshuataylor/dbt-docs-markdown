@@ -10,11 +10,3 @@ I agree to abide by the [dbt Community Code of Conduct](https://docs.getdbt.com/
 * My use of any job-posting template (or other forum for providing job-related information) confirms my consent to provide the data posted, confirms that I have permission to post such data, and is subject to the terms of the [dbt Labs privacy policy](https://www.getdbt.com/cloud/privacy-policy).
 
 For further information, please contact <legal@dbtlabs.com>.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

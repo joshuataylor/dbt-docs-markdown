@@ -48,11 +48,3 @@ For all of these opportunities, please fill out an [interest form](https://docs.
 
 * If registrations are open register on the [dbt Summit website](https://www.getdbt.com/dbt-summit)
 * Join #dbt-summit-updates on the dbt Community Slack
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

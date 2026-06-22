@@ -57,11 +57,3 @@ If you find yourself rounding numeric data, either in data models or ad-hoc anal
 * Create concrete buckets of data for a cleaner distribution of values during ad-hoc analysis
 
 You’ll additionally likely see the ROUND function used in your BI tool as it generates rounded clean numbers for business users to interact with.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -47,11 +47,3 @@ Choose one of the following paths to get started with the dbt Fusion engine.
 #### [Upgrade to Fusion](<https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine in the dbt platform>)
 
 [Learn how to upgrade your cloud-hosted environments to the dbt Fusion engine.](<https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine in the dbt platform>)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

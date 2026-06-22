@@ -250,11 +250,3 @@ If you are interested in supporting materialized test fixtures, we encourage you
 ## Connection configuration[​](#connection-configuration "Direct link to Connection configuration")
 
 For information about connection parameters such as encryption, SSL/TLS validation, OpenID authentication, and other profile settings, refer to the [Exasol setup documentation](https://docs.getdbt.com/docs/local/connect-data-platform/exasol-setup.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

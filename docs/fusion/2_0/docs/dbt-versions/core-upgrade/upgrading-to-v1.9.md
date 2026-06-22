@@ -150,11 +150,3 @@ We also made some quality-of-life improvements in Core 1.9, enabling you to:
 * Use `ref` and `source` in [foreign key constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md).
 * Use `dbt test` with the `--resource-type` / `--exclude-resource-type` flag, making it possible to include or exclude data tests (`test`) or unit tests (`unit_test`).
 * The [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) config is now available for unit tests. Defaults to `true` if not defined.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

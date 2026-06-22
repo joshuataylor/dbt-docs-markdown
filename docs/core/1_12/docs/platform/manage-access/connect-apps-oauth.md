@@ -148,11 +148,3 @@ Audited OAuth events include:
 Actions a user performs through an OAuth-connected client — for example, creating a job or running a model — appear in the audit log with the **user as the actor**, the same as actions taken through the dbt UI or with a personal access token.
 
 [![Audit log entry for an action taken through an OAuth-connected client](/img/docs/dbt-cloud/oauth-audit-log.png?v=2 "Audit log entry for an action taken through an OAuth-connected client")](#)Audit log entry for an action taken through an OAuth-connected client
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

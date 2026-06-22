@@ -41,11 +41,3 @@ To confirm branches and connectivity before switching over, create a separate pr
  From managed to self-hosted
 
 Exporting a project as a ZIP is a snapshot of files only and does not preserve your Git history or branches. To migrate properly and keep your full history, follow [Move from a managed repository to a self-hosted repository](https://docs.getdbt.com/faqs/Git/managed-repo.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

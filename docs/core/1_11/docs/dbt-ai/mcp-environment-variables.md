@@ -109,11 +109,3 @@ These variables control the behavior of Semantic Layer tools.
 | ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DBT_MCP_LOG_LEVEL` | `INFO`  | Log level for the MCP server. Options: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. Set to `DEBUG` temporarily to diagnose issues.                                                                                 |
 | `MCP_TRANSPORT`     | `stdio` | Transport protocol. Set to `streamable-http` for local debugging only (for example, attaching a Python debugger). See the [dbt-mcp CONTRIBUTING guide](https://github.com/dbt-labs/dbt-mcp/blob/main/CONTRIBUTING.md). |
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

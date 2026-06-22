@@ -179,11 +179,3 @@ Once you've installed the dbt VS Code extension, go to the next pages to get sta
 1. Review the [Upgrade to Fusion](https://docs.getdbt.com/docs/upgrade-to-fusion-extension.md) page to ensure your dbt project is using the dbt Fusion engine.
 2. [Sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account to keep using advanced features after the 14-day trial.
 3. Review the [limitations and unsupported features](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

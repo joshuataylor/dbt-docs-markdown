@@ -170,11 +170,3 @@ saved-queries:
 ## Definition[​](#definition "Direct link to Definition")
 
 The `config` property allows you to configure resources at the same time you're defining properties in YAML files.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

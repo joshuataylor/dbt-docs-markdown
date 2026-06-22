@@ -25,11 +25,3 @@ If you are on a **Starter** plan and you're deleting users to reduce the number 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
 * [dbt licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

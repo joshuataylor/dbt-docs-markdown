@@ -20,11 +20,3 @@ To set up and add data health tiles to view data freshness and quality checks in
 [![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")](#)Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
 
 [![Access logs for run steps](/img/docs/dbt-platform/deployment/access-logs.gif?v=2 "Access logs for run steps")](#)Access logs for run steps
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

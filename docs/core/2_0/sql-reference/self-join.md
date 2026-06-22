@@ -72,11 +72,3 @@ Search table...
 Again, self joins are probably rare in your dbt project and will most often be utilized in tables that contain a hierarchical structure, such as consisting of a column which is a foreign key to the primary key of the same table. If you do have use cases for self joins, such as in the example above, you’ll typically want to perform that self join early upstream in your DAG, such as in a [staging](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) or [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) model; if your raw, unjoined table is going to need to be accessed further downstream sans self join, that self join should happen in a modular intermediate model.
 
 You can also use self joins to create a cartesian product (aka a cross join) of a table against itself. Again, slim use cases, but still there for you if you need it 😉
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

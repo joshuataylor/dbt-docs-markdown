@@ -252,11 +252,3 @@ wizard exec --json "summarize test coverage by schema"
 * [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
 * [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md): same agent, in the dbt platform
 * [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md): more prompt patterns for the dbt Wizard in Studio IDE (many apply to the CLI too)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -90,11 +90,3 @@ In the following example, the CI job can’t access the production model to comp
 
 * The dbt CI job in environment `ci.dbt_cloud_123.foo` that connects to host `abc123.rds.amazonaws.com`
 * The dbt production job in environment `prod.analytics.foo` that connects to host `def456.rds.amazonaws.com`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

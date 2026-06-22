@@ -48,11 +48,3 @@ We recommend leveraging inline comments in the following situations:
 * Clearly label tech debt (`-- [TODO]: TECH DEBT`) in queries or models
 
 If you find your inline SQL comments are getting out of control, less scannable and readable, that’s a sign to lean more heavily on dbt Docs and markdown files in your dbt project. dbt supports [descriptions](https://docs.getdbt.com/reference/resource-properties/description.md), which allow you to add robust model (or macro, source, snapshot, seed, and source) and column descriptions that will populate in hosted dbt Docs. For models or columns that need more thorough or customizable documentation, leverage [doc blocks in markdown and YAML files](https://docs.getdbt.com/reference/resource-properties/description.md#use-a-docs-block-in-a-description) to create more detailed explanations and comments.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

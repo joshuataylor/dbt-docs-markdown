@@ -79,11 +79,3 @@ case when time_engaged between 0 and 9 then 'low_engagement'
 ```
 
 This isn’t an extensive list of where your team may be using the BETWEEN condition throughout your dbt models or ad hoc analyses, but contains some common scenarios analytics engineers may encounter.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

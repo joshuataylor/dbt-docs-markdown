@@ -257,11 +257,3 @@ Microbatching might not always be the best option from a performance perspective
 * For connection modes and profile setup, refer to [Connect DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md).
 * For adapter source code and plugins, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
 * For dbt Core concepts used on this page, refer to [Materializations](https://docs.getdbt.com/docs/build/materializations.md), [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md), and [Python models](https://docs.getdbt.com/docs/build/python-models.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -111,11 +111,3 @@ Events that are hosted by other members of the dbt community, such as most dbt C
 ## Credits[​](#credits "Direct link to Credits")
 
 Credit to [01.org](https://01.org/community/participation-guidelines), [Tizen.org](https://www.tizen.org/community/guidelines), and [Geek Feminism](https://geekfeminism.wikia.org/wiki/Community_anti-harassment/Policy) for some of the wording used in this Code of Conduct.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

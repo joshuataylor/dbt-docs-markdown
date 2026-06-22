@@ -186,11 +186,3 @@ In each of the stated search spaces, a materialization can only be defined once.
 Specific materializations can be selected by using the dot-notation when selecting a materialization from the context.
 
 We recommend *not* overriding materialization names directly, and instead using a prefix or suffix to denote that the materialization changes the behavior of the default implementation (eg. my\_project\_incremental).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -191,11 +191,3 @@ dbt-cloud:
 * [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)
 * [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
 * [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

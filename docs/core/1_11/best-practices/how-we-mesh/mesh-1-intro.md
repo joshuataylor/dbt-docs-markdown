@@ -51,11 +51,3 @@ For additional information, refer to the [Mesh FAQs](https://docs.getdbt.com/bes
 tip
 
 To help you get started, check out our [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -116,11 +116,3 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 * [dbt Wizard overview](https://docs.getdbt.com/docs/platform/wizard-overview.md)
 * [AI and agents](https://docs.getdbt.com/docs/dbt-ai/about-dbt-ai.md)
 * [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

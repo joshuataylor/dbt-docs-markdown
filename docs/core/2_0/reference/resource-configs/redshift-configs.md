@@ -307,11 +307,3 @@ Find more information about materialized view limitations in Redshift's [docs](h
   In order to support this pattern in the future, dbt would need to "materialize" the input fixtures as tables, rather than interpolating them as CTEs. If you are interested in this functionality, we'd encourage you to participate in this issue in GitHub: [dbt-labs/dbt Core#8499](https://github.com/dbt-labs/dbt-core/issues/8499)
 
 * Redshift doesn't support unit tests that rely on sources in a database that differs from the models. See this issue in GitHub for more detail: <https://github.com/dbt-labs/dbt-redshift/issues/995>
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

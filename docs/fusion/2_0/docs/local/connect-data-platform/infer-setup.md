@@ -138,11 +138,3 @@ SELECT * FROM predict_user_churn_input PREDICT(has_churned, ignore=user_id)
 ```
 
 Not that we ignore `user_id` from the prediction. This is because we think that the `user_id` might, and should, not influence our prediction of churn, so we remove it. We also use the convention of pulling together the inputs for our prediction in a CTE, named `predict_user_churn_input`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

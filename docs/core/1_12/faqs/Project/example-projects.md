@@ -10,11 +10,3 @@ Yes!
 * **Make Open Data:** A production-grade ELT with tests, documentation, and CI/CD (GHA) about French open data (housing, demography, geography, etc). It can be used to learn with voluminous and ambiguous data. Contributions are welcome ([source code](https://github.com/make-open-data/make-open-data), [docs](https://make-open-data.fr/))
 
 If you have an example project to add to this list, suggest an edit by clicking **Edit this page** below.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

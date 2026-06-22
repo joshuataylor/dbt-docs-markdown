@@ -115,11 +115,3 @@ For more information about why we use so many CTEs, read this glossary entry.
 - CTEs with confusing or noteable logic should be commented with SQL comments as you would with any complex functions and should be located above the CTE.
 - CTEs duplicated across models should be pulled out and created as their own models.
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

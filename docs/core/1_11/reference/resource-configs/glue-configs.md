@@ -198,11 +198,3 @@ Relation-level docs persistence is inherited from dbt-spark, for more details, c
 ## Always `schema`, never `database`[​](#always-schema-never-database "Direct link to always-schema-never-database")
 
 This section is also inherited from dbt-spark, for more details, check [Apache Spark model configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#always-schema-never-database).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -323,11 +323,3 @@ Done. PASS=0 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=1 TOTAL=1
 * [Monitoring dbt State activity in dbt platform](https://docs.getdbt.com/docs/deploy/dbt-state-interface.md)
 * [Migrating from state-aware orchestration to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
 * [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -201,11 +201,3 @@ Search table...
 Multiple Workflow tasks can be set up using the same notebook by configuring the `job_id` parameter to point to different dbt jobs.
 
 Using Databricks workflows to access the dbt job API can improve integration of your data pipeline processes and enable scheduling of more complex workflows.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

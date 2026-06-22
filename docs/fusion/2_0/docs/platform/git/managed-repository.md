@@ -30,11 +30,3 @@ To download a copy of your managed repository from dbt to your local machine:
 5. Below the **Deploy key** you will find the **Download repository** option. Click the button to download. If you don't see this option, you're either not assigned a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-permissions) with `write` access to Git repositories, or you don't have a managed repo for your project.
 
 [![The download button for a managed repo.](/img/docs/dbt-platform/platform-configuring-dbt-platform/download-managed-repo.png?v=2 "The download button for a managed repo.")](#)The download button for a managed repo.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

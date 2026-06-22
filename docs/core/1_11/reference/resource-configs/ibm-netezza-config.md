@@ -19,11 +19,3 @@ You can configure column data types either in the dbt\_project.yml file or in pr
 ### Recommendations[​](#recommendations "Direct link to Recommendations")
 
 * **Check SQL Documentation:** Review IBM Netezza [SQL command reference ](https://www.ibm.com/docs/en/netezza?topic=dud-netezza-performance-server-sql-command-reference)to create your dbt project.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

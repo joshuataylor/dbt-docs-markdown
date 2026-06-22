@@ -33,11 +33,3 @@ WHERE clauses are probably some of the most widely used SQL capabilities, right 
 * Filtering out employee records from models
 * Performing ad-hoc analysis on specific rows or users, either in a dbt model, BI tool, or ad-hoc query
 * Paired with IN, LIKE, NOT IN clauses to create more generalized or a group of specific requirements to filter on
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

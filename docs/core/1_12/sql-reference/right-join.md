@@ -79,11 +79,3 @@ Because there’s no `user_id` = 4 in Table A, there is no `type` available, thu
 Compared to left joins, you likely won’t see right joins as often (or ever) in data modeling and analytics engineering work. But why not?
 
 Simply because right joins are a little less intuitive than a left join. When you’re data modeling, you’re usually focused on one database object, and adding the supplementary data or tables you need to give you a final dataset. That one focal database object is typically what is put in the `from {{ ref('my_database_object')}}`; any other columns that are joined onto it from other tables are usually supplementary, but keeping all the rows from the initial table of focus is usually the priority. Don’t get us wrong—right joins can get you there—it’s likely just a little less intuitive and can get complex with queries that involve multiple joins.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

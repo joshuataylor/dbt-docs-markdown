@@ -209,11 +209,3 @@ For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.co
 
 * Add dbt platform features: see [Connect to dbt platform](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md)
 * Configure toolsets or disable specific tools: see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

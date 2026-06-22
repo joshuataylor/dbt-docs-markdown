@@ -46,11 +46,3 @@ The dbt Fusion engine and [VS Code extension](https://docs.getdbt.com/docs/about
 * **Beta:** Beta features are still in development and are only available to select customers. Beta features are incomplete and might not be entirely stable; they should be used at the customer’s risk, as breaking changes could occur. Beta features might not be fully documented, technical support is limited, and service level objectives (SLOs) might not be provided. Download the [Beta Features Terms and Conditions](https://docs.getdbt.com/assets/files/beta-tc-740ff696113c89c38a96bb70b968775e.pdf) for more details.
 * **Preview:** Preview features are stable and considered functionally ready for production deployments that are using supported features and do not depend on deprecated functionality. For more about the status of features and functionality, the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) contain the most recent updates.
 * **Path to Generally available (GA):** Learn what's required for the dbt Fusion engine to reach GA in our [Path to GA](https://docs.getdbt.com/blog/dbt-fusion-engine-path-to-ga) blog post.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -138,11 +138,3 @@ Going forward, Kimiko is able to return to her project in Catalog and run the mo
 * Manually run the model, which also runs tests and is versioned so Kimiko can track changes over time
 * Trigger a scheduled job to run the dbt model, like every Monday for her stakeholder report
 * Set up a Slack notification in case the job fails so she can recitfy any problems
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

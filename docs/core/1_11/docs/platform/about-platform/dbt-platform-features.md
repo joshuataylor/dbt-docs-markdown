@@ -127,11 +127,3 @@ Track warehouse compute costs and understand the impact of optimizations across 
 * [dbt plans and pricing](https://www.getdbt.com/pricing/)
 * [Quickstart guides](https://docs.getdbt.com/docs/get-started-dbt.md)
 * [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

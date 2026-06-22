@@ -238,11 +238,3 @@ Inspect the current session state without changing anything.
 * [Headless mode](https://docs.getdbt.com/docs/dbt-ai/wizard-headless.md) for using `wizard exec` in scripts and CI
 * [Configuration reference](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md) for `config.toml` keys and precedence
 * [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

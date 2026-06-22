@@ -13,11 +13,3 @@ The top level of a dbt workflow is the project. A project is a directory of a `.
 Your organization may need only a few models, but more likely you’ll need a complex structure of nested models to transform the required data. A model is a single file containing a final `select` statement, and a project can have multiple models, and models can even reference each other. Add to that, numerous projects and the level of effort required for transforming complex data sets can improve drastically compared to older methods.
 
 Learn more about models in [SQL models](https://docs.getdbt.com/docs/build/sql-models.md) and [Python models](https://docs.getdbt.com/docs/build/python-models.md) pages. If you'd like to begin with a bit of practice, visit our [Getting Started Guide](https://docs.getdbt.com/guides.md) for instructions on setting up the Jaffle\_Shop sample data so you can get hands-on with the power of dbt.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

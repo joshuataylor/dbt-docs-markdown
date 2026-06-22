@@ -171,11 +171,3 @@ Run dbt and observe that the created relation and columns are annotated with you
 [![Relation descriptions in BigQuery](/img/reference/persist_docs_relation.png?v=2 "Relation descriptions in BigQuery")](#)Relation descriptions in BigQuery
 
 [![Column descriptions in BigQuery](/img/reference/persist_docs_columns.png?v=2 "Column descriptions in BigQuery")](#)Column descriptions in BigQuery
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

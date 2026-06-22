@@ -168,11 +168,3 @@ These introspective queries include:
 Without a data platform connection, dbt can't perform these introspective queries and won't be able to generate the compiled SQL needed for the next steps in the dbt workflow. You can [`parse`](https://docs.getdbt.com/reference/commands/parse.md) a project and use the [`list`](https://docs.getdbt.com/reference/commands/list.md) resources in the project, without an internet or data platform connection. Parsing a project is enough to produce a [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md), however, keep in mind that the written-out manifest won't include compiled SQL.
 
 To configure a project, you do need a [connection profile](https://docs.getdbt.com/docs/local/profiles.yml.md) (`profiles.yml` if using the CLI). You need this file because the project's configuration depends on its contents. For example, you may need to use [`{{target}}`](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) for conditional configs or know what platform you're running against so that you can choose the right flavor of SQL.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

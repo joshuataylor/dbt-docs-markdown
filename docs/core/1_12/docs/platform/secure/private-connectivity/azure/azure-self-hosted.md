@@ -208,11 +208,3 @@ Navigate to your Standard Load Balancer and click **Metrics**. Monitor:
 * **SNAT Connection Count** — Tracks outbound connections
 
 For more information, see [Azure Private Link monitoring](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview#monitoring) and [Load Balancer monitoring](https://learn.microsoft.com/en-us/azure/load-balancer/monitor-load-balancer).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

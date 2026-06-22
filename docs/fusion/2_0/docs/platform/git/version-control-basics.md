@@ -80,11 +80,3 @@ note
 * **Migrating project from dbt Core to dbt** — Make sure you check the `.gitignore` file contains the necessary entries. dbt Core doesn't interact with git so dbt doesn't automatically add or verify entries in the `.gitignore` file. Additionally, if the repository already contains dbt code and doesn't require initialization, dbt won't add any missing entries to the .gitignore file.
 
 For additional info or troubleshooting tips please refer to the [detailed FAQ](https://docs.getdbt.com/faqs/Git/gitignore.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

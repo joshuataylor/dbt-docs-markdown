@@ -24,11 +24,3 @@ dbt Copilot is available across the following experiences in the dbt platform. R
 * dbt Copilot requires AI features to be [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account.
 * Certain features are only available on Enterprise and Enterprise+ plans. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md) for details.
 * dbt Copilot doesn't yet support generating semantic models with the latest YAML spec.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

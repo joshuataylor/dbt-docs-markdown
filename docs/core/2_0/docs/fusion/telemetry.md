@@ -298,11 +298,3 @@ dbt Labs is developing an official open-source client library. Built in Rust for
 * A fully-typed Python package wrapping the Rust core.
 
 The library will provide type-safe, forward-compatible access to telemetry data—stream JSONL in real-time, query Parquet files, and build custom integrations with confidence that schema changes won't break your code.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

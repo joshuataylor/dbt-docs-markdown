@@ -59,11 +59,3 @@ When you typically run dbt seed, dbt truncates the existing table and reinserts 
 However, when column names are changed, or new columns are added, these statements will fail as the table structure has changed.
 
 The `--full-refresh` flag will force dbt to `drop cascade` the existing table before rebuilding it.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

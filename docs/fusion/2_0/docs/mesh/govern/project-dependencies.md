@@ -228,11 +228,3 @@ This behavior makes sure that Catalog only shows the immediate dependencies avai
 * Refer to the [Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) guide for more guidance on how to use Mesh.
 * [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md)
 * [Hybrid development with dbt platform and Fusion](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md) — manage credentials, env vars, deferral, and Fusion versions when developing locally against a Mesh project
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

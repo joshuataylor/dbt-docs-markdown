@@ -92,11 +92,3 @@ Lambda views and NRT dbt jobs sit on top of your ingestion architecture:
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 These challenges are why we position lambda views and ultra-frequent dbt schedules as special-case patterns. They're powerful when you truly need them, but they require deliberate design around scheduler behavior, cost, DAG structure, and ingestion architecture. In many cases, they're better replaced by [dynamic tables](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#dynamic-tables), [materialized views](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#materialized-views), or a dedicated streaming stack.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

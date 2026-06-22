@@ -104,11 +104,3 @@ Here are some limitations of the state representation in the Discovery API:
 * Compiled code results may be outdated depending on dbt run step order and failures.
 * Catalog info can be outdated, or incomplete (in the applied state), based on if/when `docs generate` was last run.
 * Source freshness checks can be out of date (in the applied state) depending on when the command was last run, and it’s not included in `build`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

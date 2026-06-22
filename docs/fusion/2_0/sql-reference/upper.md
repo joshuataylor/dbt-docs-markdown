@@ -58,11 +58,3 @@ By creating a consistent capitalization format (upper or lowercase) for all stri
 * Create a consistent capitalization format for string values in your data models, also creating expectations for business users in your BI tool
 
 There will most likely never be 100% consistency in your data models, but doing all that you can to mitigate that chaos will make your life and the life of your business users hopefully a little easier. Use the UPPER function to create a consistent casing for all strings in your data sources.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

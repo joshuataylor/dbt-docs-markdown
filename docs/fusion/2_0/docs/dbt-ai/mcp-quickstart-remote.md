@@ -228,11 +228,3 @@ Gemini uses the `httpUrl` key instead of `url`:
 * For local MCP, configuration uses environment variables; check out the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for more information.
 
 Once you have configured your MCP client, you can test your setup by asking your AI assistant a data-related question (for example, *"What models are in my dbt project?"* or *"What metrics are defined in my Semantic Layer?"*). If dbt MCP is working, the response will use your dbt metadata.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -280,11 +280,3 @@ Now that you've configured your local environment, you can start using the dbt e
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
 * [dbt extension features](https://docs.getdbt.com/docs/dbt-extension-features.md)
 * [Sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

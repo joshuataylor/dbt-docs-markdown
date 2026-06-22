@@ -326,11 +326,3 @@ But there's a condition: Only the metrics that actually use simple metrics or de
 * [Entities](https://docs.getdbt.com/docs/build/entities.md)
 * [Simple metrics](https://docs.getdbt.com/docs/build/simple.md)
 * [Semantic Layer best practices guide](https://docs.getdbt.com/best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

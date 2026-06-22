@@ -53,11 +53,3 @@ Account administrators can control whether users can discover an account through
 * When an admin turns off the option, users must know their account **Access URL** to sign in and won't see the account in the discovery list.
 
 To change this setting, go to **Account settings** and select or clear **Enable global account discovery**. For details, refer to [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

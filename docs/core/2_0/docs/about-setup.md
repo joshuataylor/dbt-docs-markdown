@@ -21,11 +21,3 @@ To begin configuring dbt now, select the option that is right for you.
 #### [dbt local setup](https://docs.getdbt.com/docs/local/install-dbt.md)
 
 [Learn how to set up dbt locally using the dbt VS Code extension or CLI.](https://docs.getdbt.com/docs/local/install-dbt.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

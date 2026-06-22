@@ -108,11 +108,3 @@ If you encounter issues connecting to DeltaStream from dbt, verify the following
 * Ensure your API token is valid and has not expired
 * Verify the token has appropriate permissions for the target organization
 * Check that the `organization_id` matches your DeltaStream organization
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

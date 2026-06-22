@@ -102,11 +102,3 @@ The dbt Fusion engine is generally available for dbt platform projects on Snowfl
   Monitor progress and get insight into the development process by reading the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements).
 * <!-- -->
   Learn how [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) can reduce warehouse costs by 30%+ by rebuilding models only when data or code changes.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

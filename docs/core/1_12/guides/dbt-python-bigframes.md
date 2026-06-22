@@ -198,11 +198,3 @@ Refer to [Connect to BigQuery](https://docs.getdbt.com/docs/platform/connect-dat
 7. You can view the logs in [dbt logs](https://docs.getdbt.com/reference/events-logging.md). You can optionally view the codes and logs (including previous executions) from the [Colab Enterprise Executions](https://console.cloud.google.com/vertex-ai/colab/execution-jobs) tab and [GCS bucket](https://console.cloud.google.com/storage/browser) from the GCP console.
 
 8. Congrats! You just created your first two python models to run on BigFrames!
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -73,11 +73,3 @@ Violations related to our anti-harassment policy will result in immediate remova
 * a friendly, but public, reminder that the behavior is inappropriate according to our guidelines.
 * a private message with a warning that any additional violations will result in removal from the community.
 * temporary or permanent suspension of your account.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

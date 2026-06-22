@@ -53,11 +53,3 @@ For example, here is an overview of the **Jobs** section of the environment page
 The same page if the user has not been granted environment-level permissions:
 
 [![The jobs page with read-only access and the 'Create job' button is not visible .](/img/docs/dbt-platform/read-only-access.png?v=2 "The jobs page with read-only access and the 'Create job' button is not visible .")](#)The jobs page with read-only access and the 'Create job' button is not visible .
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -215,11 +215,3 @@ For additional troubleshooting — including "Admin consent required" prompts fo
 The following video explains how to set up SSO with Microsoft Entra ID:
 
 [](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/sso-dbt-entra-id.mp4)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -57,11 +57,3 @@ Transaction management, a process used in certain data platforms, ensures that a
 * [Incremental strategies](https://docs.getdbt.com/docs/build/incremental-strategy.md) to understand how dbt implements incremental models on different databases.
 * [Microbatch](https://docs.getdbt.com/docs/build/incremental-microbatch.md) to understand a new incremental strategy intended for efficient and resilient processing of very large time-series datasets.
 * [Materializations best practices](https://docs.getdbt.com/best-practices/materializations/1-guide-overview.md) to learn about the best practices for using materializations in dbt.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

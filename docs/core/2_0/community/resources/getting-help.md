@@ -79,11 +79,3 @@ If you want to receive dbt training, check out our [dbt Learn](https://learn.get
 * Bug reports related to the web interface
 
 As a rule of thumb, if you are using dbt, but your problem is related to code within your dbt project, then please follow the above process or checking out the [FAQs](https://docs.getdbt.com/docs/faqs.md) rather than reaching out to support. Refer to [dbt support](https://docs.getdbt.com/docs/dbt-support.md) for more information.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

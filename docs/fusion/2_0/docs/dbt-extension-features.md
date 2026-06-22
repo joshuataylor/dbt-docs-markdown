@@ -234,11 +234,3 @@ You can use compare changes, powered by the dbt Fusion engine, in your local dev
 For more details on how to use this feature, refer to [Compare changes in local development](https://docs.getdbt.com/docs/fusion/vs-compare-changes.md).
 
 [![Example of the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

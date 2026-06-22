@@ -47,11 +47,3 @@ We most commonly see concatenation in SQL for strings to:
 * Create surrogate keys using a hashing method and multiple column values (ex. `md5(column_1 || column_2) as unique_id`
 
 This isn’t an extensive list of where your team may be using CONCAT throughout your data work, but it contains some common scenarios analytics engineers face day-to-day.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

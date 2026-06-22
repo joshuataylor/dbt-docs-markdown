@@ -126,11 +126,3 @@ The ability to embed and share views is being evaluated as a potential future ca
 Yes, you can [access Catalog from various dbt features](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md), ensuring you have a seamless experience navigating between resources and lineage in your project.
 
 While the primary way to access Catalog is through the **Catalog** link in the navigation, you can also access it from the [Studio IDE](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#studio-ide), [the lineage tab in jobs](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#lineage-tab-in-jobs), and the [model timing tab in jobs](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#model-timing-tab-in-jobs).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

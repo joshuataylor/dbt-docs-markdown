@@ -63,11 +63,3 @@ Google BigQuery, Amazon Redshift, Snowflake, Postgres, and Databricks all suppor
 Let’s go back to our chaotic trio of users A, B, and C who all used different capitalizations to type in their names. If you don’t create consistent capitalization for string values, how would a business user know what to filter for in their BI tool? A business user could filter a name field on “John Blust” since that’s what they would expect it to look like, only to get zero results back. By creating a consistent capitalization format (upper or lowercase) for all string values in your data models, you therefore create some expectations for business users in your BI tool.
 
 There will most likely never be 100% consistency in your data models, but doing all that you can to mitigate that chaos will make your life and the life of your business users hopefully a little easier. Use the LOWER function to create a consistent casing for all strings in your data sources.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

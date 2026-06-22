@@ -103,11 +103,3 @@ Please contact dbt Support with any questions
 #### [Data & Privacy](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
 
 [Understand how dbt Wizard in the dbt platform handles privacy and data.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

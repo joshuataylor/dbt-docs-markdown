@@ -14,11 +14,3 @@ To discuss dbt platform MCP support, contact your dbt Labs account representativ
 * [dbt Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
 * [Use MCP servers with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md)
 * [About dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

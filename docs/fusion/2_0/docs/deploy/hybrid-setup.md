@@ -172,11 +172,3 @@ Now that you've integrated dbt Core artifacts with your dbt project, you can now
 * Collaborate with dbt users by enabling them to visualize and perform [cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in Core projects.
 * (Coming soon) New users interested in the [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) can build off of dbt models already created by a central data team in dbt Core rather than having to start from scratch.
 * dbt Core users can navigate to [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

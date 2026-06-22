@@ -161,11 +161,3 @@ If you're using dbt platform, environment variables must be:
 * Case-sensitive
 
 When referencing `{{env_var('DBT_KEY')}}` in your project's code, the key must exactly match the variable defined in the dbt platform user interface.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

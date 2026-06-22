@@ -76,11 +76,3 @@ We most commonly see queries limited in data work to:
 * Paired with an ORDER BY statement, grab the top 5, 10, 50, 100, etc. entries from a dataset
 
 This isn’t an extensive list of where your team may be using LIMIT throughout your development work, but it contains some common scenarios analytics engineers face day-to-day.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

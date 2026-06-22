@@ -64,11 +64,3 @@ You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
 * [Studio IDE features](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#studio-ide-features)
 * [Does dbt offer extract and load functionality?](https://docs.getdbt.com/faqs/Project/transformation-tool.md)
 * [Why does dbt compile need a data platform connection](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

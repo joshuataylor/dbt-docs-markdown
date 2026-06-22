@@ -38,11 +38,3 @@ To configure an OAuth account integration:
 4. For custom OAuth providers, under **Custom OAuth integrations**, click on **Add integration** and select the [OAuth provider](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md) from the list. Fill in the required fields and click **Save**.
 
 [![Example of the OAuth integration page](/img/docs/dbt-platform/account-integration-oauth.png?v=2 "Example of the OAuth integration page")](#)Example of the OAuth integration page
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

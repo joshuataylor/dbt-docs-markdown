@@ -44,11 +44,3 @@ In a dbt project, analytics engineers will typically write models that contain m
 ## SELECT statement syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#select-statement-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SELECT statement syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
 While we know the data warehouse players like to have their own slightly different flavors and syntax for SQL, they have conferred together that the SELECT statement is sacred and unchangeable. As a result, writing the actual `select…from` statement across Snowflake, Databricks, Google BigQuery, and Amazon Redshift would look the same. However, the actual SQL manipulation of data within the SELECT statement (ex. adding dates, casting columns) might look slightly different between each data warehouse.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

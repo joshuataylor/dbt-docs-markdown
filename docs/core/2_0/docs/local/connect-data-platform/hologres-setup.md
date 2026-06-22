@@ -189,11 +189,3 @@ Search table...
 * [dbt-alibaba-cloud-hologres GitHub repository](https://github.com/aliyun/dbt-hologres)
 * [Hologres documentation](https://www.alibabacloud.com/help/en/hologres/)
 * [Hologres dynamic table guide](https://www.alibabacloud.com/help/en/hologres/user-guide/introduction-to-dynamic-table)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

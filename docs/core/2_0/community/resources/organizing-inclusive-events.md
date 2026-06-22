@@ -57,11 +57,3 @@ Additionally, this list can grow. If you would like to contribute a tip, please 
 * Ask speakers for their pronouns before the event
 * Suggest that speakers use headphones to ensure clear audio
 * Ask speakers to use plain language and avoid jargon, slang, idioms, etc.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -61,11 +61,3 @@ The dbt MCP server connects your local dbt project to AI assistants using the [M
 * **Zero-clone install:** Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp`. No repository clone needed!
 
 [Connect dbt MCP server to your local project](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

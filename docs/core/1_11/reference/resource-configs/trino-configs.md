@@ -355,11 +355,3 @@ models:
 ## Model contracts[​](#model-contracts "Direct link to Model contracts")
 
 The `dbt-trino` adapter supports [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md). Currently, only [constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md) with `type` as `not_null` are supported. Before using `not_null` constraints in your model, make sure the underlying connector supports `not null`, to avoid running into errors.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

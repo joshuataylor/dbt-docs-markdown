@@ -392,11 +392,3 @@ Valid values for `authentication`:
 * `ActiveDirectoryMsi`: Microsoft Entra ID authentication using a managed identity available on the system
 * `environment`: Microsoft Entra ID authentication using environment variables as documented [here](https://learn.microsoft.com/en-us/python/api/azure-identity/azure.identity.environmentcredential?view=azure-python)
 * `auto`: Microsoft Entra ID authentication trying the previous authentication methods until it finds one that works
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

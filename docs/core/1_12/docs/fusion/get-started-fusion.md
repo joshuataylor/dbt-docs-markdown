@@ -59,11 +59,3 @@ Add the dbt VS Code extension to your existing development workflows for both db
 #### [Guide: dbt platform and local workflows](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md)
 
 [Learn how to keep credentials, environment variables, and Fusion versions in sync between dbt platform and local development.](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

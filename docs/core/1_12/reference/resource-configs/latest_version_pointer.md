@@ -158,11 +158,3 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 * [`latest_version_pointer_enabled_by_default` flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#latest-version-pointer-for-versioned-models)
 * [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md)
 * [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

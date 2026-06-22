@@ -82,11 +82,3 @@ There will inevitably be valid use cases for full outer joins in your dbt projec
 
 * Merging tables together: A full outer join between two tables can bring those entities together, regardless of join key match. This type of joining can often be bypassed by using different joins, unions, pivots, and a combination of these, but hey, sometimes the full outer join is a little less work 🤷
 * Data validation: Full outer joins can be incredibly useful when performing data validation; for example, in the [dbt-audit-helper package](https://github.com/dbt-labs/dbt-audit-helper), a full outer join is used in the [compare\_column\_values test](https://github.com/dbt-labs/dbt-audit-helper/blob/main/macros/compare_column_values.sql) to help determine where column values are mismatched between two dbt models.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

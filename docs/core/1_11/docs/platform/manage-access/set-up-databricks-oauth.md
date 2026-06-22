@@ -75,11 +75,3 @@ Once the Databricks connection via OAuth is set up for a dbt project, each dbt u
 [![Connecting to Databricks from an IDE user profile](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth-user.png?v=2 "Connecting to Databricks from an IDE user profile")](#)Connecting to Databricks from an IDE user profile
 
 You will then be redirected to Databricks and asked to approve the connection. This redirects you back to dbt. You should now be an authenticated Databricks user, ready to use the Studio IDE.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

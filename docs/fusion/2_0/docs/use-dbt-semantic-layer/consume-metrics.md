@@ -35,11 +35,3 @@ After understanding the basics of querying metrics, consider optimizing your set
 * [Optimize querying performance](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md) — Improve query speed and efficiency by using declarative caching techniques.
 * [Validate semantic nodes in CI](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci) — Ensure that any changes to dbt models don’t break your metrics by validating semantic nodes in Continuous Integration (CI) jobs.
 * [Build your metrics and semantic models](https://docs.getdbt.com/docs/build/build-metrics-intro.md) — If you haven’t already, learn how to define and build your metrics and semantic models using your preferred development tool.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

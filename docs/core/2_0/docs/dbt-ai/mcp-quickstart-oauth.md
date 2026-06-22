@@ -486,11 +486,3 @@ For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.co
 * Run dbt commands locally: see [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md)
 * Configure specific toolsets: see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md)
 * Understand toolset requirements: see [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

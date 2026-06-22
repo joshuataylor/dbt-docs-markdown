@@ -31,11 +31,3 @@ Configure environments to tell dbt or dbt Core how to build and execute your pro
 * [About dbt Core versions](https://docs.getdbt.com/docs/dbt-versions.md)
 * [Set Environment variables in dbt](https://docs.getdbt.com/docs/build/environment-variables.md#special-environment-variables)
 * [Use Environment variables in jinja](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

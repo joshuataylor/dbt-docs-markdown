@@ -33,11 +33,3 @@ If your dbt job run completed with a status of **Error**, you can rerun it from 
 * [Run visibility](https://docs.getdbt.com/docs/deploy/run-visibility.md)
 * [Jobs](https://docs.getdbt.com/docs/deploy/jobs.md)
 * [Job commands](https://docs.getdbt.com/docs/deploy/job-commands.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -241,11 +241,3 @@ new columns and confirm downstream refs still resolve.
 * [dbt Wizard CLI config](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md): `config.toml` keys and precedence
 * [dbt Wizard CLI command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md): `wizard mcp` flags and subcommands
 * [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md): Approvals and sandboxing
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -201,11 +201,3 @@ For **Cost**, **Usage**, **Query run time**, and **Builds** tabs, you can access
 <!-- -->
 
 When viewing the table, you can export the data as a CSV file using the **Download** button.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

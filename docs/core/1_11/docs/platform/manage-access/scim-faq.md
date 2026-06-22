@@ -138,11 +138,3 @@ If your dbt platform account has **IP restrictions** enabled, Entra's SCIM provi
 2. Use the dbt platform Admin API with a service token to update your IP allowlist on a schedule — for example, a weekly script that pulls the current `AzureActiveDirectory` ranges and updates your allowlist through the API.
 
 Contact <support@getdbt.com> for guidance on using the Admin API for allowlist management.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

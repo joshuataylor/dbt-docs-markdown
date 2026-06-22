@@ -128,11 +128,3 @@ To use model-level notifications, your dbt account must have access to the featu
 3. Click **Save**.
 
 [![Example of the setting Enable group/owner notifications on models](/img/docs/dbt-platform/example-enable-model-notifications.png?v=2 "Example of the setting Enable group/owner notifications on models")](#)Example of the setting Enable group/owner notifications on models
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

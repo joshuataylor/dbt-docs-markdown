@@ -330,11 +330,3 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 * Provide validation for macro arguments using the [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#macro-argument-validation) flag, which is disabled by default. When enabled, this flag checks that documented macro argument names match those in the macro definition and validates their types against a supported format. Previously, dbt did not enforce standard argument types, treating the type field as documentation-only. If no arguments are documented, dbt infers them from the macro and includes them in the manifest.json file. Learn more about [supported types](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
 
 * You can use the [`config.meta_get()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_get) and [`config.meta_require()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_require) functions to access custom configurations stored under `meta`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -139,11 +139,3 @@ Both bug fixes and backwards-compatible new features will be included in the [ne
 #### dbt Fusion engine[​](#-2 "Direct link to -2")
 
 The dbt Fusion engine is released continuously, and it contains a superset of the code and functionality available in dbt Core v2. When Core v2.0.0 is released (General Availability), the version numbers for Core v2 and Fusion will converge.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1391,11 +1391,3 @@ Here are some additional resources to help you continue your journey:
 * [Available integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md)
 * Demo on [how to define and query metrics with MetricFlow](https://www.loom.com/share/60a76f6034b0441788d73638808e92ac?sid=861a94ac-25eb-4fd8-a310-58e159950f5a)
 * [Join our live demos](https://www.getdbt.com/resources/webinars/dbt-cloud-demos-with-experts)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

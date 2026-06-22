@@ -150,11 +150,3 @@ After upgrading, these are common error messages you may encounter, along with t
 **Cause**: Changing from `condition` to `where` in the `expression_is_true` test, as configs are not part of a test's unique name.
 
 **Resolution**: Define a [custom name for your test](https://docs.getdbt.com/reference/resource-properties/tests#define-a-custom-name-for-one-test).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -34,11 +34,3 @@ For <!-- -->AlloyDB<!-- -->-specific configuration, please refer to [AlloyDB<!--
 ## Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
 
 AlloyDB targets are configured exactly the same as [Postgres targets](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md#profile-configuration).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

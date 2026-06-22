@@ -48,11 +48,3 @@ For more information about Fusion's approach to parallelism, refer to [the dbt F
 
 * [About profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md)
 * [dbt job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

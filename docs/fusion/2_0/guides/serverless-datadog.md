@@ -123,11 +123,3 @@ flyctl secrets set DBT_CLOUD_SERVICE_TOKEN=abc123 DBT_CLOUD_AUTH_TOKEN=def456 DD
 ## Deploy your app[​](#deploy-your-app "Direct link to Deploy your app")
 
 After you set your secrets, fly.io will redeploy your application. When it has completed successfully, go back to the dbt webhook settings and click **Test Endpoint**.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

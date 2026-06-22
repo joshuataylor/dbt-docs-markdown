@@ -97,11 +97,3 @@ Once you've upgraded your project to Fusion, you can:
 * [Configure your local environment](https://docs.getdbt.com/docs/configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](https://docs.getdbt.com/docs/configure-dbt-extension.md#configure-environment-variables) required by your project.
 * [Compare changes locally](https://docs.getdbt.com/docs/fusion/vs-compare-changes.md) to preview data changes caused by your local edits.
 * Review the [limitations and unsupported features](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -69,11 +69,3 @@ Adding 1 month to a specific date would look like…
 ```text
 {{ dateadd(datepart="month", interval=1, from_date_or_timestamp="'2021-08-12'") }}
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

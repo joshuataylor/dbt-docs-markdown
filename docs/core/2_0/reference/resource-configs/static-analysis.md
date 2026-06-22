@@ -294,11 +294,3 @@ snapshots:
 
 * For models, disabling static analysis means that features of the VS Code extension that depend on SQL comprehension will be unavailable.
 * For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](https://docs.getdbt.com/docs/fusion/new-concepts.md#when-should-i-turn-static-analysis-off).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

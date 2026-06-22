@@ -55,11 +55,3 @@ select * from source_data
 ```
 
 In the above example, a sample table is created with partition\_by and other config options. One thing to note when using partition\_by option is that the select query should always have the column name used in partition\_by option as the last one, as can be seen for the `city` column name used in the above query. If the partition\_by clause is not the same as the last column in select statement, Hive will flag an error when trying to create the model.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

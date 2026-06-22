@@ -47,11 +47,3 @@ After you've executed a job and deployed your Semantic Layer:
 * [Optimize querying performance](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md) using declarative caching.
 * [Validate semantic nodes in CI](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
 * If you haven't already, learn how to [build your metrics and semantic models](https://docs.getdbt.com/docs/build/build-metrics-intro.md) in your development tool of choice.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

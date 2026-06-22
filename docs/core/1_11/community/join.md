@@ -43,11 +43,3 @@ Want to learn how organizations around the world are tackling the biggest challe
 #### [Watch past events](https://www.youtube.com/playlist?list=PL0QYlrC86xQl1DGKBopQZiZ6tSqrMlD2M)
 
 [Get a taste for the energy of our live events, get inspired, or prepare for an upcoming event by watching recordings from our YouTube archives.](https://www.youtube.com/playlist?list=PL0QYlrC86xQl1DGKBopQZiZ6tSqrMlD2M)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

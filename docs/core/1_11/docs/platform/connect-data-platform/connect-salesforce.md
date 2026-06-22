@@ -109,11 +109,3 @@ The following dbt features are not yet supported for Salesforce Data 360 connect
   * As a workaround, log in to Salesforce and upload the CSV file manually.
 * [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)
 * [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

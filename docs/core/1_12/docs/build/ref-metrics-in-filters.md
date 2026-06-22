@@ -203,11 +203,3 @@ The resulting SQL and data will be the same, except with the `accounts` metric n
   * Churn prediction: Use the number of support tickets an account submitted in the first 30 days to predict potential churn.
   * Activation tracking: Define account or user activation based on the specific actions taken within a certain number of days after signing up.
   * Support for metric filters requiring multi-hop joins is pending.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

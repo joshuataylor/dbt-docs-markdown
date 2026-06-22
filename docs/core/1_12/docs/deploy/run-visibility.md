@@ -94,11 +94,3 @@ From the **Modified** section, you can view the following:
 To view the dependencies and relationships of the resources in your project more closely, click **View in Catalog** to launch [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
 
 [![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

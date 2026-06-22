@@ -299,11 +299,3 @@ The Prune branches modal allows users to delete local branches that have been de
 The Revert Uncommitted Changes modal is how users revert changes in the IDE. This is accessible via the `Revert File` option above the Version Control Options menu, or via the Git Actions button when there are saved, uncommitted changes in the IDE.
 
 [![The Commit Changes modal is how users change their branch.](/img/docs/dbt-platform/platform-ide/revert-uncommitted-changes-with-save.png?v=2 "The Commit Changes modal is how users change their branch.")](#)The Commit Changes modal is how users change their branch.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

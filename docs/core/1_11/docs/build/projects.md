@@ -105,11 +105,3 @@ If you want to see what a mature, production project looks like, check out the [
 * [Best practices: How we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md)
 * [Quickstarts for dbt](https://docs.getdbt.com/guides.md)
 * [Quickstart for dbt Core](https://docs.getdbt.com/guides/manual-install.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

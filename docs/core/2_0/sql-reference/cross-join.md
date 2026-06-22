@@ -83,11 +83,3 @@ In the generated table above, the unique key is a combination of the `user_id` a
 ## SQL cross join use case[​](#sql-cross-join-use-case "Direct link to SQL cross join use case")
 
 When would the generated table above be useful? Cross joining unique dates and users can be an effective way to create a base table to join various event counts, such as key website, email, or product events, to. These report-type tables are useful to expose to end business users in BI tools to look at aggregate counts per day per user and other useful measures.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

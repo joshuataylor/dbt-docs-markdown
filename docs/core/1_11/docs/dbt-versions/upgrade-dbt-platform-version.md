@@ -297,11 +297,3 @@ Once you know what code changes you'll need to make, you can start implementing 
 
   * If that job runs smoothly, you should be all set to merge your branch into main.
   * Then change your development and deployment environments in your main dbt project to run off the newest version of dbt Core.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

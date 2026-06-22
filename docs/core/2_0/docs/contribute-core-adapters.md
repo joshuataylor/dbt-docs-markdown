@@ -24,11 +24,3 @@ dbt Core v2 is a Rust-based rewrite of the dbt engine built around a single mono
 ADBC drivers handle connection management—pre-compiled binaries you register, not write. You build the warehouse-specific logic: credentials, relation naming, SQL macros, and catalog queries across roughly 13 files in total.
 
 Contributing a dbt Core v2 adapter means opening a pull request directly against the monorepo. You'll register your warehouse in the `AdapterType` enum, implement credential and relation types in Rust, write Jinja macros for your SQL dialect, and wire up basic integration tests against a real warehouse. The Rust compiler's match exhaustiveness enforcement acts as your to-do list — every unhandled variant is a compile error until your adapter is complete. For a step-by-step walkthrough, see [Contribute a dbt Core v2 adapter](https://docs.getdbt.com/guides/adapter-creation-v2.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

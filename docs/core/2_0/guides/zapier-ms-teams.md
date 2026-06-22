@@ -197,11 +197,3 @@ When you're happy with it, remember to ensure that your `run_id` and `account_id
 * If you post to a chat instead of a team channel, you don't need to add the Zapier app to Microsoft Teams.
 * If you post to a chat instead of a team channel, note that markdown is not supported and you will need to remove the markdown formatting.
 * If you chose the **Catch Hook** trigger instead of **Catch Raw Hook**, you will need to pass each required property from the webhook as an input instead of running `json.loads()` against the raw body. You will also need to remove the validation code.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

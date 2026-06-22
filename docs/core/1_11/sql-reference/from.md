@@ -44,11 +44,3 @@ If you’re selecting from multiple tables or models, that’s where you’d rel
 ## FROM statement syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#from-statement-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to FROM statement syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
 Just as the humble SELECT statement is a SQL fundamental that goes untampered by the data warehouses, FROM syntax does not vary within them. As a result, writing the actual `select…from` statement across Snowflake, Databricks, Google BigQuery, and Amazon Redshift would look the same.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

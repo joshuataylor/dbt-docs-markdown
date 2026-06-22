@@ -283,11 +283,3 @@ When running the `dbt seed` command we perform a `DROP CASCADE` operation instea
 ## Practice[​](#practice "Direct link to Practice")
 
 You can look at our modified version of the jaffle\_shop, [jaffle\_shop\_firebolt](https://github.com/firebolt-db/jaffle_shop_firebolt), to see how indexes, as well as external tables, can be set or clone and execute the commands listed in the README.md
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

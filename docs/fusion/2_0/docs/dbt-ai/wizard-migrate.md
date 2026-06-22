@@ -92,11 +92,3 @@ And if your conventions aren't applied, check:
 * [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
 * [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
 * [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

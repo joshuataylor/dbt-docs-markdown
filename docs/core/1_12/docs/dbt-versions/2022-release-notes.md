@@ -233,11 +233,3 @@ We started the new year with a gift! Multi-tenant Team and Enterprise accounts c
 #### Performance improvements and enhancements[​](#performance-improvements-and-enhancements-2 "Direct link to Performance improvements and enhancements")
 
 * We added client-side naming validation for file or folder creation.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

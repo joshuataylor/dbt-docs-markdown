@@ -209,11 +209,3 @@ To get the most out of both tools, you can use the [persist docs config](https:/
 * [Trigger a dbt Job in your automated workflow with Python](https://discourse.getdbt.com/t/triggering-a-dbt-cloud-job-in-your-automated-workflow-with-python/2573)
 * [Databricks + dbt Quickstart Guide](https://docs.getdbt.com/guides/databricks.md)
 * Reach out to your Databricks account team to get access to preview features on Databricks.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

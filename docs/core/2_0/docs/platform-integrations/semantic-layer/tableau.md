@@ -125,11 +125,3 @@ The root cause is typically the proxy interfering with the TLS handshake as the 
 * If your proxy does not support gRPC/HTTP2, add an SSL interception exception for the dbt domain in your proxy settings
 
 This should help in successfully establishing the connection without the Failed ALPN error.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

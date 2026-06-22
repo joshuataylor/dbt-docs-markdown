@@ -104,11 +104,3 @@ When selecting the database and the schema, make sure the user has read and writ
 ## Notes:[​](#notes "Direct link to Notes:")
 
 The `dbt-ibm-netezza` adapter is built on the IBM Netezza Python driver - [nzpy](https://pypi.org/project/nzpy/) and is a pre-requisite which gets installed along with the adapter.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

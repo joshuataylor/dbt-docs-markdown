@@ -118,11 +118,3 @@ Next, you’ll need somewhere to store and version control your code that allows
 ### Next steps[​](#next-steps "Direct link to Next steps")
 
 Now that your project is configured, you can start transforming your Databricks data with dbt. To help you scale efficiently, we recommend you follow our best practices, starting with the [Unity Catalog best practices](https://docs.getdbt.com/best-practices/dbt-unity-catalog-best-practices.md), then you can [Optimize dbt models on Databricks](https://docs.getdbt.com/guides/optimize-dbt-models-on-databricks.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

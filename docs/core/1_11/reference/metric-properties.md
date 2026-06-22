@@ -52,11 +52,3 @@ The following parameters apply by metric type under `type_params`:
 * **[Conversion](https://docs.getdbt.com/docs/build/conversion.md)**: `entity` (required), `calculation` (required), `base_metric` (required), `conversion_metric` (required), `window`, `constant_properties`
 
 For full `type_params` and examples per type, see [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md), [Simple metrics](https://docs.getdbt.com/docs/build/simple.md), [Cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md), [Ratio metrics](https://docs.getdbt.com/docs/build/ratio.md), [Derived metrics](https://docs.getdbt.com/docs/build/derived.md), and [Conversion metrics](https://docs.getdbt.com/docs/build/conversion.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

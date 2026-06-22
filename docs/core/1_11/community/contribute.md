@@ -33,11 +33,3 @@ Below you’ll find a sampling of the ways to get involved. There are a lot of o
 #### [Realtime event participation](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md)
 
 [Want to speak at a Meetup or conference? Learn how to get involved and check out best practices for crafting a talk that everyone will remember.](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

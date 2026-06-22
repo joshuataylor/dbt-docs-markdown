@@ -76,11 +76,3 @@ If you set up SSO before December 2025, your existing configuration may request 
  "This SSO endpoint is disabled. Please contact your administrator to have them update your IdP SSO settings to use Auth0 instead."
 
 This error message appears after a successful login when your IdP is misconfigured and the callback URL is pointing to dbt platform instead of Auth0. Your admin needs to update the IdP configuration to use the correct IdP values from **Account settings → Single Sign-On**.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

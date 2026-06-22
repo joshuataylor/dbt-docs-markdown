@@ -104,11 +104,3 @@ Because pre-signed URLs contain region and account-specific hostnames that may c
 * **AWS** — `s3.*.amazonaws.com`
 * **Azure** — `*.blob.core.windows.net`
 * **GCP** — `storage.googleapis.com`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -93,11 +93,3 @@ Used for shared or team setups. Better for CI/automation.
 3. For full MCP access, the service token needs at least `Semantic Layer Only`, `Metadata Only`, and `Developer` permissions.
 
 For more information, see [User tokens (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) and [Service tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

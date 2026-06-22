@@ -35,11 +35,3 @@ Open Catalog from [Insights](https://docs.getdbt.com/docs/explore/access-dbt-ins
 To open Catalog from Insights, select the **Catalog** icon in the Query console sidebar menu, then search for the resource you want.
 
 [![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

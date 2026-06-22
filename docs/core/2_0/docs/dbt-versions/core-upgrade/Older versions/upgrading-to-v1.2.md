@@ -34,11 +34,3 @@ See GitHub discussion [dbt-labs/dbt-core#5468](https://github.com/dbt-labs/dbt-c
 ### Specific adapters[​](#specific-adapters "Direct link to Specific adapters")
 
 * [Postgres](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md) and [Redshift](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md) profiles support a `retries` config, if dbt encounters an operational error or timeout when opening a connection. The default is 1 retry.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

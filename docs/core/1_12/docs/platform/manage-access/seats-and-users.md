@@ -201,11 +201,3 @@ If a user's IdP groups do not match *any* license type mappings, dbt assigns a D
 ## Granular permissioning[​](#granular-permissioning "Direct link to Granular permissioning")
 
 dbt Enterprise-tier plans support role-based access controls for configuring granular in-app permissions. See [access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md) for more information on Enterprise permissioning.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

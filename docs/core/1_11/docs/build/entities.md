@@ -242,11 +242,3 @@ With this configuration, our semantic models can join on `ordered_at = date_day`
 
 * `dbt sl query --metrics order_total --group-by ordered_at_entity__fiscal_year_name` or
 * `dbt sl query --metrics order_total --group-by delivered_at_entity__fiscal_year_name`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -130,11 +130,3 @@ Search table...
 * TiDB 4.0 \~ 5.0 does not support [CTE](https://docs.pingcap.com/tidb/dev/sql-statement-with), you should avoid using `WITH` in your SQL code.
 * TiDB 4.0 \~ 5.2 does not support creating a [temporary table or view](https://docs.pingcap.com/tidb/v5.2/sql-statement-create-table#:~:text=sec\)-,MySQL%20compatibility,-TiDB%20does%20not).
 * TiDB 4.X does not support using SQL func in `CREATE VIEW`, avoid it in your SQL code. You can find more detail [here](https://github.com/pingcap/tidb/pull/27252).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

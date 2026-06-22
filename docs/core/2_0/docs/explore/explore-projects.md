@@ -508,11 +508,3 @@ You can explore the metadata from your production or staging environment to info
 * [Enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md)
 * [About model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md)
 * Blog on [What is data mesh?](https://www.getdbt.com/blog/what-is-data-mesh-the-definition-and-importance-of-data-mesh)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

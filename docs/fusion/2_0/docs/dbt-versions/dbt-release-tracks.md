@@ -203,11 +203,3 @@ Opting into a release cadence with automated upgrades is required for accessing 
 We continue to release new minor versions of dbt Core (OSS). We most recently released dbt Core v1.9 on December 9, 2024. These releases always include a subset of the functionality that's already available to the dbt platform customers, and always after the functionality has been available in the dbt platform.
 
 If you have comments or concerns, we’re happy to help. If you’re an existing dbt customer, you may reach out to your account team or [contact support](https://docs.getdbt.com/docs/dbt-support.md#dbt-cloud-support).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

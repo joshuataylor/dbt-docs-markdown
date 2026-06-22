@@ -469,11 +469,3 @@ In the example above, the third point might be tricky. It's easier to *exclude* 
 Safely releasing a new model version requires coordination between model producers (who build the models) and model consumers (who depend on them).
 
 For practical guidance on how producers and consumers should communicate, test, and roll out versioned models across projects, refer to [Coordinating model versions best practices](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-6-coordinate-versions.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

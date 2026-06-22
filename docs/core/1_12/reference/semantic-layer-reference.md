@@ -45,11 +45,3 @@ For the complete structure and examples, refer to these build docs:
 * [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md): How to create and configure metrics; links to type-specific guides (simple, cumulative, ratio, derived, conversion).
 * [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md): How to define time and categorical dimensions within semantic models.
 * [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md): How to migrate from the legacy metrics YAML spec to the latest spec.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

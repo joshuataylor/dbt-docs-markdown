@@ -591,11 +591,3 @@ Congratulations! You have validated Fusion eligibility for your jobs.
 With limitations identified and addressed, you've completed all the preparation steps. Your project is now ready to upgrade to Fusion!
 
 Check out [Part 2: Making the move](https://docs.getdbt.com/guides/upgrade-to-fusion.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

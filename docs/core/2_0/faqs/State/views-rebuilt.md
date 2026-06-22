@@ -54,11 +54,3 @@ In dbt Core v1.7–v1.12, run the `dbt-state explain` command to see why dbt Sta
 Experimental
 
 The `dbt-state explain` command is experimental. It isn't available in the dbt Fusion engine or dbt platform yet.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

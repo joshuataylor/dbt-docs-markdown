@@ -56,11 +56,3 @@ Search table...
 info
 
 🔑 **Time is money.** Notice in the above chart that the time and costs rows contain the same results. This is to highlight that when we’re talking about time in warehouses, we’re talking about compute time, which is the primary driver of costs.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

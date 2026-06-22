@@ -177,11 +177,3 @@ To disable Cost Insights, you must have an administrator role.
 4. Go to **Platform metadata credentials** and click **Edit**.
 5. Go to the **Features** section and clear the **Cost Insights** option.
 6. Click **Save**.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

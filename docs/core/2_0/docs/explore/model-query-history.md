@@ -200,11 +200,3 @@ To enhance your discovery, you can view your model query history in various loca
 3. You can view the consumption query count for the models and sort by most or least consumed. The consumption query number for each model represents the consumption over the last 30 days.
 
 [![View models consumption in the 'Models' list page under the 'Consumption' column.](/img/docs/collaborate/dbt-explorer/model-consumption-list.jpg?v=2 "View models consumption in the 'Models' list page under the 'Consumption' column.")](#)View models consumption in the 'Models' list page under the 'Consumption' column.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

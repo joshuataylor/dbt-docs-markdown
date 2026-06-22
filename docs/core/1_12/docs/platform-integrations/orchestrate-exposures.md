@@ -74,11 +74,3 @@ To orchestrate downstream exposures and see refreshes happen automatically durin
    [![View the downstream exposure logs in the dbt run job logs.](/img/docs/platform-integrations/auto-exposures/active-exposure-log.jpg?v=2 "View the downstream exposure logs in the dbt run job logs.")](#)View the downstream exposure logs in the dbt run job logs.
 
    * View more details in the debug logs for any troubleshooting.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

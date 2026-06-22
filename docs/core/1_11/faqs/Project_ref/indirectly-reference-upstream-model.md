@@ -14,11 +14,3 @@ Then:
 * In the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) lineage view, however, `upstream_a` (the indirect dependency) *will* appear because dbt dynamically resolves the full dependency graph.
 
 This behavior makes sure that Catalog only shows the immediate dependencies available to that specific project.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

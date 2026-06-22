@@ -96,11 +96,3 @@ dbt Docs was built to make it easy to host on the web. The site is "static," mea
 * If you're on a dbt Developer plan, see [Build and view your docs with dbt](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs) to learn how to deploy your documentation site.
 
 Interested in using Catalog for the complete dbt documentation experience, sign up for a free [dbt trial](https://www.getdbt.com/signup) or [contact us](https://www.getdbt.com/contact).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

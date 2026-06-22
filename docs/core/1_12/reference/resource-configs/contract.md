@@ -205,11 +205,3 @@ Why `append_new_columns` (or `fail`) rather than `sync_all_columns`? Because rem
 * [What is a model contract?](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md)
 * [Defining `columns`](https://docs.getdbt.com/reference/resource-properties/columns.md)
 * [Defining `constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

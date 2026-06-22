@@ -34,11 +34,3 @@ It includes that information at two separate points in time:
 2. `with_test_edges` — after test edges have been added.
 
 Each of those points in time contains the `name` and `type` of each node and `succ` contains the keys of its child nodes.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

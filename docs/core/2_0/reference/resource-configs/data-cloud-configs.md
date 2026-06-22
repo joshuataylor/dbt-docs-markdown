@@ -84,11 +84,3 @@ Currently, only the `profile` type DLO is supported. Support for `engagement` DL
 * **Static analysis in VS Code**: Column-level lineage and dbt buttons (`Build` and `Test`) are affected. You can either turn off static analysis temporarily by running all commands with `--static-analysis off` or set up your environment variables with `DBT_STATIC_ANALYSIS=off`.
 * **Arbitrary queries** (for example, `SELECT 1 AS foo`): All queries must be tied to a defined dbt source before building a dbt model on it.
 * **`select *`** Metadata queries may fail because Data 360 injects system columns into every DLO. Bug fix is in progress.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

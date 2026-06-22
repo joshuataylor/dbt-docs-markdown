@@ -44,11 +44,3 @@ If `manage_state: true` is set in `user_settings.yml` but dbt State is not enabl
 
 * [Enable dbt State in your dbt platform account](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
 * Disable dbt State locally by setting `manage_state: false` in `user_settings.yml`, or run `dbt run --no-manage-state`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

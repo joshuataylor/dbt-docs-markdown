@@ -17,11 +17,3 @@ Refer to the guide [Get started with continuous integration tests](https://docs.
 [Compare the differences between what's in the production environment and the pull request before merging those changes, ensuring that you're always shipping trusted data products.](https://docs.getdbt.com/docs/deploy/advanced-ci.md)
 
 <br />
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

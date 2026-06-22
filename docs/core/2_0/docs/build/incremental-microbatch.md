@@ -386,11 +386,3 @@ select * from (
 ```
 
 Based on your data platform, dbt will choose the most efficient atomic mechanism to insert, update, or replace these four batches (`2024-09-28`, `2024-09-29`, `2024-09-30`, and `2024-10-01`) in the existing table.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -58,11 +58,3 @@ There are definitely too many use cases to list out for using the ARRAY\_AGG fun
 
 * In [`export_` models](https://www.getdbt.com/open-source-data-culture/reverse-etl-playbook) that are used to send data to platforms using a reverse ETL tool to pair down multiple rows into a single row. Some downstream platforms, for example, require certain values that we’d usually keep as separate rows to be one singular row per customer or user. ARRAY\_AGG is handy to bring multiple column values together by a singular id, such as creating an array of all items a user has ever purchased and sending that array downstream to an email platform to create a custom email campaign.
 * Similar to export models, you may see ARRAY\_AGG used in [mart tables](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md) to create final aggregate arrays per a singular dimension; performance concerns of ARRAY\_AGG in these likely larger tables can potentially be bypassed with use of [incremental models in dbt](https://docs.getdbt.com/docs/build/incremental-models.md).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

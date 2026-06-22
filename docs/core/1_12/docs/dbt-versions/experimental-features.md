@@ -20,11 +20,3 @@ To enable or disable experimental features:
 ## Beta terms and conditions[​](#beta-terms-and-conditions "Direct link to Beta terms and conditions")
 
 By using or enabling features that are not yet in general release ("Beta Features"), you agree to the [Beta Features Terms and Conditions](https://docs.getdbt.com/assets/files/beta-tc-740ff696113c89c38a96bb70b968775e.pdf).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -394,11 +394,3 @@ Disabling and unlinking the Teams integration in the dbt platform removes it for
 4. Confirm the unlinking by selecting **Unlink**.
 
 The Teams integration has been disabled. You can always re-enable the integration by following the [Set up Microsoft Teams](#set-up-microsoft-teams) steps.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

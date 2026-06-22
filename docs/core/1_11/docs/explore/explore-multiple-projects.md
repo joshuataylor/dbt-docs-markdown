@@ -70,11 +70,3 @@ When you select a model, a details panel opens on the right:
 * **General** tab: the model description and metadata fields such as **Project** and **Relation**.
 * **Columns** tab: each column's name, data type, and description, plus column test results when tests are defined. A **Search for columns** field appears at the top of the tab.
 * **Relationships** tab: downstream projects that reference the model, listed under **Referenced by**.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

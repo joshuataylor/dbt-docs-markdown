@@ -68,11 +68,3 @@ Check out the resources below for guides, tips, and best practices:
 * [Debugging errors](https://docs.getdbt.com/guides/debug-errors.md)
 * [Writing custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md)
 * [dbt packages hub](https://hub.getdbt.com/)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

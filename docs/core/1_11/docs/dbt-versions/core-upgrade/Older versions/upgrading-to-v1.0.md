@@ -71,11 +71,3 @@ Several under-the-hood changes from past minor versions, tagged with deprecation
 * [The `init` command](https://docs.getdbt.com/reference/commands/init.md) has a whole new look and feel. It's no longer just for first-time users.
 * Add `result:<status>` subselectors for smarter reruns when dbt models have errors and tests fail. See examples: [Pro-tips for Workflows](https://docs.getdbt.com/best-practices/best-practice-workflows.md#pro-tips-for-workflows)
 * Secret-prefixed [env vars](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) are now allowed only in `profiles.yml` + `packages.yml`
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

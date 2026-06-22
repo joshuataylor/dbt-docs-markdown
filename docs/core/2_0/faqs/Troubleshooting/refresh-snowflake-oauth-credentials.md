@@ -13,11 +13,3 @@ To resolve the issue, complete the following steps:
 Your Snowflake administrator can [configure the refresh token validity period](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md#create-a-security-integration), up to the maximum 90 days.
 
 If you've tried these step and are still getting this error, please contact the Support team at <support@getdbt.com> for further assistance.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

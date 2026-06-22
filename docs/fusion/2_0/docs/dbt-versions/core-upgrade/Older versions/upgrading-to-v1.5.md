@@ -149,11 +149,3 @@ Run `dbt --help` to see new & improved help documentation :)
 * Support setting `--project-dir` via environment variable: [`DBT_PROJECT_DIR`](https://docs.getdbt.com/reference/dbt_project.yml.md)
 * More granular configurations for logging (to set [log format](https://docs.getdbt.com/reference/global-configs/logs.md#log-formatting), [log levels](https://docs.getdbt.com/reference/global-configs/logs.md#log-level), and [colorization](https://docs.getdbt.com/reference/global-configs/logs.md#color)) and [cache population](https://docs.getdbt.com/reference/global-configs/cache.md#cache-population)
 * [dbt overwrites the `manifest.json` file](https://docs.getdbt.com/reference/node-selection/state-comparison-caveats.md#overwrites-the-manifestjson) during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

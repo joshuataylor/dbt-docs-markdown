@@ -136,11 +136,3 @@ You will find these quick hits in dbt Core v1.11:
 * Manifest metadata now includes `run_started_at`, providing better tracking of when dbt runs were initiated.
 * When a model is disabled, unit tests for that model are automatically disabled as well.
 * You can use the new [`config.meta_get()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_get) and [`config.meta_require()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_require) functions to access custom configurations stored under `meta`. These functions have been backported to dbt Core v1.10.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

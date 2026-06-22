@@ -41,11 +41,3 @@ A maintainer can be a dbt Labs employee but does not have to be. *Slack channel 
 * A reminder that we never DM anyone in Slack without their permission in a public channel or some prior relationship.
 * A reminder that @ here/all/channel are disabled.
 * Use and encourage the use of threads 🧵 to keep conversations tidy!
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

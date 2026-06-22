@@ -256,11 +256,3 @@ Step-by-step client setup (including Cursor, VS Code, and Claude) is in:
 * [Integrate Cursor with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md)
 * [Integrate VS Code with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md)
 * [Integrate Claude with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

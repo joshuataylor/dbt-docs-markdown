@@ -11,11 +11,3 @@ To delete a project in dbt, you must be the account owner or have admin privileg
 4. Click **Delete**. Confirm the action to immediately delete the user without additional password prompts. The project is deleted immediately after confirmation. Once a project is deleted, this action cannot be undone.
 
 [![Delete projects](/img/docs/dbt-platform/delete_projects_from_dbt_cloud.png?v=2 "Delete projects")](#)Delete projects
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

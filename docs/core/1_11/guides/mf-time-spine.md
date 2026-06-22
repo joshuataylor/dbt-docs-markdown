@@ -366,11 +366,3 @@ Here are some additional resources to help you continue your journey:
 * [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md)
 * [Build metrics](https://docs.getdbt.com/docs/build/metrics-overview.md)
 * [Quickstart with Semantic Layer](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=1)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

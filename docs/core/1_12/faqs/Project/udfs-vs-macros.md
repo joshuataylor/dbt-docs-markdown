@@ -89,11 +89,3 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 
 * [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
 * [Jinja macros](https://docs.getdbt.com/docs/build/jinja-macros.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -1089,11 +1089,3 @@ Some dbt features, available on the core adapters, are not yet supported on Glue
 
 1. [Persisting](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) column-level descriptions as database comments
 2. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

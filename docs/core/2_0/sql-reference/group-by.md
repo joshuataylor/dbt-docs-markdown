@@ -69,11 +69,3 @@ Aggregates, aggregates, and did we mention, aggregates? GROUP BY statements are 
 👋Bye bye finicky group bys
 
 In some sticky data modeling scenarios, you may find yourself needing to group by many columns to collapse a table down into fewer rows or deduplicate rows. In that scenario, you may find yourself writing `group by 1, 2, 3,.....,n` which can become tedious, confusing, and difficult to troubleshoot. Instead, you can leverage a [dbt macro](https://github.com/dbt-labs/dbt-utils#group_by-source) that will save you from writing `group by 1,2,....,46` to instead a simple `{{ dbt_utils.group_by(46) }}`...you’ll thank us later 😉
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -51,11 +51,3 @@ To begin building models with natural language prompts in the Canvas:
 9. To edit the generated model, open **dbt Copilot** prompt box and type your edits.
 
 10. Click **Submit** and dbt Copilot will generate the revised model. Repeat steps 5-8 until you're happy with the model.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

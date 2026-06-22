@@ -360,11 +360,3 @@ If you're receiving a "Refresh token" message, don't worry — dbt automatically
 If you still experience any token refresh errors, please try disconnecting and reconnecting the repository in your dbt project to refresh the token.
 
 For any issues, please reach out to the Support team at <support@getdbt.com> and we'll be happy to help!
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

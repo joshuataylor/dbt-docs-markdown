@@ -17,11 +17,3 @@ We'll also use a couple *new* terms for the sake of brevity. These aren't standa
 tip
 
 🏎️ **The Semantic Layer is a denormalization engine.** dbt transforms your data into clean, normalized marts. The Semantic Layer is a denormalization engine that dynamically connects and molds these building blocks into the maximum amount of shapes available *dynamically*.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

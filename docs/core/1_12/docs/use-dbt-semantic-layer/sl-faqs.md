@@ -287,11 +287,3 @@ Cross-project refs unsupported in latest SL YAML spec
 When using [dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
 
 In the [latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

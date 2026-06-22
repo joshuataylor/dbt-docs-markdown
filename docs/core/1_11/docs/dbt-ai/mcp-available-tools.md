@@ -132,11 +132,3 @@ These tools provide information about the MCP server itself.
 
 * `get_mcp_server_branch`: Returns the current git branch of the running dbt MCP server.
 * `get_mcp_server_version`: Returns the current version of the dbt MCP server.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

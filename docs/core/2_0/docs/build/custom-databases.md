@@ -95,11 +95,3 @@ When dbt opens a BigQuery connection, it will do so using the `project_id` defin
 * [Customize dbt models database, schema, and alias](https://docs.getdbt.com/guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
 * [Custom schema](https://docs.getdbt.com/docs/build/custom-schemas.md) to learn how to customize dbt model schema
 * [Custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md) to learn how to customize dbt model alias name
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

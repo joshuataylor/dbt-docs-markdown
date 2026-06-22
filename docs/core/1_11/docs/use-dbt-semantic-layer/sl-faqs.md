@@ -277,11 +277,3 @@ Semantic layer credentials are different than the credentials you use to run dbt
  How does the dbt Semantic Layer support a dbt Mesh architecture design?
 
 Currently, semantic models can be created from dbt models that live across projects ([dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md)). In the future, users will also be able to use mesh concepts on semantic objects and define metrics across dbt projects.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -37,11 +37,3 @@ Connection OAuth is for authenticating to your data platform (like Snowflake, Bi
 * [Set up BigQuery OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md)
 * [Set up external OAuth with Snowflake](https://docs.getdbt.com/docs/platform/manage-access/snowflake-external-oauth.md)
 * [Set up external OAuth with Redshift](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

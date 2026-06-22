@@ -300,11 +300,3 @@ You can also learn how to implement dbt Mesh by following our [Quickstart dbt Me
 Let’s say your organization has fewer than 500 models and fewer than a dozen regular contributors to dbt. You're operating at a scale well served by the monolith (a single project), and the larger pattern of dbt Mesh probably won't provide any immediate benefits.
 
 It’s never too early to think about how you’re organizing models *within* that project. Use model `groups` to define clear ownership boundaries and `private` access to restrict purpose-built models from becoming load-bearing blocks in an unrelated section of the DAG. Your future selves will thank you for defining these interfaces, especially if you reach a scale where it makes sense to “graduate” the interfaces between `groups` into boundaries between projects.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

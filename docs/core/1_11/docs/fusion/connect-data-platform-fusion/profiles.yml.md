@@ -235,11 +235,3 @@ For more information, check out [using threads](https://docs.getdbt.com/docs/run
 
 * [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Connection profiles](https://docs.getdbt.com/docs/local/connection-profiles.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

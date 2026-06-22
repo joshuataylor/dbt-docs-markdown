@@ -20,11 +20,3 @@ When you make any account owner and email changes:
 * The new email address *must* be verified through our email verification process.
 * You can update any billing email address or [Notifications Settings](https://docs.getdbt.com/docs/deploy/job-notifications.md) to reflect the new account owner changes, if applicable.
 * When transferring account ownership, please ensure you [unlink](https://docs.getdbt.com/faqs/Accounts/git-account-in-use.md) your GitHub account in dbt. This is because you can only have your Git account linked to one dbt user account.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

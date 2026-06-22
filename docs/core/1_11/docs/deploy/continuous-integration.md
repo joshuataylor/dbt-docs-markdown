@@ -114,11 +114,3 @@ You can optionally configure SQLFluff linting rules to override default linting 
   * If you’re using the Studio IDE, dbt CLI, or any other editor, refer to [Customize linting](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md#customize-linting) for guidance on how to add the dbt-specific (or dbtonic) linting rules we use for our own project.
 
 * For complete details, refer to [Custom Usage](https://docs.sqlfluff.com/en/stable/gettingstarted.html#custom-usage) in the SQLFluff documentation.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

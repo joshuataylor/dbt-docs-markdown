@@ -211,11 +211,3 @@ dbt uses the `DESCRIBE AS JSON` path for a given relation only when *all* of the
 * The compute is a SQL warehouse, or runs on DBR 17.3 or later.
 
 If any condition isn't met, dbt falls back to `information_schema` queries for that relation. The fallback happens per relation, so you can safely enable the flag on projects with mixed compute types.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

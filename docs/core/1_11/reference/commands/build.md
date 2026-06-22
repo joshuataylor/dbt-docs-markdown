@@ -109,11 +109,3 @@ dbt-fusion 2.0.0-preview.45
  Succeeded [  0.98s] function dbt_schema.whoami (function)
  Succeeded [  1.12s] function dbt_schema.area_of_circle (function)
 ```
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

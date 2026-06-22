@@ -69,11 +69,3 @@ You can refer to the [dbt JSON schema](https://schemas.getdbt.com/) for informat
 **Note**: The `manifest.json` version number is related to (but not *equal* to) your dbt version, so you *must* use the correct `manifest.json` version for your dbt version. To find the correct `manifest.json` version, select the dbt version on the top navigation (such as `v1.5`).
 
 Refer to the table at the beginning of [this page](https://docs.getdbt.com/reference/artifacts/manifest-json.md) to understand how the manifest version matches the dbt version.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

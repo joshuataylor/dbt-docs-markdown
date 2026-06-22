@@ -51,11 +51,3 @@ Search table...
 Models, sources, and exposures each also have a **Recommendations** tab on their resource details page, with the specific recommendations that correspond to that resource:
 
 [![Example of the Recommendations tab ](/img/docs/collaborate/dbt-explorer/example-recommendations-tab.png?v=2 "Example of the Recommendations tab ")](#)Example of the Recommendations tab
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

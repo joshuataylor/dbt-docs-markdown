@@ -424,11 +424,3 @@ Check out the following docs to learn more about how to use dbt Wizard:
 * [Generate resources](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#generate-resources)
 * [Build visual models with dbt Wizard](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md)
 * [Build queries in dbt Insights](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

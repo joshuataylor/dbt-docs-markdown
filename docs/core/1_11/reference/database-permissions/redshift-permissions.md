@@ -21,11 +21,3 @@ grant select on all views in database database_name to user_name;
 To connect to the database, confirm with an admin that your user role or group has been added to the database. Note that Redshift permissions differ from Postgres, and commands like [`grant connect`](https://www.postgresql.org/docs/current/sql-grant.html) aren't supported in Redshift.
 
 Check out the [official documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_GRANT.html) for more information.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

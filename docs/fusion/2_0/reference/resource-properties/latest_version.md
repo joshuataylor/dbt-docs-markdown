@@ -58,11 +58,3 @@ models:
 ```
 
 In this case, the `latest_version` is explicitly set to `2`. Any unpinned references will resolve to `model_name.v2`. `v3` is considered "prerelease", and `v1` is considered "old".
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -98,11 +98,3 @@ If you have questions about whether your specific architecture is supported, [co
 ## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
 
 dbt Labs has globally connected private networks specifically used to host private endpoints, which are connected to dbt instance environments. This connectivity allows dbt environments to connect to any supported region from any dbt instance within the same cloud provider network. To ensure security, access to these endpoints is protected by security groups, network policies, and application connection safeguards, in addition to the authentication and authorization mechanisms provided by each of the connected platforms.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

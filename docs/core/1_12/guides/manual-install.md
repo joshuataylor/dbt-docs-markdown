@@ -1146,11 +1146,3 @@ For more info on how to get started, refer to [create and schedule jobs](https:/
 [![Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.](/img/docs/dbt-platform/deployment/run-overview.png?v=2 "Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.")](#)Overview of a dbt job run, which includes the job run details, trigger type, commit SHA, environment name, detailed run steps, logs, and more.
 
 For more information about using dbt Core to schedule a job, refer [dbt airflow](https://docs.getdbt.com/blog/dbt-airflow-spiritual-alignment) blog post.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

@@ -274,11 +274,3 @@ Yes, but because a dimension is considered an attribute of the primary or unique
 
 * [Joins](https://docs.getdbt.com/docs/build/join-logic.md)
 * [Validations](https://docs.getdbt.com/docs/build/validation.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

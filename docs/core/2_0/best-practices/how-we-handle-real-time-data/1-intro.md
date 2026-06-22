@@ -53,11 +53,3 @@ The following are some key recommendations to help you achieve near real-time da
 * Decouple ingestion from transformation: Keep data acquisition and transformation flows separate. This allows you to optimize each independently.
 * Monitor and test data freshness: Implement data quality checks and freshness monitoring to ensure your near real-time pipelines deliver accurate, up-to-date results.
 * Cost and complexity considerations: Running dbt jobs more frequently drives up compute costs and operational complexity. Always weigh the business value against these trade-offs.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

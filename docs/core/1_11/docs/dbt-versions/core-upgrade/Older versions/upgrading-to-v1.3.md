@@ -57,11 +57,3 @@ GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-
 * **["Full refresh"](https://docs.getdbt.com/reference/resource-configs/full_refresh.md)** flag supports a short name, `-f`.
 * **[The "config" selection method](https://docs.getdbt.com/reference/node-selection/methods.md#config)** supports boolean and list config values, in addition to strings.
 * Two new dbt-Jinja context variables for accessing invocation metadata: [`invocation_args_dict`](https://docs.getdbt.com/reference/dbt-jinja-functions/flags.md#invocation_args_dict) and [`dbt_metadata_envs`](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md#custom-metadata).
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

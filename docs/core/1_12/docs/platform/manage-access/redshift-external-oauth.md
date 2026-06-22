@@ -251,11 +251,3 @@ Once the connection has been assigned to a development environment, you can conf
 ### Verify connection in Studio[​](#verify-connection-in-studio "Direct link to Verify connection in Studio")
 
 Once your development session has initialized, you can test that you’re able to connect to Redshift using external OAuth by running `dbt debug`.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

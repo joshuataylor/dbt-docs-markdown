@@ -87,11 +87,3 @@ From the **Users** page, click on the invite record, and you will be presented w
 From the **Users** page, click on the invite record, and you will be presented with the option to revoke it. Once revoked, generate a new invitation to the correct email address.
 
 [![Resend or revoke the users invitation](/img/docs/dbt-platform/access-control/resend-invite.png?v=2 "Resend or revoke the users invitation")](#)Resend or revoke the users invitation
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

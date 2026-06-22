@@ -201,11 +201,3 @@ You can develop dbt using the web-based IDE in dbt or on the command line interf
 * dbt CLI: [The dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation) allows you to run dbt commands against your dbt dbt development environment from your local command line or code editor. It supports cross-project ref, speedier, lower-cost builds, automatic deferral of build artifacts, and more.
 
 * dbt Core: dbt Core is an [open-sourced](https://github.com/dbt-labs/dbt) software that's freely available. You can build your dbt project in a code editor, and run dbt commands from the command line
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

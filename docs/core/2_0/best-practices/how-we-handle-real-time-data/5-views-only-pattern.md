@@ -173,11 +173,3 @@ If the continuously‑updated source is itself a live operational store (not a w
 
 1. Replicate into a warehouse table first (Snowflake, BigQuery, Databricks, and so on).
 2. Apply this views‑only pattern within the warehouse, not directly on the Online Transaction Processing system.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

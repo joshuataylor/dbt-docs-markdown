@@ -36,11 +36,3 @@ flags:
 * If the connection uses `autocommit=False`, dbt’s explicit transaction behavior is unchanged.
 * If the connection uses `autocommit=True` (default) and the flag is `false` (default), dbt still sends `BEGIN`, `COMMIT`, and `ROLLBACK`.
 * If the connection uses `autocommit=True` and the flag is `true`, dbt skips those statements.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

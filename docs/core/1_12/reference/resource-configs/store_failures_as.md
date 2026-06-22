@@ -71,11 +71,3 @@ Additional resources:
 * [Data test-specific configurations](https://docs.getdbt.com/reference/data-test-configs.md#test-data-specific-configurations)
 * [Configuring directories of models in dbt\_project.yml](https://docs.getdbt.com/reference/model-configs.md#configuring-directories-of-models-in-dbt_projectyml)
 * [Config inheritance](https://docs.getdbt.com/reference/define-configs.md#config-inheritance)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

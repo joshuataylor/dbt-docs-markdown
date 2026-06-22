@@ -150,11 +150,3 @@ If you've tried the earlier suggestions and are still experiencing failed job ru
 * [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md)
 * [Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
 * [dbt continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

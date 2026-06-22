@@ -341,11 +341,3 @@ Set the **Message Text** to **5. Threaded Errors Post** from the Run Python step
 ### 8. Test and deploy[​](#8-test-and-deploy "Direct link to 8. Test and deploy")
 
 When you're done testing your Zap, publish it.
-
-## Was this page helpful?
-
-YesNo
-
-[Privacy policy](https://www.getdbt.com/cloud/privacy-policy)[Create a GitHub issue](https://github.com/dbt-labs/docs.getdbt.com/issues)
-
-This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.
