@@ -112,9 +112,9 @@ Planned Promotion
 
 [v2.0.0-preview.190](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview190 "View this release in the dbt Fusion changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **johnchappelledbt**Jun 22, 2026, 07:19 PM
+Released by: **agelber-dbt**Jun 22, 2026, 09:07 PM
 
-Automated ST snapshot
+Automated promotion
 
 [v2.0.0-preview.189](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview189 "View this release in the dbt Fusion changelog")GoodDevCanaryLateststable
 
@@ -136,9 +136,9 @@ Automated promotion
 
 [v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **johnchappelledbt**Jun 22, 2026, 07:19 PM
+Released by: **agelber-dbt**Jun 22, 2026, 09:07 PM
 
-Automated ST snapshot
+Automated promotion
 
 [v2.0.0-preview.185](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview185 "View this release in the dbt Fusion changelog")GoodDev
 
@@ -202,9 +202,9 @@ Automated ST promotion
 
 [v2.0.0-preview.175](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview175 "View this release in the dbt Fusion changelog")GoodDevCanaryLateststablest-thursday-stablest-monday-stablest-wednesday-stableST MondayextendedfallbacknightlyST WednesdayST Thursdayst-monday-extendedst-monday-fallbackst-wednesday-extendedst-wednesday-fallbackst-thursday-extendedst-thursday-fallback
 
-Released by: **johnchappelledbt**Jun 22, 2026, 07:19 PM
+Released by: **agelber-dbt**Jun 22, 2026, 09:07 PM
 
-Automated ST snapshot
+Automated promotion
 
 [v2.0.0-preview.174](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview174 "View this release in the dbt Fusion changelog")GoodDevCanaryLatest
 
