@@ -255,17 +255,31 @@ packages:
     provider: "github" # Supported values: "github", "gitlab", "ado"
 ```
 
-Azure DevOps considerations
+Azure DevOps considerations and limitations
 
-* Use the `ado` provider and specify the `org/project/repo` path in the `private` key.
+There are some considerations and limitations when using native private packages from Azure DevOps. Open the expandable section to learn more.
 
-packages.yml
+ Native private packages and Azure DevOps limitations
 
-```yaml
-packages:
-  - private: my-org/my-project/my-repo
-    provider: "ado"
-```
+1. Use the `ado` provider and specify the `org/project/repo` path in the `private` key.
+
+   packages.yml
+
+   ```yaml
+   packages:
+     - private: my-org/my-project/my-repo
+       provider: "ado"
+   ```
+
+2. On dbt platform, native private packages from Azure DevOps can fail when the package is in a different Azure DevOps project than the job that installs it, especially if your account is connected to many Azure DevOps projects:
+
+   * This happens because dbt platform has a 32 KB limit for the Azure DevOps authentication details it can use at job runtime. If your connected Azure DevOps projects exceed that limit, dbt platform can only use the current project's connection. As a result, packages in other Azure DevOps projects can't be accessed and `dbt deps` fails.
+
+   * As a workaround, reduce the number of Azure DevOps projects connected to your account, then rerun `dbt deps`. The number of projects you can connect depends on your Azure DevOps organization structure and repo count.
+
+   This limitation doesn't affect local development with dbt Core or Fusion when cloning private packages over SSH.
+
+   We're currently working to address this, and if you're running into issues, please contact your dbt Labs account team.
 
 You can pin private packages similar to regular dbt packages:
 
