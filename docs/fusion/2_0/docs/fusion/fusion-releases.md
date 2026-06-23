@@ -100,7 +100,7 @@ releases
 
 [v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDev
 
-Released by: **kczimm**Jun 23, 2026, 08:42 PM
+Released by: **kczimm**Jun 23, 2026, 08:53 PM
 
 Automated promotion
 
