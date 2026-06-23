@@ -1,6 +1,6 @@
 # Configure your local environment
 
-Whether you currently use dbt platform or self-host with Fusion, or you’re a dbt Core user upgrading to Fusion, follow the instructions on this page to:
+Whether you currently use dbt platform or self-host with Fusion, or you're a dbt Core user upgrading to Fusion, follow the instructions on this page to:
 
 * [Prepare your local setup](#prepare-your-local-setup)
 * [Set environment variables locally](#set-environment-variables-locally)
@@ -10,8 +10,8 @@ If you're new to dbt or getting started with a new project, you can skip this pa
 
 The steps differ slightly depending on whether you use dbt platform or self host with Fusion.
 
-* dbt platform — You’ll mirror your dbt platform environment locally to unlock Fusion-powered features like Mesh, deferral, and so on. If your project has environment variables, you'll also set them locally to leverage the VS Code extension's features.
-* Self-hosted — When you self-host with Fusion or are upgrading from dbt Core to Fusion, you’ll most likely already have a local setup and environment variables. Use this page to confirm that your existing local setup and environment variables work seamlessly with the dbt Fusion engine and VS Code extension.
+* dbt platform — You'll mirror your dbt platform environment locally to unlock Fusion-powered features like Mesh, deferral, and so on. If your project has environment variables, you'll also set them locally to leverage the VS Code extension's features.
+* Self-hosted — When you self-host with Fusion or are upgrading from dbt Core to Fusion, you'll most likely already have a local setup and environment variables. Use this page to confirm that your existing local setup and environment variables work seamlessly with the dbt Fusion engine and VS Code extension.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -57,7 +57,7 @@ In this section, we'll walk you through the steps to prepare your local setup fo
 
 Environment variables are used for authentication and configuration.
 
-This section is most relevant for [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) and dbt platform users who have environment variables configured as part of their workspace setup. If you’re using Fusion locally, you can also install the VS Code extension and use its features and actions — you just may not need to configure these variables unless your setup specifically requires them.
+This section is most relevant for [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) and dbt platform users who have environment variables configured as part of their workspace setup. If you're using Fusion locally, you can also install the VS Code extension and use its features and actions — you just may not need to configure these variables unless your setup specifically requires them.
 
 The following table shows the different options and when to use them:
 
@@ -269,9 +269,30 @@ To configure environment variables in the terminal session:
 After installing the dbt extension and configuring your local setup, you may want to configure it to better fit your development workflow:
 
 1. Open the VS Code settings by pressing `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac).
-2. Search for `dbt`. On this page, you can adjust the extension’s configuration options to fit your needs.
+2. Search for `dbt`. On this page, you can adjust the extension's configuration options to fit your needs.
 
 [![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")](#)dbt extension settings within the VS Code settings.
+
+## File associations and other extensions[​](#file-associations-and-other-extensions "Direct link to File associations and other extensions")
+
+The dbt extension doesn't depend on your `.sql` [file associations](https://code.visualstudio.com/docs/languages/identifiers). It activates on your `dbt_project.yml`, so LSP features — like autocomplete, go-to-definition, and database-aware IntelliSense — work whether your files are set to `sql` or `jinja-sql`. The only difference between those two is syntax highlighting and the file icon.
+
+Where the association does matter is for *other* extensions. Any extension that claims the `sql` file type — whether that's Snowflake, SQL Server, or another database tool — can intercept your dbt files and override the IntelliSense you'd otherwise get from the dbt extension. For example, the Snowflake extension only picks up files associated with `snowflake-sql`. That makes `snowflake-sql` the wrong association for your dbt files — it hands them to the Snowflake extension instead of treating them as dbt files. If you have multiple SQL-aware extensions installed, it's worth checking which one is handling your `.sql` files to avoid unexpected behavior.
+
+If you want to use both extensions, keep your ad hoc query files in a separate, gitignored directory and scope the Snowflake association to just that path:
+
+```json
+{
+  "files.associations": {
+    "**/snowflake_sandbox/*.sql": "snowflake-sql",
+    "*.sql": "sql"
+  }
+}
+```
+
+Autocomplete not working?
+
+If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md?version=2.0\&name=Fusion#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
