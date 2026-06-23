@@ -1,15 +1,38 @@
 # Setting up dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt State is natively available in dbt platform and locally in dbt Core v1.12+ and the dbt Fusion engine. It is also available as a plugin for older versions of dbt Core (1.7-1.11).
+This page walks you through setting up dbt State across dbt Core, dbt platform, and Fusion.
 
-Once enabled, dbt State runs automatically on every `dbt run` or `dbt build`.
+## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Before you begin:
+Before you set up dbt State, make sure you have:
 
-* dbt State supports Snowflake, Databricks, BigQuery, and Redshift.
-* dbt State requires authentication either through a dbt platform account, or a [standalone account](https://app.state.dbt.com) that's independent of dbt platform. For details on which option is right for you, refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md#signing-up-for-dbt-state). For pricing information, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+* A supported dbt version or experience. dbt State is:
 
-Select the option that matches your setup:
+  <!-- -->
+
+  * Natively available in dbt platform, dbt Core v1.12 and later, and the dbt Fusion engine
+  * Available as a plugin for dbt Core v1.7 through v1.11
+
+* A supported data platform. dbt State currently supports Snowflake, Databricks, BigQuery, and Redshift
+
+* A supported dbt State account type. dbt State requires authentication through either:
+
+  <!-- -->
+
+  * A current dbt platform account\*
+  * A standalone dbt State account that's independent of dbt platform
+
+  <!-- -->
+
+  To learn more about which account option is right for you, refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md#signing-up-for-dbt-state). For pricing information, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+
+\*dbt State isn't available to users on [legacy Starter](https://docs.getdbt.com/docs/platform/billing.md#legacy-plans) plans. If you're on a legacy Starter plan, [reach out to dbt Labs](https://www.getdbt.com/contact) for guidance.
+
+More data warehouses are on the roadmap. If you're using another data warehouse and are interested in dbt State, [let us know](https://www.getdbt.com/contact).
+
+## Setting up dbt State[​](#setting-up-dbt-state "Direct link to Setting up dbt State")
+
+Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt.
 
 * dbt platform
 * dbt Core 1.12 / Fusion
