@@ -12,19 +12,15 @@ Run [`dbt login status`](#dbt-login-status) to view your current authentication 
 
 ## When to use dbt login[​](#when-to-use-dbt-login "Direct link to When to use dbt login")
 
-`dbt login` is intended for [dbt State](#dbt-login-with-dbt-state) or local development ([interactive](#interactive-authentication)) on macOS, Linux, and Windows, where you can complete authentication in a browser.
-
-It does not support non-interactive authentication. For [non-interactive](#non-interactive-environments) environments, such as CI/CD jobs, scheduled jobs, or external orchestrators, use a service token instead to access advanced features.
-
-### What dbt login unlocks[​](#what-dbt-login-unlocks "Direct link to What dbt login unlocks")
-
-Use `dbt login` to unlock advanced features including:
+`dbt login` is an interactive, browser-based sign-in flow for local development on macOS, Linux, and Windows. Use `dbt login` to unlock advanced features including:
 
 * advanced features in the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [dbt State](#dbt-login-with-dbt-state)
+* [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md?version=2.0#how-dbt-login-works-with-dbt-state)
 * advanced features in v2.0 CLI
 
 Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
+
+`dbt login` doesn't support non-interactive authentication. For [non-interactive](#non-interactive-environments) environments, such as CI/CD jobs, scheduled jobs, or external orchestrators, use a service token instead.
 
 ## Before you log in[​](#before-you-log-in "Direct link to Before you log in")
 
@@ -91,12 +87,6 @@ Set the following [environment variables](https://docs.getdbt.com/docs/build/env
 | `DBT_CLOUD_TOKEN`        | The service token value. Create a service token with a permission set that includes feature licensing access, such as `Job Runner`, `Job Creator`, `Job Admin`, `Developer`, or `Account Admin`. |
 | `DBT_CLOUD_PROJECT_ID`   | Your dbt platform project ID.                                                                                                                                                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 ```shell
 export DBT_CLOUD_ACCOUNT_HOST=abc123.us1.dbt.com
 export DBT_CLOUD_ACCOUNT_ID=12345
@@ -139,7 +129,6 @@ This page lists the commands and output you can use with `dbt login`:
 * [`dbt login --help`](#dbt-login---help)
 * [`dbt login status`](#dbt-login-status)
 * [`dbt license info`](#dbt-license-info)
-* [`dbt --help`](#dbt---help)
 
 ### dbt login[​](#dbt-login "Direct link to dbt login")
 
@@ -241,16 +230,6 @@ dbt license info --json
 ```
 
 For how to interpret each status, refer to [Troubleshooting](#troubleshooting).
-
-### dbt --help[​](#dbt---help "Direct link to dbt --help")
-
-`dbt login` and `dbt license` appear in the `dbt --help` available commands list:
-
-```text
-Available Commands:
-  login          Log in to dbt
-  license         Manage your dbt license
-```
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 

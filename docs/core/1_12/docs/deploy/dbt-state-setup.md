@@ -139,9 +139,7 @@ You can override the development environment's dbt State setting for your own ac
    dbt login
    ```
 
-   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login`](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state).
-
-   If dbt State is already enabled on your dbt platform account, you'll be prompted to enable it on your machine. You can change this at any time by editing the settings file located at `~/.dbt/user_settings.yml`. For more information about login behavior, refer to [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state).
+   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](#dbt-login-with-dbt-state).
 
 dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
@@ -180,6 +178,23 @@ To install the plugin:
 dbt State is now enabled. The first time you execute `dbt run` or `dbt build`, a browser window opens where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). After authenticating, dbt State runs automatically on every `dbt run` or `dbt build`.
 
 The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt Core versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
+
+## How `dbt login` works with dbt State[​](#how-dbt-login-works-with-dbt-state "Direct link to how-dbt-login-works-with-dbt-state")
+
+When [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is enabled, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md#dbt-login---help) is used for dbt State authentication. Running this command opens a browser window with two options:
+
+* **Log in with your dbt platform account**: Enter your email address. If you don't have a dbt platform account, dbt Labs will create a standalone [Developer account](https://www.getdbt.com/pricing) for you. After that, you'll authorize access between the CLI and dbt platform.
+* **Log in without a dbt platform account**: Redirects you to the dbt State standalone app at [app.state.dbt.com](https://app.state.dbt.com), where a token is created and stored locally at `~/.dbt/auth_state.json`. dbt State is automatically enabled locally after account creation.
+
+In the dbt Fusion engine, after platform authentication, the CLI checks your configuration and responds accordingly:
+
+| dbt State enabled in dbt platform? | dbt State enabled locally? | Behavior                                                                                                                                                                        |
+| ---------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅                                 | ✅                         | dbt State is ready to use.                                                                                                                                                      |
+| ✅                                 | ❌                         | CLI prompts you to enable dbt State locally. If you confirm, [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md) is updated automatically. |
+| ❌                                 | ✅                         | CLI prompts you to enable dbt State in your platform account.                                                                                                                   |
+
+In dbt Core v1.12, `dbt login` automatically sets `manage_state: true` in [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md) after platform authentication, unless you've explicitly disabled it. Whether dbt State is enabled in your dbt platform account is checked when you run a dbt command — if it's not enabled, dbt will fail on your next `dbt run` or `dbt build`. To resolve this, refer to [User settings](https://docs.getdbt.com/reference/global-configs/user-settings.md#when-dbt-state-is-enabled-locally-but-not-in-dbt-platform).
 
 dbt State works out of the box, but the following steps can help you get more value from it.
 
