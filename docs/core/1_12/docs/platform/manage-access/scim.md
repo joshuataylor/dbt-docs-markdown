@@ -41,6 +41,17 @@ The following IdPs are supported in the dbt user interface:
 
 If your IdP isn't on the list, it can be supported using dbt [APIs](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Retrieve%20SCIM%20configuration).
 
+License mapping with SCIM
+
+dbt platform supports automatic license assignment with SCIM, with these different identity provider options:
+
+ Toggle options per identity provider
+
+* **Okta:** Enable **Manage user licenses with SCIM** in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Manage user licenses with SCIM** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+
+For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
+
 ## Set up dbt[​](#set-up-dbt "Direct link to Set up dbt")
 
 To retrieve the necessary dbt configurations for use in Okta or Entra ID:

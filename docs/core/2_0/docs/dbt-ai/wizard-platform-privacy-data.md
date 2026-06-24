@@ -4,7 +4,9 @@ dbt Labs is committed to protecting your privacy and data. This page explains ho
 
  Does dbt Wizard access my warehouse data?
 
-dbt Wizard can initiate dbt commands and run queries on your behalf. When those actions run, dbt Wizard can view the resulting outputs — which may include row-level data — to respond in your session. dbt Wizard does not extract raw warehouse data outside of your controlled environment. Any warehouse query requires your explicit permission before it runs. You should always review AI output for completeness and accuracy.
+dbt Wizard can run dbt commands and queries on your behalf, and every query needs your explicit permission first. When a query runs, dbt Wizard sends those results \&mdsah; which may include row-level data — to the AI provider so it can respond in your session.
+
+For dbt-managed AI providers, we have zero data retention (ZDR) agreements in place that prevents the provider from retaining or using this data for training. If you bring your own AI provider (BYOK), that provider's terms will govern retention and training. Always review AI output for accuracy.
 
  Does dbt Wizard store or use personal data?
 

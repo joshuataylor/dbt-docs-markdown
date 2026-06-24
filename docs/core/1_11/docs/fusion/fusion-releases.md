@@ -6,7 +6,7 @@ This page shows release information for local builds of Fusion only. Fusion rele
 
 Track current versions and full release history for the dbt Fusion engine. This data updates live from dbt release channels.
 
-Each of the versions on this page links to the matching section in the [dbt Fusion changelog](https://github.com/dbt-labs/dbt-fusion/blob/main/CHANGELOG.md) on GitHub.
+Each of the versions on this page links to the matching section in the [dbt Fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md) on GitHub.
 
 ## Release channels[​](#release-channels "Direct link to Release channels")
 
@@ -62,9 +62,9 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Canary
 
-[`v2.0.0-preview.190`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview190 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.193`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this version in the dbt Fusion changelog")
 
-2026-06-19
+2026-06-24
 
 #### Latest
 
@@ -98,11 +98,11 @@ of
 
 releases
 
-[v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDev
+[v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanary
 
-Released by: **kczimm**Jun 23, 2026, 08:53 PM
+Released by: **kczimm**Jun 24, 2026, 02:36 PM
 
-Automated promotion
+release canary promotion
 
 [v2.0.0-preview.192](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview192 "View this release in the dbt Fusion changelog")Known BadDevCanaryLatestnightlystable
 

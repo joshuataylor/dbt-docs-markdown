@@ -2,9 +2,16 @@
 
 dbt platform supports System for Cross-Domain Identity Management (SCIM) with Microsoft Entra ID for user and group provisioning and profile updates.
 
-Microsoft Entra ID doesn't support SCIM-native license mapping (the ability to assign licenses directly via a SCIM attribute, as Okta does). As a workaround, you can use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration) instead. This works even if you have an active Entra ID SCIM integration running alongside it.
+License mapping with SCIM
 
-When you use the SSO-based Active Directory group → license mapping setup, keep the **Manage user licenses with SCIM** (found in **Account settings > SSO & SCIM**) toggle disabled. Turning it on tells dbt platform to ignore existing SSO license mappings, which would remove license mapping entirely for Entra ID users.
+dbt platform supports automatic license assignment with SCIM, with these different identity provider options:
+
+ Toggle options per identity provider
+
+* **Okta:** Enable **Manage user licenses with SCIM** in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Manage user licenses with SCIM** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+
+For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
