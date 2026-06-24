@@ -31,7 +31,7 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
   <!-- -->
 
   * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, or Developer [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md).
-  * **Starter plan accounts** — For the dbt UI, you need to have a [Developer license](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md).
+  * **Starter plan accounts** — For the dbt user interface (UI), you need to have a [Developer license](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md).
 
 * You have a multi-tenant or an AWS single-tenant deployment model in dbt. For more information, refer to [Tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
 
@@ -55,11 +55,19 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
    dbt provides a secret token that you can use to [check for the authenticity of a webhook](#validate-a-webhook). It’s strongly recommended that you perform this check on your server to protect yourself from fake (spoofed) requests.
 
-info
+## Archived webhooks[​](#archived-webhooks "Direct link to Archived webhooks")
 
-dbt automatically deactivates a webhook after either 1,000 consecutive failed deliveries or 7 consecutive days of failed deliveries, whichever occurs first. To reactivate a webhook, use one of the following methods:
+dbt automatically archives a webhook after 1,000 consecutive failed deliveries or 7 consecutive days of failed deliveries, whichever comes first.
 
-* **dbt platform UI**: Update the webhook's endpoint URL. dbt automatically reactivates the webhook when the URL is changed.
+* On the **Account settings → Webhooks** page in dbt platform, a dismissible warning banner appears when one or more subscriptions are archived.
+* Archived subscriptions show an **Archived** badge in the status column instead of an HTTP status.
+* Hover over the badge for details on why dbt archived it and how to reactivate it.
+
+[![Webhooks page showing the archived subscription warning banner with the 'Archived; status badge](/img/docs/deploy/webhooks-archived.png?v=2 "Webhooks page showing the archived subscription warning banner with the 'Archived; status badge")](#)Webhooks page showing the archived subscription warning banner with the 'Archived; status badge
+
+To reactivate a webhook, use one of the following methods:
+
+* **dbt platform UI**: Update the webhook's endpoint URL. dbt automatically reactivates the webhook when the URL changes.
 * **REST API**: Send a `PUT` request to [Update a webhook](#update-a-webhook) and set `active` to `true`, or update `client_url` to a new endpoint URL.
 * **Terraform provider**: Set `active = true` and update `client_url` in your webhook resource.
 
