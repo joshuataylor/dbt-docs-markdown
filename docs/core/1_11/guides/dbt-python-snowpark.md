@@ -68,7 +68,9 @@ Overall we are going to set up the environments, build scalable pipelines in dbt
 
 [![Enable Anaconda](/img/guides/dbt-ecosystem/dbt-python-snowpark/2-snowflake-configuration/4-enable-anaconda.png?v=2 "Enable Anaconda")](#)Enable Anaconda
 
-6. Finally, create a new Worksheet by selecting **+ Worksheet** in the upper right corner.
+1. Log in to your [trial Snowflake account](https://app.snowflake.com).
+2. In the Snowflake UI, click the Create icon **+** in the upper left (under the Snowflake logo) to open a dropdown.
+3. Select the first option, **SQL File**.
 
 ## Connect to data source[​](#connect-to-data-source "Direct link to Connect to data source")
 

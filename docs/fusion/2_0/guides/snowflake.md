@@ -18,7 +18,7 @@ Beginner
 
 In this quickstart guide, you'll learn how to use dbt with Snowflake. It will show you how to:
 
-* Create a new Snowflake worksheet.
+* Create a new Snowflake SQL file.
 * Load sample data into your Snowflake account.
 * Connect dbt to Snowflake.
 * Take a sample query and turn it into a model in your dbt project. A model in dbt is a select statement.
@@ -49,10 +49,11 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 * [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md)
 * [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md)
 
-## Create a new Snowflake worksheet[​](#create-a-new-snowflake-worksheet "Direct link to Create a new Snowflake worksheet")
+## Create a new Snowflake SQL file[​](#create-a-new-snowflake-sql-file "Direct link to Create a new Snowflake SQL file")
 
-1. Log in to your trial Snowflake account.
-2. In the Snowflake UI, click **+ Create** in the left-hand corner, underneath the Snowflake logo, which opens a dropdown. Select the first option, **SQL Worksheet**.
+1. Log in to your [trial Snowflake account](https://app.snowflake.com).
+2. In the Snowflake UI, click the Create icon **+** in the upper left (under the Snowflake logo) to open a dropdown.
+3. Select the first option, **SQL File**.
 
 ## Load data[​](#load-data "Direct link to Load data")
 
@@ -60,7 +61,7 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
 
 1. Create a new virtual warehouse, two new databases (one for raw data, the other for future dbt development), and two new schemas (one for `jaffle_shop` data, the other for `stripe` data).
 
-   To do this, run these SQL commands by typing them into the Editor of your new Snowflake worksheet and clicking **Run** in the upper right corner of the UI:
+   To do this, run these SQL commands by typing them into the Editor of your new Snowflake SQL file and clicking **Run**:
 
    ```sql
    create warehouse transforming;
@@ -72,7 +73,7 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
 
 2. In the `raw` database and `jaffle_shop` and `stripe` schemas, create three tables and load relevant data into them:
 
-   * First, delete all contents (empty) in the Editor of the Snowflake worksheet. Then, run this SQL command to create the `customer` table:
+   * First, delete all contents (empty) in the Editor of the Snowflake SQL file. Then, run this SQL command to create the `customer` table:
 
      ```sql
      create table raw.jaffle_shop.customers 

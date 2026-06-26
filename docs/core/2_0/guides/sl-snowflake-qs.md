@@ -96,11 +96,11 @@ Open a new tab and follow these quick steps for account setup and data loading i
 * [Step 4: Create tables with Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md?step=4)
 * [Step 5: Connect dbt to Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md?step=5)
 
-## Create new Snowflake worksheet and set up environment[​](#create-new-snowflake-worksheet-and-set-up-environment "Direct link to Create new Snowflake worksheet and set up environment")
+## Create new Snowflake SQL file and set up environment[​](#create-new-snowflake-sql-file-and-set-up-environment "Direct link to Create new Snowflake SQL file and set up environment")
 
-1. Log in to your [trial Snowflake account](https://signup.snowflake.com).
-2. In the Snowflake user interface (UI), click **+ Worksheet** in the upper right corner.
-3. Select **SQL Worksheet** to create a new worksheet.
+1. Log in to your [trial Snowflake account](https://app.snowflake.com).
+2. In the Snowflake UI, click the Create icon **+** in the upper left (under the Snowflake logo) to open a dropdown.
+3. Select the first option, **SQL File**.
 
 ### Set up and load data into Snowflake[​](#set-up-and-load-data-into-snowflake "Direct link to Set up and load data into Snowflake")
 
@@ -110,7 +110,7 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
 
 1. Create a new virtual warehouse, two new databases (one for raw data, the other for future dbt development), and two new schemas (one for `jaffle_shop` data, the other for `stripe` data).
 
-   To do this, run these SQL commands by typing them into the Editor of your new Snowflake worksheet and clicking **Run** in the upper right corner of the UI:
+   To do this, run these SQL commands by typing them into the Editor of your new Snowflake SQL file and clicking **Run**:
 
    ```sql
    create warehouse transforming;
@@ -122,7 +122,7 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
 
 2. In the `raw` database and `jaffle_shop` and `stripe` schemas, create three tables and load relevant data into them:
 
-   * First, delete all contents (empty) in the Editor of the Snowflake worksheet. Then, run this SQL command to create the `customer` table:
+   * First, delete all contents (empty) in the Editor of the Snowflake SQL file. Then, run this SQL command to create the `customer` table:
 
      ```sql
      create table raw.jaffle_shop.customers 
@@ -1332,7 +1332,7 @@ This section will guide you on how to use the Sigma integration to query your me
 
 [![Click the '+ New project' button on the top right](/img/docs/dbt-platform/semantic-layer/sl-sigma-create-profile.png?v=2 "Click the '+ New project' button on the top right")](#)Click the '+ New project' button on the top right
 
-5. Great! You now have a Sigma account. Before we get started, go back to Snowlake and open a blank worksheet. Run these lines.
+5. Great! You now have a Sigma account. Before we get started, go back to Snowflake and open a blank file. Run these lines.
 
 * `grant all privileges on all views in schema analytics.SCHEMA to role pc_sigma_role;`
 * `grant all privileges on all tables in schema analytics.SCHEMA to role pc_sigma_role;`
@@ -1378,7 +1378,7 @@ Great job on completing the comprehensive Semantic Layer guide 🎉! You should 
 
 You've learned how to:
 
-* Set up your Snowflake environment and dbt, including creating worksheets and loading data.
+* Set up your Snowflake environment and dbt, including creating SQL files and loading data.
 * Connect and configure dbt with Snowflake.
 * Build, test, and manage dbt projects, focusing on metrics and semantic layers.
 * Run production jobs and query metrics with our available integrations.
