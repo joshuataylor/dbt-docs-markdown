@@ -18,7 +18,7 @@ Insights provides a rich console experience with editor navigation. You can expe
 Before accessing Insights, ensure that the [prerequisites](https://docs.getdbt.com/docs/explore/dbt-insights.md#prerequisites) are met.
 
 1. To access Insights, select the **Insights** option in the navigation sidebar.
-2. If your [developer credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) aren’t set up, Insights will prompt you to set them up. The ability to query data is subject to warehouse provider permissions according to your developer credentials.
+2. If your [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) aren’t set up, Insights will prompt you to set them up. The ability to query data is subject to warehouse provider permissions according to your user credentials.
 3. Once your credentials are set up, you can write, run, and edit SQL queries in the Insights editor for existing models in your project.
 
 ## Run queries[​](#run-queries "Direct link to Run queries")
@@ -200,7 +200,7 @@ Insights offers a robust save feature for quickly finding the queries you use mo
 
 ## Considerations[​](#considerations "Direct link to Considerations")
 
-* Insights uses your development credentials to query. You have the ability to query against any object in your data warehouse that is accessible using your development credentials.
+* Insights uses your user credentials to query. You have the ability to query against any object in your data warehouse that is accessible using your user credentials configured in **Account settings**.
 * Every Jinja function uses [`defer --favor-state`](https://docs.getdbt.com/reference/node-selection/defer.md) to resolve Jinja.
 
 ## FAQs[​](#faqs "Direct link to FAQs")

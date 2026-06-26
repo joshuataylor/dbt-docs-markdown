@@ -4,7 +4,7 @@ Access and use Canvas to create or edit dbt models through a visual, drag-and-dr
 
 ## Access Canvas[​](#access-canvas "Direct link to Access Canvas")
 
-Before accessing the editor, you should have a dbt project already set up. This includes a Git repository, data platform connection, environments, and developer credentials. If you don't have this set up, please contact your dbt Admin.
+Before accessing the editor, you should have a dbt project already set up. This includes a Git repository, data platform connection, environments, and user credentials. If you don't have this set up, please contact your dbt Admin.
 
 Access **Canvas** at any time from the left-side menu.
 
@@ -14,7 +14,7 @@ Before using Canvas, you should:
 
 * Have a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account.
 
-* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with developer credentials set up.
+* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
 

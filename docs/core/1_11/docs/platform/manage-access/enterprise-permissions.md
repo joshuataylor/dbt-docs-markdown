@@ -62,7 +62,7 @@ Notable features:
 * Analyst read is a project-level set.
 * Read-only access to project resources, jobs, runs, and environment configs.
 * Can access Catalog.
-* Includes `user_credential_write`, so users can view and edit their own development credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt CLI. Read-only users still need personal development credentials on this page to run warehouse queries in analysis features such as Insights and the Semantic Layer.
+* Includes `user_credential_write`, so users can view and edit their own user credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt CLI. Read-only users still need personal user credentials on this page to run warehouse queries in analysis features such as Insights and the Semantic Layer.
 * No write access and no access to develop in the Studio IDE or dbt CLI.
 
 To access the capabilities of this permission set, you *must* add users to a group that's assigned the Analyst read permission set. Users won't have access until they're added to the group. For the setup steps, refer to [Set up read-only user access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#set-up-read-only-user-access).

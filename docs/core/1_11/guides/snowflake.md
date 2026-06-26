@@ -217,13 +217,13 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 6. Click **Save**.
 
-7. Set up your personal development credentials by going to **Your profile** > **Credentials**.
+7. Set up your personal user credentials by going to **Your profile** > **Credentials**.
 
 8. Select your project that uses the Snowflake connection.
 
-9. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal development credentials.
+9. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal user credentials.
 
-10. Enter your **Development credentials** for Snowflake with:
+10. Enter your **User credentials** for Snowflake with:
 
     * **Username** — The username you created for Snowflake. The username is not your email address and is usually your first and last name together in one word.
     * **Password** — The password you set when creating your Snowflake account.
@@ -231,7 +231,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
     * **Target name** — Leave as the default.
     * **Threads** — Leave as 4. This is the number of simultaneous connects that dbt will make to build models concurrently.
 
-    [![dbt - Snowflake Development Credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake Development Credentials")](#)dbt - Snowflake Development Credentials
+    [![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")](#)dbt - Snowflake User credentials
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 

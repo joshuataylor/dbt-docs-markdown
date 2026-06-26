@@ -6,7 +6,7 @@ We're migrating dbt platform [multi-tenant accounts worldwide](https://docs.getd
 
 The migration may require additional actions in your Snowflake account. See [subdomain migration](#subdomain-migration) for more information.
 
-dbt Enterprise and Enterprise+ supports [OAuth authentication](https://docs.snowflake.net/manuals/user-guide/oauth-intro.html) with Snowflake. When Snowflake OAuth is enabled, users can authorize their Development credentials using Single Sign On (SSO) via Snowflake rather than submitting a username and password to dbt. If Snowflake is set up with SSO through a third-party identity provider, developers can use this method to log into Snowflake and authorize the dbt Development credentials without any additional setup.
+dbt Enterprise and Enterprise+ supports [OAuth authentication](https://docs.snowflake.net/manuals/user-guide/oauth-intro.html) with Snowflake. When Snowflake OAuth is enabled, users can authorize their user credentials using Single Sign On (SSO) via Snowflake rather than submitting a username and password to dbt. If Snowflake is set up with SSO through a third-party identity provider, developers can use this method to log into Snowflake and authorize the dbt user credentials without any additional setup.
 
 <!-- -->
 
@@ -107,7 +107,7 @@ To complete the creation of your connection in dbt:
 
 ### Authorize developer credentials[​](#authorize-developer-credentials "Direct link to Authorize developer credentials")
 
-Once Snowflake SSO is enabled, users on the project will be able to configure their credentials in their Profiles. By clicking the "Connect to Snowflake Account" button, users will be redirected to Snowflake to authorize with the configured SSO provider, then back to dbt to complete the setup process. At this point, users should now be able to use the Studio IDE with their development credentials.
+Once Snowflake SSO is enabled, users on the project will be able to configure their credentials in their Profiles. By clicking the "Connect to Snowflake Account" button, users will be redirected to Snowflake to authorize with the configured SSO provider, then back to dbt to complete the setup process. At this point, users should now be able to access the Studio IDE with their user credentials.
 
 ### SSO OAuth flow diagram[​](#sso-oauth-flow-diagram "Direct link to SSO OAuth flow diagram")
 
@@ -140,7 +140,7 @@ Values for `OAUTH_REDIRECT_URI` and `OAUTH_ALTERNATE_REDIRECT_URIS` are intercha
 
 When clicking on the `Connect Snowflake Account` successfully redirects you to the Snowflake login page, but you receive an `Invalid consent request` error. This could mean:
 
-* Your user might not have access to the Snowflake role defined on the development credentials in dbt. Double-check that you have access to that role and if the role name has been correctly entered in as Snowflake is case sensitive.
+* Your user might not have access to the Snowflake role defined on the user credentials in the dbt **Account settings**. Double-check that you have access to that role and if the role name has been correctly entered in as Snowflake is case sensitive.
 * You're trying to use a role that is in the [BLOCKED\_ROLES\_LIST](https://docs.snowflake.com/en/user-guide/oauth-partner.html#blocking-specific-roles-from-using-the-integration), such as `ACCOUNTADMIN`.
 
  The requested scope is invalid

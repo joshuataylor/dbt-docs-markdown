@@ -152,11 +152,11 @@ Search table...
 
 ## Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
 
-This section describes the different authentication methods for connecting dbt to Snowflake. Configure deployment environment (Production, Staging, General) credentials globally in the [**Connections**](https://docs.getdbt.com/docs/deploy/deploy-environments.md#deployment-connection) area of **Account settings**. Individual users configure their development credentials in the [**Credentials**](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) area of their user profile.
+This section describes the different authentication methods for connecting dbt to Snowflake. Configure deployment environment (Production, Staging, General) credentials globally in the [**Connections**](https://docs.getdbt.com/docs/deploy/deploy-environments.md#deployment-connection) area of **Account settings**. Individual users configure their user credentials in the [**Credentials**](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) area of their user profile.
 
 Snowflake authentication in the dbt platform
 
-You cannot create new Snowflake credentials with username and password in dbt platform. New development and deployment credentials default to [key pair](#key-pair) authentication. For development credentials on Enterprise-tier plans, [Snowflake OAuth](#snowflake-oauth) is also available when configured on the connection. To update existing password credentials, refer to [Username and password with MFA](#username-and-password-with-mfa).
+You cannot create new Snowflake credentials with username and password in dbt platform. New development and deployment credentials default to [key pair](#key-pair) authentication. For user credentials on Enterprise-tier plans, [Snowflake OAuth](#snowflake-oauth) is also available when configured on the connection. To update existing password credentials, refer to [Username and password with MFA](#username-and-password-with-mfa).
 
 ### Key pair[​](#key-pair "Direct link to Key pair")
 

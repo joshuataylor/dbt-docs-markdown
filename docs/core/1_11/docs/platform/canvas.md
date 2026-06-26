@@ -19,7 +19,7 @@ Before using Canvas, you should:
 
 * Have a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account.
 
-* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with developer credentials set up.
+* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
 

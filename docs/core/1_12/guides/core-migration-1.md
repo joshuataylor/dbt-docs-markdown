@@ -140,7 +140,7 @@ This section outlines the considerations and methods to connect your data platfo
    * [Starburst or Trino](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md)
    * [Teradata](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-teradata.md)
 
-2. You can verify your data platform connections by clicking the **Test connection** button in your deployment and development credentials settings.
+2. You can verify your data platform connections by clicking the **Test connection** button in your deployment and user credentials settings.
 
 ### Additional configuration[​](#additional-configuration-1 "Direct link to Additional configuration")
 
@@ -185,7 +185,7 @@ The most common data environments are production, staging, and development. The 
 
 ### Initial setup steps[​](#initial-setup-steps "Direct link to Initial setup steps")
 
-1. **Set up development environment** — Set up your [development](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) environment and [development credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide). You'll need this to access your dbt project and start developing.
+1. **Set up development environment** — Set up your [development](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) environment and [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide). You'll need this to access your dbt project and start developing.
 
 2. **dbt Core version** — In your dbt environment, select a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) for ongoing dbt version upgrades. If your team plans to use both dbt Core and dbt for developing or deploying your dbt project, you can run `dbt --version` in the command line to find out which version of dbt Core you're using.
 
@@ -203,7 +203,7 @@ The most common data environments are production, staging, and development. The 
 
 Explore these additional configurations to optimize your developer setup further:
 
-1. **Custom target names** — Using [`custom target.names`](https://docs.getdbt.com/docs/build/custom-target-names.md) in your dbt projects helps identify different environments (like development, staging, and production). While you can specify the `custom target.name` values in your developer credentials or orchestration setup, we recommend using [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) as the preferred method. They offer a clearer way to handle different environments and are better supported by dbt's partial parsing feature, unlike using [`{{ target }}` logic](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) which is meant for defining the data warehouse connection.
+1. **Custom target names** — Using [`custom target.names`](https://docs.getdbt.com/docs/build/custom-target-names.md) in your dbt projects helps identify different environments (like development, staging, and production). While you can specify the `custom target.name` values in your development credentials or orchestration setup, we recommend using [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) as the preferred method. They offer a clearer way to handle different environments and are better supported by dbt's partial parsing feature, unlike using [`{{ target }}` logic](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) which is meant for defining the data warehouse connection.
 
 ### dbt commands[​](#dbt-commands "Direct link to dbt commands")
 

@@ -326,7 +326,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 ## March 2024[​](#march-2024 "Direct link to March 2024")
 
 * **New:** The Semantic Layer services now support using Privatelink for customers who have it enabled.
-* **New:** You can now develop against and test your Semantic Layer in the dbt CLI if your developer credential uses SSO.
+* **New:** You can now develop against and test your Semantic Layer in the dbt CLI if your user credential uses SSO.
 * **Enhancement:** You can select entities to Group By, Filter By, and Order By.
 * **Fix:** `dbt parse` no longer shows an error when you use a list of filters (instead of just a string filter) on a metric.
 * **Fix:** `join_to_timespine` now properly gets applied to conversion metric input measures.

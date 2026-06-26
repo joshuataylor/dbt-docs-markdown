@@ -19,7 +19,7 @@ Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt
 * Be on a dbt platform [Enterprise-tier](https://www.getdbt.com/pricing) plan — [book a demo](https://www.getdbt.com/contact) to learn more about Insights.
 * Available on all [tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md) configurations.
 * Have a dbt [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with access to Insights.
-* Configured [developer credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
+* Configured [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
 
 ## Using dbt Copilot in Insights[​](#using-dbt-copilot-in-insights "Direct link to Using dbt Copilot in Insights")
 

@@ -119,19 +119,19 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
 
 [![dbt - Teradata Account Settings](/img/teradata/dbt_cloud_teradata_account_settings.png?v=2 "dbt - Teradata Account Settings")](#)dbt - Teradata Account Settings
 
-6. Set up your personal development credentials by going to **Your profile** > **Credentials**.
+6. Set up your personal user credentials by navigating to **Your profile** > **Credentials**.
 
 7. Select your project that uses the Teradata connection.
 
-8. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal development credentials.
+8. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal user credentials.
 
-9. Enter your **Development credentials** for Teradata with:
+9. Enter your **User credentials** for Teradata with:
 
    * **Username** — The username of Teradata database.
    * **Password** — The password of Teradata database.
    * **Schema** — The default database to use.
 
-   [![dbt - Teradata Development Credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata Development Credentials")](#)dbt - Teradata Development Credentials
+   [![dbt - Teradata User credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata User credentials")](#)dbt - Teradata User credentials
 
 10. Click **Test Connection** to verify that dbt can access your Teradata Vantage instance.
 

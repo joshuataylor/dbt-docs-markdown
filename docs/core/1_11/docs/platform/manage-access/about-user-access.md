@@ -269,7 +269,7 @@ Euclid takes the following steps to log in:
 
    [![The confirmation that the email address is verified.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/email-verified.png?v=2 "The confirmation that the email address is verified.")](#)The confirmation that the email address is verified.
 
-Euclid is now logged in to their account. They only have access to the `Jaffle Shop` project. Under **Orchestration**, they can configure development credentials.
+Euclid is now logged in to their account. They only have access to the `Jaffle Shop` project. Under **Orchestration**, they can configure user credentials.
 
 [![The Orchestration page with the environments.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/orchestration-environments.png?v=2 "The Orchestration page with the environments.")](#)The Orchestration page with the environments.
 

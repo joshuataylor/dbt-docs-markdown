@@ -29,7 +29,7 @@ Automates user and group provisioning from your IdP into dbt (and, with Okta, li
 
 ## Connection OAuth[​](#connection-oauth "Direct link to Connection OAuth")
 
-Connection OAuth is for authenticating to your data platform (like Snowflake, BigQuery), which is different from SSO, which handles user login to dbt platform. It lets developers authorize their development credentials with a data platform using that platform's login instead of storing passwords in dbt. *For admins and developers connecting to supported data platforms.*
+Connection OAuth is for authenticating to your data platform (like Snowflake, BigQuery), which is different from SSO, which handles user login to dbt platform. It lets developers authorize their user credentials with a data platform using that platform's login instead of storing passwords in dbt. *For admins and developers connecting to supported data platforms.*
 
 * [OAuth overview](https://docs.getdbt.com/docs/platform/manage-access/oauth-intro.md) — What's available by platform
 * [Set up Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md)

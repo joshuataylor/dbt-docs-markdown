@@ -269,13 +269,13 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 6. Click **Save**.
 
-7. Set up your personal development credentials by going to **Your profile** > **Credentials**.
+7. Set up your personal user credentials by going to **Your profile** > **Credentials**.
 
 8. Select your project that uses the Snowflake connection.
 
-9. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal development credentials.
+9. Click the **configure your development environment and add a connection** link. This directs you to a page where you can enter your personal user credentials.
 
-10. Enter your **Development credentials** for Snowflake with:
+10. Enter your **User credentials** for Snowflake with:
 
     * **Username** — The username you created for Snowflake. The username is not your email address and is usually your first and last name together in one word.
     * **Password** — The password you set when creating your Snowflake account.
@@ -283,7 +283,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
     * **Target name** — Leave as the default.
     * **Threads** — Leave as 4. This is the number of simultaneous connects that dbt will make to build models concurrently.
 
-    [![dbt - Snowflake Development Credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake Development Credentials")](#)dbt - Snowflake Development Credentials
+    [![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")](#)dbt - Snowflake User credentials
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 
@@ -1007,7 +1007,7 @@ Select the environment where you want to enable the Semantic Layer:
 There are two options for setting up Semantic Layer using API tokens:
 
 * [Add a credential and create service tokens](#add-a-credential-and-create-service-tokens)
-* [Configure development credentials and create personal tokens](#configure-development-credentials-and-create-a-personal-token)
+* [Configure user credentials and create personal tokens](#configure-development-credentials-and-create-a-personal-token)
 
 #### Add a credential and create service tokens[​](#add-a-credential-and-create-service-tokens "Direct link to Add a credential and create service tokens")
 
@@ -1065,18 +1065,18 @@ info
 
 #### Configure development credentials and create a personal token[​](#configure-development-credentials-and-create-a-personal-token "Direct link to Configure development credentials and create a personal token")
 
-Using [personal access tokens (PATs)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) is also a supported authentication method for the dbt Semantic Layer. This enables user-level authentication, reducing the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal development credentials.
+Using [personal access tokens (PATs)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) is also a supported authentication method for the dbt Semantic Layer. This enables user-level authentication, reducing the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal user credentials.
 
 To use PATs in Semantic Layer:
 
-1. Configure your development credentials.
+1. Configure your user credentials.
 
    <!-- -->
 
    1. Click your account name at the bottom left-hand menu and go to **Account settings** > **Credentials**.
    2. Select your project.
    3. Click **Edit**.
-   4. Go to **Development credentials** and enter your details.
+   4. Go to **User credentials** and enter your details.
    5. Click **Save**.
 
 2. [Create a personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md). Make sure to copy the token.

@@ -31,4 +31,4 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-[![Example of the developer credential fields.](/img/docs/dbt-platform/teradata-deployment.png?v=2 "Example of the developer credential fields.")](#)Example of the developer credential fields.
+[![Example of the user credential fields.](/img/docs/dbt-platform/teradata-deployment.png?v=2 "Example of the user credential fields.")](#)Example of the user credential fields.

@@ -12,7 +12,7 @@ Learn how to configure the dbt CLI for your dbt project to run dbt commands, lik
 * You must set up a project in dbt.
   <!-- -->
   * **Note** — If you're using the dbt CLI, you can connect to your [data platform](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md) file.
-* You must have your [personal development credentials](https://docs.getdbt.com/docs/dbt-platform-environments.md#set-developer-credentials) set for that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
+* You must have your [personal user credentials](https://docs.getdbt.com/docs/dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
 * You must be on dbt version 1.5 or higher. Refer to [dbt versions](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
 ## Configure the dbt CLI[​](#configure-the-dbt-cli "Direct link to Configure the dbt CLI")

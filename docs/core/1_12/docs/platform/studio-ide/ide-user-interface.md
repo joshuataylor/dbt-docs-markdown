@@ -55,7 +55,7 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
 Refer to [Using defer in dbt](https://docs.getdbt.com/docs/platform/about-defer.md#defer-in-the-dbt-ide) for more info.
 
-7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](https://docs.getdbt.com/docs/about-dbt-lsp.md) status if you're on Fusion or the engine server status if you're on dbt Core. It includes shortcuts to environment settings and developer credentials.
+7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](https://docs.getdbt.com/docs/about-dbt-lsp.md) status if you're on Fusion or the engine server status if you're on dbt Core. It includes shortcuts to environment settings and user credentials.
 
    [![View the connection statuses for your account.](/img/docs/dbt-platform/platform-ide/server-status.png?v=2 "View the connection statuses for your account.")](#)View the connection statuses for your account.
 

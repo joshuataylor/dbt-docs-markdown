@@ -80,7 +80,7 @@ The **Compare** tab displays the changes to the data's primary keys, rows, and c
 
  Are queries run on behalf of the developer?
 
-Yes. All comparison queries in development run using your local development credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file, that's the credential the extension uses; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
+Yes. All comparison queries in development run using your local development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
 
  Is this using my warehouse credits?
 

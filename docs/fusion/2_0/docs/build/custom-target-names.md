@@ -20,6 +20,6 @@ To set a custom target name for a job in dbt, configure the **Target Name** fiel
 
 ## dbt Studio IDE[​](#dbt-studio-ide "Direct link to dbt Studio IDE")
 
-When developing in dbt, you can set a custom target name in your development credentials. Click your account name above the profile icon in the left panel, select **Account settings**, then go to **Credentials**. Choose the project to update the target name.
+When developing in dbt, you can set a custom target name in your user credentials. Click your account name above the profile icon in the left panel, select **Account settings**, then go to **Credentials**. Choose the project to update the target name.
 
 [![Overriding the target name to 'dev'](/img/docs/dbt-platform/using-dbt-platform/development-credentials.png?v=2 "Overriding the target name to 'dev'")](#)Overriding the target name to 'dev'

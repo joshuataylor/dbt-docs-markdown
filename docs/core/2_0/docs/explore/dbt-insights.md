@@ -16,13 +16,13 @@ Insights in dbt integrates with [Catalog](https://docs.getdbt.com/docs/explore/e
 
 * Have a dbt [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with access to Insights.
 
-* Configured [developer credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
+* Configured [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
 
 * Your production and development [environments](https://docs.getdbt.com/docs/dbt-platform-environments.md) are on dbt’s ‘Latest’ [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or a supported dbt version.
 
 * Use a supported data platform: Snowflake, BigQuery, Databricks, Redshift, or Postgres.
   <!-- -->
-  * Single sign-on (SSO) for development user accounts is supported. Deployment environments will be queried leveraging the user's development credentials.
+  * Single sign-on (SSO) for development user accounts is supported. Deployment environments will be queried leveraging the user's user credentials configured in **Account settings**.
 
 * (Optional) — To query [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) metrics from the Insights, you must also:
 

@@ -113,7 +113,7 @@ In this quickstart guide, you'll learn how to use dbt with [Azure Synapse Analyt
    * **Port** — 1433 (which is the default).
    * **Database** — Use the service principal's **database** value for the Synapse test endpoint.
 
-5. Enter the **Development credentials** for your new project:
+5. Enter the **User credentials** for your new project:
 
    <!-- -->
 

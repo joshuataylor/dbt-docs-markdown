@@ -471,9 +471,9 @@ We prefer to use [environment variables](https://docs.getdbt.com/docs/build/envi
 
 [![Customize schema alias env var.](/img/docs/dbt-platform/using-dbt-platform/custom-schema-env-var-targetname.png?v=2 "Customize schema alias env var.")](#)Customize schema alias env var.
 
-* `target.name` requires every developer to input the same value (often ‘dev’) into the target name section of their project development credentials. If a developer doesn’t have the appropriate target name value set, their database/schema/alias may not resolve properly.
+* `target.name` requires every developer to input the same value (often ‘dev’) into the target name section of their project user credentials. If a developer doesn’t have the appropriate target name value set, their database/schema/alias may not resolve properly.
 
-[![Development credentials.](/img/docs/dbt-platform/using-dbt-platform/development-credentials.png?v=2 "Development credentials.")](#)Development credentials.
+[![User credentials.](/img/docs/dbt-platform/using-dbt-platform/development-credentials.png?v=2 "User credentials.")](#)User credentials.
 
 ### Always enforce custom schemas[​](#always-enforce-custom-schemas "Direct link to Always enforce custom schemas")
 
