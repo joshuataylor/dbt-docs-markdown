@@ -2,6 +2,8 @@
 
 The dbt Wizard CLI helps teams ship higher-quality dbt changes faster and with less risk. Built for governed data development in dbt, it understands your project, routes to the right dbt tools, validates changes, and shows how logic evolves from your local machine.
 
+You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CLI, Fusion, or dbt Core.
+
 Install the dbt Wizard CLI by running the following commands:
 
 * macOS/Linux
@@ -31,8 +33,6 @@ Use dbt Wizard CLI to:
 * Run non-interactively in CI with `exec` and `review`
 
 For more examples, visit [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md).
-
-Note that the dbt Wizard CLI doesn't yet work with the dbt platform CLI (formerly the dbt Cloud CLI), support coming soon. In the meantime, run the dbt Wizard CLI in a project that uses Fusion or dbt Core.
 
 ## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
 

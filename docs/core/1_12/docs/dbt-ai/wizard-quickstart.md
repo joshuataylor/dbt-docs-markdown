@@ -2,6 +2,8 @@
 
 Install dbt Wizard locally and start an agentic dbt development session from your terminal.
 
+You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CLI, Fusion, or dbt Core.
+
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
 * macOS/Linux
@@ -71,8 +73,6 @@ You'll need:
 
 * An OpenAI subscription, or your own API key or provider credentials for a supported provider using [BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md): OpenAI, Anthropic, AWS Bedrock, Azure, Snowflake Cortex (preview), or Databricks
 * A dbt project with a built `target/` directory (run `dbt parse`, `dbt compile`, or `dbt build`)
-
-Note that the dbt Wizard CLI doesn't yet work with the dbt platform CLI (formerly the dbt Cloud CLI), support coming soon. In the meantime, run the dbt Wizard CLI in a project that uses Fusion or dbt Core.
 
 New to the terminal?
 

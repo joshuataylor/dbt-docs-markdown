@@ -9,7 +9,7 @@ dbt release notes for recent and historical changes. Release notes fall into one
 
 Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments.
 
-For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-fusion/blob/main/CHANGELOG.md).
+For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
 ## June 2026[​](#june-2026 "Direct link to June 2026")
 
@@ -17,7 +17,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 * **Enhancement**: You can [download OpenTelemetry (OTel) logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs) for individual dbt command steps in Fusion job runs.
 * **Enhancement**: You can now configure [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) for the Studio IDE directly in the dbt platform UI — either as a team-wide default on your development environment, or as a personal override. For more information, refer to [Enabling dbt State in Studio](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#enabling-dbt-state-in-studio).
 * **New:** [Model query history](https://docs.getdbt.com/docs/explore/model-query-history.md) for Redshift and Databricks is now generally available (GA).
-* **Behavior change:** On June 29, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#flags-reaching-maturity) to see which flags may affect your project and how to opt out before then.
+* **Behavior change:** On September 1, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#flags-reaching-maturity) to see which flags may affect your project and how to opt out before then.
 * **Beta:** The dbt Fusion engine now supports the Salesforce Data 360 connection in the dbt platform. For more information, refer to [Connect Salesforce Data 360](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-salesforce.md).
 * **Private beta**: The [Analyst read](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#analyst-read) permission set is available for Enterprise plans.
   <!-- -->

@@ -141,13 +141,13 @@ dbt AI usage is measured based on the number of completed AI requests, known as 
 
 A defined number of dbt Copilot invocations is allocated monthly based on your [subscription plan](https://www.getdbt.com/pricing). Once the usage limit is reached, access to dbt AI will be temporarily disabled until the start of the next billing cycle.
 
-As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 1. After July 1, this bridge ends and Wizard usage will be metered separately. Pricing and usage are subject to change.
+As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 13. After July 13, this bridge ends and Wizard usage will be metered separately. Pricing and usage are subject to change.
 
 ### Usage and metering information[​](#usage-and-metering-information "Direct link to Usage and metering information")
 
- Temporary dbt Copilot Actions bridge (through July 1)
+ Temporary dbt Copilot Actions bridge (through July 13)
 
-As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 1. After July 1, this bridge ends and Wizard usage will be metered separately.
+As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 13. After July 13, this bridge ends and Wizard usage will be metered separately.
 
 Users that bring their own key (BYOK) aren't affected by this bridge.
 
@@ -264,7 +264,7 @@ dbt offers ways to optimize your model’s built usage and warehouse costs.
 
 ### Best practices for optimizing cost with dbt State[​](#best-practices-for-optimizing-cost-with-dbt-state "Direct link to Best practices for optimizing cost with dbt State")
 
-#### Use `lag_tolerence` to reduce unnecessary model execution[​](#use-lag_tolerence-to-reduce-unnecessary-model-execution "Direct link to use-lag_tolerence-to-reduce-unnecessary-model-execution")
+#### Use `lag_tolerance` to reduce unnecessary model execution[​](#use-lag_tolerance-to-reduce-unnecessary-model-execution "Direct link to use-lag_tolerance-to-reduce-unnecessary-model-execution")
 
 You can save even more time and compute by defining how old your data can be before a model should be triggered. We’ve introduced lag\_tolerance so that you can do things like differentiate local development needs vs prod.
 

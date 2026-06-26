@@ -6,7 +6,7 @@ This guide explains how to install, verify, update, and uninstall the dbt Wizard
 
 )
 
-Run the following command to install the dbt Wizard CLI:
+You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CLI, Fusion, or dbt Core.
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
@@ -43,8 +43,6 @@ Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and 
 * macOS, Windows, or Linux
 * A dbt project with a built `target/` directory (`dbt parse`, `dbt compile`, or `dbt build`)
 * Credentials for a supported CLI provider. Refer to [Supported AI providers](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md#supported-ai-providers) in the next section.
-
-Note that the dbt Wizard CLI doesn't yet work with the dbt platform CLI (formerly the dbt Cloud CLI), support coming soon. In the meantime, run the dbt Wizard CLI in a project that uses Fusion or dbt Core.
 
 ## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
 

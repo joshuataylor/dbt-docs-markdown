@@ -53,7 +53,7 @@ dbt Copilot features include quick-action buttons in Studio IDE, the Copilot pan
 
  Can I use my existing dbt Copilot action allotment with dbt Wizard?
 
-Yes, as a temporary compatibility bridge through July 1. After July 1, this bridge ends.
+Yes, as a temporary compatibility bridge through July 13. After July 13, this bridge ends.
 
 ## Availability[​](#availability "Direct link to Availability")
 

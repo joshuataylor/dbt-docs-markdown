@@ -62,23 +62,23 @@ The dbt Core engine uses semantic versioning for the 1.x release series. To inst
 
 ### Latest releases[​](#latest-releases "Direct link to Latest releases")
 
-| dbt Core                                                                                                 | Initial release | Support level and end date          |
-| -------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------- |
-| [**v2.0**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)                    |                 |                                     |
-| [**v1.12**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.12.md)                |                 |                                     |
-| [**v1.11**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025    | **Active Support — Dec 18, 2026**   |
-| [**v1.10**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025    | **Critical Support — Jun 15, 2026** |
-| [**v1.9**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md)                  | Dec 9, 2024     | Deprecated ⛔️                      |
-| [**v1.8**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md)                  | May 9, 2024     | Deprecated ⛔️                      |
-| [**v1.7**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.7.md)                  | Nov 2, 2023     | End of Life ⚠️                      |
-| [**v1.6**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.6.md>) | Jul 31, 2023    | End of Life ⚠️                      |
-| [**v1.5**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) | Apr 27, 2023    | End of Life ⚠️                      |
-| [**v1.4**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md>) | Jan 25, 2023    | End of Life ⚠️                      |
-| [**v1.3**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md>) | Oct 12, 2022    | End of Life ⚠️                      |
-| [**v1.2**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.2.md>) | Jul 26, 2022    | Deprecated ⛔️                      |
-| [**v1.1**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.1.md>) | Apr 28, 2022    | Deprecated ⛔️                      |
-| [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021     | Deprecated ⛔️                      |
-| **v0.X** ⛔️                                                                                             | (Various dates) | Deprecated ⛔️                      |
+| dbt Core                                                                                                 | Initial release | Support level and end date                                                            |
+| -------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------- |
+| [**v2.0**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)                    | TBD             | Currently in [alpha](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md) |
+| [**v1.12**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.12.md)                | TBD             | Currently in [beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md)  |
+| [**v1.11**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025    | **Active Support — Dec 18, 2026**                                                     |
+| [**v1.10**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025    | **Critical Support — Jun 15, 2026**                                                   |
+| [**v1.9**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md)                  | Dec 9, 2024     | Deprecated ⛔️                                                                        |
+| [**v1.8**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md)                  | May 9, 2024     | Deprecated ⛔️                                                                        |
+| [**v1.7**](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.7.md)                  | Nov 2, 2023     | End of Life ⚠️                                                                        |
+| [**v1.6**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.6.md>) | Jul 31, 2023    | End of Life ⚠️                                                                        |
+| [**v1.5**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) | Apr 27, 2023    | End of Life ⚠️                                                                        |
+| [**v1.4**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md>) | Jan 25, 2023    | End of Life ⚠️                                                                        |
+| [**v1.3**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md>) | Oct 12, 2022    | End of Life ⚠️                                                                        |
+| [**v1.2**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.2.md>) | Jul 26, 2022    | Deprecated ⛔️                                                                        |
+| [**v1.1**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.1.md>) | Apr 28, 2022    | Deprecated ⛔️                                                                        |
+| [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021     | Deprecated ⛔️                                                                        |
+| **v0.X** ⛔️                                                                                             | (Various dates) | Deprecated ⛔️                                                                        |
 
 Search table...
 

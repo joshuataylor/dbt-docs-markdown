@@ -2,7 +2,7 @@
 
 Behavior change flags reaching maturity
 
-Several behavior change flags on the dbt platform **Latest** release track are planned to be enabled by default on June 29, 2026. Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#flags-reaching-maturity) to see which flags are affected, how they may impact your project, and how to opt out before the change takes effect.
+Several behavior change flags on the dbt platform **Latest** release track are planned to be enabled by default on September 1, 2026. Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#flags-reaching-maturity) to see which flags are affected, how they may impact your project, and how to opt out before the change takes effect.
 
 The sections below document flags that have not yet reached maturity (default still `false`). For intro and maturity dates, refer to the [dbt Core behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#dbt-core-behavior-changes) table.
 

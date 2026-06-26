@@ -26,6 +26,10 @@ Incremental models
 
 [ course](https://learn.getdbt.com/courses/incremental-models).
 
+Build idempotent incremental models
+
+Incremental models are stateful, so they're the easiest place to accidentally break [idempotence](https://docs.getdbt.com/best-practices/idempotence.md) — the expectation that re-running a model produces the same result. Before you configure one, review [Idempotence in dbt](https://docs.getdbt.com/best-practices/idempotence.md#idempotence-and-incremental-models).
+
 ## Understand incremental models[​](#understand-incremental-models "Direct link to Understand incremental models")
 
 Incremental models enable you to significantly reduce the build time by just transforming new records. This is particularly useful for large datasets, where the cost of processing the entire dataset is high.
