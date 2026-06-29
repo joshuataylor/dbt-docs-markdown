@@ -69,7 +69,7 @@ Some commands are not yet supported in the dbt Fusion engine or have limited fun
 | [snapshot](https://docs.getdbt.com/reference/commands/snapshot.md)           | Executes "snapshot" jobs defined in a project                                               | ❌                 | All tools<br />All [supported versions](https://docs.getdbt.com/docs/dbt-versions.md)                                                   |
 | [source](https://docs.getdbt.com/reference/commands/source.md)               | Provides tools for working with source data (including validating that sources are "fresh") | ✅                 | All tools<br />All [supported versions](https://docs.getdbt.com/docs/dbt-versions.md)                                                   |
 | [test](https://docs.getdbt.com/reference/commands/test.md)                   | Executes tests defined in a project                                                         | ✅                 | All tools<br />All [supported versions](https://docs.getdbt.com/docs/dbt-versions.md)<br />Fusion flag `--warn-error` not yet supported |
-| [`wizard`](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)      | Starts an agentic dbt development session with dbt Wizard from the command line             | N/A                | Local development<br />[All supported versions](https://docs.getdbt.com/docs/dbt-versions.md)                                           |
+| [wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)        | Starts an agentic dbt development session with dbt Wizard from the command line             | N/A                | Local development<br />[All supported versions](https://docs.getdbt.com/docs/dbt-versions.md)                                           |
 
 Search table...
 
