@@ -536,7 +536,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What’s the test coverage and status?[​](#whats-the-test-coverage-and-status "Direct link to What��’s the test coverage and status?")
+### What’s the test coverage and status?[​](#whats-the-test-coverage-and-status "Direct link to What’s the test coverage and status?")
 
 [Data tests](https://docs.getdbt.com/docs/build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
 

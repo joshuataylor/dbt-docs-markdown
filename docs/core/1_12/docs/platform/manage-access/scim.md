@@ -2,6 +2,8 @@
 
 The System for Cross-Domain Identity Management (SCIM) makes user data more secure and simplifies the admin and end-user lifecycle experience by automating user identities and groups. You can create or disable user identities in your Identity Provider (IdP), and SCIM will automatically make those changes in near real-time downstream in dbt.
 
+When configuring your IdP, review [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md) for SCIM provisioning quotas and `429` retry behavior.
+
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 To configure SCIM in your dbt environment:

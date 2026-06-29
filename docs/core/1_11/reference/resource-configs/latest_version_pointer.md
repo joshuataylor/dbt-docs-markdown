@@ -58,6 +58,10 @@ Beta feature
 
 The `latest_version_pointer` config is a beta feature in dbt Core v1.12.
 
+dbt platform on Fusion
+
+In Fusion, `latest_version_pointer` is enabled by default for all versioned models. If you have a versioned model with an explicit `alias` that matches the model's base name, you may see a `dbt1005` collision error. See [Naming collisions](#naming-collisions) below for how to resolve it.
+
 The `latest_version_pointer` config creates a view named after a [versioned model's](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). The view is created after the model with `is_latest_version = true` materializes successfully and is skipped for all other versions.
 
 You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#latest-version-pointer-for-versioned-models) flag to `true` in `dbt_project.yml`:
@@ -89,7 +93,15 @@ By default, the pointer view uses the model's base name (for example, `dim_custo
 * **Per model**: Set `latest_version_pointer.alias` in the model config.
 * **Globally**: Override the [`generate_latest_version_pointer_alias`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project. This macro follows the same pattern as [`generate_alias_name`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_alias_name).
 
-To prevent naming collisions, dbt raises an error if the latest version's alias is the same as the pointer name. For example, the following configuration would cause an error because both `dim_customers_v2` and the pointer view would resolve to `dim_customers`:
+## Naming collisions[​](#naming-collisions "Direct link to Naming collisions")
+
+To prevent naming collisions, dbt raises a `dbt1005` error if the latest version's alias is the same as the pointer view name. In Fusion, where `latest_version_pointer` is enabled by default, this error can surface on models that have an explicit `alias` matching the model's base name, even if you never configured the pointer yourself.
+
+For example, the following configuration would raise `dbt1005` because both `dim_customers_v2` and the pointer view would resolve to `dim_customers`:
+
+```text
+dbt1005 (Cannot create latest version pointer: the latest version of 'dim_customers' is already aliased to 'dim_customers')
+```
 
 ```yaml
 models:

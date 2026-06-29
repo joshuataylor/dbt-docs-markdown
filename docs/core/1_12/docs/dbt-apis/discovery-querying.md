@@ -2,6 +2,8 @@
 
 The Discovery API supports ad-hoc queries and integrations. If you are new to the API, refer to [About the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) for an introduction.
 
+For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
+
 Use the Discovery API to evaluate data pipeline health and project state across runs or at a moment in time. dbt Labs provide a default [GraphQL explorer](https://metadata.cloud.getdbt.com/graphql) for this API, enabling you to run queries and browse the schema. However, you can also use any GraphQL client of your choice to query the API.
 
 Since GraphQL describes the data in the API, the schema displayed in the GraphQL explorer accurately represents the graph and fields available to query.

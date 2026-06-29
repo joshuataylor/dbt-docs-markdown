@@ -56,6 +56,8 @@ The [remote MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md)
 
 The remote MCP server is available on all dbt platform [plans](https://www.getdbt.com/pricing). However, the underlying [dbt APIs](https://docs.getdbt.com/docs/dbt-apis/overview.md) that the server's tools rely on vary by plan type. For example, the Discovery API and Semantic Layer APIs. As a result, the tools available to you through the remote MCP server depend on your plan.
 
+Remote MCP uses the same default global API rate limit as other dbt APIs (5,000 requests per minute per IP). Local MCP is subject to the public Administrative and Discovery API limits. Refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md) for details.
+
 <!-- -->
 
 info

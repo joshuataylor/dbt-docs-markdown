@@ -6,6 +6,8 @@ By leveraging the metadata in dbt, you can create systems for data monitoring an
 
 You can access the Discovery API through [ad hoc queries](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md), custom applications, a wide range of [partner ecosystem integrations](https://www.getdbt.com/product/integrations/) (like BI/analytics, catalog and governance, and quality and observability), and by using dbt features like [model timing](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) and [data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md).
 
+For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
+
 [![A rich ecosystem for integration ](/img/docs/dbt-platform/discovery-api/discovery-api-figure.png?v=2 "A rich ecosystem for integration ")](#)A rich ecosystem for integration
 
 You can query the dbt metadata:

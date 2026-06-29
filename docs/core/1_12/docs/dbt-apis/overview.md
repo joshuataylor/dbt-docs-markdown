@@ -10,6 +10,8 @@ dbt provides the following APIs:
 
 If you want to learn more about webhooks, refer to [Webhooks for your jobs](https://docs.getdbt.com/docs/deploy/webhooks.md).
 
+For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
+
 ## How to Access the APIs[​](#how-to-access-the-apis "Direct link to How to Access the APIs")
 
 dbt supports two types of API Tokens: [personal access tokens](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) and [service account tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md). Requests to the dbt APIs can be authorized using these tokens.

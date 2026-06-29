@@ -11,6 +11,8 @@ dbt currently supports two versions of the Administrative API: v2 and v3. In gen
 
 Many endpoints of the Administrative API can also be called through the [dbt Terraform provider](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest). The built-in documentation on the Terraform registry contains [a guide on how to get started with the provider](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest/docs/guides/1_getting_started) as well as [a page showing all the Terraform resources available](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest/docs/guides/99_list_resources) to configure.
 
+For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
+
 [![](/img/icons/pencil-paper.svg)](https://docs.getdbt.com/dbt-cloud/api-v2)
 
 #### [API v2](https://docs.getdbt.com/dbt-cloud/api-v2)
