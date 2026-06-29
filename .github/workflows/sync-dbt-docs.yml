@@ -23,38 +23,84 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Fetch Sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           path: ${{ github.workspace }}/dbt-docs-patcher
           ref: main
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 20
 
-      - name: Clone docs.getdbt.com
-        run: git clone --depth 1 --quiet "$DOCS_REMOTE" "$DOCS_CLONE_DIR"
+      - name: Restore docs.getdbt.com git cache
+        id: cache-docs-restore
+        uses: actions/cache/restore@v6
+        with:
+          # Cache only .git -- the working tree is rebuilt from it via reset --hard,
+          # which keeps the cache small (no build artifacts or checked-out files).
+          path: ${{ env.DOCS_CLONE_DIR }}/.git
+          # Cache keys are immutable, so save under a per-run key and restore the
+          # most recent one via the shared prefix.
+          key: docs-getdbt-git-${{ github.run_id }}
+          restore-keys: docs-getdbt-git-
 
-      - name: Restore docs.getdbt.com node_modules cache
-        id: cache-node-modules-restore
-        uses: actions/cache/restore@v4
+      - name: Clone or update docs.getdbt.com and record commit range
+        run: |
+          if [[ -d "$DOCS_CLONE_DIR/.git" ]]; then
+            # Cache hit: only .git was restored. Its HEAD is the last sync baseline.
+            cd "$DOCS_CLONE_DIR"
+            last_synced_sha=$(git rev-parse HEAD)
+            git fetch --quiet origin
+            # reset --hard rebuilds the working tree from the cached .git, then advances to upstream.
+            git reset --hard --quiet '@{u}'
+            git clean -fdq
+          else
+            # Cold cache / first run: full clone, no baseline to diff against.
+            git clone --quiet "$DOCS_REMOTE" "$DOCS_CLONE_DIR"
+            cd "$DOCS_CLONE_DIR"
+            last_synced_sha=""
+          fi
+          upstream_sha=$(git rev-parse HEAD)
+          echo "Last synced upstream SHA: ${last_synced_sha:-<none>}"
+          echo "Current upstream SHA:     $upstream_sha"
+
+          # Build the commit log for the message body. Each line: short SHA + subject.
+          {
+            echo "Upstream docs.getdbt.com changes since last sync:"
+            echo
+            if [[ -z "$last_synced_sha" ]]; then
+              echo "(no recorded baseline -- listing latest 20 upstream commits)"
+              git log --no-merges --max-count=20 --pretty=format:'- %h %s' "$upstream_sha"
+              echo
+            elif [[ "$last_synced_sha" == "$upstream_sha" ]]; then
+              echo "(no new upstream commits -- rebuild only)"
+            else
+              git log --no-merges --pretty=format:'- %h %s' "${last_synced_sha}..${upstream_sha}"
+              echo
+            fi
+          } > "$RUNNER_TEMP/upstream-changes.txt"
+
+          echo "--- Commit body preview ---"
+          cat "$RUNNER_TEMP/upstream-changes.txt"
+
+      - name: Save docs.getdbt.com git cache
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ env.DOCS_CLONE_DIR }}/.git
+          key: docs-getdbt-git-${{ github.run_id }}
+
+      - name: Cache docs.getdbt.com node_modules
+        id: cache-node-modules
+        uses: actions/cache@v6
         with:
           path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
           key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install npm dependencies
-        if: steps.cache-node-modules-restore.outputs.cache-hit != 'true'
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
         run: npm install
-
-      - name: Save node_modules to cache
-        if: always() && steps.cache-node-modules-restore.outputs.cache-hit != 'true'
-        id: cache-node-modules-save
-        uses: actions/cache/save@v4
-        with:
-          path: ${{ env.DOCS_CLONE_DIR }}/website/node_modules
-          key: docs-node-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Patch Docusaurus
         working-directory: ${{ env.DOCS_CLONE_DIR }}
@@ -143,6 +189,11 @@ jobs:
             echo "No changes to commit"
           else
             timestamp=$(TZ='UTC' date +'%Y_%m_%d__%H_%M_%S')
-            git commit -m "Regenerate dbt documentation as of $timestamp"
+            {
+              echo "Regenerate dbt documentation as of $timestamp"
+              echo
+              cat "$RUNNER_TEMP/upstream-changes.txt"
+            } > "$RUNNER_TEMP/commit-message.txt"
+            git commit -F "$RUNNER_TEMP/commit-message.txt"
             git push origin main
           fi
