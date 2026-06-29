@@ -62,9 +62,9 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Canary
 
-[`v2.0.0-preview.193`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.194`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this version in the dbt Fusion changelog")
 
-2026-06-24
+2026-06-29
 
 #### Latest
 
@@ -98,11 +98,11 @@ of
 
 releases
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDev
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanary
 
-Released by: **aiguofer**Jun 26, 2026, 04:44 PM
+Released by: **aiguofer**Jun 29, 2026, 07:55 PM
 
-Automated promotion
+promote canary
 
 [v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stable
 
