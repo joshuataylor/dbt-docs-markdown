@@ -5,6 +5,7 @@ The `dbt_cloud.yml` file stores the credentials that dbt tools — like the [dbt
 This page covers:
 
 * [How to download it and set up the `.dbt` directory](#download-dbt_cloudyml) for the dbt CLI or the VS Code extension
+* [Update or switch projects](#update-or-switch-projects)
 * [The file structure](#file-structure) and field reference
 * [The companion `dbt-cloud` block](#the-dbt-cloud-block-in-dbt_projectyml) in `dbt_project.yml`
 
@@ -80,6 +81,19 @@ How you download the file depends on whether you're configuring the [dbt CLI](ht
    If your downloaded file has a numerical suffix (for example, `dbt_cloud(2).yml`), rename it to `dbt_cloud.yml` before moving it. The dbt CLI and extension only look for the exact filename.
 
 4. Confirm that the `project-id` in your [`dbt_project.yml` `dbt-cloud` block](#the-dbt-cloud-block-in-dbt_projectyml) matches the project you're working on. This registers and connects your tool to dbt platform and enables platform features such as Mesh and deferral.
+
+## Update or switch projects[​](#update-or-switch-projects "Direct link to Update or switch projects")
+
+The `dbt_cloud.yml` file is local to your machine and doesn't update automatically. Make sure to re-download it when:
+
+* You get access to a new project and want to work on it locally
+* A project is removed from your account or your project access changes
+* Your token changes or is rotated
+* Your account host changes, such as when your account moves regions
+
+The file can include multiple projects from the same dbt platform account. To switch projects, update `context.active-project` to the `project-id` for the project you want to use. The active project must match one of the projects listed under `projects`.
+
+If you work in multiple dbt platform accounts, keep a separate `dbt_cloud.yml` file for each account and move the file you want to use into your `.dbt` directory.
 
 ## File structure[​](#file-structure "Direct link to File structure")
 
@@ -158,12 +172,6 @@ projects:
 | `projects.account-host`  | Yes      | The host for your account, for example `cloud.getdbt.com`, `emea.dbt.com`, or your single-tenant access URL.                                                                                                                                              |
 | `projects.token-name`    | Yes      | A name for the [Personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md).                                                                                                                                                       |
 | `projects.token-value`   | Yes      | The PAT value. Treat this as a secret.                                                                                                                                                                                                                    |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ## The dbt-cloud block in dbt\_project.yml[​](#the-dbt-cloud-block-in-dbt_projectyml "Direct link to The dbt-cloud block in dbt_project.yml")
 

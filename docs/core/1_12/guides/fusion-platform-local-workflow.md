@@ -58,7 +58,9 @@ This is the lowest-friction path for teams that don't need full IDE integration 
 
 The dbt VS Code extension runs Fusion and its language server in a local process and connects directly to your warehouse. For this reason, you need a `profiles.yml` for local extension development sessions.
 
-Download your [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and Fusion attempts to hydrate non-sensitive credential metadata from dbt platform automatically. To avoid manually recreating your warehouse configuration, use `dbt init`.
+Download your [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and Fusion attempts to hydrate non-sensitive credential metadata from dbt platform automatically.
+
+If you get access to a new project, re-download the `dbt_cloud.yml` file before working on it locally. To switch between projects already listed in your file, update [`context.active-project`](https://docs.getdbt.com/reference/dbt_cloud.yml.md#update-or-switch-projects). To avoid manually recreating your warehouse configuration, use `dbt init`.
 
 ```shell
 dbt init

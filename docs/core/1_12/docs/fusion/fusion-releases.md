@@ -56,7 +56,7 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Dev
 
-[`v2.0.0-preview.195`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview195 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.196`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this version in the dbt Fusion changelog")
 
 2026-06-30
 
@@ -84,7 +84,7 @@ Showing
 
 <!-- -->
 
-154
+155
 
 <!-- -->
 
@@ -92,11 +92,17 @@ of
 
 <!-- -->
 
-154
+155
 
 <!-- -->
 
 releases
+
+[v2.0.0-preview.196](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this release in the dbt Fusion changelog")GoodDev
+
+Released by: **github-merge-queue**Jun 30, 2026, 09:23 AM
+
+Automated promotion
 
 [v2.0.0-preview.195](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview195 "View this release in the dbt Fusion changelog")GoodDev
 

@@ -16,9 +16,9 @@ The [`microbatch` incremental strategy](https://docs.getdbt.com/docs/build/incre
 
 ### Supported incremental strategies by adapter[​](#supported-incremental-strategies-by-adapter "Direct link to Supported incremental strategies by adapter")
 
-This table shows the support of each incremental strategy across adapters available on dbt's [Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on **Latest** and the feature hasn't been released to the **Compatible** track.
+This table shows the support of each incremental strategy across adapters available on Fusion or dbt's [Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on Latest and the feature hasn't been released to the Compatible track.
 
-If you're interested in an adapter available in dbt Core only, check out the [adapter's individual configuration page](https://docs.getdbt.com/reference/resource-configs.md) for more details.
+If you're interested in incremental strategies for additional adapters, check out the [adapter's individual configuration page](https://docs.getdbt.com/reference/resource-configs.md) for more details.
 
 Click the name of the adapter in the following table for more information about supported incremental strategies:
 
@@ -34,6 +34,7 @@ Click the name of the adapter in the following table for more information about 
 | [dbt-fabric](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    |              |
 | [dbt-athena](https://docs.getdbt.com/reference/resource-configs/athena-configs.md#incremental-models)                                     | ✅       | ✅      |                 | ✅                 | ✅           |
 | [dbt-teradata](https://docs.getdbt.com/reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-duckdb](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
 
 Search table...
 
