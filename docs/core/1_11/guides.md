@@ -1,6 +1,6 @@
 [Skip to main content](#__docusaurus_skipToContent_fallback)
 
-[Fivetran + dbt Labs: The future of dbt Core v2.0, what we're building together, and live Q\&A on June 25 - Save your seat!](https://www.getdbt.com/resources/webinars/fivetran-dbt-labs-the-merger-what-s-shipping-in-dbt-and-live-q-and-a/?utm_medium=internal\&utm_source=docs\&utm_campaign=q2-2027_fivetran-dbt-merger_aw\&utm_content=themed-webinar____\&utm_term=all_all__)
+[dbt State: Build what's changed, skip what hasn't. Join us for a live virtual event on July 15th to learn how to save on warehouse compute costs!](https://www.getdbt.com/resources/webinars/dbt-state-build-what-s-changed-skip-what-hasn-t/?utm_medium=internal\&utm_source=docs\&utm_campaign=q2-2027_dbt-state-deep-dive-product_aw\&utm_content=themed-webinar____\&utm_term=all_all__)
 
 [![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](https://docs.getdbt.com/index.md)
 
