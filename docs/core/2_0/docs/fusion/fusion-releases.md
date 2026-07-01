@@ -56,9 +56,9 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Dev
 
-[`v2.0.0-preview.196`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.197`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview197 "View this version in the dbt Fusion changelog")
 
-2026-06-30
+2026-07-01
 
 #### Canary
 
@@ -84,7 +84,7 @@ Showing
 
 <!-- -->
 
-155
+156
 
 <!-- -->
 
@@ -92,11 +92,17 @@ of
 
 <!-- -->
 
-155
+156
 
 <!-- -->
 
 releases
+
+[v2.0.0-preview.197](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview197 "View this release in the dbt Fusion changelog")GoodDev
+
+Released by: **mach-kernel**Jul 1, 2026, 06:27 PM
+
+Automated promotion
 
 [v2.0.0-preview.196](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this release in the dbt Fusion changelog")GoodDevCanary
 
