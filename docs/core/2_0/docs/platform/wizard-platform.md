@@ -86,12 +86,6 @@ Please contact dbt Support with any questions
 
 [Give dbt Wizard reusable instructions for your project.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-subagents.md)
-
-#### [Use subagents](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-subagents.md)
-
-[Organize long-running dbt Wizard work into focused agent threads.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-subagents.md)
-
 [![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-mcp.md)
 
 #### [Use MCP servers](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-mcp.md)

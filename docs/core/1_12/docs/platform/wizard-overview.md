@@ -138,7 +138,6 @@ Now that you know where to start, continue with **[Get started with the local CL
 * [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) — generate docs, tests, semantic models, SQL, and delegate end-to-end model work
 * [Use skills in the dbt platform](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
 * [Use MCP servers with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md) — connect the dbt Wizard CLI to more tools and context
-* [Use subagents in the dbt platform](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-subagents.md) — delegate work to specialized agents
 * [Migrate to dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-migrate.md) — switch from Claude Code, Cursor, or another AI agent to dbt Wizard
 * [Data & Privacy in the dbt platform](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md) — understand how dbt Wizard in the dbt platform handles privacy and data
 

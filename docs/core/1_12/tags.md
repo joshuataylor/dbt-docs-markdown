@@ -2,7 +2,7 @@
 
 * [Adapter creation2](https://docs.getdbt.com/tags/adapter-creation.md)
 * [Agents2](https://docs.getdbt.com/tags/agents.md)
-* [AI28](https://docs.getdbt.com/tags/ai.md)
+* [AI27](https://docs.getdbt.com/tags/ai.md)
 * [Amazon1](https://docs.getdbt.com/tags/amazon.md)
 * [Analyst2](https://docs.getdbt.com/tags/analyst.md)
 * [API2](https://docs.getdbt.com/tags/api.md)

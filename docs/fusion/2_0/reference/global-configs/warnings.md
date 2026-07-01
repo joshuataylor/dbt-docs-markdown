@@ -31,7 +31,11 @@ Warnings that should be treated as errors can be specified through the `error` p
 * [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
-In the dbt Fusion engine, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). You can use either form interchangeably in `warn_error_options`. Messages printed at runtime include both the name and the code. See [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases) for the full list of supported event names and their corresponding codes.
+In the dbt Fusion engine, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`).
+
+Runtime messages show both, but `warn_error_options` only accepts the *name*. Use the event name, Fusion-native name, or a supported group (`all`, `*`). Numeric codes aren't accepted and will cause an error.
+
+To find the name for a code you see in your logs, check out [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases).
 
 The `error` parameter can be set to `"all"` or `"*"` to treat all warnings as errors (this behavior is the same as using the `--warn-error` flag), or to a list of specific warning names to treat as exceptions.
 
@@ -160,7 +164,7 @@ Existing dbt-core event names fall into three categories:
 
 ### Warning codes in Fusion[​](#warning-codes-in-fusion "Direct link to Warning codes in Fusion")
 
-In Fusion, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). You should only use the name in the `warn_error_options`, even though both will appear in any warning messages printed at runtime:
+In Fusion, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). Warning messages at runtime show both, but `warn_error_options` only accepts the *name*, never the code:
 
 ```yaml
 flags:
@@ -171,41 +175,41 @@ flags:
       - FreshnessConfigProblem   # by name
 ```
 
-Any value that is not a recognized numeric code, supported legacy event name, Fusion-native name, or supported group (`all`, `*`) causes Fusion to exit with an error at startup.
+Any value that isn't a supported legacy event name, Fusion-native name, or supported group (`all`, `*`) causes Fusion to exit with an error at startup, including numeric codes. For example, `{error: [1092]}` fails, but `{error: [NoNodesForSelectionCriteria]}` works.
 
 ### Supported legacy dbt-core event name aliases[​](#supported-legacy-dbt-core-event-name-aliases "Direct link to Supported legacy dbt-core event name aliases")
 
-Each row lists a Fusion warning code and the legacy dbt Core event name. You can use either the numeric code or the event name interchangeably in your `warn_error_options` configuration:
+When you see a warning code in your logs, use the following table to find the matching event name to put in `warn_error_options`. The code column is only for looking up warnings you see at runtime — you can't use the code itself in your config:
 
-| Fusion code | dbt-core event name                    | Description                                                                                       |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| 1601        | `NoNodesSelected`                      | No nodes selected                                                                                 |
-| 1601        | `NothingToDo`                          | No nodes selected (alias)                                                                         |
-| 1087        | `NodeNotFoundOrDisabled`               | A test or exposure dependency references a missing or disabled node                               |
-| 1085        | `DeprecatedModel`                      | A model has passed its deprecation date and should be removed                                     |
-| 1072        | `DeprecatedReference`                  | A reference to a model that has already been deprecated                                           |
-| 1073        | `UpcomingReferenceDeprecation`         | A reference to a model that will be deprecated on a future date                                   |
-| 1074        | `JinjaLogWarning`                      | Jinja `exceptions.warn()` called in a macro                                                       |
-| 1075        | `SnapshotTimestampWarning`             | Snapshot timestamp column type mismatch                                                           |
-| 1076        | `PackageRedirectDeprecation`           | A package has been redirected to a new name; update your `packages.yml`                           |
-| 1077        | `DepsUnpinned`                         | A git-sourced package uses an unpinned revision (`HEAD`, `main`, or `master`)                     |
-| 1078        | `FreshnessConfigProblem`               | A source has no freshness configuration; freshness check was skipped                              |
-| 1084        | `WarnStateTargetEqual`                 | The `--state` and `--target` directories are the same path                                        |
-| 1086        | `WEOIncludeExcludeDeprecation`         | Deprecated `include`/`exclude` keys were used in `warn_error_options`; use `error`/`warn` instead |
-| 1089        | `NoNodeForYamlKey`                     | A YAML key references a node that doesn't exist in the project                                    |
-| 1090        | `MacroNotFoundForPatch`                | A `patches:` entry in a YAML file references a macro that doesn't exist                           |
-| 1091        | `InvalidConcurrentBatchesConfig`       | `concurrent_batches` is configured but not supported for this model                               |
-| 1092        | `NoNodesForSelectionCriteria`          | `--select` criteria matched no nodes                                                              |
-| 1093        | `MicrobatchModelNoEventTimeInputs`     | A microbatch model has no upstream inputs with `event_time` configured                            |
-| 1094        | `UnversionedBreakingChange`            | A breaking change was made to an unversioned model                                                |
-| 1095        | `UnsupportedConstraintMaterialization` | A constraint was defined on a materialization that doesn't support it                             |
-| 1097        | `UnusedResourceConfigPath`             | A `+config` path in `dbt_project.yml` doesn't match any resources                                 |
-| 1098        | `DepsScrubbedPackageName`              | A package name contained characters that were scrubbed during install                             |
-| 1099        | `DepsFoundDuplicatePackage`            | The same package was found more than once in `packages.yml`                                       |
-| 1506        | `InvalidMacroAnnotation`               | A macro's YAML annotation (argument name or type) doesn't match its Jinja definition              |
-| *no code*   | `LogTestResult`                        | A data test result (pass/warn/fail)                                                               |
-| *no code*   | `RunResultWarning`                     | A model or test run completed with `warn` status                                                  |
-| *no code*   | `RunResultWarningMessage`              | The message accompanying a `warn`-status run result                                               |
+| Fusion code (runtime only) | dbt-core event name (use this in config) | Description                                                                                       |
+| -------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| 1601                       | `NoNodesSelected`                        | No nodes selected                                                                                 |
+| 1601                       | `NothingToDo`                            | No nodes selected (alias)                                                                         |
+| 1087                       | `NodeNotFoundOrDisabled`                 | A test or exposure dependency references a missing or disabled node                               |
+| 1085                       | `DeprecatedModel`                        | A model has passed its deprecation date and should be removed                                     |
+| 1072                       | `DeprecatedReference`                    | A reference to a model that has already been deprecated                                           |
+| 1073                       | `UpcomingReferenceDeprecation`           | A reference to a model that will be deprecated on a future date                                   |
+| 1074                       | `JinjaLogWarning`                        | Jinja `exceptions.warn()` called in a macro                                                       |
+| 1075                       | `SnapshotTimestampWarning`               | Snapshot timestamp column type mismatch                                                           |
+| 1076                       | `PackageRedirectDeprecation`             | A package has been redirected to a new name; update your `packages.yml`                           |
+| 1077                       | `DepsUnpinned`                           | A git-sourced package uses an unpinned revision (`HEAD`, `main`, or `master`)                     |
+| 1078                       | `FreshnessConfigProblem`                 | A source has no freshness configuration; freshness check was skipped                              |
+| 1084                       | `WarnStateTargetEqual`                   | The `--state` and `--target` directories are the same path                                        |
+| 1086                       | `WEOIncludeExcludeDeprecation`           | Deprecated `include`/`exclude` keys were used in `warn_error_options`; use `error`/`warn` instead |
+| 1089                       | `NoNodeForYamlKey`                       | A YAML key references a node that doesn't exist in the project                                    |
+| 1090                       | `MacroNotFoundForPatch`                  | A `patches:` entry in a YAML file references a macro that doesn't exist                           |
+| 1091                       | `InvalidConcurrentBatchesConfig`         | `concurrent_batches` is configured but not supported for this model                               |
+| 1092                       | `NoNodesForSelectionCriteria`            | `--select` criteria matched no nodes                                                              |
+| 1093                       | `MicrobatchModelNoEventTimeInputs`       | A microbatch model has no upstream inputs with `event_time` configured                            |
+| 1094                       | `UnversionedBreakingChange`              | A breaking change was made to an unversioned model                                                |
+| 1095                       | `UnsupportedConstraintMaterialization`   | A constraint was defined on a materialization that doesn't support it                             |
+| 1097                       | `UnusedResourceConfigPath`               | A `+config` path in `dbt_project.yml` doesn't match any resources                                 |
+| 1098                       | `DepsScrubbedPackageName`                | A package name contained characters that were scrubbed during install                             |
+| 1099                       | `DepsFoundDuplicatePackage`              | The same package was found more than once in `packages.yml`                                       |
+| 1506                       | `InvalidMacroAnnotation`                 | A macro's YAML annotation (argument name or type) doesn't match its Jinja definition              |
+| *no code*                  | `LogTestResult`                          | A data test result (pass/warn/fail)                                                               |
+| *no code*                  | `RunResultWarning`                       | A model or test run completed with `warn` status                                                  |
+| *no code*                  | `RunResultWarningMessage`                | The message accompanying a `warn`-status run result                                               |
 
 Search table...
 
