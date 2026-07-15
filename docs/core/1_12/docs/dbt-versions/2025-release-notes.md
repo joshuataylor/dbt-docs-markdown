@@ -102,7 +102,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 * **Enhancement**:
 
   * **Fusion MCP tools** — Added Fusion tools that support `compile_sql` and `get_column_lineage` (Fusion-exclusive) for both [Remote](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#fusion-tools-remote) and [Local](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#fusion-tools-local) usage. Remote Fusion tools defer to your prod environment by default (set with `x-dbt-prod-environment-id`); you can disable deferral with `x-dbt-fusion-disable-defer=true`. Refer to [set up remote MCP](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md) for more info.
-  * **Local MCP OAuth** — You can now authenticate the local dbt MCP server to the dbt platform with OAuth (supported docs for [Claude](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md), [Cursor](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md), and [VS Code](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md)), reducing local secret management and standardizing setup. Refer to [dbt platform authentication](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#dbt-platform-authentication) for more information.
+  * **Self-hosted MCP server OAuth** — You can now authenticate the self-hosted dbt MCP server to the dbt platform with OAuth (supported docs for [Claude](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md), [Cursor](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md), and [VS Code](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md)), reducing local secret management and standardizing setup. Refer to [dbt platform authentication](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#dbt-platform-authentication) for more information.
 
 * **Behavior change**: The CodeGenCodeLens feature for creating models from your sources with a click of a button has been temporarily removed from the Studio IDE due to compatibility issues. We plan to reintroduce this feature in the near future for both the IDE and the VS Code extension.
 
@@ -175,7 +175,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 * **New**: The [quickstart guide for data analysts](https://docs.getdbt.com/guides/analyze-your-data.md) is now available. With dbt, data analysts can use built-in, AI-powered tools to build governed data models, explore how they’re built, and run their own analysis.
 
-* **New**: You can view your [usage metering and limiting in dbt Copilot](https://docs.getdbt.com/docs/platform/billing.md#dbt-copilot-usage-metering-and-limiting) on the billing page of your dbt Cloud account.
+* **New**: You can view your [usage metering and limiting in dbt Copilot](https://docs.getdbt.com/docs/platform/billing/dbt-ai-usage.md) on the billing page of your dbt Cloud account.
 
 * **New**: You can use Copilot to create a `dbt-styleguide.md` for dbt projects. The generated style guide template includes SQL style guidelines, model organization and naming conventions, model configurations and testing practices, and recommendations to enforce style rules. For more information, see [dbt Wizard skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md).
 
@@ -241,7 +241,7 @@ The following features are new or enhanced as part of our [dbt Developer day](ht
 
 * **New**: Added the `dbt invocation` command to the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md). This command allows you to view and manage active invocations, which are long-running sessions in the dbt CLI. For more information, see [dbt invocation](https://docs.getdbt.com/reference/commands/invocation.md).
 
-* **New**: Users can now switch themes directly from the user menu, available [in Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud). We have added support for **Light mode** (default), **Dark mode**, and automatic theme switching based on system preferences. The selected theme is stored in the user profile and will follow users across all devices.
+* **New**: Users can now switch themes directly from the user menu, available [in Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md). We have added support for **Light mode** (default), **Dark mode**, and automatic theme switching based on system preferences. The selected theme is stored in the user profile and will follow users across all devices.
   <!-- -->
   * Dark mode is currently available on the Developer plan and will be available for all [plans](https://www.getdbt.com/pricing) in the future. We’ll be rolling it out gradually, so stay tuned for updates. For more information, refer to [Change your dbt theme](https://docs.getdbt.com/docs/platform/about-platform/change-your-dbt-theme.md).
 

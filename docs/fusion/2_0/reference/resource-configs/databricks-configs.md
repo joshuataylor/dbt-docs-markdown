@@ -1333,6 +1333,49 @@ Note on streaming table query changes: there's currently no way for the adapter 
 
 To reprocess available source data with an updated query, run with `--full-refresh`.
 
+## Metric views[​](#metric-views "Direct link to Metric views")
+
+Set `materialized='metric_view'` to manage a [Unity Catalog metric view](https://docs.databricks.com/aws/en/metric-views/) with dbt. Instead of SQL, the body of the model is the metric view's YAML definition: a `version`, a `source`, `dimensions`, `measures`, and an optional `filter`. dbt creates the metric view with `CREATE OR REPLACE VIEW ... WITH METRICS LANGUAGE YAML`.
+
+order\_metrics.sql
+
+```sql
+{{ config(materialized='metric_view') }}
+
+version: 1.1
+source: "{{ ref('source_orders') }}"
+filter: status = 'completed'
+dimensions:
+  - name: order_date
+    expr: order_date
+  - name: status
+    expr: status
+    synonyms: [state, order_state]
+measures:
+  - name: total_orders
+    expr: count(1)
+  - name: total_revenue
+    expr: sum(revenue)
+    synonyms: [revenue, sales]
+```
+
+Reference the source relation in `source` with `ref()` so dbt resolves dependencies. Query the resulting metric view with the `MEASURE()` function.
+
+dbt passes the YAML body through to Databricks unchanged, so a metric view supports the **entire** [Unity Catalog metric view YAML specification](https://docs.databricks.com/aws/en/business-semantics/metric-views/yaml-reference), not only the keys shown above. Any field Databricks accepts server-side works through dbt, including [`synonyms`](https://docs.databricks.com/aws/en/metric-views/semantic-metadata) and `display_name` on dimensions and measures, and `format` and `window` on measures.
+
+You can also set `databricks_tags` and [`grants`](https://docs.getdbt.com/reference/resource-configs/grants.md) on a metric view. `tblproperties` are applied only when the view is updated in place (with `view_update_via_alter`) or replaced, not on first creation.
+
+### Updating a metric view[​](#updating-a-metric-view "Direct link to Updating a metric view")
+
+By default, dbt rebuilds the metric view with `CREATE OR REPLACE VIEW` on every run.
+
+When you set [`view_update_via_alter`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#changes-to-the-view-materialization) to `true`, dbt applies incremental changes in place instead of replacing the view:
+
+* Changes to the YAML definition are applied with `ALTER VIEW ... AS`.
+* Changes to `databricks_tags` or `tblproperties` are applied with `ALTER VIEW ... SET`.
+
+If neither the definition nor the tags or properties have changed, dbt skips the update.
+
 ## Setting table properties[​](#setting-table-properties "Direct link to Setting table properties")
 
 [Table properties](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html) can be set with your configuration for tables or views using `tblproperties`:

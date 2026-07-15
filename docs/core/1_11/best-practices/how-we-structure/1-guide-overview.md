@@ -30,10 +30,7 @@ Example project.
 
 This guide walks through our recommendations using a very simple dbt project — similar to the one used for the Getting Started guide and many other demos — from a fictional company called the Jaffle Shop. You can read more about [jaffles](https://en.wiktionary.org/wiki/jaffle) if you want (they *are* a real thing), but that context isn’t important to understand the structure. We encourage you to follow along, try things out, make changes, and take notes on what works or doesn't work for you along the way.
 
-We'll get a deeper sense of our project as we move through the guide, but for now we just need to know that the Jaffle Shop is a restaurant selling jaffles that has two main data sources:
-
-* A replica of our transactional database, called `jaffle_shop`, with core entities like orders and customers.
-* Synced data from [Stripe](https://stripe.com/), which we use for processing payments.
+We'll get a deeper sense of our project as we move through the guide, but for now we just need to know that the Jaffle Shop is a restaurant selling jaffles. Its data comes from a single `ecom` source in the `raw` schema, with tables like `raw_customers`, `raw_orders`, `raw_items`, `raw_products`, `raw_stores`, and `raw_supplies`. When `load_source_data` is enabled, seeds in `seeds/jaffle-data/` can populate the `raw` schema for local development.
 
 ### Guide structure overview[​](#guide-structure-overview "Direct link to Guide structure overview")
 
@@ -46,14 +43,10 @@ We'll walk through our topics in the same order that our data would move through
    1. **Staging** — creating our atoms, our initial modular building blocks, from source data
    2. **Intermediate** — stacking layers of logic with clear and specific purposes to prepare our staging models to join into the entities we want
    3. **Marts** — bringing together our modular pieces into a wide, rich vision of the entities our organization cares about
-
-2. Explore how these layers fit into the rest of the project:
-
-   <!-- -->
-
-   1. Review the overall structure comprehensively
-   2. Expand on YAML configuration in-depth
-   3. Discuss how to use the other folders in a dbt project: `tests`, `seeds`, and `analyses`
+   4. Explore how these layers fit into the rest of the project:
+   5. Review the overall structure comprehensively
+   6. Expand on YAML configuration in-depth
+   7. Discuss how to use the other folders in a dbt project: `data-tests`, `seeds`, and `analyses`
 
 Below is the complete file tree of the project we’ll be working through. Don’t worry if this looks like a lot of information to take in at once - this is just to give you the full vision of what we’re building towards. We’ll focus in on each of the sections one by one as we break down the project’s structure.
 
@@ -61,42 +54,46 @@ Below is the complete file tree of the project we’ll be working through. Don�
 jaffle_shop
 ├── README.md
 ├── analyses
-├── seeds
-│   └── employees.csv
+├── data-tests
 ├── dbt_project.yml
 ├── macros
 │   └── cents_to_dollars.sql
 ├── models
-│   ├── intermediate
-│   │   └── finance
-│   │       ├── _int_finance__models.yml
-│   │       └── int_payments_pivoted_to_orders.sql
 │   ├── marts
-│   │   ├── finance
-│   │   │   ├── _finance__models.yml
-│   │   │   ├── orders.sql
-│   │   │   └── payments.sql
-│   │   └── marketing
-│   │       ├── _marketing__models.yml
-│   │       └── customers.sql
-│   ├── staging
-│   │   ├── jaffle_shop
-│   │   │   ├── _jaffle_shop__docs.md
-│   │   │   ├── _jaffle_shop__models.yml
-│   │   │   ├── _jaffle_shop__sources.yml
-│   │   │   ├── base
-│   │   │   │   ├── base_jaffle_shop__customers.sql
-│   │   │   │   └── base_jaffle_shop__deleted_customers.sql
-│   │   │   ├── stg_jaffle_shop__customers.sql
-│   │   │   └── stg_jaffle_shop__orders.sql
-│   │   └── stripe
-│   │       ├── _stripe__models.yml
-│   │       ├── _stripe__sources.yml
-│   │       └── stg_stripe__payments.sql
-│   └── utilities
-│       └── all_dates.sql
+│   │   ├── customers.sql
+│   │   ├── customers.yml
+│   │   ├── locations.sql
+│   │   ├── locations.yml
+│   │   ├── order_items.sql
+│   │   ├── order_items.yml
+│   │   ├── orders.sql
+│   │   ├── orders.yml
+│   │   ├── products.sql
+│   │   ├── products.yml
+│   │   ├── supplies.sql
+│   │   └── supplies.yml
+│   └── staging
+│       ├── __sources.yml
+│       ├── stg_customers.sql
+│       ├── stg_customers.yml
+│       ├── stg_locations.sql
+│       ├── stg_locations.yml
+│       ├── stg_order_items.sql
+│       ├── stg_order_items.yml
+│       ├── stg_orders.sql
+│       ├── stg_orders.yml
+│       ├── stg_products.sql
+│       ├── stg_products.yml
+│       ├── stg_supplies.sql
+│       └── stg_supplies.yml
 ├── packages.yml
-├── snapshots
-└── tests
-    └── assert_positive_value_for_total_amount.sql
+├── seeds
+│   └── jaffle-data
+│       ├── raw_customers.csv
+│       ├── raw_items.csv
+│       ├── raw_orders.csv
+│       ├── raw_products.csv
+│       ├── raw_stores.csv
+│       └── raw_supplies.csv
+└── snapshots
 ```

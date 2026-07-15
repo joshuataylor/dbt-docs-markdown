@@ -167,7 +167,7 @@ analyses:
       enabled: true | false
 ```
 
-To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#project-level-configuration-for-analyses) flag to `true` in your `dbt_project.yml`.
+To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` in your `dbt_project.yml`.
 
 dbt\_project.yml
 

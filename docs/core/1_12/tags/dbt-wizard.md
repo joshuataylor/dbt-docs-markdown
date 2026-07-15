@@ -1,3 +1,3 @@
-## [Get started with the dbt Wizard local CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
+## [How to use prompts for dbt Wizard](https://docs.getdbt.com/guides/prompt-cookbook.md)
 
-Install the dbt Wizard local CLI, complete first-run onboarding, and send your first prompt from the terminal.
+A cookbook of prompts and real-world examples to use dbt Wizard efficiently.

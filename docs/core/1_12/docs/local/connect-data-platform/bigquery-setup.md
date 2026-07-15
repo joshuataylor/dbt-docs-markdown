@@ -73,7 +73,7 @@ BigQuery targets can be specified using one of four methods:
 3. [service account file](#service-account-file)
 4. [service account JSON](#service-account-json)
 
-For local development, we recommend using the OAuth method. If you're scheduling dbt on a server, you should use the service account auth method instead.
+For self-hosted dbt installations, we recommend using the OAuth method. If you're scheduling dbt on a server, you should use the service account auth method instead.
 
 Workload Identity Federation
 

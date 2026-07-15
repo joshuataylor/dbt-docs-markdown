@@ -1,6 +1,6 @@
 # Preview new and experimental features in the dbt platform
 
-dbt Labs often tests experimental features before deciding to continue on the [Product lifecycle](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud).
+dbt Labs often tests experimental features before deciding to continue on the [Product lifecycle](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md).
 
 You can access experimental features to preview beta features that haven’t yet been released to dbt. You can toggle on or off all experimental features in your Profile settings. Experimental features:
 

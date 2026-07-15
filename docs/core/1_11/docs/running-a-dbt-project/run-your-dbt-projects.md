@@ -37,7 +37,7 @@ The dbt framework is composed of a *language* and an *engine*:
 
 ### dbt platform[​](#dbt-platform "Direct link to dbt platform")
 
-The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or locally using the dbt Fusion engine or dbt Core engine.
+The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
 
 * [Develop in your browser using the Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
 * [Seamless drag-and-drop development with Canvas](https://docs.getdbt.com/docs/platform/canvas.md)
@@ -45,11 +45,11 @@ The dbt platform is a fully managed service that gives you a complete environmen
 
 For more details, see [About dbt plans](https://www.getdbt.com/pricing).
 
-### dbt local development[​](#dbt-local-development "Direct link to dbt local development")
+### Self-hosted dbt development[​](#dbt-local-development "Direct link to Self-hosted dbt development")
 
-You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
+You can run self-hosted dbt with the dbt Fusion engine or the dbt Core engine:
 
-* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
+* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running self-hosted dbt without a dbt platform project. *Recommended for local development.*
 * [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) — dbt Fusion engine from the command line, but doesn't include LSP features.
 * [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
 * [Install dbt Core v1](https://docs.getdbt.com/docs/local/install-dbt.md) — The open-source, Python-based CLI that uses the dbt Core v1 engine. Doesn't include LSP features.

@@ -4,7 +4,7 @@
 
 After setting up your MCP server, you connect it to Cursor. Log in to Cursor and follow the steps that align with your use case.
 
-## Set up with local dbt MCP server[​](#set-up-with-local-dbt-mcp-server "Direct link to Set up with local dbt MCP server")
+## Set up with self-hosted dbt MCP server[​](#set-up-with-self-hosted-dbt-mcp-server "Direct link to Set up with self-hosted dbt MCP server")
 
 Choose your setup based on your workflow:
 
@@ -19,7 +19,7 @@ Click one of the following application links with Cursor open to automatically c
 * CLI only (dbt Core and Fusion)
 * OAuth with dbt platform
 
-Local configuration for users who only want to use dbt commands with dbt Core or dbt Fusion engine (no dbt platform features).
+Self-hosted configuration for users who only want to use dbt commands with dbt Core or dbt Fusion engine (no dbt platform features).
 
 [Add dbt Core or Fusion to Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX1BST0pFQ1RfRElSIjoiL3BhdGgvdG8veW91ci9kYnQvcHJvamVjdCIsIkRCVF9QQVRIIjoiL3BhdGgvdG8veW91ci9kYnQvZXhlY3V0YWJsZSJ9LCJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJkYnQtbWNwIl19)
 
@@ -36,7 +36,9 @@ After clicking:
 
 3. Save the configuration.
 
-Configuration settings for users who want OAuth authentication with the dbt platform [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing").
+*OAuth with the self-hosted dbt MCP server is available for Starter, Enterprise, and Enterprise+ accounts.*
+
+Configuration settings for users who want OAuth authentication with the dbt platform.
 
 Before you begin, make sure your account admin has enabled AI features on your dbt platform account. Refer to [Enable dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
 
@@ -51,7 +53,7 @@ After clicking:
 
 ### Custom environment variables[​](#custom-environment-variables "Direct link to Custom environment variables")
 
-Use this method if you need custom environment variables or prefer to use service tokens. Refer to the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for the complete list of available environment variables for the local MCP server.
+Use this method if you need custom environment variables or prefer to use service tokens. Refer to the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for the complete list of available environment variables for the self-hosted MCP server.
 
 1. Click the following link with Cursor open:
 
@@ -73,7 +75,7 @@ Then update `env-file-path` with the absolute path to your `.env` file (for exam
 
 Remote MCP supports **OAuth** or **token-based** headers.
 
-* *OAuth is in private beta for Enterprise and Enterprise+ accounts.*
+* *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 * For either method, the MCP URL is `https://<Access URL>/api/ai/v1/mcp`. You can find the URL in dbt platform under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
 
 **Before you connect**

@@ -16,7 +16,7 @@ Beginner
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-Hybrid dbt deployments are becoming increasingly common. Fusion adopters are frequently working in several places at once: in the dbt platform for production runs and IDE-based development, and locally using the dbt platform CLI or the dbt VS Code extension.
+Hybrid dbt deployments are becoming increasingly common. Fusion adopters are frequently working in several places at once: in the dbt platform for production runs and IDE-based development, and on their local machine using the dbt platform CLI or the dbt VS Code extension.
 
 These paths are fully supported for dbt platform users. Keeping the environments in sync across credentials, environment variables, and engine versions is one of the first operational challenges teams encounter.
 
@@ -29,14 +29,14 @@ This guide walks through credentials, environment variables, Fusion versions, an
 
 ## 1. Managing credentials[​](#1-managing-credentials "Direct link to 1. Managing credentials")
 
-How you authenticate to your data warehouse locally depends on which local tool you use:
+How you authenticate to your data warehouse locally depends on which self-hosted tool you use:
 
-* [dbt platform CLI](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only local development experience (without the dbt VS Code extension), use the dbt platform CLI with Fusion set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
+* [dbt platform CLI](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with Fusion set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
 * [dbt VS Code extension](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs the dbt Fusion engine and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
 
 ### dbt platform CLI[​](#dbt-platform-cli "Direct link to dbt platform CLI")
 
-The [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a CLI-only local workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
+The [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a self-hosted CLI-only workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
 
 For detailed installation instructions, refer to [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md?version=1.10).
 
@@ -164,7 +164,7 @@ By default, the Fusion [installation script](https://docs.getdbt.com/docs/local/
 curl -fsSL https://downloads.getdbt.com/install/dbt-fusion.sh | sh
 ```
 
-To update your local installation to the latest stable release at any time:
+To update your self-hosted installation to the latest stable release at any time:
 
 ```shell
 dbt system update
@@ -206,7 +206,7 @@ If dev containers aren't an option for your team, run `dbt system update` at the
 dbt system update && dbt debug
 ```
 
-Pinning to a specific version number does not work long term here: the **Latest** track on dbt platform keeps advancing, and a pinned local install falls behind. Aim to stay on **Latest** instead of locking to one release.
+Pinning to a specific version number does not work long term here: the **Latest** track on dbt platform keeps advancing, and a pinned self-hosted installation falls behind. Aim to stay on **Latest** instead of locking to one release.
 
 To make this easy to remember, add a `dev` target to your project's `Makefile`:
 
@@ -230,7 +230,7 @@ You can also document this convention in your project's `CONTRIBUTING.md` so it'
 
 ## 4. dbt Mesh and deferral[​](#4-dbt-mesh-and-deferral "Direct link to 4. dbt Mesh and deferral")
 
-If your project uses [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, Fusion handles this automatically during local development when a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) is present.
+If your project uses [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, Fusion handles this automatically during development when a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) is present.
 
 ### How it works[​](#how-it-works "Direct link to How it works")
 
@@ -262,7 +262,7 @@ Auto-deferral is also on by default. When a [`dbt_cloud.yml`](https://docs.getdb
 
 ## Reference table[​](#reference-table "Direct link to Reference table")
 
-The following table summarizes the key differences between the two local development paths covered in this guide:
+The following table summarizes the key differences between the two development paths covered in this guide:
 
 | Area                      | dbt platform CLI                                                                                                         | dbt VS Code extension                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |

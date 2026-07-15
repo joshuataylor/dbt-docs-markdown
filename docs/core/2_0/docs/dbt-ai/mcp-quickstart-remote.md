@@ -1,6 +1,6 @@
-# Connect to the remote dbt MCP server [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Connect to the remote dbt MCP server
 
-The remote MCP server connects to dbt platform using HTTP. No local installation is required — you configure your MCP client with a URL and headers instead of running `uvx dbt-mcp`.
+The remote MCP server connects to dbt platform using HTTP. No self-hosted installation is required — you configure your MCP client with a URL and headers instead of running `uvx dbt-mcp`.
 
 [![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")](#)Remote dbt MCP server architecture
 
@@ -12,9 +12,9 @@ Remote MCP is a good fit when:
 * Your use case is *consumption-based*: querying metrics, exploring metadata, viewing lineage, or running SQL via the platform.
 * You need Semantic Layer, Administrative, and Discovery APIs access without a local dbt project.
 
-Local development requires local MCP
+Self-hosted development requires self-hosted MCP
 
-Local development and agentic workflows (for example, running dbt commands like `dbt run` or `dbt build` from your AI assistant) require the **local** MCP server. Remote MCP does not support the local dbt Core or Fusion CLI or local project access. Use [Connect to dbt platform](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md) or [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) for those workflows.
+Self-hosted development and agentic workflows (for example, running dbt commands like `dbt run` or `dbt build` from your AI assistant) require the **self-hosted** MCP server. Remote MCP does not support the self-hosted dbt Core or Fusion CLI or local project access. Use [Connect to dbt platform](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md) or [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) for those workflows.
 
 ## Set up remote MCP[​](#set-up-remote-mcp "Direct link to Set up remote MCP")
 
@@ -35,12 +35,14 @@ Obtain the following information from dbt platform:
 
 ### 3. Choose authentication: OAuth or tokens[​](#3-choose-authentication-oauth-or-tokens "Direct link to 3. Choose authentication: OAuth or tokens")
 
-* **OAuth (remote)** — No API tokens in your client config. Requires an OAuth-capable MCP client. Available in private beta for Enterprise and Enterprise+ accounts.
-* **Token-based** — PAT or service token in the `Authorization` header. Works with any client and is required for shared/CI setups and for `execute_sql` (which needs a PAT).
+| Type               | Info                                                                                                                                                      |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **OAuth (remote)** | No API tokens in your client config. Requires an OAuth-capable MCP client.<br /><br />Available for Starter, Enterprise, and Enterprise+ accounts.        |
+| **Token-based**    | PAT or service token in the `Authorization` header. Works with any client and is required for shared/CI setups and for `execute_sql` (which needs a PAT). |
 
 info
 
-Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
+Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.
 
 ### 4. Get your MCP URL and IDs[​](#4-get-your-mcp-url-and-ids "Direct link to 4. Get your MCP URL and IDs")
 
@@ -60,11 +62,11 @@ Depending on your auth method, you may also need:
 
 info
 
-Only [`text_to_sql`](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md) consumes dbt dbt Wizard credits. Other MCP tools do not.
+Only [`text_to_sql`](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
-When your account runs out of dbt Wizard credits, the remote MCP server blocks all tools that run through it, even tools invoked from a local MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP (like SQL and remote Fusion tools).
+When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
 
-If you reach your dbt dbt Wizard usage limit, all tools will be blocked until your dbt Wizard credits reset. If you need help, please reach out to your account manager.
+If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
 ### 5. Configure your MCP client[​](#5-configure-your-mcp-client "Direct link to 5. Configure your MCP client")
 
@@ -72,6 +74,8 @@ Configure your MCP client with the MCP URL and headers from the previous step.
 
 * OAuth
 * Token-based
+
+*Available for Starter, Enterprise, and Enterprise+ accounts*
 
 **Before you connect**
 
@@ -225,6 +229,6 @@ Gemini uses the `httpUrl` key instead of `url`:
 ```
 
 * For the complete list of headers, Cursor and other client examples, and optional headers, refer to [Set up remote MCP](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md).
-* For local MCP, configuration uses environment variables; check out the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for more information.
+* For self-hosted MCP, configuration uses environment variables; check out the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for more information.
 
 Once you have configured your MCP client, you can test your setup by asking your AI assistant a data-related question (for example, *"What models are in my dbt project?"* or *"What metrics are defined in my Semantic Layer?"*). If dbt MCP is working, the response will use your dbt metadata.

@@ -95,7 +95,7 @@ data_tests:
 
 This configuration mechanism is supported for specific instances of generic tests only. To configure a specific singular test, you should use the `config()` macro in its SQL definition.
 
-Starting in dbt Core v1.12, you can set [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#sql_header-in-data-tests) flag to use `config.sql_header` in your data tests.
+Starting in dbt Core v1.12, you can set [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `config.sql_header` in your data tests.
 
 ### General configurations[​](#general-configurations "Direct link to General configurations")
 

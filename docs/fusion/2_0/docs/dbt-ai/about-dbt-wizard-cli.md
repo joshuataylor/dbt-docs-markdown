@@ -21,7 +21,7 @@ Run the following in your Windows command line tool:
 irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
 
-For a first session walkthrough, visit the [Quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) page.
+For a first session walkthrough, visit [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
 
 Use dbt Wizard CLI to:
 
@@ -54,16 +54,16 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 Looking for the in-platform experience? Visit [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md).
 
-## Get started with the dbt Wizard CLI[​](#get-started-with-the-dbt-wizard-cli "Direct link to Get started with the dbt Wizard CLI")
+## Use dbt Wizard locally[​](#use-dbt-wizard-locally "Direct link to Use dbt Wizard locally")
 
 [![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
 
-#### [Get started with the local CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
+#### [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
 
 [Install dbt Wizard locally, complete first-run onboarding, and send your first prompt.](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
 

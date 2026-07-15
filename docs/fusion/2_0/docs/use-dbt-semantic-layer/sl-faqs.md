@@ -49,7 +49,7 @@ While the dbt Semantic Layer will work for both cases, it's best to allow Metric
 
  How is the dbt Semantic Layer priced?
 
-The dbt Semantic Layer measures usage in distinct 'Queried Metrics'. Refer to the [Billing](https://docs.getdbt.com/docs/platform/billing.md#what-counts-as-a-queried-metric) to learn more about pricing.
+The dbt Semantic Layer measures usage in distinct 'Queried Metrics'. Refer to the [Billing](https://docs.getdbt.com/docs/platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) to learn more about pricing.
 
 ## Availability[​](#availability "Direct link to Availability")
 

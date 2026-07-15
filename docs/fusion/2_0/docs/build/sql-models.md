@@ -21,7 +21,7 @@ A SQL model is a `select` statement. Models are defined in `.sql` files (typical
 * The model name is inherited from the filename and must match the *filename* of a model — including case sensitivity. Any mismatched casing can prevent dbt from applying configurations correctly and may affect metadata in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
 * We strongly recommend using underscores for model names, not dots. For example, use `models/my_model.sql` instead of `models/my.model.sql`.
 * Models can be nested in subdirectories within the `models` directory.
-* Starting in dbt Core v1.12, you can use Jinja-style suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` files (for example, `my_model.sql.j2`) by enabling the [`allow_jinja_file_extensions`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#jinja-file-extensions) flag.
+* Starting in dbt Core v1.12, you can use Jinja-style suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` files (for example, `my_model.sql.j2`) by enabling the [`allow_jinja_file_extensions`](https://docs.getdbt.com/reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) flag.
 
 Refer to [How we style our dbt models](https://docs.getdbt.com/best-practices/how-we-style/1-how-we-style-our-dbt-models.md) for details on how we recommend you name your models.
 
@@ -369,7 +369,7 @@ Are there any example dbt models?
 Yes!
 
 * **Quickstart Tutorial:** You can build your own example dbt project in the [quickstart guide](https://docs.getdbt.com/docs/get-started-dbt.md)
-* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store ([main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb))
+* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store. Refer to [Clone the Jaffle Shop sample project](https://docs.getdbt.com/guides/clone-jaffle-shop.md) for clone instructions, or view the [main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using DuckDB](https://github.com/dbt-labs/jaffle_shop_duckdb) on GitHub.
 * **GitLab:** Gitlab's internal dbt project is open source and is a great example of how to use dbt at scale ([source code](https://gitlab.com/gitlab-com/content-sites/handbook/blob/main/content/handbook/enterprise-data/platform/dbt-guide.md))
 * **dummy-dbt:** A containerized dbt project that populates the Sakila database in Postgres and populates dbt seeds, models, snapshots, and tests. The project can be used for testing and experimentation purposes ([source code](https://github.com/gmyrianthous/dbt-dummy))
 * **Google Analytics 4:** A demonstration project that transforms the Google Analytics 4 BigQuery exports to various models ([source code](https://github.com/stacktonic-com/stacktonic-dbt-example-project), [docs](https://stacktonic.com/article/google-analytics-big-query-and-dbt-a-dbt-example-project))

@@ -56,10 +56,6 @@ Before upgrading your development environment, confirm:
   * Username / Password
   * IAM profile
 
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
-
    Snowflake
 
   * Username / Password

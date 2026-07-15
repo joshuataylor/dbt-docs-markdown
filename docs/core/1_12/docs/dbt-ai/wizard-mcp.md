@@ -180,7 +180,7 @@ The following examples show common scenarios for adding an MCP server and how to
 
 The [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md) gives dbt Wizard governed access to your project's models, metrics, lineage, freshness, and platform APIs. You can connect it two ways:
 
-* Local (no account required)
+* Self-hosted (no account required)
 * Remote (dbt platform account)
 
 Runs on your machine through `uvx` and works with or without a dbt platform account — the best fit for development:
@@ -189,9 +189,9 @@ Runs on your machine through `uvx` and works with or without a dbt platform acco
 wizard mcp add dbt -- uvx dbt-mcp
 ```
 
-The local server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) and [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) and [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
 
-Hosted on the platform with no local install. Build the URL from your platform host (`https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`, for example `https://cloud.getdbt.com/api/ai/v1/mcp/`), then authenticate:
+Hosted on the dbt platform. Build the URL from your platform host (`https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`, for example `https://cloud.getdbt.com/api/ai/v1/mcp/`), then authenticate:
 
 ```bash
 wizard mcp add dbt --url https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/

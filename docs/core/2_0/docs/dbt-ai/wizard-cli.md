@@ -62,7 +62,7 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 New to the terminal?
@@ -121,7 +121,7 @@ For details about what is collected, what is not collected, and how to opt out o
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Get started with the local CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md): Install dbt Wizard and start a local terminal session
+* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md): Install dbt Wizard and start a local terminal session
 * [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md): Manage your API key and choose an AI model
 * [Command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md): Full reference for all `wizard` subcommands and global flags
 * [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md): Realistic analytics engineering scenarios

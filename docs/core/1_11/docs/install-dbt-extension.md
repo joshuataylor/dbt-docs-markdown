@@ -74,7 +74,7 @@ To upgrade to a newer version:
 python -m pip install --upgrade --pre dbt
 ```
 
- CDN installation for macOS and Linux
+ Standalone installation for macOS and Linux
 
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
@@ -96,7 +96,7 @@ note
 
 `dbtf system update` installs Fusion globally — it updates your `PATH` in `~/.zshrc` and creates a `dbtf` alias. To manage multiple versions or isolate your install, use separate shell profiles or virtual environments.
 
- CDN installation for Windows
+ Standalone installation for Windows
 
 ```powershell
 irm https://public.cdn.getdbt.com/fs/install/install.ps1 | iex

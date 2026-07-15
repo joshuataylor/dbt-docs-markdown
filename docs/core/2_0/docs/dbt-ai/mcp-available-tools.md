@@ -6,15 +6,17 @@ The dbt MCP server has access to many parts of the dbt experience related to dev
 
 The following sections list every tool by category, along with which server type (local or remote) supports it.
 
-| Tools                             | Local | Remote |
-| --------------------------------- | ----- | ------ |
-| [dbt commands](#dbt-commands)     | ✅    | ❌     |
-| [Semantic Layer](#semantic-layer) | ✅    | ✅     |
-| [SQL](#sql)                       | ✅    | ✅     |
-| [Metadata Discovery](#discovery)  | ✅    | ✅     |
-| [Administrative API](#admin-api)  | ✅    | ✅     |
-| [Codegen Tools](#dbt-codegen)     | ✅    | ❌     |
-| [Fusion Tools](#dbt-lsp)          | ✅    | ✅     |
+| Tools                                             | Local | Remote |
+| ------------------------------------------------- | ----- | ------ |
+| [dbt commands](#dbt-commands)                     | ✅    | ❌     |
+| [Semantic Layer](#semantic-layer)                 | ✅    | ✅     |
+| [SQL](#sql)                                       | ✅    | ✅     |
+| [Metadata Discovery](#discovery)                  | ✅    | ✅     |
+| [Administrative API](#admin-api)                  | ✅    | ✅     |
+| [Codegen Tools](#dbt-codegen)                     | ✅    | ❌     |
+| [Fusion Tools](#dbt-lsp)                          | ✅    | ✅     |
+| [Product Docs Tools](#product-docs)               | ✅    | ✅     |
+| [MCP Server Metadata Tools](#mcp-server-metadata) | ✅    | ✅     |
 
 Search table...
 
@@ -54,22 +56,23 @@ To learn more about the dbt Discovery API, click [here](https://docs.getdbt.com/
 * `get_all_macros`: Retrieves macros; option to filter by package or return package names only.
 * `get_all_models`: Retrieves name and description of all models.
 * `get_all_sources`: Gets all sources with freshness status; option to filter by source name.
-* `get_exposure_details`: Gets exposure details including owner, parents, and freshness status.
+* `get_exposure_details`: *(deprecated — use `get_node_details` instead)*
 * `get_exposures`: Gets all exposures (downstream dashboards, apps, or analyses).
 * `get_lineage`: Gets full lineage graph (ancestors and descendants) with type and depth filtering.
-* `get_macro_details`: Gets details for a specific macro.
+* `get_macro_details`: *(deprecated — use `get_node_details` instead)*
 * `get_mart_models`: Retrieves all mart models.
-* `get_model_children`: Gets downstream dependents of a model.
-* `get_model_details`: Gets model details including compiled SQL, columns, and schema.
+* `get_model_children`: *(deprecated — use `get_lineage` instead)*
+* `get_model_details`: *(deprecated — use `get_node_details` instead)*
 * `get_model_health`: Gets health signals: run status, test results, and upstream source freshness.
-* `get_model_parents`: Gets upstream dependencies of a model.
+* `get_model_parents`: *(deprecated — use `get_lineage` instead)*
 * `get_model_performance`: Gets execution history for a model; option to include test results.
+* `get_node_details`: Gets full details for any dbt resource type (model, source, exposure, test, seed, snapshot, macro, semantic\_model).
 * `get_related_models`: Finds similar models using semantic search.
-* `get_seed_details`: Gets details for a specific seed.
-* `get_semantic_model_details`: Gets details for a specific semantic model.
-* `get_snapshot_details`: Gets details for a specific snapshot.
-* `get_source_details`: Gets source details including columns and freshness.
-* `get_test_details`: Gets details for a specific test.
+* `get_seed_details`: *(deprecated — use `get_node_details` instead)*
+* `get_semantic_model_details`: *(deprecated — use `get_node_details` instead)*
+* `get_snapshot_details`: *(deprecated — use `get_node_details` instead)*
+* `get_source_details`: *(deprecated — use `get_node_details` instead)*
+* `get_test_details`: *(deprecated — use `get_node_details` instead)*
 * `search`: \[Alpha] Searches for resources across the dbt project (not generally available).
 
 ### dbt CLI[​](#dbt-cli "Direct link to dbt CLI")

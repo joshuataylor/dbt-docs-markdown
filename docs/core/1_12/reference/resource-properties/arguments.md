@@ -23,7 +23,7 @@ For **macros**, you can add `arguments` to a [macro property](https://docs.getdb
 
 <!-- -->
 
-The data type of your argument. Setting [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#macro-argument-validation) to `true` ensures that documented macro argument names match those in the macro definition and validates their types against the [supported types](#supported-types). When set to `false`, `type` is only used for documentation purposes and there are no restrictions on the values you can specify.
+The data type of your argument. Setting [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md) to `true` ensures that documented macro argument names match those in the macro definition and validates their types against the [supported types](#supported-types). When set to `false`, `type` is only used for documentation purposes and there are no restrictions on the values you can specify.
 
 tip
 
@@ -33,7 +33,7 @@ From dbt Core v1.10, you can opt into validating the arguments you define in mac
 * Raise a warning if documented argument names don't match the macro definition.
 * Raise a warning if `type` fields don't follow [supported formats](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
 
-Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#macro-argument-validation).
+Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md).
 
 macros/\<filename>.yml
 
@@ -48,7 +48,7 @@ macros:
 
 ### Supported types[​](#supported-types "Direct link to Supported types")
 
-From dbt Core v1.10, when you use the [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#macro-argument-validation) flag, dbt supports the following types for macro arguments:
+From dbt Core v1.10, when you use the [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md) flag, dbt supports the following types for macro arguments:
 
 * `string` or `str`
 * `boolean` or `bool`

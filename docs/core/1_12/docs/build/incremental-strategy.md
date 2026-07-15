@@ -31,7 +31,7 @@ Click the name of the adapter in the following table for more information about 
 | [dbt-databricks](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#incremental-models)                             | ✅       | ✅      | ✅              | ✅                 | ✅           |
 | [dbt-snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#merge-behavior-incremental-models)                | ✅       | ✅      | ✅              | ✅                 | ✅           |
 | [dbt-trino](https://docs.getdbt.com/reference/resource-configs/trino-configs.md#incremental)                                              | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-fabric](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    |              |
+| [dbt-fabric](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
 | [dbt-athena](https://docs.getdbt.com/reference/resource-configs/athena-configs.md#incremental-models)                                     | ✅       | ✅      |                 | ✅                 | ✅           |
 | [dbt-teradata](https://docs.getdbt.com/reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
 | [dbt-duckdb](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
@@ -335,7 +335,7 @@ models/my\_model.sql
 ...
 ```
 
-If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
+If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
 
 ### Custom strategies from a package[​](#custom-strategies-from-a-package "Direct link to Custom strategies from a package")
 

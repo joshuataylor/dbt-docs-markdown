@@ -1,4 +1,4 @@
-# Get started with the dbt Wizard local CLI
+# Use dbt Wizard locally
 
 Install dbt Wizard locally and start an agentic dbt development session from your terminal.
 
@@ -60,7 +60,7 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 Upgrade to the dbt Fusion engine

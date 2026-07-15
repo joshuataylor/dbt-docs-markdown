@@ -11,14 +11,18 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
+## July 2026[​](#july-2026 "Direct link to July 2026")
+
+* **New:** You can now access dbt State settings from **Account settings** > **Billing & Usage**, previously found under **State**. You can manage your trial, enable dbt State on environments and jobs, and set spend alerts — all in one place. For details, refer to [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md).
+
 ## June 2026[​](#june-2026 "Direct link to June 2026")
 
 * **Fix:** If you use the Administrator API to manage [SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim.md) to sync users from your identity provider, the `/api/v3/accounts/{account_id}/scim/v2/Users` response now returns `value` and `display` on each embedded group reference. `id` and `displayName` are retained so existing integrations keep working — this is a non-breaking change.
 * **Enhancement**: The [Administrative API v3](https://docs.getdbt.com/dbt-cloud/api-v3) now supports private endpoint operations — [`list`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0\&name=Fusion#/operations/List%20Private%20Endpoints), [`create`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0\&name=Fusion#/operations/Create%20Private%20Endpoint), [`retrieve`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0\&name=Fusion#/operations/Retrieve%20Private%20Endpoint), [`update`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0\&name=Fusion#/operations/Update%20Private%20Endpoint), and [`delete`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0\&name=Fusion#/operations/Delete%20Private%20Endpoint). Use these endpoints to manage private connectivity programmatically.
 * **Enhancement**: You can [download OpenTelemetry (OTel) logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs) for individual dbt command steps in Fusion job runs.
-* **Enhancement**: You can now configure [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) for the Studio IDE directly in the dbt platform UI — either as a team-wide default on your development environment, or as a personal override. For more information, refer to [Enabling dbt State in Studio](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#enabling-dbt-state-in-studio).
+* **Enhancement**: You can now configure [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) for the Studio IDE directly in the dbt platform UI — either as a team-wide default on your development environment, or as a personal override. For more information, refer to [Enabling dbt State in Studio](https://docs.getdbt.com/docs/deploy/dbt-state-enable-studio.md).
 * **New:** [Model query history](https://docs.getdbt.com/docs/explore/model-query-history.md) for Redshift and Databricks is now generally available (GA).
-* **Behavior change:** On September 1, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#flags-reaching-maturity) to see which flags may affect your project and how to opt out before then.
+* **Behavior change:** On September 1, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [Flags reaching maturity](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#flags-reaching-maturity) to see which flags may affect your project and how to opt out before then.
 * **Beta:** The dbt Fusion engine now supports the Salesforce Data 360 connection in the dbt platform. For more information, refer to [Connect Salesforce Data 360](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-salesforce.md).
 * **Private beta**: The [Analyst read](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#analyst-read) permission set is available for Enterprise plans.
   <!-- -->
@@ -46,8 +50,8 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Preview**: [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is now available in preview!
 
-  * **New**: dbt State skips or clones nodes when the logic and data haven't changed, rather than rebuilding everything on every run. Available in dbt Core v1.12+, dbt v2.0, the dbt platform, and the dbt Fusion engine. To get started, refer to [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
-  * **New**: [dbt State pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage) is usage-based at $0.094 per daily unique reuse. New organizations receive a 30-day free trial with no usage limit.
+  * **New**: dbt State skips or clones nodes when the logic and data haven't changed, rather than rebuilding everything on every run. Available natively in dbt v2.0, the dbt platform, and the dbt Fusion engine, and as a plugin for dbt Core v1.7-1.12. To get started, refer to [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+  * **New**: [dbt State pricing](https://docs.getdbt.com/docs/platform/billing/dbt-state-usage.md) is usage-based at $0.094 per daily unique reuse. New organizations receive a 30-day free trial with no usage limit.
   * **Behavior change**: State-aware orchestration is no longer being enabled for new customers. Refer to [Migrate to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md) for more information.
 
 * **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.

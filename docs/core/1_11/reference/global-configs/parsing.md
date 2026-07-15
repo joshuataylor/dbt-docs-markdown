@@ -33,9 +33,3 @@ config:
 ```
 
 ### Opt-in v2 parser[​](#opt-in-v2-parser "Direct link to Opt-in v2 parser")
-
-<!-- -->
-
-### Experimental parser[​](#experimental-parser "Direct link to Experimental parser")
-
-Not currently in use.

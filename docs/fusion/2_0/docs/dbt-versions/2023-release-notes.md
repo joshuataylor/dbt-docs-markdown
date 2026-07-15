@@ -220,7 +220,7 @@ Archived release notes for dbt from 2023
 
   The dbt Semantic Layer is available to [dbt Cloud Team or Enterprise](https://www.getdbt.com/) multi-tenant plans on dbt v1.6 or higher.
 
-  * Team and Enterprise customers can use 1,000 Queried Metrics per month for no additional cost on a limited trial basis, subject to reasonable use limitations. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md#what-counts-as-a-queried-metric) for more information.
+  * Team and Enterprise customers can use 1,000 Queried Metrics per month for no additional cost on a limited trial basis, subject to reasonable use limitations. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) for more information.
   * dbt Developer plans and dbt Core users can define metrics but won't be able to query them with integrated tools.
 
 ## September 2023[​](#september-2023 "Direct link to September 2023")

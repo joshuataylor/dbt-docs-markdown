@@ -10,11 +10,17 @@ dbt looks for snapshots in the directories listed in `snapshot-paths` in your `d
 
 To view the full list of supported options in your terminal, run:
 
-```text
+```shell
 dbt snapshot --help
 ```
 
-Use `--select` or `--exclude` to choose which snapshots run. For selection syntax, refer to [Node selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md). For other flags (such as `--threads`, `--target`, and logging options), see [About flags (global configs)](https://docs.getdbt.com/reference/global-configs/about-global-configs.md).
+Use `--select` or `--exclude` to choose which snapshots run. For selection syntax, refer to [Node selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md). `dbt snapshot` also supports common command-line options, such as `--target` and `--threads`. For flag details (including logging options), refer to [About flags (global configs)](https://docs.getdbt.com/reference/global-configs/about-global-configs.md).
+
+Use `--vars` when your snapshot SQL references values with the `var()` function. For syntax, precedence, and more examples, refer to [Defining variables on the command line](https://docs.getdbt.com/docs/build/project-variables.md#defining-variables-on-the-command-line).
+
+```shell
+dbt snapshot --select my_snapshot --vars '{"cutoff_date": "2026-01-01"}'
+```
 
 <!-- -->
 

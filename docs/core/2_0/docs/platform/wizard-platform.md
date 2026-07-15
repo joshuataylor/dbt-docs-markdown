@@ -34,7 +34,7 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 Looking for the terminal experience? Visit [About dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md).
@@ -79,6 +79,12 @@ Please contact dbt Support with any questions
 #### [Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
 
 [Use the agent-native home tab to iterate in natural language, review inline diffs, and validate changes.](https://docs.getdbt.com/docs/platform/wizard-home.md)
+
+[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
+
+#### [Configure BYOK](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
+
+[Bring your own API key to use dbt Wizard or dbt Copilot in the dbt platform.](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
 
 [![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
 

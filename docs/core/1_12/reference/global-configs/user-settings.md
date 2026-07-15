@@ -20,8 +20,8 @@ When you run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md#d
 * **Log in with your dbt platform account**
 
   * In the dbt Fusion engine, the CLI prompts you before writing to `user_settings.yml`.
-  * In dbt Core v1.12, dbt writes `manage_state: true` automatically without prompting — because it's the only thing `dbt login` does in v1.12, and ensures your configuration travels with you when you upgrade in the future.
-  * Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
+
+  - Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
 
 * **Log in with the standalone dbt State app**: After you create an account, dbt automatically enables dbt State locally in `user_settings.yml`.
 

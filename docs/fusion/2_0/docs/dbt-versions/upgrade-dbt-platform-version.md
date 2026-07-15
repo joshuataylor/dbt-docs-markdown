@@ -73,10 +73,6 @@ dbt Labs has introduced the new [dbt Fusion engine](https://docs.getdbt.com/docs
   * Username / Password
   * IAM profile
 
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
-
    Snowflake
 
   * Username / Password
@@ -196,9 +192,9 @@ If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflo
 
 Keep in mind the following considerations during the upgrade process:
 
-* **Manifest incompatibility** — Fusion is backwards-compatible and can read dbt Core [manifests](https://docs.getdbt.com/reference/artifacts/manifest-json.md). However, dbt Core isn't forward-compatible and can't read Fusion manifests. Fusion produces a `v20` manifest, while the latest version of dbt Core still produces a `v12` manifest.
+* **Manifest compatibility** — Fusion produces a `v12` [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) that's compatible with dbt Core. The only differences are optional Fusion-specific fields that only Fusion writes, which dbt Core safely ignores.
 
-  As a result, mixing dbt Core and Fusion manifests across environments breaks cross-environment features. To avoid this, use `state:modified`, `--defer`, and cross-environment `dbt docs generate` only after *all* environments are running the latest Fusion version. Using these features before all environments are on Fusion may cause errors and failures.
+  As a result, you can run Fusion and dbt Core side by side. State-dependent features such as `state:modified`, `--defer`, and cross-environment `dbt docs generate` work across mixed Fusion and dbt Core environments, so you can migrate to Fusion incrementally without breaking existing dbt Core jobs.
 
 State-aware orchestration is now dbt State
 

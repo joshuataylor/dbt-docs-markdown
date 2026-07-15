@@ -33,6 +33,8 @@ Warnings that should be treated as errors can be specified through the `error` p
 
 <!-- -->
 
+<!-- -->
+
 The `error` parameter can be set to `"all"` or `"*"` to treat all warnings as errors (this behavior is the same as using the `--warn-error` flag), or to a list of specific warning names to treat as exceptions.
 
 * When `error` is set to `"all"` or `"*"`, the optional `warn` parameter can be set to exclude specific warnings from being treated as exceptions.

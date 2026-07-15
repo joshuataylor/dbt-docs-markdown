@@ -50,7 +50,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **Fix**: Job environment variable overrides in credentials are now respected for Exports. Previously, they were ignored.
 
-* **Behavior change**: If you use a custom microbatch macro, set a [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy) in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).
+* **Behavior change**: If you use a custom microbatch macro, set a [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).
 
 * **Enhancement**: For users that have Advanced CI's [compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes) feature enabled, you can optimize performance when running comparisons by using custom dbt syntax to customize deferral usage, exclude specific large models (or groups of models with tags), and more. Refer to [Compare changes custom commands](https://docs.getdbt.com/docs/deploy/job-commands.md#compare-changes-custom-commands) for examples of how to customize the comparison command.
 
@@ -120,7 +120,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **New**: Introducing the [microbatch incremental model strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) (beta), available now in [dbt Cloud Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and will soon be supported in dbt Core v1.9. The microbatch strategy allows for efficient, batch-based processing of large time-series datasets for improved performance and resiliency, especially when you're working with data that changes over time (like new records being added daily). To enable this feature in dbt Cloud, set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `true` in your project.
 
-- **New**: The dbt Semantic Layer supports custom calendar configurations in MetricFlow, available in [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud). Custom calendar configurations allow you to query data using non-standard time periods like `fiscal_year` or `retail_month`. Refer to [custom calendar](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#custom-calendar) to learn how to define these custom granularities in your MetricFlow timespine YAML configuration.
+- **New**: The dbt Semantic Layer supports custom calendar configurations in MetricFlow, available in [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md). Custom calendar configurations allow you to query data using non-standard time periods like `fiscal_year` or `retail_month`. Refer to [custom calendar](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#custom-calendar) to learn how to define these custom granularities in your MetricFlow timespine YAML configuration.
 
 - **New**: In the **Latest** release track in dbt, [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md) have been updated to use YAML configuration files instead of SQL snapshot blocks. This new feature simplifies snapshot management and improves performance, and will soon be released in dbt Core 1.9.
 
@@ -129,9 +129,9 @@ Documentation for new features and functionality announced at Coalesce 2024:
   * Who does this affect? Users of the **Latest** release track in dbt can define snapshots using the new YAML specification. Users upgrading to **Latest** who have existing snapshot definitions can keep their existing configurations, or they can choose to migrate their snapshot definitions to YAML.
   * Users on older versions: No action is needed; existing snapshots will continue to work as before. However, we recommend upgrading to the **Latest** release track to take advantage of the new snapshot features.
 
-- **Behavior change:** Set [`state_modified_compare_more_unrendered_values`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#source-definitions-for-statemodified) to true to reduce false positives for `state:modified` when configs differ between `dev` and `prod` environments.
+- **Behavior change:** Set [`state_modified_compare_more_unrendered_values`](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md) to true to reduce false positives for `state:modified` when configs differ between `dev` and `prod` environments.
 
-- **Behavior change:** Set the [`skip_nodes_if_on_run_start_fails`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#failures-in-on-run-start-hooks) flag to `True` to skip all selected resources from running if there is a failure on an `on-run-start` hook.
+- **Behavior change:** Set the [`skip_nodes_if_on_run_start_fails`](https://docs.getdbt.com/reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md) flag to `True` to skip all selected resources from running if there is a failure on an `on-run-start` hook.
 
 - **Enhancement**: In the **Latest** release track in dbt Cloud, snapshots defined in SQL files can now use `config` defined in `schema.yml` YAML files. This update resolves the previous limitation that required snapshot properties to be defined exclusively in `dbt_project.yml` and/or a `config()` block within the SQL file. This will also be released in dbt Core 1.9.
 
@@ -139,7 +139,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **Enhancement**: the **Latest** release track in dbt Cloud infers a model's `primary_key` based on configured data tests and/or constraints within `manifest.json`. The inferred `primary_key` is visible in dbt Explorer and utilized by the dbt Cloud [compare changes](https://docs.getdbt.com/docs/deploy/run-visibility.md#compare-tab) feature. This will also be released in dbt Core 1.9. Read about the [order dbt infers columns can be used as primary key of a model](https://github.com/dbt-labs/dbt-core/blob/7940ad5c7858ff11ef100260a372f2f06a86e71f/core/dbt/contracts/graph/nodes.py#L534-L541).
 
-- **New:** dbt Explorer now includes trust signal icons, which is currently available as a [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud). Trust signals offer a quick, at-a-glance view of data health when browsing your dbt models in dbt Explorer. These icons indicate whether a model is **Healthy**, **Caution**, **Degraded**, or **Unknown**. For accurate health data, ensure the resource is up-to-date and has had a recent job run. Refer to [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) for more information.
+- **New:** dbt Explorer now includes trust signal icons, which is currently available as a [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md). Trust signals offer a quick, at-a-glance view of data health when browsing your dbt models in dbt Explorer. These icons indicate whether a model is **Healthy**, **Caution**, **Degraded**, or **Unknown**. For accurate health data, ensure the resource is up-to-date and has had a recent job run. Refer to [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) for more information.
 
 - **New:** Downstream exposures are now available in Preview in dbt. Downstream exposures helps users understand how their models are used in downstream analytics tools to inform investments and reduce incidents. It imports and auto-generates exposures based on Tableau dashboards, with user-defined curation. To learn more, refer to [Downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md).
 
@@ -221,9 +221,9 @@ Documentation for new features and functionality announced at Coalesce 2024:
 #### Also available this month:[​](#also-available-this-month "Direct link to Also available this month:")
 
 * **Enhancement:** Updates to the UI when [creating merge jobs](https://docs.getdbt.com/docs/deploy/merge-jobs.md) are now available. The updates include improvements to helper text, new deferral settings, and performance improvements.
-* **New**: The Semantic Layer now offers a seamless integration with Microsoft Excel, available in [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud). Build semantic layer queries and return data on metrics directly within Excel, through a custom menu. To learn more and install the add-on, check out [Microsoft Excel](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md).
+* **New**: The Semantic Layer now offers a seamless integration with Microsoft Excel, available in [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md). Build semantic layer queries and return data on metrics directly within Excel, through a custom menu. To learn more and install the add-on, check out [Microsoft Excel](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md).
 * **New:** [Job warnings](https://docs.getdbt.com/docs/deploy/job-notifications.md) are now GA. Previously, you could receive email or Slack alerts about your jobs when they succeeded, failed, or were canceled. Now with the new **Warns** option, you can also receive alerts when jobs have encountered warnings from tests or source freshness checks during their run. This gives you more flexibility on *when* to be notified.
-* **New:** A [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud) of the dbt Snowflake Native App is now available. With this app, you can access dbt Explorer, the **Ask dbt** chatbot, and orchestration observability features, extending your dbt experience into the Snowflake UI.
+* **New:** A [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md) of the dbt Snowflake Native App is now available. With this app, you can access dbt Explorer, the **Ask dbt** chatbot, and orchestration observability features, extending your dbt experience into the Snowflake UI.
 
 ## May 2024[​](#may-2024 "Direct link to May 2024")
 
@@ -243,7 +243,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 *  New: Native support for Azure Synapse Analytics[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-  Native support in dbt Cloud for Azure Synapse Analytics is now available as a [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#dbt-cloud)!
+  Native support in dbt Cloud for Azure Synapse Analytics is now available as a [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md)!
 
   To learn more, refer to [Connect Azure Synapse Analytics](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-azure-synapse-analytics.md) and [Microsoft Azure Synapse DWH configurations](https://docs.getdbt.com/reference/resource-configs/azuresynapse-configs.md).
 
@@ -298,7 +298,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   [![Example of the Latest setting](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example of the Latest setting")](#)Example of the Latest setting
 
-* **Behavior change:** Introduced the `require_resource_names_without_spaces` flag, opt-in and disabled by default. If set to `True`, dbt will raise an exception if it finds a resource name containing a space in your project or an installed package. This will become the default in a future version of dbt. Read [No spaces in resource names](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#require_resource_names_without_spaces) for more information.
+* **Behavior change:** Introduced the `require_resource_names_without_spaces` flag, opt-in and disabled by default. If set to `True`, dbt will raise an exception if it finds a resource name containing a space in your project or an installed package. This will become the default in a future version of dbt. Read [No spaces in resource names](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_resource_names_without_spaces.md) for more information.
 
 ## April 2024[​](#april-2024 "Direct link to April 2024")
 
@@ -308,7 +308,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   [![Example of creating a merge job](/img/docs/dbt-platform/using-dbt-platform/example-create-merge-job.png?v=2 "Example of creating a merge job")](#)Example of creating a merge job
 
-* **Behavior change:** Introduced the `require_explicit_package_overrides_for_builtin_materializations` flag, opt-in and disabled by default. If set to `True`, dbt will only use built-in materializations defined in the root project or within dbt, rather than implementations in packages. This will become the default in May 2024 (dbt Core v1.8 and dbt Cloud release tracks). Read [Package override for built-in materialization](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#require_explicit_package_overrides_for_builtin_materializations) for more information.
+* **Behavior change:** Introduced the `require_explicit_package_overrides_for_builtin_materializations` flag, opt-in and disabled by default. If set to `True`, dbt will only use built-in materializations defined in the root project or within dbt, rather than implementations in packages. This will become the default in May 2024 (dbt Core v1.8 and dbt Cloud release tracks). Read [Package override for built-in materialization](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) for more information.
 
 **Semantic Layer**
 
@@ -331,7 +331,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 * **Fix:** `dbt parse` no longer shows an error when you use a list of filters (instead of just a string filter) on a metric.
 * **Fix:** `join_to_timespine` now properly gets applied to conversion metric input measures.
 * **Fix:** Fixed an issue where exports in Redshift were not always committing to the DWH, which also had the side-effect of leaving table locks open.
-* **Behavior change:** Introduced the `source_freshness_run_project_hooks` flag, opt-in and disabled by default. If set to `True`, dbt will include `on-run-*` project hooks in the `source freshness` command. This will become the default in a future version of dbt. Read [Project hooks with source freshness](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#source_freshness_run_project_hooks) for more information.
+* **Behavior change:** Introduced the `source_freshness_run_project_hooks` flag, opt-in and disabled by default. If set to `True`, dbt will include `on-run-*` project hooks in the `source freshness` command. This will become the default in a future version of dbt. Read [Project hooks with source freshness](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md) for more information.
 
 ## February 2024[​](#february-2024 "Direct link to February 2024")
 

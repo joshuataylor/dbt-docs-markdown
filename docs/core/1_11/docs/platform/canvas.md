@@ -1,8 +1,8 @@
 # About Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-Canvas helps you quickly access and transform data through a visual, drag-and-drop experience and with a built-in AI for custom code generation.
+Canvas helps you quickly access and transform data through a visual, drag-and-drop experience.
 
-Canvas allows organizations to enjoy the many benefits of code-driven development—such as increased precision, ease of debugging, and ease of validation — while retaining the flexibility to have different contributors develop wherever they are most comfortable. Users can also take advantage of built-in AI for custom code generation, making it an end-to-end frictionless experience.
+Canvas allows organizations to enjoy the many benefits of code-driven development, such as increased precision, ease of debugging, and ease of validation, while retaining the flexibility to have different contributors develop wherever they are most comfortable. For natural language and AI-assisted workflows, use [dbt Copilot in Canvas](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md).
 
 These models compile directly to SQL and are indistinguishable from other dbt models in your projects:
 
@@ -44,8 +44,6 @@ Before using Canvas, you should:
 * Verify your Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
 * Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
-
-* Have the AI-powered features toggle [enabled](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#enable-dbt-wizard) for dbt Copilot.
 
 <!-- -->
 

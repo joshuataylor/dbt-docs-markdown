@@ -108,6 +108,12 @@ Clear all
 
 [Start ](https://docs.getdbt.com/guides/terminal-guide.md)
 
+[![](/img/icons/guides.svg)](https://docs.getdbt.com/guides/clone-jaffle-shop.md)
+
+#### [Clone the Jaffle Shop sample project](https://docs.getdbt.com/guides/clone-jaffle-shop.md)
+
+[Start ](https://docs.getdbt.com/guides/clone-jaffle-shop.md)
+
 ### Popular
 
 [![](/img/icons/snowflake.svg)](https://docs.getdbt.com/guides/snowflake.md)

@@ -369,7 +369,7 @@ config:
 
 dbt raises this warning when two unversioned resources in the same package share the same name (for example, a model and a seed both named `sales`) and the `require_unique_project_resource_names` flag is set to `false`. Previously, dbt did not always detect these name conflicts, which meant duplicate names could sometimes point to the wrong resource.
 
-When the `require_unique_project_resource_names` flag is set to `true`, dbt raises a `DuplicateResourceNameError`. For more information, see [Unique project resource names](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#unique-project-resource-names).
+When the `require_unique_project_resource_names` flag is set to `true`, dbt raises a `DuplicateResourceNameError`. For more information, see [Unique project resource names](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_unique_project_resource_names.md).
 
 #### DuplicateNameDistinctNodeTypesDeprecation warning resolution[​](#duplicatenamedistinctnodetypesdeprecation-warning-resolution "Direct link to DuplicateNameDistinctNodeTypesDeprecation warning resolution")
 
@@ -438,7 +438,7 @@ Ensure your exposure names only contain letters, numbers, and underscores. A mor
 
 dbt raises this deprecation warning when a custom `generate_schema_name` macro returns a `null` value. Returning `null` schema names can lead to invalid or unpredictable behavior.
 
-This deprecation warning is raised when the [`require_valid_schema_from_generate_schema_name` flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#valid-schema-from-generate_schema_name) is set to `false`. When the flag is set to `true`, dbt raises an error during parsing.
+This deprecation warning is raised when the [`require_valid_schema_from_generate_schema_name` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_valid_schema_from_generate_schema_name.md) is set to `false`. When the flag is set to `true`, dbt raises an error during parsing.
 
 #### GenerateSchemaNameNullValueDeprecation warning resolution[​](#generateschemanamenullvaluedeprecation-warning-resolution "Direct link to GenerateSchemaNameNullValueDeprecation warning resolution")
 
@@ -466,7 +466,7 @@ If you are seeing this warning, unfortunately, there isn't much you can do at th
 
 ### MFCumulativeTypeParamsDeprecation[​](#mfcumulativetypeparamsdeprecation "Direct link to MFCumulativeTypeParamsDeprecation")
 
-In dbt [v1.9](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#cumulative-metrics) was deprecated.
+In dbt [v1.9](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md) was deprecated.
 
 Example:
 
@@ -710,7 +710,7 @@ The following are recommended approaches:
 
 ### PackageMaterializationOverrideDeprecation[​](#packagematerializationoverridedeprecation "Direct link to PackageMaterializationOverrideDeprecation")
 
-The behavior where installed packages could override built-in materializations without your explicit opt-in is deprecated. Setting the [`require_explicit_package_overrides_for_builtin_materializations` flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#require_explicit_package_overrides_for_builtin_materializations) to `false` in your `dbt_project.yml` allowed packages that matched the name of a built-in materialization to continue to be included in the search and resolution order.
+The behavior where installed packages could override built-in materializations without your explicit opt-in is deprecated. Setting the [`require_explicit_package_overrides_for_builtin_materializations` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) to `false` in your `dbt_project.yml` allowed packages that matched the name of a built-in materialization to continue to be included in the search and resolution order.
 
 #### PackageMaterializationOverrideDeprecation warning resolution[​](#packagematerializationoverridedeprecation-warning-resolution "Direct link to PackageMaterializationOverrideDeprecation warning resolution")
 
@@ -818,7 +818,7 @@ Rename the resource in violation so it no longer contains a space in its name.
 
 ### SourceFreshnessProjectHooksNotRun[​](#sourcefreshnessprojecthooksnotrun "Direct link to SourceFreshnessProjectHooksNotRun")
 
-If you are seeing this, it means that the behavior flag `source_freshness_run_project_hooks` is set to `false` and either `on-run-start` or `on-run-end` is defined ([docs](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#source_freshness_run_project_hooks)). Previously, project hooks wouldn't be run on sources when `dbt source freshness` was run.
+If you are seeing this, it means that the behavior flag `source_freshness_run_project_hooks` is set to `false` and either `on-run-start` or `on-run-end` is defined ([docs](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)). Previously, project hooks wouldn't be run on sources when `dbt source freshness` was run.
 
 Example:
 
@@ -832,7 +832,7 @@ information: https://docs.getdbt.com/reference/global-configs/legacy-behaviors
 
 #### SourceFreshnessProjectHooksNotRun warning resolution[​](#sourcefreshnessprojecthooksnotrun-warning-resolution "Direct link to SourceFreshnessProjectHooksNotRun warning resolution")
 
-Set `source_freshness_run_project_hooks` to `true`. For instructions on skipping project hooks during a `dbt source freshness` invocation, check out the [behavior change documentation](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#source_freshness_run_project_hooks).
+Set `source_freshness_run_project_hooks` to `true`. For instructions on skipping project hooks during a `dbt source freshness` invocation, check out the [behavior change documentation](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md).
 
 ### SourceOverrideDeprecation[​](#sourceoverridedeprecation "Direct link to SourceOverrideDeprecation")
 

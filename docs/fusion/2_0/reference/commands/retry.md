@@ -9,7 +9,7 @@ Retry re-executes the last invocation from the point of failure.
 
 ## Retry flags[​](#retry-flags "Direct link to Retry flags")
 
-The `dbt retry` flags apply when you use a local dbt installation or the Studio IDE.
+The `dbt retry` flags apply when you use a self-hosted dbt installation or the Studio IDE.
 
 dbt platform CLI
 

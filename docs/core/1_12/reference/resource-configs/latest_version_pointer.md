@@ -64,7 +64,7 @@ In Fusion, `latest_version_pointer` is enabled by default for all versioned mode
 
 The `latest_version_pointer` config creates a view named after a [versioned model's](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). The view is created after the model with `is_latest_version = true` materializes successfully and is skipped for all other versions.
 
-You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#latest-version-pointer-for-versioned-models) flag to `true` in `dbt_project.yml`:
+You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`:
 
 dbt\_project.yml
 
@@ -167,6 +167,6 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 
 * [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md)
 * [Pointing to the latest version](https://docs.getdbt.com/docs/mesh/govern/model-versions.md#pointing-to-the-latest-version)
-* [`latest_version_pointer_enabled_by_default` flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#latest-version-pointer-for-versioned-models)
+* [`latest_version_pointer_enabled_by_default` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md)
 * [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md)
 * [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md)

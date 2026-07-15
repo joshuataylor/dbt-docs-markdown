@@ -6,7 +6,7 @@ Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion
 
 Most features remain available without signing in — only advanced features prompt you to sign in after the trial ends.
 
-To continue using all the features, register or login using [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), available from dbt Core v1.12 and later, from the command line. Your login state can be shared across dbt features, including the dbt VS Code extension and dbt State.
+To continue using all the features, register or log in using [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), available from dbt Core v2.0 and later, from the command line. Your login state can be shared across dbt features, including the dbt VS Code extension and, in supported versions, dbt State.
 
 Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md#dbt-login-status) to view your currently authenticated status.
 

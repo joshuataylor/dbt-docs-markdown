@@ -51,12 +51,14 @@ Search table...
 
 Fusion queries these Redshift system relations:
 
-| System relation    | Purpose                             | Permission required       |
-| ------------------ | ----------------------------------- | ------------------------- |
-| `SVV_ALL_COLUMNS`  | Column metadata                     | SELECT on the system view |
-| `pg_class`         | List relations                      | Access to system catalog  |
-| `pg_namespace`     | Schema information                  | Access to system catalog  |
-| `sys_query_detail` | Source freshness (last insert time) | SELECT on the system view |
+| System relation    | Purpose                                                | Permission required       |
+| ------------------ | ------------------------------------------------------ | ------------------------- |
+| `SVV_ALL_COLUMNS`  | Column metadata                                        | SELECT on the system view |
+| `pg_class`         | List relations                                         | Access to system catalog  |
+| `pg_namespace`     | Schema information                                     | Access to system catalog  |
+| `sys_query_detail` | Source freshness (last insert time)                    | SELECT on the system view |
+| `svv_table_info`   | List materialized views when the project includes them | SELECT on the system view |
+| `svv_mv_info`      | List materialized views when the project includes them | SELECT on the system view |
 
 Search table...
 

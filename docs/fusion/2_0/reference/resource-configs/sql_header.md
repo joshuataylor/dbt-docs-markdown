@@ -59,7 +59,7 @@ snapshots:
     +sql_header: <sql-statement>
 ```
 
-Setting `sql_header` in the `config` of a [generic data test](https://docs.getdbt.com/docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#sql_header-in-data-tests) flag to use `sql_header` in `properties.yml` for generic data tests.
+Setting `sql_header` in the `config` of a [generic data test](https://docs.getdbt.com/docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
 
 Here's an example of a model-level configuration:
 
@@ -101,7 +101,7 @@ An optional configuration to inject SQL above the `create table as` and `create 
 
 You can also set `sql_header` in the `config` of a [generic data test](https://docs.getdbt.com/docs/build/data-tests.md) at the model or column level in your `properties.yml` file. Use `sql_header` to define SQL that should run before the test executes (for example, to create temporary functions, set session parameters, or declare variables required by the test query). dbt runs this SQL before executing the test.
 
-Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#sql_header-in-data-tests) flag to use `sql_header` for data tests. For more information, refer to [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md).
+Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` for data tests. For more information, refer to [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md).
 
 ## Comparison to pre-hooks[​](#comparison-to-pre-hooks "Direct link to Comparison to pre-hooks")
 

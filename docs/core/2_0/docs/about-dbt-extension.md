@@ -1,6 +1,6 @@
 # About the dbt VS Code extension [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-The dbt VS Code extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. This is the only way to enjoy all the power of the dbt Fusion engine while developing locally.
+The dbt VS Code extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. This is the only way to enjoy all the power of the dbt Fusion engine while developing with a self-hosted installation.
 
 * *Save time and resources* with near-instant parsing, live error detection, powerful IntelliSense capabilities, and more.
 * *Stay in flow* with a seamless, end-to-end dbt development experience designed from scratch for local dbt development.

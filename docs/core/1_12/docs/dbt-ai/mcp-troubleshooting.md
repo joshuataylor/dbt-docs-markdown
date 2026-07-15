@@ -43,7 +43,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 1. Close your MCP client (Claude Desktop, Cursor, VS Code, etc.).
 
-2. Delete the local dbt MCP config files:
+2. Delete the self-hosted dbt MCP config files:
 
    <!-- -->
 

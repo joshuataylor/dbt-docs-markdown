@@ -1,6 +1,6 @@
 # About dbt versions
 
-dbt is available in multiple distributions: the dbt Fusion engine (Rust-based, proprietary), dbt Core v2 (Rust-based, open-source), and dbt Core v1 (Python-based, open-source). dbt Core v1 follows [semantic versioning](https://semver.org/) for the 1.x series; dbt Core v2 and the dbt Fusion engine use the 2.x series. This page explains how versioning works for local dbt installations.
+dbt is available in multiple distributions: the dbt Fusion engine (Rust-based, proprietary), dbt Core v2 (Rust-based, open-source), and dbt Core v1 (Python-based, open-source). dbt Core v1 follows [semantic versioning](https://semver.org/) for the 1.x series; dbt Core v2 and the dbt Fusion engine use the 2.x series. This page explains how versioning works for self-hosted dbt installations.
 
 If you're using the dbt platform (including the dbt CLI), you don't need to manage dbt versions yourself. [Release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) automatically keep you up to date and provide early access to new features.
 
@@ -157,4 +157,4 @@ While a minor version is officially supported:
 
 Upgrade to new patch versions as soon as they're available. Upgrade to new minor versions when you're ready because you can only get some features and fixes on the latest minor version.
 
-dbt makes all versions available as prereleases before the final release. For minor versions, we aim to release one or more betas 4+ weeks before the final release so you can try new features and share feedback. Release candidates are available about two weeks before the final release for testing in production-like environments. Refer to the [`dbt-fusion` milestones](https://github.com/dbt-labs/dbt-fusion/milestones) or [`dbt-core` milestones](https://github.com/dbt-labs/dbt-core/milestones) for details.
+dbt makes all versions available as prereleases before the final release. For minor versions, we aim to release one or more betas 4+ weeks before the final release so you can try new features and share feedback. Release candidates are available about two weeks before the final release for testing in production-like environments. Refer to the [`dbt-core` milestones](https://github.com/dbt-labs/dbt-core/milestones) for details.

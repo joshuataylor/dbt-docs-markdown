@@ -30,6 +30,10 @@ Search table...
 
 ## Fusion and dbt Core v2 features[​](#fusion-and-dbt-core-v2-features "Direct link to Fusion and dbt Core v2 features")
 
+Feature availability
+
+Fusion is in preview, and dbt Core v2 is in alpha. As these products move toward general availability, features may evolve and registration requirements may change. For more information, refer to [Product lifecycles](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md).
+
 dbt Core v2 and Fusion represent the next evolution of the classic dbt Core toolset, with performance enhancements and powerful new features. dbt Core v2 includes everything available in dbt Core v1.x, plus the speed and power of Fusion. Level up your development by [installing the dbt Fusion engine](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
 
 To access the full set of features, register with your email address or sign in to your dbt platform account using `dbt login`. The following table shows which features are available to all users and which require registration:
@@ -45,7 +49,6 @@ To access the full set of features, register with your email address or sign in 
 | Full LSP                                               | -                       | -                       | ✅                              |
 | Query cache                                            | -                       | -                       | ✅                              |
 | dbt docs v2 (full)                                     | -                       | -                       | ✅                              |
-| dbt Mesh                                               | -                       | -                       | ✅                              |
 | Auto-deferral                                          | -                       | -                       | ✅                              |
 | Compare changes                                        | -                       | -                       | ✅                              |
 | Precise column-level lineage artifact generation       | -                       | -                       | ✅                              |
@@ -58,7 +61,7 @@ Search table...
 
 ## dbt VS Code extension features[​](#dbt-vs-code-extension-features "Direct link to dbt VS Code extension features")
 
-The dbt VS Code extension gives you a powerful set of features to level up your local development workflows. To access the full set, register with your email address or sign in with your dbt platform account. The following table shows which features are available to all users and which require registration:
+The dbt VS Code extension gives you a powerful set of features to level up your development workflows. To access the full set, register with your email address or sign in with your dbt platform account. The following table shows which features are available to all users and which require registration:
 
 | Feature                                                          | Available to all | Available to registered users |
 | ---------------------------------------------------------------- | ---------------- | ----------------------------- |

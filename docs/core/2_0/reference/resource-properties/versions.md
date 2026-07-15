@@ -166,7 +166,7 @@ Each other version has declared a modification from the top-level property:
 
 * Follow a consistent naming convention for model versions and aliases.
 * Use `defined_in` and `alias` only if you have good reason.
-* Use the [`latest_version_pointer`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) config to automatically create a view pointing to the latest version of your model. Enable it per model or globally with the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#latest-version-pointer-for-versioned-models) flag in `dbt_project.yml`.
+* Use the [`latest_version_pointer`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) config to automatically create a view pointing to the latest version of your model. Enable it per model or globally with the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag in `dbt_project.yml`.
 
 ### Detecting breaking changes[​](#detecting-breaking-changes "Direct link to Detecting breaking changes")
 

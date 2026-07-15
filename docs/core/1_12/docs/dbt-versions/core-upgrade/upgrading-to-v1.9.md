@@ -20,7 +20,7 @@ Features and functionality new in dbt v1.9.
 
 info
 
-If you use a custom microbatch macro, set the [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy) behavior flag in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
+If you use a custom microbatch macro, set the [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) behavior flag in your `dbt_project.yml` to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
 
 Incremental models are, and have always been, a *performance optimization* — for datasets that are too large to be dropped and recreated from scratch every time you do a `dbt run`. Learn more about [incremental models](https://docs.getdbt.com/docs/build/incremental-models-overview.md).
 
@@ -84,13 +84,13 @@ dbt Core v1.9 has a handful of new flags for [managing changes to legacy behavi
 
 You can read more about each of these behavior changes in the following links:
 
-* (Introduced, disabled by default) [`state_modified_compare_more_unrendered_values`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#source-definitions-for-statemodified). Set to `true` to persist `unrendered_config` during model parsing and `unrendered_database`/`unrendered_schema` during source parsing, then compare on unrendered values during `state:modified` checks. This reduces false positives from environment-aware logic, but requires rebuilding your state directory; without a rebuild, `state:modified` may select nodes with Jinja in YAML configs that haven't actually changed.
-* (Introduced, disabled by default) [`skip_nodes_if_on_run_start_fails` project config flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#failures-in-on-run-start-hooks). If the flag is set and **any** `on-run-start` hook fails, mark all selected nodes as skipped.
+* (Introduced, disabled by default) [`state_modified_compare_more_unrendered_values`](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md). Set to `true` to persist `unrendered_config` during model parsing and `unrendered_database`/`unrendered_schema` during source parsing, then compare on unrendered values during `state:modified` checks. This reduces false positives from environment-aware logic, but requires rebuilding your state directory; without a rebuild, `state:modified` may select nodes with Jinja in YAML configs that haven't actually changed.
+* (Introduced, disabled by default) [`skip_nodes_if_on_run_start_fails` project config flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md). If the flag is set and **any** `on-run-start` hook fails, mark all selected nodes as skipped.
   <!-- -->
   * `on-run-start/end` hooks are **always** run, regardless of whether they passed or failed last time.
 
-- (Introduced, disabled by default) [`require_nested_cumulative_type_params`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#cumulative-metrics). If the flag is set to `true`, users will receive an error instead of a warning if they're not properly formatting cumulative metrics using the new [`cumulative_type_params`](https://docs.getdbt.com/docs/build/cumulative.md#parameters) nesting.
-- (Introduced, disabled by default) [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#custom-microbatch-strategy). Set to `true` if you use a custom microbatch macro to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
+- (Introduced, disabled by default) [`require_nested_cumulative_type_params`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md). If the flag is set to `true`, users will receive an error instead of a warning if they're not properly formatting cumulative metrics using the new [`cumulative_type_params`](https://docs.getdbt.com/docs/build/cumulative.md#parameters) nesting.
+- (Introduced, disabled by default) [`require_batched_execution_for_custom_microbatch_strategy`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md). Set to `true` if you use a custom microbatch macro to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
 
 ## Adapter-specific features and functionalities[​](#adapter-specific-features-and-functionalities "Direct link to Adapter-specific features and functionalities")
 

@@ -4,7 +4,7 @@ The dbt platform natively supports developing using a command line interface (CL
 
 CLI compatibility
 
-The dbt CLI is a dbt platform tool available to users on any [plan](https://www.getdbt.com/pricing). It is intended for use only with the dbt platform and may conflict with local installations of the dbt Core or dbt Fusion engine CLIs. Refer to the [FAQs](#faqs) for more information.
+The dbt CLI is a dbt platform tool available to users on any [plan](https://www.getdbt.com/pricing). It is intended for use only with the dbt platform and may conflict with self-hosted installations of the dbt Core or dbt Fusion engine CLIs. Refer to the [FAQs](#faqs) for more information.
 
 dbt commands run against the platform's infrastructure and benefit from:
 
@@ -25,7 +25,7 @@ The dbt CLI is available in all [deployment regions](https://docs.getdbt.com/doc
 
 Refer to the [FAQs](#faqs) for more information about managing multiple dbt CLI tools and creating an alias.
 
-Using the dbt platform CLI for local development with Fusion?
+Using the dbt platform CLI for hybrid development with Fusion?
 
 See the [Hybrid development with dbt platform and Fusion](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
 
@@ -295,7 +295,7 @@ To work around this limitation, use the [Studio IDE](https://docs.getdbt.com/doc
 * **Validate in a tight loop**: Every proposed change compiles and runs against your warehouse, catching issues before they reach production.
 * **Navigate with full project context**: Traverse the [DAG](https://docs.getdbt.com/docs/explore/explore-projects.md), surface downstream impact, and flag affected models, tests, and metrics before acting.
 
-For data practitioners working locally, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) to get started.
+For data practitioners working with a self-hosted installation, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) to get started.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 

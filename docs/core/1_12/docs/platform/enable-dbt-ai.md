@@ -1,4 +1,4 @@
-# Get started in dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Enable AI features in dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Enable AI features in dbt platform to speed up your development and focus on delivering quality data.
 
@@ -9,6 +9,16 @@ You can control AI features in dbt platform for dbt Wizard and dbt Copilot in yo
 
 Both experiences are controlled by a single AI toggle in **Account settings**.
 
+ What's the difference between dbt Wizard and dbt Copilot?
+
+info
+
+dbt Wizard is the new and recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
+
+dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
+
+Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Must have a [on Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
@@ -16,36 +26,9 @@ Both experiences are controlled by a single AI toggle in **Account settings**.
   * Certain features like [natural prompts in Canvas](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md) are only available on Enterprise and Enterprise+ plans.
 * Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 * Opt-in to AI features by following the steps in the next section in your **Account settings**.
+* Use a supported AI provider
 
-## Enable AI features[​](#enable-ai-features "Direct link to Enable AI features")
-
-To opt in to AI features, a dbt admin can follow these steps:
-
-1. Navigate to **Account settings** in the navigation menu.
-2. Under **Settings**, confirm the account you're enabling.
-3. Click **Edit** in the top right corner.
-4. Enable the **Enable account access to AI features** option.
-5. Click **Save**. You should now have AI features enabled for use.
-
-Note: To disable (only after enabled), repeat steps 1 to 3, toggle off in step 4, and repeat step 5.
-
-## Try your first prompt[​](#try-your-first-prompt "Direct link to Try your first prompt")
-
-After AI features are enabled, open dbt Wizard from the left sidebar in the dbt platform. You can use it from the home tab for an agent-native workflow, or from Studio IDE when you want to work alongside the file editor.
-
-Try a prompt such as:
-
-* `summarize what this project does`
-* `which models in this project have no tests?`
-* `add not_null and unique tests to the primary key of stg_customers`
-
-Use the home tab to investigate, generate, review diffs, and run validations. Use Studio IDE when you want direct file control with the editor, console, and file explorer.
-
-## Next steps[​](#next-steps "Direct link to Next steps")
-
-* [dbt Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md)
+ See the full list of supported AI providers
 
 ## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
 
@@ -67,7 +50,7 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 #### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
@@ -80,19 +63,21 @@ dbt Copilot supports different AI providers, including bring your own key (BYOK)
 
 Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported for dbt Copilot.
 
- What's the difference between dbt Wizard and dbt Copilot?
+## Enable AI features[​](#enable-ai-features "Direct link to Enable AI features")
 
-info
+To opt in to AI features, a dbt admin can follow these steps:
 
-dbt Wizard is the new and recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
+1. Navigate to **Account settings** in the navigation menu.
+2. Under **Settings**, confirm the account you're enabling.
+3. Click **Edit** in the top right corner.
+4. Enable the **Enable account access to AI features** option.
+5. Click **Save**. You should now have AI features enabled for use.
 
-dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
-
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Note: To disable (only after enabled), repeat steps 1 to 3, toggle off in step 4, and repeat step 5.
 
 ## Configure AI provider [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#configure-ai-provider- "Direct link to configure-ai-provider-")
 
-Once AI features have been [enabled](#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
+Once AI features have been [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
 
 \* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
 
@@ -109,7 +94,7 @@ To configure your AI provider for dbt Wizard:
 * Azure AI Foundry
 * Anthropic
 
-**Managed\* by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
@@ -153,7 +138,7 @@ Supported formats include:
 
 [![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
 
-**Managed\* by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select **dbt Labs** from the list to use dbt Labs' managed\* Anthropic key.
 2. Click **Save**.
@@ -168,7 +153,7 @@ Embedding limitations
 
 When using an Anthropic API key, dbt continues to use the dbt Labs-managed OpenAI key for embeddings in `text_to_sql` MCP tools, since Anthropic doesn't natively provide embeddings.
 
-### dbt Copilot[​](#dbt-copilot-1 "Direct link to dbt Copilot")
+### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
 
 To configure your AI provider for dbt Copilot:
 
@@ -222,6 +207,26 @@ Supported formats include:
 
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled.
+
+To bring your own key instead of using dbt Labs' managed infrastructure, refer to [Configure BYOK for dbt Wizard in dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md).
+
+## Try your first prompt[​](#try-your-first-prompt "Direct link to Try your first prompt")
+
+After AI features are enabled, open dbt Wizard from the left sidebar in the dbt platform. You can use it from the home tab for an agent-native workflow, or from Studio IDE when you want to work alongside the file editor.
+
+Try a prompt such as:
+
+* `summarize what this project does`
+* `which models in this project have no tests?`
+* `add not_null and unique tests to the primary key of stg_customers`
+
+Use the home tab to investigate, generate, review diffs, and run validations. Use Studio IDE when you want direct file control with the editor, console, and file explorer.
+
+## Related docs[​](#related-docs "Direct link to Related docs")
+
+* [dbt Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
+* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md)
 
 *dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
 

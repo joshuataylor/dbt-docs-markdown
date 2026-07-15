@@ -1,4 +1,4 @@
-# About Fusion local installation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# About self-hosted Fusion installation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 <!-- -->
 
@@ -46,10 +46,6 @@ Before installing Fusion, ensure that you:
 
   * Username / Password
   * IAM profile
-
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
 
    Snowflake
 

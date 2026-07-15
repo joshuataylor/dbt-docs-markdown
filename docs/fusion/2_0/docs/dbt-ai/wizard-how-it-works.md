@@ -137,7 +137,7 @@ The dbt MCP server reads its connection settings — such as `DBT_HOST`, `DBT_TO
 
 If dbt Wizard can't reach the server, confirm these values are set, then restart `wizard` so it picks up the changes.
 
-For the full list of variables and an example `.env` file, refer to [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) and the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+For the full list of variables and an example `.env` file, refer to [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) and the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
 
 ### Deferral and state[​](#deferral-and-state "Direct link to Deferral and state")
 
@@ -218,7 +218,7 @@ Each CLI session is saved locally. This is separate from platform conversations,
 
 * [dbt Wizard overview](https://docs.getdbt.com/docs/platform/wizard-overview.md)
 * [dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
+* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
 * [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
 * [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
 * [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)

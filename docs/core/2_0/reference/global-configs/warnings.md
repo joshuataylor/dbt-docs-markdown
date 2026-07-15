@@ -31,6 +31,8 @@ Warnings that should be treated as errors can be specified through the `error` p
 * [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
+Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
+
 In the dbt Fusion engine, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`).
 
 Runtime messages show both, but `warn_error_options` only accepts the *name*. Use the event name, Fusion-native name, or a supported group (`all`, `*`). Numeric codes aren't accepted and will cause an error.

@@ -67,7 +67,7 @@ When enabled by an admin, dbt Wizard is available to users with a dbt [developer
 
 For dbt Wizard CLI, bring your own API key or credentials for a supported provider using [BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md): OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, or Snowflake Cortex (preview). Install and configure the CLI on your local machine. BYOK means any token costs will be billed directly by whichever provider you choose.
 
-Refer to [Quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) for more information.
+Refer to [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) for more information.
 
  Is dbt Wizard available for all deployment types?
 

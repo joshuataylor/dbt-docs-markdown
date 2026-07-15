@@ -4,7 +4,7 @@ Use dbt login to authenticate once and unlock gated features across dbt tools.
 
 info
 
-Available in dbt v1.12 and v2.0 and later.
+Available in dbt v2.0 and later.
 
 Run `dbt login` from the command line to unlock advanced dbt features. It'll open browser-based authentication where you can sign in to your existing dbt platform account or create a free one — no credit card required!
 
@@ -12,10 +12,10 @@ Run [`dbt login status`](#dbt-login-status) to view your current authentication 
 
 ## When to use dbt login[​](#when-to-use-dbt-login "Direct link to When to use dbt login")
 
-`dbt login` is an interactive, browser-based sign-in flow for local development on macOS, Linux, and Windows. Use `dbt login` to unlock advanced features including:
+`dbt login` is an interactive, browser-based sign-in flow for development on macOS, Linux, and Windows. Use `dbt login` to unlock advanced features including:
 
 * advanced features in the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md?version=2.0#how-dbt-login-works-with-dbt-state)
+* [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#setting-up-dbt-state) in supported versions
 * advanced features in v2.0 CLI
 
 Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
@@ -30,15 +30,13 @@ This 14-day trial applies to the dbt VS Code extension only. It's separate from 
 
 A free dbt platform account keeps advanced features working after your trial ends and carries your access across all your dbt tools — the CLI, the VS Code extension, and dbt State — so you only log in once. No credit card required.
 
-Run `dbt login` to create a free account, or log in to an existing one. Logging in is simply how dbt confirms your access to advanced features in local development.
+Run `dbt login` to create a free account, or log in to an existing one. Logging in is simply how dbt confirms your access to advanced features in your local development environment.
 
 Note that this is separate from [dbt platform user license types](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=2.0\&name=Fusion) (such as Developer or Analyst), which controls what you can do *inside* dbt platform.
 
 Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md#dbt-vs-code-extension-features) for the full list of features and their availability.
 
-## `dbt login` with dbt State[​](#dbt-login-with-dbt-state "Direct link to dbt-login-with-dbt-state")
-
-For dbt State-specific login behavior (platform vs standalone sign-in paths, local prompts, and `user_settings.yml` behavior), refer to [`dbt login` with dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#dbt-login-with-dbt-state).
+<!-- -->
 
 ## Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
 

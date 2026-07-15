@@ -2,7 +2,7 @@
 
 Move from Claude Code to dbt Wizard while keeping your project conventions.
 
-dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with the [Quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -88,7 +88,7 @@ And if your conventions aren't applied, check:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
+* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
 * [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
 * [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
 * [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)

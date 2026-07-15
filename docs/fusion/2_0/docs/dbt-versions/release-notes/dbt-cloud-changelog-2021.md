@@ -137,7 +137,7 @@ We shipped a resizable folder pane in the Studio IDE, and we're hearing great th
 
 ## dbt Cloud v1.1.29 (June 23, 2021)[​](#dbt-cloud-v1129-june-23-2021 "Direct link to dbt Cloud v1.1.29 (June 23, 2021)")
 
-We're heads down working on a handful of new features that we're going to share at the end of this month. The finish line is in sight. In the meantime, check out our latest release candidates for dbt Core. The biggest changes are better tests, providing consistency, configurability, and persistence. Additionally, we've refactored partial parsing and introduced an experimental parser; both are set to off by default.
+We're heads down working on a handful of new features that we're going to share at the end of this month. The finish line is in sight. In the meantime, check out our latest release candidates for dbt Core. The biggest changes are better tests, providing consistency, configurability, and persistence.
 
 #### New products and features[​](#new-products-and-features-8 "Direct link to New products and features")
 

@@ -10,7 +10,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-The following BYOK instructions on this page apply to the CLI only. dbt platform uses a separate [account-level integration](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md).
+The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md).
 
 The "key" in BYOK is whatever credential your chosen provider uses to authenticate API requests — an API key for OpenAI or Anthropic, a bearer token for AWS Bedrock, or a token/PAT for Snowflake Cortex. When you configure a provider with that credential, dbt Wizard calls the provider's API directly using it, so:
 
@@ -37,7 +37,7 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) integrations in account settings.
+* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 ## Configure a provider[​](#configure-a-provider "Direct link to Configure a provider")

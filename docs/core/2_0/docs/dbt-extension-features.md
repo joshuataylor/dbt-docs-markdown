@@ -8,7 +8,7 @@ Most dbt VS Code extension features are available to all users for 14 days. Afte
 
 Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
 
-In dbt v1.12, 2.0, and later, authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), so your login state is shared across various dbt tools like dbt VS Code extension and dbt State.\`\`\`
+In dbt v2.0 and later, authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), so your login state is shared across dbt tools like the dbt VS Code extension and, in supported versions, dbt State.
 
 ## Lightning-fast parse times[​](#lightning-fast-parse-times "Direct link to Lightning-fast parse times")
 

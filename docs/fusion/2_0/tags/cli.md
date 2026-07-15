@@ -1,3 +1,3 @@
-## [Get started with the dbt Wizard local CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
+## [Getting started with the terminal](https://docs.getdbt.com/guides/terminal-guide.md)
 
-Install the dbt Wizard local CLI, complete first-run onboarding, and send your first prompt from the terminal.
+A short intro to the terminal for dbt users — learn how to open it, navigate folders, and run your first dbt commands.

@@ -43,10 +43,6 @@ To use Fusion in your dbt project you must:
   * Username / Password
   * IAM profile
 
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
-
    Snowflake
 
   * Username / Password

@@ -55,7 +55,7 @@ Learn more with the [quickstart for dbt Core](https://docs.getdbt.com/guides/duc
 You can use dbt in different ways depending on your needs:
 
 * Using the [dbt platform](#dbt-platform) (recommended for most users)
-* [Locally from your command line or code editor](#dbt-local-development)
+* [Locally from your command line or code editor with self-hosted installations](#dbt-local-development)
 * [With dbt Wizard](#dbt-wizard) for agentic governed data development in dbt All options support using the dbt Fusion engine or dbt Core engine.
 
 ### dbt platform[​](#dbt-platform "Direct link to dbt platform")
@@ -76,7 +76,7 @@ You can learn about plans and pricing on [www.getdbt.com](https://www.getdbt.com
 
 Use the dbt framework and develop dbt projects from your command line or code editor:
 
-* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines the dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
+* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines the dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running self-hosted dbt without a dbt platform project. *Recommended for self-hosted development.*
 * [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) — The dbt Fusion engine from the command line, but doesn't include LSP features.
 * [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line.
 * [Install dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — The open-source, Python-based CLI that uses the dbt Core v1 engine. Doesn't include LSP features.

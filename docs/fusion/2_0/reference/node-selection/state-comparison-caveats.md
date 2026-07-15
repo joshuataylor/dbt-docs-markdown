@@ -67,7 +67,7 @@ To prevent the `manifest.json` from being overwritten before dbt reads it for ch
 
 ### False positives[​](#false-positives "Direct link to False positives")
 
-To reduce false positives during `state:modified` selection due to env-aware logic, you can set the `state_modified_compare_more_unrendered_values` [behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#source-definitions-for-statemodified) to `true`.
+To reduce false positives during `state:modified` selection due to env-aware logic, you can set the `state_modified_compare_more_unrendered_values` [behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md) to `true`.
 
 You need to build the state directory using dbt v1.9 or higher, or [the dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), and you need to set `state_modified_compare_more_unrendered_values` to `true` within your dbt\_project.yml.
 

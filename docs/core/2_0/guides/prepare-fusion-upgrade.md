@@ -57,10 +57,6 @@ To follow the steps in this guide, you must meet the following prerequisites:
   * Username / Password
   * IAM profile
 
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
-
    Snowflake
 
   * Username / Password

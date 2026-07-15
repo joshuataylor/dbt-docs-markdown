@@ -7,13 +7,15 @@ Claude is an AI assistant from Anthropic with two primary interfaces:
 
 Both interfaces can connect to either:
 
-* Local dbt MCP server (runs on your machine, supports CLI commands like `dbt run`)
+* Self-hosted dbt MCP server (runs on your machine, supports CLI commands like `dbt run`)
 * Remote dbt MCP server (HTTP, no install, consumption-focused).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You use Claude for AI or agentic work
-* For OAuth (local or remote), use your [access URL with a static subdomain](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+* For OAuth (self-hosted or remote), use your [access URL with a static subdomain](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+  <!-- -->
+  * Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
 
 Static subdomains required
 
@@ -23,13 +25,13 @@ Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.c
 
 [Claude Desktop](https://claude.ai/download) reads MCP servers from `claude_desktop_config.json`. Open it from **Settings → Developer → Edit Config**.
 
-### Set up with local dbt MCP server[​](#desktop-local "Direct link to Set up with local dbt MCP server")
+### Set up with self-hosted dbt MCP server[​](#desktop-local "Direct link to Set up with self-hosted dbt MCP server")
 
 For a fast first install, you can download the prebuilt `.mcpb` file; for more control, edit the JSON directly.
 
 tip
 
-You don't need to clone the dbt-mcp repository — for local setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
+You don't need to clone the dbt-mcp repository — for self-hosted setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
 
 #### Quick install with the .mcpb file[​](#quick-install-with-the-mcpb-file "Direct link to Quick install with the .mcpb file")
 
@@ -53,7 +55,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
 4. Add your server configuration under `mcpServers`. Choose the option that fits your use case:
 
-    Local MCP with OAuth[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+    Self-hosted MCP with OAuth[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
 
@@ -62,7 +64,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
    * dbt platform only
    * dbt platform + CLI
 
-   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without local CLI commands.
+   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
    When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -80,7 +82,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
    }
    ```
 
-   **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring local dbt installation.
+   **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -104,9 +106,9 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
-    Local MCP (CLI only)
+    Self-hosted MCP (CLI only)
 
-   Local configuration for users who only want to use dbt commands with dbt Core or Fusion
+   Self-hosted configuration for users who only want to use dbt commands with dbt Core or Fusion
 
    ```json
    {
@@ -128,7 +130,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
    * **DBT\_PROJECT\_DIR**: Full path to the folder containing your `dbt_project.yml` file
    * **DBT\_PATH**: Find by running `which dbt` in Terminal (macOS/Linux) or `where dbt` (Windows) in Powershell
 
-    Local MCP with .env
+    Self-hosted MCP with .env
 
    Advanced configuration for users who need custom [environment variables](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
 
@@ -177,15 +179,15 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
 5. Save the file and restart Claude Desktop. You'll see an MCP server indicator in the bottom-right corner of the conversation input box.
 
-For more configuration options (env vars, service tokens, tool-access controls), refer to [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+For more configuration options (env vars, service tokens, tool-access controls), refer to [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
 
 ### Set up with remote dbt MCP server[​](#desktop-remote "Direct link to Set up with remote dbt MCP server")
 
-The remote dbt MCP server runs in dbt platform — no `uvx` or local install needed. Claude Desktop connects to it over HTTP.
+The remote dbt MCP server runs in dbt platform — no `uvx` or other installations needed. Claude Desktop connects to it over HTTP.
 
 info
 
-Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
+Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.
 
 Get your MCP URL first — you'll need it for both auth methods:
 
@@ -202,7 +204,7 @@ Then follow the tab that matches your auth method:
 * OAuth (remote)
 * Token-based
 
-*OAuth is in private beta for Enterprise and Enterprise+ accounts.*
+*Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
 **Before you connect**
 
@@ -270,13 +272,13 @@ Use token-based auth when your client doesn't yet support OAuth for HTTP MCP ser
 
 [Claude Code](https://www.anthropic.com/claude-code) reads MCP servers from `.mcp.json` at the root of your project (the repository root for your workspace). If you already configured the dbt MCP server for another client, you can reuse the same JSON shape here — you don't need a second, separate registration.
 
-### Set up with local dbt MCP server[​](#code-local "Direct link to Set up with local dbt MCP server")
+### Set up with self-hosted dbt MCP server[​](#code-local "Direct link to Set up with self-hosted dbt MCP server")
 
 tip
 
-You don't need to clone the dbt-mcp repository — for local setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
+You don't need to clone the dbt-mcp repository — for self-hosted setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
 
-1. Follow [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) to choose your auth pattern:
+1. Follow [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) to choose your auth pattern:
 
    * OAuth with the dbt platform
    * [CLI only](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#cli-only)
@@ -284,7 +286,7 @@ You don't need to clone the dbt-mcp repository — for local setups, install [uv
 
 2. Create `.mcp.json` at the project root and add a `dbt` entry under the top-level `mcpServers` key. Pick the option that fits your use case:
 
-    Local MCP with OAuth[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+    Self-hosted MCP with OAuth[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
 
@@ -293,7 +295,7 @@ You don't need to clone the dbt-mcp repository — for local setups, install [uv
    * dbt platform only
    * dbt platform + CLI
 
-   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without local CLI commands.
+   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
    When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -311,7 +313,7 @@ You don't need to clone the dbt-mcp repository — for local setups, install [uv
    }
    ```
 
-   **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring local dbt installation.
+   **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -335,9 +337,9 @@ You don't need to clone the dbt-mcp repository — for local setups, install [uv
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication.
 
-    Local MCP (CLI only)
+    Self-hosted MCP (CLI only)
 
-   Local configuration for users who only want to use dbt commands with dbt Core or Fusion
+   Self-hosted configuration for users who only want to use dbt commands with dbt Core or Fusion
 
    ```json
    {
@@ -359,7 +361,7 @@ You don't need to clone the dbt-mcp repository — for local setups, install [uv
    * **DBT\_PROJECT\_DIR**: Full path to the folder containing your `dbt_project.yml` file
    * **DBT\_PATH**: Find by running `which dbt` in Terminal (macOS/Linux) or `where dbt` (Windows) in Powershell
 
-    Local MCP with .env
+    Self-hosted MCP with .env
 
    Advanced configuration for users who need custom [environment variables](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
 
@@ -416,7 +418,7 @@ Claude Code can connect to the remote dbt MCP server over HTTP — same JSON sha
 
 info
 
-Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
+Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.
 
 1. Open `.mcp.json` at the root of your project (create it if it doesn't exist).
 
@@ -435,7 +437,7 @@ Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
    * OAuth (remote)
    * Token-based
 
-   *OAuth is in private beta for Enterprise and Enterprise+ accounts.*
+   *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
    **Before you connect**
 
@@ -502,10 +504,10 @@ Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
 
  Claude Desktop errors
 
-Claude Desktop may return errors such as `Error: spawn uvx ENOENT` or `Could not connect to MCP server dbt-mcp`. For local setups, replace the `command` with the full path to `uvx`: run `which uvx` on Unix systems or `where uvx` on Windows and paste the full path into your JSON (for example, `"command": "/the/full/path/to/uvx"`). For remote setups, double-check that `url` ends in `/api/ai/v1/mcp/` and that your `Authorization` header is `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`.
+Claude Desktop may return errors such as `Error: spawn uvx ENOENT` or `Could not connect to MCP server dbt-mcp`. For self-hosted installations, replace the `command` with the full path to `uvx`: run `which uvx` on Unix systems or `where uvx` on Windows and paste the full path into your JSON (for example, `"command": "/the/full/path/to/uvx"`). For remote setups, double-check that `url` ends in `/api/ai/v1/mcp/` and that your `Authorization` header is `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`.
 
 Logs are at `~/Library/Logs/Claude` (macOS) or `%APPDATA%\Claude\logs` (Windows).
 
  Claude Code
 
-If the dbt MCP server doesn't connect, confirm `.mcp.json` is at the *project root* and that the `dbt` block matches one of the examples on this page. For local setups, apply the same full-path fix for `uvx` (and for `--env-file` paths). For remote setups, verify the URL and headers, and try the equivalent `claude mcp add --transport http` command to compare.
+If the dbt MCP server doesn't connect, confirm `.mcp.json` is at the *project root* and that the `dbt` block matches one of the examples on this page. For self-hosted installations, apply the same full-path fix for `uvx` (and for `--env-file` paths). For remote setups, verify the URL and headers, and try the equivalent `claude mcp add --transport http` command to compare.

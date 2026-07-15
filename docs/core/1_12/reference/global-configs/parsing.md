@@ -78,7 +78,3 @@ Search table...
 Plugin authors
 
 `get_nodes` plugin hooks are not supported when `--use-v2-parser` is enabled.
-
-### Experimental parser[​](#experimental-parser "Direct link to Experimental parser")
-
-Not currently in use.

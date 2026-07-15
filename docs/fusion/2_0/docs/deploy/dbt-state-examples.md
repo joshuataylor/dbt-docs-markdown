@@ -1,6 +1,6 @@
 # Example usage for dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-These examples use the Jaffle Shop project to show side-by-side comparisons of CLI output with and without dbt State enabled.
+These examples use the Jaffle Shop project to show side-by-side comparisons of CLI output with and without dbt State enabled. To enable dbt State, follow the steps in [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
 
 The following examples use this [Jaffle Shop project](https://github.com/dbt-labs/jaffle-shop) DAG as a reference. You can refer to it to understand the model lineage for each scenario.
 
@@ -21,13 +21,17 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
+<br />
+
+Every skipped model is a model you didn't pay to rebuild. dbt State tracks what's changed and skips the rest — reducing run time and warehouse costs.
+
 ## Initial run in empty schema[​](#initial-run-in-empty-schema "Direct link to Initial run in empty schema")
 
 ```shell
 dbt run --target prod
 ```
 
-You get the same result with and without dbt State.
+With no prior state to compare against, dbt builds every model from scratch. dbt State captures metadata from this run for future comparisons.
 
 * Without dbt State
 * With dbt State
@@ -117,6 +121,8 @@ Done. PASS=12 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=12
 ```shell
 dbt run --target prod
 ```
+
+For each model, dbt State compares the current logic and upstream data against the previous run. If nothing has changed, dbt State skips the build or clones the result from another environment.
 
 With dbt State enabled, the six table models are reused — nothing changed, so there's nothing to rebuild. The six staging views still rebuild because they use `select *`. [Learn why views with `select *` are always rebuilt.](https://docs.getdbt.com/faqs/State/views-rebuilt.md)
 

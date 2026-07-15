@@ -112,9 +112,9 @@ dbt Core v1.8 has introduced flags for [managing changes to legacy behaviors](ht
 
 You can read more about each of these behavior changes in the following links:
 
-* (Mature, enabled by default) [Require explicit package overrides for builtin materializations](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#require_explicit_package_overrides_for_builtin_materializations)
-* (Introduced, disabled by default) [Require resource names without spaces](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#require_resource_names_without_spaces)
-* (Introduced, disabled by default) [Run project hooks (`on-run-*`) in the `dbt source freshness` command](https://docs.getdbt.com/reference/global-configs/behavior-flag-maturity.md#source_freshness_run_project_hooks)
+* (Mature, enabled by default) [Require explicit package overrides for builtin materializations](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md)
+* (Introduced, disabled by default) [Require resource names without spaces](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)
+* (Introduced, disabled by default) [Run project hooks (`on-run-*`) in the `dbt source freshness` command](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)
 
 ## Quick hits[​](#quick-hits "Direct link to Quick hits")
 

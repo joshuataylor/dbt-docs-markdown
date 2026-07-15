@@ -2,7 +2,17 @@
 
 Use dbt Copilot to build visual models in the Canvas with natural language prompts.
 
-dbt Copilot seamlessly integrates with [Canvas](https://docs.getdbt.com/docs/platform/canvas.md), a drag-and-drop experience that helps you with build your visual models using natural language prompts. Before you begin, make sure you can access [Canvas](https://docs.getdbt.com/docs/platform/use-canvas.md#access-canvas).
+dbt Copilot integrates with [Canvas](https://docs.getdbt.com/docs/platform/canvas.md), a drag-and-drop experience for building visual models with natural language prompts.
+
+## Considerations[​](#considerations "Direct link to Considerations")
+
+dbt Copilot in Canvas has setup and AI requirements. Confirm the following before you begin.
+
+* dbt Copilot is available in the Canvas interface. Refer to [About Canvas](https://docs.getdbt.com/docs/platform/canvas.md) for setup instructions.
+* Natural language prompts in Canvas are available on [Enterprise and Enterprise+](https://www.getdbt.com/pricing) plans.
+* dbt Copilot requires AI features to be [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account. AI terms and conditions apply. Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#does-dbt-labs-have-terms-in-place) for details.
+* Your development environment must be on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+* Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md) for dbt Copilot usage limits.
 
 <!-- -->
 

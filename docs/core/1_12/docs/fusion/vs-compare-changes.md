@@ -1,4 +1,4 @@
-# Compare changes in local development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Compare changes during development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 info
 
@@ -24,7 +24,7 @@ Compare changes in development is available for models only. Support for seeds, 
 To use the dbt VS Code extension compare changes feature, you need:
 
 * A Fusion [supported data platform](https://docs.getdbt.com/docs/fusion/supported-features.md?version=2.0#requirements) (BigQuery, Databricks, Redshift, or Snowflake)
-* The [dbt VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md) installed with a local installation of the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/get-started-fusion.md)
+* The [dbt VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md) installed with a self-hosted installation of the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/get-started-fusion.md)
 * A baseline state to compare your changes against — refer to [How it works](#how-it-works) to choose between [automatic deferral](https://docs.getdbt.com/docs/platform/about-defer.md) or [`manifest.json`](https://docs.getdbt.com/reference/artifacts/manifest-json.md?version=2.0) manual setup.
 
 **Sign-in and authentication**
@@ -80,7 +80,7 @@ The **Compare** tab displays the changes to the data's primary keys, rows, and c
 
  Are queries run on behalf of the developer?
 
-Yes. All comparison queries in development run using your local development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
+Yes. All comparison queries in development run using your development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
 
  Is this using my warehouse credits?
 
@@ -94,7 +94,7 @@ If the model hasn’t been built yet in your deferred environment, the compariso
 
  How is this different from Advanced CI compare changes?
 
-The dbt VS Code extension's compare changes feature applies only to your local development environment. If you're looking to compare changes between your production environment and the pull request's latest commit, check out [Advanced CI compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes).
+The dbt VS Code extension's compare changes feature applies only to your self-hosted dbt development environment. If you're looking to compare changes between your production environment and the pull request's latest commit, check out [Advanced CI compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes).
 
 | Aspect              | In development (compare changes)                                              | In deployment (Advanced CI)                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |

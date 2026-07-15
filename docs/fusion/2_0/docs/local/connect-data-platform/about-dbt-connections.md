@@ -13,7 +13,6 @@ The dbt Fusion engine includes built-in support for:
 * [Databricks](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md) [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Amazon Redshift](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Google BigQuery](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [Salesforce Data 360](https://docs.getdbt.com/docs/local/connect-data-platform/salesforce-data-cloud-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Apache Spark](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 

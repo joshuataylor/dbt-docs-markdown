@@ -1,6 +1,6 @@
 # Fusion readiness checklist
 
-The dbt Fusion engine is here and is now generally available for dbt platform projects on Snowflake! We currently offer it as a [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md#the-dbt-platform) for all other supported adapters. Even if we haven't enabled it for your account, you can still start preparing your projects for upgrade. Use this checklist to ensure a smooth upgrade once Fusion becomes available. If this is all new to you, first [learn about Fusion](https://docs.getdbt.com/docs/fusion.md), its current state, and the features available.
+The dbt Fusion engine is here and is now generally available for dbt platform projects on Snowflake! We currently offer it as a [preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md) for all other supported adapters. Even if we haven't enabled it for your account, you can still start preparing your projects for upgrade. Use this checklist to ensure a smooth upgrade once Fusion becomes available. If this is all new to you, first [learn about Fusion](https://docs.getdbt.com/docs/fusion.md), its current state, and the features available.
 
 <!-- -->
 

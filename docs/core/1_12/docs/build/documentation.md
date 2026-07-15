@@ -68,7 +68,7 @@ Are there any example dbt documentation sites?
 Yes!
 
 * **Quickstart Tutorial:** You can build your own example dbt project in the [quickstart guide](https://docs.getdbt.com/docs/get-started-dbt.md)
-* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store ([main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using duckdb](https://github.com/dbt-labs/jaffle_shop_duckdb))
+* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store. Refer to [Clone the Jaffle Shop sample project](https://docs.getdbt.com/guides/clone-jaffle-shop.md) for clone instructions, or view the [main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using DuckDB](https://github.com/dbt-labs/jaffle_shop_duckdb) on GitHub.
 * **GitLab:** Gitlab's internal dbt project is open source and is a great example of how to use dbt at scale ([source code](https://gitlab.com/gitlab-com/content-sites/handbook/blob/main/content/handbook/enterprise-data/platform/dbt-guide.md))
 * **dummy-dbt:** A containerized dbt project that populates the Sakila database in Postgres and populates dbt seeds, models, snapshots, and tests. The project can be used for testing and experimentation purposes ([source code](https://github.com/gmyrianthous/dbt-dummy))
 * **Google Analytics 4:** A demonstration project that transforms the Google Analytics 4 BigQuery exports to various models ([source code](https://github.com/stacktonic-com/stacktonic-dbt-example-project), [docs](https://stacktonic.com/article/google-analytics-big-query-and-dbt-a-dbt-example-project))
@@ -176,7 +176,7 @@ In this example, a docs block named `table_events` is defined with some descript
 
 <!-- -->
 
-Place docs blocks in `.md` files. You can also use Jinja-style extensions (`.md.j2`, `.md.jinja`, `.md.jinja2`), however these require setting [`allow_jinja_file_extensions: true`](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#jinja-file-extensions) in your `dbt_project.yml`. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
+Place docs blocks in `.md` files. You can also use Jinja-style extensions (`.md.j2`, `.md.jinja`, `.md.jinja2`), however these require setting [`allow_jinja_file_extensions: true`](https://docs.getdbt.com/reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) in your `dbt_project.yml`. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
 
 By default, dbt searches in all resource paths for docs blocks (for example, the combined list of [model-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md), [seed-paths](https://docs.getdbt.com/reference/project-configs/seed-paths.md), [analysis-paths](https://docs.getdbt.com/reference/project-configs/analysis-paths.md), [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md), [macro-paths](https://docs.getdbt.com/reference/project-configs/macro-paths.md), and [snapshot-paths](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md)). You can adjust this behavior using the [docs-paths](https://docs.getdbt.com/reference/project-configs/docs-paths.md) config.
 

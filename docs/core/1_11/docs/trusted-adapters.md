@@ -295,16 +295,6 @@ dbt platformdbt CoreFusion
 
 dbt Core
 
-![](/img/icons/salesforce.svg)
-
-#### Salesforce Data 360
-
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/salesforce-data-cloud-setup.md)
-
-<br />
-
-Fusion
-
 ![](/img/icons/singlestore.svg)
 
 #### SingleStore

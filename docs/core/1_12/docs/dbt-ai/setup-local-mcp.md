@@ -1,10 +1,10 @@
-# Set up local MCP
+# Set up self-hosted MCP
 
-[The local dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs locally on your machine and supports dbt Core, dbt Fusion engine, and dbt CLI. You can use it with or without a dbt platform account.
+[The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt CLI. You can use it with or without a dbt platform account.
 
 No clone required
 
-You don't need to clone the dbt-mcp repository to use local MCP. [Install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp`, which fetches and runs dbt-mcp for you.
+You don't need to clone the dbt-mcp repository to use self-hosted MCP. [Install uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp`, which fetches and runs dbt-mcp for you.
 
 If you'd like to contribute to dbt MCP, clone the [dbt-mcp repo](https://github.com/dbt-labs/dbt-mcp) and contribute away!
 
@@ -63,7 +63,7 @@ The `execute_sql` tool does *not* work with service tokens. You must use a [Pers
 
 Choose the setup method that best fits your workflow:
 
-### OAuth authentication with dbt platform [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#oauth-authentication-with-dbt-platform- "Direct link to oauth-authentication-with-dbt-platform-")
+### OAuth authentication with dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#oauth-authentication-with-dbt-platform- "Direct link to oauth-authentication-with-dbt-platform-")
 
 This method uses OAuth to authenticate with your dbt platform account. It's the simplest setup and doesn't require managing tokens or environment variables manually.
 
@@ -76,7 +76,7 @@ Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.c
 * dbt platform only
 * dbt platform + CLI
 
-This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without local CLI commands.
+This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
 When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -94,7 +94,7 @@ When you use only the dbt platform, the CLI tools are automatically disabled. Yo
 }
 ```
 
-**Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring local dbt installation.
+**Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
 This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -128,7 +128,7 @@ After completing OAuth setup, skip to [Test your configuration](#optional-test-y
 
 This option runs the MCP server locally and connects it to your local dbt project using `DBT_PROJECT_DIR` and `DBT_PATH`.
 
-If you're using the dbt Core or Fusion CLI and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up local MCP with just your dbt project information.
+If you're using the dbt Core or Fusion CLI and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up self-hosted MCP with just your dbt project information.
 
 Add this configuration to your MCP client (refer to the specific [integration guides](#set-up-your-mcp-client) for exact file locations):
 
@@ -346,7 +346,7 @@ You don't need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`.
 
 ## Environment variables[​](#environment-variables "Direct link to Environment variables")
 
-The local dbt-mcp supports all flavors of dbt, including dbt Core and dbt Fusion engine.
+The self-hosted dbt-mcp supports all flavors of dbt, including dbt Core and dbt Fusion engine.
 
 | Environment variable | Required | Description                                                                                                                             | Example                                                                          |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
@@ -550,7 +550,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 1. Close your MCP client (Claude Desktop, Cursor, VS Code, etc.).
 
-2. Delete the local dbt MCP config files:
+2. Delete the self-hosted dbt MCP config files:
 
    <!-- -->
 

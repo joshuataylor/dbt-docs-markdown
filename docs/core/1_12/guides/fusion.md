@@ -83,10 +83,6 @@ To take full advantage of this guide, you'll need to meet the following prerequi
   * Username / Password
   * IAM profile
 
-   Salesforce Data 360
-
-  * JSON Web Token (JWT) bearer authentication
-
    Snowflake
 
   * Username / Password

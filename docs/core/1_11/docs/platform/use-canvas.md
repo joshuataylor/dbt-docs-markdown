@@ -1,6 +1,6 @@
 # Edit and create dbt models [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-Access and use Canvas to create or edit dbt models through a visual, drag-and-drop experience. Use the built-in AI for custom code generation in your development experience.
+Access and use Canvas to create or edit dbt models through a visual, drag-and-drop experience.
 
 ## Access Canvas[​](#access-canvas "Direct link to Access Canvas")
 
@@ -39,8 +39,6 @@ Before using Canvas, you should:
 * Verify your Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
 * Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
-
-* Have the AI-powered features toggle [enabled](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#enable-dbt-wizard) for dbt Copilot.
 
 ## Create a model[​](#create-a-model "Direct link to Create a model")
 

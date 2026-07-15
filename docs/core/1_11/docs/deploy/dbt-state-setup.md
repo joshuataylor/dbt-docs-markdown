@@ -6,37 +6,17 @@ This page walks you through setting up dbt State across dbt Core, dbt platform, 
 
 Before you set up dbt State, make sure you have:
 
-* A supported dbt version or experience. dbt State is:
-
-  <!-- -->
-
-  * Natively available in dbt platform, dbt Core v1.12 and later, and the dbt Fusion engine
-  * Available as a plugin for dbt Core v1.7 through v1.11
-
-* A supported data platform. dbt State currently supports Snowflake, Databricks, BigQuery, and Redshift
-
-* A supported dbt State account type. dbt State requires authentication through either:
-
-  <!-- -->
-
-  * A current dbt platform account\*
-  * A standalone dbt State account that's independent of dbt platform
-
-  <!-- -->
-
-  To learn more about which account option is right for you, refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md#signing-up-for-dbt-state). For pricing information, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
-
-\*dbt State isn't available to users on [legacy Starter](https://docs.getdbt.com/docs/platform/billing.md#legacy-plans) plans. If you're on a legacy Starter plan, [reach out to dbt Labs](https://www.getdbt.com/contact) for guidance.
-
-More data warehouses are on the roadmap. If you're using another data warehouse and are interested in dbt State, [let us know](https://www.getdbt.com/contact).
+* **A supported dbt version**: dbt State is natively available in dbt platform and the dbt Fusion engine. It's also available as a plugin for dbt Core v1.7–1.12.
+* **A supported data platform**: Snowflake, Databricks, BigQuery, or Redshift. More warehouses are on the roadmap.
+* **A dbt State account**: Authenticate through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). Refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md#signing-up-for-dbt-state) to choose the right option, and [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](https://docs.getdbt.com/docs/platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
 
 ## Setting up dbt State[​](#setting-up-dbt-state "Direct link to Setting up dbt State")
 
 Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt.
 
 * dbt platform
-* dbt Core 1.12 / Fusion
-* dbt Core 1.7–1.11
+* Fusion
+* dbt Core 1.7–1.12
 
 #### Enabling dbt State on your account[​](#enabling-dbt-state-on-your-account "Direct link to Enabling dbt State on your account")
 
@@ -46,11 +26,11 @@ To enable dbt State:
 
 1. In your dbt platform account, click your account name in the lower-left corner above your username and click **Account settings**.
 
-2. Under **Settings**, go to **State**.
+2. Under **Settings**, go to **Billing & Usage** > **Usage-based features**.
 
-3. Click **Start your 30-day free trial**.
+3. Under the **State** tab, click **Start free trial**.
 
-   Once started, you cannot pause the trial. After 30 days, you must add a credit card or enterprise contract to continue. For more information, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+   Once started, you cannot pause the trial. After 30 days, you must add a credit card or enterprise contract to continue. For information about how the trial period and billing work, refer to [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md).
 
    Extended trial for state-aware orchestration users
 
@@ -62,84 +42,42 @@ To enable dbt State:
 
 6. Click **Enable dbt State**.
 
-   [![dbt State page](/img/docs/dbt-state/dbt_state_enable.png?v=2 "dbt State page")](#)dbt State page
-
-7. In the **Upgrade to dbt State** page, select the jobs to enable dbt State for. You can either enable:
+7. Select the jobs to enable dbt State for. You can either enable:
 
    * **By environment**: Enables dbt State on all existing jobs within the selected environment at once. New deploy jobs created in that environment will have dbt State enabled automatically.
-   * **By specific jobs**: Enables dbt State on individual jobs. To enable it on additional jobs later, refer to [Enabling dbt State on individual jobs](#enabling-dbt-state-on-individual-jobs).
+   * **By specific jobs**: Enables dbt State on individual jobs. To enable it on additional jobs later, refer to [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
 
 8. Click **Enable dbt State**.
 
-The **dbt State** page where you started your trial in step 3 displays how many days remain in your trial period alongside the following monthly data:
+The **State** tab of the **Usage-based features** page where you started your trial in step 3 displays how many days remain in your trial period alongside the following monthly data:
 
-* Number of models reused
+* Models reused this month
 * Total % build reduction
 * Total query run time reduction
 
-#### Enabling dbt State on individual jobs[​](#enabling-dbt-state-on-individual-jobs "Direct link to Enabling dbt State on individual jobs")
+You can also find the following charts on this page:
 
-To enable dbt State on any job — whether already existing or newly created in an environment that doesn't have dbt State enabled:
+* **DATT** — Shows the unique target tables processed by dbt State. Daily active target tables (DATTs) are the billable units for dbt State.
+* **Asset builds** — Shows all model builds for the month, including models reused and cloned.
 
-1. Go to **Orchestration** > **Jobs**.
-2. Select the job you want dbt State enabled for.
-3. Click **Settings** > **Edit**.
-4. In the **Execution settings** section of the job, select **Enable dbt State**.
-5. Click **Save**.
+For next steps, see:
 
-#### Enabling dbt State in Studio[​](#enabling-dbt-state-in-studio "Direct link to Enabling dbt State in Studio")
+* [Enable dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md)
+* [Enable dbt State in Studio](https://docs.getdbt.com/docs/deploy/dbt-state-enable-studio.md)
 
-When you enable dbt State in the Studio IDE, it runs automatically on every `dbt run` or `dbt build` during development — skipping unchanged models and reusing production results so your runs are *faster*.
-
-You can [turn it on for your development environment](#enabling-dbt-state-on-a-development-environment) so it's the default for everyone, or you can [override that setting just for your own account](#overriding-dbt-state-setting-per-user).
-
-**Prerequisite**: An account admin must [enable dbt State](#enabling-dbt-state-on-your-account) before you can use it.
-
-##### Enabling dbt State on a development environment[​](#enabling-dbt-state-on-a-development-environment "Direct link to Enabling dbt State on a development environment")
-
-Enabling dbt State on your development environment turns it on for everyone using the Studio IDE, unless they override it for their own account.
-
-1. Go to **Orchestration** > **Environments** and select your development environment.
-2. Click **Settings** > **Edit**.
-3. In the **dbt State** section, select **Enable dbt State**.
-4. Click **Save**.
-5. In the pop-up box, click **Continue** if you want to go ahead with the changes and restart all IDE sessions for this project.
-
-##### Overriding dbt State setting per user[​](#overriding-dbt-state-setting-per-user "Direct link to Overriding dbt State setting per user")
-
-You can override the development environment's dbt State setting for your own account without affecting other users. Because the user-level setting takes precedence over the environment-level setting, you can turn dbt State on for yourself before enabling it for your whole team, or turn it off when it's enabled at the environment level.
-
-1. Click your account name in the lower-left corner and select **Account settings**.
-
-2. Under **Your profile**, go to **Credentials**.
-
-3. Select the project you want to enable dbt State for.
-
-4. Click **Edit** and go to the **User development settings** section.
-
-5. Under **dbt State**, select one of the following options:
-
-   <!-- -->
-
-   * **Enabled**: Enables dbt State for your user regardless of the development environment setting.
-   * **Disabled**: Disables dbt State for your user regardless of the development environment setting.
-   * **Reset (inherit from development)**: Only appears after you've saved an **Enabled** or **Disabled** override. Clears your override and falls back to the dbt State setting configured on your development environment.
-
-6. Click **Save**.
-
-1) Navigate to your project:
+1. Navigate to your project:
 
    ```bash
    cd to/your/project
    ```
 
-2) Log in to dbt State:
+2. Log in to dbt State:
 
    ```bash
    dbt login
    ```
 
-   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](#dbt-login-with-dbt-state).
+   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state).
 
 dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
@@ -152,7 +90,7 @@ flags:
   manage_state: true
 ```
 
-dbt State is available as a plugin for older versions of dbt Core (v1.7+). If you are running on dbt Core v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](https://docs.getdbt.com/docs/dbt-versions.md#latest-releases).
+dbt State is available as a plugin for dbt Core v1.7+. If you are running on dbt Core v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](https://docs.getdbt.com/docs/dbt-versions.md#latest-releases).
 
 To install the plugin:
 
@@ -179,49 +117,7 @@ dbt State is now enabled. The first time you execute `dbt run` or `dbt build`, a
 
 The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt Core versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
 
-## How `dbt login` works with dbt State[​](#how-dbt-login-works-with-dbt-state "Direct link to how-dbt-login-works-with-dbt-state")
-
-When [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is enabled, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md#dbt-login---help) is used for dbt State authentication. Running this command opens a browser window with two options:
-
-* **Log in with your dbt platform account**: Enter your email address. If you don't have a dbt platform account, dbt Labs will create a standalone [Developer account](https://www.getdbt.com/pricing) for you. After that, you'll authorize access between the CLI and dbt platform.
-* **Log in without a dbt platform account**: Redirects you to the dbt State standalone app at [app.state.dbt.com](https://app.state.dbt.com), where a token is created and stored locally at `~/.dbt/auth_state.json`. dbt State is automatically enabled locally after account creation.
-
-In the dbt Fusion engine, after platform authentication, the CLI checks your configuration and responds accordingly:
-
-| dbt State enabled in dbt platform? | dbt State enabled locally? | Behavior                                                                                                                                                                        |
-| ---------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅                                 | ✅                         | dbt State is ready to use.                                                                                                                                                      |
-| ✅                                 | ❌                         | CLI prompts you to enable dbt State locally. If you confirm, [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md) is updated automatically. |
-| ❌                                 | ✅                         | CLI prompts you to enable dbt State in your platform account.                                                                                                                   |
-
-In dbt Core v1.12, `dbt login` automatically sets `manage_state: true` in [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md) after platform authentication, unless you've explicitly disabled it. Whether dbt State is enabled in your dbt platform account is checked when you run a dbt command — if it's not enabled, dbt will fail on your next `dbt run` or `dbt build`. To resolve this, refer to [User settings](https://docs.getdbt.com/reference/global-configs/user-settings.md#when-dbt-state-is-enabled-locally-but-not-in-dbt-platform).
-
-dbt State works out of the box, but the following steps can help you get more value from it.
-
-* [Configuring lag tolerance](#configuring-lag-tolerance)
-* [Configuring deferral](#configuring-deferral)
-
-## Configuring lag tolerance[​](#configuring-lag-tolerance "Direct link to Configuring lag tolerance")
-
-Lag tolerance allows you to set a tolerance level for older data at the project, environment, or model level. We recommend starting with the following Jinja expression, which tolerates older data locally and requires fresher data in production. As you get a better feel for where adjustments make sense, you can tune individual models.
-
-dbt\_project.yml
-
-```yaml
-models:
-  +state:
-    lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
-```
-
-In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
-
-For more details, refer to the [`lag_tolerance` config reference](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md).
-
-## Configuring deferral[​](#configuring-deferral "Direct link to Configuring deferral")
-
-By default, dbt State defers to your production environment. To customize which environment dbt defers to, use the [`defer_to_target`](https://docs.getdbt.com/reference/resource-configs/defer-to-target.md) config.
-
-For the full list of available configs, see [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md).
+To see how dbt State optimizes your runs, refer to [dbt State usage examples](https://docs.getdbt.com/docs/deploy/dbt-state-examples.md).
 
 ## Inviting team members[​](#inviting-team-members "Direct link to Inviting team members")
 
@@ -238,11 +134,11 @@ If dbt State is behaving unexpectedly, you can prepend your run command with the
 DBT_ENGINE_MANAGE_STATE=1 dbt run --target dev --select "customers"
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Next steps[​](#next-steps "Direct link to Next steps")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Non-interactive environment setup](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
-* [Configuring deferral](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
 * [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
-* [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage)
+* [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state)
+* [Configure deferral](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md)
+* [Configure lag tolerance](https://docs.getdbt.com/docs/deploy/dbt-state-lag-tolerance.md)
+* [Non-interactive environment setup](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
+* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)

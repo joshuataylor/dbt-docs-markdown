@@ -1,6 +1,6 @@
-# Set up the remote MCP server [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up remote MCP
 
-The remote MCP server uses an HTTP connection and makes calls to dbt-mcp hosted on the cloud-based dbt platform. This setup requires no local installation and is ideal for data consumption use cases.
+The remote MCP server uses an HTTP connection and makes calls to dbt-mcp hosted on the cloud-based dbt platform. The self-hosted installation is not required for remote MCP use and is ideal for data consumption use cases.
 
 [![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")](#)Remote dbt MCP server architecture
 
@@ -11,24 +11,24 @@ The remote MCP server is the ideal choice when:
 * You don't want to or are restricted from installing additional software (`uvx`, `dbt-mcp`) on your system.
 * Your primary use case is *consumption-based*: querying metrics, exploring metadata, viewing lineage.
 * You need access to Semantic Layer, Administrative, and Discovery APIs without maintaining a local dbt project.
-* You don't need to execute CLI commands. Remote MCP does not support local CLI commands (`dbt run`, `dbt build`, `dbt test`, and more). If you need to execute dbt commands, use the [local MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) instead.
+* You don't need to execute CLI commands. Remote MCP does not support self-hosted dbt CLI commands (`dbt run`, `dbt build`, `dbt test`, and more). If you need to execute dbt commands, use the [self-hosted MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) instead.
 
 info
 
-Only [`text_to_sql`](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md) consumes dbt dbt Wizard credits. Other MCP tools do not.
+Only [`text_to_sql`](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
-When your account runs out of dbt Wizard credits, the remote MCP server blocks all tools that run through it, even tools invoked from a local MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP (like SQL and remote Fusion tools).
+When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
 
-If you reach your dbt dbt Wizard usage limit, all tools will be blocked until your dbt Wizard credits reset. If you need help, please reach out to your account manager.
+If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
 ## Choose your auth method[​](#choose-your-auth-method "Direct link to Choose your auth method")
 
-| If you need...                                                               | Use...                                                                            |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Fastest first-time setup and your MCP client supports OAuth for HTTP servers | **OAuth (remote)**<br />Available in beta for Enterprise and Enterprise+ accounts |
-| `execute_sql` with a PAT, automation, or clients without OAuth               | **Token-based** (PAT or service token)                                            |
-| Shared or team setup                                                         | **Service token** (token-based)                                                   |
-| CI or automation                                                             | **Service token** (token-based)                                                   |
+| If you need...                                                               | Use...                                                                                             |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Fastest first-time setup and your MCP client supports OAuth for HTTP servers | **OAuth (remote)**<br />Available in public beta for Starter, Enterprise, and Enterprise+ accounts |
+| `execute_sql` with a PAT, automation, shared setup, or clients without OAuth | **Token-based** (PAT or service token)                                                             |
+| Shared or team setup                                                         | **Service token** (token-based)                                                                    |
+| CI or automation                                                             | **Service token** (token-based)                                                                    |
 
 Search table...
 
@@ -40,18 +40,14 @@ Search table...
 
 The `execute_sql` tool does **not** work with service tokens. You must use a [Personal Access Token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) in the `Authorization` header when using this tool.
 
-## OAuth (remote MCP) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#oauth-remote-mcp "Direct link to oauth-remote-mcp")
+## OAuth (remote MCP) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#oauth-remote-mcp "Direct link to oauth-remote-mcp")
 
 OAuth lets you connect to the remote MCP server without copying API tokens into your MCP client, when your client supports OAuth for HTTP-based MCP servers.
-
-info
-
-Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * [AI features](https://docs.getdbt.com/docs/cloud/enable-dbt-copilot) enabled for your account.
-* Enterprise or Enterprise+ account
+* Starter, Enterprise, or Enterprise+ account
 * An MCP client that supports OAuth for remote (HTTP) MCP servers.
 * Your **MCP URL** from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform. Check out the next section [MCP URL](#mcp-url) for more information.
 
@@ -96,13 +92,13 @@ For the full list of scopes and what each one allows, see [Scopes and consent](h
 
 ### Limitations[​](#limitations "Direct link to Limitations")
 
-* Remote MCP doesn't support local dbt CLI commands (like `dbt run`, `dbt build`, `dbt test`, and more) or local project access; use the [local MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) for those workflows.
+* Remote MCP doesn't support self-hosted dbt CLI commands (like `dbt run`, `dbt build`, `dbt test`, and more) or local project access; use the [self-hosted MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) for those workflows.
 
-For client-specific steps, see [Integrate Claude with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md), [Integrate Cursor with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md), or [Integrate VS Code with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md).
+For client-specific steps, see [Integrate Claude with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md), [Integrate Cursor with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md), [INtegrate Snowflake Cortex with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-snowflake-cortex.md), or [Integrate VS Code with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md).
 
 ## Token-based authentication[​](#token-based-authentication "Direct link to Token-based authentication")
 
-Token-based authentication lets you connect to the remote MCP server without OAuth, when your client doesn't support OAuth for HTTP-based MCP servers.
+Token-based authentication lets you connect to the remote MCP server without OAuth by passing a PAT or service token in your MCP client config. Use it when your client doesn't support OAuth for HTTP-based MCP servers, when you need a shared or CI setup, or when you need `execute_sql`, which requires a PAT.
 
 ### Setup instructions[​](#setup-instructions "Direct link to Setup instructions")
 
@@ -247,7 +243,7 @@ Header values like `x-dbt-prod-environment-id` and `x-dbt-user-id` expect numeri
 
 For other MCP clients (Codex, Windsurf, and so on), refer to your client's MCP configuration docs for the correct key format.
 
-For local MCP, configuration is done via environment variables; see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+For self-hosted MCP, configuration is done via environment variables; see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
@@ -256,3 +252,4 @@ Step-by-step client setup (including Cursor, VS Code, and Claude) is in:
 * [Integrate Cursor with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md)
 * [Integrate VS Code with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md)
 * [Integrate Claude with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md)
+* [Integrate Snowflake Cortex with MCP](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-snowflake-cortex.md)

@@ -1,8 +1,8 @@
 # MCP environment variables reference
 
-This page is a condensed reference for all environment variables used by the local dbt MCP server. For full detail on each variable (including examples), see [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+This page is a condensed reference for all environment variables used by the self-hosted dbt MCP server. For full detail on each variable (including examples), see [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
 
-## Local CLI[​](#local-cli "Direct link to Local CLI")
+## Self-hosted CLI[​](#self-hosted-cli "Direct link to Self-hosted CLI")
 
 These variables are required to use dbt commands through MCP.
 

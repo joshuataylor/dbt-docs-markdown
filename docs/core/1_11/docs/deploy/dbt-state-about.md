@@ -6,7 +6,7 @@ With dbt State, dbt first compares the logic and data of each node to previous b
 
 dbt State can reuse all node types that create relations in the database (such as models, snapshots, seeds) and data tests.
 
-dbt State works with dbt Core, the dbt platform, and dbt Fusion engine, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication either through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). For pricing details, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+dbt State works with dbt Core, the dbt platform, and dbt Fusion engine, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication either through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). For pricing details, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing/dbt-state-usage.md).
 
 ## Benefits[​](#benefits "Direct link to Benefits")
 
@@ -28,29 +28,13 @@ Without dbt State, every selected node rebuilds on every run regardless of wheth
 
 For the full list of available configs, see [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+ How dbt State decides whether to rebuild, clone, or reuse
 
-To use dbt State, you need:
+The following decision tree shows how dbt State chooses the most efficient valid action for each node.
 
-* A supported version of dbt.
+[![Decision tree showing how dbt State chooses whether to rebuild, clone, or reuse a node based on state bypasses, volatile SQL handling, execution hashes, freshness, schema matches, clone eligibility, and whether fresh upstream data can still be cloned from time travel or another schema](/img/docs/deploy/run-cache-decision-tree.png?v=2 "dbt State decision tree for rebuild, clone, and reuse")](#)dbt State decision tree for rebuild, clone, and reuse
 
-  <!-- -->
-
-  * Natively available for dbt Core v1.12+ and the dbt Fusion engine both in dbt platform and locally.
-  * Available as a plugin for older versions of dbt Core (1.7-1.11).
-
-* A supported data platform. dbt State currently supports Snowflake, Databricks, BigQuery, and Redshift
-
-* A supported dbt State account type, which you can learn more about in [Signing up for dbt State](#signing-up-for-dbt-state):
-
-  <!-- -->
-
-  * A current dbt platform account\*
-  * A standalone dbt State account
-
-\*dbt State isn't available to users on [legacy Starter](https://docs.getdbt.com/docs/platform/billing.md#legacy-plans) plans. If you're on a legacy Starter plan, [reach out to dbt Labs](https://www.getdbt.com/contact) for guidance.
-
-More data warehouses are on the roadmap. If you're using another data warehouse and are interested in dbt State, [let us know](https://www.getdbt.com/contact).
+The key idea is that dbt State only skips work when it can prove the existing object is sufficiently equivalent for the current run. If the SQL logic, relevant config, schema, or upstream freshness means the result might be different, dbt rebuilds instead.
 
 ## Signing up for dbt State[​](#signing-up-for-dbt-state "Direct link to Signing up for dbt State")
 
@@ -103,7 +87,14 @@ If you want to revert to the original dbt behavior and fully refresh the increme
 
 How is data stored in dbt State?
 
-dbt State sends last-modified timestamps and SQL statements to dbt Labs servers. SQL statements are hashed and then discarded, so dbt Labs cannot see the contents after hashing. These hashes are used to identify whether a statement has changed by comparing them on each run.
+dbt State sends the following metadata to dbt Labs servers:
+
+* **Last-modified timestamps**: Used to determine whether upstream data has changed since the last run
+* **SQL statement hashes**: SQL statements are processed to detect and classify changes, then hashed. Only the hash is persisted for future comparisons.
+
+No actual data from your warehouse is transmitted.
+
+The dbt State service runs in a single US multi-tenant (MT) instance. The service never connects to your data warehouse. No actual data from your warehouse is transmitted. The only connection is to your running dbt process (CLI or platform) in order to exchange the metadata described above. For data retention details, refer to the [dbt Labs privacy policy](https://www.getdbt.com/cloud/privacy-policy).
 
 Where does the metadata about last updated timestamp come from?
 
@@ -203,4 +194,5 @@ my_project:
 * [Non-interactive environment setup](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
 * [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
 * [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
-* [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage)
+* [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md)
+* [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing/dbt-state-usage.md)

@@ -1,4 +1,4 @@
-# Install dbt locally
+# Install dbt
 
 Get dbt running on your machine in a few minutes. Choose your path:
 
@@ -24,7 +24,7 @@ To upgrade to a newer version:
 python -m pip install --upgrade --pre dbt
 ```
 
- CDN installation for macOS and Linux
+ Standalone installation for macOS and Linux
 
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
@@ -46,7 +46,7 @@ note
 
 `dbtf system update` installs Fusion globally — it updates your `PATH` in `~/.zshrc` and creates a `dbtf` alias. To manage multiple versions or isolate your install, use separate shell profiles or virtual environments.
 
- CDN installation for Windows
+ Standalone installation for Windows
 
 ```powershell
 irm https://public.cdn.getdbt.com/fs/install/install.ps1 | iex
@@ -154,7 +154,7 @@ Fusion marks a significant update to dbt. While many of the workflows you've gro
 
 dbt Core v2 is in alpha
 
-dbt Core v2 is under active development and not recommended for production use. Features and APIs may change before the stable release. For stable local development, use Fusion.
+dbt Core v2 is under active development and not recommended for production use. Features and APIs may change before the stable release. For stable development, use Fusion.
 
 dbt Core v2 is the next major version of dbt Core, built on the dbt Fusion engine runtime. Install it with `pip`, same as v1, but target the v2 prerelease package.
 

@@ -58,8 +58,6 @@ Before using Canvas, you should:
 
 * Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
 
-* Have the AI-powered features toggle [enabled](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#enable-dbt-wizard) for dbt Copilot.
-
 Prerequisite for using the Jaffle Shop
 
 The examples in this guide use the [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) GitHub repo sample project. You can use your own data, but the Jaffle Shop offers a full-featured project useful for testing dbt features. Ask your dbt administrator about importing it to a project in your environment. They must also execute `dbt run` on the Jaffle Shop project in your `Production` environment before you begin, or you will be unable to reference the source models.

@@ -4,6 +4,8 @@ Self-managed deployments only
 
 This configuration applies to self-managed dbt deployments. If you're using the dbt platform, deferral is configured through your environment settings in the UI.
 
+`defer_to_target` is part of [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md), which manages model caching and deferral across environments.
+
 profiles.yml
 
 ```yaml

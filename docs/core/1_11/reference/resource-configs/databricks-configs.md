@@ -1333,6 +1333,8 @@ Note on streaming table query changes: there's currently no way for the adapter 
 
 To reprocess available source data with an updated query, run with `--full-refresh`.
 
+<!-- -->
+
 ## Setting table properties[​](#setting-table-properties "Direct link to Setting table properties")
 
 [Table properties](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html) can be set with your configuration for tables or views using `tblproperties`:

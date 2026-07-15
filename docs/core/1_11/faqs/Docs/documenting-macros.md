@@ -27,7 +27,7 @@ From dbt Core v1.10, you can opt into validating the arguments you define in mac
 * Raise a warning if documented argument names don't match the macro definition.
 * Raise a warning if `type` fields don't follow [supported formats](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
 
-Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flag-introduction.md#macro-argument-validation).
+Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md).
 
 ## Document a custom materialization[​](#document-a-custom-materialization "Direct link to Document a custom materialization")
 

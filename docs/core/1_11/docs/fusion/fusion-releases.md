@@ -34,7 +34,7 @@ Live data below is for local CLI channels
 
 The **Current versions** cards and full release list below pull the public Fusion manifest used for *local* installs (`dev`, `canary`, `latest`). You should use [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) for dbt platform planning.
 
-Updating local Fusion
+Updating your self-hosted Fusion installation
 
 The following commands apply only to *local* installations of Fusion. They don't affect which Fusion build your dbt platform environments use. Instead, you can set a [Fusion release track](https://github.com/docs/dbt-versions/dbt-release-tracks#fusion-release-tracks) per environment in dbt platform.
 
@@ -56,21 +56,21 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Dev
 
-[`v2.0.0-preview.197`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview197 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.200`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview200 "View this version in the dbt Fusion changelog")
 
-2026-07-01
+2026-07-13
 
 #### Canary
 
-[`v2.0.0-preview.196`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.199`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview199 "View this version in the dbt Fusion changelog")
 
-2026-06-30
+2026-07-10
 
 #### Latest
 
-[`v2.0.0-preview.193`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.199`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview199 "View this version in the dbt Fusion changelog")
 
-2026-06-25
+2026-07-13
 
 ### All releases
 
@@ -84,7 +84,7 @@ Showing
 
 <!-- -->
 
-156
+159
 
 <!-- -->
 
@@ -92,23 +92,41 @@ of
 
 <!-- -->
 
-156
+159
 
 <!-- -->
 
 releases
 
-[v2.0.0-preview.197](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview197 "View this release in the dbt Fusion changelog")GoodDev
+[v2.0.0-preview.200](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview200 "View this release in the dbt Fusion changelog")GoodDevnightly
 
-Released by: **mach-kernel**Jul 1, 2026, 06:27 PM
+Released by: **github-merge-queue\[bot]**&#x4A;ul 13, 2026, 07:04 PM
 
 Automated promotion
 
-[v2.0.0-preview.196](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this release in the dbt Fusion changelog")GoodDevCanary
+[v2.0.0-preview.199](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview199 "View this release in the dbt Fusion changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stable
 
-Released by: **aiguofer**Jun 30, 2026, 09:07 PM
+Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
 
-promote canary
+Automated ST snapshot
+
+[v2.0.0-preview.198](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview198 "View this release in the dbt Fusion changelog")GoodDev
+
+Released by: **kczimm**Jul 9, 2026, 09:36 PM
+
+Automated promotion
+
+[v2.0.0-preview.197](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview197 "View this release in the dbt Fusion changelog")GoodDevCanarynightly
+
+Released by: **akbog**Jul 2, 2026, 07:20 PM
+
+Planned promotion
+
+[v2.0.0-preview.196](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview196 "View this release in the dbt Fusion changelog")GoodDevCanaryLateststableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
+
+Released by: **TimKlense**Jul 9, 2026, 09:31 PM
+
+Automated ST snapshot
 
 [v2.0.0-preview.195](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview195 "View this release in the dbt Fusion changelog")GoodDev
 
@@ -116,15 +134,15 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystable
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extended
 
-Released by: **aiguofer**Jun 30, 2026, 09:07 PM
+Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
 
-promote 194 to stable
+Automated ST snapshot
 
-[v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stable
+[v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **johnchappelledbt**Jun 29, 2026, 06:55 PM
+Released by: **TimKlense**Jul 2, 2026, 09:26 PM
 
 Automated ST snapshot
 
@@ -164,9 +182,9 @@ Released by: **akbog**Jun 6, 2026, 02:06 AM
 
 Automated promotion
 
-[v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
+[v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallback
 
-Released by: **johnchappelledbt**Jun 29, 2026, 06:55 PM
+Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
 
 Automated ST snapshot
 
@@ -232,7 +250,7 @@ Automated ST promotion
 
 [v2.0.0-preview.175](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview175 "View this release in the dbt Fusion changelog")GoodDevCanaryLateststablest-thursday-stablest-monday-stablest-wednesday-stableST MondayextendedfallbacknightlyST WednesdayST Thursdayst-monday-extendedst-monday-fallbackst-wednesday-extendedst-wednesday-fallbackst-thursday-extendedst-thursday-fallback
 
-Released by: **johnchappelledbt**Jun 29, 2026, 06:55 PM
+Released by: **TimKlense**Jul 9, 2026, 09:31 PM
 
 Automated ST snapshot
 

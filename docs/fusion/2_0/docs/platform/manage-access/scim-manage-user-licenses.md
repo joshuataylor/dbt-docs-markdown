@@ -8,8 +8,8 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
  Toggle options per identity provider
 
-* **Okta:** Enable **Manage user licenses with SCIM** in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
-* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Manage user licenses with SCIM** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
 
 For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
@@ -23,7 +23,7 @@ Before you enable SCIM license mapping:
 
 ## Enable SCIM license mapping[​](#enable-scim-license-mapping "Direct link to Enable SCIM license mapping")
 
-To use license management using SCIM, go to your **Account settings** > **SSO & SCIM**. Under the **SCIM** section, enable **Manage user licenses with SCIM**. This setting enforces license type for a user based on their SCIM attribute and disable the license mapping and manual configuration set up in dbt.
+To manage user licenses with SCIM, go to **Account settings** > **SSO & SCIM**. Under the **SCIM** section, enable the **Ignore dbt license mapping** toggle. This setting enforces license type for a user based on their SCIM attribute and disables the license mapping and manual configuration set up in dbt.
 
 [![Enable SCIM managed user license distribution.](/img/docs/dbt-platform/access-control/scim-managed-licenses.png?v=2 "Enable SCIM managed user license distribution.")](#)Enable SCIM managed user license distribution.
 

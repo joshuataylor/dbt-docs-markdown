@@ -1,25 +1,34 @@
 # Connect dbt MCP server to dbt platform
 
-This quickstart uses the local MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs local dbt Core or Fusion CLI.
+This quickstart uses the self-hosted MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs self-hosted dbt Core or Fusion CLI.
 
-For local CLI only (with or without a dbt platform account), see [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) or [Run dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+For self-hosted CLI only (with or without a dbt platform account), see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) or [Run self-hosted dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
 
-To configure or disable specific tools, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md). Choose *OAuth* (available for Enterprise and Enterprise+ accounts) or *Tokens* (more control, better for shared setups).
+To configure or disable specific tools, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
+
 * A [dbt platform account](https://www.getdbt.com/signup)
-* If you're using OAuth, your account admin has to enable AI features on your dbt platform account. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+
+* For OAuth connections:
+
+  <!-- -->
+
+  * MCP OAuth is available for Starter, Enterprise, and Enterprise+ plans.
+  * An account admin has to enable AI features on your dbt platform account. Refer to [Enable AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
 
 ## Step 1: Choose your auth method and configure[​](#step-1-choose-your-auth-method-and-configure "Direct link to Step 1: Choose your auth method and configure")
 
 * OAuth
 * Tokens
 
-OAuth is the fastest setup for dbt platform Enterprise and Enterprise+ accounts — no tokens to copy or manage. A browser window opens to authenticate the first time you connect.
+*MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
-For OAuth *without* a local install, use the [remote MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md) (Enterprise and Enterprise+, private beta). If your client does not support OAuth or you need token-based access, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
+OAuth is the fastest setup for dbt platform accounts, no tokens to copy or manage. A browser window opens to authenticate the first time you connect.
+
+For OAuth *without* a self-hosted installation, use the [remote MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md). If your client does not support OAuth or you need token-based access, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
 
 Static subdomains required
 
@@ -98,7 +107,7 @@ claude mcp add dbt \
 Click a link below with Cursor open to auto-configure, then replace the placeholder with your Access URL:
 
 * [dbt platform only (OAuth)](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJZT1VSLUFDQ0VTUy1VUkwiLCJESVNBQkxFX0RCVF9DTEkiOiJ0cnVlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D) — platform features only, no CLI
-* [dbt platform + CLI (OAuth)](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJZT1VSLUFDQ0VTUy1VUkwiLCJEQlRfUFJPSkVDVF9ESVIiOiIvcGF0aC90by9wcm9qZWN0IiwiREJUX1BBVEgiOiJwYXRoL3RvL2RidC9leGVjdXRhYmxlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D) — platform features + local CLI commands
+* [dbt platform + CLI (OAuth)](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJZT1VSLUFDQ0VTUy1VUkwiLCJEQlRfUFJPSkVDVF9ESVIiOiIvcGF0aC90by9wcm9qZWN0IiwiREJUX1BBVEgiOiJwYXRoL3RvL2RidC9leGVjdXRhYmxlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D) — platform features + self-hosted dbt CLI commands
 
 After clicking, replace `YOUR-ACCESS-URL` with your actual Access URL (for example, `abc123.us1.dbt.com`) and save.
 
@@ -124,7 +133,7 @@ VS Code uses `"servers"`, not `"mcpServers"`
 
 Replace `YOUR-ACCESS-URL` with your Access URL (for example, `abc123.us1.dbt.com`) and save.
 
-#### Optional: Add local CLI commands[​](#optional-add-local-cli-commands "Direct link to Optional: Add local CLI commands")
+#### Optional: Add self-hosted dbt CLI commands[​](#optional-add-self-hosted-dbt-cli-commands "Direct link to Optional: Add self-hosted dbt CLI commands")
 
 To also run dbt CLI commands (`dbt run`, `dbt build`, `dbt test`, and more), add these two variables to your `env` block:
 
@@ -288,7 +297,7 @@ VS Code uses `"servers"`, not `"mcpServers"`
 
 4. Save `mcp.json` and restart VS Code.
 
- Optional: add local CLI commands
+ Optional: add self-hosted dbt CLI commands
 
 To also run dbt commands (`dbt run`, `dbt build`, `dbt test`, and more), add these two variables to your `env` block:
 
@@ -331,9 +340,9 @@ With the platform setup, your AI assistant can use:
 
 For the complete tool list, see [Available tools](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md).
 
-Looking for local CLI only?
+Looking for self-hosted dbt CLI only?
 
-If you only need to run dbt commands locally (with or without a dbt platform account), see [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md).
+If you only need to run dbt commands locally (with or without a dbt platform account), see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -382,7 +391,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 1. Close your MCP client (Claude Desktop, Cursor, VS Code, etc.).
 
-2. Delete the local dbt MCP config files:
+2. Delete the self-hosted dbt MCP config files:
 
    <!-- -->
 
@@ -483,6 +492,6 @@ For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.co
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* Run dbt commands locally: see [Run dbt locally](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md)
+* Run dbt commands locally: see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md)
 * Configure specific toolsets: see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md)
-* Understand toolset requirements: see [Set up local MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance)
+* Understand toolset requirements: see [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance)

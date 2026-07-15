@@ -2,7 +2,7 @@
 
 Requires Core CLI
 
-The `debug()` macro is only available when using dbt Core CLI in a local development environment. It's *not available* in dbt platform.
+The `debug()` macro is only available when using the self-hosted dbt Core CLI in a development environment. It's *not available* in dbt platform.
 
 Do not deploy code to production that uses the `debug` macro.
 
@@ -16,7 +16,7 @@ The `{{ debug() }}` macro will open an iPython debugger in the context of a comp
 This function requires:
 
 * Interactive terminal access with iPython debugger (`ipdb`) installed. Fusion doesn't provide a iPython (ipdb) debugger since its built on Rust. It instead outputs a non-interactive snapshot of the MiniJinja render context in the compiled code.
-* Local development environment running dbt Core CLI
+* Development environment running the self-hosted dbt Core CLI
 * `DBT_ENGINE_MACRO_DEBUGGING` environment variable set
 
 ## Usage[​](#usage "Direct link to Usage")
