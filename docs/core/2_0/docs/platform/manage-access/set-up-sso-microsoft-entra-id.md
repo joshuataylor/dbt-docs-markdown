@@ -150,7 +150,8 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 25. From dbt, click on your account name in the left side menu and select **Account settings**.
 26. Click **SSO & SCIM** from the menu.
-27. Click the **Edit** button and supply the following SSO details:
+27. Click **Get started** if SSO has not been configured, or **Edit** if it has already been set up.
+28. Supply the following SSO details:
 
 | Field             | Value                                                                                                                                                                                                                                                                      |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,7 +169,7 @@ Search table...
 
 [![Configuring Entra ID AD SSO in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-cloud-sso.png?v=2 "Configuring Entra ID AD SSO in dbt")](#)Configuring Entra ID AD SSO in dbt
 
-28. Click **Save** to complete setup for the Microsoft Entra ID SSO integration. From here, you can navigate to the login URL generated for your account's *slug* to test logging in with Entra ID.
+29. Click **Save** to complete setup for the Microsoft Entra ID SSO integration. From here, you can navigate to the login URL generated for your account's *slug* to test logging in with Entra ID.
 
 Logging in
 

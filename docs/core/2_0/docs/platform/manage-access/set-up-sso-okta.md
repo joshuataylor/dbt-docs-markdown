@@ -126,7 +126,9 @@ To complete setup, follow the steps below in dbt.
 
 ### Supplying credentials[​](#supplying-credentials "Direct link to Supplying credentials")
 
-First, navigate to the **Enterprise > Single Sign On** page under Account Settings. Next, click the **Edit** button and supply the following SSO details:
+1. Navigate to **Account settings** > **SSO & SCIM**.
+2. Click **Get started** if SSO has not been configured, or **Edit** if it has already been set up.
+3. Supply the following SSO details:
 
 | Field                         | Value                                                                                                                                                                                                                        |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -143,7 +145,7 @@ Search table...
 
 [![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")](#)Configuring the application in dbt
 
-21. Click **Save** to complete setup for the Okta integration. From here, you can navigate to the URL generated for your account's *slug* to test logging in with Okta. Additionally, users added the Okta app will be able to log in to dbt from Okta directly.
+4. Click **Save** to complete setup for the Okta integration. From here, you can navigate to the URL generated for your account's *slug* to test logging in with Okta. Additionally, users added the Okta app will be able to log in to dbt from Okta directly.
 
 Logging in
 

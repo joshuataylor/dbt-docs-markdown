@@ -552,9 +552,9 @@ Search table...
 
 To complete setup, follow the steps below in dbt:
 
-1. Navigate to the **Account Settings** and then click on **Single Sign On**.
+1. Navigate to **Account settings** > **SSO & SCIM**.
 
-2. Click **Edit** on the upper right corner.
+2. Click **Get started** if SSO has not been configured, or **Edit** if it has already been set up.
 
 3. Provide the following SSO details:
 

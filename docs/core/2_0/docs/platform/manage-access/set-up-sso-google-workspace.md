@@ -71,9 +71,11 @@ To complete setup, follow the steps below in the dbt application.
 
 ### Supply your OAuth Client ID and Client Secret[​](#supply-your-oauth-client-id-and-client-secret "Direct link to Supply your OAuth Client ID and Client Secret")
 
-1. Navigate to the **Enterprise > Single Sign On** page under **Account settings**.
+1. Navigate to **Account settings** > **SSO & SCIM**.
 
-2. Click the **Edit** button and supply the following SSO details:
+2. Click **Get started** if SSO has not been configured, or **Edit** if it has already been set up.
+
+3. Supply the following SSO details:
 
    * **Log in with**: GSuite
    * **Client ID**: Paste the Client ID generated in the steps above
@@ -82,9 +84,9 @@ To complete setup, follow the steps below in the dbt application.
 
    [![GSuite SSO Configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-config.png?v=2 "GSuite SSO Configuration")](#)GSuite SSO Configuration
 
-3. Click **Save & Authorize** to authorize your credentials. You should be dropped into the GSuite OAuth flow and prompted to log into dbt with your work email address. If authentication is successful, you will be redirected back to the dbt application.
+4. Click **Save & Authorize** to authorize your credentials. You should be dropped into the GSuite OAuth flow and prompted to log into dbt with your work email address. If authentication is successful, you will be redirected back to the dbt application.
 
-4. On the **Credentials** page, verify that a `groups` entry is present, and that it reflects the groups you are a member of in GSuite. If you do not see a `groups` entry in the IdP attribute list, consult the following Troubleshooting steps.
+5. On the **Credentials** page, verify that a `groups` entry is present, and that it reflects the groups you are a member of in GSuite. If you do not see a `groups` entry in the IdP attribute list, consult the following Troubleshooting steps.
 
    [![GSuite verify groups](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-verify.png?v=2 "GSuite verify groups")](#)GSuite verify groups
 
