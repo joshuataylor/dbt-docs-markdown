@@ -44,6 +44,8 @@ packages:
 
 * You can specify public third-party PyPI packages for your Python UDF with the optional `packages` config. The warehouse installs these packages when it creates the UDF, which lets your UDF use functionality from external Python libraries. For more information, refer to [Defining UDFs in dbt](https://docs.getdbt.com/docs/build/udfs.md#defining-udfs-in-dbt) and the [packages](https://docs.getdbt.com/reference/resource-configs/packages.md) config reference.
 
+* Python UDFs are now supported in Databricks, in addition to Snowflake and BigQuery. For Databricks, Python UDFs require [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/), and the `runtime_version` and `entry_point` configs are ignored. For more information, refer to [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md).
+
 ### `latest_version_pointer` for versioned models [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#latest_version_pointer-for-versioned-models- "Direct link to latest_version_pointer-for-versioned-models-")
 
 For versioned models, you can configure dbt to automatically create a pointer view named after a model's base name (for example, `dim_customers`) once the latest version materializes successfully. This lets you query the current version without maintaining a view manually.

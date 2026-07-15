@@ -69,6 +69,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 ## May 2026[​](#may-2026 "Direct link to May 2026")
 
+* **Enhancement:** Repository clone failures now surface a more actionable diagnostic message to help you resolve common issues faster. For guidance, refer to [Troubleshooting clone errors](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#troubleshooting-clone-errors).
 * **Fix:** The connection test failure message now prompts you to verify your connection details and confirm that your credentials have access to the data warehouse, rather than showing a generic failure message.
 * **Enhancement:** Users granted `user_credential_write` can access **Your profile** > **Credentials** without `develop_access` (including read-only users). Environment variable overrides and dbt version overrides still require `develop_access`. Refer to [Enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for more information.
 * **New:** The [Job creator permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#job-creator) is now available for Enterprise accounts. Assign it to users who need to create, edit, and run jobs within assigned projects and environments without access to edit environments or environment variables.
@@ -78,7 +79,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Fix:** When a job cannot clone its repository because no remote URL is configured, the error message now explains the most likely causes (an invalid Git remote URL, a Git provider outage, or a deprecated HTTPS connection) and directs you to verify the URL, confirm your provider is operational, and ensure the repository uses SSH with deploy keys before retrying.
 * **New:** The **Notification Manager** [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) is now available for Enterprise accounts. Assign it to users who need to manage Slack, Microsoft Teams, and email job notifications across all projects without requiring full Account Admin access.
 * **Beta**: [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md), available in public beta, shows estimated warehouse compute costs and run times for dbt projects and models in dbt platform, highlighting efficiency gains from [state-aware orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md). Refer to [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md) and [Explore cost data](https://docs.getdbt.com/docs/explore/explore-cost-data.md) to learn more.
-* **New:** Fusion release tracks are now being rolled out across across accounts in phases. Refer to [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md?version=2.0#fusion-release-tracks) for more information.
+* **New:** Fusion release tracks are now being rolled out across accounts in phases. Refer to [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md?version=2.0#fusion-release-tracks) for more information.
 * **Enhancement:** Commands run by
   <!-- -->
   and the [](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)now appear in the Studio IDE **Commands** tab with a

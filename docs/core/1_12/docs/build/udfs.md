@@ -10,7 +10,7 @@ Refer to [Function properties](https://docs.getdbt.com/reference/function-proper
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or dbt Core v1.11.
+* Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
 
 * Use one of the following adapters:
 
@@ -38,7 +38,7 @@ See the [Limitations](#limitations) section below for the full list of currently
 
 ## Defining UDFs in dbt[​](#defining-udfs-in-dbt "Direct link to Defining UDFs in dbt")
 
-You can define SQL, Python, and JavaScript (available in dbt Core v1.12+) UDFs in dbt. Python and JavaScript UDFs are supported in Snowflake and BigQuery only.
+You can define SQL, Python, and JavaScript (available in dbt Core v1.12+) UDFs in dbt. Python UDFs are supported in Snowflake, BigQuery, and Databricks ([Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/) required). JavaScript UDFs are supported in Snowflake and BigQuery.
 
 Follow these steps to define UDFs in dbt:
 
@@ -70,6 +70,21 @@ Follow these steps to define UDFs in dbt:
    def main(a_string):
        return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
    ```
+
+   For Databricks, the contents of the `.py` file become the UDF body verbatim, and Databricks evaluates that body directly instead of calling a named entry point. Write the body so its last statement is a top-level `return` that produces the result. Because of that top-level `return`, the Databricks source is a function *body*, not a runnable `.py` module. For example:
+
+   functions/is\_positive\_int.py
+
+   ```py
+   import re
+
+   def main(a_string):
+       return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
+
+   return main(a_string)
+   ```
+
+   **Note:** Python UDFs on Databricks require [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/).
 
    Define a JavaScript UDF in a JavaScript file.
 
@@ -110,7 +125,7 @@ Follow these steps to define UDFs in dbt:
          data_type: integer        # required
    ```
 
-   The following configs are required when defining a Python UDF:
+   The following configs are required when defining a Python UDF on Snowflake and BigQuery:
 
    * [`runtime_version`](https://docs.getdbt.com/reference/resource-configs/runtime-version.md) — Specify the Python version to run. Supported values are:
 
@@ -122,6 +137,8 @@ Follow these steps to define UDFs in dbt:
    * [`entry_point`](https://docs.getdbt.com/reference/resource-configs/entry-point.md) — Specify the Python function to be called.
 
    <br />
+
+   On Databricks, `runtime_version` and `entry_point` are accepted for cross-adapter compatibility but have no effect. Databricks manages the Python runtime internally and uses the function body directly, so dbt displays a warning if you set them.
 
    You can specify public third-party PyPI packages for your Python UDF with the optional `packages` config. List package names, such as `numpy` and `pandas`, and optionally pin versions, such as `pandas==1.5.0`. The warehouse installs these packages when it creates the UDF, so your UDF can use functionality from external Python libraries. On Snowflake, some packages are installed from the Anaconda repository, and you may need to [accept Anaconda's Terms of Service](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#using-third-party-packages-from-anaconda) before you can use them.
 
@@ -138,8 +155,8 @@ Follow these steps to define UDFs in dbt:
        - name: is_positive_int # required
          description: My UDF that returns 1 if a string represents a naked positive integer (like "10", "+8" is not allowed). # optional
          config:
-           runtime_version: "3.11"   # required
-           entry_point: main         # required
+           runtime_version: "3.11"   # required for Snowflake and BigQuery; optional and ignored on Databricks
+           entry_point: main         # required for Snowflake and BigQuery; optional and ignored on Databricks
            packages:                 # optional, Python UDFs only
              - numpy
              - pandas==1.5.0
@@ -252,6 +269,7 @@ Follow these steps to define UDFs in dbt:
 
    * Snowflake
    * BigQuery
+   * Databricks
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING DEFAULT '1')
@@ -282,6 +300,20 @@ Follow these steps to define UDFs in dbt:
        return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
    ''';
    ```
+
+   ```sql
+   CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
+   RETURNS INT
+   LANGUAGE PYTHON
+   AS $$
+     import re
+     def main(a_string):
+       return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
+     return main(a_string)
+   $$;
+   ```
+
+   Databricks omits the `RUNTIME_VERSION` and `HANDLER` clauses. The runtime is managed internally, and the contents of your `.py` file become the function body verbatim — including the trailing `return main(a_string)` that produces the result.
 
    * Snowflake
    * BigQuery
@@ -434,8 +466,8 @@ For more information about selecting UDFs, see the examples in [Node selector me
 ## Limitations[​](#limitations "Direct link to Limitations")
 
 * UDFs in other languages (for example, Java or Scala) are not yet supported.
-* JavaScript UDFs are supported on Snowflake and BigQuery only. Using JavaScript UDFs on an unsupported adapter raises a parsing error.
-* Python UDFs are supported in Snowflake and BigQuery only (when using dbt Core or Fusion). Other warehouses aren't yet supported for Python UDFs.
+* JavaScript UDFs are supported in Snowflake and BigQuery only. Using JavaScript UDFs on an unsupported adapter raises a parsing error.
+* Python UDFs are supported in Snowflake, BigQuery, and Databricks only (when using dbt Core or Fusion). Other warehouses aren't yet supported for Python UDFs.
 * Only scalar and aggregate functions are currently supported. For more information, see [Supported function types](https://docs.getdbt.com/reference/resource-configs/type.md#supported-function-types).
 * The `overloads` property is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
