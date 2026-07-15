@@ -104,9 +104,9 @@ Released by: **kczimm**Jul 15, 2026, 06:28 PM
 
 release canary promotion
 
-[v2.0.0-preview.199](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview199 "View this release in the dbt Fusion changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stable
+[v2.0.0-preview.199](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview199 "View this release in the dbt Fusion changelog")GoodDevCanarynightlystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stable
 
-Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
+Released by: **TimKlense**Jul 15, 2026, 09:25 PM
 
 Automated ST snapshot
 
@@ -134,9 +134,9 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extended
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extended
 
-Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
+Released by: **TimKlense**Jul 15, 2026, 09:25 PM
 
 Automated ST snapshot
 
@@ -182,9 +182,9 @@ Released by: **akbog**Jun 6, 2026, 02:06 AM
 
 Automated promotion
 
-[v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallback
+[v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallback
 
-Released by: **johnchappelledbt**Jul 13, 2026, 06:44 PM
+Released by: **TimKlense**Jul 15, 2026, 09:25 PM
 
 Automated ST snapshot
 

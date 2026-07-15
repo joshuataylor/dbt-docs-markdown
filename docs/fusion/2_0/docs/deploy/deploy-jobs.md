@@ -45,7 +45,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
    <!-- -->
 
    * [**Commands**](https://docs.getdbt.com/docs/deploy/job-commands.md#built-in-commands) — By default, it includes the `dbt build` command. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when the job runs. During a job run, [built-in commands](https://docs.getdbt.com/docs/deploy/job-commands.md#built-in-commands) are "chained" together and if one run step fails, the entire job fails with an "Error" status.
-   * [**Generate docs on run**](https://docs.getdbt.com/docs/deploy/job-commands.md#checkbox-commands) — Enable this option if you want to [generate project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
+   * [**Generate docs on run**](https://docs.getdbt.com/docs/deploy/job-commands.md#checkbox-commands) (not applicable to Fusion jobs) — Enable this option if you want to [generate project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
    * [**Run source freshness**](https://docs.getdbt.com/docs/deploy/job-commands.md#checkbox-commands) — Enable this option to invoke the `dbt source freshness` command before running the deploy job. If the step fails, the job can succeed if subsequent steps pass. Refer to [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) for more details.
 
 4. Options in the **Triggers** section:
