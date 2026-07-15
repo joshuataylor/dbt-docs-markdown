@@ -10,24 +10,23 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   DOCS_REMOTE: https://github.com/dbt-labs/docs.getdbt.com.git
   DOCS_CLONE_DIR: ${{ github.workspace }}/docs.getdbt.com
-  BUILD_DOCS_DIR: ${{ github.workspace }}/dbt-docs-patcher/docs
 
 jobs:
-  sync:
-    name: Sync dbt docs
+  # Update the upstream clone once, record the commit range, and derive the list
+  # of (product, version, subProduct) builds. The .git cache saved here is reused
+  # by every build shard so they all build the exact same upstream commit.
+  prepare:
+    name: Prepare
     runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+      upstream_sha: ${{ steps.update.outputs.upstream_sha }}
     steps:
-      - name: Fetch Sources
-        uses: actions/checkout@v7
-        with:
-          path: ${{ github.workspace }}/dbt-docs-patcher
-          ref: main
-
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
@@ -46,6 +45,7 @@ jobs:
           restore-keys: docs-getdbt-git-
 
       - name: Clone or update docs.getdbt.com and record commit range
+        id: update
         run: |
           if [[ -d "$DOCS_CLONE_DIR/.git" ]]; then
             # Cache hit: only .git was restored. Its HEAD is the last sync baseline.
@@ -64,6 +64,9 @@ jobs:
           upstream_sha=$(git rev-parse HEAD)
           echo "Last synced upstream SHA: ${last_synced_sha:-<none>}"
           echo "Current upstream SHA:     $upstream_sha"
+          # Pin the SHA so every build shard resets to the same commit even if
+          # upstream moves while the matrix is running.
+          echo "upstream_sha=$upstream_sha" >> "$GITHUB_OUTPUT"
 
           # Build the commit log for the message body. Each line: short SHA + subject.
           {
@@ -90,6 +93,80 @@ jobs:
           path: ${{ env.DOCS_CLONE_DIR }}/.git
           key: docs-getdbt-git-${{ github.run_id }}
 
+      - name: Derive build matrix
+        id: matrix
+        working-directory: ${{ env.DOCS_CLONE_DIR }}/website
+        run: |
+          # Derive (version, product name, subProduct) from dbt-versions.js.
+          # For each product, picks the first non-beta subProduct per version (falling
+          # back to the first beta if no non-beta exists for that product+version).
+          # This mirrors resolveSubProductFromProductAndVersion() in VersionContext.js.
+          matrix=$(node - <<'JSEOF'
+          const { products } = require('./dbt-versions');
+          const out = [];
+          for (const product of products) {
+            const versionsSeen = new Set();
+            for (const sp of product.subProducts) {
+              if (versionsSeen.has(sp.version)) continue;
+              versionsSeen.add(sp.version);
+              const chosen = product.subProducts.find(s => s.version === sp.version && !s.isBeta) || sp;
+              out.push({
+                name: product.name.toLowerCase(),
+                version: sp.version.replace(/\./g, '_'),
+                subproduct: chosen.name,
+              });
+            }
+          }
+          process.stdout.write(JSON.stringify(out));
+          JSEOF
+          )
+          echo "Build matrix: $matrix"
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+
+      - name: Upload commit-range notes
+        uses: actions/upload-artifact@v7
+        with:
+          name: upstream-changes
+          path: ${{ runner.temp }}/upstream-changes.txt
+          retention-days: 1
+
+  # One shard per (product, version). Each rebuilds the working tree from the
+  # shared .git cache at the pinned SHA, then runs a single Docusaurus build.
+  build:
+    name: Build ${{ matrix.build.name }} ${{ matrix.build.version }}
+    needs: prepare
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        build: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+
+      - name: Restore docs.getdbt.com git cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ env.DOCS_CLONE_DIR }}/.git
+          # Exact hit on the cache prepare just saved for this run.
+          key: docs-getdbt-git-${{ github.run_id }}
+          restore-keys: docs-getdbt-git-
+
+      - name: Rebuild working tree at pinned SHA
+        working-directory: ${{ env.DOCS_CLONE_DIR }}
+        env:
+          UPSTREAM_SHA: ${{ needs.prepare.outputs.upstream_sha }}
+        run: |
+          # Normally an exact cache hit already has the pinned commit. If the
+          # restore fell back to an older prefix cache, fetch it before resetting.
+          if ! git reset --hard --quiet "$UPSTREAM_SHA" 2>/dev/null; then
+            git fetch --quiet origin
+            git reset --hard --quiet "$UPSTREAM_SHA"
+          fi
+          git clean -fdq
+
       - name: Cache docs.getdbt.com node_modules
         id: cache-node-modules
         uses: actions/cache@v6
@@ -114,47 +191,18 @@ jobs:
         env:
           SKIP_LINK_CHECK: "true"
           DOCS_ENV: build
+          NAME: ${{ matrix.build.name }}
+          VERSION: ${{ matrix.build.version }}
+          SUBPRODUCT: ${{ matrix.build.subproduct }}
+          MD_STAGE: ${{ runner.temp }}/md
         run: |
-          # Derive (version, product name, subProduct) from dbt-versions.js.
-          # For each product, picks the first non-beta subProduct per version (falling
-          # back to the first beta if no non-beta exists for that product+version).
-          # This mirrors resolveSubProductFromProductAndVersion() in VersionContext.js.
-          declare -A SUBPRODUCTS
-          BUILD_KEYS=()
-          while IFS=$'\t' read -r version name subproduct; do
-            key="$name/$version"
-            SUBPRODUCTS["$key"]="$subproduct"
-            BUILD_KEYS+=("$key")
-          done < <(node - <<'JSEOF'
-          const { products } = require('./dbt-versions');
-          for (const product of products) {
-            const versionsSeen = new Set();
-            for (const sp of product.subProducts) {
-              if (!versionsSeen.has(sp.version)) {
-                versionsSeen.add(sp.version);
-                const chosen = product.subProducts.find(s => s.version === sp.version && !s.isBeta) || sp;
-                process.stdout.write(sp.version.replace(/\./g, '_') + '\t' + product.name.toLowerCase() + '\t' + chosen.name + '\n');
-              }
-            }
-          }
-          JSEOF
-          )
-          echo "Builds to run: ${BUILD_KEYS[*]}"
+          echo "--- Building $NAME $VERSION (subProduct: $SUBPRODUCT) ---"
 
-          rm -rf "$BUILD_DOCS_DIR"
-          mkdir -p "$BUILD_DOCS_DIR"
-          touch "$BUILD_DOCS_DIR/.gitkeep"
-
-          for KEY in "${BUILD_KEYS[@]}"; do
-            NAME="${KEY%%/*}"
-            VERSION="${KEY##*/}"
-            SUBPRODUCT="${SUBPRODUCTS[$KEY]}"
-            echo "--- Building $NAME $VERSION (subProduct: $SUBPRODUCT) ---"
-
-            # Restore VersionContext.js then set the desired default subProduct so
-            # that SSR renders version- and product-appropriate content for this pass.
-            git checkout -- src/stores/VersionContext.js
-            SUBPRODUCT="$SUBPRODUCT" python3 - <<'PYEOF'
+          # Restore VersionContext.js (discarding any patch edits to it) then set the
+          # desired default subProduct so SSR renders version- and product-appropriate
+          # content for this pass.
+          git checkout -- src/stores/VersionContext.js
+          python3 - <<'PYEOF'
           import os
           with open('src/stores/VersionContext.js') as f:
               content = f.read()
@@ -167,23 +215,63 @@ jobs:
           print('Patched VersionContext for', os.environ['SUBPRODUCT'])
           PYEOF
 
-            npm exec -- docusaurus clear
-            npm run build -- --no-minify
+          npm exec -- docusaurus clear
+          npm run build -- --no-minify
 
-            DEST="$BUILD_DOCS_DIR/$NAME/$VERSION"
-            mkdir -p "$DEST"
-            rsync -a -m --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
+          DEST="$MD_STAGE/$NAME/$VERSION"
+          mkdir -p "$DEST"
+          rsync -a -m --include='*/' --include='*.md' --exclude='*' build/ "$DEST/"
 
-            md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
-            echo "Copied $md_count markdown files to docs/$NAME/$VERSION/"
-          done
+          md_count=$(find "$DEST" -type f -name "*.md" | wc -l)
+          echo "Copied $md_count markdown files for $NAME/$VERSION"
+
+      - name: Upload markdown
+        uses: actions/upload-artifact@v7
+        with:
+          name: md-${{ matrix.build.name }}-${{ matrix.build.version }}
+          path: ${{ runner.temp }}/md
+          retention-days: 1
+          if-no-files-found: error
+
+  # Merge every shard's markdown into docs/ and push a single commit.
+  commit:
+    name: Commit and push
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Download commit-range notes
+        uses: actions/download-artifact@v8
+        with:
+          name: upstream-changes
+          path: ${{ runner.temp }}
+
+      - name: Reset docs directory
+        run: |
+          # Rebuild docs/ from scratch so removed upstream pages are dropped
+          # (git add -A below stages the deletions).
+          rm -rf docs
+          mkdir -p docs
+
+      - name: Download markdown shards
+        uses: actions/download-artifact@v8
+        with:
+          pattern: md-*
+          merge-multiple: true
+          path: docs
 
       - name: Commit and push to main
-        working-directory: ${{ github.workspace }}/dbt-docs-patcher
         run: |
+          touch docs/.gitkeep
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          git add -A docs/
           git status
           if git diff --cached --quiet; then
             echo "No changes to commit"
