@@ -16,9 +16,9 @@ dbt provides the functionality from new versions of dbt Core via [release tracks
 
 ### Opt-in v2 parser[​](#opt-in-v2-parser "Direct link to Opt-in v2 parser")
 
-dbt Core v1.12 introduces the `--use-v2-parser` flag that delegates parsing to Fusion's Rust parser instead of dbt Core's own Python parser. The Rust parser is significantly faster than the Python parser — especially on larger projects, where it can be 5–10× quicker. If you're looking to speed up your development workflow or cut down on job startup times. Using the Rust parser is a natural first step toward Fusion compatibility, so you can catch and fix any project issues gradually rather than all at once.
+dbt Core v1.12 introduces the `--use-v2-parser` flag that delegates parsing to the new v2 Rust parser instead of the v1 Python parser. The Rust parser is significantly faster than the Python parser — especially on larger projects, where it can be 5–10× quicker. If you're looking to speed up your development workflow or cut down on job startup times. Using the Rust parser is a natural first step toward v2 compatibility, so you can catch and fix any project issues gradually rather than all at once.
 
-This is an opt-in flag that changes no behavior unless explicitly set, making it a low-risk way to test Fusion parser compatibility from within dbt Core v1.12.
+This is an opt-in flag that changes no behavior unless explicitly set, making it a low-risk way to test v2 parser compatibility from within dbt Core v1.12.
 
 note
 
@@ -26,9 +26,9 @@ The Rust parser is beta. Its output manifest may differ from the Python parser's
 
 For more information on how to enable the flag, related behaviors, and parser error types, refer to [Opt-in v2 parser](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser).
 
-### Native private packages in dbt Core[​](#native-private-packages-in-dbt-core "Direct link to Native private packages in dbt Core")
+### Native private packages[​](#native-private-packages "Direct link to Native private packages")
 
-dbt Core now supports [native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages) in `packages.yml` and `dependencies.yml`, at parity with the dbt Fusion engine. You can install packages from private GitHub, GitLab, or Azure DevOps repos using the `private` key without configuring a token or full Git URL. dbt uses your system's SSH configuration for authentication. Use the [`provider` key](https://docs.getdbt.com/docs/build/packages.md#using-the-provider-key) to specify your Git provider and tell dbt which SSH URL format to construct. For example:
+dbt Core now supports [native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages) in `packages.yml` and `dependencies.yml`. You can install packages from private GitHub, GitLab, or Azure DevOps repos using the `private` key without configuring a token or full Git URL. dbt uses your system's SSH configuration for authentication. Use the [`provider` key](https://docs.getdbt.com/docs/build/packages.md#using-the-provider-key) to specify your Git provider and tell dbt which SSH URL format to construct. For example:
 
 ```yaml
 packages:
@@ -176,7 +176,7 @@ You can read more about each of these behavior changes in the following links:
 
 ## Quick hits[​](#quick-hits "Direct link to Quick hits")
 
-* dbt now surfaces occasional, non-blocking [CLI hints](https://docs.getdbt.com/reference/global-configs/hints.md) that suggest ways to optimize your project. Hints are enabled by default. Disable them with `--no-hints-enabled` or `hints_enabled: false` in `dbt_project.yml`.
+* dbt now surfaces occasional, non-blocking CLI hints that suggest ways to optimize your project. Hints are enabled by default. Disable them with `--no-hints-enabled` or `hints_enabled: false` in `dbt_project.yml`.
 * dbt Core v1.12 now tolerates Fusion-specific names in [`warn_error_options`](https://docs.getdbt.com/reference/global-configs/warnings.md) instead of raising an error. If your config includes a Fusion-specific name (for example, `StaticAnalysis`, `PackageParsingCompatibility`), dbt Core ignores it and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion.
 * Macros invoked with the [`dbt run-operation`](https://docs.getdbt.com/reference/commands/run-operation.md) command can now `ref()` models with `private` or `protected` [access](https://docs.getdbt.com/reference/resource-configs/access.md) without raising a `DbtReferenceError`. Because macros are not part of the group and access control system, dbt doesn't enforce group membership when a macro called by `run-operation` references a model.
 * `dbt seed` now supports the [`--empty`](https://docs.getdbt.com/reference/commands/seed.md#the---empty-flag) flag. Use it to create seed tables with the correct schema but without loading any data.
