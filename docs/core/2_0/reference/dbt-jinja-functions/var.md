@@ -40,10 +40,6 @@ vars:
   event_type: activation
 ```
 
-Beta feature
-
-The `vars.yml` file is a beta feature in dbt Core v1.12.
-
 You can define variables in `dbt_project.yml`, or reference variables from `vars.yml` (for example, in your `models` config):
 
 dbt\_project.yml

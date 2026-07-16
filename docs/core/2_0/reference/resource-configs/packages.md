@@ -1,4 +1,4 @@
-# packages[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# packages
 
 💡Did you know\...
 

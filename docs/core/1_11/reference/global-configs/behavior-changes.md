@@ -37,14 +37,14 @@ This table outlines which month of the **Latest** release track in dbt and which
 | [require\_explicit\_package\_overrides\_for\_builtin\_materializations](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) | 2024.04               | 2024.06                  | 1.6.14, 1.7.14  | 1.8.0              | 2.0               |
 | [require\_resource\_names\_without\_spaces](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)                                                       | 2024.05               | 2025.05                  | 1.8.0           | 1.10.0             | 2.0               |
 | [source\_freshness\_run\_project\_hooks](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)                                                             | 2024.03               | 2025.05                  | 1.8.0           | 1.10.0             | 2.0               |
-| [skip\_nodes\_if\_on\_run\_start\_fails](https://docs.getdbt.com/reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md)                                                               | 2024.10               | -                        | 1.9.0           | -                  | 2.0               |
-| [state\_modified\_compare\_more\_unrendered\_values](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md)                                      | 2024.10               | -                        | 1.9.0           | -                  | 2.0               |
-| [require\_yaml\_configuration\_for\_mf\_time\_spines](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                                     | 2024.10               | -                        | 1.9.0           | -                  | 2.0               |
-| [require\_batched\_execution\_for\_custom\_microbatch\_strategy](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)               | 2024.11               | -                        | 1.9.0           | -                  | 2.0               |
-| [require\_nested\_cumulative\_type\_params](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md)                                                       | 2024.11               | -                        | 1.9.0           | -                  | -                 |
+| [skip\_nodes\_if\_on\_run\_start\_fails](https://docs.getdbt.com/reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md)                                                               | 2024.10               | -                        | 1.9.0           | 1.12.0             | 2.0               |
+| [state\_modified\_compare\_more\_unrendered\_values](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md)                                      | 2024.10               | -                        | 1.9.0           | 1.12.0             | 2.0               |
+| [require\_yaml\_configuration\_for\_mf\_time\_spines](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                                     | 2024.10               | -                        | 1.9.0           | 1.12.0             | 2.0               |
+| [require\_batched\_execution\_for\_custom\_microbatch\_strategy](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md)               | 2024.11               | -                        | 1.9.0           | 1.12.0             | 2.0               |
+| [require\_nested\_cumulative\_type\_params](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md)                                                       | 2024.11               | -                        | 1.9.0           | 1.12.0             | -                 |
 | [enable\_truthy\_nulls\_equals\_macro](https://docs.getdbt.com/reference/global-configs/behavior-flags/enable_truthy_nulls_equals_macro.md)                                                                 | 2025.02               | -                        | 1.9.0           | -                  | -                 |
-| [validate\_macro\_args](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md)                                                                                             | 2025.03               | -                        | 1.10.0          | -                  | -                 |
-| [require\_all\_warnings\_handled\_by\_warn\_error](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_all_warnings_handled_by_warn_error.md)                                           | 2025.06               | -                        | 1.10.0          | -                  | -                 |
+| [validate\_macro\_args](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md)                                                                                             | 2025.03               | -                        | 1.10.0          | 1.12.0             | -                 |
+| [require\_all\_warnings\_handled\_by\_warn\_error](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_all_warnings_handled_by_warn_error.md)                                           | 2025.06               | -                        | 1.10.0          | 1.12.0             | -                 |
 | [require\_generic\_test\_arguments\_property](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_generic_test_arguments_property.md)                                                   | 2025.07               | 2025.08                  | 1.10.5          | 1.10.8             | -                 |
 | [require\_unique\_project\_resource\_names](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_unique_project_resource_names.md)                                                       | 2025.12               | -                        | 1.11.0          | -                  | -                 |
 | [require\_ref\_searches\_node\_package\_before\_root](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_ref_searches_node_package_before_root.md)                                     | 2025.12               | -                        | 1.11.0          | -                  | -                 |
@@ -63,7 +63,7 @@ Search table...
 
 ### Flags reaching maturity[​](#flags-reaching-maturity "Direct link to Flags reaching maturity")
 
-Several behavior change flags on the dbt platform `Latest` release track are planned to reach maturity on September 1, 2026, switching their default values from `false` to `true`. The September 1 date applies only to the dbt platform release tracks. The flags will still mature in the final release of dbt Core v1.12 as originally planned. For intro dates, refer to the dbt Core behavior changes table.
+Several behavior change flags on the dbt platform `Latest` release track are planned to reach maturity on September 1, 2026, switching their default values from `false` to `true`. The September 1 date applies only to the dbt platform release tracks. The flags have reached maturity in dbt Core v1.12. For intro dates, refer to the dbt Core behavior changes table.
 
 | Flag                                                                                                                                                                                          | Impact                                                                 |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
@@ -136,13 +136,13 @@ flags:
   require_explicit_package_overrides_for_builtin_materializations: true
   require_resource_names_without_spaces: true
   source_freshness_run_project_hooks: true
-  skip_nodes_if_on_run_start_fails: false
-  state_modified_compare_more_unrendered_values: false
-  require_yaml_configuration_for_mf_time_spines: false
-  require_batched_execution_for_custom_microbatch_strategy: false
-  require_nested_cumulative_type_params: false
-  validate_macro_args: false
-  require_all_warnings_handled_by_warn_error: false
+  skip_nodes_if_on_run_start_fails: false  # true in dbt Core v1.12
+  state_modified_compare_more_unrendered_values: false  # true in dbt Core v1.12
+  require_yaml_configuration_for_mf_time_spines: false  # true in dbt Core v1.12
+  require_batched_execution_for_custom_microbatch_strategy: false  # true in dbt Core v1.12
+  require_nested_cumulative_type_params: false  # true in dbt Core v1.12
+  validate_macro_args: false  # true in dbt Core v1.12
+  require_all_warnings_handled_by_warn_error: false  # true in dbt Core v1.12
   require_generic_test_arguments_property: true
   require_unique_project_resource_names: false
   require_ref_searches_node_package_before_root: false

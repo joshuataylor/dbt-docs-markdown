@@ -25,10 +25,6 @@ analyses:
 
 To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
 
-Beta feature
-
-The project-level configuration for analyses is a beta feature in dbt Core v1.12.
-
 dbt\_project.yml
 
 ```yaml

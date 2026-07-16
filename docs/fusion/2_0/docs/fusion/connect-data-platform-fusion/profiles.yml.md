@@ -144,8 +144,6 @@ my_profile:
 
 When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. The Fusion CLI, the dbt VS Code extension, and dbt Core v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md#using-the-env-file).
 
-<!-- -->
-
 To keep credentials out of version control, add `.env` to your `.gitignore` file — new projects on v1.12 and higher created with `dbt init` include this by default.
 
 ## User config[​](#user-config "Direct link to User config")

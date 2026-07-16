@@ -7,7 +7,7 @@ This flag was removed in dbt Core v2 and in Fusion. The new behavior is always e
 | require\_batched\_execution\_for\_custom\_microbatch\_strategy | dbt **Latest** | dbt Core |
 | -------------------------------------------------------------- | -------------- | -------- |
 | Introduced                                                     | 2024.11        | 1.9.0    |
-| Matured (default → `true`)                                     | Sep 1, 2026    | —        |
+| Matured (default → `true`)                                     | Sep 1, 2026    | 1.12.0   |
 | Removed                                                        | —              | v2.0     |
 
 Search table...
@@ -16,15 +16,15 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
+<br />
+
 The `require_batched_execution_for_custom_microbatch_strategy` flag is only relevant if you already have a custom `get_incremental_microbatch_sql` macro in your project. If you don't have a custom microbatch macro, you don't need to set this flag — dbt handles microbatching automatically for any model using the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).
 
-Set the flag to `true` if you have a custom microbatch macro set up in your project. When the flag is set to `true`, dbt will execute the custom microbatch strategy in batches.
-
-If you have a custom microbatch macro and the flag is left as `false`, dbt will issue a deprecation warning.
+Starting in dbt Core v1.12, this flag defaults to `true`, meaning dbt executes custom microbatch strategies in batches. If you have a custom microbatch macro and set the flag to `false`, dbt issues a deprecation warning.
 
 Previously, users needed to set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `true` to prevent unintended interactions with existing custom incremental strategies. Setting `DBT_EXPERIMENTAL_MICROBATCH` no longer has any effect on runtime functionality.
 
-## Impact when the flag matures[​](#impact-when-the-flag-matures "Direct link to Impact when the flag matures")
+## Impact[​](#impact "Direct link to Impact")
 
 This flag is only relevant if your project has a custom `get_incremental_microbatch_sql` macro. Projects without a custom microbatch macro are unaffected — the built-in macro already runs in batches.
 

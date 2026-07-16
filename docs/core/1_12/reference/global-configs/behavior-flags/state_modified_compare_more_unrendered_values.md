@@ -9,7 +9,7 @@ This flag was removed in dbt Core v2 and in Fusion. The new behavior is always e
 | state\_modified\_compare\_more\_unrendered\_values | dbt **Latest** | dbt Core |
 | -------------------------------------------------- | -------------- | -------- |
 | Introduced                                         | 2024.10        | 1.9.0    |
-| Matured (default → `true`)                         | Sep 1, 2026    | —        |
+| Matured (default → `true`)                         | Sep 1, 2026    | 1.12.0   |
 | Removed                                            | —              | v2.0     |
 
 Search table...
@@ -24,15 +24,15 @@ You need to build the state directory using dbt v1.9 or higher, or [the dbt "Lat
 
 If the state directory was built with an older dbt version or if the `state_modified_compare_more_unrendered_values` behavior change flag was either not set or set to `false`, you need to rebuild the state directory to avoid false positives during state comparison with `state:modified`.
 
-Set `state_modified_compare_more_unrendered_values` to `true` to reduce false positives during `state:modified` checks, especially when configs differ by target environment (such as `prod` vs. `dev`).
+Starting in dbt Core v1.12, `state_modified_compare_more_unrendered_values` defaults to `true`, reducing false positives during `state:modified` checks, especially when configs differ by target environment (such as `prod` vs. `dev`).
 
-Setting the flag to `true` changes the `state:modified` comparison from using rendered values to unrendered values instead. It accomplishes this by persisting `unrendered_config` during model parsing and `unrendered_database` and `unrendered_schema` configs during source parsing.
+When enabled, the flag changes the `state:modified` comparison from using rendered values to unrendered values instead. It accomplishes this by persisting `unrendered_config` during model parsing and `unrendered_database` and `unrendered_schema` configs during source parsing.
 
 note
 
 This flag requires rebuilding the state directory (manifest) to take effect.
 
-## Impact when the flag matures[​](#impact-when-the-flag-matures "Direct link to Impact when the flag matures")
+## Impact[​](#impact "Direct link to Impact")
 
 Setting the default to `true` silently changes the `state:modified` selection set that most CI, Slim CI, and `dbt build --defer` workflows rely on. There are two ways this surfaces:
 

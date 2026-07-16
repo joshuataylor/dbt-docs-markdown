@@ -1,9 +1,5 @@
 # Jinja file extensions
 
-Beta feature
-
-Support for Jinja file extensions is a beta feature in dbt Core v1.12.
-
 | allow\_jinja\_file\_extensions | dbt **Latest** | dbt Core |
 | ------------------------------ | -------------- | -------- |
 | Introduced                     | 2026.5         | 1.12.0   |

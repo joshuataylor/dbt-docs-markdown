@@ -180,7 +180,7 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
    Done. PASS=2 ERROR=0 SKIP=0 TOTAL=1
    ```
 
-   Compiled SQL for snapshots[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Compiled SQL for snapshots
 
    Starting dbt Core v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md) or `dbt compile --select orders_snapshot`.
 

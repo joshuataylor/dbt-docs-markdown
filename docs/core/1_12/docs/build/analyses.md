@@ -59,11 +59,7 @@ analyses:
 
 For more information, refer to [Analysis properties](https://docs.getdbt.com/reference/analysis-properties.md).
 
-## Project-level configuration [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#project-level-configuration- "Direct link to project-level-configuration-")
-
-Beta feature
-
-The project-level configuration for analyses is a beta feature in dbt Core v1.12.
+## Project-level configuration[​](#project-level-configuration "Direct link to Project-level configuration")
 
 You can also configure analyses at the project level in `dbt_project.yml`.
 

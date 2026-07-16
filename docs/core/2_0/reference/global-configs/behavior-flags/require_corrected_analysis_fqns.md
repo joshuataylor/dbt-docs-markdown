@@ -1,9 +1,5 @@
 # Project-level configuration for analyses
 
-Beta feature
-
-The project-level configuration for analyses is a beta feature in dbt Core v1.12.
-
 | require\_corrected\_analysis\_fqns | dbt **Latest** | dbt Core |
 | ---------------------------------- | -------------- | -------- |
 | Introduced                         | 2026.3         | 1.12.0   |

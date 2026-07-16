@@ -24,7 +24,7 @@ dbt snapshot --select my_snapshot --vars '{"cutoff_date": "2026-01-01"}'
 
 <!-- -->
 
-Compiled SQL for snapshots[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+Compiled SQL for snapshots
 
 Starting dbt Core v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md) or `dbt compile --select orders_snapshot`.
 

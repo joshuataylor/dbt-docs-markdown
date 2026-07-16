@@ -1,4 +1,4 @@
-# overloads [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# overloads
 
 💡Did you know\...
 
@@ -41,10 +41,6 @@ functions:
 ```
 
 ## Definition[​](#definition "Direct link to Definition")
-
-Beta feature
-
-The `overloads` property is a beta feature in dbt Core v1.12.
 
 The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](https://docs.getdbt.com/docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 

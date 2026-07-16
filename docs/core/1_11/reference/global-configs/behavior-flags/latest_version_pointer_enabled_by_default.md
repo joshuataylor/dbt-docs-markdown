@@ -1,9 +1,5 @@
 # Latest version pointer for versioned models
 
-Beta feature
-
-The `latest_version_pointer_enabled_by_default` flag is a beta feature in dbt Core v1.12.
-
 | latest\_version\_pointer\_enabled\_by\_default | dbt **Latest** | dbt Core | Fusion         |
 | ---------------------------------------------- | -------------- | -------- | -------------- |
 | Introduced                                     | 2026.5         | 1.12.0   | Early preview  |

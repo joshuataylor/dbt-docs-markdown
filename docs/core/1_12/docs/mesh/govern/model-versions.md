@@ -311,11 +311,7 @@ models/schema.yml
 
 If you want a view that always tracks the latest model version instead of pinning to a specific one, see [Pointing to the latest version](#pointing-to-the-latest-version).
 
-### Pointing to the latest version [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#pointing-to-the-latest-version- "Direct link to pointing-to-the-latest-version-")
-
-Beta feature
-
-The `latest_version_pointer` config is a beta feature in dbt Core v1.12.
+### Pointing to the latest version[​](#pointing-to-the-latest-version "Direct link to Pointing to the latest version")
 
 The [`latest_version_pointer`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) config automatically creates a view named after the model's base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). When you enable it, querying outside of dbt always returns the current version. This config only applies to versioned models.
 

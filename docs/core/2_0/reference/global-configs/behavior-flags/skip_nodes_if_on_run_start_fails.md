@@ -7,7 +7,7 @@ This flag was removed in dbt Core v2 and in Fusion. The new behavior is always e
 | skip\_nodes\_if\_on\_run\_start\_fails | dbt **Latest** | dbt Core |
 | -------------------------------------- | -------------- | -------- |
 | Introduced                             | 2024.10        | 1.9.0    |
-| Matured (default → `true`)             | Sep 1, 2026    | —        |
+| Matured (default → `true`)             | Sep 1, 2026    | 1.12.0   |
 | Removed                                | —              | v2.0     |
 
 Search table...
@@ -16,11 +16,13 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-Set the `skip_nodes_if_on_run_start_fails` flag to `true` to skip all selected resources from running if there is a failure on an `on-run-start` hook.
+<br />
+
+Starting in dbt Core v1.12, `skip_nodes_if_on_run_start_fails` defaults to `true`, skipping all selected resources if there is a failure on an `on-run-start` hook.
 
 For more information, refer to [`on-run-start` / `on-run-end`](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md).
 
-## Impact when the flag matures[​](#impact-when-the-flag-matures "Direct link to Impact when the flag matures")
+## Impact[​](#impact "Direct link to Impact")
 
 If your project uses `on-run-start` hooks for non-critical work (for example, telemetry, notifications, audit inserts, attaching session settings), your build will stop producing output whenever a hook fails. Tables and views that previously refreshed daily will stop updating the next time the hook fails.
 

@@ -30,7 +30,7 @@ Refer to [Function properties](https://docs.getdbt.com/reference/function-proper
 
 UDF support
 
-JavaScript UDFs are supported in dbt Core v1.12+ (beta) on Snowflake and BigQuery.
+JavaScript UDFs are supported in dbt Core v1.12+ on Snowflake and BigQuery.
 
 Additional languages (for example, Java, Scala) aren't currently supported for UDFs.
 
@@ -88,10 +88,6 @@ Follow these steps to define UDFs in dbt:
 
    Define a JavaScript UDF in a JavaScript file.
 
-   Beta feature
-
-   Support for JavaScript UDFs is a beta feature in dbt Core v1.12.
-
    functions/is\_positive\_int.js
 
    ```js
@@ -141,10 +137,6 @@ Follow these steps to define UDFs in dbt:
    On Databricks, `runtime_version` and `entry_point` are accepted for cross-adapter compatibility but have no effect. Databricks manages the Python runtime internally and uses the function body directly, so dbt displays a warning if you set them.
 
    You can specify public third-party PyPI packages for your Python UDF with the optional `packages` config. List package names, such as `numpy` and `pandas`, and optionally pin versions, such as `pandas==1.5.0`. The warehouse installs these packages when it creates the UDF, so your UDF can use functionality from external Python libraries. On Snowflake, some packages are installed from the Anaconda repository, and you may need to [accept Anaconda's Terms of Service](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#using-third-party-packages-from-anaconda) before you can use them.
-
-   Beta feature
-
-   The `packages` config is a beta feature in dbt Core v1.12.
 
    The following example shows a Python UDF with the required configs (`runtime_version`, `entry_point`), the optional `packages` config, and other common configs:
 

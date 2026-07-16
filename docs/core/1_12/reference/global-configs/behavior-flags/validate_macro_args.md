@@ -3,7 +3,7 @@
 | validate\_macro\_args      | dbt **Latest** | dbt Core |
 | -------------------------- | -------------- | -------- |
 | Introduced                 | 2025.03        | 1.10.0   |
-| Matured (default → `true`) | Sep 1, 2026    | —        |
+| Matured (default → `true`) | Sep 1, 2026    | 1.12.0   |
 | Removed                    | —              | —        |
 
 Search table...
@@ -12,7 +12,9 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-dbt supports optional validation for macro arguments using the `validate_macro_args` flag. By default, this flag is set to `false`, which means that dbt won't validate the names or types of documented macro arguments.
+<br />
+
+dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
 
 In the past, dbt didn't enforce a standard vocabulary for the [`type`](https://docs.getdbt.com/reference/resource-properties/arguments.md#type) field on macro arguments in YAML. Because of this, the `type` field was used for documentation only, and dbt didn't check that:
 
@@ -52,7 +54,7 @@ Macro argument validation runs during project parsing, not during macro executio
   * With partial parsing (the default), dbt validates only macros affected by changed files.
   * Use `--no-partial-parse` to force validation of all macros.
 
-## Impact when the flag matures[​](#impact-when-the-flag-matures "Direct link to Impact when the flag matures")
+## Impact[​](#impact "Direct link to Impact")
 
 On its own, the flag emits warnings and builds continue. However, these warnings use the force-handled path and respect `--warn-error`, so projects with `--warn-error` set will see build failures at parse time.
 

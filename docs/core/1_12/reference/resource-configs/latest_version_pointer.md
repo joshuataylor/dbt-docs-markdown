@@ -14,7 +14,7 @@ or with the
 
 [dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
 
-# latest\_version\_pointer [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# latest\_version\_pointer
 
 * Project file
 * Property file
@@ -53,10 +53,6 @@ models/\<model\_name>.sql
 ```
 
 ## Definition[​](#definition "Direct link to Definition")
-
-Beta feature
-
-The `latest_version_pointer` config is a beta feature in dbt Core v1.12.
 
 dbt platform on Fusion
 

@@ -231,10 +231,6 @@ dbt list --select "+saved_query:orders_saved_query"  # list your saved query nam
 
 ### selector[​](#selector "Direct link to selector")
 
-Beta feature
-
-The `selector` method is a beta feature in dbt Core v1.12.
-
 The `selector` method selects the nodes defined by a named [YAML selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) in `selectors.yml`. Use it in `--select` or `--exclude` strings so you can compose a named selector with other [methods](https://docs.getdbt.com/reference/node-selection/methods.md), [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md), and [set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md).
 
 ```bash

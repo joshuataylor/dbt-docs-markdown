@@ -7,7 +7,7 @@ This flag was removed in dbt Core v2 and in Fusion. The new behavior is always e
 | require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **Latest** | dbt Core |
 | --------------------------------------------------- | -------------- | -------- |
 | Introduced                                          | 2024.10        | 1.9.0    |
-| Matured (default → `true`)                          | Sep 1, 2026    | —        |
+| Matured (default → `true`)                          | Sep 1, 2026    | 1.12.0   |
 | Removed                                             | —              | v2.0     |
 
 Search table...
@@ -16,13 +16,15 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
+<br />
+
 In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
-When the flag is set to `true`, dbt suppresses the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
+Starting in dbt Core v1.12, this flag defaults to `true`. When enabled, dbt suppresses the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
 
 The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) for more details.
 
-## Impact when the flag matures[​](#impact-when-the-flag-matures "Direct link to Impact when the flag matures")
+## Impact[​](#impact "Direct link to Impact")
 
 This flag has no functional impact; the legacy time-spine model continues to work in both cases. The only visible changes are:
 

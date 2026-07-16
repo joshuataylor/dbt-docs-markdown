@@ -14,7 +14,7 @@ or with the
 
 [dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
 
-# on\_error[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# on\_error
 
 * Project file
 * Property file
@@ -46,10 +46,6 @@ models/\<model\_name>.sql
 ```
 
 ## Definition[​](#definition "Direct link to Definition")
-
-Beta feature
-
-The `on_error` config is a beta feature in dbt Core v1.12.
 
 The `on_error` config controls what happens to downstream (child) models when a model fails during a run. This config only applies to models; it has no effect on tests. To control whether downstream models run after a test failure, use the [`severity`](https://docs.getdbt.com/reference/resource-configs/severity.md) config on your tests instead.
 
