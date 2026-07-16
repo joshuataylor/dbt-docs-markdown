@@ -41,6 +41,12 @@ The following steps use the Databricks UI. Alternatively, use the [Databricks CL
 
 #### Redirect URLs by region[​](#redirect-urls-by-region "Direct link to Redirect URLs by region")
 
+Use the redirect URLs that correspond to your dbt account region when configuring Databricks OAuth.
+
+info
+
+As part of the account-specific URL migration, some customers should update OAuth redirect URLs and other integration settings. Existing getdbt.com region URLs continue to support integrations until November 1st, 2026, unless otherwise specified. For more migration timing and account-specific URL guidance, refer to the [account URL migration documentation](https://docs.getdbt.com/docs/platform/about-platform/account-url-migration.md).
+
 | Region              | Redirect URLs                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------- |
 | **US multi-tenant** | <https://cloud.getdbt.com/callback><br /><https://cloud.getdbt.com/complete/databricks>                 |
@@ -48,12 +54,6 @@ The following steps use the Databricks UI. Alternatively, use the [Databricks CL
 | **EMEA**            | <https://emea.dbt.com/callback><br /><https://emea.dbt.com/complete/databricks>                         |
 | **APAC**            | <https://au.dbt.com/callback><br /><https://au.dbt.com/complete/databricks>                             |
 | **Single tenant**   | <https://INSTANCE_NAME.getdbt.com/callback><br /><https://INSTANCE_NAME.getdbt.com/complete/databricks> |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ### Configure the Connection in dbt (dbt project admin)[​](#configure-the-connection-in-dbt-dbt-project-admin "Direct link to Configure the Connection in dbt (dbt project admin)")
 
