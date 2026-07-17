@@ -176,7 +176,7 @@ You can read more about each of these behavior changes in the following links:
 
 ## Quick hits[​](#quick-hits "Direct link to Quick hits")
 
-* dbt now surfaces occasional, non-blocking CLI hints that suggest ways to optimize your project. Hints are enabled by default. Disable them with `--no-hints-enabled` or `hints_enabled: false` in `dbt_project.yml`.
+* dbt now surfaces occasional, non-blocking hints that suggest ways to optimize your project. Hints are enabled by default. Disable them with the [`hints_enabled` flag](https://docs.getdbt.com/reference/global-configs/about-global-configs.md).
 * dbt Core v1.12 now tolerates Fusion-specific names in [`warn_error_options`](https://docs.getdbt.com/reference/global-configs/warnings.md) instead of raising an error. If your config includes a Fusion-specific name (for example, `StaticAnalysis`, `PackageParsingCompatibility`), dbt Core ignores it and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion.
 * Macros invoked with the [`dbt run-operation`](https://docs.getdbt.com/reference/commands/run-operation.md) command can now `ref()` models with `private` or `protected` [access](https://docs.getdbt.com/reference/resource-configs/access.md) without raising a `DbtReferenceError`. Because macros are not part of the group and access control system, dbt doesn't enforce group membership when a macro called by `run-operation` references a model.
 * `dbt seed` now supports the [`--empty`](https://docs.getdbt.com/reference/commands/seed.md#the---empty-flag) flag. Use it to create seed tables with the correct schema but without loading any data.
