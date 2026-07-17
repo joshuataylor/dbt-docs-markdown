@@ -9,6 +9,8 @@ dbt Single-tenant release notes for weekly updates. Release notes fall into one 
 
 Release notes are grouped by date for single-tenant environments.
 
+![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-st-rss-4c9047ac2540f4efb76c9e4fcb1d8196.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-st-atom-682759378b01d903d7f530326fdb037b.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-st-rss-18276380b2823619bba7fb2ae538bda6.json).
+
 ## July 13, 2026[​](#july-13-2026 "Direct link to July 13, 2026")
 
 ## Behavior change[​](#behavior-change "Direct link to Behavior change")
