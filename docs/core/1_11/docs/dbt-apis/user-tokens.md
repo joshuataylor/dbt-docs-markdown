@@ -8,6 +8,8 @@ Each dbt user with a [Developer, Read-only, or IT license](https://docs.getdbt.
 
 PATs inherit the permissions of the user that created them. For example, if a developer-licensed user with Project Admin role access to specific projects creates a PAT, the token will get the Project Admin role with access to the same projects as the user. These tokens are also account-specific, so if a user has access to more than one dbt account with the same email address, they need to create a unique PAT for each one of these accounts.
 
+You can't use a PAT to create a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md). Requests to create a service token authenticated with a PAT return a `400` error — use an existing service token to create new ones instead.
+
 ## Create a personal access token[​](#create-a-personal-access-token "Direct link to Create a personal access token")
 
 Creating an account-scoped PAT requires only a few steps.

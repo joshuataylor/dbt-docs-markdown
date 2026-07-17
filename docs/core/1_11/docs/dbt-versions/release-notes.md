@@ -13,6 +13,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## July 2026[​](#july-2026 "Direct link to July 2026")
 
+* **Behavior change:** You can no longer create a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) using an account-scoped [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) (PAT). Requests to the service tokens endpoint authenticated with a PAT now return a `400` error. Use a service token to create new ones instead.
 * **New:** You can now access dbt State settings from **Account settings** > **Billing & Usage**, previously found under **State**. You can manage your trial, enable dbt State on environments and jobs, and set spend alerts — all in one place. For details, refer to [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md).
 
 ## June 2026[​](#june-2026 "Direct link to June 2026")
