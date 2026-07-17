@@ -21,7 +21,7 @@
 
 [Help](#)
 
-* [Release notes](https://docs.getdbt.com/docs/dbt-versions/dbt-cloud-release-notes.md)
+* [Release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
 * [FAQs](https://docs.getdbt.com/docs/faqs.md)
 * [Support and billing](https://docs.getdbt.com/docs/dbt-support.md)
 * [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements)

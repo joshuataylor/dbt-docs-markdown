@@ -49,17 +49,6 @@ To enable dbt State:
 
 8. Click **Enable dbt State**.
 
-The **State** tab of the **Usage-based features** page where you started your trial in step 3 displays how many days remain in your trial period alongside the following monthly data:
-
-* Models reused this month
-* Total % build reduction
-* Total query run time reduction
-
-You can also find the following charts on this page:
-
-* **DATT** — Shows the unique target tables processed by dbt State. Daily active target tables (DATTs) are the billable units for dbt State.
-* **Asset builds** — Shows all model builds for the month, including models reused and cloned.
-
 For next steps, see:
 
 * [Enable dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md)
@@ -119,6 +108,22 @@ The CLI flags `--manage-state` and `--no-manage-state` are not available in olde
 
 To see how dbt State optimizes your runs, refer to [dbt State usage examples](https://docs.getdbt.com/docs/deploy/dbt-state-examples.md).
 
+## Configuring lag tolerance[​](#configuring-lag-tolerance "Direct link to Configuring lag tolerance")
+
+Lag tolerance allows you to set a tolerance level for older data at the project, environment, or model level. We recommend starting with the following Jinja expression:
+
+dbt\_project.yml
+
+```yaml
+models:
+  +state:
+    lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
+```
+
+In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
+
+For more details, refer to the [`lag_tolerance` config reference](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md).
+
 ## Inviting team members[​](#inviting-team-members "Direct link to Inviting team members")
 
 The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them.
@@ -131,7 +136,7 @@ The more team members you have using dbt State, the better it gets; more team me
 If dbt State is behaving unexpectedly, you can prepend your run command with the `DBT_ENGINE_MANAGE_STATE` environment variable to isolate the issue:
 
 ```bash
-DBT_ENGINE_MANAGE_STATE=1 dbt run --target dev --select "customers"
+DBT_ENGINE_MANAGE_STATE=0 dbt run --target dev --select "customers"
 ```
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
@@ -139,6 +144,5 @@ DBT_ENGINE_MANAGE_STATE=1 dbt run --target dev --select "customers"
 * [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
 * [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state)
 * [Configure deferral](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md)
-* [Configure lag tolerance](https://docs.getdbt.com/docs/deploy/dbt-state-lag-tolerance.md)
 * [Non-interactive environment setup](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
 * [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)

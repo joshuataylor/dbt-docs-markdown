@@ -564,7 +564,7 @@ Archived release notes for dbt from 2023
   * We clarified the nuances of [CI and CI jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md), updated the [Scheduler content](https://docs.getdbt.com/docs/deploy/job-scheduler.md), added two new pages for the job settings and run visibility, moved the project state page to the [Syntax page](https://docs.getdbt.com/reference/node-selection/syntax.md), and provided a landing page for [Deploying with Cloud](https://docs.getdbt.com/docs/deploy/jobs.md) to help readers navigate the content better.
   * We reformatted the [Supported data platforms page](https://docs.getdbt.com/docs/supported-data-platforms.md) by adding dbt Cloud to the page, splitting it into multiple pages, using cards to display verified adapters, and moving the [Warehouse setup pages](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) to the Docs section.
   * We launched a new [Lint and format page](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md), which highlights the awesome new dbt Cloud IDE linting/formatting function.
-  * We enabled a connection between [dbt Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/dbt-cloud-release-notes.md) and the dbt Slack community. This means new dbt Cloud release notes are automatically sent to the slack community [#dbt-cloud channel](https://getdbt.slack.com/archives/CMZ2V0X8V) via RSS feed, keeping users up to date with changes that may affect them.
+  * We enabled a connection between [dbt Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md) and the dbt Slack community. This means new dbt Cloud release notes are automatically sent to the slack community [#dbt-cloud channel](https://getdbt.slack.com/archives/CMZ2V0X8V) via RSS feed, keeping users up to date with changes that may affect them.
   * We’ve added two new docs links in the dbt Cloud Job settings user interface (UI). This will provide additional guidance and help users succeed when setting up a dbt Cloud job: [job commands](https://docs.getdbt.com/docs/deploy/job-commands.md) and job triggers.
   * We added information related to the newly created [IT license](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#license-based-access-control), available for Team and Enterprise plans.
   * We added a new [Supported browser page](https://docs.getdbt.com/docs/platform/about-platform/browsers.md), which lists the recommended browsers for dbt Cloud.
@@ -797,7 +797,7 @@ Archived release notes for dbt from 2023
   - [set up page](https://docs.getdbt.com/docs/local/connect-data-platform/trino-setup.md), and [config page](https://docs.getdbt.com/reference/resource-configs/trino-configs.md).
 
     * Enhanced [dbt Cloud jobs page](https://docs.getdbt.com/docs/deploy/jobs.md) and section to include conceptual info on the queue time, improvements made around it, and about failed jobs.
-    * Check out the April dbt [Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/dbt-cloud-release-notes.md)
+    * Check out the April dbt [Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
 
     ## 🎯 Core projects[​](#core-projects-4 "Direct link to 🎯 Core projects")
 

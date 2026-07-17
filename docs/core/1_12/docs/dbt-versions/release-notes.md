@@ -7,7 +7,7 @@ dbt release notes for recent and historical changes. Release notes fall into one
 * **Fix:** Bug and security fixes
 * **Behavior change:** A change to existing behavior that doesn't fit into the other categories, such as feature deprecations or changes to default settings
 
-Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments. ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-rss-8a979b1532d9e7a535b5080ca2db6727.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-atom-5794ed9b67216a0007930b9d614bd1b5.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-rss-9c5fced15d272ecbb3b23d704a65a3b9.json).
+Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments. ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-rss-b51b74f14de7e2bfe6beadbc9a78968f.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-atom-bf07c87791839c24a720fc04df230f95.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-rss-ebea384ace46694f733ee6e094e4feff.json).
 
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
