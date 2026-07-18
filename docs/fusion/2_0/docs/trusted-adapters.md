@@ -171,6 +171,20 @@ dbt Core
 
 dbt Core
 
+![](/img/icons/dbt-ibm-db2.svg)
+
+#### IBM Db2
+
+* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/ibm-db2-setup.md)
+
+<br />
+
+<br />
+
+[![](https://badge.fury.io/py/ibm-dbt-db2.svg/)](https://badge.fury.io/py/ibm-dbt-db2)
+
+dbt Core
+
 ![](/img/icons/dbt-ibm-netezza.svg)
 
 #### IBM Netezza
