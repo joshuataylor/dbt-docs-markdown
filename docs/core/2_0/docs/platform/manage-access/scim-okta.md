@@ -54,7 +54,19 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](https://doc
 
 12. Click **Save** to complete the provisioning configuration.
 
-13. To complete your group setup, go to **Push Groups** and push your Okta groups to dbt platform. This makes the groups available in dbt platform. Then, an admin must assign the [required permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to each group.
+13. To complete your group setup, go to **Push Groups** and push your Okta groups to dbt platform. This makes the groups available in dbt platform.
+
+## Assign permission sets to SCIM groups[​](#assign-permission-sets-to-scim-groups "Direct link to Assign permission sets to SCIM groups")
+
+SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
+
+1. After the sync, go to **Account settings** → **Groups & Licenses**, where the SCIM group appears automatically.
+2. Open the SCIM-synced group. Don't create another group for the same IdP group, as this creates a duplicate.
+3. Under **Access & permissions**, click **Add permission**.
+4. Select a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), the projects it should apply to, and [environment-level access](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md) if applicable.
+5. Click **Save**.
+
+Repeat for each SCIM-synced group that needs access.
 
 You've now configured SCIM for the Okta SSO integration in dbt platform. You can [manage user licenses with SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) to set license type for users as they are provisioned.
 

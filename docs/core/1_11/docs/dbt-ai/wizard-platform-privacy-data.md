@@ -10,7 +10,7 @@ For dbt-managed AI providers, we have zero data retention (ZDR) agreements in pl
 
  Does dbt Wizard store or use personal data?
 
-dbt Wizard stores your conversation history — including your prompts, responses, and any query results returned during your session — so you can revisit past chats. Conversation content is encrypted at rest and in transit. History is retained for 90 days and is only visible to you; dbt Labs cannot access or decrypt it. You can delete your conversation history at any time in the product. dbt Labs does not use your prompts, chat history, or command results for model training.
+dbt Wizard stores your conversation history — including your prompts, responses, and any query results returned during your session — so you can revisit past chats. Conversation history is retained for 90 days; feedback you submit on a dbt Wizard conversation is retained for 400 days. You can delete your conversation history or feedback at any time in the product. dbt Labs does not use your prompts, chat history, command results, or feedback for model training. 
 
  Is my data used by dbt Labs to train AI models?
 
@@ -22,7 +22,7 @@ dbt Labs only shares client personal information as needed to perform the servic
 
  Can dbt Wizard data be deleted upon client written request?
 
-Yes. dbt Wizard conversation history is retained for 90 days by default, and you can delete chats in the product at any time. Conversation data — including query results stored in conversation history — is encrypted and only decrypted at your request. To the extent a client identifies personal or sensitive information uploaded to dbt Labs systems, that data can be deleted within 30 days of written request.
+Yes. dbt Wizard conversation history is retained for 90 days by default, feedback you submit on a dbt Wizard conversation is retained for 400 days, and you can delete this information in the product at any time. To the extent a client identifies personal or sensitive information uploaded to dbt Labs systems, that data can be deleted within 30 days of written request.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 

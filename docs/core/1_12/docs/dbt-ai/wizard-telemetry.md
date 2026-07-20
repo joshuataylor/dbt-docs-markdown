@@ -24,12 +24,13 @@ dbt Wizard CLI does not collect:
 
 ## Events collected[​](#events-collected "Direct link to Events collected")
 
-| Event                           | When it is collected                                 | Why it is collected                                                             |
-| ------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------- |
-| LLM request completed or failed | When an LLM request completes                        | Token usage, model, latency monitoring, error rates, and cost attribution       |
-| Wizard session started or ended | When a user opens or closes a dbt Wizard CLI session | Weekly active users, session duration, model adoption, and client surface usage |
-| Wizard turn completed           | After a user message and AI response complete        | Engagement depth, token consumption, model usage, status, and duration          |
-| Wizard tool use                 | Each time the agent invokes a tool                   | Tool adoption, reliability, and performance                                     |
+| Event                           | When it is collected                                 | Why it is collected                                                                                                                                                                |
+| ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| LLM request completed or failed | When an LLM request completes                        | Token usage, model, latency monitoring, error rates, and cost attribution                                                                                                          |
+| Wizard session started or ended | When a user opens or closes a dbt Wizard CLI session | Weekly active users, session duration, model adoption, and client surface usage                                                                                                    |
+| Wizard turn completed           | After a user message and AI response complete        | Engagement depth, token consumption, model usage, status, and duration                                                                                                             |
+| Wizard tool use                 | Each time the agent invokes a tool                   | Tool adoption, reliability, and performance                                                                                                                                        |
+| Conversation feedback           | If you submit feedback on a dbt Wizard conversation. | We may retain the associated transcript for up to 400 days to investigate the feedback. These transcripts are not used for model training and can be deleted upon written request. |
 
 Tool telemetry records the tool type, tool name, whether the call failed, and execution time. Tool arguments and outputs are not collected.
 
@@ -38,7 +39,7 @@ Tool telemetry records the tool type, tool name, whether the call failed, and ex
 * Telemetry is transmitted over HTTPS to dbt Labs ingestion infrastructure.
 * Events are stored in an internal dbt Labs data warehouse.
 * Telemetry is not shared with third parties.
-* API keys and tokens are never transmitted in raw form.
+* API keys and tokens are not transmitted in raw form.
 * Local development users who opt out with the supported environment variables generate no dbt Wizard CLI client telemetry events.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")

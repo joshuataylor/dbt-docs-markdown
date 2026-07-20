@@ -149,6 +149,18 @@ The following steps go over how to assign users/groups to the SCIM app. Refer to
 
    [![Prompt manual provisioning.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/scim-entraid-manual.png?v=2 "Prompt manual provisioning.")](#)Prompt manual provisioning.
 
+## Assign permission sets to SCIM groups[​](#assign-permission-sets-to-scim-groups "Direct link to Assign permission sets to SCIM groups")
+
+SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
+
+1. After the sync, go to **Account settings** → **Groups & Licenses**, where the SCIM group appears automatically.
+2. Open the SCIM-synced group. Don't create another group for the same IdP group, as this creates a duplicate.
+3. Under **Access & permissions**, click **Add permission**.
+4. Select a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), the projects it should apply to, and [environment-level access](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md) if applicable.
+5. Click **Save**.
+
+Repeat for each SCIM-synced group that needs access.
+
 ## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
 
 For common questions about SCIM provisioning with Entra ID — including onboarding workflows, attribute matching, IP allowlisting issues, and troubleshooting — refer to [SCIM FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md).
