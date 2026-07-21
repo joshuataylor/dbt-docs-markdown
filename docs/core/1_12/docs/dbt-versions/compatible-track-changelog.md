@@ -6,6 +6,63 @@ Each monthly **Compatible** release includes functionality matching up-to-date o
 
 For more information, see [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
 
+## July 2026[​](#july-2026 "Direct link to July 2026")
+
+Release date: July 21, 2026
+
+### dbt platform[​](#dbt-platform "Direct link to dbt platform")
+
+### Fixes[​](#fixes "Direct link to Fixes")
+
+* Prune stale cross-project dependencies from injected external nodes before linking. A publication can list a transitive public ancestor that has since been deleted upstream; injecting it as a dangling `depends_on` edge previously failed compile with `GraphDependencyNotFoundError`. The dead edge is now dropped with a warning and restored once the producing project's publication is regenerated.
+
+### Dependencies[​](#dependencies "Direct link to Dependencies")
+
+* Pin `pyathena` to v3.35 and older
+
+This compatible release includes functionality from the following versions of dbt Core OSS:
+
+```text
+dbt-core==1.11.12
+
+# shared interfaces
+dbt-adapters==1.22.10
+dbt-common==1.37.5
+dbt-extractor==0.6.0
+dbt-semantic-interfaces==0.9.0
+dbt-sl-sdk[sync]==0.13.4
+
+# adapters
+dbt-athena==1.10.2
+dbt-bigquery==1.11.1
+dbt-databricks==1.12.2
+dbt-fabric==1.9.4
+dbt-postgres==1.10.2
+dbt-redshift==1.10.2
+dbt-snowflake==1.11.6
+dbt-spark==1.10.3
+dbt-synapse==1.8.5
+dbt-teradata==1.10.3
+dbt-trino==1.10.2
+```
+
+Changelogs:
+
+* [dbt-core 1.11.12](https://github.com/dbt-labs/dbt-core/blob/1.11.latest/CHANGELOG.md)
+* [dbt-adapters 1.22.10](https://github.com/dbt-labs/dbt-adapters/blob/main/dbt-adapters/CHANGELOG.md)
+* [dbt-common 1.37.5](https://github.com/dbt-labs/dbt-common/blob/main/CHANGELOG.md)
+* [dbt-athena 1.10.2](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-athena/CHANGELOG.md)
+* [dbt-bigquery 1.11.1](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-bigquery/CHANGELOG.md)
+* [dbt-databricks 1.12.2](https://github.com/databricks/dbt-databricks/blob/main/CHANGELOG.md)
+* [dbt-fabric 1.9.4](https://github.com/microsoft/dbt-fabric/releases/tag/v1.9.4)
+* [dbt-postgres 1.10.2](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-postgres/CHANGELOG.md)
+* [dbt-redshift 1.10.2](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-redshift/CHANGELOG.md)
+* [dbt-snowflake 1.11.6](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-snowflake/CHANGELOG.md)
+* [dbt-spark 1.10.3](https://github.com/dbt-labs/dbt-adapters/blob/stable/dbt-spark/CHANGELOG.md)
+* [dbt-synapse 1.8.5](https://github.com/microsoft/dbt-synapse/blob/v1.8.latest/CHANGELOG.md)
+* [dbt-teradata 1.10.3](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.3)
+* [dbt-trino 1.10.2](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md)
+
 ## June 2026[​](#june-2026 "Direct link to June 2026")
 
 Release date: June 15, 2026
@@ -126,7 +183,7 @@ Release date: February 27, 2026
 
 * Support partial success result status for Advanced CI
 
-### Dependencies[​](#dependencies "Direct link to Dependencies")
+### Dependencies[​](#dependencies-1 "Direct link to Dependencies")
 
 * Update dbt-databricks upper bound to 1.12
 
@@ -446,7 +503,7 @@ This compatible upgrade brings in a minor update to `dbt-core`, from `dbt-core==
 
 ### dbt cloud-based platform[​](#dbt-cloud-based-platform-7 "Direct link to dbt cloud-based platform")
 
-### Fixes[​](#fixes "Direct link to Fixes")
+### Fixes[​](#fixes-1 "Direct link to Fixes")
 
 * Update generate publications script to add project and env id in generated publication file
 * Use JSON stream for publication artifact generation script
@@ -566,7 +623,7 @@ Release date: May 19, 2025
 
 These changes reflect capabilities that are only available in the dbt platform.
 
-### Fixes[​](#fixes-1 "Direct link to Fixes")
+### Fixes[​](#fixes-2 "Direct link to Fixes")
 
 * Get environment variables correctly from the environment for publication artifacts
 
@@ -725,7 +782,7 @@ These changes reflect capabilities that are only available in dbt.
 * Add [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) to cross-project ref artifact.
 * Include debug exception message in ObservabilityMetric.
 
-### Fixes[​](#fixes-2 "Direct link to Fixes")
+### Fixes[​](#fixes-3 "Direct link to Fixes")
 
 * Adding support for deferral against the new time spine definition.
 * Fix error messages for SL query.
@@ -783,7 +840,7 @@ These changes reflect capabilities that are only available in dbt.
 
 * Filter out external exposures in dbt compare.
 
-### Fixes[​](#fixes-3 "Direct link to Fixes")
+### Fixes[​](#fixes-4 "Direct link to Fixes")
 
 * Use `meta.dbt_cloud_id` to `build unique_id` for manually defined exposure for merging against a duplicated exposure.
 
