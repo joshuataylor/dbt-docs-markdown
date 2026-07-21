@@ -67,12 +67,14 @@ dbt system update
  Homebrew installation for macOS
 
 ```shell
+brew tap dbt-labs/dbt
 brew install dbt
 ```
 
 To upgrade to a newer version:
 
 ```shell
+brew tap dbt-labs/dbt
 brew upgrade dbt
 ```
 
