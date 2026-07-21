@@ -4,7 +4,7 @@ By default, dbt rebuilds every selected node on every run — even if nothing ha
 
 ## dbt State[​](#dbt-state "Direct link to dbt State")
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment, including the dbt platform and the self-hosted dbt Fusion engine and dbt Core.
+[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment — including self-hosted deployments using dbt Fusion engine or dbt Core — without requiring a recurring dbt platform subscription.
 
 Instead of rebuilding every node on every run, it compares each node's logic and upstream data against the previous run and picks the most efficient path:
 
@@ -28,7 +28,7 @@ To enable dbt State:
   dbt login
   ```
 
-Authentication requires a dbt platform account on a Starter or Enterprise plan with a [free trial](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md). For more information, refer to [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+Authentication requires a dbt platform account with a [30-day free trial](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md). dbt State pricing is usage-based — you're billed per target table that dbt State reuses each day, not per dbt platform seat. For full setup instructions, refer to [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
 
 ## Deferral[​](#deferral "Direct link to Deferral")
 
