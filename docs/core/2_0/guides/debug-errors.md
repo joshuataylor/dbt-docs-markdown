@@ -469,7 +469,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
   To resolve the issue, complete the following steps:
 
-  1. Go to your **Profile settings** page, accessible from the navigation menu.
+  1. Go to **Your profile**, accessible from the navigation menu.
   2. Navigate to **Credentials** and then choose the project where you're experiencing the issue.
   3. Under **User credentials**, click the **Reconnect Snowflake Account** button. This will guide you through re-authenticating using your SSO workflow.
 

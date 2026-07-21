@@ -147,11 +147,11 @@ To create a new dbt development environment:
 4. Fill in the fields under **General Settings** and **User credentials**.
 5. Click **Save** to create the environment.
 
+[![Creating a development environment](/img/docs/dbt-platform/refresh-ide/new-development-environment-fields.png?v=2 "Creating a development environment")](#)Creating a development environment
+
 ### Set user credentials[​](#set-user-credentials "Direct link to Set user credentials")
 
-To use the dbt Studio IDE or dbt CLI, each developer will need to set up [personal user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to your warehouse connection in their **Profile Settings**. This allows you to set separate target information and maintain individual credentials to connect to your warehouse.
-
-[![Creating a development environment](/img/docs/dbt-platform/refresh-ide/new-development-environment-fields.png?v=2 "Creating a development environment")](#)Creating a development environment
+To use the dbt Studio IDE or dbt CLI, each developer will need to set up [personal user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to your warehouse connection. Click your account name in the bottom left, select **Your profile**, then go to **Credentials**. This allows you to set separate target information and maintain individual credentials to connect to your warehouse.
 
 ## Deployment environment[​](#deployment-environment "Direct link to Deployment environment")
 
