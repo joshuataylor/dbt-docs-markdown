@@ -2,7 +2,7 @@
 
 Tip
 
-Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md), available for dbt Enterprise and Enterprise+ accounts, to generate
+Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to generate
 
 <!-- -->
 
@@ -10,7 +10,7 @@ data tests
 
 <!-- -->
 
-in the Studio IDE only.
+in the dbt platform or locally in the CLI.
 
 ## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
 

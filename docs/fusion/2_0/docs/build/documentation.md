@@ -4,7 +4,7 @@ Good documentation for your dbt models will help downstream consumers discover a
 
 Tip
 
-Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md), available for dbt Enterprise and Enterprise+ accounts, to generate
+Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to generate
 
 <!-- -->
 
@@ -12,7 +12,7 @@ documentation
 
 <!-- -->
 
-in the Studio IDE only.
+in the dbt platform or locally in the CLI.
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
