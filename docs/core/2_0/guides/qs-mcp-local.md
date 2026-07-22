@@ -28,9 +28,7 @@ You don't need to clone the dbt-mcp repository. Install [uv](https://docs.astral
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 * A local dbt project (the folder containing your `dbt_project.yml` file)
-* dbt installed locally (
-  <!-- -->
-  , dbt Fusion engine, or dbt CLI)
+* dbt installed and available locally
 
 For the full list of environment variables and how to enable or disable toolsets, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
 
