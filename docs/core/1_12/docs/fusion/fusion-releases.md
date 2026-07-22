@@ -68,9 +68,9 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Latest
 
-[`v2.0.0-preview.200`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview200 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.202`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this version in the dbt Fusion changelog")
 
-2026-07-16
+2026-07-22
 
 ### All releases
 
@@ -98,11 +98,11 @@ of
 
 releases
 
-[v2.0.0-preview.202](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
+[v2.0.0-preview.202](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
-Released by: **akbog**Jul 21, 2026, 04:41 PM
+Released by: **mishamsk**Jul 22, 2026, 03:23 PM
 
-Planned Promotion
+along with stable
 
 [v2.0.0-preview.201](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview201 "View this release in the dbt Fusion changelog")GoodDevnightly
 
