@@ -10,9 +10,9 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-[![dbt Wizard home tab — agent refactoring a model with an inline SQL diff](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard home tab — agent refactoring a model with an inline SQL diff")](#)dbt Wizard home tab — agent refactoring a model with an inline SQL diff
-
 [![dbt Wizard home tab — empty state with quick-start prompts](/img/docs/dbt-platform/wizard-home-empty.png?v=2 "dbt Wizard home tab — empty state with quick-start prompts")](#)dbt Wizard home tab — empty state with quick-start prompts
+
+[![dbt Wizard agent refactoring a docs github model for tech writers :) ](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard agent refactoring a docs github model for tech writers :) ")](#)dbt Wizard agent refactoring a docs github model for tech writers :)
 
 The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md). Where the Studio IDE supports users working directly within a traditional IDE environment, the home tab is purpose-built for agent-native development — it reduces overhead and keeps you focused on supervising and validating agent-generated work.
 

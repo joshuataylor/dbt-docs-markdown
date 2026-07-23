@@ -13,6 +13,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## July 2026[​](#july-2026 "Direct link to July 2026")
 
+* **Enhancement:** The [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) in dbt platform has a redesigned empty state with updated suggested prompts to help you discover different ways to get started. A new wayfinder bar keeps your current project and branch visible and highlights the next step as you move from asking questions to changing code and opening a pull request.
 * **Enhancement:** Catalog now supports a **Warn** last-run status. Resources whose last run completed with warnings show a distinct status and tooltip, and you can filter by **Warn** alongside other run statuses.
 * **New:** You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
 * **Enhancement:** Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.

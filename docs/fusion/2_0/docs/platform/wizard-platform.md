@@ -2,17 +2,22 @@
 
 dbt Wizard helps teams ship trusted dbt changes faster and with less risk. It uses native dbt metadata, routes to the right tools, and validates with warehouse awareness so teams can investigate, change, validate, and ship in one place.
 
-See it in action and share your feedback
-
-Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube.com/watch?v=-lIzh1xQWMA).
-
-We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
-
-Thanks so much for your help in improving dbt Wizard and dbt data development!
-
 dbt Wizard is more than a general coding agent with access to dbt. Built for governed data development in dbt, it understands lineage, documentation, tests, and semantic definitions, and accounts for dev builds, compute, run time, and post-build inspection. Its suggestions are grounded in your project's actual data *and* context.
 
-In [approval mode](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#approval-and-review), dbt Wizard shows every file change as a diff before anything is persisted. Built-in [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) encode dbt best practices for consistent output. An admin must [enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account before you can use it in the platform.
+An admin must [enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account before you can use it in the platform.
+
+dbt Wizard comes with various features like:
+
+* Built-in [agent mode](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#agent-modes) to help you manage agent control:
+
+  <!-- -->
+
+  * **Ask for approval** mode allows you to review and approve each file change before dbt Wizard takes action
+  * **Edit files automatically** mode allows the agent to automatically make edits without approval.
+
+* A simplified wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
+
+* Built-in [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) encode dbt best practices for consistent output.
 
 ## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
 

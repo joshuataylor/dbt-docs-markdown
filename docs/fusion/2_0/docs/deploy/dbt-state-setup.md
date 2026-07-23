@@ -110,7 +110,7 @@ To see how dbt State optimizes your runs, refer to [dbt State usage examples](ht
 
 ## Configuring lag tolerance[​](#configuring-lag-tolerance "Direct link to Configuring lag tolerance")
 
-Lag tolerance allows you to set a tolerance level for older data at the project, environment, or model level. We recommend starting with the following Jinja expression:
+Lag tolerance allows you to set a tolerance level for older data at the project, environment, or model level. If not configured, `lag_tolerance` defaults to `45m`. We recommend starting with the following Jinja expression:
 
 dbt\_project.yml
 

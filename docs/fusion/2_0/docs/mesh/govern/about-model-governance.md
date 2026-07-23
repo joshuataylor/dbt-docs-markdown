@@ -15,6 +15,10 @@ All of the following features are available in dbt Core and the dbt platform, *e
 
 <!-- -->
 
+Supporting data freshness SLAs
+
+Use [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) and the [`lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md) config to govern data freshness at the model level, helping your team align with freshness Service Level Agreements (SLAs) without unnecessary rebuilds.
+
 #### Considerations[​](#considerations "Direct link to Considerations")
 
 There are some considerations to keep in mind when using model governance features:
