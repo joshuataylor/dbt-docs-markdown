@@ -21,7 +21,7 @@ dbt State delivers efficiency gains across both production and development envir
 When you run a command like `dbt build --select +my_model`, dbt State evaluates each selected node and applies the most efficient approach it can:
 
 * **Reuse node from same schema (skip)** — dbt checks whether the object already exists in the target schema, its logic hasn't changed, and its upstream parents haven't received fresh data beyond the configured [`lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md). If all conditions are met, dbt skips the node entirely, as if it was never selected. For data tests, if the nodes being tested haven't changed since the last run, the previous test result is reused without re-executing the test query.
-* **Reuse node from different schema (clone)** — If the same object exists with matching logic and fresh data, dbt State clones it. The node is marked as **Reused** at a fraction of the compute cost.
+* **Reuse node from different schema (clone)** — dbt State looks across all environments and jobs for a matching object with identical logic and fresh data. This includes schemas where a model was built before it ever ran in production. When multiple candidates exist, dbt State clones from the one with the freshest data, regardless of which environment it came from. For example, if a CI schema has fresher data than production and identical logic, dbt State clones from there. The node is marked as **Reused** at a fraction of the compute cost.
 * **Normal build** — If reuse is not possible, dbt builds the node as normal, automatically deferring any unselected upstream nodes.
 
 Without dbt State, every selected node rebuilds on every run regardless of whether anything has changed.
@@ -106,12 +106,15 @@ dbt State only considers substantial changes to a model. Because dbt State under
 
 Why is my model being rebuilt instead of reused?
 
-dbt State decides whether to reuse a model by comparing its compiled SQL to the hash from the previous run. If anything changes that compiled SQL between runs, even when the logic hasn't meaningfully changed, dbt State rebuilds the model.
+dbt State decides whether to reuse a model by parsing the rendered SQL into a syntax tree and comparing the hash. If the hash has changed (implying the model's logic has changed), dbt State rebuilds the model.
 
-These two patterns commonly cause unexpected rebuilds:
+dbt State prioritizes safety and precision; if it can't guarantee skipping a node is safe, then it rebuilds the node to be sure. A few patterns that commonly cause overeager rebuilds are listed on this page, along with recommendations to increase reuse rate.
+
+The following patterns commonly cause unexpected rebuilds:
 
 * [Views with `select *`](#views-with-select-)
 * [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
+* [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
 
 ## Views with `select *`[​](#views-with-select- "Direct link to views-with-select-")
 
@@ -132,7 +135,7 @@ renamed as (
 select * from renamed
 ```
 
-dbt State reuses a model when its compiled SQL matches the stored hash. For views with `select *`, dbt State can't determine which columns the query selects without querying the upstream schema, so it can't confirm the SQL is unchanged. It always rebuilds these views to avoid reusing a stale result. When dbt State rebuilds a view, it also re-runs any tests defined on the model.
+dbt State reuses a model when its compiled SQL matches the stored hash. For views with `select *`, dbt State can't determine which columns the query selects without querying the upstream schema, so it can't confirm the SQL is unchanged. It always rebuilds these views to avoid errors — if the upstream table gains a column, querying the view can fail. When dbt State rebuilds a view, it also re-runs any tests defined on the model.
 
 tip
 
@@ -152,6 +155,14 @@ If you can't remove `select *`, you can exclude views from running with `--exclu
 Some macros, such as `dbt_utils.get_relations_by_pattern` (an introspective macro) combined with `dbt_utils.union_relations`, can return relations in a different order on each run. That produces different compiled SQL even when your project logic hasn't changed. dbt State detects a new hash and rebuilds the model.
 
 This pattern can affect any model type, not just views. If a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
+
+## Models with external sources on BigQuery[​](#models-with-external-sources-on-bigquery "Direct link to Models with external sources on BigQuery")
+
+On BigQuery, models that use external sources (such as Google Sheets) always rebuild because BigQuery doesn't expose modification timestamps for external sources, so dbt State can't determine freshness.
+
+tip
+
+To prevent external sources from always being considered stale, configure [`loaded_at_field`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
 
 ## How to diagnose[​](#how-to-diagnose "Direct link to How to diagnose")
 
