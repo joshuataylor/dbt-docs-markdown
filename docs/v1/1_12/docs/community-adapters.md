@@ -2,9 +2,11 @@
 
 Community adapters are adapter plugins contributed and maintained by members of the community. We welcome and encourage [adapter plugins contributions](https://docs.getdbt.com/docs/contribute-core-adapters.md#contribute-to-a-pre-existing-adapter) from the dbt community. Please be mindful that these [community maintainers](https://docs.getdbt.com/docs/connect-adapters.md#maintainers) are intrepid volunteers who donate their time and effort — so be kind, understanding, and help out where you can!
 
-Refer to the following table for the available community adapters and their respective adapter setup guide:
+Refer to the following available community adapter(s):
 
-| Data platforms                                                                                              |                                                                                                   |                                                                                                    |
+<!-- -->
+
+| Data platform                                                                                               |                                                                                                   |                                                                                                    |
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [Confluent Cloud](https://docs.getdbt.com/docs/local/connect-data-platform/confluent-setup.md)              | [CrateDB](https://docs.getdbt.com/docs/local/connect-data-platform/cratedb-setup.md)              | [Databend Cloud](https://docs.getdbt.com/docs/local/connect-data-platform/databend-setup.md)       |
 | [DeltaStream](https://docs.getdbt.com/docs/local/connect-data-platform/deltastream-setup.md)                | [Doris & SelectDB](https://docs.getdbt.com/docs/local/connect-data-platform/doris-setup.md)       | [DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md)                 |
@@ -16,9 +18,3 @@ Refer to the following table for the available community adapters and their resp
 | [Starrocks](https://docs.getdbt.com/docs/local/connect-data-platform/starrocks-setup.md)                    | [TiDB](https://docs.getdbt.com/docs/local/connect-data-platform/tidb-setup.md)                    | [TimescaleDB](https://dbt-timescaledb.debruyn.dev/)                                                |
 | [Upsolver](https://docs.getdbt.com/docs/local/connect-data-platform/upsolver-setup.md)                      | [Vertica](https://docs.getdbt.com/docs/local/connect-data-platform/vertica-setup.md)              | [Watsonx-Presto](https://docs.getdbt.com/docs/local/connect-data-platform/watsonx-presto-setup.md) |
 | [Yellowbrick](https://docs.getdbt.com/docs/local/connect-data-platform/yellowbrick-setup.md)                |                                                                                                   |                                                                                                    |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

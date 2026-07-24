@@ -12,26 +12,10 @@ Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.c
 
 <!-- -->
 
-![](/img/icons/alloydb.svg)
-
-#### AlloyDB
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/alloydb-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
-
-dbt platformdbt Core
-
 ![](/img/icons/apache-spark.svg)
 
 #### Apache Spark
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-apache-spark.md)
-  <br />
 * [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
 * [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
 
@@ -39,37 +23,7 @@ dbt platformdbt Core
 
 [![](https://badge.fury.io/py/dbt-spark.svg/)](https://badge.fury.io/py/dbt-spark)
 
-dbt platformdbt CoreFusion
-
-![](/img/icons/athena.svg)
-
-#### Athena
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-amazon-athena.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/athena-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-athena.svg/)](https://badge.fury.io/py/dbt-athena)
-
-dbt platformdbt Core
-
-![](/img/icons/azure-synapse-analytics.svg)
-
-#### Azure Synapse
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-azure-synapse-analytics.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/azuresynapse-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-synapse.svg/)](https://badge.fury.io/py/dbt-synapse)
-
-dbt platformdbt Core
+dbt CoreFusion
 
 ![](/img/icons/bigquery.svg)
 
@@ -86,18 +40,6 @@ dbt platformdbt Core
 [![](https://badge.fury.io/py/dbt-bigquery.svg/)](https://badge.fury.io/py/dbt-bigquery)
 
 dbt platformdbt CoreFusion
-
-![](/img/icons/clickhouse.svg)
-
-#### ClickHouse
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/clickhouse-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-clickhouse.svg/)](https://badge.fury.io/py/dbt-clickhouse)
-
-dbt Core
 
 ![](/img/icons/databricks.svg)
 
@@ -129,184 +71,6 @@ dbt platformdbt CoreFusion
 
 dbt CoreFusion
 
-![](/img/icons/dremio.svg)
-
-#### Dremio
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/dremio-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-dremio.svg/)](https://badge.fury.io/py/dbt-dremio)
-
-dbt Core
-
-![](/img/icons/glue.svg)
-
-#### Glue
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/glue-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-glue.svg/)](https://badge.fury.io/py/dbt-glue)
-
-dbt Core
-
-![](/img/icons/exasol.svg)
-
-#### Exasol
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/exasol-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-exasol.svg/)](https://badge.fury.io/py/dbt-exasol)
-
-dbt Core
-
-![](/img/icons/dbt-hive.svg)
-
-#### Cloudera Hive
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/hive-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-hive.svg/)](https://badge.fury.io/py/dbt-hive)
-
-dbt Core
-
-![](/img/icons/dbt-ibm-db2.svg)
-
-#### IBM Db2
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/ibm-db2-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/ibm-dbt-db2.svg/)](https://badge.fury.io/py/ibm-dbt-db2)
-
-dbt Core
-
-![](/img/icons/dbt-ibm-netezza.svg)
-
-#### IBM Netezza
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/ibmnetezza-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-ibm-netezza.svg/)](https://badge.fury.io/py/dbt-ibm-netezza)
-
-dbt Core
-
-![](/img/icons/dbt-impala.svg)
-
-#### Cloudera Impala
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/impala-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-impala.svg/)](https://badge.fury.io/py/dbt-impala)
-
-dbt Core
-
-![](/img/icons/lakebase.svg)
-
-#### Databricks Lakebase
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/lakebase-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
-
-dbt platformdbt Core
-
-![](/img/icons/materialize.svg)
-
-#### Materialize
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/materialize-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-materialize.svg/)](https://badge.fury.io/py/dbt-materialize)
-
-dbt Core
-
-![](/img/icons/fabric_warehouse.svg)
-
-#### Microsoft Fabric Warehouse
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-microsoft-fabric.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/fabric-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-fabric.svg/)](https://badge.fury.io/py/dbt-fabric)
-
-dbt platformdbt Core
-
-![](/img/icons/fabric_lakehouse.svg)
-
-#### Microsoft Fabric Lakehouse
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/fabricspark-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-fabricspark.svg/)](https://badge.fury.io/py/dbt-fabricspark)
-
-dbt Core
-
-![](/img/icons/oracle.svg)
-
-#### Oracle Autonomous Database
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/oracle-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-oracle.svg/)](https://badge.fury.io/py/dbt-oracle)
-
-dbt Core
-
-![](/img/icons/postgres.svg)
-
-#### Postgres
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
-
-dbt platformdbt Core
-
 ![](/img/icons/redshift.svg)
 
 #### Redshift
@@ -323,31 +87,6 @@ dbt platformdbt Core
 
 dbt platformdbt CoreFusion
 
-![](/img/icons/risingwave.svg)
-
-#### RisingWave
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/risingwave-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-risingwave.svg/)](https://badge.fury.io/py/dbt-risingwave)
-
-dbt Core
-
-![](/img/icons/singlestore.svg)
-
-#### SingleStore
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/singlestore-setup.md)
-  <br />
-  <br />
-  [![](https://badge.fury.io/py/dbt-singlestore.svg/)](https://badge.fury.io/py/dbt-singlestore)
-
-dbt Core
-
 ![](/img/icons/snowflake.svg)
 
 #### Snowflake
@@ -363,31 +102,3 @@ dbt Core
 [![](https://badge.fury.io/py/dbt-snowflake.svg/)](https://badge.fury.io/py/dbt-snowflake)
 
 dbt platformdbt CoreFusion
-
-![](/img/icons/starburst.svg)
-
-#### Starburst/Trino
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/trino-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-trino.svg/)](https://badge.fury.io/py/dbt-trino)
-
-dbt platformdbt Core
-
-![](/img/icons/teradata.svg)
-
-#### Teradata
-
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-teradata.md)
-  <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/teradata-setup.md)
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-teradata.svg/)](https://badge.fury.io/py/dbt-teradata)
-
-dbt platformdbt Core

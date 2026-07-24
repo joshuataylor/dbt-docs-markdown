@@ -16,6 +16,8 @@ With a few exceptions [1](#user-content-fn-1), you can install all [adapters](ht
 
 <!-- -->
 
+<!-- -->
+
 ## Footnotes[​](#footnote-label "Direct link to Footnotes")
 
 1. Use the PyPI package name when installing with `pip`

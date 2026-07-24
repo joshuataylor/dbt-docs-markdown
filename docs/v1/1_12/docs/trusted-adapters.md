@@ -12,6 +12,8 @@ Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.c
 
 <!-- -->
 
+<!-- -->
+
 ![](/img/icons/alloydb.svg)
 
 #### AlloyDB
