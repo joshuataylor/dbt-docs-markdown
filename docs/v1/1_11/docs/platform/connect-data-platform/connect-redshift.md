@@ -110,7 +110,7 @@ See the following supported authentication methods for Redshift:
 
 * Username and password
 * SSH tunneling
-* Identity Center via [external Oauth](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md)
+* AWS IAM Identity Center via [external OAuth](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md) (Okta or Entra ID) for development connections
 * IAM User authentication via [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes)
 
 On the dbt platform, the IAM user authentication is currently only supported via [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes). Once the project is created, development and deployment environments can be updated to use extended attributes to pass the fields described below, as some are not supported via textbox.
