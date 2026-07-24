@@ -1,4 +1,6 @@
-# Set up SCIM with Okta [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up SCIM with Okta
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 SCIM available for Okta
 

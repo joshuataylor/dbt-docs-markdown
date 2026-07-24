@@ -1,5 +1,7 @@
 # dbt Wizard CLI data use and telemetry
 
+Local developmentⓘ
+
 dbt Wizard CLI collects anonymous product telemetry to improve the AI agent experience, understand usage patterns, optimize performance, and attribute compute costs without capturing your code, queries, prompts, responses, or file contents.
 
 ## Opt out of client telemetry[​](#opt-out-of-client-telemetry "Direct link to Opt out of client telemetry")

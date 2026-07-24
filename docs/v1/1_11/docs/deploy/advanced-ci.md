@@ -1,4 +1,6 @@
-# Advanced CI [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Advanced CI
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 [Continuous integration workflows](https://docs.getdbt.com/docs/deploy/continuous-integration.md) help increase the governance and improve the quality of the data. Additionally for these CI jobs, you can use Advanced CI features, such as [compare changes](#compare-changes), that provide details about the changes between what's currently in your production environment and the pull request's latest commit, giving you observability into how data changes are affected by your code changes.
 

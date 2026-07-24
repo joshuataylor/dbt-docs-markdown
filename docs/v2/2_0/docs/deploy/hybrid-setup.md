@@ -1,4 +1,6 @@
-# Hybrid setup [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Hybrid setup
+
+dbt platform | Enterprise+ⓘ
 
 Set up Hybrid projects to upload dbt Core artifacts into dbt for better collaboration and visibility.
 

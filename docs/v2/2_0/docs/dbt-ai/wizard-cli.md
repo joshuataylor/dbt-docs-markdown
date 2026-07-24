@@ -1,5 +1,7 @@
 # Install dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Install the dbt Wizard CLI from your terminal for agentic and governed data development in dbt.
 
 This guide explains how to install, verify, update, and uninstall the dbt Wizard CLI on your local machine. (Be warned, the wizard has been known to cast spells

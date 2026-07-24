@@ -1,5 +1,7 @@
 # Connect BigQuery Fusion compatible
 
+dbt platformⓘ
+
 To see which BigQuery functions are supported in Fusion in `strict` mode, refer to [BigQuery function support](https://docs.getdbt.com/reference/resource-configs/bigquery-function-support.md).
 
 ## Required permissions[​](#required-permissions "Direct link to Required permissions")

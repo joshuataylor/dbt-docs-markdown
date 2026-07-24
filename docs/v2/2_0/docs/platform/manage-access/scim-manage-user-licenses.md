@@ -1,4 +1,6 @@
-# Manage user licenses with SCIM [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Manage user licenses with SCIM
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 You can manage user license assignments using System for Cross-Domain Identity Management (SCIM) and a user attribute in Okta, so the license type is set as users are provisioned and onboarded.
 

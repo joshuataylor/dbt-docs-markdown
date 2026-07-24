@@ -1,4 +1,6 @@
-# Deploy your metrics [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Deploy your metrics
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 <!-- -->
 

@@ -96,9 +96,9 @@ snapshots:
 
 You can configure `static_analysis` for [models](https://docs.getdbt.com/docs/build/sql-models.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), [seeds](https://docs.getdbt.com/docs/build/seeds.md), and [snapshots](https://docs.getdbt.com/docs/build/snapshots.md).
 
-You can configure if and when the dbt Fusion engine performs static SQL analysis for a model. Configure the `static_analysis` config in your project YAML file (`dbt_project.yml`), model properties YAML file, or in a SQL config block in your model file. Refer to [Principles of static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md?version=1.12#principles-of-static-analysis) for more information on the different modes of static analysis.
+You can configure if and when the dbt Fusion engine performs static SQL analysis for a model. Configure the `static_analysis` config in your project YAML file (`dbt_project.yml`), model properties YAML file, or in a SQL config block in your model file. Refer to [Principles of static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=1.12#principles-of-static-analysis) for more information on the different modes of static analysis.
 
-Setting a model to `strict` does not automatically set `strict` for downstream models; they keep the project default unless you configure them explicitly. For more information and examples, refer to [strict mode inheritance](https://docs.getdbt.com/docs/fusion/new-concepts.md#strict-mode-inheritance).
+Setting a model to `strict` does not automatically set `strict` for downstream models; they keep the project default unless you configure them explicitly. For more information and examples, refer to [strict mode inheritance](https://docs.getdbt.com/docs/build/about-static-analysis.md#strict-mode-inheritance).
 
 The following values are available for `static_analysis`:
 
@@ -142,7 +142,7 @@ For example, for the lineage Model A → Model B → Model C:
 
 This makes sure that stricter validation requirements don't apply downstream when parent models haven't met those requirements.
 
-Refer to the Fusion concepts page for deeper discussion and visuals: [New concepts](https://docs.getdbt.com/docs/fusion/new-concepts.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
+Refer to the Fusion concepts page for deeper discussion and visuals: [New concepts](https://docs.getdbt.com/docs/build/about-static-analysis.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
 
 ## CLI override[​](#cli-override "Direct link to CLI override")
 
@@ -317,4 +317,4 @@ snapshots:
 ## Considerations[​](#considerations "Direct link to Considerations")
 
 * For models, disabling static analysis means that features of the VS Code extension that depend on SQL comprehension will be unavailable.
-* For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](https://docs.getdbt.com/docs/fusion/new-concepts.md#when-should-i-turn-static-analysis-off).
+* For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](https://docs.getdbt.com/docs/build/about-static-analysis.md#when-should-i-turn-static-analysis-off).

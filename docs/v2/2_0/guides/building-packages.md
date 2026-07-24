@@ -29,7 +29,7 @@ Packages typically contain either:
 * macros that solve a particular analytics engineering problem — for example, [auditing the results of a query](https://hub.getdbt.com/dbt-labs/audit_helper/latest/), [generating code](https://hub.getdbt.com/dbt-labs/codegen/latest/), or [adding additional schema tests to a dbt project](https://hub.getdbt.com/calogica/dbt_expectations/latest/).
 * models for a common dataset — for example a dataset for software products like [MailChimp](https://hub.getdbt.com/fivetran/mailchimp/latest/) or [Snowplow](https://hub.getdbt.com/dbt-labs/snowplow/latest/), or even models for metadata about your data stack like [Snowflake query spend](https://hub.getdbt.com/gitlabhq/snowflake_spend/latest/) and [the artifacts produced by `dbt run`](https://hub.getdbt.com/tailsdotcom/dbt_artifacts/latest/). In general, there should be a shared set of industry-standard metrics that you can model (e.g. email open rate).
 
-We also recommend ensuring your package is compatible with [Fusion](https://docs.getdbt.com/docs/fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
+We also recommend ensuring your package is compatible with [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
 
 Packages are *not* a good fit for sharing models that contain business-specific logic, for example, writing code for marketing attribution, or monthly recurring revenue. Instead, consider sharing a blog post and a link to a sample repo, rather than bundling this code as a package (here's our blog post on [marketing attribution](https://blog.getdbt.com/modeling-marketing-attribution/) as an example).
 
@@ -59,7 +59,7 @@ When working on your package, we often find it useful to install a local copy of
 
 ### Ensure Fusion compatibility[​](#ensure-fusion-compatibility "Direct link to Ensure Fusion compatibility")
 
-If you're building a package, we recommend you ensure it's compatible with [Fusion](https://docs.getdbt.com/docs/fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
+If you're building a package, we recommend you ensure it's compatible with [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
 
 Doing so will ensure your package is compatible with dbt Fusion engine (and dbt Core), but will be displayed with a Fusion-compatible badge in dbt package hub.
 

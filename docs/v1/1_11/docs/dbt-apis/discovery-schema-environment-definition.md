@@ -1,5 +1,7 @@
 # Definition object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The definition object allows you to query the logical state of a given project node given its most recent manifest generated models.
 
 The [Example queries](#example-queries) illustrate a few fields you can query with this `definition` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

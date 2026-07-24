@@ -1,12 +1,14 @@
 # Build and view your docs with dbt
 
+dbt platformⓘ
+
 dbt enables you to generate documentation for your project and data platform. The documentation is automatically updated with new information after a fully successful job run, ensuring accuracy and relevance.
 
 The default documentation experience in dbt is [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), available on [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing/). Use [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) to view your project's resources (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
 
 Refer to [documentation](https://docs.getdbt.com/docs/build/documentation.md) for more configuration details.
 
-This shift makes [dbt Docs](#dbt-docs) a legacy documentation feature in dbt. dbt Docs is still accessible and offers basic documentation, but it doesn't offer the same speed, metadata, or visibility as Catalog. dbt Docs is available to dbt developer plans or dbt Core v1 users.
+This shift makes [dbt Docs](#dbt-docs) a legacy documentation feature in dbt. dbt Docs is still accessible and offers basic documentation, but it doesn't offer the same speed, metadata, or visibility as Catalog. dbt Docs is available to dbt developer plans or dbt Core v1.x users.
 
 ## Set up a documentation job[​](#set-up-a-documentation-job "Direct link to Set up a documentation job")
 
@@ -49,7 +51,7 @@ To create and schedule documentation-only jobs at the end of your production job
 
 ## dbt Docs[​](#dbt-docs "Direct link to dbt Docs")
 
-dbt Docs, available on developer plans or dbt Core v1 users, generates a website from your dbt project using the `dbt docs generate` command. It provides a central location to view your project's resources, such as models, tests, and lineage — and helps you understand the data in your warehouse.
+dbt Docs, available on developer plans or dbt Core v1.x users, generates a website from your dbt project using the `dbt docs generate` command. It provides a central location to view your project's resources, such as models, tests, and lineage — and helps you understand the data in your warehouse.
 
 ### Configure project documentation[​](#configure-project-documentation "Direct link to Configure project documentation")
 
@@ -68,7 +70,7 @@ For a richer and more interactive experience, try out [Catalog](https://docs.get
 
 ### Generating documentation[​](#generating-documentation "Direct link to Generating documentation")
 
-To generate documentation in the Studio IDE, run the `dbt docs generate` command (dbt Core v1 only) in the **Command Bar** in the Studio IDE. This command will generate the documentation for your dbt project as it exists in development in your IDE session.
+To generate documentation in the Studio IDE, run the `dbt docs generate` command (dbt Core v1.x only) in the **Command Bar** in the Studio IDE. This command will generate the documentation for your dbt project as it exists in development in your IDE session.
 
 After running `dbt docs generate` in the Studio IDE, click the icon above the file tree, to see the latest version of your documentation rendered in a new browser window.
 

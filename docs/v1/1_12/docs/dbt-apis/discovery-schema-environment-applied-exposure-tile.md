@@ -1,5 +1,7 @@
 # Exposure tile object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Exposure health tiles](https://docs.getdbt.com/docs/explore/data-tile.md) distill data health signals for data consumers and can be embedded in downstream tools. You can query information on these tiles from the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `exposureTile` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

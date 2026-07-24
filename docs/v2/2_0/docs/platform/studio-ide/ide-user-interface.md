@@ -1,5 +1,7 @@
 # IDE user interface
 
+dbt platformⓘ
+
 The [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) is a tool for developers to effortlessly build, test, run, and version-control their dbt projects, and enhance data governance — all from the convenience of your browser. Use the Studio IDE to compile dbt code into SQL and run it against your database directly — no command line required!
 
 This page offers comprehensive definitions and terminology of user interface elements, allowing you to navigate the Studio IDE landscape with ease.
@@ -18,7 +20,7 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
    * **Note:** This linking feature is only available for GitHub or GitLab repositories on multi-tenant dbt accounts.
 
-2. **Documentation site button:** Clicking the Documentation site book icon, located next to the Git repository link, leads to the dbt Documentation site. The site is powered by the latest dbt artifacts generated in the IDE using the `dbt docs generate` command (dbt Core v1 only) from the Command bar.
+2. **Documentation site button:** Clicking the Documentation site book icon, located next to the Git repository link, leads to the dbt Documentation site. The site is powered by the latest dbt artifacts generated in the IDE using the `dbt docs generate` command (dbt Core v1.x only) from the Command bar.
 
 3. [**Version Control**](#editing-features): The Studio IDE's powerful Version Control section contains all git-related elements, including the Git actions button and the **Changes** section.
 

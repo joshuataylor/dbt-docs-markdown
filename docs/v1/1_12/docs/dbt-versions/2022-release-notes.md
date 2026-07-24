@@ -1,5 +1,7 @@
 # 2022 dbt platform release notes
 
+dbt platform | Freeⓘ
+
 Archived release notes for dbt from 2022
 
 ## December 2022[​](#december-2022 "Direct link to December 2022")

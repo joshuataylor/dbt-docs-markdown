@@ -1,4 +1,6 @@
-# Set up automatic exposures in Tableau [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up automatic exposures in Tableau
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Set up and automatically populate downstream exposures for supported BI tool integrations, like Tableau. Visualize and orchestrate them through [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects) and the [dbt job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) for a richer experience.
 

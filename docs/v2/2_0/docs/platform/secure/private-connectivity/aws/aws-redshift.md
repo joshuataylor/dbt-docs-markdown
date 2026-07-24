@@ -1,4 +1,6 @@
-# Configure AWS PrivateLink for Redshift [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configure AWS PrivateLink for Redshift
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

@@ -1,5 +1,7 @@
 # Migrating from state-aware orchestration to dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 dbt State improves upon state-aware orchestration in a few key ways:
 
 * **Works everywhere** — dbt State works with dbt Core, Fusion, and dbt platform, as well as external orchestrators, across both development and deployment environments.

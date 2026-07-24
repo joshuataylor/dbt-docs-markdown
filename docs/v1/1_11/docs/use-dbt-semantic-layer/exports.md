@@ -1,4 +1,6 @@
-# Write queries with exports [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Write queries with exports
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Exports enhance [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md) by running your saved queries and writing the output to a table or view within your data platform. Saved queries are a way to save and reuse commonly used queries in MetricFlow, exports take this functionality a step further by:
 

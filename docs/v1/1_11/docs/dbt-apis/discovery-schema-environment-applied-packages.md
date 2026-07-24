@@ -1,5 +1,7 @@
 # Packages object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [dbt packages](https://docs.getdbt.com/docs/build/packages.md) are libraries with models, macros, and other resources that tackle a specific problem area utilized by dbt projects. You can query project packages through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `packages` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

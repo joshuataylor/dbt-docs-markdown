@@ -1,5 +1,7 @@
 # About dbt LSP
 
+Available in v2ⓘ
+
 The dbt Fusion engine offers benefits beyond the speed and power of the framework. The dbt VS Code extension, Studio IDE, and Insights all contain a powerful set of features backed by our Language Server Protocol (LSP) that enable fast, efficient development workflows. The following features are supported across these tools:
 
 <!-- -->
@@ -10,7 +12,7 @@ The dbt Fusion engine offers benefits beyond the speed and power of the framewor
 | Autocomplete ref/source args | ✅                | ✅         | ✅       |
 | CTE Preview                  | ✅                | ✅         | ✅       |
 | Column-level lineage         | ✅                | ❌         | ❌       |
-| Compare changes locally      | ✅\*              | ❌         | ❌       |
+| Compare changes locally      | ✅                | ❌         | ❌       |
 | Command palette              | ✅                | N/A        | ❌       |
 | Error detection              | ✅                | ✅         | ✅       |
 | Go-to definition             | ✅                | ✅         | ❌       |
@@ -32,8 +34,6 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-* "Compare changes locally" requires a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account. *All other dbt VS Code extension LSP features listed above are available for free.*
-
 ## Lazy compilation[​](#lazy-compilation "Direct link to Lazy compilation")
 
 The dbt language server uses on-demand compilation, also called lazy compilation. Lazy compilation starts automatically when you open a model file, you don't need to run `dbt compile` to trigger it. It compiles only the nodes it needs to answer questions about the file you are working in, instead of blocking on a full project compile first. That improves performance because you get editor features for your active file much sooner.
@@ -52,4 +52,4 @@ After the minimal compile for your active file, the server continues with a back
 
 Background compilation enables full project analysis once it completes. Until then, some features that need the full graph may be limited. You can monitor compilation progress in your editor's status bar. When the progress notifications clear, the background compile is complete.
 
-The Fusion CLI and the language server run independently. Running a command like `dbt run` or `dbt compile` from the terminal does not interrupt or affect LSP compilation.
+dbt and the language server run independently. Running a command like `dbt run` or `dbt compile` from the terminal does not interrupt or affect LSP compilation.

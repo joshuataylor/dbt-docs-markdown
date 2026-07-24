@@ -1,5 +1,7 @@
 # Example usage for dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 These examples use the Jaffle Shop project to show side-by-side comparisons of CLI output with and without dbt State enabled. To enable dbt State, follow the steps in [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
 
 The following examples use this [Jaffle Shop project](https://github.com/dbt-labs/jaffle-shop) DAG as a reference. You can refer to it to understand the model lineage for each scenario.

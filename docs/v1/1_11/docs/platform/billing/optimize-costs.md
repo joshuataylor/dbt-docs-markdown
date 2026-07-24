@@ -1,5 +1,7 @@
 # Optimize costs in dbt
 
+Login required | Usage-basedⓘ
+
 dbt offers ways to optimize your model’s built usage and warehouse costs.
 
 ### Best practices for optimizing cost with dbt State[​](#best-practices-for-optimizing-cost-with-dbt-state "Direct link to Best practices for optimizing cost with dbt State")

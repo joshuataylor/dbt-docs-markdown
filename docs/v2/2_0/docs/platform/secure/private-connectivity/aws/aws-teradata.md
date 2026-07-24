@@ -1,4 +1,6 @@
-# Configuring AWS PrivateLink for Teradata VantageCloud [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring AWS PrivateLink for Teradata VantageCloud
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

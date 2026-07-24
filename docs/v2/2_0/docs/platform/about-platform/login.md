@@ -1,5 +1,7 @@
 # Log in to dbt platform
 
+dbt platformⓘ
+
 <https://login.dbt.com> is the universal entry point for dbt platform accounts with a static access URL (for example, `abc123.us1.dbt.com`). It sits outside any specific account and maps your email to the accounts you can access across instances and regions.
 
 You can also sign in directly with your account **Access URL** if you already know it, for example, `abc123.us1.dbt.com`. Refer to [Access, regions, and IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for the full list of access URLs by region.

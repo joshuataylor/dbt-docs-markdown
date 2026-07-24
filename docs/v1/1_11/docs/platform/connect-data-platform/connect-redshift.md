@@ -1,5 +1,7 @@
 # Connect Redshift Fusion compatible
 
+dbt platformⓘ
+
 dbt platform supports connecting to Redshift.
 
 ## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")

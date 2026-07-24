@@ -1,5 +1,7 @@
 # Connect Vertica to dbt Core
 
+Local developmentⓘ
+
 VENDOR-SUPPORTED PLUGIN
 
 If you're interested in contributing, check out the source code for each repository listed below.

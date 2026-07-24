@@ -1,5 +1,7 @@
 # dbt Architecture
 
+dbt platformⓘ
+
 This page helps practitioners and those interested in dbt's architecture and data flow.
 
 ## About dbt architecture[​](#about-dbt-architecture "Direct link to About dbt architecture")

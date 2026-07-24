@@ -22,7 +22,7 @@ For recommended workflows on real project tasks — understanding a project, val
 
 dbt Wizard is for anyone doing dbt development — from analytics engineers working in a self-hosted setup in the terminal to teams building in the dbt platform. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account.
 
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — no specific engine is required.
+dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — no specific engine is required.
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
@@ -99,7 +99,7 @@ After running `wizard --version`, you should see something like `dbt-wizard VERS
 
 Upgrade for automatic updates
 
-Upgrade to dbt Fusion engine or dbt Core v2.0 or later to run dbt Wizard as `wizard` and get automatic updates.
+Upgrade to [v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
 Your browser does not support the video tag.
 

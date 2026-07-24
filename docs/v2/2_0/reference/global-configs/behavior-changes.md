@@ -28,7 +28,7 @@ Behavior change flags go through three phases of development:
 2. **Mature (enabled by default):** The default value of the flag is switched to the new behavior by default. You can still preserve the old behavior, but you may see deprecation warnings.
 3. **Removed (generally enabled):** The old behavior is removed from the dbt codebase(s). Most flags are supported indefinitely, but there is no committement to supporting them forever. If a flag is removed, there will be significant advanced warning.
 
-### Introduced in dbt Core v1[​](#introduced-in-dbt-core-v1 "Direct link to Introduced in dbt Core v1")
+### Introduced in dbt Core v1.x[​](#introduced-in-dbt-core-v1x "Direct link to Introduced in dbt Core v1.x")
 
 This table outlines which month of the **Latest** release track in dbt and which version of dbt Core contains the behavior change's introduction (disabled by default) or maturity (enabled by default).
 
@@ -171,4 +171,4 @@ Since behavior change flags are different from other dbt changes, it's important
 
 See the [Changes overview](https://docs.getdbt.com/reference/changes-overview.md) for a quick comparison.
 
-If you're upgrading to [dbt Fusion](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) or [dbt Core v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), a subset of behavior change flags are removed and their new behavior is always enabled.
+If you're upgrading to [dbt Fusion](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) or [dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), a subset of behavior change flags are removed and their new behavior is always enabled.

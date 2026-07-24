@@ -11,19 +11,19 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 * An anonymized hash key representing the raw model content.
 * Number of nodes that were run.
 
-For full transparency, you can see all the event definitions in [`tracking.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tracking.py) (dbt Core v1) or [event\_functions.rs](https://github.com/dbt-labs/dbt-core/blob/main/crates/vortex-events/src/event_functions.rs) (dbt Core v2).
+## dbt Core telemetry[​](#dbt-core-telemetry "Direct link to dbt Core telemetry")
 
-* dbt has telemetry enabled by default to help us enhance the user experience and improve the product by using real user feedback and usage patterns. While it cannot be disabled, we ensure the data is [secure](https://www.getdbt.com/security) and used responsibly. Collecting this data enables us to provide a better product experience, including improvements to the performance of dbt.
+dbt Core has telemetry enabled by default. For full transparency, you can see all the event definitions in [`tracking.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tracking.py).
 
-* dbt Core users have telemetry enabled by default to help us understand usage patterns and improve the product. You can opt out of event tracking at any time by adding the following to your `dbt_project.yml` file:
+You can opt out of event tracking at any time by adding the following configuration to your `dbt_project.yml` file:
 
-  dbt\_project.yml
+dbt\_project.yml
 
-  ```yaml
-  flags:
-    send_anonymous_usage_stats: false
-  ```
+```yaml
+flags:
+  send_anonymous_usage_stats: false
+```
 
-  dbt Core users can also use the `DO_NOT_TRACK` environment variable to enable or disable sending anonymous data. For more information, see [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md).
+You can also set the `DO_NOT_TRACK` environment variable. For more information, refer to [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md).
 
-  `DO_NOT_TRACK=1` is the same as `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.
+`DO_NOT_TRACK=1` is equivalent to `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.

@@ -1,5 +1,7 @@
 # 2024 dbt platform release notes
 
+dbt platform | Freeⓘ
+
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
 * **New:** New products and features

@@ -1,5 +1,7 @@
 # Connect Firebolt to dbt Core
 
+Local developmentⓘ
+
 Some core functionality may be limited. If you're interested in contributing, check out the source code for the repository listed below.
 
 <!-- -->

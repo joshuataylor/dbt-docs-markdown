@@ -67,7 +67,7 @@ We recommend [defining both lower and upper bounds](#pin-to-a-range), such as `"
 
 ## Fusion compatibility[​](#fusion-compatibility "Direct link to Fusion compatibility")
 
-The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) (`2.0.0` and higher).
+The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) (`2.0.0` and higher).
 
 * If it excludes `2.0.0`, Fusion will warn today and error in a future release, matching dbt Core behavior.
 * You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.

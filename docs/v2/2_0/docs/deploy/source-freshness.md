@@ -1,5 +1,7 @@
 # Source freshness
 
+dbt platformⓘ
+
 dbt provides a helpful interface around dbt's [source data freshness](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) calculations. When a dbt job is configured to run source freshness checks, dbt will render a user interface showing you the state of the most recent check. This interface is intended to help you determine if your source data freshness is meeting the service level agreement (SLA) that you've defined for your organization.
 
 [![Data Sources in dbt](/img/docs/dbt-platform/using-dbt-platform/data-sources-next.png?v=2 "Data Sources in dbt")](#)Data Sources in dbt

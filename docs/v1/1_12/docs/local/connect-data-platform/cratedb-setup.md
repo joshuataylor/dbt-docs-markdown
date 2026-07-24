@@ -1,5 +1,7 @@
 # Connect CrateDB to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Crate.io, Inc.

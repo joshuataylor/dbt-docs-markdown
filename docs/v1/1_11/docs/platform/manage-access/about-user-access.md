@@ -10,6 +10,8 @@ For model-specific access and their availability across projects, refer to [Mode
 
 # About user access
 
+dbt platformⓘ
+
 You can regulate access to dbt by various measures, including licenses, groups, permissions, and role-based access control (RBAC). To understand the possible approaches to user access to dbt features and functionality, you should first know how we approach users and groups.
 
 ## Users[​](#users "Direct link to Users")

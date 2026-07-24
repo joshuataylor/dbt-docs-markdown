@@ -1,5 +1,7 @@
 # dbt Catalog FAQs
 
+dbt platformⓘ
+
 [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) is dbt’s new knowledge base and lineage visualization experience. It offers an interactive and high-level view of your company’s entire data estate, where you can dive deep into the context you need to understand and improve lineage so your teams can trust the data they’re using to make decisions.
 
 ## Overview[​](#overview "Direct link to Overview")

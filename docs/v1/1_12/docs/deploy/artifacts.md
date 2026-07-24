@@ -1,5 +1,7 @@
 # Artifacts
 
+dbt platformⓘ
+
 When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the dbt platform, namely: [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [dbt Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs), and [source freshness reporting](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness).
 
 ## Create dbt Artifacts[​](#create-dbt-artifacts "Direct link to Create dbt Artifacts")

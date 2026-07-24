@@ -1,4 +1,6 @@
-# Set up SSO with Okta [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up SSO with Okta
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt Enterprise-tier plans support single-sign on via Okta (using SAML).
 

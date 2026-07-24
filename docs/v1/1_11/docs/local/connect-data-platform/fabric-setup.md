@@ -1,5 +1,7 @@
 # Connect Microsoft Fabric Data Warehouse to dbt Core
 
+Local developmentⓘ
+
 `profiles.yml` file is for dbt Core and dbt fusion only
 
 If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).

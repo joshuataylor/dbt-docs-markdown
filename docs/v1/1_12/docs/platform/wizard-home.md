@@ -1,4 +1,6 @@
-# dbt Wizard home tab [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt Wizard home tab [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The dbt Wizard home tab is an agent-native development experience in the dbt platform. It centers your workflow around collaborating with the agent itself — iterating through natural language, reviewing generated changes, and validating outcomes — without the overhead of a traditional IDE environment.
 

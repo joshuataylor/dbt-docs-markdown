@@ -1,5 +1,7 @@
 # Connect Salesforce Data 360 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") Fusion compatible
 
+dbt platformⓘ
+
 The dbt Fusion engine in dbt platform supports connecting to Salesforce Data 360.
 
 <!-- -->

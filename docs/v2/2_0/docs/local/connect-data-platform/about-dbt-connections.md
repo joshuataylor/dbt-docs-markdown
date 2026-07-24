@@ -1,20 +1,25 @@
 # About data platform connections
 
-dbt connects to your data platform to run SQL transformations against your data. The connection setup depends on which dbt engine you use:
+Local developmentⓘ
 
-* [dbt Fusion engine](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md?version=2)
-* [dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md?version=1)
+dbt connects to your data platform to run SQL transformations against your data.
 
 ## Supported Fusion data platforms[​](#supported-fusion-data-platforms "Direct link to Supported Fusion data platforms")
 
 The dbt Fusion engine includes built-in support for:
 
 * [Snowflake](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [Databricks](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md) [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [Databricks](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Amazon Redshift](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Google BigQuery](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * [Apache Spark](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+*Adapter lifecycle can differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+<br />
+
+<br />
 
 Fusion uses [ADBC (Arrow Database Connectivity)](https://arrow.apache.org/adbc/) drivers for high-performance connections to these platforms. No separate adapter installation is required.
 

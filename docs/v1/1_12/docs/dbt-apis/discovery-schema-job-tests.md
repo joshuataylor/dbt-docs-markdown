@@ -1,5 +1,7 @@
 # Tests object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The tests object allows you to query information about all tests in a given job.
 
 ### Arguments[​](#arguments "Direct link to Arguments")

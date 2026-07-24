@@ -1,5 +1,7 @@
 # Enabling dbt State on individual jobs [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 To enable dbt State on any job — whether already existing or newly created in an environment that doesn't have dbt State enabled:
 
 1. Go to **Orchestration** > **Jobs**.

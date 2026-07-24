@@ -20,7 +20,7 @@ Intermediate
 
 The dbt Fusion engine represents the next evolution of data transformation. dbt has been rebuilt from the ground up but at its most basic, Fusion is a new version, and like any new version you should take steps to prepare to upgrade. This guide will take you through those preparations.
 
-If Fusion is brand new to you, take a look at our [comprehensive documentation](https://docs.getdbt.com/docs/fusion.md) on what it is, how it behaves, and what's different from dbt Core before getting started with this guide. Once you're caught up, it's time to begin preparing your projects for the speed and power that Fusion has to offer.
+If Fusion is brand new to you, take a look at our [comprehensive documentation](https://docs.getdbt.com/docs/fusion/about-fusion.md) on what it is, how it behaves, and what's different from dbt Core before getting started with this guide. Once you're caught up, it's time to begin preparing your projects for the speed and power that Fusion has to offer.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -34,9 +34,7 @@ To follow the steps in this guide, you must meet the following prerequisites:
 
 * You have [proper permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to edit projects.
 
-* Your project is using a Fusion supported adapter:
-
-  <!-- -->
+* Your project is using a [supported adapter](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md?version=2.0)
 
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -47,7 +45,7 @@ To follow the steps in this guide, you must meet the following prerequisites:
     * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
@@ -64,28 +62,6 @@ To follow the steps in this guide, you must meet the following prerequisites:
   * External OAuth
   * Key pair using a modern PKCS#8 method
   * MFA
-
-   Apache Spark (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-  * Thrift
-
-    <!-- -->
-
-    * Simple Authentication and Security Layer (SASL) PLAIN
-    * No SASL (NOSASL)
-
-  * Livy
-
-    <!-- -->
-
-    * Basic authentication (username and password)
-    * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-      <!-- -->
-      * Supports authentication using single sign-on, service accounts, or user tokens
-
-   DuckDB (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-  DuckDB does not require authentication — it runs locally on your machine.
 
 Upgrading your first project
 

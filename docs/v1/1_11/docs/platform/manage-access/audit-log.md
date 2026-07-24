@@ -1,4 +1,6 @@
-# dbt audit log [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt audit log
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 To review actions performed by people in your account, dbt provides logs of audited user and system events in real time. The audit log appears as events happen and includes details such as who performed the action, what the action was, and when it was performed. You can use these details to troubleshoot access issues, perform security audits, or analyze specific events. You can also [query and export audit log events through the API](#using-the-api).
 

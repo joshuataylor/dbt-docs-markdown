@@ -1,5 +1,7 @@
 # Account settings in dbt
 
+dbt platformⓘ
+
 The following sections describe the different **Account settings** available from your dbt account in the sidebar (under your account name on the lower left-hand side).
 
 [![Example of Account settings from the sidebar](/img/docs/dbt-platform/example-sidebar-account-settings.png?v=2 "Example of Account settings from the sidebar")](#)Example of Account settings from the sidebar

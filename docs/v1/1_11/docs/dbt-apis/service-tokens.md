@@ -1,4 +1,6 @@
-# Service account tokens [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Service account tokens
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Service account tokens enable you to securely authenticate with the dbt API by assigning each token a narrow set of permissions that more precisely manages access to the API. While similar to [personal access tokens](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md), service account tokens belong to an account rather than a user.
 

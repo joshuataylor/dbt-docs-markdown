@@ -1,5 +1,7 @@
 # Connect Yellowbrick to dbt Core
 
+Local developmentⓘ
+
 Community plugin
 
 Some core functionality may be limited.

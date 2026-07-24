@@ -1,5 +1,7 @@
 # dbt Semantic Layer FAQs
 
+dbt platformⓘ
+
 The [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) is a dbt offering that allows users to centrally define their metrics within their dbt project using [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md).
 
 The Semantic Layer offers:

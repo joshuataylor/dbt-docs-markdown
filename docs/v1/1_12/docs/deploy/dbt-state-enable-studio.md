@@ -1,5 +1,7 @@
 # Enabling dbt State in Studio [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 When you enable dbt State in the Studio IDE, it runs automatically on every `dbt run` or `dbt build` during development — skipping unchanged models and reusing production results so your runs are *faster*.
 
 You can [turn it on for your development environment](#enabling-dbt-state-on-a-development-environment) so it's the default for everyone, or you can [override that setting just for your own account](#overriding-dbt-state-setting-per-user).

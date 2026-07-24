@@ -1,4 +1,6 @@
-# Project dependencies [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Project dependencies
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Available on dbt [Enterprise or Enterprise+](https://www.getdbt.com/pricing) plans.
 

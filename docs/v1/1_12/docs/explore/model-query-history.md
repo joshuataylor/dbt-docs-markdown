@@ -1,4 +1,6 @@
-# Model query history [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Model query history
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Model query history helps data teams track model usage by analyzing query logs.
 

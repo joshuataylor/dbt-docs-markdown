@@ -1,4 +1,6 @@
-# Configuring public IP restrictions [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring public IP restrictions
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

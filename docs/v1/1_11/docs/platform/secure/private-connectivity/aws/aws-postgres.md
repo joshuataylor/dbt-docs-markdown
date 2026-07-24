@@ -1,4 +1,6 @@
-# Configure AWS PrivateLink for Postgres [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configure AWS PrivateLink for Postgres
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

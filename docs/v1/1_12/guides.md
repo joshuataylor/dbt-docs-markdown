@@ -34,6 +34,7 @@
 * [Release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
 * [FAQs](https://docs.getdbt.com/docs/faqs.md)
 * [Support and billing](https://docs.getdbt.com/docs/dbt-support.md)
+* [Licensing](https://docs.getdbt.com/docs/dbt-licensing.md)
 * [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements)
 * [Courses](https://learn.getdbt.com)
 
@@ -78,7 +79,7 @@ Select all
 
 Clear all
 
-### Get started with Fusion and dbt Core v2
+### Get started with Fusion and dbt Core 2.0
 
 [![](/img/icons/zap.svg)](https://docs.getdbt.com/guides/fusion.md)
 
@@ -106,7 +107,7 @@ Clear all
 
 [![](/img/icons/guides.svg)](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 
-#### [Contribute a dbt Core v2 adapter](https://docs.getdbt.com/guides/adapter-creation-v2.md)
+#### [Contribute a dbt Core 2.0 adapter](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 
 [Start ](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 
@@ -212,7 +213,7 @@ Clear all
 
 [![](/img/icons/guides.svg)](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 
-#### [Contribute a dbt Core v2 adapter](https://docs.getdbt.com/guides/adapter-creation-v2.md)
+#### [Contribute a dbt Core 2.0 adapter](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 
 [Start ](https://docs.getdbt.com/guides/adapter-creation-v2.md)
 

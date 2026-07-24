@@ -1,4 +1,6 @@
-# API rate limits [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# API rate limits
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 dbt applies request limits across the dbt platform APIs so integrations stay reliable and predictable.
 

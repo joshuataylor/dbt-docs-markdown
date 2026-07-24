@@ -1,6 +1,8 @@
-# Telemetry and observability
+# Fusion telemetry and observability
 
-The dbt Fusion engine provides a comprehensive telemetry system that replaces [dbt Core's structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
+The dbt Fusion engine provides a comprehensive observability system that replaces [dbt Core's structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
+
+This system is separate from the anonymous usage statistics that dbt sends to dbt Labs. To configure anonymous usage statistics, refer to [Anonymous usage stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md).
 
 This uses the same integration that dbt platform relies on for orchestration and monitoring, providing proven and production-ready features that work at scale.
 

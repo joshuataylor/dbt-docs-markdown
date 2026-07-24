@@ -1,4 +1,6 @@
-# Set up Snowflake OAuth [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up Snowflake OAuth
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Subdomain migration
 

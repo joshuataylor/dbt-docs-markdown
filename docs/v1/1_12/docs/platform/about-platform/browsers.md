@@ -1,5 +1,7 @@
 # Supported browsers
 
+dbt platformⓘ
+
 To have the best experience with dbt, we recommend using the latest versions of the following browsers:
 
 * [Google Chrome](https://www.google.com/chrome/) — Latest version is fully supported in dbt

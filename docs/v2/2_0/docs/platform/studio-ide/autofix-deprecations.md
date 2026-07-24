@@ -1,5 +1,7 @@
 # Fix deprecation warnings
 
+dbt platformⓘ
+
 You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [Compatible or Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) of dbt Core before you upgrade to Fusion!
 
 To find and fix deprecations:

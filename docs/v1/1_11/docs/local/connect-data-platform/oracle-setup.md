@@ -1,5 +1,7 @@
 # Connect Oracle to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Oracle

@@ -1,4 +1,6 @@
-# Visualize and orchestrate downstream exposures [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Visualize and orchestrate downstream exposures
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Visualize and orchestrate downstream exposures in dbt to automatically generate exposures from dashboards and proactively refresh the underlying data sources (like Tableau extracts) during scheduled dbt jobs.
 

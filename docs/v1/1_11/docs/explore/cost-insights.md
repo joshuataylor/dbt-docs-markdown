@@ -1,4 +1,6 @@
-# Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Cost Insights shows estimated costs and compute time for your dbt projects and models directly in the dbt platform, so you can measure and share the impact of optimizations like [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) and [state-aware orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md).
 

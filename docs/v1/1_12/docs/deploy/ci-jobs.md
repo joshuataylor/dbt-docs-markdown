@@ -1,5 +1,7 @@
 # Continuous integration jobs in dbt
 
+dbt platformⓘ
+
 You can set up [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) (CI) jobs to run when someone opens a new pull request (PR) in your Git repository. By running and testing only *modified* models, dbt keeps these jobs as resource-conscious as possible on your data platform.
 
 Triggering CI jobs in monorepos

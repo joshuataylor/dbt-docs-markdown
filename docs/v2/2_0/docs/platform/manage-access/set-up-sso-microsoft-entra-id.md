@@ -1,4 +1,6 @@
-# Set up SSO with Microsoft Entra ID [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up SSO with Microsoft Entra ID
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt Enterprise-tier plans support single-sign on via Microsoft Entra ID (formerly Azure AD).
 

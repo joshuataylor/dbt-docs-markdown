@@ -1,5 +1,7 @@
 # Configuring deferral in dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 By default, dbt State defers to your production environment. Both sections on this page are optional; configure them if you want to customize the defaults.
 
 ## Configure deferral[​](#configure-deferral "Direct link to Configure deferral")

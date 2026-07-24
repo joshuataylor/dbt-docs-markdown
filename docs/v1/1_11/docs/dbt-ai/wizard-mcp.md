@@ -1,5 +1,7 @@
 # Use MCP servers with the dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 The Model Context Protocol (MCP) connects dbt Wizard to external tools and context. Add an MCP server and dbt Wizard can call its tools mid-session — query the dbt MCP server for governed project metadata, open a pull request through the GitHub MCP server, or pull in any other MCP-compatible service.
 
 See it in action and share your feedback

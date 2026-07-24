@@ -1,5 +1,7 @@
 # Job scheduler
 
+dbt platformⓘ
+
 info
 
 Use the [dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) to investigate and troubleshoot dbt job and run failures by asking the agent about recent failures, root causes, and fixes — powered by the `troubleshooting-dbt-job-errors` skill in dbt Agent Skills.

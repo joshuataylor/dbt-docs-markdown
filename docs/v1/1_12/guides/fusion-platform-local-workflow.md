@@ -25,7 +25,7 @@ This guide walks through credentials, environment variables, Fusion versions, an
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt platform account with at least one project using the dbt Fusion engine.
-* You have either the [dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2.0#installation) installed.
+* You have either the [dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](https://docs.getdbt.com/docs/local/install-dbt.md) installed.
 
 ## 1. Managing credentials[​](#1-managing-credentials "Direct link to 1. Managing credentials")
 

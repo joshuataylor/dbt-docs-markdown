@@ -1,5 +1,7 @@
 # Set up Azure DevOps with Service User
 
+dbt platform | Enterprise, Enterprise+ⓘ
+
 ## Service user overview[​](#service-user-overview "Direct link to Service user overview")
 
 important

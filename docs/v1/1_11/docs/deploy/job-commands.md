@@ -1,5 +1,7 @@
 # Job commands
 
+dbt platformⓘ
+
 A dbt production job allows you to set up a system to run a dbt job and job commands on a schedule, rather than running dbt commands manually from the command line or [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md). A job consists of commands that are "chained" together and executed as run steps. Each run step can succeed or fail, which may determine the job's run status (Success, Cancel, or Error).
 
 Each job allows you to:
@@ -29,7 +31,7 @@ Every job invocation automatically includes the [`dbt deps`](https://docs.getdbt
 
 For every job, you have the option to select the [Generate docs on run](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) or [Run source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) checkboxes, enabling you to run the commands automatically.
 
-**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command (dbt Core v1 only), *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. For jobs running on the dbt Fusion engine, manually configuring `dbt docs generate` using the checkbox will no longer be required in the future. Read [Set up a documentation job](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
+**Generate docs on run** checkbox — dbt executes the `dbt docs generate` command (dbt Core v1.x only), *after* the listed commands. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. For jobs running on the dbt Fusion engine, manually configuring `dbt docs generate` using the checkbox will no longer be required in the future. Read [Set up a documentation job](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#set-up-a-documentation-job) for more information.
 
 **Run source freshness** checkbox — dbt executes the `dbt source freshness` command as the first run step in your job. If that particular run step in your job fails, the job can still succeed if all subsequent run steps are successful. Read [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) for more information.
 

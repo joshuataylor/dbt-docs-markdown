@@ -1,5 +1,7 @@
 # Use subagents with dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Subagents let dbt Wizard spin up focused, parallel agents to handle parts of a larger task — one to explore your project, one to make changes, one to review them. dbt Wizard orchestrates them and consolidates the results back into your session.
 
 Use subagents when you can split a task into independent pieces of work. They're useful for reviewing a large pull request, debugging a failed job, adding tests across multiple models, or researching documentation while another agent inspects your project.

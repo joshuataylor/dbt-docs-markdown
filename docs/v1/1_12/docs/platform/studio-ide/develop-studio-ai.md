@@ -1,4 +1,6 @@
-# Develop with AI in the Studio IDE [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Develop with AI in the Studio IDE
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Leverage AI to develop dbt projects in the Studio IDE.
 

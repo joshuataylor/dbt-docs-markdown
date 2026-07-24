@@ -1,5 +1,7 @@
 # Source object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The source object allows you to query information about a particular source in a given job.
 
 ### Arguments[​](#arguments "Direct link to Arguments")

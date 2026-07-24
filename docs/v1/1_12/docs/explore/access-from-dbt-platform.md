@@ -1,5 +1,7 @@
 # Access Catalog from dbt platform features
 
+dbt platformⓘ
+
 Access Catalog from jobs, Insights, and other areas of dbt to move quickly between run context, lineage, and resource metadata in your project.
 
 This page describes how to open Catalog from orchestration and exploration workflows in dbt. The primary way to open Catalog is **Catalog** in the navigation; you can also open it from jobs and Insights as described in the sections below.

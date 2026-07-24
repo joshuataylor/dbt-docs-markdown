@@ -1,5 +1,7 @@
 # About dbt setup
 
+dbt platformⓘ
+
 dbt platform is the fastest and most reliable way to deploy your dbt jobs. It contains a myriad of settings that can be configured by admins, from the necessities (data platform integration) to security enhancements (SSO) and quality-of-life features (RBAC).
 
 This portion of our documentation will take you through the various settings in the dbt UI, including:

@@ -1,5 +1,7 @@
 # Model Historical Runs object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The model historical runs object allows you to query information about a model's run history.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `modelHistoricalRuns` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

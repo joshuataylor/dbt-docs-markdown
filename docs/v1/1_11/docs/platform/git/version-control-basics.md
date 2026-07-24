@@ -1,5 +1,7 @@
 # Version control basics
 
+dbt platformⓘ
+
 When you develop in the command line interface (CLI) or Cloud integrated development environment (Studio IDE), you can leverage Git directly to version control your code. To use version control, make sure you are connected to a Git repository in the CLI or Studio IDE.
 
 You can create a separate branch to develop and make changes. The changes you make aren’t merged into the default branch in your connected repository (typically named the `main` branch) unless it successfully passes tests. This helps keep the code organized and improves productivity by making the development process smooth.

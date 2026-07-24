@@ -1,5 +1,7 @@
 # Set up self-hosted MCP
 
+Local developmentⓘ
+
 [The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt CLI. You can use it with or without a dbt platform account.
 
 No clone required
@@ -128,7 +130,7 @@ After completing OAuth setup, skip to [Test your configuration](#optional-test-y
 
 This option runs the MCP server locally and connects it to your local dbt project using `DBT_PROJECT_DIR` and `DBT_PATH`.
 
-If you're using the dbt Core or Fusion CLI and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up self-hosted MCP with just your dbt project information.
+If you're using dbt Core v1.x or Fusion and don't need access to dbt platform features (Discovery API, Semantic Layer, Administrative API), you can set up local MCP with just your dbt project information.
 
 Add this configuration to your MCP client (refer to the specific [integration guides](#set-up-your-mcp-client) for exact file locations):
 

@@ -1,4 +1,6 @@
-# Set up Databricks OAuth [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up Databricks OAuth
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt platform accounts on Enterprise and Enterprise+ plans support developer OAuth ([OAuth for partner solutions](https://docs.databricks.com/en/integrations/manage-oauth.html)) with Databricks. When you enable Databricks OAuth for a dbt project, all developers must authenticate with Databricks in order to use the Studio IDE.
 

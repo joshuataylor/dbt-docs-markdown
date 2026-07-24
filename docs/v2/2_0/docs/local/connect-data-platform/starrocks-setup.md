@@ -1,5 +1,7 @@
 # Connect StarRocks to dbt Core
 
+Local developmentⓘ
+
 ## Overview of <!-- -->dbt-starrocks<!-- -->
 
 * **Maintained by**:

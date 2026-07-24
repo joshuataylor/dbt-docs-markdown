@@ -1,5 +1,7 @@
 # dbt State trial and billing [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 Start a dbt State trial and manage paid access from the dbt platform **Billing & Usage** dashboard.
 
 ## How the trial works[​](#how-the-trial-works "Direct link to How the trial works")

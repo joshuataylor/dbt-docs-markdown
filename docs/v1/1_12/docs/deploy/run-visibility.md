@@ -1,5 +1,7 @@
 # Run visibility
 
+dbt platformⓘ
+
 You can view the history of your runs and the model timing dashboard to help identify where improvements can be made to jobs.
 
 ## Run history[​](#run-history "Direct link to Run history")
@@ -55,7 +57,7 @@ To verify the actual count, use the up and down buttons on each status to naviga
 
 To download it, go to the **Run summary** tab in the job, select a step and click **Download** > **Download OTel log** to export a Parquet file
 
-This option only appears when the step emitted an OTel log artifact. Some steps, such as `dbt deps`, don't produce one. For analysis examples, refer to [Querying telemetry data](https://docs.getdbt.com/docs/fusion/telemetry.md?version=2.0\&name=Fusion#querying-telemetry-data).
+This option only appears when the step emitted an OTel log artifact. Some steps, such as `dbt deps`, don't produce one. For analysis examples, refer to [Querying telemetry data](https://docs.getdbt.com/reference/telemetry-observability.md#querying-telemetry-data).
 
 [![Download logs](/img/docs/dbt-platform/deployment/download-logs.png?v=2 "Download logs")](#)Download logs
 

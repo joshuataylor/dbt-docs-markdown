@@ -1,4 +1,6 @@
-# Discover data with Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Discover data with Catalog
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 With Catalog, you can view your project's [resources](https://docs.getdbt.com/docs/build/projects.md) (such as models, tests, and metrics), their lineage, and [model consumption](https://docs.getdbt.com/docs/explore/view-downstream-exposures.md) to gain a better understanding of its latest production state.
 

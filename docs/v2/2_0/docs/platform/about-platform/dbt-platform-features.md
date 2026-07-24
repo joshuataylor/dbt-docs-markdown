@@ -1,5 +1,7 @@
 # The dbt platform features
 
+dbt platformⓘ
+
 dbt platform is the fastest and most reliable way to deploy dbt. Develop, test, schedule, document, and investigate data models all in one browser-based UI.
 
 In addition to providing a hosted architecture for running dbt across your organization, dbt comes equipped with turnkey support for scheduling jobs, CI/CD, hosting documentation, monitoring and alerting, an integrated development environment (Studio IDE), and allows you to develop and run dbt commands from your local command line interface (CLI) or code editor.

@@ -1,5 +1,7 @@
 # Sources object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Sources](https://docs.getdbt.com/docs/build/sources.md) make it possible to name and describe the data loaded into your warehouse by your extract and load tools. You can query sources through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `sources` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

@@ -1,5 +1,7 @@
 # Deployment environments
 
+dbt platformⓘ
+
 Deployment environments in dbt are crucial for deploying dbt jobs in production and using features or integrations that depend on dbt metadata or results. To execute dbt, environments determine the settings used during job runs, including:
 
 * The version of dbt Core that will be used to run your project

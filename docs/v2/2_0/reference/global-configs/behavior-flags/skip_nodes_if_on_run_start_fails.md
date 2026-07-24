@@ -1,8 +1,8 @@
 # Failures in on-run-start hooks
 
-Removed in dbt Core v2
+Removed in dbt Core 2.0
 
-This flag was removed in dbt Core v2 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
 | skip\_nodes\_if\_on\_run\_start\_fails | dbt **Latest** | dbt Core |
 | -------------------------------------- | -------------- | -------- |

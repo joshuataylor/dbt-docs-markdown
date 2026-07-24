@@ -1,27 +1,29 @@
 # About data platform connections
 
-The dbt platform can connect with a variety of data platform providers. Expand the sections below to know the supported data platforms for dbt Core and the dbt Fusion engine:
+dbt platformⓘ
 
-| Connection                                                                                                                                                                                                                               | Available on Latest | Available on Fusion |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ------------------- |
-| [AlloyDB](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)                                                                                                                                     | ✅                  | ❌                  |
-| [Amazon Athena](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-amazon-athena.md)                                                                                                                                    | ✅                  | ❌                  |
-| [Amazon Redshift](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md)                                                                                                                                       | ✅                  | Preview             |
-| [Apache Spark](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-apache-spark.md)                                                                                                                                      | ✅                  | ❌                  |
-| [Azure Synapse Analytics](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-azure-synapse-analytics.md)                                                                                                                | ✅                  | ❌                  |
-| [Databricks](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)                                                                                                                                          | ✅                  | Private preview     |
-| [Google BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md)                                                                                                                                       | ✅                  | Preview             |
-| [Microsoft Fabric](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-microsoft-fabric.md)                                                                                                                              | ✅                  | ❌                  |
-| [PostgreSQL](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)                                                                                                                                  | ✅                  | ❌                  |
-| [Snowflake](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)                                                                                                                                            | ✅                  | ✅                  |
-| [Starburst or Trino](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md)                                                                                                                             | ✅                  | ❌                  |
-| [Teradata](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-teradata.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅                  | ❌                  |
+The dbt platform can connect with a variety of data platform providers.
 
-Search table...
+For most supported data platforms, we recommend the v2 experience. v2 supports the following data platforms:
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+| Connection                                                                                         | Available on v2 |
+| -------------------------------------------------------------------------------------------------- | --------------- |
+| [Snowflake](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)      | ✅              |
+| [Amazon Redshift](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md) | Preview         |
+| [Databricks](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)    | Preview         |
+| [Google BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md) | Preview         |
+
+*Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+<br />
+
+<br />
+
+If your data platform isn’t listed yet, support for more data platforms will roll out over time. You can continue using v1 for that project in the meantime.
+
+<!-- -->
+
+## Connect your data platform in dbt[​](#connect-your-data-platform-in-dbt "Direct link to Connect your data platform in dbt")
 
 To connect to your database in dbt:
 
@@ -35,30 +37,6 @@ These connection instructions provide the basic fields required for configuring 
 ### Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
 
 The following tables show which authentication types are supported for each connection available on the dbt platform:
-
-* dbt Core
-* dbt Fusion
-
-| Integration | User credentials | Service account credentials | Warehouse OAuth for users | External OAuth for users | Service-to-service OAuth | SSH | Private connectivity support\*\* |
-| ----------- | ---------------- | --------------------------- | ------------------------- | ------------------------ | ------------------------ | --- | -------------------------------- |
-| Snowflake   | ✅               | ✅                          | ✅                        | ✅                       | ❌                       | ❌  | ✅                               |
-| BigQuery    | ✅               | ✅                          | ✅                        | ❌                       | ✅                       | ❌  | ✅                               |
-| Databricks  | ✅               | ✅                          | ✅                        | ❌                       | ❌                       | ❌  | ✅                               |
-| Redshift    | ✅               | ❌                          | ❌                        | ✅                       | ❌                       | ✅  | ✅                               |
-| Fabric      | ✅               | ✅                          | ❌                        | ❌                       | ❌                       | ❌  | ❌                               |
-| Synapse     | ✅               | ✅                          | ❌                        | ❌                       | ❌                       | ❌  | ✅                               |
-| Trino       | ✅               | ❌                          | ❌                        | ❌                       | ❌                       | ❌  | ❌                               |
-| Teradata    | ✅               | ❌                          | ❌                        | ❌                       | ❌                       | ❌  | ✅                               |
-| AWS Athena  | ✅               | ✅                          | ❌                        | ❌                       | ❌                       | ❌  | ✅                               |
-| Postgres    | ✅               | ❌                          | ❌                        | ❌                       | ❌                       | ✅  | ✅                               |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-\*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](https://docs.getdbt.com/docs/platform/secure/private-connectivity/private-connectivity.md) for details.
 
 | Integration | User credentials/token | Service account credentials | Warehouse OAuth for users | External OAuth for users | Service-to-service OAuth | Key/Pair | MFA | SSH | Private connectivity support\*\* |
 | ----------- | ---------------------- | --------------------------- | ------------------------- | ------------------------ | ------------------------ | -------- | --- | --- | -------------------------------- |
@@ -74,6 +52,8 @@ Search table...
 | Loading table... |   |   |   |   |
 
 \*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](https://docs.getdbt.com/docs/platform/secure/private-connectivity/private-connectivity.md) for details.
+
+<!-- -->
 
 ## Connection management[​](#connection-management "Direct link to Connection management")
 

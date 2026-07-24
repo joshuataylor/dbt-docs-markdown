@@ -1,5 +1,7 @@
 # Connect MaxCompute to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Alibaba Cloud MaxCompute Team

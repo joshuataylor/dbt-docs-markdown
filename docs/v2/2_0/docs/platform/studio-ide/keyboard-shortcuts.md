@@ -1,5 +1,7 @@
 # Studio IDE keyboard shortcuts
 
+dbt platformⓘ
+
 The Studio IDE provides keyboard shortcuts, features, and development tips to help you work faster and be more productive.
 
 Use this Studio IDE page to help you quickly reference some common operations.

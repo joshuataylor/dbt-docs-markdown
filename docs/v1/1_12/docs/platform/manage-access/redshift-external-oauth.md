@@ -1,4 +1,6 @@
-# Set up external OAuth with Redshift [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up external OAuth with Redshift
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 <!-- -->
 

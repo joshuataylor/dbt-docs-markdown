@@ -1,5 +1,9 @@
 # About the dbt VS Code extension [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
+<!-- -->
+
 The dbt VS Code extension brings a hyper-fast, intelligent, and cost-efficient dbt development experience to VS Code. This is the only way to enjoy all the power of the dbt Fusion engine while developing with a self-hosted installation.
 
 * *Save time and resources* with near-instant parsing, live error detection, powerful IntelliSense capabilities, and more.
@@ -7,7 +11,7 @@ The dbt VS Code extension brings a hyper-fast, intelligent, and cost-efficient d
 
 The dbt VS Code extension is available in the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt). *Note, this is a public preview release. Behavior may change ahead of the broader generally available (GA) release.*
 
-The dbt VS Code extension is only compatible with the dbt Fusion engine, but not with dbt Core.
+The dbt VS Code extension works with Fusion, the default free-to-use product you get when you install dbt.
 
 Try out the Fusion quickstart guide
 
@@ -23,17 +27,17 @@ Check out the following video to see the features and functionality of the dbt V
 
 ### Sign in and feature access[​](#sign-in-and-feature-access "Direct link to Sign in and feature access")
 
-After you install the dbt VS Code extension, all [features](https://docs.getdbt.com/docs/dbt-extension-features.md) are available for 14 days with no registration! After that, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account to keep using advanced features. Previously only registered users had access to the dbt VS Code extension.
+After you install the dbt VS Code extension, all [features](https://docs.getdbt.com/docs/dbt-extension-features.md) are available for 14 days with no registration. After that, most features continue to work without registration. To keep using advanced features, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account. Previously only registered users had access to the dbt VS Code extension.
 
-Without registration, the vast majority of features continue to work. Only advanced features prompt you to register or sign-in to an existing account after the trial period ends.
+Without registration, the vast majority of features continue to work. Only advanced features prompt you to register or sign in to an existing account after the trial period ends.
 
 Strict static analysis requires registration
 
 If your project uses `static_analysis: strict` in `dbt_project.yml` or you pass `--static-analysis strict` at runtime, registration for a dbt platform account is required regardless of the trial status.
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
+Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
-Authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), so your login state is shared across the CLI, dbt VS Code extension, dbt State (if you log in using dbt platform). Go through the [get started wizard](https://docs.getdbt.com/docs/install-dbt-extension.md#getting-started) or run `dbt login` from your terminal, then restart or reload VS Code. The extension detects your login automatically.
+When you register or sign in for advanced features, authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md). Your login state is shared across the CLI, dbt VS Code extension, and dbt State (if you log in using dbt platform). You can use the [get started wizard](https://docs.getdbt.com/docs/install-dbt-extension.md#getting-started) or run `dbt login` from your terminal, then restart or reload VS Code. The extension detects your login automatically.
 
 ### The dbt extension menu[​](#the-dbt-extension-menu "Direct link to The dbt extension menu")
 
@@ -55,7 +59,7 @@ The dbt extension caches important schema information from your data warehouse t
 
 ## Using the extension[​](#using-the-extension "Direct link to Using the extension")
 
-Your dbt environment must be using the dbt Fusion engine in order to use this extension. See [the Fusion documentation](https://docs.getdbt.com/docs/fusion.md) for more on eligibility and upgrading.
+Your dbt environment must be using the dbt Fusion engine in order to use this extension. See [the Fusion documentation](https://docs.getdbt.com/docs/fusion/about-fusion.md) for more on eligibility and upgrading.
 
 Once installed, the dbt extension automatically activates when you open any `.sql` or `.yml` file inside of a dbt project directory.
 
@@ -141,15 +145,9 @@ See the [Hybrid development with dbt platform and Fusion](https://docs.getdbt.co
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-Fusion marks a significant update to dbt. While many of the workflows you've grown accustomed to remain unchanged, there are a lot of new ideas, and a lot of old ones going away. The following is a list of the full scope of our current release of the Fusion engine, including implementation, installation, deprecations, and limitations:
-
-* [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md)
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [New concepts in Fusion](https://docs.getdbt.com/docs/fusion/new-concepts.md)
 * [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Installing Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
-* [Installing VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md)
-* [Fusion release track](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
 * [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

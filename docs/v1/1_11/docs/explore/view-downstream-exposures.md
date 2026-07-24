@@ -1,4 +1,6 @@
-# Visualize downstream exposures [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Visualize downstream exposures
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Downstream exposures integrate natively with Tableau (Power BI coming soon) and auto-generate downstream lineage in Catalog for a richer experience.
 

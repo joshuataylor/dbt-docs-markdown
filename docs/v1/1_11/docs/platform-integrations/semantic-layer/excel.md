@@ -1,4 +1,6 @@
-# Microsoft Excel [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Microsoft Excel
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The Semantic Layer offers a seamless integration with Excel Online and Desktop through a custom menu. This add-on allows you to build Semantic Layer queries and return data on your metrics directly within Excel.
 

@@ -1,5 +1,7 @@
 # Connect Doris to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   SelectDB

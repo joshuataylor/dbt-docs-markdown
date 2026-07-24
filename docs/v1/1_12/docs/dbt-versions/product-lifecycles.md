@@ -5,7 +5,7 @@ dbt Labs manages the lifecycle of features across the dbt platform, dbt Core, an
 Service level objective (SLO) support varies between products and lifecycles.
 
 * dbt platform
-* dbt Core v1 and v2
+* dbt Core v1.x and v2
 * dbt Fusion engine
 
 dbt platform features adhere to the following lifecycle path:
@@ -30,7 +30,7 @@ No longer being actively developed or enhanced. Features continue to function as
 
 No longer available on the platform in any capacity.
 
-dbt Core releases follow semantic versioning. Read more in [About dbt versions](https://docs.getdbt.com/docs/dbt-versions.md). dbt Core v1 and v2 releases both adhere to the following lifecycle path:
+dbt Core releases follow semantic versioning. Read more in [About dbt versions](https://docs.getdbt.com/docs/dbt-versions.md). dbt Core v1.x and v2 releases both adhere to the following lifecycle path:
 
 **Undocumented**
 

@@ -1,5 +1,7 @@
 # Models object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Models](https://docs.getdbt.com/docs/build/models.md) are the foundational dbt resource that transform raw data into curated datasets using SQL (or Python). Each model represents a single SELECT statement, typically materialized as a table or view in your warehouse. You can query information about models through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `models` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

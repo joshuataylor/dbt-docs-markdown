@@ -1,6 +1,6 @@
 # dbt AI: Usage metering and limiting
 
-[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")Enterprise+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 dbt AI usage is measured based on the number of completed AI requests, known as dbt Copilot actions. Usage limits are enforced to ensure fair access and system performance.
 

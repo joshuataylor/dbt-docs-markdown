@@ -1,4 +1,6 @@
-# Visualize and orchestrate downstream exposures [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Visualize and orchestrate downstream exposures
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 <!-- -->
 

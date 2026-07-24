@@ -1,4 +1,6 @@
-# OAuth overview [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# OAuth overview
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 OAuth in dbt platform lets developers authorize their user credentials with a data platform using that platform’s login or its single sign-on (SSO) instead of storing usernames and passwords in dbt platform. This improves security and aligns with how your team already signs in to the warehouse.
 

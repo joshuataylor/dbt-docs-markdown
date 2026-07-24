@@ -1,5 +1,7 @@
 # Connect Cloudera Impala to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Cloudera

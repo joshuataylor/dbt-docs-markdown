@@ -1,5 +1,7 @@
 # Connect to GitLab
 
+dbt platformⓘ
+
 Connecting your GitLab account to dbt provides convenience and another layer of security to dbt:
 
 * Import new GitLab repos with a couple of clicks during dbt project setup.

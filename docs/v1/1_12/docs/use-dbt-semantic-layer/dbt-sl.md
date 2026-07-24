@@ -1,4 +1,6 @@
-# dbt Semantic Layer [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt Semantic Layer
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The dbt Semantic Layer eliminates duplicate coding by allowing data teams to define metrics on top of existing models and automatically handling data joins.
 

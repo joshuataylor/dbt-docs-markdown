@@ -1,5 +1,7 @@
 # Account-scoped personal access tokens
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 warning
 
 User API tokens have been deprecated and will no longer work. [Migrate](#migrate-deprecated-user-api-keys-to-personal-access-tokens) to personal access tokens to resume services.

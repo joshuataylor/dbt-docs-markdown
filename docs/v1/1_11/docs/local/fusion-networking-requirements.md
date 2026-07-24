@@ -1,4 +1,4 @@
-# Networking requirements [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Fusion networking requirements [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Fusion requires outbound HTTPS access to several endpoints depending on your usage. This page describes each requirement and provides guidance for enterprise environments that restrict outbound traffic.
 
@@ -55,7 +55,7 @@ For supported adapters, refer to [Fusion requirements](https://docs.getdbt.com/d
 
 ## Telemetry[​](#telemetry "Direct link to Telemetry")
 
-Fusion sends anonymous usage [telemetry](https://docs.getdbt.com/docs/fusion/telemetry.md) to help improve the product. If the telemetry endpoint is unreachable (for example, blocked by a firewall or proxy), Fusion logs errors on each invocation.
+Fusion sends anonymous usage statistics to help improve the product. If the telemetry endpoint is unreachable (for example, blocked by a firewall or proxy), Fusion logs errors on each invocation.
 
 | Resource      | URL                    | Purpose                          |
 | ------------- | ---------------------- | -------------------------------- |
@@ -67,19 +67,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-To suppress these errors without allowlisting the URL, disable anonymous telemetry by setting the environment variable:
-
-```shell
-export DBT_SEND_ANONYMOUS_USAGE_STATS=false
-```
-
-You can also add this to your `.env` file in your project root:
-
-```env
-DBT_SEND_ANONYMOUS_USAGE_STATS=false
-```
-
-For more details on `.env` file usage, refer to [Environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md).
+To suppress these errors without allowlisting the URL, disable telemetry using the options described in [Anonymous usage stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md).
 
 ## Manifest downloads (dbt platform only) enterprise[​](#manifest-downloads "Direct link to manifest-downloads")
 

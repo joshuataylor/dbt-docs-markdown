@@ -1,5 +1,7 @@
 # Owners object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Owners](https://docs.getdbt.com/docs/build/groups.md) help you identify the user or domain responsible for a dbt asset. For most assets, owners are defined in your project code using groups. Exposures are an exception: for downstream exposures that represent BI assets, owners are automatically pulled from the downstream tool based on who owns that asset. You can query ownership information through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `owners` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

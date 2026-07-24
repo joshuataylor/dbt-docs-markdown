@@ -1,5 +1,7 @@
 # Authenticate with Azure DevOps
 
+dbt platform | Enterprise, Enterprise+ⓘ
+
 If you use the Studio IDE or dbt CLI to collaborate on your team's Azure DevOps dbt repo, you need to [link your dbt profile to Azure DevOps](#link-your-dbt-cloud-profile-to-azure-devops), which provides an extra layer of authentication.
 
 ## Link your dbt profile to Azure DevOps[​](#link-your-dbt-profile-to-azure-devops "Direct link to Link your dbt profile to Azure DevOps")

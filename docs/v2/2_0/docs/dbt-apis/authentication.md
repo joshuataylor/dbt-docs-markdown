@@ -1,5 +1,7 @@
 # Authentication tokens
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md)
 
 #### [Personal access tokens](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md)

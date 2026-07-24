@@ -1,5 +1,7 @@
 # dbt release notes
 
+dbt platformⓘ
+
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
 * **New:** New products and features
@@ -12,6 +14,23 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
 ## July 2026[​](#july-2026 "Direct link to July 2026")
+
+#### Docs changes[​](#docs-changes "Direct link to Docs changes")
+
+To simplify the docs experience, clarify availability, and make it easier to find what applies to you, we made the following changes to the docs site:
+
+*tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues)
+
+* **Enhancement**: We've updated the version switcher on the docs site. The version switcher now just shows v1 and v2. v2 is the current generation of dbt, built on Rust for a faster, richer dev experience; v1 is the Python-based generation of dbt. Refer to [dbt versions](https://docs.getdbt.com/docs/introduction.md#dbt-versions) for what's different between v1 and v2.
+* **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](https://docs.getdbt.com/docs/fusion/about-core.md) for more info.
+* **New:** Licensing across dbt Core now has its own page, so you can see what applies to your setup in one place. Refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
+* **Enhancement:** [Static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md) now lives with the rest of your build docs and available in v2.
+* **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) and [Reference](https://docs.getdbt.com/reference/telemetry-observability.md).
+* **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
+* **Enhancement:** Simplified and clarified the [Fusion feature tables](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
+* **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
+
+#### Additional dbt platform changes[​](#additional-dbt-platform-changes "Direct link to Additional dbt platform changes")
 
 * **Enhancement:** The [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) in dbt platform has a redesigned empty state with updated suggested prompts to help you discover different ways to get started. A new wayfinder bar keeps your current project and branch visible and highlights the next step as you move from asking questions to changing code and opening a pull request.
 * **Enhancement:** Catalog now supports a **Warn** last-run status. Resources whose last run completed with warnings show a distinct status and tooltip, and you can filter by **Warn** alongside other run statuses.
@@ -47,9 +66,9 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 The following features are new or enhanced as part of dbt Labs announcements at [Snowflake Summit 2026](https://www.getdbt.com/events/snowflake-summit-2026) in San Francisco from June 1–4, 2026:
 
-* **Alpha**: [dbt Core v2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is now available in alpha!
+* **Alpha**: [dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is now available in alpha!
 
-  * **New**: dbt Core v2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
+  * **New**: dbt Core 2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
 
 * **Beta**: [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) is now available in beta!
 
@@ -57,9 +76,9 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Preview**: [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) is now available in preview!
 
-  * **New**: dbt Docs v2 is a next-generation open-source catalog experience available with the dbt Fusion engine and dbt Core v2. It uses a compact binary index instead of loading the full `manifest.json` in the browser, making it significantly faster for large projects.
+  * **New**: dbt Docs v2 is a next-generation open-source catalog experience available with the dbt Fusion engine and dbt Core 2.0. It uses a compact binary index instead of loading the full `manifest.json` in the browser, making it significantly faster for large projects.
   * **New**: dbt Docs v2 includes a redesigned UI, Semantic Layer metadata, column-level lineage (Fusion only), and a REST API at `/api/v1/` so AI agents and MCP servers can query your dbt project metadata without a browser.
-  * **New**: Generate and serve [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) with the dbt Fusion engine or dbt Core v2 by running a dbt command with `--use-index`, then `dbt docs serve`. Add [`--write-catalog`](https://docs.getdbt.com/reference/commands/cmd-docs.md#--write-catalog-flag) for richer column type metadata.
+  * **New**: Generate and serve [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) with the dbt Fusion engine or dbt Core 2.0 by running a dbt command with `--use-index`, then `dbt docs serve`. Add [`--write-catalog`](https://docs.getdbt.com/reference/commands/cmd-docs.md#--write-catalog-flag) for richer column type metadata.
 
 * **Preview**: [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is now available in preview!
 
@@ -70,7 +89,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.
 
   * **New**: [Support for Anthropic as a BYOK provider for dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#configure-your-ai-provider).
-  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) is a new CLI command available in dbt Core v2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
+  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) is a new CLI command available in dbt Core 2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
 
 * **New:** OAuth client registrations now accept custom-scheme redirect URIs (for example, `cursor://` or `vscode://`), so you can build native app OAuth integrations with Cursor and VS Code.
 
@@ -200,7 +219,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Enhancement:** [dbt dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) correctly detects column names across various `schema.yml` files, adds only missing descriptions, and preserves existing ones.
 
-* **Enhancement**: The Fusion CLI now automatically reads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. This provides a simple way to manage credentials and configuration without hardcoding them in your `profiles.yml`. The [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) also supports `.env` files and LSP-powered features. For more information, refer to [Configure environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md).
+* **Enhancement**: v2 now automatically reads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. This provides a simple way to manage credentials and configuration without hardcoding them in your `profiles.yml`. The [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) also supports `.env` files and LSP-powered features. For more information, refer to [Configure environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md).
 
 * **New**: The new Semantic Layer YAML specification creates an open standard for defining metrics and dimensions that works across multiple platforms. The new spec is now live in the dbt Fusion engine.
 

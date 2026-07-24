@@ -1,5 +1,7 @@
 # dbt Wizard command reference [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Full reference for all `wizard` subcommands and global flags.
 
 Not the same as dbt commands

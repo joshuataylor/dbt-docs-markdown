@@ -1,5 +1,7 @@
 # Connect Dremio to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Dremio

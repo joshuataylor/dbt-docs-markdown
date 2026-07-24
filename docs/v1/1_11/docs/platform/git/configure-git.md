@@ -1,5 +1,7 @@
 # Configure Git in dbt
 
+dbt platformⓘ
+
 [Version control](https://docs.getdbt.com/docs/platform/git/version-control-basics.md) — a system that allows you and your teammates to work safely and simultaneously on a single project — is an essential part of the dbt workflow. It enables teams to collaborate effectively and maintain a history of changes to their dbt projects.
 
 In dbt, you can configure Git integrations to manage your dbt project code with ease. dbt offers multiple ways to integrate with you Git provider, catering to diverse team needs and preferences.

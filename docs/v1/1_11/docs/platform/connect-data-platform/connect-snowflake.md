@@ -1,5 +1,7 @@
 # Connect Snowflake Fusion compatible
 
+dbt platformⓘ
+
 <!-- -->
 
 Snowflake column size change

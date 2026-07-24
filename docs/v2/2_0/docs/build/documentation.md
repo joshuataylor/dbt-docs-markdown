@@ -137,8 +137,8 @@ Refer to [dbt docs commands](https://docs.getdbt.com/reference/commands/cmd-docs
 
 dbt provides three complementary ways to [view documentation](https://docs.getdbt.com/docs/build/view-documentation.md) after descriptions are generated:
 
-* [**dbt Docs (Legacy)**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1 or dbt Developer plans.
-* [**dbt Docs v2**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core v2.
+* [**dbt Docs (Legacy)**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
+* [**dbt Docs v2**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core 2.0.
 * [**Catalog**](https://docs.getdbt.com/docs/explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
 
 Refer to [View documentation](https://docs.getdbt.com/docs/build/view-documentation.md) to get the most out of your dbt project's documentation.

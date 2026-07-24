@@ -1,4 +1,6 @@
-# About Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# About Canvas
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Canvas helps you quickly access and transform data through a visual, drag-and-drop experience.
 

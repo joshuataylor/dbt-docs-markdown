@@ -1,14 +1,16 @@
 # Supported features
 
-Learn about the features supported by the dbt Fusion engine, including requirements and limitations.
+Learn about the features supported by Fusion, including requirements and limitations.
 
 <!-- -->
 
 <!-- -->
+
+When you install dbt, you get Fusion by default. There's no separate feature set to choose between — Fusion is just dbt, running faster, with more capability built in.
 
 ## Requirements[​](#requirements "Direct link to Requirements")
 
-To use Fusion in your dbt project you must:
+To use Fusion in your project you must:
 
 * Use a supported adapter and authentication method:
 
@@ -23,7 +25,7 @@ To use Fusion in your dbt project you must:
     * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
@@ -41,7 +43,7 @@ To use Fusion in your dbt project you must:
   * Key pair using a modern PKCS#8 method
   * MFA
 
-   Apache Spark (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Thrift
 
@@ -59,106 +61,40 @@ To use Fusion in your dbt project you must:
       <!-- -->
       * Supports authentication using single sign-on, service accounts, or user tokens
 
-   DuckDB (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   DuckDB does not require authentication — it runs locally on your machine.
 
-* Be able to run your project on the latest version of dbt Core with no deprecation warnings or errors.
+  *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
+
+* Be able to run your project on the latest version of dbt Core v1.x with no deprecation warnings or errors.
 
 * Migrate your Semantic Layer configurations to the [latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
 
-## Parity with dbt Core[​](#parity-with-dbt-core "Direct link to Parity with dbt Core")
+## Parity with dbt Core v1.x[​](#parity-with-dbt-core-v1x "Direct link to Parity with dbt Core v1.x")
 
-Our goal is for the dbt Fusion engine to support all capabilities of the dbt Core v1 framework, and then some. Fusion already supports many of the capabilities in dbt Core v1.11, and we're working fast to add more.
+Fusion supports nearly all of dbt Core v1.x's capabilities today. Refer to [Limitations](#limitations) below for the small number of gaps that remain.
 
-Note that we have removed some deprecated features and introduced more rigorous validation of erroneous project code. Refer to the [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) for details.
-
-[dbt Core v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime and released as open source under Apache 2.0. It is currently in alpha.
+Fusion has also removed some deprecated features and introduced more rigorous validation of erroneous project code compared to dbt Core v1.x. Refer to the [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) for details.
 
 ## Features and capabilities[​](#features-and-capabilities "Direct link to Features and capabilities")
 
-dbt Fusion engine (built on Rust) gives your team up to 30x faster performance and comes with different features depending on where you use it.
+Fusion gives your team faster development workflows with semantic and syntax error detection, a faster linter, column-level lineage, language server and VS Code integration, docs v2 (full), and data diff. The dbt VS Code extension adds editor features like IntelliSense, hover info, and inline errors on top, powered by the LSP.
 
-* It powers both *engine-level* improvements (like faster compilation and incremental builds) and *editor-level* features (like IntelliSense, hover info, and inline errors) through the LSP through the dbt VS Code extension.
-* To learn about the LSP features supported across the dbt platform, refer to [About dbt LSP](https://docs.getdbt.com/docs/about-dbt-lsp.md).
-* To stay up-to-date on the latest features and capabilities, check out the [Fusion diaries](https://github.com/dbt-labs/dbt-fusion/discussions).
-
-dbt Core v1 (built on Python) supports SQL rendering but lacks SQL parsing and modern editor features powered by dbt Fusion engine and the LSP. dbt Core v2 (built on Rust, open source) adds static analysis and select Fusion engine capabilities.
+Most Fusion features work right away, with no login required. A few more unlock once you sign in with a dbt platform account — free to create, no paid plan needed. For the full free-vs-login breakdown, refer to [Fusion availability](https://docs.getdbt.com/docs/fusion/fusion-availability.md). For LSP features specifically, refer to [About dbt LSP](https://docs.getdbt.com/docs/about-dbt-lsp.md). To stay up-to-date on the latest features, check out the [Fusion diaries](https://github.com/dbt-labs/dbt-fusion/discussions).
 
 tip
 
-dbt platform customers using Fusion can [develop across multiple development surfaces](https://docs.getdbt.com/docs/fusion/fusion-availability.md), including Studio IDE and VS Code with the dbt extension.
-
-dbt platform [features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) (like [Advanced CI](https://docs.getdbt.com/docs/deploy/advanced-ci.md), [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md), and more) are available regardless of which surface you use, depending on your [dbt plan](https://www.getdbt.com/pricing).
-
-If you're not sure what features are available in Fusion, the dbt VS Code extension, Fusion-CLI, or more, the following table focuses on Fusion-powered options.
-
-In this table, self-hosted means it's open-source/source-available and runs on your own infrastructure; dbt platform is hosted by dbt Labs and includes platform-level features.
-
-> ✅ = Available | 🟡 = Partial/at compile-time only | ❌ = Not available | Coming soon = Not yet available
-
-| **Category/Capability**                                                                                  | **Fusion CLI**<br />(self-hosted) | **Fusion + VS Code extension**<br />(self-hosted) | **dbt platform**<br />\*\* + VS Code extension\*\*1 | **dbt platform** \*\* + Studio IDE\*\*<br />\*\* + Other dev surfaces\*\*2 | **Requires<br />[static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md#principles-of-static-analysis)** |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------- | ------------------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Engine performance**                                                                                   |                                   |                                                   |                                                     |                                                                            |                                                                                                                        |
-| SQL rendering                                                                                            | ✅                                | ✅                                                | ✅                                                  | ✅                                                                         | ❌                                                                                                                     |
-| SQL parsing and compilation (SQL understanding)                                                          | ✅                                | ✅                                                | ✅                                                  | ✅                                                                         | ✅                                                                                                                     |
-| **Editor and dev experience**                                                                            |                                   |                                                   |                                                     |                                                                            |                                                                                                                        |
-| IntelliSense/autocomplete/hover info                                                                     | ❌                                | ✅                                                | ✅                                                  | ✅                                                                         | ✅                                                                                                                     |
-| Inline errors (on save/in editor)                                                                        | 🟡                                | ✅                                                | ✅                                                  | ✅                                                                         | ✅                                                                                                                     |
-| Live CTE previews/compiled SQL view                                                                      | ❌                                | ✅                                                | ✅                                                  | ✅                                                                         | 🟡<br />(Live CTE previews only)                                                                                       |
-| Refactoring tools (rename model/column)                                                                  | ❌                                | ✅                                                | ✅                                                  | Coming soon                                                                | 🟡<br />(Column refactor only)                                                                                         |
-| Go-to definition/references/macro                                                                        | ❌                                | ✅                                                | ✅                                                  | ✅                                                                         | 🟡<br />(Column go-to definition only)                                                                                 |
-| Column-level lineage (in editor)                                                                         | ❌                                | ✅                                                | ✅                                                  | Coming soon                                                                | ✅                                                                                                                     |
-| Developer compare changes                                                                                | ❌                                | ❌                                                | Coming soon                                         | Coming soon                                                                | ❌                                                                                                                     |
-| **Platform and governance**                                                                              |                                   |                                                   |                                                     |                                                                            |                                                                                                                        |
-| Advanced CI compare changes                                                                              | ❌                                | ❌                                                | ✅                                                  | ✅                                                                         | ❌                                                                                                                     |
-| dbt Mesh                                                                                                 | ❌                                | ❌                                                | ✅                                                  | ✅                                                                         | ❌                                                                                                                     |
-| [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) (formerly state-aware orchestration) | ✅                                | ✅                                                | ✅                                                  | ✅                                                                         | ❌                                                                                                                     |
-| Efficient testing                                                                                        | ❌                                | ❌                                                | ✅                                                  | ✅                                                                         | ✅                                                                                                                     |
-| Governance (PII/PHI tracking)                                                                            | ❌                                | ❌                                                | Coming soon                                         | Coming soon                                                                | ✅                                                                                                                     |
-| CI/CD cost optimization (Slimmer CI)                                                                     | ❌                                | ❌                                                | Coming soon                                         | Coming soon                                                                | ✅                                                                                                                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-For a full reference of Snowflake functions supported in Fusion, refer to [Snowflake function support](https://docs.getdbt.com/reference/resource-configs/snowflake-function-support.md).
-
-1 Support for other dbt platform and LSP features, like Column-level lineage, is coming soon. See [About LSP](https://docs.getdbt.com/docs/about-dbt-lsp.md) for a more detailed comparison of dbt development environments.<br />2 The [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) is usable in VS Code, Cursor, Windsurf, and other VS Code–based editors.
-
-#### Additional considerations[​](#additional-considerations "Direct link to Additional considerations")
-
-Here are some additional considerations if using the Fusion CLI without the VS Code extension or the VS Code extension without the Fusion CLI. Some dbt VS Code extension features require you to sign in to or register for a dbt platform account.
-
-* **Fusion CLI** ([binary](https://docs.getdbt.com/blog/dbt-fusion-engine-components))
-
-  <!-- -->
-
-  * Free to use and runs on the dbt Fusion engine
-  * Benefits from Fusion engine's performance for `parse`, `compile`, `build`, and `run`, but *doesn't* include LSP [features](https://docs.getdbt.com/docs/dbt-extension-features.md) like autocomplete, hover insights, lineage, and more.
-  * Requires `profiles.yml` only (no `dbt_cloud.yml`).
-
-* **dbt VS Code extension**
-
-  * Free to use and runs on the dbt Fusion engine.
-  * dbt VS Code extension features are available to all users for 14 days. After the 14-day period, sign in or register for a dbt platform account from the dbt VS Code extension to keep using advanced capabilities.
-  * Unregistered users can continue using core editing and build workflows without signing in.
-  * Existing registered dbt VS Code extension users keep access to registration-required features automatically.
-  * Benefits from Fusion engine's performance for `parse`, `compile`, `build`, and `run`, and includes LSP [features](https://docs.getdbt.com/docs/dbt-extension-features.md) like autocomplete, hover insights, lineage, and more.
-  * Capped at 15 users per organization. See the [acceptable use policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup) for more information.
-  * If you already have a dbt platform user account (even if a trial expired), sign in with the same email. Unlock or reset it if locked. If you don't have an account, create one from the login page.
-  * Requires both [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md) and [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) files.
+dbt platform [features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) (like [Advanced CI](https://docs.getdbt.com/docs/deploy/advanced-ci.md), [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md), and more) are the enterprise layer on top of Fusion — available no matter how you run dbt, depending on your [dbt plan](https://www.getdbt.com/pricing).
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
-If your project is using any of the features listed in the following table, you can use Fusion, but you won't be able to fully migrate all your workloads because you have:
+If your project uses any of the following, you can still use Fusion, but full migration may not be possible yet:
 
-* Models that leverage specific materialization features may be unable to run or may be missing some desirable configurations.
-* Tooling that expects dbt Core's exact log output. Fusion's logging system is currently unstable and incomplete.
-* Workflows built around complementary features of the dbt platform (like model-level notifications) that Fusion does not yet support.
-* When using the dbt VS Code extension in Cursor, lineage visualization works best in Editor mode and doesn't render in Agent mode. If you're working in Agent mode and need to view lineage, switch to Editor mode to access the full lineage tab functionality.
+* Models that rely on materialization features Fusion doesn't fully support, or that need configurations it's still missing
+* Tooling that depends on dbt Core v1.x's exact log output — Fusion's logging system is still unstable and incomplete
+* Workflows built around dbt platform features Fusion doesn't yet support, like model-level notifications
+* Using the dbt VS Code extension in Cursor's Agent mode — lineage visualization only renders in Editor mode, so switch there if you need the full lineage tab
 
 note
 
@@ -224,15 +160,9 @@ dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current v
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-Fusion marks a significant update to dbt. While many of the workflows you've grown accustomed to remain unchanged, there are a lot of new ideas, and a lot of old ones going away. The following is a list of the full scope of our current release of the Fusion engine, including implementation, installation, deprecations, and limitations:
-
-* [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md)
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [New concepts in Fusion](https://docs.getdbt.com/docs/fusion/new-concepts.md)
 * [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Installing Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
-* [Installing VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md)
-* [Fusion release track](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
 * [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

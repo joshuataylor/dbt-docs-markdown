@@ -1,5 +1,7 @@
 # Job object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The job object allows you to query information about a particular model based on `jobId` and, optionally, a `runId`.
 
 If you don't provide a `runId`, the API returns information on the latest runId of a job.

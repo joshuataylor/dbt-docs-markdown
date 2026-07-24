@@ -1,5 +1,7 @@
 # About the Studio IDE
 
+dbt platformⓘ
+
 The dbt integrated development environment (Studio IDE) is a single web-based interface for building, testing, running, and version-controlling dbt projects. It compiles dbt code into SQL and executes it directly on your database.
 
 The Studio IDE offers several [keyboard shortcuts](https://docs.getdbt.com/docs/platform/studio-ide/keyboard-shortcuts.md) and [editing features](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#editing-features) for faster and efficient development and governance:

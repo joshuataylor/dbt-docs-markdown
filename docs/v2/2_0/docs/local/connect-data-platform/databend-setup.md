@@ -1,5 +1,7 @@
 # Connect Databend Cloud to dbt Core
 
+Local developmentⓘ
+
 Vendor-supported plugin
 
 Some [core functionality](https://github.com/databendcloud/dbt-databend#supported-features) may be limited. If you're interested in contributing, check out the source code repository listed below.

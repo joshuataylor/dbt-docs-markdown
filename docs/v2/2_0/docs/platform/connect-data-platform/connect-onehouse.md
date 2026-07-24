@@ -1,5 +1,7 @@
 # Connect Onehouse
 
+dbt platformⓘ
+
 dbt supports connecting to [Onehouse SQL](https://www.onehouse.ai/product/quanton) using the Apache Spark Connector with the Thrift method.
 
 note

@@ -1,4 +1,6 @@
-# Data health tile [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Data health tile
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 With data health tiles, stakeholders will get an at-a-glance confirmation on whether the data they’re looking at is stale or degraded. It allows teams to immediately go back into Catalog to see more details and investigate issues.
 

@@ -1,4 +1,6 @@
-# APIs overview [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# APIs overview
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Accounts on the Starter, Enterprise, and Enterprise+ plans can query the dbt APIs.
 

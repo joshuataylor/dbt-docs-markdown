@@ -1,5 +1,7 @@
 # Upgrade versions in dbt platform
 
+dbt platformⓘ
+
 In dbt, both [jobs](https://docs.getdbt.com/docs/deploy/jobs.md) and [environments](https://docs.getdbt.com/docs/dbt-platform-environments.md) are configured to use a specific version of dbt Core. The version can be upgraded at any time.
 
 ## Environments[​](#environments "Direct link to Environments")
@@ -46,13 +48,13 @@ An example of overriding the configured version to [**Latest** release track](ht
 
 ## dbt Fusion engine[​](#dbt-fusion-engine "Direct link to dbt Fusion engine")
 
-dbt Labs has introduced the new [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md), a ground-up rebuild of dbt. This is currently generally available for Snowflake projects and in preview for other supported adapters on the dbt platform. Eligible customers can update environments to Fusion using the same workflows as v1.x, but remember:
+dbt Labs has introduced the new [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md), a ground-up rebuild of dbt. This is currently generally available for Snowflake projects and in preview for other supported adapters on the dbt platform. Eligible customers can update environments to Fusion using the same workflows as v1.x, but remember:
 
 * If you don't see the `Fusion Stable` release track as an option, you should check with your dbt Labs account team about eligibility.
 
 * To increase the compatibility of your project, update all jobs and environments to the **Latest** release track and read more about the changes in our [upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md).
 
-* Make sure you're using a supported adapter and authentication method:
+* Make sure you're using a [supported adapter](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md?version=2.0) and authentication method:
 
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -63,7 +65,7 @@ dbt Labs has introduced the new [dbt Fusion engine](https://docs.getdbt.com/docs
     * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
-   Databricks[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+   Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
@@ -81,27 +83,9 @@ dbt Labs has introduced the new [dbt Fusion engine](https://docs.getdbt.com/docs
   * Key pair using a modern PKCS#8 method
   * MFA
 
-   Apache Spark (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+  *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-  * Thrift
-
-    <!-- -->
-
-    * Simple Authentication and Security Layer (SASL) PLAIN
-    * No SASL (NOSASL)
-
-  * Livy
-
-    <!-- -->
-
-    * Basic authentication (username and password)
-    * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-      <!-- -->
-      * Supports authentication using single sign-on, service accounts, or user tokens
-
-   DuckDB (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-  DuckDB does not require authentication — it runs locally on your machine.
+  <br />
 
 * Once you upgrade your development environment(s) to `Fusion Stable`, every user will have to restart the IDE.
 

@@ -1,4 +1,6 @@
-# Connect apps with OAuth [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Connect apps with OAuth [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The **App integrations** section in dbt platform lets admins manage OAuth 2.0 client registrations — a standard that lets external apps connect to dbt securely without sharing API tokens. Use it for:
 

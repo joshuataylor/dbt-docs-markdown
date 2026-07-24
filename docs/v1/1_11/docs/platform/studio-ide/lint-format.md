@@ -1,5 +1,7 @@
 # Lint and format your code
 
+dbt platformⓘ
+
 Enhance your development workflow by integrating with popular linters and formatters like [SQLFluff](https://sqlfluff.com/), [sqlfmt](http://sqlfmt.com/), [Black](https://black.readthedocs.io/en/latest/), and [Prettier](https://prettier.io/). Leverage these powerful tools directly in the Studio IDE without interrupting your development flow.
 
 Details

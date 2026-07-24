@@ -1,5 +1,7 @@
 # Connect Athena to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   dbt Labs

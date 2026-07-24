@@ -1,5 +1,7 @@
 # Upgrading to v1.5
 
+Available in v1ⓘ
+
 dbt Core v1.5 is a feature release, with two significant additions:
 
 1. [**Model governance**](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)

@@ -1,5 +1,7 @@
 # dbt environments
 
+dbt platformⓘ
+
 An environment determines how dbt will execute your project in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) (for development) and scheduled jobs (for deployment).
 
 Critically, in order to execute dbt, environments define three variables:

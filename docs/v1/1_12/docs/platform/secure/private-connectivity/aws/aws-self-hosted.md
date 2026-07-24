@@ -1,4 +1,6 @@
-# Configuring AWS PrivateLink for a self-hosted service [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring AWS PrivateLink for a self-hosted service
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

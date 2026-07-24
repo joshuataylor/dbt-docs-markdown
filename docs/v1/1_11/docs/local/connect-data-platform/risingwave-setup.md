@@ -1,5 +1,7 @@
 # Connect RisingWave to dbt Core
 
+Local developmentⓘ
+
 Vendor-supported plugin
 
 Certain core functionality may vary. If you would like to report a bug, request a feature, or contribute, you can check out the linked repository and open an issue.

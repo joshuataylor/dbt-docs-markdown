@@ -1,8 +1,6 @@
-# Connect Databricks to Fusion [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Connect Databricks to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-private preview
-
-The Databricks adapter is supported on the dbt Fusion engine, but due to its status as `Private Preview`, you might not see it as a supported adapter in some dbt platform interface workflows.
+Local developmentⓘ
 
 You can configure the Databricks adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 

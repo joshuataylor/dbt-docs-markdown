@@ -1,4 +1,6 @@
-# Consume metrics from your Semantic Layer [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Consume metrics from your Semantic Layer
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 After [deploying](https://docs.getdbt.com/docs/use-dbt-semantic-layer/deploy-sl.md) your Semantic Layer, the next important (and fun!) step is querying and consuming the metrics you’ve defined. This page links to key resources that guide you through the process of consuming metrics across different integrations, APIs, and tools, using various different [query syntaxes](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata).
 

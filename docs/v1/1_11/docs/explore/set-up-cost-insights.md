@@ -1,4 +1,6 @@
-# Set up Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 This guide walks you through setting up Cost Insights to track warehouse compute costs and cost reductions from dbt State and state-aware orchestration across your dbt projects and models.
 

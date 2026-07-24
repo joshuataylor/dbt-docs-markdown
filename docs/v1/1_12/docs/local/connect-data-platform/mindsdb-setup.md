@@ -1,5 +1,7 @@
 # Connect MindsDB to dbt Core
 
+Local developmentⓘ
+
 Vendor-supported plugin
 
 The dbt-mindsdb package allows dbt to connect to [MindsDB](https://github.com/mindsdb/mindsdb).

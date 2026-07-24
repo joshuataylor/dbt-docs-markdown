@@ -1,5 +1,7 @@
 # MCP environment variables reference
 
+Local developmentⓘ
+
 This page is a condensed reference for all environment variables used by the self-hosted dbt MCP server. For full detail on each variable (including examples), see [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
 
 ## Self-hosted CLI[​](#self-hosted-cli "Direct link to Self-hosted CLI")
@@ -59,7 +61,7 @@ All tools are available by default. To disable a toolset, set any of the followi
 
 | Variable                      | Default | Description                                                                                     |
 | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------- |
-| `DISABLE_DBT_CLI`             | `false` | Disable dbt Core and Fusion CLI tools.                                                          |
+| `DISABLE_DBT_CLI`             | `false` | Disable local dbt CLI tools (dbt Core v1.x and v2).                                             |
 | `DISABLE_SEMANTIC_LAYER`      | `false` | Disable Semantic Layer tools.                                                                   |
 | `DISABLE_DISCOVERY`           | `false` | Disable Discovery API tools.                                                                    |
 | `DISABLE_ADMIN_API`           | `false` | Disable Admin API tools.                                                                        |
@@ -73,16 +75,16 @@ All tools are available by default. To disable a toolset, set any of the followi
 
 If any `DBT_MCP_ENABLE_*` variable is set, only the explicitly enabled toolsets are active:
 
-| Variable                        | Description                                            |
-| ------------------------------- | ------------------------------------------------------ |
-| `DBT_MCP_ENABLE_DBT_CLI`        | Set to `true` to enable dbt Core and Fusion CLI tools. |
-| `DBT_MCP_ENABLE_SEMANTIC_LAYER` | Set to `true` to enable Semantic Layer tools.          |
-| `DBT_MCP_ENABLE_DISCOVERY`      | Set to `true` to enable Discovery API tools.           |
-| `DBT_MCP_ENABLE_ADMIN_API`      | Set to `true` to enable Admin API tools.               |
-| `DBT_MCP_ENABLE_SQL`            | Set to `true` to enable SQL tools.                     |
-| `DBT_MCP_ENABLE_DBT_CODEGEN`    | Set to `true` to enable codegen tools.                 |
-| `DBT_MCP_ENABLE_LSP`            | Set to `true` to enable LSP/Fusion tools.              |
-| `DBT_MCP_ENABLE_TOOLS`          | Comma-separated list of specific tool names to enable. |
+| Variable                        | Description                                                         |
+| ------------------------------- | ------------------------------------------------------------------- |
+| `DBT_MCP_ENABLE_DBT_CLI`        | Set to `true` to enable local dbt CLI tools (dbt Core v1.x and v2). |
+| `DBT_MCP_ENABLE_SEMANTIC_LAYER` | Set to `true` to enable Semantic Layer tools.                       |
+| `DBT_MCP_ENABLE_DISCOVERY`      | Set to `true` to enable Discovery API tools.                        |
+| `DBT_MCP_ENABLE_ADMIN_API`      | Set to `true` to enable Admin API tools.                            |
+| `DBT_MCP_ENABLE_SQL`            | Set to `true` to enable SQL tools.                                  |
+| `DBT_MCP_ENABLE_DBT_CODEGEN`    | Set to `true` to enable codegen tools.                              |
+| `DBT_MCP_ENABLE_LSP`            | Set to `true` to enable LSP/Fusion tools.                           |
+| `DBT_MCP_ENABLE_TOOLS`          | Comma-separated list of specific tool names to enable.              |
 
 ### Precedence[​](#precedence "Direct link to Precedence")
 

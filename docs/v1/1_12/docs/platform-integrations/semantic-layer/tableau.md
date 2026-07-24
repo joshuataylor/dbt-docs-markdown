@@ -1,4 +1,6 @@
-# Tableau [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Tableau
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The Tableau integration allows you to use worksheets to query the Semantic Layer directly and produce your dashboards with trusted data. It provides a live connection to the Semantic Layer through Tableau Desktop or Tableau Server.
 

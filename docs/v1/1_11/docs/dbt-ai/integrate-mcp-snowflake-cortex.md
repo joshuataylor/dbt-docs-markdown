@@ -1,5 +1,7 @@
 # Integrate Snowflake Cortex agents with dbt MCP
 
+dbt platformⓘ
+
 [Snowflake Cortex agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents) can call external [MCP servers](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp-connectors) as tools. This guide walks you through connecting a Cortex agent to the remote dbt MCP server so it can query your Semantic Layer metrics and dimensions in plain English from Snowflake Intelligence.
 
 The connection uses OAuth: Snowflake registers itself with dbt platform through Dynamic Client Registration (DCR) with PKCE, so you don't store a client secret in Snowflake. Each user completes their own OAuth consent the first time they use the agent, which means the agent respects each user's existing dbt permissions and project access.

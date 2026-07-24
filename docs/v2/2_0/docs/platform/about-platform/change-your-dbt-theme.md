@@ -1,5 +1,7 @@
 # Change your dbt theme
 
+dbt platformⓘ
+
 dbt supports **Light mode** (default), **Dark mode**, and **System mode** (respects your browser's theme for light or dark mode) under the **Theme** section of your user profile and is available for all [plans](https://www.getdbt.com/pricing).
 
 You can seamlessly switch between these modes directly from the profile menu, customizing your viewing experience.

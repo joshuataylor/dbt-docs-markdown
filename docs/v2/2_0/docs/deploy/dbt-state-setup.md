@@ -1,5 +1,7 @@
 # Setting up dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 This page walks you through setting up dbt State across dbt Core, dbt platform, and Fusion.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")

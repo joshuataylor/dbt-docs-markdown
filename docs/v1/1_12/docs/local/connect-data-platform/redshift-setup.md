@@ -1,5 +1,7 @@
 # Connect Redshift to dbt Core
 
+Local developmentⓘ
+
 [Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:

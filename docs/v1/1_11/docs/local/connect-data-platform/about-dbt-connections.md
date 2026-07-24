@@ -1,9 +1,8 @@
 # About data platform connections
 
-dbt connects to your data platform to run SQL transformations against your data. The connection setup depends on which dbt engine you use:
+Local developmentⓘ
 
-* [dbt Fusion engine](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md?version=2)
-* [dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md?version=1)
+dbt connects to your data platform to run SQL transformations against your data.
 
 <!-- -->
 
@@ -53,7 +52,7 @@ Search table...
 
 ### Catalog[​](#catalog "Direct link to Catalog")
 
-For adapters that support it, you can partially build the catalog (dbt Core v1 only). This builds the catalog for only selected models via `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
+For adapters that support it, you can partially build the catalog (dbt Core v1.x only). This builds the catalog for only selected models via `dbt docs generate --select ...`. For adapters that don't support partial catalog generation, run `dbt docs generate` to build the full catalog.
 
 ### Source freshness[​](#source-freshness "Direct link to Source freshness")
 

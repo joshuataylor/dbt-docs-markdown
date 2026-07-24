@@ -20,7 +20,7 @@ models:
         description: "Total order amount in cents. This value is always a positive integer and excludes taxes and shipping."
 ```
 
-When you run `dbt docs generate` (dbt Core v1 only) and view the docs site, this text appears exactly as written but only for the `order_total_cents` column of the `orders` model.
+When you run `dbt docs generate` (dbt Core v1.x only) and view the docs site, this text appears exactly as written but only for the `order_total_cents` column of the `orders` model.
 
 ### Reusing descriptions with doc()[​](#reusing-descriptions-with-doc "Direct link to Reusing descriptions with doc()")
 
@@ -52,7 +52,7 @@ models:
         description: "{{ doc('order_total_cents') }}"
 ```
 
-When you run `dbt docs generate` (dbt Core v1 only), dbt resolves the `doc()` reference by looking up the corresponding docs block and injecting its content into the generated documentation.
+When you run `dbt docs generate` (dbt Core v1.x only), dbt resolves the `doc()` reference by looking up the corresponding docs block and injecting its content into the generated documentation.
 
 As a result, the column description displays the text defined in the markdown file, rather than inline YAML.
 

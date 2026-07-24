@@ -1,5 +1,7 @@
 # Access, Regions, & IP addresses
 
+dbt platformⓘ
+
 dbt is [hosted](https://docs.getdbt.com/docs/platform/about-platform/architecture.md) in multiple regions across the following service providers:
 
 * [Amazon Web Services](#AWS)

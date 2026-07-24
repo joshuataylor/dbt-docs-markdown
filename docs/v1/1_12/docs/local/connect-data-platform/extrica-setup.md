@@ -1,5 +1,7 @@
 # Connect Extrica to dbt Core
 
+Local developmentⓘ
+
 ## Overview of <!-- -->dbt-extrica<!-- -->
 
 * **Maintained by**:

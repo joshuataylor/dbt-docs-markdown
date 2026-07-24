@@ -1,5 +1,7 @@
 # Connect Confluent Cloud to dbt Core
 
+Local developmentⓘ
+
 Community plugin
 
 Some features may be limited. To contribute, refer to the source repository below.

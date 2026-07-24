@@ -1,4 +1,6 @@
-# Configuring Snowflake PrivateLink [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring Snowflake PrivateLink
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

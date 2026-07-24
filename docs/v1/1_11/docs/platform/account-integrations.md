@@ -1,5 +1,7 @@
 # Account integrations in dbt
 
+dbt platformⓘ
+
 The following sections describe the different **Account integrations** available from your dbt account under the account **Settings** section.
 
 [![Example of Account integrations from the sidebar](/img/docs/dbt-platform/account-integrations.png?v=2 "Example of Account integrations from the sidebar")](#)Example of Account integrations from the sidebar

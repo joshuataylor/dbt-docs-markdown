@@ -1,5 +1,7 @@
 # Connect Databricks to dbt Core
 
+Local developmentⓘ
+
 [Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:

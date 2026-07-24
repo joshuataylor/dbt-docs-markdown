@@ -1,5 +1,7 @@
 # Install dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Install the dbt Wizard CLI from your terminal for agentic and governed data development in dbt.
 
 This guide explains how to install, verify, update, and uninstall the dbt Wizard CLI on your local machine. (Be warned, the wizard has been known to cast spells
@@ -34,7 +36,7 @@ After running `wizard --version`, you should see something like `dbt-wizard VERS
 
 Upgrade for automatic updates
 
-Upgrade to dbt Fusion engine or dbt Core v2.0 or later to run dbt Wizard as `wizard` and get automatic updates.
+Upgrade to [v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
 Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and onboarding](#first-run-setup-and-onboarding) sections for more details.
 

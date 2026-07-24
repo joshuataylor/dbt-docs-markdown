@@ -1,5 +1,7 @@
 # Salesforce Data 360 setup [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 This `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. To access the adapter, [install Fusion](https://docs.getdbt.com/docs/fusion/about-fusion-install.md). We recommend using the [VS Code Extension](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
 
 <!-- -->

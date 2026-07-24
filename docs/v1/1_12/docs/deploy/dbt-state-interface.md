@@ -1,5 +1,7 @@
 # Monitor dbt State activity [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 Learn how to monitor dbt State activity in dbt platform for better visibility into model builds and cost savings.
 
 dbt State monitoring helps you:

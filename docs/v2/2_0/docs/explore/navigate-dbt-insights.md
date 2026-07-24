@@ -1,4 +1,6 @@
-# Navigate the dbt Insights interface [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Navigate the dbt Insights interface
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Learn how to navigate Insights interface and use the main components.
 

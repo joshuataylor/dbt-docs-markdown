@@ -1,4 +1,6 @@
-# Configuring Azure Private Link for a self-hosted service [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring Azure Private Link for a self-hosted service
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

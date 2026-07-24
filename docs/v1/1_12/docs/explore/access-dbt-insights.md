@@ -1,4 +1,6 @@
-# Access the dbt Insights interface [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Access the dbt Insights interface
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Learn how to access Insights, run queries, and view results.
 
@@ -13,7 +15,7 @@ Insights provides a rich console experience with editor navigation. You can expe
 * Use dbt Copilot in Insights to generate or edit SQL queries using natural language prompts
 * Integrate with [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), and [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) to provide a seamless experience for data exploration, AI-assisted writing, and collaboration
 
-## Access the dbt Insights interface[​](#access-the-dbt-insights-interface "Direct link to Access the dbt Insights interface")
+## Access the dbt Insights interface[​](#access-the-dbt-insights-interface-1 "Direct link to Access the dbt Insights interface")
 
 Before accessing Insights, ensure that the [prerequisites](https://docs.getdbt.com/docs/explore/dbt-insights.md#prerequisites) are met.
 

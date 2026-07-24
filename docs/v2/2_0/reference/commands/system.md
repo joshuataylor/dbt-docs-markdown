@@ -1,6 +1,6 @@
 # About dbt system command
 
-`dbt system` provides commands for managing the Fusion CLI installation. The dbt Fusion engine is a single compiled binary with no dependencies on other libraries. Once installed, `dbt system` lets you update, uninstall, and manage drivers directly without pip, brew, or a Python environment.
+`dbt system` provides commands for managing your dbt installation. v2 is a single compiled binary with no dependencies on other libraries. Once installed, `dbt system` lets you update, uninstall, and manage drivers directly without pip, brew, or a Python environment.
 
 `dbt system update` and `dbt system uninstall` are only supported for [CDN installations](https://docs.getdbt.com/docs/local/install-dbt.md) of Fusion. If you installed Fusion via Pip, Homebrew, or Winget, you'll need to update or uninstall dbt from those tools.
 
@@ -14,11 +14,11 @@ dbt system <subcommand> [flags]
 
 ## Subcommands[​](#subcommands "Direct link to Subcommands")
 
-| Subcommand                   | Description                                              |
-| ---------------------------- | -------------------------------------------------------- |
-| `dbt system update`          | Update Fusion CLI to the latest (or a specified) version |
-| `dbt system uninstall`       | Remove Fusion from your system                           |
-| `dbt system install-drivers` | Pre-install all supported ADBC adapter drivers           |
+| Subcommand                   | Description                                       |
+| ---------------------------- | ------------------------------------------------- |
+| `dbt system update`          | Update dbt to the latest (or a specified) version |
+| `dbt system uninstall`       | Remove Fusion from your system                    |
+| `dbt system install-drivers` | Pre-install all supported ADBC adapter drivers    |
 
 Search table...
 
@@ -103,9 +103,9 @@ This command takes no additional flags.
 
 Networking note
 
-`dbt system install-drivers` downloads files from `https://public.cdn.getdbt.com`. If your environment restricts outbound network access, make sure this endpoint is allowlisted. See [Fusion networking requirements](https://docs.getdbt.com/docs/fusion/fusion-networking.md) for the full list of endpoints.
+`dbt system install-drivers` downloads files from `https://public.cdn.getdbt.com`. If your environment restricts outbound network access, make sure this endpoint is allowlisted. See [Fusion networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) for the full list of endpoints.
 
 ## Related commands[​](#related-commands "Direct link to Related commands")
 
 * [`dbt debug`](https://docs.getdbt.com/reference/commands/debug.md) — Test your dbt project and connection configuration.
-* [Fusion networking requirements](https://docs.getdbt.com/docs/fusion/fusion-networking.md) — Review outbound endpoints required by the dbt Fusion engine.
+* [Fusion networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) — Review outbound endpoints required by the dbt Fusion engine.

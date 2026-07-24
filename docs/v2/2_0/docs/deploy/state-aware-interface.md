@@ -1,5 +1,7 @@
 # Navigating the state-aware interface
 
+dbt platformⓘ
+
 Learn how to navigate the state-aware orchestration interface for better visibility into model builds and cost tracking.
 
 <!-- -->

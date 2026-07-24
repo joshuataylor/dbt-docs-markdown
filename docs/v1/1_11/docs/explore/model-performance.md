@@ -1,4 +1,6 @@
-# Model performance [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Model performance
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Catalog provides metadata on dbt runs for in-depth model performance and quality analysis. This feature assists in reducing infrastructure costs and saving time for data teams by highlighting where to fine-tune projects and deployments — such as model refactoring or job configuration adjustments.
 

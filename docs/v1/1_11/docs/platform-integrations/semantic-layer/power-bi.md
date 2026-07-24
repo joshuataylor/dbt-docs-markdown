@@ -1,4 +1,6 @@
-# Power BI [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Power BI [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The Power BI integration enables you to query the Semantic Layer directly, allowing you to build dashboards with trusted, live data in Power BI. It provides a live connection to the Semantic Layer through Power BI Desktop or Power BI Service.
 

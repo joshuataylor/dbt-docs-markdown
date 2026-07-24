@@ -1,5 +1,7 @@
 # Connect DeltaStream to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Community

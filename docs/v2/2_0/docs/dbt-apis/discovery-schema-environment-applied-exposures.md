@@ -1,5 +1,7 @@
 # Exposures object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Exposures](https://docs.getdbt.com/docs/build/exposures.md) are dbt resources that represent downstream uses of your project, such as dashboards, applications, or data science pipelines. You can query exposures through the Discovery API to understand which assets depend on your models.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `exposures` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

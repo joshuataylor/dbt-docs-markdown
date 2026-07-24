@@ -1,5 +1,7 @@
 # Explore your data
 
+dbt platformⓘ
+
 dbt provides a variety of tools for you to explore your data, models, and other resources. Many of the features you'd traditionally use your data warehouse services to explore are at your fingertips in your dbt account.
 
 [![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/explore/cost-insights.md)

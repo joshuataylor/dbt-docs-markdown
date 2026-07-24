@@ -1,5 +1,7 @@
 # Upgrade to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 After [installing the dbt VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md), use the **Get started** panel to upgrade your project to the dbt Fusion engine if you haven't already done so.
 
 note

@@ -1,5 +1,7 @@
 # Configure environment variables
 
+Local developmentⓘ
+
 Fusion automatically loads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal). This helps you manage credentials and settings without hardcoding them in your `profiles.yml` or exposing them in your shell history.
 
 ## Using a `.env` file[​](#using-a-env-file "Direct link to using-a-env-file")

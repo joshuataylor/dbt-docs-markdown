@@ -42,7 +42,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For more information about Fusion's approach to parallelism, refer to [the dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) page.
+For more information about Fusion's approach to parallelism, refer to [the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) page.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 

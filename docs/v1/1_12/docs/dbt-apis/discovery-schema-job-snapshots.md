@@ -1,5 +1,7 @@
 # Snapshots object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The snapshots object allows you to query information about all snapshots in a given job.
 
 ### Arguments[​](#arguments "Direct link to Arguments")

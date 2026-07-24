@@ -1,5 +1,7 @@
 # Upgrading to v1.0
 
+Available in v1ⓘ
+
 ### Resources[​](#resources "Direct link to Resources")
 
 * [Discourse](https://discourse.getdbt.com/t/3180)

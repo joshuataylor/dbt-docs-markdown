@@ -1,5 +1,7 @@
 # Connect to GitHub
 
+dbt platformⓘ
+
 Connecting your GitHub account to dbt provides convenience and another layer of security to dbt:
 
 * Import new GitHub repositories with a couple clicks during dbt project setup.

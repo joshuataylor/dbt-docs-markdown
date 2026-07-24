@@ -1,5 +1,7 @@
 # dbt State usage
 
+Login required | Usage-basedⓘ
+
 [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) enables dbt to reuse nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed. It's a separate, usage-based product available to dbt Core, dbt platform, and dbt Fusion engine users. Learn more about how your usage influences the price so you can plan your savings effectively.
 
 ### About free trial[​](#about-free-trial "Direct link to About free trial")

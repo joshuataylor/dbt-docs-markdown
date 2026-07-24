@@ -1,5 +1,7 @@
 # Connect Teradata [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+dbt platformⓘ
+
 Your environment(s) must be on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to use the Teradata connection.
 
 | Field           | Description                                                                                      | Type           | Required? | Example                               |

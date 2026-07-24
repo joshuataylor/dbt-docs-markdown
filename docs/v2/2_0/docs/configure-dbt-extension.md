@@ -1,5 +1,7 @@
 # Configure your local environment
 
+Local developmentⓘ
+
 Whether you currently use dbt platform or self-host with Fusion, or you're a dbt Core user upgrading to Fusion, follow the instructions on this page to:
 
 * [Prepare your local setup](#prepare-your-local-setup)
@@ -169,7 +171,7 @@ The following steps will explain how to configure environment variables using Po
 
 #### About `.env` file support[​](#about-env-file-support "Direct link to about-env-file-support")
 
-The [Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) and the dbt VS Code extension can automatically read environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. The environment variables you define in the `.env` file are available when running dbt commands in the terminal and when using the extension's menu actions.
+[dbt](https://docs.getdbt.com/docs/local/install-dbt.md) and the dbt VS Code extension can automatically read environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. The environment variables you define in the `.env` file are available when running dbt commands in the terminal and when using the extension's menu actions.
 
 Here are some considerations when defining environment variables in the `.env` file:
 
@@ -292,7 +294,7 @@ If you want to use both extensions, keep your ad hoc query files in a separate, 
 
 Autocomplete not working?
 
-If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md?version=2.0\&name=Fusion#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
+If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=2.0\&name=Fusion#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 

@@ -1,5 +1,7 @@
 # Connect Greenplum to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Community

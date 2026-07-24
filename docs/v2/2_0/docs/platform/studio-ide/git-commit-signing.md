@@ -1,4 +1,6 @@
-# Git commit signing [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Git commit signing
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 To prevent impersonation and enhance security, you can sign your Git commits before pushing them to your repository. Using your signature, a Git provider can cryptographically verify a commit and mark it as "verified", providing increased confidence about its origin.
 

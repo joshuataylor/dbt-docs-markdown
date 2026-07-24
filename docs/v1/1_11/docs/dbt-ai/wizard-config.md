@@ -1,5 +1,7 @@
 # dbt Wizard config reference [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 dbt Wizard stores configuration in two TOML files under `~/.dbt/wizard/`, each controlling a different part of the product.
 
 ## The two config files[​](#the-two-config-files "Direct link to The two config files")

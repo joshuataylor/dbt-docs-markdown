@@ -1,5 +1,7 @@
 # Use dbt Wizard locally
 
+Local developmentⓘ
+
 Install dbt Wizard locally and start an agentic dbt development session from your terminal.
 
 You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CLI, Fusion, or dbt Core.
@@ -32,7 +34,7 @@ After running `wizard --version`, you should see something like `dbt-wizard VERS
 
 By the end of this guide, you can install dbt Wizard locally, authenticate with your dbt platform credentials if applicable, complete first-run onboarding, and send your first prompt from the terminal.
 
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — no specific engine is required.
+dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — no specific engine is required.
 
 Be warned, the wizard has been known to cast spells
 

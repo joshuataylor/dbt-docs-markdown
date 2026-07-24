@@ -29,72 +29,46 @@ The dbt framework is composed of a *language* and an *engine*:
 
 * The *dbt language* is the code you write in your dbt project — SQL select statements, Jinja templating, YAML configs, tests, and more. It's the standard for the data industry and the foundation of the dbt framework.
 
-* The *dbt engine* compiles your project, executes your transformation graph, and produces metadata. dbt supports two engines which you can use depending on your needs:
+* The *dbt engine* compiles your project, executes your transformation graph, and produces metadata. Today, the current Rust-based version generation is v2. By default, installing dbt gives you SQL comprehension, editor features, and richer development workflows.
 
-  * The dbt Core engine, which renders Jinja and runs your models.
-  * The dbt Fusion engine, which goes beyond Jinja rendering to statically analyze your SQL — validating syntax and logic before your SQL is sent to the database (saving compute resources), and supports LSP features.
+### dbt versions[​](#dbt-versions "Direct link to dbt versions")
 
-### dbt Fusion engine[​](#dbt-fusion-engine "Direct link to dbt Fusion engine")
+dbt has two major versions: v1 and v2.
 
-The dbt Fusion engine is a Rust-based engine that delivers a lightning-fast development experience, intelligent cost savings, and improved governance. Fusion understands SQL natively across multiple dialects, catches errors instantly, and optimizes how your models are built — bringing SQL comprehension and state awareness, instant feedback, LSP, and more to every dbt workflow.
+**v2** is the current generation of dbt and the default when you [install it](https://docs.getdbt.com/docs/local/install-dbt.md). Installing dbt comes with richer developer tooling, linting, and more. Refer to the [Upgrade v2 guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) for more info.
 
-Fusion powers dbt in the [dbt platform](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md), [VS Code / Cursor](https://docs.getdbt.com/docs/about-dbt-extension.md), and [locally from the command line](https://docs.getdbt.com/docs/local/install-dbt.md?version=2). You don't need to have a dbt platform project to use the dbt Fusion engine.
+| Version                   | What it is                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **v2**<br />*Recommended* | The current Rust-based generation of dbt, built for the full modern development experience and powered by an open-source runtime.<br /><br />Many features work right away. Some advanced capabilities unlock with a free sign-in — see [Fusion availability](https://docs.getdbt.com/docs/fusion/fusion-availability.md) for the full breakdown or [upgrade to v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md). |
+| **v1**                    | The original Python-based generation of dbt, still maintained as dbt Core v1.x.                                                                                                                                                                                                                                                                                                                                                                 |
 
-For more information, refer to [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md), [supported features](https://docs.getdbt.com/docs/fusion/supported-features.md), and the [get started with Fusion](https://docs.getdbt.com/docs/fusion/get-started-fusion.md) pages.
-
-### dbt Core engine[​](#dbt-core-engine "Direct link to dbt Core engine")
-
-[dbt Core v1](https://docs.getdbt.com/docs/local/install-dbt.md) is the open-source, Python-based engine that enables data practitioners to transform data. dbt Core v1 surfaces feedback when you run or build your project. It doesn't include Fusion features like the LSP, for example, which provides instant feedback as you type.
-
-[dbt Core v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the open-source foundation that the dbt Fusion engine builds on. It delivers a faster, Rust-based runtime while preserving the dbt experience practitioners already know. It is currently in alpha.
-
-Learn more with the [quickstart for dbt Core](https://docs.getdbt.com/guides/duckdb.md?step=1).
+Refer to the [Licensing FAQs](https://www.getdbt.com/licenses-faq) for more info.
 
 ## How to use dbt[​](#how-to-use-dbt "Direct link to How to use dbt")
 
 You can use dbt in different ways depending on your needs:
 
-* Using the [dbt platform](#dbt-platform) (recommended for most users)
-* [Locally from your command line or code editor with self-hosted installations](#dbt-local-development)
-* [With dbt Wizard](#dbt-wizard) for agentic governed data development in dbt All options support using the dbt Fusion engine or dbt Core engine.
+* [With the dbt platform](#dbt-platform) (recommended for most users)
+* [Locally from your command line or code editor](#dbt-local-development)
 
 ### dbt platform[​](#dbt-platform "Direct link to dbt platform")
 
-The dbt platform offers the fastest, most reliable, and scalable way to deploy dbt. It can be powered by the dbt Fusion engine or dbt Core engine, and provides a fully managed service with scheduling, CI/CD, documentation hosting, monitoring, development, and alerting through a web-based user interface (UI).
+The dbt platform is the fastest way to run dbt: scheduling, CI/CD, documentation hosting, monitoring, and alerting, all in one place. It works with both v1 and v2, on every plan from Developer (free) through Enterprise+.
 
-The dbt platform offers [multiple ways](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) to develop and collaborate on dbt projects:
+Develop directly in the platform with the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or connect from your local machine with the dbt VS Code extension or dbt CLI.
 
-* [Develop in your browser using the Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
-* [Seamless drag-and-drop development with Canvas](https://docs.getdbt.com/docs/platform/canvas.md)
-* [Run dbt commands from your local command line](#dbt-local-development) using the dbt VS Code extension or dbt CLI (both which integrate seamlessly with the dbt platform project(s)).
-
-Learn more about the [dbt platform features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) and try one of the [dbt Quickstarts](https://docs.getdbt.com/guides.md).
-
-You can learn about plans and pricing on [www.getdbt.com](https://www.getdbt.com/pricing/).
+Learn more about [dbt platform features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md), explore [plans and pricing](https://www.getdbt.com/pricing/), or try a [quickstart](https://docs.getdbt.com/guides.md).
 
 ### dbt local development[​](#dbt-local-development "Direct link to dbt local development")
 
-Use the dbt framework and develop dbt projects from your command line or code editor:
+[Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) to run v2 locally from the command line, powered by an open-source runtime.
 
-* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines the dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running self-hosted dbt without a dbt platform project. *Recommended for self-hosted development.*
-* [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) — The dbt Fusion engine from the command line, but doesn't include LSP features.
-* [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line.
-* [Install dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) — The open-source, Python-based CLI that uses the dbt Core v1 engine. Doesn't include LSP features.
+For the best development experience, we recommend pairing v2 with the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) for autocomplete, inline errors, and lineage as you work. You can also run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) to unlock additional capabilities and create a free dbt platform account.
 
-### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+Other ways to run self-hosted dbt:
 
-dbt Wizard is an AI agent purpose-built for governed data development in dbt — not just code generation, but the entire development lifecycle: investigating, building, validating, and shipping.
-
-It's grounded in your dbt project's structured context through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine) that gives the agent high-precision access to your full project graph, including lineage, tests, contracts, and metric definitions. The context is like a map of your city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout.
-
-dbt Wizard is different from coding agents in that it *validates* its own work against your project before you see the final diff, coordinates multi-file changes (rename a model and the refs follow), and ships with governance and audit trails on by default — nothing to configure or maintain.
-
-dbt Wizard is available in two surfaces:
-
-* **In the dbt platform**: Available as a dedicated workspace and embedded in [Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) for development.
-* **From your terminal**: [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md) is a terminal-native agent for local development, with or without a dbt platform account.
-
-Learn more about [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) and its [key capabilities](https://docs.getdbt.com/docs/dbt-ai/about-dbt-ai.md).
+* [dbt Core v1.x](https://docs.getdbt.com/docs/local/install-dbt.md?version=1.0): The original Python-based CLI.
+* [dbt Core v2.x](https://docs.getdbt.com/docs/local/install-dbt-core-v2.md): dbt Core 2.0, the free, fully open-source (Apache 2.0) distribution of the new Rust-based dbt engine. Typically for organizations with a strict requirement to use this OSS runtime.
 
 ## Why use dbt[​](#why-use-dbt "Direct link to Why use dbt")
 
@@ -105,7 +79,6 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 * **Fast builds**: Use [incremental models](https://docs.getdbt.com/docs/build/incremental-models.md) and leverage metadata to optimize long-running models.
 * **Tested and documented** — Write [data quality tests](https://docs.getdbt.com/docs/build/data-tests.md) on your underlying data and auto-generate [documentation](https://docs.getdbt.com/docs/build/documentation.md) alongside your code.
 * **Software engineering workflows**: Version control, branching, pull requests, CI/CD, and [package management](https://docs.getdbt.com/docs/build/packages.md) for your data pipelines. Write DRYer code with [macros](https://docs.getdbt.com/docs/build/jinja-macros.md) and [hooks](https://docs.getdbt.com/docs/build/hooks-operations.md).
-* **State-aware orchestration**: Use the dbt Fusion engine to orchestrate your dbt projects and models with [state-awareness orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md), which automatically determines which models to build by detecting changes in code or data. This reduces runtime and costs by only building the models that have changed.
 * **AI-powered development**: Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to investigate, build, validate, and ship from natural language. dbt Wizard is grounded in your project's full context, validates its own work against lineage and tests, and includes governance and audit trails by default.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
@@ -113,7 +86,5 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 * [Quickstarts for dbt](https://docs.getdbt.com/guides.md)
 * [Best practice guides](https://docs.getdbt.com/best-practices.md)
 * [What is a dbt project?](https://docs.getdbt.com/docs/build/projects.md)
-* [dbt run](https://docs.getdbt.com/docs/running-a-dbt-project/run-your-dbt-projects.md)
-* [dbt Wizard overview](https://docs.getdbt.com/docs/platform/wizard-overview.md)
 * [AI and agents](https://docs.getdbt.com/docs/dbt-ai/about-dbt-ai.md)
-* [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)
+* [Licensing](https://docs.getdbt.com/docs/dbt-licensing.md)

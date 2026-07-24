@@ -1,5 +1,7 @@
 # Connect Exasol to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Exasol

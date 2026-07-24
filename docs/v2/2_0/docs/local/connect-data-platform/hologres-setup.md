@@ -1,5 +1,7 @@
 # Connect Hologres to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Alibaba Cloud Hologres Team

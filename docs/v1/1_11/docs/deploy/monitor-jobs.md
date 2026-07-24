@@ -1,5 +1,7 @@
 # Monitor jobs and alerts
 
+dbt platformⓘ
+
 Monitor your dbt jobs to help identify improvement and set up alerts to proactively alert the right people or team.
 
 This portion of our documentation will go over dbt's various capabilities that help you monitor your jobs and set up alerts to ensure seamless orchestration, including:

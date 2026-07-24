@@ -1,5 +1,7 @@
 # Models object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The models object allows you to query information about all models in a given job.
 
 ### Arguments[​](#arguments "Direct link to Arguments")

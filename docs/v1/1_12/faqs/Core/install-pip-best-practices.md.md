@@ -2,7 +2,7 @@
 
 info
 
-The dbt Fusion engine is a next-generation, Rust-based engine that powers dbt development across the platform and local tooling. See [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) for more information.
+The dbt Fusion engine is a next-generation, Rust-based engine that powers dbt development across the platform and local tooling. See [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) for more information.
 
 ## Best practices[​](#best-practices "Direct link to Best practices")
 

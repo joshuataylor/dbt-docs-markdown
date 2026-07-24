@@ -1,12 +1,10 @@
-# Upgrading to v2.0
+# Upgrading to v2
 
-dbt Core v2.0 is in alpha
+Available in v2ⓘ
 
-dbt Core v2.0 is currently in alpha. This does not affect the Fusion in platform rollout, which continues on its existing track.
+v2 is the current era of dbt, delivered through Fusion. When you install dbt, you get Fusion by default. This guide walks you through upgrading a v1 project to v2.
 
-v2.0 marks a new foundation for dbt: a faster, Rust-based runtime, rebuilt from the ground up and available in two distributions. For most users, the right choice is [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md), which extends the open-source core with SQL comprehension, column-level lineage, instant feedback, and platform-connected workflows.
-
-For license-aware customers, we offer [dbt Core v2.0](https://docs.getdbt.com/docs/local/install-dbt.md), a distribution that includes only Apache 2.0 open-source code. Both distributions share the same project language and DAG semantics, so once you upgrade to v2.0, your existing dbt project works with either distribution.
+v2 is faster and stricter, but your existing project language and DAG semantics carry over, so once you upgrade, your project works as before — just faster.
 
 important
 
@@ -24,61 +22,22 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-Fusion marks a significant update to dbt. While many of the workflows you've grown accustomed to remain unchanged, there are a lot of new ideas, and a lot of old ones going away. The following is a list of the full scope of our current release of the Fusion engine, including implementation, installation, deprecations, and limitations:
-
-* [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md)
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [New concepts in Fusion](https://docs.getdbt.com/docs/fusion/new-concepts.md)
 * [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Installing Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
-* [Installing VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md)
-* [Fusion release track](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
 * [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
-## Distributions[​](#distributions "Direct link to Distributions")
+## Install dbt[​](#install-dbt "Direct link to Install dbt")
 
-Two dbt distributions build on the Fusion runtime:
-
-| Distribution      | Install                                                                                                   | License     | What you get                                                                                      |
-| ----------------- | --------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
-| **Fusion**        | pip, brew, winget, CDN — [see all options](https://docs.getdbt.com/docs/local/install-dbt.md?version=2.0) | Proprietary | dbt Core v2.0 foundation plus Fusion features: SQL comprehension, column-level lineage, and more. |
-| **dbt Core v2.0** | pip, brew                                                                                                 | Apache 2.0  | Open-source Rust-based runtime: Faster parsing and execution.                                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Installation[​](#installation "Direct link to Installation")
-
-For most users, the recommended path is to install Fusion as it includes all of dbt Core v2.0 plus the robust Fusion feature set.
-
-### Fusion[​](#fusion "Direct link to Fusion")
-
-Install Fusion using pip, or see all [installation options](https://docs.getdbt.com/docs/local/install-dbt.md?version=2.0) (brew, winget, CDN):
+Upgrading to v2 is an install step. Install dbt using `pip` to get Fusion for v2:
 
 ```shell
 python -m pip install --pre dbt
 ```
 
-### dbt Core v2.0[​](#dbt-core-v20 "Direct link to dbt Core v2.0")
-
-If you specifically need the open-source distribution of v2, install dbt Core. During alpha, you must target either the pre-release version or an explicit pin. You can copy the following commands to install the alpha and immediately update to the most recent version:
-
-Pre-release version:
-
-```shell
-python -m pip install --pre dbt-core
-```
-
-Explicit pin:
-
-```shell
-python -m pip install dbt-core==2.0.0-alpha.1
-```
+For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md).
 
 ## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
 
@@ -86,9 +45,9 @@ This new major version is an opportunity to *strengthen the framework* by removi
 
 That work is documented below — it should be simple, straightforward, and in many cases, auto-fixable with the [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) helper or the [agent skill](https://github.com/dbt-labs/dbt-agent-skills/tree/main/skills/dbt-migration/skills/migrating-dbt-core-to-fusion).
 
-Test Fusion parser compatibility from dbt Core v1.12
+Test v2 parser compatibility from dbt Core v1.12
 
-If you're on dbt Core v1.12, you can test Fusion parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the Fusion parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
+If you're on dbt Core v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
 
 #### Upgrade considerations[​](#upgrade-considerations "Direct link to Upgrade considerations")
 
@@ -106,7 +65,7 @@ If you're using state-aware orchestration prior to June 1, 2026, you can continu
 
 ### Supported adapters[​](#supported-adapters "Direct link to Supported adapters")
 
-The following adapters are supported in v2.0:
+The following adapters are supported in v2:
 
  BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -117,7 +76,7 @@ The following adapters are supported in v2.0:
   * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
 * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
- Databricks[Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 * Service Account / User Token
 * Native OAuth
@@ -135,7 +94,7 @@ The following adapters are supported in v2.0:
 * Key pair using a modern PKCS#8 method
 * MFA
 
- Apache Spark (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ Apache Spark (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 * Thrift
 
@@ -153,9 +112,11 @@ The following adapters are supported in v2.0:
     <!-- -->
     * Supports authentication using single sign-on, service accounts, or user tokens
 
- DuckDB (Fusion CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 DuckDB does not require authentication — it runs locally on your machine.
+
+*Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
 ### A clean slate[​](#a-clean-slate "Direct link to A clean slate")
 
@@ -166,13 +127,13 @@ v2 will not support any deprecated functionality (see the [Changes overview](htt
 
 ### Ecosystem packages[​](#ecosystem-packages "Direct link to Ecosystem packages")
 
-The most popular `dbt-labs` packages (`dbt_utils`, `audit_helper`, `dbt_external_tables`, `dbt_project_evaluator`) are already compatible with Fusion. External packages published by organizations outside of dbt may use outdated code or incompatible features that fail to parse with the new Fusion engine. We're working with those package maintainers to make packages available for Fusion. Packages requiring an upgrade to a new release for Fusion compatibility, will be documented in this upgrade guide.
+The most popular `dbt-labs` packages (`dbt_utils`, `audit_helper`, `dbt_external_tables`, `dbt_project_evaluator`) are already compatible with v2. External packages published by organizations outside of dbt may use outdated code or incompatible features that fail to parse in v2. We're working with those package maintainers to make packages available for v2. Packages requiring an upgrade to a new release for v2 compatibility, will be documented in this upgrade guide.
 
 ## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
 
 ### `dbt login`[​](#dbt-login "Direct link to dbt-login")
 
-In dbt v2.0, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
+In dbt v2, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
 
 Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md#dbt-login-status) to view your current authentication status.
 
@@ -186,7 +147,7 @@ When upgrading to v2, you should expect the following changes in functionality:
 
 #### Parse time printing of relations will print out the full qualified name, instead of an empty string[​](#parse-time-printing-of-relations-will-print-out-the-full-qualified-name-instead-of-an-empty-string "Direct link to Parse time printing of relations will print out the full qualified name, instead of an empty string")
 
-In dbt Core v1, when printing the result of `get_relation()`, the parse time output for that Jinja would print `None` (the undefined object coerces to the string "None").
+In dbt Core v1.x, when printing the result of `get_relation()`, the parse time output for that Jinja would print `None` (the undefined object coerces to the string "None").
 
 In v2, to help with intelligent batching of `get_relation()` calls (and significantly speed up `dbt compile`), dbt needs to construct a relation object with the fully qualified name resolved at parse time for the `get_relation()` adapter call.
 
@@ -210,7 +171,7 @@ identifier='a'
 {{ print('relation_via_api: ' ~ relation_via_api) }}
 ```
 
-The output after `dbt parse` in dbt Core v1:
+The output after `dbt parse` in dbt Core v1.x:
 
 ```text
 relation: None
@@ -284,7 +245,7 @@ Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse`
 
 If a local package depends on a hub package that the root package also wants, `dbt deps` doesn't resolve conflicting versions in dbt Core v1; it will install whatever the root project requests.
 
-Fusion will present an error:
+v2 will present an error:
 
 ```bash
 error: dbt8999: Cannot combine non-exact versions: =0.8.3 and =1.1.1
@@ -345,7 +306,7 @@ In v2, dbt will error out during `parse`.
 
 In v1, it was possible to create scenarios with duplicate [docs blocks](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks). For example, you can have two packages with identical docs blocks referenced by an unqualified name in your dbt project. In this case, v1 would use whichever docs block is referenced without any warnings or errors.
 
-Fusion adds stricter evaluation of names of docs blocks to prevent such ambiguity. It will present an error if it detects duplicate names:
+v2 adds stricter evaluation of names of docs blocks to prevent such ambiguity. It will present an error if it detects duplicate names:
 
 ```bash
 dbt found two docs with the same name: 'docs_block_title' in files: 'models/crm/_crm.md' and 'docs/crm/business_class_marketing.md'
@@ -355,7 +316,7 @@ To resolve this error, rename any duplicate docs blocks.
 
 #### `dbt clean` will not delete any files in configured resource paths or files outside the project directory[​](#dbt-clean-will-not-delete-any-files-in-configured-resource-paths-or-files-outside-the-project-directory "Direct link to dbt-clean-will-not-delete-any-files-in-configured-resource-paths-or-files-outside-the-project-directory")
 
-In dbt Core v1, `dbt clean` deletes:
+In dbt Core v1.x, `dbt clean` deletes:
 
 * Any files outside the project directory if `clean-targets` is configured with an absolute path or relative path containing `../`, though there is an opt-in config to disable this (`--clean-project-files-only` / `--no-clean-project-files-only`).
 * Any files in the `asset-paths` or `doc-paths` (even though other resource paths, like `model-paths` and `seed-paths`, are restricted).
@@ -364,7 +325,7 @@ In v2, `dbt clean` will not delete any files in configured resource paths or fil
 
 #### All unit tests are run first in `dbt build`[​](#all-unit-tests-are-run-first-in-dbt-build "Direct link to all-unit-tests-are-run-first-in-dbt-build")
 
-In dbt Core v1, the direct parents of the model being unit tested needed to exist in the warehouse to retrieve the needed column name and type information. `dbt build` runs the unit tests (and their dependent models) *in lineage order*.
+In dbt Core v1.x, the direct parents of the model being unit tested needed to exist in the warehouse to retrieve the needed column name and type information. `dbt build` runs the unit tests (and their dependent models) *in lineage order*.
 
 In v2, `dbt build` runs *all* of the unit tests *first*, and then builds the rest of the DAG, due to built-in column name and type awareness.
 
@@ -393,11 +354,11 @@ For more information, refer to [Using threads](https://docs.getdbt.com/docs/runn
 
 As soon as dbt Core v1 `compile` encounters an error compiling one of your models, dbt stops and doesn't compile anything else.
 
-When Fusion's `compile` encounters an error, it will skip nodes downstream of the one that failed to compile, but it will keep compiling the rest of the DAG (in parallel, up to the number of configured / optimal threads).
+When v2's `compile` encounters an error, it will skip nodes downstream of the one that failed to compile, but it will keep compiling the rest of the DAG (in parallel, up to the number of configured / optimal threads).
 
 #### Seeds with extra commas don't result in extra columns[​](#seeds-with-extra-commas-dont-result-in-extra-columns "Direct link to Seeds with extra commas don't result in extra columns")
 
-In dbt Core v1, if you have an additional comma on your seed, dbt creates a seed with an additional empty column.
+In dbt Core v1.x, if you have an additional comma on your seed, dbt creates a seed with an additional empty column.
 
 For example, the following seed file (with an extra comma):
 
@@ -554,16 +515,16 @@ To access custom configurations stored under meta, use the explicit methods:
 
 For more information, see [config.meta\_get()](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_get) and [config.meta\_require()](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_require).
 
-### Fusion compiler[​](#fusion-compiler "Direct link to Fusion compiler")
+### v2 compiler[​](#v2-compiler "Direct link to v2 compiler")
 
 #### Snowflake model functions[​](#snowflake-model-functions "Direct link to Snowflake model functions")
 
-Fusion supports [Snowflake ML model functions](https://docs.snowflake.com/en/guides-overview-ml-functions), which allow you to call machine learning models directly in SQL.
+v2 supports [Snowflake ML model functions](https://docs.snowflake.com/en/guides-overview-ml-functions), which allow you to call machine learning models directly in SQL.
 
-Because model function return types are flexible and defined by the underlying model, Fusion uses simplified type checking:
+Because model function return types are flexible and defined by the underlying model, v2 uses simplified type checking:
 
-* **Arguments:** Fusion accepts any arguments without strict type validation.
-* **Return type:** Fusion treats all model function results as `VARIANT`.
+* **Arguments:** v2 accepts any arguments without strict type validation.
+* **Return type:** v2 treats all model function results as `VARIANT`.
 
 To use the result in your models, cast it to the expected type:
 
@@ -615,3 +576,14 @@ Here's an example of a Fusion warning in the Studio IDE that says a package is
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
+
+## Distributions[​](#distributions "Direct link to Distributions")
+
+v2 is available in two distributions. For more information, refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
+
+| Distribution | Package    | Use it when                                                                                                                                        |
+| ------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fusion       | `dbt`      | You want the recommended v2 experience, with Fusion installed by default.                                                                          |
+| dbt Core 2.0 | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](https://docs.getdbt.com/docs/local/install-dbt-core-v2.md). |
+
+If you have a older project that isn’t ready to move to v2, continue using `dbt-core` v1.x for compatibility. For new or upgraded projects, we recommend v2.

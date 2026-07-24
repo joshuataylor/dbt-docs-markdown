@@ -71,7 +71,7 @@ Comment on it! Explain that you've run into the same bug, or had a similar idea 
 
 In our most critical repositories (such as `dbt-core`), our goal is to respond to new issues as soon as possible. This initial response will often be a short acknowledgement that the maintainers are aware of the issue, signalling our perception of its urgency. Depending on the nature of your issue, it might be well suited to an external contribution, from you or another community member.
 
-**What if you're opening an issue in a different repository?** We have engineering teams dedicated to active maintenance of [`dbt-core`](https://github.com/dbt-labs/dbt-core) (v1 and v2), as well as the component libraries of v1 ([`dbt-common`](https://github.com/dbt-labs/dbt-common) + [`dbt-adapters`](https://github.com/dbt-labs/dbt-adapters) (also includes the dbt Labs managed adapters)). The `dbt-core` repository is also the home of dbt Core v2, the open-source Rust-based foundation built on the Fusion runtime; this code previously lived in ([`dbt-fusion`](https://github.com/dbt-labs/dbt-fusion)). We've open-sourced a number of other software projects over the years, and the majority of them do not have the same activity or maintenance guarantees. Check to see if other recent issues have responses, or when the last commit was added to the `main` branch.
+**What if you're opening an issue in a different repository?** We have engineering teams dedicated to active maintenance of [`dbt-core`](https://github.com/dbt-labs/dbt-core) (v1 and v2), as well as the component libraries of v1 ([`dbt-common`](https://github.com/dbt-labs/dbt-common) + [`dbt-adapters`](https://github.com/dbt-labs/dbt-adapters) (also includes the dbt Labs managed adapters)). The `dbt-core` repository is also the home of dbt Core v2.0, the open-source Rust-based foundation built on the Fusion runtime; this code previously lived in ([`dbt-fusion`](https://github.com/dbt-labs/dbt-fusion)). We've open-sourced a number of other software projects over the years, and the majority of them do not have the same activity or maintenance guarantees. Check to see if other recent issues have responses, or when the last commit was added to the `main` branch.
 
 **You're not sure about the status of your issue.** If your issue is in an actively maintained repo and has a `triage` label attached, we're aware it's something that needs a response. If the issue has been triaged, but not prioritized, this could mean:
 
@@ -128,14 +128,14 @@ Search table...
 
 ### Inclusion in release versions[​](#inclusion-in-release-versions "Direct link to Inclusion in release versions")
 
-#### dbt Core v1
+#### dbt Core v1.x
 
 Both bug fixes and backwards-compatible new features will be included in the [next minor release of dbt Core](https://docs.getdbt.com/docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning). Fixes for regressions and net-new bugs that were present in the minor version's original release will be backported to versions with [active support](https://docs.getdbt.com/docs/dbt-versions.md). Other bug fixes may be backported when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
 
-#### dbt Core v2[​](#-1 "Direct link to -1")
+#### dbt Core 2.0[​](#-1 "Direct link to -1")
 
-[dbt Core v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
+[dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
 
 #### dbt Fusion engine[​](#-2 "Direct link to -2")
 
-The dbt Fusion engine is released continuously, and it contains a superset of the code and functionality available in dbt Core v2. When Core v2.0.0 is released (General Availability), the version numbers for Core v2 and Fusion will converge.
+The dbt Fusion engine is released continuously, and it contains a superset of the code and functionality available in dbt Core 2.0. When Core v2.0.0 is released (General Availability), the version numbers for Core v2 and Fusion will converge.

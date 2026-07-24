@@ -1,5 +1,7 @@
 # Connect IBM Netezza to dbt Core
 
+Local developmentⓘ
+
 The dbt-ibm-netezza adapter allows you to use dbt to transform and manage data on IBM Netezza, leveraging its distributed SQL query engine capabilities. Before proceeding, ensure you have the following:
 
 * An active IBM Netezza engine with connection details (host, port, database, schema, etc) in SaaS/PaaS.

@@ -1,5 +1,7 @@
 # Snapshots object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md) represent point-in-time copies of your data, allowing you to track historical changes. You can query your snapshots from the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `snapshots` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

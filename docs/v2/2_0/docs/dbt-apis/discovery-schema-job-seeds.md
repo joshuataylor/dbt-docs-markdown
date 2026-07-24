@@ -1,5 +1,7 @@
 # Seeds object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The seeds object allows you to query information about all seeds in a given job.
 
 ### Arguments[​](#arguments "Direct link to Arguments")

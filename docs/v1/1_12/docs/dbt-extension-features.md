@@ -1,14 +1,47 @@
 # dbt VS Code extension features [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-The dbt VS Code extension is backed by the speed and power of the dbt Fusion engine and a dynamic Language Server Protocol (LSP) that enables enhanced workflows, faster development, and easy navigation.
+Local developmentⓘ
+
+The dbt VS Code extension requires the dbt Fusion engine and uses a dynamic Language Server Protocol (LSP) to provide a fast, intelligent, and cost-efficient dbt development experience with enhanced workflows and easy navigation.
 
 Registration for advanced features
 
-Most dbt VS Code extension features are available to all users for 14 days. After the 14-day trial period, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. The vast majority of features remain available without registration. Existing registered users keep access automatically.
+All dbt VS Code extension features are available to all users for 14 days. After the 14-day trial period, most features remain available without registration. To keep using advanced features, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account. Existing registered users keep access automatically.
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
+See the [feature availability](#feature-availability) table for the full list of features and what each needs.
 
 <!-- -->
+
+<!-- -->
+
+## Feature availability[​](#feature-availability "Direct link to Feature availability")
+
+The dbt VS Code extension is free to install. All features work for 14 days with no login; after that, the vast majority keep working, and a few advanced features need a free dbt platform account (sign in or register with your email, or run `dbt login`).
+
+| Feature                                                    | Works without login/registration | Register or login<br />Any dbt platform account, free or paid |
+| ---------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------- |
+| Error diagnostics for Jinja, YAML, and SQL syntax          | ✅                               | ✅                                                            |
+| Jinja LSP go-to ref, source, and macro                     | ✅                               | ✅                                                            |
+| Linter warning diagnostics                                 | ✅                               | ✅                                                            |
+| Table-level lineage                                        | ✅                               | ✅                                                            |
+| Basic dbt command UI (run, build, test, and query results) | ✅                               | ✅                                                            |
+| Ref autocomplete                                           | ✅                               | ✅                                                            |
+| Refactor ref and column names                              | ✅                               | ✅                                                            |
+| Dialect-aware function autocomplete                        | ✅                               | ✅                                                            |
+| SQL type and schema error diagnostics                      | -                                | ✅                                                            |
+| Preview CTE                                                | -                                | ✅                                                            |
+| Query cache for faster incremental compiles                | -                                | ✅                                                            |
+| Model docs tab with platform metadata                      | -                                | ✅                                                            |
+| Column-level lineage                                       | -                                | ✅                                                            |
+| Compare changes                                            | -                                | ✅                                                            |
+| SQL LSP go-to column and CTE                               | -                                | ✅                                                            |
+| SQL LSP hover to see the schema for `select *`             | -                                | ✅                                                            |
+
+Search table...
+
+|                  |   |   |   |   |
+| ---------------- | - | - | - | - |
+| Loading table... |   |   |   |   |
 
 ## Lightning-fast parse times[​](#lightning-fast-parse-times "Direct link to Lightning-fast parse times")
 

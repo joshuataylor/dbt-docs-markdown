@@ -1,4 +1,6 @@
-# Configuring Databricks PrivateLink [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring Databricks PrivateLink
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

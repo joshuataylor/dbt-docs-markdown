@@ -1,5 +1,7 @@
 # Compare changes during development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Available in v2 | Local development | Login requiredⓘ
+
 info
 
 This feature is in beta. All dbt VS Code extension users can use compare changes during the 14-day trial. After the trial, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using it.

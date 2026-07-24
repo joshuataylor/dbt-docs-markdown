@@ -1,5 +1,7 @@
 # Exposures object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The exposures object allows you to query information about all exposures in a given job. To learn more, refer to [Add Exposures to your DAG](https://docs.getdbt.com/docs/build/exposures.md).
 
 ### Arguments[​](#arguments "Direct link to Arguments")

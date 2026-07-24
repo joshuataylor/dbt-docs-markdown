@@ -1,5 +1,7 @@
 # Lineage object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The lineage object allows you to query lineage across your resources.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `lineage` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

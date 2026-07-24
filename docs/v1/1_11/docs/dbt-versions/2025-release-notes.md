@@ -1,5 +1,7 @@
 # 2025 dbt platform release notes
 
+dbt platform | Freeⓘ
+
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
 * **New:** New products and features
@@ -85,7 +87,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
   * **Private beta**: The [Analyst agent](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#dbt-copilot) is now available in dbt Insights. The Analyst agent is a conversational AI feature where you can ask natural language prompts and receive analysis in real-time. For more information, see [Analyze data with the Analyst agent](https://docs.getdbt.com/docs/dbt-ai/analyst-agent.md).
   * **Beta**: The [Semantic Layer querying](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#semantic-layer-querying) within dbt Insights is now available in beta. With this feature, you can build SQL queries against the Semantic Layer without writing SQL code. It guides you in creating queries based on available metrics, dimensions, and entities.
-  * **Enhancement**: In [dbt Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md), projects upgraded to the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) get [Language Server Protocol (LSP) features](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#lsp-features) and their compilation running on Fusion.
+  * **Enhancement**: In [dbt Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md), projects upgraded to the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) get [Language Server Protocol (LSP) features](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#lsp-features) and their compilation running on Fusion.
 
 * **New**: [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md) is now developed and maintained as part of the [Open Semantic Interchange (OSI)](https://www.snowflake.com/en/blog/open-semantic-interchange-ai-standard/) initiative, and is distributed under the [Apache 2.0 license](https://github.com/dbt-labs/metricflow/blob/main/LICENSE). For more information, see the blog post about [Open sourcing MetricFlow](https://www.getdbt.com/blog/open-source-metricflow-governed-metrics).
 
@@ -149,7 +151,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   <!-- -->
 
-  * Read more [about Fusion](https://docs.getdbt.com/docs/fusion.md).
+  * Read more [about Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md).
   * Understand what actions you need to take to get your projects Fusion-ready with the [upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md).
   * Begin testing today with the [quickstart guide](https://docs.getdbt.com/guides/fusion.md).
   * Know [where we're headed with the dbt Fusion engine](https://getdbt.com/blog/where-we-re-headed-with-the-dbt-fusion-engine).

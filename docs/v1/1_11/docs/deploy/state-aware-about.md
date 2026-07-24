@@ -1,4 +1,6 @@
-# About state-aware orchestration [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# About state-aware orchestration [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Every time a job runs, state-aware orchestration automatically determines which models to build by detecting changes in code or data.
 
@@ -35,7 +37,7 @@ We built dbt's state-aware orchestration on these four core principles:
 
 note
 
-State-aware orchestration does not depend on [static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md#principles-of-static-analysis) and works even when `static_analysis` is disabled.
+State-aware orchestration does not depend on [static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md#principles-of-static-analysis) and works even when `static_analysis` is disabled.
 
 ## Optimizing builds with state-aware orchestration[​](#optimizing-builds-with-state-aware-orchestration "Direct link to Optimizing builds with state-aware orchestration")
 
@@ -75,7 +77,7 @@ This behavior ensures consistency between the dbt state and the actual warehouse
 
 Private beta feature
 
-State-aware orchestration features in the dbt platform are only available in Fusion, which is in private preview. Contact your account manager to enable Fusion in your account.
+State-aware orchestration features in the dbt platform are only available in Fusion. Contact your account manager to enable Fusion in your account.
 
 Data quality can get degraded in two ways:
 
@@ -103,7 +105,7 @@ The following tests can be reused when Efficient testing is enabled:
 
 ### Enabling Efficient testing[​](#enabling-efficient-testing "Direct link to Enabling Efficient testing")
 
-Before enabling Efficient testing, make sure you have configured [`static_analysis`](https://docs.getdbt.com/docs/fusion/new-concepts.md#configuring-static_analysis).
+Before enabling Efficient testing, make sure you have configured [`static_analysis`](https://docs.getdbt.com/docs/build/about-static-analysis.md#configuring-static_analysis).
 
 To enable Efficient testing:
 
@@ -188,6 +190,8 @@ While dbt State is in preview, there is no required migration timeline — dbt L
 To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
 
 # How is state-aware orchestration different from using selectors in dbt Core?
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 In dbt Core, running with the selectors `state:modified+` and `source_status:fresher+` builds models that either:
 

@@ -1,4 +1,6 @@
-# About Hybrid projects [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# About Hybrid projects
+
+dbt platform | Enterprise+ⓘ
 
 With Hybrid projects, your organization can adopt complementary dbt Core and dbt workflows (where some teams deploy projects in dbt Core and others in dbt) and seamlessly integrate these workflows by automatically uploading dbt Core [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) into dbt.
 

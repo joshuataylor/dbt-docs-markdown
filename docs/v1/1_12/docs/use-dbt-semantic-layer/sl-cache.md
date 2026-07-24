@@ -1,4 +1,6 @@
-# Cache common queries [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Cache common queries
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 The Semantic Layer allows you to cache common queries in order to speed up performance and reduce compute on expensive queries.
 

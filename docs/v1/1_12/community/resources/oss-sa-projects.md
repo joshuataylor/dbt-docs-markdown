@@ -4,7 +4,7 @@ Looking for a good place to get involved contributing code? dbt Labs supports th
 
 ## Rust[​](#rust "Direct link to Rust")
 
-* [dbt Core v2](https://github.com/dbt-labs/dbt-core) - the next major version of dbt Core, powered by the dbt Fusion engine (previously located at in [`dbt-fusion`](https://github.com/dbt-labs/dbt-fusion))
+* [dbt Core 2.0](https://github.com/dbt-labs/dbt-core) - the next major version of dbt Core, powered by the dbt Fusion engine (previously located at in [`dbt-fusion`](https://github.com/dbt-labs/dbt-fusion))
 
 ## Python[​](#python "Direct link to Python")
 

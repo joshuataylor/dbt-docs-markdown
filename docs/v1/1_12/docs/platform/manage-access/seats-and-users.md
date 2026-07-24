@@ -1,5 +1,7 @@
 # Users and licenses
 
+dbt platformⓘ
+
 In dbt, *licenses* are used to allocate users to your account.
 
 There are four license types in dbt:

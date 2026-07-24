@@ -1,5 +1,7 @@
 # Invite users to dbt
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 dbt makes it easy to invite new users to your environment out of the box. This feature is available to all dbt customers on Starter, Enterprise, and Enterprise+ plans.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")

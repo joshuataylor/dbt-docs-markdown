@@ -37,7 +37,7 @@ The `--write-catalog` flag focuses solely on metadata hydration, generating the 
 
 ## dbt Docs v2 alpha[​](#dbt-docs-v2- "Direct link to dbt-docs-v2-")
 
-The dbt Fusion engine and dbt Core v2 deliver a new version of `dbt docs serve` that powers [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2).
+The dbt Fusion engine and dbt Core 2.0 deliver a new version of `dbt docs serve` that powers [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2).
 
 Instead of loading a static `manifest.json` in the browser, v2 builds a compact binary index of your project and serves it through a local HTTP server with a REST API. This makes the experience fast even for large projects, and makes metadata queryable by AI agents and external tooling.
 
@@ -53,7 +53,7 @@ dbt compile --write-index
 dbt build --write-index
 ```
 
-Add [`--static-analysis strict`](https://docs.getdbt.com/docs/fusion/new-concepts.md) to for column lineage and richer column metadata from your warehouse:
+Add [`--static-analysis strict`](https://docs.getdbt.com/docs/build/about-static-analysis.md) to for column lineage and richer column metadata from your warehouse:
 
 ```shell
 dbt build --write-index --static-analysis strict

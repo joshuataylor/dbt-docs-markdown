@@ -34,6 +34,7 @@
 * [Release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
 * [FAQs](https://docs.getdbt.com/docs/faqs.md)
 * [Support and billing](https://docs.getdbt.com/docs/dbt-support.md)
+* [Licensing](https://docs.getdbt.com/docs/dbt-licensing.md)
 * [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements)
 * [Courses](https://learn.getdbt.com)
 

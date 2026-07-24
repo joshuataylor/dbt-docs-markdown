@@ -1,4 +1,6 @@
-# Single sign-on and OAuth [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Single sign-on and OAuth
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 This section covers how to authenticate users and connect data platforms in dbt platform using:
 

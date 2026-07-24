@@ -1,5 +1,7 @@
 # Install the dbt VS Code extension [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 <!-- -->
 
 The dbt extension — available for [VS Code and Cursor](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt\&ssr=false#overview), and [Windsurf](https://open-vsx.org/extension/dbtLabsInc/dbt) — uses the dbt Fusion engine to make dbt development smoother and more efficient.
@@ -182,6 +184,6 @@ When all setup steps are complete, the panel shows a green **Extension setup com
 
 Once you've installed the dbt VS Code extension, go to the next pages to get started:
 
-1. Review the [Upgrade to Fusion](https://docs.getdbt.com/docs/upgrade-to-fusion-extension.md) page to ensure your dbt project is using the dbt Fusion engine.
+1. Review the [Upgrade to Fusion](https://docs.getdbt.com/docs/upgrade-to-fusion-extension.md) page to ensure your dbt project is using Fusion.
 2. [Sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account to keep using advanced features after the 14-day trial.
 3. Review the [limitations and unsupported features](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).

@@ -1,4 +1,6 @@
-# Single sign-on (SSO) overview [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Single sign-on (SSO) overview
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 This overview explains how users are provisioned in dbt using single sign-on (SSO). dbt supports JIT (Just-in-Time) provisioning and IdP-initiated login.
 

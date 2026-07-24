@@ -1,5 +1,7 @@
 # Connect PostgreSQL, Lakebase and AlloyDB
 
+dbt platformⓘ
+
 dbt platform supports connecting to PostgresSQL and Postgres-compatible databases (AlloyDB, Lakebase).
 
 The following fields are required when creating a connection:

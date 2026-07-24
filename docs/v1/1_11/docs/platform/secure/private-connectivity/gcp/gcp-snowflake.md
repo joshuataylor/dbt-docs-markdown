@@ -1,4 +1,6 @@
-# Configuring Snowflake Private Service Connect [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring Snowflake Private Service Connect
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

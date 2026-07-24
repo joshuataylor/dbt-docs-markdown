@@ -2,9 +2,9 @@
 
 Begin your dbt journey by choosing how you want to develop:
 
-* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use self-hosted tools (VS Code extension, dbt CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) engines.
-* [**Self-hosted only**](#dbt-local-installations) — Use self-hosted tools ([VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md), [Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2), or [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md)) to develop and run dbt on your own infrastructure.
-* **Self-hosted + dbt platform** — Use the VS Code extension or dbt CLI with a dbt platform account to develop with a self-hosted installation while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
+* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) engines.
+* [**Self-hosted only**](#dbt-local-installations) — Use local tools like the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) or [install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
+* **Local + dbt platform** — Use the VS Code extension or dbt CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
 * [**dbt Wizard**](#dbt-wizard) — The AI agent for analytics engineering, available in the dbt platform and from your terminal. Grounded in your project's lineage, model health, and semantic definitions.
 
 ## The dbt platform[​](#the-dbt-platform "Direct link to The dbt platform")

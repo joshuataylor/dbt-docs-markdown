@@ -1,6 +1,6 @@
 # Supported BigQuery functions in dbt Fusion
 
-Fusion can validate that your BigQuery function arguments match expected types directly in dbt platform, the CLI, or using the dbt VS Code extension. To enable this, run `dbt login` and set [`static_analysis: strict`](https://docs.getdbt.com/docs/fusion/new-concepts.md?version=2.0) in your project configuration.
+Fusion can validate that your BigQuery function arguments match expected types directly in dbt platform, the CLI, or using the dbt VS Code extension. To enable this, run `dbt login` and set [`static_analysis: strict`](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=2.0) in your project configuration.
 
 The following table lists *every* BigQuery built-in function and its typechecking support status. Use the table's search and filters to find specific functions.
 

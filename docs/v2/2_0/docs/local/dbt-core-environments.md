@@ -1,5 +1,7 @@
 # dbt environments
 
+Local developmentⓘ
+
 dbt makes it easy to maintain separate production and development environments through the use of [targets](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) within a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md). A typical profile, when using dbt locally (for example, running from your command line), will have a target named `dev` and have this set as the default. This means that while making changes, your objects will be built in your *development* target without affecting production queries made by your end users. Once you are confident in your changes, you can deploy the code to *production*, by running your dbt project with a *prod* target.
 
 Running dbt in production

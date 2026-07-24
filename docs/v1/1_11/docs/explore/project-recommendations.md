@@ -1,4 +1,6 @@
-# Project recommendations [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Project recommendations
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Catalog provides recommendations about your project from the `dbt_project_evaluator` [package](https://hub.getdbt.com/dbt-labs/dbt_project_evaluator/latest/) using metadata from the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md).
 

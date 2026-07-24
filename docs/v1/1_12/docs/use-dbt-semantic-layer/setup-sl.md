@@ -1,4 +1,6 @@
-# Administer the Semantic Layer [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Administer the Semantic Layer
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 With the dbt Semantic Layer, you can centrally define business metrics, reduce code duplication and inconsistency, create self-service in downstream tools, and more. This topic shows you how to set up credentials and tokens so that other tools can query the Semantic Layer.
 
@@ -23,7 +25,7 @@ Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/cours
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-## Administer the Semantic Layer[​](#administer-the-semantic-layer "Direct link to Administer the Semantic Layer")
+## Administer the Semantic Layer[​](#administer-the-semantic-layer-1 "Direct link to Administer the Semantic Layer")
 
 <!-- -->
 

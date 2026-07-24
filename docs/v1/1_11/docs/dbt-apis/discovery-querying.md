@@ -1,5 +1,7 @@
 # Query the Discovery API
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The Discovery API supports ad-hoc queries and integrations. If you are new to the API, refer to [About the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) for an introduction.
 
 For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).

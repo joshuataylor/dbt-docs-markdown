@@ -1,5 +1,7 @@
 # Connect Upsolver to dbt Core
 
+Local developmentⓘ
+
 ## Overview of <!-- -->dbt-upsolver<!-- -->
 
 * **Maintained by**:

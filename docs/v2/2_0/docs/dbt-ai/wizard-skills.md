@@ -1,5 +1,7 @@
 # Use skills with dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Skills are reusable instructions that help dbt Wizard follow your team's SQL conventions, naming rules, modeling patterns, and workflows without repeating them in every prompt.
 
 dbt Wizard also includes built-in skills from [dbt Agent skills](https://github.com/dbt-labs/dbt-agent-skills), maintained by dbt Labs. These are always available, no setup needed.

@@ -1,5 +1,7 @@
 # Configuring Private Link for Microsoft Fabric [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+dbt platform | Enterprise+ⓘ
+
 Available to certain Enterprise tiers
 
 This feature is available on the following dbt Enterprise tiers:

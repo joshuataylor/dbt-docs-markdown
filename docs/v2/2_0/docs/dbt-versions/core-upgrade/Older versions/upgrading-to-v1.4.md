@@ -1,5 +1,7 @@
 # Upgrading to v1.4
 
+Available in v1ⓘ
+
 ### Resources[​](#resources "Direct link to Resources")
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.4.latest/CHANGELOG.md)

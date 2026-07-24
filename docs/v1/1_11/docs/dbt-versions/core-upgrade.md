@@ -1,3 +1,3 @@
-## [📄️<!-- --> <!-- -->Upgrading to v2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+## [📄️<!-- --> <!-- -->Fusion readiness checklist](https://docs.getdbt.com/docs/fusion/fusion-readiness.md)
 
-[New features and changes in v2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+[Your to-do list for preparing for Fusion](https://docs.getdbt.com/docs/fusion/fusion-readiness.md)

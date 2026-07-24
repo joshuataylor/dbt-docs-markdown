@@ -1,5 +1,7 @@
 # Configuring Private Link for Azure Synapse
 
+dbt platform | Enterprise+ⓘ
+
 Available to certain Enterprise tiers
 
 This feature is available on the following dbt Enterprise tiers:

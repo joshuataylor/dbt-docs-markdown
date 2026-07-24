@@ -16,9 +16,9 @@ Advanced
 
 Thank you for being part of the [dbt's package hub community](https://hub.getdbt.com/) and maintaining [packages](https://docs.getdbt.com/docs/build/packages.md)! Your work makes dbt’s ecosystem possible and helps thousands of teams reuse trusted models and macros to build faster, more reliable analytics.
 
-This guide helps you upgrade your dbt packages to be [Fusion](https://docs.getdbt.com/docs/fusion.md)-compatible. A Fusion-compatible package:
+This guide helps you upgrade your dbt packages to be [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md)-compatible. A Fusion-compatible package:
 
-* Supports [dbt Fusion engine](https://docs.getdbt.com/docs/fusion.md) version `2.0.0`
+* Supports [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) version `2.0.0`
 * Uses the [`require-dbt-version` config](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md) to signal compatibility in the dbt package hub
 * Aligns with the latest JSON schema introduced in dbt Core v1.10.0
 

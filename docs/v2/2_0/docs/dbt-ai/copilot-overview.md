@@ -1,4 +1,6 @@
-# dbt Copilot [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt Copilot
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 dbt Copilot helps you generate SQL, documentation, tests, and semantic models in the dbt platform.
 

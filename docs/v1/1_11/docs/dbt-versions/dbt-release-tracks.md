@@ -1,5 +1,7 @@
 # Release tracks in dbt platform
 
+dbt platformⓘ
+
 Since May 2024, new capabilities in the dbt framework are delivered continuously to dbt. Your projects and environments are upgraded automatically on a cadence that you choose, depending on your dbt plan.
 
 Previously, customers would pin to a minor version of dbt Core, and receive only patch updates during that specific version's active support period. Release tracks ensure that your project stays up-to-date with the modern capabilities of dbt and recent versions of dbt Core.
@@ -68,7 +70,7 @@ Choose **Fusion Fallback** as an emergency measure only. This is a temporary rol
 
 Account admins can set the org-wide default release track for new projects via a toggle in **Account Settings**. Individual project owners can then override that default per environment.
 
-### Mantle (dbt Core–based) release tracks[​](#mantle-dbt-corebased-release-tracks "Direct link to Mantle (dbt Core–based) release tracks")
+### dbt release tracks[​](#dbt-release-tracks "Direct link to dbt release tracks")
 
 Choose the **Latest** release track to continuously receive new features, fixes, performance improvements — latest & greatest dbt. This is the default for all customers on dbt.
 
@@ -76,7 +78,7 @@ Choose the **Compatible** and **Extended** release tracks if you need a less-fre
 
 ### Using the Fallback release track[​](#using-the-fallback-release-track "Direct link to Using the Fallback release track")
 
-The **Fallback** release track (for both Fusion and Mantle) provides an emergency rollback option for account admins if you suspect a regression in the "Extended" track. This is available only for dbt Fusion engine in Enterprise+ accounts.
+The **Fallback** release track provides an emergency rollback option for account admins if you suspect a regression in the "Extended" track. This is available only for dbt Fusion engine in Enterprise+ accounts.
 
 1. Go to **Account settings**
 2. Click the **Fallback** release track button in the dbt platform interface. This is not accessible through environment settings.
@@ -108,7 +110,7 @@ Switching to **Fallback** alerts the dbt Support team, who may reach out to help
 * Configure production environments to use **Fusion Extended** (one month behind Stable)
 * Configure development environments to use **Fusion Stable** so developers get access to upcoming changes before they reach production
 
-#### Mantle (dbt Core–based) release tracks[​](#mantle-dbt-corebased-release-tracks-1 "Direct link to Mantle (dbt Core–based) release tracks")
+#### dbt release tracks[​](#dbt-release-tracks-1 "Direct link to dbt release tracks")
 
 **Default** — Majority of customers on all plans
 

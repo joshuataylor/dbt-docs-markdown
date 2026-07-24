@@ -1,5 +1,7 @@
 # Connect YDB to dbt Core
 
+Local developmentⓘ
+
 ## Overview of <!-- -->dbt-ydb<!-- -->
 
 * **Maintained by**:

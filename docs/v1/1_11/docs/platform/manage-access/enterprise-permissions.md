@@ -1,4 +1,6 @@
-# Enterprise permissions [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Enterprise permissions
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 <!-- -->
 

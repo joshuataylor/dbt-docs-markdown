@@ -1,4 +1,6 @@
-# Explore multiple projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Explore multiple projects
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 View all the projects and public models in your account (where public models are defined) and gain a better understanding of your cross-project resources and how they're used.
 

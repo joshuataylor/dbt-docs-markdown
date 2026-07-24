@@ -1,4 +1,6 @@
-# Column-level lineage [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Column-level lineage
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Catalog now offers column-level lineage (CLL) for the resources in your dbt project. Analytics engineers can quickly and easily gain insight into the provenance of their data products at a more granular level. For each column in a resource (model, source, or snapshot) in a dbt project, Catalog provides end-to-end lineage for the data in that column given how it's used.
 

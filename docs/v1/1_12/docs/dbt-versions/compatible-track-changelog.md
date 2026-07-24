@@ -1,5 +1,7 @@
 # dbt platform compatible track - changelog
 
+dbt platform | Freeⓘ
+
 Select the **Compatible** and **Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
 
 Each monthly **Compatible** release includes functionality matching up-to-date open source versions of dbt Core and adapters at the time of release.

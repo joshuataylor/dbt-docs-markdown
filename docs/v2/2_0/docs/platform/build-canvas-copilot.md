@@ -1,4 +1,6 @@
-# Build with dbt Copilot [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Build with dbt Copilot
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Use dbt Copilot to build visual models in the Canvas with natural language prompts.
 

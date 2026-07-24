@@ -1,6 +1,8 @@
 # About dbt login
 
-Use dbt login to authenticate once and unlock gated features across dbt tools.
+Available in v2ⓘ
+
+Use dbt login to authenticate once and unlock advanced features across dbt tools.
 
 info
 
@@ -18,13 +20,13 @@ Run [`dbt login status`](#dbt-login-status) to view your current authentication 
 * [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#setting-up-dbt-state) in supported versions
 * advanced features in v2.0 CLI
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
+Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
 `dbt login` doesn't support non-interactive authentication. For [non-interactive](#non-interactive-environments) environments, such as CI/CD jobs, scheduled jobs, or external orchestrators, use a service token instead.
 
 ## Before you log in[​](#before-you-log-in "Direct link to Before you log in")
 
-Downloading the dbt VS Code extension gives you 14 days to try [advanced features](https://docs.getdbt.com/docs/fusion/fusion-availability.md#dbt-vs-code-extension-features) — no account needed. After the trial ends, sign in to or create a free dbt platform account to keep using them. The vast majority of features keep working either way.
+Downloading the dbt VS Code extension gives you 14 days to try [advanced features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) — no account needed. After the trial ends, sign in to or create a free dbt platform account to keep using them. The vast majority of features keep working either way.
 
 This 14-day trial applies to the dbt VS Code extension only. It's separate from the [dbt platform trial](https://www.getdbt.com/pricing) and doesn't require a credit card or a paid plan.
 
@@ -34,7 +36,7 @@ Run `dbt login` to create a free account, or log in to an existing one. Logging 
 
 Note that this is separate from [dbt platform user license types](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=2.0\&name=Fusion) (such as Developer or Analyst), which controls what you can do *inside* dbt platform.
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md#dbt-vs-code-extension-features) for the full list of features and their availability.
+Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
 <!-- -->
 
@@ -100,7 +102,7 @@ export DBT_CLOUD_PROJECT_ID=67890
 
 * Use `dbt login` to authenticate with [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md). You can start the sign-in flow from the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md):
 * If you run `dbt login` from the CLI, the dbt VS Code extension uses that login in your next extension session.
-* If you sign in from the dbt VS Code extension, you can use that login the next time you run a login-gated command.
+* If you sign in from the dbt VS Code extension, you can use that login the next time you run a command that requires authentication.
 
 When you run a command or use a feature that requires authentication, dbt checks your current login state. If you're signed in, the feature runs. If you're not signed in, dbt tells you which feature requires authentication and prompts you to run `dbt login`.
 
@@ -114,7 +116,7 @@ You stay signed in as long as you use dbt at least once every 7 days. If you're 
 
 If your access expires, run `dbt login` to sign back in.
 
-* On the 14-day trial without a dbt account? Create a free account with `dbt login` — it's the best way to use the [full set of features](https://docs.getdbt.com/docs/fusion/fusion-availability.md#dbt-vs-code-extension-features) and get the most out of the extension.
+* On the 14-day trial without a dbt account? Create a free account with `dbt login` — it's the best way to use the [full set of features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) and get the most out of the extension.
 * Not ready to run `dbt login`? No worries — continue using the vast majority of features after the trial ends.
 
 If you're not sure where you stand, run [`dbt license info`](#troubleshooting) to check your status.
@@ -204,7 +206,7 @@ Status: unauthenticated
 
 ### dbt license info[​](#dbt-license-info "Direct link to dbt license info")
 
-Fusion uses local licenses to cache your logged-in state and give you access to advanced features. Run `dbt license info` as an additional check to verify the status of the license used by Fusion. This is useful when an advanced feature isn't working and `dbt login status` tells you you're authenticated:
+dbt uses local licenses to cache your logged-in state and give you access to advanced features. Run `dbt license info` as an additional check to verify the status of the license used by Fusion. This is useful when an advanced feature isn't working and `dbt login status` tells you you're authenticated:
 
 ```shell
 dbt license info
@@ -266,7 +268,7 @@ If you just registered a new account
 
 If you created a new dbt platform account but haven't verified your email yet, dbt warns you on each run during a short grace period.
 
-After the grace period ends, advanced features stop working until you verify. You can still use the vast majority of features like code error diagnostics and Jinja LSP go-to ref definition, [and more](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.11#dbt-vs-code-extension-features).
+After the grace period ends, advanced features stop working until you verify. You can still use the vast majority of features like code error diagnostics and Jinja LSP go-to ref definition, [and more](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability).
 
 Check your inbox for the verification email, or [contact dbt Support](https://docs.getdbt.com/docs/dbt-support.md) if you need it resent.
 

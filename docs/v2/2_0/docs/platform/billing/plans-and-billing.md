@@ -1,5 +1,7 @@
 # Plans and billing
 
+dbt platformⓘ
+
 dbt offers several [plans](https://www.getdbt.com/pricing) with different features that meet your needs. We may make changes to our plan details from time to time. We'll always let you know in advance, so you can be prepared. The following section explains how billing works in each plan.
 
 ### Developer plan billing[​](#developer-plan-billing "Direct link to Developer plan billing")

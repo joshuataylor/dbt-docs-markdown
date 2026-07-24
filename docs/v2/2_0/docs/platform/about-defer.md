@@ -1,5 +1,7 @@
 # Using defer in dbt
 
+dbt platformⓘ
+
 [Defer](https://docs.getdbt.com/reference/node-selection/defer.md) is a powerful feature that allows developers to only build, run, and test models<!-- --> and functions<!-- --> they've edited, without having to build and run all the models<!-- --> and functions<!-- --> that come before them (upstream parents). dbt powers this by using a production manifest for comparison and resolves `{{ ref() }}` and `{{ function() }}` calls with upstream production artifacts.
 
 Both the Studio IDE and the dbt CLI enable users to natively defer to production metadata directly in their development workflows.

@@ -1,4 +1,6 @@
-# Connect to Azure DevOps [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Connect to Azure DevOps
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Available for dbt Enterprise and Enterprise+
 

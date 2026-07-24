@@ -1,5 +1,7 @@
 # Connect Apache Spark to dbt Core
 
+Local developmentⓘ
+
 [Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md?version=2 "Fusion compatible") connection also available.
 
 `profiles.yml` file is for dbt Core and dbt fusion only

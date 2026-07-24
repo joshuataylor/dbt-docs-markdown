@@ -1,4 +1,6 @@
-# SCIM FAQs and troubleshooting [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# SCIM FAQs and troubleshooting
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Find answers to common questions about configuring and using SCIM provisioning in dbt platform, plus guidance for resolving common issues.
 

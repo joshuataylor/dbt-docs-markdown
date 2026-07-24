@@ -1,5 +1,7 @@
 # Connect iomete to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   iomete

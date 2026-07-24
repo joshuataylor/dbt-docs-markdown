@@ -1,5 +1,7 @@
 # Connect Decodable to dbt Core
 
+Local developmentⓘ
+
 Community plugin
 
 Some core functionality may be limited. If you're interested in contributing, see the source code for the repository listed below.

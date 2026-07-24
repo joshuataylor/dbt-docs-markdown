@@ -1,5 +1,7 @@
 # About continuous integration (CI) in dbt
 
+dbt platformⓘ
+
 Use [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) in dbt to set up automation for testing code changes before merging to production. Additionally, [enable Advanced CI features](https://docs.getdbt.com/docs/platform/account-settings.md#account-access-to-advanced-ci-features) for these jobs to evaluate whether the code changes are producing the appropriate data changes you want by reviewing the comparison differences dbt provides.
 
 Refer to the guide [Get started with continuous integration tests](https://docs.getdbt.com/guides/set-up-ci.md?step=1) for more information.

@@ -1,4 +1,6 @@
-# Configuring Azure Private Link for Teradata VantageCloud [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Configuring Azure Private Link for Teradata VantageCloud
+
+dbt platform | Enterprise+ⓘ
 
 <!-- -->
 

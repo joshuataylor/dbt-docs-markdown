@@ -1,5 +1,7 @@
 # Connect IBM watsonx.data Spark to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   IBM

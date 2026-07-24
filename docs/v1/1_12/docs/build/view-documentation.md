@@ -7,7 +7,7 @@ You can view documentation in three complementary ways, depending on your needs:
 | Option                                                                  | Description                                                                                                                                                                                                                                                                                            | Availability                                  |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
 | [**dbt Docs (Legacy)**](#dbt-docs)                                      | Generates a static website with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify).                                                                                                                                                                 | dbt Core or dbt Developer plans               |
-| [**dbt Docs v2**](#dbt-docs-v2) alpha                                   | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, column-level lineage (Fusion), and a REST API for AI agents.                                                                                          | dbt Fusion engine and dbt Core v2             |
+| [**dbt Docs v2**](#dbt-docs-v2) alpha                                   | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, column-level lineage (Fusion), and a REST API for AI agents.                                                                                          | dbt Fusion engine and dbt Core 2.0            |
 | [**Catalog**](https://docs.getdbt.com/docs/explore/explore-projects.md) | The premier documentation experience in dbt. Builds on dbt Docs to provide a dynamic, real-time interface with rich [metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata), customizable views, deep insight into your project and resources, and collaborative tools. | dbt Starter, Enterprise, or Enterprise+ plans |
 
 Search table...
@@ -42,7 +42,7 @@ For additional details and instructions on how to explore your lineage, navigate
 
 ### dbt Docs v2 alpha[​](#dbt-docs-v2- "Direct link to dbt-docs-v2-")
 
-dbt Docs v2 is the next-generation open-source catalog experience, available when using the dbt Fusion engine and dbt Core v2. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
+dbt Docs v2 is the next-generation open-source catalog experience, available when using the dbt Fusion engine and dbt Core 2.0. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
 
 Key improvements over dbt Docs:
 
@@ -52,7 +52,7 @@ Key improvements over dbt Docs:
 * **Column-level lineage:** Available when using the dbt Fusion engine.
 * **REST API:** Exposes a `/api/v1/` interface so AI agents and external tooling can query metadata without a browser. This makes dbt Docs v2 a context source for MCP servers and coding agents.
 
-To generate and serve dbt Docs v2, use the dbt Fusion engine or dbt Core v2 to build your project with `--write-index` (for example, `dbt compile --write-index`). Then, run `dbt docs serve`. Add [`--static-analysis strict`](https://docs.getdbt.com/docs/fusion/new-concepts?version=1.13) to also pull column lineage and richer column type metadata from your warehouse.
+To generate and serve dbt Docs v2, use the dbt Fusion engine or dbt Core 2.0 to build your project with `--write-index` (for example, `dbt compile --write-index`). Then, run `dbt docs serve`. Add [`--static-analysis strict`](https://docs.getdbt.com/docs/build/about-static-analysis?version=1.13) to also pull column lineage and richer column type metadata from your warehouse.
 
 Refer to [dbt docs commands](https://docs.getdbt.com/reference/commands/cmd-docs.md) for full usage.
 

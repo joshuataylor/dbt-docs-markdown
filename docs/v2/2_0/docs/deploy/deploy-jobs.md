@@ -1,5 +1,7 @@
 # Deploy jobs
 
+dbt platformⓘ
+
 You can use deploy jobs to build production data assets. Deploy jobs make it easy to run dbt commands against a project in your cloud data platform, triggered either by schedule or events. Each job run in dbt will have an entry in the job's run history and a detailed run overview, which provides you with:
 
 * Job trigger type

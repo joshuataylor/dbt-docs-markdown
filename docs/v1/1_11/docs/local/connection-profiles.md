@@ -1,5 +1,7 @@
 # Connection profiles
 
+Local developmentⓘ
+
 When you invoke dbt from the command line, dbt parses your `dbt_project.yml` and obtains the `profile` name, which dbt needs to connect to your data warehouse.
 
 dbt\_project.yml

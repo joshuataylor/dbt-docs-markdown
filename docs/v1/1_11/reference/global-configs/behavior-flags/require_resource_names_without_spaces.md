@@ -1,8 +1,8 @@
 # No spaces in resource names
 
-Removed in dbt Core v2
+Removed in dbt Core 2.0
 
-This flag was removed in dbt Core v2 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
 | require\_resource\_names\_without\_spaces | dbt **Latest** | dbt Core |
 | ----------------------------------------- | -------------- | -------- |
@@ -18,7 +18,7 @@ Search table...
 
 dbt raises an error if it detects a space in a resource name. Resource names should contain letters, numbers, and underscores only.
 
-dbt raises the [`ResourceNamesWithSpacesDeprecation`](https://docs.getdbt.com/reference/deprecations.md#resourcenameswithspacesdeprecation) warning if it detects a space in a resource name. When this flag is set to `true` (now always-on in dbt Core v2), dbt raises an error instead.
+dbt raises the [`ResourceNamesWithSpacesDeprecation`](https://docs.getdbt.com/reference/deprecations.md#resourcenameswithspacesdeprecation) warning if it detects a space in a resource name. When this flag is set to `true` (now always-on in dbt Core 2.0), dbt raises an error instead.
 
 models/model name with spaces.sql
 

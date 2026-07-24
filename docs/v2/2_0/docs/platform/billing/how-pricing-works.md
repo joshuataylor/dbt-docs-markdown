@@ -1,5 +1,7 @@
 # How does dbt pricing work?
 
+dbt platformⓘ
+
 As a customer, you pay for the number of seats you have and the amount of usage consumed each month. Seats are billed primarily on the amount of Developer and Read licenses purchased.
 
 Usage is based on the number of [Successful Models Built](#what-counts-as-a-successful-model-built) and, if purchased and used, Semantic Layer [Queried Metrics](#what-counts-as-a-queried-metric) subject to reasonable usage. All billing computations are conducted in Coordinated Universal Time (UTC).

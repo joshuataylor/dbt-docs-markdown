@@ -1,5 +1,7 @@
 # Upgrading to v1.6
 
+Available in v1ⓘ
+
 dbt Core v1.6 has three significant areas of focus:
 
 1. Next milestone of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725): improvements to contracts, groups/access, versions; and building blocks for cross-project `ref`

@@ -1,5 +1,7 @@
 # Connect Amazon Athena
 
+dbt platformⓘ
+
 Your environment(s) must be on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to use the Amazon Athena connection.
 
 Connect dbt to Amazon's Athena interactive query service to build your dbt project. The following are the required and optional fields for configuring the Athena connection:

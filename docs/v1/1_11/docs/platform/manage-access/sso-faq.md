@@ -1,4 +1,6 @@
-# SSO FAQs and troubleshooting [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# SSO FAQs and troubleshooting
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Find answers to common questions about configuring and using single sign-on (SSO) in dbt platform, plus guidance for resolving common issues.
 

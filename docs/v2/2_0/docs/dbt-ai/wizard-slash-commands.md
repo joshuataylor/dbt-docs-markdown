@@ -1,5 +1,7 @@
 # dbt Wizard slash command reference [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 Full reference for dbt Wizard interactive TUI slash commands.
 
 Auto-generated page

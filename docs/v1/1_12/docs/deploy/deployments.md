@@ -1,6 +1,8 @@
 # Deploy dbt
 
-Use dbt's capabilities to seamlessly run a dbt job in production or staging environments. Rather than run dbt commands manually from the command line, you can leverage the [dbt's in-app scheduling](https://docs.getdbt.com/docs/deploy/job-scheduler.md) to automate how and when you execute dbt.
+dbt platformⓘ
+
+Use the dbt platform's capabilities to seamlessly run a dbt job in production or staging environments. Rather than run dbt commands manually from the command line, you can leverage the [dbt platform's in-app scheduling](https://docs.getdbt.com/docs/deploy/job-scheduler.md) to automate how and when you execute dbt.
 
 The dbt platform offers the easiest and most reliable way to run your dbt project in production. Effortlessly promote high quality code from development to production and build fresh data assets that your business intelligence tools and end users query to make business decisions. Deploying with dbt lets you:
 

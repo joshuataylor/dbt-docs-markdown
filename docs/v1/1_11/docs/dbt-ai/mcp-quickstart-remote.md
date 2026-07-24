@@ -1,5 +1,7 @@
 # Connect to the remote dbt MCP server
 
+dbt platformⓘ
+
 The remote MCP server connects to dbt platform using HTTP. No self-hosted installation is required — you configure your MCP client with a URL and headers instead of running `uvx dbt-mcp`.
 
 [![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")](#)Remote dbt MCP server architecture

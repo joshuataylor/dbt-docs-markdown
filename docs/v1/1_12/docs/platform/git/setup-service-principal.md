@@ -1,4 +1,6 @@
-# Set up Azure DevOps [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up Azure DevOps
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 ## Service principal overview[​](#service-principal-overview "Direct link to Service principal overview")
 

@@ -1,5 +1,7 @@
 # Connect Cloudera Hive to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Cloudera

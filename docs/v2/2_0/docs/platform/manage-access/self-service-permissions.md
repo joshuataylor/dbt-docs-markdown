@@ -1,5 +1,7 @@
 # Self-service Starter account permissions
 
+dbt platform | Starterⓘ
+
 Self-service Starter accounts are a quick and easy way to get dbt up and running for a small team.
 
 For teams looking to scale and access advanced features like SSO, group management, and support for larger user bases, upgrading to an [Enterprise-tier](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) account unlocks these capabilities — if you're interested in upgrading, contact [dbt Labs today](https://www.getdbt.com/contact).

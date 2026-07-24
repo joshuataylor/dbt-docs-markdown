@@ -1,4 +1,6 @@
-# Google Sheets [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Google Sheets
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The Semantic Layer offers a seamless integration with Google Sheets through a custom menu. This add-on allows you to build Semantic Layer queries and return data on your metrics directly within Google Sheets
 

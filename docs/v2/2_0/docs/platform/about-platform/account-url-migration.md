@@ -1,5 +1,7 @@
 # Migrating to account-specific access URLs
 
+dbt platformⓘ
+
 Account-specific access URLs are being assigned to dbt accounts as part of our ongoing efforts to improve your experience and strengthen security. Each account will receive its own unique dbt platform and [API access URLs](https://docs.getdbt.com/docs/dbt-apis/overview.md) on the **dbt.com** domain rather than sharing generic **getdbt.com** region URLs. For example:
 
 * Old: `https://cloud.getdbt.com`

@@ -1,5 +1,7 @@
 # Connect with managed repository
 
+dbt platformⓘ
+
 Managed repositories are a great way to trial dbt without needing to create a new repository. If you don't already have a Git repository for your dbt project, you can let dbt host and manage a repository for you.
 
 If in the future you choose to host this repository elsewhere, you can export the information from dbt at any time. Refer to [Move from a managed repository to a self-hosted repository](https://docs.getdbt.com/faqs/Git/managed-repo.md) for more information on how to do that.

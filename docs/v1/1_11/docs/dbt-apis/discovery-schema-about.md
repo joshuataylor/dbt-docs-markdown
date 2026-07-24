@@ -1,5 +1,7 @@
 # About the Discovery API schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 With the Discovery API, you can query the metadata in dbt to learn more about your dbt deployments and the data they generate. You can analyze the data to make improvements. If you are new to the API, refer to [About the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) for an introduction. You might also find the [use cases and examples](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md) helpful.
 
 The Discovery API *schema* provides all the pieces necessary to query and interact with the Discovery API. The most common queries use the `environment` endpoint:

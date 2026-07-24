@@ -1,5 +1,7 @@
 # Install dbt CLI
 
+dbt platformⓘ
+
 The dbt platform natively supports developing using a command line interface (CLI), empowering team members to contribute with enhanced flexibility and collaboration. The dbt CLI allows you to run dbt commands against your dbt platform development environment from your local command line.
 
 CLI compatibility
@@ -19,9 +21,8 @@ dbt commands run against the platform's infrastructure and benefit from:
 
 The dbt CLI is available in all [deployment regions](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) and for both multi-tenant and single-tenant accounts.
 
-* For the best dbt CLI experience, install the platform CLI on a machine that doesn't already have the dbt Core or Fusion CLI installed.
 * If you installed the dbt Core CLI in a virtual environment, deactivate that environment or create an alias for the platform CLI before you run platform CLI commands.
-* If you installed the Fusion CLI locally, create an alias for the platform CLI before you run platform CLI commands.
+* If you installed dbt locally, create an alias for the platform CLI before you run platform CLI commands.
 
 Refer to the [FAQs](#faqs) for more information about managing multiple dbt CLI tools and creating an alias.
 

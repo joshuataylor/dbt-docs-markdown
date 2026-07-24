@@ -1,5 +1,7 @@
 # Applied object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The applied object allows you to query information about a particular model based on `environmentId`.
 
 The [Example queries](#example/docs/dbt-apis-queries) illustrate a few fields you can query with this `environment` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

@@ -1,5 +1,7 @@
 # Use cases and examples for the Discovery API
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 With the Discovery API, you can query the metadata in dbt to learn more about your dbt deployments and the data it generates to analyze them and make improvements.
 
 You can use the API in a variety of ways to get answers to your business questions. Below describes some of the uses of the API and is meant to give you an idea of the questions this API can help you answer.

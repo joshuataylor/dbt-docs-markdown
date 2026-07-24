@@ -1,5 +1,7 @@
 # About dbt environment command
 
+dbt platformⓘ
+
 info
 
 The dbt platform CLI provides the `dbt environment` command for environment and connection details. If you're using Fusion or dbt Core, use `dbt debug` to inspect profile, target, and connection — or use `dbtf debug` if you have both Core/Fusion and platform CLIs and want to inspect Fusion.

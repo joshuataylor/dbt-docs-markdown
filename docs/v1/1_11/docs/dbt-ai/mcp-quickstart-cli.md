@@ -1,5 +1,7 @@
 # Run the self-hosted dbt MCP server
 
+Local developmentⓘ
+
 This quickstart walks you through connecting dbt MCP server to your local dbt project. This setup gives you dbt command tools (`run`, `build`, `test`, `compile`, and more) inside your AI assistant.
 
 If you'd like to connect to dbt platform with the CLI, see the [OAuth quickstart](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md).

@@ -1,5 +1,7 @@
 # Connect IBM watsonx.data Presto to dbt Core
 
+Local developmentⓘ
+
 The dbt-watsonx-presto adapter allows you to use dbt to transform and manage data on IBM watsonx.data Presto(Java), leveraging its distributed SQL query engine capabilities. Before proceeding, ensure you have the following:
 
 * An active IBM watsonx.data Presto(Java) engine with connection details (host, port, catalog, schema) in SaaS/Software.

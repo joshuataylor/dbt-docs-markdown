@@ -1,5 +1,7 @@
 # Tenancy
 
+dbt platformⓘ
+
 dbt is available in single-tenant (virtual private) and multi-tenant SaaS configurations. Many multi-tenant accounts use cell-based hosting with account-specific access URLs; see [Tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-cell-hosting).
 
 ## Multi-tenant[​](#multi-tenant "Direct link to Multi-tenant")

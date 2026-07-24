@@ -1,5 +1,7 @@
 # Connect with Git clone
 
+dbt platformⓘ
+
 In dbt, you can import a git repository from any valid git URL that points to a dbt project. There are some important considerations to keep in mind when doing this.
 
 ## Git protocols[​](#git-protocols "Direct link to Git protocols")

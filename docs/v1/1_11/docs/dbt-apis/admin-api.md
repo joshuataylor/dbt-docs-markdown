@@ -1,4 +1,6 @@
-# dbt Administrative API [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# dbt Administrative API
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 The dbt Administrative API is enabled by default for [Starter, Enterprise, and Enterprise+ plans](https://www.getdbt.com/pricing/). It can be used to:
 

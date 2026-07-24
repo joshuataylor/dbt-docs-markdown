@@ -1,22 +1,10 @@
-# A new concept: static analysis
+# About static analysis
 
 The dbt Fusion engine [fully comprehends your project's SQL](https://docs.getdbt.com/blog/the-levels-of-sql-comprehension), enabling advanced capabilities like dialect-aware validation and precise column-level lineage.
 
-It can do this because its compilation step is more comprehensive than that of the dbt Core engine. When dbt Core referred to *compilation*, it only meant *rendering* — converting Jinja-templated strings into a SQL query to send to a database.
+It can do this because its compilation step is more comprehensive than that of the dbt Core v1.x engine. When dbt Core v1.x referred to *compilation*, it only meant *rendering* — converting Jinja-templated strings into a SQL query to send to a database.
 
 dbt Fusion engine can also render Jinja, but then it completes a second phase: *static analysis*, producing and validating a logical plan for every rendered query in the project. This step is the cornerstone of Fusion's new capabilities.
-
-| Step                                        | dbt Core v1 engine | dbt Core v2 (alpha) | dbt Fusion engine |
-| ------------------------------------------- | ------------------ | ------------------- | ----------------- |
-| Render Jinja into SQL                       | ✅                 | ✅                  | ✅                |
-| Produce and statically analyze logical plan | ❌                 | ✅ (Fusion + login) | ✅                |
-| Run rendered SQL                            | ✅                 | ✅                  | ✅                |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ## Principles of static analysis[​](#principles-of-static-analysis "Direct link to Principles of static analysis")
 
@@ -153,7 +141,7 @@ Setting `static_analysis` to `baseline` mode lets you start using Fusion immedia
 
 ## Recapping the differences between engines[​](#recapping-the-differences-between-engines "Direct link to Recapping the differences between engines")
 
-dbt Core v1 and [dbt Core v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
+dbt Core v1.x and [dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
 
 * Renders and runs models one at a time.
 * Never runs static analysis.
@@ -309,15 +297,9 @@ This is a very rare occurrence. If you encounter this situation, please [open an
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-Fusion marks a significant update to dbt. While many of the workflows you've grown accustomed to remain unchanged, there are a lot of new ideas, and a lot of old ones going away. The following is a list of the full scope of our current release of the Fusion engine, including implementation, installation, deprecations, and limitations:
-
-* [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md)
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [New concepts in Fusion](https://docs.getdbt.com/docs/fusion/new-concepts.md)
 * [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Installing Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
-* [Installing VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md)
-* [Fusion release track](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
 * [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

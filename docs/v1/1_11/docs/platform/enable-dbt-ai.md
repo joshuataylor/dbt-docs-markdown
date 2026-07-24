@@ -1,4 +1,6 @@
-# Enable AI features in dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Enable AI features in dbt platform
+
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Enable AI features in dbt platform to speed up your development and focus on delivering quality data.
 

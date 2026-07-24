@@ -1,5 +1,7 @@
 # Connect Microsoft Azure Synapse Analytics to dbt Core
 
+Local developmentⓘ
+
 info
 
 The following is a guide to using Azure Synapse Analytics dedicated SQL pools (formerly SQL DW). For more info, refer to [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](https://learn.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for more info.

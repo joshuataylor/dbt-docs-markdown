@@ -1,5 +1,7 @@
 # dbt Wizard in the dbt platform privacy and data [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 dbt Labs is committed to protecting your privacy and data. This page explains how dbt Wizard in the dbt platform handles your data.
 
  Does dbt Wizard access my warehouse data?

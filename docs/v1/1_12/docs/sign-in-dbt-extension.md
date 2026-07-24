@@ -1,8 +1,10 @@
 # Sign in or register [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 The dbt VS Code extension comes with a suite of features that are available to all users for 14 days. After the 14-day trial, sign in or register for a dbt platform account to keep using all features, including advanced features such as [live preview for models and CTEs](https://docs.getdbt.com/docs/dbt-extension-features.md#live-preview-for-models-and-ctes), [column-level lineage](https://docs.getdbt.com/docs/dbt-extension-features.md#rich-lineage-in-context), and more.
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=1.13#dbt-vs-code-extension-features) for the full list of features and their availability.
+Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
 Most features remain available without signing in — only advanced features prompt you to sign in after the trial ends.
 
@@ -13,7 +15,7 @@ Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md#dbt
 ## Key points[​](#key-points "Direct link to Key points")
 
 * The extension is free for organizations for up to 15 users. Refer to the [acceptable use policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup).
-* Registration links your editor to your registered dbt platform account so you can keep using gated features after the 14-day trial.
+* Registration links your editor to your registered dbt platform account so you can keep using advanced features after the 14-day trial.
 * You can authenticate with `dbt login` or register from inside the extension. If you don't have a dbt platform account, you can create a free account during authentication to unlock advanced features.
 * If a valid [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file exists on your machine, the extension can use it automatically.
 
@@ -48,7 +50,7 @@ There are a couple of different ways to sign in or register for a dbt platform a
 
 ### dbt login
 
-`dbt login` is available in dbt Core v2.0 and later. To install the dbt VS Code extension, [upgrade your project to the dbt Fusion engine](https://docs.getdbt.com/docs/upgrade-to-fusion-extension.md).
+`dbt login` is available with v2 and later. To install the dbt VS Code extension, [upgrade your project to Fusion](https://docs.getdbt.com/docs/upgrade-to-fusion-extension.md).
 
 Use this path if you prefer the terminal or want a single auth flow that works across the CLI and the dbt VS Code extension. Running `dbt login` opens the same browser flow that the extension uses when you select **dbt: Register dbt extension** from the command palette, so completing it once authenticates both.
 
@@ -303,7 +305,7 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install dbt directly using these instructions: [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 
  Addressing the 'dbt language server is not running in this workspace' error
 
@@ -330,15 +332,9 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-Fusion marks a significant update to dbt. While many of the workflows you've grown accustomed to remain unchanged, there are a lot of new ideas, and a lot of old ones going away. The following is a list of the full scope of our current release of the Fusion engine, including implementation, installation, deprecations, and limitations:
-
-* [About the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md)
 * [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [New concepts in Fusion](https://docs.getdbt.com/docs/fusion/new-concepts.md)
 * [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Installing Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
-* [Installing VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md)
-* [Fusion release track](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
 * [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
 * [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

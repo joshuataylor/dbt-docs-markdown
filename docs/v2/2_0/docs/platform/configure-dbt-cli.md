@@ -1,5 +1,7 @@
 # Configure and use the dbt CLI
 
+dbt platformⓘ
+
 Learn how to configure the dbt CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
 
 * Secure credential storage in the dbt platform.

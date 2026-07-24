@@ -1,4 +1,6 @@
-# Set up SSO with SAML 2.0 [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up SSO with SAML 2.0
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt Enterprise-tier plans support single-sign on (SSO) for any SAML 2.0-compliant identity provider (IdP). Currently supported features include:
 

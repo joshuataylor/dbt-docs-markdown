@@ -1,4 +1,6 @@
-# Edit and create dbt models [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Edit and create dbt models
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 Access and use Canvas to create or edit dbt models through a visual, drag-and-drop experience.
 

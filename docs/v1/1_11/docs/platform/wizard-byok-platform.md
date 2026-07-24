@@ -1,5 +1,7 @@
 # Configure BYOK for dbt Wizard in dbt platform
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 Use bring-your-own-key (BYOK) to connect dbt Wizard or dbt Copilot in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
 
 The following BYOK instructions apply to dbt platform only. For CLI BYOK setup, refer to [Configure BYOK for dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md).

@@ -1,4 +1,6 @@
-# Migrating to Auth0 for SSO [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Migrating to Auth0 for SSO
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt Labs is partnering with Auth0 to bring enhanced features to dbt's single sign-on (SSO) capabilities. Auth0 is an identity and access management (IAM) platform with advanced security features, and it will be leveraged by dbt. These changes will require some action from customers with SSO configured in dbt today, and this guide will outline the necessary changes for each environment.
 

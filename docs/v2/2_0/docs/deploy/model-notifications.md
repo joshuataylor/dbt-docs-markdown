@@ -1,5 +1,7 @@
 # Model notifications
 
+dbt platformⓘ
+
 Set up dbt to notify model owners through email about issues in your deployment environments.
 
 Configure dbt to send email notifications to model owners about issues in deployment [environments](https://docs.getdbt.com/docs/dbt-platform-environments.md#types-of-environments) as soon as they happen — while the job is still running. Model owners can specify which statuses to receive notifications about:

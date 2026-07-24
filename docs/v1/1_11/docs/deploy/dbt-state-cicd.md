@@ -1,5 +1,7 @@
 # Setting up dbt State for non-interactive environments [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Login required | Usage-basedⓘ
+
 note
 
 This setup only applies when using the standalone [dbt State web app](https://app.state.dbt.com/).

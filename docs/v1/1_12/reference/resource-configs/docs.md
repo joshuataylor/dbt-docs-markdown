@@ -162,7 +162,7 @@ The `docs` attribute supports `node_color` to customize the display color of som
   <!-- -->
   * `<example-sql-file.sql>` overrides `schema.yml` overrides `dbt_project.yml`
 
-Note, you need to run or re-run the `dbt docs generate` command (dbt Core v1 only) to apply and view the customized colors.
+Note, you need to run or re-run the `dbt docs generate` command (dbt Core v1.x only) to apply and view the customized colors.
 
 Custom node colors not applicable in Catalog
 

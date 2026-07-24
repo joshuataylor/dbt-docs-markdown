@@ -1,5 +1,7 @@
 # Connect AlloyDB to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   dbt Labs

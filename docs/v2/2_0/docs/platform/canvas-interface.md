@@ -1,4 +1,6 @@
-# Navigate the interface [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Navigate the interface
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 The Canvas interface contains an operator toolbar, operators, canvas, and more to help you access and transform data through a seamless drag-and-drop dbt model creation experience in dbt.
 

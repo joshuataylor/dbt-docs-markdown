@@ -1,5 +1,7 @@
 # Configure BYOK for dbt Wizard [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 You can use the dbt Wizard CLI with bring-your-own-key (BYOK), which means you supply your own credentials from a supported AI provider instead of using dbt Labs' infrastructure.
 
 See it in action and share your feedback

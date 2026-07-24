@@ -1,5 +1,7 @@
 # Connect Teradata to dbt Core
 
+Local developmentⓘ
+
 Some core functionality may be limited. If you're interested in contributing, check out the source code in the repository listed in the next section.
 
 `profiles.yml` file is for dbt Core and dbt fusion only

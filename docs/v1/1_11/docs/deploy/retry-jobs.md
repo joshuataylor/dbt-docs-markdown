@@ -1,5 +1,7 @@
 # Retry your dbt jobs
 
+dbt platformⓘ
+
 If your dbt job run completed with a status of **Error**, you can rerun it from start or from the point of failure in dbt.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")

@@ -1,5 +1,7 @@
 # Resources object schema
 
+dbt platform | Starter, Enterprise, Enterprise+ⓘ
+
 The resources object allows you to paginate across all resources in your environment.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `resources` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.

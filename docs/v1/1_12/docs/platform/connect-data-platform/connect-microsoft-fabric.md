@@ -1,5 +1,7 @@
 # Connect Microsoft Fabric
 
+dbt platformⓘ
+
 ## Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
 
 The supported authentication methods are:

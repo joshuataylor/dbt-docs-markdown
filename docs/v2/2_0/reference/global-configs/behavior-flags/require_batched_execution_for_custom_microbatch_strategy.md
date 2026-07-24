@@ -1,8 +1,8 @@
 # Custom microbatch strategy
 
-Removed in dbt Core v2
+Removed in dbt Core 2.0
 
-This flag was removed in dbt Core v2 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
+This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
 | require\_batched\_execution\_for\_custom\_microbatch\_strategy | dbt **Latest** | dbt Core |
 | -------------------------------------------------------------- | -------------- | -------- |

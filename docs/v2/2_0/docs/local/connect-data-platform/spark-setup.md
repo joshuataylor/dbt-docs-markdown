@@ -1,10 +1,12 @@
 # Connect Apache Spark to Fusion [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
+Local developmentⓘ
+
 The dbt Fusion engine supports Apache Spark, enabling faster compilation and execution for your Spark-based dbt projects. Currently, Fusion only supports Apache Spark 3.0.
 
 ## Fusion and Spark[​](#fusion-and-spark "Direct link to Fusion and Spark")
 
-Fusion uses the Databricks SQL dialect for [static analysis](https://docs.getdbt.com/docs/fusion/new-concepts.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
+Fusion uses the Databricks SQL dialect for [static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
 
 ## Authentication[​](#authentication "Direct link to Authentication")
 

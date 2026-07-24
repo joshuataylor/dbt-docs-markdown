@@ -1,4 +1,6 @@
-# Set up SCIM with Entra ID [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+# Set up SCIM with Entra ID
+
+dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt platform supports System for Cross-Domain Identity Management (SCIM) with Microsoft Entra ID for user and group provisioning and profile updates.
 

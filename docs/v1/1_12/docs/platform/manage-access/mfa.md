@@ -1,5 +1,7 @@
 # Multi-factor authentication
 
+dbt platformⓘ
+
 important
 
 dbt enforces multi-factor authentication (MFA) for all users with username and password credentials. If MFA is not set up, you will see a notification bar prompting you to configure one of the supported methods when you log in. If you do not, you will have to configure MFA upon subsequent logins, or you will be unable to access dbt.

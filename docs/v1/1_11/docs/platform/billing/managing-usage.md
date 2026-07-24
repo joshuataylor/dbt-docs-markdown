@@ -1,5 +1,7 @@
 # Managing usage
 
+Login required | Usage-basedⓘ
+
 From dbt, click on your account name in the left side menu and select **Account settings**. The **Billing** option will be on the left side menu under the **Settings** heading. Here, you can view individual available plans and the features provided for each.
 
 ### Usage notifications[​](#usage-notifications "Direct link to Usage notifications")

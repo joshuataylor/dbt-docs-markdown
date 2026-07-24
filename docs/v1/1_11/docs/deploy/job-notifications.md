@@ -1,5 +1,7 @@
 # Job notifications
 
+dbt platformⓘ
+
 Set up notifications in dbt platform to receive alerts about the outcome of a job run. You can choose to be notified by one or more of the following job run outcomes:
 
 * **Succeeds** option — A job run completed successfully with no warnings or errors.

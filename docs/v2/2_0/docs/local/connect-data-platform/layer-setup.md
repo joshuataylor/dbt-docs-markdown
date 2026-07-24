@@ -1,5 +1,7 @@
 # Connect Layer to dbt Core
 
+Local developmentⓘ
+
 * **Maintained by**:
   <!-- -->
   Layer

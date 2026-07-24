@@ -1,5 +1,7 @@
 # Set up environment-level permissions
 
+dbt platformⓘ
+
 To set up and configure environment-level permissions, you must have write permissions to the **Groups & Licenses** settings of your dbt account. For more information about roles and permissions, check out [User permissions and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
 
 Environment-level permissions are not the same as account-level [role-based access control (RBAC)](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control) and are configured separately from those workflows.

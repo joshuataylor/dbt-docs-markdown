@@ -1,5 +1,7 @@
 # About Studio IDE
 
+dbt platformⓘ
+
 The dbt integrated development environment (Studio IDE) is a single interface for building, testing, running, and version-controlling dbt projects from your browser. With the Cloud Studio IDE, you can compile dbt code into SQL and run it against your database directly.
 
 With the Cloud Studio IDE, you can:
