@@ -8,7 +8,7 @@ This page helps practitioners and those interested in dbt's architecture and dat
 
 The dbt application has two types of components: static and dynamic. The static components are always running to serve highly available dbt functions, like the dbt web application. On the other hand, the dynamic components are created ad-hoc to handle tasks such as background jobs or requests to use the Studio IDE.
 
-dbt is available in most regions around the world in both [single tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#single-tenant) (AWS and Azure) and [multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-tenant) configurations.
+dbt is available in most regions around the world in both [single tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#single-tenant) (AWS, Azure, and GCP) and [multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-tenant) configurations.
 
 dbt uses PostgreSQL for its backend, S3-compatible Object Storage systems for logs and artifacts, and a Kubernetes storage solution for creating dynamic, persistent volumes.
 
