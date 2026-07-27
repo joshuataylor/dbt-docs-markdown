@@ -107,7 +107,7 @@ models:
       catalog_name: catalog_dave
 ```
 
-Check out our [docs on external catalog support](https://docs.getdbt.com/docs/mesh/iceberg/about-catalogs.md) today! We'll have more information about this in the coming weeks, but this is an exciting step in journey to cross-platform support.
+Check out our [docs on external catalog support](https://docs.getdbt.com/docs/build/iceberg/about-catalogs.md) today! We'll have more information about this in the coming weeks, but this is an exciting step in journey to cross-platform support.
 
 ### Integrating dbt Core artifacts with dbt projects[​](#integrating-dbt-core-artifacts-with-dbt-projects "Direct link to Integrating dbt Core artifacts with dbt projects")
 

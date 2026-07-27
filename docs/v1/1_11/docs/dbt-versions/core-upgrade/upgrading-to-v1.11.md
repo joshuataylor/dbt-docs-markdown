@@ -104,7 +104,7 @@ dbt parse --warn-error-options '{"silence": ["Deprecations"]}'
 
 ### Snowflake[​](#snowflake "Direct link to Snowflake")
 
-* The Snowflake adapter supports basic table materialization on Iceberg tables registered in a Glue catalog through a [catalog-linked database](https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database#label-catalog-linked-db-create). For more information, see [Glue Data Catalog](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md#external-catalogs).
+* The Snowflake adapter supports basic table materialization on Iceberg tables registered in a Glue catalog through a [catalog-linked database](https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database#label-catalog-linked-db-create). For more information, see [Glue Data Catalog](https://docs.getdbt.com/docs/build/iceberg/adapters/snowflake-iceberg-support.md#external-catalogs).
 * The `cluster_by` configuration is supported in dynamic tables. For more information, see [Dynamic table clustering](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-table-clustering).
 * The `immutable_where` configuration is supported in dynamic tables. For more information, see [Snowflake configurations](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#immutable-where).
 * You can set [`copy_grants: true`](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#copy-grants-dynamic-tables) on a dynamic table to preserve existing object-level privileges when the table is recreated during a `--full-refresh`. When set to `false` (default), all previously granted permissions are dropped on recreation, requiring manual re-grants.

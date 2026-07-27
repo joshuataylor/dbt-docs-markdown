@@ -28,6 +28,12 @@ The Rust parser is beta. Its output manifest may differ from the Python parser's
 
 For more information on how to enable the flag, related behaviors, and parser error types, refer to [Opt-in v2 parser](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser).
 
+### New Iceberg `catalogs` spec[​](#new-iceberg-catalogs-spec "Direct link to new-iceberg-catalogs-spec")
+
+We reworked the [`catalogs.yml` spec](https://docs.getdbt.com/docs/build/iceberg/catalogs-yml.md) to make it simpler to use, and to bring it up to speed with latest developments in Iceberg support among ecosystem vendors.
+
+The new spec can also power [cross-platform dbt Mesh](https://docs.getdbt.com/docs/mesh/cross-platform-mesh.md).
+
 ### Native private packages[​](#native-private-packages "Direct link to Native private packages")
 
 dbt Core now supports [native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages) in `packages.yml` and `dependencies.yml`. You can install packages from private GitHub, GitLab, or Azure DevOps repos using the `private` key without configuring a token or full Git URL. dbt uses your system's SSH configuration for authentication. Use the [`provider` key](https://docs.getdbt.com/docs/build/packages.md#using-the-provider-key) to specify your Git provider and tell dbt which SSH URL format to construct. For example:
@@ -141,7 +147,7 @@ You can read more about each of these behavior changes in the following links:
 
 * You can use the [`snowflake.quote_args`](https://docs.getdbt.com/reference/resource-configs/quote_args.md) config on JavaScript UDFs to control whether argument names are quoted in the generated `CREATE FUNCTION` statement. When `true` (default), Snowflake quotes argument names, preserving their exact casing, so you reference arguments using the same case as defined in the YAML inside the function body. When `false`, argument names are unquoted and Snowflake uppercases them, so you must reference them in uppercase inside the function body.
 
-* You can set the [`iceberg_version`](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md#adapter-properties) config on Snowflake Iceberg tables to control which Iceberg format version Snowflake uses. Set it to `3` to use Iceberg V3, which improves `VARIANT` type support and makes row-level changes more efficient by tracking deletions separately instead of rewriting data. The default value is `2`. Note that you cannot change the value of `iceberg_version` after table creation.
+* You can set the [`iceberg_version`](https://docs.getdbt.com/docs/build/iceberg/adapters/snowflake-iceberg-support.md) config on Snowflake Iceberg tables to control which Iceberg format version Snowflake uses. Set it to `3` to use Iceberg V3, which improves `VARIANT` type support and makes row-level changes more efficient by tracking deletions separately instead of rewriting data. The default value is `2`. Note that you cannot change the value of `iceberg_version` after table creation.
 
 * You can configure the [`scheduler`](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#scheduler) parameter on Snowflake dynamic tables to control how refreshes are managed. Setting it to `ENABLE` lets Snowflake automatically refresh the dynamic table, while `DISABLE` means dbt manages refreshes during model execution. When `scheduler` is set to `ENABLE`, you must also specify [`target_lag`](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#target-lag).
 

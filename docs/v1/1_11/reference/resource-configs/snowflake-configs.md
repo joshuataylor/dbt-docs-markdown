@@ -29,7 +29,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 ## Iceberg table format[​](#iceberg-table-format "Direct link to Iceberg table format")
 
-Our Snowflake Iceberg table content has moved to a [new page](https://docs.getdbt.com/docs/mesh/iceberg/snowflake-iceberg-support.md)!
+Our Snowflake Iceberg table content has moved to a [new page](https://docs.getdbt.com/docs/build/iceberg/adapters/snowflake-iceberg-support.md)!
 
 ## Dynamic tables[​](#dynamic-tables "Direct link to Dynamic tables")
 
