@@ -111,8 +111,7 @@ If there has been a change in user roles or Slack permissions where you no longe
 
 * You have a Slack workspace that you want to receive job notifications from.
 * You must be a Slack Workspace Owner.
-* You must be an account admin to configure Slack notifications in dbt. For more details, refer to [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-* The integration only supports *public* channels in the Slack workspace.
+* You must be an account admin to configure Slack notifications in dbt. For more details, refer to [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md). The integration only supports *public* channels in the Slack workspace at this moment.
 
 Once an account admin links the Slack app, licensed users can configure job notifications if they have one of the following:
 
@@ -183,7 +182,7 @@ A single dbt platform account can integrate with one Slack workspace.
 * A dbt platform account admin must link the Slack app at the account level.
 * Install the official dbt platform Slack app using the [steps outlined in the next section](#set-up-the-slack-integration-1).
 * To install the Slack app to a workspace, your Slack org must permit app installations. In some orgs this requires a Slack admin approval.
-* The integration only supports *public* channels in the Slack workspace.
+* The integration only supports *public* channels in the Slack workspace at this moment.
 
 Once an account admin links the Slack app, licensed users can configure job notifications if they have one of the following:
 
@@ -267,7 +266,9 @@ The banner appears when all of the following are true:
 
 Before migrating, you must unlink the legacy Slack integration and link the dbt platform app. Unlinking the legacy integration is a manual step, and only one Slack app can be linked at a time.
 
-The dbt platform Slack app sends job notifications to *public* channels in your workspace. Private channels are different: notifications are not delivered there until you invite the dbt platform app to each private channel you use.
+info
+
+The dbt platform Slack app sends job notifications to *public* only channels in your workspace. Private channels aren't supported.
 
 1. Click **Migrate settings** to copy your existing settings to the dbt platform app, including:
 
@@ -277,13 +278,9 @@ The dbt platform Slack app sends job notifications to *public* channels in your 
 
 2. Click **Dismiss** to hide the banner for your current session — it reappears on reload until migration completes.
 
-3. After migration, if needed, dbt shows an informational message listing private Slack channels that still need setup.
-
-   * If any of your channels are private, invite the dbt platform app to each one after migrating so notifications can be delivered.
-
 When migration succeeds, dbt hides the banner and refreshes your Slack notification settings. If migration fails, the banner remains so you can try again.
 
-[![Example of private channel invite guidance for the dbt platform app](/img/docs/deploy/dbt-platform-slack-invite.png?v=2 "Example of private channel invite guidance for the dbt platform app")](#)Example of private channel invite guidance for the dbt platform app
+[![Example of invite guidance for the dbt platform app](/img/docs/deploy/dbt-platform-slack-invite.png?v=2 "Example of invite guidance for the dbt platform app")](#)Example of invite guidance for the dbt platform app
 
 ### Disable the Slack integration[​](#disable-the-slack-integration-1 "Direct link to Disable the Slack integration")
 
