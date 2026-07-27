@@ -75,7 +75,7 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   which is not allowed because the referenced node is private to the finance group.
 ```
 
-When a macro is invoked with `dbt run-operation`, dbt doesn't enforce model access or group controls, so you can use `ref()` to reference a `private` or `protected` model without raising a `DbtReferenceError`.
+When a macro is invoked with `dbt run-operation`, dbt doesn't enforce model access or group controls, so you can use `ref()` to reference all models (including `private` and `protected` ones).
 
 By default, all models are `protected`. This means that other models in the same project can reference them, regardless of their group. This is largely for backward compatibility when assigning groups to an existing set of models, as there may already be existing references across group assignments.
 
