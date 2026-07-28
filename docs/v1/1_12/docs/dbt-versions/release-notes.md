@@ -50,6 +50,7 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 
 ## June 2026[​](#june-2026 "Direct link to June 2026")
 
+* **Enhancement:** You can now enable [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
 * **Enhancement**: The [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) table view now includes **All** and **Jobs** buttons to switch between an aggregated cost view and a per-job cost breakdown. Available in the project dashboard and the **Model performance** section in Catalog. When **Jobs** is selected, the CSV export includes job-level data. For more information, refer to [Explore cost data](https://docs.getdbt.com/docs/explore/explore-cost-data.md).
 * **Enhancement:** [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](https://docs.getdbt.com/docs/platform/wizard-home.md).
 * **Enhancement:** You can now download files from the Studio IDE File explorer. Right-click a file and select **Download** to save it to your computer. For more information, refer to the [Studio IDE user interface](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#basic-layout).
