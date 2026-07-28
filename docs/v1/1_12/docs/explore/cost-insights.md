@@ -57,7 +57,7 @@ The following sections explain how costs are calculated for each supported wareh
 
  Snowflake
 
-dbt computes Snowflake query costs using Snowflake's query attribution data and your credit price (`price_per_credit`). Query attribution data is always available for Snowflake. dbt pulls the `per_credit` price directly from Snowflake when available; otherwise, dbt uses the configured or default value in the dbt platform. For more information about configuring or viewing these values, see [Configure Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional).
+dbt computes Snowflake query costs using Snowflake's query attribution data and your credit price (`price_per_credit`). dbt pulls the `price_per_credit` value directly from Snowflake when available; otherwise, dbt uses the configured or default value in the dbt platform. For more information about configuring or viewing these values, see [Configure Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional).
 
 Formula:
 
@@ -69,6 +69,15 @@ Where:
 
 * `credits_per_query` - Cloud services, compute, and query acceleration credits attributed to the query. dbt sources this value from `QUERY_ATTRIBUTION_HISTORY`. For more information, see the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history).
 * `price_per_credit` - Your Snowflake credit price (from Snowflake system tables when available, otherwise from your configured input or the default rate).
+
+Snowflake attribution limitations
+
+dbt attributes Snowflake costs at the query level using the [`QUERY_ATTRIBUTION_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history). Because of how Snowflake populates that view, some warehouse spend can't be attributed to a dbt model and won't appear in Cost Insights:
+
+* **Short-running queries**: Snowflake doesn't attribute cost to queries that run in roughly 100 milliseconds or less.
+* **Adaptive Warehouses**: Queries on [Snowflake Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive) are not included in `QUERY_ATTRIBUTION_HISTORY`.
+
+As a result, Cost Insights totals may be *lower* than the compute spend shown in your Snowflake billing dashboards. For more information, see the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history#usage-notes).
 
  BigQuery
 

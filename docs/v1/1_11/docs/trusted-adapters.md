@@ -173,20 +173,6 @@ dbt Core
 
 dbt Core
 
-![](/img/icons/dbt-hive.svg)
-
-#### Cloudera Hive
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/hive-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-hive.svg/)](https://badge.fury.io/py/dbt-hive)
-
-dbt Core
-
 ![](/img/icons/dbt-ibm-db2.svg)
 
 #### IBM Db2
@@ -212,20 +198,6 @@ dbt Core
 <br />
 
 [![](https://badge.fury.io/py/dbt-ibm-netezza.svg/)](https://badge.fury.io/py/dbt-ibm-netezza)
-
-dbt Core
-
-![](/img/icons/dbt-impala.svg)
-
-#### Cloudera Impala
-
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/impala-setup.md)
-
-<br />
-
-<br />
-
-[![](https://badge.fury.io/py/dbt-impala.svg/)](https://badge.fury.io/py/dbt-impala)
 
 dbt Core
 
