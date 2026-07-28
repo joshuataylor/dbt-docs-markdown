@@ -81,7 +81,12 @@ Access the table view by clicking **Show table**, which provides detailed optimi
 
 <!-- -->
 
-When viewing the table, you can export the data as a CSV file using the **Download** button.
+Use the **All** and **Jobs** buttons to switch between views:
+
+* **All**: Shows aggregated cost data across all jobs in the project.
+* **Jobs**: Shows cost data broken down by individual jobs.
+
+When viewing the table, you can export the data as a CSV file using the **Download** button. When **Jobs** is selected, the CSV export includes job-level data.
 
 ## Model performance in Catalog[​](#model-performance-in-catalog "Direct link to Model performance in Catalog")
 
@@ -147,7 +152,12 @@ For **Cost insights**, **Usage**, and **Query run time** tabs, you can access th
 
 <!-- -->
 
-When viewing the table, you can export the data as a CSV file using the **Download** button.
+Use the **All** and **Jobs** buttons to switch between views:
+
+* **All**: Shows aggregated cost data across all jobs in the project.
+* **Jobs**: Shows cost data broken down by individual jobs.
+
+When viewing the table, you can export the data as a CSV file using the **Download** button. When **Jobs** is selected, the CSV export includes job-level data.
 
 ### Chart interactions[​](#chart-interactions "Direct link to Chart interactions")
 
@@ -202,4 +212,9 @@ For **Cost**, **Usage**, **Query run time**, and **Builds** tabs, you can access
 
 <!-- -->
 
-When viewing the table, you can export the data as a CSV file using the **Download** button.
+Use the **All** and **Jobs** buttons to switch between views:
+
+* **All**: Shows aggregated cost data across all jobs in the project.
+* **Jobs**: Shows cost data broken down by individual jobs.
+
+When viewing the table, you can export the data as a CSV file using the **Download** button. When **Jobs** is selected, the CSV export includes job-level data.
