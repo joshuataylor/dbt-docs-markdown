@@ -1,4 +1,4 @@
-# Set up Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Set up Cost Insights
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
@@ -9,7 +9,15 @@ This guide walks you through setting up Cost Insights to track warehouse compute
 Before setting up Cost Insights, ensure you have:
 
 * An administrator role.
-* A supported data warehouse: Snowflake, BigQuery, Databricks, or Amazon Redshift.
+
+* A supported data warehouse:
+
+  <!-- -->
+
+  * Snowflake
+  * BigQuery
+  * Databricks
+  * Amazon Redshift [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 To set up Cost Insights, follow these steps:
 
@@ -90,7 +98,7 @@ For more information on how to assign permissions to users, refer to [About user
 
       For more information, refer to the Databricks documentation on [granting access to system tables](https://docs.databricks.com/aws/en/admin/system-tables/#grant-access-to-system-tables).
 
-       Amazon Redshift
+       Amazon Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
       By default, Redshift users can only view their own queries. dbt must be able to query all users' queries in `SYS_QUERY_HISTORY` to attribute costs across your dbt runs. Grant one of the following permissions to the platform metadata credentials user:
 

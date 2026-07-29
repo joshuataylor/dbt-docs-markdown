@@ -32,6 +32,9 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 
 #### Additional dbt platform changes[​](#additional-dbt-platform-changes "Direct link to Additional dbt platform changes")
 
+* **New:** [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) is now generally available (GA) for Snowflake, BigQuery, and Databricks.
+* **Preview:** [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) for Amazon Redshift is now in preview.
+* **Enhancement:** Users with `user_credential_write` access can now view and manage their credentials without needing `credentials_read` privileges. This update reduces the need for additional, broader permissions when performing credential updates.
 * **Enhancement:** The [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) in dbt platform has a redesigned empty state with updated suggested prompts to help you discover different ways to get started. A new wayfinder bar keeps your current project and branch visible and highlights the next step as you move from asking questions to changing code and opening a pull request.
 * **Enhancement:** Catalog now supports a **Warn** last-run status. Resources whose last run completed with warnings show a distinct status and tooltip, and you can filter by **Warn** alongside other run statuses.
 * **New:** You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).

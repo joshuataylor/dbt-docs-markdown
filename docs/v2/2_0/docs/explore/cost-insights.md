@@ -1,4 +1,4 @@
-# Cost Insights [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Cost Insights
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
@@ -39,7 +39,15 @@ The Cost Insights section is available in different dbt platform areas and lets 
 To view cost data, ensure you have:
 
 * One of the roles listed in [Assign required permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#assign-required-permissions).
-* A supported data warehouse: Snowflake, BigQuery, Databricks, or Amazon Redshift.
+
+* A supported data warehouse:
+
+  <!-- -->
+
+  * Snowflake
+  * BigQuery
+  * Databricks
+  * Amazon Redshift [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 For setup instructions, see [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md).
 
@@ -149,9 +157,13 @@ DBUs_in_window * (query_runtime / total_query_runtime_in_window)
 
 dbt sums this across all overlapping windows to get `usage_per_query`.
 
- Amazon Redshift
+ Amazon Redshift[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Cost Insights supports both Amazon Redshift Serverless and provisioned cluster deployments. dbt detects your deployment type automatically when testing the connection.
+
+note
+
+On Redshift, dbt attributes query costs using the comments it automatically injects into each query. If another process removes or replaces these comments, dbt can't tie the query back to its model, and its cost won't be attributed. Make sure nothing in your Redshift environment removes or replaces dbt's query comments.
 
 * **Redshift Serverless**
 

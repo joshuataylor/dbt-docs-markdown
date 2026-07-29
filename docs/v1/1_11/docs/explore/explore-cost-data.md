@@ -1,4 +1,4 @@
-# Explore cost data [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+# Explore cost data
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
@@ -17,7 +17,15 @@ Each view provides different levels of detail to help you understand your wareho
 To view cost data, ensure you have:
 
 * One of the roles listed in [Assign required permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#assign-required-permissions).
-* A supported data warehouse: Snowflake, BigQuery, Databricks, or Amazon Redshift.
+
+* A supported data warehouse:
+
+  <!-- -->
+
+  * Snowflake
+  * BigQuery
+  * Databricks
+  * Amazon Redshift [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 For more information, see [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md).
 
