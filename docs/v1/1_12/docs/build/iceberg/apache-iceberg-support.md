@@ -41,3 +41,9 @@ To the extent possible, dbt tries to abstract away the complexity of table forma
 #### [Databricks + Iceberg](https://docs.getdbt.com/docs/build/iceberg/adapters/databricks-iceberg-support.md)
 
 [Databricks Iceberg configurations](https://docs.getdbt.com/docs/build/iceberg/adapters/databricks-iceberg-support.md)
+
+[![](/img/icons/duckdb-seeklogo.svg)](https://docs.getdbt.com/docs/build/iceberg/adapters/duckdb-iceberg-support.md)
+
+#### [DuckDB + Iceberg](https://docs.getdbt.com/docs/build/iceberg/adapters/duckdb-iceberg-support.md)
+
+[DuckDB Iceberg configurations](https://docs.getdbt.com/docs/build/iceberg/adapters/duckdb-iceberg-support.md)
