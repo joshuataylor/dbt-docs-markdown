@@ -16,11 +16,11 @@ In active development. May not be fully stable and breaking changes can occur. D
 
 **Preview**
 
-Stable and functionally ready for production. Planned additions or non-backward-compatible changes may still occur before GA. Includes documentation, technical support, and SLOs. Available at no extra cost, though may become paid at GA. If marked `Private`, access must be enabled by dbt Labs.
+Stable and functionally ready for production. Planned additions or non-backward-compatible changes may still occur before GA. Includes documentation, technical support, and SLOs. If marked `Private`, access must be enabled by dbt Labs.
 
 **Generally available (GA)**
 
-Stable features available to all qualified dbt accounts. SLOs, documentation, and technical support apply. Feature availability may depend on your environment's dbt version. Use a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive the latest GA features.
+Stable features available to all qualified dbt accounts. SLOs, documentation, and technical support apply. Pricing changes may change or apply. Feature availability may depend on your environment's dbt version. Use a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive the latest GA features.
 
 **Deprecated**
 
