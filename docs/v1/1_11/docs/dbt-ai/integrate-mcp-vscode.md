@@ -261,7 +261,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
    Use numeric IDs, not full URLs
 
-   Headers like `x-dbt-prod-environment-id`, `x-dbt-dev-environment-id`, and `x-dbt-user-id` expect numeric IDs (for example, `54321`), not full URLs copied from your browser. The host in the `url` field, on the other hand, must include `https://`.
+   Headers like `x-dbt-prod-environment-id`, `x-dbt-dev-environment-id`, and `x-dbt-user-id` expect numeric IDs (for example, `54321`), not full URLs copied from your browser. The MCP host URL must include `https://`, whether you set it in a `url` field or pass it as an `mcp-remote` argument.
 
    `execute_sql` does **not** work with service tokens — you must use a PAT. For the complete list of headers (including tool-disable options) and the full table, refer to [Set up remote MCP](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
 
