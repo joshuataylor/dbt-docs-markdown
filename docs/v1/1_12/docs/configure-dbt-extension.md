@@ -312,7 +312,7 @@ If you want to use both extensions, keep your ad hoc query files in a separate, 
 
 Autocomplete not working?
 
-If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=2.0\&name=Fusion#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
+If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=2.0#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 

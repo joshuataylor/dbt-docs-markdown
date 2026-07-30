@@ -34,7 +34,7 @@ A free dbt platform account keeps advanced features working after your trial end
 
 Run `dbt login` to create a free account, or log in to an existing one. Logging in is simply how dbt confirms your access to advanced features in your local development environment.
 
-Note that this is separate from [dbt platform user license types](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=2.0\&name=Fusion) (such as Developer or Analyst), which controls what you can do *inside* dbt platform.
+Note that this is separate from [dbt platform user license types](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=2.0) (such as Developer or Analyst), which controls what you can do *inside* dbt platform.
 
 Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 

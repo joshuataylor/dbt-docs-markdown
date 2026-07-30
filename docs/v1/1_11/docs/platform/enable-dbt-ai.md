@@ -81,7 +81,7 @@ Note: To disable (only after enabled), repeat steps 1 to 3, toggle off in step 4
 
 Once AI features have been [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
 
-\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
+\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
 
 ### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
 
@@ -96,7 +96,7 @@ To configure your AI provider for dbt Wizard:
 * Azure AI Foundry
 * Anthropic
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
@@ -140,7 +140,7 @@ Supported formats include:
 
 [![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0\&name=Fusion#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select **dbt Labs** from the list to use dbt Labs' managed\* Anthropic key.
 2. Click **Save**.

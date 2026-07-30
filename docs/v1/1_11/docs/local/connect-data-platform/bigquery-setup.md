@@ -79,7 +79,7 @@ For self-hosted dbt installations, we recommend using the OAuth method. If you'r
 
 Workload Identity Federation
 
-WIF authentication (`external-oauth-wif`) is available in [Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md?version=2.0\&name=Fusion#supported-authentication-types). It's not supported in dbt Core v1.12 and earlier.
+WIF authentication (`external-oauth-wif`) is available in [Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md?version=2.0#supported-authentication-types). It's not supported in dbt Core v1.12 and earlier.
 
 BigQuery targets should be set up using the following configuration in your `profiles.yml` file. There are a number of [optional configurations](#optional-configurations) you may specify as well.
 
