@@ -24,6 +24,10 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
+## Known-bad releases[​](#known-bad-releases "Direct link to Known-bad releases")
+
+If a shipped Fusion release is later found to contain a regression, dbt Labs flags it as a known-bad release. If you have a flagged version installed, the dbt VS Code extension shows a warning notification telling you which version to update to. To move off a flagged version, update it using your installation method (for example, pip or Homebrew). For details, including how air-gapped users receive these notifications, refer to [Known-bad releases](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases).
+
 ## dbt platform Fusion release tracks[​](#dbt-platform-fusion-release-tracks "Direct link to dbt platform Fusion release tracks")
 
 On dbt platform, each [environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) uses the account default or your chosen **Fusion release track**. Release tracks control how often that environment receives new Fusion builds. They're separate from the local CLI release channels in the previous section.

@@ -53,6 +53,10 @@ To use the extension, you need the following:
 
 8. Optional: [Configure your local environment](https://docs.getdbt.com/docs/configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](https://docs.getdbt.com/docs/configure-dbt-extension.md#configure-environment-variables) required by your project.
 
+The language server ships with the Fusion engine
+
+The dbt language server is part of the dbt Fusion engine binary rather than a separate download — the extension runs it through Fusion. If you install Fusion manually (for example, in an air-gapped environment) instead of letting the extension manage it, use the [version compatibility matrix](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md) to pick a binary that matches your extension version.
+
 You're ready to use the dbt extension. Next, you can:
 
 * Follow the [getting started](#getting-started) workflow to finish setup.

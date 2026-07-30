@@ -1,9 +1,10 @@
 # About dbt --version
 
-The `--version` command-line flag returns information about the currently installed version of dbt Core or the dbt CLI. This flag is not supported when invoking dbt in other dbt runtimes (for example, the IDE or scheduled runs).
+The `--version` command-line flag returns information about the currently installed version of dbt Core, the dbt CLI, or the dbt Fusion engine. This flag is not supported when invoking dbt in other dbt runtimes (for example, the IDE or scheduled runs).
 
 * **dbt Core** — Returns the installed version of dbt Core and the versions of all installed adapters.
 * **dbt CLI** — Returns the installed version of the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) and, for the other `dbt_version` values, the *latest* version of the dbt runtime in dbt.
+* **dbt Fusion engine** — Returns the installed Fusion version. Because the CLI and language server ship in a single binary, they always report the same version. Refer to [Version compatibility](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md) for how this maps to the dbt VS Code extension.
 
 ## Versioning[​](#versioning "Direct link to Versioning")
 
@@ -33,4 +34,23 @@ dbt CLI
 ```text
 $ dbt --version
 Cloud CLI - 0.35.7 (fae78a6f5f6f2d7dff3cab3305fe7f99bd2a36f3 2024-01-18T22:34:52Z)
+```
+
+dbt Fusion engine example:
+
+```shell
+$ dbt --version
+dbt-fusion 2.0.0-preview.92
+```
+
+For a machine-readable version, add the `--format json` flag. This is useful when filing a bug report or when tooling needs to parse the installed version:
+
+```shell
+dbt --version --format json
+```
+
+```json
+{
+  "version": "2.0.0-preview.92"
+}
 ```

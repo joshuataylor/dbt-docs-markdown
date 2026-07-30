@@ -53,3 +53,7 @@ After the minimal compile for your active file, the server continues with a back
 Background compilation enables full project analysis once it completes. Until then, some features that need the full graph may be limited. You can monitor compilation progress in your editor's status bar. When the progress notifications clear, the background compile is complete.
 
 dbt and the language server run independently. Running a command like `dbt run` or `dbt compile` from the terminal does not interrupt or affect LSP compilation.
+
+## Versioning[​](#versioning "Direct link to Versioning")
+
+The Fusion CLI and the language server ship in a single dbt Fusion engine binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which Fusion versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md).

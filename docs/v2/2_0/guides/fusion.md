@@ -421,7 +421,42 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install dbt directly using these instructions: [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+
+ dbt Fusion binary not found at the configured path
+
+If the extension reports that the dbt Fusion engine binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
+
+* Verify that [`dbt.fusionPath`](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
+* If you haven't installed Fusion manually, clear the setting and let the extension download and manage it for you.
+* To install manually, follow [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+
+ dbt Fusion version is not compatible with this extension
+
+If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
+
+1. Run `dbt --version` to check your installed Fusion version.
+2. Compare it against the [version compatibility matrix](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
+3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
+
+ dbt Fusion crashes on startup
+
+If the extension reports that Fusion crashed on startup, confirm the binary runs on its own:
+
+1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
+
+ A known-bad dbt Fusion version is installed
+
+If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+
+For standalone installations:
+
+```shell
+dbt system update
+```
+
+The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 
  Addressing the 'dbt language server is not running in this workspace' error
 

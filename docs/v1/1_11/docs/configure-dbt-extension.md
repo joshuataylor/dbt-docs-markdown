@@ -275,6 +275,24 @@ After installing the dbt extension and configuring your local setup, you may wan
 
 [![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")](#)dbt extension settings within the VS Code settings.
 
+The following settings are the most relevant when you install or manage the dbt Fusion engine binary yourself. Most users never need to set these because the extension downloads and manages Fusion automatically.
+
+| Setting                       | Description                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dbt.fusionPath`              | Path to the dbt Fusion engine binary. The extension invokes the language server through this binary (`dbt-fusion lsp`). Set this when you install Fusion manually — for example, in an [air-gapped environment](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs) — instead of letting the extension download it. |
+| `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                                 |
+| `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                                      |
+
+Search table...
+
+|                  |   |   |   |   |
+| ---------------- | - | - | - | - |
+| Loading table... |   |   |   |   |
+
+Upgrading from a separate language server binary
+
+Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one Fusion binary. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md) for details.
+
 ## File associations and other extensions[​](#file-associations-and-other-extensions "Direct link to File associations and other extensions")
 
 The dbt extension doesn't depend on your `.sql` [file associations](https://code.visualstudio.com/docs/languages/identifiers). It activates on your `dbt_project.yml`, so LSP features — like autocomplete, go-to-definition, and database-aware IntelliSense — work whether your files are set to `sql` or `jinja-sql`. The only difference between those two is syntax highlighting and the file icon.
