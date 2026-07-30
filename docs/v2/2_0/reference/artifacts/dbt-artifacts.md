@@ -20,7 +20,7 @@ Most dbt commands (and corresponding RPC methods) produce artifacts:
 
 * [semantic manifest](https://docs.getdbt.com/reference/artifacts/sl-manifest.md): produced whenever your dbt project is parsed
 
-- [OSI document](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#osi-document): produced whenever your dbt project is parsed
+- [Apache Ossie document](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document): produced whenever your dbt project is parsed
 
 * [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md): produced by commands that read and understand your project
 * [run results](https://docs.getdbt.com/reference/artifacts/run-results-json.md): produced by commands that run, compile, or catalog nodes in your DAG

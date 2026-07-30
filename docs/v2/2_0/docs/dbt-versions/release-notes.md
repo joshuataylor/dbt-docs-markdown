@@ -19,15 +19,28 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 To simplify the docs experience, clarify availability, and make it easier to find what applies to you, we made the following changes to the docs site:
 
-*tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues)
+*tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues).
+
+* **New**: [Apache Ossie](https://github.com/apache/ossie) semantic layer support:
+
+  * Open Semantic Interchange (OSI) has been renamed to Apache Ossie. For more information, refer to [OSI is now Apache Ossie (Incubating)](https://www.getdbt.com/blog/osi-is-now-apache-ossie).
+  * dbt writes an `osi_document.json` file to your `target/` directory alongside `semantic_manifest.json` at parse time. This artifact provides an Ossie representation of your project's Semantic Layer. For more information, refer to [Semantic manifest](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document).
+  * dbt supports the Ossie standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, and dbt parses them into the manifest alongside any native dbt semantic models. To use a different directory, configure [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md) in `dbt_project.yml`. Ossie versions `0.1.0` and `0.1.1` are supported; any other version raises a parse error. For more information, refer to [Ossie semantic layer documents](https://docs.getdbt.com/docs/build/ossie-semantic-models.md).
 
 * **Enhancement**: We've updated the version switcher on the docs site. The version switcher now just shows v1 and v2. v2 is the current generation of dbt, built on Rust for a faster, richer dev experience; v1 is the Python-based generation of dbt. Refer to [dbt versions](https://docs.getdbt.com/docs/introduction.md#dbt-versions) for what's different between v1 and v2.
+
 * **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](https://docs.getdbt.com/docs/fusion/about-core.md) for more info.
+
 * **New:** Licensing across dbt Core now has its own page, so you can see what applies to your setup in one place. Refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
+
 * **Enhancement:** [Static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md) now lives with the rest of your build docs and available in v2.
+
 * **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) and [Reference](https://docs.getdbt.com/reference/telemetry-observability.md).
+
 * **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
+
 * **Enhancement:** Simplified and clarified the [Fusion feature tables](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
+
 * **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
 
 #### Additional dbt platform changes[​](#additional-dbt-platform-changes "Direct link to Additional dbt platform changes")

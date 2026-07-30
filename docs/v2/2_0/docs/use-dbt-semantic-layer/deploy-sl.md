@@ -18,7 +18,7 @@ This section explains how you can perform a job run in your deployment environme
 
 5. [Create a new deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs) that runs in the environment you just created. Go back to the **Orchestration** menu, select **Jobs**, select **Create job**, and click **Deploy job**.
 
-6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md) file<!-- --> and an [`osi_document.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#osi-document). Although running `dbt build` isn't required, you can choose to do so if needed.
+6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md) file<!-- --> and an [`osi_document.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document). Although running `dbt build` isn't required, you can choose to do so if needed.
 
    note
 

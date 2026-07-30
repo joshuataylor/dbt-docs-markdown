@@ -931,7 +931,7 @@ Refer to the following steps to get started:
 2. Run a dbt command, such as `dbt parse`, `dbt run`, `dbt compile`, or `dbt build`. If you don't, you'll receive an error message that begins with: "ensure that you've ran an artifacts....".
 3. MetricFlow builds a semantic graph and generates a `semantic_manifest.json` file in dbt, which is stored in the `/target` directory.
    <!-- -->
-   Starting in dbt Core v1.12, dbt also writes `osi_document.json` to your `target/` directory at parse time. For more information, refer to [Semantic manifest](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#osi-document).
+   Starting in dbt Core v1.12, dbt also writes `osi_document.json` to your `target/` directory at parse time. For more information, refer to [Semantic manifest](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document).
    <!-- -->
    If using the Jaffle Shop example, run `dbt seed && dbt run` to ensure the required data is in your data platform before proceeding.
 
@@ -967,7 +967,7 @@ This section explains how you can perform a job run in your deployment environme
 
 5. [Create a new deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs) that runs in the environment you just created. Go back to the **Orchestration** menu, select **Jobs**, select **Create job**, and click **Deploy job**.
 
-6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md) file<!-- --> and an [`osi_document.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#osi-document). Although running `dbt build` isn't required, you can choose to do so if needed.
+6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md) file<!-- --> and an [`osi_document.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document). Although running `dbt build` isn't required, you can choose to do so if needed.
 
    note
 
