@@ -4,7 +4,7 @@
 
 [![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](https://docs.getdbt.com/index.md)
 
-▾
+dbt version▾
 
 * [v2]()
 * [v1]()
