@@ -24,6 +24,8 @@ logs/dbt.log
 
 ## Structured logging[​](#structured-logging "Direct link to Structured logging")
 
+<!-- -->
+
 *For more details about how the eventing system has been implemented in dbt-core, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md).*
 
 The structure of each event in `dbt-core` is backed by a schema defined using [protocol buffers](https://developers.google.com/protocol-buffers). All schemas are defined in the [`types.proto`](https://github.com/dbt-labs/dbt-core/blob/3bf148c443e6b1da394b62e88a08f1d7f1d8ccaa/core/dbt/events/core_types.proto) file within the `dbt-core` codebase.
@@ -125,6 +127,8 @@ Search table...
 ```
 
 ## Python interface[​](#python-interface "Direct link to Python interface")
+
+<!-- -->
 
 Older versions of `dbt-core` made available a full history of events fired during an invocation, in the form of an `EVENT_HISTORY` object.
 

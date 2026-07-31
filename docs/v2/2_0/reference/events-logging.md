@@ -24,110 +24,16 @@ logs/dbt.log
 
 ## Structured logging[​](#structured-logging "Direct link to Structured logging")
 
-*For more details about how the eventing system has been implemented in dbt-core, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md).*
+The dbt Fusion engine emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt Core's JSON event logs. To view it locally, use `--log-format otel` or the options in [Fusion telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md#available-output-formats).
 
-The structure of each event in `dbt-core` is backed by a schema defined using [protocol buffers](https://developers.google.com/protocol-buffers). All schemas are defined in the [`types.proto`](https://github.com/dbt-labs/dbt-core/blob/3bf148c443e6b1da394b62e88a08f1d7f1d8ccaa/core/dbt/events/core_types.proto) file within the `dbt-core` codebase.
+In dbt platform, you can [download OTel logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs) from Fusion job runs.
 
-Every event has the same two top-level keys:
+For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](https://docs.getdbt.com/reference/global-configs/logs.md).
 
-* `info`: Information common to all events. See the table below for the breakdown.
-* `data`: Additional structured data specific to this event. If this event relates to a specific node within your dbt project, it will contain a `node_info` dictionary with common attributes.
-
-### `info` fields[​](#info-fields "Direct link to info-fields")
-
-| Field                                                                                     | Description                                                                                                                                                                                   |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `category`                                                                                | Placeholder for future use (see [dbt-labs/dbt-core#5958](https://github.com/dbt-labs/dbt-core/issues/5958))                                                                                   |
-| `code`                                                                                    | Unique shorthand identifier for this event type, e.g. `A123`                                                                                                                                  |
-| `extra`                                                                                   | Dictionary of custom environment metadata, based on environment variables prefixed with `DBT_ENV_CUSTOM_ENV_`                                                                                 |
-| [`invocation_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/invocation_id.md) | A unique identifier for this invocation of dbt                                                                                                                                                |
-| `level`                                                                                   | A string representation of the log level (`debug`, `info`, `warn`, `error`)                                                                                                                   |
-| `log_version`                                                                             | Integer indicating version                                                                                                                                                                    |
-| `msg`                                                                                     | Human-friendly log message, constructed from structured `data`. **Note**: This message is not intended for machine consumption. Log messages are subject to change in future versions of dbt. |
-| `name`                                                                                    | Unique name for this event type, matching the proto schema name                                                                                                                               |
-| `pid`                                                                                     | The process ID for the running dbt invocation which produced this log message                                                                                                                 |
-| `thread_name`                                                                             | The thread in which the log message was produced, helpful for tracking queries when dbt is run with multiple threads                                                                          |
-| `ts`                                                                                      | When the log line was printed                                                                                                                                                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### `node_info` fields[​](#node_info-fields "Direct link to node_info-fields")
-
-Many events are fired while compiling or running a specific DAG node (model, seed, test, etc). When it's available, the `node_info` object will include:
-
-| Field              | Description                                                                                                                                                                                                                                                 |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `materialized`     | view, table, incremental, etc.                                                                                                                                                                                                                              |
-| `meta`             | User-configured [`meta` dictionary](https://docs.getdbt.com/reference/resource-configs/meta.md) for this node                                                                                                                                               |
-| `node_finished_at` | Timestamp when node processing completed                                                                                                                                                                                                                    |
-| `node_name`        | Name of this model/seed/test/etc                                                                                                                                                                                                                            |
-| `node_path`        | File path to where this resource is defined                                                                                                                                                                                                                 |
-| `node_relation`    | Nested object containing this node's database representation: `database`, `schema`, `alias`, and full `relation_name` with quoting & inclusion policies applied                                                                                             |
-| `node_started_at`  | Timestamp when node processing started                                                                                                                                                                                                                      |
-| `node_status`      | Current status of the node, either `RunningStatus` (while running) or `NodeStatus` (finished) as defined in [the result contract](https://github.com/dbt-labs/dbt-core/blob/eba90863ed4043957330ea44ca267db1a2d81fcd/core/dbt/contracts/results.py#L75-L88) |
-| `resource_type`    | `model`, `test`, `seed`, `snapshot`, etc.                                                                                                                                                                                                                   |
-| `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md)                                                                           |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Example[​](#example "Direct link to Example")
-
-```json
-{
-  "data": {
-    "description": "sql view model dbt_jcohen.my_model",
-    "index": 1,
-    "node_info": {
-      "materialized": "view",
-      "meta": {
-        "first": "some_value",
-        "second": "1234"
-      },
-      "node_finished_at": "",
-      "node_name": "my_model",
-      "node_path": "my_model.sql",
-      "node_relation": {
-        "alias": "my_model",
-        "database": "my_database",
-        "relation_name": "\"my_database\".\"my_schema\".\"my_model\"",
-        "schema": "my_schema"
-      },
-      "node_started_at": "2023-04-12T19:27:27.435364",
-      "node_status": "started",
-      "resource_type": "model",
-      "unique_id": "model.my_dbt_project.my_model"
-    },
-    "total": 1
-  },
-  "info": {
-    "category": "",
-    "code": "Q011",
-    "extra": {
-      "my_custom_env_var": "my_custom_value"
-    },
-    "invocation_id": "206b4e61-8447-4af7-8035-b174ab3ac991",
-    "level": "info",
-    "msg": "1 of 1 START sql view model my_database.my_model ................................ [RUN]",
-    "name": "LogStartLine",
-    "pid": 95894,
-    "thread": "Thread-1",
-    "ts": "2023-04-12T19:27:27.436283Z"
-  }
-}
-```
+<!-- -->
 
 ## Python interface[​](#python-interface "Direct link to Python interface")
 
-Older versions of `dbt-core` made available a full history of events fired during an invocation, in the form of an `EVENT_HISTORY` object.
+The dbt Fusion engine doesn't share dbt Core's Python event interface.
 
-When [invoking dbt programmatically](https://docs.getdbt.com/reference/programmatic-invocations.md#registering-callbacks), it is possible to register a callback on dbt's `EventManager`. This allows access to structured events as Python objects, to enable custom logging and integration with other systems.
-
-The Python interface into events is significantly less mature than the structured logging interface. For all standard use cases, we recommend parsing JSON-formatted logs.
+We are currently [developing](https://github.com/dbt-labs/dbt-core/issues/13102) a Python API with Rust bindings for programmatic invocations.

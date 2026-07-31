@@ -6,6 +6,8 @@ dbt outputs logs to two different locations: CLI console and the log file.
 
 The `LOG_FORMAT` and `LOG_FORMAT_FILE` configs specify how dbt's logs should be formatted, and they each have the same options: `json`, `text`, and `debug`.
 
+<!-- -->
+
 Usage
 
 ```text
@@ -19,6 +21,8 @@ The `text` format is the default for console logs and has plain text messages pr
 23:30:17  Registered adapter: postgres=1.8.0
 ```
 
+<!-- -->
+
 The `debug` format is the default for the log file and is the same as the `text` format but with a more detailed timestamp and also includes the [`invocation_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/invocation_id.md), [`thread_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/thread_id.md), and [log level](https://docs.getdbt.com/reference/global-configs/logs.md#log-level) of each message:
 
 ```text
@@ -29,12 +33,16 @@ The `debug` format is the default for the log file and is the same as the `text`
 
 The `json` format outputs fully structured logs in the JSON format:
 
+<!-- -->
+
 ```json
 {"data": {"log_version": 3, "version": "=1.8.0"}, "info": {"category": "", "code": "A001", "extra": {}, "invocation_id": "82131fa0-d2b4-4a77-9436-019834e22746", "level": "info", "msg": "Running with dbt=1.8.0", "name": "MainReportVersion", "pid": 7875, "thread": "MainThread", "ts": "2024-05-29T23:32:54.993336Z"}}
 {"data": {"adapter_name": "postgres", "adapter_version": "=1.8.0"}, "info": {"category": "", "code": "E034", "extra": {}, "invocation_id": "82131fa0-d2b4-4a77-9436-019834e22746", "level": "info", "msg": "Registered adapter: postgres=1.8.0", "name": "AdapterRegistered", "pid": 7875, "thread": "MainThread", "ts": "2024-05-29T23:32:56.437986Z"}}
 ```
 
 When the `LOG_FORMAT` is set explicitly, it will take effect in both the console and log files, whereas the `LOG_FORMAT_FILE` only affects the log file.
+
+<!-- -->
 
 Usage
 
@@ -50,7 +58,9 @@ Use `json` formatting value in conjunction with the `DEBUG` config to produce ri
 dbt run --debug --log-format json
 ```
 
-See [structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging) for more details.
+Refer to [structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging) for more details.
+
+<!-- -->
 
 ### Log Level[​](#log-level "Direct link to Log Level")
 
