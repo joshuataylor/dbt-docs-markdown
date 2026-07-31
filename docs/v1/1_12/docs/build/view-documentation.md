@@ -56,6 +56,52 @@ To generate and serve dbt Docs v2, use the dbt Fusion engine or dbt Core 2.0 to 
 
 Refer to [dbt docs commands](https://docs.getdbt.com/reference/commands/cmd-docs.md) for full usage.
 
+#### Self-hosting dbt Docs v2[​](#self-hosting-dbt-docs-v2 "Direct link to Self-hosting dbt Docs v2")
+
+Because dbt Docs v2 ships as a single self-contained binary (the API and the embedded UI in one executable) that serves from the Parquet index files rather than a live warehouse connection, you can self-host it in a container. This is useful when you want a persistent, shared docs site instead of running `dbt docs serve` locally.
+
+The server is read-only and stateless: it loads the Parquet artifacts from `target/index/` into an in-memory engine at boot. To refresh the docs, rebuild your project with `--write-index` and restart the server.
+
+Before you start, generate the artifacts by building your project with `--write-index` (for example, `dbt compile --write-index`), which writes the Parquet files to `./target/index/`.
+
+* Docker Compose
+* Docker
+
+Use the included `docker-compose.yml`, which wires up the build, the artifact mount, the port, and a persistent driver-cache volume. Point `DBT_TARGET_PATH` at your project's `target/` directory (use an absolute path) and start it:
+
+```bash
+DBT_TARGET_PATH=/abs/path/to/project/target docker compose up --build
+```
+
+Then, open `http://localhost:8580`.
+
+Use the included `Dockerfile`, which installs the released dbt binary (it doesn't build from source), so the build is quick and needs no cargo toolchain:
+
+```bash
+docker build -f crates/dbt-docs-server/Dockerfile -t dbt-docs-server .
+```
+
+Run it, mounting a project `target/` directory that already contains `target/index/*.parquet`:
+
+```bash
+docker run --rm -p 8580:8580 \
+  -v "$PWD/target:/data/target:ro" \
+  dbt-docs-server
+```
+
+Then, open `http://localhost:8580`.
+
+First-run network access
+
+dbt Docs v2 queries the Parquet index through an ADBC DuckDB driver that isn't bundled in the image. On first boot, the server downloads the driver from `public.cdn.getdbt.com` into the cache directory (`/var/cache/dbt`), so the container needs outbound HTTPS access the first time it runs. To avoid re-downloading it on every run (and to run fully offline once warmed), persist the cache with a named volume:
+
+```bash
+docker run --rm -p 8580:8580 \
+  -v "$PWD/target:/data/target:ro" \
+  -v dbt-adbc-cache:/var/cache/dbt \
+  dbt-docs-server
+```
+
 ### dbt Docs (Legacy)[​](#dbt-docs-legacy "Direct link to dbt Docs (Legacy)")
 
 dbt Docs provides valuable insights into your dbt Core or dbt Developer plan projects. The interface enables you to navigate to the documentation for specific models. That might look something like this:
