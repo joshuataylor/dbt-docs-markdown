@@ -17,8 +17,16 @@ You can assign as many permission sets as needed to one token. For more on permi
 You can generate service tokens if you have a Developer [license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) and account admin [permissions](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#permission-sets). To create a service token in dbt, follow these steps:
 
 1. From dbt, click on your account name in the left side menu and select **Account settings**.
-2. On the left sidebar, click on **Service Tokens**.
-3. Click the **+ New Token** button to generate a new token.
+
+2. On the left sidebar, click **Service Tokens**.
+
+3. Click the **+ Create service token** button to generate a new token.
+
+   <!-- -->
+
+   1. Enter a name for your token.
+   2. Add the necessary [permissions](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
+
 4. Once the token is generated, you won't be able to view this token again so make sure to save it somewhere safe.
 
 ## Permissions for service account tokens[​](#permissions-for-service-account-tokens "Direct link to Permissions for service account tokens")
