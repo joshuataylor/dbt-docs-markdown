@@ -12,57 +12,57 @@ Linters analyze code for errors, bugs, and style issues, while formatters fix st
 
 In the Studio IDE, you can perform linting, auto-fix, and formatting on five different file types:
 
-* SQL — [Lint](#lint) and fix with SQLFluff, and [format](#format) with sqlfmt
-* YAML, Markdown, and JSON — Format with Prettier
-* Python — Format with Black
+* SQL: [Lint](#lint) and fix with SQLFluff, and [format](#format) with sqlfmt
+* YAML, Markdown, and JSON: Format with Prettier
+* Python: Format with Black
 
 Each file type has its own unique linting and formatting rules. You can [customize](#customize-linting) the linting process to add more flexibility and enhance problem and style detection.
 
 By default, the IDE uses sqlfmt rules to format your code, making it convenient to use right away. However, if you have a file named `.sqlfluff` in the root directory of your dbt project, the IDE will default to SQLFluff rules instead.
 
-[![Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.")](#)Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.
+[![Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.")](#)Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.
 
 [![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
 
 [![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")](#)Format YAML, Markdown, and JSON files using Prettier.
 
-[![Use the config button to select your tool.](/img/docs/dbt-platform/platform-ide/ide-sql-popup.png?v=2 "Use the config button to select your tool.")](#)Use the config button to select your tool.
+[![Use the Config button to select your tool.](/img/docs/dbt-platform/platform-ide/ide-sql-popup.png?v=2 "Use the Config button to select your tool.")](#)Use the Config button to select your tool.
 
 [![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
 ## Lint[​](#lint "Direct link to Lint")
 
-With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a configurable SQL linter, to warn you of complex functions, syntax, formatting, and compilation errors. This integration allows you to run checks, fix, and display any code errors directly within the Cloud Studio IDE:
+With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a configurable SQL linter, to warn you of complex functions, syntax, formatting, and compilation errors. This integration allows you to run checks, fix, and display any code errors directly within the Studio IDE:
 
 * Works with Jinja and SQL.
 * Comes with built-in [linting rules](https://docs.sqlfluff.com/en/stable/rules.html). You can also [customize](#customize-linting) your own linting rules.
 * Empowers you to [enable linting](#enable-linting) with options like **Lint** (displays linting errors and recommends actions) or **Fix** (auto-fixes errors in the Studio IDE).
-* Displays a **Code Quality** tab to view code errors, provides code quality visibility and management.
+* Displays a **Code quality** tab to view lint and format results. Some editor diagnostics also appear in the **Problems** tab.
 
 Linting considerations
 
-* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, see [Fusion limitations](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
+* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
 * Linting doesn't support ephemeral models in dbt v1.5 and lower. Refer to the [FAQs](#faqs) for more info.
 
 ### Enable linting[​](#enable-linting "Direct link to Enable linting")
 
 Linting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
-1. To enable linting, open a `.sql` file and click the **Code Quality** tab.
+1. To enable linting, open a `.sql` file and click the **Code quality** tab.
 
-2. Click on the **`</> Config`** button on the bottom right side of the [console section](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#console-section), below the **File editor**.
+2. Click the **`</> Config`** button on the right side of the [console section](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#console-section), below the **File editor**.
 
-3. In the code quality tool config pop-up, you have the option to select **sqlfluff** or **sqlfmt**.
+3. In the **Code quality tool configuration** dialog, select **SQLFluff (linting & formatting)**.
 
-4. To lint your code, select the **sqlfluff** radio button. (Use sqlfmt to [format](#format) your code)
+4. Click **Save**.
 
-5. Once you've selected the **sqlfluff** radio button, go back to the console section (below the **File editor**) to select the **Lint** or **Fix** dropdown button:
+5. After saving, use the toolbar above the console (below the **File editor**) to select **Lint file** or **Lint and Fix file**:
 
    <!-- -->
 
-   * **Lint** button — Displays linting issues in the Studio IDE as wavy underlines in the **File editor**. You can hover over an underlined issue to display the details and actions, including a **Quick Fix** option to fix all or specific issues. After linting, you'll see a message confirming the outcome. Linting doesn't rerun after saving. Click **Lint** again to rerun linting.
-   * **Fix** button — Automatically fixes linting errors in the **File editor**. When fixing is complete, you'll see a message confirming the outcome.
-   * Use the **Code Quality** tab to view and debug any code errors.
+   * **Lint**: Displays linting issues in the Studio IDE as wavy underlines in the **File editor**. You can hover over an underlined issue to display the details and actions, including a **Quick Fix** option to fix all or specific issues. After linting, you'll see a message confirming the outcome. Linting doesn't rerun after saving. Click **Lint** again to rerun linting.
+   * **Fix**: Automatically fixes linting errors in the **File editor**. When fixing is complete, you'll see a message confirming the outcome.
+   * Use the **Code quality** tab to view lint results and logs. Check the **Problems** tab for related editor diagnostics.
 
 [![Use the Lint or Fix button in the console section to lint or auto-fix your code.](/img/docs/dbt-platform/platform-ide/ide-lint-format-console.gif?v=2 "Use the Lint or Fix button in the console section to lint or auto-fix your code.")](#)Use the Lint or Fix button in the console section to lint or auto-fix your code.
 
@@ -70,7 +70,7 @@ Linting is available on all branches, including your protected primary git branc
 
 You can lint multiple SQL files at once, depending on how you are working with dbt. The behavior differs between the Studio IDE, dbt Core, and the dbt CLI.
 
-* **Studio IDE:** By default, linting runs against all modified `.sql` files in your project on your current branch. See [Snapshot linting](#snapshot-linting) for more information.
+* **Studio IDE:** By default, linting runs against all modified `.sql` files in your project on your current branch. Refer to [Snapshot linting](#snapshot-linting) for more information.
 
 * **dbt Core:** Does not include a built-in linter. To lint SQL files in your project, use a third-party linter such as SQLFluff configured to use the [dbt templater](https://docs.sqlfluff.com/en/stable/configuration/templating/dbt.html). You can lint multiple files by specifying one or more file or directory paths as arguments to the command.
 
@@ -150,35 +150,35 @@ capitalisation_policy = lower
 group_by_and_order_by_style = implicit
 ```
 
-For more info on styling best practices, refer to [How we style our SQL](https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql.md).
+For more information on styling best practices, refer to [How we style our SQL](https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql.md).
 
 [![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
 ## Format[​](#format "Direct link to Format")
 
-In the Studio IDE, you can format your code to match style guides with a click of a button. The Studio IDE integrates with formatters like sqlfmt, Prettier, and Black to automatically format code on five different file types — SQL, YAML, Markdown, Python, and JSON:
+In the Studio IDE, you can format your code to match style guides with a click of a button. The Studio IDE integrates with formatters like sqlfmt, Prettier, and Black to automatically format code on five different file types: SQL, YAML, Markdown, Python, and JSON.
 
-* SQL — Format with [sqlfmt](http://sqlfmt.com/), which provides one way to format your dbt SQL and Jinja.
+* SQL: Format with [sqlfmt](http://sqlfmt.com/), which provides one way to format your dbt SQL and Jinja.
   <!-- -->
   * **Note**: Custom sqlfmt configuration in the Studio IDE is not supported.
-* YAML, Markdown, and JSON — Format with [Prettier](https://prettier.io/).
-* Python — Format with [Black](https://black.readthedocs.io/en/latest/).
+* YAML, Markdown, and JSON: Format with [Prettier](https://prettier.io/).
+* Python: Format with [Black](https://black.readthedocs.io/en/latest/).
 
-The Cloud Studio IDE formatting integrations take care of manual tasks like code formatting, enabling you to focus on creating quality data models, collaborating, and driving impactful results.
+The Studio IDE formatting integrations take care of manual tasks like code formatting, enabling you to focus on creating quality data models, collaborating, and driving impactful results.
 
 ### Format SQL[​](#format-sql "Direct link to Format SQL")
 
 To format your SQL code, dbt integrates with [sqlfmt](http://sqlfmt.com/), which is an uncompromising SQL query formatter that provides one way to format the SQL query and Jinja.
 
-By default, the Studio IDE uses sqlfmt rules to format your code, making the **Format** button available and convenient to use immediately. However, if you have a file named .sqlfluff in the root directory of your dbt project, the Studio IDE will default to SQLFluff rules instead.
+By default, the Studio IDE uses sqlfmt rules to format your code, making the **Format** button available and convenient to use immediately. However, if you have a file named `.sqlfluff` in the root directory of your dbt project, the Studio IDE defaults to SQLFluff rules instead.
 
 Formatting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
-1. Open a `.sql` file and click on the **Code Quality** tab.
-2. Click on the **`</> Config`** button on the right side of the console.
-3. In the code quality tool config pop-up, you have the option to select sqlfluff or sqlfmt.
-4. To format your code, select the **sqlfmt** radio button. (Use sqlfluff to [lint](#linting) your code).
-5. Once you've selected the **sqlfmt** radio button, go to the console section (located below the **File editor**) to select the **Format** button.
+1. Open a `.sql` file and click the **Code quality** tab.
+2. Click the **`</> Config`** button on the right side of the console.
+3. In the **Code quality tool configuration** dialog, select **sqlfmt (formatting only)**.
+4. Click **Save**.
+5. After saving, use the toolbar above the console (below the **File editor**) to select the **Format** button.
 6. The **Format** button auto-formats your code in the **File editor**. Once you've auto-formatted, you'll see a message confirming the outcome.
 
 [![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
@@ -188,21 +188,21 @@ Formatting is available on all branches, including your protected primary git br
 To format your YAML, Markdown, or JSON code, dbt integrates with [Prettier](https://prettier.io/), which is an opinionated code formatter. Formatting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
 1. Open a `.yml`, `.md`, or `.json` file.
-2. In the console section (located below the **File editor**), select the **Format** button to auto-format your code in the **File editor**. Use the **Code Quality** tab to view code errors.
+2. In the toolbar above the console (below the **File editor**), select the **Format** button to auto-format your code in the **File editor**. Use the **Code quality** tab to view format results.
 3. Once you've auto-formatted, you'll see a message confirming the outcome.
 
 [![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")](#)Format YAML, Markdown, and JSON files using Prettier.
 
 You can add a configuration file to customize formatting rules for YAML, Markdown, or JSON files using Prettier. The IDE looks for the configuration file based on an order of precedence. For example, it first checks for a "prettier" key in your `package.json` file.
 
-For more info on the order of precedence and how to configure files, refer to [Prettier's documentation](https://prettier.io/docs/en/configuration.html). Please note, `.prettierrc.json5`, `.prettierrc.js`, and `.prettierrc.toml` files aren't currently supported.
+For more information on the order of precedence and how to configure files, refer to [Prettier's documentation](https://prettier.io/docs/en/configuration.html). Please note, `.prettierrc.json5`, `.prettierrc.js`, and `.prettierrc.toml` files aren't currently supported.
 
 ### Format Python[​](#format-python "Direct link to Format Python")
 
 To format your Python code, dbt integrates with [Black](https://black.readthedocs.io/en/latest/), which is an uncompromising Python code formatter. Formatting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
 1. Open a `.py` file.
-2. In the console section (located below the **File editor**), select the **Format** button to auto-format your code in the **File editor**.
+2. In the toolbar above the console (below the **File editor**), select the **Format** button to auto-format your code in the **File editor**.
 3. Once you've auto-formatted, you'll see a message confirming the outcome.
 
 [![Format Python files using Black.](/img/docs/dbt-platform/platform-ide/python-black.gif?v=2 "Format Python files using Black.")](#)Format Python files using Black.
@@ -225,7 +225,7 @@ You can use either SQLFluff or sqlfmt depending on your preference and what work
 
  Can I nest \`.sqlfluff\` files?
 
-To ensure optimal code quality, consistent code, and styles — it's highly recommended you have one main `.sqlfluff` configuration file in the root folder of your project. Having multiple files can result in various different SQL styles in your project.<br /><br />
+To ensure optimal code quality, consistent code, and styles, it's highly recommended you have one main `.sqlfluff` configuration file in the root folder of your project. Having multiple files can result in various different SQL styles in your project.<br /><br />
 
 However, you can customize and include an additional child `.sqlfluff` configuration file within specific subfolders of your dbt project.<br /><br />By nesting a `.sqlfluff` file in a subfolder, SQLFluff will apply the rules defined in that subfolder's configuration file to any files located within it. The rules specified in the parent `.sqlfluff` file will be used for all other files and folders outside of the subfolder. This hierarchical approach allows for tailored linting rules while maintaining consistency throughout your project. Refer to [SQLFluff documentation](https://docs.sqlfluff.com/en/stable/configuration.html#configuration-files) for more info.
 
