@@ -114,11 +114,11 @@ Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextended
 
-Released by: **johnchappelledbt**Aug 3, 2026, 06:45 PM
+Released by: **agelber-dbt**Aug 4, 2026, 12:28 AM
 
-Automated ST snapshot
+Automated monthly cadence: extended ← previous month's final stable
 
 [v2.0.0-preview.202](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
@@ -168,11 +168,11 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extended
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
 
-Released by: **johnchappelledbt**Aug 3, 2026, 06:45 PM
+Released by: **agelber-dbt**Aug 4, 2026, 12:26 AM
 
-Automated ST snapshot
+Automated monthly cadence: fallback ← previous month's extended
 
 [v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
