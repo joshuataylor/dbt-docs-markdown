@@ -1,7 +1,5 @@
 # Run visibility
 
-dbt platformⓘ
-
 You can view the history of your runs and the model timing dashboard to help identify where improvements can be made to jobs.
 
 ## Run history[​](#run-history "Direct link to Run history")
@@ -77,11 +75,74 @@ View the lineage graph associated with the job run so you can better understand 
 
 ### Model timing tab [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#model-timing-tab- "Direct link to model-timing-tab-")
 
-The **Model timing** tab displays the composition, order, and time each model takes in a job run. The visualization appears for successful jobs and highlights the top 1% of model durations. This helps you identify bottlenecks in your runs so you can investigate them and potentially make changes to improve their performance.
+The **Model timing** tab displays the composition, order, and time each model takes in a job run. This helps you identify bottlenecks in your runs so you can investigate them and potentially make changes to improve performance. You can find it on the [job's run details](#job-run-details).
 
-You can find the dashboard on the [job's run details](#job-run-details).
+The tab includes the following sections:
 
-[![The Model timing tab displays the top 1% of model durations and visualizes model bottlenecks](/img/docs/dbt-platform/model-timing.png?v=2 "The Model timing tab displays the top 1% of model durations and visualizes model bottlenecks")](#)The Model timing tab displays the top 1% of model durations and visualizes model bottlenecks
+* [Metric tiles](#metric-tiles)
+* [Execution timeline](#execution-timeline)
+* [Concurrency over time](#concurrency-over-time)
+* [Resource details](#resource-details)
+
+#### Metric tiles[​](#metric-tiles "Direct link to Metric tiles")
+
+Six metric tiles appear at the top of the tab:
+
+* **Est. critical path**: The estimated duration of the longest chain of dependent models, and what percentage of total run time it represents.
+* **Peak concurrency**: The maximum number of models running simultaneously, and at what point in the run it occurred.
+* **Avg active models**: The average number of models active at any point over the run duration.
+* **Longest model**: The duration and name of the slowest model in the run.
+* **Wall clock**: The total elapsed time of the run.
+* **Latest start**: The name and start time of the last model to start in the run.
+
+[![Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.](/img/docs/dbt-platform/deployment/model-timing-metric-tiles.png?v=2 "Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.")](#)Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.
+
+#### Execution timeline[​](#execution-timeline "Direct link to Execution timeline")
+
+A Gantt-style timeline of all resources in the run. Hover over bars to see details. You can customize the view using:
+
+* **Group by**: Controls how resources are grouped in the timeline:
+
+  <!-- -->
+
+  * **Resource type**: Groups by node type: Model, Test, Snapshot, or Exposure.
+  * **Folder**: Groups by the folder path of the resource in your project.
+  * **Execution phase**: Groups resources into phases 0 through 4 based on execution start time — Phase 0 started earliest, while Phase 4 started latest.
+  * **Thread**: Groups by the dbt execution thread that ran each resource. dbt uses multiple threads to run models in parallel; this view shows which thread handled which resources.
+  * **No grouping**: Lists all resources without any grouping.
+
+* **Highlight**: Changes how bars are colored to help you focus on what matters:
+
+  <!-- -->
+
+  * **Est. critical path**: Highlights resources on the estimated critical path by graying out all others.
+  * **All equal**: Shows all bars in their resource type color with no additional emphasis. The legend shows the color for each type: Model, Test, Snapshot, and Exposure.
+  * **By duration**: Grays out shorter-running resources and shows longer-running ones in color.
+
+* **Search resources**: Filters the timeline to resources matching your search term.
+
+[![Execution timeline showing a Gantt-style view of all resources in the run](/img/docs/dbt-platform/deployment/model-timing-timeline.png?v=2 "Execution timeline showing a Gantt-style view of all resources in the run")](#)Execution timeline showing a Gantt-style view of all resources in the run
+
+#### Concurrency over time[​](#concurrency-over-time "Direct link to Concurrency over time")
+
+A stacked bar chart showing model activity over the run duration. Each bar is split into **Active models** and **Queued / ready**, so you can see how many models were running versus waiting at any point in time. It also displays the peak concurrency reached during the run.
+
+[![Concurrency over time chart showing active models and queued/ready models throughout the run](/img/docs/dbt-platform/deployment/model-timing-concurrency.png?v=2 "Concurrency over time chart showing active models and queued/ready models throughout the run")](#)Concurrency over time chart showing active models and queued/ready models throughout the run
+
+#### Resource details[​](#resource-details "Direct link to Resource details")
+
+A paginated, searchable table listing all resources in the run. It includes the following columns:
+
+* **Model**: The resource name.
+* **Start**: The time the resource started.
+* **End**: The time the resource finished.
+* **Duration**: How long the resource took to run.
+* **Execution phase**: A number from 0 to 4 indicating when the resource started relative to others in the run — Phase 0 started earliest, while Phase 4 started latest.
+* **Est. critical path**: Whether the resource is on the estimated critical path.
+* **Type**: The resource type (Model, Test, Snapshot, or Exposure), displayed as a color-coded badge.
+* **Folder**: The folder path of the resource.
+
+[![Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder](/img/docs/dbt-platform/deployment/model-timing-resource-details.png?v=2 "Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder")](#)Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder
 
 ### Artifacts tab[​](#artifacts-tab "Direct link to Artifacts tab")
 
@@ -95,10 +156,10 @@ The **Compare** tab is shown for [CI job runs](https://docs.getdbt.com/docs/depl
 
 From the **Modified** section, you can view the following:
 
-* **Overview** — High-level summary about the changes to the models such as the number of primary keys that were added or removed.
-* **Primary keys** — Details about the changes to the records.
-* **Modified rows** — Details about the modified rows. Click **Show full preview** to display all columns.
-* **Columns** — Details about the changes to the columns.
+* **Overview**: High-level summary about the changes to the models such as the number of primary keys that were added or removed.
+* **Primary keys**: Details about the changes to the records.
+* **Modified rows**: Details about the modified rows. Click **Show full preview** to display all columns.
+* **Columns**: Details about the changes to the columns.
 
 To view the dependencies and relationships of the resources in your project more closely, click **View in Catalog** to launch [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
 

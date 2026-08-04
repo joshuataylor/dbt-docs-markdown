@@ -1,7 +1,5 @@
 # dbt release notes
 
-dbt platformⓘ
-
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
 * **New:** New products and features
@@ -13,13 +11,13 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
+## August 2026[​](#august-2026 "Direct link to August 2026")
+
+* **New:** The [Model timing tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab) in job run details has been redesigned with a richer, scalable view that includes metric tiles, an execution timeline with grouping and highlight controls, a concurrency-over-time chart, and a searchable resource details table.
+
 ## July 2026[​](#july-2026 "Direct link to July 2026")
 
-#### Docs changes[​](#docs-changes "Direct link to Docs changes")
-
-To simplify the docs experience, clarify availability, and make it easier to find what applies to you, we made the following changes to the docs site:
-
-*tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues).
+* **Preview**: [The dbt Wizard home tab in dbt platform](https://docs.getdbt.com/docs/platform/wizard-home.md) is now available in public preview. You can build and change dbt projects through natural language, with inline diffs, DAG previews, and validation built in.
 
 * **New**: [Apache Ossie](https://github.com/apache/ossie) semantic layer support:
 
@@ -27,49 +25,57 @@ To simplify the docs experience, clarify availability, and make it easier to fin
   * dbt writes an `osi_document.json` file to your `target/` directory alongside `semantic_manifest.json` at parse time. This artifact provides an Ossie representation of your project's Semantic Layer. For more information, refer to [Semantic manifest](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#apache-ossie-document).
   * dbt supports the Ossie standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, and dbt parses them into the manifest alongside any native dbt semantic models. To use a different directory, configure [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md) in `dbt_project.yml`. Ossie versions `0.1.0` and `0.1.1` are supported; any other version raises a parse error. For more information, refer to [Ossie semantic layer documents](https://docs.getdbt.com/docs/build/ossie-semantic-models.md).
 
-* **Enhancement**: We've updated the version switcher on the docs site. The version switcher now just shows v1 and v2. v2 is the current generation of dbt, built on Rust for a faster, richer dev experience; v1 is the Python-based generation of dbt. Refer to [dbt versions](https://docs.getdbt.com/docs/introduction.md#dbt-versions) for what's different between v1 and v2.
-
-* **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](https://docs.getdbt.com/docs/fusion/about-core.md) for more info.
-
-* **New:** Licensing across dbt Core now has its own page, so you can see what applies to your setup in one place. Refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
-
-* **Enhancement:** [Static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md) now lives with the rest of your build docs and available in v2.
-
-* **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) and [Reference](https://docs.getdbt.com/reference/telemetry-observability.md).
-
-* **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
-
-* **Enhancement:** Simplified and clarified the [Fusion feature tables](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
-
-* **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
-
-#### Additional dbt platform changes[​](#additional-dbt-platform-changes "Direct link to Additional dbt platform changes")
-
 * **New:** [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) is now generally available (GA) for Snowflake, BigQuery, and Databricks.
+
 * **Preview:** [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) for Amazon Redshift is now in preview.
+
 * **Enhancement:** Users with `user_credential_write` access can now view and manage their credentials without needing `credentials_read` privileges. This update reduces the need for additional, broader permissions when performing credential updates.
+
 * **Enhancement:** The [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) in dbt platform has a redesigned empty state with updated suggested prompts to help you discover different ways to get started. A new wayfinder bar keeps your current project and branch visible and highlights the next step as you move from asking questions to changing code and opening a pull request.
+
 * **Enhancement:** Catalog now supports a **Warn** last-run status. Resources whose last run completed with warnings show a distinct status and tooltip, and you can filter by **Warn** alongside other run statuses.
+
 * **New:** You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
+
 * **Enhancement:** Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
+
 * **Enhancement:** When the agent compresses conversation context in the background, a spinner labeled **Optimizing conversation context…** now appears in the chat area. Submitting new messages and stopping the agent are disabled while compaction is in progress to prevent conflicts.
+
 * **Enhancement:** When [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) is unavailable (not activated, trial expired, or spend limit reached), Studio IDE now shows a dedicated screen with the specific reason and an appropriate action instead of a generic message.
+
 * **Enhancement:** The users table, group member lists, and user edit drawer now search, filter, sort, and paginate server-side. On large accounts, all users are findable by name, email, or license type, group member search no longer misses results beyond the first page, and users beyond the first page can be opened and edited in the user edit drawer.
+
 * **Enhancement:** The **Enable global account discovery** setting on the **Account settings** page is now visible to all entitled accounts without requiring a feature flag. You can allow or restrict account discovery from [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+
 * **Enhancement:** Credential-level [connection overrides](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) (such as Databricks catalog, Snowflake warehouse, role, and database) are now surfaced as a read-only **Connection overrides** section in the profile details view, without requiring you to open the edit form.
+
 * **Fix:** When a run pod is Out of Memory (OOM)-killed and restarted, the platform now passes the correct status code and message to the config API so the run transitions to a failed state in the dbt platform UI instead of remaining **running** indefinitely.
+
 * **Fix:** The Secure Shell (SSH) connection and authentication timeouts for Semantic Layer data platform connections are now 30 seconds (previously 1 second). If your bastion host or network path has higher latency, you will no longer experience deterministic connection failures. Refer to [Set up the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) for more information.
+
 * **Fix:** Some types of Compile SQL queries are now rejected if they are too complex. If a request fails with a validation error, try reducing the number of metrics or group-by dimensions in the query.
+
 * **Behavior change:** You can no longer create a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) using an account-scoped [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) (PAT). Requests to the service tokens endpoint authenticated with a PAT now return a `400` error. Use a service token to create new ones instead.
+
 * **New:** You can now access dbt State settings from **Account settings** > **Billing & Usage**, previously found under **State**. You can manage your trial, enable dbt State on environments and jobs, and set spend alerts — all in one place. For details, refer to [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md).
-* **New:** Redshift development connections now support [external OAuth](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md) (Okta or Entra ID) through AWS IAM Identity Center.
+
+#### Docs changes[​](#docs-changes "Direct link to Docs changes")
+
+To simplify the docs experience, clarify availability, and make it easier to find what applies to you, we made the following changes to the docs site:
+
+*tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues).
+
+* **Enhancement**: We've updated the version switcher on the docs site. The version switcher now just shows v1 and v2. v2 is the current generation of dbt, built on Rust for a faster, richer dev experience; v1 is the Python-based generation of dbt. Refer to [dbt versions](https://docs.getdbt.com/docs/introduction.md#dbt-versions) for what's different between v1 and v2.
+* **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](https://docs.getdbt.com/docs/fusion/about-core.md) for more info.
+* **New:** Licensing across dbt Core now has its own page, so you can see what applies to your setup in one place. Refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
+* **Enhancement:** [Static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md) now lives with the rest of your build docs and available in v2.
+* **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) and [Reference](https://docs.getdbt.com/reference/telemetry-observability.md).
+* **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
+* **Enhancement:** Simplified and clarified the [Fusion feature tables](https://docs.getdbt.com/docs/fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
+* **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
 
 ## June 2026[​](#june-2026 "Direct link to June 2026")
 
-* **Enhancement:** You can now enable [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
-* **Enhancement**: The [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) table view now includes **All** and **Jobs** buttons to switch between an aggregated cost view and a per-job cost breakdown. Available in the project dashboard and the **Model performance** section in Catalog. When **Jobs** is selected, the CSV export includes job-level data. For more information, refer to [Explore cost data](https://docs.getdbt.com/docs/explore/explore-cost-data.md).
-* **Enhancement:** [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](https://docs.getdbt.com/docs/platform/wizard-home.md).
-* **Enhancement:** You can now download files from the Studio IDE File explorer. Right-click a file and select **Download** to save it to your computer. For more information, refer to the [Studio IDE user interface](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#basic-layout).
 * **Fix:** If you use the Administrator API to manage [SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim.md) to sync users from your identity provider, the `/api/v3/accounts/{account_id}/scim/v2/Users` response now returns `value` and `display` on each embedded group reference. `id` and `displayName` are retained so existing integrations keep working — this is a non-breaking change.
 * **Enhancement**: The [Administrative API v3](https://docs.getdbt.com/dbt-cloud/api-v3) now supports private endpoint operations — [`list`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/List%20Private%20Endpoints), [`create`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Create%20Private%20Endpoint), [`retrieve`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Retrieve%20Private%20Endpoint), [`update`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Update%20Private%20Endpoint), and [`delete`](https://docs.getdbt.com/dbt-cloud/api-v3?version=2.0#/operations/Delete%20Private%20Endpoint). Use these endpoints to manage private connectivity programmatically.
 * **Enhancement**: You can [download OpenTelemetry (OTel) logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs) for individual dbt command steps in Fusion job runs.
@@ -87,9 +93,9 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 
 The following features are new or enhanced as part of dbt Labs announcements at [Snowflake Summit 2026](https://www.getdbt.com/events/snowflake-summit-2026) in San Francisco from June 1–4, 2026:
 
-* **Alpha**: [dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is now available in alpha!
+* **Alpha**: [dbt Core v2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is now available in alpha!
 
-  * **New**: dbt Core 2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
+  * **New**: dbt Core v2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
 
 * **Beta**: [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) is now available in beta!
 
@@ -97,9 +103,9 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Preview**: [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) is now available in preview!
 
-  * **New**: dbt Docs v2 is a next-generation open-source catalog experience available with the dbt Fusion engine and dbt Core 2.0. It uses a compact binary index instead of loading the full `manifest.json` in the browser, making it significantly faster for large projects.
+  * **New**: dbt Docs v2 is a next-generation open-source catalog experience available with the dbt Fusion engine and dbt Core v2. It uses a compact binary index instead of loading the full `manifest.json` in the browser, making it significantly faster for large projects.
   * **New**: dbt Docs v2 includes a redesigned UI, Semantic Layer metadata, column-level lineage (Fusion only), and a REST API at `/api/v1/` so AI agents and MCP servers can query your dbt project metadata without a browser.
-  * **New**: Generate and serve [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) with the dbt Fusion engine or dbt Core 2.0 by running a dbt command with `--use-index`, then `dbt docs serve`. Add [`--write-catalog`](https://docs.getdbt.com/reference/commands/cmd-docs.md#--write-catalog-flag) for richer column type metadata.
+  * **New**: Generate and serve [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) with the dbt Fusion engine or dbt Core v2 by running a dbt command with `--use-index`, then `dbt docs serve`. Add [`--write-catalog`](https://docs.getdbt.com/reference/commands/cmd-docs.md#--write-catalog-flag) for richer column type metadata.
 
 * **Preview**: [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) is now available in preview!
 
@@ -110,7 +116,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.
 
   * **New**: [Support for Anthropic as a BYOK provider for dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#configure-your-ai-provider).
-  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) is a new CLI command available in dbt Core 2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
+  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) is a new CLI command available in dbt Core v2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
 
 * **New:** OAuth client registrations now accept custom-scheme redirect URIs (for example, `cursor://` or `vscode://`), so you can build native app OAuth integrations with Cursor and VS Code.
 
@@ -240,7 +246,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Enhancement:** [dbt dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) correctly detects column names across various `schema.yml` files, adds only missing descriptions, and preserves existing ones.
 
-* **Enhancement**: v2 now automatically reads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. This provides a simple way to manage credentials and configuration without hardcoding them in your `profiles.yml`. The [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) also supports `.env` files and LSP-powered features. For more information, refer to [Configure environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md).
+* **Enhancement**: The Fusion CLI now automatically reads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. This provides a simple way to manage credentials and configuration without hardcoding them in your `profiles.yml`. The [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) also supports `.env` files and LSP-powered features. For more information, refer to [Configure environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md).
 
 * **New**: The new Semantic Layer YAML specification creates an open standard for defining metrics and dimensions that works across multiple platforms. The new spec is now live in the dbt Fusion engine.
 

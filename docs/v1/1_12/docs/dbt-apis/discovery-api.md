@@ -1,12 +1,10 @@
-# About the Discovery API
-
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+# About the Discovery API [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Every time dbt runs a project, it generates and stores information about the project. The metadata includes details about your project’s models, sources, and other nodes along with their execution results. With the dbt Discovery API, you can query this comprehensive information to gain a better understanding of your DAG and the data it produces.
 
 By leveraging the metadata in dbt, you can create systems for data monitoring and alerting, lineage exploration, and automated reporting. This can help you improve data discovery, data quality, and pipeline operations within your organization.
 
-You can access the Discovery API through [ad hoc queries](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md), custom applications, a wide range of [partner ecosystem integrations](https://www.getdbt.com/product/integrations/) (like BI/analytics, catalog and governance, and quality and observability), and by using dbt features like [model timing](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) and [data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md).
+You can access the Discovery API through [ad hoc queries](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md), custom applications, a wide range of [partner ecosystem integrations](https://www.getdbt.com/product/integrations/) (like BI/analytics, catalog and governance, and quality and observability), and by using dbt features like [model timing](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab) and [data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md).
 
 For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
 
@@ -37,7 +35,7 @@ To use the API directly or integrate your tool with it, refer to [Uses case and 
 
 Use the API to look at historical information like model build time to determine the health of your dbt projects. Finding inefficiencies in orchestration configurations can help decrease infrastructure costs and improve timeliness. To learn more about how to do this, refer to [Performance](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md#performance).
 
-You can use, for example, the [model timing](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) tab to help identify and optimize bottlenecks in model builds:
+You can use, for example, the [model timing](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab) tab to help identify and optimize bottlenecks in model builds:
 
 [![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")](#)Model timing visualization in dbt
 

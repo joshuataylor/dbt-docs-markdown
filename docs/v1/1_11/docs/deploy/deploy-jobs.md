@@ -1,14 +1,12 @@
 # Deploy jobs
 
-dbt platformⓘ
-
 You can use deploy jobs to build production data assets. Deploy jobs make it easy to run dbt commands against a project in your cloud data platform, triggered either by schedule or events. Each job run in dbt will have an entry in the job's run history and a detailed run overview, which provides you with:
 
 * Job trigger type
 * Commit SHA
 * Environment name
 * Sources and documentation info, if applicable
-* Job run details, including run timing, [model timing data](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing), and [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
+* Job run details, including run timing, [model timing data](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab), and [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
 * Detailed run steps with logs and their run step statuses. For Fusion runs, you can also download OpenTelemetry logs from individual steps. Refer to [Downloading logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs).
 
 You can create a deploy job and configure it to run on [scheduled days and times](#schedule-days), enter a [custom cron schedule](#cron-schedule), or [trigger the job after another job completes](#trigger-on-job-completion).
@@ -36,18 +34,23 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
 
 2. Options in the **Job settings** section:
 
+   <!-- -->
+
    * **Job name** — Specify the name for the deploy job. For example, `Daily build`.
    * (Optional) **Description** — Provide a description of what the job does (for example, what the job consumes and what the job produces).
    * **Environment** — By default, it’s set to the deployment environment you created the deploy job from.
 
 3. Options in the **Execution settings** section:
 
+   <!-- -->
+
    * [**Commands**](https://docs.getdbt.com/docs/deploy/job-commands.md#built-in-commands) — By default, it includes the `dbt build` command. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when the job runs. During a job run, [built-in commands](https://docs.getdbt.com/docs/deploy/job-commands.md#built-in-commands) are "chained" together and if one run step fails, the entire job fails with an "Error" status.
    * [**Generate docs on run**](https://docs.getdbt.com/docs/deploy/job-commands.md#checkbox-commands) (not applicable to Fusion jobs) — Enable this option if you want to [generate project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) when this deploy job runs. If the step fails, the job can succeed if subsequent steps pass.
    * [**Run source freshness**](https://docs.getdbt.com/docs/deploy/job-commands.md#checkbox-commands) — Enable this option to invoke the `dbt source freshness` command before running the deploy job. If the step fails, the job can succeed if subsequent steps pass. Refer to [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) for more details.
-   * [**Enable dbt State**](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — dbt State reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) and [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
 
 4. Options in the **Triggers** section:
+
+   <!-- -->
 
    * **Run on schedule** — Run the deploy job on a set schedule.
 
@@ -63,6 +66,8 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
      * **Project** — Specify the parent project that has that upstream deploy job.
      * **Job** — Specify the upstream deploy job.
      * **Completes on** — Select the job run status(es) that will [enqueue](https://docs.getdbt.com/docs/deploy/job-scheduler.md#scheduler-queue) the deploy job.
+
+[![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")](#)Example of Triggers on the Deploy Job page
 
 5. (Optional) Options in the **Advanced settings** section:
 
