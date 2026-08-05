@@ -13,6 +13,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## August 2026[​](#august-2026 "Direct link to August 2026")
 
+* **Enhancement:** [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) now supports cost attribution for [Snowflake Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive). For setup details, refer to [Assign required permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#assign-required-permissions).
 * **New:** The [Model timing tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab) in job run details has been redesigned with a richer, scalable view that includes metric tiles, an execution timeline with grouping and highlight controls, a concurrency-over-time chart, and a searchable resource details table.
 * **New:** Semantic Layer development connections to Redshift now support external OAuth using Okta or Microsoft Entra with AWS IAM Identity Center.
 * **Enhancement:** System for Cross-domain Identity Management (SCIM) API errors for seat or licensing failures now include email addresses so you can identify which users are blocking provisioning.
