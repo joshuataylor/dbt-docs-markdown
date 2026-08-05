@@ -66,15 +66,15 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Canary
 
-[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.206`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this version in the dbt Fusion changelog")
 
-2026-08-03
+2026-08-05
 
 #### Latest
 
-[`v2.0.0-preview.204`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview204 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
 
-2026-08-03
+2026-08-05
 
 ### All releases
 
@@ -102,15 +102,15 @@ of
 
 releases
 
-[v2.0.0-preview.206](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this release in the dbt Fusion changelog")GoodDevnightly
+[v2.0.0-preview.206](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
 
-Released by: **kczimm**Aug 4, 2026, 09:41 PM
+Released by: **akbog**Aug 5, 2026, 01:11 AM
 
-Automated promotion
+Planned Promotion
 
-[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
+[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
-Released by: **akbog**Aug 3, 2026, 08:18 PM
+Released by: **akbog**Aug 5, 2026, 01:09 AM
 
 Planned Promotion
 
