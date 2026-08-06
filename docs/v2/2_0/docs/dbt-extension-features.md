@@ -10,7 +10,7 @@ All dbt VS Code extension features are available to all users for 14 days. After
 
 See the [feature availability](#feature-availability) table for the full list of features and what each needs.
 
-In dbt v2.0 and later, authentication for registration and features that require sign-in is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), so your login state is shared across dbt tools like the dbt VS Code extension and, in supported versions, dbt State.
+In dbt v2.0 and later, authentication for registration and features that require sign-in is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0), so your login state is shared across dbt tools like the dbt VS Code extension and, in supported versions, dbt State.
 
 <!-- -->
 
@@ -260,7 +260,7 @@ Requires registration
 
 Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
 
-Authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), so your login state is shared across the CLI, dbt VS Code extension, and <!-- -->.
+Authentication is handled by [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0), so your login state is shared across the CLI, dbt VS Code extension, and <!-- -->.
 
 You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 

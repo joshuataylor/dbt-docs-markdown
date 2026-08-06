@@ -476,7 +476,7 @@ dbt lint --fix
 dbt lint --changed
 ```
 
-See the [`dbt lint` reference](https://docs.getdbt.com/reference/commands/lint.md) for the full list of flags, supported dialects, and suppression syntax.
+See the [`dbt lint` reference](https://docs.getdbt.com/reference/commands/lint.md?version=2.0) for the full list of flags, supported dialects, and suppression syntax.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 

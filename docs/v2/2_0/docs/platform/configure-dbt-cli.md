@@ -39,7 +39,7 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
        project-id: PROJECT_ID
    ```
 
-5. You should now be able to [use the ](#use-the-dbt-cli)and run [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
+5. You should now be able to [use the ](#use-the-dbt-cli)and run [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
 
 With your repo recloned, you can add, edit, and sync files with your repo.
 
@@ -54,7 +54,7 @@ To set environment variables in the dbt CLI for your dbt project:
 
 ## Use the dbt CLI[​](#use-the-dbt-cli "Direct link to Use the dbt CLI")
 
-The dbt CLI uses the same set of [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) and [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md) command to view your dbt configuration details. With the dbt CLI, you can:
+The dbt CLI uses the same set of [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) and [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt CLI, you can:
 
 * Run [multiple invocations in parallel](https://docs.getdbt.com/reference/dbt-commands.md) and ensure [safe parallelism](https://docs.getdbt.com/reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
 * Automatically defer build artifacts to your project's production environment.
@@ -174,6 +174,6 @@ If you're receiving a `Session occupied` error in the dbt CLI or if you're exper
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 
-To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md).
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md?version=2.0).
 
 Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

@@ -68,7 +68,7 @@ For next steps, see:
    dbt login
    ```
 
-   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state).
+   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](https://docs.getdbt.com/reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-with-dbt-state).
 
 dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
@@ -131,7 +131,7 @@ For more details, refer to the [`lag_tolerance` config reference](https://docs.g
 The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them.
 
 * **For [standalone app](https://app.state.dbt.com) users**: Click the invite link in the upper-right corner of the **Users** page.
-* **For dbt platform users**: Have your colleagues run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) after dbt State is enabled on the account.
+* **For dbt platform users**: Have your colleagues run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
 
 ## Debugging dbt State[​](#debugging-dbt-state "Direct link to Debugging dbt State")
 
@@ -144,7 +144,7 @@ DBT_ENGINE_MANAGE_STATE=0 dbt run --target dev --select "customers"
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
 * [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
-* [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md#dbt-login-with-dbt-state)
+* [`dbt login` with dbt State](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-with-dbt-state)
 * [Configure deferral](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md)
 * [Non-interactive environment setup](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
 * [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)

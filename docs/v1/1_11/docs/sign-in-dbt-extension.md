@@ -10,7 +10,7 @@ Most features remain available without signing in — only advanced features pro
 
 <!-- -->
 
-Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md#dbt-login-status) to view your currently authenticated status.
+Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-status) to view your currently authenticated status.
 
 ## Key points[​](#key-points "Direct link to Key points")
 
@@ -26,7 +26,7 @@ If you've registered before, you won't need to authenticate again unless your se
 Your sign-in session stays active across editor restarts. dbt automatically renews your session while you're using the extension or the CLI. You may need to re-authorize in a few specific cases:
 
 * **Session expired after 7 days of inactivity.** The extension shows the message: "Your dbt extension session expired. Sign in again to continue using the extension." Click the prompt or run **dbt: Register dbt extension** from the command palette to sign in again.
-* **A feature needs broader access than your initial sign-in granted.** [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) and the dbt VS Code extension may request different sets of permissions. If you signed in via `dbt login` and later use an extension feature that needs more access (for example, the catalog tab or running a job), the extension prompts you to re-authorize. You'll re-authorize with the same dbt platform account — you don't need a second account.
+* **A feature needs broader access than your initial sign-in granted.** [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) and the dbt VS Code extension may request different sets of permissions. If you signed in via `dbt login` and later use an extension feature that needs more access (for example, the catalog tab or running a job), the extension prompts you to re-authorize. You'll re-authorize with the same dbt platform account — you don't need a second account.
 * **You authenticated with `dbt_cloud.yml` instead of OAuth.** File-based credentials don't expire on the 7-day inactivity rule. You only re-authenticate if you regenerate the file or it's removed.
 
 When re-authorizing, the **Authorize dbt login** consent screen lists the access being requested. Click **Allow access** to continue.
@@ -83,7 +83,7 @@ When you register in the dbt VS Code extension, you might be prompted to authori
 
 For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#session-expiry-and-re-authorization).
 
-You've now unlocked the full feature set of the dbt VS Code extension. For details on what `dbt login` unlocks across tools, refer to the [`dbt login` reference](https://docs.getdbt.com/reference/commands/login.md).
+You've now unlocked the full feature set of the dbt VS Code extension. For details on what `dbt login` unlocks across tools, refer to the [`dbt login` reference](https://docs.getdbt.com/reference/commands/login.md?version=2.0).
 
 ### First-time registration
 

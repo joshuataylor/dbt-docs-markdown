@@ -22,7 +22,7 @@ Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in
 
 * dbt Core CLI: Supports all flags.
 * Studio IDE: Only supports dbt `debug` and `dbt debug --connection`.
-* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md) command to interact with your dbt environment.
+* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) command to interact with your dbt environment.
 
 `dbt debug` supports the following flags in your terminal when using the command line interface (CLI):
 

@@ -92,7 +92,7 @@ pip uninstall dbt
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -122,7 +122,7 @@ Note that if you're using VS Code, you must restart it to pick up modified envir
 
 5. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-6. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+6. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -151,7 +151,7 @@ Advanced users can configure multiple projects to use the same dbt CLI executabl
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 If you already have dbt Core installed, the dbt CLI may conflict. Here are some considerations:
 
@@ -244,7 +244,7 @@ pip install dbt-adapter_name --force-reinstall
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 ## Update dbt CLI[​](#update-dbt-cli "Direct link to Update dbt CLI")
 
@@ -349,6 +349,6 @@ If you're receiving a `Session occupied` error in the dbt CLI or if you're exper
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 
-To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md).
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md?version=2.0).
 
 Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

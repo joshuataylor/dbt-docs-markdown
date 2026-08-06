@@ -168,7 +168,7 @@ The [`static_analysis`](https://docs.getdbt.com/reference/resource-configs/stati
 * `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
 * `off`: Skip SQL analysis on this model and its descendants.
 
-Any run that uses `strict` mode requires authentication using [`dbt login`](https://docs.getdbt.com/reference/commands/login.md), whether `strict` is set with the `--static-analysis strict` CLI flag or in `dbt_project.yml`. Unauthenticated runs fall back to `baseline`.
+Any run that uses `strict` mode requires authentication using [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0), whether `strict` is set with the `--static-analysis strict` CLI flag or in `dbt_project.yml`. Unauthenticated runs fall back to `baseline`.
 
 Deprecated values
 

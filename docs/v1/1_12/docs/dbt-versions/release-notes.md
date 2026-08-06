@@ -41,7 +41,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 * **New:** You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
 
-* **Enhancement:** Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
+* **Enhancement:** Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md?version=2.0) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
 
 * **Enhancement:** When the agent compresses conversation context in the background, a spinner labeled **Optimizing conversation context…** now appears in the chat area. Submitting new messages and stopping the agent are disabled while compaction is in progress to prevent conflicts.
 
@@ -101,7 +101,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
   * **New**: dbt Core v2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
 
-* **Beta**: [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) is now available in beta!
+* **Beta**: [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md?version=2.0) is now available in beta!
 
   * **New**: `dbt lint` is a high-performance SQL linter built into the dbt platform, available on projects running the dbt Fusion engine. It is SQLFluff-compatible; it reads your existing `.sqlfluff` config, uses the same rule codes, and respects `-- noqa` suppression comments. In benchmarks, it runs roughly 50× faster than single-threaded SQLFluff..
 
@@ -120,7 +120,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.
 
   * **New**: [Support for Anthropic as a BYOK provider for dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#configure-your-ai-provider).
-  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) is a new CLI command available in dbt Core v2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
+  * **New**: [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) is a new CLI command available in dbt Core v2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
 
 * **New:** OAuth client registrations now accept custom-scheme redirect URIs (for example, `cursor://` or `vscode://`), so you can build native app OAuth integrations with Cursor and VS Code.
 

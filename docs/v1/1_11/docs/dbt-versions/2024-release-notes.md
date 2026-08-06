@@ -454,7 +454,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   * Semantic Layer: New [conversion metrics docs](https://docs.getdbt.com/docs/build/conversion.md) and added the parameter `fill_nulls_with` to all metric types (launched the week of January 12, 2024)
 
-  * New [dbt environment command](https://docs.getdbt.com/reference/commands/dbt-environment.md) and its flags for the dbt CLI
+  * New [dbt environment command](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) and its flags for the dbt CLI
 
   January also saw some refreshed content, either aligning with new product features or requests from the community:
 

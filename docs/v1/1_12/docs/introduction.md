@@ -63,7 +63,7 @@ Learn more about [dbt platform features](https://docs.getdbt.com/docs/platform/a
 
 [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) to run v2 locally from the command line, powered by an open-source runtime.
 
-For the best development experience, we recommend pairing v2 with the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) for autocomplete, inline errors, and lineage as you work. You can also run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) to unlock additional capabilities and create a free dbt platform account.
+For the best development experience, we recommend pairing v2 with the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) for autocomplete, inline errors, and lineage as you work. You can also run [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) to unlock additional capabilities and create a free dbt platform account.
 
 Other ways to run self-hosted dbt:
 

@@ -133,11 +133,11 @@ The most popular `dbt-labs` packages (`dbt_utils`, `audit_helper`, `dbt_external
 
 ### `dbt login`[​](#dbt-login "Direct link to dbt-login")
 
-In dbt v2, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
+In dbt v2, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
 
-Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md#dbt-login-status) to view your current authentication status.
+Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
 
-`dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md). For details, refer to [`dbt login`](https://docs.getdbt.com/reference/commands/login.md).
+`dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md). For details, refer to [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0).
 
 ### Changed functionality[​](#changed-functionality "Direct link to Changed functionality")
 
