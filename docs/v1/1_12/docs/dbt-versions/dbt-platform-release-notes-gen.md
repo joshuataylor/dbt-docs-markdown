@@ -13,6 +13,28 @@ Release notes are grouped by date for single-tenant environments.
 
 ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-st-rss-4c9047ac2540f4efb76c9e4fcb1d8196.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-st-atom-682759378b01d903d7f530326fdb037b.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-st-rss-18276380b2823619bba7fb2ae538bda6.json).
 
+## August 5, 2026[​](#august-5-2026 "Direct link to August 5, 2026")
+
+## Enhancements[​](#enhancements "Direct link to Enhancements")
+
+### dbt AI and agents[​](#dbt-ai-and-agents "Direct link to dbt AI and agents")
+
+* **Auto-open diff preview in edit-automatically mode**: When dbt Wizard edits files automatically, the diff preview side pane now opens immediately so you can review changes without an extra click. When the side pane is not available, for example in non-fullscreen Studio IDE, the diff falls back to an inline card.
+
+### Orchestration and run status[​](#orchestration-and-run-status "Direct link to Orchestration and run status")
+
+* **Run history refreshes automatically after a trigger**: After you trigger a run or rerun, the run history list now polls every 2.5 seconds until the new run appears, eliminating the need for a manual page reload. Polling stops automatically once the run is visible or after 45 seconds.
+
+## Behavior Changes[​](#behavior-changes "Direct link to Behavior Changes")
+
+### Catalog[​](#catalog "Direct link to Catalog")
+
+* **30-day model staleness removed from health criteria**: Models are no longer flagged as unhealthy solely because they have not been rebuilt in the past 30 days. The "Stale state" warning banner no longer appears on resource detail pages, and models whose only health issue was staleness now show as healthy in the Trust Signals badge. Source staleness is unchanged and continues to surface as a health issue for sources.
+
+### dbt AI and agents[​](#dbt-ai-and-agents-1 "Direct link to dbt AI and agents")
+
+* **Global dbt Wizard navigation generally available (GA)**: The global dbt Wizard navigation item is now generally available.
+
 ## July 29, 2026[​](#july-29-2026 "Direct link to July 29, 2026")
 
 ## New[​](#new "Direct link to New")
@@ -21,13 +43,13 @@ Release notes are grouped by date for single-tenant environments.
 
 * **External OAuth for Redshift with AWS IAM Identity Center**: Semantic Layer development connections to Redshift now support external OAuth using Okta or Microsoft Entra with AWS IAM Identity Center, in addition to username and password.
 
-## Enhancements[​](#enhancements "Direct link to Enhancements")
+## Enhancements[​](#enhancements-1 "Direct link to Enhancements")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration "Direct link to APIs, Identity, and Administration")
 
 * **Clearer SCIM error messages**: System for Cross-domain Identity Management (SCIM) API errors now include the user email addresses that caused seat or license failures, so you can identify which users blocked provisioning.
 
-## Behavior Changes[​](#behavior-changes "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-1 "Direct link to Behavior Changes")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-1 "Direct link to APIs, Identity, and Administration")
 
@@ -37,17 +59,17 @@ Release notes are grouped by date for single-tenant environments.
 
 ## New[​](#new-1 "Direct link to New")
 
-### dbt AI and agents[​](#dbt-ai-and-agents "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-2 "Direct link to dbt AI and agents")
 
 * **Unified `get_node_details` MCP tool**: The [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#discovery) now uses one `get_node_details` tool for all resource types. The older type-specific tools are deprecated and will be removed in a future release.
 
-### Orchestration and run status[​](#orchestration-and-run-status "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-1 "Direct link to Orchestration and run status")
 
 * **Job deactivation reason in banners**: When a job is deactivated, the banner now shows a specific reason — repeated run failures, account inactivity, or a generic fallback — with tailored reactivation instructions for each case.
 
-## Enhancements[​](#enhancements-1 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-2 "Direct link to Enhancements")
 
-### dbt AI and agents[​](#dbt-ai-and-agents-1 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-3 "Direct link to dbt AI and agents")
 
 * **Reliability improvements for wizard platform**: The agent now automatically retries transient LLM provider failures — network timeouts, rate limits, and server errors — with exponential backoff, so brief provider blips are less likely to surface as errors during your session.
 
@@ -57,7 +79,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Clearer error for Bring-Your-Own-Key models that don't support embeddings**: When a Bring-Your-Own-Key (BYOK) OpenAI model is configured with a deployment that does not support embeddings (for example, a `gpt-4o` Azure deployment), the similar models feature now returns an actionable error message prompting you to use a text-embedding model instead of a generic internal error.
 
-### Catalog[​](#catalog "Direct link to Catalog")
+### Catalog[​](#catalog-1 "Direct link to Catalog")
 
 * **Directional lineage filtering in `get_lineage`**: The `get_lineage` tool now accepts a `direction` parameter (`upstream`, `downstream`, or `both`) to narrow results to only ancestors or only descendants of a target node, reducing response size for large graphs. The response also now includes a `description` field on each returned node.
 
@@ -93,7 +115,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **dbt State DATT chart shows billable and free usage separately**: The Daily Active Target Tables (DATTs) chart now stacks billable and free series, so trial users whose usage is entirely free see real bars instead of an empty chart.
 
-### Orchestration and run status[​](#orchestration-and-run-status-1 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-2 "Direct link to Orchestration and run status")
 
 * **Reduced out-of-memory rates in Fusion**: Memory-tuning optimizations are now applied automatically to all Fusion runs, reducing out-of-memory kill rates and improving overall uptime.
 
@@ -105,17 +127,17 @@ Release notes are grouped by date for single-tenant environments.
 
 ## New[​](#new-2 "Direct link to New")
 
-### Orchestration and run status[​](#orchestration-and-run-status-2 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-3 "Direct link to Orchestration and run status")
 
 * **Hybrid job type**: You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
 
-## Enhancements[​](#enhancements-2 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-3 "Direct link to Enhancements")
 
-### Orchestration and run status[​](#orchestration-and-run-status-3 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-4 "Direct link to Orchestration and run status")
 
 * **Faster linting for Fusion-version runs**: Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
 
-### dbt AI and agents[​](#dbt-ai-and-agents-2 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-4 "Direct link to dbt AI and agents")
 
 * **Compaction indicator during context optimization**: When the agent compresses conversation context in the background, a spinner labeled **Optimizing conversation context…** now appears in the chat area. Submitting new messages and stopping the agent are disabled while compaction is in progress to prevent conflicts.
 
@@ -133,7 +155,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ## Fixes[​](#fixes-1 "Direct link to Fixes")
 
-### Orchestration and run status[​](#orchestration-and-run-status-4 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-5 "Direct link to Orchestration and run status")
 
 * **Runs no longer stuck in "running" after OOM kill**: When a run pod is Out of Memory (OOM)-killed and restarted, the platform now passes the correct status code and message to the config API so the run transitions to a failed state in the dbt platform UI instead of remaining **running** indefinitely.
 
@@ -159,9 +181,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ## July 8, 2026[​](#july-8-2026 "Direct link to July 8, 2026")
 
-## Enhancements[​](#enhancements-3 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-4 "Direct link to Enhancements")
 
-### dbt AI and agents[​](#dbt-ai-and-agents-3 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-5 "Direct link to dbt AI and agents")
 
 * **User list search and group filtering**: The user listing API now supports a `search` parameter (case-insensitive substring match across email and name) and a `group_id` parameter to retrieve only members of a specific group, enabling paginated group-member lookups for large accounts.
 
@@ -169,13 +191,13 @@ Release notes are grouped by date for single-tenant environments.
 
 ## Fixes[​](#fixes-2 "Direct link to Fixes")
 
-### Orchestration and run status[​](#orchestration-and-run-status-5 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-6 "Direct link to Orchestration and run status")
 
 * **Clearer errors for malformed dbt commands**: A dbt step with invalid command syntax, such as an unclosed quote, now returns a user-facing syntax error instead of a generic unhandled exception.
 
 ## July 1, 2026[​](#july-1-2026 "Direct link to July 1, 2026")
 
-## Enhancements[​](#enhancements-4 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-5 "Direct link to Enhancements")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-4 "Direct link to APIs, Identity, and Administration")
 
@@ -189,17 +211,17 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Email notifications accept addresses with special characters**: External email notification addresses with valid but non-standard local-part characters (for example, ampersands in `ops&alerts@example.com`) are now accepted instead of being rejected by the validator.
 
-### Orchestration and run status[​](#orchestration-and-run-status-6 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-7 "Direct link to Orchestration and run status")
 
 * **Clearer errors for oversized environment variable payloads**: Oversized custom environment variables now fail at run start with a clear error that names the largest offender, instead of crashing mid-run. Reduce the variable size and retry.
 
-### dbt AI and agents[​](#dbt-ai-and-agents-4 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-6 "Direct link to dbt AI and agents")
 
 * **More reliable dbt Wizard conversations**: dbt Wizard now recovers automatically from transient errors that could previously interrupt a conversation, so long threads keep working.
 
 * **Accurate job and run scoping in dbt Wizard**: dbt Wizard now correctly scopes job and run investigations to your current project instead of returning results across your entire account. You no longer see unrelated jobs from other projects when asking dbt Wizard to investigate a run.
 
-## Behavior Changes[​](#behavior-changes-1 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-2 "Direct link to Behavior Changes")
 
 ### dbt platform[​](#dbt-platform-3 "Direct link to dbt platform")
 
@@ -225,13 +247,13 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Presigned log download URLs**: Logs for completed run steps are now downloaded directly from storage rather than streamed through the service, improving download reliability and performance. Download links expire after 15 minutes.
 
-## Enhancements[​](#enhancements-5 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-6 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-1 "Direct link to Studio IDE")
 
 * **Find in files**: The [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#search-your-project) now includes search and replace functionality and a command palette, enabling you to quickly find and replace text across your project, navigate files, jump to symbols, and run IDE configuration commands.
 
-### Catalog[​](#catalog-1 "Direct link to Catalog")
+### Catalog[​](#catalog-2 "Direct link to Catalog")
 
 * **Filter assets by run status**: You can now filter Catalog search results by the most recent run status of an asset — success, error, or skipped — making it easier to spot and investigate assets that may need attention.
 
@@ -262,7 +284,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Databricks OAuth retries on transient token endpoint errors**: The Databricks OAuth token refresh path now retries once on 5xx responses before surfacing a retryable error, making profile generation for Databricks OAuth connections more resilient to short Databricks outages.
 
-### dbt AI and agents[​](#dbt-ai-and-agents-5 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-7 "Direct link to dbt AI and agents")
 
 * **dbt Model Context Protocol (MCP) semantic search for related models**: The `get_related_models` tool is now available in multi-project agent contexts, allowing the agent to search for semantically similar models across projects by resolving each project's production environment automatically.
 
@@ -294,7 +316,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Safer handling of non-JSON OpenAI error responses**: Error handling for OpenAI `BadRequestError` now gracefully handles responses with non-JSON bodies, preventing an unhandled exception when parsing the error code. You should see a proper error rather than an internal server error in these cases.
 
-## Behavior Changes[​](#behavior-changes-2 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-3 "Direct link to Behavior Changes")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-8 "Direct link to APIs, Identity, and Administration")
 
@@ -302,9 +324,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ## June 17, 2026[​](#june-17-2026 "Direct link to June 17, 2026")
 
-## Enhancements[​](#enhancements-6 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-7 "Direct link to Enhancements")
 
-### dbt AI and agents[​](#dbt-ai-and-agents-6 "Direct link to dbt AI and agents")
+### dbt AI and agents[​](#dbt-ai-and-agents-8 "Direct link to dbt AI and agents")
 
 * **Live streaming for Wizard dbt command output**: [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](https://docs.getdbt.com/docs/platform/wizard-home.md).
 * **OAuth scopes declared in Model Context Protocol resource metadata**: The Model Context Protocol (MCP) protected resource metadata endpoint now advertises the OAuth scopes it supports (`offline_access`, `account:read`, `projects:query`, `catalog:read`, `projects:develop`, and `jobs:run`). MCP clients that perform dynamic capability discovery can now request the correct scopes automatically.
@@ -325,14 +347,14 @@ Release notes are grouped by date for single-tenant environments.
   and in agent clients connected to remote dbt MCP. Refer to the [product docs toolset](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md?version=2.0#product-docs).
 * **Dimension values lookup tool**: A new `get_dimension_values` MCP tool lets agents retrieve distinct values for a given Semantic Layer dimension, optionally scoped to specific metrics. Use this to discover valid filter values (for example, available regions or order statuses) before building a `where` clause in a `query_metrics` call.
 
-## Enhancements[​](#enhancements-7 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-8 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-3 "Direct link to Studio IDE")
 
 * **Workspace file operations API**: Adds public Studio file operation endpoints for `stat`, `get`, `put`, `list directory`, `delete`, `mkdir`, and `rename` under `/api/ide/v3/{environment_id}/files/`. File paths are passed as query parameters to avoid user paths appearing in traces.
 * **Environment status endpoint**: Adds a `/api/ide/v3/{environment_id}/status` endpoint that returns the dbt version and Fusion status for a development environment, allowing Studio to display version information without additional API calls.
 
-## Behavior Changes[​](#behavior-changes-3 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-4 "Direct link to Behavior Changes")
 
 ### dbt platform[​](#dbt-platform-5 "Direct link to dbt platform")
 
@@ -355,7 +377,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **OAuth consent improvements**: OAuth consent now recognizes the `identity:read` scope, displaying a "Read user details" label and description. Scopes limited to `identity:read` and `offline_access` no longer show the project access selector.
 
-## Enhancements[​](#enhancements-8 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-9 "Direct link to Enhancements")
 
 ### dbt platform[​](#dbt-platform-7 "Direct link to dbt platform")
 
@@ -365,21 +387,21 @@ Release notes are grouped by date for single-tenant environments.
 * **Teams notifications generally available**: Microsoft Teams notifications no longer require a feature flag. The Teams integration now appears in the OAuth integrations card and notification settings for all accounts.
 * **Private endpoints page shows Beta badge and updated info banner**: The private endpoints list and create pages now display a "Beta" badge in the header. The info banner on the create page is no longer dismissible and has updated copy clarifying that self-serve creation is available only for Snowflake AWS.
 
-### Orchestration and run status[​](#orchestration-and-run-status-7 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-8 "Direct link to Orchestration and run status")
 
 * **Reused node status in run results**: Studio IDE now recognizes and surfaces the `reused` node status in run results and metadata counts, giving you a more accurate picture of what ran during a dbt invocation.
 
 ## Fixes[​](#fixes-5 "Direct link to Fixes")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-8 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-9 "Direct link to Orchestration and Run Status")
 
 * **Run list action buttons fixed and clickable**: Action buttons on the runs list (for example, "Debug with Copilot") no longer silently navigate to the run detail page instead of triggering the intended action.
 
-### Catalog[​](#catalog-2 "Direct link to Catalog")
+### Catalog[​](#catalog-3 "Direct link to Catalog")
 
 * **Accurate health status filtering for stale assets**: The Catalog health filter now correctly classifies assets with a healthy bitmask but a last successful run older than 30 days as "Caution" instead of "Healthy." Assets whose last run was marked `reused` continue to be treated as healthy.
 
-## Behavior Changes[​](#behavior-changes-4 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-5 "Direct link to Behavior Changes")
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-3 "Direct link to dbt Copilot and agents")
 
@@ -401,7 +423,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **File and directory rename and move API**: You can now move files and directories within the workspace. An `overwrite` parameter controls whether an existing destination is replaced. The endpoint surfaces clear errors for missing sources, path traversal, name-too-long conditions, and directory conflicts.
 
-## Enhancements[​](#enhancements-9 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-10 "Direct link to Enhancements")
 
 ### Webhooks[​](#webhooks-1 "Direct link to Webhooks")
 
@@ -439,7 +461,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Notification Manager permission set**: A new `notification_manager` account-level role grants read and write access to job notification settings, Slack integration status, and member listings without requiring broader admin permissions. Refer to [Notification Manger](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#notification-manager) for more information.
 
-## Enhancements[​](#enhancements-10 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-11 "Direct link to Enhancements")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-12 "Direct link to APIs, Identity, and Administration")
 
@@ -449,7 +471,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **OAuth client audit log entries include registration type**: Audit log entries for OAuth client registration now append `(manual)` or `(dynamic)` to the description, making it clear whether a client was registered via dynamic client registration or manually — for example, "ChatGPT was registered for this account (manual)".
 
-### Orchestration and run status[​](#orchestration-and-run-status-9 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-10 "Direct link to Orchestration and run status")
 
 * **Clearer Fusion eligibility message for migrated jobs**: The Fusion eligibility surface now maps the `job_on_fusion` reason code to "This job is already running on Fusion." with no call-to-action, giving clearer feedback for jobs that are already migrated.
 
@@ -461,7 +483,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Builds-only view when Cost Insights connection is disabled**: When your deployment environment's warehouse connection has Cost Insights disabled, the Insights page now shows a "Cost Insights is not enabled for this connection" banner and a Builds tab with the model build chart and environment and period selectors, instead of no chart content.
 
-### Catalog[​](#catalog-3 "Direct link to Catalog")
+### Catalog[​](#catalog-4 "Direct link to Catalog")
 
 * **Connection-aware Cost Insights enablement**: Cost Insights now checks the environment connection and platform metadata credentials to confirm `cost_insights_enabled` is configured. If credentials are missing or disabled, cost metrics and tabs are hidden and a banner prompts you to configure platform metadata credentials.
 
@@ -485,7 +507,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Hidden file support in file search**: You can optionally include dotfiles in file search results; search remains limited to your project tree.
 
-## Enhancements[​](#enhancements-11 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-12 "Direct link to Enhancements")
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-5 "Direct link to dbt Copilot and agents")
 
@@ -493,7 +515,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Improved Studio IDE agent prompt**: The Developer agent in Studio now uses dbt commands more efficiently (including fewer redundant `dbt ls calls` and correct `dbt show` limits), runs independent reads in parallel when appropriate, surfaces clear next-step choices instead of ending mid-action, stays within local git capabilities (no PR/GitHub promises), and formats SQL and YAML in copy-ready code blocks.
 
-### Orchestration and run status[​](#orchestration-and-run-status-10 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-11 "Direct link to Orchestration and run status")
 
 * **Fusion upgrade available banner on environment settings**: A new banner appears on the environment settings page when Fusion is available for a project but not yet enabled. Admins can click **Enable Fusion access** directly from the banner to open the upgrade confirmation modal. Users without the required permissions see a read-only message directing them to contact an admin.
 
@@ -507,13 +529,13 @@ Release notes are grouped by date for single-tenant environments.
 
 * **MCP endpoint URL displayed in account settings and App Integrations**: When the dbt Model Context Protocol (MCP) feature is enabled, your account's MCP endpoint URL is now shown in the Account settings page and in the App Integrations card with a copy button, making it easier to connect external AI tools to your dbt account. Contact your account manager to enable.
 
-### Catalog[​](#catalog-4 "Direct link to Catalog")
+### Catalog[​](#catalog-5 "Direct link to Catalog")
 
 * **Multi-value test result status filtering**: The `TestAppliedFilter` input now supports a `lastKnownResults` field that accepts an array of test statuses, allowing you to filter applied tests by multiple result states in a single query. You can include `null` in the array to match tests with no known result. The previous scalar field `lastKnownResult` is deprecated; use `lastKnownResults` instead. For more information, refer to [Filter tests by last-known result](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied-tests.md#filter-tests-by-last-known-result)
 
 ## Fixes[​](#fixes-7 "Direct link to Fixes")
 
-### Orchestration and run status[​](#orchestration-and-run-status-11 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-12 "Direct link to Orchestration and run status")
 
 * **Repo cache hard reset applied unconditionally**: The git hard reset performed after restoring a repository cache is now always executed, removing a feature flag that previously controlled this behavior and ensuring a clean working directory after every cache restoration.
 
@@ -547,7 +569,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Create account for unlicensed users**: Users with zero accounts can now create a new account directly from the regional account switcher. When enabled and a `create_account_url` is available, a "Create account" button appears on the account switcher for users with no accounts. Contact your account manager to enable.
 
-## Enhancements[​](#enhancements-12 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-13 "Direct link to Enhancements")
 
 ### Packages[​](#packages "Direct link to Packages")
 
@@ -585,7 +607,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Correct handling of `tool_call_chunk` content blocks**: Fixed a bug in single tenant environments that would occasionally block conversations from being able to be continued.
 
-## Behavior Changes[​](#behavior-changes-5 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-6 "Direct link to Behavior Changes")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-15 "Direct link to APIs, Identity, and Administration")
 
@@ -597,7 +619,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ## April 29, 2026[​](#april-29-2026 "Direct link to April 29, 2026")
 
-## Enhancements[​](#enhancements-13 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-14 "Direct link to Enhancements")
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-9 "Direct link to dbt Copilot and agents")
 
@@ -607,7 +629,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Semantic Layer MCP request size limit**: Semantic Layer requests through MCP are now capped at 10 MiB (previously unlimited) to improve infrastructure stability.
 
-### Orchestration and run status[​](#orchestration-and-run-status-12 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-13 "Direct link to Orchestration and run status")
 
 * **Finer-grained permissions on the Debug on Fusion menu**: The "Debug in Studio" and "Run once on Fusion" menu items are now independently disabled based on your permissions. If you lack the required permission for an action, that item shows a tooltip explaining why, while the other item remains available.
 
@@ -637,7 +659,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Custom metric granularities no longer rejected**: Metric manifest fields `granularity` and `offset_to_grain` now accept arbitrary string values instead of only a fixed enum. Projects using custom granularities such as `fiscal_year` will no longer fail ingestion.
 
-### Catalog[​](#catalog-5 "Direct link to Catalog")
+### Catalog[​](#catalog-6 "Direct link to Catalog")
 
 * **Tag search field**: Tags are now a searchable field in the advanced search panel. You can filter results by tag matches. Filtering uses OR logic, returning assets that match any of the specified tags rather than requiring all tags to be present.
 
@@ -645,13 +667,13 @@ Release notes are grouped by date for single-tenant environments.
 
 ## New[​](#new-10 "Direct link to New")
 
-### Catalog[​](#catalog-6 "Direct link to Catalog")
+### Catalog[​](#catalog-7 "Direct link to Catalog")
 
 * **Health and run status filters in catalog search**: The catalog search sidebar now includes Health and Last Run Status filter sections. You can filter dbt resources (models, sources, and exposures) by health status (healthy, caution, degraded, unknown) and by last run status (success, error, skipped, reused).
 
 * **Tag search field**: Tag is now a searchable field in the advanced search panel. You can filter results by tag matches
 
-## Enhancements[​](#enhancements-14 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-15 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-8 "Direct link to Studio IDE")
 
@@ -661,7 +683,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Compile button after deprecation autofix in Fusion**: After the deprecation autofix workflow completes in Fusion environments, a **Compile** button now appears in the autofix results panel so you can immediately verify the updated project without manually triggering a compile.
 
-### Orchestration and run status[​](#orchestration-and-run-status-13 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-14 "Direct link to Orchestration and run status")
 
 * **Fusion eligibility toggle replaces dropdown filter**: The jobs list Fusion eligibility dropdown filter has been replaced with a toggle and help icon. When enabled, each job displays its current Fusion eligibility badge, and a persistent info banner explains how eligibility is recalculated. The toggle state is saved per-project in your browser.
 
@@ -699,9 +721,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ## April 15, 2026[​](#april-15-2026 "Direct link to April 15, 2026")
 
-## Enhancements[​](#enhancements-15 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-16 "Direct link to Enhancements")
 
-### Catalog[​](#catalog-7 "Direct link to Catalog")
+### Catalog[​](#catalog-8 "Direct link to Catalog")
 
 * **Health and run status search filters**: The `AccountSearchQueryFilter` input now accepts `health` and `runStatus` filter arrays. Use `health` to narrow results by health status (`healthy`, `caution`, `degraded`, or `unknown`) and `runStatus` to filter by last run outcome (`success`, `error`, `skipped`, or `reused`). Multiple values within each filter are combined with `OR` logic.
 
@@ -711,7 +733,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Keyboard shortcut to open Commands tab**: Press \`Ctrl+\`\` to open the Commands tab directly from the editor.
 
-### Orchestration and run status[​](#orchestration-and-run-status-14 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-15 "Direct link to Orchestration and run status")
 
 * **Clearer Fusion job eligibility messages**: Fusion eligibility reason messages are rewritten to be shorter and more actionable. For example, unsupported adapters now read "This job uses an adapter that's not currently available on the Fusion engine" and jobs not on Latest now read "This job uses a dbt version that's not tested for Fusion eligibility."
 
@@ -757,13 +779,13 @@ Release notes are grouped by date for single-tenant environments.
 
 * **OAuth consent page**: A new OAuth consent page lets you authorize third-party applications (for example, dbt MCP) to access your dbt platform account. You can select which permissions and projects to grant, then approve or deny the request.
 
-### Catalog[​](#catalog-8 "Direct link to Catalog")
+### Catalog[​](#catalog-9 "Direct link to Catalog")
 
 * **Performance tab on test and snapshot detail pages**: Test and snapshot detail pages now include a Performance tab showing cost insights data — including cost, usage, build time, and build count charts — matching the existing model performance experience.
 
-### Orchestration and run status[​](#orchestration-and-run-status-15 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-16 "Direct link to Orchestration and run status")
 
-## Enhancements[​](#enhancements-16 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-17 "Direct link to Enhancements")
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-12 "Direct link to dbt Copilot and agents")
 
@@ -777,7 +799,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Improved file context pill in dbt Copilot**: Moves the active-file context pill to above the text input for greater visibility. When you remove the file context, a "Use current file as context" affordance appears so you can restore it without switching tabs.
 
-### Catalog[​](#catalog-9 "Direct link to Catalog")
+### Catalog[​](#catalog-10 "Direct link to Catalog")
 
 * **Reused test status in DAG lens**: State-Aware Orchestration (SAO) test runs that reuse prior results now display with a "reused" icon in the DAG test status lens, matching the existing model run status behavior.
 
@@ -795,7 +817,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Clearer authentication errors for rejected git connections**: Adds "remote rejected authentication" as a recognized, non-retryable git authentication error. You will now see a clear authentication failure message instead of a misleading retry loop when your git provider rejects your credentials.
 
-### Catalog[​](#catalog-10 "Direct link to Catalog")
+### Catalog[​](#catalog-11 "Direct link to Catalog")
 
 * **Reused models no longer flagged as stale**: Models with a `last_run_status` of `reused` are no longer marked stale even when their last execution date exceeds 30 days. This prevents false health issue warnings for models that were intentionally reused rather than re-executed.
 
@@ -813,7 +835,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **OAuth consent endpoint for Connected Auth**: A new `/oauth/consent` endpoint enables the Connected Auth OAuth flow, supporting user consent decisions (approve and deny), project-level resource boundaries, and authorization code issuance. This feature is in private beta. To request access, contact your account manager.
 
-## Enhancements[​](#enhancements-17 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-18 "Direct link to Enhancements")
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-13 "Direct link to dbt Copilot and agents")
 
@@ -825,7 +847,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **No unexpected git pulls on the primary branch**: Removes behavior where the IDE server automatically pulled changes from your primary branch during git status checks, which could cause unintended overwrites for projects using trunk-based development.
 
-### Orchestration and run status[​](#orchestration-and-run-status-16 "Direct link to Orchestration and run status")
+### Orchestration and run status[​](#orchestration-and-run-status-17 "Direct link to Orchestration and run status")
 
 * **Teradata column-level lineage support**: Adds Teradata to the SQL dialect adapter map, enabling column-level lineage parsing for dbt projects using the Teradata adapter.
 
@@ -847,7 +869,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **`github_installation_id` and `github_webhook_id` support large values**: These repository fields have been promoted from 32-bit to 64-bit integers (`BigIntegerField`) to accommodate GitHub installation and webhook IDs that exceed the 32-bit integer range.
 
-## Behavior changes[​](#behavior-changes-6 "Direct link to Behavior changes")
+## Behavior changes[​](#behavior-changes-7 "Direct link to Behavior changes")
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-18 "Direct link to APIs, Identity, and Administration")
 
@@ -857,11 +879,11 @@ Release notes are grouped by date for single-tenant environments.
 
 ## New[​](#new-13 "Direct link to New")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-17 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-18 "Direct link to Orchestration and Run Status")
 
 * **Fusion run error banner**: When a run using the dbt Fusion engine fails, a banner now appears on the run details page with options to debug the failure in Studio IDE. If dbt Copilot is enabled, you can also open a guided fix-with-Copilot workflow directly from the banner. Contact your account manager to enable.
 
-## Enhancements[​](#enhancements-18 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-19 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-15 "Direct link to Studio IDE")
 
@@ -881,11 +903,11 @@ Release notes are grouped by date for single-tenant environments.
 
 ## Fixes[​](#fixes-14 "Direct link to Fixes")
 
-### Catalog[​](#catalog-11 "Direct link to Catalog")
+### Catalog[​](#catalog-12 "Direct link to Catalog")
 
 * **Accurate resource counts on environment switch**: Fixes a bug where resource counts in the navigation tree were not refreshed when switching environments. You should now see up-to-date counts after changing the active environment.
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-18 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-19 "Direct link to Orchestration and Run Status")
 
 * **Stuck runs are now cancelled**: A new cleanup job detects runs and run steps that have exceeded the maximum allowed duration and marks them as `CANCELLED`, preventing stale in-progress states from accumulating
 
@@ -897,7 +919,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Large group permission sync no longer silently truncated**: Fixed an issue where group permission sync could miss updates for groups with many permissions.
 
-## Behavior Changes[​](#behavior-changes-7 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-8 "Direct link to Behavior Changes")
 
 ### Studio IDE[​](#studio-ide-16 "Direct link to Studio IDE")
 
@@ -905,7 +927,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ## March 18, 2026[​](#march-18-2026 "Direct link to March 18, 2026")
 
-## Enhancements[​](#enhancements-19 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-20 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-17 "Direct link to Studio IDE")
 
@@ -925,7 +947,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Run `dbt-autofix` from Copilot and agents:** Copilot can run `dbt-autofix` commands (with confirmation) and stream the output into chat, and Studio IDE agents can run `dbt-autofix` using `run_autofix` for bulk deprecation fixes and migrations.
 
-### Catalog[​](#catalog-12 "Direct link to Catalog")
+### Catalog[​](#catalog-13 "Direct link to Catalog")
 
 * **Custom materialization filter:** Catalog search now groups non-standard materializations under a single "Custom" filter, so you can narrow results without picking each materialization type.
 
@@ -935,7 +957,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Copilot entry stays available during lockouts:** If dbt Copilot is temporarily locked for your account, you can still open Copilot from Insights to see lock details.
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-19 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-20 "Direct link to Orchestration and Run Status")
 
 * **Run metadata includes triggering and canceling actors:** Run details now include who triggered or canceled a run (user or service token), which helps you audit run activity.
 
@@ -983,7 +1005,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Correct connection details while editing environments:** You now see the correct connection details more consistently when you edit an environment that uses global connections and connection profiles.
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-20 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-21 "Direct link to Orchestration and Run Status")
 
 * **Run steps are available for ingestion runs:** You can now open and review run steps for ingestion-triggered runs.
 
@@ -991,7 +1013,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Clearer errors for invalid dbt projects:** When Orchestration cannot restore the repository cache because the dbt project is missing or malformed, it now returns an invalid project error so you get a more actionable message in run results.
 
-### Catalog[​](#catalog-13 "Direct link to Catalog")
+### Catalog[​](#catalog-14 "Direct link to Catalog")
 
 * **Skipped snapshots show as skipped:** Snapshots selected but not executed in multi-step runs now appear with a skipped status instead of missing run status fields.
 
@@ -1017,7 +1039,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Cleaner AI diff overlays:** Studio IDE now removes the accept and reject overlay when you leave an artificial intelligence (AI) diff view to prevent stale UI controls.
 
-## Behavior Changes[​](#behavior-changes-8 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-9 "Direct link to Behavior Changes")
 
 ### Studio IDE[​](#studio-ide-18 "Direct link to Studio IDE")
 
@@ -1035,9 +1057,9 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Self-serve Snowflake private endpoint requests:** You can request a new Snowflake private endpoint from account settings by pasting the output from `SELECT SYSTEM$GET_PRIVATELINK_CONFIG();`, then track request status in the private endpoints table. This is available for Enterprise Business Critical accounts only, and please contact your account manager to enable. For other connection types, contact <support@dbtlabs.com>.
 
-## Enhancements[​](#enhancements-20 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-21 "Direct link to Enhancements")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-21 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-22 "Direct link to Orchestration and Run Status")
 
 * **Run retries support dbt Fusion runs:** You can now retry failed runs as long as your environment is on dbt Core version `1.6` or higher or dbt Fusion.
 
@@ -1053,7 +1075,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ## Fixes[​](#fixes-16 "Direct link to Fixes")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-22 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-23 "Direct link to Orchestration and Run Status")
 
 * **More reliable job search:** Searching jobs with numeric terms (for example, `12`) no longer triggers API validation errors, so you can load job lists reliably.
 
@@ -1071,9 +1093,9 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Clearer private endpoint validation errors:** Creating a private endpoint now returns a `400` error with a clear message when `snowflake_output` is malformed or not valid JSON.
 
-## Behavior Changes[​](#behavior-changes-9 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-10 "Direct link to Behavior Changes")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-23 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-24 "Direct link to Orchestration and Run Status")
 
 * **Model timing unavailable for dbt Fusion runs:** You now see an informational notice instead of the Model timing chart for dbt Fusion runs because dbt Fusion handles threading differently.
 
@@ -1083,9 +1105,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ## March 4, 2026[​](#march-4-2026 "Direct link to March 4, 2026")
 
-## Enhancements[​](#enhancements-21 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-22 "Direct link to Enhancements")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-24 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-25 "Direct link to Orchestration and Run Status")
 
 * **Clearer SAO description**: Job settings now describe state-aware orchestration (SAO) as only building models when data or code changes are detected.
 * **Direct links for cost optimization setup**: Fusion cost optimization settings now link to account-level Cost Insights settings and setup documentation so you can validate cost data and savings.
@@ -1105,7 +1127,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ## Fixes[​](#fixes-17 "Direct link to Fixes")
 
-### Catalog[​](#catalog-14 "Direct link to Catalog")
+### Catalog[​](#catalog-15 "Direct link to Catalog")
 
 * **More reliable file tree loading**: Catalog no longer gets stuck loading the file tree on initial page load.
 * **Clearer trust signals**: Trust signals now suppress less-severe upstream-source issues when a more severe issue is present, so badges and messages are easier to interpret.
@@ -1120,9 +1142,9 @@ Release notes are grouped by date for single-tenant environments.
 * **Improved timeout handling and authentication stability**: Reduced environment setup timeouts and resolved intermittent authentication failures during busy periods.
 * **Clearer invalid credentials error**: If your development connection credentials are invalid, you now see a clearer error message to help you diagnose the issue faster.
 
-## Behavior Changes[​](#behavior-changes-10 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-11 "Direct link to Behavior Changes")
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-25 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-26 "Direct link to Orchestration and Run Status")
 
 * **`versionless` dbt version is no longer accepted**: dbt platform now treats `versionless` as deprecated and updates existing environments and jobs to use `latest`. If you set `dbt_version` in an API integration or automation, update it to send `latest` instead.
 
@@ -1134,11 +1156,11 @@ Release notes are grouped by date for single-tenant environments.
 
 ## New[​](#new-15 "Direct link to New")
 
-### Catalog[​](#catalog-15 "Direct link to Catalog")
+### Catalog[​](#catalog-16 "Direct link to Catalog")
 
 * **Saved queries now ingested for lineage and governance**: Saved query definitions (including tags, exports, parameters, and lineage relationships) are now captured during ingestion so they can participate in Catalog lineage and governance workflows.
 
-## Enhancements[​](#enhancements-22 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-23 "Direct link to Enhancements")
 
 ### dbt platform[​](#dbt-platform-15 "Direct link to dbt platform")
 
@@ -1170,7 +1192,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Project deletion now supported in Admin v2 and v3 Projects APIs**: Projects APIs now explicitly support DELETE with stricter permission checks.
 
-## Behavior Changes[​](#behavior-changes-11 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-12 "Direct link to Behavior Changes")
 
 ### Webhooks[​](#webhooks-6 "Direct link to Webhooks")
 
@@ -1194,7 +1216,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Estimated warehouse compute costs**: Cost Insights shows estimated warehouse compute costs and run times for your dbt projects and models, directly in the dbt platform. It highlights cost reductions and efficiency gains from optimizations like state-aware orchestration across your project dashboard, model pages, and job details. This feature is in private beta. To request access, contact your account manager.
 
-## Enhancements[​](#enhancements-23 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-24 "Direct link to Enhancements")
 
 ### Studio IDE[​](#studio-ide-21 "Direct link to Studio IDE")
 
@@ -1214,7 +1236,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **More reliable Add Sources CSV uploads**: Improves Comma-Separated Values (CSV) upload progress, resume behavior, and common error handling during Add Sources.
 
-### Catalog[​](#catalog-16 "Direct link to Catalog")
+### Catalog[​](#catalog-17 "Direct link to Catalog")
 
 * **Faster and more usable lineage for large projects**: Improves directed acyclic graph (DAG) performance by rendering only visible elements and improving layout for disconnected nodes.
 
@@ -1252,7 +1274,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Fewer Add Sources UI interruptions**: Prevents incorrect tab closing after uploads complete and avoids showing the floating node panel when not on a file tab.
 
-### Catalog[​](#catalog-17 "Direct link to Catalog")
+### Catalog[​](#catalog-18 "Direct link to Catalog")
 
 * **Public model lineage across environments**: Fixes lineage resolution for public model parents when the producer model lives in a non-default environment.
 
@@ -1262,7 +1284,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Fewer related models timeouts**: Reduces intermittent failures when attaching related models by increasing internal timeouts for related-model fetching. Users should experience fewer timeout errors when working with related models.
 
-## Behavior Changes[​](#behavior-changes-12 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-13 "Direct link to Behavior Changes")
 
 ### Studio IDE[​](#studio-ide-22 "Direct link to Studio IDE")
 
@@ -1296,9 +1318,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ## February 11, 2026[​](#february-11-2026 "Direct link to February 11, 2026")
 
-## Enhancements[​](#enhancements-24 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-25 "Direct link to Enhancements")
 
-### Catalog[​](#catalog-18 "Direct link to Catalog")
+### Catalog[​](#catalog-19 "Direct link to Catalog")
 
 * **Faster model graph rendering for large projects**: Improved model graph layout performance to reduce load time in larger projects.
 
@@ -1362,7 +1384,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Macro Metadata: More consistent timestamps and argument comparison**: Macro metadata persistence now uses more consistent Coordinated Universal Time (UTC) timestamps and improves argument comparison to reduce noisy or incorrect macro updates.
 
-## Behavior Changes[​](#behavior-changes-13 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-14 "Direct link to Behavior Changes")
 
 ### dbt platform APIs[​](#dbt-platform-apis "Direct link to dbt platform APIs")
 
@@ -1388,7 +1410,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Studio IDE: Copy repo-relative path command**: Adds a command to copy a file path relative to your dbt project subdirectory, making it easier to share paths in runbooks and support tickets.
 
-## Enhancements[​](#enhancements-25 "Direct link to Enhancements")
+## Enhancements[​](#enhancements-26 "Direct link to Enhancements")
 
 ### dbt platform[​](#dbt-platform-18 "Direct link to dbt platform")
 
@@ -1444,7 +1466,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Studio IDE: More stable language server protocol (LSP) sessions in workers**: Reduces noisy disconnect and cleanup errors when multiple websocket connections and processes map to the same invocation, improving session stability.
 
-### Catalog[​](#catalog-19 "Direct link to Catalog")
+### Catalog[​](#catalog-20 "Direct link to Catalog")
 
 * **Catalog: Search highlighting displays correctly with multiple matches**: Fixes search result highlighting when the backend returns multiple highlights per field, improving readability of matches. Updates search highlights to display as compact badges with counts for easier scanning of results.
 
@@ -1462,7 +1484,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Copilot: Empty Tool Outputs No Longer Cause Failures**: Treats empty tool outputs as valid results (for example, "no matches") to reduce unnecessary "tool call failed" errors.
 
-## Behavior Changes[​](#behavior-changes-14 "Direct link to Behavior Changes")
+## Behavior Changes[​](#behavior-changes-15 "Direct link to Behavior Changes")
 
 ### dbt platform[​](#dbt-platform-20 "Direct link to dbt platform")
 
@@ -1480,13 +1502,13 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Studio IDE: Deferral toggle applied more consistently to Language Server Protocol connections**: When "defer to production" is turned off, the Studio Integrated Development Environment (IDE) now passes `no_defer=true` to align editor intelligence with the selected deferral behavior. (Language Server Protocol (LSP))
 
-### Catalog[​](#catalog-20 "Direct link to Catalog")
+### Catalog[​](#catalog-21 "Direct link to Catalog")
 
 * **Catalog: Source freshness outdated status removed**: The freshness status value `outdated` was removed; unconfigured freshness is now handled explicitly as `unconfigured`, and sources will no longer report `outdated`.
 
 * **Catalog: Rows per page selector removed from tables**: The rows-per-page selector was removed, and pagination now uses a fixed page size.
 
-### Orchestration and Run Status[​](#orchestration-and-run-status-26 "Direct link to Orchestration and Run Status")
+### Orchestration and Run Status[​](#orchestration-and-run-status-27 "Direct link to Orchestration and Run Status")
 
 * **Orchestration: Cached and stale outcome status mapping updated**: Cached nodes are now consistently surfaced as Reused with clearer reasons, and stale outcomes are treated as errors, which can change the statuses operators see in run output and telemetry.
 
@@ -1497,7 +1519,7 @@ Release notes are grouped by date for single-tenant environments.
 * **Canvas**
   * **New two-step "upload source" API for more resilient uploads**: Use `POST /v1/workspaces/{workspace_id}/upload-source` to create an upload, then `PATCH /v1/workspaces/{workspace_id}/upload-source/{file_id}/process` to stream processing progress (SSE).
 
-### Enhancements[​](#enhancements-26 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-27 "Direct link to Enhancements")
 
 * **Catalog & Search**
   * **Improved search relevance and highlighting**: Ranking now boosts results by modeling layer, and highlighting is more consistent (including support for multiple highlight snippets per field).
@@ -1533,7 +1555,7 @@ Release notes are grouped by date for single-tenant environments.
   * **Failed uploads are now visible via file state**: Uploaded-source processing records failure state instead of deleting the file record, improving retry/resume workflows.
   * **Invocation status streaming reliability**: The invocation status SSE endpoint now correctly awaits the status stream.
 
-### Behavior changes[​](#behavior-changes-15 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-16 "Direct link to Behavior changes")
 
 * **Catalog & Search**
 
@@ -1559,7 +1581,7 @@ Release notes are grouped by date for single-tenant environments.
 
   * **New v3 API endpoint to fetch a specific PrivateLink endpoint**: You can now retrieve individual PrivateLink endpoints by ID, enabling better automation and troubleshooting workflows.
 
-### Enhancements[​](#enhancements-27 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-28 "Direct link to Enhancements")
 
 * **dbt platform**
 
@@ -1602,7 +1624,7 @@ Release notes are grouped by date for single-tenant environments.
 
   * **Jobs API deferral validation is stricter and clearer**: Job deferral settings are now validated to ensure the deferring job and environment exist within the same account, with improved error messages.
 
-### Behavior changes[​](#behavior-changes-16 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-17 "Direct link to Behavior changes")
 
 * **dbt platform**
 
@@ -1624,7 +1646,7 @@ Release notes are grouped by date for single-tenant environments.
 * **dbt platform**
   * **Fusion migration readiness endpoint**: Added an API endpoint to determine whether a project is eligible for Fusion migration.
 
-### Enhancements[​](#enhancements-28 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-29 "Direct link to Enhancements")
 
 * **Copilot and AI**
 
@@ -1666,7 +1688,7 @@ Release notes are grouped by date for single-tenant environments.
   * **More reliable `show` and `compile`**: CLI flags to disable caching are now positioned correctly to avoid parsing issues.
   * **Canvas preview improvements**: Fixed argument ordering so `--no-defer` is interpreted consistently.
 
-### Behavior changes[​](#behavior-changes-17 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-18 "Direct link to Behavior changes")
 
 * **dbt platform**
   * **dbt v1.7 end-of-life**: dbt v1.7 is now labeled as end-of-life in version lifecycle messaging.
@@ -1695,7 +1717,7 @@ No changes of note this week.
 
   * **CSV upload GA**: The CSV upload endpoint is now generally available.
 
-### Enhancements[​](#enhancements-29 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-30 "Direct link to Enhancements")
 
 * **Cloud artifacts**
 
@@ -1721,7 +1743,7 @@ No changes of note this week.
 
   * **Exposure parents mirror the manifest**: `parentsModels` and `parentsSources` now derive from the manifest's `parents` list, so exposures with mixed upstreams display complete lineage in both the GraphQL API and UI.
 
-### Behavior changes[​](#behavior-changes-18 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-19 "Direct link to Behavior changes")
 
 * **dbt platform**
   * **Legacy Cost Management UI retired**: All cost management pages and hooks were removed, and platform metadata credentials now only expose catalog ingestion and Cost Insights toggles, eliminating dead-end controls.
@@ -1735,7 +1757,7 @@ No changes of note this week.
   * **Feature licensing service**: A new `/accounts/<id>/feature-licenses` endpoint issues short-lived JWTs that encode entitled features, and service/PAT authentication now checks that a caller holds an active license on the target account before any Fusion-enabled workflow runs.
   * **Databricks platform metadata credentials**: Databricks warehouses can register platform metadata credentials (token plus optional catalog), enabling catalog ingestion, metadata sharing, and Cost Insights pipelines without custom adapters.
 
-### Enhancements[​](#enhancements-30 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-31 "Direct link to Enhancements")
 
 * **dbt platform**
 
@@ -1777,7 +1799,7 @@ No changes of note this week.
   * **Environment variable editor stability**: Editing one variable no longer backfills blank cells with previously edited values, preventing accidental overrides.
   * **Cost optimization indicator accuracy**: Job pages once again display "Cost optimization features" whenever Fusion actually runs (and gating conditions are met), so users see the right coverage status regardless of feature-flag permutations.
 
-### Behavior changes[​](#behavior-changes-19 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-20 "Direct link to Behavior changes")
 
 * **dbt platform**
 
@@ -1797,7 +1819,7 @@ No changes of note this week.
 
 ## December 10, 2025[​](#december-10-2025 "Direct link to December 10, 2025")
 
-### Enhancements[​](#enhancements-31 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-32 "Direct link to Enhancements")
 
 * **AI codegen API**: Streaming middleware enforces request-scoped instrumentation across every AI endpoint, offload warehouse calls via threads, and expose human-readable tool names while gating keyword search behind feature flag for approved tenants.
 
@@ -1828,7 +1850,7 @@ No changes of note this week.
   * **Autofix deprecation warnings**: When deprecations are detected, you now see "Autofix deprecation warnings."
   * **Autofix Packages detailed results**: After running Autofix, you see a results panel with upgraded packages (with links), packages left unchanged and why, and quick access to `packages.yml` to help assess Fusion readiness and next steps.
 
-### Enhancements[​](#enhancements-32 "Direct link to Enhancements")
+### Enhancements[​](#enhancements-33 "Direct link to Enhancements")
 
 * **dbt platform**
 
@@ -1848,6 +1870,6 @@ No changes of note this week.
 
 * **dbt platform lineage and command pane stability**: Reliability improved by aligning with updated IDE and VS Code command APIs; eliminates intermittent skips.
 
-### Behavior changes[​](#behavior-changes-20 "Direct link to Behavior changes")
+### Behavior changes[​](#behavior-changes-21 "Direct link to Behavior changes")
 
 * **dbt platform:** dbt Core "versionless" renamed to "latest" so it's consistent and clear across tenants.
