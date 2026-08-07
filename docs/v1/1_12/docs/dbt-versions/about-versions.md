@@ -8,6 +8,12 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 [Learn about semantic versioning for dbt engines, and how long those versions are supported.](https://docs.getdbt.com/docs/dbt-versions.md)
 
+[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md)
+
+#### [Fusion version compatibility](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md)
+
+[Learn about version compatibility between the dbt Fusion engine, LSP, and VS Code extension.](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md)
+
 [![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md)
 
 #### [About release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md)
