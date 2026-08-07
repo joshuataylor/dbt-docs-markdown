@@ -1,5 +1,7 @@
 # Run visibility
 
+dbt platformⓘ
+
 You can view the history of your runs and the model timing dashboard to help identify where improvements can be made to jobs.
 
 ## Run history[​](#run-history "Direct link to Run history")

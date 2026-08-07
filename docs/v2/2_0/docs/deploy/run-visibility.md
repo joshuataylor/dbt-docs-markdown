@@ -1,5 +1,7 @@
 # Run visibility
 
+dbt platformⓘ
+
 You can view the history of your runs and the model timing dashboard to help identify where improvements can be made to jobs.
 
 ## Run history[​](#run-history "Direct link to Run history")
@@ -45,7 +47,7 @@ When a job on the dbt Fusion engine finishes, selecting a step displays a struct
 * **Skipped**
 * **No-op**
 
-For more information about each status, refer to [Telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md#node-outcome).
+For more information about each status, refer to [Fusion telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md#node-outcome).
 
 [![Structured logs in Fusion](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in Fusion")](#)Structured logs in Fusion
 
