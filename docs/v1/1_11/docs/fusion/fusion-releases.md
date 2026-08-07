@@ -126,11 +126,11 @@ Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stable
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **agelber-dbt**Aug 6, 2026, 01:58 PM
+Released by: **laconc**Aug 6, 2026, 10:00 PM
 
-Updating
+Automated ST snapshot
 
 [v2.0.0-preview.202](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
@@ -182,9 +182,9 @@ Automated promotion
 
 [v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
 
-Released by: **agelber-dbt**Aug 6, 2026, 01:58 PM
+Released by: **laconc**Aug 6, 2026, 10:00 PM
 
-Updating
+Automated ST snapshot
 
 [v2.0.0-preview.193](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview193 "View this release in the dbt Fusion changelog")GoodDevCanaryLatestnightlystableST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
@@ -230,9 +230,9 @@ Automated promotion
 
 [v2.0.0-preview.186](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview186 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **agelber-dbt**Aug 6, 2026, 01:58 PM
+Released by: **laconc**Aug 6, 2026, 10:00 PM
 
-Updating
+Automated ST snapshot
 
 [v2.0.0-preview.185](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview185 "View this release in the dbt Fusion changelog")GoodDev
 
