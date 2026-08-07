@@ -21,6 +21,8 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## July 2026[​](#july-2026 "Direct link to July 2026")
 
+* **Enhancement:** The [dbt State usage page](https://docs.getdbt.com/docs/deploy/dbt-state-interface.md) now shows daily active target tables (DATTs) split into **Billable** and **Free**. During a trial, all DATTs are counted as free.
+
 * **Preview**: [The dbt Wizard home tab in dbt platform](https://docs.getdbt.com/docs/platform/wizard-home.md) is now available in public preview. You can build and change dbt projects through natural language, with inline diffs, DAG previews, and validation built in.
 
 * **New**: [Apache Ossie](https://github.com/apache/ossie) semantic layer support:
