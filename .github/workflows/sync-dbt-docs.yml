@@ -182,9 +182,11 @@ jobs:
       - name: Patch Docusaurus
         working-directory: ${{ env.DOCS_CLONE_DIR }}
         run: |
+          # --allow-empty: the compare diff is legitimately empty whenever the
+          # branch has nothing on top of upstream current (everything merged).
           curl -fsSL \
-            "https://github.com/joshuataylor/docs.getdbt.com/compare/dbt-labs:current...feature/markdown-docs-gen.diff" \
-            | git apply
+            "https://github.com/joshuataylor/docs.getdbt.com/compare/dbt-labs:current...feature/fix-markdown.diff" \
+            | git apply --allow-empty
 
       - name: Build version docs
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
