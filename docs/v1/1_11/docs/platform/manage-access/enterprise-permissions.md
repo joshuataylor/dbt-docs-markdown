@@ -8,13 +8,13 @@ Available to Enterprise-tier plans
 
 This feature is available to the dbt Enterprise and Enterprise+ plans. If you're interested in learning more, contact us at <sales@getdbt.com>.
 
-The dbt Enterprise and Enterprise+ plans support a number of pre-built permission sets to help manage access controls within a dbt account. See the docs on [access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md) for more information on Role-Based access control (RBAC).
+The dbt Enterprise and Enterprise+ plans support a number of pre-built permission sets to help manage access controls within a dbt account. See the docs on [access control](./about-user-access.md) for more information on Role-Based access control (RBAC).
 
 ## Permission sets[​](#permission-sets "Direct link to Permission sets")
 
 The following permission sets are available for assignment in all dbt Enterprise-tier accounts. They can be granted to dbt groups and then to users. A dbt group can be associated with more than one permission set. Permission assignments with more access take precedence.
 
-Access to dbt features and functionality is split into `account-level` and `project-level` permission sets. Account-level permissions are primarily for account administration (inviting users, configuring SSO, and creating groups). Project-level permissions are for the configuration and maintenance of the projects themselves (configuring environments, accessing IDE, and running jobs). Account permission sets may have access to project features, and project permission sets may have access to account features. Check out the [permissions tables](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-permissions) to compare sets and their access.
+Access to dbt features and functionality is split into `account-level` and `project-level` permission sets. Account-level permissions are primarily for account administration (inviting users, configuring SSO, and creating groups). Project-level permissions are for the configuration and maintenance of the projects themselves (configuring environments, accessing IDE, and running jobs). Account permission sets may have access to project features, and project permission sets may have access to account features. Check out the [permissions tables](./enterprise-permissions.md#account-permissions) to compare sets and their access.
 
  Account admin
 
@@ -43,7 +43,7 @@ Notable features:
 
 The Account Viewer permissions set provides read-only access to the dbt account. Useful for any persona who needs insights into your dbt account without access to create or change configurations.
 
-The Account Viewer permission set is frequently paired with the [Read-only license-type](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+The Account Viewer permission set is frequently paired with the [Read-only license-type](./seats-and-users.md).
 
 Notable features:
 
@@ -71,7 +71,7 @@ The Analyst read permission set is a project-level set designed for users who ne
 
 Availability
 
-The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)) is available to use. The **Analyst read** permission set and the read-only permission changes described here are in **private beta**. To enable them, contact your account manager.
+The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../../dbt-ai/about-mcp.md)) is available to use. The **Analyst read** permission set and the read-only permission changes described here are in **private beta**. To enable them, contact your account manager.
 
 Notable features:
 
@@ -81,7 +81,7 @@ Notable features:
 * Includes `user_credential_write`, so users can view and edit their own user credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt CLI. Read-only users still need personal user credentials on this page to run warehouse queries in analysis features such as Insights and the Semantic Layer.
 * No write access and no access to develop in the Studio IDE or dbt CLI.
 
-To access the capabilities of this permission set, you *must* add users to a group that's assigned the Analyst read permission set. Users won't have access until they're added to the group. For the setup steps, refer to [Set up read-only user access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#set-up-read-only-user-access).
+To access the capabilities of this permission set, you *must* add users to a group that's assigned the Analyst read permission set. Users won't have access until they're added to the group. For the setup steps, refer to [Set up read-only user access](./about-user-access.md#set-up-read-only-user-access).
 
  Billing admin
 
@@ -96,7 +96,7 @@ Notable features:
 
  Cost Insights Admin
 
-The Cost Insights Admin permission set provides the minimum permissions needed to configure and manage [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) settings and view cost data.
+The Cost Insights Admin permission set provides the minimum permissions needed to configure and manage [Cost Insights](../../explore/cost-insights.md) settings and view cost data.
 
 Notable features:
 
@@ -108,7 +108,7 @@ Notable features:
 
  Cost Insights Viewer
 
-The Cost Insights Viewer permission set provides read-only access to [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) data with the minimum permissions needed to view estimated cost and reduction information.
+The Cost Insights Viewer permission set provides read-only access to [Cost Insights](../../explore/cost-insights.md) data with the minimum permissions needed to view estimated cost and reduction information.
 
 Notable features:
 
@@ -133,7 +133,7 @@ Notable features:
 
  Developer
 
-The Developer permission set is intended for users who build and maintain dbt models under development and manage production behavior. This is the primary permission set for users working in the IDE and should not be conflated with the [Developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses).
+The Developer permission set is intended for users who build and maintain dbt models under development and manage production behavior. This is the primary permission set for users working in the IDE and should not be conflated with the [Developer license](./seats-and-users.md#licenses).
 
 Notable features:
 
@@ -145,14 +145,14 @@ Notable features:
 
  Fusion admin
 
-This permission set enables users to interact with Fusion upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](https://docs.getdbt.com/guides/upgrade-to-fusion.md?step=1) a project to Fusion.
+This permission set enables users to interact with Fusion upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](../../../guides/upgrade-to-fusion.md?step=1) a project to Fusion.
 
 By default, all users can access the Fusion upgrade experience. When the upgrade permissions setting is enabled, only users with the **Fusion admin** or **Account admin** permission set can perform upgrades. If the setting is disabled (no check mark), upgrades are not restricted.
 
 * **Fusion admin** — Assign to user accounts only. Cannot be assigned to service tokens.
 * **Account admin** — Assign to user accounts or service tokens. Allows both users and service tokens to perform upgrades.
 
-For more information, refer to [Upgrade to dbt Fusion](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine).
+For more information, refer to [Upgrade to dbt Fusion](../../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine).
 
  Git admin
 
@@ -175,7 +175,7 @@ Notable features:
 
 * Job admin is a project-level set.
 * Job admins can create and edit jobs, runs, environment variables, and data warehouse configs.
-* Job admins can set up project integrations, including [Tableau lineage](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/tableau.md).
+* Job admins can set up project integrations, including [Tableau lineage](../../platform-integrations/semantic-layer/tableau.md).
 * Read-only access to project configs.
 * Read-only access to connections and public models.
 * Can access Catalog.
@@ -226,7 +226,7 @@ Notable features:
 
  Metadata (Discovery API only)
 
-Metadata is intended to be a read-only [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) integration permission set.
+Metadata is intended to be a read-only [Discovery API](../../dbt-apis/discovery-api.md) integration permission set.
 
 Notable features:
 
@@ -237,7 +237,7 @@ Notable features:
 
  Notification Manager
 
-The Notification Manager permission set allows users to configure and manage Slack, Microsoft Teams, and email [job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md) without requiring full Account Admin access. This is ideal for team leads or operations users who need to manage who receives job alerts.
+The Notification Manager permission set allows users to configure and manage Slack, Microsoft Teams, and email [job notifications](../../deploy/job-notifications.md) without requiring full Account Admin access. This is ideal for team leads or operations users who need to manage who receives job alerts.
 
 Notable features:
 
@@ -262,7 +262,7 @@ Notable features:
 
  Security admin
 
-Security admins have limited access to the security settings and policies for the dbt account. This is intended for members of a security team who need to ensure compliance with security standards and oversee the implementation of best security practices across the account. The [IT license-type](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses) includes this permission set by default.
+Security admins have limited access to the security settings and policies for the dbt account. This is intended for members of a security team who need to ensure compliance with security standards and oversee the implementation of best security practices across the account. The [IT license-type](./seats-and-users.md#licenses) includes this permission set by default.
 
 Notable features:
 
@@ -321,7 +321,7 @@ Permissions:
 
 note
 
-Some permissions sets have read-only access to environment settings that can be overriden with more privileged access if the user is assigned to a group with [Environment write access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#environment-write-access) configured.
+Some permissions sets have read-only access to environment settings that can be overriden with more privileged access if the user is assigned to a group with [Environment write access](./about-user-access.md#environment-write-access) configured.
 
 ### Account permissions[​](#account-permissions "Direct link to Account permissions")
 

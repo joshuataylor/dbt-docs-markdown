@@ -16,9 +16,9 @@ If you enjoy video courses, check out our [dbt Catalog on-demand course](https:/
 
 ## Access the column-level lineage[​](#access-the-column-level-lineage "Direct link to Access the column-level lineage")
 
-There is no additional setup required for CLL if your account is on an Enterprise plan that can use Catalog. You can access the CLL by expanding the column card in the **Columns** tab of an Catalog [resource details page](https://docs.getdbt.com/docs/explore/explore-projects.md#view-resource-details) for a model, source, or snapshot.
+There is no additional setup required for CLL if your account is on an Enterprise plan that can use Catalog. You can access the CLL by expanding the column card in the **Columns** tab of an Catalog [resource details page](./explore-projects.md#view-resource-details) for a model, source, or snapshot.
 
-dbt updates the lineage in Explorer after each run that's executed in the production or staging environment. At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+dbt updates the lineage in Explorer after each run that's executed in the production or staging environment. At least one job in the production or staging environment must run `dbt docs generate`. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
 
 [![Example of the Columns tab and where to expand for the CLL](/img/docs/collaborate/dbt-explorer/example-cll.png?v=2 "Example of the Columns tab and where to expand for the CLL")](#)Example of the Columns tab and where to expand for the CLL
 

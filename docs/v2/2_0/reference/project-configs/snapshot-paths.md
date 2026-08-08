@@ -8,9 +8,9 @@ snapshot-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) are located.
+Optionally specify a custom list of directories where [snapshots](../../docs/build/snapshots.md) are located.
 
-In dbt Core v1.9+, you can co-locate your snapshots with models if they are [defined using the latest YAML syntax](https://docs.getdbt.com/docs/build/snapshots.md).
+In dbt Core v1.9+, you can co-locate your snapshots with models if they are [defined using the latest YAML syntax](../../docs/build/snapshots.md).
 
 ## Default[​](#default "Direct link to Default")
 

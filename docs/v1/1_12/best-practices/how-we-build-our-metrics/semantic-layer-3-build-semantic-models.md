@@ -2,9 +2,9 @@
 
 tip
 
-Note that this best practices guide doesn't yet use the [new YAML specification](https://docs.getdbt.com/docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
+Note that this best practices guide doesn't yet use the [new YAML specification](../../docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
 
-To read more about the new spec, see [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md).
+To read more about the new spec, see [Creating metrics](../../docs/build/metrics-overview.md).
 
 ## How to build a semantic model[​](#how-to-build-a-semantic-model "Direct link to How to build a semantic model")
 
@@ -38,7 +38,7 @@ semantic_models:
     measures: ... # we'll define these later
 ```
 
-* Next we'll point to the corresponding logical model by supplying a [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) in the `model:` property, and a `description` for documentation.
+* Next we'll point to the corresponding logical model by supplying a [`ref`](../../reference/dbt-jinja-functions/ref.md) in the `model:` property, and a `description` for documentation.
 
 models/marts/orders.yml
 
@@ -60,7 +60,7 @@ semantic_models:
 * ⛓️ Unlike many other semantic layers, in MetricFlow **we do not need to describe joins explicitly**, instead the **relationships are implicitly described by entities**.
 * 1️⃣ Each semantic model should have **one primary entity** defined for itself, and **any number of foreign entities** for other semantic models it may join to.
 * 🫂 Entities require a **name and type**
-  * 🔑 Types available are **primary**, **foreign**, **unique** or **natural** — we'll be focused on the first two for now, but you can [read more about unique and natural keys](https://docs.getdbt.com/docs/build/entities.md#entity-types).
+  * 🔑 Types available are **primary**, **foreign**, **unique** or **natural** — we'll be focused on the first two for now, but you can [read more about unique and natural keys](../../docs/build/entities.md#entity-types).
 
 ### Entities in action[​](#entities-in-action "Direct link to Entities in action")
 
@@ -123,7 +123,7 @@ semantic_models:
 
   * **categorical**
   * **time**
-  * slowly changing dimensions — [these are covered in the documentation](https://docs.getdbt.com/docs/build/dimensions.md#scd-type-ii), and a little more complex. To focus on building your mental models of MetricFlow's fundamentals, we won't be using SCDs in this guide.
+  * slowly changing dimensions — [these are covered in the documentation](../../docs/build/dimensions.md#scd-type-ii), and a little more complex. To focus on building your mental models of MetricFlow's fundamentals, we won't be using SCDs in this guide.
 
 * ➕ We're **not limited to existing columns**, we can use the `expr` property to add simple computations in our dimensions.
 
@@ -224,7 +224,7 @@ from source
 * ➕ Here `order_total` and `tax paid` are the **columns we want as measures**.
 * 📝 We can describe them via the code below, specifying a **name, description, aggregation, and expression**.
 * 👍 As before MetricFlow will default to the **name being the name of a column when no expression is supplied**.
-* 🧮 [Many different aggregations](https://docs.getdbt.com/docs/build/measures.md#aggregation) are available to us. Here we just want sums.
+* 🧮 [Many different aggregations](../../docs/build/measures.md#aggregation) are available to us. Here we just want sums.
 
 models/marts/orders.yml
 

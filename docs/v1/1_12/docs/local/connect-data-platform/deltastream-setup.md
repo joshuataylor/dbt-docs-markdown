@@ -31,11 +31,11 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-deltastream<!-- -->
 
-For <!-- -->DeltaStream<!-- -->-specific configuration, please refer to [DeltaStream<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/deltastream-configs.md)
+For <!-- -->DeltaStream<!-- -->-specific configuration, please refer to [DeltaStream<!-- --> configs.](../../../reference/resource-configs/deltastream-configs.md)
 
 ## Connecting to DeltaStream with **dbt-deltastream**[​](#connecting-to-deltastream-with-dbt-deltastream "Direct link to connecting-to-deltastream-with-dbt-deltastream")
 
-To connect to DeltaStream from dbt, you'll need to add a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to your `profiles.yml` file. A DeltaStream profile conforms to the following syntax:
+To connect to DeltaStream from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A DeltaStream profile conforms to the following syntax:
 
 profiles.yml
 

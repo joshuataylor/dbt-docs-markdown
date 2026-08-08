@@ -2,7 +2,7 @@
 
 Saved queries are a way to save commonly used queries in MetricFlow. You can group metrics, dimensions, and filters that are logically related into a saved query. Saved queries are nodes and visible in the dbt DAG.
 
-Saved queries serve as the foundational building block, allowing you to [configure exports](#configure-exports) in your saved query configuration. Exports takes this functionality a step further by enabling you to [schedule and write saved queries](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) directly within your data platform using [dbt's job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md).
+Saved queries serve as the foundational building block, allowing you to [configure exports](#configure-exports) in your saved query configuration. Exports takes this functionality a step further by enabling you to [schedule and write saved queries](../use-dbt-semantic-layer/exports.md) directly within your data platform using [dbt's job scheduler](../deploy/job-scheduler.md).
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -17,8 +17,8 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `name`                     | String            | Required | Name of the saved query object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `description`              | String            | Required | A description of the saved query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `label`                    | String            | Required | The display name for your saved query. This value will be shown in downstream tools.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `config`                   | String            | Optional | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your saved query. Supports `cache`, [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md), `export_as`, [`group`](https://docs.getdbt.com/reference/resource-configs/group.md), [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md), [`tags`](https://docs.getdbt.com/reference/resource-configs/tags.md), and [`schema`](https://docs.getdbt.com/reference/resource-configs/schema.md) configurations. |
-| `config.cache.enabled`     | Object            | Optional | An object with a sub-key used to specify if a saved query should populate the [cache](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md). Accepts sub-key `true` or `false`. Defaults to `false`                                                                                                                                                                                                                                                                                                                                                           |
+| `config`                   | String            | Optional | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your saved query. Supports `cache`, [`enabled`](../../reference/resource-configs/enabled.md), `export_as`, [`group`](../../reference/resource-configs/group.md), [`meta`](../../reference/resource-configs/meta.md), [`tags`](../../reference/resource-configs/tags.md), and [`schema`](../../reference/resource-configs/schema.md) configurations. |
+| `config.cache.enabled`     | Object            | Optional | An object with a sub-key used to specify if a saved query should populate the [cache](../use-dbt-semantic-layer/sl-cache.md). Accepts sub-key `true` or `false`. Defaults to `false`                                                                                                                                                                                                                                                                                                                                                           |
 | `limit`                    | Integer           | Optional | The maximum number of rows to return.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `order_by`                 | String            | Optional | The metrics and group bys to order the query by.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `query_params`             | Structure         | Required | Contains the query parameters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -27,10 +27,10 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `query_params.where`       | List or String    | Optional | A list of strings that may include the `Dimension` or `TimeDimension` objects.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `exports`                  | List or Structure | Optional | A list of exports to be specified within the exports structure.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `exports.name`             | String            | Required | Name of the export object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| `exports.config`           | List or Structure | Required | A [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property for any parameters specifying the export.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `exports.config`           | List or Structure | Required | A [`config`](../../reference/resource-properties/config.md) property for any parameters specifying the export.                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `exports.config.export_as` | String            | Required | The type of export to run. Options include table or view currently and cache in the near future.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `exports.config.schema`    | String            | Optional | The [schema](https://docs.getdbt.com/reference/resource-configs/schema.md) for creating the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `exports.config.alias`     | String            | Optional | The table [alias](https://docs.getdbt.com/reference/resource-configs/alias.md) used to write to the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `exports.config.schema`    | String            | Optional | The [schema](../../reference/resource-configs/schema.md) for creating the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `exports.config.alias`     | String            | Optional | The table [alias](../../reference/resource-configs/alias.md) used to write to the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 Search table...
 
@@ -44,7 +44,7 @@ If you use multiple metrics in a saved query, then you will only be able to refe
 
 Use saved queries to define and manage common Semantic Layer queries in YAML, including metrics and dimensions. Saved queries enable you to organize and reuse common MetricFlow queries within dbt projects. For example, you can group related metrics together for better organization, and include commonly used dimensions and filters.
 
-In your saved query config, you can also leverage [caching](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md) with the dbt job scheduler to cache common queries, speed up performance, and reduce compute costs.
+In your saved query config, you can also leverage [caching](../use-dbt-semantic-layer/sl-cache.md) with the dbt job scheduler to cache common queries, speed up performance, and reduce compute costs.
 
 In the following example, you can set the saved query in the `semantic_model.yml` file:
 
@@ -75,11 +75,11 @@ saved_queries:
           schema: my_export_schema_name
 ```
 
-Note that you can set `export_as` to both the saved query and the exports [config](https://docs.getdbt.com/reference/resource-properties/config.md), with the exports config value taking precedence. If a key isn't set in the exports config, it will inherit the saved query config value.
+Note that you can set `export_as` to both the saved query and the exports [config](../../reference/resource-properties/config.md), with the exports config value taking precedence. If a key isn't set in the exports config, it will inherit the saved query config value.
 
 #### Where clause[​](#where-clause "Direct link to Where clause")
 
-Use the following syntax to reference entities, dimensions, time dimensions, or metrics in filters and refer to [Metrics as dimensions](https://docs.getdbt.com/docs/build/ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
+Use the following syntax to reference entities, dimensions, time dimensions, or metrics in filters and refer to [Metrics as dimensions](./ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
 
 ```yaml
 filter: | 
@@ -97,7 +97,7 @@ filter: |
 
 #### Project-level saved queries[​](#project-level-saved-queries "Direct link to Project-level saved queries")
 
-To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](https://docs.getdbt.com/reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
+To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](../../reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
 
 dbt\_project.yml
 
@@ -108,18 +108,18 @@ saved-queries:
       enabled: true
 ```
 
-For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](https://docs.getdbt.com/reference/dbt_project.yml.md#naming-convention).
+For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](../../reference/dbt_project.yml.md#naming-convention).
 
 To build `saved_queries`:
 
-* Make sure you set the right [environment variable](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md#set-environment-variable) in your environment.
-* Run the command `dbt build --resource-type saved_query` using the [`--resource-type` flag](https://docs.getdbt.com/reference/global-configs/resource-type.md).
+* Make sure you set the right [environment variable](../use-dbt-semantic-layer/exports.md#set-environment-variable) in your environment.
+* Run the command `dbt build --resource-type saved_query` using the [`--resource-type` flag](../../reference/global-configs/resource-type.md).
 
 ## Configure exports[​](#configure-exports "Direct link to Configure exports")
 
 Exports are an additional configuration added to a saved query. They define *how* to write a saved query, along with the schema and table name.
 
-Once you've configured your saved query and set the foundation block, you can now configure exports in the `saved_queries` YAML configuration file (the same file as your metric definitions). This will also allow you to [run exports](#run-exports) automatically within your data platform using [dbt's job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md).
+Once you've configured your saved query and set the foundation block, you can now configure exports in the `saved_queries` YAML configuration file (the same file as your metric definitions). This will also allow you to [run exports](#run-exports) automatically within your data platform using [dbt's job scheduler](../deploy/job-scheduler.md).
 
 The following is an example of a saved query with an export:
 
@@ -156,9 +156,9 @@ saved_queries:
 
 ## Run exports[​](#run-exports "Direct link to Run exports")
 
-Once you've configured exports, you can now take things a step further by running exports to automatically write saved queries within your data platform using [dbt's job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md). This feature is only available with the [dbt's Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md).
+Once you've configured exports, you can now take things a step further by running exports to automatically write saved queries within your data platform using [dbt's job scheduler](../deploy/job-scheduler.md). This feature is only available with the [dbt's Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md).
 
-For more information on how to run exports, refer to the [Exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) documentation.
+For more information on how to run exports, refer to the [Exports](../use-dbt-semantic-layer/exports.md) documentation.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -168,9 +168,9 @@ Yes, this is possible. However, the difference would be the name, schema, and ma
 
  How can I select saved\_queries by their resource type?
 
-To include all saved queries in the dbt build run, use the [`--resource-type` flag](https://docs.getdbt.com/reference/global-configs/resource-type.md) and run the command `dbt build --resource-type saved_query`.
+To include all saved queries in the dbt build run, use the [`--resource-type` flag](../../reference/global-configs/resource-type.md) and run the command `dbt build --resource-type saved_query`.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Validate semantic nodes in a CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci)
-* Configure [caching](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md)
+* [Validate semantic nodes in a CI job](../deploy/ci-jobs.md#semantic-validations-in-ci)
+* Configure [caching](../use-dbt-semantic-layer/sl-cache.md)

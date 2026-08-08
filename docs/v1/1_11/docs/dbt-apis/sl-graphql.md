@@ -12,7 +12,7 @@ GraphQL has several advantages, such as self-documenting, having a strong typing
 
 The Semantic Layer GraphQL API allows you to explore and query metrics and dimensions. Due to its self-documenting nature, you can explore the calls conveniently through a schema explorer.
 
-The schema explorer URLs vary depending on your [deployment region](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md). Use the following table to find the right link for your region:
+The schema explorer URLs vary depending on your [deployment region](../platform/about-platform/access-regions-ip-addresses.md). Use the following table to find the right link for your region:
 
 | Deployment type            | Schema explorer URL                                                                                                                                                                                                   |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,15 +40,15 @@ Note that the Semantic Layer GraphQL API doesn't support `ref` to call dbt objec
 
 * A dbt project on dbt v1.6 or higher
 * Metrics are defined and configured
-* A dbt [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with "Semantic Layer Only” and "Metadata Only" permissions or a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md)
+* A dbt [service token](./service-tokens.md) with "Semantic Layer Only” and "Metadata Only" permissions or a [personal access token](./user-tokens.md)
 
 ## Using the GraphQL API[​](#using-the-graphql-api "Direct link to Using the GraphQL API")
 
-If you're a dbt user or partner with access to dbt and the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), you can [set up](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right GQL connection parameters described in this document.
+If you're a dbt user or partner with access to dbt and the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), you can [set up](../use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right GQL connection parameters described in this document.
 
-Refer to [Get started with the Semantic Layer](https://docs.getdbt.com/guides/sl-snowflake-qs.md) for more info.
+Refer to [Get started with the Semantic Layer](../../guides/sl-snowflake-qs.md) for more info.
 
-Authentication uses either a dbt [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) passed through a header as follows. To explore the schema, you can enter this information in the "header" section.
+Authentication uses either a dbt [service account token](./service-tokens.md) or a [personal access token](./user-tokens.md) passed through a header as follows. To explore the schema, you can enter this information in the "header" section.
 
 ```shell
 {"Authorization": "Bearer <AUTHENTICATION TOKEN>"}
@@ -610,7 +610,7 @@ mutation {
 
 A note on querying saved queries
 
-When querying [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md),you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
+When querying [saved queries](../build/saved-queries.md),you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
 
 #### Query with just compiling SQL[​](#query-with-just-compiling-sql "Direct link to Query with just compiling SQL")
 

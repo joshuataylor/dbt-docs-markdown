@@ -17,13 +17,13 @@ A SQL statement (or list of SQL statements) to be run at the start or end of the
 
 ## Usage notes[​](#usage-notes "Direct link to Usage notes")
 
-* The `on-run-end` hook has additional Jinja variables available in the context — check out the [docs](https://docs.getdbt.com/reference/dbt-jinja-functions/on-run-end-context.md).
+* The `on-run-end` hook has additional Jinja variables available in the context — check out the [docs](../dbt-jinja-functions/on-run-end-context.md).
 
 ## Examples[​](#examples "Direct link to Examples")
 
 ### Grant privileges on all schemas that dbt uses at the end of a run[​](#grant-privileges-on-all-schemas-that-dbt-uses-at-the-end-of-a-run "Direct link to Grant privileges on all schemas that dbt uses at the end of a run")
 
-This leverages the [schemas](https://docs.getdbt.com/reference/dbt-jinja-functions/schemas.md) variable that is only available in an `on-run-end` hook.
+This leverages the [schemas](../dbt-jinja-functions/schemas.md) variable that is only available in an `on-run-end` hook.
 
 dbt\_project.yml
 
@@ -42,4 +42,4 @@ on-run-end: "{{ grant_select(schemas) }}"
 
 ### Additional examples[​](#additional-examples "Direct link to Additional examples")
 
-We've compiled some more in-depth examples [here](https://docs.getdbt.com/docs/build/hooks-operations.md#additional-examples).
+We've compiled some more in-depth examples [here](../../docs/build/hooks-operations.md#additional-examples).

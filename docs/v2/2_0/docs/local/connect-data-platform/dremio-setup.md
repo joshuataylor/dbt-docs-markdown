@@ -31,13 +31,13 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-dremio<!-- -->
 
-For <!-- -->Dremio<!-- -->-specific configuration, please refer to [Dremio<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Dremio<!-- -->-specific configuration, please refer to [Dremio<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 Follow the repository's link for OS dependencies.
 
 note
 
-[Model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) are not supported.
+[Model contracts](../../mesh/govern/model-contracts.md) are not supported.
 
 ## Prerequisites for Dremio Cloud[​](#prerequisites-for-dremio-cloud "Direct link to Prerequisites for Dremio Cloud")
 

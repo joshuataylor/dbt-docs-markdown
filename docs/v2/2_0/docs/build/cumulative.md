@@ -4,7 +4,7 @@ Cumulative metrics aggregate values from other metrics across a defined accumula
 
 Use cumulative metrics when you want to calculate rolling or period-to-date values, such as weekly active users or month-to-date revenue.
 
-* You must create a [time spine model](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) before you define cumulative metrics so that MetricFlow can join time-based aggregations to the time spine.
+* You must create a [time spine model](./metricflow-time-spine.md) before you define cumulative metrics so that MetricFlow can join time-based aggregations to the time spine.
 * If a cumulative metric depends on metrics or dimensions defined in a different semantic model, set cumulative metrics under the top level `metrics` key.
 
 <!-- -->
@@ -19,7 +19,7 @@ Use cumulative metrics when you want to calculate rolling or period-to-date valu
 | `label`               | Optional string that defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                         | Optional | String  |
 | `input_metric`        | The name of the metric being referenced. Supports the following nested parameters: `name`, `filter`, and `alias`.                                                                                                                                                                | Required | Dict    |
 | `input_metric.name`   | The name of the metric being referenced.                                                                                                                                                                                                                                         | Required | String  |
-| `input_metric.filter` | The [filter](https://docs.getdbt.com/docs/build/metrics-overview.md#filters) to apply to the metric.                                                                                                                                                                             | Optional | String  |
+| `input_metric.filter` | The [filter](./metrics-overview.md#filters) to apply to the metric.                                                                                                                                                                             | Optional | String  |
 | `input_metric.alias`  | The alias to apply to the metric.                                                                                                                                                                                                                                                | Optional | String  |
 | `join_to_timespine`   | Boolean indicating if the aggregated metric should be joined to the time spine table to fill in missing dates. Default is `false`.                                                                                                                                               | Optional | Boolean |
 | `window`              | Specifies the accumulation window, such as `1 month`, `7 days`, or `1 year`. Cannot be used with `grain_to_date`.                                                                                                                                                                | Optional | String  |
@@ -445,4 +445,4 @@ group by
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for simple, derived, or ratio metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../docs/dbt-versions/dbt-release-tracks.md).
 
 Function properties can be declared in `.yml` files under a `functions` key.
 

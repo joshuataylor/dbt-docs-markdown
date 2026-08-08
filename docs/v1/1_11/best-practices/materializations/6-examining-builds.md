@@ -9,7 +9,7 @@
 
 ### Model timing[​](#model-timing "Direct link to Model timing")
 
-That’s where dbt’s Model Timing visualization comes in extremely handy. If we’ve set up a [Job](https://docs.getdbt.com/guides/bigquery.md) in dbt to run our models, we can use the [**Model Timing** tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing-tab) to pinpoint our longest-running models.
+That’s where dbt’s Model Timing visualization comes in extremely handy. If we’ve set up a [Job](../../guides/bigquery.md) in dbt to run our models, we can use the [**Model Timing** tab](../../docs/deploy/run-visibility.md#model-timing-tab) to pinpoint our longest-running models.
 
 * 📊 At the top of the tab, the **metric tiles** surface the metrics that matter most: estimated critical path, peak concurrency, average active models, longest model, wall clock time, and latest start.
 * ⌛ The **Execution timeline** shows all resources as a Gantt-style chart. You can **group by** resource type, folder, execution phase, thread, or no grouping, and **highlight** by estimated critical path, duration, or all equal — making it easy to spot your bottlenecks at a glance.

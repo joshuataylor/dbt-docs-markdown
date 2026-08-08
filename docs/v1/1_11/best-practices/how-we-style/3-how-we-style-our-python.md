@@ -11,7 +11,7 @@
 
   info
 
-  ☁️ dbt comes with the [black formatter built-in](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md) to automatically lint and format their Python. You don't need to download or configure anything, just click `Format` in a Python model and you're good to go!
+  ☁️ dbt comes with the [black formatter built-in](../../docs/platform/studio-ide/lint-format.md) to automatically lint and format their Python. You don't need to download or configure anything, just click `Format` in a Python model and you're good to go!
 
 ## Example Python[​](#example-python "Direct link to Example Python")
 

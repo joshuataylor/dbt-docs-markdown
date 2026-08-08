@@ -2,21 +2,21 @@
 
 dbt platformⓘ
 
-dbt provides a helpful interface around dbt's [source data freshness](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) calculations. When a dbt job is configured to run source freshness checks, dbt will render a user interface showing you the state of the most recent check. This interface is intended to help you determine if your source data freshness is meeting the service level agreement (SLA) that you've defined for your organization.
+dbt provides a helpful interface around dbt's [source data freshness](../build/sources.md#source-data-freshness) calculations. When a dbt job is configured to run source freshness checks, dbt will render a user interface showing you the state of the most recent check. This interface is intended to help you determine if your source data freshness is meeting the service level agreement (SLA) that you've defined for your organization.
 
 [![Data Sources in dbt](/img/docs/dbt-platform/using-dbt-platform/data-sources-next.png?v=2 "Data Sources in dbt")](#)Data Sources in dbt
 
 ### Enabling source freshness checks[​](#enabling-source-freshness-checks "Direct link to Enabling source freshness checks")
 
-[`dbt build`](https://docs.getdbt.com/reference/commands/build.md) does *not* include source freshness checks when building and testing resources in your DAG. Instead, you can use one of these common patterns for defining jobs:
+[`dbt build`](../../reference/commands/build.md) does *not* include source freshness checks when building and testing resources in your DAG. Instead, you can use one of these common patterns for defining jobs:
 
 * Add `dbt build` to the run step to run models, tests, and so on.
-* Select the **Generate docs on run** checkbox to automatically [generate project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md).
+* Select the **Generate docs on run** checkbox to automatically [generate project docs](../explore/build-and-view-your-docs.md).
 * Select the **Run source freshness** checkbox to enable [source freshness](#checkbox) as the first step of the job.
 
 [![Selecting source freshness](/img/docs/dbt-platform/select-source-freshness.png?v=2 "Selecting source freshness")](#)Selecting source freshness
 
-To enable source freshness checks, first make sure to configure your sources with [source freshness information](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness). You can add source freshness to the list of commands in the job run steps or enable the checkbox. However, you can expect different outcomes when you configure a job by selecting the **Run source freshness** checkbox compared to adding the command to the run steps.
+To enable source freshness checks, first make sure to configure your sources with [source freshness information](../build/sources.md#source-data-freshness). You can add source freshness to the list of commands in the job run steps or enable the checkbox. However, you can expect different outcomes when you configure a job by selecting the **Run source freshness** checkbox compared to adding the command to the run steps.
 
 Review the following options and outcomes:
 
@@ -51,5 +51,5 @@ Search table...
 
 ## Further reading[​](#further-reading "Direct link to Further reading")
 
-* Refer to [Artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md) for more info on how to create dbt artifacts, share links to the latest documentation, and share source freshness reports with your team.
-* Source freshness for Snowflake is calculated using the `LAST_ALTERED` column. Read about the limitations in [Snowflake configs](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#source-freshness-known-limitation).
+* Refer to [Artifacts](./artifacts.md) for more info on how to create dbt artifacts, share links to the latest documentation, and share source freshness reports with your team.
+* Source freshness for Snowflake is calculated using the `LAST_ALTERED` column. Read about the limitations in [Snowflake configs](../../reference/resource-configs/snowflake-configs.md#source-freshness-known-limitation).

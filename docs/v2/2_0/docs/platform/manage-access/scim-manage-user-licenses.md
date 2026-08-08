@@ -10,18 +10,18 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
  Toggle options per identity provider
 
-* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
-* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](./scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](./seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
 
-For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
+For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
 #### Considerations[​](#considerations "Direct link to Considerations")
 
 Before you enable SCIM license mapping:
 
-* **Default license**: New users are assigned a Developer license unless you change it manually using [SSO license mappings](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration), or using SCIM.
+* **Default license**: New users are assigned a Developer license unless you change it manually using [SSO license mappings](./seats-and-users.md#mapped-configuration), or using SCIM.
 * **Best practice**: Use one source of truth for license assignment (either dbt platform or SCIM). Don't mix SCIM license management with manual or single sign-on (SSO) mapping changes.
-* **Analyst license**: Only available on [select plans](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md). Assigning this license using SCIM will return an error if that license type isn't available for your account. The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+* **Analyst license**: Only available on [select plans](./seats-and-users.md). Assigning this license using SCIM will return an error if that license type isn't available for your account. The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 ## Enable SCIM license mapping[​](#enable-scim-license-mapping "Direct link to Enable SCIM license mapping")
 
@@ -60,7 +60,7 @@ After creating and syncing your specific IdP groups, remove users from these def
 
 ## Automated license mapping[​](#automated-license-mapping "Direct link to Automated license mapping")
 
-Automating license assignments is available for Okta only. It's a common strategy to reduce administrative overhead. For SSO-based license mapping (for example, Entra ID), see [Mapped configuration](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration).
+Automating license assignments is available for Okta only. It's a common strategy to reduce administrative overhead. For SSO-based license mapping (for example, Entra ID), see [Mapped configuration](./seats-and-users.md#mapped-configuration).
 
 #### Define IdP groups[​](#define-idp-groups "Direct link to Define IdP groups")
 
@@ -140,7 +140,7 @@ To add the attribute for license types to your Okta environment:
      | ---------------- | - | - | - | - |
      | Loading table... |   |   |   |   |
 
-   The **Analyst** license is only available on [select plans](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md). It is not available for new purchase.
+   The **Analyst** license is only available on [select plans](./seats-and-users.md). It is not available for new purchase.
 
    * **Attribute type:** Group
 

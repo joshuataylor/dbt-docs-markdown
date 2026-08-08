@@ -2,7 +2,7 @@
 
 note
 
-This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your dbt Cloud environment, read [Upgrade dbt version in Cloud](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md).
+This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your dbt Cloud environment, read [Upgrade dbt version in Cloud](../upgrade-dbt-platform-version.md).
 
 Welcome to the 2019 and 2020 changelog for the dbt application! You can use this changelog to see the highlights of what was new, fixed, and enhanced during this time period.
 
@@ -177,7 +177,7 @@ This release adds native support for Okta SSO and dbt v0.18.0. It also adds init
 
 ## dbt Cloud v1.1.7 \[September 3, 2020][​](#dbt-cloud-v117-september-3-2020 "Direct link to dbt Cloud v1.1.7 \[September 3, 2020]")
 
-This release adds a Release Candidate for [dbt v0.18.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md) and includes bugfixes and improvements to the Cloud IDE and job scheduler.
+This release adds a Release Candidate for [dbt v0.18.0](../core-upgrade.md) and includes bugfixes and improvements to the Cloud IDE and job scheduler.
 
 #### Enhancements[​](#enhancements-9 "Direct link to Enhancements")
 
@@ -197,7 +197,7 @@ This release includes security enhancements and improvements across the entire d
 
 #### Enhancements[​](#enhancements-10 "Direct link to Enhancements")
 
-* Support for viewing development docs inside of the Studio IDE ([docs](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
+* Support for viewing development docs inside of the Studio IDE ([docs](../../platform/studio-ide/develop-in-studio.md)
 * Change CI temporary schema names to be prefixed with `dbt_cloud` instead of `sinter`
 * Change coloring and iconography to improve accessibility and UX across the application
 * \[Enterprise] Support the specification of multiple authorized domains in SSO configuration

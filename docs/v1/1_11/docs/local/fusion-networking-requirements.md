@@ -53,11 +53,11 @@ If your environment cannot access `public.cdn.getdbt.com` for adapter driver dow
 
 When you assemble a bundle for air-gapped or firewall-restricted machines:
 
-1. Use the [version compatibility matrix](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#compatibility-matrix) to choose a Fusion version that matches the dbt VS Code extension your users run.
-2. Verify the binary against its published SHA-256 checksum before distributing it. Refer to [Verify binaries for manual and air-gapped installs](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs).
-3. Point the dbt VS Code extension at the bundled binary with the `dbt.fusionPath` setting. Refer to [dbt extension settings](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings).
+1. Use the [version compatibility matrix](../dbt-versions/fusion-version-compatibility.md#compatibility-matrix) to choose a Fusion version that matches the dbt VS Code extension your users run.
+2. Verify the binary against its published SHA-256 checksum before distributing it. Refer to [Verify binaries for manual and air-gapped installs](../dbt-versions/fusion-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs).
+3. Point the dbt VS Code extension at the bundled binary with the `dbt.fusionPath` setting. Refer to [dbt extension settings](../configure-dbt-extension.md#dbt-extension-settings).
 
-For supported adapters, refer to [Fusion requirements](https://docs.getdbt.com/docs/fusion/supported-features.md#requirements).
+For supported adapters, refer to [Fusion requirements](../fusion/supported-features.md#requirements).
 
 ## Telemetry[​](#telemetry "Direct link to Telemetry")
 
@@ -73,11 +73,11 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-To suppress these errors without allowlisting the URL, disable telemetry using the options described in [Anonymous usage stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md).
+To suppress these errors without allowlisting the URL, disable telemetry using the options described in [Anonymous usage stats](../../reference/global-configs/usage-stats.md).
 
 ## Manifest downloads (dbt platform only) enterprise[​](#manifest-downloads "Direct link to manifest-downloads")
 
-For [dbt platform](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) customers using Fusion locally, Fusion downloads production manifests from dbt platform to enable features like [deferral](https://docs.getdbt.com/reference/node-selection/defer.md) and [cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md). The [cloud storage provider](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) hosting your dbt platform cell serves these manifests via **pre-signed URLs**.
+For [dbt platform](../platform/about-platform/dbt-platform-features.md) customers using Fusion locally, Fusion downloads production manifests from dbt platform to enable features like [deferral](../../reference/node-selection/defer.md) and [cross-project references](../mesh/govern/project-dependencies.md). The [cloud storage provider](../platform/about-platform/access-regions-ip-addresses.md) hosting your dbt platform cell serves these manifests via **pre-signed URLs**.
 
 The specific hostnames depend on your dbt platform deployment region and the underlying cloud provider. To ensure Fusion can download manifests, allowlist the appropriate storage domain for your region:
 

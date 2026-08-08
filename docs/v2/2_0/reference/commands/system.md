@@ -2,7 +2,7 @@
 
 `dbt system` provides commands for managing your dbt installation. v2 is a single compiled binary with no dependencies on other libraries. Once installed, `dbt system` lets you update, uninstall, and manage drivers directly without pip, brew, or a Python environment.
 
-`dbt system update` and `dbt system uninstall` are only supported for [CDN installations](https://docs.getdbt.com/docs/local/install-dbt.md) of Fusion. If you installed Fusion via Pip, Homebrew, or Winget, you'll need to update or uninstall dbt from those tools.
+`dbt system update` and `dbt system uninstall` are only supported for [CDN installations](../../docs/local/install-dbt.md) of Fusion. If you installed Fusion via Pip, Homebrew, or Winget, you'll need to update or uninstall dbt from those tools.
 
 dbt Core has no equivalent.
 
@@ -103,9 +103,9 @@ This command takes no additional flags.
 
 Networking note
 
-`dbt system install-drivers` downloads files from `https://public.cdn.getdbt.com`. If your environment restricts outbound network access, make sure this endpoint is allowlisted. See [Fusion networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) for the full list of endpoints.
+`dbt system install-drivers` downloads files from `https://public.cdn.getdbt.com`. If your environment restricts outbound network access, make sure this endpoint is allowlisted. See [Fusion networking requirements](../../docs/local/fusion-networking-requirements.md) for the full list of endpoints.
 
 ## Related commands[​](#related-commands "Direct link to Related commands")
 
-* [`dbt debug`](https://docs.getdbt.com/reference/commands/debug.md) — Test your dbt project and connection configuration.
-* [Fusion networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md) — Review outbound endpoints required by the dbt Fusion engine.
+* [`dbt debug`](./debug.md) — Test your dbt project and connection configuration.
+* [Fusion networking requirements](../../docs/local/fusion-networking-requirements.md) — Review outbound endpoints required by the dbt Fusion engine.

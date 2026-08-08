@@ -35,7 +35,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-risingwave<!-- -->
 
-For <!-- -->RisingWave<!-- -->-specific configuration, please refer to [RisingWave<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->RisingWave<!-- -->-specific configuration, please refer to [RisingWave<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to RisingWave with dbt-risingwave[​](#connecting-to-risingwave-with-dbt-risingwave "Direct link to Connecting to RisingWave with dbt-risingwave")
 

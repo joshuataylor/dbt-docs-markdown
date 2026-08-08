@@ -2,9 +2,9 @@
 
 Use the + prefix to help clarify the difference between resource paths and configs in dbt\_project.yml files.
 
-The `+` prefix is a dbt syntax feature which helps disambiguate between [resource paths](https://docs.getdbt.com/reference/resource-configs/resource-path.md) and configs in [`dbt_project.yml` files](https://docs.getdbt.com/reference/dbt_project.yml.md).
+The `+` prefix is a dbt syntax feature which helps disambiguate between [resource paths](./resource-path.md) and configs in [`dbt_project.yml` files](../dbt_project.yml.md).
 
-* It is not compatible with `dbt_project.yml` files that use [`config-version`](https://docs.getdbt.com/reference/project-configs/config-version.md) 1.
+* It is not compatible with `dbt_project.yml` files that use [`config-version`](../project-configs/config-version.md) 1.
 
 * It doesn't apply to:
 
@@ -32,11 +32,11 @@ models:
 
 Throughout this documentation, we use the `+` prefix on configuration keys in `dbt_project.yml` files.
 
-For projects using [`config-version`](https://docs.getdbt.com/reference/project-configs/config-version.md) 2, dbt expects configuration keys to use the `+` prefix. Specifying configurations without the `+` prefix is [deprecated](https://docs.getdbt.com/reference/deprecations.md#missingplusprefixdeprecation). Folder and file names within resource configurations still do not use the `+` prefix.
+For projects using [`config-version`](../project-configs/config-version.md) 2, dbt expects configuration keys to use the `+` prefix. Specifying configurations without the `+` prefix is [deprecated](../deprecations.md#missingplusprefixdeprecation). Folder and file names within resource configurations still do not use the `+` prefix.
 
-The `+` prefix is especially important when you need to disambiguate between [resource paths](https://docs.getdbt.com/reference/resource-configs/resource-path.md) and configs. For example, when:
+The `+` prefix is especially important when you need to disambiguate between [resource paths](./resource-path.md) and configs. For example, when:
 
-* A config accepts a dictionary as its input, such as [`persist_docs`](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+* A config accepts a dictionary as its input, such as [`persist_docs`](./persist_docs.md).
 * A config shares a key with part of a resource path, such as a directory of models named `tags`.
 
 <!-- -->
@@ -76,4 +76,4 @@ models:
         +materialized: view
 ```
 
-**Note:** The use of the `+` prefix in `dbt_project.yml` is distinct from the use of `+` to control config merge behavior (clobber vs. add) in other config settings (specific resource `.yml` and `.sql` files). Currently, the only config which supports `+` for controlling config merge behavior is [`grants`](https://docs.getdbt.com/reference/resource-configs/grants.md#grant-config-inheritance).
+**Note:** The use of the `+` prefix in `dbt_project.yml` is distinct from the use of `+` to control config merge behavior (clobber vs. add) in other config settings (specific resource `.yml` and `.sql` files). Currently, the only config which supports `+` for controlling config merge behavior is [`grants`](./grants.md#grant-config-inheritance).

@@ -1,6 +1,6 @@
 # Custom schemas
 
-By default, all dbt models are built in the schema specified in your [environment](https://docs.getdbt.com/docs/dbt-platform-environments.md) (dbt platform) or [profile's target](https://docs.getdbt.com/docs/local/dbt-core-environments.md) (dbt Core). This default schema is called your *target schema*.
+By default, all dbt models are built in the schema specified in your [environment](../dbt-platform-environments.md) (dbt platform) or [profile's target](../local/dbt-core-environments.md) (dbt Core). This default schema is called your *target schema*.
 
 For projects with many models, it's common to organize them across multiple schemas. For example, you might want to:
 
@@ -90,7 +90,7 @@ The following code represents the default macro's logic:
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
-You can remove unwanted spaces and lines with Jinja's [whitespace control](https://docs.getdbt.com/faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
+You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
 ## Changing the way dbt generates a schema name[​](#changing-the-way-dbt-generates-a-schema-name "Direct link to Changing the way dbt generates a schema name")
 
@@ -146,11 +146,11 @@ The following context methods *are* available in the `generate_schema_name` macr
 
 | Jinja context                                                                     | Type     | Available          |
 | --------------------------------------------------------------------------------- | -------- | ------------------ |
-| [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md)         | Variable | ✅                 |
-| [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)      | Variable | ✅                 |
-| [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md)               | Variable | Limited, see below |
-| [exceptions](https://docs.getdbt.com/reference/dbt-jinja-functions/exceptions.md) | Macro    | ✅                 |
-| [log](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md)               | Macro    | ✅                 |
+| [target](../../reference/dbt-jinja-functions/target.md)         | Variable | ✅                 |
+| [env\_var](../../reference/dbt-jinja-functions/env_var.md)      | Variable | ✅                 |
+| [var](../../reference/dbt-jinja-functions/var.md)               | Variable | Limited, see below |
+| [exceptions](../../reference/dbt-jinja-functions/exceptions.md) | Macro    | ✅                 |
+| [log](../../reference/dbt-jinja-functions/log.md)               | Macro    | ✅                 |
 | Other macros in your project                                                      | Macro    | ✅                 |
 | Other macros in your packages                                                     | Macro    | ✅                 |
 
@@ -162,11 +162,11 @@ Search table...
 
 ### Which vars are available in generate\_schema\_name?[​](#which-vars-are-available-in-generate_schema_name "Direct link to Which vars are available in generate_schema_name?")
 
-Globally-scoped variables and variables defined on the command line with [--vars](https://docs.getdbt.com/docs/build/project-variables.md) are accessible in the `generate_schema_name` context.
+Globally-scoped variables and variables defined on the command line with [--vars](./project-variables.md) are accessible in the `generate_schema_name` context.
 
 ### Managing different behaviors across packages[​](#managing-different-behaviors-across-packages "Direct link to Managing different behaviors across packages")
 
-See docs on macro `dispatch`: ["Managing different global overrides across packages"](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md)
+See docs on macro `dispatch`: ["Managing different global overrides across packages"](../../reference/dbt-jinja-functions/dispatch.md)
 
 ## A built-in alternative pattern for generating schema names[​](#a-built-in-alternative-pattern-for-generating-schema-names "Direct link to A built-in alternative pattern for generating schema names")
 
@@ -221,15 +221,15 @@ When using this macro, you'll need to set the target name in your production job
 In the `generate_schema_name` macro examples shown in the [built-in alternative pattern](#a-built-in-alternative-pattern-for-generating-schema-names) section, the `target.name` context variable is used to change the schema name that dbt generates for models. If the `generate_schema_name` macro in your project uses the `target.name` context variable, you must ensure that your different dbt environments are configured accordingly. While you can use any naming scheme you'd like, we typically recommend:
 
 * **dev** — Your local development environment; configured in a `profiles.yml` file on your computer.
-* **ci** — A [continuous integration](https://docs.getdbt.com/docs/platform/git/connect-github.md) environment running on pull requests in GitHub, GitLab, and so on.
-* **prod** — The production deployment of your dbt project, like in dbt, Airflow, or [similar](https://docs.getdbt.com/docs/deploy/deployments.md).
+* **ci** — A [continuous integration](../platform/git/connect-github.md) environment running on pull requests in GitHub, GitLab, and so on.
+* **prod** — The production deployment of your dbt project, like in dbt, Airflow, or [similar](../deploy/deployments.md).
 
 If your schema names are being generated incorrectly, double-check your target name in the relevant environment.
 
-For more information, consult the [managing environments in dbt Core](https://docs.getdbt.com/docs/local/dbt-core-environments.md) guide.
+For more information, consult the [managing environments in dbt Core](../local/dbt-core-environments.md) guide.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Customize dbt models database, schema, and alias](https://docs.getdbt.com/guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
-* [Custom database](https://docs.getdbt.com/docs/build/custom-databases.md) to learn how to customize dbt model database
-* [Custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md) to learn how to customize dbt model alias name
+* [Customize dbt models database, schema, and alias](../../guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
+* [Custom database](./custom-databases.md) to learn how to customize dbt model database
+* [Custom aliases](./custom-aliases.md) to learn how to customize dbt model alias name

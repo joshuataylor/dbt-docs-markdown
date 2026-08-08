@@ -1,12 +1,12 @@
 # Defer
 
-Defer is a powerful feature that makes it possible to run a subset of <!-- -->models, tests, or functions<!-- --> in a [sandbox environment](https://docs.getdbt.com/docs/environments-in-dbt.md) without having to first build their upstream parents. This can save time and computational resources when you want to test a small number of models in a large project.
+Defer is a powerful feature that makes it possible to run a subset of <!-- -->models, tests, or functions<!-- --> in a [sandbox environment](../../docs/environments-in-dbt.md) without having to first build their upstream parents. This can save time and computational resources when you want to test a small number of models in a large project.
 
 [![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")](#)Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
 
-Defer requires a manifest from a previous dbt invocation. Provide the path using the `--state flag` or by setting the `DBT_ENGINE_STATE` environment variable. Together with the `state:` selection method, these features enable "Slim CI". Read more about [state](https://docs.getdbt.com/reference/node-selection/state-selection.md).
+Defer requires a manifest from a previous dbt invocation. Provide the path using the `--state flag` or by setting the `DBT_ENGINE_STATE` environment variable. Together with the `state:` selection method, these features enable "Slim CI". Read more about [state](./state-selection.md).
 
-For some use cases, you can use `dbt clone` to achieve similar functionality. For more details, refer to [clone](https://docs.getdbt.com/reference/commands/clone.md#when-to-use-dbt-clone-instead-of-deferral).
+For some use cases, you can use `dbt clone` to achieve similar functionality. For more details, refer to [clone](../commands/clone.md#when-to-use-dbt-clone-instead-of-deferral).
 
 It is possible to use separate state for `state:modified` and `--defer`, by passing paths to different manifests to each of the `--state`/`DBT_ENGINE_STATE` and `--defer-state`/`DBT_ENGINE_DEFER_STATE`. This enables more granular control in cases where you want to:
 
@@ -22,7 +22,7 @@ dbt run --select [...] --defer --state path/to/artifacts
 dbt test --select [...] --defer --state path/to/artifacts
 ```
 
-By default, dbt uses the [`target`](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) namespace to resolve `ref` calls.
+By default, dbt uses the [`target`](../dbt-jinja-functions/target.md) namespace to resolve `ref` calls.
 
 When `--defer` is enabled, dbt resolves `ref` and `function` calls using the state manifest instead, but only if:
 
@@ -31,7 +31,7 @@ When `--defer` is enabled, dbt resolves `ref` and `function` calls using the sta
 
 Ephemeral models are never deferred, since they serve as "passthroughs" for other `ref` calls.
 
-[User-defined functions (UDFs)](https://docs.getdbt.com/docs/build/udfs.md) referenced using `{{ function('...') }}` are deferred under the same conditions. When deferred, `function()` resolves to the function definition in the state manifest if the UDF is not selected or not built in the current target.
+[User-defined functions (UDFs)](../../docs/build/udfs.md) referenced using `{{ function('...') }}` are deferred under the same conditions. When deferred, `function()` resolves to the function definition in the state manifest if the UDF is not selected or not built in the current target.
 
 info
 
@@ -40,7 +40,7 @@ When using defer, you may be selecting from production datasets, development dat
 * If you apply environment-specific limits in development but not in production, you may select more data than expected.
 * Tests that depend on multiple parents (for example, `relationships`), may run across environments.
 
-Deferral requires both `--defer` and `--state` to be set, either by passing flags explicitly or by setting environment variables (`DBT_ENGINE_DEFER` and `DBT_ENGINE_STATE`). Refer to [Continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) for more information.
+Deferral requires both `--defer` and `--state` to be set, either by passing flags explicitly or by setting environment variables (`DBT_ENGINE_DEFER` and `DBT_ENGINE_STATE`). Refer to [Continuous integration](../../docs/deploy/continuous-integration.md) for more information.
 
 #### Favor state[​](#favor-state "Direct link to Favor state")
 
@@ -50,7 +50,7 @@ When `--favor-state` is passed, dbt prioritizes node definitions from the `--sta
 
 In my local development environment, I create all models in my target schema, `dev_alice`. In production, the same models are created in a schema named `prod`.
 
-I access the dbt-generated [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md) (namely `manifest.json`) from a production run, and copy them into a local directory called `prod-run-artifacts`.
+I access the dbt-generated [artifacts](../../docs/deploy/artifacts.md) (namely `manifest.json`) from a production run, and copy them into a local directory called `prod-run-artifacts`.
 
 ### run[​](#run "Direct link to run")
 
@@ -183,5 +183,5 @@ dbt will check to see if `dev_alice.model_a` exists. If it doesn't exist, dbt wi
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Using defer in dbt](https://docs.getdbt.com/docs/platform/about-defer.md)
-* [on\_configuration\_change](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md)
+* [Using defer in dbt](../../docs/platform/about-defer.md)
+* [on\_configuration\_change](../resource-configs/on_configuration_change.md)

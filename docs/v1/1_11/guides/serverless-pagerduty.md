@@ -1,6 +1,6 @@
 # Trigger PagerDuty alarms when dbt jobs fail
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Webhooks
 
@@ -25,7 +25,7 @@ In this example, we will use fly.io for hosting/running the service. fly.io is a
 
 This guide assumes some familiarity with:
 
-* [dbt Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
+* [dbt Webhooks](../docs/deploy/webhooks.md)
 * CLI apps
 * Deploying code to a serverless code runner like fly.io or AWS Lambda
 
@@ -106,7 +106,7 @@ Make note of the integration key for later.
 
 ## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
 
-See [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**.
+See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**.
 
 Set the webhook URL to the host name you created earlier (`APP_NAME.fly.dev`)
 
@@ -118,7 +118,7 @@ Make note of the Webhook Secret Key for later.
 
 The application requires three secrets to be set, using these names:
 
-* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with at least the `Metdata Only` permission.
+* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md) with at least the `Metdata Only` permission.
 * `DBT_CLOUD_AUTH_TOKEN`: the Secret Key for the dbt webhook you created earlier.
 * `PD_ROUTING_KEY`: the integration key for the PagerDuty integration you created earlier.
 

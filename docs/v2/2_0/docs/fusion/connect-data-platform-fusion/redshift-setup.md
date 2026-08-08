@@ -83,4 +83,4 @@ default:
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find Redshift-specific configuration information in the [Redshift adapter reference guide](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md).
+Find Redshift-specific configuration information in the [Redshift adapter reference guide](../../../reference/resource-configs/redshift-configs.md).

@@ -6,7 +6,7 @@ When you enable dbt State in the Studio IDE, it runs automatically on every `dbt
 
 You can [turn it on for your development environment](#enabling-dbt-state-on-a-development-environment) so it's the default for everyone, or you can [override that setting just for your own account](#overriding-dbt-state-setting-per-user).
 
-**Prerequisite**: An account admin must [enable dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) before you can use it.
+**Prerequisite**: An account admin must [enable dbt State](./dbt-state-setup.md) before you can use it.
 
 ## Enabling dbt State on a development environment[​](#enabling-dbt-state-on-a-development-environment "Direct link to Enabling dbt State on a development environment")
 
@@ -42,6 +42,6 @@ You can override the development environment's dbt State setting for your own ac
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [Enable dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)

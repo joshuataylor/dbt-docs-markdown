@@ -18,7 +18,7 @@ Is Mesh a good fit in this scenario? Absolutely! There is no other way to share 
 
 tip
 
-To help you get started, check out our [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
+To help you get started, check out our [Quickstart with Mesh](../../guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
 
 ### Adoption challenges[​](#adoption-challenges "Direct link to Adoption challenges")
 

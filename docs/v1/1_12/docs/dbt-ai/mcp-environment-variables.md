@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-This page is a condensed reference for all environment variables used by the self-hosted dbt MCP server. For full detail on each variable (including examples), see [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+This page is a condensed reference for all environment variables used by the self-hosted dbt MCP server. For full detail on each variable (including examples), see [Set up self-hosted MCP](./setup-local-mcp.md).
 
 ## Self-hosted CLI[​](#self-hosted-cli "Direct link to Self-hosted CLI")
 
@@ -21,7 +21,7 @@ These variables are required for dbt platform features (Semantic Layer, Discover
 
 | Variable          | Required                                  | Description                                                                                                                                                                                                                                                                                                                                                                                     |
 | ----------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DBT_HOST`        | Required                                  | Your dbt platform [hostname](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md). Accepts both `cloud.getdbt.com` (default) and `https://cloud.getdbt.com`.<br /><br />Include the full hostname with subdomain — for example, `DBT_HOST=abc123.us1.dbt.com`. You no longer need to separate the prefix using `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. |
+| `DBT_HOST`        | Required                                  | Your dbt platform [hostname](../platform/about-platform/access-regions-ip-addresses.md). Accepts both `cloud.getdbt.com` (default) and `https://cloud.getdbt.com`.<br /><br />Include the full hostname with subdomain — for example, `DBT_HOST=abc123.us1.dbt.com`. You no longer need to separate the prefix using `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. |
 | `DBT_TOKEN`       | Required                                  | A service token or Personal Access Token (PAT).<br /><br />The `execute_sql` tool requires a PAT — service tokens *do not* work for that tool.                                                                                                                                                                                                                                                  |
 | `DBT_PROD_ENV_ID` | Required                                  | Your production environment ID (numeric integer).                                                                                                                                                                                                                                                                                                                                               |
 | `DBT_DEV_ENV_ID`  | Required for `execute_sql`                | Your development environment ID (numeric integer).                                                                                                                                                                                                                                                                                                                                              |
@@ -32,7 +32,7 @@ Legacy prefix variables
 
 `MULTICELL_ACCOUNT_PREFIX` and `DBT_HOST_PREFIX` are legacy environment variables. They are backwards compatible — if you already have them set, they will continue to work. However, the recommended approach is to set the full hostname directly in `DBT_HOST` (for example, `DBT_HOST=abc123.us1.dbt.com`).
 
-See [Finding your IDs](https://docs.getdbt.com/docs/dbt-ai/mcp-find-ids.md) for step-by-step instructions on locating each value.
+See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions on locating each value.
 
 ## Tool configuration[​](#tool-configuration "Direct link to Tool configuration")
 

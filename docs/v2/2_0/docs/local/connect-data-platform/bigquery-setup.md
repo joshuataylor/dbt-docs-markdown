@@ -85,7 +85,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md#required-permissions).
+For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](../../platform/connect-data-platform/connect-bigquery.md#required-permissions).
 
 ### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
 
@@ -251,4 +251,4 @@ default:
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find BigQuery-specific configuration information in the [BigQuery adapter reference guide](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md).
+Find BigQuery-specific configuration information in the [BigQuery adapter reference guide](../../../reference/resource-configs/bigquery-configs.md).

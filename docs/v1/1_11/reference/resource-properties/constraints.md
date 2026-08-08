@@ -9,13 +9,13 @@ When enforced, a constraint guarantees that you will never see invalid data in t
 Before using constraints, ensure the following requirements are met:
 
 * **You use supported materializations** — Constraints only work on `table` and `incremental` models. Constraints are never applied on `ephemeral` models or those materialized as `view`.
-* **You enforce a contract** — To use constraints, your model must declare and enforce a [contract](https://docs.getdbt.com/reference/resource-configs/contract.md). This means you need to explicitly define the `data_type` for every column in your model's schema configuration.
+* **You enforce a contract** — To use constraints, your model must declare and enforce a [contract](../resource-configs/contract.md). This means you need to explicitly define the `data_type` for every column in your model's schema configuration.
 
 ### Platform constraint support[​](#platform-constraint-support "Direct link to Platform constraint support")
 
 <!-- -->
 
-Select the adapter-specific tab for more information on [constraint](https://docs.getdbt.com/reference/resource-properties/constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
+Select the adapter-specific tab for more information on [constraint](./constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
 
 * **Definable and enforced** — The model won't build if it violates the constraint.
 * **Definable and not enforced** — The platform supports specifying the type of constraint, but a model can still build even if building the model violates the constraint. This constraint exists for metadata purposes only. This approach is more typical in cloud data warehouses than in transactional databases, where strict rule enforcement is more common.
@@ -146,12 +146,12 @@ The structure of a constraint is:
 
 Foreign key constraints accept two additional inputs:
 
-* `to`: A relation input, likely [`ref()`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md)] and [`source()`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md), indicating the referenced table.
+* `to`: A relation input, likely [`ref()`](../dbt-jinja-functions/ref.md)] and [`source()`](../dbt-jinja-functions/source.md), indicating the referenced table.
 * `to_columns`: A list of column(s) in that table containing the corresponding primary or unique key.
 
-This syntax for defining foreign keys uses `ref`, meaning it will capture dependencies and works across different environments. It's available in [dbt **Latest**](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and [dbt Core v1.9+](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
+This syntax for defining foreign keys uses `ref`, meaning it will capture dependencies and works across different environments. It's available in [dbt **Latest**](../../docs/dbt-versions/dbt-release-tracks.md) and [dbt Core v1.9+](../../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
 
-Since constraints support and enforcement [varies by platform](https://docs.getdbt.com/reference/resource-properties/constraints.md#platform-specific-support), dbt offers two optional fields you can specify on any filter:
+Since constraints support and enforcement [varies by platform](./constraints.md#platform-specific-support), dbt offers two optional fields you can specify on any filter:
 
 * `warn_unenforced`: Set to `False` to skip warnings for constraints that are supported by your platform but not enforced (like `primary_key` in Snowflake).
 * `warn_unsupported`: Set to `False` to skip warnings for constraints that your platform doesn't support at all (like `check` in Redshift).
@@ -199,7 +199,7 @@ models:
 
 Supported dbt-adapters use these fields when populated, to render out the foreign key constraint instead of `expression`.
 
-For more information on the adapters which support foreign key constraints, have a look at our guide on [Platform constraint support](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md#platform-constraint-support).
+For more information on the adapters which support foreign key constraints, have a look at our guide on [Platform constraint support](../../docs/mesh/govern/model-contracts.md#platform-constraint-support).
 
 ## Platform-specific support[​](#platform-specific-support "Direct link to Platform-specific support")
 
@@ -420,7 +420,7 @@ select
 );
 ```
 
-BigQuery allows defining and enforcing `not null` constraints, and defining (but *not* enforcing) `primary key` and `foreign key` constraints (which can be used for query optimization). BigQuery does not support defining or enforcing other constraints. For more information, refer to [Platform constraint support](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md#platform-constraint-support)
+BigQuery allows defining and enforcing `not null` constraints, and defining (but *not* enforcing) `primary key` and `foreign key` constraints (which can be used for query optimization). BigQuery does not support defining or enforcing other constraints. For more information, refer to [Platform constraint support](../../docs/mesh/govern/model-contracts.md#platform-constraint-support)
 
 Documentation: <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language>
 

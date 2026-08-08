@@ -12,12 +12,12 @@ Using Power BI? You can help shape the future of this integration. Ask your Micr
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* You have [configured the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md).
-* You are on a supported [dbt release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or on dbt v1.6 or higher.
+* You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md).
+* You are on a supported [dbt release track](../../dbt-versions/dbt-release-tracks.md) or on dbt v1.6 or higher.
 * You installed [Power BI Desktop or Power BI On-premises Data Gateway](https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-custom-connectors).
   <!-- -->
   * Power BI Service doesn't natively support custom connectors. To use the connector in Power BI Service, you must install and configure it on an On-premises Data Gateway.
-* You need your [dbt host](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md#3-view-connection-detail), [Environment ID](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer), and a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) to log in. This account should be set up with the Semantic Layer.
+* You need your [dbt host](../../use-dbt-semantic-layer/setup-sl.md#3-view-connection-detail), [Environment ID](../../use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer), and a [service token](../../dbt-apis/service-tokens.md) or a [personal access token](../../dbt-apis/user-tokens.md) to log in. This account should be set up with the Semantic Layer.
 * You must have a dbt Starter or Enterprise-tier [account](https://www.getdbt.com/pricing). Suitable for both Multi-tenant and Single-tenant deployment.
 
 <!-- -->
@@ -174,7 +174,7 @@ When you select time dimensions in the **Group By** menu, you'll see a list of a
 
 info
 
-Note: [Custom time granularities](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](https://docs.getdbt.com/docs/build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md).
+Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](../../build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](../../dbt-apis/sl-api-overview.md).
 
 ## Considerations[​](#considerations "Direct link to Considerations")
 

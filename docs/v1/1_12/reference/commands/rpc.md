@@ -4,7 +4,7 @@ The dbt-rpc plugin is deprecated
 
 dbt Labs actively maintained `dbt-rpc` for compatibility with dbt-core versions up to v1.5. Starting with dbt-core v1.6 (released in July 2023), `dbt-rpc` is no longer supported for ongoing compatibility.
 
-In the meantime, dbt Labs will be performing critical maintenance only for `dbt-rpc`, until the last compatible version of dbt-core has reached the [end of official support](https://docs.getdbt.com/docs/dbt-versions.md#end-of-life-versions). At that point, dbt Labs will archive this repository to be read-only.
+In the meantime, dbt Labs will be performing critical maintenance only for `dbt-rpc`, until the last compatible version of dbt-core has reached the [end of official support](../../docs/dbt-versions.md#end-of-life-versions). At that point, dbt Labs will archive this repository to be read-only.
 
 ### Overview[​](#overview "Direct link to Overview")
 
@@ -227,13 +227,13 @@ All RPC requests accept the following parameters in addition to the parameters l
 
 Several of the following request types accept these additional parameters:
 
-* `threads`: The number of [threads](https://docs.getdbt.com/docs/local/profiles.yml.md#understanding-threads) to use when compiling (optional)
+* `threads`: The number of [threads](../../docs/local/profiles.yml.md#understanding-threads) to use when compiling (optional)
 * `select`: The space-delimited set of resources to execute (optional). (`models` is also supported on some request types for backwards compatibility.)
-* `selector`: The name of a predefined [YAML selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) that defines the set of resources to execute (optional)
+* `selector`: The name of a predefined [YAML selector](../node-selection/yaml-selectors.md) that defines the set of resources to execute (optional)
 * `exclude`: The space-delimited set of resources to exclude from compiling, running, testing, seeding, or snapshotting (optional)
-* `state`: The filepath of artifacts to use when establishing [state](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection) (optional)
+* `state`: The filepath of artifacts to use when establishing [state](../node-selection/syntax.md#about-node-selection) (optional)
 
-### Compile a project ([docs](https://docs.getdbt.com/reference/commands/compile.md))[​](#compile-a-project-docs "Direct link to compile-a-project-docs")
+### Compile a project ([docs](./compile.md))[​](#compile-a-project-docs "Direct link to compile-a-project-docs")
 
 ```json
 {
@@ -250,7 +250,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run models ([docs](https://docs.getdbt.com/reference/commands/run.md))[​](#run-models-docs "Direct link to run-models-docs")
+### Run models ([docs](./run.md))[​](#run-models-docs "Direct link to run-models-docs")
 
 **Additional parameters:**
 
@@ -272,7 +272,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run tests ([docs](https://docs.getdbt.com/reference/commands/test.md))[​](#run-tests-docs "Direct link to run-tests-docs")
+### Run tests ([docs](./test.md))[​](#run-tests-docs "Direct link to run-tests-docs")
 
 **Additional parameters:**
 
@@ -296,7 +296,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run seeds ([docs](https://docs.getdbt.com/reference/commands/seed.md))[​](#run-seeds-docs "Direct link to run-seeds-docs")
+### Run seeds ([docs](./seed.md))[​](#run-seeds-docs "Direct link to run-seeds-docs")
 
 **Parameters:**
 
@@ -318,7 +318,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run snapshots ([docs](https://docs.getdbt.com/docs/build/snapshots.md))[​](#run-snapshots-docs "Direct link to run-snapshots-docs")
+### Run snapshots ([docs](../../docs/build/snapshots.md))[​](#run-snapshots-docs "Direct link to run-snapshots-docs")
 
 ```json
 {
@@ -335,7 +335,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Build ([docs](https://docs.getdbt.com/reference/commands/build.md))[​](#build-docs "Direct link to build-docs")
+### Build ([docs](./build.md))[​](#build-docs "Direct link to build-docs")
 
 ```json
 {
@@ -353,7 +353,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### List project resources ([docs](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate))[​](#list-project-resources-docs "Direct link to list-project-resources-docs")
+### List project resources ([docs](./cmd-docs.md#dbt-docs-generate))[​](#list-project-resources-docs "Direct link to list-project-resources-docs")
 
 **Additional parameters:**
 
@@ -375,7 +375,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Generate docs ([docs](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate))[​](#generate-docs-docs "Direct link to generate-docs-docs")
+### Generate docs ([docs](./cmd-docs.md#dbt-docs-generate))[​](#generate-docs-docs "Direct link to generate-docs-docs")
 
 **Additional parameters:**
 

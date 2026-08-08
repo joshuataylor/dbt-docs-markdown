@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./bigquery-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:
   <!-- -->
@@ -33,13 +33,13 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-bigquery<!-- -->
 
-For <!-- -->BigQuery<!-- -->-specific configuration, please refer to [BigQuery<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md)
+For <!-- -->BigQuery<!-- -->-specific configuration, please refer to [BigQuery<!-- --> configs.](../../../reference/resource-configs/bigquery-configs.md)
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Install [Git](https://git-scm.com/install/)
 * Install [Google Cloud SDK](https://docs.cloud.google.com/sdk/docs/install-sdk)
-* Use Python versions 3.13.x or older. Python 3.14 is [not supported](https://docs.getdbt.com/faqs/Core/install-python-compatibility.md#python-compatibility-matrix) as yet
+* Use Python versions 3.13.x or older. Python 3.14 is [not supported](../../../faqs/Core/install-python-compatibility.md#python-compatibility-matrix) as yet
 * Access to a GCP account BigQuery project
 * Access to a Git platform repository (like GitHub, AzureDevOps, GitLab, and so on)
 
@@ -54,7 +54,7 @@ For BigQuery with dbt Fusion engine, users also need:
 
 * BigQuery Read Session User (for Storage Read API access)
 
-To use the [Query History](https://docs.getdbt.com/docs/explore/model-query-history.md#bigquery-model-query-history) feature, add:
+To use the [Query History](../../explore/model-query-history.md#bigquery-model-query-history) feature, add:
 
 * BigQuery Resource Viewer
 
@@ -79,7 +79,7 @@ For self-hosted dbt installations, we recommend using the OAuth method. If you'r
 
 Workload Identity Federation
 
-WIF authentication (`external-oauth-wif`) is available in [Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md?version=2.0#supported-authentication-types). It's not supported in dbt Core v1.12 and earlier.
+WIF authentication (`external-oauth-wif`) is available in [Fusion](./bigquery-setup.md?version=2.0#supported-authentication-types). It's not supported in dbt Core v1.12 and earlier.
 
 BigQuery targets should be set up using the following configuration in your `profiles.yml` file. There are a number of [optional configurations](#optional-configurations) you may specify as well.
 
@@ -548,9 +548,9 @@ The `submission_method` profile field controls how dbt submits Python model jobs
 
 | `submission_method`    | Description                                                                                                                                                            |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `serverless` (default) | Runs jobs on [Dataproc Serverless](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#dataproc-serverless) with no cluster management required |
-| `cluster`              | Runs jobs on an existing [Dataproc cluster](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#dataproc-cluster)                               |
-| `bigframes`            | Runs jobs using [BigQuery DataFrames](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#bigframes). No Spark setup required                   |
+| `serverless` (default) | Runs jobs on [Dataproc Serverless](./bigquery-setup.md#dataproc-serverless) with no cluster management required |
+| `cluster`              | Runs jobs on an existing [Dataproc cluster](./bigquery-setup.md#dataproc-cluster)                               |
+| `bigframes`            | Runs jobs using [BigQuery DataFrames](./bigquery-setup.md#bigframes). No Spark setup required                   |
 
 Search table...
 
@@ -616,7 +616,7 @@ For a full list of possible configuration fields that can be passed in `dataproc
 
 #### BigFrames[​](#bigframes "Direct link to BigFrames")
 
-[BigQuery DataFrames](https://cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) lets you run Python models using APIs directly in BigQuery without setting up Spark. Refer to the [dbt Python models with BigFrames](https://docs.getdbt.com/guides/dbt-python-bigframes.md) guide for full setup instructions.
+[BigQuery DataFrames](https://cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) lets you run Python models using APIs directly in BigQuery without setting up Spark. Refer to the [dbt Python models with BigFrames](../../../guides/dbt-python-bigframes.md) guide for full setup instructions.
 
 ```yaml
 my-profile:
@@ -638,7 +638,7 @@ my-profile:
 
 If your organization has set up BigQuery Reservations, you may specify `reservation` for dbt to use for query execution.
 
-This applies to all jobs for the target. To override it for a specific model or set of models, use the [`reservation` model config](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#using-reservations).
+This applies to all jobs for the target. To override it for a specific model or set of models, use the [`reservation` model config](../../../reference/resource-configs/bigquery-configs.md#using-reservations).
 
 ```yaml
 my-profile:

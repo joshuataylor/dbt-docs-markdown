@@ -117,7 +117,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -167,7 +167,7 @@ analyses:
       enabled: true | false
 ```
 
-To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` in your `dbt_project.yml`.
+To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](../global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` in your `dbt_project.yml`.
 
 dbt\_project.yml
 
@@ -257,9 +257,9 @@ An optional configuration for enabling or disabling a resource.
 
 When a resource is disabled, dbt will not consider it as part of your project. Note that this can cause compilation errors.
 
-If you instead want to exclude a model from a particular run, consider using the `--exclude` parameter as part of the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md)
+If you instead want to exclude a model from a particular run, consider using the `--exclude` parameter as part of the [model selection syntax](../node-selection/syntax.md)
 
-If you are disabling models because they are no longer being used, but you want to version control their SQL, consider making them an [analysis](https://docs.getdbt.com/docs/build/analyses.md) instead.
+If you are disabling models because they are no longer being used, but you want to version control their SQL, consider making them an [analysis](../../docs/build/analyses.md) instead.
 
 ## Examples[​](#examples "Direct link to Examples")
 

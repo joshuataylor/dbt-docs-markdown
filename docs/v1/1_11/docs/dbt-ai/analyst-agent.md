@@ -2,7 +2,7 @@
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
-dbt Copilot in Insights lets you chat with your data and get accurate answers powered by the [dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md). Unlike generic AI chat interfaces, dbt Wizard in Insights provides consistent, explainable results with transparent SQL, lineage, and data policies.
+dbt Copilot in Insights lets you chat with your data and get accurate answers powered by the [dbt Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md). Unlike generic AI chat interfaces, dbt Wizard in Insights provides consistent, explainable results with transparent SQL, lineage, and data policies.
 
 <!-- -->
 
@@ -12,22 +12,22 @@ dbt Wizard is the new and recommended AI agent for governed data development in 
 
 dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Enable beta features under **Account settings** > **Personal profile** > **Experimental features**. See [Preview new dbt platform features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md) for steps.
-* Have access to [dbt Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md) and meet those prerequisites.
+* Enable beta features under **Account settings** > **Personal profile** > **Experimental features**. See [Preview new dbt platform features](../dbt-versions/experimental-features.md) for steps.
+* Have access to [dbt Insights](../explore/dbt-insights.md) and meet those prerequisites.
 * Be on a dbt platform [Enterprise-tier](https://www.getdbt.com/pricing) plan — [book a demo](https://www.getdbt.com/contact) to learn more about Insights.
-* Available on all [tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md) configurations.
-* Have a dbt [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with access to Insights.
-* Configured [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
+* Available on all [tenant](../platform/about-platform/tenancy.md) configurations.
+* Have a dbt [developer license](../platform/manage-access/seats-and-users.md) with access to Insights.
+* Configured [user credentials](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide).
 
 ## Using dbt Copilot in Insights[​](#using-dbt-copilot-in-insights "Direct link to Using dbt Copilot in Insights")
 
 <!-- -->
 
-Use dbt Copilot to analyze your data and get contextualized results in real time by asking natural language questions to the [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md) dbt Wizard in Insights agent.
+Use dbt Copilot to analyze your data and get contextualized results in real time by asking natural language questions to the [Insights](../explore/dbt-insights.md) dbt Wizard in Insights agent.
 
 1. Click the **dbt Copilot** icon in the Query console sidebar menu.
 

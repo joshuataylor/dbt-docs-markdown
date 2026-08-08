@@ -16,15 +16,15 @@ Make sure the following are set up before connecting from Snowflake:
 
 * **Account setup**
 
-  * Have [AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) enabled.
-  * [Remote MCP OAuth enabled](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md). The remote MCP server is generally available, but the OAuth connection method is in public beta for Starter and Enterprise-tiered accounts.
-  * A [static subdomain](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) configured, for example `abc123` in `abc123.us1.dbt.com`. If your account doesn't have a subdomain, contact support.
+  * Have [AI features](../platform/enable-dbt-ai.md) enabled.
+  * [Remote MCP OAuth enabled](./setup-remote-mcp.md). The remote MCP server is generally available, but the OAuth connection method is in public beta for Starter and Enterprise-tiered accounts.
+  * A [static subdomain](../platform/about-platform/access-regions-ip-addresses.md) configured, for example `abc123` in `abc123.us1.dbt.com`. If your account doesn't have a subdomain, contact support.
 
 * **Access and permissions**
   * Read-only or higher access to dbt platform. The agent inherits each connected user's permissions.
 
 * **Semantic Layer setup**
-  * A configured [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) with [metrics and dimensions](https://docs.getdbt.com/docs/build/build-metrics-intro.md).
+  * A configured [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) with [metrics and dimensions](../build/build-metrics-intro.md).
 
 * **MCP endpoint**
 
@@ -34,7 +34,7 @@ Make sure the following are set up before connecting from Snowflake:
 
   We recommend using the MCP URL from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform. However, if you want to build your own MCP URL, use your **Access URL** from **Account settings** in dbt platform. The remote MCP endpoint is `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp`. Replace `YOUR_DBT_HOST_URL` with your hostname only (no `https://`).
 
-  For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+  For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
   <!-- -->
 
@@ -147,12 +147,12 @@ The agent can't query dbt until each user authorizes it. Complete the OAuth flow
 
 1. In the Snowflake Intelligence user interface, open your MCP connectors. Depending on your Snowflake version, this is under **Settings → User → MCP Connectors**, or in the **Connectors** panel of the agent's sources.
 2. Find the **dbt Semantic Layer MCP** connector you created and select **Connect**.
-3. Snowflake redirects you to dbt platform to sign in and approve the requested [scopes](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent) on the consent screen. You can scope the connection to a specific project (recommended) so the agent only sees that project's data.
+3. Snowflake redirects you to dbt platform to sign in and approve the requested [scopes](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent) on the consent screen. You can scope the connection to a specific project (recommended) so the agent only sees that project's data.
 4. After you approve, the connector shows as **Connected** and you're returned to Snowflake.
 
 Snowflake self-registers with dbt platform through Dynamic Client Registration on first connect, so no admin action is needed to register it.
 
-In dbt platform, admins can review and audit the connected client, and manage sessions and scopes, in **Account settings → Integrations → App integrations**. For the full registration, consent, and session model, see [Connect apps with OAuth](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md).
+In dbt platform, admins can review and audit the connected client, and manage sessions and scopes, in **Account settings → Integrations → App integrations**. For the full registration, consent, and session model, see [Connect apps with OAuth](../platform/manage-access/connect-apps-oauth.md).
 
 ## Verify the connection[​](#verify-the-connection "Direct link to Verify the connection")
 
@@ -160,7 +160,7 @@ Open your agent in Snowflake Intelligence and ask one of its sample questions, s
 
 info
 
-Only [`text_to_sql`](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
+Only [`text_to_sql`](./mcp-available-tools.md) consumes your dbt Copilot action allotment. Other MCP tools do not.
 
 When your account runs out of dbt Copilot actions, the remote MCP server blocks every tool that runs through it, including tools invoked from a self-hosted MCP server and [proxied](https://github.com/dbt-labs/dbt-mcp/blob/main/src/dbt_mcp/tools/toolsets.py#L24) to remote MCP, such as SQL and remote Fusion tools.
 
@@ -170,13 +170,13 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
  The connector won't authorize or the OAuth flow fails
 
-* Confirm your account has a [static subdomain](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md). OAuth with MCP requires one.
+* Confirm your account has a [static subdomain](../platform/about-platform/access-regions-ip-addresses.md). OAuth with MCP requires one.
 * Verify the host in `API_ALLOWED_PREFIXES`, `OAUTH_TOKEN_ENDPOINT`, `OAUTH_AUTHORIZATION_ENDPOINT`, and `OAUTH_RESOURCE_URL` all match your MCP URL host exactly, and that the integration `ENABLED = TRUE`.
-* Make sure [AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) are enabled and that remote MCP OAuth is available for your account tier.
+* Make sure [AI features](../platform/enable-dbt-ai.md) are enabled and that remote MCP OAuth is available for your account tier.
 
  The agent returns no metrics or empty results
 
-* Confirm the project you authorized has a configured [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) with metrics and dimensions.
+* Confirm the project you authorized has a configured [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) with metrics and dimensions.
 * Check that the user who connected has at least read-only access to that project — the agent only sees what the user can see.
 * If you scoped the OAuth connection to a single project, make sure it's the project that contains your metrics.
 
@@ -186,7 +186,7 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Set up the remote MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md)
-* [Available MCP tools](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md)
-* [Connect apps with OAuth](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md)
+* [Set up the remote MCP server](./setup-remote-mcp.md)
+* [Available MCP tools](./mcp-available-tools.md)
+* [Connect apps with OAuth](../platform/manage-access/connect-apps-oauth.md)
 * [Snowflake: MCP Connectors](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp-connectors)

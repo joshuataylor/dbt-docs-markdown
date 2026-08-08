@@ -4,15 +4,15 @@ dbt's node selection syntax makes it possible to run only specific resources in 
 
 | command                                                                 | argument(s)                                                         |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| [run](https://docs.getdbt.com/reference/commands/run.md)                | `--select`, `--exclude`, `--selector`, `--defer`                    |
-| [test](https://docs.getdbt.com/reference/commands/test.md)              | `--select`, `--exclude`, `--selector`, `--defer`                    |
-| [seed](https://docs.getdbt.com/reference/commands/seed.md)              | `--select`, `--exclude`, `--selector`                               |
-| [snapshot](https://docs.getdbt.com/reference/commands/snapshot.md)      | `--select`, `--exclude`, `--selector`                               |
-| [ls (list)](https://docs.getdbt.com/reference/commands/list.md)         | `--select`, `--exclude`, `--selector`, `--resource-type`            |
-| [compile](https://docs.getdbt.com/reference/commands/compile.md)        | `--select`, `--exclude`, `--selector`, `--inline`                   |
-| [freshness](https://docs.getdbt.com/reference/commands/source.md)       | `--select`, `--exclude`, `--selector`                               |
-| [build](https://docs.getdbt.com/reference/commands/build.md)            | `--select`, `--exclude`, `--selector`, `--resource-type`, `--defer` |
-| [docs generate](https://docs.getdbt.com/reference/commands/cmd-docs.md) | `--select`, `--exclude`, `--selector`                               |
+| [run](../commands/run.md)                | `--select`, `--exclude`, `--selector`, `--defer`                    |
+| [test](../commands/test.md)              | `--select`, `--exclude`, `--selector`, `--defer`                    |
+| [seed](../commands/seed.md)              | `--select`, `--exclude`, `--selector`                               |
+| [snapshot](../commands/snapshot.md)      | `--select`, `--exclude`, `--selector`                               |
+| [ls (list)](../commands/list.md)         | `--select`, `--exclude`, `--selector`, `--resource-type`            |
+| [compile](../commands/compile.md)        | `--select`, `--exclude`, `--selector`, `--inline`                   |
+| [freshness](../commands/source.md)       | `--select`, `--exclude`, `--selector`                               |
+| [build](../commands/build.md)            | `--select`, `--exclude`, `--selector`, `--resource-type`, `--defer` |
+| [docs generate](../commands/cmd-docs.md) | `--select`, `--exclude`, `--selector`                               |
 
 Search table...
 
@@ -26,7 +26,7 @@ Nodes and resources
 
 We use the terms ["nodes"](https://en.wikipedia.org/wiki/Vertex_\(graph_theory\)) and "resources" interchangeably. These encompass all the models, tests, sources, seeds, snapshots, exposures, and analyses in your project. They are the objects that make up dbt's DAG (directed acyclic graph).
 
-The `--select` and `--selector` arguments are similar in that they both allow you to select resources. To understand the difference, see [Differences between `--select` and `--selector`](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#difference-between---select-and---selector).
+The `--select` and `--selector` arguments are similar in that they both allow you to select resources. To understand the difference, see [Differences between `--select` and `--selector`](./yaml-selectors.md#difference-between---select-and---selector).
 
 <!-- -->
 
@@ -38,15 +38,15 @@ To follow [POSIX standards](https://pubs.opengroup.org/onlinepubs/9699919799/bas
 
 ### How does selection work?[​](#how-does-selection-work "Direct link to How does selection work?")
 
-1. dbt gathers all the resources that are matched by one or more of the `--select` criteria, in the order of [selection methods](https://docs.getdbt.com/reference/node-selection/methods.md) (e.g. `tag:`), then [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md) (e.g. `+`), then finally set operators ([unions](https://docs.getdbt.com/reference/node-selection/set-operators.md#unions), [intersections](https://docs.getdbt.com/reference/node-selection/set-operators.md#intersections), [exclusions](https://docs.getdbt.com/reference/node-selection/exclude.md)).
+1. dbt gathers all the resources that are matched by one or more of the `--select` criteria, in the order of [selection methods](./methods.md) (e.g. `tag:`), then [graph operators](./graph-operators.md) (e.g. `+`), then finally set operators ([unions](./set-operators.md#unions), [intersections](./set-operators.md#intersections), [exclusions](./exclude.md)).
 
 <!-- -->
 
 tip
 
-You can combine multiple selector methods in one `--select` command by separating them with commas (`,`) without whitespace (for example, `dbt run --select "marts.finance,tag:nightly"`). This only selects resources that satisfy *all* arguments. In this example, the command runs models that are in the `marts/finance` subdirectory and tagged `nightly`. For more information, see [Set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md).
+You can combine multiple selector methods in one `--select` command by separating them with commas (`,`) without whitespace (for example, `dbt run --select "marts.finance,tag:nightly"`). This only selects resources that satisfy *all* arguments. In this example, the command runs models that are in the `marts/finance` subdirectory and tagged `nightly`. For more information, see [Set operators](./set-operators.md).
 
-2. The selected resources may be models, sources, seeds, snapshots, tests. (Tests can also be selected "indirectly" via their parents; see [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) for details.)
+2. The selected resources may be models, sources, seeds, snapshots, tests. (Tests can also be selected "indirectly" via their parents; see [test selection examples](./test-selection-examples.md) for details.)
 
 3. dbt now has a list of still-selected resources of varying types. As a final step, it tosses away any resource that does not match the resource type of the current task. (Only seeds are kept for `dbt seed`, only models for `dbt run`, only tests for `dbt test`, and so on.)
 
@@ -83,8 +83,8 @@ dbt run --select "selector:my_selector"  # run the node set defined by the named
 
 dbt supports a shorthand language for defining subsets of nodes. This language uses the following characters:
 
-* plus operator [(`+`)](https://docs.getdbt.com/reference/node-selection/graph-operators.md#the-plus-operator)
-* at operator [(`@`)](https://docs.getdbt.com/reference/node-selection/graph-operators.md#the-at-operator)
+* plus operator [(`+`)](./graph-operators.md#the-plus-operator)
+* at operator [(`@`)](./graph-operators.md#the-at-operator)
 * asterisk operator (`*`)
 * comma operator (`,`)
 
@@ -110,17 +110,17 @@ dbt run --select "path:marts/finance,tag:nightly,config.materialized:table"
 dbt run --select "selector:staging,tag:nightly"
 ```
 
-As your selection logic gets more complex, and becomes unwieldly to type out as command-line arguments, consider using a [yaml selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md).
+As your selection logic gets more complex, and becomes unwieldly to type out as command-line arguments, consider using a [yaml selector](./yaml-selectors.md).
 
 You can use a predefined definition with the `--selector` flag. Note that when you're using `--selector`, dbt ignores `--select` and `--exclude`.
 
-The `--select` and `--selector` arguments are similar in that they both allow you to select resources. To understand the difference, see [Differences between `--select` and `--selector`](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#difference-between---select-and---selector).
+The `--select` and `--selector` arguments are similar in that they both allow you to select resources. To understand the difference, see [Differences between `--select` and `--selector`](./yaml-selectors.md#difference-between---select-and---selector).
 
 <!-- -->
 
 ### Troubleshoot with the `ls` command[​](#troubleshoot-with-the-ls-command "Direct link to troubleshoot-with-the-ls-command")
 
-Constructing and debugging your selection syntax can be challenging. To get a "preview" of what will be selected, we recommend using the [`list` command](https://docs.getdbt.com/reference/commands/list.md). This command, when combined with your selection syntax, will output a list of the nodes that meet that selection criteria. The `dbt ls` command supports all types of selection syntax arguments, for example:
+Constructing and debugging your selection syntax can be challenging. To get a "preview" of what will be selected, we recommend using the [`list` command](../commands/list.md). This command, when combined with your selection syntax, will output a list of the nodes that meet that selection criteria. The `dbt ls` command supports all types of selection syntax arguments, for example:
 
 ```bash
 dbt ls --select "path/to/my/models" # Lists all models in a specific directory.

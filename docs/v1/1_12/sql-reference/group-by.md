@@ -2,11 +2,11 @@
 
 GROUP BY…it’s a little hard to explicitly define in a way *that actually makes sense*, but it will inevitably show up countless times in analytics work and you’ll need it frequently.
 
-To put it in the simplest terms, the GROUP BY statement allows you to group query results by specified columns and is used in pair with aggregate functions such as [AVG](https://docs.getdbt.com/sql-reference/avg.md) and [SUM](https://docs.getdbt.com/sql-reference/sum.md) to calculate those values across specific rows.
+To put it in the simplest terms, the GROUP BY statement allows you to group query results by specified columns and is used in pair with aggregate functions such as [AVG](./avg.md) and [SUM](./sum.md) to calculate those values across specific rows.
 
 ## How to use the SQL GROUP BY statement[​](#how-to-use-the-sql-group-by-statement "Direct link to How to use the SQL GROUP BY statement")
 
-The GROUP BY statement appears at the end of a query, after any joins and [WHERE](https://docs.getdbt.com/sql-reference/where.md) filters have been applied:
+The GROUP BY statement appears at the end of a query, after any joins and [WHERE](./where.md) filters have been applied:
 
 ```sql
 select 
@@ -20,7 +20,7 @@ order by 1 desc
 
 A few things to note about the GROUP BY implementation:
 
-* It’s usually listed as one of the last rows in a query, after any joins or where statements; typically you’ll only see [HAVING](https://docs.getdbt.com/sql-reference/having.md), [ORDER BY](https://docs.getdbt.com/sql-reference/order-by.md), or [LIMIT](https://docs.getdbt.com/sql-reference/limit.md) statements following it in a query
+* It’s usually listed as one of the last rows in a query, after any joins or where statements; typically you’ll only see [HAVING](./having.md), [ORDER BY](./order-by.md), or [LIMIT](./limit.md) statements following it in a query
 * You can group by multiple fields (ex. `group by 1,2,3`) if you need to; in general, we recommend performing aggregations and joins in separate CTEs to avoid having to group by too many fields in one query or CTE
 * You may also group by explicit column name (ex. `group by my_first_field`) or even a manipulated column name that is in the query (ex. `group by date_trunc('month', order_date)`)
 

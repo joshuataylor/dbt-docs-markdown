@@ -199,7 +199,7 @@ Note that for backwards compatibility, `group` is supported as a top-level key, 
 
 An optional configuration for assigning a group to a resource. When a resource is grouped, dbt will allow it to reference private models within the same group.
 
-For more details on reference access between resources in groups, check out [model access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups).
+For more details on reference access between resources in groups, check out [model access](../../docs/mesh/govern/model-access.md#groups).
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -236,5 +236,5 @@ dbt.exceptions.DbtReferenceError: Parsing Error
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Model Access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups)
-* [Defining groups](https://docs.getdbt.com/docs/build/groups.md)
+* [Model Access](../../docs/mesh/govern/model-access.md#groups)
+* [Defining groups](../../docs/build/groups.md)

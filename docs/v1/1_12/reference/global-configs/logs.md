@@ -23,7 +23,7 @@ The `text` format is the default for console logs and has plain text messages pr
 
 <!-- -->
 
-The `debug` format is the default for the log file and is the same as the `text` format but with a more detailed timestamp and also includes the [`invocation_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/invocation_id.md), [`thread_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/thread_id.md), and [log level](https://docs.getdbt.com/reference/global-configs/logs.md#log-level) of each message:
+The `debug` format is the default for the log file and is the same as the `text` format but with a more detailed timestamp and also includes the [`invocation_id`](../dbt-jinja-functions/invocation_id.md), [`thread_id`](../dbt-jinja-functions/thread_id.md), and [log level](./logs.md#log-level) of each message:
 
 ```text
 ============================== 16:12:08.555032 | 9089bafa-4010-4f38-9b42-564ec9106e07 ==============================
@@ -58,7 +58,7 @@ Use `json` formatting value in conjunction with the `DEBUG` config to produce ri
 dbt run --debug --log-format json
 ```
 
-Refer to [structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging) for more details.
+Refer to [structured logging](../events-logging.md#structured-logging) for more details.
 
 <!-- -->
 
@@ -110,7 +110,7 @@ Just like other global configs, it is possible to override these values for your
 
 ### Suppress non-error logs in output[​](#suppress-non-error-logs-in-output "Direct link to Suppress non-error logs in output")
 
-By default, dbt shows all logs in standard out (stdout). You can use the `QUIET` config to show only error logs in stdout. Logs will still include the output of anything passed to the [`print()`](https://docs.getdbt.com/reference/dbt-jinja-functions/print.md) macro. For example, you might suppress all but error logs to more easily find and debug a Jinja error.
+By default, dbt shows all logs in standard out (stdout). You can use the `QUIET` config to show only error logs in stdout. Logs will still include the output of anything passed to the [`print()`](../dbt-jinja-functions/print.md) macro. For example, you might suppress all but error logs to more easily find and debug a Jinja error.
 
 profiles.yml
 
@@ -127,7 +127,7 @@ dbt run --quiet
 
 ### dbt list logging[​](#dbt-list-logging "Direct link to dbt list logging")
 
-In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](https://docs.getdbt.com/reference/commands/list.md) command to include `INFO` level logs by default.
+In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](../commands/list.md) command to include `INFO` level logs by default.
 
 You can use either of these parameters to ensure clean output that's compatible with downstream processes, such as piping results to [`jq`](https://jqlang.github.io/jq/manual/), a file, or another process:
 

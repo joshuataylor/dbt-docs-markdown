@@ -6,7 +6,7 @@ These classes are often useful when building advanced dbt models and macros.
 
 ## Relation[​](#relation "Direct link to Relation")
 
-The `Relation` object is used to interpolate schema and table names into SQL code with appropriate quoting. This object should *always* be used instead of interpolating values with `{{ schema }}.{{ table }}` directly. Quoting of the Relation object can be configured using the [`quoting` config](https://docs.getdbt.com/reference/project-configs/quoting.md).
+The `Relation` object is used to interpolate schema and table names into SQL code with appropriate quoting. This object should *always* be used instead of interpolating values with `{{ schema }}.{{ table }}` directly. Quoting of the Relation object can be configured using the [`quoting` config](./project-configs/quoting.md).
 
 ### Creating relations[​](#creating-relations "Direct link to Creating relations")
 
@@ -28,7 +28,7 @@ class Relation:
 
 ### Using relations[​](#using-relations "Direct link to Using relations")
 
-In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) or [`this`](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md).
+In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](./dbt-jinja-functions/ref.md), [`source`](./dbt-jinja-functions/source.md) or [`this`](./dbt-jinja-functions/this.md).
 
 relation\_usage.sql
 
@@ -187,7 +187,7 @@ will be expanded to:
 
 ## Result objects[​](#result-objects "Direct link to Result objects")
 
-The execution of a resource in dbt generates a `Result` object. This object contains information about the executed node, timing, status, and metadata returned by the adapter. At the end of an invocation, dbt records these objects in [`run_results.json`](https://docs.getdbt.com/reference/artifacts/run-results-json.md).
+The execution of a resource in dbt generates a `Result` object. This object contains information about the executed node, timing, status, and metadata returned by the adapter. At the end of an invocation, dbt records these objects in [`run_results.json`](./artifacts/run-results-json.md).
 
 * `node`: Full object representation of the dbt resource (model, seed, snapshot, test) executed, including its `unique_id`
 * `status`: dbt's interpretation of runtime success, failure, or error
@@ -198,6 +198,6 @@ The execution of a resource in dbt generates a `Result` object. This object cont
 
 <!-- -->
 
-* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](https://docs.getdbt.com/docs/build/data-tests.md).
+* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../docs/build/data-tests.md).
   <!-- -->
   * `rows_affected` returns the number of rows modified by the last statement executed. In cases where the query's row count can't be determined or isn't applicable (such as when creating a view), a [standard value](https://peps.python.org/pep-0249/#rowcount) of `-1` is returned for `rowcount`.

@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-mindsdb<!-- -->
 
-For <!-- -->MindsDB<!-- -->-specific configuration, please refer to [MindsDB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/mindsdb-configs.md)
+For <!-- -->MindsDB<!-- -->-specific configuration, please refer to [MindsDB<!-- --> configs.](../../../reference/resource-configs/mindsdb-configs.md)
 
 ## Configurations[​](#configurations "Direct link to Configurations")
 

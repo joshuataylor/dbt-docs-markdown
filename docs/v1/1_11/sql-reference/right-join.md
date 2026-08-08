@@ -1,12 +1,12 @@
 # SQL RIGHT JOIN
 
-The not-as-favorite child: the right join. Unlike [left joins](https://docs.getdbt.com/sql-reference/left-join.md) that return all rows in the database object in [the FROM statement](https://docs.getdbt.com/sql-reference/from.md), regardless of match in the left join object, right joins return all rows *in the right join database object*, regardless of match in the database object in the FROM statement.
+The not-as-favorite child: the right join. Unlike [left joins](./left-join.md) that return all rows in the database object in [the FROM statement](./from.md), regardless of match in the left join object, right joins return all rows *in the right join database object*, regardless of match in the database object in the FROM statement.
 
 What you really need to know: You can accomplish anything a right join does with a left join and left joins typically are more readable and intuitive. However, we’ll still walk you through how to use right joins and elaborate on why we think left joins are superior 😉
 
 ## How to create a right join[​](#how-to-create-a-right-join "Direct link to How to create a right join")
 
-Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](https://docs.getdbt.com/sql-reference/select.md) to perform a right join:
+Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a right join:
 
 ```text
 select
@@ -16,7 +16,7 @@ right join <table_2> as t2
 on t1.id = t2.id 
 ```
 
-In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](https://docs.getdbt.com/sql-reference/where.md), [GROUP BY](https://docs.getdbt.com/sql-reference/group-by.md), [ORDER BY](https://docs.getdbt.com/sql-reference/order-by.md), [HAVING](https://docs.getdbt.com/sql-reference/having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also right (or any join really) as many joins as you’d like in an individual query or CTE.
+In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also right (or any join really) as many joins as you’d like in an individual query or CTE.
 
 ### SQL right join example[​](#sql-right-join-example "Direct link to SQL right join example")
 

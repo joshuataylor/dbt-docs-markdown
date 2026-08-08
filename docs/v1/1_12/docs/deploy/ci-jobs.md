@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-You can set up [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) (CI) jobs to run when someone opens a new pull request (PR) in your Git repository. By running and testing only *modified* models, dbt keeps these jobs as resource-conscious as possible on your data platform.
+You can set up [continuous integration](./continuous-integration.md) (CI) jobs to run when someone opens a new pull request (PR) in your Git repository. By running and testing only *modified* models, dbt keeps these jobs as resource-conscious as possible on your data platform.
 
 Triggering CI jobs in monorepos
 
@@ -16,36 +16,36 @@ If you have a monorepo with several dbt projects, opening a single pull request 
 
   <!-- -->
 
-  * For both the [concurrent CI checks](https://docs.getdbt.com/docs/deploy/continuous-integration.md#concurrent-ci-checks) and [smart cancellation of stale builds](https://docs.getdbt.com/docs/deploy/continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
-  * [SQL linting](https://docs.getdbt.com/docs/deploy/continuous-integration.md#sql-linting) is available on [dbt release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and to dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) accounts. Refer to [Configure SQLFluff linting](https://docs.getdbt.com/docs/deploy/continuous-integration.md#to-configure-sqlfluff-linting) when you add SQLFluff to your project.
+  * For both the [concurrent CI checks](./continuous-integration.md#concurrent-ci-checks) and [smart cancellation of stale builds](./continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
+  * [SQL linting](./continuous-integration.md#sql-linting) is available on [dbt release tracks](../dbt-versions/dbt-release-tracks.md) and to dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) accounts. Refer to [Configure SQLFluff linting](./continuous-integration.md#to-configure-sqlfluff-linting) when you add SQLFluff to your project.
 
 SQLFluff and the dbt Fusion engine
 
-SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
+SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../fusion/supported-features.md#limitations).
 
-* [Advanced CI](https://docs.getdbt.com/docs/deploy/advanced-ci.md) features:
+* [Advanced CI](./advanced-ci.md) features:
   <!-- -->
-  * For the [compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes) feature, your dbt account must be on an [Enterprise-tier plan](https://www.getdbt.com/pricing/) and have enabled Advanced CI features. Please ask your [dbt administrator to enable](https://docs.getdbt.com/docs/platform/account-settings.md#account-access-to-advanced-ci-features) this feature for you. After enablement, the **dbt compare** option becomes available in the CI job settings.
-* Set up a [connection with your Git provider](https://docs.getdbt.com/docs/platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
+  * For the [compare changes](./advanced-ci.md#compare-changes) feature, your dbt account must be on an [Enterprise-tier plan](https://www.getdbt.com/pricing/) and have enabled Advanced CI features. Please ask your [dbt administrator to enable](../platform/account-settings.md#account-access-to-advanced-ci-features) this feature for you. After enablement, the **dbt compare** option becomes available in the CI job settings.
+* Set up a [connection with your Git provider](../platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
   <!-- -->
-  * If you're using a native [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
+  * If you're using a native [GitLab](../platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
 
 <!-- -->
 
 ## Availability of features by Git provider[​](#availability-of-features-by-git-provider "Direct link to Availability of features by Git provider")
 
-* If your git provider has a [native dbt integration](https://docs.getdbt.com/docs/platform/git/configure-git.md), you can seamlessly set up [continuous integration (CI)](https://docs.getdbt.com/docs/deploy/ci-jobs.md) jobs directly within dbt.
+* If your git provider has a [native dbt integration](../platform/git/configure-git.md), you can seamlessly set up [continuous integration (CI)](./ci-jobs.md) jobs directly within dbt.
 
-* For providers without native integration, you can still use the [Git clone method](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md) to import your git URL and leverage the [dbt Administrative API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) to trigger a CI job to run.
+* For providers without native integration, you can still use the [Git clone method](../platform/git/import-a-project-by-git-url.md) to import your git URL and leverage the [dbt Administrative API](../dbt-apis/admin-api.md) to trigger a CI job to run.
 
 The following table outlines the available integration options and their corresponding capabilities.
 
 | **Git provider**                                                                                                                                                                                                                                                                                                                             | **Native dbt integration** | **Automated CI job** | **Git clone** | **Information**                                                                                                                                                                                  | **Supported plans**     |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md)<br />                                                                                                                                                                                                                                                      | ✅                         | ✅                   | ✅            | Organizations on the Starter and Developer plans can connect to Azure DevOps using a deploy key. Note, you won’t be able to configure automated CI jobs but you can still develop.               | Enterprise, Enterprise+ |
-| [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
-| [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
-| All other git providers using [Git clone](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md) ([BitBucket](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](https://docs.getdbt.com/guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
+| [Azure DevOps](../platform/git/connect-azure-devops.md)<br />                                                                                                                                                                                                                                                      | ✅                         | ✅                   | ✅            | Organizations on the Starter and Developer plans can connect to Azure DevOps using a deploy key. Note, you won’t be able to configure automated CI jobs but you can still develop.               | Enterprise, Enterprise+ |
+| [GitHub](../platform/git/connect-github.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
+| [GitLab](../platform/git/connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
+| All other git providers using [Git clone](../platform/git/import-a-project-by-git-url.md) ([BitBucket](../platform/git/import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](../platform/git/import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](../../guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
 
 Search table...
 
@@ -55,11 +55,11 @@ Search table...
 
 ## Set up CI jobs[​](#set-up-ci-jobs "Direct link to Set up CI jobs")
 
-dbt Labs recommends that you create your CI job in a dedicated dbt [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#create-a-deployment-environment) that's connected to a staging database. A separate CI environment improves isolation between your temporary CI schemas and production builds.
+dbt Labs recommends that you create your CI job in a dedicated dbt [deployment environment](./deploy-environments.md#create-a-deployment-environment) that's connected to a staging database. A separate CI environment improves isolation between your temporary CI schemas and production builds.
 
-You can trigger CI jobs for pull requests targeting a branch other than `main`. For example, if you use a long-lived staging branch, you can associate a CI environment with that branch via [custom branch](https://docs.getdbt.com/faqs/Environments/custom-branch-settings.md) settings. Then the job in that environment runs only when someone opens PRs against that branch.
+You can trigger CI jobs for pull requests targeting a branch other than `main`. For example, if you use a long-lived staging branch, you can associate a CI environment with that branch via [custom branch](../../faqs/Environments/custom-branch-settings.md) settings. Then the job in that environment runs only when someone opens PRs against that branch.
 
-To learn more, refer to [Get started with CI tests](https://docs.getdbt.com/guides/set-up-ci.md).
+To learn more, refer to [Get started with CI tests](../../guides/set-up-ci.md).
 
 To make CI job creation easier, many options on the **CI job** page are set to default values that dbt Labs recommends that you use. If you don't want to use the defaults, you can change them.
 
@@ -79,19 +79,19 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 
 4. Options in the **Execution settings** section:
 
-   * **Commands** — By default, this includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when this job runs.
+   * **Commands** — By default, this includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when this job runs.
 
-   * **Linting** — Enable this option for dbt to [lint the SQL files](https://docs.getdbt.com/docs/deploy/continuous-integration.md#sql-linting) in your project as the first step in `dbt run`. If this check runs into an error, dbt can either **Stop running on error** or **Continue running on error**.
+   * **Linting** — Enable this option for dbt to [lint the SQL files](./continuous-integration.md#sql-linting) in your project as the first step in `dbt run`. If this check runs into an error, dbt can either **Stop running on error** or **Continue running on error**.
 
-   * **dbt compare**[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") — Enable this option to compare the last applied state of the production environment (if one exists) with the latest changes from the pull request, and identify what those differences are. To enable record-level comparison and primary key analysis, you must add a [primary key constraint](https://docs.getdbt.com/reference/resource-properties/constraints.md) or [uniqueness test](https://docs.getdbt.com/reference/resource-properties/data-tests.md#unique). Otherwise, you'll receive a "Primary key missing" error message in dbt.
+   * **dbt compare**[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") — Enable this option to compare the last applied state of the production environment (if one exists) with the latest changes from the pull request, and identify what those differences are. To enable record-level comparison and primary key analysis, you must add a [primary key constraint](../../reference/resource-properties/constraints.md) or [uniqueness test](../../reference/resource-properties/data-tests.md#unique). Otherwise, you'll receive a "Primary key missing" error message in dbt.
 
-     To review the comparison report, navigate to the [Compare tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#compare-tab) in the job run's details. A summary of the report is also available from the pull request in your Git provider (refer to the [CI report example](#example-ci-report)).
+     To review the comparison report, navigate to the [Compare tab](./run-visibility.md#compare-tab) in the job run's details. A summary of the report is also available from the pull request in your Git provider (refer to the [CI report example](#example-ci-report)).
 
      Optimization tip
 
-     When you enable the **dbt compare** checkbox, you can customize the comparison command to optimize your CI job. For example, if you have large models that take a long time to compare, you can exclude them to speed up the process using the [`--exclude` flag](https://docs.getdbt.com/reference/node-selection/exclude.md). Refer to [compare changes custom commands](https://docs.getdbt.com/docs/deploy/job-commands.md#compare-changes-custom-commands) for more details.
+     When you enable the **dbt compare** checkbox, you can customize the comparison command to optimize your CI job. For example, if you have large models that take a long time to compare, you can exclude them to speed up the process using the [`--exclude` flag](../../reference/node-selection/exclude.md). Refer to [compare changes custom commands](./job-commands.md#compare-changes-custom-commands) for more details.
 
-     Additionally, if you set [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) in your models/seeds/snapshots/sources, it allows you to compare matching date ranges between tables by filtering to overlapping date ranges. This is useful for faster CI workflows or custom sampling setups.
+     Additionally, if you set [`event_time`](../../reference/resource-configs/event-time.md) in your models/seeds/snapshots/sources, it allows you to compare matching date ranges between tables by filtering to overlapping date ranges. This is useful for faster CI workflows or custom sampling setups.
 
    * **Compare changes against an environment (Deferral)** — By default, it’s set to the **Production** environment if you created one. This option allows dbt to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG.
 
@@ -101,16 +101,16 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 
    * **Run timeout** — Cancel the CI job if the run time exceeds the timeout value. You can use this option to help ensure that a CI check doesn't consume too much of your warehouse resources. If you enable the **dbt compare** option, the timeout value defaults to `3600` (one hour) to prevent long-running comparisons.
 
-   * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) and [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
+   * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](./dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
 
 5. (optional) Options in the **Advanced settings** section:
 
-   * **Environment variables** — Define [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) to customize the behavior of your project when this CI job runs. You can specify that a CI job is running in a *Staging* or *CI* environment by setting an environment variable and modifying your project code to behave differently, depending on the context. It's common for teams to process only a subset of data for CI runs, using environment variables to branch logic in their dbt project code.
-   * **Target name** — Define the [target name](https://docs.getdbt.com/docs/build/custom-target-names.md). Similar to **Environment Variables**, this option lets you customize the behavior of the project. You can use this option to specify that a CI job is running in a *Staging* or *CI* environment by setting the target name and modifying your project code to behave differently, depending on the context.
-   * **dbt version** — By default, it’s set to inherit the [dbt version](https://docs.getdbt.com/docs/dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
-   * **Threads** — By default, it’s set to 4 [threads](https://docs.getdbt.com/docs/local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
-   * **Generate docs on run** — Enable this if you want to [generate project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) when this job runs. This is disabled by default since testing doc generation on every CI check is not a recommended practice.
-   * **Run source freshness** — Enable this option to invoke the `dbt source freshness` command before running this CI job. Refer to [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) for more details.
+   * **Environment variables** — Define [environment variables](../build/environment-variables.md) to customize the behavior of your project when this CI job runs. You can specify that a CI job is running in a *Staging* or *CI* environment by setting an environment variable and modifying your project code to behave differently, depending on the context. It's common for teams to process only a subset of data for CI runs, using environment variables to branch logic in their dbt project code.
+   * **Target name** — Define the [target name](../build/custom-target-names.md). Similar to **Environment Variables**, this option lets you customize the behavior of the project. You can use this option to specify that a CI job is running in a *Staging* or *CI* environment by setting the target name and modifying your project code to behave differently, depending on the context.
+   * **dbt version** — By default, it’s set to inherit the [dbt version](../dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
+   * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
+   * **Generate docs on run** — Enable this if you want to [generate project docs](../explore/build-and-view-your-docs.md) when this job runs. This is disabled by default since testing doc generation on every CI check is not a recommended practice.
+   * **Run source freshness** — Enable this option to invoke the `dbt source freshness` command before running this CI job. Refer to [Source freshness](./source-freshness.md) for more details.
 
    [![Example of CI Job page in the dbt UI](/img/docs/dbt-platform/using-dbt-platform/create-ci-job.png?v=2 "Example of CI Job page in the dbt UI")](#)Example of CI Job page in the dbt UI
 
@@ -128,16 +128,16 @@ The following is an example of a CI report in a GitHub pull request, which is sh
 
 ## Trigger a CI job with the API [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#trigger-a-ci-job-with-the-api- "Direct link to trigger-a-ci-job-with-the-api-")
 
-If you're not using dbt’s native Git integration with [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md), [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md), or [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md), you can use the [Administrative API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) to trigger a CI job to run. However, dbt will not automatically delete the temporary schema for you. This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
+If you're not using dbt’s native Git integration with [GitHub](../platform/git/connect-github.md), [GitLab](../platform/git/connect-gitlab.md), or [Azure DevOps](../platform/git/connect-azure-devops.md), you can use the [Administrative API](../dbt-apis/admin-api.md) to trigger a CI job to run. However, dbt will not automatically delete the temporary schema for you. This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
 
-If you instead need workflows that run after a merge (not CI checks on an open pull request), refer to [Continuous deployment in dbt](https://docs.getdbt.com/docs/deploy/continuous-deployment.md) and [Merge jobs](https://docs.getdbt.com/docs/deploy/merge-jobs.md).
+If you instead need workflows that run after a merge (not CI checks on an open pull request), refer to [Continuous deployment in dbt](./continuous-deployment.md) and [Merge jobs](./merge-jobs.md).
 
 ### Prerequisites[​](#prerequisites-1 "Direct link to Prerequisites")
 
 * You have a dbt account.
 * You have a dbt [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/). Legacy Team plans also retain access.
   <!-- -->
-  * For the [Concurrent CI checks](https://docs.getdbt.com/docs/deploy/continuous-integration.md#concurrent-ci-checks) and [Smart cancellation of stale builds](https://docs.getdbt.com/docs/deploy/continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/), and legacy Team plans. Starter plans do not have access to these features when triggering a CI job with the API.
+  * For the [Concurrent CI checks](./continuous-integration.md#concurrent-ci-checks) and [Smart cancellation of stale builds](./continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/), and legacy Team plans. Starter plans do not have access to these features when triggering a CI job with the API.
 
 1. Set up a CI job with the [Create Job](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) API endpoint using `"job_type": ci` or from the [dbt UI](#set-up-ci-jobs).
 
@@ -209,7 +209,7 @@ For semantic nodes and models that aren't downstream of modified models, dbt def
 
  Semantic nodes that are modified or affected by downstream modified nodes.
 
-To only validate modified semantic nodes, use the following command (with [state selection](https://docs.getdbt.com/reference/node-selection/state-selection.md)):
+To only validate modified semantic nodes, use the following command (with [state selection](../../reference/node-selection/state-selection.md)):
 
 ```bash
 dbt sl validate --select state:modified+
@@ -247,7 +247,7 @@ dbt sl validate
 
 Unable to trigger a CI job with GitLab
 
-When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) when you push to the repository.
+When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](./ci-jobs.md) when you push to the repository.
 
 If you're unable to trigger a CI job, this usually indicates that the webhook registration is missing or incorrect.
 
@@ -264,7 +264,7 @@ If you're still experiencing this issue, reach out to the Support team at <suppo
 
 This usually means the comparison manifest does not line up with your branch’s commits. Another job overwrote `manifest.json` with different settings, Production (or another deferred environment) advanced after someone else merged while your pull request stayed open, or the manifest is stale right after a merge. Built-in deferral targets an environment, not a hand-picked job ID.
 
-To resolve this, merge or rebase the latest base branch into your pull request so your branch includes recent merges. To refresh the comparison manifest without waiting on a long deploy, use a [merge job](https://docs.getdbt.com/docs/deploy/merge-jobs.md) in the same environment your CI job defers to. For example, one that runs `dbt parse --no-partial-parse` (or [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md)) immediately after merges.
+To resolve this, merge or rebase the latest base branch into your pull request so your branch includes recent merges. To refresh the comparison manifest without waiting on a long deploy, use a [merge job](./merge-jobs.md) in the same environment your CI job defers to. For example, one that runs `dbt parse --no-partial-parse` (or [`dbt compile`](../../reference/commands/compile.md)) immediately after merges.
 
  CI jobs aren't triggering occasionally when opening a PR using the Azure DevOps (ADO) integration
 
@@ -319,7 +319,7 @@ Double-check that your PR isn't trying to merge using a commit that belongs to a
 
  CI job not triggering for Virtual Private dbt users
 
-To trigger jobs on dbt using the [API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md), your Git provider needs to connect to your dbt account.
+To trigger jobs on dbt using the [API](../dbt-apis/admin-api.md), your Git provider needs to connect to your dbt account.
 
 If you're on a Virtual Private dbt Enterprise plan using security features like ingress PrivateLink or IP Allowlisting, registering CI hooks may not be available and can cause the job to fail silently.
 

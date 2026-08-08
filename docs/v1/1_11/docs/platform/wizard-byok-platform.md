@@ -4,7 +4,7 @@ dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 Use bring-your-own-key (BYOK) to connect dbt Wizard or dbt Copilot in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
 
-The following BYOK instructions apply to dbt platform only. For CLI BYOK setup, refer to [Configure BYOK for dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md).
+The following BYOK instructions apply to dbt platform only. For CLI BYOK setup, refer to [Configure BYOK for dbt Wizard](../dbt-ai/wizard-byok.md).
 
 When you configure a provider with your own key, usage costs appear on your provider account instead of your dbt Labs account, and token costs are billed by whichever provider you choose.
 
@@ -12,7 +12,7 @@ When you configure a provider with your own key, usage costs appear on your prov
 
 * A [dbt platform account](https://www.getdbt.com/pricing) on Starter, Enterprise, or Enterprise+ plans
 * dbt admin permissions to enable AI features and configure providers in **Account settings**
-* AI features enabled for your account — refer to [Enable AI in dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features)
+* AI features enabled for your account — refer to [Enable AI in dbt platform](./enable-dbt-ai.md#enable-ai-features)
 * An API key or credentials for your supported AI provider
 
  See the full list of supported AI providers
@@ -37,8 +37,8 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+* [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
+* [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 #### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
 
@@ -52,9 +52,9 @@ Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported 
 
 ## Configure AI provider[​](#configure-ai-provider "Direct link to Configure AI provider")
 
-Once AI features have been [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
+Once AI features have been [enabled](./enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
 
-\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
+\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
 
 ### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
 
@@ -69,7 +69,7 @@ To configure your AI provider for dbt Wizard:
 * Azure AI Foundry
 * Anthropic
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
@@ -113,7 +113,7 @@ Supported formats include:
 
 [![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select **dbt Labs** from the list to use dbt Labs' managed\* Anthropic key.
 2. Click **Save**.

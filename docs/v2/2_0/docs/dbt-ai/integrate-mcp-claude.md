@@ -13,13 +13,13 @@ Both interfaces can connect to either:
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You use Claude for AI or agentic work
-* For OAuth (self-hosted or remote), use your [access URL with a static subdomain](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+* For OAuth (self-hosted or remote), use your [access URL with a static subdomain](../platform/about-platform/access-regions-ip-addresses.md).
   <!-- -->
   * Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
 
 Static subdomains required
 
-Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
+Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
 ## Claude Desktop[​](#claude-desktop "Direct link to Claude Desktop")
 
@@ -59,7 +59,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
 
-   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
    * dbt platform only
    * dbt platform + CLI
@@ -132,7 +132,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
     Self-hosted MCP with .env
 
-   Advanced configuration for users who need custom [environment variables](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
+   Advanced configuration for users who need custom [environment variables](./mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
 
    Using the `env` field (single-file configuration):
 
@@ -179,7 +179,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
 5. Save the file and restart Claude Desktop. You'll see an MCP server indicator in the bottom-right corner of the conversation input box.
 
-For more configuration options (env vars, service tokens, tool-access controls), refer to [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+For more configuration options (env vars, service tokens, tool-access controls), refer to [Set up self-hosted MCP](./setup-local-mcp.md).
 
 ### Set up with remote dbt MCP server[​](#desktop-remote "Direct link to Set up with remote dbt MCP server")
 
@@ -197,7 +197,7 @@ You can copy your full **MCP URL** from **Account settings** → **Access URLs**
 
 We recommend using the MCP URL from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform. However, if you want to build your own MCP URL, use your **Access URL** from **Account settings** in dbt platform. The remote MCP endpoint is `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp`. Replace `YOUR_DBT_HOST_URL` with your hostname only (no `https://`).
 
-For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
 Then follow the tab that matches your auth method:
 
@@ -208,11 +208,11 @@ Then follow the tab that matches your auth method:
 
 **Before you connect**
 
-* Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication) instead.
-* On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
-* Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#manual-registration).
+* Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](./setup-remote-mcp.md#token-based-authentication) instead.
+* On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
+* Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](../platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](../platform/manage-access/connect-apps-oauth.md#manual-registration).
 
-For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#oauth-remote-mcp).
+For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](./setup-remote-mcp.md#oauth-remote-mcp).
 
 For OAuth, add dbt as a custom connector through Claude Desktop's settings. You don't need to edit `claude_desktop_config.json`.
 
@@ -222,7 +222,7 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
    <!-- -->
    [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
-3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
+3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
    <!-- -->
    [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
@@ -266,16 +266,16 @@ Token-based remote MCP on Claude Desktop requires [Node.js](https://nodejs.org/)
 
    For token-based remote MCP, set these headers in your client's MCP config:
 
-   * **`Authorization`** *(required)* — `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`. Use a [personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with at least Semantic Layer, Metadata, and Developer permissions.
+   * **`Authorization`** *(required)* — `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`. Use a [personal access token (PAT)](../dbt-apis/user-tokens.md) or a [service token](../dbt-apis/service-tokens.md) with at least Semantic Layer, Metadata, and Developer permissions.
    * **`x-dbt-prod-environment-id`** *(required)* — your dbt platform production environment ID. Find it on the **Orchestration** page.
    * **`x-dbt-dev-environment-id`** — required for `execute_sql` and Fusion tools.
-   * **`x-dbt-user-id`** — required for `execute_sql`. Refer to [Find your user ID](https://docs.getdbt.com/faqs/Accounts/find-user-id.md).
+   * **`x-dbt-user-id`** — required for `execute_sql`. Refer to [Find your user ID](../../faqs/Accounts/find-user-id.md).
 
    Use numeric IDs, not full URLs
 
    Headers like `x-dbt-prod-environment-id`, `x-dbt-dev-environment-id`, and `x-dbt-user-id` expect numeric IDs (for example, `54321`), not full URLs copied from your browser. The MCP host URL must include `https://`, whether you set it in a `url` field or pass it as an `mcp-remote` argument.
 
-   `execute_sql` does **not** work with service tokens — you must use a PAT. For the complete list of headers (including tool-disable options) and the full table, refer to [Set up remote MCP](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
+   `execute_sql` does **not** work with service tokens — you must use a PAT. For the complete list of headers (including tool-disable options) and the full table, refer to [Set up remote MCP](./setup-remote-mcp.md#token-based-authentication).
 
    Full path to `npx`
 
@@ -293,11 +293,11 @@ tip
 
 You don't need to clone the dbt-mcp repository — for self-hosted setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
 
-1. Follow [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) to choose your auth pattern:
+1. Follow [Set up self-hosted MCP](./setup-local-mcp.md) to choose your auth pattern:
 
    * OAuth with the dbt platform
-   * [CLI only](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#cli-only)
-   * [Environment variables](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#environment-variable-configuration) (including an `.env` file with `--env-file`)
+   * [CLI only](./setup-local-mcp.md#cli-only)
+   * [Environment variables](./setup-local-mcp.md#environment-variable-configuration) (including an `.env` file with `--env-file`)
 
 2. Create `.mcp.json` at the project root and add a `dbt` entry under the top-level `mcpServers` key. Pick the option that fits your use case:
 
@@ -305,7 +305,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
 
-   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
    * dbt platform only
    * dbt platform + CLI
@@ -378,7 +378,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
     Self-hosted MCP with .env
 
-   Advanced configuration for users who need custom [environment variables](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
+   Advanced configuration for users who need custom [environment variables](./mcp-environment-variables.md). Put your `.env` file in your *dbt project root* (same folder as `dbt_project.yml`) and use an absolute path with `--env-file`.
 
    Using the `env` field (single-file configuration):
 
@@ -445,7 +445,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
    We recommend using the MCP URL from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform. However, if you want to build your own MCP URL, use your **Access URL** from **Account settings** in dbt platform. The remote MCP endpoint is `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp`. Replace `YOUR_DBT_HOST_URL` with your hostname only (no `https://`).
 
-   For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+   For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
 3. Add the `dbt` entry to `.mcp.json` using the tab that matches your auth method:
 
@@ -456,11 +456,11 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
    **Before you connect**
 
-   * Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication) instead.
-   * On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
-   * Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#manual-registration).
+   * Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](./setup-remote-mcp.md#token-based-authentication) instead.
+   * On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
+   * Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](../platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](../platform/manage-access/connect-apps-oauth.md#manual-registration).
 
-   For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#oauth-remote-mcp).
+   For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](./setup-remote-mcp.md#oauth-remote-mcp).
 
    Add the following to `.mcp.json` at your project root. On first connect, Claude Code opens a browser for sign-in and consent.
 
@@ -502,16 +502,16 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
    For token-based remote MCP, set these headers in your client's MCP config:
 
-   * **`Authorization`** *(required)* — `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`. Use a [personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with at least Semantic Layer, Metadata, and Developer permissions.
+   * **`Authorization`** *(required)* — `Token YOUR_DBT_ACCESS_TOKEN` or `Bearer YOUR_DBT_ACCESS_TOKEN`. Use a [personal access token (PAT)](../dbt-apis/user-tokens.md) or a [service token](../dbt-apis/service-tokens.md) with at least Semantic Layer, Metadata, and Developer permissions.
    * **`x-dbt-prod-environment-id`** *(required)* — your dbt platform production environment ID. Find it on the **Orchestration** page.
    * **`x-dbt-dev-environment-id`** — required for `execute_sql` and Fusion tools.
-   * **`x-dbt-user-id`** — required for `execute_sql`. Refer to [Find your user ID](https://docs.getdbt.com/faqs/Accounts/find-user-id.md).
+   * **`x-dbt-user-id`** — required for `execute_sql`. Refer to [Find your user ID](../../faqs/Accounts/find-user-id.md).
 
    Use numeric IDs, not full URLs
 
    Headers like `x-dbt-prod-environment-id`, `x-dbt-dev-environment-id`, and `x-dbt-user-id` expect numeric IDs (for example, `54321`), not full URLs copied from your browser. The MCP host URL must include `https://`, whether you set it in a `url` field or pass it as an `mcp-remote` argument.
 
-   `execute_sql` does **not** work with service tokens — you must use a PAT. For the complete list of headers (including tool-disable options) and the full table, refer to [Set up remote MCP](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
+   `execute_sql` does **not** work with service tokens — you must use a PAT. For the complete list of headers (including tool-disable options) and the full table, refer to [Set up remote MCP](./setup-remote-mcp.md#token-based-authentication).
 
 4. Save the file. Claude Code picks up `.mcp.json` on startup — ask it a data question to confirm the connection.
 

@@ -4,4 +4,4 @@ We recommend that every model has a data test on a primary key, that is, a colum
 
 We also recommend that you test any assumptions on your source data. For example, if you believe that your payments can only be one of three payment methods, you should test that assumption regularly — a new payment method may introduce logic errors in your SQL.
 
-In advanced dbt projects, we recommend using [sources](https://docs.getdbt.com/docs/build/sources.md) and running these source data-integrity tests against the sources rather than models.
+In advanced dbt projects, we recommend using [sources](../../docs/build/sources.md) and running these source data-integrity tests against the sources rather than models.

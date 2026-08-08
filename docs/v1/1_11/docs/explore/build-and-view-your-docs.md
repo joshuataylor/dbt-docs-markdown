@@ -4,9 +4,9 @@ dbt platformⓘ
 
 dbt enables you to generate documentation for your project and data platform. The documentation is automatically updated with new information after a fully successful job run, ensuring accuracy and relevance.
 
-The default documentation experience in dbt is [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), available on [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing/). Use [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) to view your project's resources (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
+The default documentation experience in dbt is [Catalog](./explore-projects.md), available on [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing/). Use [Catalog](./explore-projects.md) to view your project's resources (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
 
-Refer to [documentation](https://docs.getdbt.com/docs/build/documentation.md) for more configuration details.
+Refer to [documentation](../build/documentation.md) for more configuration details.
 
 This shift makes [dbt Docs](#dbt-docs) a legacy documentation feature in dbt. dbt Docs is still accessible and offers basic documentation, but it doesn't offer the same speed, metadata, or visibility as Catalog. dbt Docs is available to dbt developer plans or dbt Core v1.x users.
 
@@ -16,9 +16,9 @@ Upcoming change for Fusion jobs
 
 In a future update, this setup will no longer be applicable for Fusion jobs in the dbt platform. Execution commands (`run`, `build`, `seed`, `snapshot`) will automatically trigger metadata generation, so you won't need to add a `dbt docs generate` step or select the **Generate docs on run** option in **Execution settings**.
 
-Catalog uses the [metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) generated after each job run in the production or staging environment, ensuring it always has the latest project results. To view richer metadata, you can set up documentation for a job in dbt when you edit your job settings or create a new job.
+Catalog uses the [metadata](./explore-projects.md#generate-metadata) generated after each job run in the production or staging environment, ensuring it always has the latest project results. To view richer metadata, you can set up documentation for a job in dbt when you edit your job settings or create a new job.
 
-Configure the job to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) when it runs. If you want to view column and statistics for models, sources, and snapshots in Catalog, then this step is necessary.
+Configure the job to [generate metadata](./explore-projects.md#generate-metadata) when it runs. If you want to view column and statistics for models, sources, and snapshots in Catalog, then this step is necessary.
 
 To set up a job to generate docs:
 
@@ -30,7 +30,7 @@ To set up a job to generate docs:
 
 *Note, for dbt Docs users you need to configure the job to generate docs when it runs, then manually link that job to your project. Proceed to [configure project documentation](#configure-project-documentation) so your project generates the documentation when this job runs.*
 
-You can also add the [`dbt docs generate` command](https://docs.getdbt.com/reference/commands/cmd-docs.md) to the list of commands in the job run steps. However, you can expect different outcomes when adding the command to the run steps compared to configuring a job selecting the **Generate docs on run** checkbox.
+You can also add the [`dbt docs generate` command](../../reference/commands/cmd-docs.md) to the list of commands in the job run steps. However, you can expect different outcomes when adding the command to the run steps compared to configuring a job selecting the **Generate docs on run** checkbox.
 
 Review the following options and outcomes:
 
@@ -66,7 +66,7 @@ You configure project documentation to generate documentation when the job you s
 
 Use Catalog for a richer documentation experience
 
-For a richer and more interactive experience, try out [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), available on [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing/). It includes map layers of your DAG, keyword search, interacts with the Studio IDE, model performance, project recommendations, and more.
+For a richer and more interactive experience, try out [Catalog](./explore-projects.md), available on [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing/). It includes map layers of your DAG, keyword search, interacts with the Studio IDE, model performance, project recommendations, and more.
 
 ### Generating documentation[​](#generating-documentation "Direct link to Generating documentation")
 
@@ -80,9 +80,9 @@ Once you set up a job to generate documentation for your project, you can click 
 
 These generated docs always show the last fully successful run, which means that if you have any failed tasks, including tests, then you will not see changes to the docs by this run. If you don't see a fully successful run, then you won't see any changes to the documentation.
 
-The Studio IDE makes it possible to view [documentation](https://docs.getdbt.com/docs/build/documentation.md) for your dbt project while your code is still in development. With this workflow, you can inspect and verify what your project's generated documentation will look like before your changes are released to production.
+The Studio IDE makes it possible to view [documentation](../build/documentation.md) for your dbt project while your code is still in development. With this workflow, you can inspect and verify what your project's generated documentation will look like before your changes are released to production.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Documentation](https://docs.getdbt.com/docs/build/documentation.md)
-* [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)
+* [Documentation](../build/documentation.md)
+* [Catalog](./explore-projects.md)

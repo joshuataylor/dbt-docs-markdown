@@ -103,12 +103,12 @@ Columns are not resources in and of themselves. Instead, they are child properti
 * `data_tests`
 * `description`
 
-Because columns are not resources, their `tags` and `meta` properties are not true configurations even when nested under a `config` block. They do not inherit the `tags` or `meta` values of their parent resources. However, you can select a generic test, defined on a column, using tags applied to its column or top-level resource; see [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md#run-tests-on-tagged-columns).
+Because columns are not resources, their `tags` and `meta` properties are not true configurations even when nested under a `config` block. They do not inherit the `tags` or `meta` values of their parent resources. However, you can select a generic test, defined on a column, using tags applied to its column or top-level resource; see [test selection examples](../node-selection/test-selection-examples.md#run-tests-on-tagged-columns).
 
 Columns may optionally define a `data_type`, which is necessary for:
 
-* Enforcing a model [contract](https://docs.getdbt.com/reference/resource-configs/contract.md)
-* Use in other packages or plugins, such as the [`external`](https://docs.getdbt.com/reference/resource-properties/external.md) property of sources and [`dbt-external-tables`](https://hub.getdbt.com/dbt-labs/dbt_external_tables/latest/)
+* Enforcing a model [contract](../resource-configs/contract.md)
+* Use in other packages or plugins, such as the [`external`](./external.md) property of sources and [`dbt-external-tables`](https://hub.getdbt.com/dbt-labs/dbt_external_tables/latest/)
 
 ### `quote`[​](#quote "Direct link to quote")
 
@@ -188,7 +188,7 @@ This is particularly relevant to those using Snowflake, where quoting can be par
 This property is useful when:
 
 * A source table has a column that needs to be quoted to be selected, for example, to preserve column casing
-* A seed was created with `quote_columns: true` ([docs](https://docs.getdbt.com/reference/resource-configs/quote_columns.md)) on Snowflake
+* A seed was created with `quote_columns: true` ([docs](../resource-configs/quote_columns.md)) on Snowflake
 * A model uses quotes in the SQL, potentially to work around the use of reserved words
 
 ```sql
@@ -197,7 +197,7 @@ select user_group as "group"
 
 Without setting `quote: true`:
 
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md) applied to this column may fail due to invalid SQL
+* [Data tests](../../docs/build/data-tests.md) applied to this column may fail due to invalid SQL
 * Documentation may not render correctly, e.g. `group` and `"group"` may not be matched as the same column name.
 
 ### Example[​](#example "Direct link to Example")

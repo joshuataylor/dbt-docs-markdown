@@ -35,7 +35,7 @@ If two custom agents use the same name, dbt Wizard uses the higher-precedence lo
 
 ## Where you can use subagents[​](#where-you-can-use-subagents "Direct link to Where you can use subagents")
 
-Subagents work in the [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md).
+Subagents work in the [dbt Wizard CLI](./about-dbt-wizard-cli.md).
 
 You can define custom agent roles, set display nicknames, and configure global limits through the `config.toml` file.
 
@@ -99,11 +99,11 @@ Use slash commands inside an interactive session to inspect and steer agent thre
 
 You can also tell dbt Wizard in plain language to steer, stop, or close an agent thread. For example, `Stop the docs researcher agent and continue with the reviewer findings.`
 
-For the full list of session commands, refer to the [slash command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-slash-commands.md).
+For the full list of session commands, refer to the [slash command reference](./wizard-slash-commands.md).
 
 ## Approvals and sandbox[​](#approvals-and-sandbox "Direct link to Approvals and sandbox")
 
-Subagents inherit the parent session's [approval and sandbox policy](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#approval-and-sandboxing). Any runtime overrides you set for a turn (permissions, sandbox mode) apply to the subagents it spawns. When a subagent requests approval, your session shows the request with its source so you know which agent is asking.
+Subagents inherit the parent session's [approval and sandbox policy](./wizard-how-it-works.md#approval-and-sandboxing). Any runtime overrides you set for a turn (permissions, sandbox mode) apply to the subagents it spawns. When a subagent requests approval, your session shows the request with its source so you know which agent is asking.
 
 A custom agent can override sandbox settings for itself — useful when, for example, an exploration agent should stay read-only while a build agent needs workspace write access.
 
@@ -129,7 +129,7 @@ Every custom agent file must define:
 | `sandbox_mode`           | No       | Sandbox mode for this agent. Inherits from the parent session when omitted.                                                                                                     |
 | `mcp_servers`            | No       | MCP servers available to this agent. Inherits from the parent session when omitted.                                                                                             |
 
-You can also include other supported [`config.toml`](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md#configtoml) keys in a custom agent file. Any setting you don't define in the custom agent file inherits from the parent session.
+You can also include other supported [`config.toml`](./wizard-config.md#configtoml) keys in a custom agent file. Any setting you don't define in the custom agent file inherits from the parent session.
 
 ### Example custom agent[​](#example-custom-agent "Direct link to Example custom agent")
 
@@ -290,8 +290,8 @@ dbt Wizard spawns the agents, each one works on its part of your connected proje
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Use MCP servers with the dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md) to give agents more tools and context
-* [Use skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md) for reusable, project-specific instructions
-* [dbt Wizard slash commands](https://docs.getdbt.com/docs/dbt-ai/wizard-slash-commands.md) for `/agent` and `/subagents`
-* [dbt Wizard CLI config](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md) for `config.toml` keys and precedence
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md) for approvals and sandboxing
+* [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md) to give agents more tools and context
+* [Use skills](./wizard-skills.md) for reusable, project-specific instructions
+* [dbt Wizard slash commands](./wizard-slash-commands.md) for `/agent` and `/subagents`
+* [dbt Wizard CLI config](./wizard-config.md) for `config.toml` keys and precedence
+* [How dbt Wizard works](./wizard-how-it-works.md) for approvals and sandboxing

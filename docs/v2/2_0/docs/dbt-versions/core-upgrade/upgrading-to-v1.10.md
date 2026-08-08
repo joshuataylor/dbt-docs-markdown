@@ -5,14 +5,14 @@ Available in v1ⓘ
 ## Resources[​](#resources "Direct link to Resources")
 
 * dbt Core [v1.10 changelog](https://github.com/dbt-labs/dbt-core/blob/1.10.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [dbt platform upgrade guide](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#fusion-release-tracks)
+* [dbt Core CLI Installation guide](../../local/install-dbt.md)
+* [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#fusion-release-tracks)
 
 ## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
 
-dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
+dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.10! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.10 final release.
+Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.10! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.10 final release.
 
 ## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
 
@@ -20,7 +20,7 @@ New features and functionality available in dbt Core v1.10
 
 ### The `--sample` flag[​](#the---sample-flag "Direct link to the---sample-flag")
 
-Large data sets can slow down dbt build times, making it harder for developers to test new code efficiently. The [`--sample` flag](https://docs.getdbt.com/docs/build/sample-flag.md), available for the `run` and `build` commands, helps reduce build times and warehouse costs by running dbt in sample mode. It generates filtered refs and sources using time-based sampling, allowing developers to validate outputs without building entire models.
+Large data sets can slow down dbt build times, making it harder for developers to test new code efficiently. The [`--sample` flag](../../build/sample-flag.md), available for the `run` and `build` commands, helps reduce build times and warehouse costs by running dbt in sample mode. It generates filtered refs and sources using time-based sampling, allowing developers to validate outputs without building entire models.
 
 ### Move standalone anchors under `anchors:` key[​](#move-standalone-anchors-under-anchors-key "Direct link to move-standalone-anchors-under-anchors-key")
 
@@ -75,7 +75,7 @@ models:
       - *id_column_alias
 ```
 
-This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](https://docs.getdbt.com/reference/resource-properties/anchors.md).
+This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](../../../reference/resource-properties/anchors.md).
 
 ### Parsing `catalogs.yml`[​](#parsing-catalogsyml "Direct link to parsing-catalogsyml")
 
@@ -107,26 +107,26 @@ models:
       catalog_name: catalog_dave
 ```
 
-Check out our [docs on external catalog support](https://docs.getdbt.com/docs/build/iceberg/about-catalogs.md) today! We'll have more information about this in the coming weeks, but this is an exciting step in journey to cross-platform support.
+Check out our [docs on external catalog support](../../build/iceberg/about-catalogs.md) today! We'll have more information about this in the coming weeks, but this is an exciting step in journey to cross-platform support.
 
 ### Integrating dbt Core artifacts with dbt projects[​](#integrating-dbt-core-artifacts-with-dbt-projects "Direct link to Integrating dbt Core artifacts with dbt projects")
 
-With [hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md), dbt Core users working in the command line interface (CLI) can execute runs that seamlessly upload [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) into dbt. This enhances hybrid dbt Core/dbt deployments by:
+With [hybrid projects](../../deploy/hybrid-projects.md), dbt Core users working in the command line interface (CLI) can execute runs that seamlessly upload [artifacts](../../../reference/artifacts/dbt-artifacts.md) into dbt. This enhances hybrid dbt Core/dbt deployments by:
 
-* Fostering collaboration between dbt + dbt Core users by enabling them to visualize and perform [cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to models defined in dbt Core projects. This feature unifies dbt + dbt Core workflows for a more connected dbt experience.
-* Giving dbt and dbt Core users insights into their models and assets in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md). To view Catalog, you must have have a [developer or read-only license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-* (Coming soon) Enabling users working in the [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) to build off of models already created by a central data team in dbt Core rather than having to start from scratch.
+* Fostering collaboration between dbt + dbt Core users by enabling them to visualize and perform [cross-project references](../../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to models defined in dbt Core projects. This feature unifies dbt + dbt Core workflows for a more connected dbt experience.
+* Giving dbt and dbt Core users insights into their models and assets in [Catalog](../../explore/explore-projects.md). To view Catalog, you must have have a [developer or read-only license](../../platform/manage-access/seats-and-users.md).
+* (Coming soon) Enabling users working in the [Canvas](../../platform/canvas.md) to build off of models already created by a central data team in dbt Core rather than having to start from scratch.
 
 Hybrid projects are available as a private beta to [dbt Enterprise accounts](https://www.getdbt.com/pricing). Contact your account representative to register your interest in the beta.
 
 ### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
 
-dbt Core v1.10 introduces new flags for [managing changes to legacy behaviors](https://docs.getdbt.com/reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
+dbt Core v1.10 introduces new flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
 You can read more about each of these behavior changes in the following links:
 
-* (Introduced, disabled by default) [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md). If set to `true`, dbt raises a warning if the argument names or types in your macro YAML don't match the macro's Jinja definition or use unsupported type values. Note that projects using `--warn-error` may experience build failures at parse time if macro argument declarations in YAML are out of sync with the macro's Jinja signature.
-* (Introduced, disabled by default) [`require_all_warnings_handled_by_warn_error`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_all_warnings_handled_by_warn_error.md). If this flag is set to `true`, all warnings raised during a run will be routed through the `--warn-error` / `--warn-error-options` handler. This ensures consistent behavior when promoting warnings to errors or silencing them. When the flag is `false` (which is the current default), only some warnings are processed by the handler — others may bypass it. Turning it on for projects that use `--warn-error` (or `--warn-error-options='{"error":"all"}'`) may cause build failures on warnings that were previously ignored to fail so we recommend enabling it gradually, one a project at a time.
+* (Introduced, disabled by default) [`validate_macro_args`](../../../reference/global-configs/behavior-flags/validate_macro_args.md). If set to `true`, dbt raises a warning if the argument names or types in your macro YAML don't match the macro's Jinja definition or use unsupported type values. Note that projects using `--warn-error` may experience build failures at parse time if macro argument declarations in YAML are out of sync with the macro's Jinja signature.
+* (Introduced, disabled by default) [`require_all_warnings_handled_by_warn_error`](../../../reference/global-configs/behavior-flags/require_all_warnings_handled_by_warn_error.md). If this flag is set to `true`, all warnings raised during a run will be routed through the `--warn-error` / `--warn-error-options` handler. This ensures consistent behavior when promoting warnings to errors or silencing them. When the flag is `false` (which is the current default), only some warnings are processed by the handler — others may bypass it. Turning it on for projects that use `--warn-error` (or `--warn-error-options='{"error":"all"}'`) may cause build failures on warnings that were previously ignored to fail so we recommend enabling it gradually, one a project at a time.
 
 ### Deprecation warnings[​](#deprecation-warnings "Direct link to Deprecation warnings")
 
@@ -143,8 +143,8 @@ dbt will start raising these warnings in version `1.10`, but making these change
 What does this mean for you?
 
 1. If your project (or dbt package) encounters a new deprecation warning in `v1.10`, plan to update your invalid code soon. Although it’s just a warning for now, in a future version, dbt will enforce stricter validation of the inputs in your project. Check out the [`dbt-autofix` tool](https://github.com/dbt-labs/dbt-autofix) to autofix many of these!
-2. In the future, the [`meta` config](https://docs.getdbt.com/reference/resource-configs/meta.md) will be the only place to put custom user-defined attributes. Everything else will be strongly typed and strictly validated. If you have an extra attribute you want to include in your project, or a model config you want to access in a custom materialization, you must nest it under `meta` moving forward.
-3. If you are using the [`—-warn-error` flag](https://docs.getdbt.com/reference/global-configs/warnings.md) (or `--warn-error-options '{"error": "all"}'`) to promote all warnings to errors, this will include new deprecation warnings coming to dbt Core. If you don’t want these to be promoted to errors, the `--warn-error-options` flag gives you more granular control over exactly which types of warnings are treated as errors. You can set `"warn": ["Deprecations"]` (new as of `v1.10`) to continue treating the deprecation warnings as warnings.
+2. In the future, the [`meta` config](../../../reference/resource-configs/meta.md) will be the only place to put custom user-defined attributes. Everything else will be strongly typed and strictly validated. If you have an extra attribute you want to include in your project, or a model config you want to access in a custom materialization, you must nest it under `meta` moving forward.
+3. If you are using the [`—-warn-error` flag](../../../reference/global-configs/warnings.md) (or `--warn-error-options '{"error": "all"}'`) to promote all warnings to errors, this will include new deprecation warnings coming to dbt Core. If you don’t want these to be promoted to errors, the `--warn-error-options` flag gives you more granular control over exactly which types of warnings are treated as errors. You can set `"warn": ["Deprecations"]` (new as of `v1.10`) to continue treating the deprecation warnings as warnings.
 4. The `--models` / `--model` / `-m` flag was renamed to `--select` / `--s` way back in dbt Core v0.21 (Oct 2021). Silently skipping this flag means ignoring your command's selection criteria, which could mean building your entire DAG when you only meant to select a small subset. For this reason, the `--models` / `--model` / `-m` flag **will raise a warning** in dbt Core v1.10, and an error in Fusion. Please update your job definitions accordingly.
 
 #### Custom inputs[​](#custom-inputs "Direct link to Custom inputs")
@@ -164,7 +164,7 @@ dbt detects the unrecognized custom property (`dbt_is_awesome`) and silently con
 * Silently ignoring misspelled properties and configurations (for example, `desciption:` instead of `description:`).
 * Unintended collisions with user code when dbt introduces a new “reserved” property or configuration.
 
-If you have an unrecognized custom property, you will receive a warning, and in a future version, dbt will cease to support custom properties. Moving forward, these should be nested under the [`meta` config](https://docs.getdbt.com/reference/resource-configs/meta.md), which will be the only place to put custom user-defined attributes:
+If you have an unrecognized custom property, you will receive a warning, and in a future version, dbt will cease to support custom properties. Moving forward, these should be nested under the [`meta` config](../../../reference/resource-configs/meta.md), which will be the only place to put custom user-defined attributes:
 
 ```yml
 
@@ -296,12 +296,12 @@ Snowflake column size change
 
  Assess impact and required actions
 
-If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
 
 * Contain string columns with collation defined
 * Use the `on_schema_change='sync_all_columns'` config
 
-To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+To check whether this change affects your project, run the following [list](../../../reference/commands/list.md) command:
 
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
@@ -311,7 +311,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
   * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
   * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
 
@@ -319,16 +319,16 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 ### Snowflake[​](#snowflake "Direct link to Snowflake")
 
-* You can use the `platform_detection_timeout_seconds` parameter to control how long the Snowflake connector waits when detecting the cloud platform where the connection is being made. For more information, see [Snowflake setup](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md#platform_detection_timeout_seconds).
+* You can use the `platform_detection_timeout_seconds` parameter to control how long the Snowflake connector waits when detecting the cloud platform where the connection is being made. For more information, see [Snowflake setup](../../local/connect-data-platform/snowflake-setup.md#platform_detection_timeout_seconds).
 
 ### BigQuery[​](#bigquery "Direct link to BigQuery")
 
-* `dbt-bigquery` cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually. For more information, see [Timeout and retries](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#timeouts-and-retries).
+* `dbt-bigquery` cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually. For more information, see [Timeout and retries](../../local/connect-data-platform/bigquery-setup.md#timeouts-and-retries).
 
 ## Quick hits[​](#quick-hits "Direct link to Quick hits")
 
-* Provide the [`loaded_at_query`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_query) property for source freshness to specify custom SQL to generate the `maxLoadedAt` time stamp on the source (versus the [built-in query](https://github.com/dbt-labs/dbt-adapters/blob/6c41bedf27063eda64375845db6ce5f7535ef6aa/dbt/include/global_project/macros/adapters/freshness.sql#L4-L16), which uses the `loaded_at_field`). You cannot define `loaded_at_query` if the `loaded_at_field` config is also provided.
+* Provide the [`loaded_at_query`](../../../reference/resource-properties/freshness.md#loaded_at_query) property for source freshness to specify custom SQL to generate the `maxLoadedAt` time stamp on the source (versus the [built-in query](https://github.com/dbt-labs/dbt-adapters/blob/6c41bedf27063eda64375845db6ce5f7535ef6aa/dbt/include/global_project/macros/adapters/freshness.sql#L4-L16), which uses the `loaded_at_field`). You cannot define `loaded_at_query` if the `loaded_at_field` config is also provided.
 
-* Provide validation for macro arguments using the [`validate_macro_args`](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md) flag, which is disabled by default. When enabled, this flag checks that documented macro argument names match those in the macro definition and validates their types against a supported format. Previously, dbt did not enforce standard argument types, treating the type field as documentation-only. If no arguments are documented, dbt infers them from the macro and includes them in the manifest.json file. Learn more about [supported types](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
+* Provide validation for macro arguments using the [`validate_macro_args`](../../../reference/global-configs/behavior-flags/validate_macro_args.md) flag, which is disabled by default. When enabled, this flag checks that documented macro argument names match those in the macro definition and validates their types against a supported format. Previously, dbt did not enforce standard argument types, treating the type field as documentation-only. If no arguments are documented, dbt infers them from the macro and includes them in the manifest.json file. Learn more about [supported types](../../../reference/resource-properties/arguments.md#supported-types).
 
-* You can use the [`config.meta_get()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_get) and [`config.meta_require()`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_require) functions to access custom configurations stored under `meta`.
+* You can use the [`config.meta_get()`](../../../reference/dbt-jinja-functions/config.md#configmeta_get) and [`config.meta_require()`](../../../reference/dbt-jinja-functions/config.md#configmeta_require) functions to access custom configurations stored under `meta`.

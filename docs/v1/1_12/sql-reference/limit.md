@@ -49,7 +49,7 @@ After ensuring that this is the result you want from this query, you can omit th
 
 Save money and time by limiting data in development
 
-You could limit your data used for development by manually adding a LIMIT statement, a WHERE clause to your query, or by using a [dbt macro to automatically limit data based](https://docs.getdbt.com/best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) on your development environment to help reduce your warehouse usage during dev periods.
+You could limit your data used for development by manually adding a LIMIT statement, a WHERE clause to your query, or by using a [dbt macro to automatically limit data based](../best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) on your development environment to help reduce your warehouse usage during dev periods.
 
 ## LIMIT syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#limit-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to LIMIT syntax in Snowflake, Databricks, BigQuery, and Redshift")
 

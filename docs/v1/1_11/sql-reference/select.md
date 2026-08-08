@@ -39,7 +39,7 @@ Goodbye carpal tunnel
 
 Leverage [dbt utils’ star macro](https://docs.getdbt.com/blog/star-sql-love-letter) to be able to both easily select many and specifically exclude certain columns.
 
-In a dbt project, analytics engineers will typically write models that contain multiple CTEs that build to one greater query. For folks that are newer to analytics engineering or dbt, we recommend they check out the [“How we structure our dbt projects” guide](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) to better understand why analytics folks like modular data modeling and CTEs.
+In a dbt project, analytics engineers will typically write models that contain multiple CTEs that build to one greater query. For folks that are newer to analytics engineering or dbt, we recommend they check out the [“How we structure our dbt projects” guide](../best-practices/how-we-structure/1-guide-overview.md) to better understand why analytics folks like modular data modeling and CTEs.
 
 ## SELECT statement syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#select-statement-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SELECT statement syntax in Snowflake, Databricks, BigQuery, and Redshift")
 

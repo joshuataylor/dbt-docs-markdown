@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-vertica<!-- -->
 
-For <!-- -->Vertica<!-- -->-specific configuration, please refer to [Vertica<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/vertica-configs.md)
+For <!-- -->Vertica<!-- -->-specific configuration, please refer to [Vertica<!-- --> configs.](../../../reference/resource-configs/vertica-configs.md)
 
 ### Connecting to <!-- -->Vertica<!-- --> with <!-- -->dbt-vertica<!-- -->
 

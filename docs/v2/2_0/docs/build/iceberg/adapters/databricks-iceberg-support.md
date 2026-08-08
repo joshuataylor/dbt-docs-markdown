@@ -7,8 +7,8 @@ dbt supports materializing Iceberg tables in Unity Catalog in two ways:
 
 dbt supports creating Iceberg tables for two Databricks materializations:
 
-* [Table](https://docs.getdbt.com/docs/build/materializations.md#table)
-* [Incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental)
+* [Table](../../materializations.md#table)
+* [Incremental](../../materializations.md#incremental)
 
 ## Databricks Iceberg support[​](#databricks-iceberg-support "Direct link to Databricks Iceberg support")
 
@@ -19,7 +19,7 @@ Databricks supports two methods for creating Iceberg tables in its data catalog,
 * Creating [Unity Catalog managed Iceberg tables](https://docs.databricks.com/aws/en/tables/managed). Databricks Runtime 16.4 LTS and later support this feature.
 * Enabling [Iceberg reads](https://docs.databricks.com/aws/en/delta/uniform) on Delta tables. These tables still use the Delta file format, but generate both Delta and Iceberg-compatible metadata. Databricks Runtime 14.3 LTS and later support this feature.
 
-dbt supports both creating managed Iceberg tables and Iceberg-enabled Delta tables (formerly [UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability)). The behavior flag [`use_managed_iceberg`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#use-managed-iceberg) determines whether dbt creates a managed Iceberg table or a Delta table.
+dbt supports both creating managed Iceberg tables and Iceberg-enabled Delta tables (formerly [UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability)). The behavior flag [`use_managed_iceberg`](../../../../reference/global-configs/databricks-changes.md#use-managed-iceberg) determines whether dbt creates a managed Iceberg table or a Delta table.
 
 External Iceberg compute engines can read from and write to these Iceberg tables using Unity Catalog's [Iceberg REST API endpoint](https://docs.databricks.com/aws/en/external-access/iceberg). However, Databricks only has limited support for reading from external Iceberg catalogs (and externally managed Iceberg tables) through [Databricks catalog federation](https://docs.databricks.com/aws/en/query-federation/catalog-federation) (configured outside of dbt).
 
@@ -27,7 +27,7 @@ dbt doesn't yet support enabling [Iceberg v3](https://docs.databricks.com/aws/en
 
 ### External tables[​](#external-tables "Direct link to External tables")
 
-dbt also supports creating externally-managed Iceberg tables using the model configuration [`location_root`](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#configuring-tables). Databricks' DDL for creating tables requires a fully qualified `location`. dbt defines this parameter on the user's behalf to streamline usage and enforce basic isolation of table data:
+dbt also supports creating externally-managed Iceberg tables using the model configuration [`location_root`](../../../../reference/resource-configs/databricks-configs.md#configuring-tables). Databricks' DDL for creating tables requires a fully qualified `location`. dbt defines this parameter on the user's behalf to streamline usage and enforce basic isolation of table data:
 
 * When you set a `location_root` string, dbt generates a `location` string of the form: `{{ location_root }}/{{ model_name }}`.
 * If you set the configuration option `include_full_name_in_path` to `true`, dbt generates a `location` string of the form `{{ location_root }}/{{ database_name}}/{{ schema_name }}/{{ model_name }}`.

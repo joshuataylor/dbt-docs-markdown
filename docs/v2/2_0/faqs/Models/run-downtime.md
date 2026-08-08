@@ -2,4 +2,4 @@
 
 Nope! The SQL that dbt generates behind the scenes ensures that any relations are replaced atomically (i.e. your business users won't experience any downtime).
 
-The implementation of this varies on each warehouse, check out the [logs](https://docs.getdbt.com/faqs/Runs/checking-logs.md) to see the SQL dbt is executing.
+The implementation of this varies on each warehouse, check out the [logs](../Runs/checking-logs.md) to see the SQL dbt is executing.

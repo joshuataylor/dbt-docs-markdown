@@ -4,7 +4,7 @@
 
 When you execute a `dbt compile` or `dbt run` command, dbt:
 
-1. Reads all of the files in your project and generates a [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) comprised of models, tests, and other graph nodes present in your project. During this phase, dbt uses the [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) and [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) statements it finds to generate the DAG for your project. **No SQL is run during this phase**, and `execute == False`.
+1. Reads all of the files in your project and generates a [manifest](../artifacts/manifest-json.md) comprised of models, tests, and other graph nodes present in your project. During this phase, dbt uses the [`ref`](./ref.md) and [`source`](./source.md) statements it finds to generate the DAG for your project. **No SQL is run during this phase**, and `execute == False`.
 2. Compiles (and runs) each node (eg. building models, or running tests). **SQL is run during this phase**, and `execute == True`.
 
 Any Jinja that relies on a result being returned from the database will error during the parse phase. For example, this SQL will return an error:
@@ -61,7 +61,7 @@ order by 1
 Parsing in Jinja is when dbt:
 
 * Reads your project files.
-* Identifies [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) and [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md).
+* Identifies [`ref`](./ref.md) and [`source`](./source.md).
 * Identifies macro definitions.
 * Builds the dependency graph (DAG).
 
@@ -73,17 +73,17 @@ During execution, dbt:
 
 * Renders full Jinja templates into SQL.
 * Resolves all instances of `ref()` and `source()` to their corresponding table or view names.
-* Runs the SQL in your models during commands like ([`dbt run`](https://docs.getdbt.com/reference/commands/run.md)), ([`dbt test`](https://docs.getdbt.com/reference/commands/test.md)), \[`dbt seed`]\(/reference/commands/seed, or [`dbt snapshot`](https://docs.getdbt.com/reference/commands/snapshot.md).
+* Runs the SQL in your models during commands like ([`dbt run`](../commands/run.md)), ([`dbt test`](../commands/test.md)), \[`dbt seed`]\(/reference/commands/seed, or [`dbt snapshot`](../commands/snapshot.md).
 * Creates or updates tables/views in the warehouse.
 * Applies any materializations (incremental, table, view, ephemeral).
 
-`execute` impacts the values of `ref()` and `source()`, and won't work as expected inside of a [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md#usage).
+`execute` impacts the values of `ref()` and `source()`, and won't work as expected inside of a [`sql_header`](../resource-configs/sql_header.md#usage).
 
 This is because in the initial parse of the project, dbt identifies every use of `ref()` and `source()` to build the DAG, but doesn’t resolve them to actual database identifiers. Instead, it replaces each with a placeholder value to ensure the SQL compiles cleanly during parsing.
 
 ## Examples[​](#examples "Direct link to Examples")
 
-Macros like [`log()`](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md) and [`exceptions.warn()`](https://docs.getdbt.com/reference/dbt-jinja-functions/exceptions.md#warn) are still evaluated at parse time, during dbt's "first-pass" Jinja render to extract `ref`, `source` and `config`. As a result, dbt will also run any logging or warning messages during this process.
+Macros like [`log()`](./log.md) and [`exceptions.warn()`](./exceptions.md#warn) are still evaluated at parse time, during dbt's "first-pass" Jinja render to extract `ref`, `source` and `config`. As a result, dbt will also run any logging or warning messages during this process.
 
 Even though nothing is being executed yet, dbt still runs those log lines while parsing. This can be confusing — it looks like dbt is doing something real but it’s just parsing.
 

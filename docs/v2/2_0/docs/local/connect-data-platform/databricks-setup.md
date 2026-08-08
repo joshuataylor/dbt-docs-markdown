@@ -195,4 +195,4 @@ default:
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find Databricks-specific configuration information in the [Databricks adapter reference guide](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md).
+Find Databricks-specific configuration information in the [Databricks adapter reference guide](../../../reference/resource-configs/databricks-configs.md).

@@ -2,9 +2,9 @@
 
 note
 
-Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [schema](https://docs.getdbt.com/reference/resource-configs/schema.md) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro.
+Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [schema](./schema.md) config as an alternative to define a custom schema while still respecting the `generate_schema_name` macro.
 
-Try it now in the [dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+Try it now in the [dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -24,7 +24,7 @@ snapshots/\<filename>.sql
 
 ## Description[​](#description "Direct link to Description")
 
-The schema that dbt should build a [snapshot](https://docs.getdbt.com/docs/build/snapshots.md) table into. When `target_schema` is provided, snapshots build into the same `target_schema`, no matter who is running them.
+The schema that dbt should build a [snapshot](../../docs/build/snapshots.md) table into. When `target_schema` is provided, snapshots build into the same `target_schema`, no matter who is running them.
 
 On **BigQuery**, this is analogous to a `dataset`.
 

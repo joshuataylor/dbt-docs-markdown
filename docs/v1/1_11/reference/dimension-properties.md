@@ -1,6 +1,6 @@
 # Dimension properties
 
-Dimensions are non-aggregatable expressions that define how metrics can be grouped or sliced. They are always defined within a [semantic model](https://docs.getdbt.com/reference/semantic-model-properties.md). See [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md) for concepts and examples.
+Dimensions are non-aggregatable expressions that define how metrics can be grouped or sliced. They are always defined within a [semantic model](./semantic-model-properties.md). See [Dimensions](../docs/build/dimensions.md) for concepts and examples.
 
 <!-- -->
 
@@ -12,7 +12,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-For more information, refer to [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
 <!-- -->
 
@@ -55,4 +55,4 @@ dimensions:
     meta: {}                     # Optional
 ```
 
-For the latest spec (column-level and derived dimensions), see [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md).
+For the latest spec (column-level and derived dimensions), see [Dimensions](../docs/build/dimensions.md).

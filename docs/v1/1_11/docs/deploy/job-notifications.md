@@ -5,7 +5,7 @@ dbt platformⓘ
 Set up notifications in dbt platform to receive alerts about the outcome of a job run. You can choose to be notified by one or more of the following job run outcomes:
 
 * **Succeeds** option — A job run completed successfully with no warnings or errors.
-* **Warns** option — A job run encountered warnings from [data tests](https://docs.getdbt.com/docs/build/data-tests.md) or [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) checks.
+* **Warns** option — A job run encountered warnings from [data tests](../build/data-tests.md) or [source freshness](./source-freshness.md) checks.
   <!-- -->
   * This notification is triggered by warning-level log lines from those steps, not the job's overall run status. A job that shows "success" in the user interface can still trigger a warn notification if test or freshness steps logged warnings.
 * **Fails** option — A job run failed to complete.
@@ -30,14 +30,14 @@ You can receive email alerts about jobs by configuring the dbt email notificatio
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* You must be a *developer user*, *account admin*, or have the **Notification Manager** [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to configure email notifications in dbt. For more details, refer to [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+* You must be a *developer user*, *account admin*, or have the **Notification Manager** [permission set](../platform/manage-access/enterprise-permissions.md) to configure email notifications in dbt. For more details, refer to [Users and licenses](../platform/manage-access/seats-and-users.md).
   <!-- -->
   * As a developer user, you can set up email notifications for yourself.
 
 Once an account admin links the Slack app, licensed users can configure job notifications if they have one of the following:
 
-* The **Account Admin**, **Owner**, or **Member** default [group](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#groups)
-* The [**Notification Manager**](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
+* The **Account Admin**, **Owner**, or **Member** default [group](../platform/manage-access/about-user-access.md#groups)
+* The [**Notification Manager**](../platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
 
 ### Configure email notifications[​](#configure-email-notifications "Direct link to Configure email notifications")
 
@@ -111,12 +111,12 @@ If there has been a change in user roles or Slack permissions where you no longe
 
 * You have a Slack workspace that you want to receive job notifications from.
 * You must be a Slack Workspace Owner.
-* You must be an account admin to configure Slack notifications in dbt. For more details, refer to [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md). The integration only supports *public* channels in the Slack workspace at this moment.
+* You must be an account admin to configure Slack notifications in dbt. For more details, refer to [Users and licenses](../platform/manage-access/seats-and-users.md). The integration only supports *public* channels in the Slack workspace at this moment.
 
 Once an account admin links the Slack app, licensed users can configure job notifications if they have one of the following:
 
-* The **Account Admin**, **Owner**, or **Member** default [group](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#groups)
-* The [**Notification Manager**](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
+* The **Account Admin**, **Owner**, or **Member** default [group](../platform/manage-access/about-user-access.md#groups)
+* The [**Notification Manager**](../platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
 
 ### Set up the Slack integration[​](#set-up-the-slack-integration "Direct link to Set up the Slack integration")
 
@@ -186,10 +186,10 @@ A single dbt platform account can integrate with one Slack workspace.
 
 Once an account admin links the Slack app, licensed users can configure job notifications if they have one of the following:
 
-* The **Account Admin**, **Owner**, or **Member** default [group](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#groups)
-* The [**Notification Manager**](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
+* The **Account Admin**, **Owner**, or **Member** default [group](../platform/manage-access/about-user-access.md#groups)
+* The [**Notification Manager**](../platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
 
-IT licenses can receive job notifications but can't [configure them](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=1.12). Only **Account Admins** can connect or disconnect the Slack workspace.
+IT licenses can receive job notifications but can't [configure them](../platform/manage-access/seats-and-users.md?version=1.12). Only **Account Admins** can connect or disconnect the Slack workspace.
 
 ### Set up the Slack integration[​](#set-up-the-slack-integration-1 "Direct link to Set up the Slack integration")
 
@@ -311,8 +311,8 @@ Before you begin:
 
 Once an account admin links the Microsoft Teams app, licensed users can configure job notifications if they have one of the following:
 
-* The **Account Admin**, **Owner**, or **Member** default [group](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#groups)
-* The [**Notification Manager**](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
+* The **Account Admin**, **Owner**, or **Member** default [group](../platform/manage-access/about-user-access.md#groups)
+* The [**Notification Manager**](../platform/manage-access/enterprise-permissions.md) permission set (Enterprise). This permission manages notifications across all projects without full Account Admin access
 
 ### Set up Microsoft Teams[​](#set-up-microsoft-teams "Direct link to Set up Microsoft Teams")
 

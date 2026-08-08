@@ -6,14 +6,14 @@ Start a dbt State trial and manage paid access from the dbt platform **Billing &
 
 ## How the trial works[​](#how-the-trial-works "Direct link to How the trial works")
 
-* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md#continuing-after-the-trial-ends).
+* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](./dbt-state-trial.md#continuing-after-the-trial-ends).
 * To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally.
 * Once started, you cannot pause the trial.
 * If you're using state-aware orchestration prior to June 1, 2026, your trial is extended until the billing period begins on September 1, 2026. If the extension isn't applied to your account, contact your account team.
 
 ## Starting your trial[​](#starting-your-trial "Direct link to Starting your trial")
 
-To start your 30-day trial, refer to the instructions in [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+To start your 30-day trial, refer to the instructions in [Setting up dbt State](./dbt-state-setup.md).
 
 ## Continuing after the trial ends [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#continuing-after-the-trial-ends- "Direct link to continuing-after-the-trial-ends-")
 
@@ -58,6 +58,6 @@ You can set a spend alert to get notified when your monthly dbt State costs reac
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State usage and pricing](../platform/billing.md#dbt-state-usage)

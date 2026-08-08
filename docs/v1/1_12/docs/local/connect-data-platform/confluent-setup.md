@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-confluent<!-- -->
 
-For <!-- -->Confluent Cloud<!-- -->-specific configuration, please refer to [Confluent Cloud<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/confluent-configs.md)
+For <!-- -->Confluent Cloud<!-- -->-specific configuration, please refer to [Confluent Cloud<!-- --> configs.](../../../reference/resource-configs/confluent-configs.md)
 
 ## Connecting to Confluent Cloud with dbt-confluent[​](#connecting-to-confluent-cloud-with-dbt-confluent "Direct link to Connecting to Confluent Cloud with dbt-confluent")
 

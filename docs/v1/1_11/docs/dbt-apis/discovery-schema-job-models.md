@@ -58,7 +58,7 @@ The example query below finds all models in this schema and their respective exe
 
 #### Paginate models in a job run[​](#paginate-models-in-a-job-run "Direct link to Paginate models in a job run")
 
-Job-based `models` queries support `first` and `after` for cursor pagination. Each model returns a `paginationCursor` field to fetch the next page. Refer to [Job-based queries](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md#job-based-queries) for paging behavior, supported resource types, and legacy default behavior.
+Job-based `models` queries support `first` and `after` for cursor pagination. Each model returns a `paginationCursor` field to fetch the next page. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) for paging behavior, supported resource types, and legacy default behavior.
 
 ```graphql
 query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: String) {
@@ -74,7 +74,7 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
 
 ### Fields[​](#fields "Direct link to Fields")
 
-The models object can access the *same fields* as the [Model node](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job-model.md). The difference is that the models object can output a list so instead of querying for fields for one specific model, you can query for those parameters for all models within a jobID, database, and so on.
+The models object can access the *same fields* as the [Model node](./discovery-schema-job-model.md). The difference is that the models object can output a list so instead of querying for fields for one specific model, you can query for those parameters for all models within a jobID, database, and so on.
 
 When querying for `models`, the following fields are available:
 

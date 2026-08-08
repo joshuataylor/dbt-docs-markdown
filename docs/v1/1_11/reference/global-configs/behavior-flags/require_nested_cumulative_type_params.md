@@ -14,7 +14,7 @@ Search table...
 
 <br />
 
-[Cumulative-type metrics](https://docs.getdbt.com/docs/build/cumulative.md#parameters) are nested under the `cumulative_type_params` field in [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), dbt Core v1.9 and newer. Starting in dbt Core v1.12, this flag defaults to `true`, which causes dbt to raise an error instead of a warning when cumulative metrics use the un-nested syntax.
+[Cumulative-type metrics](../../../docs/build/cumulative.md#parameters) are nested under the `cumulative_type_params` field in [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), dbt Core v1.9 and newer. Starting in dbt Core v1.12, this flag defaults to `true`, which causes dbt to raise an error instead of a warning when cumulative metrics use the un-nested syntax.
 
 Use the following metric configured with the syntax before v1.9 as an example:
 
@@ -25,7 +25,7 @@ Use the following metric configured with the syntax before v1.9 as an example:
       window: 7 days
 ```
 
-If you run `dbt parse` with that syntax on Core v1.9 or [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
+If you run `dbt parse` with that syntax on Core v1.9 or [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), you will receive a warning like:
 
 ```bash
 15:36:22  [WARNING]: Cumulative fields `type_params.window` and
@@ -59,7 +59,7 @@ Any project with a cumulative metric still using the un-nested syntax stops pars
 
  Recommended actions
 
-If `dbt parse` fails with `Semantic Manifest validation failed` referencing one or more cumulative metrics, migrate the metrics by moving `window` and `grain_to_date` from `type_params` into `type_params.cumulative_type_params`. Alternatively, you can migrate to the [latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md#type_params), which removes `type_params` entirely.
+If `dbt parse` fails with `Semantic Manifest validation failed` referencing one or more cumulative metrics, migrate the metrics by moving `window` and `grain_to_date` from `type_params` into `type_params.cumulative_type_params`. Alternatively, you can migrate to the [latest YAML spec](../../../docs/build/latest-metrics-spec.md#type_params), which removes `type_params` entirely.
 
 ```yaml
 # Legacy

@@ -1,6 +1,6 @@
 # Quickstart for the dbt Fusion engine
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Fusion engine
 
@@ -20,9 +20,9 @@ important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -42,9 +42,9 @@ Fusion and the features it provides are available in multiple environments:
 
 | Environment              | How to use Fusion                                                                                                                                                 |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Studio IDE**           | Fusion is automatically enabled; just [upgrade your environment(s)](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine). |
-| **Local CLI**            | [Install dbt Fusion engine](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) locally following this guide.                                            |
-| **VS Code / Cursor IDE** | [Install the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) to unlock Fusion's interactive power in your editor.                           |
+| **Studio IDE**           | Fusion is automatically enabled; just [upgrade your environment(s)](../docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine). |
+| **Local CLI**            | [Install dbt Fusion engine](../docs/local/install-dbt.md?version=2) locally following this guide.                                            |
+| **VS Code / Cursor IDE** | [Install the dbt extension](../docs/install-dbt-extension.md) to unlock Fusion's interactive power in your editor.                           |
 
 Search table...
 
@@ -52,13 +52,13 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-To learn more about which tool is best for you, see the [Fusion availability](https://docs.getdbt.com/docs/fusion/fusion-availability.md) page. To learn about the dbt Fusion engine and how it works, read more [about the dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md).
+To learn more about which tool is best for you, see the [Fusion availability](../docs/fusion/fusion-availability.md) page. To learn about the dbt Fusion engine and how it works, read more [about the dbt Fusion engine](../docs/fusion/about-fusion.md).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 To take full advantage of this guide, you'll need to meet the following prerequisites:
 
-* You should have a basic understanding of [dbt projects](https://docs.getdbt.com/docs/build/projects.md), [git workflows](https://docs.getdbt.com/docs/platform/git/git-version-control.md), and [data warehouse requirements](https://docs.getdbt.com/docs/supported-data-platforms.md).
+* You should have a basic understanding of [dbt projects](../docs/build/projects.md), [git workflows](../docs/platform/git/git-version-control.md), and [data warehouse requirements](../docs/supported-data-platforms.md).
 
 * Make sure you're using a supported adapter and authentication method:
 
@@ -70,8 +70,8 @@ To take full advantage of this guide, you'll need to meet the following prerequi
   * Native OAuth
   * External OAuth
     <!-- -->
-    * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
-  * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
+    * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
    Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -142,7 +142,7 @@ info
 * You *cannot* use the dbt extension without Fusion installed.
 * Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt CLI or dbt Core), you can use `dbtf` as an unambiguous alias for Fusion.
 
-The following are the essential steps from the [dbt Fusion engine](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) and [extension](https://docs.getdbt.com/docs/install-dbt-extension.md) installation guides:
+The following are the essential steps from the [dbt Fusion engine](../docs/local/install-dbt.md?version=2) and [extension](../docs/install-dbt-extension.md) installation guides:
 
 1. Run the following commands to install the dbt Fusion engine CLI:
 
@@ -179,7 +179,7 @@ The dbt VS Code extension is available in the [Visual Studio extension marketpla
    <!-- -->
    [![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")](#)Search for the extension
 3. Click **Install**.
-4. When the prompt appears, you can register the extension or skip it. Check out the [registration](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) or [installation](https://docs.getdbt.com/docs/install-dbt-extension.md) instructions to come back to it later.
+4. When the prompt appears, you can register the extension or skip it. Check out the [registration](../docs/sign-in-dbt-extension.md) or [installation](../docs/install-dbt-extension.md) instructions to come back to it later.
 5. Confirm you've installed the extension by looking for the **dbt Extension** label in the status bar. If you see it, the extension was installed successfully!
    <!-- -->
    [![Verify installation in the status bar.](/img/docs/extension/extension-lsp-download.png?v=2 "Verify installation in the status bar.")](#)Verify installation in the status bar.
@@ -214,7 +214,7 @@ Now let's create your first dbt project powered by Fusion!
 
    #### Viewing metadata in Catalog[​](#viewing-metadata-in-catalog "Direct link to Viewing metadata in Catalog")
 
-   Run `dbt build --write-catalog` locally to generate docs metadata (`dbt build` alone does not generate docs metadata). To view that metadata in Catalog, run a job in dbt platform so the metadata is uploaded. For details, refer to [Platform behavior](https://docs.getdbt.com/reference/commands/cmd-docs.md?version=2.0#platform-behavior).
+   Run `dbt build --write-catalog` locally to generate docs metadata (`dbt build` alone does not generate docs metadata). To view that metadata in Catalog, run a job in dbt platform so the metadata is uploaded. For details, refer to [Platform behavior](../reference/commands/cmd-docs.md?version=2.0#platform-behavior).
 
    This will:
 
@@ -236,7 +236,7 @@ Now that your project works, open it in VS Code or Cursor and see Fusion in acti
 
 2. Select your `jaffle_shop` folder. If you don't add the root folder of the dbt project to the workspace, the [dbt language server](https://docs.getdbt.com/blog/dbt-fusion-engine-components#the-dbt-vs-code-extension-and-language-server) (LSP) will not run. The LSP enables features like autocomplete, hover info, and inline error highlights.
 
-3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the Fusion binary, confirming your project is open, checking Fusion compatibility, and registering. If you haven't already upgraded your project to Fusion, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](https://docs.getdbt.com/docs/install-dbt-extension.md#getting-started).
+3. Click the **dbt logo** in the sidebar to open the **Get started** panel. The panel detects your environment and surfaces the next setup step, including installing the Fusion binary, confirming your project is open, checking Fusion compatibility, and registering. If you haven't already upgraded your project to Fusion, you can choose **Start with an agent** (Copilot or Cursor) or **Start manually in CLI** directly from the panel. For full details, see [Getting started](../docs/install-dbt-extension.md#getting-started).
 
 4. Open a model file to see the definition for the `orders` model. This is the model we'll use in all of the examples below.
 
@@ -421,34 +421,34 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](../docs/local/install-dbt.md?version=2)
 
  dbt Fusion binary not found at the configured path
 
 If the extension reports that the dbt Fusion engine binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
 
-* Verify that [`dbt.fusionPath`](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
+* Verify that [`dbt.fusionPath`](../docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
 * If you haven't installed Fusion manually, clear the setting and let the extension download and manage it for you.
-* To install manually, follow [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+* To install manually, follow [Install the Fusion CLI](../docs/local/install-dbt.md?version=2).
 
  dbt Fusion version is not compatible with this extension
 
 If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
 
 1. Run `dbt --version` to check your installed Fusion version.
-2. Compare it against the [version compatibility matrix](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
+2. Compare it against the [version compatibility matrix](../docs/dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
 3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
 
  dbt Fusion crashes on startup
 
 If the extension reports that Fusion crashed on startup, confirm the binary runs on its own:
 
-1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](../docs/local/install-dbt.md?version=2).
 2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
 
  A known-bad dbt Fusion version is installed
 
-If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](../docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
 
 For standalone installations:
 
@@ -456,7 +456,7 @@ For standalone installations:
 dbt system update
 ```
 
-The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
+The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](../docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 
  Addressing the 'dbt language server is not running in this workspace' error
 
@@ -483,9 +483,9 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-* [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
-* [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+* [About the dbt extension](../docs/about-dbt-extension.md)
+* [Supported features matrix](../docs/fusion/supported-features.md)
+* [Install dbt](../docs/local/install-dbt.md)
+* [Quickstart for Fusion](./fusion.md?step=1)
+* [Upgrade guide](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

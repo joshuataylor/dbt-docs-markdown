@@ -4,7 +4,7 @@
 
 #### Overview[​](#overview "Direct link to Overview")
 
-[dbt Packages](https://docs.getdbt.com/docs/build/packages.md) are the easiest way for analytics engineers to get involved with contributing code to the dbt Community, because dbt Packages are just standard [dbt Projects](https://docs.getdbt.com/docs/build/projects.md). If you can create a dbt Project, write a macro, and ref a model: you can make a dbt Package. Packages function much like libraries do in other programming languages. They allow for prewritten, modularized development of code to solve common problems in analytics engineering. You can view all dbt Packages on the [dbt Package Hub](https://hub.getdbt.com/).
+[dbt Packages](../../docs/build/packages.md) are the easiest way for analytics engineers to get involved with contributing code to the dbt Community, because dbt Packages are just standard [dbt Projects](../../docs/build/projects.md). If you can create a dbt Project, write a macro, and ref a model: you can make a dbt Package. Packages function much like libraries do in other programming languages. They allow for prewritten, modularized development of code to solve common problems in analytics engineering. You can view all dbt Packages on the [dbt Package Hub](https://hub.getdbt.com/).
 
 #### Contribution opportunities[​](#contribution-opportunities "Direct link to Contribution opportunities")
 
@@ -33,7 +33,7 @@
 
 #### Overview[​](#overview-1 "Direct link to Overview")
 
-dbt Core (including v1, v2 / Fusion, and adapters), as well as the sites powering the Package Hub and Developer Hub, are all vibrant community projects. Unlike dbt Packages, contributing code to these projects typically requires some working knowledge of programming languages outside of SQL and Jinja, but the supportive community around these repositories can help you advance those skills. Even without contributing code, there are many ways to be part of communal development in these projects, detailed below. You can find a curated list of the most active OSS/SA projects that dbt Labs supports [here](https://docs.getdbt.com/community/resources/oss-sa-projects.md).
+dbt Core (including v1, v2 / Fusion, and adapters), as well as the sites powering the Package Hub and Developer Hub, are all vibrant community projects. Unlike dbt Packages, contributing code to these projects typically requires some working knowledge of programming languages outside of SQL and Jinja, but the supportive community around these repositories can help you advance those skills. Even without contributing code, there are many ways to be part of communal development in these projects, detailed below. You can find a curated list of the most active OSS/SA projects that dbt Labs supports [here](../resources/oss-sa-projects.md).
 
 #### Contribution opportunities[​](#contribution-opportunities-1 "Direct link to Contribution opportunities")
 
@@ -50,7 +50,7 @@ There are three primary ways to contribute to the dbt projects. We’ll use dbt 
 
 #### Get started[​](#get-started-1 "Direct link to Get started")
 
-* Read the dbt Core [contribution guide](https://github.com/dbt-labs/dbt-core/blob/main/CONTRIBUTING.md) and the [Contributor Expectations](https://docs.getdbt.com/community/resources/contributor-expectations.md).
+* Read the dbt Core [contribution guide](https://github.com/dbt-labs/dbt-core/blob/main/CONTRIBUTING.md) and the [Contributor Expectations](../resources/contributor-expectations.md).
 * If contributing to `dbt-core`, find an issue labeled “[good first issue](https://github.com/dbt-labs/dbt-fusion/issues?q=is%3Aopen+is%3Aissue+label%3Agood_first_issue)”, or look for similar labels on other repositories. If in doubt, also feel free to ask the maintainers for a good first issue, they’ll be excited to welcome you!
 
 #### Need help?[​](#need-help "Direct link to Need help?")

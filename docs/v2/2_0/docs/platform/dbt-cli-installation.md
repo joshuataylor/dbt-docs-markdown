@@ -11,15 +11,15 @@ The dbt CLI is a dbt platform tool available to users on any [plan](https://www.
 dbt commands run against the platform's infrastructure and benefit from:
 
 * Secure credential storage in the dbt platform
-* [Automatic deferral](https://docs.getdbt.com/docs/platform/about-defer.md) of build artifacts to your project's production environment
+* [Automatic deferral](./about-defer.md) of build artifacts to your project's production environment
 * Speedier, lower-cost builds
-* Support for dbt Mesh ([cross-project `ref`](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md))
+* Support for dbt Mesh ([cross-project `ref`](../mesh/govern/project-dependencies.md))
 
 [![Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.](/img/docs/dbt-platform/dbt-cli-overview.png?v=2 "Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.")](#)Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-The dbt CLI is available in all [deployment regions](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) and for both multi-tenant and single-tenant accounts.
+The dbt CLI is available in all [deployment regions](./about-platform/access-regions-ip-addresses.md) and for both multi-tenant and single-tenant accounts.
 
 * If you installed the dbt Core CLI in a virtual environment, deactivate that environment or create an alias for the platform CLI before you run platform CLI commands.
 * If you installed dbt locally, create an alias for the platform CLI before you run platform CLI commands.
@@ -28,7 +28,7 @@ Refer to the [FAQs](#faqs) for more information about managing multiple dbt CLI 
 
 Using the dbt platform CLI for hybrid development with Fusion?
 
-See the [Hybrid development with dbt platform and Fusion](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
+See the [Hybrid development with dbt platform and Fusion](../../guides/fusion-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
 
 ## Install dbt CLI[​](#install-dbt-cli "Direct link to Install dbt CLI")
 
@@ -92,7 +92,7 @@ pip uninstall dbt
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -122,7 +122,7 @@ Note that if you're using VS Code, you must restart it to pick up modified envir
 
 5. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-6. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+6. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -151,7 +151,7 @@ Advanced users can configure multiple projects to use the same dbt CLI executabl
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 If you already have dbt Core installed, the dbt CLI may conflict. Here are some considerations:
 
@@ -244,7 +244,7 @@ pip install dbt-adapter_name --force-reinstall
 
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
-5. After cloning your repo, [configure](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
 ## Update dbt CLI[​](#update-dbt-cli "Direct link to Update dbt CLI")
 
@@ -257,9 +257,9 @@ The following instructions explain how to update the dbt CLI to the latest versi
 
 To update the dbt CLI, run `brew update` and then `brew upgrade dbt`.
 
-To update, follow the [Windows installation instructions](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md?install=windows#install-dbt-cloud-cli) and replace the existing `dbt.exe` executable with the new one.
+To update, follow the [Windows installation instructions](./dbt-cli-installation.md?install=windows#install-dbt-cloud-cli) and replace the existing `dbt.exe` executable with the new one.
 
-To update, follow the [Linux installation instructions](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md?install=linux#install-dbt-cloud-cli) and replace the existing `dbt` executable with the new one.
+To update, follow the [Linux installation instructions](./dbt-cli-installation.md?install=linux#install-dbt-cloud-cli) and replace the existing `dbt` executable with the new one.
 
 To update:
 
@@ -270,9 +270,9 @@ To update:
 
 <!-- -->
 
-The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](https://docs.getdbt.com/docs/build/packages.md). Instead, use the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
+The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
 
-Here's an example of a [local package](https://docs.getdbt.com/docs/build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt CLI:
+Here's an example of a [local package](../build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt CLI:
 
 ```yaml
 # repository_root/my_dbt_project_in_a_subdirectory/packages.yml
@@ -286,17 +286,17 @@ In this example, `../shared_macros` is a relative path that tells dbt to look fo
 * `..` — Go one directory up (to `repository_root`).
 * `/shared_macros` — Find the `shared_macros` folder in the root directory.
 
-To work around this limitation, use the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
+To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
 
 ## dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
 
-[dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) is an AI agent purpose-built for analytics engineering. It's grounded in your dbt project through a [native metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured context index of your project's lineage, model health, test coverage, and semantic definitions. Before the agent writes a single line, it knows which models are healthy, what depends on what, and where gaps in tests or documentation exist.
+[dbt Wizard](../dbt-ai/wizard-quickstart.md) is an AI agent purpose-built for analytics engineering. It's grounded in your dbt project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured context index of your project's lineage, model health, test coverage, and semantic definitions. Before the agent writes a single line, it knows which models are healthy, what depends on what, and where gaps in tests or documentation exist.
 
 * **Build and refactor from natural language**: Describe the change, get a reviewable diff before anything is written to disk.
 * **Validate in a tight loop**: Every proposed change compiles and runs against your warehouse, catching issues before they reach production.
-* **Navigate with full project context**: Traverse the [DAG](https://docs.getdbt.com/docs/explore/explore-projects.md), surface downstream impact, and flag affected models, tests, and metrics before acting.
+* **Navigate with full project context**: Traverse the [DAG](../explore/explore-projects.md), surface downstream impact, and flag affected models, tests, and metrics before acting.
 
-For data practitioners working with a self-hosted installation, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) to get started.
+For data practitioners working with a self-hosted installation, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](../dbt-ai/wizard-quickstart.md) to get started.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -312,7 +312,7 @@ For compatibility, both the dbt CLI and dbt Core are invoked by running `dbt`. T
 
 If you have dbt Core installed locally, either:
 
-1. Install using the `pip3 install dbt` [pip](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md?install=pip#install-dbt-cloud-cli) command.
+1. Install using the `pip3 install dbt` [pip](./dbt-cli-installation.md?install=pip#install-dbt-cloud-cli) command.
 2. Install natively, ensuring you either deactivate the virtual environment containing dbt Core or create an alias for the dbt CLI.
 3. (Advanced users) Install natively, but modify the $PATH environment variable to correctly point to the dbt CLI binary to use both dbt CLI and dbt Core together.
 
@@ -341,7 +341,7 @@ You can then use the `dbt-cli` command to invoke the dbt CLI while you keep dbt 
 
  Why am I receiving a \`Stuck session\` error when trying to run a new command?
 
-The dbt CLI allows only one command that writes to the data warehouse at a time. If you attempt to run multiple write commands simultaneously (for example, `dbt run` and `dbt build`), you will encounter a `stuck session` error. To resolve this, cancel the specific invocation by passing its ID to the cancel command. For more information, refer to [parallel execution](https://docs.getdbt.com/reference/dbt-commands.md#parallel-execution).
+The dbt CLI allows only one command that writes to the data warehouse at a time. If you attempt to run multiple write commands simultaneously (for example, `dbt run` and `dbt build`), you will encounter a `stuck session` error. To resolve this, cancel the specific invocation by passing its ID to the cancel command. For more information, refer to [parallel execution](../../reference/dbt-commands.md#parallel-execution).
 
  I'm getting a \`Session occupied\` error in dbt CLI?
 
@@ -349,6 +349,6 @@ If you're receiving a `Session occupied` error in the dbt CLI or if you're exper
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 
-To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md?version=2.0).
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](../../reference/commands/invocation.md?version=2.0).
 
 Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

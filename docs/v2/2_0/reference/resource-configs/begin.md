@@ -14,13 +14,13 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Set the `begin` config to the timestamp value at which your [microbatch incremental model](https://docs.getdbt.com/docs/build/incremental-microbatch.md) data should begin — at the point the data becomes relevant for the microbatch model.
+Set the `begin` config to the timestamp value at which your [microbatch incremental model](../../docs/build/incremental-microbatch.md) data should begin — at the point the data becomes relevant for the microbatch model.
 
-You can configure `begin` for a [model](https://docs.getdbt.com/docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or SQL file config. The value for `begin` must be a string representing an ISO-formatted date, *or* date and time, *or* [relative dates](#set-begin-to-use-relative-dates). Check out the [examples](#examples) in the next section for more details.
+You can configure `begin` for a [model](../../docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or SQL file config. The value for `begin` must be a string representing an ISO-formatted date, *or* date and time, *or* [relative dates](#set-begin-to-use-relative-dates). Check out the [examples](#examples) in the next section for more details.
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -60,7 +60,7 @@ models/user\_sessions.sql
 
 #### Set `begin` to use relative dates[​](#set-begin-to-use-relative-dates "Direct link to set-begin-to-use-relative-dates")
 
-To configure `begin` to use relative dates, you can use modules variables [`modules.datetime`](https://docs.getdbt.com/reference/dbt-jinja-functions/modules.md#datetime) and [`modules.pytz`](https://docs.getdbt.com/reference/dbt-jinja-functions/modules.md#pytz) to dynamically specify relative timestamps, such as yesterday's date or the start of the current week.
+To configure `begin` to use relative dates, you can use modules variables [`modules.datetime`](../dbt-jinja-functions/modules.md#datetime) and [`modules.pytz`](../dbt-jinja-functions/modules.md#pytz) to dynamically specify relative timestamps, such as yesterday's date or the start of the current week.
 
 For example, to set `begin` to yesterday's date:
 

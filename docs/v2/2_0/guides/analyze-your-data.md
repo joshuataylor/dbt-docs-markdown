@@ -2,7 +2,7 @@
 
 Start with a stakeholder question and analyze the data to answer that question without writing any SQL
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Analyst
 

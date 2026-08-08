@@ -6,7 +6,7 @@ info
 
 The following is a guide to using Azure Synapse Analytics dedicated SQL pools (formerly SQL DW). For more info, refer to [What is dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics?](https://learn.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) for more info.
 
-For Microsoft Fabric setup with dbt, refer to [Microsoft Fabric Data Warehouse](https://docs.getdbt.com/docs/local/connect-data-platform/fabric-setup.md).
+For Microsoft Fabric setup with dbt, refer to [Microsoft Fabric Data Warehouse](./fabric-setup.md).
 
 <!-- -->
 
@@ -39,7 +39,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-synapse<!-- -->
 
-For <!-- -->Synapse<!-- -->-specific configuration, please refer to [Synapse<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/azuresynapse-configs.md)
+For <!-- -->Synapse<!-- -->-specific configuration, please refer to [Synapse<!-- --> configs.](../../../reference/resource-configs/azuresynapse-configs.md)
 
 Dedicated SQL only
 
@@ -57,7 +57,7 @@ Download and install the [Microsoft ODBC Driver 18 for SQL Server](https://docs.
 
 Default settings change in dbt-synapse v1.2 / ODBC Driver 18
 
-Microsoft made several changes related to connection encryption. Read more about the changes [here](https://docs.getdbt.com/docs/local/connect-data-platform/mssql-setup.md).
+Microsoft made several changes related to connection encryption. Read more about the changes [here](./mssql-setup.md).
 
 ### Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
 
@@ -84,4 +84,4 @@ your_profile_name:
       password: password
 ```
 
-You can find all the available options and the documentation and how to configure them on [the documentation page for the dbt-sqlserver adapter](https://docs.getdbt.com/docs/local/connect-data-platform/mssql-setup.md).
+You can find all the available options and the documentation and how to configure them on [the documentation page for the dbt-sqlserver adapter](./mssql-setup.md).

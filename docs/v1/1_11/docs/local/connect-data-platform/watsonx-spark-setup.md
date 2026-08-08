@@ -56,7 +56,7 @@ python -m pip install <Constant name="core" /> dbt-watsonx-spark
 
 ## Configuring `dbt-watsonx-spark`[​](#configuring-dbt-watsonx-spark "Direct link to configuring-dbt-watsonx-spark")
 
-For IBM watsonx.data-specific configuration, refer to [IBM watsonx.data configs.](https://docs.getdbt.com/reference/resource-configs/watsonx-spark-config.md)
+For IBM watsonx.data-specific configuration, refer to [IBM watsonx.data configs.](../../../reference/resource-configs/watsonx-spark-config.md)
 
 ## Connecting to IBM watsonx.data Spark[​](#connecting-to-ibm-watsonxdata-spark "Direct link to Connecting to IBM watsonx.data Spark")
 

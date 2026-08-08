@@ -12,17 +12,17 @@ This section covers common `dbt seed` results (artifacts and CLI output) and opt
 
 Use artifacts when you want to inspect or troubleshoot what happened during execution:
 
-* Artifacts: Running `dbt seed` produces dbt execution artifacts, including `run_results.json` for executed seeds. For details on what’s included and how to interpret it, refer to [Run results JSON file](https://docs.getdbt.com/reference/artifacts/run-results-json.md).
+* Artifacts: Running `dbt seed` produces dbt execution artifacts, including `run_results.json` for executed seeds. For details on what’s included and how to interpret it, refer to [Run results JSON file](../artifacts/run-results-json.md).
   <br />
 
 Use resource selection when you want to run only a subset of seeds:
 
-* Selecting resources: For advanced selection patterns (tags, paths, graph operators, and more), read [Syntax overview](https://docs.getdbt.com/reference/node-selection/syntax.md).
+* Selecting resources: For advanced selection patterns (tags, paths, graph operators, and more), read [Syntax overview](../node-selection/syntax.md).
   <br />
 
 Use global flags when you want to control command behavior, logging, and runtime settings:
 
-* Flags: `dbt seed` supports dbt global flags. For the full list, refer to [Command line options](https://docs.getdbt.com/reference/global-configs/command-line-options.md) and [Available flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md#available-flags).
+* Flags: `dbt seed` supports dbt global flags. For the full list, refer to [Command line options](../global-configs/command-line-options.md) and [Available flags](../global-configs/about-global-configs.md#available-flags).
 
 ## Selecting seeds[​](#selecting-seeds "Direct link to Selecting seeds")
 
@@ -75,13 +75,13 @@ Use `--full-refresh` to force a full reload of seed data (rather than an increme
   dbt seed --select "country_codes state_codes" --full-refresh
   ```
 
-For information about configuring seeds (for example, column types and quoting behavior), refer to [Seed configurations](https://docs.getdbt.com/reference/seed-configs.md).
+For information about configuring seeds (for example, column types and quoting behavior), refer to [Seed configurations](../seed-configs.md).
 
 <!-- -->
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Seed configurations](https://docs.getdbt.com/reference/seed-configs.md)
-* [Add Seeds to your DAG](https://docs.getdbt.com/docs/build/seeds.md)
-* [Syntax overview](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* [`dbt build` command](https://docs.getdbt.com/reference/commands/build.md)
+* [Seed configurations](../seed-configs.md)
+* [Add Seeds to your DAG](../../docs/build/seeds.md)
+* [Syntax overview](../node-selection/syntax.md)
+* [`dbt build` command](./build.md)

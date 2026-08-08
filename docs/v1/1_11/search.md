@@ -2,7 +2,7 @@
 
 [Join us at dbt Summit, September 15–18 in Las Vegas. Come learn, swap ideas, and spend time with the dbt community as we shape the future of data and AI.](https://www.getdbt.com/dbt-summit/?utm_medium=internal\&utm_source=docs\&utm_campaign=q3-2027_dbt-summit-2026_aw\&utm_content=dbt-summit____\&utm_term=all_all__)
 
-[![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](https://docs.getdbt.com/index.md)
+[![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](./index.md)
 
 dbt version▾
 
@@ -22,26 +22,26 @@ dbt version▾
 
 [Docs](#)
 
-* [Product docs](https://docs.getdbt.com/docs/introduction.md)
-* [References](https://docs.getdbt.com/reference/references-overview.md)
-* [Best practices](https://docs.getdbt.com/best-practices.md)
+* [Product docs](./docs/introduction.md)
+* [References](./reference/references-overview.md)
+* [Best practices](./best-practices.md)
 * [Developer blog](https://docs.getdbt.com/blog)
 
-[Guides](https://docs.getdbt.com/guides.md)[APIs](https://docs.getdbt.com/docs/dbt-apis/overview.md)
+[Guides](./guides.md)[APIs](./docs/dbt-apis/overview.md)
 
 [Help](#)
 
-* [Release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
-* [FAQs](https://docs.getdbt.com/docs/faqs.md)
-* [Support and billing](https://docs.getdbt.com/docs/dbt-support.md)
-* [Licensing](https://docs.getdbt.com/docs/dbt-licensing.md)
+* [Release notes](./docs/dbt-versions/release-notes.md)
+* [FAQs](./docs/faqs.md)
+* [Support and billing](./docs/dbt-support.md)
+* [Licensing](./docs/dbt-licensing.md)
 * [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements)
 * [Courses](https://learn.getdbt.com)
 
 [Community](#)
 
-* [Join the dbt Community](https://docs.getdbt.com/community/join.md)
-* [Become a contributor](https://docs.getdbt.com/community/contribute.md)
+* [Join the dbt Community](./community/join.md)
+* [Become a contributor](./community/contribute.md)
 * [Community forum](https://discourse.getdbt.com/)
 * [Webinars](https://www.getdbt.com/resources/webinars)
 * [Events](https://www.getdbt.com/events)
@@ -69,19 +69,19 @@ The free dbt VS Code extension is the best way to develop locally with the dbt F
 
 [Install free extension](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt) [Request your demo](https://www.getdbt.com/contact)
 
-[![dbt Labs](/img/dbt-logo-light.svg?v=2)](https://docs.getdbt.com/index.md)
+[![dbt Labs](/img/dbt-logo-light.svg?v=2)](./index.md)
 
 ##### Resources
 
-[VS Code Extension](https://docs.getdbt.com/docs/about-dbt-extension.md) [Resource Hub](https://www.getdbt.com/resources) [dbt Learn](https://www.getdbt.com/dbt-learn) [Certification](https://www.getdbt.com/dbt-certification) [Developer Blog](https://docs.getdbt.com/blog)
+[VS Code Extension](./docs/about-dbt-extension.md) [Resource Hub](https://www.getdbt.com/resources) [dbt Learn](https://www.getdbt.com/dbt-learn) [Certification](https://www.getdbt.com/dbt-certification) [Developer Blog](https://docs.getdbt.com/blog)
 
 ##### Community
 
-[Join the Community](https://docs.getdbt.com/community/join.md) [Become a Contributor](https://docs.getdbt.com/community/contribute.md) [Open Source dbt Packages](https://hub.getdbt.com/) [Community Forum](https://discourse.getdbt.com/)
+[Join the Community](./community/join.md) [Become a Contributor](./community/contribute.md) [Open Source dbt Packages](https://hub.getdbt.com/) [Community Forum](https://discourse.getdbt.com/)
 
 ##### Support
 
-[Contact Support](https://docs.getdbt.com/docs/dbt-support.md) [Professional Services](https://www.getdbt.com/services) [Find a Partner](https://www.getdbt.com/partner-directory) [System Status](https://status.getdbt.com/)
+[Contact Support](./docs/dbt-support.md) [Professional Services](https://www.getdbt.com/services) [Find a Partner](https://www.getdbt.com/partner-directory) [System Status](https://status.getdbt.com/)
 
 ##### Connect with Us
 

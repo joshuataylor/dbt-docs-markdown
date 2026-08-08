@@ -26,9 +26,9 @@ Make sure to enable the hybrid projects toggle in dbt’s **Account settings** p
 
 ### Make dbt Core models public (optional)[​](#make-dbt-core-models-public "Direct link to Make dbt Core models public (optional)")
 
-This step is optional and and only needed if you want to share your dbt Core models with other dbt projects using the [cross-project referencing](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) feature.
+This step is optional and and only needed if you want to share your dbt Core models with other dbt projects using the [cross-project referencing](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) feature.
 
-Before connecting your dbt Core project to a dbt project, make sure models that you want to share have `access: public` in their model configuration. This setting makes those models visible to other dbt projects for better collaboration, such as [cross-project referencing](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref).
+Before connecting your dbt Core project to a dbt project, make sure models that you want to share have `access: public` in their model configuration. This setting makes those models visible to other dbt projects for better collaboration, such as [cross-project referencing](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref).
 
 1. The easiest way to set this would be in your `dbt_project.yml` file, however you can also set this in the following places:
 
@@ -49,33 +49,33 @@ Before connecting your dbt Core project to a dbt project, make sure models that 
 
 2. After defining `access: public`, rerun a dbt execution in the dbt Core command line interface (CLI) (like `dbt run`) to apply the change.
 
-3. For more details on how to set this up, see [access modifier](https://docs.getdbt.com/docs/mesh/govern/model-access.md#access-modifiers) and [`access` config](https://docs.getdbt.com/reference/resource-configs/access.md).
+3. For more details on how to set this up, see [access modifier](../mesh/govern/model-access.md#access-modifiers) and [`access` config](../../reference/resource-configs/access.md).
 
 ### Create hybrid project[​](#create-hybrid-project "Direct link to Create hybrid project")
 
 Create a hybrid project in dbt to allow you to upload your dbt Core artifacts to dbt.
 
-A [dbt account admin](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#permission-sets) should perform the following steps and share the artifacts information with a dbt Core user:
+A [dbt account admin](../platform/manage-access/enterprise-permissions.md#permission-sets) should perform the following steps and share the artifacts information with a dbt Core user:
 
 1. To create a new project in dbt, navigate to **Account home**.
 2. Click on **+New project**.
 3. Fill out the **Project name**. Name the project something that allows you to recognize it's a dbt Core project.
    <!-- -->
-   * You don't need to set up a [data warehouse](https://docs.getdbt.com/docs/supported-data-platforms.md) or [Git connection](https://docs.getdbt.com/docs/platform/git/configure-git.md), however to upgrade the hybrid project to a full dbt project, you'd need to set up data warehouse and Git connection.
+   * You don't need to set up a [data warehouse](../supported-data-platforms.md) or [Git connection](../platform/git/configure-git.md), however to upgrade the hybrid project to a full dbt project, you'd need to set up data warehouse and Git connection.
 4. Select the **Advanced settings** toggle and then select the **Hybrid development** checkbox. Click **Continue**.
    <!-- -->
    * The hybrid project will have a visible **Hybrid** indicator in the project list to help you identify it.
 
 [![Hybrid project new project](/img/docs/deploy/hp-new-project.jpg?v=2 "Hybrid project new project")](#)Hybrid project new project
 
-5. After creating a project, create a corresponding [production environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#create-a-deployment-environment) and click **Save**. You will need to create a placeholder [profile](https://docs.getdbt.com/docs/platform/about-profiles.md) and assign it to the environment to save.
+5. After creating a project, create a corresponding [production environment](./deploy-environments.md#create-a-deployment-environment) and click **Save**. You will need to create a placeholder [profile](../platform/about-profiles.md) and assign it to the environment to save.
 6. (Optional) To update an existing dbt project to a hybrid project, navigate to **Account settings** and then select the **Project**. Click **Edit** and then check the **Hybrid development** checkbox.
 
 [![Hybrid project for an existing project](/img/docs/deploy/hp-existing-project.jpg?v=2 "Hybrid project for an existing project")](#)Hybrid project for an existing project
 
 ### Generate service token and artifact upload values[​](#generate-service-token-and-artifact-upload-values "Direct link to Generate service token and artifact upload values")
 
-A dbt admin should perform these steps to generate a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#enterprise-plans-using-service-account-tokens) (with both **Job Runner** *and* **Job Viewer** permissions) and copy the values needed to configure a dbt Core project so it's ready to upload generated artifacts to dbt.
+A dbt admin should perform these steps to generate a [service token](../dbt-apis/service-tokens.md#enterprise-plans-using-service-account-tokens) (with both **Job Runner** *and* **Job Viewer** permissions) and copy the values needed to configure a dbt Core project so it's ready to upload generated artifacts to dbt.
 
 The dbt admin should share the values with a dbt Core user.
 
@@ -85,7 +85,7 @@ The dbt admin should share the values with a dbt Core user.
 
    <!-- -->
 
-   * **[Tenant URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md)**
+   * **[Tenant URL](../platform/about-platform/access-regions-ip-addresses.md)**
 
    * **Account ID**
 
@@ -112,7 +112,7 @@ Once you have the values from the previous step, you can prepare your dbt Core p
       - latest:    1.9.3     - Ahead of latest version!
    ```
 
-2. If you don't have the latest version (1.10 or later), [upgrade](https://docs.getdbt.com/docs/local/install-dbt.md?version=1#change-dbt-core-versions) your dbt Core project by running `python -m pip install --upgrade dbt-core`.
+2. If you don't have the latest version (1.10 or later), [upgrade](../local/install-dbt.md?version=1#change-dbt-core-versions) your dbt Core project by running `python -m pip install --upgrade dbt-core`.
 
 3. Set the following environment variables in your dbt Core project by running the following commands in the CLI. Replace the `your_account_id`, `your_environment_id`, and `your_token` with the actual values in the [previous step](#generate-service-token-and-artifact-upload-values).
 
@@ -128,7 +128,7 @@ Once you have the values from the previous step, you can prepare your dbt Core p
    * Set the environment variables in whatever way you use them in your project.
    * To unset an environment variable, run `unset environment_variable_name`, replacing `environment_variable_name` with the actual name of the environment variable.
 
-4. In your local dbt Core project, add the following items you copied in the [previous section](https://docs.getdbt.com/docs/deploy/hybrid-setup.md#enable-artifact-upload) to the dbt Core's `dbt_project.yml` file:
+4. In your local dbt Core project, add the following items you copied in the [previous section](./hybrid-setup.md#enable-artifact-upload) to the dbt Core's `dbt_project.yml` file:
 
    * `tenant_hostname`
 
@@ -171,6 +171,6 @@ Now that you've uploaded dbt Core artifacts into the dbt platform and executed a
 
 Now that you've integrated dbt Core artifacts with your dbt project, you can now:
 
-* Collaborate with dbt users by enabling them to visualize and perform [cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in Core projects.
-* (Coming soon) New users interested in the [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) can build off of dbt models already created by a central data team in dbt Core rather than having to start from scratch.
-* dbt Core users can navigate to [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+* Collaborate with dbt users by enabling them to visualize and perform [cross-project references](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) to dbt models that live in Core projects.
+* (Coming soon) New users interested in the [Canvas](../platform/canvas.md) can build off of dbt models already created by a central data team in dbt Core rather than having to start from scratch.
+* dbt Core users can navigate to [Catalog](../explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](../platform/manage-access/seats-and-users.md).

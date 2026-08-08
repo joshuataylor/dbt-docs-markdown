@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -29,7 +29,7 @@ functions:
 
 <!-- -->
 
-You can optionally use the [`volatility` config](https://docs.getdbt.com/reference/resource-configs/volatility.md) for SQL, Python, or JavaScript UDFs to describe how predictable the function output is by using `deterministic`, `stable`, or `non-deterministic`. Warehouses use this information to decide if results can be cached, reordered, or inlined. Setting the appropriate volatility helps prevent incorrect results when a function isn’t safe to cache or reorder.
+You can optionally use the [`volatility` config](./volatility.md) for SQL, Python, or JavaScript UDFs to describe how predictable the function output is by using `deterministic`, `stable`, or `non-deterministic`. Warehouses use this information to decide if results can be cached, reordered, or inlined. Setting the appropriate volatility helps prevent incorrect results when a function isn’t safe to cache or reorder.
 
 For example:
 
@@ -68,7 +68,7 @@ In dbt, you can use the following values for the `volatility` config:
 | Value               | Description                                                                                                                                                                                                                                                                                             | Example                                                                                                                                                                       |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `deterministic`     | Always returns the same output for the same input. Safe for aggressive optimizations and caching.                                                                                                                                                                                                       | `substr()` — Produces the same substring when given the same string and parameters.                                                                                           |
-| `stable`            | Returns the same value within a single query execution, but may change across executions. Not supported by all warehouses. For more information, see [Warehouse-specific volatility keywords](https://docs.getdbt.com/reference/resource-configs/volatility.md#warehouse-specific-volatility-keywords). | `now()` — Returns the current timestamp the moment a query starts; constant within a single query but different across runs.                                                  |
+| `stable`            | Returns the same value within a single query execution, but may change across executions. Not supported by all warehouses. For more information, see [Warehouse-specific volatility keywords](./volatility.md#warehouse-specific-volatility-keywords). | `now()` — Returns the current timestamp the moment a query starts; constant within a single query but different across runs.                                                  |
 | `non-deterministic` | May return different results for the same inputs. Warehouses shouldn't cache or reorder assuming stable results.                                                                                                                                                                                        | `first()` — May return different rows depending on query plan or ordering.<br />`random()` — Produces a random number that varies with each call, even with identical inputs. |
 
 Search table...
@@ -98,9 +98,9 @@ functions:
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [type](https://docs.getdbt.com/reference/resource-configs/type.md)
-* [arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
-* [returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function configurations](../function-configs.md)
+* [type](./type.md)
+* [arguments](../resource-properties/function-arguments.md)
+* [returns](../resource-properties/returns.md)

@@ -43,7 +43,7 @@ definition:
   'tag:nightly'
 ```
 
-This simple syntax supports use of the `+`, `@`, and `*` [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) operators, [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators, and `exclude`.
+This simple syntax supports use of the `+`, `@`, and `*` [graph](./graph-operators.md) operators, [set](./set-operators.md) operators, and `exclude`.
 
 ### Key-value[​](#key-value "Direct link to Key-value")
 
@@ -52,13 +52,13 @@ definition:
   tag: nightly
 ```
 
-This simple syntax does not support any [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) or [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators or `exclude`.
+This simple syntax does not support any [graph](./graph-operators.md) or [set](./set-operators.md) operators or `exclude`.
 
 ### Full YAML[​](#full-yaml "Direct link to Full YAML")
 
-This is the most thorough syntax, which can include the operator-equivalent keywords for [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) and [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators.
+This is the most thorough syntax, which can include the operator-equivalent keywords for [graph](./graph-operators.md) and [set](./set-operators.md) operators.
 
-Review [methods](https://docs.getdbt.com/reference/node-selection/methods.md) for the available list.
+Review [methods](./methods.md) for the available list.
 
 ```yml
 definition:
@@ -108,7 +108,7 @@ The `exclude` keyword is only supported by fully-qualified dictionaries. It may 
 
 Note: The `exclude` argument in YAML selectors is subtly different from the `--exclude` CLI argument. Here, `exclude` *always* returns a [set difference](https://en.wikipedia.org/wiki/Complement_\(set_theory\)), and it is always applied *last* within its scope.
 
-When more than one "yeslist" (`--select`) is passed, they are treated as a [union](https://docs.getdbt.com/reference/node-selection/set-operators.md#unions) rather than an [intersection](https://docs.getdbt.com/reference/node-selection/set-operators.md#intersections). Same thing when there is more than one "nolist" (`--exclude`).
+When more than one "yeslist" (`--select`) is passed, they are treated as a [union](./set-operators.md#unions) rather than an [intersection](./set-operators.md#intersections). Same thing when there is more than one "nolist" (`--exclude`).
 
 #### Indirect selection[​](#indirect-selection "Direct link to Indirect selection")
 
@@ -134,7 +134,7 @@ As a general rule, dbt will indirectly select *all* tests if they touch *any* re
 
 If provided, a YAML selector's `indirect_selection` value will take precedence over the CLI flag `--indirect-selection`. Because `indirect_selection` is defined separately for *each* selection criterion, it's possible to mix eager/cautious/buildable/empty modes within the same definition, to achieve the exact behavior that you need. <!-- -->You can always test out your criteria with `dbt ls --selector`.
 
-See [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) for more details about indirect selection.
+See [test selection examples](./test-selection-examples.md) for more details about indirect selection.
 
 ## Example[​](#example "Direct link to Example")
 
@@ -278,7 +278,7 @@ The `selector` method returns the complete set of nodes returned by the named se
 
 ## Difference between `--select` and `--selector`[​](#difference-between---select-and---selector "Direct link to difference-between---select-and---selector")
 
-In dbt, [`select`](https://docs.getdbt.com/reference/node-selection/syntax.md#how-does-selection-work) and `selector` are related concepts used for choosing specific models, tests, or resources. The following table explains the differences and when to best use them:
+In dbt, [`select`](./syntax.md#how-does-selection-work) and `selector` are related concepts used for choosing specific models, tests, or resources. The following table explains the differences and when to best use them:
 
 | Feature     | `--select`                                                                                                 | `--selector`                                                                                                                      |
 | ----------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -297,7 +297,7 @@ Search table...
 Notes:
 
 * You can combine `--select` with `--exclude` for ad-hoc selection of nodes.
-* Using [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md) (such as `+`, `@`) and [set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md) (such as `union` and `intersection`) in `--select` is equivalent to YAML-based configs in `--selector`.
+* Using [graph operators](./graph-operators.md) (such as `+`, `@`) and [set operators](./set-operators.md) (such as `union` and `intersection`) in `--select` is equivalent to YAML-based configs in `--selector`.
 * If you use `--selector` together with `--select` or `--exclude`, dbt only applies `--selector` for node selection and ignores `--select` and `--exclude`.
 
 For additional examples, check out [this GitHub Gist](https://gist.github.com/jeremyyeo/1aeca767e2a4f157b07955d58f8078f7).

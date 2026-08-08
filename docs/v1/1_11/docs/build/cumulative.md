@@ -1,6 +1,6 @@
 # Cumulative metrics
 
-Cumulative metrics aggregate a measure over a given accumulation period. If no window is specified, the period is considered infinite and accumulates values over all time. You will need to create a [time spine model](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) before you add cumulative metrics.
+Cumulative metrics aggregate a measure over a given accumulation period. If no window is specified, the period is considered infinite and accumulates values over all time. You will need to create a [time spine model](./metricflow-time-spine.md) before you add cumulative metrics.
 
 Cumulative metrics are useful for calculating things like weekly active users, or month-to-date revenue. The parameters, description, and types for cumulative metrics are:
 
@@ -479,4 +479,4 @@ group by
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for simple, derived, or ratio metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

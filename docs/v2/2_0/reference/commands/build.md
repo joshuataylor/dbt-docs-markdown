@@ -2,31 +2,31 @@
 
 The `dbt build` command will:
 
-* run [models](https://docs.getdbt.com/docs/build/models.md)
-* test [tests](https://docs.getdbt.com/docs/build/data-tests.md)
-* snapshot [snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-* seed [seeds](https://docs.getdbt.com/docs/build/seeds.md)
-* build [user-defined functions](https://docs.getdbt.com/docs/build/udfs.md) (available from dbt Core v1.11 and in the dbt Fusion engine)
+* run [models](../../docs/build/models.md)
+* test [tests](../../docs/build/data-tests.md)
+* snapshot [snapshots](../../docs/build/snapshots.md)
+* seed [seeds](../../docs/build/seeds.md)
+* build [user-defined functions](../../docs/build/udfs.md) (available from dbt Core v1.11 and in the dbt Fusion engine)
 
 In DAG order, for selected resources or an entire project.
 
 ## Details[​](#details "Direct link to Details")
 
-**Artifacts:** The `build` task will write a single [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) and a single [run results artifact](https://docs.getdbt.com/reference/artifacts/run-results-json.md). The run results will include information about all models, tests, seeds, and snapshots that were selected to build, combined into one file.
+**Artifacts:** The `build` task will write a single [manifest](../artifacts/manifest-json.md) and a single [run results artifact](../artifacts/run-results-json.md). The run results will include information about all models, tests, seeds, and snapshots that were selected to build, combined into one file.
 
 **Skipping on failures:** Tests on upstream resources will block downstream resources from running, and a test failure will cause those downstream resources to skip entirely. E.g. If `model_b` depends on `model_a`, and a `unique` test on `model_a` fails, then `model_b` will `SKIP`.
 
-* Don't want a test to cause skipping? Adjust its [severity or thresholds](https://docs.getdbt.com/reference/resource-configs/severity.md) to `warn` instead of `error`
+* Don't want a test to cause skipping? Adjust its [severity or thresholds](../resource-configs/severity.md) to `warn` instead of `error`
 * In the case of a test with multiple parents, where one parent depends on the other (e.g. a `relationships` test between `model_a` + `model_b`), that test will block-and-skip children of the most-downstream parent only (`model_b`).
 * If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt-core/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
 
-**Skipping on model errors:** By default, if a model fails, all downstream models are skipped. Set [`on_error: continue`](https://docs.getdbt.com/reference/resource-configs/on_error.md) on a model to allow its downstream models to run even when that model fails.
+**Skipping on model errors:** By default, if a model fails, all downstream models are skipped. Set [`on_error: continue`](../resource-configs/on_error.md) on a model to allow its downstream models to run even when that model fails.
 
 <!-- -->
 
 **Selecting resources:** The `build` task supports standard selection syntax (`--select`, `--exclude`), as well as a `--resource-type` flag that offers a final filter (just like `list`). Whichever resources are selected, those are the ones that `build` will run/test/snapshot/seed.
 
-* Remember that tests support indirect selection, so `dbt build -s model_a` will both run *and* test `model_a`. What does that mean? Any tests that directly depend on `model_a` will be included, so long as those tests don't also depend on other unselected parents. See [test selection](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) for details and examples.
+* Remember that tests support indirect selection, so `dbt build -s model_a` will both run *and* test `model_a`. What does that mean? Any tests that directly depend on `model_a` will be included, so long as those tests don't also depend on other unselected parents. See [test selection](../node-selection/test-selection-examples.md) for details and examples.
 
 **Flags:** The `build` task supports all the same flags as `run`, `test`, `snapshot`, and `seed`. For flags that are shared between multiple tasks (e.g. `--full-refresh`), `build` will use the same value for all selected resource types (e.g. both models and seeds will be full refreshed).
 
@@ -58,9 +58,9 @@ select ...
 
 When `dbt build` is executed with unit tests applied, the models will be processed according to their lineage and dependencies. The tests will be executed as follows:
 
-* [Unit tests](https://docs.getdbt.com/docs/build/unit-tests.md) are run on a SQL model.
+* [Unit tests](../../docs/build/unit-tests.md) are run on a SQL model.
 * The model is materialized.
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md) are run on the model.
+* [Data tests](../../docs/build/data-tests.md) are run on the model.
 
 This saves on warehouse spend as the model will only be materialized if the unit tests pass successfully.
 
@@ -101,7 +101,7 @@ Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
 
 *Available from dbt Core v1.11 and in the dbt Fusion engine*
 
-The `build` command builds [user-defined functions](https://docs.getdbt.com/docs/build/udfs.md) as part of the DAG execution. To build or rebuild only `functions` in your project, run `dbt build --select "resource_type:function"`. For example:
+The `build` command builds [user-defined functions](../../docs/build/udfs.md) as part of the DAG execution. To build or rebuild only `functions` in your project, run `dbt build --select "resource_type:function"`. For example:
 
 ```bash
 dbt build --select "resource_type:function"

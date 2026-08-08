@@ -1,6 +1,6 @@
 # Creating metrics
 
-After building [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md), it's time to start adding metrics. This page explains the different supported metric types you can add to your dbt project.
+After building [semantic models](./semantic-models.md), it's time to start adding metrics. This page explains the different supported metric types you can add to your dbt project.
 
 <!-- -->
 
@@ -23,7 +23,7 @@ The keys for metrics parameters are:
 | `description` | Describe your metric.                                                                                                                                                                                                                                                                                                                                                                                                                                               | Optional | String |
 | `type`        | Define the type of metric, which can be `conversion`, `cumulative`, `derived`, `ratio`, or `simple`.                                                                                                                                                                                                                                                                                                                                                                | Required | String |
 | `label`       | Defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                                                                                                                 | Optional | String |
-| `config`      | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md), [`group`](https://docs.getdbt.com/reference/resource-configs/group.md), [`tags`](https://docs.getdbt.com/reference/resource-configs/tags.md), and [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) configurations. | Optional | Dict   |
+| `config`      | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), [`tags`](../../reference/resource-configs/tags.md), and [`enabled`](../../reference/resource-configs/enabled.md) configurations. | Optional | Dict   |
 | `filter`      | You can optionally add a [filter](#filters) string to any metric type, applying filters to dimensions, entities, time dimensions, or other metrics during metric computation. Consider it as your WHERE clause.                                                                                                                                                                                                                                                     | Optional | String |
 
 Search table...
@@ -103,7 +103,7 @@ Set the native grain on the time dimension column and choose the rollup grain at
 
 * Define the data’s grain on the time dimension column with granularity (for example, hour, day, month).
 * Metrics inherit the model’s default aggregation time dimension (set at the model level), and you can optionally override it per metric with `agg_time_dimension`.
-* When querying, pick the rollup grain (day/week/month/year) in your BI tool or with the [Semantic Layer API](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md). You can only roll up to grains coarser than or equal to the column’s native grain.
+* When querying, pick the rollup grain (day/week/month/year) in your BI tool or with the [Semantic Layer API](../dbt-apis/sl-api-overview.md). You can only roll up to grains coarser than or equal to the column’s native grain.
 
 ### Example[​](#example-2 "Direct link to Example")
 
@@ -149,7 +149,7 @@ models:
 
 ## Conversion metrics[​](#conversion-metrics "Direct link to Conversion metrics")
 
-[Conversion metrics](https://docs.getdbt.com/docs/build/conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
+[Conversion metrics](./conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
 
 <!-- -->
 
@@ -202,7 +202,7 @@ metrics:
 
 <!-- -->
 
-[Cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md) aggregate a simple metric over a given period. If no period is specified, the window will accumulate the simple metric over all of the recorded time period. Note that you will need to create the [time spine model](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) before you add cumulative metrics.
+[Cumulative metrics](./cumulative.md) aggregate a simple metric over a given period. If no period is specified, the window will accumulate the simple metric over all of the recorded time period. Note that you will need to create the [time spine model](./metricflow-time-spine.md) before you add cumulative metrics.
 
 models/file\_name.yml
 
@@ -245,7 +245,7 @@ metrics:
 
 ## Derived metrics[​](#derived-metrics "Direct link to Derived metrics")
 
-[Derived metrics](https://docs.getdbt.com/docs/build/derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
+[Derived metrics](./derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
 
 <!-- -->
 
@@ -299,7 +299,7 @@ metrics:
 
 ## Ratio metrics[​](#ratio-metrics "Direct link to Ratio metrics")
 
-[Ratio metrics](https://docs.getdbt.com/docs/build/ratio.md) involve a numerator metric and a denominator metric. A `filter` string can be applied to both the numerator and denominator or separately to the numerator or denominator.
+[Ratio metrics](./ratio.md) involve a numerator metric and a denominator metric. A `filter` string can be applied to both the numerator and denominator or separately to the numerator or denominator.
 
 <!-- -->
 
@@ -361,7 +361,7 @@ metrics:
 
 <!-- -->
 
-[Simple metrics](https://docs.getdbt.com/docs/build/simple.md) point directly to a single column expression within a semantic model. You can think of a simple metric as the foundational building block for other metrics. It performs an aggregation (like `sum`, `count`, or `average`, and so on) on a single field in your model.
+[Simple metrics](./simple.md) point directly to a single column expression within a semantic model. You can think of a simple metric as the foundational building block for other metrics. It performs an aggregation (like `sum`, `count`, or `average`, and so on) on a single field in your model.
 
 models/file\_name.yml
 
@@ -422,7 +422,7 @@ models:
 
 Configure a filter using Jinja templating and the following syntax to reference entities, dimensions, time dimensions, or metrics in filters.
 
-Refer to [Metrics as dimensions](https://docs.getdbt.com/docs/build/ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
+Refer to [Metrics as dimensions](./ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
 
 models/metrics/file\_name.yml
 
@@ -449,6 +449,6 @@ filter: |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md)
-* [Fill null values for metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
-* [Metrics as dimensions with metric filters](https://docs.getdbt.com/docs/build/ref-metrics-in-filters.md)
+* [Semantic models](./semantic-models.md)
+* [Fill null values for metrics](./fill-nulls-advanced.md)
+* [Metrics as dimensions with metric filters](./ref-metrics-in-filters.md)

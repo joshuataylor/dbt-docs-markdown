@@ -1,16 +1,16 @@
 # Run your dbt projects
 
-You can run your dbt projects locally or using the [dbt platform](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md) with the dbt framework.
+You can run your dbt projects locally or using the [dbt platform](../platform/about-platform/dbt-platform-features.md) with the dbt framework.
 
 ## Common commands[​](#common-commands "Direct link to Common commands")
 
 In dbt, the commands you commonly use are:
 
-* [dbt run](https://docs.getdbt.com/reference/commands/run.md) — Run the models you defined in your project
-* [dbt build](https://docs.getdbt.com/reference/commands/build.md) — Build and test your selected resources such as models, seeds, snapshots, and tests
-* [dbt test](https://docs.getdbt.com/reference/commands/test.md) — Execute the tests you defined for your project
+* [dbt run](../../reference/commands/run.md) — Run the models you defined in your project
+* [dbt build](../../reference/commands/build.md) — Build and test your selected resources such as models, seeds, snapshots, and tests
+* [dbt test](../../reference/commands/test.md) — Execute the tests you defined for your project
 
-For all dbt commands and their arguments (flags), see the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md). To list all dbt commands from the command line, run `dbt --help`. To list a specific command's arguments, run `dbt COMMAND_NAME --help`.
+For all dbt commands and their arguments (flags), see the [dbt command reference](../../reference/dbt-commands.md). To list all dbt commands from the command line, run `dbt --help`. To list a specific command's arguments, run `dbt COMMAND_NAME --help`.
 
  New to the command line?
 
@@ -36,8 +36,8 @@ The dbt framework is composed of a *language* and an *engine*:
 
 The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
 
-* [Develop in your browser using the Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
-* [Seamless drag-and-drop development with Canvas](https://docs.getdbt.com/docs/platform/canvas.md)
+* [Develop in your browser using the Studio IDE](../platform/studio-ide/develop-in-studio.md)
+* [Seamless drag-and-drop development with Canvas](../platform/canvas.md)
 * [Run dbt commands from your local command line](#dbt-local-development) using dbt VS Code extension or dbt CLI (both which integrate seamlessly with the dbt platform project(s)).
 
 For more details, see [About dbt plans](https://www.getdbt.com/pricing).
@@ -46,16 +46,16 @@ For more details, see [About dbt plans](https://www.getdbt.com/pricing).
 
 You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
 
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) — Get Fusion from the command line
-* [Install the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](https://docs.getdbt.com/docs/about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
-* [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
+* [Install dbt](../local/install-dbt.md) — Get Fusion from the command line
+* [Install the dbt VS Code extension](../about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](../about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
+* [Install the dbt CLI](../platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About the dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [dbt features](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md)
-* [Model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)
-* [Studio IDE features](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#studio-ide-features)
-* [Does dbt offer extract and load functionality?](https://docs.getdbt.com/faqs/Project/transformation-tool.md)
-* [Why does dbt compile need a data platform connection](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md)
+* [About the dbt VS Code extension](../about-dbt-extension.md)
+* [dbt features](../platform/about-platform/dbt-platform-features.md)
+* [Model selection syntax](../../reference/node-selection/syntax.md)
+* [dbt CLI](../platform/dbt-cli-installation.md)
+* [Studio IDE features](../platform/studio-ide/develop-in-studio.md#studio-ide-features)
+* [Does dbt offer extract and load functionality?](../../faqs/Project/transformation-tool.md)
+* [Why does dbt compile need a data platform connection](../../faqs/Warehouse/db-connection-dbt-compile.md)

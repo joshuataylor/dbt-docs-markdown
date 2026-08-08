@@ -1,6 +1,6 @@
 # Quickstart for the dbt Semantic Layer and Snowflake
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Semantic Layer
 
@@ -18,7 +18,7 @@ Intermediate
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-The [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), powered by [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md), simplifies the setup of key business metrics. It centralizes definitions, avoids duplicate code, and ensures easy access to metrics in downstream tools. MetricFlow helps manage company metrics easier, allowing you to define metrics in your dbt project and query them in dbt with [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md).
+The [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), powered by [MetricFlow](../docs/build/about-metricflow.md), simplifies the setup of key business metrics. It centralizes definitions, avoids duplicate code, and ensures easy access to metrics in downstream tools. MetricFlow helps manage company metrics easier, allowing you to define metrics in your dbt project and query them in dbt with [MetricFlow commands](../docs/build/metricflow-commands.md).
 
 <!-- -->
 
@@ -36,7 +36,7 @@ If you're on different data platforms, you can also follow this guide and will n
 
 * You need a [dbt](https://www.getdbt.com/signup/) Trial, Starter, or Enterprise-tier account for all deployments.
 
-* Have the correct [dbt license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) and [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) based on your plan:
+* Have the correct [dbt license](../docs/platform/manage-access/seats-and-users.md) and [permissions](../docs/platform/manage-access/enterprise-permissions.md) based on your plan:
 
    More info on license and permissions
 
@@ -49,7 +49,7 @@ If you're on different data platforms, you can also follow this guide and will n
   * Select the Enterprise Snowflake edition with ACCOUNTADMIN access. Consider organizational questions when choosing a cloud provider, and refer to Snowflake's [Introduction to Cloud Platforms](https://docs.snowflake.com/en/user-guide/intro-cloud-platforms).
   * Select a cloud provider and region. All cloud providers and regions will work so choose whichever you prefer.
 
-* Complete the [Quickstart for dbt and Snowflake](https://docs.getdbt.com/guides/snowflake.md) guide.
+* Complete the [Quickstart for dbt and Snowflake](./snowflake.md) guide.
 
 * Basic understanding of SQL and dbt. For example, you've used dbt before or have completed the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course.
 
@@ -67,34 +67,34 @@ The rest of this guide applies universally across all supported platforms, ensur
 
 Open a new tab and follow these quick steps for account setup and data loading instructions:
 
-* [Step 2: Create a new GCP project](https://docs.getdbt.com/guides/bigquery.md?step=2)
-* [Step 3: Create BigQuery dataset](https://docs.getdbt.com/guides/bigquery.md?step=3)
-* [Step 4: Generate BigQuery credentials](https://docs.getdbt.com/guides/bigquery.md?step=4)
-* [Step 5: Connect dbt to BigQuery](https://docs.getdbt.com/guides/bigquery.md?step=5)
+* [Step 2: Create a new GCP project](./bigquery.md?step=2)
+* [Step 3: Create BigQuery dataset](./bigquery.md?step=3)
+* [Step 4: Generate BigQuery credentials](./bigquery.md?step=4)
+* [Step 5: Connect dbt to BigQuery](./bigquery.md?step=5)
 
 Open a new tab and follow these quick steps for account setup and data loading instructions:
 
-* [Step 2: Create a Databricks workspace](https://docs.getdbt.com/guides/databricks.md?step=2)
-* [Step 3: Load data](https://docs.getdbt.com/guides/databricks.md?step=3)
-* [Step 4: Connect dbt to Databricks](https://docs.getdbt.com/guides/databricks.md?step=4)
+* [Step 2: Create a Databricks workspace](./databricks.md?step=2)
+* [Step 3: Load data](./databricks.md?step=3)
+* [Step 4: Connect dbt to Databricks](./databricks.md?step=4)
 
 Open a new tab and follow these quick steps for account setup and data loading instructions:
 
-* [Step 2: Load data into your Microsoft Fabric warehouse](https://docs.getdbt.com/guides/microsoft-fabric.md?step=2)
-* [Step 3: Connect dbt to Microsoft Fabric](https://docs.getdbt.com/guides/microsoft-fabric.md?step=3)
+* [Step 2: Load data into your Microsoft Fabric warehouse](./microsoft-fabric.md?step=2)
+* [Step 3: Connect dbt to Microsoft Fabric](./microsoft-fabric.md?step=3)
 
 Open a new tab and follow these quick steps for account setup and data loading instructions:
 
-* [Step 2: Create a Redshift cluster](https://docs.getdbt.com/guides/redshift.md?step=2)
-* [Step 3: Load data](https://docs.getdbt.com/guides/redshift.md?step=3)
-* [Step 4: Connect dbt to Redshift](https://docs.getdbt.com/guides/redshift.md?step=3)
+* [Step 2: Create a Redshift cluster](./redshift.md?step=2)
+* [Step 3: Load data](./redshift.md?step=3)
+* [Step 4: Connect dbt to Redshift](./redshift.md?step=3)
 
 Open a new tab and follow these quick steps for account setup and data loading instructions:
 
-* [Step 2: Load data to an Amazon S3 bucket](https://docs.getdbt.com/guides/starburst-galaxy.md?step=2)
-* [Step 3: Connect Starburst Galaxy to Amazon S3 bucket data](https://docs.getdbt.com/guides/starburst-galaxy.md?step=3)
-* [Step 4: Create tables with Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md?step=4)
-* [Step 5: Connect dbt to Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md?step=5)
+* [Step 2: Load data to an Amazon S3 bucket](./starburst-galaxy.md?step=2)
+* [Step 3: Connect Starburst Galaxy to Amazon S3 bucket data](./starburst-galaxy.md?step=3)
+* [Step 4: Create tables with Starburst Galaxy](./starburst-galaxy.md?step=4)
+* [Step 5: Connect dbt to Starburst Galaxy](./starburst-galaxy.md?step=5)
 
 ## Create new Snowflake SQL file and set up environment[​](#create-new-snowflake-sql-file-and-set-up-environment "Direct link to Create new Snowflake SQL file and set up environment")
 
@@ -211,7 +211,7 @@ There are two ways to connect dbt to Snowflake. The first option is Partner Conn
 * Use Partner Connect
 * Connect manually
 
-Using Partner Connect allows you to create a complete dbt account with your [Snowflake connection](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md), [a managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md), [environments](https://docs.getdbt.com/docs/build/custom-schemas.md#managing-environments), and credentials.
+Using Partner Connect allows you to create a complete dbt account with your [Snowflake connection](../docs/platform/connect-data-platform/connect-snowflake.md), [a managed repository](../docs/platform/git/managed-repository.md), [environments](../docs/build/custom-schemas.md#managing-environments), and credentials.
 
 1. On the left sidebar of the Snowflake UI, go to **Admin > Partner Connect**. Find the dbt tile under the **Data Integration** section or search for dbt in the search bar. Click the tile to connect to dbt.
 
@@ -295,11 +295,11 @@ In this section, you will set up a dbt managed repository and initialize your db
 
 ### Set up a dbt managed repository[​](#set-up-a-dbt-managed-repository "Direct link to Set up a dbt managed repository")
 
-If you used Partner Connect, you can skip to [initializing your dbt project](#initialize-your-dbt-project-and-start-developing) as Partner Connect provides you with a [managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md). Otherwise, you will need to create your repository connection.
+If you used Partner Connect, you can skip to [initializing your dbt project](#initialize-your-dbt-project-and-start-developing) as Partner Connect provides you with a [managed repository](../docs/platform/git/managed-repository.md). Otherwise, you will need to create your repository connection.
 
-When you develop in dbt, you can leverage [Git](https://docs.getdbt.com/docs/platform/git/git-version-control.md) to version control your code.
+When you develop in dbt, you can leverage [Git](../docs/platform/git/git-version-control.md) to version control your code.
 
-To connect to a repository, you can either set up a dbt-hosted [managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md) or directly connect to a [supported git provider](https://docs.getdbt.com/docs/platform/git/connect-github.md). Managed repositories are a great way to trial dbt without needing to create a new repository. In the long run, it's better to connect to a supported git provider to use features like automation and [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+To connect to a repository, you can either set up a dbt-hosted [managed repository](../docs/platform/git/managed-repository.md) or directly connect to a [supported git provider](../docs/platform/git/connect-github.md). Managed repositories are a great way to trial dbt without needing to create a new repository. In the long run, it's better to connect to a supported git provider to use features like automation and [continuous integration](../docs/deploy/continuous-integration.md).
 
 To set up a managed repository:
 
@@ -310,7 +310,7 @@ To set up a managed repository:
 
 ### Initialize your dbt project[​](#initialize-your-dbt-project "Direct link to Initialize your dbt project")
 
-This guide assumes you use the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) to develop your dbt project, define metrics, and query and preview metrics using [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md).
+This guide assumes you use the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) to develop your dbt project, define metrics, and query and preview metrics using [MetricFlow commands](../docs/build/metricflow-commands.md).
 
 Now that you have a repository configured, you can initialize your project and start development in dbt using the Studio IDE:
 
@@ -342,7 +342,7 @@ The next step is to build your project. This involves adding sources, staging mo
 
 ### Add sources[​](#add-sources "Direct link to Add sources")
 
-[Sources](https://docs.getdbt.com/docs/build/sources.md) in dbt are the raw data tables you'll transform. By organizing your source definitions, you document the origin of your data. It also makes your project and transformation more reliable, structured, and understandable.
+[Sources](../docs/build/sources.md) in dbt are the raw data tables you'll transform. By organizing your source definitions, you document the origin of your data. It also makes your project and transformation more reliable, structured, and understandable.
 
 You have two options for working with files in the Studio IDE:
 
@@ -390,7 +390,7 @@ sources:
 
 ### Add staging models[​](#add-staging-models "Direct link to Add staging models")
 
-[Staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) are the first transformation step in dbt. They clean and prepare your raw data, making it ready for more complex transformations and analyses. Follow these steps to add your staging models to your project.
+[Staging models](../best-practices/how-we-structure/2-staging.md) are the first transformation step in dbt. They clean and prepare your raw data, making it ready for more complex transformations and analyses. Follow these steps to add your staging models to your project.
 
 1. In the `jaffle_shop` sub-directory, create the file `stg_customers.sql`. Or, you can use the **Generate model** button to create a new model file for each source.
 2. Copy the following query into the file and click **Save**.
@@ -442,9 +442,9 @@ from {{ source('stripe', 'payment') }}
 
 ### Add business-defined entities[​](#add-business-defined-entities "Direct link to Add business-defined entities")
 
-This phase involves creating [models that serve as the entity layer or concept layer of your dbt project](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md), making the data ready for reporting and analysis. It also includes adding [packages](https://docs.getdbt.com/docs/build/packages.md) and the [MetricFlow time spine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) that extend dbt's functionality.
+This phase involves creating [models that serve as the entity layer or concept layer of your dbt project](../best-practices/how-we-structure/4-marts.md), making the data ready for reporting and analysis. It also includes adding [packages](../docs/build/packages.md) and the [MetricFlow time spine](../docs/build/metricflow-time-spine.md) that extend dbt's functionality.
 
-This phase is the [marts layer](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview), which brings together modular pieces into a wide, rich vision of the entities an organization cares about.
+This phase is the [marts layer](../best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview), which brings together modular pieces into a wide, rich vision of the entities an organization cares about.
 
 1. Create the file `models/marts/fct_orders.sql`.
 2. Copy the following query into the file and click **Save**.
@@ -528,17 +528,17 @@ final as (
 select * from final
 ```
 
-5. Create a MetricFlow time spine model by following the [MetricFlow time spine guide](https://docs.getdbt.com/guides/mf-time-spine.md?step=1). This guide walks you through creating both the SQL model and YAML configuration required for time-based metric calculations.
+5. Create a MetricFlow time spine model by following the [MetricFlow time spine guide](./mf-time-spine.md?step=1). This guide walks you through creating both the SQL model and YAML configuration required for time-based metric calculations.
 
 6. Enter `dbt run` in the command prompt at the bottom of the screen. You should get a successful run message and also see in the run details that dbt has successfully built your models.
 
 ## Create semantic models[​](#create-semantic-models "Direct link to Create semantic models")
 
-In this section, you'll learn about [semantic model](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=6#about-semantic-models), [their components](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=6#semantic-model-components), and [how to configure a time spine](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=6#configure-a-time-spine).
+In this section, you'll learn about [semantic model](./sl-snowflake-qs.md?step=6#about-semantic-models), [their components](./sl-snowflake-qs.md?step=6#semantic-model-components), and [how to configure a time spine](./sl-snowflake-qs.md?step=6#configure-a-time-spine).
 
 ### About semantic models[​](#about-semantic-models "Direct link to About semantic models")
 
-[Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) contain many object types (such as entities, measures, and dimensions) that allow MetricFlow to construct the queries for metric definitions.
+[Semantic models](../docs/build/semantic-models.md) contain many object types (such as entities, measures, and dimensions) that allow MetricFlow to construct the queries for metric definitions.
 
 * Each semantic model will be 1:1 with a dbt SQL/Python model.
 * Each semantic model will contain (at most) 1 primary or natural entity.
@@ -551,7 +551,7 @@ In the following steps, semantic models enable you to define how to interpret th
 
 tip
 
-Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](https://docs.getdbt.com/reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
+Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](../reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
 
 2. Add the following code to that newly created file:
 
@@ -571,7 +571,7 @@ semantic_models:
 
 ### Semantic model components[​](#semantic-model-components "Direct link to Semantic model components")
 
-The following sections explain [dimensions](https://docs.getdbt.com/docs/build/dimensions.md), [entities](https://docs.getdbt.com/docs/build/entities.md), and [measures](https://docs.getdbt.com/docs/build/measures.md) in more detail, showing how they each play a role in semantic models.
+The following sections explain [dimensions](../docs/build/dimensions.md), [entities](../docs/build/entities.md), and [measures](../docs/build/measures.md) in more detail, showing how they each play a role in semantic models.
 
 * [Entities](#entities) act as unique identifiers (like ID columns) that link data together from different tables.
 * [Dimensions](#dimensions) categorize and filter data, making it easier to organize.
@@ -581,7 +581,7 @@ The following sections explain [dimensions](https://docs.getdbt.com/docs/build/d
 
 ### Entities[​](#entities "Direct link to Entities")
 
-[Entities](https://docs.getdbt.com/docs/build/semantic-models.md#entities) are a real-world concept in a business, serving as the backbone of your semantic model. These are going to be ID columns (like `order_id`) in our semantic models. These will serve as join keys to other semantic models.
+[Entities](../docs/build/semantic-models.md#entities) are a real-world concept in a business, serving as the backbone of your semantic model. These are going to be ID columns (like `order_id`) in our semantic models. These will serve as join keys to other semantic models.
 
 Add entities to your `fct_orders.yml` semantic model file:
 
@@ -608,7 +608,7 @@ semantic_models:
 
 ### Dimensions[​](#dimensions "Direct link to Dimensions")
 
-[Dimensions](https://docs.getdbt.com/docs/build/semantic-models.md#dimensions) are a way to group or filter information based on categories or time.
+[Dimensions](../docs/build/semantic-models.md#dimensions) are a way to group or filter information based on categories or time.
 
 Add dimensions to your `fct_orders.yml` semantic model file:
 
@@ -640,7 +640,7 @@ semantic_models:
 
 ### Measures[​](#measures "Direct link to Measures")
 
-[Measures](https://docs.getdbt.com/docs/build/semantic-models.md#measures) are aggregations performed on columns in your model. Often, you’ll find yourself using them as final metrics themselves. Measures can also serve as building blocks for more complicated metrics.
+[Measures](../docs/build/semantic-models.md#measures) are aggregations performed on columns in your model. Often, you’ll find yourself using them as final metrics themselves. Measures can also serve as building blocks for more complicated metrics.
 
 Add measures to your `fct_orders.yml` semantic model file:
 
@@ -691,9 +691,9 @@ semantic_models:
 
 ### Configure a time spine[​](#configure-a-time-spine "Direct link to Configure a time spine")
 
-To ensure accurate time-based aggregations, you must configure a [time spine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md). The time spine allows you to have accurate metric calculations over different time granularities.
+To ensure accurate time-based aggregations, you must configure a [time spine](../docs/build/metricflow-time-spine.md). The time spine allows you to have accurate metric calculations over different time granularities.
 
-Follow the [MetricFlow time spine guide](https://docs.getdbt.com/guides/mf-time-spine.md?step=1) for complete step-by-step instructions on creating and configuring your time spine model. This guide provides the current best practices and avoids deprecated configurations.
+Follow the [MetricFlow time spine guide](./mf-time-spine.md?step=1) for complete step-by-step instructions on creating and configuring your time spine model. This guide provides the current best practices and avoids deprecated configurations.
 
 ## Define metrics and add a second semantic model[​](#define-metrics-and-add-a-second-semantic-model "Direct link to Define metrics and add a second semantic model")
 
@@ -701,15 +701,15 @@ In this section, you will [define metrics](#define-metrics) and [add a second se
 
 ### Define metrics[​](#define-metrics "Direct link to Define metrics")
 
-[Metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) are the language your business users speak and measure business performance. They are an aggregation over a column in your warehouse that you enrich with dimensional cuts.
+[Metrics](../docs/build/metrics-overview.md) are the language your business users speak and measure business performance. They are an aggregation over a column in your warehouse that you enrich with dimensional cuts.
 
 There are different types of metrics you can configure:
 
-* [Conversion metrics](https://docs.getdbt.com/docs/build/conversion.md) — Track when a base event and a subsequent conversion event occur for an entity within a set time period.
-* [Cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md) — Aggregate a measure over a given window. If no window is specified, the window will accumulate the measure over all of the recorded time period. Note that you must create the time spine model before you add cumulative metrics.
-* [Derived metrics](https://docs.getdbt.com/docs/build/metrics-overview.md#derived-metrics) — Allows you to do calculations on top of metrics.
-* [Simple metrics](https://docs.getdbt.com/docs/build/metrics-overview.md#simple-metrics) — Directly reference a single column expression within a semantic model, without any additional columns involved. They are aggregations over a column in your data platform and can be filtered by one or multiple dimensions.
-* [Ratio metrics](https://docs.getdbt.com/docs/build/metrics-overview.md#ratio-metrics) — Involve a numerator metric and a denominator metric. A constraint string can be applied to both the numerator and denominator or separately to the numerator or denominator.
+* [Conversion metrics](../docs/build/conversion.md) — Track when a base event and a subsequent conversion event occur for an entity within a set time period.
+* [Cumulative metrics](../docs/build/cumulative.md) — Aggregate a measure over a given window. If no window is specified, the window will accumulate the measure over all of the recorded time period. Note that you must create the time spine model before you add cumulative metrics.
+* [Derived metrics](../docs/build/metrics-overview.md#derived-metrics) — Allows you to do calculations on top of metrics.
+* [Simple metrics](../docs/build/metrics-overview.md#simple-metrics) — Directly reference a single column expression within a semantic model, without any additional columns involved. They are aggregations over a column in your data platform and can be filtered by one or multiple dimensions.
+* [Ratio metrics](../docs/build/metrics-overview.md#ratio-metrics) — Involve a numerator metric and a denominator metric. A constraint string can be applied to both the numerator and denominator or separately to the numerator or denominator.
 
 Once you've created your semantic models, it's time to start referencing those <!-- -->measures<!-- --> you made to create some metrics:
 
@@ -717,7 +717,7 @@ Once you've created your semantic models, it's time to start referencing those <
 
 tip
 
-Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](https://docs.getdbt.com/reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
+Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](../reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
 
 models/metrics/fct\_orders.yml
 
@@ -889,15 +889,15 @@ This semantic model uses simple metrics to focus on customer metrics and emphasi
 
 To work with metrics in dbt, you have several tools to validate or run commands. Here's how you can test and query metrics depending on your setup:
 
-* [**Studio IDE users**](#studio-ide-users) — Run [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md#metricflow-commands) directly in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) to query/preview metrics. View metrics visually in the **Lineage** tab.
-* [**dbt CLI users**](#dbt-cli-users) — The [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
-* **dbt Core users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt Core users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
+* [**Studio IDE users**](#studio-ide-users) — Run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) directly in the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) to query/preview metrics. View metrics visually in the **Lineage** tab.
+* [**dbt CLI users**](#dbt-cli-users) — The [dbt CLI](../docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
+* **dbt Core users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt Core users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
 
 Alternatively, you can run commands with SQL client tools like DataGrip, DBeaver, or RazorSQL.
 
 ### Studio IDE users[​](#studio-ide-users "Direct link to Studio IDE users")
 
-You can use the `dbt sl` prefix before the command name to execute them in dbt. For example, to list all metrics, run `dbt sl list metrics`. For a complete list of the MetricFlow commands available in the Studio IDE, refer to the [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md#metricflow-commandss) page.
+You can use the `dbt sl` prefix before the command name to execute them in dbt. For example, to list all metrics, run `dbt sl list metrics`. For a complete list of the MetricFlow commands available in the Studio IDE, refer to the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commandss) page.
 
 The Studio IDE **Status button** (located in the bottom right of the editor) displays an **Error** status if there's an error in your metric or semantic model definition. You can click the button to see the specific issue and resolve it.
 
@@ -909,7 +909,7 @@ This section is for dbt CLI users. MetricFlow commands are integrated with dbt, 
 
 Refer to the following steps to get started:
 
-1. Install the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) (if you haven't already). Then, navigate to your dbt project directory.
+1. Install the [dbt CLI](../docs/platform/dbt-cli-installation.md) (if you haven't already). Then, navigate to your dbt project directory.
 2. Run a dbt command, such as `dbt parse`, `dbt run`, `dbt compile`, or `dbt build`. If you don't, you'll receive an error message that begins with: "ensure that you've ran an artifacts....".
 3. MetricFlow builds a semantic graph and generates a `semantic_manifest.json` file in dbt, which is stored in the `/target` directory.
    <!-- -->
@@ -935,9 +935,9 @@ When you make changes to metrics, make sure to run `dbt parse` at a minimum to u
 
 This section explains how you can perform a job run in your deployment environment in dbt to materialize and deploy your metrics. Currently, the deployment environment is only supported.
 
-1. Once you’ve [defined your semantic models and metrics](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=10), commit and merge your metric changes in your dbt project.
+1. Once you’ve [defined your semantic models and metrics](./sl-snowflake-qs.md?step=10), commit and merge your metric changes in your dbt project.
 
-2. In dbt, create a new [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#create-a-deployment-environment) or use an existing environment on dbt 1.6 or higher.
+2. In dbt, create a new [deployment environment](../docs/deploy/deploy-environments.md#create-a-deployment-environment) or use an existing environment on dbt 1.6 or higher.
 
    * Note — Deployment environment is currently supported (*development experience coming soon*)
 
@@ -945,9 +945,9 @@ This section explains how you can perform a job run in your deployment environme
 
 4. Fill in your deployment credentials with your Snowflake username and password. You can name the schema anything you want. Click **Save** to create your new production environment.
 
-5. [Create a new deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs) that runs in the environment you just created. Go back to the **Orchestration** menu, select **Jobs**, select **Create job**, and click **Deploy job**.
+5. [Create a new deploy job](../docs/deploy/deploy-jobs.md#create-and-schedule-jobs) that runs in the environment you just created. Go back to the **Orchestration** menu, select **Jobs**, select **Create job**, and click **Deploy job**.
 
-6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](https://docs.getdbt.com/reference/artifacts/sl-manifest.md) file<!-- -->. Although running `dbt build` isn't required, you can choose to do so if needed.
+6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](../reference/artifacts/sl-manifest.md) file<!-- -->. Although running `dbt build` isn't required, you can choose to do so if needed.
 
    note
 
@@ -975,7 +975,7 @@ In this section, you will learn how to add credentials and create service tokens
 * [Add more credentials](#4-add-more-credentials)
 * [Delete configuration](#delete-configuration)
 
-You must be part of the Owner group and have the correct [license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) and [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to administer the Semantic Layer at the environment and project level.
+You must be part of the Owner group and have the correct [license](../docs/platform/manage-access/seats-and-users.md) and [permissions](../docs/platform/manage-access/enterprise-permissions.md) to administer the Semantic Layer at the environment and project level.
 
 * Enterprise+ and Enterprise plan:
 
@@ -1011,7 +1011,7 @@ There are two options for setting up Semantic Layer using API tokens:
 
 #### Add a credential and create service tokens[​](#add-a-credential-and-create-service-tokens "Direct link to Add a credential and create service tokens")
 
-The first option is to use [service tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) for authentication which are tied to an underlying data platform credential that you configure. The credential configured is used to execute queries that the Semantic Layer issues against your data platform.
+The first option is to use [service tokens](../docs/dbt-apis/service-tokens.md) for authentication which are tied to an underlying data platform credential that you configure. The credential configured is used to execute queries that the Semantic Layer issues against your data platform.
 
 This credential controls the physical access to underlying data accessed by the Semantic Layer, and all access policies set in the data platform for this credential will be respected.
 
@@ -1040,7 +1040,7 @@ Search table...
 
 * Use credentials with minimal privileges. The Semantic Layer requires read access to the schema(s) containing the dbt models used in your semantic models for downstream applications
 
-* Use [Extended Attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) and [Environment Variables](https://docs.getdbt.com/docs/build/environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
+* Use [Extended Attributes](../docs/dbt-platform-environments.md#extended-attributes) and [Environment Variables](../docs/build/environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
 
   For example, set the warehouse by using `{{env_var('DBT_WAREHOUSE')}}` in your Semantic Layer credentials.
 
@@ -1050,7 +1050,7 @@ Search table...
 
 ##### 3. Create or link service tokens[​](#3-create-or-link-service-tokens "Direct link to 3. Create or link service tokens")
 
-* If you have permission to create service tokens, you’ll see the [**Map new service token** option](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md#map-service-tokens-to-credentials) after adding the credential. Name the token, set permissions to 'Semantic Layer Only' and 'Metadata Only', and click **Save**.
+* If you have permission to create service tokens, you’ll see the [**Map new service token** option](../docs/use-dbt-semantic-layer/setup-sl.md#map-service-tokens-to-credentials) after adding the credential. Name the token, set permissions to 'Semantic Layer Only' and 'Metadata Only', and click **Save**.
 * Once the token is generated, you won't be able to view this token again, so make sure to record it somewhere safe.
 * If you don’t have access to create service tokens, you’ll see a message prompting you to contact your admin to create one for you. Admins can create and link tokens as needed.
 
@@ -1065,7 +1065,7 @@ info
 
 #### Configure development credentials and create a personal token[​](#configure-development-credentials-and-create-a-personal-token "Direct link to Configure development credentials and create a personal token")
 
-Using [personal access tokens (PATs)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) is also a supported authentication method for the dbt Semantic Layer. This enables user-level authentication, reducing the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal user credentials.
+Using [personal access tokens (PATs)](../docs/dbt-apis/user-tokens.md) is also a supported authentication method for the dbt Semantic Layer. This enables user-level authentication, reducing the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal user credentials.
 
 To use PATs in Semantic Layer:
 
@@ -1079,9 +1079,9 @@ To use PATs in Semantic Layer:
    4. Go to **User credentials** and enter your details.
    5. Click **Save**.
 
-2. [Create a personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md). Make sure to copy the token.
+2. [Create a personal access token](../docs/dbt-apis/user-tokens.md). Make sure to copy the token.
 
-You can use the generated PAT as the authentication method for Semantic Layer [APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) and [integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md).
+You can use the generated PAT as the authentication method for Semantic Layer [APIs](../docs/dbt-apis/sl-api-overview.md) and [integrations](../docs/platform-integrations/avail-sl-integrations.md).
 
 ### 3. View connection detail[​](#3-view-connection-detail "Direct link to 3. View connection detail")
 
@@ -1089,7 +1089,7 @@ You can use the generated PAT as the authentication method for Semantic Layer [A
 
 2. Copy and share the Environment ID, service or personal token, Host, as well as the service or personal token name to the relevant teams for BI connection setup. If your tool uses the GraphQL API, save the GraphQL API host information instead of the JDBC URL.
 
-   For info on how to connect to other integrations, refer to [Available integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md).
+   For info on how to connect to other integrations, refer to [Available integrations](../docs/platform-integrations/avail-sl-integrations.md).
 
 [![After configuring, you'll be provided with the connection details to connect to you downstream tools.](/img/docs/dbt-platform/semantic-layer/sl-configure-example.png?v=2 "After configuring, you'll be provided with the connection details to connect to you downstream tools.")](#)After configuring, you'll be provided with the connection details to connect to you downstream tools.
 
@@ -1105,7 +1105,7 @@ We recommend configuring credentials and service tokens to reflect your teams an
 
 * When you send a request through the APIs, the service token of the linked credential will follow access policies of the underlying view and tables used to build your semantic layer requests.
 
-* Use [Extended Attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) and [Environment Variables](https://docs.getdbt.com/docs/build/environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
+* Use [Extended Attributes](../docs/dbt-platform-environments.md#extended-attributes) and [Environment Variables](../docs/build/environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
 
   For example, set the warehouse by using `{{env_var('DBT_WAREHOUSE')}}` in your Semantic Layer credentials.
 
@@ -1121,7 +1121,7 @@ We recommend configuring credentials and service tokens to reflect your teams an
 
 #### 2. Map service tokens to credentials[​](#2-map-service-tokens-to-credentials "Direct link to 2. Map service tokens to credentials")
 
-* In the **2. Map new service token** section, [map a service token to the credential](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md#map-service-tokens-to-credentials) you configured in the previous step. dbt automatically selects the service token permission set you need (Semantic Layer Only and Metadata Only).
+* In the **2. Map new service token** section, [map a service token to the credential](../docs/use-dbt-semantic-layer/setup-sl.md#map-service-tokens-to-credentials) you configured in the previous step. dbt automatically selects the service token permission set you need (Semantic Layer Only and Metadata Only).
 * To add another service token during configuration, click **Add Service Token**.
 * You can link more service tokens to the same credential later on in the **Semantic Layer Configuration Details** page. To add another service token to an existing Semantic Layer configuration, click **Add service token** under the **Linked service tokens** section.
 * Click **Save** to link the service token to the credential. Remember to copy and save the service token securely, as it won't be viewable again after generation.
@@ -1156,7 +1156,7 @@ The following are the additional flexible configurations for Semantic Layer cred
 
 ### Map service tokens to credentials[​](#map-service-tokens-to-credentials "Direct link to Map service tokens to credentials")
 
-* After configuring your environment, you can map additional service tokens to the same credential if you have the required [permissions](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#permission-sets).
+* After configuring your environment, you can map additional service tokens to the same credential if you have the required [permissions](../docs/platform/manage-access/about-user-access.md#permission-sets).
 * Go to the **Credentials & service tokens** page and click the **+Add Service Token** button in the **Linked Service Tokens** section.
 * Type the service token name and select the permission set you need (Semantic Layer Only and Metadata Only).
 * Click **Save** to link the service token to the credential.
@@ -1190,9 +1190,9 @@ This page will guide you on how to connect and use the following integrations to
 * [Connect and query with Hex](#connect-and-query-with-hex)
 * [Connect and query with Sigma](#connect-and-query-with-sigma)
 
-The Semantic Layer enables you to connect and query your metric with various available tools like [PowerBI](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/power-bi.md), [Google Sheets](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/gsheets.md), [Hex](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration), [Microsoft Excel](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md), [Tableau](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/tableau.md), and more.
+The Semantic Layer enables you to connect and query your metric with various available tools like [PowerBI](../docs/platform-integrations/semantic-layer/power-bi.md), [Google Sheets](../docs/platform-integrations/semantic-layer/gsheets.md), [Hex](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration), [Microsoft Excel](../docs/platform-integrations/semantic-layer/excel.md), [Tableau](../docs/platform-integrations/semantic-layer/tableau.md), and more.
 
-Query metrics using other tools such as [first-class integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md), [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md), and [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) to expose tables of metrics and dimensions in your data platform and create a custom integrations.
+Query metrics using other tools such as [first-class integrations](../docs/platform-integrations/avail-sl-integrations.md), [Semantic Layer APIs](../docs/dbt-apis/sl-api-overview.md), and [exports](../docs/use-dbt-semantic-layer/exports.md) to expose tables of metrics and dimensions in your data platform and create a custom integrations.
 
 ### Connect and query with Google Sheets[​](#connect-and-query-with-google-sheets "Direct link to Connect and query with Google Sheets")
 
@@ -1202,7 +1202,7 @@ To query your metrics using Google Sheets:
 
 1. Make sure you have a [Gmail](http://gmail.com/) account.
 
-2. To set up Google Sheets and query your metrics, follow the detailed instructions on [Google Sheets integration](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/gsheets.md).
+2. To set up Google Sheets and query your metrics, follow the detailed instructions on [Google Sheets integration](../docs/platform-integrations/semantic-layer/gsheets.md).
 
 3. Start exploring and querying metrics!
 
@@ -1327,7 +1327,7 @@ This section will guide you on how to use the Sigma integration to query your me
 
 8. In the **dbt Integration** section, fill out the required fields, and then hit save:
 
-* Your dbt [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or [personal access tokens](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md).
+* Your dbt [service account token](../docs/dbt-apis/service-tokens.md) or [personal access tokens](../docs/dbt-apis/user-tokens.md).
 * Your access URL of your existing Sigma dbt integration. Use `cloud.getdbt.com` as your access URL.
 * Your dbt Environment ID.
 
@@ -1363,11 +1363,11 @@ You've learned how to:
 * Build, test, and manage dbt projects, focusing on metrics and semantic layers.
 * Run production jobs and query metrics with our available integrations.
 
-For next steps, you can start defining your own metrics and learn additional configuration options such as [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md), [fill null values](https://docs.getdbt.com/docs/build/advanced-topics.md), [implementing Mesh with the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md#how-can-i-implement-dbt-mesh-with-the-dbt-semantic-layer), and more.
+For next steps, you can start defining your own metrics and learn additional configuration options such as [exports](../docs/use-dbt-semantic-layer/exports.md), [fill null values](../docs/build/advanced-topics.md), [implementing Mesh with the Semantic Layer](../docs/use-dbt-semantic-layer/sl-faqs.md#how-can-i-implement-dbt-mesh-with-the-dbt-semantic-layer), and more.
 
 Here are some additional resources to help you continue your journey:
 
-* [Semantic Layer FAQs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md)
-* [Available integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md)
+* [Semantic Layer FAQs](../docs/use-dbt-semantic-layer/sl-faqs.md)
+* [Available integrations](../docs/platform-integrations/avail-sl-integrations.md)
 * Demo on [how to define and query metrics with MetricFlow](https://www.loom.com/share/60a76f6034b0441788d73638808e92ac?sid=861a94ac-25eb-4fd8-a310-58e159950f5a)
 * [Join our live demos](https://www.getdbt.com/resources/webinars/dbt-cloud-demos-with-experts)

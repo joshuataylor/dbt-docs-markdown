@@ -16,7 +16,7 @@ Test selection is powerful, and we know it can be tricky. To that end, we've inc
 
 Use the `test_type` selector to run a specific category of tests without relying on model selection. This is useful when you want to isolate unit tests from data tests — for example, running only unit tests during development for fast feedback, or running only data tests in production where unit test compute isn't needed. The `test_type` selector works across all engines (dbt Core and Fusion).
 
-The following configurations can be used with `test_type` selector to compile matching test nodes without executing them. For command behavior, refer to [About dbt compile command](https://docs.getdbt.com/reference/commands/compile.md).
+The following configurations can be used with `test_type` selector to compile matching test nodes without executing them. For command behavior, refer to [About dbt compile command](../commands/compile.md).
 
 **Run only unit tests** — use this during development or CI to validate SQL logic before materializing models:
 
@@ -52,7 +52,7 @@ You can use the following modes (with `eager` as the default). Test exclusion is
 
 Building subsets of a DAG
 
-The `buildable` and `cautious` modes can be useful when you're only building a subset of your DAG, and you want to avoid test failures in `eager` mode caused by unbuilt resources. You can also achieve this with [deferral](https://docs.getdbt.com/reference/node-selection/defer.md).
+The `buildable` and `cautious` modes can be useful when you're only building a subset of your DAG, and you want to avoid test failures in `eager` mode caused by unbuilt resources. You can also achieve this with [deferral](./defer.md).
 
 #### Eager mode (default)[​](#eager-mode "Direct link to Eager mode (default)")
 
@@ -76,7 +76,7 @@ Cautious is the most exclusive mode and ensures that tests are executed and mode
 
 #### Empty mode[​](#empty-mode "Direct link to Empty mode")
 
-Empty mode runs no tests and restricts the build to the selected node, ignoring all indirect dependencies. It doesn't execute any tests, whether they are directly attached to the selected node or not. The empty mode is automatically used for [interactive compilation](https://docs.getdbt.com/reference/commands/compile.md#interactive-compile).
+Empty mode runs no tests and restricts the build to the selected node, ignoring all indirect dependencies. It doesn't execute any tests, whether they are directly attached to the selected node or not. The empty mode is automatically used for [interactive compilation](../commands/compile.md#interactive-compile).
 
 ### Indirect selection examples[​](#indirect-selection-examples "Direct link to Indirect selection examples")
 
@@ -128,7 +128,7 @@ dbt build --select "orders" --indirect-selection=empty
 
 ### Test selection syntax examples[​](#test-selection-syntax-examples "Direct link to Test selection syntax examples")
 
-Setting `indirect_selection` can also be specified in a [yaml selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#indirect-selection).
+Setting `indirect_selection` can also be specified in a [yaml selector](./yaml-selectors.md#indirect-selection).
 
 The following examples use *eager* mode by default for indirect selection, unless you specify another mode (like `--indirect-selection=cautious`).
 

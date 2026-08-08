@@ -3,8 +3,8 @@
 ## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
 
 * [Jinja Template Designer Documentation](https://jinja.palletsprojects.com/page/templates/) (external link)
-* [dbt Jinja context](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md)
-* [Macro properties](https://docs.getdbt.com/reference/macro-properties.md)
+* [dbt Jinja context](../../reference/dbt-jinja-functions-context-variables.md)
+* [Macro properties](../../reference/macro-properties.md)
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -16,7 +16,7 @@ For example, with Jinja, you can:
 
 * Use control structures (for example, `if` statements and `for` loops) in SQL
 
-* Use [environment variables](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) in your dbt project for production deployments
+* Use [environment variables](../../reference/dbt-jinja-functions/env_var.md) in your dbt project for production deployments
 
 * Change the way your project builds based on the current target.
 
@@ -29,13 +29,13 @@ For example, with Jinja, you can:
 
 * Abstract snippets of SQL into reusable [**macros**](#macros) — these are analogous to functions in most programming languages.
 
-If you've used the [`{{ ref() }}` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), you're already using Jinja!
+If you've used the [`{{ ref() }}` function](../../reference/dbt-jinja-functions/ref.md), you're already using Jinja!
 
-Jinja can be used in any SQL in a dbt project, including [models](https://docs.getdbt.com/docs/build/sql-models.md), [analyses](https://docs.getdbt.com/docs/build/analyses.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), and even [hooks](https://docs.getdbt.com/docs/build/hooks-operations.md).
+Jinja can be used in any SQL in a dbt project, including [models](./sql-models.md), [analyses](./analyses.md), [data tests](./data-tests.md), and even [hooks](./hooks-operations.md).
 
 Ready to get started with Jinja and macros?
 
-Check out the [tutorial on using Jinja](https://docs.getdbt.com/guides/using-jinja.md) for a step-by-step example of using Jinja in a model, and turning it into a macro!
+Check out the [tutorial on using Jinja](../../guides/using-jinja.md) for a step-by-step example of using Jinja in a model, and turning it into a macro!
 
 ## Getting started[​](#getting-started "Direct link to Getting started")
 
@@ -75,7 +75,7 @@ group by 1
 
 You can recognize Jinja based on the delimiters the language uses, which we refer to as "curlies":
 
-* **Expressions `{{ ... }}`**: Expressions are used when you want to output a string. You can use expressions to reference [variables](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) and call [macros](https://docs.getdbt.com/docs/build/jinja-macros.md#macros).
+* **Expressions `{{ ... }}`**: Expressions are used when you want to output a string. You can use expressions to reference [variables](../../reference/dbt-jinja-functions/var.md) and call [macros](./jinja-macros.md#macros).
 * **Statements `{% ... %}`**: Statements don't output a string. They are used for control flow, for example, to set up `for` loops and `if` statements, to [set](https://jinja.palletsprojects.com/en/3.1.x/templates/#assignments) or [modify](https://jinja.palletsprojects.com/en/3.1.x/templates/#expression-statement) variables, or to define macros.
 * **Comments `{# ... #}`**: Jinja comments are used to prevent the text within the comment from executing or outputing a string. Don't use `--` for comment.
 
@@ -86,7 +86,7 @@ When used in a dbt model, your Jinja needs to compile to a valid query. To check
 
 ### Macros[​](#macros "Direct link to Macros")
 
-[Macros](https://docs.getdbt.com/docs/build/jinja-macros.md) in Jinja are pieces of code that can be reused multiple times – they are analogous to "functions" in other programming languages, and are extremely useful if you find yourself repeating code across multiple models. Macros are defined in `.sql` files, typically in your `macros` directory ([docs](https://docs.getdbt.com/reference/project-configs/macro-paths.md)).
+[Macros](./jinja-macros.md) in Jinja are pieces of code that can be reused multiple times – they are analogous to "functions" in other programming languages, and are extremely useful if you find yourself repeating code across multiple models. Macros are defined in `.sql` files, typically in your `macros` directory ([docs](../../reference/project-configs/macro-paths.md)).
 
 Macro files can contain one or more macros — here's an example:
 
@@ -129,13 +129,13 @@ from app_data.payments
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
-You can remove unwanted spaces and lines with Jinja's [whitespace control](https://docs.getdbt.com/faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
+You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
 ### Using a macro from a package[​](#using-a-macro-from-a-package "Direct link to Using a macro from a package")
 
-A number of useful macros have also been grouped together into [packages](https://docs.getdbt.com/docs/build/packages.md) — our most popular package is [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/).
+A number of useful macros have also been grouped together into [packages](./packages.md) — our most popular package is [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/).
 
-After installing a package into your project, you can use any of the macros in your own project — make sure you qualify the macro by prefixing it with the [package name](https://docs.getdbt.com/reference/dbt-jinja-functions/project_name.md):
+After installing a package into your project, you can use any of the macros in your own project — make sure you qualify the macro by prefixing it with the [package name](../../reference/dbt-jinja-functions/project_name.md):
 
 ```sql
 
@@ -150,25 +150,25 @@ from my_table
 {{ dbt_utils.dimensions(5) }}
 ```
 
-You can also qualify a macro in your own project by prefixing it with your [package name](https://docs.getdbt.com/reference/dbt-jinja-functions/project_name.md) (this is mainly useful for package authors).
+You can also qualify a macro in your own project by prefixing it with your [package name](../../reference/dbt-jinja-functions/project_name.md) (this is mainly useful for package authors).
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
 What parts of Jinja are dbt-specific?
 
-There are certain expressions that are specific to dbt — these are documented in the [Jinja function reference](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md) section of these docs. Further, docs blocks, snapshots, and materializations are custom Jinja *blocks* that exist only in dbt.
+There are certain expressions that are specific to dbt — these are documented in the [Jinja function reference](../../reference/dbt-jinja-functions-context-variables.md) section of these docs. Further, docs blocks, snapshots, and materializations are custom Jinja *blocks* that exist only in dbt.
 
 Which docs should I use when writing Jinja or creating a macro?
 
 If you are stuck with a Jinja issue, it can get confusing where to check for more information. We recommend you check (in order):
 
 1. [Jinja's Template Designer Docs](https://jinja.palletsprojects.com/page/templates/): This is the best reference for most of the Jinja you'll use
-2. [Our Jinja function reference](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md): This documents any additional functionality we've added to Jinja in dbt.
+2. [Our Jinja function reference](../../reference/dbt-jinja-functions-context-variables.md): This documents any additional functionality we've added to Jinja in dbt.
 3. [Agate's table docs](https://agate.readthedocs.io/page/api/table.html): If you're operating on the result of a query, dbt will pass it back to you as an agate table. This means that the methods you call on the table belong to the Agate library rather than Jinja or dbt.
 
 Why do I need to quote column names in Jinja?
 
-In the [macro example](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) we passed the column name `amount` quotes:
+In the [macro example](./jinja-macros.md#macros) we passed the column name `amount` quotes:
 
 ```sql
 {{ cents_to_dollars('amount') }} as amount_usd
@@ -182,13 +182,13 @@ Quoting in Jinja can take a while to get used to! The rule is that you're within
 
 Single and double quotes are equivalent in Jinja – just make sure you match them appropriately.
 
-And if you do need to pass a variable as an argument, make sure you [don't nest your curlies](https://docs.getdbt.com/best-practices/dont-nest-your-curlies.md).
+And if you do need to pass a variable as an argument, make sure you [don't nest your curlies](../../best-practices/dont-nest-your-curlies.md).
 
 My compiled SQL has a lot of spaces and new lines, how can I get rid of it?
 
 This is known as "whitespace control".
 
-Use a minus sign (`-`, e.g. `{{- ... -}}`, `{%- ... %}`, `{#- ... -#}`) at the start or end of a block to strip whitespace before or after the block (more docs [here](https://jinja.palletsprojects.com/page/templates/#whitespace-control)). Check out the [tutorial on using Jinja](https://docs.getdbt.com/guides/using-jinja.md#use-whitespace-control-to-tidy-up-compiled-code) for an example.
+Use a minus sign (`-`, e.g. `{{- ... -}}`, `{%- ... %}`, `{#- ... -#}`) at the start or end of a block to strip whitespace before or after the block (more docs [here](https://jinja.palletsprojects.com/page/templates/#whitespace-control)). Check out the [tutorial on using Jinja](../../guides/using-jinja.md#use-whitespace-control-to-tidy-up-compiled-code) for an example.
 
 Take caution: it's easy to fall down a rabbit hole when it comes to whitespace control!
 
@@ -196,11 +196,11 @@ How do I debug my Jinja?
 
 You should get familiar with checking the compiled SQL in `target/compiled/<your_project>/` and the logs in `logs/dbt.log` to see what dbt is running behind the scenes.
 
-You can also use the [log](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md) function to debug Jinja by printing objects to the command line.
+You can also use the [log](../../reference/dbt-jinja-functions/log.md) function to debug Jinja by printing objects to the command line.
 
 How do I document macros?
 
-To document macros, use a [properties file](https://docs.getdbt.com/reference/macro-properties.md) and nest the configurations under a `macros:` key
+To document macros, use a [properties file](../../reference/macro-properties.md) and nest the configurations under a `macros:` key
 
 ## Example[​](#example "Direct link to Example")
 
@@ -223,15 +223,15 @@ tip
 
 From dbt Core v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
 
-* Infer arguments from the macro and includes them in the [manifest.json](https://docs.getdbt.com/reference/artifacts/manifest-json.md) file if no arguments are documented.
+* Infer arguments from the macro and includes them in the [manifest.json](../../reference/artifacts/manifest-json.md) file if no arguments are documented.
 * Raise a warning if documented argument names don't match the macro definition.
-* Raise a warning if `type` fields don't follow [supported formats](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
+* Raise a warning if `type` fields don't follow [supported formats](../../reference/resource-properties/arguments.md#supported-types).
 
-Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md).
+Learn more about [macro argument validation](../../reference/global-configs/behavior-flags/validate_macro_args.md).
 
 ## Document a custom materialization[​](#document-a-custom-materialization "Direct link to Document a custom materialization")
 
-When you create a [custom materialization](https://docs.getdbt.com/guides/create-new-materializations.md), dbt creates an associated macro with the following format:
+When you create a [custom materialization](../../guides/create-new-materializations.md), dbt creates an associated macro with the following format:
 
 ```text
 materialization_{materialization_name}_{adapter}

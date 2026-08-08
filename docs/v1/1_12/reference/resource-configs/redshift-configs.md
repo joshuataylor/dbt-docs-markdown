@@ -7,7 +7,7 @@ In dbt-redshift, the following incremental materialization strategies are suppor
 * `append` (default when `unique_key` is not defined)
 * `merge`
 * `delete+insert` (default when `unique_key` is defined)
-* [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [`microbatch`](../../docs/build/incremental-microbatch.md)
 
 All of these strategies are inherited from dbt-postgres.
 
@@ -156,9 +156,9 @@ The following limitations apply when using `datasharing`:
 * Source freshness checks can have a lag of up to 5 minutes.
 * Metadata queries are limited to 10,000 rows. If a database has more than 10,000 schemas, or a schema has more than 10,000 tables, dbt runs can result in unexpected scenarios.
 * Cross-database writes require the `SNAPSHOT` transaction isolation level.
-* For views that reference tables in another database, define them as [late-binding views](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#late-binding-views).
+* For views that reference tables in another database, define them as [late-binding views](./redshift-configs.md#late-binding-views).
 
-For setup instructions, see [Redshift setup](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md).
+For setup instructions, see [Redshift setup](../../docs/local/connect-data-platform/redshift-setup.md).
 
 ## Late binding views[​](#late-binding-views "Direct link to Late binding views")
 
@@ -194,7 +194,7 @@ The Redshift adapter supports [materialized views](https://docs.aws.amazon.com/r
 
 | Parameter                                                                                                  | Type         | Required | Default                                       | Change Monitoring Support |
 | ---------------------------------------------------------------------------------------------------------- | ------------ | -------- | --------------------------------------------- | ------------------------- |
-| [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) | `<string>`   | no       | `apply`                                       | n/a                       |
+| [`on_configuration_change`](./on_configuration_change.md) | `<string>`   | no       | `apply`                                       | n/a                       |
 | [`dist`](#using-sortkey-and-distkey)                                                                       | `<string>`   | no       | `even`                                        | drop/create               |
 | [`sort`](#using-sortkey-and-distkey)                                                                       | `[<string>]` | no       | `none`                                        | drop/create               |
 | [`sort_type`](#using-sortkey-and-distkey)                                                                  | `<string>`   | no       | `auto` if no `sort`<br />`compound` if `sort` | drop/create               |
@@ -302,7 +302,7 @@ Find more information about materialized view limitations in Redshift's [docs](h
 
 ## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
 
-* Redshift doesn't support [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md) when the SQL in the common table expression (CTE) contains functions such as `LISTAGG`, `MEDIAN`, `PERCENTILE_CONT`, and so on. These functions must be executed against a user-created table. dbt combines given rows to be part of the CTE, which Redshift does not support.
+* Redshift doesn't support [unit tests](../../docs/build/unit-tests.md) when the SQL in the common table expression (CTE) contains functions such as `LISTAGG`, `MEDIAN`, `PERCENTILE_CONT`, and so on. These functions must be executed against a user-created table. dbt combines given rows to be part of the CTE, which Redshift does not support.
 
   In order to support this pattern in the future, dbt would need to "materialize" the input fixtures as tables, rather than interpolating them as CTEs. If you are interested in this functionality, we'd encourage you to participate in this issue in GitHub: [dbt-labs/dbt Core#8499](https://github.com/dbt-labs/dbt-core/issues/8499)
 

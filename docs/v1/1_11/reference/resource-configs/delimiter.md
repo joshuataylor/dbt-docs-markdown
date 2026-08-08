@@ -14,11 +14,11 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 ## Definition[​](#definition "Direct link to Definition")
 
-You can use this optional seed configuration to customize how you separate values in a [seed](https://docs.getdbt.com/docs/build/seeds.md) by providing the one-character string.
+You can use this optional seed configuration to customize how you separate values in a [seed](../../docs/build/seeds.md) by providing the one-character string.
 
 * The delimiter defaults to a comma when not specified.
 * Explicitly set the `delimiter` configuration value if you want seed files to use a different delimiter, such as "|" or ";".

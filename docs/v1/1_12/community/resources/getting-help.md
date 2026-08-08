@@ -8,11 +8,11 @@ dbt is powered by open source and source-available software, and has a generous 
 
 #### Search the existing documentation[​](#search-the-existing-documentation "Direct link to Search the existing documentation")
 
-The docs site you're on is highly searchable, make sure to explore for the answer here as a first step. If you're new to dbt, try working through the [quickstart guide](https://docs.getdbt.com/guides.md) first to get a firm foundation on the essential concepts.
+The docs site you're on is highly searchable, make sure to explore for the answer here as a first step. If you're new to dbt, try working through the [quickstart guide](../../guides.md) first to get a firm foundation on the essential concepts.
 
 #### Try to debug the issue yourself[​](#try-to-debug-the-issue-yourself "Direct link to Try to debug the issue yourself")
 
-We have a handy guide on [debugging errors](https://docs.getdbt.com/guides/debug-errors.md) to help out! This guide also helps explain why errors occur, and which docs you might need to search for help.
+We have a handy guide on [debugging errors](../../guides/debug-errors.md) to help out! This guide also helps explain why errors occur, and which docs you might need to search for help.
 
 #### Search for answers using your favorite search engine[​](#search-for-answers-using-your-favorite-search-engine "Direct link to Search for answers using your favorite search engine")
 
@@ -72,10 +72,10 @@ If you want to receive dbt training, check out our [dbt Learn](https://learn.get
 
 ## dbt support[​](#dbt-support "Direct link to dbt support")
 
-**Note:** If you are a **dbt user** and need help with one of the following issues, please reach out to us by clicking [**Create a support ticket**](https://docs.getdbt.com/docs/dbt-support.md#create-a-support-ticket) through the dbt navigation or [emailing support@getdbt.com](mailto:support@getdbt.com):
+**Note:** If you are a **dbt user** and need help with one of the following issues, please reach out to us by clicking [**Create a support ticket**](../../docs/dbt-support.md#create-a-support-ticket) through the dbt navigation or [emailing support@getdbt.com](mailto:support@getdbt.com):
 
 * Account setup (e.g. connection issues, repo connections)
 * Billing
 * Bug reports related to the web interface
 
-As a rule of thumb, if you are using dbt, but your problem is related to code within your dbt project, then please follow the above process or checking out the [FAQs](https://docs.getdbt.com/docs/faqs.md) rather than reaching out to support. Refer to [dbt support](https://docs.getdbt.com/docs/dbt-support.md) for more information.
+As a rule of thumb, if you are using dbt, but your problem is related to code within your dbt project, then please follow the above process or checking out the [FAQs](../../docs/faqs.md) rather than reaching out to support. Refer to [dbt support](../../docs/dbt-support.md) for more information.

@@ -1,6 +1,6 @@
 # Environment variable configs
 
-Environment variables use the `DBT_ENGINE_` prefix. For a list of all dbt environment variables you can set, refer to [Available flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md#available-flags).
+Environment variables use the `DBT_ENGINE_` prefix. For a list of all dbt environment variables you can set, refer to [Available flags](./about-global-configs.md#available-flags).
 
 Env var
 
@@ -10,7 +10,7 @@ $ export DBT_ENGINE_<THIS-CONFIG>=True
 dbt run
 ```
 
-For more detailed information, read our [environment variables page](https://docs.getdbt.com/docs/build/environment-variables.md).
+For more detailed information, read our [environment variables page](../../docs/build/environment-variables.md).
 
 ## Config precedence[​](#config-precedence "Direct link to Config precedence")
 
@@ -18,10 +18,10 @@ For more detailed information, read our [environment variables page](https://doc
 
 There are multiple ways of setting flags, which depend on the use case:
 
-* **[CLI options](https://docs.getdbt.com/reference/global-configs/command-line-options.md):** Define behavior specific to *this invocation*. Supported for all dbt commands.
-* **[Environment variables](https://docs.getdbt.com/reference/global-configs/environment-variable-configs.md):** Define different behavior in different runtime environments (development vs. production vs. [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md)), or different behavior for different users in development (based on personal preferences).
-* **[Project-level `flags` in `dbt_project.yml`](https://docs.getdbt.com/reference/global-configs/project-flags.md):** Define version-controlled defaults for everyone running this project. Also, opt in or out of [behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) to manage your migration off legacy functionality.
-* **[User settings (`~/.dbt/user_settings.yml`)](https://docs.getdbt.com/reference/global-configs/user-settings.md):** Define personal preferences that apply across all projects on your machine. Written automatically by `dbt login`.
+* **[CLI options](./command-line-options.md):** Define behavior specific to *this invocation*. Supported for all dbt commands.
+* **[Environment variables](./environment-variable-configs.md):** Define different behavior in different runtime environments (development vs. production vs. [continuous integration](../../docs/deploy/continuous-integration.md)), or different behavior for different users in development (based on personal preferences).
+* **[Project-level `flags` in `dbt_project.yml`](./project-flags.md):** Define version-controlled defaults for everyone running this project. Also, opt in or out of [behavior changes](./behavior-changes.md) to manage your migration off legacy functionality.
+* **[User settings (`~/.dbt/user_settings.yml`)](./user-settings.md):** Define personal preferences that apply across all projects on your machine. Written automatically by `dbt login`.
 
 The most specific setting "wins." CLI options take the highest precedence, followed by environment variables, then `dbt_project.yml`, and finally `user_settings.yml`. If you set the flag in none of those places, it will use the default value defined within dbt.
 
@@ -50,4 +50,4 @@ dbt run --no-fail-fast # set to False
 There are two categories of exceptions:
 
 1. **Flags setting file paths:** Flags for file paths that are relevant to runtime execution (for example, `--log-path` or `--state`) cannot be set in `dbt_project.yml`. To override defaults, pass CLI options or set environment variables (`DBT_ENGINE_LOG_PATH` and `DBT_ENGINE_STATE`). Flags that tell dbt where to find project resources (for example, `model-paths`) are set in `dbt_project.yml`, but as a top-level key, outside the `flags` dictionary; these configs are expected to be fully static and never vary based on the command or execution environment.
-2. **Opt-in flags:** Flags opting in or out of [behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) can *only* be defined in `dbt_project.yml`. These are intended to be set in version control and migrated via pull/merge request. Their values should not diverge indefinitely across invocations, environments, or users.
+2. **Opt-in flags:** Flags opting in or out of [behavior changes](./behavior-changes.md) can *only* be defined in `dbt_project.yml`. These are intended to be set in version control and migrated via pull/merge request. Their values should not diverge indefinitely across invocations, environments, or users.

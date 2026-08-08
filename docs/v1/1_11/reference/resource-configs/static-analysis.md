@@ -4,11 +4,11 @@ static\_analysis controls how the Fusion engine analyzes SQL at compile time for
 
 info
 
-The `static_analysis` config is available in the dbt Fusion engine only. It isn't available in dbt Core and will be ignored. To upgrade to Fusion, refer to [Get started with Fusion](https://docs.getdbt.com/docs/fusion/get-started-fusion.md).
+The `static_analysis` config is available in the dbt Fusion engine only. It isn't available in dbt Core and will be ignored. To upgrade to Fusion, refer to [Get started with Fusion](../../docs/fusion/get-started-fusion.md).
 
 The `static_analysis` config sets how the dbt Fusion engine validates SQL before execution—using `strict` analysis, a `baseline` that balances checks with compatibility, or `off` to skip analysis when needed. You can find supported configuration locations for each resource type.
 
-To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](https://docs.getdbt.com/reference/resource-configs/snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](https://docs.getdbt.com/reference/resource-configs/bigquery-function-support.md).
+To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](./snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](./bigquery-function-support.md).
 
 * Models
 * Tests
@@ -94,11 +94,11 @@ snapshots:
 
 ## Definition[​](#definition "Direct link to Definition")
 
-You can configure `static_analysis` for [models](https://docs.getdbt.com/docs/build/sql-models.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), [seeds](https://docs.getdbt.com/docs/build/seeds.md), and [snapshots](https://docs.getdbt.com/docs/build/snapshots.md).
+You can configure `static_analysis` for [models](../../docs/build/sql-models.md), [data tests](../../docs/build/data-tests.md), [seeds](../../docs/build/seeds.md), and [snapshots](../../docs/build/snapshots.md).
 
-You can configure if and when the dbt Fusion engine performs static SQL analysis for a model. Configure the `static_analysis` config in your project YAML file (`dbt_project.yml`), model properties YAML file, or in a SQL config block in your model file. Refer to [Principles of static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md?version=1.12#principles-of-static-analysis) for more information on the different modes of static analysis.
+You can configure if and when the dbt Fusion engine performs static SQL analysis for a model. Configure the `static_analysis` config in your project YAML file (`dbt_project.yml`), model properties YAML file, or in a SQL config block in your model file. Refer to [Principles of static analysis](../../docs/build/about-static-analysis.md?version=1.12#principles-of-static-analysis) for more information on the different modes of static analysis.
 
-Setting a model to `strict` does not automatically set `strict` for downstream models; they keep the project default unless you configure them explicitly. For more information and examples, refer to [strict mode inheritance](https://docs.getdbt.com/docs/build/about-static-analysis.md#strict-mode-inheritance).
+Setting a model to `strict` does not automatically set `strict` for downstream models; they keep the project default unless you configure them explicitly. For more information and examples, refer to [strict mode inheritance](../../docs/build/about-static-analysis.md#strict-mode-inheritance).
 
 The following values are available for `static_analysis`:
 
@@ -112,11 +112,11 @@ The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use
 
 ### User-defined functions (UDFs) in `strict` mode[​](#user-defined-functions-udfs-in-strict-mode "Direct link to user-defined-functions-udfs-in-strict-mode")
 
-When `static_analysis: strict` is in effect, the dbt Fusion engine parses `CREATE FUNCTION` statements from [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) and from [`on-run-start`](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md) project hooks, registers those UDFs in the compiler registry, and makes them available during strict static compilation. The `baseline` and `off` modes don't perform this UDF registration for static analysis.
+When `static_analysis: strict` is in effect, the dbt Fusion engine parses `CREATE FUNCTION` statements from [`sql_header`](./sql_header.md) and from [`on-run-start`](../project-configs/on-run-start-on-run-end.md) project hooks, registers those UDFs in the compiler registry, and makes them available during strict static compilation. The `baseline` and `off` modes don't perform this UDF registration for static analysis.
 
 A model’s `sql_header` can include multiple statements. Fusion registers UDFs from `CREATE FUNCTION` statements and ignores other statements for this step.
 
-If strict analysis still cannot resolve a UDF, set [`static_analysis: off`](https://docs.getdbt.com/reference/resource-configs/static-analysis.md#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf) on the affected models.
+If strict analysis still cannot resolve a UDF, set [`static_analysis: off`](./static-analysis.md#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf) on the affected models.
 
 ### How static analysis modes cascade[​](#how-static-analysis-modes-cascade "Direct link to How static analysis modes cascade")
 
@@ -142,7 +142,7 @@ For example, for the lineage Model A → Model B → Model C:
 
 This makes sure that stricter validation requirements don't apply downstream when parent models haven't met those requirements.
 
-Refer to the Fusion concepts page for deeper discussion and visuals: [New concepts](https://docs.getdbt.com/docs/build/about-static-analysis.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
+Refer to the Fusion concepts page for deeper discussion and visuals: [New concepts](../../docs/build/about-static-analysis.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
 
 ## CLI override[​](#cli-override "Direct link to CLI override")
 
@@ -153,7 +153,7 @@ dbt run --static-analysis off # disable static analysis for all models
 dbt run --static-analysis baseline # use baseline analysis for all models
 ```
 
-See [static analysis CLI flag](https://docs.getdbt.com/reference/global-configs/static-analysis-flag.md).
+See [static analysis CLI flag](../global-configs/static-analysis-flag.md).
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -192,7 +192,7 @@ In this example, strict static analysis applies only to Jaffle Shop models. Inst
 
 #### Disable static analysis for all models in a package[​](#disable-static-analysis-for-all-models-in-a-package "Direct link to Disable static analysis for all models in a package")
 
-This example shows how to disable static analysis for all models in a package. The [`+` prefix](https://docs.getdbt.com/reference/resource-configs/plus-prefix.md) applies the config to all models in the package.
+This example shows how to disable static analysis for all models in a package. The [`+` prefix](./plus-prefix.md) applies the config to all models in the package.
 
 dbt\_project.yml
 
@@ -223,7 +223,7 @@ models:
 
 #### Disable static analysis in SQL for a model using a custom UDF[​](#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf "Direct link to Disable static analysis in SQL for a model using a custom UDF")
 
-This example shows how to disable static analysis for a model using a custom [user-defined function (UDF)](https://docs.getdbt.com/docs/build/udfs.md) in a SQL file.
+This example shows how to disable static analysis for a model using a custom [user-defined function (UDF)](../../docs/build/udfs.md) in a SQL file.
 
 models/my\_udf\_using\_model.sql
 
@@ -317,4 +317,4 @@ snapshots:
 ## Considerations[​](#considerations "Direct link to Considerations")
 
 * For models, disabling static analysis means that features of the VS Code extension that depend on SQL comprehension will be unavailable.
-* For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](https://docs.getdbt.com/docs/build/about-static-analysis.md#when-should-i-turn-static-analysis-off).
+* For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](../../docs/build/about-static-analysis.md#when-should-i-turn-static-analysis-off).

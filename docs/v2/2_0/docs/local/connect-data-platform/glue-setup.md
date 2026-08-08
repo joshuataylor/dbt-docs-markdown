@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-glue<!-- -->
 
-For <!-- -->AWS Glue<!-- -->-specific configuration, please refer to [AWS Glue<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/glue-configs.md)
+For <!-- -->AWS Glue<!-- -->-specific configuration, please refer to [AWS Glue<!-- --> configs.](../../../reference/resource-configs/glue-configs.md)
 
 For further (and more likely up-to-date) info, see the [README](https://github.com/aws-samples/dbt-glue#readme)
 
@@ -283,7 +283,7 @@ Search table...
 
 ### Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](../../../reference/model-configs.md).
 
 | Option           | Description                                                                                                                                                                                                                | Required?                               | Example                                    |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ------------------------------------------ |
@@ -304,7 +304,7 @@ Search table...
 
 dbt seeks to offer useful and intuitive modeling abstractions by means of its built-in configurations and materializations.
 
-For that reason, the dbt-glue plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-models.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
+For that reason, the dbt-glue plugin leans heavily on the [`incremental_strategy` config](../../build/incremental-models.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
 
 * **`append`** (default): Insert new records without updating or overwriting any existing data.
 * **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
@@ -903,7 +903,7 @@ test_project:
 
 ## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
 
-Relation-level docs persistence is supported. For more information on configuring docs persistence, see [the docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+Relation-level docs persistence is supported. For more information on configuring docs persistence, see [the docs](../../../reference/resource-configs/persist_docs.md).
 
 When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
 
@@ -911,7 +911,7 @@ When the `persist_docs` option is configured appropriately, you'll be able to se
 
 Apache Spark uses the terms "schema" and "database" interchangeably. dbt understands `database` to exist at a higher level than `schema`. As such, you should *never* use or set `database` as a node config or in the target profile when running dbt-glue.
 
-If you want to control the schema/database in which dbt will materialize models, use the `schema` config and `generate_schema_name` macro *only*. For more information, check the dbt documentation about [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md).
+If you want to control the schema/database in which dbt will materialize models, use the `schema` config and `generate_schema_name` macro *only*. For more information, check the dbt documentation about [custom schemas](../../build/custom-schemas.md).
 
 ## AWS Lakeformation integration[​](#aws-lakeformation-integration "Direct link to AWS Lakeformation integration")
 
@@ -1075,7 +1075,7 @@ $ export DBT_ROLE_ARN=arn:aws:iam::1234567890:role/GlueInteractiveSessionRole
 $ python3 -m pytest tests/functional
 ```
 
-For more information, check the dbt documentation about [testing a new adapter](https://docs.getdbt.com/guides/adapter-creation.md).
+For more information, check the dbt documentation about [testing a new adapter](../../../guides/adapter-creation.md).
 
 ## Caveats[​](#caveats "Direct link to Caveats")
 
@@ -1085,9 +1085,9 @@ Most dbt Core functionality is supported, but some features are only available w
 
 Apache Hudi-only features:
 
-1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](https://docs.getdbt.com/reference/resource-configs/glue-configs.md#the-merge-strategy))
+1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](../../../reference/resource-configs/glue-configs.md#the-merge-strategy))
 
 Some dbt features, available on the core adapters, are not yet supported on Glue:
 
-1. [Persisting](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) column-level descriptions as database comments
-2. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
+1. [Persisting](../../../reference/resource-configs/persist_docs.md) column-level descriptions as database comments
+2. [Snapshots](../../build/snapshots.md)

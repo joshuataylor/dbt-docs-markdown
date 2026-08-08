@@ -1,10 +1,10 @@
 # SQL LIKE
 
-The LIKE operator helps you easily match, find, and filter out string values of a specified pattern by using SQL wildcards. Important to note that the pattern passed into the LIKE operator is case-sensitive, unlike its case-insensitive cousin, [ILIKE](https://docs.getdbt.com/sql-reference/ilike.md).
+The LIKE operator helps you easily match, find, and filter out string values of a specified pattern by using SQL wildcards. Important to note that the pattern passed into the LIKE operator is case-sensitive, unlike its case-insensitive cousin, [ILIKE](./ilike.md).
 
 ## How to use the SQL LIKE operator[​](#how-to-use-the-sql-like-operator "Direct link to How to use the SQL LIKE operator")
 
-The LIKE operator has a simple syntax, with the ability to have it utilized in [WHERE clauses](https://docs.getdbt.com/sql-reference/where.md) or case statements:
+The LIKE operator has a simple syntax, with the ability to have it utilized in [WHERE clauses](./where.md) or case statements:
 
 `where <field_name> like '<pattern>'` or `case when <field_name> like '<pattern>'`
 
@@ -51,7 +51,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-Because LIKE is case-sensitive, it would not return results in this query for customers with lowercase J-names. If you have a mix of uppercase and lowercase strings in your data, consider standardizing casing for strings using the [UPPER](https://docs.getdbt.com/sql-reference/upper.md) and [LOWER](https://docs.getdbt.com/sql-reference/lower.md) functions or use the more flexible [ILIKE operator](https://docs.getdbt.com/sql-reference/ilike.md).
+Because LIKE is case-sensitive, it would not return results in this query for customers with lowercase J-names. If you have a mix of uppercase and lowercase strings in your data, consider standardizing casing for strings using the [UPPER](./upper.md) and [LOWER](./lower.md) functions or use the more flexible [ILIKE operator](./ilike.md).
 
 ## LIKE syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#like-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to LIKE syntax in Snowflake, Databricks, BigQuery, and Redshift")
 

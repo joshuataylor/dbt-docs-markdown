@@ -10,7 +10,7 @@ With a Starburst Enterprise, Starburst Galaxy, or Trino cluster, you can [set se
 
 The standard way to define session properties is with the `session_properties` field of your `profiles.yml`. This ensures that all dbt connections use these settings by default.
 
-However, to temporaily adjust these session properties for a specific dbt model or group of models, you can use a [dbt hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md) to set session properties on a specific dbt model. For example:
+However, to temporaily adjust these session properties for a specific dbt model or group of models, you can use a [dbt hook](./pre-hook-post-hook.md) to set session properties on a specific dbt model. For example:
 
 ```sql
 {{
@@ -55,7 +55,7 @@ The below configures the table to be materializes as a set of partitioned [Parqu
 
 ## Seeds and prepared statements[​](#seeds-and-prepared-statements "Direct link to Seeds and prepared statements")
 
-The [dbt seed](https://docs.getdbt.com/docs/build/seeds.md) command makes use of prepared statements in [Starburst](https://docs.starburst.io/latest/sql/prepare.html)/[Trino](https://trino.io/docs/current/sql/prepare.html).
+The [dbt seed](../../docs/build/seeds.md) command makes use of prepared statements in [Starburst](https://docs.starburst.io/latest/sql/prepare.html)/[Trino](https://trino.io/docs/current/sql/prepare.html).
 
 Prepared statements are templated SQL statements that you can execute repeatedly with high efficiency. The values are sent in a separate field rather than hard coded in the SQL string itself. This is often how application frontends structure their record `INSERT` statements in the OLTP database backend. Because of this, it's common for prepared statements to have as many placeholder variables (parameters) as there are columns in the destination table.
 
@@ -87,7 +87,7 @@ Another way to avoid the header line length limit is to set `prepared_statements
 
 ### Table[​](#table "Direct link to Table")
 
-The `dbt-trino` adapter supports these modes in `table` materialization (and [full-refresh runs](https://docs.getdbt.com/reference/commands/run.md#refresh-incremental-models) in `incremental` materialization), which you can configure with `on_table_exists`:
+The `dbt-trino` adapter supports these modes in `table` materialization (and [full-refresh runs](../commands/run.md#refresh-incremental-models) in `incremental` materialization), which you can configure with `on_table_exists`:
 
 * `rename` — Creates an intermediate table, renames the target table to the backup one, and renames the intermediate table to the target one.
 * `drop` — Drops and re-creates a table. This overcomes the table rename limitation in AWS Glue.
@@ -180,11 +180,11 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-Use the `+on_schema_change` property to define how dbt-trino should handle column changes. For more details about this property, see [column changes](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
+Use the `+on_schema_change` property to define how dbt-trino should handle column changes. For more details about this property, see [column changes](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
 
 If your connector doesn't support views, set the `+views_enabled` property to `false`.
 
-You can decide how model should be rebuilt in a `full-refresh` run by specifying `on_table_exists` config. Options are the same as described in [table materialization section](https://docs.getdbt.com/reference/resource-configs/trino-configs.md#table)
+You can decide how model should be rebuilt in a `full-refresh` run by specifying `on_table_exists` config. Options are the same as described in [table materialization section](./trino-configs.md#table)
 
 #### append strategy[​](#append-strategy "Direct link to append strategy")
 
@@ -290,7 +290,7 @@ The `dbt-trino` adapter supports [materialized views](https://trino.io/docs/curr
 
 You can also define custom properties for the materialized view through the `properties` config.
 
-This materialization supports the [full\_refresh](https://docs.getdbt.com/reference/resource-configs/full_refresh.md) config and flag. Whenever you want to rebuild your materialized view (for example, when changing underlying SQL query) run `dbt run --full-refresh`.
+This materialization supports the [full\_refresh](./full_refresh.md) config and flag. Whenever you want to rebuild your materialized view (for example, when changing underlying SQL query) run `dbt run --full-refresh`.
 
 You can create a materialized view by editing *one* of these files:
 
@@ -324,9 +324,9 @@ models:
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
-[Snapshots in dbt](https://docs.getdbt.com/docs/build/snapshots.md) depend on the `current_timestamp` macro, which returns a timestamp with millisecond precision (3 digits) by default. There are some connectors for Trino that don't support this timestamp precision (`TIMESTAMP(3) WITH TIME ZONE`), like Iceberg.
+[Snapshots in dbt](../../docs/build/snapshots.md) depend on the `current_timestamp` macro, which returns a timestamp with millisecond precision (3 digits) by default. There are some connectors for Trino that don't support this timestamp precision (`TIMESTAMP(3) WITH TIME ZONE`), like Iceberg.
 
-To change timestamp precision, you can define your own [macro](https://docs.getdbt.com/docs/build/jinja-macros.md). For example, this defines a new `trino__current_timestamp()` macro with microsecond precision (6 digits):
+To change timestamp precision, you can define your own [macro](../../docs/build/jinja-macros.md). For example, this defines a new `trino__current_timestamp()` macro with microsecond precision (6 digits):
 
 macros/YOUR\_MACRO\_NAME.sql
 
@@ -338,7 +338,7 @@ macros/YOUR\_MACRO\_NAME.sql
 
 ## Grants[​](#grants "Direct link to Grants")
 
-Use [grants](https://docs.getdbt.com/reference/resource-configs/grants.md) to manage access to the datasets you're producing with dbt. You can use grants with [Starburst Enterprise](https://docs.starburst.io/latest/security/biac-overview.html), [Starburst Galaxy](https://docs.starburst.io/starburst-galaxy/security/access-control.html), and Hive ([sql-standard](https://trino.io/docs/current/connector/hive-security.html)).
+Use [grants](./grants.md) to manage access to the datasets you're producing with dbt. You can use grants with [Starburst Enterprise](https://docs.starburst.io/latest/security/biac-overview.html), [Starburst Galaxy](https://docs.starburst.io/starburst-galaxy/security/access-control.html), and Hive ([sql-standard](https://trino.io/docs/current/connector/hive-security.html)).
 
 To implement access permissions, define grants as resource configs on each model, seed, and snapshot. Define the default grants that apply to the entire project in your `dbt_project.yml` and define model-specific grants within each model's SQL or YAML file.
 
@@ -354,4 +354,4 @@ models:
 
 ## Model contracts[​](#model-contracts "Direct link to Model contracts")
 
-The `dbt-trino` adapter supports [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md). Currently, only [constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md) with `type` as `not_null` are supported. Before using `not_null` constraints in your model, make sure the underlying connector supports `not null`, to avoid running into errors.
+The `dbt-trino` adapter supports [model contracts](../../docs/mesh/govern/model-contracts.md). Currently, only [constraints](../resource-properties/constraints.md) with `type` as `not_null` are supported. Before using `not_null` constraints in your model, make sure the underlying connector supports `not null`, to avoid running into errors.

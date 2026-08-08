@@ -5,8 +5,8 @@ Available in v1ⓘ
 ### Resources[​](#resources "Direct link to Resources")
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.3.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Cloud upgrade guide](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md)
+* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
 ## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
 
@@ -14,9 +14,9 @@ We are committed to providing backward compatibility for all versions 1.x. If yo
 
 There are three changes in dbt Core v1.3 that may require action from some users:
 
-1. If you have a `profiles.yml` file located in the root directory where you run dbt, dbt will start preferring that profiles file over the default location on your machine. [You can read more details here](https://docs.getdbt.com/docs/local/profiles.yml.md#advanced-customizing-a-profile-directory).
-2. If you already have `.py` files defined in the `model-paths` of your dbt project, dbt will start trying to read them as Python models. You can use [the new `.dbtignore` file](https://docs.getdbt.com/reference/dbtignore.md) to tell dbt to ignore those files.
-3. If you have custom code accessing the `raw_sql` property of models (with the [model](https://docs.getdbt.com/reference/dbt-jinja-functions/model.md) or [graph](https://docs.getdbt.com/reference/dbt-jinja-functions/graph.md) objects), it has been renamed to `raw_code`. This is a change to the manifest contract, described in more detail below.
+1. If you have a `profiles.yml` file located in the root directory where you run dbt, dbt will start preferring that profiles file over the default location on your machine. [You can read more details here](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory).
+2. If you already have `.py` files defined in the `model-paths` of your dbt project, dbt will start trying to read them as Python models. You can use [the new `.dbtignore` file](../../../../reference/dbtignore.md) to tell dbt to ignore those files.
+3. If you have custom code accessing the `raw_sql` property of models (with the [model](../../../../reference/dbt-jinja-functions/model.md) or [graph](../../../../reference/dbt-jinja-functions/graph.md) objects), it has been renamed to `raw_code`. This is a change to the manifest contract, described in more detail below.
 
 ### For users of dbt Metrics[​](#for-users-of-dbt-metrics "Direct link to For users of dbt Metrics")
 
@@ -36,7 +36,7 @@ We have updated the manifest schema version to `v7`. This includes the changes t
 * Renamed `compiled_sql` to `compiled_code`
 * A new top-level node property, `language` (`'sql'` or `'python'`)
 
-For users of [state-based selection](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt Core v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt Core v1.0 and higher.
+For users of [state-based selection](../../../../reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt Core v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt Core v1.0 and higher.
 
 ### For maintainers of adapter plugins[​](#for-maintainers-of-adapter-plugins "Direct link to For maintainers of adapter plugins")
 
@@ -44,18 +44,18 @@ GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-
 
 ## New and changed documentation[​](#new-and-changed-documentation "Direct link to New and changed documentation")
 
-* **[Python models](https://docs.getdbt.com/docs/build/python-models.md)** are natively supported in `dbt-core` for the first time, on data warehouses that support Python runtimes.
+* **[Python models](../../../build/python-models.md)** are natively supported in `dbt-core` for the first time, on data warehouses that support Python runtimes.
 
-* Updates made to **[Metrics](https://docs.getdbt.com/docs/build/build-metrics-intro.md)** reflect their new syntax for definition, as well as additional properties that are now available.
+* Updates made to **[Metrics](../../../build/build-metrics-intro.md)** reflect their new syntax for definition, as well as additional properties that are now available.
 
-* Plus, a few related updates to **[exposure properties](https://docs.getdbt.com/reference/exposure-properties.md)**: `config`, `label`, and `name` validation.
+* Plus, a few related updates to **[exposure properties](../../../../reference/exposure-properties.md)**: `config`, `label`, and `name` validation.
 
-* **[Custom `node_color`](https://docs.getdbt.com/reference/resource-configs/docs.md)** in `dbt-docs`. For the first time, you can control the colors displayed in dbt's DAG. Want bronze, silver, and gold layers? It's at your fingertips.
+* **[Custom `node_color`](../../../../reference/resource-configs/docs.md)** in `dbt-docs`. For the first time, you can control the colors displayed in dbt's DAG. Want bronze, silver, and gold layers? It's at your fingertips.
 
-* **[`Profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md#advanced-customizing-a-profile-directory)** search order now looks in the current working directory before `~/.dbt`.
+* **[`Profiles.yml`](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory)** search order now looks in the current working directory before `~/.dbt`.
 
 ### Quick hits[​](#quick-hits "Direct link to Quick hits")
 
-* **["Full refresh"](https://docs.getdbt.com/reference/resource-configs/full_refresh.md)** flag supports a short name, `-f`.
-* **[The "config" selection method](https://docs.getdbt.com/reference/node-selection/methods.md#config)** supports boolean and list config values, in addition to strings.
-* Two new dbt-Jinja context variables for accessing invocation metadata: [`invocation_args_dict`](https://docs.getdbt.com/reference/dbt-jinja-functions/flags.md#invocation_args_dict) and [`dbt_metadata_envs`](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md#custom-metadata).
+* **["Full refresh"](../../../../reference/resource-configs/full_refresh.md)** flag supports a short name, `-f`.
+* **[The "config" selection method](../../../../reference/node-selection/methods.md#config)** supports boolean and list config values, in addition to strings.
+* Two new dbt-Jinja context variables for accessing invocation metadata: [`invocation_args_dict`](../../../../reference/dbt-jinja-functions/flags.md#invocation_args_dict) and [`dbt_metadata_envs`](../../../../reference/dbt-jinja-functions/env_var.md#custom-metadata).

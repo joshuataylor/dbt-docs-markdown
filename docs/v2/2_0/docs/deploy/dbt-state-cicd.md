@@ -13,7 +13,7 @@ There are two authentication methods depending on your setup:
 
 ## Service account token[​](#service-account-token "Direct link to Service account token")
 
-For dbt platform users, you can authenticate dbt State with a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
+For dbt platform users, you can authenticate dbt State with a [service token](../dbt-apis/service-tokens.md).
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -21,11 +21,11 @@ Before you begin, make sure you have:
 
 * A dbt platform account.
 * **Owner** or **Account Admin** permissions to create a service token.
-* dbt State installed and configured. Refer to [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) for more information.
+* dbt State installed and configured. Refer to [Set up dbt State](./dbt-state-setup.md) for more information.
 
 ### Creating a service token[​](#creating-a-service-token "Direct link to Creating a service token")
 
-To create a service account token in dbt platform, refer to [Generate service account tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#generate-service-account-tokens). When adding permissions for the token, assign at least one of the following:
+To create a service account token in dbt platform, refer to [Generate service account tokens](../dbt-apis/service-tokens.md#generate-service-account-tokens). When adding permissions for the token, assign at least one of the following:
 
 * **Owner**
 * **Account Admin**
@@ -44,7 +44,7 @@ DBT_CLOUD_ACCOUNT_HOST=YOUR_ACCOUNT_HOST
 DBT_CLOUD_ACCOUNT_ID=YOUR_ACCOUNT_ID
 ```
 
-Replace `YOUR_SERVICE_TOKEN` with your service token, `YOUR_ACCOUNT_HOST` with your [account host](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) (for example, `abc123.us1.dbt.com`), and `YOUR_ACCOUNT_ID` with your numeric account ID. Go to **Account settings** > **Account** to find your account ID and account host (the hostname from the **Access URL** field).
+Replace `YOUR_SERVICE_TOKEN` with your service token, `YOUR_ACCOUNT_HOST` with your [account host](../platform/about-platform/access-regions-ip-addresses.md) (for example, `abc123.us1.dbt.com`), and `YOUR_ACCOUNT_ID` with your numeric account ID. Go to **Account settings** > **Account** to find your account ID and account host (the hostname from the **Access URL** field).
 
 ## OAuth client credentials[​](#oauth-client-credentials "Direct link to OAuth client credentials")
 
@@ -52,7 +52,7 @@ If you're using the standalone [dbt State web app](https://app.state.dbt.com/), 
 
 ### Prerequisites[​](#prerequisites-1 "Direct link to Prerequisites")
 
-* dbt State installed and configured. Refer to [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) for more information.
+* dbt State installed and configured. Refer to [Set up dbt State](./dbt-state-setup.md) for more information.
 * A standalone dbt State account at [app.state.dbt.com](https://app.state.dbt.com/).
 * An **Admin** or **Owner** role in your dbt State organization. Refer to [Roles and tab access](#roles-and-tab-access) for details.
 
@@ -109,7 +109,7 @@ Replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with the values from your OAut
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-* [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Migrate from state-aware orchestration](./dbt-state-migration.md)

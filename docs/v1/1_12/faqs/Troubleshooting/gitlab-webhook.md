@@ -1,6 +1,6 @@
 # Unable to trigger a CI job with GitLab
 
-When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) when you push to the repository.
+When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](../../docs/deploy/ci-jobs.md) when you push to the repository.
 
 If you're unable to trigger a CI job, this usually indicates that the webhook registration is missing or incorrect.
 

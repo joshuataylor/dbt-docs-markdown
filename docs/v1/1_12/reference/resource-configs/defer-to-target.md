@@ -4,7 +4,7 @@ Self-managed deployments only
 
 This configuration applies to self-managed dbt deployments. If you're using the dbt platform, deferral is configured through your environment settings in the UI.
 
-`defer_to_target` is part of [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md), which manages model caching and deferral across environments.
+`defer_to_target` is part of [dbt State](../../docs/deploy/dbt-state-setup.md), which manages model caching and deferral across environments.
 
 profiles.yml
 
@@ -146,5 +146,5 @@ This scenario is the most likely to cause data corruption. If you have custom `g
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
+* [About dbt State](../../docs/deploy/dbt-state-about.md)
+* [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

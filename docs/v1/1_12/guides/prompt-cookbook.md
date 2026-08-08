@@ -1,6 +1,6 @@
 # How to use prompts for dbt Wizard
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Wizard
 
@@ -205,7 +205,7 @@ You don't need to write everything from scratch. Pull in documentation, definiti
 
 dbt Insights integration
 
-When using dbt Wizard in [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md), you can easily cross-reference between dbt Wizard's generated SQL and metadata from [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
+When using dbt Wizard in [Insights](../docs/explore/dbt-insights.md), you can easily cross-reference between dbt Wizard's generated SQL and metadata from [dbt Catalog](../docs/explore/explore-projects.md). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
 
 ### Define your business rules[​](#define-your-business-rules "Direct link to Define your business rules")
 
@@ -247,7 +247,7 @@ on customer_id. Filter to the last 30 days for preview only.
 
 Fast-track your semantic layer strategy with AI-generated YAML using dbt Wizard.
 
-dbt platform provides built-in generation buttons that automatically [generate code](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md), [documentation](https://docs.getdbt.com/docs/build/documentation.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md), and [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-studio-ai.md), [Canvas](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md), and [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md).
+dbt platform provides built-in generation buttons that automatically [generate code](../docs/dbt-ai/wizard-ide.md), [documentation](../docs/build/documentation.md), [data tests](../docs/build/data-tests.md), [metrics](../docs/build/metrics-overview.md), and [semantic models](../docs/build/semantic-models.md) for you with the click of a button in the [Studio IDE](../docs/platform/studio-ide/develop-studio-ai.md), [Canvas](../docs/platform/build-canvas-copilot.md), and [Insights](../docs/explore/dbt-insights.md).
 
 These features understand your model's structure and generate YAML in the correct location.
 
@@ -268,7 +268,7 @@ These built-in features automatically understand your model's columns, data type
 2. Use built-in buttons to add documentation, tests, and semantic models
 3. Refine the generated YAML as needed
 
-For more details, check out the [dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) docs.
+For more details, check out the [dbt Wizard](../docs/dbt-ai/wizard-ide.md) docs.
 
 ## Create reusable macros[​](#create-reusable-macros "Direct link to Create reusable macros")
 
@@ -419,8 +419,8 @@ The more you use dbt Wizard, the more you'll discover ways to accelerate your an
 
 Check out the following docs to learn more about how to use dbt Wizard:
 
-* [About dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Generate resources](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#generate-resources)
-* [Build visual models with dbt Wizard](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md)
-* [Build queries in dbt Insights](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md)
+* [About dbt Wizard](../docs/platform/wizard-platform.md)
+* [dbt Wizard in Studio IDE](../docs/dbt-ai/wizard-ide.md)
+* [Generate resources](../docs/dbt-ai/wizard-ide.md#generate-resources)
+* [Build visual models with dbt Wizard](../docs/platform/build-canvas-copilot.md)
+* [Build queries in dbt Insights](../docs/explore/navigate-dbt-insights.md)

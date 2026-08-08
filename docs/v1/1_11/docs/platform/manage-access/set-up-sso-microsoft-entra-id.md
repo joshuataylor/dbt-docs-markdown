@@ -6,7 +6,7 @@ dbt Enterprise-tier plans support single-sign on via Microsoft Entra ID (formerl
 
 SCIM available for Entra ID
 
-After setting up single sign-on (SSO), you can [set up System for Cross-Domain Identity Management (SCIM)](https://docs.getdbt.com/docs/platform/manage-access/scim-entra-id.md) with Entra ID to automate user and group provisioning.
+After setting up single sign-on (SSO), you can [set up System for Cross-Domain Identity Management (SCIM)](./scim-entra-id.md) with Entra ID to automate user and group provisioning.
 
 Currently supported SSO features include:
 
@@ -41,7 +41,7 @@ Log into the Azure portal for your organization. Using the [**Microsoft Entra ID
    * Update the Microsoft Entra ID Domain: In the dbt “Microsoft Entra ID Domain:” field, enter the specific authority string (`organizations`, `common`, or `consumers`) rather than the domain name for your Azure directory. For more details, see the [Supplying credentials](#supplying-credentials)
    * Grant Admin Consent for Each Tenant: Because this is an Entra (formerly Azure AD) requirement, each separate tenant will need its own administrator to grant consent. If users from other tenants attempt to log in before this is done, they will see an “admin approval required” screen. An admin can resolve this by visiting the specific consent URL provided by Microsoft for their tenant (for example,`https://login.microsoftonline.com/{TENANT_ID}/adminconsent?client_id={CLIENT_ID}`)
 
-5. Configure the **Redirect URI**. The table below shows the appropriate Redirect URI values for single-tenant and multi-tenant Entra ID app deployments. For most enterprise use-cases, you will want to use the single-tenant Redirect URI. Replace `YOUR_AUTH0_URI` with the [appropriate Auth0 URI](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region and plan.
+5. Configure the **Redirect URI**. The table below shows the appropriate Redirect URI values for single-tenant and multi-tenant Entra ID app deployments. For most enterprise use-cases, you will want to use the single-tenant Redirect URI. Replace `YOUR_AUTH0_URI` with the [appropriate Auth0 URI](./sso-overview.md#auth0-uris) for your region and plan.
 
 **Note:** Your dbt platform tenancy has no bearing on this setting. This Entra ID app setting controls app access:
 
@@ -73,7 +73,7 @@ info
 
 There is a [limitation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#important-caveats-for-this-functionality) on the number of groups Azure will emit (capped at 150) via the SSO token, meaning if a user belongs to more than 150 groups, it will appear as though they belong to none. To prevent this, configure [group assignments](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal?pivots=portal) with the dbt app in Azure and set a [group claim](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration) so Azure emits only the relevant groups.
 
-The Azure users and groups you will create in the following steps are mapped to groups created in dbt based on the group name. Reference the docs on [enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for additional information on how users, groups, and permission sets are configured in dbt.
+The Azure users and groups you will create in the following steps are mapped to groups created in dbt based on the group name. Reference the docs on [enterprise permissions](./enterprise-permissions.md) for additional information on how users, groups, and permission sets are configured in dbt.
 
 The dbt platform uses the **User principal name** (UPN) in Microsoft Entra ID to identify and match users logging in to dbt through SSO. The UPN is usually formatted as an email address.
 
@@ -166,11 +166,11 @@ Logging in
 
 Users can sign in at <https://login.dbt.com> to view accounts they have access to across instances and choose where to open dbt platform. This is the recommended entry point for most users.
 
-For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
+For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan:
 
 `https://YOUR_ACCESS_URL/enterprise-login/LOGIN-SLUG`
 
-Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
 ### Additional configuration options[​](#additional-configuration-options "Direct link to Additional configuration options")
 
@@ -182,11 +182,11 @@ The **Single sign-on** section also contains additional configuration options wh
 
 ## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
 
-Now you have completed setting up SSO with Entra ID, the next steps will be to set up [RBAC groups](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to complete your access control configuration.
+Now you have completed setting up SSO with Entra ID, the next steps will be to set up [RBAC groups](./enterprise-permissions.md) to complete your access control configuration.
 
 Set up SCIM
 
-Now that you've set up SSO with Entra ID, you can [set up SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-entra-id.md) to automate user and group provisioning.
+Now that you've set up SSO with Entra ID, you can [set up SCIM](./scim-entra-id.md) to automate user and group provisioning.
 
 ## Troubleshooting tips[​](#troubleshooting-tips "Direct link to Troubleshooting tips")
 
@@ -200,7 +200,7 @@ Ensure that the domain name under which user accounts exist in Azure matches the
 
 [![Obtaining the user domain from Azure](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-get-domain.png?v=2 "Obtaining the user domain from Azure")](#)Obtaining the user domain from Azure
 
-For additional troubleshooting — including "Admin consent required" prompts for new users, "Access Denied" after SAML authentication, and issues with Entity ID or ACS URL changes — refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
+For additional troubleshooting — including "Admin consent required" prompts for new users, "Access Denied" after SAML authentication, and issues with Entity ID or ACS URL changes — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
 ## Learn more by video[​](#learn-more-by-video "Direct link to Learn more by video")
 

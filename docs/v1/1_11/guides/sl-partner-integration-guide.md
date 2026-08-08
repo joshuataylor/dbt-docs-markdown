@@ -1,6 +1,6 @@
 # Integrate with dbt Semantic Layer using best practices
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Semantic Layer
 
@@ -28,12 +28,12 @@ Additionally, dive into mini-courses for querying the dbt Semantic Layer in your
 
 To build a Semantic Layer integration:
 
-* We offer a [JDBC](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md) API and [GraphQL API](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md). Refer to the dedicated [Semantic Layer API](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) for more technical integration details.
+* We offer a [JDBC](../docs/dbt-apis/sl-jdbc.md) API and [GraphQL API](../docs/dbt-apis/sl-graphql.md). Refer to the dedicated [Semantic Layer API](../docs/dbt-apis/sl-api-overview.md) for more technical integration details.
 
-* Familiarize yourself with the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) and [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md)'s key concepts. There are two main objects:
+* Familiarize yourself with the [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) and [MetricFlow](../docs/build/about-metricflow.md)'s key concepts. There are two main objects:
 
-  * [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) — Nodes in your semantic graph, connected via entities as edges. MetricFlow takes semantic models defined in YAML configuration files as inputs and creates a semantic graph that you can use to query metrics.
-  * [Metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) — Can be defined in the same YAML files as your semantic models, or split into separate YAML files into any other subdirectories (provided that these subdirectories are also within the same dbt project repo).
+  * [Semantic models](../docs/build/semantic-models.md) — Nodes in your semantic graph, connected via entities as edges. MetricFlow takes semantic models defined in YAML configuration files as inputs and creates a semantic graph that you can use to query metrics.
+  * [Metrics](../docs/build/metrics-overview.md) — Can be defined in the same YAML files as your semantic models, or split into separate YAML files into any other subdirectories (provided that these subdirectories are also within the same dbt project repo).
 
 ### Connection parameters[​](#connection-parameters "Direct link to Connection parameters")
 
@@ -57,7 +57,7 @@ Best practices for exposing metrics are summarized into five themes:
 
 * [Governance](#governance-and-traceability) — Recommendations on how to establish guardrails for governed data work.
 * [Discoverability](#discoverability) — Recommendations on how to make user-friendly data interactions.
-* [Organization](#organization) — Organize metrics and dimensions for all audiences, use [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md).
+* [Organization](#organization) — Organize metrics and dimensions for all audiences, use [saved queries](../docs/build/saved-queries.md).
 * [Query flexibility](#query-flexibility) — Allow users to query either one metric alone without dimensions or multiple metrics with dimensions.
 * [Context and interpretation](#context-and-interpretation) — Contextualize metrics for better analysis; expose definitions, metadata, lineage, and freshness.
 
@@ -75,7 +75,7 @@ When working with more governed data, it's essential to establish clear guardrai
 
 ### Discoverability[​](#discoverability "Direct link to Discoverability")
 
-* Consider treating [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) as first-class objects rather than measures. Metrics offer a higher-level and more contextual way to interact with data, reducing the burden on end-users to manually aggregate data.
+* Consider treating [metrics](../docs/build/metrics-overview.md) as first-class objects rather than measures. Metrics offer a higher-level and more contextual way to interact with data, reducing the burden on end-users to manually aggregate data.
 
 * **Easy metric interactions** — Provide users with an intuitive approach to:
 
@@ -96,7 +96,7 @@ We recommend organizing metrics and dimensions in ways that a non-technical user
 
 * **Organizing metrics** — The goal is to organize metrics into a hierarchy in our configurations, instead of presenting them in a long list.<br /><br />This hierarchy helps you organize metrics based on specific criteria, such as business unit or team. By providing this structured organization, users can find and navigate metrics more efficiently, enhancing their overall data analysis experience.
 
-* **Using saved queries** — The Semantic Layer has a concept of [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md) which allows users to pre-build slices of metrics, dimensions, filters to be easily accessed. You should surface these as first class objects in your integration. Refer to the [JDBC](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md) and [GraphQL](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md) APIs for syntax.
+* **Using saved queries** — The Semantic Layer has a concept of [saved queries](../docs/build/saved-queries.md) which allows users to pre-build slices of metrics, dimensions, filters to be easily accessed. You should surface these as first class objects in your integration. Refer to the [JDBC](../docs/dbt-apis/sl-jdbc.md) and [GraphQL](../docs/dbt-apis/sl-graphql.md) APIs for syntax.
 
 ### Query flexibility[​](#query-flexibility "Direct link to Query flexibility")
 
@@ -128,7 +128,7 @@ For better analysis, it's best to have the context of the metrics close to where
 
 * Expose additional metadata from the Semantic layer (measures, type parameters).
 
-* Use the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) to enhance the metric and build confidence in its accuracy:
+* Use the [Discovery API](../docs/dbt-apis/discovery-api.md) to enhance the metric and build confidence in its accuracy:
 
   * Check if the metric is fresh and when it was last updated.
   * Include lineage information to understand the metric's origin.
@@ -149,15 +149,15 @@ These are recommendations on how to evolve a Semantic Layer integration and not 
 
 **Stage 1 - The basic**
 
-* Supporting and using [JDBC](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md) or [GraphQL](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md) is the first step. Refer to the [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) for more technical details.
+* Supporting and using [JDBC](../docs/dbt-apis/sl-jdbc.md) or [GraphQL](../docs/dbt-apis/sl-graphql.md) is the first step. Refer to the [Semantic Layer APIs](../docs/dbt-apis/sl-api-overview.md) for more technical details.
 
 **Stage 2 - More discoverability and basic querying**
 
 * Support listing metrics defined in the project
 * Listing available dimensions based on one or many metrics
 * Querying defined metric values on their own or grouping by available dimensions
-* Display metadata from [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) and other context
-* Expose [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md), which are pre-built metrics, dimensions, and filters that Semantic Layer developers create for easier analysis. You can expose them in your application. Refer to the [JDBC](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md) and [GraphQL](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md) APIs for syntax.
+* Display metadata from [Discovery API](../docs/dbt-apis/discovery-api.md) and other context
+* Expose [saved queries](../docs/build/saved-queries.md), which are pre-built metrics, dimensions, and filters that Semantic Layer developers create for easier analysis. You can expose them in your application. Refer to the [JDBC](../docs/dbt-apis/sl-jdbc.md) and [GraphQL](../docs/dbt-apis/sl-graphql.md) APIs for syntax.
 
 **Stage 3 - More querying flexibility and better user experience (UX)**
 
@@ -182,7 +182,7 @@ These are recommendations on how to evolve a Semantic Layer integration and not 
 
 ### Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic Layer FAQs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md)
-* [Use the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) to learn about the product.
-* [Build your metrics](https://docs.getdbt.com/docs/build/build-metrics-intro.md) for more info about MetricFlow and its components.
+* [Semantic Layer FAQs](../docs/use-dbt-semantic-layer/sl-faqs.md)
+* [Use the Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) to learn about the product.
+* [Build your metrics](../docs/build/build-metrics-intro.md) for more info about MetricFlow and its components.
 * [Semantic Layer integrations page](https://www.getdbt.com/product/semantic-layer-integrations) for information about the available partner integrations.

@@ -45,7 +45,7 @@ metrics:
         offset_window: 1 week # Allowed for derived metrics
 ```
 
-For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md), ensuring numeric values for every data row.
+For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Derived metrics example[​](#derived-metrics-example "Direct link to Derived metrics example")
 
@@ -101,7 +101,7 @@ models:
 
 To perform calculations using a metric's value from a previous time period, you can add an offset parameter to a derived metric. For example, if you want to calculate period-over-period growth or track user retention, you can use this metric offset.
 
-**Note:** You must include the [`metric_time` dimension](https://docs.getdbt.com/docs/build/dimensions.md#time) when querying a derived metric with an offset window.
+**Note:** You must include the [`metric_time` dimension](./dimensions.md#time) when querying a derived metric with an offset window.
 
 The following example displays how you can calculate monthly revenue growth using a 1-month offset window:
 
@@ -219,4 +219,4 @@ Search table...
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for simple, derived, or ratio metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

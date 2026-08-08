@@ -42,7 +42,7 @@ The `meta` config can be defined:
 * Under the `models` config in the project file (`dbt_project.yml`)
 * in a `config()` Jinja macro within a model's SQL file
 
-See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+See [configs and properties](../configs-and-properties.md) for details.
 
 dbt\_project.yml
 
@@ -98,7 +98,7 @@ seeds:
 The `meta` config can be defined:
 
 * Under the `seeds` config in the property file (shown in in previous 'seeds/schema.yml' example)
-* Under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+* Under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
 dbt\_project.yml
 
@@ -129,9 +129,9 @@ The `meta` config can be defined:
 * under the `snapshots` config in the project file (`dbt_project.yml`)
 * in a `config()` Jinja macro within a snapshot's SQL block
 
-See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+See [configs and properties](../configs-and-properties.md) for details.
 
-Use the `meta` field to add metadata to [generic](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) or [singular tests](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests). `meta` accepts key-value pairs, is compiled into `manifest.json`, and appears in auto-generated documentation.
+Use the `meta` field to add metadata to [generic](../../docs/build/data-tests.md#generic-data-tests) or [singular tests](../../docs/build/data-tests.md#singular-data-tests). `meta` accepts key-value pairs, is compiled into `manifest.json`, and appears in auto-generated documentation.
 
 **Generic data tests**
 
@@ -201,7 +201,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -259,7 +259,7 @@ exposures:
       meta: {<dictionary>} # changed to config in v1.10
 ```
 
-Configure `meta` in the [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) embedded within your model YAML file or under the `semantic-models` config block in the `dbt_project.yml` file.
+Configure `meta` in the [semantic models](../../docs/build/semantic-models.md) embedded within your model YAML file or under the `semantic-models` config block in the `dbt_project.yml` file.
 
 dbt\_project.yml
 
@@ -280,7 +280,7 @@ models:
         meta: {<dictionary>}
 ```
 
-[Dimensions](https://docs.getdbt.com/docs/build/dimensions.md), [entities](https://docs.getdbt.com/docs/build/entities.md), and metrics can also have their own `meta` configurations.
+[Dimensions](../../docs/build/dimensions.md), [entities](../../docs/build/entities.md), and metrics can also have their own `meta` configurations.
 
 models/file\_name.yml
 
@@ -322,7 +322,7 @@ models:
 The `meta` config can be defined:
 
 * Under the `semantic-models` config in the properties file (as showin in previous `models/semantic_models.yml` example)
-* Under the `semantic-models` config in the project file (`dbt_project.yml`). See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+* Under the `semantic-models` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
 dbt\_project.yml
 
@@ -469,7 +469,7 @@ models:
 
 <!-- -->
 
-The following example shows how to assign a `meta` value to a [semantic model](https://docs.getdbt.com/docs/build/semantic-models.md) in the model YAML file and `dbt_project.yml` file:
+The following example shows how to assign a `meta` value to a [semantic model](../../docs/build/semantic-models.md) in the model YAML file and `dbt_project.yml` file:
 
 * Semantic model
 * dbt\_project.yml
@@ -503,7 +503,7 @@ semantic-models:
 * Semantic model
 * dbt\_project.yml
 
-The following example shows how to assign a `meta` value to a [dimension](https://docs.getdbt.com/docs/build/dimensions.md), [entity](https://docs.getdbt.com/docs/build/entities.md), and [simple metrics](https://docs.getdbt.com/docs/build/simple.md) in a semantic model:
+The following example shows how to assign a `meta` value to a [dimension](../../docs/build/dimensions.md), [entity](../../docs/build/entities.md), and [simple metrics](../../docs/build/simple.md) in a semantic model:
 
 model\_name.yml
 
@@ -562,7 +562,7 @@ semantic-models:
 
 ### Add meta to generic and singular data tests[​](#add-meta-to-generic-and-singular-data-tests "Direct link to Add meta to generic and singular data tests")
 
-The following examples show how to add `meta` to [generic data tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) in a `properties.yml` file, and to [singular data tests](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests) using `config()`. You can also set defaults in `dbt_project.yml` or `tests/properties.yml`.
+The following examples show how to add `meta` to [generic data tests](../../docs/build/data-tests.md#generic-data-tests) in a `properties.yml` file, and to [singular data tests](../../docs/build/data-tests.md#singular-data-tests) using `config()`. You can also set defaults in `dbt_project.yml` or `tests/properties.yml`.
 
 * Generic data test
 * Singular data test
@@ -593,7 +593,7 @@ where order_id is null
 
 ### Access meta values in Python models[​](#access-meta-values-in-python-models "Direct link to Access meta values in Python models")
 
-To access custom `meta` values in [Python models](https://docs.getdbt.com/docs/build/python-models.md), use the `dbt.config.meta_get()` method.
+To access custom `meta` values in [Python models](../../docs/build/python-models.md), use the `dbt.config.meta_get()` method.
 
 For example, if you have a model named `my_python_model` and you want to store custom values, you can do the following:
 

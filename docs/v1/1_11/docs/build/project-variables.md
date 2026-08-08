@@ -1,10 +1,10 @@
 # Project variables
 
-dbt provides a mechanism called [variables](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) to provide data to models for compilation. Variables allow you to define configurable values for your project instead of hardcoding them in SQL.
+dbt provides a mechanism called [variables](../../reference/dbt-jinja-functions/var.md) to provide data to models for compilation. Variables allow you to define configurable values for your project instead of hardcoding them in SQL.
 
 You can define variables in two ways:
 
-* In the [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md) file
+* In the [`dbt_project.yml`](../../reference/dbt_project.yml.md) file
 * On the command line
 
 Variables defined in the `dbt_project.yml` act as project-wide defaults. These defaults apply anywhere the variable is referenced. You can override them at runtime using the `--vars` command-line argument, which is useful when you want to change a value for a specific run. For example, when testing with a different date range or running models with environment-specific settings.
@@ -13,9 +13,9 @@ Variables defined in the `dbt_project.yml` act as project-wide defaults. These d
 
 You might use variables to [configure timezones](https://github.com/dbt-labs/snowplow/blob/0.3.9/dbt_project.yml#L22), set reporting date ranges, [avoid hardcoding table names](https://github.com/dbt-labs/quickbooks/blob/v0.1.0/dbt_project.yml#L23), or otherwise control how models are compiled.
 
-To use a variable in a model, hook, or macro, use the `{{ var('...') }}` function. The `var()` function retrieves the value defined in your project or passed using `--vars`. For more information, see [About var function](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md).
+To use a variable in a model, hook, or macro, use the `{{ var('...') }}` function. The `var()` function retrieves the value defined in your project or passed using `--vars`. For more information, see [About var function](../../reference/dbt-jinja-functions/var.md).
 
-Note, refer to [YAML tips](https://docs.getdbt.com/docs/build/dbt-tips.md#yaml-tips) for more YAML information.
+Note, refer to [YAML tips](./dbt-tips.md#yaml-tips) for more YAML information.
 
 <!-- -->
 
@@ -104,7 +104,7 @@ $ dbt run --vars '{"key": "value", "date": 20180101}'
 $ dbt run --vars '{key: value, date: 20180101}'
 ```
 
-Variables defined using `--var`, override values defined in `dbt_project.yml`. This makes `--vars` useful for temporarily overriding configuration without changing your committed project files. For the complete order of precedence (including package-scoped variables and default values defined in `var()`), see [Variable precedence](https://docs.getdbt.com/docs/build/project-variables.md#variable-precedence).
+Variables defined using `--var`, override values defined in `dbt_project.yml`. This makes `--vars` useful for temporarily overriding configuration without changing your committed project files. For the complete order of precedence (including package-scoped variables and default values defined in `var()`), see [Variable precedence](./project-variables.md#variable-precedence).
 
 You can find more information on defining dictionaries with YAML [here](https://github.com/Animosity/CraftIRC/wiki/Complete-idiot%27s-introduction-to-yaml).
 

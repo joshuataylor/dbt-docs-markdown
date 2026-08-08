@@ -1,6 +1,6 @@
 # Airflow and dbt
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt platform
 
@@ -17,7 +17,7 @@ Intermediate
 Many organizations already use [Airflow](https://airflow.apache.org/) to orchestrate their data workflows. dbt works great with Airflow, letting you execute your dbt code in dbt while keeping orchestration duties with Airflow. This ensures your project's metadata (important for tools like Catalog) is available and up-to-date, while still enabling you to use Airflow for general tasks such as:
 
 * Scheduling other processes outside of dbt runs
-* Ensuring that a [dbt job](https://docs.getdbt.com/docs/deploy/job-scheduler.md) kicks off before or after another process outside of dbt
+* Ensuring that a [dbt job](../docs/deploy/job-scheduler.md) kicks off before or after another process outside of dbt
 * Triggering a dbt job only after another has completed
 
 In this guide, you'll learn how to:
@@ -34,8 +34,8 @@ You’ll also gain a better understanding of how this will:
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* [dbt platform Enterprise or Enterprise+ account](https://www.getdbt.com/pricing/) (with [admin access](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md)) in order to create a service token. Permissions for service tokens can be found [here](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
-* Service account token if you have [Developer license (with admins access)](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md)). Permissions for service tokens can be found [here](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens) and [here](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md?version=2.0).
+* [dbt platform Enterprise or Enterprise+ account](https://www.getdbt.com/pricing/) (with [admin access](../docs/platform/manage-access/enterprise-permissions.md)) in order to create a service token. Permissions for service tokens can be found [here](../docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
+* Service account token if you have [Developer license (with admins access)](../docs/platform/manage-access/enterprise-permissions.md)). Permissions for service tokens can be found [here](../docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens) and [here](../docs/platform/manage-access/seats-and-users.md?version=2.0).
 * [Personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens#create-a-personal-access-token) if you have developer, IT, or Read-only license.
 * A [free Docker account](https://hub.docker.com/signup) in order to sign in to Docker Desktop, which will be installed in the initial setup.
 * A local digital scratchpad for temporarily copy-pasting API keys and URLs
@@ -101,13 +101,13 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
 
 ## Create a dbt service token[​](#create-a-dbt-service-token "Direct link to Create a dbt service token")
 
-[Create a service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with `Job Admin` privileges from within dbt. Ensure that you save a copy of the token, as you won’t be able to access this later.
+[Create a service token](../docs/dbt-apis/service-tokens.md) with `Job Admin` privileges from within dbt. Ensure that you save a copy of the token, as you won’t be able to access this later.
 
-As an alternative, you can [create a PAT](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md#create-a-personal-access-token) if you have a Developer, IT, or Read-only license.
+As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create-a-personal-access-token) if you have a Developer, IT, or Read-only license.
 
 ## Create a dbt job[​](#create-a-dbt-job "Direct link to Create a dbt job")
 
-[Create a job in your dbt account](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs), paying special attention to the information in the bullets below.
+[Create a job in your dbt account](../docs/deploy/deploy-jobs.md#create-and-schedule-jobs), paying special attention to the information in the bullets below.
 
 * Configure the job with the full commands that you want to include when this job kicks off. This sample code has Airflow triggering the dbt job and all of its commands, instead of explicitly identifying individual models to run from inside of Airflow.
 * Ensure that the schedule is turned **off** since we’ll be using Airflow to kick things off.
@@ -189,11 +189,11 @@ airflow-dbt-cloud_e3fe3c-postgres-1     exited
 
 Because the Airflow DAG references dbt jobs, your analytics engineers can take responsibility for configuring the jobs in dbt.
 
-For example, to run some models hourly and others daily, there will be jobs like `Hourly Run` or `Daily Run` using the commands `dbt run --select tag:hourly` and `dbt run --select tag:daily` respectively. Once configured in dbt, these can be added as steps in an Airflow DAG as shown in this guide. Refer to our full [node selection syntax docs here](https://docs.getdbt.com/reference/node-selection/syntax.md).
+For example, to run some models hourly and others daily, there will be jobs like `Hourly Run` or `Daily Run` using the commands `dbt run --select tag:hourly` and `dbt run --select tag:daily` respectively. Once configured in dbt, these can be added as steps in an Airflow DAG as shown in this guide. Refer to our full [node selection syntax docs here](../reference/node-selection/syntax.md).
 
 ### How can I re-run models from the point of failure?[​](#how-can-i-re-run-models-from-the-point-of-failure "Direct link to How can I re-run models from the point of failure?")
 
-You can trigger re-run from point of failure with the `rerun` API endpoint. See the docs on [retrying jobs](https://docs.getdbt.com/docs/deploy/retry-jobs.md) for more information.
+You can trigger re-run from point of failure with the `rerun` API endpoint. See the docs on [retrying jobs](../docs/deploy/retry-jobs.md) for more information.
 
 ### Should Airflow run one big dbt job or many dbt jobs?[​](#should-airflow-run-one-big-dbt-job-or-many-dbt-jobs "Direct link to Should Airflow run one big dbt job or many dbt jobs?")
 
@@ -209,7 +209,7 @@ Astronomer's DAG registry has a sample workflow combining Fivetran, dbt and Cens
 
 Check out these two resources for accomplishing your own CI/CD pipeline:
 
-* [Continuous Integration with dbt](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
+* [Continuous Integration with dbt](../docs/deploy/continuous-integration.md)
 * [Astronomer's CI/CD Example](https://docs.astronomer.io/software/ci-cd/#example-cicd-workflow)
 
 ### Can dbt dynamically create tasks in the DAG like Airflow can?[​](#can-dbt-dynamically-create-tasks-in-the-dag-like-airflow-can "Direct link to Can dbt dynamically create tasks in the DAG like Airflow can?")
@@ -218,7 +218,7 @@ As discussed above, we prefer to keep jobs bundled together and containing as ma
 
 ### Can you trigger notifications if a dbt job fails with Airflow?[​](#can-you-trigger-notifications-if-a-dbt-job-fails-with-airflow "Direct link to Can you trigger notifications if a dbt job fails with Airflow?")
 
-Yes, either through [Airflow's email/slack](https://www.astronomer.io/guides/error-notifications-in-airflow/) functionality, or [dbt's notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md), which support email and Slack notifications. You could also create a [webhook](https://docs.getdbt.com/docs/deploy/webhooks.md).
+Yes, either through [Airflow's email/slack](https://www.astronomer.io/guides/error-notifications-in-airflow/) functionality, or [dbt's notifications](../docs/deploy/job-notifications.md), which support email and Slack notifications. You could also create a [webhook](../docs/deploy/webhooks.md).
 
 ### How should I plan my dbt + Airflow implementation?[​](#how-should-i-plan-my-dbt--airflow-implementation "Direct link to How should I plan my dbt + Airflow implementation?")
 

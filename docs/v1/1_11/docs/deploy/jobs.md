@@ -4,14 +4,14 @@ dbt platformⓘ
 
 info
 
-Use the [dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) to investigate and troubleshoot dbt job and run failures by asking the agent about recent failures, root causes, and fixes — powered by the `troubleshooting-dbt-job-errors` skill in dbt Agent Skills.
+Use the [dbt Wizard](../dbt-ai/wizard-ide.md) to investigate and troubleshoot dbt job and run failures by asking the agent about recent failures, root causes, and fixes — powered by the `troubleshooting-dbt-job-errors` skill in dbt Agent Skills.
 
 These are the available job types in dbt:
 
-* [Deploy jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) — Build production data assets. Runs on a schedule, by API, or after another job completes.
-* [Continuous integration (CI) jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md) — Test and validate code changes before merging. Triggered by commit to a PR or by API.
-* [Merge jobs](https://docs.getdbt.com/docs/deploy/merge-jobs.md) — Deploy merged changes into production. Runs after a successful PR merge or by API.
-* [State-aware jobs](https://docs.getdbt.com/docs/deploy/state-aware-about.md) — Intelligently decide what needs to be rebuilt based on source freshness, code, or upstream data changes. Rebuild models only if they are older than the specified interval.
+* [Deploy jobs](./deploy-jobs.md) — Build production data assets. Runs on a schedule, by API, or after another job completes.
+* [Continuous integration (CI) jobs](./continuous-integration.md) — Test and validate code changes before merging. Triggered by commit to a PR or by API.
+* [Merge jobs](./merge-jobs.md) — Deploy merged changes into production. Runs after a successful PR merge or by API.
+* [State-aware jobs](./state-aware-about.md) — Intelligently decide what needs to be rebuilt based on source freshness, code, or upstream data changes. Rebuild models only if they are older than the specified interval.
 
 The following comparison table describes the behaviors of the different job types:
 

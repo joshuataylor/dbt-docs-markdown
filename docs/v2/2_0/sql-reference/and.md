@@ -1,6 +1,6 @@
 # SQL AND
 
-The AND operator returns results that meet all requirements passed into it; compared to the [OR operator](https://docs.getdbt.com/sql-reference/or.md) that only needs to have one true requirement. You’ll often see the AND operator used in a [WHERE clause](https://docs.getdbt.com/sql-reference/where.md) to filter query results or in a case statement to create multiple criteria for a result.
+The AND operator returns results that meet all requirements passed into it; compared to the [OR operator](./or.md) that only needs to have one true requirement. You’ll often see the AND operator used in a [WHERE clause](./where.md) to filter query results or in a case statement to create multiple criteria for a result.
 
 Use this page to understand how to use the AND operator and why it might be helpful in analytics engineering work.
 
@@ -23,7 +23,7 @@ join <table_b> on
 
 Surrogate keys > joins with AND
 
-Using surrogate keys, hashed values of multiple columns, is a great way to avoid using AND operators in joins. Typically, having AND or [OR operators](https://docs.getdbt.com/sql-reference/or.md) in a join can cause the query or model to be potentially inefficient, especially at considerable data volume, so creating surrogate keys earlier in your upstream tables ([using the surrogate key macro](https://docs.getdbt.com/blog/sql-surrogate-keys)) can potentially improve performance in downstream models.
+Using surrogate keys, hashed values of multiple columns, is a great way to avoid using AND operators in joins. Typically, having AND or [OR operators](./or.md) in a join can cause the query or model to be potentially inefficient, especially at considerable data volume, so creating surrogate keys earlier in your upstream tables ([using the surrogate key macro](https://docs.getdbt.com/blog/sql-surrogate-keys)) can potentially improve performance in downstream models.
 
 ### SQL AND operator example[​](#sql-and-operator-example "Direct link to SQL AND operator example")
 

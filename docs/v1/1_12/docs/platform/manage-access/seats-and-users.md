@@ -11,11 +11,11 @@ There are four license types in dbt:
   <!-- -->
 
   * User can be granted *any* permission sets.
-  * \* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+  * \* The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 * **Developer** — User can be granted *any* permission sets.
 
-* **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
+* **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](./enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
 
   <!-- -->
 
@@ -28,11 +28,11 @@ There are four license types in dbt:
   <!-- -->
 
   * User has read-only permissions applied to all dbt resources.
-  * Intended to view the [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md) and the [deploy](https://docs.getdbt.com/docs/deploy/deployments.md) section (jobs, runs, schedules) in a dbt account, but can’t make changes.
+  * Intended to view the [artifacts](../../deploy/artifacts.md) and the [deploy](../../deploy/deployments.md) section (jobs, runs, schedules) in a dbt account, but can’t make changes.
   * *Read-only licensed users do not inherit rights from any permission sets*.
   * Every read-only licensed user has the same access across the account, regardless of the group permissions assigned.
 
-\* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+\* The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 The user's assigned license determines the specific capabilities they can access in dbt.
 
@@ -44,10 +44,10 @@ The user's assigned license determines the specific capabilities they can access
 | Manage Account                                                                        | ✅                                  | ❌              | ✅            |
 | API access<br />(create personal access tokens)                                       | ✅                                  | ✅              | ✅            |
 | API access<br />(create service tokens)                                               | ✅                                  | ❌              | ❌            |
-| Use [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)               | ✅                                  | ✅              | ❌            |
-| Use [Source Freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md)       | ✅                                  | ✅              | ❌            |
-| Use [Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md)          | ✅                                  | ✅              | ❌            |
-| Receive [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md) | ✅                                  | ✅              | ✅            |
+| Use [Catalog](../../explore/explore-projects.md)               | ✅                                  | ✅              | ❌            |
+| Use [Source Freshness](../../deploy/source-freshness.md)       | ✅                                  | ✅              | ❌            |
+| Use [Docs](../../explore/build-and-view-your-docs.md)          | ✅                                  | ✅              | ❌            |
+| Receive [Job notifications](../../deploy/job-notifications.md) | ✅                                  | ✅              | ✅            |
 
 Search table...
 
@@ -55,7 +55,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-\*The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+\*The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 \*\*Available on Starter, Enterprise, and Enterprise+ plans only. IT seats are limited to 1 seat per Starter or Enterprise-tier account and don't count toward developer seat usage.
 
@@ -78,7 +78,7 @@ The following tabs detail steps on how to modify your user license count:
 * Enterprise-tier plans
 * Starter plans
 
-If you're on an Enterprise-tier plan and have the correct [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), you can add or remove licenses by adjusting your user seat count. Note, an IT license does not count toward seat usage.
+If you're on an Enterprise-tier plan and have the correct [permissions](./enterprise-permissions.md), you can add or remove licenses by adjusting your user seat count. Note, an IT license does not count toward seat usage.
 
 * To remove a user, click on your account name in the left side menu, click **Account settings** and select **Users**.
 
@@ -88,12 +88,12 @@ If you're on an Enterprise-tier plan and have the correct [permissions](https://
 
 * To add a user, go to **Account Settings** and select **Users**.
 
-  * Click the [**Invite Users**](https://docs.getdbt.com/docs/platform/manage-access/invite-users.md) button.
-  * For fine-grained permission configuration, refer to [Role based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control-).
+  * Click the [**Invite Users**](./invite-users.md) button.
+  * For fine-grained permission configuration, refer to [Role based access control](./about-user-access.md#role-based-access-control-).
 
-If you're on a Starter plan and have the correct [permissions](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md), you can add or remove developers.
+If you're on a Starter plan and have the correct [permissions](./self-service-permissions.md), you can add or remove developers.
 
-Refer to [Self-service Starter account permissions](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md#licenses) for more information on the number of each license type included in the Starter plan.
+Refer to [Self-service Starter account permissions](./self-service-permissions.md#licenses) for more information on the number of each license type included in the Starter plan.
 
 You'll need to make two changes:
 
@@ -117,7 +117,7 @@ To add a user in dbt, you must be an account owner or have admin privileges.
 
 [![Navigate to Account settings -> Billing to modify billing seat count](/img/docs/dbt-platform/faq-account-settings-billing.png?v=2 "Navigate to Account settings -> Billing to modify billing seat count")](#)Navigate to Account settings -> Billing to modify billing seat count
 
-Now that you've updated your billing, you can now [invite users](https://docs.getdbt.com/docs/platform/manage-access/invite-users.md) to join your dbt account:
+Now that you've updated your billing, you can now [invite users](./invite-users.md) to join your dbt account:
 
 Great work! After completing those these steps, your dbt user count and billing count should now be the same.
 
@@ -145,7 +145,7 @@ Great work! After completing these steps, your dbt user count and billing count 
 
 ## Managing license types[​](#managing-license-types "Direct link to Managing license types")
 
-Licenses can be assigned to users individually or through group membership. To assign a license via group membership, you can manually add a user to a group during the invitation process or assign them to a group after they’ve enrolled in dbt. Alternatively, with [SSO configuration](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md) and [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control-) (Enterprise-tier only), users can be automatically assigned to groups. By default, new users in an account are assigned a Developer license.
+Licenses can be assigned to users individually or through group membership. To assign a license via group membership, you can manually add a user to a group during the invitation process or assign them to a group after they’ve enrolled in dbt. Alternatively, with [SSO configuration](./sso-overview.md) and [role-based access control](./about-user-access.md#role-based-access-control-) (Enterprise-tier only), users can be automatically assigned to groups. By default, new users in an account are assigned a Developer license.
 
 ### Manual configuration[​](#manual-configuration "Direct link to Manual configuration")
 
@@ -162,7 +162,7 @@ To manually assign a specific type of license to a user on your team:
 
 ### Mapped configuration [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#mapped-configuration- "Direct link to mapped-configuration-")
 
-If your account is connected to an Identity Provider (IdP) for [Single Sign On](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md), you can automatically map IdP user groups to specific license types in dbt. For SCIM-based license mapping with Okta, see [Automated license mapping](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md#automated-license-mapping).
+If your account is connected to an Identity Provider (IdP) for [Single Sign On](./sso-overview.md), you can automatically map IdP user groups to specific license types in dbt. For SCIM-based license mapping with Okta, see [Automated license mapping](./scim-manage-user-licenses.md#automated-license-mapping).
 
 #### Configure license mappings[​](#configure-license-mappings "Direct link to Configure license mappings")
 
@@ -202,4 +202,4 @@ If a user's IdP groups do not match *any* license type mappings, dbt assigns a D
 
 ## Granular permissioning[​](#granular-permissioning "Direct link to Granular permissioning")
 
-dbt Enterprise-tier plans support role-based access controls for configuring granular in-app permissions. See [access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md) for more information on Enterprise permissioning.
+dbt Enterprise-tier plans support role-based access controls for configuring granular in-app permissions. See [access control](./about-user-access.md) for more information on Enterprise permissioning.

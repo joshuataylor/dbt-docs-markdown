@@ -1,6 +1,6 @@
 # Getting started with the terminal
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt
 
@@ -108,7 +108,7 @@ dbt-fusion 2.0.0-preview.45
 
 ## Common issues[​](#common-issues "Direct link to Common issues")
 
-**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md) or [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+**`command not found`** The tool isn't installed or isn't on your PATH. Double-check the install instructions for [dbt Core](../docs/local/install-dbt.md) or [dbt Wizard CLI](../docs/dbt-ai/wizard-quickstart.md).
 
 **`Permission denied`** You may need to run the command with elevated permissions, or check that the file is executable.
 
@@ -116,6 +116,6 @@ dbt-fusion 2.0.0-preview.45
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) — use the dbt Wizard CLI in your terminal
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) — set up dbt Fusion engine or dbt Core locally
-* [dbt commands reference](https://docs.getdbt.com/reference/dbt-commands.md) — all available dbt CLI commands
+* [dbt Wizard quickstart](../docs/dbt-ai/wizard-quickstart.md) — use the dbt Wizard CLI in your terminal
+* [Install dbt](../docs/local/install-dbt.md) — set up dbt Fusion engine or dbt Core locally
+* [dbt commands reference](../reference/dbt-commands.md) — all available dbt CLI commands

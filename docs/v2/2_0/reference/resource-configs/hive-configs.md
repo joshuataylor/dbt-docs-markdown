@@ -2,7 +2,7 @@
 
 ## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-hive plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-hive plugin, in addition to the standard [model configs](../model-configs.md).
 
 | Option          | Description                                                                                                                      | Required? | Example                              |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------ |

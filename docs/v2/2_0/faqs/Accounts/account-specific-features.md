@@ -6,7 +6,7 @@ This document provides a comprehensive overview of account-specific features in 
 
 ## Copilot[​](#copilot "Direct link to Copilot")
 
-[dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) is an AI-powered assistant designed to accelerate your development workflow and help you focus on delivering high-quality data.
+[dbt Wizard](../../docs/platform/wizard-platform.md) is an AI-powered assistant designed to accelerate your development workflow and help you focus on delivering high-quality data.
 
 dbt Wizard is available to all users in dbt but limits are imposed according to plan type. Have a look at [dbt's pricing](https://www.getdbt.com/pricing) for more information.
 
@@ -41,7 +41,7 @@ BYOK means users can bring and configure their own OpenAI, Anthropic, or Azure A
 
   To use BYOK, ensure your OpenAI project doesn’t have data residency controls enabled. Projects without project region settings will use the standard OpenAI endpoint (`https://api.openai.com`) and support BYOK.
 
-* Currently, BYOK in dbt supports OpenAI and Azure-hosted OpenAI API keys. Users enter their key through the [account settings](https://docs.getdbt.com/docs/platform/account-settings.md), and requests made by dbt Wizard or other AI features are billed directly to the customer by the respective provider.⁠⁠⁠⁠
+* Currently, BYOK in dbt supports OpenAI and Azure-hosted OpenAI API keys. Users enter their key through the [account settings](../../docs/platform/account-settings.md), and requests made by dbt Wizard or other AI features are billed directly to the customer by the respective provider.⁠⁠⁠⁠
 
 info
 
@@ -120,8 +120,8 @@ The number of projects and run slots available to your organization varies based
 
 dbt offers a range of plans with varying features to suit different organizational needs.
 
-For information on the different plan types and upgrading your plan, refer to our document on [How to upgrade a dbt Cloud account](https://docs.getdbt.com/faqs/Accounts/platform-upgrade-instructions.md).
+For information on the different plan types and upgrading your plan, refer to our document on [How to upgrade a dbt Cloud account](./platform-upgrade-instructions.md).
 
 ## Related content[​](#related-content "Direct link to Related content")
 
-* [Billing](https://docs.getdbt.com/docs/platform/billing.md)
+* [Billing](../../docs/platform/billing.md)

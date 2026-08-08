@@ -23,7 +23,7 @@ Feature availability
 
 Feature availability may change as the Fusion engine moves toward general availability.
 
-v2 is totally free to use, including when paired with Fusion, and you can get started right away with many dbt features, free forever! You can also try advanced features by running [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) to create a free dbt platform account for the best v2 experience:
+v2 is totally free to use, including when paired with Fusion, and you can get started right away with many dbt features, free forever! You can also try advanced features by running [`dbt login`](../../reference/commands/login.md?version=2.0) to create a free dbt platform account for the best v2 experience:
 
 ```shell
 dbt login
@@ -51,10 +51,10 @@ Search table...
 
 For the best v2 experience, use the dbt VS Code extension. You can get started for free, and when you create a free dbt platform account, you’ll unlock additional access to advanced dbt features in your editor and beyond, including those shown in the table above.
 
-To learn more about VS Code-specific capabilities, refer to [dbt VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md).
+To learn more about VS Code-specific capabilities, refer to [dbt VS Code extension features](../dbt-extension-features.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md) locally
-* Install the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* Upgrade environments in the [dbt platform](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Install dbt](../local/install-dbt.md) locally
+* Install the [dbt VS Code extension](../about-dbt-extension.md)
+* Upgrade environments in the [dbt platform](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)

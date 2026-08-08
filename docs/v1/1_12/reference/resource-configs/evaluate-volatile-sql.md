@@ -88,5 +88,5 @@ dbt State treats `getdate()` as static code. The node remains reusable as long a
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
+* [About dbt State](../../docs/deploy/dbt-state-about.md)
+* [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

@@ -30,7 +30,7 @@ models:
 
 ### Apply config to all models in your project[​](#apply-config-to-all-models-in-your-project "Direct link to Apply config to all models in your project")
 
-To apply a configuration to all models in *your* project only, use your [project name](https://docs.getdbt.com/reference/project-configs/name.md) as the `<resource-path>`:
+To apply a configuration to all models in *your* project only, use your [project name](../project-configs/name.md) as the `<resource-path>`:
 
 dbt\_project.yml
 

@@ -2,32 +2,32 @@
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
-Set up and automatically populate downstream exposures for supported BI tool integrations, like Tableau. Visualize and orchestrate them through [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects) and the [dbt job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) for a richer experience.
+Set up and automatically populate downstream exposures for supported BI tool integrations, like Tableau. Visualize and orchestrate them through [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects) and the [dbt job scheduler](../deploy/job-scheduler.md) for a richer experience.
 
-As a data team, it’s critical that you have context into the downstream use cases and users of your data products. By leveraging automatic downstream [exposures](https://docs.getdbt.com/docs/build/exposures.md), you can:
+As a data team, it’s critical that you have context into the downstream use cases and users of your data products. By leveraging automatic downstream [exposures](../build/exposures.md), you can:
 
 * Gain a better understanding of how models are used in downstream analytics, improving governance and decision-making.
 * Reduce incidents and optimize workflows by linking upstream models to downstream dependencies.
 * Automate exposure tracking for supported BI tools, ensuring lineage is always up to date.
-* [Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md) to refresh the underlying data sources during scheduled dbt jobs, improving timeliness and reducing costs. Orchestrating exposures is a way to ensure that your BI tools are updated regularly using the [dbt job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md). See the [previous page](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md) for more information.
+* [Orchestrate exposures](./orchestrate-exposures.md) to refresh the underlying data sources during scheduled dbt jobs, improving timeliness and reducing costs. Orchestrating exposures is a way to ensure that your BI tools are updated regularly using the [dbt job scheduler](../deploy/job-scheduler.md). See the [previous page](./downstream-exposures.md) for more information.
 
 In dbt, you can configure downstream exposures in two ways:
 
-* Manually — Declared [explicitly](https://docs.getdbt.com/docs/build/exposures.md#declaring-an-exposure) in your project’s YAML files.
-* Automatic — dbt [creates and visualizes downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md) automatically for supported integrations, removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), and behave like manual exposures. However, they don’t exist in YAML files.
+* Manually — Declared [explicitly](../build/exposures.md#declaring-an-exposure) in your project’s YAML files.
+* Automatic — dbt [creates and visualizes downstream exposures](./downstream-exposures.md) automatically for supported integrations, removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](../explore/explore-projects.md), and behave like manual exposures. However, they don’t exist in YAML files.
 
 Tableau Server
 
-If you're using Tableau Server, you need to add the [dbt IP addresses for your region](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) to your allowlist.
+If you're using Tableau Server, you need to add the [dbt IP addresses for your region](../platform/about-platform/access-regions-ip-addresses.md) to your allowlist.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 To configure automatic downstream exposures, you should meet the following:
 
-1. Your environment and jobs are on a supported [dbt release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+1. Your environment and jobs are on a supported [dbt release track](../dbt-versions/dbt-release-tracks.md).
 2. You have a dbt account on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/).
-3. You have set up a [production](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
-4. You have [proper permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to edit dbt project or production environment settings.
+3. You have set up a [production](../deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
+4. You have [proper permissions](../platform/manage-access/enterprise-permissions.md) to edit dbt project or production environment settings.
 5. Use Tableau as your BI tool and enable metadata permissions or work with an admin to do so. Compatible with Tableau Cloud or Tableau Server with the Metadata API enabled.
 6. You have configured a [Tableau personal access token (PAT)](https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm) whose creator has permission to view data sources. The PAT inherits the permissions of its creator, so ensure the Tableau user who created the token has [Connect permissions](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_permissions.htm).
 
@@ -39,7 +39,7 @@ Configuring automatic downstream exposures with Tableau have the following consi
 
 * You can only connect to a single Tableau site on the same server.
 
-* If you're using Tableau Server, you need to [allowlist dbt's IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your dbt region.
+* If you're using Tableau Server, you need to [allowlist dbt's IP addresses](../platform/about-platform/access-regions-ip-addresses.md) for your dbt region.
 
 * Tableau dashboards built using custom SQL queries aren't supported.
 
@@ -64,7 +64,7 @@ Configuring automatic downstream exposures with Tableau have the following consi
 
   1. In dbt, download the `manifest.json` from the most recent production run that includes the missing dependencies by clicking on the **Artifacts** tab and scrolling to `manifest.json`.
 
-  2. Run the following [GraphiQl](https://help.tableau.com/current/api/metadata_api/en-us/docs/meta_api_start.html#explore-the-metadata-api-schema-using-graphiql) query. Make sure to run the query at `your_tableau_server/metadata/graphiql`, where `your_tableau_server` is the value you provided for the Server URL when [setting up your Tableau integration](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md#set-up-in-tableau):
+  2. Run the following [GraphiQl](https://help.tableau.com/current/api/metadata_api/en-us/docs/meta_api_start.html#explore-the-metadata-api-schema-using-graphiql) query. Make sure to run the query at `your_tableau_server/metadata/graphiql`, where `your_tableau_server` is the value you provided for the Server URL when [setting up your Tableau integration](./downstream-exposures-tableau.md#set-up-in-tableau):
 
      ```jsx
          query {
@@ -165,7 +165,7 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
 
 ## View downstream exposures[​](#view-downstream-exposures "Direct link to View downstream exposures")
 
-After setting up downstream exposures in dbt, you can view them in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) for a richer experience.
+After setting up downstream exposures in dbt, you can view them in [Catalog](../explore/explore-projects.md) for a richer experience.
 
 Navigate to Catalog by selecting **Catalog** from the top-level navigation. You can view downstream exposures from a couple of places:
 
@@ -178,12 +178,12 @@ Navigate to Catalog by selecting **Catalog** from the top-level navigation. You 
 View all downstream exposures for a project from the Catalog sidebar:
 
 1. In the sidebar, select your project.
-2. Under the project, select **Exposure**. You will only see this option if you set up downstream exposures in [Tableau](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md#set-up-in-tableau) and [dbt](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md#set-up-in-dbt-cloud).
+2. Under the project, select **Exposure**. You will only see this option if you set up downstream exposures in [Tableau](./downstream-exposures-tableau.md#set-up-in-tableau) and [dbt](./downstream-exposures-tableau.md#set-up-in-dbt-cloud).
 
 The **Exposures** table lists every exposure in the project so you can quickly access and manage them:
 
 * **Name**: The name of the exposure.
-* **Health**: The [data health signal](https://docs.getdbt.com/docs/explore/data-health-signals.md) of the exposure.
+* **Health**: The [data health signal](../explore/data-health-signals.md) of the exposure.
 * **Type**: The type of exposure, such as `dashboard` or `notebook`.
 * **Owner**: The owner of the exposure.
 * **Owner email**: The email address of the owner of the exposure.
@@ -196,7 +196,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 
 After you open the **Exposures** table ([previous section](#exposures-menu)), select an exposure name to open its detail page.
 
-On the exposure detail page, you can review metadata, [data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
+On the exposure detail page, you can review metadata, [data health signals](../explore/data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
 
 [![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
 
@@ -216,11 +216,11 @@ This view visualizes the dependencies and relationships in your project. For Tab
 
 ## Orchestrate exposures [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#orchestrate-exposures- "Direct link to orchestrate-exposures-")
 
-[Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md) using the dbt [Cloud job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) to proactively refresh the underlying data sources (extracts) that power your Tableau Workbooks.
+[Orchestrate exposures](./orchestrate-exposures.md) using the dbt [Cloud job scheduler](../deploy/job-scheduler.md) to proactively refresh the underlying data sources (extracts) that power your Tableau Workbooks.
 
-This beta capability requires deployment jobs on [Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with dbt Core and *isn't* available on [Fusion Stable](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) (the dbt Fusion engine preview). For setup details, refer to [Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md).
+This beta capability requires deployment jobs on [Latest](../dbt-versions/dbt-release-tracks.md) with dbt Core and *isn't* available on [Fusion Stable](../dbt-versions/dbt-release-tracks.md) (the dbt Fusion engine preview). For setup details, refer to [Orchestrate exposures](./orchestrate-exposures.md).
 
 * Orchestrating exposures with a `dbt build` job ensures that downstream exposures, like Tableau extracts, are updated regularly and automatically.
 * You can control the frequency of these refreshes by configuring environment variables.
 
-To set up and proactively run exposures with the dbt job scheduler, refer to [Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md).
+To set up and proactively run exposures with the dbt job scheduler, refer to [Orchestrate exposures](./orchestrate-exposures.md).

@@ -1,8 +1,8 @@
 # Python models
 
-Note that only specific data platforms support `dbt-py` models. Check the [platform configuration pages](https://docs.getdbt.com/reference/resource-configs.md) to confirm if Python models are supported.
+Note that only specific data platforms support `dbt-py` models. Check the [platform configuration pages](../../reference/resource-configs.md) to confirm if Python models are supported.
 
-Python models for Snowflake, BigQuery, and Databricks are supported in [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md). Please refer to the [supported features](https://docs.getdbt.com/docs/fusion/supported-features.md) page to learn more about Fusion.
+Python models for Snowflake, BigQuery, and Databricks are supported in [Fusion](../fusion/about-fusion.md). Please refer to the [supported features](../fusion/supported-features.md) page to learn more about Fusion.
 
 We encourage you to:
 
@@ -59,7 +59,7 @@ models:
 
 The prerequisites for dbt Python models include using an adapter for a data platform that supports a fully featured Python runtime when using dbt Core or Fusion engine. In a dbt Python model, all Python code is executed remotely on the platform. None of it is run by dbt locally. We believe in clearly separating *model definition* from *model execution*. In this and many other ways, you'll find that dbt's approach to Python models mirrors its longstanding approach to modeling data in SQL.
 
-We've written this guide assuming that you have some familiarity with dbt. If you've never before written a dbt model, we encourage you to start by first reading [dbt Models](https://docs.getdbt.com/docs/build/models.md). Throughout, we'll be drawing connections between Python models and SQL models, as well as making clear their differences.
+We've written this guide assuming that you have some familiarity with dbt. If you've never before written a dbt model, we encourage you to start by first reading [dbt Models](./models.md). Throughout, we'll be drawing connections between Python models and SQL models, as well as making clear their differences.
 
 ### What is a Python model?[​](#what-is-a-python-model "Direct link to What is a Python model?")
 
@@ -126,7 +126,7 @@ with upstream_python_model as (
 
 caution
 
-Referencing [ephemeral](https://docs.getdbt.com/docs/build/materializations.md#ephemeral) models is currently not supported (see [feature request](https://github.com/dbt-labs/dbt-core/issues/7288))
+Referencing [ephemeral](./materializations.md#ephemeral) models is currently not supported (see [feature request](https://github.com/dbt-labs/dbt-core/issues/7288))
 
 From dbt version 1.8, Python models also support dynamic configurations within Python f-strings. This allows for more nuanced and dynamic model configurations directly within your Python code. For example:
 
@@ -162,7 +162,7 @@ def model(dbt, session):
     dbt.config(materialized="table")
 ```
 
-There's a limit to how complex you can get with the `dbt.config()` method. It accepts *only* literal values (strings, booleans, and numeric types) and dynamic configuration. Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the [`config` property](https://docs.getdbt.com/reference/resource-properties/config.md) in a properties YAML file.
+There's a limit to how complex you can get with the `dbt.config()` method. It accepts *only* literal values (strings, booleans, and numeric types) and dynamic configuration. Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the [`config` property](../../reference/resource-properties/config.md) in a properties YAML file.
 
 #### Accessing project context[​](#accessing-project-context "Direct link to Accessing project context")
 
@@ -175,7 +175,7 @@ Out of the box, the `dbt` class supports:
 * Determining if the current model's run is incremental: `dbt.is_incremental`
 * Accessing custom values stored in `meta`: `dbt.config.meta_get()`
 
-It is possible to extend this context by "getting" them with `dbt.config.get()` after they are configured in the [model's config](https://docs.getdbt.com/reference/model-configs.md). The `dbt.config.get()` method supports dynamic access to configurations within Python models, enhancing flexibility in model logic. This includes inputs such as `var`, `env_var`, and `target`. If you want to use those values for the conditional logic in your model, we require setting them through a dedicated properties YAML file config:
+It is possible to extend this context by "getting" them with `dbt.config.get()` after they are configured in the [model's config](../../reference/model-configs.md). The `dbt.config.get()` method supports dynamic access to configurations within Python models, enhancing flexibility in model logic. This includes inputs such as `var`, `env_var`, and `target`. If you want to use those values for the conditional logic in your model, we require setting them through a dedicated properties YAML file config:
 
 models/config.yml
 
@@ -209,7 +209,7 @@ def model(dbt, session):
 
 #### Accessing custom meta values[​](#accessing-custom-meta-values "Direct link to Accessing custom meta values")
 
-To store custom values, use the [`meta` config](https://docs.getdbt.com/reference/resource-configs/meta.md). For example, if you have a model named `my_python_model` and you want to store custom values, you can do the following:
+To store custom values, use the [`meta` config](../../reference/resource-configs/meta.md). For example, if you have a model named `my_python_model` and you want to store custom values, you can do the following:
 
 models/schema.yml
 
@@ -269,7 +269,7 @@ Python models support these materializations:
 * `table` (default)
 * `incremental`
 
-Incremental Python models support all the same [incremental strategies](https://docs.getdbt.com/docs/build/incremental-strategy.md) as their SQL counterparts. The specific strategies supported depend on your adapter. As an example, incremental models are supported on BigQuery with Dataproc for the `merge` incremental strategy; the `insert_overwrite` strategy is not yet supported.
+Incremental Python models support all the same [incremental strategies](./incremental-strategy.md) as their SQL counterparts. The specific strategies supported depend on your adapter. As an example, incremental models are supported on BigQuery with Dataproc for the `merge` incremental strategy; the `insert_overwrite` strategy is not yet supported.
 
 Python models can't be materialized as `view` or `ephemeral`. Python isn't supported for non-model resource types (like tests and snapshots).
 
@@ -501,7 +501,7 @@ You can use the `@udf` decorator or `udf` function to define an "anonymous" func
 
 tip
 
-You can also define [SQL or Python UDFs](https://docs.getdbt.com/docs/build/udfs.md) as first-class resources under `/functions` with a matching `YAML` file. dbt builds them as part of the DAG, and you reference them from SQL using `{{ function('my_udf') }}`. These UDFs are reusable across tools (BI, notebooks, SQL clients) because they live in your warehouse.
+You can also define [SQL or Python UDFs](./udfs.md) as first-class resources under `/functions` with a matching `YAML` file. dbt builds them as part of the DAG, and you reference them from SQL using `{{ function('my_udf') }}`. These UDFs are reusable across tools (BI, notebooks, SQL clients) because they live in your warehouse.
 
 * Snowpark
 * BigQuery DataFrames
@@ -590,7 +590,7 @@ def model(dbt, session):
 
 #### Code reuse[​](#code-reuse "Direct link to Code reuse")
 
-To re-use a Python function across multiple dbt models, you can define [Python UDFs](https://docs.getdbt.com/docs/build/udfs.md) under `/functions` with a matching YAML file. These UDFs live in your warehouse and can be reused across tools (BI, notebooks, SQL clients).
+To re-use a Python function across multiple dbt models, you can define [Python UDFs](./udfs.md) under `/functions` with a matching YAML file. These UDFs live in your warehouse and can be reused across tools (BI, notebooks, SQL clients).
 
 In the future, we're considering also adding support for Private Python packages. In addition to importing reusable functions from public PyPI packages, many data platforms support uploading custom Python assets and registering them as packages. The upload process looks different across platforms, but your code’s actual `import` looks the same.
 

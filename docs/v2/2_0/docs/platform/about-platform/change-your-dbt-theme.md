@@ -8,7 +8,7 @@ You can seamlessly switch between these modes directly from the profile menu, cu
 
 Your selected theme is stored in your user profile, ensuring a consistent experience across dbt.
 
-Theme selection applies across all areas of dbt, including the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [environments](https://docs.getdbt.com/docs/environments-in-dbt.md), [jobs](https://docs.getdbt.com/docs/deploy/jobs.md), and more. Learn more about customizing themes in [Change themes in dbt](https://docs.getdbt.com/docs/platform/about-platform/change-your-dbt-theme.md#change-themes-in-dbt).
+Theme selection applies across all areas of dbt, including the [Studio IDE](../studio-ide/develop-in-studio.md), [Catalog](../../explore/explore-projects.md), [environments](../../environments-in-dbt.md), [jobs](../../deploy/jobs.md), and more. Learn more about customizing themes in [Change themes in dbt](./change-your-dbt-theme.md#change-themes-in-dbt).
 
 ## Change themes in dbt[​](#change-themes-in-dbt "Direct link to Change themes in dbt")
 

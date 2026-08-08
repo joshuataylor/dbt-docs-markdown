@@ -8,7 +8,7 @@ model-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [models](https://docs.getdbt.com/docs/build/models.md), [sources](https://docs.getdbt.com/docs/build/sources.md), and [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md) are located.
+Optionally specify a custom list of directories where [models](../../docs/build/models.md), [sources](../../docs/build/sources.md), and [unit tests](../../docs/build/unit-tests.md) are located.
 
 ## Default[​](#default "Direct link to Default")
 

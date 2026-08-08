@@ -4,14 +4,14 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 Canvas helps you quickly access and transform data through a visual, drag-and-drop experience.
 
-Canvas allows organizations to enjoy the many benefits of code-driven development, such as increased precision, ease of debugging, and ease of validation, while retaining the flexibility to have different contributors develop wherever they are most comfortable. For natural language and AI-assisted workflows, use [dbt Copilot in Canvas](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md).
+Canvas allows organizations to enjoy the many benefits of code-driven development, such as increased precision, ease of debugging, and ease of validation, while retaining the flexibility to have different contributors develop wherever they are most comfortable. For natural language and AI-assisted workflows, use [dbt Copilot in Canvas](./build-canvas-copilot.md).
 
 These models compile directly to SQL and are indistinguishable from other dbt models in your projects:
 
 * Visual models are version-controlled in your backing Git provider.
-* All models are accessible across projects in [Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md).
-* Models can be materialized into production through [dbt orchestration](https://docs.getdbt.com/docs/deploy/deployments.md), or be built directly into a user's development schema.
-* Integrate with [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) and the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+* All models are accessible across projects in [Mesh](../../best-practices/how-we-mesh/mesh-1-intro.md).
+* Models can be materialized into production through [dbt orchestration](../deploy/deployments.md), or be built directly into a user's development schema.
+* Integrate with [Catalog](../explore/explore-projects.md) and the [Studio IDE](./studio-ide/develop-in-studio.md).
 
 [![Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.")](#)Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.
 
@@ -21,7 +21,7 @@ Before using Canvas, you should:
 
 * Have a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account.
 
-* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with user credentials set up.
+* Have a [developer license](./manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
 
@@ -34,7 +34,7 @@ Before using Canvas, you should:
   * Trino
   * You can access the Canvas with adapters not listed, but some features may be missing at this time.
 
-* Use [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md), [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md), or [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
+* Use [GitHub](./git/connect-github.md), [GitLab](./git/connect-gitlab.md), or [Azure DevOps](./git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
 
   <!-- -->
 
@@ -43,9 +43,9 @@ Before using Canvas, you should:
 
 * Have an existing dbt project already created with a Staging or Production run completed.
 
-* Verify your Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
+* Verify your Development environment is on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
-* Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
+* Have read-only access to the [Staging environment](../deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](./manage-access/environment-permissions-setup.md) for more information.
 
 <!-- -->
 
@@ -55,7 +55,7 @@ dbt Wizard is the new and recommended AI agent for governed data development in 
 
 dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](./billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 ## Feedback[​](#feedback "Direct link to Feedback")
 
@@ -67,6 +67,6 @@ To give feedback, please reach out to your dbt Labs account team. We appreciate 
 
 Learn more about Canvas:
 
-* How to [use Canvas](https://docs.getdbt.com/docs/platform/use-canvas.md)
-* The Canvas [quickstart guide](https://docs.getdbt.com/guides/canvas.md)
+* How to [use Canvas](./use-canvas.md)
+* The Canvas [quickstart guide](../../guides/canvas.md)
 * [Canvas fundamentals course](https://learn.getdbt.com/learn/course/canvas-fundamentals) on [dbt Learn](https://learn.getdbt.com/catalog)

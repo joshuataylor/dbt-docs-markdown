@@ -10,18 +10,18 @@ For projects still on v1, dbt supports the following data platforms:
 
 | Connection                                                                                                                                                                                                                               | Available on v1 |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| [AlloyDB](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)                                                                                                                                     | ✅              |
-| [Amazon Athena](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-amazon-athena.md)                                                                                                                                    | ✅              |
-| [Amazon Redshift](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md)                                                                                                                                       | ✅              |
-| [Apache Spark](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-apache-spark.md)                                                                                                                                      | ✅              |
-| [Azure Synapse Analytics](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-azure-synapse-analytics.md)                                                                                                                | ✅              |
-| [Databricks](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)                                                                                                                                          | ✅              |
-| [Google BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md)                                                                                                                                       | ✅              |
-| [Microsoft Fabric](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-microsoft-fabric.md)                                                                                                                              | ✅              |
-| [PostgreSQL](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)                                                                                                                                  | ✅              |
-| [Snowflake](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)                                                                                                                                            | ✅              |
-| [Starburst or Trino](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md)                                                                                                                             | ✅              |
-| [Teradata](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-teradata.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅              |
+| [AlloyDB](./connect-postgresql-alloydb.md)                                                                                                                                     | ✅              |
+| [Amazon Athena](./connect-amazon-athena.md)                                                                                                                                    | ✅              |
+| [Amazon Redshift](./connect-redshift.md)                                                                                                                                       | ✅              |
+| [Apache Spark](./connect-apache-spark.md)                                                                                                                                      | ✅              |
+| [Azure Synapse Analytics](./connect-azure-synapse-analytics.md)                                                                                                                | ✅              |
+| [Databricks](./connect-databricks.md)                                                                                                                                          | ✅              |
+| [Google BigQuery](./connect-bigquery.md)                                                                                                                                       | ✅              |
+| [Microsoft Fabric](./connect-microsoft-fabric.md)                                                                                                                              | ✅              |
+| [PostgreSQL](./connect-postgresql-alloydb.md)                                                                                                                                  | ✅              |
+| [Snowflake](./connect-snowflake.md)                                                                                                                                            | ✅              |
+| [Starburst or Trino](./connect-starburst-trino.md)                                                                                                                             | ✅              |
+| [Teradata](./connect-teradata.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅              |
 
 Search table...
 
@@ -38,7 +38,7 @@ To connect to your database in dbt:
 
 [![Choose a connection](/img/docs/connect-data-platform/choose-a-connection.png?v=2 "Choose a connection")](#)Choose a connection
 
-These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](https://docs.getdbt.com/guides.md).
+These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](../../../guides.md).
 
 ### Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
 
@@ -65,13 +65,13 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-\*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](https://docs.getdbt.com/docs/platform/secure/private-connectivity/private-connectivity.md) for details.
+\*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](../secure/private-connectivity/private-connectivity.md) for details.
 
 ## Connection management[​](#connection-management "Direct link to Connection management")
 
 Warehouse connections are an account-level resource. You can find them under **Accounts settings** > **Connections**.
 
-Warehouse connections can be re-used across projects. If multiple projects all connect to the same warehouse, you should re-use the same connection to streamline your management operations. Connections are assigned to a project via an [environment](https://docs.getdbt.com/docs/dbt-platform-environments.md).
+Warehouse connections can be re-used across projects. If multiple projects all connect to the same warehouse, you should re-use the same connection to streamline your management operations. Connections are assigned to a project via an [environment](../../dbt-platform-environments.md).
 
 [![Connection model](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-new-model.png?v=2 "Connection model")](#)Connection model
 
@@ -133,8 +133,8 @@ Please consider the following actions, as the steps you take will depend on the 
 
 ## IP Restrictions[​](#ip-restrictions "Direct link to IP Restrictions")
 
-dbt will always connect to your data platform from the IP addresses specified in the [Regions & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) page.
+dbt will always connect to your data platform from the IP addresses specified in the [Regions & IP addresses](../about-platform/access-regions-ip-addresses.md) page.
 
 Be sure to allow traffic from these IPs in your firewall, and include them in any database grants.
 
-Allowing these IP addresses only enables the connection to your data warehouse. However, you might want to send API requests from your restricted network to the dbt API. Using the dbt API requires allowing the `cloud.getdbt.com` subdomain. For more on the dbt architecture, see [Deployment architecture](https://docs.getdbt.com/docs/platform/about-platform/architecture.md).
+Allowing these IP addresses only enables the connection to your data warehouse. However, you might want to send API requests from your restricted network to the dbt API. Using the dbt API requires allowing the `cloud.getdbt.com` subdomain. For more on the dbt architecture, see [Deployment architecture](../about-platform/architecture.md).

@@ -1,6 +1,6 @@
 # Dimensions
 
-Dimensions represent the non-aggregatable columns in your data set, which are the attributes, features, or characteristics that describe or categorize data. In the context of the Semantic Layer, dimensions are part of a larger structure called a semantic model. They are created along with other elements like [entities](https://docs.getdbt.com/docs/build/entities.md) and [simple metrics](https://docs.getdbt.com/docs/build/simple.md) and used to add more details to your data. In SQL, dimensions are typically included in the `group by` clause of your SQL query.
+Dimensions represent the non-aggregatable columns in your data set, which are the attributes, features, or characteristics that describe or categorize data. In the context of the Semantic Layer, dimensions are part of a larger structure called a semantic model. They are created along with other elements like [entities](./entities.md) and [simple metrics](./simple.md) and used to add more details to your data. In SQL, dimensions are typically included in the `group by` clause of your SQL query.
 
 All dimensions require a `name`, `type`, and can optionally include an `expr` parameter. The `name` for your Dimension must be unique within the same semantic model.
 
@@ -8,12 +8,12 @@ All dimensions require a `name`, `type`, and can optionally include an `expr` pa
 
 | Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                                                | Required | Type       |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
-| `name`                                                               | The name of the dimension that will be visible to the user in downstream tools. It can also serve as an alias for derived dimensions<br /><br />Dimension names should be unique within a semantic model, but they can be non-unique across different models as MetricFlow uses [joins](https://docs.getdbt.com/docs/build/join-logic.md) to identify the right dimension. | Required | String     |
+| `name`                                                               | The name of the dimension that will be visible to the user in downstream tools. It can also serve as an alias for derived dimensions<br /><br />Dimension names should be unique within a semantic model, but they can be non-unique across different models as MetricFlow uses [joins](./join-logic.md) to identify the right dimension. | Required | String     |
 | `type`                                                               | Specifies the type of group created in the semantic model. There are two types:<br /><br />- **Categorical**: Describe attributes or features like geography or sales region.<br />- **Time**: Time-based dimensions like timestamps or dates.                                                                                                                             | Required | String     |
 | `description`                                                        | A clear description of the dimension.                                                                                                                                                                                                                                                                                                                                      | Optional | String     |
 | `expr`                                                               | Defines the underlying column or SQL query for a dimension. If no `expr` is specified, MetricFlow will use the column with the same name as the group. You can use the column name itself to input a SQL expression.                                                                                                                                                       | Optional | String     |
 | `label`                                                              | Defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                        | Optional | String     |
-| [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md) | Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.                                                                                                                                                                                                                                                                                | Optional | Dictionary |
+| [`meta`](../../reference/resource-configs/meta.md) | Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.                                                                                                                                                                                                                                                                                | Optional | Dictionary |
 
 Search table...
 
@@ -180,7 +180,7 @@ Time dimensions no longer use `type_params`.
 * For dimensions defined on a column entry, add the column’s `granularity` at the column level.
 * For derived dimensions, add `granularity` in the dimension configuration.
 
-A semantic model’s default aggregation time dimension is set with the `agg_time_dimension` property at the model's top level. A metric can override this with its own `agg_time_dimension`. For more information, see [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+A semantic model’s default aggregation time dimension is set with the `agg_time_dimension` property at the model's top level. A metric can override this with its own `agg_time_dimension`. For more information, see [Migrate to the latest YAML spec](./latest-metrics-spec.md).
 
 You can use multiple time groups in separate metrics. For example, the `users_created` metric uses `created_at`, and the `users_deleted` metric uses `deleted_at`:
 
@@ -374,8 +374,8 @@ models:
 
 SCD Type II tables have a specific dimension with a start and end date. To join tables:
 
-* Set the additional [entity `type`](https://docs.getdbt.com/docs/build/entities.md#entity-types) parameter to the `natural` key.
-* Use a `natural` key as an [entity `type`](https://docs.getdbt.com/docs/build/entities.md#entity-types), which means you don't need a `primary` key.
+* Set the additional [entity `type`](./entities.md#entity-types) parameter to the `natural` key.
+* Use a `natural` key as an [entity `type`](./entities.md#entity-types), which means you don't need a `primary` key.
 * In most instances, SCD tables don't have a logically usable `primary` key because `natural` keys map to multiple rows.
 
 #### Implementation[​](#implementation "Direct link to Implementation")
@@ -386,7 +386,7 @@ Here are some guidelines to follow when implementing SCD Type II tables:
 * The `valid_from` and `valid_to` properties must be specified exactly once per SCD table configuration.
 * The `valid_from` and `valid_to` properties shouldn't be used or specified on the same time dimension.
 * The `valid_from` and `valid_to` time dimensions must cover a non-overlapping period where one row matches each natural key value (meaning they must not overlap and should be distinct).
-* We recommend defining the underlying dbt model with [dbt snapshots](https://docs.getdbt.com/docs/build/snapshots.md). This supports the SCD Type II table layout and ensures that the table is updated with the latest data.
+* We recommend defining the underlying dbt model with [dbt snapshots](./snapshots.md). This supports the SCD Type II table layout and ensures that the table is updated with the latest data.
 
 This is an example of SQL code that shows how a sample metric called `num_events` is joined with versioned dimensions data (stored in a table called `scd_dimensions`) using a primary key made up of the `entity_key` and `timestamp` columns.
 

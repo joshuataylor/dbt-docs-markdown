@@ -8,11 +8,11 @@ docs-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [docs blocks](https://docs.getdbt.com/docs/build/documentation.md#docs-blocks) are located.
+Optionally specify a custom list of directories where [docs blocks](../../docs/build/documentation.md#docs-blocks) are located.
 
 ## Default[​](#default "Direct link to Default")
 
-By default, dbt will search in all resource paths for docs blocks (for example, the combined list of [model-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md), [seed-paths](https://docs.getdbt.com/reference/project-configs/seed-paths.md), [analysis-paths](https://docs.getdbt.com/reference/project-configs/analysis-paths.md), [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md), [macro-paths](https://docs.getdbt.com/reference/project-configs/macro-paths.md), and [snapshot-paths](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md)). If this option is configured, dbt will *only* look in the specified directory for docs blocks.
+By default, dbt will search in all resource paths for docs blocks (for example, the combined list of [model-paths](./model-paths.md), [seed-paths](./seed-paths.md), [analysis-paths](./analysis-paths.md), [test-paths](./test-paths.md), [macro-paths](./macro-paths.md), and [snapshot-paths](./snapshot-paths.md)). If this option is configured, dbt will *only* look in the specified directory for docs blocks.
 
 <!-- -->
 

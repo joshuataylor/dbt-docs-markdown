@@ -21,13 +21,13 @@ You should pin to a major release. See [pin to a range](#pin-to-a-range) for mor
 
 dbt release tracks
 
-Starting in 2024, when you select a [release track in dbt](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
+Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
 
 dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt and new versions of dbt Core. We also recommend these best practices:
 
  Installing dbt packages
 
-If you install dbt packages for use in your project, whether the package is maintained by your colleagues or a member of the open source dbt community, we recommend pinning the package to a specific revision or `version` boundary. dbt manages this out-of-the-box by *locking* the version/revision of packages in development in order to guarantee predictable builds in production. To learn more, refer to [Predictable package installs](https://docs.getdbt.com/reference/commands/deps.md#predictable-package-installs).
+If you install dbt packages for use in your project, whether the package is maintained by your colleagues or a member of the open source dbt community, we recommend pinning the package to a specific revision or `version` boundary. dbt manages this out-of-the-box by *locking* the version/revision of packages in development in order to guarantee predictable builds in production. To learn more, refer to [Predictable package installs](../commands/deps.md#predictable-package-installs).
 
  Maintaining dbt packages
 
@@ -67,7 +67,7 @@ We recommend [defining both lower and upper bounds](#pin-to-a-range), such as `"
 
 ## Fusion compatibility[​](#fusion-compatibility "Direct link to Fusion compatibility")
 
-The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) (`2.0.0` and higher).
+The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](../../docs/fusion/about-fusion.md) (`2.0.0` and higher).
 
 * If it excludes `2.0.0`, Fusion will warn today and error in a future release, matching dbt Core behavior.
 * You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
@@ -166,4 +166,4 @@ Running with dbt=1.5.0
 Found 13 models, 2 tests, 1 archives, 0 analyses, 204 macros, 2 operations....
 ```
 
-See [global configs](https://docs.getdbt.com/reference/global-configs/version-compatibility.md) for usage details.
+See [global configs](../global-configs/version-compatibility.md) for usage details.

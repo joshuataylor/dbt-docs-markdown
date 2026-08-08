@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-athena<!-- -->
 
-For <!-- -->Athena<!-- -->-specific configuration, please refer to [Athena<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/athena-configs.md)
+For <!-- -->Athena<!-- -->-specific configuration, please refer to [Athena<!-- --> configs.](../../../reference/resource-configs/athena-configs.md)
 
 `dbt-athena` vs `dbt-athena-community`
 

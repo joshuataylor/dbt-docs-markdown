@@ -14,7 +14,7 @@
 
   * ✅ `models_without_dots`
   * ❌ `models.with.dots`
-  * Most data platforms use dots to separate `database.schema.object`, so using underscores instead of dots reduces your need for [quoting](https://docs.getdbt.com/reference/resource-properties/quoting.md) as well as the risk of issues in certain parts of dbt. For more background, refer to [this GitHub issue](https://github.com/dbt-labs/dbt-core/issues/3246).
+  * Most data platforms use dots to separate `database.schema.object`, so using underscores instead of dots reduces your need for [quoting](../../reference/resource-properties/quoting.md) as well as the risk of issues in certain parts of dbt. For more background, refer to [this GitHub issue](https://github.com/dbt-labs/dbt-core/issues/3246).
 
 * 🔑 Keys should be string data types.
 

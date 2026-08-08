@@ -205,7 +205,7 @@ select ...
 
 Apply a tag (or list of tags) to a resource.
 
-These tags can be used as part of the [resource selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md), when running the following commands:
+These tags can be used as part of the [resource selection syntax](../node-selection/syntax.md), when running the following commands:
 
 * `dbt run --select tag:my_tag` — Run all models tagged with a specific tag.
 * `dbt build --select tag:my_tag` — Build all resources tagged with a specific tag.
@@ -215,7 +215,7 @@ These tags can be used as part of the [resource selection syntax](https://docs.g
 
 #### Using tags with the `+` operator[​](#using-tags-with-the--operator "Direct link to using-tags-with-the--operator")
 
-You can use the [`+` operator](https://docs.getdbt.com/reference/node-selection/graph-operators.md#the-plus-operator) to include upstream or downstream dependencies in your `tag` selection:
+You can use the [`+` operator](../node-selection/graph-operators.md#the-plus-operator) to include upstream or downstream dependencies in your `tag` selection:
 
 * `dbt run --select tag:my_tag+` — Run models tagged with `my_tag` and all their downstream dependencies.
 * `dbt run --select +tag:my_tag` — Run models tagged with `my_tag` and all their upstream dependencies.
@@ -411,7 +411,7 @@ Field config.tags: {'my_tag': 'my_value'} is not valid for source (ecom)
 
 ### Tags are additive[​](#tags-are-additive "Direct link to Tags are additive")
 
-Tags accumulate hierarchically. The [earlier example](https://docs.getdbt.com/reference/resource-configs/tags.md#use-tags-to-run-parts-of-your-project) would result in:
+Tags accumulate hierarchically. The [earlier example](./tags.md#use-tags-to-run-parts-of-your-project) would result in:
 
 | Model                             | Tags                                  |
 | --------------------------------- | ------------------------------------- |

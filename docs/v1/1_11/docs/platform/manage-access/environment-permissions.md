@@ -2,11 +2,11 @@
 
 dbt platformⓘ
 
-Environment-level permissions give dbt admins the ability to grant write permission to groups and service tokens for specific [environment types](https://docs.getdbt.com/docs/dbt-platform-environments.md) within a project. Granting access to an environment gives users access to all environment-level write actions and resources associated with their assigned roles. For example, users with a Developer role can create and run jobs within the environment(s) they have access to. For all other environments, those same users will have read-only access.
+Environment-level permissions give dbt admins the ability to grant write permission to groups and service tokens for specific [environment types](../../dbt-platform-environments.md) within a project. Granting access to an environment gives users access to all environment-level write actions and resources associated with their assigned roles. For example, users with a Developer role can create and run jobs within the environment(s) they have access to. For all other environments, those same users will have read-only access.
 
 You can configure multiple rows for the same permission set within a group when each row has different project scope and/or environment write access.
 
-For configuration instructions, check out the [setup page](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md).
+For configuration instructions, check out the [setup page](./environment-permissions-setup.md).
 
 ## Current limitations[​](#current-limitations "Direct link to Current limitations")
 
@@ -29,7 +29,7 @@ dbt has four different environment types per project:
 
 ### Environment write permissions[​](#environment-write-permissions "Direct link to Environment write permissions")
 
-Environment write permissions grant access to create, edit, and delete runs and jobs within an environment. However, they don't grant users access to create or delete environments themselves. See [Enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for more information about elevated permission sets.
+Environment write permissions grant access to create, edit, and delete runs and jobs within an environment. However, they don't grant users access to create or delete environments themselves. See [Enterprise permissions](./enterprise-permissions.md) for more information about elevated permission sets.
 
 Environment write permissions can be specified for the following roles:
 
@@ -39,7 +39,7 @@ Environment write permissions can be specified for the following roles:
 * Git admin
 * Team admin
 
-\* In the [enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) table, the `Developer` role has read-only access to environment settings, but when added to a group, the **Environment write access** field defaults to `All environments`, which grants broader environment permissions than the table implies. The `Analyst`, `Database admin`, `Git admin`, and `Team admin` roles get **Read-only environment access** by default unless you specify different access under **Environment write access** for that group.
+\* In the [enterprise permissions](./enterprise-permissions.md) table, the `Developer` role has read-only access to environment settings, but when added to a group, the **Environment write access** field defaults to `All environments`, which grants broader environment permissions than the table implies. The `Analyst`, `Database admin`, `Git admin`, and `Team admin` roles get **Read-only environment access** by default unless you specify different access under **Environment write access** for that group.
 
 Depending on your current group mappings, you may have to update roles to ensure users have the correct access level to environments.
 
@@ -81,4 +81,4 @@ If the user has the same roles across projects, you can apply environment access
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Environment-level permissions setup](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md)
+* [Environment-level permissions setup](./environment-permissions-setup.md)

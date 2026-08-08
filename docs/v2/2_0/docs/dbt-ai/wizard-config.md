@@ -162,8 +162,8 @@ Per-project settings Wizard writes during onboarding, including dbt path and def
 | `path`                            | Path to the dbt binary dbt Wizard should use for this project.                                                                                                                               |
 | `compile_extra_args`              | Extra arguments to append when dbt Wizard compiles this project.                                                                                                                             |
 | `prod_parse_args`                 | Project-specific arguments for the production parse command.                                                                                                                                 |
-| `deferral.mode`                   | Who handles [deferral](https://docs.getdbt.com/reference/node-selection/defer.md) for this project. Refer to [Deferral](#deferral) below.                                                    |
-| `deferral.target`                 | The [target](https://docs.getdbt.com/docs/local/profiles.yml.md) from your `profiles.yml` that dbt Wizard compiles and defers to when `deferral.mode` is `"wizard"` (for example, `"prod"`). |
+| `deferral.mode`                   | Who handles [deferral](../../reference/node-selection/defer.md) for this project. Refer to [Deferral](#deferral) below.                                                    |
+| `deferral.target`                 | The [target](../local/profiles.yml.md) from your `profiles.yml` that dbt Wizard compiles and defers to when `deferral.mode` is `"wizard"` (for example, `"prod"`). |
 | `deferral.state`                  | Path to a state directory when `deferral.mode` is `"manual"`.                                                                                                                                |
 | `deferral.favor_state`            | Whether deferred relations take precedence. Defaults to `true`.                                                                                                                              |
 | `profile_override.path`           | Path to an alternative `profiles.yml` file for this project.                                                                                                                                 |
@@ -195,20 +195,20 @@ favor_state = true
 
 #### Deferral[​](#deferral "Direct link to Deferral")
 
-[Deferral](https://docs.getdbt.com/reference/node-selection/defer.md) lets dbt Wizard reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything when you're only working on part of a project, saving you time and warehouse cost.
+[Deferral](../../reference/node-selection/defer.md) lets dbt Wizard reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything when you're only working on part of a project, saving you time and warehouse cost.
 
 The `deferral.mode` setting in `wizard_config.toml` controls who handles deferral. It accepts six values, and dbt Wizard usually sets it for you during onboarding:
 
 | `deferral.mode` value | What it means                                                                                                                                                                                                                                                                                                                                             |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `"wizard"`            | dbt Wizard handles deferral for you. You tell dbt Wizard which [target](https://docs.getdbt.com/docs/local/profiles.yml.md) from your `profiles.yml` to defer to (it tries to detect one automatically when you first set up the project). dbt Wizard then compiles that target and reuses its models for any upstream models you haven't built yourself. |
+| `"wizard"`            | dbt Wizard handles deferral for you. You tell dbt Wizard which [target](../local/profiles.yml.md) from your `profiles.yml` to defer to (it tries to detect one automatically when you first set up the project). dbt Wizard then compiles that target and reuses its models for any upstream models you haven't built yourself. |
 | `"fusion_cloud"`      | The dbt platform handles deferral against your connected environment, so dbt Wizard doesn't manage any local state. Set automatically when you're connected to the platform.                                                                                                                                                                              |
 | `"cloud_cli"`         | The dbt CLI manages credentials and deferral through the dbt platform, so dbt Wizard skips its production compile and deferral flag injection.                                                                                                                                                                                                            |
 | `"dbt_state"`         | dbt State or run cache handles deferral, so dbt Wizard skips its own production compile.                                                                                                                                                                                                                                                                  |
 | `"manual"`            | You provide the deferral manifest directory with `state`.                                                                                                                                                                                                                                                                                                 |
 | `"disabled"`          | Deferral is disabled for the project.                                                                                                                                                                                                                                                                                                                     |
 
-For more about dbt State, refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md).
+For more about dbt State, refer to [About dbt State](../deploy/dbt-state-about.md).
 
 Set `state` to a directory containing a compatible `manifest.json` when `mode = "manual"`:
 
@@ -219,11 +219,11 @@ state = "/Users/you/dbt-state/production"
 favor_state = true
 ```
 
-**About [favor-state](https://docs.getdbt.com/reference/node-selection/defer.md?version=2.0#favor-state):** `favor_state` is configurable and defaults to `true`. When it is `true`, dbt Wizard passes `--favor-state` so deferred relations take precedence. Set it to `false` to use a relation that already exists in development and fall back to deferred state when it doesn't.
+**About [favor-state](../../reference/node-selection/defer.md?version=2.0#favor-state):** `favor_state` is configurable and defaults to `true`. When it is `true`, dbt Wizard passes `--favor-state` so deferred relations take precedence. Set it to `false` to use a relation that already exists in development and fall back to deferred state when it doesn't.
 
 You can also configure production snapshot and compile behavior with global `prod_parse_on_startup`, `prod_parse_args`, `prod_state_ttl_hours`, `prod_state_dir`, and `compile_extra_args` settings. Per-project `compile_extra_args` and `prod_parse_args` values let you override the global behavior for one project. Use a `profile_override` block to select a different profiles file, profile, or target for compilation.
 
-For configuration examples and a verification workflow, refer to [Developing with production deferral](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
+For configuration examples and a verification workflow, refer to [Developing with production deferral](../../best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -262,7 +262,7 @@ caution
 
 Links to BYOK setup, approval behavior, and CLI command reference.
 
-* [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
-* [Approval and sandboxing](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#approval-and-sandboxing)
-* [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
+* [Configure BYOK](./wizard-byok.md)
+* [Approval and sandboxing](./wizard-how-it-works.md#approval-and-sandboxing)
+* [dbt Wizard command reference](./wizard-cli-reference.md)
+* [How dbt Wizard works](./wizard-how-it-works.md)

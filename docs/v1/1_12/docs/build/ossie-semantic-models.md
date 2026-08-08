@@ -14,9 +14,9 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
 
-dbt Core v1.12 and higher supports the [Apache Ossie](https://github.com/apache/ossie) standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, or configure [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md) in `dbt_project.yml` to use one or more custom directories relative to your project root. dbt parses them into the manifest alongside any native dbt semantic models. Ossie-sourced definitions and native dbt semantic models can coexist in the same project.
+dbt Core v1.12 and higher supports the [Apache Ossie](https://github.com/apache/ossie) standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, or configure [`osi-paths`](../../reference/project-configs/osi-paths.md) in `dbt_project.yml` to use one or more custom directories relative to your project root. dbt parses them into the manifest alongside any native dbt semantic models. Ossie-sourced definitions and native dbt semantic models can coexist in the same project.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -27,7 +27,7 @@ dbt Core v1.12 and higher supports the [Apache Ossie](https://github.com/apache/
 
 To define semantic models with Ossie documents:
 
-1. Create an `osi/` directory at the root of your dbt project, at the same level as `dbt_project.yml`. To use one or more custom directories instead, configure [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md) in `dbt_project.yml` with paths relative to your project root.
+1. Create an `osi/` directory at the root of your dbt project, at the same level as `dbt_project.yml`. To use one or more custom directories instead, configure [`osi-paths`](../../reference/project-configs/osi-paths.md) in `dbt_project.yml` with paths relative to your project root.
 
 2. Add one or more Ossie `.json` files to the directory. You can organize files into subdirectories; dbt scans the entire directory tree.
 
@@ -56,10 +56,10 @@ To define semantic models with Ossie documents:
 
 3. Run any command that triggers compilation, such as `dbt compile` or `dbt run`. dbt automatically discovers and parses Ossie files.
 
-The resulting semantic models (and metrics, when defined in your Ossie documents) appear in [dbt artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) in your `target/` directory, including [`manifest.json`](https://docs.getdbt.com/reference/artifacts/manifest-json.md), [`semantic_manifest.json`](https://docs.getdbt.com/reference/artifacts/sl-manifest.md), and [`osi_document.json`](https://docs.getdbt.com/reference/artifacts/sl-manifest.md#osi-document).
+The resulting semantic models (and metrics, when defined in your Ossie documents) appear in [dbt artifacts](../../reference/artifacts/dbt-artifacts.md) in your `target/` directory, including [`manifest.json`](../../reference/artifacts/manifest-json.md), [`semantic_manifest.json`](../../reference/artifacts/sl-manifest.md), and [`osi_document.json`](../../reference/artifacts/sl-manifest.md#osi-document).
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
-* dbt scans only the root project's Ossie directories (configured through [`osi-paths`](https://docs.getdbt.com/reference/project-configs/osi-paths.md), default `osi/`). Ossie files in installed dependency packages are ignored.
+* dbt scans only the root project's Ossie directories (configured through [`osi-paths`](../../reference/project-configs/osi-paths.md), default `osi/`). Ossie files in installed dependency packages are ignored.
 * Each Ossie dataset source must resolve to a dbt model. Ossie documents that reference sources, seeds, snapshots, or external tables are not supported.
-* If the Ossie converter encounters unsupported metric types or other constructs, those elements are dropped and dbt emits a warning (event code `I078`), but parsing continues. Warnings appear in the CLI and in `logs/dbt.log`; for more information, refer to [Events and logs](https://docs.getdbt.com/reference/events-logging.md).
+* If the Ossie converter encounters unsupported metric types or other constructs, those elements are dropped and dbt emits a warning (event code `I078`), but parsing continues. Warnings appear in the CLI and in `logs/dbt.log`; for more information, refer to [Events and logs](../../reference/events-logging.md).

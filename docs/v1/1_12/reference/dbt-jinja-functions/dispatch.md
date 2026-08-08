@@ -1,6 +1,6 @@
 # About dispatch config
 
-dbt can extend functionality across [Supported Data Platforms](https://docs.getdbt.com/docs/supported-data-platforms.md) through a system of [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch). Because SQL syntax, data types, and DDL/DML support vary across adapters, dbt can define and call generic functional macros, and then "dispatch" that macro to the appropriate implementation for the current adapter.
+dbt can extend functionality across [Supported Data Platforms](../../docs/supported-data-platforms.md) through a system of [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch). Because SQL syntax, data types, and DDL/DML support vary across adapters, dbt can define and call generic functional macros, and then "dispatch" that macro to the appropriate implementation for the current adapter.
 
 ## Syntax[​](#syntax "Direct link to Syntax")
 
@@ -33,7 +33,7 @@ dbt uses two criteria when searching for the right candidate macro:
 
 If dbt does not find an adapter-specific implementation, it will dispatch to the default implementation.
 
-**Namespace:** Generally, dbt will search for implementations in the root project and internal projects (e.g. `dbt`, `dbt_postgres`). If the `macro_namespace` argument is provided, it instead searches the specified namespace (package) for viable implementations. It is also possible to dynamically route namespace searching by defining a [`dispatch` project config](https://docs.getdbt.com/reference/project-configs/dispatch-config.md); see the examples below for details.
+**Namespace:** Generally, dbt will search for implementations in the root project and internal projects (e.g. `dbt`, `dbt_postgres`). If the `macro_namespace` argument is provided, it instead searches the specified namespace (package) for viable implementations. It is also possible to dynamically route namespace searching by defining a [`dispatch` project config](../project-configs/dispatch-config.md); see the examples below for details.
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -94,7 +94,7 @@ If I'm running on Redshift, dbt will use my version; if I'm running on any other
 
 ## For package maintainers[​](#for-package-maintainers "Direct link to For package maintainers")
 
-Dispatched macros from [packages](https://docs.getdbt.com/docs/build/packages.md) *must* provide the `macro_namespace` argument, as this declares the namespace (package) where it plans to search for candidates. Most often, this is the same as the name of your package, e.g. `dbt_utils`. (It is possible, if rarely desirable, to define a dispatched macro *not* in the `dbt_utils` package, and dispatch it into the `dbt_utils` namespace.)
+Dispatched macros from [packages](../../docs/build/packages.md) *must* provide the `macro_namespace` argument, as this declares the namespace (package) where it plans to search for candidates. Most often, this is the same as the name of your package, e.g. `dbt_utils`. (It is possible, if rarely desirable, to define a dispatched macro *not* in the `dbt_utils` package, and dispatch it into the `dbt_utils` namespace.)
 
 Here we have the definition of the `dbt_utils.concat` macro, which specifies both the `macro_name` and `macro_namespace` to dispatch:
 
@@ -110,7 +110,7 @@ Following the second example above: Whenever I call my version of the `concat` m
 
 Why does this matter? Other macros in dbt-utils, such as `surrogate_key`, call the `dbt_utils.concat` macro directly. What if I want `dbt_utils.surrogate_key` to use *my* version of `concat` instead, including my custom logic on Redshift?
 
-As a user, I can accomplish this via a [project-level `dispatch` config](https://docs.getdbt.com/reference/project-configs/dispatch-config.md). When dbt goes to dispatch `dbt_utils.concat`, it knows from the `macro_namespace` argument to search in the `dbt_utils` namespace. The config below defines dynamic routing for that namespace, telling dbt to search through an ordered sequence of packages, instead of just the `dbt_utils` package.
+As a user, I can accomplish this via a [project-level `dispatch` config](../project-configs/dispatch-config.md). When dbt goes to dispatch `dbt_utils.concat`, it knows from the `macro_namespace` argument to search in the `dbt_utils` namespace. The config below defines dynamic routing for that namespace, telling dbt to search through an ordered sequence of packages, instead of just the `dbt_utils` package.
 
 dbt\_project.yml
 
@@ -137,13 +137,13 @@ As a package maintainer, this functionality enables users of my package to exten
 
 tip
 
-Certain functions like [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md), and [`config`](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md) can't be overridden with a package using the dispatch config. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-core/issues/4491#issuecomment-994709916) for more context.
+Certain functions like [`ref`](./ref.md), [`source`](./source.md), and [`config`](./config.md) can't be overridden with a package using the dispatch config. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-core/issues/4491#issuecomment-994709916) for more context.
 
 I maintain an internal utility package at my organization, named `my_org_dbt_helpers`. I use this package to reimplement built-in dbt macros on behalf of all my dbt-using colleagues, who work across a number of dbt projects.
 
 My package can define custom versions of any dispatched global macro I choose, from `generate_schema_name` to `test_unique`. I can define a new default version of that macro (e.g. `default__generate_schema_name`), or custom versions for specific data warehouse adapters (e.g. `spark__generate_schema_name`).
 
-Each root project installing my package simply needs to include the [project-level `dispatch` config](https://docs.getdbt.com/reference/project-configs/dispatch-config.md) that searches my package ahead of `dbt` for the `dbt` global namespace:
+Each root project installing my package simply needs to include the [project-level `dispatch` config](../project-configs/dispatch-config.md) that searches my package ahead of `dbt` for the `dbt` global namespace:
 
 dbt\_project.yml
 
@@ -169,7 +169,7 @@ By combining package-level overrides and `dispatch`, it is possible to achieve t
 
 3. **Same rules everywhere all the time** — As a member of the data platform team responsible for consistency across teams at your organization, you want to create a "macro package" that every team can install & use.
 
-   * *Mechanism:* Create a standalone package of candidate macros only, for example, `default__generate_schema_name` or `default__create_table_as`. Add a [project-level `dispatch` configuration](https://docs.getdbt.com/reference/project-configs/dispatch-config.md) in every project's `dbt_project.yml`.
+   * *Mechanism:* Create a standalone package of candidate macros only, for example, `default__generate_schema_name` or `default__create_table_as`. Add a [project-level `dispatch` configuration](../project-configs/dispatch-config.md) in every project's `dbt_project.yml`.
 
 ## For adapter plugin maintainers[​](#for-adapter-plugin-maintainers "Direct link to For adapter plugin maintainers")
 

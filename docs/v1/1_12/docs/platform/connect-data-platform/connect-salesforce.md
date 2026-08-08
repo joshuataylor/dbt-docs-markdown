@@ -101,13 +101,13 @@ Salesforce Data 360 supports JWT bearer authentication only. JWT bearer flow is 
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt platform, refer to [Salesforce Data 360 configurations](https://docs.getdbt.com/reference/resource-configs/data-cloud-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt platform, refer to [Salesforce Data 360 configurations](../../../reference/resource-configs/data-cloud-configs.md).
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
 The following dbt features are not yet supported for Salesforce Data 360 connections in dbt platform:
 
-* [Seeds](https://docs.getdbt.com/docs/build/seeds.md)
+* [Seeds](../../build/seeds.md)
   * As a workaround, log in to Salesforce and upload the CSV file manually.
-* [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)
-* [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md)
+* [Catalog](../../explore/explore-projects.md)
+* [Semantic Layer](../../use-dbt-semantic-layer/dbt-sl.md)

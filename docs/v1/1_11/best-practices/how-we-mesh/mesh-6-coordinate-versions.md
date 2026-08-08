@@ -2,7 +2,7 @@
 
 Coordinating model versions across your mesh is a critical part of the model versioning process. This guide will walk you through the safe best practices for coordinating producers and consumers when introducing model versions.
 
-[Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) are an important part of your dbt Mesh workflow. They enable better data model management and are critical when multiple teams share models across projects.
+[Model versions](../../docs/mesh/govern/model-versions.md) are an important part of your dbt Mesh workflow. They enable better data model management and are critical when multiple teams share models across projects.
 
 Releasing a new model version safely requires coordination between model producers (who build the models) and model consumers (who depend on them).
 
@@ -11,7 +11,7 @@ This guide goes over the following topics:
 * [How producers introduce new model versions safely](#best-practices-for-producers)
 * [How consumers evaluate and migrate to those new versions](#best-practices-for-consumers)
 
-For how versioning works at a technical level (YAML structure, contracts, aliasing), see [model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md).
+For how versioning works at a technical level (YAML structure, contracts, aliasing), see [model versions](../../docs/mesh/govern/model-versions.md).
 
 ## Best practices for producers[​](#best-practices-for-producers "Direct link to Best practices for producers")
 
@@ -26,7 +26,7 @@ Producers own the creation, rollout, communication, and deprecation of model ver
 
 #### Step 1: Decide when a change needs a new version[​](#step-1-decide-when-a-change-needs-a-new-version "Direct link to Step 1: Decide when a change needs a new version")
 
-When creating an original version of a model, use [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) to ensure that breaking changes produce errors during development. The model contract ensures you, as a producer, are not changing the shape or data type of the output model. If a change breaks the contract, like removing or changing a column type, create a new model version with an updated contract instead of changing the existing version in place.
+When creating an original version of a model, use [model contracts](../../docs/mesh/govern/model-contracts.md) to ensure that breaking changes produce errors during development. The model contract ensures you, as a producer, are not changing the shape or data type of the output model. If a change breaks the contract, like removing or changing a column type, create a new model version with an updated contract instead of changing the existing version in place.
 
 Here are some examples of breaking changes that might need a new version:
 
@@ -48,28 +48,28 @@ Here are examples of changes that might be breaking depending on your business l
 
 #### Step 2: Create the new version safely[​](#step-2-create-the-new-version-safely "Direct link to Step 2: Create the new version safely")
 
-After deciding that a change needs a new [version](https://docs.getdbt.com/reference/resource-properties/versions.md), follow these steps to create the new version without disrupting existing workflows. Let's say you're removing a column:
+After deciding that a change needs a new [version](../../reference/resource-properties/versions.md), follow these steps to create the new version without disrupting existing workflows. Let's say you're removing a column:
 
 1. Create a new version of the model file. For example, `fishtown_analytics_orders_v2.sql`. Each version of a model must have its own SQL file.
 
 2. Keep the default version stable. In the model's `properties.yml` file:
 
-   * Set [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md) to include the old version and the new version: `- v: 1` and `- v: 2` respectively.
-   * Set the [`latest_version:`](https://docs.getdbt.com/reference/resource-properties/latest_version.md) to `latest_version: 1`.
+   * Set [`versions`](../../reference/resource-properties/versions.md) to include the old version and the new version: `- v: 1` and `- v: 2` respectively.
+   * Set the [`latest_version:`](../../reference/resource-properties/latest_version.md) to `latest_version: 1`.
 
    This ensures that downstream consumers using `ref(...)` won’t accidentally start using v2. Without setting this, the default will be the highest numerical version, which could be a breaking change for consumers.
 
-3. Set an [alias](https://docs.getdbt.com/reference/resource-configs/alias.md) or create a view over the latest model version. By aliasing or creating a view over the latest model version, you ensure `fishtown_analytics_orders` (without the version suffix) always exists as an object in the warehouse, pointing to the latest version. This also protects external tools and BI dashboards.
+3. Set an [alias](../../reference/resource-configs/alias.md) or create a view over the latest model version. By aliasing or creating a view over the latest model version, you ensure `fishtown_analytics_orders` (without the version suffix) always exists as an object in the warehouse, pointing to the latest version. This also protects external tools and BI dashboards.
 
 #### Step 3: Add a deprecation date[​](#step-3-add-a-deprecation-date "Direct link to Step 3: Add a deprecation date")
 
-1. In the model's `properties.yml` file, set a [`deprecation_date`](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md) for the model's old version. The `deprecation_date` is a date in the future that signifies when the old version will be removed.
+1. In the model's `properties.yml` file, set a [`deprecation_date`](../../reference/resource-properties/deprecation_date.md) for the model's old version. The `deprecation_date` is a date in the future that signifies when the old version will be removed.
 
    This notifies downstream consumers and will appear in the `dbt run` logs as a warning that the old version is nearing deprecation and consumers will need to [migrate](#best-practices-for-consumers) to the new version.
 
    info
 
-   If your model has an [enforced contract](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md), you cannot delete the model until after the `deprecation_date` has passed. dbt doesn't allow deleting models with enforced contracts before their `deprecation_date` to protect downstream consumers.
+   If your model has an [enforced contract](../../docs/mesh/govern/model-contracts.md), you cannot delete the model until after the `deprecation_date` has passed. dbt doesn't allow deleting models with enforced contracts before their `deprecation_date` to protect downstream consumers.
 
    If you try to delete a versioned model before its `deprecation_date`, dbt will raise an error during development runs and cause jobs to fail.
 
@@ -135,7 +135,7 @@ info
 
 When removing or renaming a versioned model with an enforced contract, first deprecate the version you plan to retire.
 
-Set a `deprecation_date` on the retiring version. Use a date in the past if you are removing it immediately. Merge that change and run your production job so [state-aware CI](https://docs.getdbt.com/docs/deploy/ci-jobs.md) records the deprecation. In a follow-up change, remove or rename the model, such as renaming `fishtown_analytics_orders_v2.sql` to `fishtown_analytics_orders.sql`.
+Set a `deprecation_date` on the retiring version. Use a date in the past if you are removing it immediately. Merge that change and run your production job so [state-aware CI](../../docs/deploy/ci-jobs.md) records the deprecation. In a follow-up change, remove or rename the model, such as renaming `fishtown_analytics_orders_v2.sql` to `fishtown_analytics_orders.sql`.
 
 Skipping this intermediate step may cause dbt to treat the removal as an unexpected breaking contract change and fail CI. For an optional walkthrough, refer to the [video walkthrough on removing a versioned model with an enforced contract](https://www.youtube.com/watch?v=FQ905Zj5C1o).
 
@@ -157,7 +157,7 @@ If the model has an enforced contract, complete the workflow in the callout abov
 
 1. Repoint the `fishtown_analytics_orders` alias to your latest version file (for example, `fishtown_analytics_orders_v2`), or create a view on top of the latest model version.
 
-2. Use the `enabled` [config option](https://docs.getdbt.com/reference/resource-configs/enabled.md) to disable the deprecated model version so that it doesn’t run in dbt jobs and can’t be referenced in a cross-project ref. For example:
+2. Use the `enabled` [config option](../../reference/resource-configs/enabled.md) to disable the deprecated model version so that it doesn’t run in dbt jobs and can’t be referenced in a cross-project ref. For example:
 
    <!-- -->
 
@@ -200,9 +200,9 @@ Consumers should plan migrations to align with their own team’s release cycles
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md)
-* [Model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md)
-* [`deprecation_date`](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md)
-* [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md)
-* [Project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md)
-* [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md)
+* [Model versions](../../docs/mesh/govern/model-versions.md)
+* [Model contracts](../../docs/mesh/govern/model-contracts.md)
+* [`deprecation_date`](../../reference/resource-properties/deprecation_date.md)
+* [CI jobs](../../docs/deploy/ci-jobs.md)
+* [Project dependencies](../../docs/mesh/govern/project-dependencies.md)
+* [Quickstart with Mesh](../../guides/mesh-qs.md)

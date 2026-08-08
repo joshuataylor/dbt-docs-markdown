@@ -8,7 +8,7 @@ packages-install-path: directorypath
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom directory where [packages](https://docs.getdbt.com/docs/build/packages.md) are installed when you run the `dbt deps` [command](https://docs.getdbt.com/reference/commands/deps.md). Note that this directory is usually git-ignored.
+Optionally specify a custom directory where [packages](../../docs/build/packages.md) are installed when you run the `dbt deps` [command](../commands/deps.md). Note that this directory is usually git-ignored.
 
 ## Default[​](#default "Direct link to Default")
 

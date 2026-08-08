@@ -1,3 +1,3 @@
 # What parts of Jinja are dbt-specific?
 
-There are certain expressions that are specific to dbt — these are documented in the [Jinja function reference](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md) section of these docs. Further, docs blocks, snapshots, and materializations are custom Jinja *blocks* that exist only in dbt.
+There are certain expressions that are specific to dbt — these are documented in the [Jinja function reference](../../reference/dbt-jinja-functions-context-variables.md) section of these docs. Further, docs blocks, snapshots, and materializations are custom Jinja *blocks* that exist only in dbt.

@@ -1,6 +1,6 @@
 # Using BigQuery DataFrames with dbt Python models
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 BigQuery
 
@@ -36,7 +36,7 @@ BigQuery DataFrames is an open source Python package that transpiles pandas and 
 * Basic to intermediate SQL and python.
 * Basic understanding of dbt fundamentals. We recommend the [dbt Fundamentals course](https://learn.getdbt.com).
 
-During setup, you’ll need to select the **BigQuery** adapter and enter values for your **Google Cloud Storage Bucket** and **Dataproc Region** in the dbt platform. See [Configure BigQuery in dbt platform](https://docs.getdbt.com/guides/dbt-python-bigframes.md?step=2#configure-bigquery-in-dbt-platform) for details.
+During setup, you’ll need to select the **BigQuery** adapter and enter values for your **Google Cloud Storage Bucket** and **Dataproc Region** in the dbt platform. See [Configure BigQuery in dbt platform](./dbt-python-bigframes.md?step=2#configure-bigquery-in-dbt-platform) for details.
 
 ### What you'll build[​](#what-youll-build "Direct link to What you'll build")
 
@@ -146,7 +146,7 @@ To set up your BigQuery DataFrames connection in the dbt platform, refer to the 
 
 This is required so that BigFrames jobs execute correctly.
 
-Refer to [Connect to BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md) for more info on how to connect to BigQuery in the dbt platform.
+Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bigquery.md) for more info on how to connect to BigQuery in the dbt platform.
 
 ## Create, configure, and execute your Python models[​](#create-configure-and-execute-your-python-models "Direct link to Create, configure, and execute your Python models")
 
@@ -195,6 +195,6 @@ Refer to [Connect to BigQuery](https://docs.getdbt.com/docs/platform/connect-dat
 
 6. Run `dbt run`
 
-7. You can view the logs in [dbt logs](https://docs.getdbt.com/reference/events-logging.md). You can optionally view the codes and logs (including previous executions) from the [Colab Enterprise Executions](https://console.cloud.google.com/vertex-ai/colab/execution-jobs) tab and [GCS bucket](https://console.cloud.google.com/storage/browser) from the GCP console.
+7. You can view the logs in [dbt logs](../reference/events-logging.md). You can optionally view the codes and logs (including previous executions) from the [Colab Enterprise Executions](https://console.cloud.google.com/vertex-ai/colab/execution-jobs) tab and [GCS bucket](https://console.cloud.google.com/storage/browser) from the GCP console.
 
 8. Congrats! You just created your first two python models to run on BigFrames!

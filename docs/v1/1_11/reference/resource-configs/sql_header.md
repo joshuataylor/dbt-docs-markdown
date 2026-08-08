@@ -2,13 +2,13 @@
 
 `sql_header` does not support Jinja or macros like `ref` and `source`
 
-Unlike [pre-hooks and post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md), macros like [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md), and references like [`{{ this }}`](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md), aren't supported.
+Unlike [pre-hooks and post-hooks](./pre-hook-post-hook.md), macros like [`ref`](../dbt-jinja-functions/ref.md), [`source`](../dbt-jinja-functions/source.md), and references like [`{{ this }}`](../dbt-jinja-functions/this.md), aren't supported.
 
 The primary function of `set_sql_header` is fairly limited. It's intended to:
 
-* [Create UDFs](https://docs.getdbt.com/reference/resource-configs/sql_header.md#create-a-bigquery-temporary-udf)
+* [Create UDFs](./sql_header.md#create-a-bigquery-temporary-udf)
 * [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery)
-* [Set temporary session parameters](https://docs.getdbt.com/reference/resource-configs/sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
+* [Set temporary session parameters](./sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
 
 - Models
 - Seeds
@@ -59,7 +59,7 @@ snapshots:
     +sql_header: <sql-statement>
 ```
 
-Setting `sql_header` in the `config` of a [generic data test](https://docs.getdbt.com/docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
+Setting `sql_header` in the `config` of a [generic data test](../../docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](../global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
 
 Here's an example of a model-level configuration:
 
@@ -103,7 +103,7 @@ An optional configuration to inject SQL above the `create table as` and `create 
 
 ## Comparison to pre-hooks[​](#comparison-to-pre-hooks "Direct link to Comparison to pre-hooks")
 
-[Pre-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md) also provide an opportunity to execute SQL before model creation, as a *preceding* query. In comparison, SQL in a `sql_header` is run in the same *query* as the `create table|view as` statement.
+[Pre-hooks](./pre-hook-post-hook.md) also provide an opportunity to execute SQL before model creation, as a *preceding* query. In comparison, SQL in a `sql_header` is run in the same *query* as the `create table|view as` statement.
 
 As a result, this makes it more useful for [Snowflake session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html) and [BigQuery Temporary UDFs](https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions#sql-udf-examples).
 

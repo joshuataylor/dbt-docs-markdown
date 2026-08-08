@@ -19,10 +19,10 @@ Each community member should strive to create more value in the community than t
 
 Ways to demonstrate this value:
 
-* [Coding contributions](https://docs.getdbt.com/community/contributing/contributing-coding.md): Contribute to dbt Core, a package, or an adapter. Beyond implementing new functionality, you can also open issues or participate in discussions.
-* [Writing contributions](https://docs.getdbt.com/community/contributing/contributing-writing.md): You can suggest edits to every page of the dbt documentation, or suggest a topic for the dbt Developer Blog.
-* [Join in online](https://docs.getdbt.com/community/contributing/contributing-online-community.md): Ask and answer questions on the Discourse forum, kick off a lively discussion in Slack, or even maintain a Slack channel of your own.
-* [Participate in events](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md): Organise a community Meetup, speak at an event, or provide office space/sponsorship for an existing event.
+* [Coding contributions](../contributing/contributing-coding.md): Contribute to dbt Core, a package, or an adapter. Beyond implementing new functionality, you can also open issues or participate in discussions.
+* [Writing contributions](../contributing/contributing-writing.md): You can suggest edits to every page of the dbt documentation, or suggest a topic for the dbt Developer Blog.
+* [Join in online](../contributing/contributing-online-community.md): Ask and answer questions on the Discourse forum, kick off a lively discussion in Slack, or even maintain a Slack channel of your own.
+* [Participate in events](../contributing/contributing-realtime-events.md): Organise a community Meetup, speak at an event, or provide office space/sponsorship for an existing event.
 
 ### Be you.[​](#be-you "Direct link to Be you.")
 

@@ -4,7 +4,7 @@ The `modules` variable in the Jinja context is a predefined namespace that conta
 
 There is no user-facing configuration to modify or extend the `modules` namespace. This restriction helps ensure consistent behavior, security, and portability across environments.
 
-If your workflow requires functionality from additional Python libraries, use a [Python model](https://docs.getdbt.com/docs/build/python-models.md) (where supported) instead of Jinja. Python models run in a different execution context and allow you to import and use external libraries as needed.
+If your workflow requires functionality from additional Python libraries, use a [Python model](../../docs/build/python-models.md) (where supported) instead of Jinja. Python models run in a different execution context and allow you to import and use external libraries as needed.
 
 ## datetime[​](#datetime "Direct link to datetime")
 
@@ -19,7 +19,7 @@ It includes the modules contexts of `date`, `datetime`, `time`, `timedelta`, and
 {% set three_days_ago_iso = (now - modules.datetime.timedelta(3)).isoformat() %}
 ```
 
-This module will return the current date and time on every Jinja evaluation. For the date and time of the start of the run, please see [run\_started\_at](https://docs.getdbt.com/reference/dbt-jinja-functions/run_started_at.md).
+This module will return the current date and time on every Jinja evaluation. For the date and time of the start of the run, please see [run\_started\_at](./run_started_at.md).
 
 ## pytz[​](#pytz "Direct link to pytz")
 
@@ -56,7 +56,7 @@ This variable is a pointer to the Python [`re`](https://docs.python.org/3/librar
 
 Note
 
-Starting in `dbt-core==1.10.6`, using `modules.itertools` raises a deprecation warning. For more information and suggested workarounds, refer to the [documentation on `ModulesItertoolsUsageDeprecation`](https://docs.getdbt.com/reference/deprecations.md#modulesitertoolsusagedeprecation).
+Starting in `dbt-core==1.10.6`, using `modules.itertools` raises a deprecation warning. For more information and suggested workarounds, refer to the [documentation on `ModulesItertoolsUsageDeprecation`](../deprecations.md#modulesitertoolsusagedeprecation).
 
 This variable is a pointer to the Python [`itertools`](https://docs.python.org/3/library/itertools.html) module, which includes useful functions for working with iterators (loops, lists, and the like).
 

@@ -2,7 +2,7 @@
 
 Tip
 
-Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to generate
+Use [dbt Wizard](../platform/wizard-overview.md) to generate
 
 <!-- -->
 
@@ -18,7 +18,7 @@ Semantic models are the foundation for data definition in MetricFlow, which powe
 * MetricFlow uses YAML configuration files to create this graph for querying metrics.
 * Each semantic model corresponds to a dbt model in your DAG, requiring a unique YAML configuration for each semantic model.
 * You can create multiple semantic models from a single dbt model (SQL or Python), as long as you give each semantic model a unique name.
-* Configure semantic models in a YAML file within your dbt project directory. Refer to the [best practices guide](https://docs.getdbt.com/best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
+* Configure semantic models in a YAML file within your dbt project directory. Refer to the [best practices guide](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
 * Organize them under a `metrics:` folder or within project sources as needed.
 
 [![A semantic model is made up of different components: Entities, Measures, and Dimensions.](/img/docs/dbt-platform/semantic-layer/semantic_foundation.jpg?v=2 "A semantic model is made up of different components: Entities, Measures, and Dimensions.")](#)A semantic model is made up of different components: Entities, Measures, and Dimensions.
@@ -46,7 +46,7 @@ Here we describe the Semantic model components with examples:
 | [Dimensions](#dimensions)         | Different ways to group or slice data for a metric, they can be `time` or `categorical`.                                                                                                                                                                                                                                                                                               | Required | List   |
 | [Measures](#measures)             | Aggregations applied to columns in your data model. They can be the final metric or used as building blocks for more complex metrics.                                                                                                                                                                                                                                                  | Optional | List   |
 | [Label](#label)                   | The display name for your semantic model `node`, `dimension`, `entity`, and/or `measures`.                                                                                                                                                                                                                                                                                             | Optional | String |
-| `config`                          | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md), [`group`](https://docs.getdbt.com/reference/resource-configs/group.md), and [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) configs. | Optional | Dict   |
+| `config`                          | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) configs. | Optional | Dict   |
 
 Search table...
 
@@ -77,7 +77,7 @@ semantic_models:
       if the semantic model has no primary entity, then this property is required. #Optional if a primary entity exists, otherwise Required
 ```
 
-You can refer to the [best practices guide](https://docs.getdbt.com/best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
+You can refer to the [best practices guide](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
 
 <!-- -->
 
@@ -140,7 +140,7 @@ semantic_models:
 
 <!-- -->
 
-Semantic models support [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md), [`group`](https://docs.getdbt.com/reference/resource-configs/group.md), and [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property in either the schema file or at the project level:
+Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) [`config`](../../reference/resource-properties/config.md) property in either the schema file or at the project level:
 
 * Semantic model config in `models/semantic.yml`:
 
@@ -165,7 +165,7 @@ Semantic models support [`meta`](https://docs.getdbt.com/reference/resource-conf
         some_key: some_value
   ```
 
-For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](https://docs.getdbt.com/reference/dbt_project.yml.md#naming-convention).
+For more information on `dbt_project.yml` and config naming conventions, see the [dbt\_project.yml reference page](../../reference/dbt_project.yml.md#naming-convention).
 
 <!-- -->
 
@@ -181,17 +181,17 @@ Includes important details of the semantic model. This description will primaril
 
 ### Model[​](#model "Direct link to Model")
 
-Specify the dbt model for the semantic model using the [`ref` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md).
+Specify the dbt model for the semantic model using the [`ref` function](../../reference/dbt-jinja-functions/ref.md).
 
 ### Defaults[​](#defaults "Direct link to Defaults")
 
-Defaults for the semantic model. Currently only `agg_time_dimension`. `agg_time_dimension` represents the default time dimensions for measures. This can be overridden by adding the `agg_time_dimension` key directly to a measure - see [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md) for examples.
+Defaults for the semantic model. Currently only `agg_time_dimension`. `agg_time_dimension` represents the default time dimensions for measures. This can be overridden by adding the `agg_time_dimension` key directly to a measure - see [Dimensions](./dimensions.md) for examples.
 
 <!-- -->
 
 ### Entities[​](#entities "Direct link to Entities")
 
-To specify the [entities](https://docs.getdbt.com/docs/build/entities.md) in your model, use their columns as join keys and indicate their `type` as primary, foreign, or unique keys with the type parameter.
+To specify the [entities](./entities.md) in your model, use their columns as join keys and indicate their `type` as primary, foreign, or unique keys with the type parameter.
 
 <!-- -->
 
@@ -245,11 +245,11 @@ entity:
     expr: substring(id_order FROM 2)
 ```
 
-You can refer to entities (join keys) in a semantic model using the `name` parameter. Entity names must be unique within a semantic model, and identifier names can be non-unique across semantic models since MetricFlow uses them for [joins](https://docs.getdbt.com/docs/build/join-logic.md).
+You can refer to entities (join keys) in a semantic model using the `name` parameter. Entity names must be unique within a semantic model, and identifier names can be non-unique across semantic models since MetricFlow uses them for [joins](./join-logic.md).
 
 ### Dimensions[​](#dimensions "Direct link to Dimensions")
 
-[Dimensions](https://docs.getdbt.com/docs/build/dimensions.md) are different ways to organize or look at data. They are effectively the group by parameters for metrics. For example, you might group data by things like region, country, or job title.
+[Dimensions](./dimensions.md) are different ways to organize or look at data. They are effectively the group by parameters for metrics. For example, you might group data by things like region, country, or job title.
 
 MetricFlow takes a dynamic approach when making dimensions available for metrics. Instead of trying to figure out all the possible groupings ahead of time, MetricFlow lets you ask for the dimensions you need and constructs any joins necessary to reach the requested dimensions at query time. The advantage of this approach is that you don't need to set up a system that pre-materializes every possible way to group data, which can be time-consuming and prone to errors. Instead, you define the dimensions (group by parameters) you're interested in within the semantic model, and they will automatically be made available for valid metrics.
 
@@ -261,28 +261,28 @@ Dimensions have the following characteristics:
 
 For time groups
 
-For semantic models with a measure, you must have a [primary time group](https://docs.getdbt.com/docs/build/dimensions.md#time).
+For semantic models with a measure, you must have a [primary time group](./dimensions.md#time).
 
 <!-- -->
 
 ### Measures[​](#measures "Direct link to Measures")
 
-[Measures](https://docs.getdbt.com/docs/build/measures.md) are aggregations applied to columns in your data model. They can be used as the foundational building blocks for more complex metrics, or be the final metric itself.
+[Measures](./measures.md) are aggregations applied to columns in your data model. They can be used as the foundational building blocks for more complex metrics, or be the final metric itself.
 
 Measures have various parameters which are listed in a table along with their descriptions and types.
 
 | Parameter                                                                                          | Description                                                                                                                                                                                                                                                | Required | Type    |
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| [`name`](https://docs.getdbt.com/docs/build/measures.md#name)                                      | Provide a name for the measure, which must be unique and can't be repeated across all semantic models in your dbt project.                                                                                                                                 | Required | String  |
-| [`description`](https://docs.getdbt.com/docs/build/measures.md#description)                        | Describes the calculated measure.                                                                                                                                                                                                                          | Optional | String  |
-| [`agg`](https://docs.getdbt.com/docs/build/measures.md#aggregation)                                | dbt supports the following aggregations: `sum`, `max`, `min`, `average`, `median`, `count_distinct`, `percentile`, and `sum_boolean`.                                                                                                                      | Required | String  |
-| [`expr`](https://docs.getdbt.com/docs/build/measures.md#expr)                                      | Either reference an existing column in the table or use a SQL expression to create or derive a new one.                                                                                                                                                    | Optional | String  |
-| [`non_additive_dimension`](https://docs.getdbt.com/docs/build/measures.md#non-additive-dimensions) | Non-additive dimensions can be specified for measures that cannot be aggregated over certain dimensions, such as bank account balances, to avoid producing incorrect results.                                                                              | Optional | String  |
+| [`name`](./measures.md#name)                                      | Provide a name for the measure, which must be unique and can't be repeated across all semantic models in your dbt project.                                                                                                                                 | Required | String  |
+| [`description`](./measures.md#description)                        | Describes the calculated measure.                                                                                                                                                                                                                          | Optional | String  |
+| [`agg`](./measures.md#aggregation)                                | dbt supports the following aggregations: `sum`, `max`, `min`, `average`, `median`, `count_distinct`, `percentile`, and `sum_boolean`.                                                                                                                      | Required | String  |
+| [`expr`](./measures.md#expr)                                      | Either reference an existing column in the table or use a SQL expression to create or derive a new one.                                                                                                                                                    | Optional | String  |
+| [`non_additive_dimension`](./measures.md#non-additive-dimensions) | Non-additive dimensions can be specified for measures that cannot be aggregated over certain dimensions, such as bank account balances, to avoid producing incorrect results.                                                                              | Optional | String  |
 | `agg_params`                                                                                       | Specific aggregation properties, such as a percentile.                                                                                                                                                                                                     | Optional | Dict    |
 | `agg_time_dimension`                                                                               | The time field. Defaults to the default agg time dimension for the semantic model.                                                                                                                                                                         | Optional | String  |
 | `label`                                                                                            | String that defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`). Available in dbt version 1.7 or higher.                                                                    | Optional | String  |
 | `create_metric`                                                                                    | Create a `simple` metric from a measure by setting `create_metric: True`. The `label` and `description` attributes will be automatically propagated to the created metric. Available in dbt version 1.7 or higher.                                         | Optional | Boolean |
-| `config`                                                                                           | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your metric. Supports the [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md) property, nested under `config`. | Optional |         |
+| `config`                                                                                           | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports the [`meta`](../../reference/resource-configs/meta.md) property, nested under `config`. | Optional |         |
 
 Search table...
 
@@ -298,8 +298,8 @@ Search table...
 
 Metric nodes will reflect dependencies on semantic models based on their *measures*. However, dependencies based on filters should not be reflected in:
 
-* [dbt selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* Visualization of the DAG in dbt-docs and the [integrated development environment](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) (IDE).
+* [dbt selection syntax](../../reference/node-selection/syntax.md)
+* Visualization of the DAG in dbt-docs and the [integrated development environment](../platform/studio-ide/develop-in-studio.md) (IDE).
 
 This is because metrics need to source nodes for their `depends_on` attribute from a few different places:
 
@@ -314,8 +314,8 @@ But there's a condition: Only the metrics that actually use measures or derived 
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md)
-* [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md)
-* [Entities](https://docs.getdbt.com/docs/build/entities.md)
-* [Measures](https://docs.getdbt.com/docs/build/measures.md)
-* [Semantic Layer best practices guide](https://docs.getdbt.com/best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md)
+* [About MetricFlow](./about-metricflow.md)
+* [Dimensions](./dimensions.md)
+* [Entities](./entities.md)
+* [Measures](./measures.md)
+* [Semantic Layer best practices guide](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md)

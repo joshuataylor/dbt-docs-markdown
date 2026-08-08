@@ -35,7 +35,7 @@ Installing `dbt-starrocks` will also install `dbt-core` and any other dependenci
 
 ## Configuring <!-- -->dbt-starrocks<!-- -->
 
-For <!-- -->Starrocks<!-- -->-specifc configuration please refer to [Starrocks<!-- --> Configuration](https://docs.getdbt.com/reference/resource-configs/starrocks-configs.md)
+For <!-- -->Starrocks<!-- -->-specifc configuration please refer to [Starrocks<!-- --> Configuration](../../../reference/resource-configs/starrocks-configs.md)
 
 For further info, refer to the GitHub repository: [StarRocks/dbt-starrocks](https://github.com/StarRocks/dbt-starrocks)
 

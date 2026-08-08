@@ -4,13 +4,13 @@ Deprecations are about features in your project code (models, configs, syntax) t
 
 note
 
-Deprecated functionality still works in the v1.10 release but is no longer supported and will be removed in a future version. Deprecations currently show as warnings but don't prevent runs and other commands (unless you've configured [warnings as errors](https://docs.getdbt.com/reference/global-configs/warnings.md)), but will cause errors after upgrading if not addressed.
+Deprecated functionality still works in the v1.10 release but is no longer supported and will be removed in a future version. Deprecations currently show as warnings but don't prevent runs and other commands (unless you've configured [warnings as errors](./global-configs/warnings.md)), but will cause errors after upgrading if not addressed.
 
-Not the same as [behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in Fusion). See the [Changes overview](https://docs.getdbt.com/reference/changes-overview.md) for a quick comparison.
+Not the same as [behavior change flags](./global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in Fusion). See the [Changes overview](./changes-overview.md) for a quick comparison.
 
-Upgrading to [Fusion](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
+Upgrading to [Fusion](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
 
-As dbt runs, it generates different categories of [events](https://docs.getdbt.com/reference/events-logging.md), one of which is *deprecations*. Deprecations are a special type of warning that lets you know that there are problems in parts of your project that will result in breaking changes in a future version of dbt. Although it's just a warning for now, it is important to resolve any deprecation warnings in your project to enable you to work with more safety, feedback, and confidence going forward.
+As dbt runs, it generates different categories of [events](./events-logging.md), one of which is *deprecations*. Deprecations are a special type of warning that lets you know that there are problems in parts of your project that will result in breaking changes in a future version of dbt. Although it's just a warning for now, it is important to resolve any deprecation warnings in your project to enable you to work with more safety, feedback, and confidence going forward.
 
 ## Identify deprecation warnings[​](#identify-deprecation-warnings "Direct link to Identify deprecation warnings")
 
@@ -104,7 +104,7 @@ models:
 
 ### ConfigDataPathDeprecation[​](#configdatapathdeprecation "Direct link to ConfigDataPathDeprecation")
 
-In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `data-paths` has been renamed to [seed-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md). If you receive this deprecation warning, it means that `data-paths` is still being used in your project's `dbt_project.yml`.
+In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `data-paths` has been renamed to [seed-paths](./project-configs/model-paths.md). If you receive this deprecation warning, it means that `data-paths` is still being used in your project's `dbt_project.yml`.
 
 Example warning:
 
@@ -138,11 +138,11 @@ env var instead.
 
 #### ConfigLogPathDeprecation warning resolution[​](#configlogpathdeprecation-warning-resolution "Direct link to ConfigLogPathDeprecation warning resolution")
 
-Remove `log-path` from your `dbt_project.yml` and specify it via either the CLI flag `--log-path` or environment variable `DBT_ENGINE_LOG_PATH` [as documented here](https://docs.getdbt.com/reference/global-configs/logs.md#log-and-target-paths).
+Remove `log-path` from your `dbt_project.yml` and specify it via either the CLI flag `--log-path` or environment variable `DBT_ENGINE_LOG_PATH` [as documented here](./global-configs/logs.md#log-and-target-paths).
 
 ### ConfigSourcePathDeprecation[​](#configsourcepathdeprecation "Direct link to ConfigSourcePathDeprecation")
 
-In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `source-paths` has been renamed to [model-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md). Receiving this deprecation warning means that `source-paths` is still being used in your project's `dbt_project.yml`.
+In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `source-paths` has been renamed to [model-paths](./project-configs/model-paths.md). Receiving this deprecation warning means that `source-paths` is still being used in your project's `dbt_project.yml`.
 
 Example:
 
@@ -177,7 +177,7 @@ DBT_ENGINE_TARGET_PATH env var instead.
 
 #### ConfigTargetPathDeprecation warning resolution[​](#configtargetpathdeprecation-warning-resolution "Direct link to ConfigTargetPathDeprecation warning resolution")
 
-Remove `target-path` from your `dbt_project.yml` and specify it via either the CLI flag `--target-path` or environment variable [`DBT_ENGINE_TARGET_PATH`](https://docs.getdbt.com/reference/global-configs/logs.md#log-and-target-paths).
+Remove `target-path` from your `dbt_project.yml` and specify it via either the CLI flag `--target-path` or environment variable [`DBT_ENGINE_TARGET_PATH`](./global-configs/logs.md#log-and-target-paths).
 
 ### CustomKeyInConfigDeprecation[​](#customkeyinconfigdeprecation "Direct link to CustomKeyInConfigDeprecation")
 
@@ -369,7 +369,7 @@ config:
 
 dbt raises this warning when two unversioned resources in the same package share the same name (for example, a model and a seed both named `sales`) and the `require_unique_project_resource_names` flag is set to `false`. Previously, dbt did not always detect these name conflicts, which meant duplicate names could sometimes point to the wrong resource.
 
-When the `require_unique_project_resource_names` flag is set to `true`, dbt raises a `DuplicateResourceNameError`. For more information, see [Unique project resource names](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_unique_project_resource_names.md).
+When the `require_unique_project_resource_names` flag is set to `true`, dbt raises a `DuplicateResourceNameError`. For more information, see [Unique project resource names](./global-configs/behavior-flags/require_unique_project_resource_names.md).
 
 #### DuplicateNameDistinctNodeTypesDeprecation warning resolution[​](#duplicatenamedistinctnodetypesdeprecation-warning-resolution "Direct link to DuplicateNameDistinctNodeTypesDeprecation warning resolution")
 
@@ -379,7 +379,7 @@ Rename one of the conflicting resources to ensure all names are unique.
 
 This warning is raised when two identical keys exist in the `profiles.yml`.
 
-Previously, if identical keys existed in the [`profiles.yml` file](https://docs.getdbt.com/docs/local/profiles.yml.md), dbt would use the last configuration listed in the file.
+Previously, if identical keys existed in the [`profiles.yml` file](../docs/local/profiles.yml.md), dbt would use the last configuration listed in the file.
 
 profiles.yml
 
@@ -414,7 +414,7 @@ Review your custom environment variables and ensure they don't conflict with dbt
 
 ### ExposureNameDeprecation[​](#exposurenamedeprecation "Direct link to ExposureNameDeprecation")
 
-In [dbt 1.3](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md#new-and-changed-documentation>), dbt began allowing only letters, numbers, and underscores in the `name` property of [exposures](https://docs.getdbt.com/reference/exposure-properties.md).
+In [dbt 1.3](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md#new-and-changed-documentation>), dbt began allowing only letters, numbers, and underscores in the `name` property of [exposures](./exposure-properties.md).
 
 Example:
 
@@ -432,13 +432,13 @@ dbt-core.
 
 #### ExposureNameDeprecation warning resolution[​](#exposurenamedeprecation-warning-resolution "Direct link to ExposureNameDeprecation warning resolution")
 
-Ensure your exposure names only contain letters, numbers, and underscores. A more human-readable name can be put in the [`label`](https://docs.getdbt.com/reference/exposure-properties.md#overview) property of exposures.
+Ensure your exposure names only contain letters, numbers, and underscores. A more human-readable name can be put in the [`label`](./exposure-properties.md#overview) property of exposures.
 
 ### GenerateSchemaNameNullValueDeprecation[​](#generateschemanamenullvaluedeprecation "Direct link to GenerateSchemaNameNullValueDeprecation")
 
 dbt raises this deprecation warning when a custom `generate_schema_name` macro returns a `null` value. Returning `null` schema names can lead to invalid or unpredictable behavior.
 
-This deprecation warning is raised when the [`require_valid_schema_from_generate_schema_name` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_valid_schema_from_generate_schema_name.md) is set to `false`. When the flag is set to `true`, dbt raises an error during parsing.
+This deprecation warning is raised when the [`require_valid_schema_from_generate_schema_name` flag](./global-configs/behavior-flags/require_valid_schema_from_generate_schema_name.md) is set to `false`. When the flag is set to `true`, dbt raises an error during parsing.
 
 #### GenerateSchemaNameNullValueDeprecation warning resolution[​](#generateschemanamenullvaluedeprecation-warning-resolution "Direct link to GenerateSchemaNameNullValueDeprecation warning resolution")
 
@@ -466,7 +466,7 @@ If you are seeing this warning, unfortunately, there isn't much you can do at th
 
 ### MFCumulativeTypeParamsDeprecation[​](#mfcumulativetypeparamsdeprecation "Direct link to MFCumulativeTypeParamsDeprecation")
 
-In dbt [v1.9](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md) was deprecated.
+In dbt [v1.9](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](./global-configs/behavior-flags/require_nested_cumulative_type_params.md) was deprecated.
 
 Example:
 
@@ -487,7 +487,7 @@ Nest your `window` and `time_to_grain` under the `cumulative_type_params` proper
 
 ### MFTimespineWithoutYamlConfigurationDeprecation[​](#mftimespinewithoutyamlconfigurationdeprecation "Direct link to MFTimespineWithoutYamlConfigurationDeprecation")
 
-Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine defintion](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
+Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine defintion](../docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
 
 Example:
 
@@ -504,11 +504,11 @@ https://docs.getdbt.com/reference/global-configs/behavior-changes
 
 #### MFTimespineWithoutYamlConfigurationDeprecation warning resolution[​](#mftimespinewithoutyamlconfigurationdeprecation-warning-resolution "Direct link to MFTimespineWithoutYamlConfigurationDeprecation warning resolution")
 
-Define your MetricFlow timespine in [YAML](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#creating-a-time-spine-table).
+Define your MetricFlow timespine in [YAML](../docs/build/metricflow-time-spine.md#creating-a-time-spine-table).
 
 ### MissingArgumentsPropertyInGenericTestDeprecation[​](#missingargumentspropertyingenerictestdeprecation "Direct link to MissingArgumentsPropertyInGenericTestDeprecation")
 
-dbt has deprecated specifiying keyword arguments as properties on custom generic data tests or data tests that use the [alternative `test_name` format](https://docs.getdbt.com/reference/resource-properties/data-tests.md#alternative-format-for-defining-tests). Instead, arguments to tests should be specified under the new `arguments` property.
+dbt has deprecated specifiying keyword arguments as properties on custom generic data tests or data tests that use the [alternative `test_name` format](./resource-properties/data-tests.md#alternative-format-for-defining-tests). Instead, arguments to tests should be specified under the new `arguments` property.
 
 This deprecation warning is only raised when the behavior flag `require_generic_test_arguments_property` is set to `true`.
 
@@ -641,7 +641,7 @@ instead.
 
 #### ModulesItertoolsUsageDeprecation warning resolution[​](#modulesitertoolsusagedeprecation-warning-resolution "Direct link to ModulesItertoolsUsageDeprecation warning resolution")
 
-If you are currently using functions from the `itertools` module within Jinja SQL templates, use the available built-in [dbt functions](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md) and [Jinja methods](https://docs.getdbt.com/docs/build/jinja-macros.md) instead.
+If you are currently using functions from the `itertools` module within Jinja SQL templates, use the available built-in [dbt functions](./dbt-jinja-functions-context-variables.md) and [Jinja methods](../docs/build/jinja-macros.md) instead.
 
 For example, the following SQL file:
 
@@ -687,7 +687,7 @@ models/itertools\_usage.sql
 
 ### PackageInstallPathDeprecation[​](#packageinstallpathdeprecation "Direct link to PackageInstallPathDeprecation")
 
-The default location where packages are installed when running `dbt deps` has been updated from `dbt_modules` to `dbt_packages`. During a `dbt clean` dbt detected that `dbt_modules` is defined in the [clean-targets](https://docs.getdbt.com/reference/project-configs/clean-targets.md) property in `dbt_project.yml` even though `dbt_modules` is not the [`packages-install-path`](https://docs.getdbt.com/reference/project-configs/packages-install-path.md).
+The default location where packages are installed when running `dbt deps` has been updated from `dbt_modules` to `dbt_packages`. During a `dbt clean` dbt detected that `dbt_modules` is defined in the [clean-targets](./project-configs/clean-targets.md) property in `dbt_project.yml` even though `dbt_modules` is not the [`packages-install-path`](./project-configs/packages-install-path.md).
 
 Example:
 
@@ -710,7 +710,7 @@ The following are recommended approaches:
 
 ### PackageMaterializationOverrideDeprecation[​](#packagematerializationoverridedeprecation "Direct link to PackageMaterializationOverrideDeprecation")
 
-The behavior where installed packages could override built-in materializations without your explicit opt-in is deprecated. Setting the [`require_explicit_package_overrides_for_builtin_materializations` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) to `false` in your `dbt_project.yml` allowed packages that matched the name of a built-in materialization to continue to be included in the search and resolution order.
+The behavior where installed packages could override built-in materializations without your explicit opt-in is deprecated. Setting the [`require_explicit_package_overrides_for_builtin_materializations` flag](./global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) to `false` in your `dbt_project.yml` allowed packages that matched the name of a built-in materialization to continue to be included in the search and resolution order.
 
 #### PackageMaterializationOverrideDeprecation warning resolution[​](#packagematerializationoverridedeprecation-warning-resolution "Direct link to PackageMaterializationOverrideDeprecation warning resolution")
 
@@ -759,7 +759,7 @@ User config should be moved from the 'config' key in profiles.yml to the 'flags'
 
 #### ProjectFlagsMovedDeprecation warning resolution[​](#projectflagsmoveddeprecation-warning-resolution "Direct link to ProjectFlagsMovedDeprecation warning resolution")
 
-Remove `config` from `profiles.yml`. Add any previous [`config`](https://docs.getdbt.com/reference/global-configs/about-global-configs.md) in `profiles.yml` to `flags` in `dbt_project.yml`.
+Remove `config` from `profiles.yml`. Add any previous [`config`](./global-configs/about-global-configs.md) in `profiles.yml` to `flags` in `dbt_project.yml`.
 
 ### PropertyMovedToConfigDeprecation[​](#propertymovedtoconfigdeprecation "Direct link to PropertyMovedToConfigDeprecation")
 
@@ -767,7 +767,7 @@ Some historical properties are moving entirely to configs.
 
 This will include: `freshness`, `meta`, `tags`, `docs`, `group`, and `access`
 
-Changing certain properties to configs is beneficial because you can set them for many resources at once in `dbt_project.yml` (project-level/folder-level defaults). More info on the difference between properties and configs [here](https://docs.getdbt.com/reference/configs-and-properties.md).
+Changing certain properties to configs is beneficial because you can set them for many resources at once in `dbt_project.yml` (project-level/folder-level defaults). More info on the difference between properties and configs [here](./configs-and-properties.md).
 
 #### PropertyMovedToConfigDeprecation warning resolution[​](#propertymovedtoconfigdeprecation-warning-resolution "Direct link to PropertyMovedToConfigDeprecation warning resolution")
 
@@ -802,7 +802,7 @@ sources:
 
 ### ResourceNamesWithSpacesDeprecation[​](#resourcenameswithspacesdeprecation "Direct link to ResourceNamesWithSpacesDeprecation")
 
-In [dbt 1.8](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#managing-changes-to-legacy-behaviors), allowing resource names to have spaces in them was deprecated. If you get this deprecation warning, dbt detected a resource name with a space in it.
+In [dbt 1.8](../docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#managing-changes-to-legacy-behaviors), allowing resource names to have spaces in them was deprecated. If you get this deprecation warning, dbt detected a resource name with a space in it.
 
 Example:
 
@@ -818,7 +818,7 @@ Rename the resource in violation so it no longer contains a space in its name.
 
 ### SourceFreshnessProjectHooksNotRun[​](#sourcefreshnessprojecthooksnotrun "Direct link to SourceFreshnessProjectHooksNotRun")
 
-If you are seeing this, it means that the behavior flag `source_freshness_run_project_hooks` is set to `false` and either `on-run-start` or `on-run-end` is defined ([docs](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)). Previously, project hooks wouldn't be run on sources when `dbt source freshness` was run.
+If you are seeing this, it means that the behavior flag `source_freshness_run_project_hooks` is set to `false` and either `on-run-start` or `on-run-end` is defined ([docs](./global-configs/behavior-flags/source_freshness_run_project_hooks.md)). Previously, project hooks wouldn't be run on sources when `dbt source freshness` was run.
 
 Example:
 
@@ -832,7 +832,7 @@ information: https://docs.getdbt.com/reference/global-configs/legacy-behaviors
 
 #### SourceFreshnessProjectHooksNotRun warning resolution[​](#sourcefreshnessprojecthooksnotrun-warning-resolution "Direct link to SourceFreshnessProjectHooksNotRun warning resolution")
 
-Set `source_freshness_run_project_hooks` to `true`. For instructions on skipping project hooks during a `dbt source freshness` invocation, check out the [behavior change documentation](https://docs.getdbt.com/reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md).
+Set `source_freshness_run_project_hooks` to `true`. For instructions on skipping project hooks during a `dbt source freshness` invocation, check out the [behavior change documentation](./global-configs/behavior-flags/source_freshness_run_project_hooks.md).
 
 ### SourceOverrideDeprecation[​](#sourceoverridedeprecation "Direct link to SourceOverrideDeprecation")
 
@@ -849,7 +849,7 @@ This deprecation warning is only raised for the following adapters:
 
 #### SourceOverrideDeprecation warning resolution[​](#sourceoverridedeprecation-warning-resolution "Direct link to SourceOverrideDeprecation warning resolution")
 
-Remove the `overrides` property and [enable or disable a source](https://docs.getdbt.com/reference/source-configs.md#configuring-sources) from a package instead.
+Remove the `overrides` property and [enable or disable a source](./source-configs.md#configuring-sources) from a package instead.
 
 ### UnexpectedJinjaBlockDeprecation[​](#unexpectedjinjablockdeprecation "Direct link to UnexpectedJinjaBlockDeprecation")
 

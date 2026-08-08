@@ -11,7 +11,7 @@ The `dbt environment` command enables you to interact with your dbt environment.
 * Viewing your local configuration details (account ID, active project ID, deployment environment, and more).
 * Viewing your dbt configuration details (environment ID, environment name, connection type, and more).
 
-This guide lists all the commands and options you can use with `dbt environment` in the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md). To use them, add a command or option like this: `dbt environment [command]` or use the shorthand `dbt env [command]`.
+This guide lists all the commands and options you can use with `dbt environment` in the [dbt CLI](../../docs/platform/dbt-cli-installation.md). To use them, add a command or option like this: `dbt environment [command]` or use the shorthand `dbt env [command]`.
 
 ### dbt environment show[​](#dbt-environment-show "Direct link to dbt environment show")
 

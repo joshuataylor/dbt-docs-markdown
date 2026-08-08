@@ -10,9 +10,9 @@ important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -22,11 +22,11 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-* [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
-* [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+* [About the dbt extension](../../about-dbt-extension.md)
+* [Supported features matrix](../../fusion/supported-features.md)
+* [Install dbt](../../local/install-dbt.md)
+* [Quickstart for Fusion](../../../guides/fusion.md?step=1)
+* [Upgrade guide](./upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
 ## Install dbt[​](#install-dbt "Direct link to Install dbt")
@@ -37,7 +37,7 @@ Upgrading to v2 is an install step. Install dbt using `pip` to get Fusion for v2
 python -m pip install --pre dbt
 ```
 
-For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md).
+For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](../../local/install-dbt.md).
 
 ## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
 
@@ -47,21 +47,21 @@ That work is documented below — it should be simple, straightforward, and in m
 
 Test v2 parser compatibility from dbt Core v1.12
 
-If you're on dbt Core v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](https://docs.getdbt.com/reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
+If you're on dbt Core v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](../../../reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
 
 #### Upgrade considerations[​](#upgrade-considerations "Direct link to Upgrade considerations")
 
 Keep in mind the following considerations during the upgrade process:
 
-* **Manifest compatibility** — Fusion produces a `v12` [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) that's compatible with dbt Core. The only differences are optional Fusion-specific fields that only Fusion writes, which dbt Core safely ignores.
+* **Manifest compatibility** — Fusion produces a `v12` [manifest](../../../reference/artifacts/manifest-json.md) that's compatible with dbt Core. The only differences are optional Fusion-specific fields that only Fusion writes, which dbt Core safely ignores.
 
   As a result, you can run Fusion and dbt Core side by side. State-dependent features such as `state:modified`, `--defer`, and cross-environment `dbt docs generate` work across mixed Fusion and dbt Core environments, so you can migrate to Fusion incrementally without breaking existing dbt Core jobs.
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, the dbt platform, and dbt Fusion engine.
+[dbt State](../../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, the dbt platform, and dbt Fusion engine.
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Existing state-aware orchestration customers automatically receive a 90-day trial of dbt State. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Existing state-aware orchestration customers automatically receive a 90-day trial of dbt State. To get started, refer to [Migrate from state-aware orchestration](../../deploy/dbt-state-migration.md).
 
 ### Supported adapters[​](#supported-adapters "Direct link to Supported adapters")
 
@@ -73,8 +73,8 @@ The following adapters are supported in v2:
 * Native OAuth
 * External OAuth
   <!-- -->
-  * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
-* [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
+  * [Workload Identity Federation](../../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+* [Required permissions](../../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
  Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -120,10 +120,10 @@ DuckDB does not require authentication — it runs locally on your machine.
 
 ### A clean slate[​](#a-clean-slate "Direct link to A clean slate")
 
-v2 will not support any deprecated functionality (see the [Changes overview](https://docs.getdbt.com/reference/changes-overview.md) for details):
+v2 will not support any deprecated functionality (see the [Changes overview](../../../reference/changes-overview.md) for details):
 
-* All [deprecation warnings](https://docs.getdbt.com/reference/deprecations.md) must be resolved before upgrading to the new engine. This includes historic deprecations and [new ones as of dbt Core v1.10](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.10.md#deprecation-warnings).
-* Some [behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) will be removed (generally enabled). You can no longer opt out of them using `flags:` in your `dbt_project.yml`.
+* All [deprecation warnings](../../../reference/deprecations.md) must be resolved before upgrading to the new engine. This includes historic deprecations and [new ones as of dbt Core v1.10](./upgrading-to-v1.10.md#deprecation-warnings).
+* Some [behavior change flags](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) will be removed (generally enabled). You can no longer opt out of them using `flags:` in your `dbt_project.yml`.
 
 ### Ecosystem packages[​](#ecosystem-packages "Direct link to Ecosystem packages")
 
@@ -133,11 +133,11 @@ The most popular `dbt-labs` packages (`dbt_utils`, `audit_helper`, `dbt_external
 
 ### `dbt login`[​](#dbt-login "Direct link to dbt-login")
 
-In dbt v2, [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
+In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
 
-Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
+Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
 
-`dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md). For details, refer to [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0).
+`dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](../../about-dbt-extension.md). For details, refer to [`dbt login`](../../../reference/commands/login.md?version=2.0).
 
 ### Changed functionality[​](#changed-functionality "Direct link to Changed functionality")
 
@@ -189,41 +189,41 @@ relation_via_api: my_db.my_schema.my_table
 
 Deprecated flags are command-line flags (like `--models`, `--print`) that you pass to dbt commands. These are being removed in v2. This is different from:
 
-* [Deprecation warnings](https://docs.getdbt.com/reference/deprecations.md) — Features in your project code (models, YAML, macros) that need to be updated
-* [Behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) — Flags in `dbt_project.yml` that let you opt in/out of new behaviors
+* [Deprecation warnings](../../../reference/deprecations.md) — Features in your project code (models, YAML, macros) that need to be updated
+* [Behavior change flags](../../../reference/global-configs/behavior-changes.md) — Flags in `dbt_project.yml` that let you opt in/out of new behaviors
 
-See the [Changes overview](https://docs.getdbt.com/reference/changes-overview.md) for a full comparison.
+See the [Changes overview](../../../reference/changes-overview.md) for a full comparison.
 
 Some historic CLI flags from v1 will no longer do anything in v2. If you pass them into a dbt command in v2, the command will not error, but the flag will do nothing (and warn accordingly).
 
 | flag name                                                                                                                                        | remediation                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
 | `--models` / `--model` / `-m`                                                                                                                    | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
-| `dbt seed` [`--show`](https://docs.getdbt.com/reference/commands/seed.md)                                                                        | N/A                                                                   |
-| [`--print` / `--no-print`](https://docs.getdbt.com/reference/global-configs/print-output.md)                                                     | No action required                                                    |
-| [`--printer-width`](https://docs.getdbt.com/reference/global-configs/print-output.md#printer-width)                                              | No action required                                                    |
-| [`--source`](https://docs.getdbt.com/reference/commands/deps.md#non-hub-packages)                                                                | No action required                                                    |
-| [`--record-timing-info` / `-r`](https://docs.getdbt.com/reference/global-configs/record-timing-info.md)                                          | No action required                                                    |
-| [`--cache-selected-only` / `--no-cache-selected-only`](https://docs.getdbt.com/reference/global-configs/cache.md)                                | No action required                                                    |
-| [`--clean-project-files-only` / `--no-clean-project-files-only`](https://docs.getdbt.com/reference/commands/clean.md#--clean-project-files-only) | No action required                                                    |
+| `dbt seed` [`--show`](../../../reference/commands/seed.md)                                                                        | N/A                                                                   |
+| [`--print` / `--no-print`](../../../reference/global-configs/print-output.md)                                                     | No action required                                                    |
+| [`--printer-width`](../../../reference/global-configs/print-output.md#printer-width)                                              | No action required                                                    |
+| [`--source`](../../../reference/commands/deps.md#non-hub-packages)                                                                | No action required                                                    |
+| [`--record-timing-info` / `-r`](../../../reference/global-configs/record-timing-info.md)                                          | No action required                                                    |
+| [`--cache-selected-only` / `--no-cache-selected-only`](../../../reference/global-configs/cache.md)                                | No action required                                                    |
+| [`--clean-project-files-only` / `--no-clean-project-files-only`](../../../reference/commands/clean.md#--clean-project-files-only) | No action required                                                    |
 | `--single-threaded` / `--no-single-threaded`                                                                                                     | No action required                                                    |
-| `dbt source freshness` [`--output` / `-o`](https://docs.getdbt.com/docs/deploy/source-freshness.md)                                              |                                                                       |
-| [`--config-dir`](https://docs.getdbt.com/reference/commands/debug.md)                                                                            | No action required                                                    |
-| [`--resource-type` / `--exclude-resource-type`](https://docs.getdbt.com/reference/global-configs/resource-type.md)                               | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
+| `dbt source freshness` [`--output` / `-o`](../../deploy/source-freshness.md)                                              |                                                                       |
+| [`--config-dir`](../../../reference/commands/debug.md)                                                                            | No action required                                                    |
+| [`--resource-type` / `--exclude-resource-type`](../../../reference/global-configs/resource-type.md)                               | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
 | `--show-resource-report` / `--no-show-resource-report`                                                                                           | No action required                                                    |
-| [`--log-cache-events` / `--no-log-cache-events`](https://docs.getdbt.com/reference/global-configs/logs.md#logging-relational-cache-events)       | No action required                                                    |
+| [`--log-cache-events` / `--no-log-cache-events`](../../../reference/global-configs/logs.md#logging-relational-cache-events)       | No action required                                                    |
 | `--use-experimental-parser` / `--no-use-experimental-parser`                                                                                     | No action required                                                    |
-| [`--empty-catalog`](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate)                                                    |                                                                       |
-| [`--compile` / `--no-compile`](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate)                                         |                                                                       |
+| [`--empty-catalog`](../../../reference/commands/cmd-docs.md#dbt-docs-generate)                                                    |                                                                       |
+| [`--compile` / `--no-compile`](../../../reference/commands/cmd-docs.md#dbt-docs-generate)                                         |                                                                       |
 | `--inline-direct`                                                                                                                                | No action required                                                    |
 | `--partial-parse-file-diff` / `--no-partial-parse-file-diff`                                                                                     | No action required                                                    |
 | `--partial-parse-file-path`                                                                                                                      | No action required                                                    |
 | `--populate-cache` / `--no-populate-cache`                                                                                                       | No action required                                                    |
 | `--static-parser` / `--no-static-parser`                                                                                                         | No action required                                                    |
 | `--use-fast-test-edges` / `--no-use-fast-test-edges`                                                                                             | No action required                                                    |
-| [`--introspect` / `--no-introspect`](https://docs.getdbt.com/reference/commands/compile.md#introspective-queries)                                | No action required                                                    |
+| [`--introspect` / `--no-introspect`](../../../reference/commands/compile.md#introspective-queries)                                | No action required                                                    |
 | `--inject-ephemeral-ctes` / `--no-inject-ephemeral-ctes`                                                                                         |                                                                       |
-| [`--partial-parse` / `--no-partial-parse`](https://docs.getdbt.com/reference/parsing.md#partial-parsing)                                         | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
+| [`--partial-parse` / `--no-partial-parse`](../../../reference/parsing.md#partial-parsing)                                         | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
 
 Search table...
 
@@ -237,9 +237,9 @@ The following deprecated flags require updates in your job definitions or script
 
 * **`--models` / `--model` / `-m`:** Use `--select` / `-s` instead (renamed in dbt Core v0.21). dbt raises an error in v2 if you use the old flags. Do not pass `--models` as the value to `-s` (for example, `dbt run -s --models`); v1 treated that as a model name, but v2 requires a valid selector.
 
-* **`--resource-type` / `--exclude-resource-type`:** Use `--resource-types` / `--exclude-resource-types`. For more information, see [Resource type flags](https://docs.getdbt.com/reference/global-configs/resource-type.md).
+* **`--resource-type` / `--exclude-resource-type`:** Use `--resource-types` / `--exclude-resource-types`. For more information, see [Resource type flags](../../../reference/global-configs/resource-type.md).
 
-Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
+Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](./upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
 
 #### Conflicting package versions when a local package depends on a hub package which the root package also wants will error[​](#conflicting-package-versions-when-a-local-package-depends-on-a-hub-package-which-the-root-package-also-wants-will-error "Direct link to Conflicting package versions when a local package depends on a hub package which the root package also wants will error")
 
@@ -304,7 +304,7 @@ In v2, dbt will error out during `parse`.
 
 #### Stricter evaluation of duplicate docs blocks[​](#stricter-evaluation-of-duplicate-docs-blocks "Direct link to Stricter evaluation of duplicate docs blocks")
 
-In v1, it was possible to create scenarios with duplicate [docs blocks](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks). For example, you can have two packages with identical docs blocks referenced by an unqualified name in your dbt project. In this case, v1 would use whichever docs block is referenced without any warnings or errors.
+In v1, it was possible to create scenarios with duplicate [docs blocks](../../build/documentation.md#using-docs-blocks). For example, you can have two packages with identical docs blocks referenced by an unqualified name in your dbt project. In this case, v1 would use whichever docs block is referenced without any warnings or errors.
 
 v2 adds stricter evaluation of names of docs blocks to prevent such ambiguity. It will present an error if it detects duplicate names:
 
@@ -348,7 +348,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For more information, refer to [Using threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md#fusion-engine-thread-optimization).
+For more information, refer to [Using threads](../../running-a-dbt-project/using-threads.md#fusion-engine-thread-optimization).
 
 #### Continue to compile unrelated nodes after hitting a compile error[​](#continue-to-compile-unrelated-nodes-after-hitting-a-compile-error "Direct link to Continue to compile unrelated nodes after hitting a compile error")
 
@@ -451,7 +451,7 @@ models:
       - *id_column_alias
 ```
 
-This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](https://docs.getdbt.com/reference/resource-properties/anchors.md).
+This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](../../../reference/resource-properties/anchors.md).
 
 #### Algebraic operations in Jinja macros[​](#algebraic-operations-in-jinja-macros "Direct link to Algebraic operations in Jinja macros")
 
@@ -513,7 +513,7 @@ To access custom configurations stored under meta, use the explicit methods:
 {% set has_pii = config.meta_require('pii') %}
 ```
 
-For more information, see [config.meta\_get()](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_get) and [config.meta\_require()](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md#configmeta_require).
+For more information, see [config.meta\_get()](../../../reference/dbt-jinja-functions/config.md#configmeta_get) and [config.meta\_require()](../../../reference/dbt-jinja-functions/config.md#configmeta_require).
 
 ### v2 compiler[​](#v2-compiler "Direct link to v2 compiler")
 
@@ -538,13 +538,13 @@ from {{ ref('my_table') }}
 
 <!-- -->
 
-To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
 * Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with Fusion. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
   Even if a package doesn't reflect compatibility in the package hub, it may still work with Fusion. Work with package maintainers to track updates, and [thoroughly test packages](https://docs.getdbt.com/guides/fusion-package-compat?step=5) that aren't clearly compatible before deploying.
 
-* Package maintainers who would like to make their package compatible with Fusion can refer to the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md) for instructions.
+* Package maintainers who would like to make their package compatible with Fusion can refer to the [Fusion package upgrade guide](../../../guides/fusion-package-compat.md) for instructions.
 
 Fivetran package considerations:
 
@@ -579,11 +579,11 @@ dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current v
 
 ## Distributions[​](#distributions "Direct link to Distributions")
 
-v2 is available in two distributions. For more information, refer to [dbt licensing](https://docs.getdbt.com/docs/dbt-licensing.md).
+v2 is available in two distributions. For more information, refer to [dbt licensing](../../dbt-licensing.md).
 
 | Distribution | Package    | Use it when                                                                                                                                        |
 | ------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Fusion       | `dbt`      | You want the recommended v2 experience, with Fusion installed by default.                                                                          |
-| dbt Core 2.0 | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](https://docs.getdbt.com/docs/local/install-dbt-core-v2.md). |
+| dbt Core 2.0 | `dbt-core` | Your organization has a strict requirement to use the Apache 2.0 [open-source runtime](../../local/install-dbt-core-v2.md). |
 
 If you have a older project that isn’t ready to move to v2, continue using `dbt-core` v1.x for compatibility. For new or upgraded projects, we recommend v2.

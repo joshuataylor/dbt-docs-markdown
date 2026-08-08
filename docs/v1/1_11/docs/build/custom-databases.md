@@ -44,7 +44,7 @@ select * from ...
 
 ### generate\_database\_name[​](#generate_database_name "Direct link to generate_database_name")
 
-The database name generated for a model is controlled by a macro called `generate_database_name`. This macro can be overridden in a dbt project to change how dbt generates model database names. This macro works similarly to the [generate\_schema\_name](https://docs.getdbt.com/docs/build/custom-schemas.md#advanced-custom-schema-configuration) macro.
+The database name generated for a model is controlled by a macro called `generate_database_name`. This macro can be overridden in a dbt project to change how dbt generates model database names. This macro works similarly to the [generate\_schema\_name](./custom-schemas.md#advanced-custom-schema-configuration) macro.
 
 To override dbt's database name generation, create a macro named `generate_database_name` in your own dbt project. The `generate_database_name` macro accepts two arguments:
 
@@ -78,11 +78,11 @@ get\_custom\_database.sql
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
-You can remove unwanted spaces and lines with Jinja's [whitespace control](https://docs.getdbt.com/faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
+You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
 ### Managing different behaviors across packages[​](#managing-different-behaviors-across-packages "Direct link to Managing different behaviors across packages")
 
-See docs on macro `dispatch`: ["Managing different global overrides across packages"](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md)
+See docs on macro `dispatch`: ["Managing different global overrides across packages"](../../reference/dbt-jinja-functions/dispatch.md)
 
 ## Considerations[​](#considerations "Direct link to Considerations")
 
@@ -92,6 +92,6 @@ When dbt opens a BigQuery connection, it will do so using the `project_id` defin
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Customize dbt models database, schema, and alias](https://docs.getdbt.com/guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
-* [Custom schema](https://docs.getdbt.com/docs/build/custom-schemas.md) to learn how to customize dbt model schema
-* [Custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md) to learn how to customize dbt model alias name
+* [Customize dbt models database, schema, and alias](../../guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
+* [Custom schema](./custom-schemas.md) to learn how to customize dbt model schema
+* [Custom aliases](./custom-aliases.md) to learn how to customize dbt model alias name

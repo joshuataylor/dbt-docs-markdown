@@ -2,7 +2,7 @@
 
 ## General[​](#general "Direct link to General")
 
-* *Set `quote_columns`* - to prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](https://docs.getdbt.com/reference/resource-configs/quote_columns.md) for more information.
+* *Set `quote_columns`* - to prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](./quote_columns.md) for more information.
 
   ```yaml
   seeds:
@@ -296,7 +296,7 @@
 
 Using seeds to load raw data
 
-As explained in [dbt seeds documentation](https://docs.getdbt.com/docs/build/seeds.md), seeds should not be used to load raw data (for example, large CSV exports from a production database).
+As explained in [dbt seeds documentation](../../docs/build/seeds.md), seeds should not be used to load raw data (for example, large CSV exports from a production database).
 
 Since seeds are version controlled, they are best suited to files that contain business-specific logic, for example a list of country codes or user IDs of employees.
 
@@ -361,7 +361,7 @@ models:
 
 > ℹ️<!-- --> `copy_grants` is not supported in Teradata.
 
-Refer to [grants](https://docs.getdbt.com/reference/resource-configs/grants.md) for more information on Grants.
+Refer to [grants](./grants.md) for more information on Grants.
 
 ## Query band[​](#query-band "Direct link to Query band")
 
@@ -404,7 +404,7 @@ Project_name:
 
 * Unit testing is supported in dbt-teradata, allowing users to write and execute unit tests using the dbt test command.
   <!-- -->
-  * For detailed guidance, refer to the [dbt unit tests documentation](https://docs.getdbt.com/docs/build/documentation.md).
+  * For detailed guidance, refer to the [dbt unit tests documentation](../../docs/build/documentation.md).
 
 > In Teradata, reusing the same alias across multiple common table expressions (CTEs) or subqueries within a single model is not permitted, as it results in parsing errors; therefore, it is essential to assign unique aliases to each CTE or subquery to ensure proper query execution.
 

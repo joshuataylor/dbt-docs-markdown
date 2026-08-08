@@ -6,10 +6,10 @@ The Semantic Layer offers a seamless integration with Excel Online and Desktop t
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* You have [configured the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher.
+* You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher.
 * You need a Microsoft Excel account with access to install add-ons.
-* You have a [dbt Environment ID](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer).
-* You have a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) to authenticate with from a dbt account.
+* You have a [dbt Environment ID](../../use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer).
+* You have a [service token](../../dbt-apis/service-tokens.md) or a [personal access token](../../dbt-apis/user-tokens.md) to authenticate with from a dbt account.
 * You must have a dbt Starter, Enterprise, or Enterprise+ [account](https://www.getdbt.com/pricing). Suitable for both Multi-tenant and Single-tenant deployment.
 
 tip
@@ -60,11 +60,11 @@ When you select time dimensions in the **Group By** menu, you'll see a list of a
 
 info
 
-Note: [Custom time granularities](https://docs.getdbt.com/docs/build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](https://docs.getdbt.com/docs/build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md).
+Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](../../build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](../../dbt-apis/sl-api-overview.md).
 
 #### Filtering data[​](#filtering-data "Direct link to Filtering data")
 
-To use the filter functionality, choose the [dimension](https://docs.getdbt.com/docs/build/dimensions.md) you want to filter by and select the operation you want to filter on.
+To use the filter functionality, choose the [dimension](../../build/dimensions.md) you want to filter by and select the operation you want to filter on.
 
 * For categorical dimensions, you can type a value into search or select from a populated list.
 * For entities, you must type the value you are looking for as we do not load all of them given the large number of values.
@@ -100,7 +100,7 @@ What's the difference between saved selections and saved queries?
 
 ## Using saved queries[​](#using-saved-queries "Direct link to Using saved queries")
 
-Access [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md), powered by MetricFlow, in <!-- -->Microsoft Excel<!-- --> to quickly get results from pre-defined sets of data. To access the saved queries in <!-- -->Microsoft Excel<!-- -->:
+Access [saved queries](../../build/saved-queries.md), powered by MetricFlow, in <!-- -->Microsoft Excel<!-- --> to quickly get results from pre-defined sets of data. To access the saved queries in <!-- -->Microsoft Excel<!-- -->:
 
 1. Open the hamburger menu in
    <!-- -->
@@ -119,7 +119,7 @@ Access [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md), pow
 
 I'm receiving an \`Failed ALPN\` error when trying to connect to the dbt Semantic Layer.
 
-If you're receiving a `Failed ALPN` error when trying to connect the dbt Semantic Layer with the various [data integration tools](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md) (such as Tableau, DBeaver, Datagrip, ADBC, or JDBC), it typically happens when connecting from a computer behind a corporate VPN or Proxy (like Zscaler or Check Point).
+If you're receiving a `Failed ALPN` error when trying to connect the dbt Semantic Layer with the various [data integration tools](../avail-sl-integrations.md) (such as Tableau, DBeaver, Datagrip, ADBC, or JDBC), it typically happens when connecting from a computer behind a corporate VPN or Proxy (like Zscaler or Check Point).
 
 The root cause is typically the proxy interfering with the TLS handshake as the Semantic Layer uses gRPC/HTTP2 for connectivity. To resolve this:
 

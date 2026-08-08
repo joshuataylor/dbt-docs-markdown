@@ -15,7 +15,7 @@ Inbound AWS PrivateLink lets your services reach a single-tenant dbt platform in
 
 Single-tenant only, provisioned by dbt Labs
 
-Ingress PrivateLink is available only for single-tenant deployments; multi-tenant ingress isn't currently supported (refer to the [AWS private connectivity matrix](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-overview.md)).
+Ingress PrivateLink is available only for single-tenant deployments; multi-tenant ingress isn't currently supported (refer to the [AWS private connectivity matrix](./aws-overview.md)).
 
 dbt Labs provisions it for your instance. To scope it and receive your endpoint service name, contact your **dbt Labs account team or Solutions Architect**. If you don't have a single-tenant deployment yet, [contact our sales team](mailto:sales@getdbt.com).
 

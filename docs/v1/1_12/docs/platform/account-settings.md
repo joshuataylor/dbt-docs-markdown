@@ -14,7 +14,7 @@ Git repository caching is enabled by default for all new Enterprise and Enterpri
 
 See the next section for more details on repo caching, retention, and more.
 
-At the start of every [job](https://docs.getdbt.com/docs/deploy/jobs.md) run, dbt clones the project's Git repository so it has the latest versions of your project's code and runs `dbt deps` to install your dependencies.
+At the start of every [job](../deploy/jobs.md) run, dbt clones the project's Git repository so it has the latest versions of your project's code and runs `dbt deps` to install your dependencies.
 
 For improved reliability and performance on your job runs, you can enable dbt to keep a cache of the project's Git repository. So, if there's a third-party outage that causes the cloning operation to fail, dbt will instead use the cached copy of the repo so your jobs can continue running as scheduled.
 
@@ -24,8 +24,8 @@ dbt will use the cached copy of your project's Git repo under these circumstance
 
 * Outages from third-party services (for example, the [dbt package hub](https://hub.getdbt.com/)).
 * Git authentication fails.
-* There are syntax errors in the `packages.yml` file. You can set up and use [continuous integration (CI)](https://docs.getdbt.com/docs/deploy/continuous-integration.md) to find these errors sooner.
-* If a package doesn't work with the current dbt version. You can set up and use [continuous integration (CI)](https://docs.getdbt.com/docs/deploy/continuous-integration.md) to identify this issue sooner.
+* There are syntax errors in the `packages.yml` file. You can set up and use [continuous integration (CI)](../deploy/continuous-integration.md) to find these errors sooner.
+* If a package doesn't work with the current dbt version. You can set up and use [continuous integration (CI)](../deploy/continuous-integration.md) to identify this issue sooner.
 * Note, Git repository caching should not be used for CI jobs. CI jobs are designed to test the latest code changes in a pull request and ensure your code is up to date. Using a cached copy of the repo in CI jobs could result in stale code being tested.
 
 To use, select the **Enable repository caching** option from your account settings.
@@ -38,7 +38,7 @@ At the start of every dbt invocation, dbt reads all the files in your project, e
 
 Parsing projects can be time-consuming, especially for large projects with hundreds of models and thousands of files. To reduce the time it takes dbt to parse your project, use the partial parsing feature in dbt for your environment. When enabled, dbt uses the `partial_parse.msgpack` file to determine which files have changed (if any) since the project was last parsed, and then it parses *only* the changed files and the files related to those changes.
 
-Partial parsing in dbt requires dbt version 1.4 or newer. The feature does have some known limitations. Refer to [Known limitations](https://docs.getdbt.com/reference/parsing.md#known-limitations) to learn more about them.
+Partial parsing in dbt requires dbt version 1.4 or newer. The feature does have some known limitations. Refer to [Known limitations](../../reference/parsing.md#known-limitations) to learn more about them.
 
 To use, select the **Enable partial parsing between deployment runs** option from your account settings.
 
@@ -54,7 +54,7 @@ Admins can enable access to both dbt Wizard (dbt Labs’ AI agent layer, availab
 
 ### Enabling Advanced CI features [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#enabling-advanced-ci-features- "Direct link to enabling-advanced-ci-features-")
 
-[Advanced CI](https://docs.getdbt.com/docs/deploy/advanced-ci.md) features, such as [compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes), allow dbt account members to view details about the changes between what's in the production environment and the pull request.
+[Advanced CI](../deploy/advanced-ci.md) features, such as [compare changes](../deploy/advanced-ci.md#compare-changes), allow dbt account members to view details about the changes between what's in the production environment and the pull request.
 
 To use Advanced CI features, your dbt account must have access to them. Ask your dbt administrator to enable Advanced CI features on your account, which they can do by choosing the **Enable account access to Advanced CI** option from the account settings.
 
@@ -64,15 +64,15 @@ Once enabled, the **dbt compare** option becomes available in the CI job setting
 
 ### Enabling external metadata ingestion in dbt Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#enabling-external-metadata-ingestion-in-dbt-catalog- "Direct link to enabling-external-metadata-ingestion-in-dbt-catalog-")
 
-[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) allows you to view your project's resources (for example, models, tests, and metrics), their lineage, and model consumption to gain a better understanding of your project's latest production state.
+[Catalog](../explore/explore-projects.md) allows you to view your project's resources (for example, models, tests, and metrics), their lineage, and model consumption to gain a better understanding of your project's latest production state.
 
-You can bring [external metadata](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md) into Catalog by connecting directly to your warehouse. This enables you to view tables and other assets that aren't defined in dbt. Currently, external metadata ingestion is supported for Snowflake only.
+You can bring [external metadata](../explore/external-metadata-ingestion.md) into Catalog by connecting directly to your warehouse. This enables you to view tables and other assets that aren't defined in dbt. Currently, external metadata ingestion is supported for Snowflake only.
 
-To use external metadata ingestion, you must be an [account admin](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-admin) with permission to edit connections. Enable Catalog in your account by selecting the **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** option from your account settings. For more information, see [Enable external metadata ingestion](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md#enable-external-metadata-ingestion).
+To use external metadata ingestion, you must be an [account admin](./manage-access/enterprise-permissions.md#account-admin) with permission to edit connections. Enable Catalog in your account by selecting the **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** option from your account settings. For more information, see [Enable external metadata ingestion](../explore/external-metadata-ingestion.md#enable-external-metadata-ingestion).
 
 ### Enable global account discovery[​](#enable-global-account-discovery "Direct link to Enable global account discovery")
 
-When **Enable global account discovery** is on, users can discover all accounts associated with their email address at login. Users still access accounts using their credentials or the account's designated auth method (for example, SSO). Refer to [Log in to dbt platform](https://docs.getdbt.com/docs/platform/about-platform/login.md) for more info.
+When **Enable global account discovery** is on, users can discover all accounts associated with their email address at login. Users still access accounts using their credentials or the account's designated auth method (for example, SSO). Refer to [Log in to dbt platform](./about-platform/login.md) for more info.
 
 <!-- -->
 
@@ -80,9 +80,9 @@ info
 
 `login.dbt.com` is currently available for multi-tenant accounts with an account-specific domain (for example, `abc123.us1.dbt.com`). Support for single-tenant accounts is coming soon. In the meantime, single-tenant users can sign in directly using their account **Access URL** (like `MY_COMPANY.us1.dbt.com`).
 
-OAuth clients such as [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md), the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md?version=2.0), and [dbt MCP](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md) have not yet been updated to use `login.dbt.com` and continue to authenticate through their account [**Access URL**](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+OAuth clients such as [dbt CLI](./dbt-cli-installation.md), the [dbt VS Code extension](../about-dbt-extension.md?version=2.0), and [dbt MCP](../dbt-ai/about-mcp.md) have not yet been updated to use `login.dbt.com` and continue to authenticate through their account [**Access URL**](./about-platform/access-regions-ip-addresses.md).
 
-Disabling this setting means users must know their [account URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md#accessing-your-account) to log in; they will not see a list of accounts at login.
+Disabling this setting means users must know their [account URL](./about-platform/access-regions-ip-addresses.md#accessing-your-account) to log in; they will not see a list of accounts at login.
 
 To change this setting, select or clear the **Enable global account discovery** option in your account settings. If you disable it, a confirmation pop-up box explains that users will need the account URL to log in and access the account.
 

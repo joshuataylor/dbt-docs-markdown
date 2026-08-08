@@ -59,8 +59,8 @@ Search table...
 
 ### Incremental models[​](#incremental-models "Direct link to Incremental models")
 
-* [How do I rebuild an incremental model?](https://docs.getdbt.com/docs/build/incremental-models.md#how-do-i-rebuild-an-incremental-model)
-* [What if the columns of my incremental model change?](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change)
+* [How do I rebuild an incremental model?](../../docs/build/incremental-models.md#how-do-i-rebuild-an-incremental-model)
+* [What if the columns of my incremental model change?](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change)
 
 ### Seeds[​](#seeds "Direct link to Seeds")
 
@@ -139,8 +139,8 @@ The `--full-refresh` flag will force dbt to `drop cascade` the existing table be
   ) }}
   ```
 
-  Then override the `full_refresh` config to `true` using the [`--vars` flag](https://docs.getdbt.com/docs/build/project-variables.md#defining-variables-on-the-command-line): `dbt run --vars '{"force_full_refresh": true}'`.
+  Then override the `full_refresh` config to `true` using the [`--vars` flag](../../docs/build/project-variables.md#defining-variables-on-the-command-line): `dbt run --vars '{"force_full_refresh": true}'`.
 
 ## Reference docs[​](#reference-docs "Direct link to Reference docs")
 
-* [on\_configuration\_change](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md)
+* [on\_configuration\_change](./on_configuration_change.md)

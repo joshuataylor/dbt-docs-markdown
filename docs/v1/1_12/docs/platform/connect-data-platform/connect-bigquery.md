@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-To see which BigQuery functions are supported in Fusion in `strict` mode, refer to [BigQuery function support](https://docs.getdbt.com/reference/resource-configs/bigquery-function-support.md).
+To see which BigQuery functions are supported in Fusion in `strict` mode, refer to [BigQuery function support](../../../reference/resource-configs/bigquery-function-support.md).
 
 ## Required permissions[​](#required-permissions "Direct link to Required permissions")
 
@@ -17,7 +17,7 @@ For BigQuery with dbt Fusion engine, users also need:
 
 * BigQuery Read Session User (for Storage Read API access)
 
-To use the [Query History](https://docs.getdbt.com/docs/explore/model-query-history.md#bigquery-model-query-history) feature, add:
+To use the [Query History](../../explore/model-query-history.md#bigquery-model-query-history) feature, add:
 
 * BigQuery Resource Viewer
 
@@ -106,7 +106,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md#required-permissions).
+For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](./connect-bigquery.md#required-permissions).
 
 ### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
 
@@ -166,14 +166,14 @@ dbt supports different authentication methods depending on your environment and 
   * Service JSON
   * BigQuery Workload Identity Federation (WIF) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-These authentication methods are set up in the [global connections account settings](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md), rather than single sign-on or integration settings.
+These authentication methods are set up in the [global connections account settings](./about-connections.md), rather than single sign-on or integration settings.
 
 When you create a new BigQuery connection, you will be presented with two schema options for the connection (both use the same adapter):
 
 * **BigQuery:** Supports all connection types (Use this option)
 * **BigQuery (Legacy):**  Supports all connection types except for WIF (Deprecated feature. Do not use.)
 
-All new connections should use the **BigQuery** option as **BigQuery (Legacy)** will be deprecated. To update existing connections and credentials in an environment to use the new BigQuery option, first, use the [APIs](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) to remove the configurations.
+All new connections should use the **BigQuery** option as **BigQuery (Legacy)** will be deprecated. To update existing connections and credentials in an environment to use the new BigQuery option, first, use the [APIs](../../dbt-apis/admin-api.md) to remove the configurations.
 
 ### JSON keyfile[​](#json-keyfile "Direct link to JSON keyfile")
 
@@ -219,7 +219,7 @@ Search table...
 
 **Available in:** Development environments, Enterprise-tier plans only
 
-The OAuth auth method permits dbt to run queries on behalf of a BigQuery user or workload without storing the BigQuery service account keyfile in dbt. However, the JSON must still be provided, or fields must be manually filled out to complete the configuration in dbt Cloud. Those values do not have to be real for this bypass to work (for example, they can be `N/A`). For more information on the initial configuration of a BigQuery OAuth connection in dbt>, please see [the docs on setting up BigQuery OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md).
+The OAuth auth method permits dbt to run queries on behalf of a BigQuery user or workload without storing the BigQuery service account keyfile in dbt. However, the JSON must still be provided, or fields must be manually filled out to complete the configuration in dbt Cloud. Those values do not have to be real for this bypass to work (for example, they can be `N/A`). For more information on the initial configuration of a BigQuery OAuth connection in dbt>, please see [the docs on setting up BigQuery OAuth](../manage-access/set-up-bigquery-oauth.md).
 
 As an end user, if your organization has set up BigQuery OAuth, you can link a project with your personal BigQuery account in your Profile in dbt.
 
@@ -231,11 +231,11 @@ If you're using BigQuery WIF, we recommend using it with BigQuery OAuth. Otherwi
 
 **Available in:** Deployment environments
 
-The BigQuery WIF auth method permits dbt to run deployment queries as a service account without configuring a BigQuery service account keyfile in dbt. For more information on the initial configuration of a BigQuery WIF connection in dbt, refer to [Set up BigQuery Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation).
+The BigQuery WIF auth method permits dbt to run deployment queries as a service account without configuring a BigQuery service account keyfile in dbt. For more information on the initial configuration of a BigQuery WIF connection in dbt, refer to [Set up BigQuery Workload Identity Federation](../manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation).
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [BigQuery-specific configuration](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [BigQuery-specific configuration](../../../reference/resource-configs/bigquery-configs.md).
 
 ### Optional configurations[​](#optional-configurations "Direct link to Optional configurations")
 
@@ -352,18 +352,18 @@ This region must match the location of your BigQuery dataset if you want to use 
 
 ### Account level connections and credential management[​](#account-level-connections-and-credential-management "Direct link to Account level connections and credential management")
 
-You can re-use connections across multiple projects with [global connections](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md#migration-from-project-level-connections-to-account-level-connections). Connections are attached at the environment level (formerly project level), so you can use multiple connections inside of a single project (to handle dev, staging, production, and more).
+You can re-use connections across multiple projects with [global connections](./about-connections.md#migration-from-project-level-connections-to-account-level-connections). Connections are attached at the environment level (formerly project level), so you can use multiple connections inside of a single project (to handle dev, staging, production, and more).
 
-BigQuery connections in dbt currently expect the credentials to be handled at the connection level (and only BigQuery connections). This was originally designed to facilitate creating a new connection by uploading a service account keyfile. This describes how to override credentials at the environment level, via [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes), *to allow project administrators to manage credentials independently* of the account level connection details used for that environment.
+BigQuery connections in dbt currently expect the credentials to be handled at the connection level (and only BigQuery connections). This was originally designed to facilitate creating a new connection by uploading a service account keyfile. This describes how to override credentials at the environment level, via [extended attributes](../../dbt-platform-environments.md#extended-attributes), *to allow project administrators to manage credentials independently* of the account level connection details used for that environment.
 
 For a project, you will first create an environment variable to store the secret `private_key` value. Then, you will use extended attributes to override the entire service account JSON (you can't only override the secret key due to a constraint of extended attributes).
 
 1. **New environment variable**
 
-   * Create a new *secret* [environment variable](https://docs.getdbt.com/docs/build/environment-variables.md#handling-secrets) to handle the private key: `DBT_ENV_SECRET_PROJECTXXX_PRIVATE_KEY`
+   * Create a new *secret* [environment variable](../../build/environment-variables.md#handling-secrets) to handle the private key: `DBT_ENV_SECRET_PROJECTXXX_PRIVATE_KEY`
    * Fill in the private key value according the environment
 
-   To automate your deployment, use the following [admin API request](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Projects%20Environment%20Variables%20Bulk), with `XXXXX` your account number, `YYYYY` your project number, `ZZZZZ` your [API token](https://docs.getdbt.com/docs/dbt-apis/authentication.md):
+   To automate your deployment, use the following [admin API request](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Projects%20Environment%20Variables%20Bulk), with `XXXXX` your account number, `YYYYY` your project number, `ZZZZZ` your [API token](../../dbt-apis/authentication.md):
 
    ```shell
    curl --request POST \
@@ -385,7 +385,7 @@ For a project, you will first create an environment variable to store the secret
 
 2. **Extended attributes**
 
-   In the environment details, complete the [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) block with the following payload (replacing `XXX` with your corresponding information):
+   In the environment details, complete the [extended attributes](../../dbt-platform-environments.md#extended-attributes) block with the following payload (replacing `XXX` with your corresponding information):
 
    ```yaml
    keyfile_json:
@@ -401,7 +401,7 @@ For a project, you will first create an environment variable to store the secret
      client_x509_cert_url: xxx
    ```
 
-   If you require [other fields](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#service-account-json) to be overridden at the environment level via extended attributes, please respect the [expected indentation](https://docs.getdbt.com/docs/dbt-platform-environments.md#only-the-top-level-keys-are-accepted-in-extended-attributes) (ordering doesn't matter):
+   If you require [other fields](../../local/connect-data-platform/bigquery-setup.md#service-account-json) to be overridden at the environment level via extended attributes, please respect the [expected indentation](../../dbt-platform-environments.md#only-the-top-level-keys-are-accepted-in-extended-attributes) (ordering doesn't matter):
 
    ```yaml
    priority: interactive
@@ -419,7 +419,7 @@ For a project, you will first create an environment variable to store the secret
    execution_project: buck-stops-here-456
    ```
 
-   To automate your deployment, you first need to [create the extended attributes payload](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Extended%20Attributes) for a given project, and then [assign it](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Update%20Environment) to a specific environment. With `XXXXX` as your account number, `YYYYY` as your project number, and `ZZZZZ` as your [API token](https://docs.getdbt.com/docs/dbt-apis/authentication.md):
+   To automate your deployment, you first need to [create the extended attributes payload](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Extended%20Attributes) for a given project, and then [assign it](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Update%20Environment) to a specific environment. With `XXXXX` as your account number, `YYYYY` as your project number, and `ZZZZZ` as your [API token](../../dbt-apis/authentication.md):
 
    ```shell
    curl --request POST \

@@ -1,6 +1,6 @@
 # About model object
 
-`model` is the dbt [graph object](https://docs.getdbt.com/reference/dbt-jinja-functions/graph.md) (or node) for the current model. It can be used to:
+`model` is the dbt [graph object](./graph.md) (or node) for the current model. It can be used to:
 
 * Access `config` settings, say, in a post-hook
 * Access the path to the model
@@ -18,7 +18,7 @@ To view the contents of `model` for a given model:
 * Command line interface
 * Studio IDE
 
-If you're using the command line interface (CLI), use [log()](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md) to print the full contents:
+If you're using the command line interface (CLI), use [log()](./log.md) to print the full contents:
 
 ```jinja
 {{ log(model, info=True) }}
@@ -32,14 +32,14 @@ If you're using the Studio IDE, compile the following to print the full contents
 
 ## Batch properties for microbatch models[​](#batch-properties-for-microbatch-models "Direct link to Batch properties for microbatch models")
 
-Starting in dbt Core v1.9, the model object includes a `batch` property (`model.batch`), which provides details about the current batch when executing an [incremental microbatch](https://docs.getdbt.com/docs/build/incremental-microbatch.md) model. This property is only populated during the batch execution of a microbatch model.
+Starting in dbt Core v1.9, the model object includes a `batch` property (`model.batch`), which provides details about the current batch when executing an [incremental microbatch](../../docs/build/incremental-microbatch.md) model. This property is only populated during the batch execution of a microbatch model.
 
 The following table describes the properties of the `batch` object. Note that dbt appends the property to the `model` and `batch` objects.
 
 | Property           | Description                                                                                                                        | Example                        |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
 | `id`               | The unique identifier for the batch within the context of the microbatch model.                                                    | `model.batch.id`               |
-| `event_time_start` | The start time of the batch's [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) filter (inclusive). | `model.batch.event_time_start` |
+| `event_time_start` | The start time of the batch's [`event_time`](../resource-configs/event-time.md) filter (inclusive). | `model.batch.event_time_start` |
 | `event_time_end`   | The end time of the batch's `event_time` filter (exclusive).                                                                       | `model.batch.event_time_end`   |
 
 Search table...
@@ -86,7 +86,7 @@ To view the structure of `models` and their definitions:
 * Refer to [dbt JSON Schema](https://schemas.getdbt.com/) for describing and consuming dbt generated artifacts
 * Select the corresponding manifest version under **Manifest**. For example if you're on dbt v1.8, then you would select Manifest v12
   <!-- -->
-  * The `manifest.json` version number is related to (but not *equal* to) your dbt version, so you *must* use the correct `manifest.json` version for your dbt version. To find the correct `manifest.json` version, refer to [Manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) and select the dbt version on the top navigation (such as `v1.5`). This will help you find out which tags are associated with your model.
+  * The `manifest.json` version number is related to (but not *equal* to) your dbt version, so you *must* use the correct `manifest.json` version for your dbt version. To find the correct `manifest.json` version, refer to [Manifest](../artifacts/manifest-json.md) and select the dbt version on the top navigation (such as `v1.5`). This will help you find out which tags are associated with your model.
 * Then go to `nodes` --> Select Additional properties --> `CompiledModelNode` or view other definitions/objects.
 
 Use the following table to understand how the versioning pattern works and match the Manifest version with the dbt version:

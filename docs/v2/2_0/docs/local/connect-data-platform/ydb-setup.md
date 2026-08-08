@@ -35,13 +35,13 @@ Installing `dbt-ydb` will also install `dbt-core` and any other dependencies.
 
 ## Configuring <!-- -->dbt-ydb<!-- -->
 
-For <!-- -->YDB<!-- -->-specifc configuration please refer to [YDB<!-- --> Configuration](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->YDB<!-- -->-specifc configuration please refer to [YDB<!-- --> Configuration](../../../reference/resource-configs/no-configs.md)
 
 For further info, refer to the GitHub repository: [ydb-platform/dbt-ydb](https://github.com/ydb-platform/dbt-ydb)
 
 ## Connecting to YDB[​](#connecting-to-ydb "Direct link to Connecting to YDB")
 
-To connect to YDB from dbt, you'll need to add a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to your `profiles.yml` file. A YDB profile conforms to the following syntax:
+To connect to YDB from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A YDB profile conforms to the following syntax:
 
 profiles.yml
 

@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-decodable<!-- -->
 
-For <!-- -->Decodable<!-- -->-specific configuration, please refer to [Decodable<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Decodable<!-- -->-specific configuration, please refer to [Decodable<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to Decodable with **dbt-decodable**[​](#connecting-to-decodable-with-dbt-decodable "Direct link to connecting-to-decodable-with-dbt-decodable")
 

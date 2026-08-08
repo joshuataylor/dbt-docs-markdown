@@ -6,15 +6,15 @@ With data health tiles, stakeholders will get an at-a-glance confirmation on whe
 
 The data health tile:
 
-* Distills [data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) for data consumers.
+* Distills [data health signals](./data-health-signals.md) for data consumers.
 * Deep links you into Catalog where you can further dive into upstream data issues.
 * Provides richer information and makes it easier to debug.
 * Revamps the existing, [job-based tiles](#job-based-data-health).
 
-Data health tiles rely on [exposures](https://docs.getdbt.com/docs/build/exposures.md) to surface data health signals in your dashboards. An exposure defines how specific outputs — like dashboards or reports — depend on your data models. Exposures in dbt can be configured in two ways:
+Data health tiles rely on [exposures](../build/exposures.md) to surface data health signals in your dashboards. An exposure defines how specific outputs — like dashboards or reports — depend on your data models. Exposures in dbt can be configured in two ways:
 
-* Manual — Defined [manually](https://docs.getdbt.com/docs/build/exposures.md#declaring-an-exposure) and explicitly in your project’s YAML files.
-* Automatic — Pulled automatically for supported dbt integrations. dbt automatically [creates and visualizes downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md), removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), and behave like manual exposures, however they don’t exist in YAML files.
+* Manual — Defined [manually](../build/exposures.md#declaring-an-exposure) and explicitly in your project’s YAML files.
+* Automatic — Pulled automatically for supported dbt integrations. dbt automatically [creates and visualizes downstream exposures](../platform-integrations/downstream-exposures.md), removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](./explore-projects.md), and behave like manual exposures, however they don’t exist in YAML files.
 
 [![Example of passing Data health tile in your dashboard.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Example of passing Data health tile in your dashboard.")](#)Example of passing Data health tile in your dashboard.
 
@@ -24,30 +24,30 @@ Data health tiles rely on [exposures](https://docs.getdbt.com/docs/build/exposur
 
 * You must have a dbt account on an [Enterprise-tier plan](https://www.getdbt.com/pricing/).
 
-* You must be an account admin to set up [service tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
+* You must be an account admin to set up [service tokens](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
 
-* You must have [develop permissions](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+* You must have [develop permissions](../platform/manage-access/seats-and-users.md).
 
-* You have [exposures](https://docs.getdbt.com/docs/build/exposures.md) defined in your project:
+* You have [exposures](../build/exposures.md) defined in your project:
 
   <!-- -->
 
   * If using manual exposures, they must be explicitly defined in your YAML files.
-  * If using automatic downstream exposures, ensure your BI tool is [configured](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md) with dbt.
+  * If using automatic downstream exposures, ensure your BI tool is [configured](../platform-integrations/downstream-exposures-tableau.md) with dbt.
 
-* You have [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) enabled in the job that generates this exposure.
+* You have [source freshness](../deploy/source-freshness.md) enabled in the job that generates this exposure.
 
-* The exposure used for the data health tile must have the [`type` property](https://docs.getdbt.com/docs/build/exposures.md#available-properties) set to `dashboard`. Otherwise, you won't be able to view the **Embed data health tile in your dashboard** dropdown in Catalog.
+* The exposure used for the data health tile must have the [`type` property](../build/exposures.md#available-properties) set to `dashboard`. Otherwise, you won't be able to view the **Embed data health tile in your dashboard** dropdown in Catalog.
 
 ## View exposure in dbt Catalog[​](#view-exposure-in-dbt-catalog "Direct link to View exposure in dbt Catalog")
 
-First, be sure to enable [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) in the job that generates this exposure.
+First, be sure to enable [source freshness](../deploy/source-freshness.md) in the job that generates this exposure.
 
 1. Navigate to Catalog by clicking on the **Catalog** link in the navigation.
 
 2. In the main **Overview** page, go to the left navigation.
 
-3. Click on **Exposures** to view the [exposures](https://docs.getdbt.com/docs/build/exposures.md) list.
+3. Click on **Exposures** to view the [exposures](../build/exposures.md) list.
 
 4. Select a dashboard exposure and go to the **General** tab to view the data health information.
 
@@ -67,14 +67,14 @@ First, be sure to enable [source freshness](https://docs.getdbt.com/docs/deploy
 
 ## Embed in your dashboard[​](#embed-in-your-dashboard "Direct link to Embed in your dashboard")
 
-Once you’ve navigated to the exposure in Catalog, you’ll need to set up your data health tile and [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md). You can embed data health tile to any analytics tool that supports URL or iFrame embedding.
+Once you’ve navigated to the exposure in Catalog, you’ll need to set up your data health tile and [service token](../dbt-apis/service-tokens.md). You can embed data health tile to any analytics tool that supports URL or iFrame embedding.
 
 Follow these steps to set up your data health tile:
 
 1. Go to **Account settings** in dbt.
 2. Select **API tokens** in the left sidebar and then **Service tokens**.
 3. Click on **Create service token** and give it a name.
-4. Select the [**Metadata Only**](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) permission. This token will be used to embed the tile in your dashboard in the later steps.
+4. Select the [**Metadata Only**](../dbt-apis/service-tokens.md) permission. This token will be used to embed the tile in your dashboard in the later steps.
 
 [![Set up your dashboard status tile and service token to embed a data health tile](/img/docs/collaborate/dbt-explorer/data-tile-setup.png?v=2 "Set up your dashboard status tile and service token to embed a data health tile")](#)Set up your dashboard status tile and service token to embed a data health tile
 
@@ -84,7 +84,7 @@ Follow these steps to set up your data health tile:
 
    tip
 
-   The exposure used for the data health tile must have the [`type` property](https://docs.getdbt.com/docs/build/exposures.md#available-properties) set to `dashboard`. Otherwise, you won't be able to view the **Embed data health tile in your dashboard** dropdown in Catalog.
+   The exposure used for the data health tile must have the [`type` property](../build/exposures.md#available-properties) set to `dashboard`. Otherwise, you won't be able to view the **Embed data health tile in your dashboard** dropdown in Catalog.
 
 7. Below the **Data health** section, expand on the toggle for instructions on how to embed the exposure tile (if you're an account admin with develop permissions).
 
@@ -132,7 +132,7 @@ Follow these steps to embed the data health tile in PowerBI:
 
 [![Create a new PowerBI measure.](/img/docs/collaborate/dbt-explorer/power-bi-measure.png?v=2 "Create a new PowerBI measure.")](#)Create a new PowerBI measure.
 
-3. Navigate to Catalog, select the exposure, and expand the [**Embed data health into your dashboard**](https://docs.getdbt.com/docs/explore/data-tile.md#embed-in-your-dashboard) toggle.
+3. Navigate to Catalog, select the exposure, and expand the [**Embed data health into your dashboard**](./data-tile.md#embed-in-your-dashboard) toggle.
 
 4. Go to the **iFrame** tab and copy the iFrame code. Make sure the Metadata Only token is already set up.
 
@@ -204,7 +204,7 @@ This section is for legacy job-based data health tiles. If you're using the reva
 
  Job-based data health
 
-In dbt, the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) can power dashboard status tiles, which are job-based. A dashboard status tile is placed on a dashboard (specifically: anywhere you can embed an iFrame) to give insight into the quality and freshness of the data feeding into that dashboard. This is done in dbt [exposures](https://docs.getdbt.com/docs/build/exposures.md).
+In dbt, the [Discovery API](../dbt-apis/discovery-api.md) can power dashboard status tiles, which are job-based. A dashboard status tile is placed on a dashboard (specifically: anywhere you can embed an iFrame) to give insight into the quality and freshness of the data feeding into that dashboard. This is done in dbt [exposures](../build/exposures.md).
 
 #### Functionality[​](#functionality "Direct link to Functionality")
 
@@ -220,13 +220,13 @@ Clicking into **see details** from the Dashboard Status Tile takes you to a land
 
 #### Setup[​](#setup "Direct link to Setup")
 
-First, be sure to enable [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) in the job that generates this exposure.
+First, be sure to enable [source freshness](../deploy/source-freshness.md) in the job that generates this exposure.
 
 In order to set up your dashboard status tile, here is what you need:
 
-1. **Metadata Only token.** You can learn how to set up a Metadata-Only token [here](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
+1. **Metadata Only token.** You can learn how to set up a Metadata-Only token [here](../dbt-apis/service-tokens.md).
 
-2. **Exposure name.** You can learn more about how to set up exposures [here](https://docs.getdbt.com/docs/build/exposures.md).
+2. **Exposure name.** You can learn more about how to set up exposures [here](../build/exposures.md).
 
 3. **Job iD.** Remember that you can select your job ID directly from the URL when looking at the relevant job in dbt.
 
@@ -238,7 +238,7 @@ You can insert these three fields into the following iFrame, and then embed it *
 
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
-dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the EMEA region, you would use the following iFrame code:
+dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the EMEA region, you would use the following iFrame code:
 
 ```html/text
 <iframe src='https://metadata.emea.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>' title='Exposure Status Tile'></iframe>
@@ -281,7 +281,7 @@ https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&jobId=<job_i
 
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
-dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the North American region, you would use the following code:
+dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the North American region, you would use the following code:
 
 ```html/text
 https://metadata.cloud.getdbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
@@ -299,7 +299,7 @@ https://metadata.YOUR_ACCESS_URL/exposure-tile?name=<exposure_name>&jobId=<job_i
 
 Replace `YOUR_ACCESS_URL` with your region and plan's Access URL
 
-dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the APAC region, you would use the following code:
+dbt is hosted in multiple regions in the world and each region has a different access URL. Replace `YOUR_ACCESS_URL` with the appropriate [Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan. For example, if your account is hosted in the APAC region, you would use the following code:
 
 ```html/text
 https://metadata.au.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>

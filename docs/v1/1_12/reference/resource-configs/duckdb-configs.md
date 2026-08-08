@@ -1,6 +1,6 @@
 # DuckDB configurations
 
-These configurations are specific to `dbt-duckdb`. For profile setup and connection options, refer to [Connect DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md). For general dbt concepts, refer to [Materializations](https://docs.getdbt.com/docs/build/materializations.md) and [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md).
+These configurations are specific to `dbt-duckdb`. For profile setup and connection options, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md). For general dbt concepts, refer to [Materializations](../../docs/build/materializations.md) and [Incremental models](../../docs/build/incremental-models.md).
 
 Some features require a minimum version of `dbt-duckdb`. Version requirements are noted inline throughout this page.
 
@@ -78,7 +78,7 @@ Each entry must include an `fs` property that identifies the `fsspec` protocol t
 
 ## Arbitrary ATTACH options[​](#arbitrary-attach-options "Direct link to Arbitrary ATTACH options")
 
-For the basic `attach` profile syntax, refer to [Connecting to DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md#attaching-additional-databases). Use the `options` dictionary when you need to pass additional key-value pairs to DuckDB's `ATTACH` statement:
+For the basic `attach` profile syntax, refer to [Connecting to DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md#attaching-additional-databases). Use the `options` dictionary when you need to pass additional key-value pairs to DuckDB's `ATTACH` statement:
 
 ```yml
 attach:
@@ -162,7 +162,7 @@ Plugins are a `dbt-duckdb` feature and are not supported in dbt Fusion engine or
 
 ## Python models[​](#python-models "Direct link to Python models")
 
-dbt supports [Python models](https://docs.getdbt.com/docs/build/python-models.md) in dbt Core 1.3 and later. In `dbt-duckdb`, Python models run in the same process that owns the DuckDB connection. The `.py` file is loaded as a Python module using [`importlib`](https://docs.python.org/3/library/importlib.html), the `model` function is called with a `dbt` object (containing `ref` and `source` information) and a `DuckDBPyConnection` object, and the returned object is materialized as a table.
+dbt supports [Python models](../../docs/build/python-models.md) in dbt Core 1.3 and later. In `dbt-duckdb`, Python models run in the same process that owns the DuckDB connection. The `.py` file is loaded as a Python module using [`importlib`](https://docs.python.org/3/library/importlib.html), the `model` function is called with a `dbt` object (containing `ref` and `source` information) and a `DuckDBPyConnection` object, and the returned object is materialized as a table.
 
 The value of `dbt.ref` and `dbt.source` inside a Python model will be a [DuckDB Relation](https://duckdb.org/docs/api/python/reference/) object that you can convert into a Pandas/Polars DataFrame or an Arrow table. The return value can be any object DuckDB knows how to turn into a table, including a Pandas/Polars DataFrame, a DuckDB Relation, or an Arrow Table, Dataset, RecordBatchReader, or Scanner.
 
@@ -460,6 +460,6 @@ The shell provides access to all standard dbt commands (`run`, `test`, `build`, 
 
 ## More information[​](#more-information "Direct link to More information")
 
-* For connection modes and profile setup, refer to [Connect DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md).
+* For connection modes and profile setup, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md).
 * For adapter source code and plugins, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
-* For dbt Core concepts used on this page, refer to [Materializations](https://docs.getdbt.com/docs/build/materializations.md), [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md), and [Python models](https://docs.getdbt.com/docs/build/python-models.md).
+* For dbt Core concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).

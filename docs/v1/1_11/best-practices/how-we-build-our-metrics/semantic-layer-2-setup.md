@@ -4,9 +4,9 @@
 
 There are two options for developing a dbt project, including the Semantic Layer:
 
-* [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) — MetricFlow commands are embedded in the dbt CLI under the `dbt sl` subcommand. This is the easiest, most full-featured way to develop Semantic Layer code for the time being. You can use the editor of your choice and run commands from the terminal.
+* [dbt CLI](../../docs/platform/dbt-cli-installation.md) — MetricFlow commands are embedded in the dbt CLI under the `dbt sl` subcommand. This is the easiest, most full-featured way to develop Semantic Layer code for the time being. You can use the editor of your choice and run commands from the terminal.
 
-* [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) — You can create semantic models and metrics in the Studio IDE.
+* [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) — You can create semantic models and metrics in the Studio IDE.
 
 ## Basic commands[​](#basic-commands "Direct link to Basic commands")
 
@@ -14,7 +14,7 @@ There are two options for developing a dbt project, including the Semantic Layer
 * 🧰 `dbt sl query` is your other best friend, it will execute a query against your semantic layer and return a sample of the results. This is great for testing your semantic models and metrics as you build them. For example, if you're building a revenue model you can run `dbt sl query --metrics revenue --group-by metric_time__month` to validate that monthly revenue is calculating correctly.
 * 📝 Lastly, `dbt sl list dimensions --metrics [metric name]` will list all the dimensions available for a given metric. This is useful for checking that you're increasing dimensionality as you progress. You can `dbt sl list` other aspects of your Semantic Layer as well, run `dbt sl list --help` for the full list of options.
 
-For more information on the available commands, refer to the [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) reference, or use `dbt sl --help` and `dbt sl [subcommand] --help` on the command line. If you need to set up a dbt project first, check out the [quickstart guides](https://docs.getdbt.com/docs/get-started-dbt.md).
+For more information on the available commands, refer to the [MetricFlow commands](../../docs/build/metricflow-commands.md) reference, or use `dbt sl --help` and `dbt sl [subcommand] --help` on the command line. If you need to set up a dbt project first, check out the [quickstart guides](../../docs/get-started-dbt.md).
 
 ## Onward\![​](#onward "Direct link to Onward!")
 

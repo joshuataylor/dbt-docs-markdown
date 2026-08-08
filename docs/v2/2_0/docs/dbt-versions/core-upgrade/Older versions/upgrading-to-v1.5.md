@@ -4,14 +4,14 @@ Available in v1ⓘ
 
 dbt Core v1.5 is a feature release, with two significant additions:
 
-1. [**Model governance**](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)
-2. A Python entry point for [**programmatic invocations**](https://docs.getdbt.com/reference/programmatic-invocations.md), at parity with the CLI
+1. [**Model governance**](../../../mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)
+2. A Python entry point for [**programmatic invocations**](../../../../reference/programmatic-invocations.md), at parity with the CLI
 
 ## Resources[​](#resources "Direct link to Resources")
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/CHANGELOG.md)
-* [dbt Core CLI Installation guide](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Cloud upgrade guide](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md)
+* [dbt Core CLI Installation guide](../../../local/install-dbt.md)
+* [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 * [Release schedule](https://github.com/dbt-labs/dbt-core/issues/6715)
 
 ## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
@@ -103,13 +103,13 @@ The built-in [collect\_freshness](https://github.com/dbt-labs/dbt-core/blob/1.5.
 {{ return(load_result('collect_freshness')) }}
 ```
 
-Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/core/dbt/include/global_project/macros/get_custom_name/get_custom_alias.sql) now includes logic to handle versioned models. If your project has reimplemented the `generate_alias_name` macro with custom logic, and you want to start using [model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md), you will need to update the logic in your macro. Note that, while this is **not** a prerequisite for upgrading to v1.5—only for using the new feature—we recommend that you do this during your upgrade, whether you're planning to use model versions tomorrow or far in the future.
+Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/core/dbt/include/global_project/macros/get_custom_name/get_custom_alias.sql) now includes logic to handle versioned models. If your project has reimplemented the `generate_alias_name` macro with custom logic, and you want to start using [model versions](../../../mesh/govern/model-versions.md), you will need to update the logic in your macro. Note that, while this is **not** a prerequisite for upgrading to v1.5—only for using the new feature—we recommend that you do this during your upgrade, whether you're planning to use model versions tomorrow or far in the future.
 
-Likewise, if your project has reimplemented the `ref` macro with custom logic, you will need to update the logic in your macro as described [here](https://docs.getdbt.com/reference/dbt-jinja-functions/builtins.md).
+Likewise, if your project has reimplemented the `ref` macro with custom logic, you will need to update the logic in your macro as described [here](../../../../reference/dbt-jinja-functions/builtins.md).
 
 ### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
 
-The [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md) schema version will be updated to `v9`. Specific changes:
+The [manifest](../../../../reference/artifacts/manifest-json.md) schema version will be updated to `v9`. Specific changes:
 
 * Addition of `groups` as a top-level key
 * Addition of `access`, `constraints`, `version`, `latest_version` as a top-level node attributes for models
@@ -125,29 +125,29 @@ For more detailed information and to ask questions, please read and comment on t
 
 ### Model governance[​](#model-governance "Direct link to Model governance")
 
-The first phase of supporting dbt deployments at scale, across multiple projects with clearly defined ownership and interface boundaries. [Read about model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md), all of which is new in v1.5.
+The first phase of supporting dbt deployments at scale, across multiple projects with clearly defined ownership and interface boundaries. [Read about model governance](../../../mesh/govern/about-model-governance.md), all of which is new in v1.5.
 
 ### Revamped CLI[​](#revamped-cli "Direct link to Revamped CLI")
 
 Compile and preview dbt models and `--inline` dbt-SQL queries on the CLI using:
 
-* [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md)
-* [`dbt show`](https://docs.getdbt.com/reference/commands/show.md) (new!)
+* [`dbt compile`](../../../../reference/commands/compile.md)
+* [`dbt show`](../../../../reference/commands/show.md) (new!)
 
-[Node selection methods](https://docs.getdbt.com/reference/node-selection/methods.md) can use Unix-style wildcards to glob nodes matching a pattern:
+[Node selection methods](../../../../reference/node-selection/methods.md) can use Unix-style wildcards to glob nodes matching a pattern:
 
 ```text
 dbt ls --select "tag:team_*"
 ```
 
-And (!): a first-ever entry point for [programmatic invocations](https://docs.getdbt.com/reference/programmatic-invocations.md), at parity with CLI commands.
+And (!): a first-ever entry point for [programmatic invocations](../../../../reference/programmatic-invocations.md), at parity with CLI commands.
 
 Run `dbt --help` to see new & improved help documentation :)
 
 ### Quick hits[​](#quick-hits "Direct link to Quick hits")
 
-* The [`version: 2` top-level key](https://docs.getdbt.com/reference/project-configs/version.md) is now **optional** in all YAML files. Also, the [`config-version: 2`](https://docs.getdbt.com/reference/project-configs/config-version.md) and `version:` top-level keys are now optional in `dbt_project.yml` files.
-* [Events and logging](https://docs.getdbt.com/reference/events-logging.md): Added `node_relation` (`database`, `schema`, `identifier`) to the `node_info` dictionary, available on node-specific events
-* Support setting `--project-dir` via environment variable: [`DBT_PROJECT_DIR`](https://docs.getdbt.com/reference/dbt_project.yml.md)
-* More granular configurations for logging (to set [log format](https://docs.getdbt.com/reference/global-configs/logs.md#log-formatting), [log levels](https://docs.getdbt.com/reference/global-configs/logs.md#log-level), and [colorization](https://docs.getdbt.com/reference/global-configs/logs.md#color)) and [cache population](https://docs.getdbt.com/reference/global-configs/cache.md#cache-population)
-* [dbt overwrites the `manifest.json` file](https://docs.getdbt.com/reference/node-selection/state-comparison-caveats.md#overwrites-the-manifestjson) during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.
+* The [`version: 2` top-level key](../../../../reference/project-configs/version.md) is now **optional** in all YAML files. Also, the [`config-version: 2`](../../../../reference/project-configs/config-version.md) and `version:` top-level keys are now optional in `dbt_project.yml` files.
+* [Events and logging](../../../../reference/events-logging.md): Added `node_relation` (`database`, `schema`, `identifier`) to the `node_info` dictionary, available on node-specific events
+* Support setting `--project-dir` via environment variable: [`DBT_PROJECT_DIR`](../../../../reference/dbt_project.yml.md)
+* More granular configurations for logging (to set [log format](../../../../reference/global-configs/logs.md#log-formatting), [log levels](../../../../reference/global-configs/logs.md#log-level), and [colorization](../../../../reference/global-configs/logs.md#color)) and [cache population](../../../../reference/global-configs/cache.md#cache-population)
+* [dbt overwrites the `manifest.json` file](../../../../reference/node-selection/state-comparison-caveats.md#overwrites-the-manifestjson) during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.

@@ -2,9 +2,9 @@
 
 ## Overview[​](#overview "Direct link to Overview")
 
-The `dbt run-operation` command is used to invoke a macro or execute a SQL or Jinja string directly against the target database. For usage information on macro-based operations, refer to [operations](https://docs.getdbt.com/docs/build/hooks-operations.md#about-operations).
+The `dbt run-operation` command is used to invoke a macro or execute a SQL or Jinja string directly against the target database. For usage information on macro-based operations, refer to [operations](../../docs/build/hooks-operations.md#about-operations).
 
-When a macro is invoked with `dbt run-operation`, dbt doesn't enforce model [access](https://docs.getdbt.com/reference/resource-configs/access.md) or [group](https://docs.getdbt.com/reference/resource-configs/group.md) controls, so it can use `ref()` to reference all models (including `private` and `protected` ones).
+When a macro is invoked with `dbt run-operation`, dbt doesn't enforce model [access](../resource-configs/access.md) or [group](../resource-configs/group.md) controls, so it can use `ref()` to reference all models (including `private` and `protected` ones).
 
 For example, a macro can reference a private model:
 
@@ -70,7 +70,7 @@ Note that you cannot combine the `--sql` flag with a macro name or `--args`.
 
 `--sql` is useful for quick, one-off operations that don't warrant a macro file (for example, granting permissions, dropping a table, or running a data fix).
 
-If you need to reuse the operation across environments or share it with your team, write a [macro](https://docs.getdbt.com/docs/build/jinja-macros.md) instead so it's version-controlled and testable.
+If you need to reuse the operation across environments or share it with your team, write a [macro](../../docs/build/jinja-macros.md) instead so it's version-controlled and testable.
 
 ## Command line examples[​](#command-line-examples "Direct link to Command line examples")
 

@@ -1,6 +1,6 @@
 # Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Snowflake
 
@@ -272,7 +272,7 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
 
 ## Configure dbt[​](#configure-dbt "Direct link to Configure dbt")
 
-1. We are going to be using [Snowflake Partner Connect](https://docs.snowflake.com/en/user-guide/ecosystem-partner-connect.html) to set up a dbt account. Using this method will allow you to spin up a fully fledged dbt account with your [Snowflake connection](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md), [managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md), environments, and credentials already established.
+1. We are going to be using [Snowflake Partner Connect](https://docs.snowflake.com/en/user-guide/ecosystem-partner-connect.html) to set up a dbt account. Using this method will allow you to spin up a fully fledged dbt account with your [Snowflake connection](../docs/platform/connect-data-platform/connect-snowflake.md), [managed repository](../docs/platform/git/managed-repository.md), environments, and credentials already established.
 
 2. Navigate out of your worksheet back by selecting **home**.
 
@@ -298,7 +298,7 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
 
 9. Select **Complete Registration**. You should now be redirected to your dbt account, complete with a connection to your Snowflake account, a deployment and a development environment, and a sample job.
 
-10. To help you version control your dbt project, we have connected it to a [managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md), which means that dbt Labs will be hosting your repository for you. This will give you access to a Git workflow without you having to create and host the repository yourself. You will not need to know Git for this workshop; dbt will help guide you through the workflow. In the future, when you’re developing your own project, [feel free to use your own repository](https://docs.getdbt.com/docs/platform/git/connect-github.md). This will allow you to learn more about features like [Slim CI](https://docs.getdbt.com/docs/deploy/continuous-integration.md) builds after this workshop.
+10. To help you version control your dbt project, we have connected it to a [managed repository](../docs/platform/git/managed-repository.md), which means that dbt Labs will be hosting your repository for you. This will give you access to a Git workflow without you having to create and host the repository yourself. You will not need to know Git for this workshop; dbt will help guide you through the workflow. In the future, when you’re developing your own project, [feel free to use your own repository](../docs/platform/git/connect-github.md). This will allow you to learn more about features like [Slim CI](../docs/deploy/continuous-integration.md) builds after this workshop.
 
 ## Change development schema name and navigate the IDE[​](#change-development-schema-name-and-navigate-the-ide "Direct link to Change development schema name and navigate the IDE")
 
@@ -354,7 +354,7 @@ In this step, we’ll need to create a development branch and set up project lev
 
 1. To get started with development for our project, we'll need to create a new Git branch for our work. Select **create branch** and name your development branch. We'll call our branch `snowpark_python_workshop` then click **Submit**.
 
-2. The first piece of development we'll do on the project is to update the `dbt_project.yml` file. Every dbt project requires a `dbt_project.yml` file — this is how dbt knows a directory is a dbt project. The [dbt\_project.yml](https://docs.getdbt.com/reference/dbt_project.yml.md) file also contains important information that tells dbt how to operate on your project.
+2. The first piece of development we'll do on the project is to update the `dbt_project.yml` file. Every dbt project requires a `dbt_project.yml` file — this is how dbt knows a directory is a dbt project. The [dbt\_project.yml](../reference/dbt_project.yml.md) file also contains important information that tells dbt how to operate on your project.
 
 3. Select the `dbt_project.yml` file from the file tree to open it and replace all of the existing contents with the following code below. When you're done, save the file by clicking **save**. You can also use the Command-S or Control-S shortcut from here on out.
 
@@ -420,7 +420,7 @@ In this step, we’ll need to create a development branch and set up project lev
    * `tags` — Applies tags at a directory level to all models. All models in the `aggregates` folder will be tagged as `bi` (abbreviation for business intelligence).
    * `docs` — Specifies the `node_color` either by the plain color name or a hex value.
 
-5. [Materializations](https://docs.getdbt.com/docs/build/materializations.md) are strategies for persisting dbt models in a warehouse, with `tables` and `views` being the most commonly utilized types. By default, all dbt models are materialized as views and other materialization types can be configured in the `dbt_project.yml` file or in a model itself. It’s very important to note *Python models can only be materialized as tables or incremental models.* Since all our Python models exist under `marts`, the following portion of our `dbt_project.yml` ensures no errors will occur when we run our Python models. Starting with [dbt version 1.4](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md#updates-to-python-models>), Python files will automatically get materialized as tables even if not explicitly specified.
+5. [Materializations](../docs/build/materializations.md) are strategies for persisting dbt models in a warehouse, with `tables` and `views` being the most commonly utilized types. By default, all dbt models are materialized as views and other materialization types can be configured in the `dbt_project.yml` file or in a model itself. It’s very important to note *Python models can only be materialized as tables or incremental models.* Since all our Python models exist under `marts`, the following portion of our `dbt_project.yml` ensures no errors will occur when we run our Python models. Starting with [dbt version 1.4](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md#updates-to-python-models>), Python files will automatically get materialized as tables even if not explicitly specified.
 
    ```yaml
    marts:     
@@ -429,7 +429,7 @@ In this step, we’ll need to create a development branch and set up project lev
 
 ## Create folders and organize files[​](#create-folders-and-organize-files "Direct link to Create folders and organize files")
 
-dbt Labs has developed a [project structure guide](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) that contains a number of recommendations for how to build the folder structure for your project. Do check out that guide if you want to learn more. Right now we are going to create some folders to organize our files:
+dbt Labs has developed a [project structure guide](../best-practices/how-we-structure/1-guide-overview.md) that contains a number of recommendations for how to build the folder structure for your project. Do check out that guide if you want to learn more. Right now we are going to create some folders to organize our files:
 
 * Sources — This is our Formula 1 dataset and it will be defined in a source properties YAML file.
 
@@ -469,7 +469,7 @@ Sources allow us to create a dependency between our source database object and o
 
 Staging models are the base of our project, where we bring all the individual components we're going to use to build our more complex and useful models into the project.
 
-Since we want to focus on dbt and Python in this workshop, check out our [sources](https://docs.getdbt.com/docs/build/sources.md) and [staging](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) docs if you want to learn more (or take our [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course which covers all of our core functionality).
+Since we want to focus on dbt and Python in this workshop, check out our [sources](../docs/build/sources.md) and [staging](../best-practices/how-we-structure/2-staging.md) docs if you want to learn more (or take our [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course which covers all of our core functionality).
 
 ### 1. Create sources[​](#1-create-sources "Direct link to 1. Create sources")
 
@@ -952,7 +952,7 @@ By now, we are pretty good at creating new files in the correct directories so w
    select * from int_results
    ```
 
-4. Create a *Markdown* file `intermediate.md` that we will go over in depth in the Test and Documentation sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](https://docs.getdbt.com/guides/dbt-python-snowpark.md) guide.
+4. Create a *Markdown* file `intermediate.md` that we will go over in depth in the Test and Documentation sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](./dbt-python-snowpark.md) guide.
 
    ```markdown
    # the intent of this .md is to allow for multi-line long form explanations for our intermediate transformations
@@ -967,7 +967,7 @@ By now, we are pretty good at creating new files in the correct directories so w
    {% docs int_lap_times_years %} Lap times are done per lap. We need to join them out to the race year to understand yearly lap time trends. {% enddocs %}
    ```
 
-5. Create a *YAML* file `intermediate.yml` that we will go over in depth during the Test and Document sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](https://docs.getdbt.com/guides/dbt-python-snowpark.md) guide.
+5. Create a *YAML* file `intermediate.yml` that we will go over in depth during the Test and Document sections of the [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](./dbt-python-snowpark.md) guide.
 
    ```yaml
    version: 2
@@ -1102,7 +1102,7 @@ By now, we are pretty good at creating new files in the correct directories so w
 
 ## Running dbt Python models[​](#running-dbt-python-models "Direct link to Running dbt Python models")
 
-Up until now, SQL has been driving the project (car pun intended) for data cleaning and hierarchical joining. Now it’s time for Python to take the wheel (car pun still intended) for the rest of our lab! For more information about running Python models on dbt, check out our [docs](https://docs.getdbt.com/docs/build/python-models.md). To learn more about dbt python works under the hood, check out [Snowpark for Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html), which makes running dbt Python models possible.
+Up until now, SQL has been driving the project (car pun intended) for data cleaning and hierarchical joining. Now it’s time for Python to take the wheel (car pun still intended) for the rest of our lab! For more information about running Python models on dbt, check out our [docs](../docs/build/python-models.md). To learn more about dbt python works under the hood, check out [Snowpark for Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html), which makes running dbt Python models possible.
 
 There are quite a few differences between SQL and Python in terms of the dbt syntax and DDL, so we’ll be breaking our code and model runs down further for our python models.
 
@@ -1248,7 +1248,7 @@ in the command bar.
 
 ### The dbt model, .source(), .ref() and .config() functions[​](#the-dbt-model-source-ref-and-config-functions "Direct link to The dbt model, .source(), .ref() and .config() functions")
 
-Let’s take a step back before starting machine learning to both review and go more in-depth at the methods that make running dbt python models possible. If you want to know more outside of this lab’s explanation read the documentation [here](https://docs.getdbt.com/docs/build/python-models.md?version=1).
+Let’s take a step back before starting machine learning to both review and go more in-depth at the methods that make running dbt python models possible. If you want to know more outside of this lab’s explanation read the documentation [here](../docs/build/python-models.md?version=1).
 
 * dbt model(dbt, session). For starters, each Python model lives in a .py file in your models/ folder. It defines a function named `model()`, which takes two parameters:
 
@@ -1278,7 +1278,7 @@ Let’s take a step back before starting machine learning to both review and go 
             dbt.config(materialized="table")
     ```
 
-  * There's a limit to how complex you can get with the `dbt.config()` method. It accepts only literal values (strings, booleans, and numeric types). Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `.config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the config property in a [properties YAML file](https://docs.getdbt.com/reference/resource-properties/config.md). Learn more about configurations [here](https://docs.getdbt.com/reference/model-configs.md).
+  * There's a limit to how complex you can get with the `dbt.config()` method. It accepts only literal values (strings, booleans, and numeric types). Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `.config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the config property in a [properties YAML file](../reference/resource-properties/config.md). Learn more about configurations [here](../reference/model-configs.md).
 
 ## Prepare for machine learning: cleaning, encoding, and splits[​](#prepare-for-machine-learning-cleaning-encoding-and-splits "Direct link to Prepare for machine learning: cleaning, encoding, and splits")
 
@@ -1541,7 +1541,7 @@ Now that we’ve cleaned and encoded our data, we are going to further split in 
    dbt run --select train_test_dataset hold_out_dataset_for_prediction
    ```
 
-   To run our temporal data split models, we can use this syntax in the command line to run them both at once. Make sure you use a *space* [syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) between the model names to indicate you want to run both!
+   To run our temporal data split models, we can use this syntax in the command line to run them both at once. Make sure you use a *space* [syntax](../reference/node-selection/syntax.md) between the model names to indicate you want to run both!
 
 4. **Commit and push** our changes to keep saving our work as we go using `ml data prep and splits` before moving on.
 
@@ -1852,7 +1852,7 @@ We test data models for mainly two reasons:
 * Ensure that our source data is clean on ingestion before we start data modeling/transformation (aka avoid garbage in, garbage out problem).
 * Make sure we don’t introduce bugs in the transformation code we wrote (stop ourselves from creating bad joins/fanouts).
 
-Testing in dbt comes in two flavors: [generic](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) and [singular](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests).
+Testing in dbt comes in two flavors: [generic](../docs/build/data-tests.md#generic-data-tests) and [singular](../docs/build/data-tests.md#singular-data-tests).
 
 You define them in a test block (similar to a macro) and once defined, you can reference them by name in your `.yml` files (applying them to models, columns, sources, snapshots, and seeds).
 
@@ -1907,7 +1907,7 @@ select * from {{ ref(table) }} where {{ column }} < 0
 ```
 
 2. Macros in Jinja are pieces of code that can be reused multiple times in our SQL models — they are analogous to "functions" in other programming languages, and are extremely useful if you find yourself repeating code across multiple models.
-3. We use the `{% macro %}` to indicate the start of the macro and `{% endmacro %}` for the end. The text after the beginning of the macro block is the name we are giving the macro to later call it. In this case, our macro is called `test_all_values_gte_zero`. Macros take in *arguments* to pass through, in this case the `table` and the `column`. In the body of the macro, we see an SQL statement that is using the `ref` function to dynamically select the table and then the column. You can always view macros without having to run them by using `dbt run-operation`. You can learn more [here](https://docs.getdbt.com/reference/commands/run-operation.md).
+3. We use the `{% macro %}` to indicate the start of the macro and `{% endmacro %}` for the end. The text after the beginning of the macro block is the name we are giving the macro to later call it. In this case, our macro is called `test_all_values_gte_zero`. Macros take in *arguments* to pass through, in this case the `table` and the `column`. In the body of the macro, we see an SQL statement that is using the `ref` function to dynamically select the table and then the column. You can always view macros without having to run them by using `dbt run-operation`. You can learn more [here](../reference/commands/run-operation.md).
 4. Great, now we want to reference this macro as a test! Let’s create a new test file called `macro_pit_stops_mean_is_positive.sql` in our `tests` folder.
 
 [![creating a test on our pit stops model referencing the macro](/img/guides/dbt-ecosystem/dbt-python-snowpark/13-testing/3-gte-macro-applied-to-pit-stops.png?v=2 "creating a test on our pit stops model referencing the macro")](#)creating a test on our pit stops model referencing the macro
@@ -1997,7 +1997,7 @@ We are going to revisit 2 areas of our project to understand our documentation:
 * `intermediate.md` file
 * `dbt_project.yml` file
 
-To start, let’s look back at our `intermediate.md` file. We can see that we provided multi-line descriptions for the models in our intermediate models using [docs blocks](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks). Then we reference these docs blocks in our `.yml` file. Building descriptions with doc blocks in Markdown files gives you the ability to format your descriptions with Markdown and are particularly helpful when building long descriptions, either at the column or model level. In our `dbt_project.yml`, we added `node_colors` at folder levels.
+To start, let’s look back at our `intermediate.md` file. We can see that we provided multi-line descriptions for the models in our intermediate models using [docs blocks](../docs/build/documentation.md#using-docs-blocks). Then we reference these docs blocks in our `.yml` file. Building descriptions with doc blocks in Markdown files gives you the ability to format your descriptions with Markdown and are particularly helpful when building long descriptions, either at the column or model level. In our `dbt_project.yml`, we added `node_colors` at folder levels.
 
 1. To see all these pieces come together, execute this in the command bar:
 

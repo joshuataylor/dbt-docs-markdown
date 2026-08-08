@@ -2,15 +2,15 @@
 
 ## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
 
-* [Seed configurations](https://docs.getdbt.com/reference/seed-configs.md)
-* [Seed properties](https://docs.getdbt.com/reference/seed-properties.md)
-* [`seed` command](https://docs.getdbt.com/reference/commands/seed.md)
+* [Seed configurations](../../reference/seed-configs.md)
+* [Seed properties](../../reference/seed-properties.md)
+* [`seed` command](../../reference/commands/seed.md)
 
 ## Overview[​](#overview "Direct link to Overview")
 
 Seeds are CSV files in your dbt project (typically in your `seeds` directory), that dbt can load into your data warehouse using the `dbt seed` command.
 
-Seeds can be referenced in downstream models the same way as referencing models — by using the [`ref` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md).
+Seeds can be referenced in downstream models the same way as referencing models — by using the [`ref` function](../../reference/dbt-jinja-functions/ref.md).
 
 Because these CSV files are located in your dbt repository, they are version controlled and code reviewable. Seeds are best suited to static data which changes infrequently.
 
@@ -41,7 +41,7 @@ GB,United Kingdom
 ...
 ```
 
-2. Run the `dbt seed` [command](https://docs.getdbt.com/reference/commands/seed.md) — a new table will be created in your warehouse in your target schema, named `country_codes`
+2. Run the `dbt seed` [command](../../reference/commands/seed.md) — a new table will be created in your warehouse in your target schema, named `country_codes`
 
 ```text
 $ dbt seed
@@ -71,11 +71,11 @@ select * from {{ ref('country_codes') }}
 
 ## Configuring seeds[​](#configuring-seeds "Direct link to Configuring seeds")
 
-Seeds are configured in your `dbt_project.yml`, check out the [seed configurations](https://docs.getdbt.com/reference/seed-configs.md) docs for a full list of available configurations.
+Seeds are configured in your `dbt_project.yml`, check out the [seed configurations](../../reference/seed-configs.md) docs for a full list of available configurations.
 
 ## Documenting and testing seeds[​](#documenting-and-testing-seeds "Direct link to Documenting and testing seeds")
 
-You can document and test seeds in YAML by declaring properties — check out the docs on [seed properties](https://docs.getdbt.com/reference/seed-properties.md) for more information.
+You can document and test seeds in YAML by declaring properties — check out the docs on [seed properties](../../reference/seed-properties.md) for more information.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -91,7 +91,7 @@ Can I store my seeds in a directory other than the \`seeds\` directory in my pro
 
 By default, dbt expects your seed files to be located in the `seeds` subdirectory of your project.
 
-To change this, update the [seed-paths](https://docs.getdbt.com/reference/project-configs/seed-paths.md) configuration in your `dbt_project.yml` file, like so:
+To change this, update the [seed-paths](../../reference/project-configs/seed-paths.md) configuration in your `dbt_project.yml` file, like so:
 
 dbt\_project.yml
 
@@ -163,7 +163,7 @@ The `--full-refresh` flag will force dbt to `drop cascade` the existing table be
 
 How do I test and document seeds?
 
-To test and document seeds, use a [properties file](https://docs.getdbt.com/reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
+To test and document seeds, use a [properties file](../../reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
 
 ## Example[​](#example "Direct link to Example")
 
@@ -188,7 +188,7 @@ How do I set a datatype for a column in my seed?
 
 dbt will infer the datatype for each column based on the data in your CSV.
 
-You can also explicitly set a datatype using the `column_types` [configuration](https://docs.getdbt.com/reference/resource-configs/column_types.md) like so:
+You can also explicitly set a datatype using the `column_types` [configuration](../../reference/resource-configs/column_types.md) like so:
 
 dbt\_project.yml
 
@@ -202,7 +202,7 @@ seeds:
 
 How do I run models downstream of a seed?
 
-You can run models downstream of a seed using the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md), and treating the seed like a model.
+You can run models downstream of a seed using the [model selection syntax](../../reference/node-selection/syntax.md), and treating the seed like a model.
 
 For example, the following would run all models downstream of a seed named `country_codes`:
 
@@ -212,7 +212,7 @@ $ dbt run --select country_codes+
 
 How do I preserve leading zeros in a seed?
 
-If you need to preserve leading zeros (for example in a zipcode or mobile number), include leading zeros in your seed file, and use the `column_types` [configuration](https://docs.getdbt.com/reference/resource-configs/column_types.md) with a varchar datatype of the correct length.
+If you need to preserve leading zeros (for example in a zipcode or mobile number), include leading zeros in your seed file, and use the `column_types` [configuration](../../reference/resource-configs/column_types.md) with a varchar datatype of the correct length.
 
 How do I build one seed at a time?
 
@@ -225,13 +225,13 @@ $ dbt seed --select country_codes
 
 There is also an `--exclude` option.
 
-Check out more in the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) documentation.
+Check out more in the [model selection syntax](../../reference/node-selection/syntax.md) documentation.
 
 Do hooks run with seeds?
 
 Yes! The following hooks are available:
 
-* [pre-hooks & post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md)
-* [on-run-start & on-run-end hooks](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md)
+* [pre-hooks & post-hooks](../../reference/resource-configs/pre-hook-post-hook.md)
+* [on-run-start & on-run-end hooks](../../reference/project-configs/on-run-start-on-run-end.md)
 
 Configure these in your `dbt_project.yml` file.

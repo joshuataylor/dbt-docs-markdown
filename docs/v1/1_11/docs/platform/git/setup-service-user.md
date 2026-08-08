@@ -6,9 +6,9 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 important
 
-Service users are no longer a recommended method for authentication and dbt is rolling out a new [Entra ID service principal](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals) option. Once the option is available in your account settings, you should plan to [migrate from service user to service principal](https://docs.getdbt.com/docs/platform/git/setup-service-principal.md#migrate-to-service-principal). Service principals are the [Microsoft recommended service account type](https://learn.microsoft.com/en-us/entra/architecture/secure-service-accounts#types-of-microsoft-entra-service-accounts) for app authentication.
+Service users are no longer a recommended method for authentication and dbt is rolling out a new [Entra ID service principal](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals) option. Once the option is available in your account settings, you should plan to [migrate from service user to service principal](./setup-service-principal.md#migrate-to-service-principal). Service principals are the [Microsoft recommended service account type](https://learn.microsoft.com/en-us/entra/architecture/secure-service-accounts#types-of-microsoft-entra-service-accounts) for app authentication.
 
-To use our native integration with Azure DevOps in dbt, an account admin needs to set up an Microsoft Entra ID app. We recommend setting up a separate [Entra ID application than used for SSO](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-microsoft-entra-id.md).
+To use our native integration with Azure DevOps in dbt, an account admin needs to set up an Microsoft Entra ID app. We recommend setting up a separate [Entra ID application than used for SSO](../manage-access/set-up-sso-microsoft-entra-id.md).
 
 1. [Register an Entra ID app](#register-a-microsoft-entra-id-app).
 2. [Add permissions to your new app](#add-permissions-to-your-new-app).
@@ -18,7 +18,7 @@ To use our native integration with Azure DevOps in dbt, an account admin needs t
 
 Once the Microsoft Entra ID app is added to dbt, an account admin must also [connect a service user](#connecting-a-service-user) via OAuth, which will be used to power headless actions in dbt such as deployment runs and CI.
 
-Once the Microsoft Entra ID app is added to dbt and the service user is connected, then dbt developers can personally authenticate in dbt from Azure DevOps. For more on this, see [Authenticate with Azure DevOps](https://docs.getdbt.com/docs/platform/git/authenticate-azure.md).
+Once the Microsoft Entra ID app is added to dbt and the service user is connected, then dbt developers can personally authenticate in dbt from Azure DevOps. For more on this, see [Authenticate with Azure DevOps](./authenticate-azure.md).
 
 The following personas are required to complete the steps on this page:
 
@@ -46,7 +46,7 @@ A Microsoft Entra ID admin needs to perform the following steps:
    <!-- -->
 
    1. Select **Web** as the platform.
-   2. In the field, enter `https://YOUR_ACCESS_URL/complete/azure_active_directory`. Make sure to replace `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
+   2. In the field, enter `https://YOUR_ACCESS_URL/complete/azure_active_directory`. Make sure to replace `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
 
 7. Click **Register**.
 
@@ -78,7 +78,7 @@ Before adding another redirect URI, make sure you selected **Web** as the platfo
 
 2. Select the link next to **Redirect URIs**.
 
-3. Click **Add URI** and add the URI, replacing `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan: `https://YOUR_ACCESS_URL/complete/azure_active_directory_service_user`
+3. Click **Add URI** and add the URI, replacing `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan: `https://YOUR_ACCESS_URL/complete/azure_active_directory_service_user`
 
 4. Click **Save**.
 
@@ -134,7 +134,7 @@ Once you connect your Microsoft Entra ID app and Azure DevOps, you need to provi
      <!-- -->
      [![Adding a Microsoft Entra ID app to dbt](/img/docs/dbt-platform/connecting-azure-devops/AzureDevopsAppdbtCloud.gif?v=2 "Adding a Microsoft Entra ID app to dbt")](#)Adding a Microsoft Entra ID app to dbt
 
-Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](https://docs.getdbt.com/docs/platform/git/authenticate-azure.md).
+Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](./authenticate-azure.md).
 
 ## Connect a service user[​](#connect-a-service-user "Direct link to Connect a service user")
 

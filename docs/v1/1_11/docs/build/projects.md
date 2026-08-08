@@ -6,20 +6,20 @@ At a minimum, all a project needs is the `dbt_project.yml` project configuration
 
 | Resource                                                                 | Description                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [models](https://docs.getdbt.com/docs/build/models.md)                   | Each model lives in a single file and contains logic that either transforms raw data into a dataset that is ready for analytics or, more often, is an intermediate step in such a transformation.                                                                                 |
-| [snapshots](https://docs.getdbt.com/docs/build/snapshots.md)             | A way to capture the state of your mutable tables so you can refer to it later.                                                                                                                                                                                                   |
-| [seeds](https://docs.getdbt.com/docs/build/seeds.md)                     | CSV files with static data that you can load into your data platform with dbt.                                                                                                                                                                                                    |
-| [data tests](https://docs.getdbt.com/docs/build/data-tests.md)           | SQL queries that you can write to test the models and resources in your project.                                                                                                                                                                                                  |
-| [macros](https://docs.getdbt.com/docs/build/jinja-macros.md)             | Blocks of code that you can reuse multiple times.                                                                                                                                                                                                                                 |
-| [docs](https://docs.getdbt.com/docs/build/documentation.md)              | Docs for your project that you can build.                                                                                                                                                                                                                                         |
-| [sources](https://docs.getdbt.com/docs/build/sources.md)                 | A way to name and describe the data loaded into your warehouse by your Extract and Load tools.                                                                                                                                                                                    |
-| [exposures](https://docs.getdbt.com/docs/build/exposures.md)             | A way to define and describe a downstream use of your project.                                                                                                                                                                                                                    |
-| [metrics](https://docs.getdbt.com/docs/build/build-metrics-intro.md)     | A way for you to define metrics for your project.                                                                                                                                                                                                                                 |
-| [groups](https://docs.getdbt.com/docs/build/groups.md)                   | Groups enable collaborative node organization in restricted collections.                                                                                                                                                                                                          |
-| [analysis](https://docs.getdbt.com/docs/build/analyses.md)               | A way to organize analytical SQL queries in your project such as the general ledger from your QuickBooks.                                                                                                                                                                         |
-| [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) | Semantic models define the foundational data relationships in [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md) and the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), enabling you to query metrics using a semantic graph. |
-| [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md)     | Saved queries organize reusable queries by grouping metrics, dimensions, and filters into nodes visible in the dbt DAG.                                                                                                                                                           |
-| [user-defined functions](https://docs.getdbt.com/docs/build/udfs.md)     | User-defined functions (UDFs) let you create reusable custom functions in your warehouse, shareable across dbt, BI tools, data science workflows, and more.                                                                                                                       |
+| [models](./models.md)                   | Each model lives in a single file and contains logic that either transforms raw data into a dataset that is ready for analytics or, more often, is an intermediate step in such a transformation.                                                                                 |
+| [snapshots](./snapshots.md)             | A way to capture the state of your mutable tables so you can refer to it later.                                                                                                                                                                                                   |
+| [seeds](./seeds.md)                     | CSV files with static data that you can load into your data platform with dbt.                                                                                                                                                                                                    |
+| [data tests](./data-tests.md)           | SQL queries that you can write to test the models and resources in your project.                                                                                                                                                                                                  |
+| [macros](./jinja-macros.md)             | Blocks of code that you can reuse multiple times.                                                                                                                                                                                                                                 |
+| [docs](./documentation.md)              | Docs for your project that you can build.                                                                                                                                                                                                                                         |
+| [sources](./sources.md)                 | A way to name and describe the data loaded into your warehouse by your Extract and Load tools.                                                                                                                                                                                    |
+| [exposures](./exposures.md)             | A way to define and describe a downstream use of your project.                                                                                                                                                                                                                    |
+| [metrics](./build-metrics-intro.md)     | A way for you to define metrics for your project.                                                                                                                                                                                                                                 |
+| [groups](./groups.md)                   | Groups enable collaborative node organization in restricted collections.                                                                                                                                                                                                          |
+| [analysis](./analyses.md)               | A way to organize analytical SQL queries in your project such as the general ledger from your QuickBooks.                                                                                                                                                                         |
+| [semantic models](./semantic-models.md) | Semantic models define the foundational data relationships in [MetricFlow](./about-metricflow.md) and the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), enabling you to query metrics using a semantic graph. |
+| [saved queries](./saved-queries.md)     | Saved queries organize reusable queries by grouping metrics, dimensions, and filters into nodes visible in the dbt DAG.                                                                                                                                                           |
+| [user-defined functions](./udfs.md)     | User-defined functions (UDFs) let you create reusable custom functions in your warehouse, shareable across dbt, BI tools, data science workflows, and more.                                                                                                                       |
 
 Search table...
 
@@ -41,18 +41,18 @@ Edit `dbt_project.yml` to set up common project configurations such as:
 
 | YAML key                                                                                        | Value description                                                                                                    |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [name](https://docs.getdbt.com/reference/project-configs/name.md)                               | Your project’s name in [snake case](https://en.wikipedia.org/wiki/Snake_case)                                        |
-| [version](https://docs.getdbt.com/reference/project-configs/version.md)                         | Version of your project                                                                                              |
-| [require-dbt-version](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md) | Restrict your project to only work with a range of [dbt Core versions](https://docs.getdbt.com/docs/dbt-versions.md) |
-| [profile](https://docs.getdbt.com/reference/project-configs/profile.md)                         | The profile dbt uses to connect to your data platform                                                                |
-| [model-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md)                 | Directories to where your model and source files live                                                                |
-| [seed-paths](https://docs.getdbt.com/reference/project-configs/seed-paths.md)                   | Directories to where your seed files live                                                                            |
-| [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md)                   | Directories to where your test files live                                                                            |
-| [analysis-paths](https://docs.getdbt.com/reference/project-configs/analysis-paths.md)           | Directories to where your analyses live                                                                              |
-| [macro-paths](https://docs.getdbt.com/reference/project-configs/macro-paths.md)                 | Directories to where your macros live                                                                                |
-| [snapshot-paths](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md)           | Directories to where your snapshots live                                                                             |
-| [docs-paths](https://docs.getdbt.com/reference/project-configs/docs-paths.md)                   | Directories to where your docs blocks live                                                                           |
-| [vars](https://docs.getdbt.com/docs/build/project-variables.md)                                 | Project variables you want to use for data compilation                                                               |
+| [name](../../reference/project-configs/name.md)                               | Your project’s name in [snake case](https://en.wikipedia.org/wiki/Snake_case)                                        |
+| [version](../../reference/project-configs/version.md)                         | Version of your project                                                                                              |
+| [require-dbt-version](../../reference/project-configs/require-dbt-version.md) | Restrict your project to only work with a range of [dbt Core versions](../dbt-versions.md) |
+| [profile](../../reference/project-configs/profile.md)                         | The profile dbt uses to connect to your data platform                                                                |
+| [model-paths](../../reference/project-configs/model-paths.md)                 | Directories to where your model and source files live                                                                |
+| [seed-paths](../../reference/project-configs/seed-paths.md)                   | Directories to where your seed files live                                                                            |
+| [test-paths](../../reference/project-configs/test-paths.md)                   | Directories to where your test files live                                                                            |
+| [analysis-paths](../../reference/project-configs/analysis-paths.md)           | Directories to where your analyses live                                                                              |
+| [macro-paths](../../reference/project-configs/macro-paths.md)                 | Directories to where your macros live                                                                                |
+| [snapshot-paths](../../reference/project-configs/snapshot-paths.md)           | Directories to where your snapshots live                                                                             |
+| [docs-paths](../../reference/project-configs/docs-paths.md)                   | Directories to where your docs blocks live                                                                           |
+| [vars](./project-variables.md)                                 | Project variables you want to use for data compilation                                                               |
 
 Search table...
 
@@ -60,7 +60,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For complete details on project configurations, see [dbt\_project.yml](https://docs.getdbt.com/reference/dbt_project.yml.md).
+For complete details on project configurations, see [dbt\_project.yml](../../reference/dbt_project.yml.md).
 
 ## Project subdirectories[​](#project-subdirectories "Direct link to Project subdirectories")
 
@@ -84,24 +84,24 @@ After configuring the Project subdirectory option, dbt will use it as the root d
 
 Project support in dbt plans
 
-Some [plans](https://www.getdbt.com/pricing) support only one dbt project, while [Enterprise-tier plans](https://www.getdbt.com/contact) allow multiple projects and [cross-project references](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) with Mesh.
+Some [plans](https://www.getdbt.com/pricing) support only one dbt project, while [Enterprise-tier plans](https://www.getdbt.com/contact) allow multiple projects and [cross-project references](../../best-practices/how-we-mesh/mesh-1-intro.md) with Mesh.
 
 ## New projects[​](#new-projects "Direct link to New projects")
 
-You can create new projects and [share them](https://docs.getdbt.com/docs/platform/git/git-version-control.md) with other people by making them available on a hosted git repository like GitHub, GitLab, and BitBucket.
+You can create new projects and [share them](../platform/git/git-version-control.md) with other people by making them available on a hosted git repository like GitHub, GitLab, and BitBucket.
 
-After you set up a connection with your data platform, you can [initialize your new project in dbt](https://docs.getdbt.com/guides.md) and start developing. Or, run [dbt init from the command line](https://docs.getdbt.com/reference/commands/init.md) to set up your new project.
+After you set up a connection with your data platform, you can [initialize your new project in dbt](../../guides.md) and start developing. Or, run [dbt init from the command line](../../reference/commands/init.md) to set up your new project.
 
 During project initialization, dbt creates sample model files in your project directory to help you start developing quickly.
 
 ## Sample projects[​](#sample-projects "Direct link to Sample projects")
 
-If you want to explore dbt projects more in-depth, refer to [Clone the Jaffle Shop sample project](https://docs.getdbt.com/guides/clone-jaffle-shop.md). It's a runnable project that contains sample configurations and helpful notes.
+If you want to explore dbt projects more in-depth, refer to [Clone the Jaffle Shop sample project](../../guides/clone-jaffle-shop.md). It's a runnable project that contains sample configurations and helpful notes.
 
 If you want to see what a mature, production project looks like, check out the [GitLab Data Team public repo](https://gitlab.com/gitlab-data/analytics/-/tree/master/transform/snowflake-dbt).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Best practices: How we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md)
-* [Quickstarts for dbt](https://docs.getdbt.com/guides.md)
-* [Quickstart for dbt Core](https://docs.getdbt.com/guides/manual-install.md)
+* [Best practices: How we structure our dbt projects](../../best-practices/how-we-structure/1-guide-overview.md)
+* [Quickstarts for dbt](../../guides.md)
+* [Quickstart for dbt Core](../../guides/manual-install.md)

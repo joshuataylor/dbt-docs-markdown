@@ -67,7 +67,7 @@ Search table...
 
 ## Use with remote MCP[​](#use-with-remote-mcp "Direct link to Use with remote MCP")
 
-When you connect an MCP client to the [remote dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#oauth-remote-mcp), it authenticates using OAuth. The client needs just your dbt platform MCP URL, which you can find under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
+When you connect an MCP client to the [remote dbt MCP server](../../dbt-ai/setup-remote-mcp.md#oauth-remote-mcp), it authenticates using OAuth. The client needs just your dbt platform MCP URL, which you can find under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
 
 Clients that support dynamic registration complete the registration step automatically — you'll see them appear in the **Dynamically registered** table after first use.
 
@@ -77,7 +77,7 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
    <!-- -->
    [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
-3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
+3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](./connect-apps-oauth.md#scopes-and-consent).
    <!-- -->
    [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
@@ -85,7 +85,7 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
    [![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")](#)Adding a custom dbt connector in an AI tool's connector settings
 5. That's it 🎉! Ask your tool a data question like *"What is the total revenue for the last 30 days?"* to confirm the connection.
 
-For more information on remote MCP OAuth setup, see [Use the remote dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md).
+For more information on remote MCP OAuth setup, see [Use the remote dbt MCP server](../../dbt-ai/mcp-quickstart-remote.md).
 
 ## Scopes and consent[​](#scopes-and-consent "Direct link to Scopes and consent")
 
@@ -140,7 +140,7 @@ To revoke an OAuth grant, the user disconnects dbt from their MCP client — for
 
 ## Audit logging[​](#audit-logging "Direct link to Audit logging")
 
-OAuth-related events appear in the dbt [Audit log](https://docs.getdbt.com/docs/platform/manage-access/audit-log.md) (**Account settings** → **Audit log**), so admins can see which clients were registered, which users authorized them, and what those users did through OAuth.
+OAuth-related events appear in the dbt [Audit log](./audit-log.md) (**Account settings** → **Audit log**), so admins can see which clients were registered, which users authorized them, and what those users did through OAuth.
 
 Audited OAuth events include:
 

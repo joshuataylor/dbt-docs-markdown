@@ -13,7 +13,7 @@ For detailed setup instructions, including setting up watsonx.data, adding the P
 
 With IBM watsonx.data SaaS/Software instance, you can [set session properties](https://prestodb.io/docs/current/sql/set-session.html) to modify the current configuration for your user session.
 
-To temporarily adjust session properties for a specific dbt model or a group of models, use a [dbt hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md). For example:
+To temporarily adjust session properties for a specific dbt model or a group of models, use a [dbt hook](./pre-hook-post-hook.md). For example:
 
 ```sql
 {{
@@ -76,13 +76,13 @@ For more information about Iceberg table creation and supported configurations, 
 
 The `dbt-watsonx-presto` adapter offers comprehensive support for all [watsonx.data Presto datatypes](https://www.ibm.com/support/pages/node/7157339) in seed files. To leverage this functionality, you must explicitly define the data types for each column.
 
-You can configure column data types either in the dbt\_project.yml file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](https://docs.getdbt.com/reference/seed-configs.md).
+You can configure column data types either in the dbt\_project.yml file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](../seed-configs.md).
 
 ## Materializations[​](#materializations "Direct link to Materializations")
 
 The `dbt-watsonx-presto` adapter supports both table and view materializations, allowing you to manage how your data is stored and queried in watsonx.data Presto(java).
 
-For further information on configuring materializations, refer to the [dbt materializations documentation](https://docs.getdbt.com/reference/resource-configs/materialized.md).
+For further information on configuring materializations, refer to the [dbt materializations documentation](./materialized.md).
 
 ### Table[​](#table "Direct link to Table")
 

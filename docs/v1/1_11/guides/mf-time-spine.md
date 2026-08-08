@@ -1,6 +1,6 @@
 # Quickstart with MetricFlow time spine
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Quickstart
 
@@ -18,7 +18,7 @@ This guide explains how to configure a time spine using the [Semantic Layer Jaff
 
 ### What is a time spine model?[​](#what-is-a-time-spine-model "Direct link to What is a time spine model?")
 
-A [time spine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) is essential for time-based joins and aggregations in MetricFlow, the engine that powers the Semantic Layer.
+A [time spine](../docs/build/metricflow-time-spine.md) is essential for time-based joins and aggregations in MetricFlow, the engine that powers the Semantic Layer.
 
 To use MetricFlow with time-based metrics and dimensions, you must provide a time spine. This serves as the foundation for time-based joins and aggregations. You can either:
 
@@ -31,11 +31,11 @@ And once you have a time spine, you need to configure it in YAML to tell MetricF
 
 Before you start, make sure you have:
 
-* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](https://docs.getdbt.com/guides.md?tags=Quickstart) guide to help you get started.
+* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](../guides.md?tags=Quickstart) guide to help you get started.
 
 ## Add a time spine SQL model[​](#add-a-time-spine-sql-model "Direct link to Add a time spine SQL model")
 
-Let's get started by assuming you're creating a time spine from scratch. If you have a dbt project set up already and have your own time spine (like a `dim_date` type model), you can skip this step and go to [Use an existing dim\_date model](https://docs.getdbt.com/guides/mf-time-spine.md#using-an-existing-dim-date-model).
+Let's get started by assuming you're creating a time spine from scratch. If you have a dbt project set up already and have your own time spine (like a `dim_date` type model), you can skip this step and go to [Use an existing dim\_date model](./mf-time-spine.md#using-an-existing-dim-date-model).
 
 The time spine is a dbt model that generates a series of dates (or timestamps) at a specific granularity. In this example, let's create a daily time spine — `time_spine_daily.sql`.
 
@@ -165,7 +165,7 @@ For the time spine you created, let's run it and preview the output if you haven
    * Contains one row per day.
    * Covers the date range you want (5 years back to 30 days forward).
 
-4. (Optional) If you have [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) already defined in your project, you can query the model/metrics using [Semantic Layer commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) to validate the time spine.
+4. (Optional) If you have [metrics](../docs/build/metrics-overview.md) already defined in your project, you can query the model/metrics using [Semantic Layer commands](../docs/build/metricflow-commands.md) to validate the time spine.
 
    Let's say you have a `revenue` metric defined. You can query the model/metrics using the following command:
 
@@ -263,13 +263,13 @@ Extra credit!
 
 For some extra practice, try one of the following exercises:
 
-* Order the `dbt sl query --metrics orders --group-by metric_time__year` command output by ascending order of `metric_time__year`. Check out the [dbt Semantic Layer commands](https://docs.getdbt.com/docs/build/metricflow-commands.md#query) docs for more information on how to do this.
+* Order the `dbt sl query --metrics orders --group-by metric_time__year` command output by ascending order of `metric_time__year`. Check out the [dbt Semantic Layer commands](../docs/build/metricflow-commands.md#query) docs for more information on how to do this.
 * Filter to this year and last year only to limit data returned.
 * Try creating a monthly time spine — duplicate your daily time spine model, adjust it to generate one row per month, and update the YAML file to include `granularity: month`. Give it a try!
 
 ### Custom calendars[​](#custom-calendars "Direct link to Custom calendars")
 
-To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
+To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [Latest release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
 
 1. Add a new SQL file named `fiscal_calendar.sql` with the following content (or use your own custom calendar and configure it in YAML):
 
@@ -362,7 +362,7 @@ Congratulations 🎉! You've set up a time spine and are ready to bring the bene
 
 Here are some additional resources to help you continue your journey:
 
-* [MetricFlow time spine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md)
-* [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md)
-* [Build metrics](https://docs.getdbt.com/docs/build/metrics-overview.md)
-* [Quickstart with Semantic Layer](https://docs.getdbt.com/guides/sl-snowflake-qs.md?step=1)
+* [MetricFlow time spine](../docs/build/metricflow-time-spine.md)
+* [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md)
+* [Build metrics](../docs/build/metrics-overview.md)
+* [Quickstart with Semantic Layer](./sl-snowflake-qs.md?step=1)

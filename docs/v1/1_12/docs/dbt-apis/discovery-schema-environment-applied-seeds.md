@@ -2,7 +2,7 @@
 
 dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
-[Seeds](https://docs.getdbt.com/docs/build/seeds.md) are CSV files in your dbt project that dbt can load into your data warehouse. You can query seeds through the Discovery API.
+[Seeds](../build/seeds.md) are CSV files in your dbt project that dbt can load into your data warehouse. You can query seeds through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `seeds` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 

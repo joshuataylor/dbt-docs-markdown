@@ -1,6 +1,6 @@
 # Semantic model properties
 
-Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](https://docs.getdbt.com/reference/model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](./model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](../docs/build/semantic-models.md).
 
 <!-- -->
 
@@ -12,7 +12,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-For more information, refer to [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
 ## Latest spec (model YAML)[​](#latest-spec-model-yaml "Direct link to Latest spec (model YAML)")
 
@@ -29,9 +29,9 @@ Dimensions and entities are defined with a column.
 | -------------------------------- | ----------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `semantic_model`                 | boolean or object | When using semantic layer for a model | `true` / `false`, or a mapping. When using a mapping, optional keys are in the following rows.                                                                                                                               |
 | `semantic_model.enabled`         | boolean           | No (mapping form)                     | Defaults to `true` when `semantic_model` is a mapping. Set `false` to disable. Omit when using `semantic_model: true` or `false`.                                                                                            |
-| `semantic_model.name`            | string            | No                                    | Unique name; defaults to model name. Avoid double underscores (`__`) in the name; see [Name](https://docs.getdbt.com/docs/build/semantic-models.md#name) in **Semantic models**.                                             |
+| `semantic_model.name`            | string            | No                                    | Unique name; defaults to model name. Avoid double underscores (`__`) in the name; see [Name](../docs/build/semantic-models.md#name) in **Semantic models**.                                             |
 | `semantic_model.group`           | string            | No                                    | Group for organization.                                                                                                                                                                                                      |
-| `semantic_model.config`          | object            | No                                    | Supports [meta](https://docs.getdbt.com/reference/resource-configs/meta.md), [group](https://docs.getdbt.com/reference/resource-configs/group.md), [enabled](https://docs.getdbt.com/reference/resource-configs/enabled.md). |
+| `semantic_model.config`          | object            | No                                    | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [enabled](./resource-configs/enabled.md). |
 | `agg_time_dimension` (top-level) | string            | Yes                                   | Default time dimension for metrics; references dimension name.                                                                                                                                                               |
 | `primary_entity` (top-level)     | string            | No                                    | Primary entity name when no column has `type: primary`.                                                                                                                                                                      |
 | `columns`                        | array             | Yes                                   | Column list; each can have `entity:` or `dimension:` block; time dimensions have `granularity` on the column.                                                                                                                |
@@ -106,4 +106,4 @@ models:
         agg: count
 ```
 
-For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](../docs/build/semantic-models.md).

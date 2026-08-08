@@ -29,7 +29,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-alibaba-cloud-hologres<!-- -->
 
-For <!-- -->Hologres<!-- -->-specific configuration, please refer to [Hologres<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Hologres<!-- -->-specific configuration, please refer to [Hologres<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to Hologres with **dbt-alibaba-cloud-hologres**[​](#connecting-to-hologres-with-dbt-alibaba-cloud-hologres "Direct link to connecting-to-hologres-with-dbt-alibaba-cloud-hologres")
 
@@ -120,7 +120,7 @@ After configuring your `profiles.yml`, you can verify your connection by running
 dbt debug
 ```
 
-This [command](https://docs.getdbt.com/reference/commands/debug.md) will test the connection to your Hologres instance and report any configuration issues.
+This [command](../../../reference/commands/debug.md) will test the connection to your Hologres instance and report any configuration issues.
 
 ## Hologres-specific features[​](#hologres-specific-features "Direct link to Hologres-specific features")
 

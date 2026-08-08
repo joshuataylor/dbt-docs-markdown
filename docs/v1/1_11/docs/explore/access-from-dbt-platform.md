@@ -8,7 +8,7 @@ This page describes how to open Catalog from orchestration and exploration workf
 
 ### Lineage tab in jobs[​](#lineage-tab-in-jobs "Direct link to Lineage tab in jobs")
 
-The **Lineage tab** in dbt jobs displays the lineage associated with the [job run](https://docs.getdbt.com/docs/deploy/jobs.md). You can open Catalog directly from this tab to understand the dependencies and relationships of resources in your project.
+The **Lineage tab** in dbt jobs displays the lineage associated with the [job run](../deploy/jobs.md). You can open Catalog directly from this tab to understand the dependencies and relationships of resources in your project.
 
 #### Access Catalog from the lineage tab[​](#access-catalog-from-the-lineage-tab "Direct link to Access Catalog from the lineage tab")
 
@@ -19,7 +19,7 @@ The **Lineage tab** in dbt jobs displays the lineage associated with the [job ru
 
 ### Model timing tab in jobs [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#model-timing-tab-in-jobs- "Direct link to model-timing-tab-in-jobs-")
 
-The [model timing tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) in dbt jobs displays the composition, order, and time taken by each model in a job run.
+The [model timing tab](../deploy/run-visibility.md#model-timing) in dbt jobs displays the composition, order, and time taken by each model in a job run.
 
 You can open Catalog from the **model timing tab** to investigate resources, diagnose performance bottlenecks, understand dependencies and relationships of slow-running models, and make changes to improve their performance.
 
@@ -32,7 +32,7 @@ You can open Catalog from the **model timing tab** to investigate resources, dia
 
 ### dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#dbt-insights- "Direct link to dbt-insights-")
 
-Open Catalog from [Insights](https://docs.getdbt.com/docs/explore/access-dbt-insights.md) to view project lineage and resources such as tables, columns, metrics, dimensions, and more.
+Open Catalog from [Insights](./access-dbt-insights.md) to view project lineage and resources such as tables, columns, metrics, dimensions, and more.
 
 To open Catalog from Insights, select the **Catalog** icon in the Query console sidebar menu, then search for the resource you want.
 

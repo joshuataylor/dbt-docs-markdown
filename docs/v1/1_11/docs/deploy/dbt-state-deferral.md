@@ -8,7 +8,7 @@ By default, dbt State defers to your production environment. Both sections on th
 
 By default, dbt State defers to your production environment. You only need to configure this if you want to change that behavior:
 
-* **dbt platform**: To defer to an environment other than the default (for example, staging), add `defer-env-id` to the `dbt-cloud` block in `dbt_project.yml`. Refer to [Configure Cloud CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) for more information.
+* **dbt platform**: To defer to an environment other than the default (for example, staging), add `defer-env-id` to the `dbt-cloud` block in `dbt_project.yml`. Refer to [Configure Cloud CLI](../platform/dbt-cli-installation.md) for more information.
 
   dbt\_project.yml
 
@@ -18,7 +18,7 @@ By default, dbt State defers to your production environment. You only need to co
     defer-env-id: <your-environment-id>
   ```
 
-* **Self-managed deployments**: If you can't access a production or deployment manifest, you can set [`defer_to_target`](https://docs.getdbt.com/reference/resource-configs/defer-to-target.md) in `profiles.yml` for best-effort auto-deferral. Note that this approach has known limitations; refer to [Caveats to dbt State without a manifest](https://docs.getdbt.com/reference/resource-configs/defer-to-target.md#caveats-to-dbt-state-without-a-manifest).
+* **Self-managed deployments**: If you can't access a production or deployment manifest, you can set [`defer_to_target`](../../reference/resource-configs/defer-to-target.md) in `profiles.yml` for best-effort auto-deferral. Note that this approach has known limitations; refer to [Caveats to dbt State without a manifest](../../reference/resource-configs/defer-to-target.md#caveats-to-dbt-state-without-a-manifest).
 
   profiles.yml
 
@@ -35,7 +35,7 @@ You can also pass `--state` or `--defer-state` to explicitly point dbt State to 
 
 note
 
-If you've overridden `generate_*_name()` macros with runtime values (such as environment variables, file paths, or dates), provide a `manifest.json` file so dbt State can locate objects correctly. Without one, it infers object locations from your macros and profile target, which may be incorrect in these cases. Refer to [Caveats to dbt State without a manifest](https://docs.getdbt.com/reference/resource-configs/defer-to-target.md#caveats-to-dbt-state-without-a-manifest).
+If you've overridden `generate_*_name()` macros with runtime values (such as environment variables, file paths, or dates), provide a `manifest.json` file so dbt State can locate objects correctly. Without one, it infers object locations from your macros and profile target, which may be incorrect in these cases. Refer to [Caveats to dbt State without a manifest](../../reference/resource-configs/defer-to-target.md#caveats-to-dbt-state-without-a-manifest).
 
 ## Specify your project or org[​](#specify-your-project-or-org "Direct link to Specify your project or org")
 
@@ -61,6 +61,6 @@ If you have multiple projects or orgs that use dbt State, configure the `dbt-clo
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)

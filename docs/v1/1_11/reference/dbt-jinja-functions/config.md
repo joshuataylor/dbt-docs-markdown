@@ -21,7 +21,7 @@ is responsible for handling model code that looks like this:
 }}
 ```
 
-Review [Model configurations](https://docs.getdbt.com/reference/model-configs.md) for examples and more information on valid arguments.
+Review [Model configurations](../model-configs.md) for examples and more information on valid arguments.
 
 ## config.get[​](#configget "Direct link to config.get")
 

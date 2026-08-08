@@ -15,7 +15,7 @@ For the DATE\_TRUNC function, there are two arguments you must pass in:
 * The date part: This is the days/months/weeks/years (level) you want your field to be truncated out to
 * The date/time you want to be truncated
 
-The DATE\_TRUNC function can be used in [SELECT](https://docs.getdbt.com/sql-reference/select.md) statements and [WHERE](https://docs.getdbt.com/sql-reference/where.md) clauses.
+The DATE\_TRUNC function can be used in [SELECT](./select.md) statements and [WHERE](./where.md) clauses.
 
 Most, if not all, modern cloud data warehouses support some type of the DATE\_TRUNC function. There may be some minor differences between the argument order for DATE\_TRUNC across data warehouses, but the functionality very much remains the same.
 
@@ -45,9 +45,9 @@ A note on BigQuery: BigQuery’s DATE\_TRUNC function supports the truncation of
 
 Why Snowflake, Amazon Redshift, Databricks, and Google BigQuery decided to use different implementations of essentially the same function is beyond us and it’s not worth the headache trying to figure that out. Instead of remembering if the `<date_part>` or the `<date/time field>` comes first, (which, let’s be honest, we can literally never remember) you can rely on a dbt Core macro to help you get away from finicky syntax.
 
-[Adapters](https://docs.getdbt.com/docs/supported-data-platforms.md) support [cross-database macros](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md) to help you write certain functions, like DATE\_TRUNC and DATEDIFF, without having to memorize sticky function syntax.
+[Adapters](../docs/supported-data-platforms.md) support [cross-database macros](../reference/dbt-jinja-functions/cross-database-macros.md) to help you write certain functions, like DATE\_TRUNC and DATEDIFF, without having to memorize sticky function syntax.
 
-Using the [Jaffle Shop](https://github.com/dbt-labs/jaffle_shop/blob/main/models/orders.sql), a simple dataset and dbt project, you can truncate the `order_date` from the orders table using the [dbt DATE\_TRUNC macro](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md#date_trunc):
+Using the [Jaffle Shop](https://github.com/dbt-labs/jaffle_shop/blob/main/models/orders.sql), a simple dataset and dbt project, you can truncate the `order_date` from the orders table using the [dbt DATE\_TRUNC macro](../reference/dbt-jinja-functions/cross-database-macros.md#date_trunc):
 
 ```sql
 select

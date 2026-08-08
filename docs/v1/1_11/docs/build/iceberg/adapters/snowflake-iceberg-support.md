@@ -9,9 +9,9 @@ dbt supports materializing models in the Iceberg table format in two ways:
 
 dbt supports creating Iceberg tables for three of the Snowflake materializations:
 
-* [Table](https://docs.getdbt.com/docs/build/materializations.md#table)
-* [Incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental)
-* [Dynamic Table](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables)
+* [Table](../../materializations.md#table)
+* [Incremental](../../materializations.md#incremental)
+* [Dynamic Table](../../../../reference/resource-configs/snowflake-configs.md#dynamic-tables)
 
 ## Iceberg catalogs[​](#iceberg-catalogs "Direct link to Iceberg catalogs")
 

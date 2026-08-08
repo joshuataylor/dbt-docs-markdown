@@ -8,11 +8,11 @@ This section covers three core incremental patterns for achieving near real-time
 
 Snowflake-specific pattern
 
-Some patterns on this guide uses Snowflake-specific features. Other warehouses have similar features with different implementations. Refer to the [additional resources](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#resources-by-warehouse) section for adapter-specific documentation.
+Some patterns on this guide uses Snowflake-specific features. Other warehouses have similar features with different implementations. Refer to the [additional resources](./3-warehouse-native-features.md#resources-by-warehouse) section for adapter-specific documentation.
 
 ## Pattern 1: Incremental MERGE from append-only tables[​](#incremental-merge-from-append-only-tables "Direct link to Pattern 1: Incremental MERGE from append-only tables")
 
-This pattern uses the `merge` incremental strategy to upsert (insert + update) new and updated rows into a target table. Most data platforms support the `merge` strategy. See the [supported incremental strategies by adapter](https://docs.getdbt.com/docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for details.
+This pattern uses the `merge` incremental strategy to upsert (insert + update) new and updated rows into a target table. Most data platforms support the `merge` strategy. See the [supported incremental strategies by adapter](../../docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for details.
 
 "Append-only tables" refers to a data pattern where source data continuously receives new rows without updates or deletes.
 
@@ -175,7 +175,7 @@ There are some key differences from [pattern 1](#incremental-merge-from-append-o
 
 ## Pattern 3: Microbatch for large time-series tables[​](#microbatch-for-large-time-series-tables "Direct link to Pattern 3: Microbatch for large time-series tables")
 
-For large `fact` tables where backfills or long lookback windows are challenging, use `incremental_strategy='microbatch'` (available in dbt Core v1.9 or higher and Latest release track in dbt platform). Refer to [incremental microbatch](https://docs.getdbt.com/docs/build/incremental-microbatch.md) for more details. Note that Microsoft Fabric doesn't support microbatch yet. See [incremental strategy by adapter](https://docs.getdbt.com/docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for more details.
+For large `fact` tables where backfills or long lookback windows are challenging, use `incremental_strategy='microbatch'` (available in dbt Core v1.9 or higher and Latest release track in dbt platform). Refer to [incremental microbatch](../../docs/build/incremental-microbatch.md) for more details. Note that Microsoft Fabric doesn't support microbatch yet. See [incremental strategy by adapter](../../docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter) for more details.
 
 microbatch must have event\_time
 
@@ -244,6 +244,6 @@ Search table...
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Incremental models](https://docs.getdbt.com/docs/build/incremental-models-overview.md)
-* [Microbatch incremental models](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
-* [Configuring incremental models in dbt](https://docs.getdbt.com/docs/build/incremental-models.md)
+* [Incremental models](../../docs/build/incremental-models-overview.md)
+* [Microbatch incremental models](../../docs/build/incremental-microbatch.md)
+* [Configuring incremental models in dbt](../../docs/build/incremental-models.md)

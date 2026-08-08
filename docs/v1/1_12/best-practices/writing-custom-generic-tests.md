@@ -1,6 +1,6 @@
 # Writing custom generic data tests
 
-dbt ships with [Not Null](https://docs.getdbt.com/reference/resource-properties/data-tests.md#not-null), [Unique](https://docs.getdbt.com/reference/resource-properties/data-tests.md#unique), [Relationships](https://docs.getdbt.com/reference/resource-properties/data-tests.md#relationships), and [Accepted Values](https://docs.getdbt.com/reference/resource-properties/data-tests.md#accepted-values) generic data tests. (These used to be called "schema tests," and you'll still see that name in some places.) Under the hood, these generic data tests are defined as `test` blocks (like macros).
+dbt ships with [Not Null](../reference/resource-properties/data-tests.md#not-null), [Unique](../reference/resource-properties/data-tests.md#unique), [Relationships](../reference/resource-properties/data-tests.md#relationships), and [Accepted Values](../reference/resource-properties/data-tests.md#accepted-values) generic data tests. (These used to be called "schema tests," and you'll still see that name in some places.) Under the hood, these generic data tests are defined as `test` blocks (like macros).
 
 info
 
@@ -10,7 +10,7 @@ There are tons of generic data tests defined in open source packages, such as [d
 
 Generic tests are defined in SQL files. Those files can live in two places:
 
-* `tests/generic/`: that is, a special subfolder named `generic` within your [test paths](https://docs.getdbt.com/reference/project-configs/test-paths.md) (`tests/` by default)
+* `tests/generic/`: that is, a special subfolder named `generic` within your [test paths](../reference/project-configs/test-paths.md) (`tests/` by default)
 * `macros/`: Why? Generic tests work a lot like macros, and historically, this was the only place they could be defined. If your generic test depends on complex macro logic, you may find it more convenient to define the macros and the generic test in the same file.
 
 To define your own generic tests, simply create a `test` block called `<test_name>`. All generic tests should accept one or both of the standard arguments:

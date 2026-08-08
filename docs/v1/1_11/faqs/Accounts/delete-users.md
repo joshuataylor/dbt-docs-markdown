@@ -24,4 +24,4 @@ If you are on a **Starter** plan and you're deleting users to reduce the number 
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses)
+* [dbt licenses](../../docs/platform/manage-access/seats-and-users.md#licenses)

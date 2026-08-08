@@ -2,7 +2,7 @@
 
 Deprecation
 
-The `overrides` property is [deprecated in v1.10](https://docs.getdbt.com/reference/deprecations.md#sourceoverridedeprecation). You can [enable or disable a source](https://docs.getdbt.com/reference/source-configs.md#configuring-sources) from a package instead.
+The `overrides` property is [deprecated in v1.10](../deprecations.md#sourceoverridedeprecation). You can [enable or disable a source](../source-configs.md#configuring-sources) from a package instead.
 
 models/\<filename>.yml
 
@@ -22,15 +22,15 @@ Override a source defined in an included package. The properties defined in the 
 
 The following source properties can be overridden:
 
-* [description](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [meta](https://docs.getdbt.com/reference/resource-configs/meta.md)
-* [database](https://docs.getdbt.com/reference/resource-properties/database.md)
-* [schema](https://docs.getdbt.com/reference/resource-properties/schema.md)
-* [loader](https://docs.getdbt.com/reference/resource-properties/loader.md)
-* [quoting](https://docs.getdbt.com/reference/resource-properties/quoting.md)
-* [freshness](https://docs.getdbt.com/reference/resource-properties/freshness.md)
-* [loaded\_at\_field](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_field)
-* [tags](https://docs.getdbt.com/reference/resource-configs/tags.md)
+* [description](./description.md)
+* [meta](../resource-configs/meta.md)
+* [database](./database.md)
+* [schema](./schema.md)
+* [loader](./loader.md)
+* [quoting](./quoting.md)
+* [freshness](./freshness.md)
+* [loaded\_at\_field](./freshness.md#loaded_at_field)
+* [tags](../resource-configs/tags.md)
 
 ## Examples[​](#examples "Direct link to Examples")
 

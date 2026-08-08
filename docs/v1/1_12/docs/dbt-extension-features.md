@@ -6,7 +6,7 @@ The dbt VS Code extension requires the dbt Fusion engine and uses a dynamic Lang
 
 Registration for advanced features
 
-All dbt VS Code extension features are available to all users for 14 days. After the 14-day trial period, most features remain available without registration. To keep using advanced features, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account. Existing registered users keep access automatically.
+All dbt VS Code extension features are available to all users for 14 days. After the 14-day trial period, most features remain available without registration. To keep using advanced features, [register](./sign-in-dbt-extension.md) for a free dbt platform account. Existing registered users keep access automatically.
 
 See the [feature availability](#feature-availability) table for the full list of features and what each needs.
 
@@ -237,7 +237,7 @@ For the current model, the catalog tab surfaces:
 * The model's **Columns**, including each column's type, description, and test results. Sort columns alphabetically or by test name.
 * A **View in dbt platform** link to open the resource in the dbt platform.
 
-The **Catalog** tab is an advanced feature. Before your 14-day trial expires, [register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to continue using it.
+The **Catalog** tab is an advanced feature. Before your 14-day trial expires, [register](./sign-in-dbt-extension.md) for a dbt platform account to continue using it.
 
 [![Example of the Catalog tab in the dbt VS Code extension](/img/docs/extension/vsce-catalog-tab.png?v=2 "Example of the Catalog tab in the dbt VS Code extension")](#)Example of the Catalog tab in the dbt VS Code extension
 
@@ -258,10 +258,10 @@ To generate and download a system report:
 
 Requires registration
 
-Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
+Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
 
 You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 
-For more details on how to use this feature, refer to [Compare changes in local development](https://docs.getdbt.com/docs/fusion/vs-compare-changes.md).
+For more details on how to use this feature, refer to [Compare changes in local development](./fusion/vs-compare-changes.md).
 
 [![Example of the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab

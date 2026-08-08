@@ -8,9 +8,9 @@ dbt platform accounts on Enterprise and Enterprise+ plans support developer OAut
 
 Databricks OAuth uses user-to-machine (U2M) authentication for interactive development in the Studio IDE. It applies to development credentials only.
 
-Deployment environments use separate credentials configured at the environment level. They do not use developer OAuth. For deployment and batch jobs, configure token-based credentials in a [deployment connection profile](https://docs.getdbt.com/docs/platform/about-profiles.md). A [service principal](https://docs.databricks.com/en/admin/users-groups/service-principals.html) token is recommended for production and non-production jobs.
+Deployment environments use separate credentials configured at the environment level. They do not use developer OAuth. For deployment and batch jobs, configure token-based credentials in a [deployment connection profile](../about-profiles.md). A [service principal](https://docs.databricks.com/en/admin/users-groups/service-principals.html) token is recommended for production and non-production jobs.
 
-For setup steps, refer to [Defining your dbt deployment environment](https://docs.getdbt.com/guides/set-up-your-databricks-dbt-project.md#defining-your-dbt-deployment-environment). For more information on deployment environments, refer to [Deploy environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md).
+For setup steps, refer to [Defining your dbt deployment environment](../../../guides/set-up-your-databricks-dbt-project.md#defining-your-dbt-deployment-environment). For more information on deployment environments, refer to [Deploy environments](../../deploy/deploy-environments.md).
 
 ### Configure Databricks OAuth (Databricks admin)[​](#configure-databricks-oauth-databricks-admin "Direct link to Configure Databricks OAuth (Databricks admin)")
 
@@ -47,7 +47,7 @@ Use the redirect URLs that correspond to your dbt account region when configurin
 
 info
 
-As part of the account-specific URL migration, some customers should update OAuth redirect URLs and other integration settings. Existing getdbt.com region URLs continue to support integrations until November 1st, 2026, unless otherwise specified. For more migration timing and account-specific URL guidance, refer to the [account URL migration documentation](https://docs.getdbt.com/docs/platform/about-platform/account-url-migration.md).
+As part of the account-specific URL migration, some customers should update OAuth redirect URLs and other integration settings. Existing getdbt.com region URLs continue to support integrations until November 1st, 2026, unless otherwise specified. For more migration timing and account-specific URL guidance, refer to the [account URL migration documentation](../about-platform/account-url-migration.md).
 
 | Region              | Redirect URLs                                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------------------------- |

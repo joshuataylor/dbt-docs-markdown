@@ -27,17 +27,17 @@ Certain properties are special, because:
 
 These properties are:
 
-* [`columns`](https://docs.getdbt.com/reference/resource-properties/columns.md)
-* [`deprecation_date`](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md)
-* [`description`](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [`quote`](https://docs.getdbt.com/reference/resource-properties/columns.md#quote)
-* [`source` properties](https://docs.getdbt.com/reference/source-properties.md) (for example, `loaded_at_field`)
-* [`exposure` properties](https://docs.getdbt.com/reference/exposure-properties.md) (for example, `type`, `maturity`)
+* [`columns`](./resource-properties/columns.md)
+* [`deprecation_date`](./resource-properties/deprecation_date.md)
+* [`description`](./resource-properties/description.md)
+* [`quote`](./resource-properties/columns.md#quote)
+* [`source` properties](./source-properties.md) (for example, `loaded_at_field`)
+* [`exposure` properties](./exposure-properties.md) (for example, `type`, `maturity`)
   <!-- -->
-  * Note that while most exposure properties must be configured directly in `properties.yml` files, you can set the [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) config at the [project level](https://docs.getdbt.com/reference/exposure-properties.md#project-level-configs) in the`dbt_project.yml` file.
-* [`macro` properties](https://docs.getdbt.com/reference/macro-properties.md) (for example, `arguments`)
-* [`tests`](https://docs.getdbt.com/reference/resource-properties/data-tests.md)
-* [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md)
+  * Note that while most exposure properties must be configured directly in `properties.yml` files, you can set the [`enabled`](./resource-configs/enabled.md) config at the [project level](./exposure-properties.md#project-level-configs) in the`dbt_project.yml` file.
+* [`macro` properties](./macro-properties.md) (for example, `arguments`)
+* [`tests`](./resource-properties/data-tests.md)
+* [`versions`](./resource-properties/versions.md)
 
 <!-- -->
 
@@ -111,13 +111,13 @@ models:
 
 You can find an exhaustive list of each supported property and config, broken down by resource type:
 
-* Model [properties](https://docs.getdbt.com/reference/model-properties.md) and [configs](https://docs.getdbt.com/reference/model-configs.md)
-* Source [properties](https://docs.getdbt.com/reference/source-properties.md) and [configs](https://docs.getdbt.com/reference/source-configs.md)
-* Seed [properties](https://docs.getdbt.com/reference/seed-properties.md) and [configs](https://docs.getdbt.com/reference/seed-configs.md)
-* Snapshot [properties](https://docs.getdbt.com/reference/snapshot-properties.md)
-* Analysis [properties](https://docs.getdbt.com/reference/analysis-properties.md)
-* Macro [properties](https://docs.getdbt.com/reference/macro-properties.md)
-* Exposure [properties](https://docs.getdbt.com/reference/exposure-properties.md)
+* Model [properties](./model-properties.md) and [configs](./model-configs.md)
+* Source [properties](./source-properties.md) and [configs](./source-configs.md)
+* Seed [properties](./seed-properties.md) and [configs](./seed-configs.md)
+* Snapshot [properties](./snapshot-properties.md)
+* Analysis [properties](./analysis-properties.md)
+* Macro [properties](./macro-properties.md)
+* Exposure [properties](./exposure-properties.md)
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -128,7 +128,7 @@ No! You can name this file whatever you want (including `whatever_you_want.yml`)
 * The file is in your `models/` directory¹
 * The file has `.yml` extension
 
-Check out the [docs](https://docs.getdbt.com/reference/configs-and-properties.md) for more information.
+Check out the [docs](./configs-and-properties.md) for more information.
 
 ¹If you're declaring properties for seeds, snapshots, or macros, you can also place this file in the related directory — `seeds/`, `snapshots/` and `macros/` respectively.
 
@@ -140,7 +140,7 @@ It's up to you! Here's a few options:
 * Use the same name as your directory (assuming you're using sensible names for your directories)
 * If you test and document one model (or seed, snapshot, macro etc.) per file, you can give it the same name as the model (or seed, snapshot, macro etc.)
 
-Choose what works for your team. We have more recommendations in our guide on [structuring dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md).
+Choose what works for your team. We have more recommendations in our guide on [structuring dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
 Should I use separate files to declare resource properties, or one large file?
 
@@ -149,7 +149,7 @@ It's up to you:
 * Some folks find it useful to have one file per model (or source / snapshot / seed etc)
 * Some find it useful to have one per directory, documenting and testing multiple models in one file
 
-Choose what works for your team. We have more recommendations in our guide on [structuring dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md).
+Choose what works for your team. We have more recommendations in our guide on [structuring dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
 Can I add tests and descriptions in a SQL config block?
 
@@ -164,14 +164,14 @@ Certain properties are special, because:
 
 These properties are:
 
-* [`description`](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [`tests`](https://docs.getdbt.com/reference/resource-properties/data-tests.md)
-* [`docs`](https://docs.getdbt.com/reference/resource-configs/docs.md)
+* [`description`](./resource-properties/description.md)
+* [`tests`](./resource-properties/data-tests.md)
+* [`docs`](./resource-configs/docs.md)
 * `columns`
-* [`quote`](https://docs.getdbt.com/reference/resource-properties/columns.md#quote)
-* [`source` properties](https://docs.getdbt.com/reference/source-properties.md) (e.g. `loaded_at_field`, `freshness`)
-* [`exposure` properties](https://docs.getdbt.com/reference/exposure-properties.md) (e.g. `type`, `maturity`)
-* [`macro` properties](https://docs.getdbt.com/reference/resource-properties/arguments.md) (e.g. `arguments`)
+* [`quote`](./resource-properties/columns.md#quote)
+* [`source` properties](./source-properties.md) (e.g. `loaded_at_field`, `freshness`)
+* [`exposure` properties](./exposure-properties.md) (e.g. `type`, `maturity`)
+* [`macro` properties](./resource-properties/arguments.md) (e.g. `arguments`)
 
 Why do model and source YAML files always start with \`version: 2\`?
 
@@ -179,7 +179,7 @@ Once upon a time, the structure of these `.yml` files was very different (s/o to
 
 From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
-Also starting in v1.5, both the [`config-version: 2`](https://docs.getdbt.com/reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
+Also starting in v1.5, both the [`config-version: 2`](./project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 
 Resource YAML files do not currently require this config. We only support `version: 2` if it's specified. Although we do not expect to update YAML files to `version: 3` soon, having this config will make it easier for us to introduce new structures in the future
 

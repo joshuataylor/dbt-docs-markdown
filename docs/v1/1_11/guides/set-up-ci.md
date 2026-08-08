@@ -1,6 +1,6 @@
 # Get started with Continuous Integration tests
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt platform
 
@@ -37,7 +37,7 @@ As part of your initial dbt setup, you should already have Development and Produ
 
 ## Create a new CI environment[​](#create-a-new-ci-environment "Direct link to Create a new CI environment")
 
-See [Create a new environment](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-deployment-environment). The environment should be called **CI**. Just like your existing Production environment, it will be a Deployment-type environment.
+See [Create a new environment](../docs/dbt-platform-environments.md#create-a-deployment-environment). The environment should be called **CI**. Just like your existing Production environment, it will be a Deployment-type environment.
 
 When setting a Schema in the **Deployment Credentials** area, remember that dbt will automatically generate a custom schema name for each PR to ensure that they don't interfere with your deployed models. This means you can safely set the same Schema name as your Production job.
 
@@ -51,20 +51,20 @@ Use the **Continuous Integration Job** template, and call the job **CI Check**.
 
 In the Execution Settings, your command will be preset to `dbt build --select state:modified+`. Let's break this down:
 
-* [`dbt build`](https://docs.getdbt.com/reference/commands/build.md) runs all nodes (seeds, models, snapshots, tests) at once in DAG order. If something fails, nodes that depend on it will be skipped.
-* The [`state:modified+` selector](https://docs.getdbt.com/reference/node-selection/methods.md#state) means that only modified nodes and their children will be run ("Slim CI"). In addition to [not wasting time](https://discourse.getdbt.com/t/how-we-sped-up-our-ci-runs-by-10x-using-slim-ci/2603) building and testing nodes that weren't changed in the first place, this significantly reduces compute costs.
+* [`dbt build`](../reference/commands/build.md) runs all nodes (seeds, models, snapshots, tests) at once in DAG order. If something fails, nodes that depend on it will be skipped.
+* The [`state:modified+` selector](../reference/node-selection/methods.md#state) means that only modified nodes and their children will be run ("Slim CI"). In addition to [not wasting time](https://discourse.getdbt.com/t/how-we-sped-up-our-ci-runs-by-10x-using-slim-ci/2603) building and testing nodes that weren't changed in the first place, this significantly reduces compute costs.
 
-To be able to find modified nodes, dbt needs to have something to compare against. dbt uses the last successful run of any job in your Production environment as its [comparison state](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection). As long as you identified your Production environment in Step 2, you won't need to touch this. If you didn't, pick the right environment from the dropdown.
+To be able to find modified nodes, dbt needs to have something to compare against. dbt uses the last successful run of any job in your Production environment as its [comparison state](../reference/node-selection/syntax.md#about-node-selection). As long as you identified your Production environment in Step 2, you won't need to touch this. If you didn't, pick the right environment from the dropdown.
 
 If you point CI at a non-production environment (staging, QA, UAT, or similar) that runs many jobs, comparison manifests can change unpredictably, or lag behind merges to your integration branch (for example, `develop`).
 
 Use CI to test your metrics
 
-If you've [built semantic nodes](https://docs.getdbt.com/docs/build/build-metrics-intro.md) in your dbt project, you can [validate them in a CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
+If you've [built semantic nodes](../docs/build/build-metrics-intro.md) in your dbt project, you can [validate them in a CI job](../docs/deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
 
 ### 3. Test your process[​](#3-test-your-process "Direct link to 3. Test your process")
 
-That's it! There are other steps you can take to be even more confident in your work, such as validating your structure follows best practices and linting your code. For more information, refer to [Get started with Continuous Integration tests](https://docs.getdbt.com/guides/set-up-ci.md).
+That's it! There are other steps you can take to be even more confident in your work, such as validating your structure follows best practices and linting your code. For more information, refer to [Get started with Continuous Integration tests](./set-up-ci.md).
 
 To test your new flow, create a new branch in the Studio IDE then add a new file or modify an existing one. Commit it, then create a new Pull Request (not a draft). Within a few seconds, you’ll see a new check appear in your git provider.
 
@@ -76,7 +76,7 @@ To test your new flow, create a new branch in the Studio IDE then add a new file
 
 ## Keep comparison manifests stable[​](#keep-comparison-manifests-stable "Direct link to Keep comparison manifests stable")
 
-Deferring to Production is straightforward when one primary deploy job owns artifacts and merges are infrequent. With high merge volume, Production’s manifest can still move while other pull requests stay open, so CI may select extra `state:modified` nodes until those branches incorporate the latest merges (or you add a fast [merge triggered](https://docs.getdbt.com/docs/deploy/merge-jobs.md) `dbt parse` in the deferred environment). Busy staging, QA, or UAT environments add another failure mode as many jobs with different settings overwrite `manifest.json`. Any deferred environment can also be stale for a short window right after a merge until the next successful run refreshes artifacts.
+Deferring to Production is straightforward when one primary deploy job owns artifacts and merges are infrequent. With high merge volume, Production’s manifest can still move while other pull requests stay open, so CI may select extra `state:modified` nodes until those branches incorporate the latest merges (or you add a fast [merge triggered](../docs/deploy/merge-jobs.md) `dbt parse` in the deferred environment). Busy staging, QA, or UAT environments add another failure mode as many jobs with different settings overwrite `manifest.json`. Any deferred environment can also be stale for a short window right after a merge until the next successful run refreshes artifacts.
 
 ## Enforce best practices with dbt project evaluator[​](#enforce-best-practices-with-dbt-project-evaluator "Direct link to Enforce best practices with dbt project evaluator")
 
@@ -123,15 +123,15 @@ If you create a seed to exclude groups of models from a specific test, remember 
 
 ## Run linting checks with SQLFluff[​](#run-linting-checks-with-sqlfluff "Direct link to Run linting checks with SQLFluff")
 
-By [linting](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md#lint) your project during CI, you can ensure that code styling standards are consistently enforced, without spending human time nitpicking comma placement.
+By [linting](../docs/platform/studio-ide/lint-format.md#lint) your project during CI, you can ensure that code styling standards are consistently enforced, without spending human time nitpicking comma placement.
 
-Seamlessly enable [SQL linting for your CI job](https://docs.getdbt.com/docs/deploy/continuous-integration.md#sql-linting) in dbt to invoke [SQLFluff](https://docs.sqlfluff.com/en/stable/), a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors.
+Seamlessly enable [SQL linting for your CI job](../docs/deploy/continuous-integration.md#sql-linting) in dbt to invoke [SQLFluff](https://docs.sqlfluff.com/en/stable/), a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors.
 
-SQL linting in CI lints all the changed SQL files in your project (compared to the last deferred production state). Available on dbt [Starter, Enterprise, or Enterprise+ accounts](https://www.getdbt.com/pricing) using [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+SQL linting in CI lints all the changed SQL files in your project (compared to the last deferred production state). Available on dbt [Starter, Enterprise, or Enterprise+ accounts](https://www.getdbt.com/pricing) using [release tracks](../docs/dbt-versions/dbt-release-tracks.md).
 
 ### Manually set up SQL linting in CI[​](#manually-set-up-sql-linting-in-ci "Direct link to Manually set up SQL linting in CI")
 
-You can run SQLFluff as part of your pipeline even if you don't have access to [SQL linting in CI](https://docs.getdbt.com/docs/deploy/continuous-integration.md#sql-linting). The following steps walk you through setting up a CI job using SQLFluff to scan your code for linting errors. If you're new to SQLFluff rules in dbt, check out [our recommended config file](https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql.md).
+You can run SQLFluff as part of your pipeline even if you don't have access to [SQL linting in CI](../docs/deploy/continuous-integration.md#sql-linting). The following steps walk you through setting up a CI job using SQLFluff to scan your code for linting errors. If you're new to SQLFluff rules in dbt, check out [our recommended config file](../best-practices/how-we-style/2-how-we-style-our-sql.md).
 
 ### 1. Create a YAML file to define your pipeline[​](#1-create-a-yaml-file-to-define-your-pipeline "Direct link to 1. Create a YAML file to define your pipeline")
 
@@ -303,7 +303,7 @@ The git flow will look like this:
 
 ### Advanced prerequisites[​](#advanced-prerequisites "Direct link to Advanced prerequisites")
 
-* You have the **Development**, **CI**, and **Production** environments, as described in [the Baseline setup](https://docs.getdbt.com/guides/set-up-ci.md).
+* You have the **Development**, **CI**, and **Production** environments, as described in [the Baseline setup](./set-up-ci.md).
 
 ### 1. Create a `release` branch in your git repo[​](#1-create-a-release-branch-in-your-git-repo "Direct link to 1-create-a-release-branch-in-your-git-repo")
 
@@ -311,13 +311,13 @@ As noted above, this branch will outlive any individual feature, and will be the
 
 ### 2. Update your Development environment to use the `qa` branch[​](#2-update-your-development-environment-to-use-the-qa-branch "Direct link to 2-update-your-development-environment-to-use-the-qa-branch")
 
-See [Custom branch behavior](https://docs.getdbt.com/docs/dbt-platform-environments.md#custom-branch-behavior). Setting `qa` as your custom branch ensures that the IDE creates new branches and PRs with the correct target, instead of using `main`.
+See [Custom branch behavior](../docs/dbt-platform-environments.md#custom-branch-behavior). Setting `qa` as your custom branch ensures that the IDE creates new branches and PRs with the correct target, instead of using `main`.
 
 [![A demonstration of configuring a custom branch for an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/dev-environment-custom-branch.png?v=2 "A demonstration of configuring a custom branch for an environment")](#)A demonstration of configuring a custom branch for an environment
 
 ### 3. Create a new QA environment[​](#3-create-a-new-qa-environment "Direct link to 3. Create a new QA environment")
 
-See [Create a new environment](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-deployment-environment). The environment should be called **QA**. Just like your existing Production and CI environments, it will be a Deployment-type environment.
+See [Create a new environment](../docs/dbt-platform-environments.md#create-a-deployment-environment). The environment should be called **QA**. Just like your existing Production and CI environments, it will be a Deployment-type environment.
 
 Set its branch to `qa` as well.
 
@@ -327,19 +327,19 @@ Use the **Continuous Integration Job** template, and call the job **QA Check**.
 
 In the Execution Settings, your command will be preset to `dbt build --select state:modified+`. Let's break this down:
 
-* [`dbt build`](https://docs.getdbt.com/reference/commands/build.md) runs all nodes (seeds, models, snapshots, tests) at once in DAG order. If something fails, nodes that depend on it will be skipped.
-* The [`state:modified+` selector](https://docs.getdbt.com/reference/node-selection/methods.md#state) means that only modified nodes and their children will be run ("Slim CI"). In addition to [not wasting time](https://discourse.getdbt.com/t/how-we-sped-up-our-ci-runs-by-10x-using-slim-ci/2603) building and testing nodes that weren't changed in the first place, this significantly reduces compute costs.
+* [`dbt build`](../reference/commands/build.md) runs all nodes (seeds, models, snapshots, tests) at once in DAG order. If something fails, nodes that depend on it will be skipped.
+* The [`state:modified+` selector](../reference/node-selection/methods.md#state) means that only modified nodes and their children will be run ("Slim CI"). In addition to [not wasting time](https://discourse.getdbt.com/t/how-we-sped-up-our-ci-runs-by-10x-using-slim-ci/2603) building and testing nodes that weren't changed in the first place, this significantly reduces compute costs.
 
 To be able to find modified nodes, dbt needs to have something to compare against. Normally, we use the Production environment as the source of truth, but in this case there will be new code merged into `qa` long before it hits the `main` branch and Production environment. Because of this, we'll want to defer the Release environment to itself.
 
 ### Optional: also add a compile-only job[​](#optional-also-add-a-compile-only-job "Direct link to Optional: also add a compile-only job")
 
-dbt uses the last successful run of any job in that environment as its [comparison state](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection). If you have a lot of PRs in flight, the comparison state could switch around regularly.
+dbt uses the last successful run of any job in that environment as its [comparison state](../reference/node-selection/syntax.md#about-node-selection). If you have a lot of PRs in flight, the comparison state could switch around regularly.
 
 Adding a regularly-scheduled job inside of the QA environment whose only command is `dbt compile` can regenerate a more stable manifest for comparison purposes.
 
 ### 5. Test your process[​](#5-test-your-process "Direct link to 5. Test your process")
 
-When the Release Manager is ready to cut a new release, they will manually open a PR from `qa` into `main` from their git provider (e.g. GitHub, GitLab, Azure DevOps). dbt will detect the new PR, at which point the existing check in the CI environment will trigger and run. When using the [baseline configuration](https://docs.getdbt.com/guides/set-up-ci.md), it's possible to kick off the PR creation from inside of the Studio IDE. Under this paradigm, that button will create PRs targeting your QA branch instead.
+When the Release Manager is ready to cut a new release, they will manually open a PR from `qa` into `main` from their git provider (e.g. GitHub, GitLab, Azure DevOps). dbt will detect the new PR, at which point the existing check in the CI environment will trigger and run. When using the [baseline configuration](./set-up-ci.md), it's possible to kick off the PR creation from inside of the Studio IDE. Under this paradigm, that button will create PRs targeting your QA branch instead.
 
 To test your new flow, create a new branch in the Studio IDE then add a new file or modify an existing one. Commit it, then create a new Pull Request (not a draft) against your `qa` branch. You'll see the integration tests begin to run. Once they complete, manually create a PR against `main`, and within a few seconds you’ll see the tests run again but this time incorporating all changes from all code that hasn't been merged to main yet.

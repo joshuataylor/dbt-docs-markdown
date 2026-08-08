@@ -19,18 +19,18 @@ dbt Wizard supports the dbt development lifecycle from investigation to review. 
 The agent comes with the following out of the box, meaning no configuration needed:
 
 * [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills): dbt-recommended guidance and instructions, managed by dbt Labs.
-* [dbt MCP server Product docs toolset](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#product-docs): Tools for searching and fetching content from dbt's official documentation.
+* [dbt MCP server Product docs toolset](./mcp-available-tools.md#product-docs): Tools for searching and fetching content from dbt's official documentation.
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * A Starter, Enterprise, or Enterprise+ plan
-* A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-* A [development environment](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
-* [Enabled AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) for your account.
+* A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](../platform/manage-access/seats-and-users.md).
+* A [development environment](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
+* [Enabled AI features](../platform/enable-dbt-ai.md#enable-ai-features) for your account.
 
 #### Availability and considerations[​](#availability-and-considerations "Direct link to Availability and considerations")
 
-* **Where it runs:** Supported in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) only, all [deployment types](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt CLI.
+* **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt CLI.
 * **Engines:** Works with dbt Fusion engine and dbt Core.
 * **Conversations:** In the conversation list, open **More actions** menu (three dots) of the conversation you want to delete, then click **Delete** to remove one thread. Deleting the open thread clears the panel.
 * **Sessions:** Refreshing the same browser tab keeps your active session. A new tab, or returning after closing the tab, starts empty.
@@ -44,21 +44,21 @@ Use the dbt Wizard panel to generate resources with quick actions, or use the ag
 
 To use the dbt Wizard, follow these steps:
 
-1. Open your dbt project in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), then click **dbt Wizard** in the command palette.
+1. Open your dbt project in the [Studio IDE](../platform/studio-ide/develop-in-studio.md), then click **dbt Wizard** in the command palette.
 
-2. Start a prompt in several ways in the [dbt Wizard panel](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md):
+2. Start a prompt in several ways in the [dbt Wizard panel](./wizard-ide.md):
 
    <!-- -->
 
-   * **Quick actions**: Use [quick-action resource generation](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#quick-action-resource-generation) at the top of the panel to generate documentation, tests, semantic models, and metrics.
+   * **Quick actions**: Use [quick-action resource generation](./wizard-ide.md#quick-action-resource-generation) at the top of the panel to generate documentation, tests, semantic models, and metrics.
    * **Plain text**: Type directly into the text field to describe what you want to build or change.
    * **Model context**: Type `@` to select a model as context. This scopes the agent's changes to that resource.
 
-3. Select the [**Agent mode** button](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) to specify the mode for the dbt Wizard. Available modes are **Ask for approval** (default) and **Edit files automatically**.
+3. Select the [**Agent mode** button](./wizard-ide.md) to specify the mode for the dbt Wizard. Available modes are **Ask for approval** (default) and **Edit files automatically**.
 
-4. [Review the agent's suggestions](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) and approve or reject the changes. You can also use the **Start new dbt Wizard chat** button to start a new chat session.
+4. [Review the agent's suggestions](./wizard-ide.md) and approve or reject the changes. You can also use the **Start new dbt Wizard chat** button to start a new chat session.
 
-5. [Approve dbt commands](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) when the dbt Wizard requests to run commands like `dbt compile` or `dbt build`.
+5. [Approve dbt commands](./wizard-ide.md) when the dbt Wizard requests to run commands like `dbt compile` or `dbt build`.
 
 6. Repeat the process to build or change more models.
 
@@ -124,13 +124,13 @@ You can select one of the following options:
 | **Yes, and allow `dbt_command_name` for the session** | Grants permission to run dbt commands for the remainder of your session without prompting again. |
 | **No**                                                | Denies the request. The agent will not run the command.                                          |
 
-After you run a command, dbt Wizard adds an icon and a tooltip to the Studio IDE [**Commands** tab](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#console-section) results. This helps you distinguish agent-run commands from manually run commands in the run results and logs.
+After you run a command, dbt Wizard adds an icon and a tooltip to the Studio IDE [**Commands** tab](../platform/studio-ide/ide-user-interface.md#console-section) results. This helps you distinguish agent-run commands from manually run commands in the run results and logs.
 
 [![Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.](/img/docs/dbt-platform/dev-agent-cmd-icon.png?v=2 "Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.")](#)Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.
 
 ### Bringing your own skills[​](#bringing-your-own-skills "Direct link to Bringing your own skills")
 
-You can extend dbt Wizard with custom skills to encode your team's SQL conventions, naming rules, and modeling workflows — so you don't repeat them in every prompt. See [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md) for the full reference, including how to create, structure, and invoke skills.
+You can extend dbt Wizard with custom skills to encode your team's SQL conventions, naming rules, and modeling workflows — so you don't repeat them in every prompt. See [Skills](./wizard-platform-skills.md) for the full reference, including how to create, structure, and invoke skills.
 
 ### Debug job failures[​](#debug-job-failures "Direct link to Debug job failures")
 
@@ -157,7 +157,7 @@ You can then choose whether to retry the command, narrow the request, or take an
 
 <!-- -->
 
-If you have access to [dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) with [AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
+If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](./wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
 info
 
@@ -189,7 +189,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 [![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")](#)The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
-For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](https://docs.getdbt.com/docs/fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md).
+For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](../fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-fusion-upgrade.md).
 
 ### Writing effective prompts[​](#writing-effective-prompts "Direct link to Writing effective prompts")
 
@@ -201,17 +201,17 @@ Good prompts include the *scope* (which models or area of the project), the *int
 | Refactor an existing model | "Refactor `fct_orders` to use incremental materialization. Keep existing tests and follow our naming conventions."                              |
 | Generate tests and docs    | "Add `not_null` and `unique` tests to the primary key of `dim_customers`, and generate documentation for all columns."                          |
 
-For detailed guidance, patterns, and more examples across SQL, documentation, tests, and semantic models, see the [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md).
+For detailed guidance, patterns, and more examples across SQL, documentation, tests, and semantic models, see the [Prompt cookbook](../../guides/prompt-cookbook.md).
 
 Best practices for using dbt Wizard
 
-For recommended workflows on real project tasks — understanding a project, validating changes, building Semantic Layer definitions, and more — refer to [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md). Most of these prompts work the same in Studio IDE.
+For recommended workflows on real project tasks — understanding a project, validating changes, building Semantic Layer definitions, and more — refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md). Most of these prompts work the same in Studio IDE.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [Fusion readiness checklist](https://docs.getdbt.com/docs/fusion/fusion-readiness.md)
-* [Develop with dbt Wizard](https://docs.getdbt.com/docs/platform/studio-ide/develop-studio-ai.md)
-* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md)
-* [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md)
-* [About dbt AI and intelligence](https://docs.getdbt.com/docs/dbt-ai/about-dbt-ai.md)
+* [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [Fusion readiness checklist](../fusion/fusion-readiness.md)
+* [Develop with dbt Wizard](../platform/studio-ide/develop-studio-ai.md)
+* [Prompt cookbook](../../guides/prompt-cookbook.md)
+* [Semantic models](../build/semantic-models.md)
+* [About dbt AI and intelligence](./about-dbt-ai.md)

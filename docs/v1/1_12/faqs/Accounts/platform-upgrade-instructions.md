@@ -6,7 +6,7 @@ dbt offers [several plans](https://www.getdbt.com/pricing/) with different featu
 
 Before you begin:
 
-* You *must* be part of the [Owner](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md) user group to make billing changes. Users not included in this group will not see these options.
+* You *must* be part of the [Owner](../../docs/platform/manage-access/self-service-permissions.md) user group to make billing changes. Users not included in this group will not see these options.
 * All amounts shown in dbt are in U.S. Dollars (USD)
 * When your trial expires, your account's default plan enrollment will be a Starter plan.
 
@@ -59,7 +59,7 @@ For commonly asked billings questions, refer to the dbt [pricing page](https://w
 
 How does billing work?
 
-Starter plans are billed monthly on the credit card used to sign up, based on [developer seat count and usage](https://docs.getdbt.com/docs/platform/billing.md). You’ll also be sent a monthly receipt to the billing email of your choice. You can change any billing information in your **Account Settings** > **Billing page**.
+Starter plans are billed monthly on the credit card used to sign up, based on [developer seat count and usage](../../docs/platform/billing.md). You’ll also be sent a monthly receipt to the billing email of your choice. You can change any billing information in your **Account Settings** > **Billing page**.
 
 Enterprise-tier plan customers are billed annually based on the number of developer seats, as well as any additional services + features in your chosen plan.
 
@@ -77,7 +77,7 @@ When you upgrade from Developer to Starter, you move directly to paid billing �
 
 Can I pay by invoice?
 
-Currently, dbt Starter plan payments must be made with a credit card, and by default they will be billed monthly based on the number of [developer seats and usage](https://docs.getdbt.com/docs/platform/billing.md).
+Currently, dbt Starter plan payments must be made with a credit card, and by default they will be billed monthly based on the number of [developer seats and usage](../../docs/platform/billing.md).
 
 We don’t have any plans to do invoicing for Starter plan accounts in the near future, but we do currently support invoices for companies on the dbt Enterprise-tier plan. Feel free to [contact](https://www.getdbt.com/contact/) us to build your Enterprise pricing plan.
 

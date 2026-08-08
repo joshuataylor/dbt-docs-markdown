@@ -1,6 +1,6 @@
 # Amazon Redshift adapter behavior changes
 
-The following are the current [behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) that are specific to `dbt-redshift`:
+The following are the current [behavior change flags](./behavior-changes.md#behavior-change-flags) that are specific to `dbt-redshift`:
 
 | Flag                                                                                                       | `dbt-redshift`: Intro | `dbt-redshift`: Maturity | Status |
 | ---------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------ | ------ |

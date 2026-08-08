@@ -28,7 +28,7 @@ You will get a warning if the data type of the `updated_at` column does not matc
 
 A column within the results of your snapshot query that represents when the record row was last updated.
 
-This parameter is **required if using the `timestamp` [strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md)**. The `updated_at` field may support ISO date strings and unix epoch integers, depending on the data platform you use.
+This parameter is **required if using the `timestamp` [strategy](./strategy.md)**. The `updated_at` field may support ISO date strings and unix epoch integers, depending on the data platform you use.
 
 ## Default[​](#default "Direct link to Default")
 

@@ -2,7 +2,7 @@
 
 Fusion only
 
-DuckDB support for `catalogs.yml` requires the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) (v2) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt Core v1.
+DuckDB support for `catalogs.yml` requires the [dbt Fusion engine](../../../fusion/about-fusion.md) (v2) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt Core v1.
 
 dbt\_project.yml
 
@@ -11,12 +11,12 @@ flags:
   use_catalogs_v2: true
 ```
 
-Unlike Snowflake, Databricks, and BigQuery, DuckDB doesn't ship with a single built-in "managed" Iceberg catalog. This means there's no `table_format='iceberg'`-only shortcut for DuckDB — every Iceberg model requires a `catalog_name` that points to an entry in [`catalogs.yml`](https://docs.getdbt.com/docs/build/iceberg/catalogs-yml.md).
+Unlike Snowflake, Databricks, and BigQuery, DuckDB doesn't ship with a single built-in "managed" Iceberg catalog. This means there's no `table_format='iceberg'`-only shortcut for DuckDB — every Iceberg model requires a `catalog_name` that points to an entry in [`catalogs.yml`](../catalogs-yml.md).
 
 dbt supports creating Iceberg tables for two DuckDB materializations:
 
-* [Table](https://docs.getdbt.com/docs/build/materializations.md#table)
-* [Incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental)
+* [Table](../../materializations.md#table)
+* [Incremental](../../materializations.md#incremental)
 
 ## How DuckDB attaches catalogs[​](#how-duckdb-attaches-catalogs "Direct link to How DuckDB attaches catalogs")
 
@@ -71,11 +71,11 @@ catalogs:
 
 ## Cross-platform Mesh: reading catalogs managed by other platforms[​](#cross-platform-mesh-reading-catalogs-managed-by-other-platforms "Direct link to Cross-platform Mesh: reading catalogs managed by other platforms")
 
-Because a single catalog entry in `catalogs.yml` can carry configuration for multiple platforms at once, you can point DuckDB at the same physical catalog that Snowflake or Databricks writes to — enabling [cross-platform Mesh](https://docs.getdbt.com/docs/mesh/cross-platform-mesh.md) without copying data.
+Because a single catalog entry in `catalogs.yml` can carry configuration for multiple platforms at once, you can point DuckDB at the same physical catalog that Snowflake or Databricks writes to — enabling [cross-platform Mesh](../../../mesh/cross-platform-mesh.md) without copying data.
 
 ### Snowflake Horizon[​](#snowflake-horizon "Direct link to Snowflake Horizon")
 
-[Snowflake Horizon](https://docs.getdbt.com/docs/build/iceberg/adapters/snowflake-iceberg-support.md) is Snowflake's managed Iceberg catalog. Add a `duckdb` block alongside the `snowflake` block to let DuckDB attach to the same catalog:
+[Snowflake Horizon](./snowflake-iceberg-support.md) is Snowflake's managed Iceberg catalog. Add a `duckdb` block alongside the `snowflake` block to let DuckDB attach to the same catalog:
 
 catalogs.yml
 
@@ -96,7 +96,7 @@ catalogs:
 
 ### Databricks Unity Catalog[​](#databricks-unity-catalog "Direct link to Databricks Unity Catalog")
 
-Similarly, for [Databricks Unity Catalog](https://docs.getdbt.com/docs/build/iceberg/adapters/databricks-iceberg-support.md):
+Similarly, for [Databricks Unity Catalog](./databricks-iceberg-support.md):
 
 catalogs.yml
 

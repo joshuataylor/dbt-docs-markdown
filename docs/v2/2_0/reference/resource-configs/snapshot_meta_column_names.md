@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 snapshots/schema.yml
 
@@ -61,7 +61,7 @@ snapshots:
 
 ## Description[​](#description "Direct link to Description")
 
-In order to align with an organization's naming conventions, the `snapshot_meta_column_names` config can be used to customize the names of the [metadata columns](https://docs.getdbt.com/docs/build/snapshots.md#snapshot-meta-fields) within each snapshot.
+In order to align with an organization's naming conventions, the `snapshot_meta_column_names` config can be used to customize the names of the [metadata columns](../../docs/build/snapshots.md#snapshot-meta-fields) within each snapshot.
 
 ## Default[​](#default "Direct link to Default")
 
@@ -69,7 +69,7 @@ By default, dbt snapshots use the following column names to track change history
 
 | Field            | Meaning                                                                                                | Notes                                                                                                      | Example                                                       |
 | ---------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `dbt_valid_from` | The timestamp when this snapshot row was first inserted and became valid.                              | The value is affected by the [`strategy`](https://docs.getdbt.com/reference/resource-configs/strategy.md). | `snapshot_meta_column_names: {dbt_valid_from: start_date}`    |
+| `dbt_valid_from` | The timestamp when this snapshot row was first inserted and became valid.                              | The value is affected by the [`strategy`](./strategy.md). | `snapshot_meta_column_names: {dbt_valid_from: start_date}`    |
 | `dbt_valid_to`   | The timestamp when this row is no longer valid.                                                        |                                                                                                            | `snapshot_meta_column_names: {dbt_valid_to: end_date}`        |
 | `dbt_scd_id`     | A unique key generated for each snapshot row.                                                          | This is used internally by dbt.                                                                            | `snapshot_meta_column_names: {dbt_scd_id: scd_id}`            |
 | `dbt_updated_at` | The `updated_at` timestamp of the source record when this snapshot row was inserted.                   | This is used internally by dbt.                                                                            | `snapshot_meta_column_names: {dbt_updated_at: modified_date}` |
@@ -87,13 +87,13 @@ warning
 
 To avoid any unintentional data modification, dbt will **not** automatically apply any column renames. So if a user applies `snapshot_meta_column_names` config for a snapshot without updating the pre-existing table, they will get an error. We recommend either only using these settings for net-new snapshots, or arranging an update of pre-existing tables prior to committing a column name change.
 
-## How [`dbt_scd_id`](https://docs.getdbt.com/reference/resource-configs/snapshot_meta_column_names.md#default) is calculated[​](#how-dbt_scd_id-is-calculated "Direct link to how-dbt_scd_id-is-calculated")
+## How [`dbt_scd_id`](./snapshot_meta_column_names.md#default) is calculated[​](#how-dbt_scd_id-is-calculated "Direct link to how-dbt_scd_id-is-calculated")
 
 `dbt_scd_id` is a unique identifier generated for each row in a snapshot. dbt uses this identifier to detect changes in source records and manage versioning in slowly changing dimension (SCD) snapshots.
 
 dbt's snapshot macro handles `dbt_scd_id` in [the dbt-adapters repository](https://github.com/dbt-labs/dbt-adapters/blob/b12c9870d6134905ab09bfda609ce8f81bc4b40a/dbt/include/global_project/macros/materializations/snapshots/strategies.sql#L38).
 
-The hash is computed by concatenating values of the snapshot's [`unique_key`](https://docs.getdbt.com/reference/resource-configs/unique_key.md) and either the `updated_at` timestamp (for the timestamp strategy) or the values in `check_cols` (for the check strategy), and then hashing the resulting string using the `md5` function. This enables dbt to track whether the contents of a row have changed between runs.
+The hash is computed by concatenating values of the snapshot's [`unique_key`](./unique_key.md) and either the `updated_at` timestamp (for the timestamp strategy) or the values in `check_cols` (for the check strategy), and then hashing the resulting string using the `md5` function. This enables dbt to track whether the contents of a row have changed between runs.
 
 Here's an example of a custom hash calculation that combines multiple fields into a single string and hashes the result using `md5`.
 
@@ -107,8 +107,8 @@ md5(
 
 The exact fields included in the hash depend on the snapshot strategy:
 
-* [`timestamp` strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md#use-the-timestamp-strategy): The hash typically combines the [`unique_key`](https://docs.getdbt.com/reference/resource-configs/unique_key.md) columns and the `updated_at` value.
-* [`check` strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md#use-the-check-strategy): The hash combines the `unique_key` columns and the values of the columns listed in [`check_cols`](https://docs.getdbt.com/reference/resource-configs/check_cols.md).
+* [`timestamp` strategy](./strategy.md#use-the-timestamp-strategy): The hash typically combines the [`unique_key`](./unique_key.md) columns and the `updated_at` value.
+* [`check` strategy](./strategy.md#use-the-check-strategy): The hash combines the `unique_key` columns and the values of the columns listed in [`check_cols`](./check_cols.md).
 
 If you don’t want to use `md5`, you can customize the [dispatched macro](https://github.com/dbt-labs/dbt-adapters/blob/4b3966efc50b1d013907a88bee4ab8ebd022d17a/dbt-adapters/src/dbt/include/global_project/macros/materializations/snapshots/strategies.sql#L42-L47).
 

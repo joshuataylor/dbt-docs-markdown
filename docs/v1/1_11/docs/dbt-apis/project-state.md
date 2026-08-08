@@ -1,10 +1,10 @@
 # Project state in dbt
 
-dbt provides a stateful way of deploying dbt. Artifacts are accessible programmatically via the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md) in the metadata platform.
+dbt provides a stateful way of deploying dbt. Artifacts are accessible programmatically via the [Discovery API](./discovery-querying.md) in the metadata platform.
 
 With the implementation of the `environment` endpoint in the Discovery API, we've introduced the idea of multiple states. The Discovery API provides a single API endpoint that returns the latest state of models, sources, and other nodes in the DAG.
 
-A single [deployment environment](https://docs.getdbt.com/docs/environments-in-dbt.md) should represent the production state of a given dbt project.
+A single [deployment environment](../environments-in-dbt.md) should represent the production state of a given dbt project.
 
 There are two states that can be queried in dbt:
 
@@ -73,19 +73,19 @@ The following table shows the states of dbt nodes and how they are affected by t
 
 | Node                                                                                   | Executed in DAG | Created by execution | Exists in database | Lineage               | States               |
 | -------------------------------------------------------------------------------------- | --------------- | -------------------- | ------------------ | --------------------- | -------------------- |
-| [Analysis](https://docs.getdbt.com/docs/build/analyses.md)                             | No              | No                   | No                 | Upstream              | Definition           |
-| [Data test](https://docs.getdbt.com/docs/build/data-tests.md)                          | Yes             | Yes                  | No                 | Upstream              | Applied & definition |
-| [Exposure](https://docs.getdbt.com/docs/build/exposures.md)                            | No              | No                   | No                 | Upstream              | Definition           |
-| [Group](https://docs.getdbt.com/docs/build/groups.md)                                  | No              | No                   | No                 | Downstream            | Definition           |
-| [Macro](https://docs.getdbt.com/docs/build/jinja-macros.md)                            | Yes             | No                   | No                 | N/A                   | Definition           |
-| [Metric](https://docs.getdbt.com/docs/build/metrics-overview.md)                       | No              | No                   | No                 | Upstream & downstream | Definition           |
-| [Model](https://docs.getdbt.com/docs/build/models.md)                                  | Yes             | Yes                  | Yes                | Upstream & downstream | Applied & definition |
-| [Saved queries](https://docs.getdbt.com/docs/build/saved-queries.md)<br />(not in API) | N/A             | N/A                  | N/A                | N/A                   | N/A                  |
-| [Seed](https://docs.getdbt.com/docs/build/seeds.md)                                    | Yes             | Yes                  | Yes                | Downstream            | Applied & definition |
-| [Semantic model](https://docs.getdbt.com/docs/build/semantic-models.md)                | No              | No                   | No                 | Upstream & downstream | Definition           |
-| [Snapshot](https://docs.getdbt.com/docs/build/snapshots.md)                            | Yes             | Yes                  | Yes                | Upstream & downstream | Applied & definition |
-| [Source](https://docs.getdbt.com/docs/build/sources.md)                                | Yes             | No                   | Yes                | Downstream            | Applied & definition |
-| [Unit tests](https://docs.getdbt.com/docs/build/unit-tests.md)                         | Yes             | Yes                  | No                 | Downstream            | Definition           |
+| [Analysis](../build/analyses.md)                             | No              | No                   | No                 | Upstream              | Definition           |
+| [Data test](../build/data-tests.md)                          | Yes             | Yes                  | No                 | Upstream              | Applied & definition |
+| [Exposure](../build/exposures.md)                            | No              | No                   | No                 | Upstream              | Definition           |
+| [Group](../build/groups.md)                                  | No              | No                   | No                 | Downstream            | Definition           |
+| [Macro](../build/jinja-macros.md)                            | Yes             | No                   | No                 | N/A                   | Definition           |
+| [Metric](../build/metrics-overview.md)                       | No              | No                   | No                 | Upstream & downstream | Definition           |
+| [Model](../build/models.md)                                  | Yes             | Yes                  | Yes                | Upstream & downstream | Applied & definition |
+| [Saved queries](../build/saved-queries.md)<br />(not in API) | N/A             | N/A                  | N/A                | N/A                   | N/A                  |
+| [Seed](../build/seeds.md)                                    | Yes             | Yes                  | Yes                | Downstream            | Applied & definition |
+| [Semantic model](../build/semantic-models.md)                | No              | No                   | No                 | Upstream & downstream | Definition           |
+| [Snapshot](../build/snapshots.md)                            | Yes             | Yes                  | Yes                | Upstream & downstream | Applied & definition |
+| [Source](../build/sources.md)                                | Yes             | No                   | Yes                | Downstream            | Applied & definition |
+| [Unit tests](../build/unit-tests.md)                         | Yes             | Yes                  | No                 | Downstream            | Definition           |
 
 Search table...
 

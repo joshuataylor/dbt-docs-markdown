@@ -14,6 +14,6 @@ To enable dbt State on any job — whether already existing or newly created in 
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [Enable dbt State in Studio](https://docs.getdbt.com/docs/deploy/dbt-state-enable-studio.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [Enable dbt State in Studio](./dbt-state-enable-studio.md)

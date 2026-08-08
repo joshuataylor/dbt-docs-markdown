@@ -1,6 +1,6 @@
 # SQL TRIM
 
-We’ve been there: pesky blank spaces, weird, inconsistent formats, or unaccountable asterisks hiding at the end of your column value—[strings](https://docs.getdbt.com/sql-reference/strings.md) are one of the most variable data types in your datasets. They likely lack a uniform casing, vary in length, and will inevitably have characters you need to trim from them.
+We’ve been there: pesky blank spaces, weird, inconsistent formats, or unaccountable asterisks hiding at the end of your column value—[strings](./strings.md) are one of the most variable data types in your datasets. They likely lack a uniform casing, vary in length, and will inevitably have characters you need to trim from them.
 
 Introducing: the SQL TRIM function, which removes the leading and trailing characters of a string. By default, it removes the blank space character from the beginning and end of a string.
 
@@ -39,7 +39,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-In this query, you’re adding superfluous asterisks to a string using the [CONCAT function](https://docs.getdbt.com/sql-reference/concat.md) and recleaning it using the TRIM function. Even though I specified one asterisk in the TRIM function itself, it recognizes that as a pattern to remove from the beginning and end of a string, which is why the double asterisks (\*\*) were removed from the end of the `test_string` column.
+In this query, you’re adding superfluous asterisks to a string using the [CONCAT function](./concat.md) and recleaning it using the TRIM function. Even though I specified one asterisk in the TRIM function itself, it recognizes that as a pattern to remove from the beginning and end of a string, which is why the double asterisks (\*\*) were removed from the end of the `test_string` column.
 
 ## SQL TRIM function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-trim-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL TRIM function syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
@@ -47,4 +47,4 @@ In this query, you’re adding superfluous asterisks to a string using the [CONC
 
 ## TRIM function use cases[​](#trim-function-use-cases "Direct link to TRIM function use cases")
 
-If string values in your raw data have extra white spaces or miscellaneous characters, you’ll leverage the TRIM (and subset RTRIM AND LTRIM) functions to help you quickly remove them. You’ll likely do this cleanup in [staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md), where you’re probably standardizing casing and doing other minor formatting changes to string values, so you can use a clean and consistent format across your downstream models.
+If string values in your raw data have extra white spaces or miscellaneous characters, you’ll leverage the TRIM (and subset RTRIM AND LTRIM) functions to help you quickly remove them. You’ll likely do this cleanup in [staging models](../best-practices/how-we-structure/2-staging.md), where you’re probably standardizing casing and doing other minor formatting changes to string values, so you can use a clean and consistent format across your downstream models.

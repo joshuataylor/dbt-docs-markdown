@@ -16,7 +16,7 @@ Before using Canvas, you should:
 
 * Have a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account.
 
-* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with user credentials set up.
+* Have a [developer license](./manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
 
@@ -29,7 +29,7 @@ Before using Canvas, you should:
   * Trino
   * You can access the Canvas with adapters not listed, but some features may be missing at this time.
 
-* Use [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md), [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md), or [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
+* Use [GitHub](./git/connect-github.md), [GitLab](./git/connect-gitlab.md), or [Azure DevOps](./git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
 
   <!-- -->
 
@@ -38,15 +38,15 @@ Before using Canvas, you should:
 
 * Have an existing dbt project already created with a Staging or Production run completed.
 
-* Verify your Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
+* Verify your Development environment is on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
-* Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
+* Have read-only access to the [Staging environment](../deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](./manage-access/environment-permissions-setup.md) for more information.
 
 ## Create a model[​](#create-a-model "Direct link to Create a model")
 
 To create a dbt SQL model, click on **Create a new model** and perform the following steps. Note that you can't create source models in Canvas. This is because you need to have production run with sources already created.
 
-1. Drag an [operator](https://docs.getdbt.com/docs/platform/canvas-interface.md#operators) from the operator toolbar and drop it onto the canvas.
+1. Drag an [operator](./canvas-interface.md#operators) from the operator toolbar and drop it onto the canvas.
 
 2. Click on the operator to open its configuration panel.
 

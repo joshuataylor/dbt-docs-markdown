@@ -4,6 +4,6 @@ If you're receiving a `Session occupied` error in the dbt CLI or if you're exper
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 
-To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md?version=2.0).
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](../../reference/commands/invocation.md?version=2.0).
 
 Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

@@ -45,14 +45,14 @@ Once you have uploaded the public key to your Git provider, your Git commits wil
 
   <!-- -->
 
-  * Generate a new GPG keypair with the updated email, following the [steps mentioned earlier](https://docs.getdbt.com/docs/platform/studio-ide/git-commit-signing.md#generate-gpg-keypair-in-dbt-cloud).
+  * Generate a new GPG keypair with the updated email, following the [steps mentioned earlier](./git-commit-signing.md#generate-gpg-keypair-in-dbt-cloud).
   * Add and verify the new email in your Git provider.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
  What happens if I delete my GPG keypair in dbt?
 
-If you delete your GPG keypair in dbt, your Git commits will no longer be signed. You can generate a new GPG keypair by following the [steps mentioned earlier](https://docs.getdbt.com/docs/platform/studio-ide/git-commit-signing.md#generate-gpg-keypair-in-dbt-cloud).
+If you delete your GPG keypair in dbt, your Git commits will no longer be signed. You can generate a new GPG keypair by following the [steps mentioned earlier](./git-commit-signing.md#generate-gpg-keypair-in-dbt-cloud).
 
  What Git providers support GPG keys?
 

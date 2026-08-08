@@ -26,4 +26,4 @@ models:
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
 
-3. Use a [docs block](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
+3. Use a [docs block](../../docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.

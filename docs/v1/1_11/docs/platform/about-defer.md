@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-[Defer](https://docs.getdbt.com/reference/node-selection/defer.md) is a powerful feature that allows developers to only build, run, and test models<!-- --> and functions<!-- --> they've edited, without having to build and run all the models<!-- --> and functions<!-- --> that come before them (upstream parents). dbt powers this by using a production manifest for comparison and resolves `{{ ref() }}` and `{{ function() }}` calls with upstream production artifacts.
+[Defer](../../reference/node-selection/defer.md) is a powerful feature that allows developers to only build, run, and test models<!-- --> and functions<!-- --> they've edited, without having to build and run all the models<!-- --> and functions<!-- --> that come before them (upstream parents). dbt powers this by using a production manifest for comparison and resolves `{{ ref() }}` and `{{ function() }}` calls with upstream production artifacts.
 
 Both the Studio IDE and the dbt CLI enable users to natively defer to production metadata directly in their development workflows.
 
@@ -18,11 +18,11 @@ When using `--defer`, dbt will follow this order of execution for resolving `{{ 
 
 For a clean slate, it's a good practice to drop the development schema at the start and end of your development cycle.
 
-If you require additional controls over production data, create a [staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment), and dbt will use that, rather than the production environment, to resolve `{{ ref() }}` and `{{ function() }}` calls.
+If you require additional controls over production data, create a [staging environment](../deploy/deploy-environments.md#staging-environment), and dbt will use that, rather than the production environment, to resolve `{{ ref() }}` and `{{ function() }}` calls.
 
 ## Required setup[​](#required-setup "Direct link to Required setup")
 
-* You must select the **[Production environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment)** checkbox in the **Environment Settings** page.
+* You must select the **[Production environment](../deploy/deploy-environments.md#set-as-production-environment)** checkbox in the **Environment Settings** page.
   <!-- -->
   * This can be set for one deployment environment per dbt project.
 * You must have a successful job run first.
@@ -40,7 +40,7 @@ To enable defer in the Studio IDE, toggle the **Defer to staging/production** bu
 1. Pull down the most recent manifest from the staging or production environment for comparison
 2. Pass the `--defer` flag to the command (for any command that accepts the flag)
 
-For example, if you were to start developing on a new branch with [nothing in your development schema](https://docs.getdbt.com/reference/node-selection/defer.md#usage), edit a single model, and run `dbt build -s state:modified` — only the edited model runs. Any `{{ ref() }}` and `{{ function() }}` calls resolve to the staging or production location of the referenced models<!-- --> and user-defined functions<!-- -->.
+For example, if you were to start developing on a new branch with [nothing in your development schema](../../reference/node-selection/defer.md#usage), edit a single model, and run `dbt build -s state:modified` — only the edited model runs. Any `{{ ref() }}` and `{{ function() }}` calls resolve to the staging or production location of the referenced models<!-- --> and user-defined functions<!-- -->.
 
 [![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")](#)Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
 
@@ -52,7 +52,7 @@ One key difference between using `--defer` in the dbt CLI and the Studio IDE is 
 
 ### Configure deferral environment ID[​](#configure-deferral-environment-id "Direct link to Configure deferral environment ID")
 
-The Studio IDE and dbt CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt CLI and Studio IDE) or `dbt_cloud.yml` (dbt CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md).
+The Studio IDE and dbt CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt CLI and Studio IDE) or `dbt_cloud.yml` (dbt CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
 
 [![Set the defer environment and the target name will change in the UI.](/img/docs/dbt-platform/defer-env-id.png?v=2 "Set the defer environment and the target name will change in the UI.")](#)Set the defer environment and the target name will change in the UI.
 

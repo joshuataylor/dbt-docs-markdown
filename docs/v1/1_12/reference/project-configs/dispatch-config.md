@@ -12,7 +12,7 @@ dispatch:
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally override the [dispatch](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md) search locations for macros in certain namespaces. If not specified, `dispatch` will look in your root project *first*, by default, and then look for implementations in the package named by `macro_namespace`.
+Optionally override the [dispatch](../dbt-jinja-functions/dispatch.md) search locations for macros in certain namespaces. If not specified, `dispatch` will look in your root project *first*, by default, and then look for implementations in the package named by `macro_namespace`.
 
 ## Examples[​](#examples "Direct link to Examples")
 

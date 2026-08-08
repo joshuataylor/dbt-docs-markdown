@@ -4,13 +4,13 @@ Local developmentⓘ
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 Below is a guide for use with [Fabric Data Warehouse](https://learn.microsoft.com/en-us/fabric/data-warehouse/data-warehousing#synapse-data-warehouse), a new product within Microsoft Fabric. The adapter currently supports connecting to a warehouse.
 
-To learn how to set up dbt using Fabric Lakehouse, refer to [Microsoft Fabric Lakehouse](https://docs.getdbt.com/docs/local/connect-data-platform/fabricspark-setup.md).
+To learn how to set up dbt using Fabric Lakehouse, refer to [Microsoft Fabric Lakehouse](./fabricspark-setup.md).
 
-To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azure Synapse Analytics setup](https://docs.getdbt.com/docs/local/connect-data-platform/azuresynapse-setup.md).
+To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azure Synapse Analytics setup](./azuresynapse-setup.md).
 
 <!-- -->
 
@@ -41,7 +41,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-fabric<!-- -->
 
-For <!-- -->Microsoft Fabric<!-- -->-specific configuration, please refer to [Microsoft Fabric<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md)
+For <!-- -->Microsoft Fabric<!-- -->-specific configuration, please refer to [Microsoft Fabric<!-- --> configs.](../../../reference/resource-configs/fabric-configs.md)
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -74,7 +74,7 @@ Microsoft Fabric supports two authentication types:
 * Microsoft Entra service principal
 * Microsoft Entra password
 
-To better understand the authentication mechanisms, read our [Connect Microsoft Fabric](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-microsoft-fabric.md) page.
+To better understand the authentication mechanisms, read our [Connect Microsoft Fabric](../../platform/connect-data-platform/connect-microsoft-fabric.md) page.
 
 ### Common configuration[​](#common-configuration "Direct link to Common configuration")
 
@@ -292,7 +292,7 @@ your_profile_name:
 
 ### Automatic Microsoft Entra ID principal provisioning for grants[​](#automatic-microsoft-entra-id-principal-provisioning-for-grants "Direct link to Automatic Microsoft Entra ID principal provisioning for grants")
 
-Please note that automatic Microsoft Entra ID principal provisioning is not supported by Microsoft Fabric Data Warehouse at this time. Even though in dbtn use the [grants](https://docs.getdbt.com/reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups, the data warehouse does not support this feature at this time.
+Please note that automatic Microsoft Entra ID principal provisioning is not supported by Microsoft Fabric Data Warehouse at this time. Even though in dbtn use the [grants](../../../reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups, the data warehouse does not support this feature at this time.
 
 You need to add the service principal or Microsoft Entra identity to a Fabric Workspace as an admin
 

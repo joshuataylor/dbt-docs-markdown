@@ -58,7 +58,7 @@ Currently, SQL and Python UDFs are supported. Java and Scala UDFs are planned fo
 
  You need to adapt SQL across different warehouses
 
-Macros can use Jinja conditional logic to generate warehouse-specific SQL (see [cross-database macros](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md)), making your dbt project portable across platforms.
+Macros can use Jinja conditional logic to generate warehouse-specific SQL (see [cross-database macros](../../reference/dbt-jinja-functions/cross-database-macros.md)), making your dbt project portable across platforms.
 
 UDFs are warehouse-specific objects. Even though UDFs can include Jinja templating in their definitions, each warehouse has different syntax for creating functions, different supported data types, and different SQL dialects. You would need to define separate UDF files for each warehouse you support.
 
@@ -87,5 +87,5 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 
 #### Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Jinja macros](https://docs.getdbt.com/docs/build/jinja-macros.md)
+* [User-defined functions](../../docs/build/udfs.md)
+* [Jinja macros](../../docs/build/jinja-macros.md)

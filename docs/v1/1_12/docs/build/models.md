@@ -8,8 +8,8 @@ SQL is the language most dbt users will utilize, but it is not the only one for 
 
 ### Models and modern workflows[​](#models-and-modern-workflows "Direct link to Models and modern workflows")
 
-The top level of a dbt workflow is the project. A project is a directory of a `.yml` file (the project configuration) and either `.sql` or `.py` files (the models). The project file tells dbt the project context, and the models let dbt know how to build a specific data set. For more details on projects, refer to [About dbt projects](https://docs.getdbt.com/docs/build/projects.md).
+The top level of a dbt workflow is the project. A project is a directory of a `.yml` file (the project configuration) and either `.sql` or `.py` files (the models). The project file tells dbt the project context, and the models let dbt know how to build a specific data set. For more details on projects, refer to [About dbt projects](./projects.md).
 
 Your organization may need only a few models, but more likely you’ll need a complex structure of nested models to transform the required data. A model is a single file containing a final `select` statement, and a project can have multiple models, and models can even reference each other. Add to that, numerous projects and the level of effort required for transforming complex data sets can improve drastically compared to older methods.
 
-Learn more about models in [SQL models](https://docs.getdbt.com/docs/build/sql-models.md) and [Python models](https://docs.getdbt.com/docs/build/python-models.md) pages. If you'd like to begin with a bit of practice, visit our [Getting Started Guide](https://docs.getdbt.com/guides.md) for instructions on setting up the Jaffle\_Shop sample data so you can get hands-on with the power of dbt.
+Learn more about models in [SQL models](./sql-models.md) and [Python models](./python-models.md) pages. If you'd like to begin with a bit of practice, visit our [Getting Started Guide](../../guides.md) for instructions on setting up the Jaffle\_Shop sample data so you can get hands-on with the power of dbt.

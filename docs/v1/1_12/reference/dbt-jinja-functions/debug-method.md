@@ -8,8 +8,8 @@ Do not deploy code to production that uses the `debug` macro.
 
 If developing in dbt platform or using Fusion, you can instead use:
 
-* [`{{ print() }}`](https://docs.getdbt.com/reference/dbt-jinja-functions/print.md) - Print messages to both the log file and standard output (`stdout`).
-* [`{{ log() }}`](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md) - Structured logging that prints messages during Jinja rendering.
+* [`{{ print() }}`](./print.md) - Print messages to both the log file and standard output (`stdout`).
+* [`{{ log() }}`](./log.md) - Structured logging that prints messages during Jinja rendering.
 
 The `{{ debug() }}` macro will open an iPython debugger in the context of a compiled dbt macro. The `DBT_ENGINE_MACRO_DEBUGGING` environment variable must be set to use the debugger.
 

@@ -8,17 +8,17 @@ Every time a job runs, state-aware orchestration automatically determines which 
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -33,11 +33,11 @@ We built dbt's state-aware orchestration on these four core principles:
 * **Real-time shared state:** All jobs write to a real-time shared model-level state, allowing dbt to rebuild only changed models regardless of which jobs the model is built in.
 * **Model-level queueing:** Jobs queue up at the model-level so you can avoid any 'collisions' and prevent rebuilding models that were just updated by another job.
 * **State-aware and state agnostic support:** You can build jobs dynamically (state-aware) or explicitly (state-agnostic). Both approaches update shared state so everything is kept in sync.
-* **Sensible defaults:** State-aware orchestration works out-of-the-box (natively), with an optional configuration setting for more advanced controls. For more information, refer to [state-aware advanced configurations](https://docs.getdbt.com/docs/deploy/state-aware-setup.md#advanced-configurations).
+* **Sensible defaults:** State-aware orchestration works out-of-the-box (natively), with an optional configuration setting for more advanced controls. For more information, refer to [state-aware advanced configurations](./state-aware-setup.md#advanced-configurations).
 
 note
 
-State-aware orchestration does not depend on [static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md#principles-of-static-analysis) and works even when `static_analysis` is disabled.
+State-aware orchestration does not depend on [static analysis](../build/about-static-analysis.md#principles-of-static-analysis) and works even when `static_analysis` is disabled.
 
 ## Optimizing builds with state-aware orchestration[​](#optimizing-builds-with-state-aware-orchestration "Direct link to Optimizing builds with state-aware orchestration")
 
@@ -45,9 +45,9 @@ State-aware orchestration uses shared state tracking to determine which models n
 
 For example, you can configure your project so that dbt skips rebuilding the `dim_wizards` model (and its parents) if they’ve already been refreshed within the last 4 hours, even if the job itself runs more frequently.
 
-Without configuring anything, dbt's state-aware orchestration automatically knows to build your models either when the code has changed or if there’s any new data in a source (or upstream model in the case of [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md)).
+Without configuring anything, dbt's state-aware orchestration automatically knows to build your models either when the code has changed or if there’s any new data in a source (or upstream model in the case of [dbt Mesh](../mesh/about-mesh.md)).
 
-**Note:** When a model fails a [data test](https://docs.getdbt.com/docs/build/data-tests.md), state-aware orchestration rebuilds it on subsequent runs instead of reusing it from prior state. This ensures dbt reevaluates models with unresolved data quality issues.
+**Note:** When a model fails a [data test](../build/data-tests.md), state-aware orchestration rebuilds it on subsequent runs instead of reusing it from prior state. This ensures dbt reevaluates models with unresolved data quality issues.
 
 ### Handling concurrent jobs[​](#handling-concurrent-jobs "Direct link to Handling concurrent jobs")
 
@@ -60,7 +60,7 @@ What happens when jobs overlap:
 * If both jobs reach the same model at exactly the same time, one job waits until the other finishes. This is to prevent collisions in the data warehouse when two jobs try to build the same model at the same time.
 * After the first job finishes building the model, the second job still checks whether a rebuild is needed. If there are new data or code changes to incorporate, the second job builds the model again. If there are no changes and building the model would produce the same result, the second job reuses the model.
 
-To prevent a job from being built too frequently even when the code or data state has changed, you can reduce build frequency by using the `build_after` config. For information on how to use `build_after`, refer to [Model freshness](https://docs.getdbt.com/reference/resource-configs/freshness.md) and [Advanced configurations](https://docs.getdbt.com/docs/deploy/state-aware-setup.md#advanced-configurations).
+To prevent a job from being built too frequently even when the code or data state has changed, you can reduce build frequency by using the `build_after` config. For information on how to use `build_after`, refer to [Model freshness](../../reference/resource-configs/freshness.md) and [Advanced configurations](./state-aware-setup.md#advanced-configurations).
 
 ### Handling deleted tables[​](#handling-deleted-tables "Direct link to Handling deleted tables")
 
@@ -84,7 +84,7 @@ Data quality can get degraded in two ways:
 * New code changes definitions or introduces edge cases.
 * New data, like duplicates or unexpected values, invalidates downstream metrics.
 
-Running dbt’s out-of-the-box [data tests](https://docs.getdbt.com/docs/build/data-tests.md) (`unique`, `not_null`, `accepted_values`, `relationships`) on every build helps catch data errors before they impact business decisions. Catching these errors often requires having multiple tests on every model and running tests even when not necessary. If nothing relevant has changed, repeated test executions don’t improve coverage and only increase cost.
+Running dbt’s out-of-the-box [data tests](../build/data-tests.md) (`unique`, `not_null`, `accepted_values`, `relationships`) on every build helps catch data errors before they impact business decisions. Catching these errors often requires having multiple tests on every model and running tests even when not necessary. If nothing relevant has changed, repeated test executions don’t improve coverage and only increase cost.
 
 With Fusion, dbt gains an understanding of the SQL code based on the logical plan for the compiled code. dbt then can determine when a test must run again, or when a prior upstream test result can be reused.
 
@@ -99,13 +99,13 @@ Currently, Efficient testing is only available in deploy jobs, not in continuous
 
 The following tests can be reused when Efficient testing is enabled:
 
-* [`unique`](https://docs.getdbt.com/reference/resource-properties/data-tests.md#unique)
-* [`not_null`](https://docs.getdbt.com/reference/resource-properties/data-tests.md#not_null)
-* [`accepted_values`](https://docs.getdbt.com/reference/resource-properties/data-tests.md#accepted_values)
+* [`unique`](../../reference/resource-properties/data-tests.md#unique)
+* [`not_null`](../../reference/resource-properties/data-tests.md#not_null)
+* [`accepted_values`](../../reference/resource-properties/data-tests.md#accepted_values)
 
 ### Enabling Efficient testing[​](#enabling-efficient-testing "Direct link to Enabling Efficient testing")
 
-Before enabling Efficient testing, make sure you have configured [`static_analysis`](https://docs.getdbt.com/docs/build/about-static-analysis.md#configuring-static_analysis).
+Before enabling Efficient testing, make sure you have configured [`static_analysis`](../build/about-static-analysis.md#configuring-static_analysis).
 
 To enable Efficient testing:
 
@@ -156,7 +156,7 @@ select * from joined
 
 The following section lists some considerations when using Efficient testing in state-aware-orchestration:
 
-* **Aggregated tests do not support custom configs**. Tests that include the following [custom config options](https://docs.getdbt.com/reference/data-test-configs.md) will run individually rather than as part of the aggregated batch:
+* **Aggregated tests do not support custom configs**. Tests that include the following [custom config options](../../reference/data-test-configs.md) will run individually rather than as part of the aggregated batch:
 
   ```yaml
   config:
@@ -175,7 +175,7 @@ The following section lists some considerations when using Efficient testing in 
 
 What happened to state-aware orchestration?
 
-On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)**[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") as a new and improved version of state-aware orchestration. A key feature is [`lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md), which controls how much time must pass since the last upstream data change before a node is eligible for a rebuild.
+On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](./dbt-state-about.md)**[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") as a new and improved version of state-aware orchestration. A key feature is [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md), which controls how much time must pass since the last upstream data change before a node is eligible for a rebuild.
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
@@ -183,11 +183,11 @@ dbt State improves upon state-aware orchestration in a few key ways:
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
-If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](../platform/billing.md#dbt-state-usage).
 
 While dbt State is in preview, there is no required migration timeline — dbt Labs will communicate a timeline when dbt State reaches general availability.
 
-To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 # How is state-aware orchestration different from using selectors in dbt Core?
 
@@ -208,11 +208,11 @@ While dbt Core uses selectors like `state:modified+` and `source_status:fresher+
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [State-aware orchestration configuration](https://docs.getdbt.com/docs/deploy/state-aware-setup.md)
-* [Artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
-* [Continuous integration (CI) jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md)
-* [`freshness`](https://docs.getdbt.com/reference/resource-configs/freshness.md)
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-* [Migrate to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
+* [State-aware orchestration configuration](./state-aware-setup.md)
+* [Artifacts](./artifacts.md)
+* [Continuous integration (CI) jobs](./ci-jobs.md)
+* [`freshness`](../../reference/resource-configs/freshness.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Migrate to dbt State](./dbt-state-migration.md)

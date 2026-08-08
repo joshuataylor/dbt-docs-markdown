@@ -19,7 +19,7 @@ When you go to **Account settings** > **Billing & Usage** > **Usage-based featur
 
 The **State** tab also displays the following charts:
 
-* **DATT** — Shows the target tables processed by dbt State, split into **Billable** and **Free**. Daily active target tables (DATTs) are the [billable units](https://docs.getdbt.com/docs/platform/billing/dbt-state-usage.md#daily-active-target-tables) for dbt State. During a trial, all DATTs are counted as free.
+* **DATT** — Shows the target tables processed by dbt State, split into **Billable** and **Free**. Daily active target tables (DATTs) are the [billable units](../platform/billing/dbt-state-usage.md#daily-active-target-tables) for dbt State. During a trial, all DATTs are counted as free.
 * **Asset builds** — Shows all model builds for the month, including models reused and cloned.
 
 ## Models built and reused chart[​](#models-built-and-reused-chart "Direct link to Models built and reused chart")
@@ -39,7 +39,7 @@ When you run a job, or when you run `dbt run` or `dbt build` locally, a structur
 
 ## Reused tag in the Latest status lens[​](#reused-tag-in-the-latest-status-lens "Direct link to Reused tag in the Latest status lens")
 
-Lineage lenses are interactive visual filters in [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
+Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
 
 The **Latest status** lens shows the status from the latest execution of the resource in the current environment. When you use this lens to view your lineage, dbt State tags reused models with **Reused**.
 
@@ -54,8 +54,8 @@ To view your lineage with the **Latest status** lens:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State trial and billing](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-* [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State trial and billing](./dbt-state-trial.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Migrate from state-aware orchestration](./dbt-state-migration.md)

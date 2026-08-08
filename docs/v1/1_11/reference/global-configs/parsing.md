@@ -4,7 +4,7 @@
 
 <!-- -->
 
-The `PARTIAL_PARSE` flag can turn partial parsing on or off in your project. See [the docs on parsing](https://docs.getdbt.com/reference/parsing.md#partial-parsing) for more details.
+The `PARTIAL_PARSE` flag can turn partial parsing on or off in your project. See [the docs on parsing](../parsing.md#partial-parsing) for more details.
 
 dbt\_project.yml
 
@@ -22,7 +22,7 @@ dbt run --no-partial-parse
 
 ### Static parser[​](#static-parser "Direct link to Static parser")
 
-The `STATIC_PARSER` config can enable or disable the use of the static parser. See [the docs on parsing](https://docs.getdbt.com/reference/parsing.md#static-parser) for more details.
+The `STATIC_PARSER` config can enable or disable the use of the static parser. See [the docs on parsing](../parsing.md#static-parser) for more details.
 
 profiles.yml
 

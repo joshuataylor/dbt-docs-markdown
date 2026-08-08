@@ -1,6 +1,6 @@
 # Contribute a dbt Core 2.0 adapter
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Adapter creation
 
@@ -12,7 +12,7 @@ Advanced
 
 info
 
-This guide is for dbt Core 2.0. For dbt Core v1.x, see [Build, test, document, and promote adapters](https://docs.getdbt.com/guides/adapter-creation.md).
+This guide is for dbt Core 2.0. For dbt Core v1.x, see [Build, test, document, and promote adapters](./adapter-creation.md).
 
 ## Step 1: Introduction[​](#step-1-introduction "Direct link to Step 1: Introduction")
 
@@ -22,7 +22,7 @@ In dbt Core v1.x, every adapter was a **standalone Python package**, independent
 
 dbt Core v2.0 flips this entirely. Adapters now live **inside a single Rust monorepo**, organized by feature area rather than by warehouse. A fix in the auth module benefits every adapter at once. When you contribute a new adapter, you're extending shared code, not building a whole new package from scratch. In Rust terms: adding arms to *existing* match expressions. The more adapters that exist, the easier each new adapter becomes. Your contribution makes the whole ecosystem better.
 
-Another advantage of dbt Core v2.0: connection management lives in its own lane outside of the adapter. In v1, each adapter had to own its connection logic, wrapping vendor SDKs or implementing the Python DB API spec. **In v2, ADBC drivers handle that responsibility**: pre-compiled binaries that you register but don't write. For a full explanation of ADBC and how dbt Core v2.0 uses it, see [ADBC in dbt Core v2.0](https://docs.getdbt.com/docs/fusion/adbc.md?version=2.0).
+Another advantage of dbt Core v2.0: connection management lives in its own lane outside of the adapter. In v1, each adapter had to own its connection logic, wrapping vendor SDKs or implementing the Python DB API spec. **In v2, ADBC drivers handle that responsibility**: pre-compiled binaries that you register but don't write. For a full explanation of ADBC and how dbt Core v2.0 uses it, see [ADBC in dbt Core v2.0](../docs/fusion/adbc.md?version=2.0).
 
 What you need to contribute is the exact logic that varies by warehouse: credentials, relation naming, macros, and catalog queries. A complete community adapter touches \~13 files; that's the bar we're aiming for.
 
@@ -59,7 +59,7 @@ Think of your adapter contribution as the bridge between dbt Core v2.0 and your 
 
 **Rust familiarity**: You don't need to be a Rust expert. You need to read Rust, understand enum match expressions, and make sense of compiler errors. If Rust is new to you, skim [The Rust Book](https://doc.rust-lang.org/book/) Chapter 6 (enums and pattern matching). Those are the concepts you'll encounter most.
 
-**dbt fundamentals**: Understand how [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md) works, what [materializations](https://docs.getdbt.com/docs/build/materializations.md) are, and what [adapter dispatch](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md) macros do.
+**dbt fundamentals**: Understand how [`profiles.yml`](../docs/local/profiles.yml.md) works, what [materializations](../docs/build/materializations.md) are, and what [adapter dispatch](../reference/dbt-jinja-functions/dispatch.md) macros do.
 
 **Deep knowledge of your warehouse**: As you work through this guide, you'll need to know how your warehouse behaves:
 
@@ -171,7 +171,7 @@ Before writing any Rust, check a couple of things:
 
 1. Does a v1 adapter already exist for your warehouse?
 
-Check the [trusted adapters](https://docs.getdbt.com/docs/trusted-adapters.md) and [community adapters](https://docs.getdbt.com/docs/community-adapters.md) lists. If one exists, find its GitHub repo: the macro SQL and connection logic are almost directly reusable.
+Check the [trusted adapters](../docs/trusted-adapters.md) and [community adapters](../docs/community-adapters.md) lists. If one exists, find its GitHub repo: the macro SQL and connection logic are almost directly reusable.
 
 2. Did dbt Labs already add a placeholder for your warehouse?
 
@@ -700,7 +700,7 @@ Once your adapter is merged and available in a release, document it so users can
 
 ### Write a setup guide[​](#write-a-setup-guide "Direct link to Write a setup guide")
 
-Document the `profiles.yml` configuration for your warehouse: what fields are required, what's optional, and example values. Follow the format of existing [adapter setup guides](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md?version=2.0).
+Document the `profiles.yml` configuration for your warehouse: what fields are required, what's optional, and example values. Follow the format of existing [adapter setup guides](../docs/local/connect-data-platform/about-dbt-connections.md?version=2.0).
 
 Driver installation is critical to document
 

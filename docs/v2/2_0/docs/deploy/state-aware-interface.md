@@ -8,9 +8,9 @@ Learn how to navigate the state-aware orchestration interface for better visibil
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 ## Models built and reused chart[​](#models-built-and-reused-chart "Direct link to Models built and reused chart")
 
@@ -56,7 +56,7 @@ When running a job, a structured logs view shows which models were built, skippe
 
 ## Reused tag in the Latest status lens[​](#reused-tag-in-the-latest-status-lens "Direct link to Reused tag in the Latest status lens")
 
-Lineage lenses are interactive visual filters in [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
+Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
 
 The **Latest status** lens shows the status from the latest execution of the resource in the current environment. When you use this lens to view your lineage, models that were reused from state-aware orchestration are tagged with **Reused**.
 
@@ -83,7 +83,7 @@ State-aware orchestration uses a cached hash of both code and data state for eac
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-* [Migrate to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Migrate to dbt State](./dbt-state-migration.md)

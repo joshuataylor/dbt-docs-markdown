@@ -4,7 +4,7 @@ Local developmentⓘ
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 <!-- -->
 
@@ -37,11 +37,11 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-trino<!-- -->
 
-For <!-- -->Starburst/Trino<!-- -->-specific configuration, please refer to [Starburst/Trino<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/trino-configs.md)
+For <!-- -->Starburst/Trino<!-- -->-specific configuration, please refer to [Starburst/Trino<!-- --> configs.](../../../reference/resource-configs/trino-configs.md)
 
 ## Connecting to Starburst/Trino[​](#connecting-to-starbursttrino "Direct link to Connecting to Starburst/Trino")
 
-To connect to a data platform with dbt Core, create appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Starburst/Trino clusters. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more information, refer to [Connection profiles](https://docs.getdbt.com/docs/local/profiles.yml.md) and [profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md).
+To connect to a data platform with dbt Core, create appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Starburst/Trino clusters. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more information, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
 
 The parameters for setting up a connection are for Starburst Enterprise, Starburst Galaxy, and Trino clusters. Unless specified, "cluster" will mean any of these products' clusters.
 

@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-hive<!-- -->
 
-For <!-- -->Hive<!-- -->-specific configuration, please refer to [Hive<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/hive-configs.md)
+For <!-- -->Hive<!-- -->-specific configuration, please refer to [Hive<!-- --> configs.](../../../reference/resource-configs/hive-configs.md)
 
 ## Connection Methods[​](#connection-methods "Direct link to Connection Methods")
 
@@ -94,7 +94,7 @@ your_profile_name:
      schema: SCHEMA_NAME
 ```
 
-Note: When creating workload user in CDP, make sure the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If you need the user to execute GRANT statements, you should also configure the appropriate GRANT permissions for them. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option. For more information, see [`grants`](https://docs.getdbt.com/reference/resource-configs/grants.md) and [on-run-start & on-run-end](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md).
+Note: When creating workload user in CDP, make sure the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If you need the user to execute GRANT statements, you should also configure the appropriate GRANT permissions for them. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option. For more information, see [`grants`](../../../reference/resource-configs/grants.md) and [on-run-start & on-run-end](../../../reference/project-configs/on-run-start-on-run-end.md).
 
 ### Kerberos[​](#kerberos "Direct link to Kerberos")
 

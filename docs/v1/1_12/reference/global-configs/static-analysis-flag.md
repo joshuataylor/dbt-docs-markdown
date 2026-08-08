@@ -12,7 +12,7 @@ Deprecated values
 
 The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use `strict` instead.
 
-If not set, Fusion defaults to `baseline` mode, which provides a smooth transition from dbt Core while still catching most SQL errors. See [Configuring `static_analysis`](https://docs.getdbt.com/docs/build/about-static-analysis.md#configuring-static_analysis) for more information on incrementally opting in to stricter analysis.
+If not set, Fusion defaults to `baseline` mode, which provides a smooth transition from dbt Core while still catching most SQL errors. See [Configuring `static_analysis`](../../docs/build/about-static-analysis.md#configuring-static_analysis) for more information on incrementally opting in to stricter analysis.
 
 Usage
 
@@ -24,4 +24,4 @@ dbt run --static-analysis off
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-Also check out the model-level [`static_analysis` (resource config)](https://docs.getdbt.com/reference/resource-configs/static-analysis.md) and [About flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md) pages for more details.
+Also check out the model-level [`static_analysis` (resource config)](../resource-configs/static-analysis.md) and [About flags](./about-global-configs.md) pages for more details.

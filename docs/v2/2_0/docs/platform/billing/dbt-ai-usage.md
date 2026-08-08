@@ -62,7 +62,7 @@ Under Bring Your Own Key (BYOK), usage is not tracked by dbt AI and is subject t
 
 To view the usage in your account:
 
-1. Navigate to [**Account settings**](https://docs.getdbt.com/docs/platform/account-settings.md).
+1. Navigate to [**Account settings**](../account-settings.md).
 
 2. Select **Billing** under the Settings header.
 

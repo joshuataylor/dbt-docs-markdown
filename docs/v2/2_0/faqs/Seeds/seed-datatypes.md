@@ -2,7 +2,7 @@
 
 dbt will infer the datatype for each column based on the data in your CSV.
 
-You can also explicitly set a datatype using the `column_types` [configuration](https://docs.getdbt.com/reference/resource-configs/column_types.md) like so:
+You can also explicitly set a datatype using the `column_types` [configuration](../../reference/resource-configs/column_types.md) like so:
 
 dbt\_project.yml
 

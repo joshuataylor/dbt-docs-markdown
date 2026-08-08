@@ -84,6 +84,6 @@ When querying an `environment`, you can use the following fields.
 
 # Fetching data...
 
-For details on querying the `applied` field of `environment`, you can visit: [Applied](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied.md)
+For details on querying the `applied` field of `environment`, you can visit: [Applied](./discovery-schema-environment-applied.md)
 
-For details querying the `definition` field of `environment`, you can visit: [Definition](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-definition.md)
+For details querying the `definition` field of `environment`, you can visit: [Definition](./discovery-schema-environment-definition.md)

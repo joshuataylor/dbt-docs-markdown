@@ -1,6 +1,6 @@
 # Customizing CI/CD with custom pipelines
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt platform
 
@@ -16,7 +16,7 @@ Intermediate
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-One of the core tenets of dbt is that analytic code should be version controlled. This provides a ton of benefit to your organization in terms of collaboration, code consistency, stability, and the ability to roll back to a prior version. There’s an additional benefit that is provided with your code hosting platform that is often overlooked or underutilized. Some of you may have experience using dbt’s [webhook functionality](https://docs.getdbt.com/docs/deploy/continuous-integration.md) to run a job when a PR is created. This is a fantastic capability, and meets most use cases for testing your code before merging to production. However, there are circumstances when an organization needs additional functionality, like running workflows on every commit (linting), or running workflows after a merge is complete. In this article, we will show you how to setup custom pipelines to lint your project and trigger a dbt job via the API.
+One of the core tenets of dbt is that analytic code should be version controlled. This provides a ton of benefit to your organization in terms of collaboration, code consistency, stability, and the ability to roll back to a prior version. There’s an additional benefit that is provided with your code hosting platform that is often overlooked or underutilized. Some of you may have experience using dbt’s [webhook functionality](../docs/deploy/continuous-integration.md) to run a job when a PR is created. This is a fantastic capability, and meets most use cases for testing your code before merging to production. However, there are circumstances when an organization needs additional functionality, like running workflows on every commit (linting), or running workflows after a merge is complete. In this article, we will show you how to setup custom pipelines to lint your project and trigger a dbt job via the API.
 
 A note on parlance in this article since each code hosting platform uses different terms for similar concepts. The terms `pull request` (PR) and `merge request` (MR) are used interchangeably to mean the process of merging one branch into another branch.
 
@@ -54,7 +54,7 @@ Additionally, if you’re using the free tier of GitLab you can still follow thi
 
 This guide provides details for multiple code hosting platforms. Where steps are unique, they are presented without a selection option. If code is specific to a platform (i.e. GitHub, GitLab, Bitbucket) you will see a selection option for each.
 
-Pipelines can be triggered by various events. The [dbt webhook](https://docs.getdbt.com/docs/deploy/continuous-integration.md) process already triggers a run if you want to run your jobs on a merge request, so this guide focuses on running pipelines for every push and when PRs are merged. Since pushes happen frequently in a project, we’ll keep this job super simple and fast by linting with SQLFluff. The pipeline that runs on merge requests will run less frequently, and can be used to call the dbt API to trigger a specific job. This can be helpful if you have specific requirements that need to happen when code is updated in production, like running a `--full-refresh` on all impacted incremental models.
+Pipelines can be triggered by various events. The [dbt webhook](../docs/deploy/continuous-integration.md) process already triggers a run if you want to run your jobs on a merge request, so this guide focuses on running pipelines for every push and when PRs are merged. Since pushes happen frequently in a project, we’ll keep this job super simple and fast by linting with SQLFluff. The pipeline that runs on merge requests will run less frequently, and can be used to call the dbt API to trigger a specific job. This can be helpful if you have specific requirements that need to happen when code is updated in production, like running a `--full-refresh` on all impacted incremental models.
 
 Here’s a quick look at what this pipeline will accomplish:
 
@@ -66,17 +66,17 @@ This job will take a bit more to setup, but is a good example of how to call the
 
 Run on merge
 
-If your Git provider has a native integration with dbt, you can take advantage of setting up [Merge jobs](https://docs.getdbt.com/docs/deploy/merge-jobs.md) in the UI.
+If your Git provider has a native integration with dbt, you can take advantage of setting up [Merge jobs](../docs/deploy/merge-jobs.md) in the UI.
 
 The setup below shows how to call the dbt API to run a job every time there's a push to your [default branch](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch).
 
 ### 1. Get your dbt API key[​](#1-get-your-dbt-api-key "Direct link to 1. Get your dbt API key")
 
-When running a CI/CD pipeline you’ll want to use a service token instead of any individual’s API key. There are [detailed docs](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) available on this, but below is a quick rundown (this must be performed by an Account Admin):
+When running a CI/CD pipeline you’ll want to use a service token instead of any individual’s API key. There are [detailed docs](../docs/dbt-apis/service-tokens.md) available on this, but below is a quick rundown (this must be performed by an Account Admin):
 
 1. Log in to your dbt account.
 2. Click your account name at the bottom left-hand menu and go to **Account settings**.
-3. Click [**Service tokens**](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) on the left.
+3. Click [**Service tokens**](../docs/dbt-apis/service-tokens.md) on the left.
 4. Click **+ Create service token** to create a new token specifically for CI/CD API calls.
 5. Name your token something like “CICD Token”.
 6. Click the **+Add permission** button under **Access**, and grant this token the **Job Admin** permission.
@@ -651,9 +651,9 @@ If your git provider is not one with a native integration with dbt, but you stil
 
 Run on PR
 
-If your git provider has a native integration with dbt, you can take advantage of the [setup instructions](https://docs.getdbt.com/docs/deploy/ci-jobs.md). This section is only for those projects that connect to their git repository using an SSH key.
+If your git provider has a native integration with dbt, you can take advantage of the [setup instructions](../docs/deploy/ci-jobs.md). This section is only for those projects that connect to their git repository using an SSH key.
 
-The setup for this pipeline will use the same steps as the prior page. Before moving on, make sure you follow [steps 1-5](https://docs.getdbt.com/guides/custom-cicd-pipelines.md?step=2) from the previous page.
+The setup for this pipeline will use the same steps as the prior page. Before moving on, make sure you follow [steps 1-5](./custom-cicd-pipelines.md?step=2) from the previous page.
 
 ### 1. Create a pipeline job that runs when PRs are created[​](#1-create-a-pipeline-job-that-runs-when-prs-are-created "Direct link to 1. Create a pipeline job that runs when PRs are created")
 
@@ -697,15 +697,15 @@ pipelines:
             - python python/run_and_monitor_dbt_job.py
 ```
 
-The setup for CodeCommit follows the same steps as the prior page. Before moving on, follow steps 1–5 from the [prior page](https://docs.getdbt.com/guides/custom-cicd-pipelines.md?step=2) to store your API key, add the Python script to your repository, and configure the merge pipeline.
+The setup for CodeCommit follows the same steps as the prior page. Before moving on, follow steps 1–5 from the [prior page](./custom-cicd-pipelines.md?step=2) to store your API key, add the Python script to your repository, and configure the merge pipeline.
 
 Prerequisites
 
 Before proceeding, make sure you have also:
 
-* Connected your dbt project to CodeCommit by following the [CodeCommit integration guide](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#aws-codecommit)
-* Configured the [pull request URL template for CodeCommit](https://docs.getdbt.com/docs/platform/git/pr-template.md#aws-codecommit) in your dbt project settings
-* Created a [CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md) in dbt — do not configure it to trigger on pull requests, since this pipeline will trigger it through the API
+* Connected your dbt project to CodeCommit by following the [CodeCommit integration guide](../docs/platform/git/import-a-project-by-git-url.md#aws-codecommit)
+* Configured the [pull request URL template for CodeCommit](../docs/platform/git/pr-template.md#aws-codecommit) in your dbt project settings
+* Created a [CI job](../docs/deploy/ci-jobs.md) in dbt — do not configure it to trigger on pull requests, since this pipeline will trigger it through the API
 
 The pull request pipeline uses a separate CodeBuild project from the merge pipeline, because it runs a different dbt job (your CI job) and requires branch and schema values that are dynamically passed at build time from the pull request event.
 

@@ -1,6 +1,6 @@
 # Debug schema names
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Core
 
@@ -14,7 +14,7 @@ Advanced
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-If a model uses the [`schema` config](https://docs.getdbt.com/reference/resource-properties/schema.md) but builds under an unexpected schema, here are some steps for debugging the issue. The full explanation of custom schemas can be found [here](https://docs.getdbt.com/docs/build/custom-schemas.md).
+If a model uses the [`schema` config](../reference/resource-properties/schema.md) but builds under an unexpected schema, here are some steps for debugging the issue. The full explanation of custom schemas can be found [here](../docs/build/custom-schemas.md).
 
 You can also follow along via this video:
 
@@ -82,11 +82,11 @@ In all cases take a moment to read through the Jinja to see if you can follow th
 
 ## Confirm your `schema` config[​](#confirm-your-schema-config "Direct link to confirm-your-schema-config")
 
-Check if you are using the [`schema` config](https://docs.getdbt.com/reference/resource-properties/schema.md) in your model, either via a `{{ config() }}` block, or from `dbt_project.yml`. In both cases, dbt passes this value as the `custom_schema_name` parameter of the `generate_schema_name` macro.
+Check if you are using the [`schema` config](../reference/resource-properties/schema.md) in your model, either via a `{{ config() }}` block, or from `dbt_project.yml`. In both cases, dbt passes this value as the `custom_schema_name` parameter of the `generate_schema_name` macro.
 
 ## Confirm your target values[​](#confirm-your-target-values "Direct link to Confirm your target values")
 
-Most `generate_schema_name` macros incorporate logic from the [`target` variable](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md), in particular `target.schema` and `target.name`. Use the docs [here](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) to help you find the values of each key in this dictionary.
+Most `generate_schema_name` macros incorporate logic from the [`target` variable](../reference/dbt-jinja-functions/target.md), in particular `target.schema` and `target.name`. Use the docs [here](../reference/dbt-jinja-functions/target.md) to help you find the values of each key in this dictionary.
 
 ## Put the two together[​](#put-the-two-together "Direct link to Put the two together")
 
@@ -94,7 +94,7 @@ Now, re-read through the logic of your `generate_schema_name` macro, and mentall
 
 You should find that the schema dbt is constructing for your model matches the output of your `generate_schema_name` macro.
 
-Be careful. Snapshots do not follow this behavior if target\_schema is set. To have environment-aware snapshots in v1.9+ or dbt, remove the [target\_schema config](https://docs.getdbt.com/reference/resource-configs/target_schema.md) from your snapshots. If you still want a custom schema for your snapshots, use the [`schema`](https://docs.getdbt.com/reference/resource-configs/schema.md) config instead.
+Be careful. Snapshots do not follow this behavior if target\_schema is set. To have environment-aware snapshots in v1.9+ or dbt, remove the [target\_schema config](../reference/resource-configs/target_schema.md) from your snapshots. If you still want a custom schema for your snapshots, use the [`schema`](../reference/resource-configs/schema.md) config instead.
 
 ## Prefixed schema names[​](#prefixed-schema-names "Direct link to Prefixed schema names")
 

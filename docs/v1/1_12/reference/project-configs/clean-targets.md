@@ -8,17 +8,17 @@ clean-targets: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories to be removed by the `dbt clean` [command](https://docs.getdbt.com/reference/commands/clean.md). As such, you should only include directories containing artifacts (e.g. compiled files, logs, installed packages) in this list.
+Optionally specify a custom list of directories to be removed by the `dbt clean` [command](../commands/clean.md). As such, you should only include directories containing artifacts (e.g. compiled files, logs, installed packages) in this list.
 
 ## Default[​](#default "Direct link to Default")
 
-If this configuration is not included in your `dbt_project.yml` file, the `clean` command will remove files in your [target-path](https://docs.getdbt.com/reference/global-configs/json-artifacts.md).
+If this configuration is not included in your `dbt_project.yml` file, the `clean` command will remove files in your [target-path](../global-configs/json-artifacts.md).
 
 ## Examples[​](#examples "Direct link to Examples")
 
 ### Remove packages and compiled files as part of `dbt clean` (preferred)[​](#remove-packages-and-compiled-files-as-part-of-dbt-clean "Direct link to remove-packages-and-compiled-files-as-part-of-dbt-clean")
 
-To remove packages as well as compiled files, include the value of your [packages-install-path](https://docs.getdbt.com/reference/project-configs/packages-install-path.md) configuration in your `clean-targets` configuration.
+To remove packages as well as compiled files, include the value of your [packages-install-path](./packages-install-path.md) configuration in your `clean-targets` configuration.
 
 dbt\_project.yml
 

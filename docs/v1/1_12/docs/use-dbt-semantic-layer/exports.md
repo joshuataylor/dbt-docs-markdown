@@ -2,21 +2,21 @@
 
 dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
-Exports enhance [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md) by running your saved queries and writing the output to a table or view within your data platform. Saved queries are a way to save and reuse commonly used queries in MetricFlow, exports take this functionality a step further by:
+Exports enhance [saved queries](../build/saved-queries.md) by running your saved queries and writing the output to a table or view within your data platform. Saved queries are a way to save and reuse commonly used queries in MetricFlow, exports take this functionality a step further by:
 
 * Enabling you to write these queries within your data platform using the dbt job scheduler.
 * Providing an integration path for tools that don't natively support the Semantic Layer by exposing tables of metrics and dimensions.
 
-Essentially, exports are like any other table in your data platform — they enable you to query metric definitions through any SQL interface or connect to downstream tools without a first-class [Semantic Layer integration](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md). Running an export counts towards [queried metrics](https://docs.getdbt.com/docs/platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) usage. Querying the resulting table or view from the export does not count toward queried metric usage.
+Essentially, exports are like any other table in your data platform — they enable you to query metric definitions through any SQL interface or connect to downstream tools without a first-class [Semantic Layer integration](../platform-integrations/avail-sl-integrations.md). Running an export counts towards [queried metrics](../platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) usage. Querying the resulting table or view from the export does not count toward queried metric usage.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt account on a [Starter or Enterprise-tier](https://www.getdbt.com/pricing/) plan.
 * You use one of the following data platforms: Snowflake, BigQuery, Databricks, Redshift, or Postgres.
-* You are on [dbt version](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) 1.7 or newer.
-* You have the Semantic Layer [configured](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) in your dbt project.
-* You have a dbt environment with the [job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) enabled.
-* You have a [saved query](https://docs.getdbt.com/docs/build/saved-queries.md) and [export configured](https://docs.getdbt.com/docs/build/saved-queries.md#configure-exports) in your dbt project. In your configuration, leverage [caching](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md) to cache common queries, speed up performance, and reduce compute costs.
+* You are on [dbt version](../dbt-versions/upgrade-dbt-platform-version.md) 1.7 or newer.
+* You have the Semantic Layer [configured](./setup-sl.md) in your dbt project.
+* You have a dbt environment with the [job scheduler](../deploy/job-scheduler.md) enabled.
+* You have a [saved query](../build/saved-queries.md) and [export configured](../build/saved-queries.md#configure-exports) in your dbt project. In your configuration, leverage [caching](./sl-cache.md) to cache common queries, speed up performance, and reduce compute costs.
 
 ## Benefits of exports[​](#benefits-of-exports "Direct link to Benefits of exports")
 
@@ -41,16 +41,16 @@ Exports offer many benefits and it's important to note some use cases that fall 
 * Business users may still struggle to consume from tens, hundreds, or thousands of tables, and choosing the right one can be a challenge.
 * Business users may also make mistakes when aggregating and filtering from the pre-built tables.
 
-For these use cases, use the dynamic [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) instead of exports.
+For these use cases, use the dynamic [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) instead of exports.
 
 ## Run exports[​](#run-exports "Direct link to Run exports")
 
-Before you're able to run exports in development or production, you'll need to make sure you've [configured saved queries and exports](https://docs.getdbt.com/docs/build/saved-queries.md) in your dbt project. In your saved query config, you can also leverage [caching](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md) with the dbt job scheduler to cache common queries, speed up performance, and reduce compute costs.
+Before you're able to run exports in development or production, you'll need to make sure you've [configured saved queries and exports](../build/saved-queries.md) in your dbt project. In your saved query config, you can also leverage [caching](./sl-cache.md) with the dbt job scheduler to cache common queries, speed up performance, and reduce compute costs.
 
 There are two ways to run an export:
 
-* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on the dbt Fusion engine, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) outside Fusion, run `dbt sl export` or `dbt sl export-all`.
-* [Run exports in production](#exports-in-production) using the [dbt job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) to write these queries within your data platform.
+* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on the dbt Fusion engine, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt CLI](../platform/dbt-cli-installation.md) outside Fusion, run `dbt sl export` or `dbt sl export-all`.
+* [Run exports in production](#exports-in-production) using the [dbt job scheduler](../deploy/job-scheduler.md) to write these queries within your data platform.
 
 ## Exports in development[​](#exports-in-development "Direct link to Exports in development")
 
@@ -166,7 +166,7 @@ Exports use the default credentials of the production environment. To enable exp
 
 1. Click **Deploy** in the top navigation bar and choose **Environments**.
 2. Select **Environment variables**.
-3. [Set the environment variable](https://docs.getdbt.com/docs/build/environment-variables.md#setting-and-overriding-environment-variables) key to `DBT_ENGINE_EXPORT_SAVED_QUERIES` and the environment variable's value to `TRUE`.
+3. [Set the environment variable](../build/environment-variables.md#setting-and-overriding-environment-variables) key to `DBT_ENGINE_EXPORT_SAVED_QUERIES` and the environment variable's value to `TRUE`.
 
 Doing this ensures saved queries and exports are included in your dbt build job. For example, running `dbt build -s sq_name` runs the equivalent of `dbt sl export --saved-query sq_name` in the dbt Job scheduler.
 
@@ -178,10 +178,10 @@ When you run a build job, any saved queries downstream of the dbt models in that
 
 ### Create and execute exports[​](#create-and-execute-exports "Direct link to Create and execute exports")
 
-1. Create a [deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) and ensure the `DBT_ENGINE_EXPORT_SAVED_QUERIES=TRUE` environment variable is set, as described in [Set environment variable](#set-environment-variable).
+1. Create a [deploy job](../deploy/deploy-jobs.md) and ensure the `DBT_ENGINE_EXPORT_SAVED_QUERIES=TRUE` environment variable is set, as described in [Set environment variable](#set-environment-variable).
 
    * This enables you to run any export that needs to be refreshed after a model is built.
-   * Use the [selector syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) `--select` or `-s` option in your build command to specify a particular dbt model or saved query to run. For example, to run all saved queries downstream of the `orders` semantic model, use the following command:
+   * Use the [selector syntax](../../reference/node-selection/syntax.md) `--select` or `-s` option in your build command to specify a particular dbt model or saved query to run. For example, to run all saved queries downstream of the `orders` semantic model, use the following command:
 
    ```bash
      dbt build --select orders+
@@ -216,10 +216,10 @@ No, you won't be able to reference an export using `ref`. Exports are treated as
 
  How can I select saved\_queries by their resource type?
 
-To include all saved queries in the dbt build run, use the [`--resource-type` flag](https://docs.getdbt.com/reference/global-configs/resource-type.md) and run the command `dbt build --resource-type saved_query`.
+To include all saved queries in the dbt build run, use the [`--resource-type` flag](../../reference/global-configs/resource-type.md) and run the command `dbt build --resource-type saved_query`.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Validate semantic nodes in a CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci)
-* Configure [caching](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-cache.md)
-* [Semantic Layer FAQs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md)
+* [Validate semantic nodes in a CI job](../deploy/ci-jobs.md#semantic-validations-in-ci)
+* Configure [caching](./sl-cache.md)
+* [Semantic Layer FAQs](./sl-faqs.md)

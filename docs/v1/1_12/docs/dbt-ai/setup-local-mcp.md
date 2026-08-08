@@ -38,7 +38,7 @@ If a required variable is not set, dbt-mcp will automatically disable that tools
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/) to be able to run `dbt-mcp` and [related dependencies](https://github.com/dbt-labs/dbt-mcp/blob/main/pyproject.toml) into an isolated virtual environment.
 * Have a local dbt project (if you want to use dbt CLI commands).
-* If you're using [OAuth with dbt platform](#oauth-authentication-with-dbt-platform), your account admin has to enable AI features on your dbt platform account. Refer to [Enable dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+* If you're using [OAuth with dbt platform](#oauth-authentication-with-dbt-platform), your account admin has to enable AI features on your dbt platform account. Refer to [Enable dbt AI](../platform/enable-dbt-ai.md) for more info.
 
 ## Choose your auth method[​](#choose-your-auth-method "Direct link to Choose your auth method")
 
@@ -59,7 +59,7 @@ Search table...
 
 `execute_sql` requires a PAT
 
-The `execute_sql` tool does *not* work with service tokens. You must use a [Personal Access Token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) for `DBT_TOKEN` when using this tool.
+The `execute_sql` tool does *not* work with service tokens. You must use a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md) for `DBT_TOKEN` when using this tool.
 
 ## Setup options[​](#setup-options "Direct link to Setup options")
 
@@ -71,7 +71,7 @@ This method uses OAuth to authenticate with your dbt platform account. It's the 
 
 Static subdomains required
 
-Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
+Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
 #### Configuration options[​](#configuration-options "Direct link to Configuration options")
 
@@ -190,7 +190,7 @@ After completing this setup, skip to [Test your configuration](#optional-test-yo
 
 ### Environment variable configuration[​](#environment-variable-configuration "Direct link to Environment variable configuration")
 
-If you need to configure multiple environment variables or prefer to manage them separately, you can use an `.env` file or pass them inline. You only need to supply the variables relevant to your setup — dbt CLI variables for CLI-only use, or dbt platform variables for platform features. For the complete list of variables, enabling or disabling toolsets, and logging options, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+If you need to configure multiple environment variables or prefer to manage them separately, you can use an `.env` file or pass them inline. You only need to supply the variables relevant to your setup — dbt CLI variables for CLI-only use, or dbt platform variables for platform features. For the complete list of variables, enabling or disabling toolsets, and logging options, see the [Environment variables reference](./mcp-environment-variables.md).
 
 Where to put the `.env` file
 
@@ -307,12 +307,12 @@ uvx dbt-mcp
 
 | Environment variable | Required                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | -------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DBT_HOST`           | Required                                                 | Your dbt platform [instance hostname](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md). The default is `cloud.getdbt.com`. For multi-cell and multi-tenant accounts with a static subdomain, use the full hostname — for example, `abc123.us1.dbt.com`.                                                                                                                                                               |
-| `DBT_TOKEN`          | Required                                                 | Your personal access token or service token from the dbt platform.<br />**Note**: The `execute_sql` tool requires a [Personal Access Token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) — service tokens do not work for this tool. For Semantic Layer use, a PAT is also recommended. If you're using a service token for other toolsets, make sure it has at least `Semantic Layer Only`, `Metadata Only`, and `Developer` permissions. |
-| `DBT_ACCOUNT_ID`     | Required for Administrative API tools and PAT-based auth | Your [dbt account ID](https://docs.getdbt.com/faqs/Accounts/find-user-id.md). Also required when using a Personal Access Token (PAT) as your `DBT_TOKEN`.                                                                                                                                                                                                                                                                                                 |
+| `DBT_HOST`           | Required                                                 | Your dbt platform [instance hostname](../platform/about-platform/access-regions-ip-addresses.md). The default is `cloud.getdbt.com`. For multi-cell and multi-tenant accounts with a static subdomain, use the full hostname — for example, `abc123.us1.dbt.com`.                                                                                                                                                               |
+| `DBT_TOKEN`          | Required                                                 | Your personal access token or service token from the dbt platform.<br />**Note**: The `execute_sql` tool requires a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md) — service tokens do not work for this tool. For Semantic Layer use, a PAT is also recommended. If you're using a service token for other toolsets, make sure it has at least `Semantic Layer Only`, `Metadata Only`, and `Developer` permissions. |
+| `DBT_ACCOUNT_ID`     | Required for Administrative API tools and PAT-based auth | Your [dbt account ID](../../faqs/Accounts/find-user-id.md). Also required when using a Personal Access Token (PAT) as your `DBT_TOKEN`.                                                                                                                                                                                                                                                                                                 |
 | `DBT_PROD_ENV_ID`    | Required                                                 | Your dbt platform production environment ID                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `DBT_DEV_ENV_ID`     | Optional                                                 | Your dbt platform development environment ID                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `DBT_USER_ID`        | Optional                                                 | Your dbt platform user ID ([docs](https://docs.getdbt.com/faqs/Accounts/find-user-id.md))                                                                                                                                                                                                                                                                                                                                                                 |
+| `DBT_USER_ID`        | Optional                                                 | Your dbt platform user ID ([docs](../../faqs/Accounts/find-user-id.md))                                                                                                                                                                                                                                                                                                                                                                 |
 
 Search table...
 
@@ -390,8 +390,8 @@ Example output: `C:\Python39\Scripts\dbt.exe`
 
 **Additional notes:**
 
-* You can set any environment variable supported by your dbt executable, like [the ones supported in dbt Core](https://docs.getdbt.com/reference/global-configs/about-global-configs.md#available-flags).
-* dbt MCP respects the standard environment variables and flags for usage tracking mentioned [here](https://docs.getdbt.com/reference/global-configs/usage-stats.md).
+* You can set any environment variable supported by your dbt executable, like [the ones supported in dbt Core](../../reference/global-configs/about-global-configs.md#available-flags).
+* dbt MCP respects the standard environment variables and flags for usage tracking mentioned [here](../../reference/global-configs/usage-stats.md).
 * `DBT_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}'` is automatically set so that the MCP server knows if no node is selected when running a dbt command. You can overwrite it if needed, but it provides a better experience when calling dbt from the MCP server, ensuring the tool selects valid nodes.
 
 ## Controlling tool access[​](#controlling-tool-access "Direct link to Controlling tool access")
@@ -419,7 +419,7 @@ All tools are available by default. Set any of these to `true` to turn off a too
 | `DISABLE_DISCOVERY`           | `false` | Disable dbt Discovery API MCP tools.                                                                                                                                                |
 | `DISABLE_ADMIN_API`           | `false` | Disable dbt Administrative API MCP tools.                                                                                                                                           |
 | `DISABLE_SQL`                 | `true`  | SQL MCP tools are disabled by default. Set to `false` to enable.                                                                                                                    |
-| `DISABLE_DBT_CODEGEN`         | `true`  | [dbt codegen MCP tools](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#codegen-tools) are disabled by default. Set to `false` to enable (requires dbt-codegen package). |
+| `DISABLE_DBT_CODEGEN`         | `true`  | [dbt codegen MCP tools](./mcp-available-tools.md#codegen-tools) are disabled by default. Set to `false` to enable (requires dbt-codegen package). |
 | `DISABLE_LSP`                 | `false` | Disable dbt LSP/Fusion MCP tools.                                                                                                                                                   |
 | `DISABLE_MCP_SERVER_METADATA` | `true`  | MCP server metadata tools (like `get_mcp_server_version`) are disabled by default. Set to `false` to enable.                                                                        |
 | `DISABLE_TOOLS`               | `""`    | A comma-separated list of specific tool names to disable.                                                                                                                           |
@@ -485,9 +485,9 @@ If there are no errors, your configuration is correct.
 
 After completing your configuration, follow the specific integration guide for your chosen tool:
 
-* [Claude](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-claude.md)
-* [Cursor](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-cursor.md)
-* [VS Code](https://docs.getdbt.com/docs/dbt-ai/integrate-mcp-vscode.md)
+* [Claude](./integrate-mcp-claude.md)
+* [Cursor](./integrate-mcp-cursor.md)
+* [VS Code](./integrate-mcp-vscode.md)
 
 ## Debug configurations[​](#debug-configurations "Direct link to Debug configurations")
 
@@ -561,6 +561,6 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 3. Restart your client and try connecting again.
 
-If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md).
+If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md).
 
-For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.com/docs/dbt-ai/mcp-troubleshooting.md).
+For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).

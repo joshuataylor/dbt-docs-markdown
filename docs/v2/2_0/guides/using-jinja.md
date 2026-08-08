@@ -1,6 +1,6 @@
 # Use Jinja to improve your SQL code
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Jinja
 
@@ -155,9 +155,9 @@ Getting whitespace control right is often a lot of trial and error! We recommend
 
 ## Use a macro to return payment methods[​](#use-a-macro-to-return-payment-methods "Direct link to Use a macro to return payment methods")
 
-Here, we've hardcoded the list of payment methods in our model. We may need to access this list from another model. A good solution here is to use a [variable](https://docs.getdbt.com/docs/build/project-variables.md), but for the purpose of this tutorial, we're going to instead use a macro!
+Here, we've hardcoded the list of payment methods in our model. We may need to access this list from another model. A good solution here is to use a [variable](../docs/build/project-variables.md), but for the purpose of this tutorial, we're going to instead use a macro!
 
-[Macros](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) in Jinja are pieces of code that can be called multiple times – they are analogous to a function in Python, and are extremely useful if you find yourself repeating code across multiple models.
+[Macros](../docs/build/jinja-macros.md#macros) in Jinja are pieces of code that can be called multiple times – they are analogous to a function in Python, and are extremely useful if you find yourself repeating code across multiple models.
 
 Our macro is simply going to return the list of payment methods:
 
@@ -172,7 +172,7 @@ Our macro is simply going to return the list of payment methods:
 There's a few things worth noting here:
 
 * Normally, macros take arguments -- we'll see this later on, but for now, we still need to setup our macro with empty parentheses where the arguments would normally go (i.e. `get_payment_methods()`)
-* We've used the [return](https://docs.getdbt.com/reference/dbt-jinja-functions/return.md) function to return a list – without this function, the macro would return a string.
+* We've used the [return](../reference/dbt-jinja-functions/return.md) function to return a list – without this function, the macro would return a string.
 
 Now that we have a macro for our payment methods, we can update our model as follows:
 
@@ -206,9 +206,9 @@ from {{ ref('raw_payments') }}
 order by 1
 ```
 
-[Statements](https://docs.getdbt.com/reference/dbt-jinja-functions/statement-blocks.md) provide a way to run this query and return the results to your Jinja context. This means that the list of `payment_methods` can be set based on the data in your database rather than a hardcoded value.
+[Statements](../reference/dbt-jinja-functions/statement-blocks.md) provide a way to run this query and return the results to your Jinja context. This means that the list of `payment_methods` can be set based on the data in your database rather than a hardcoded value.
 
-The easiest way to use a statement is through the [run\_query](https://docs.getdbt.com/reference/dbt-jinja-functions/run_query.md) macro. For the first version, let's check what we get back from the database, by logging the results to the command line using the [log](https://docs.getdbt.com/reference/dbt-jinja-functions/log.md) function.
+The easiest way to use a statement is through the [run\_query](../reference/dbt-jinja-functions/run_query.md) macro. For the first version, let's check what we get back from the database, by logging the results to the command line using the [log](../reference/dbt-jinja-functions/log.md) function.
 
 macros/get\_payment\_methods.sql
 
@@ -267,7 +267,7 @@ order by 1
 
 There's a few tricky pieces in here:
 
-* We used the [execute](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) variable to ensure that the code runs during the `parse` stage of dbt (otherwise an error would be thrown).
+* We used the [execute](../reference/dbt-jinja-functions/execute.md) variable to ensure that the code runs during the `parse` stage of dbt (otherwise an error would be thrown).
 * We used Agate methods to get the column back as a list
 
 Fortunately, our model code doesn't need to be updated, since we're already calling the macro to get the list of payment methods. And now, any new `payment_methods` added to the underlying data model will automatically be handled by the dbt model.
@@ -315,7 +315,7 @@ Macros let analysts bring software engineering principles to the SQL they write.
 
 A number of useful dbt macros have already been written in the [dbt-utils package](https://github.com/dbt-labs/dbt-utils). For example, the [get\_column\_values](https://github.com/dbt-labs/dbt-utils#get_column_values-source) macro from dbt-utils could be used instead of the `get_column_values` macro we wrote ourselves (saving us a lot of time, but at least we learnt something along the way!).
 
-Install the [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) package in your project (docs [here](https://docs.getdbt.com/docs/build/packages.md)), and then update your model to use the macro from the package instead:
+Install the [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) package in your project (docs [here](../docs/build/packages.md)), and then update your model to use the macro from the package instead:
 
 models/order\_payment\_method\_amounts.sql
 

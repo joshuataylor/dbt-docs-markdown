@@ -6,7 +6,7 @@ With dbt, you can create outbound webhooks to send events (notifications) about 
 
 A webhook is an HTTP-based callback function that allows event-driven communication between two different web applications. This allows you to get the latest information on your dbt jobs in real time. Without it, you would need to make API calls repeatedly to check if there are any updates that you need to account for (polling). Because of this, webhooks are also called *push APIs* or *reverse APIs* and are often used for infrastructure development.
 
-dbt sends a JSON payload to your application's endpoint URL when your webhook is triggered. You can send a [Slack](https://docs.getdbt.com/guides/zapier-slack.md) notification, a [Microsoft Teams](https://docs.getdbt.com/guides/zapier-ms-teams.md) notification, [open a PagerDuty incident](https://docs.getdbt.com/guides/serverless-pagerduty.md) when a dbt job fails.
+dbt sends a JSON payload to your application's endpoint URL when your webhook is triggered. You can send a [Slack](../../guides/zapier-slack.md) notification, a [Microsoft Teams](../../guides/zapier-ms-teams.md) notification, [open a PagerDuty incident](../../guides/serverless-pagerduty.md) when a dbt job fails.
 
 You can create webhooks for these events from the [dbt web-based UI](#create-a-webhook-subscription) and by using the [dbt API](#api-for-webhooks):
 
@@ -32,10 +32,10 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
   <!-- -->
 
-  * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, or Developer [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md).
-  * **Starter plan accounts** — For the dbt user interface (UI), you need to have a [Developer license](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md).
+  * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, or Developer [permission set](../platform/manage-access/enterprise-permissions.md).
+  * **Starter plan accounts** — For the dbt user interface (UI), you need to have a [Developer license](../platform/manage-access/self-service-permissions.md).
 
-* You have a multi-tenant or an AWS single-tenant deployment model in dbt. For more information, refer to [Tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
+* You have a multi-tenant or an AWS single-tenant deployment model in dbt. For more information, refer to [Tenancy](../platform/about-platform/tenancy.md).
 
 * Your destination system supports [Authorization headers](#troubleshooting).
 
@@ -73,7 +73,7 @@ To reactivate a webhook, use one of the following methods:
 * **REST API**: Send a `PUT` request to [Update a webhook](#update-a-webhook) and set `active` to `true`, or update `client_url` to a new endpoint URL.
 * **Terraform provider**: Set `active = true` and update `client_url` in your webhook resource.
 
-To find the appropriate dbt access URL for your region and plan, refer to [Regions & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+To find the appropriate dbt access URL for your region and plan, refer to [Regions & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
 ### Differences between completed and errored webhook events[​](#completed-errored-event-difference "Direct link to Differences between completed and errored webhook events")
 
@@ -203,7 +203,7 @@ You can use the dbt API to create new webhooks that you want to subscribe to, ge
 
 Access URLs
 
-dbt is hosted in multiple regions in the world and each region has a different access URL. People on Enterprise-tier plans can choose to have their account hosted in any one of these regions. For a complete list of available dbt access URLs, refer to [Regions & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+dbt is hosted in multiple regions in the world and each region has a different access URL. People on Enterprise-tier plans can choose to have their account hosted in any one of these regions. For a complete list of available dbt access URLs, refer to [Regions & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
 ### List all webhook subscriptions[​](#list-all-webhook-subscriptions "Direct link to List all webhook subscriptions")
 
@@ -684,8 +684,8 @@ Search table...
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt CI](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
-* [Use dbt's webhooks with other SaaS apps](https://docs.getdbt.com/guides.md?tags=Webhooks)
+* [dbt CI](./continuous-integration.md)
+* [Use dbt's webhooks with other SaaS apps](../../guides.md?tags=Webhooks)
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 

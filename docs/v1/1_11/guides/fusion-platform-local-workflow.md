@@ -1,6 +1,6 @@
 # Hybrid development with dbt platform and Fusion
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Fusion engine
 
@@ -25,20 +25,20 @@ This guide walks through credentials, environment variables, Fusion versions, an
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt platform account with at least one project using the dbt Fusion engine.
-* You have either the [dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](https://docs.getdbt.com/docs/local/install-dbt.md) installed.
+* You have either the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension + local dbt](../docs/local/install-dbt.md) installed.
 
 ## 1. Managing credentials[​](#1-managing-credentials "Direct link to 1. Managing credentials")
 
 How you authenticate to your data warehouse locally depends on which self-hosted tool you use:
 
-* [dbt platform CLI](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with Fusion set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
-* [dbt VS Code extension](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs the dbt Fusion engine and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
+* [dbt platform CLI](./fusion-platform-local-workflow.md?step=3#dbt-platform-cli): For a CLI-only development experience (without the dbt VS Code extension), use the dbt platform CLI with Fusion set as your platform release track. Warehouse credentials are managed centrally in dbt platform and passed through automatically — no `profiles.yml` required.
+* [dbt VS Code extension](./fusion-platform-local-workflow.md?step=3#dbt-vs-code-extension-profilesyml-required): For IDE-based local development, the dbt VS Code extension runs the dbt Fusion engine and its LSP features in a local process. This path requires a `profiles.yml` to connect directly to your warehouse.
 
 ### dbt platform CLI[​](#dbt-platform-cli "Direct link to dbt platform CLI")
 
-The [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a self-hosted CLI-only workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
+The [dbt CLI](../docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a self-hosted CLI-only workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
 
-For detailed installation instructions, refer to [Install the dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md?version=1.10).
+For detailed installation instructions, refer to [Install the dbt CLI](../docs/platform/dbt-cli-installation.md?version=1.10).
 
 The dbt platform CLI is installed from your local command prompt. For example:
 
@@ -58,9 +58,9 @@ This is the lowest-friction path for teams that don't need full IDE integration 
 
 The dbt VS Code extension runs Fusion and its language server in a local process and connects directly to your warehouse. For this reason, you need a `profiles.yml` for local extension development sessions.
 
-Download your [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and Fusion attempts to hydrate non-sensitive credential metadata from dbt platform automatically.
+Download your [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) from your dbt platform **Account settings** and Fusion attempts to hydrate non-sensitive credential metadata from dbt platform automatically.
 
-If you get access to a new project, re-download the `dbt_cloud.yml` file before working on it locally. To switch between projects already listed in your file, update [`context.active-project`](https://docs.getdbt.com/reference/dbt_cloud.yml.md#update-or-switch-projects). To avoid manually recreating your warehouse configuration, use `dbt init`.
+If you get access to a new project, re-download the `dbt_cloud.yml` file before working on it locally. To switch between projects already listed in your file, update [`context.active-project`](../reference/dbt_cloud.yml.md#update-or-switch-projects). To avoid manually recreating your warehouse configuration, use `dbt init`.
 
 ```shell
 dbt init
@@ -99,7 +99,7 @@ DBT_TARGET_SCHEMA=analytics_dev
 
 Fusion and the dbt VS Code extension automatically load values from this file. You can also view and override individual environment variables from the extension's settings UI.
 
-Reference these variables in your `profiles.yml` or elsewhere in your dbt project using the [`env_var` Jinja function](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md):
+Reference these variables in your `profiles.yml` or elsewhere in your dbt project using the [`env_var` Jinja function](../reference/dbt-jinja-functions/env_var.md):
 
 ```yaml
 # profiles.yml
@@ -113,7 +113,7 @@ my_profile:
       schema: "{{ env_var('DBT_MY_SCHEMA') }}"
 ```
 
-For a full walkthrough of `.env` file usage and variable precedence, see [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) for more information on where to find your configured variables and [Set environment variables locally](https://docs.getdbt.com/docs/configure-dbt-extension.md?version=2.0#set-environment-variables-locally) for local configuration instructions.
+For a full walkthrough of `.env` file usage and variable precedence, see [Environment variables](../docs/build/environment-variables.md) for more information on where to find your configured variables and [Set environment variables locally](../docs/configure-dbt-extension.md?version=2.0#set-environment-variables-locally) for local configuration instructions.
 
 ### Keeping platform and local variables in sync[​](#keeping-platform-and-local-variables-in-sync "Direct link to Keeping platform and local variables in sync")
 
@@ -153,11 +153,11 @@ The **Latest** release track on dbt platform updates continuously as Fusion ship
 
 ### Versions on the dbt platform[​](#versions-on-the-dbt-platform "Direct link to Versions on the dbt platform")
 
-On dbt platform, Fusion follows a versionless release track model. The default release track is **Fusion Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [Fusion releases](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks).
+On dbt platform, Fusion follows a versionless release track model. The default release track is **Fusion Stable**, which always runs the most recent stable release. For details on release tracks and their stability levels, see [Fusion releases](../docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks).
 
 ### Versions installed locally[​](#versions-installed-locally "Direct link to Versions installed locally")
 
-By default, the Fusion [installation script](https://docs.getdbt.com/docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **Fusion Stable** release track on dbt platform:
+By default, the Fusion [installation script](../docs/local/install-dbt.md) installs the latest stable release, the same version that ships with the **Fusion Stable** release track on dbt platform:
 
 ```shell
 # macOS / Linux
@@ -230,7 +230,7 @@ You can also document this convention in your project's `CONTRIBUTING.md` so it'
 
 ## 4. dbt Mesh and deferral[​](#4-dbt-mesh-and-deferral "Direct link to 4. dbt Mesh and deferral")
 
-If your project uses [dbt Mesh](https://docs.getdbt.com/docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, Fusion handles this automatically during development when a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) is present.
+If your project uses [dbt Mesh](../docs/mesh/about-mesh.md), referencing models from other dbt projects via cross-project refs, Fusion handles this automatically during development when a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present.
 
 ### How it works[​](#how-it-works "Direct link to How it works")
 
@@ -245,7 +245,7 @@ Downloaded publication artifact for <upstream_project> to <path> (resolving cros
 
 Fusion caches downloaded publication artifacts for up to one hour, so subsequent runs in the same session skip the download and resolve refs from the local cache.
 
-Auto-deferral is also on by default. When a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) is present, Fusion defers to your project's configured deferral environment, so you build only modified models and their downstream dependencies while the rest resolve against the production state.
+Auto-deferral is also on by default. When a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) is present, Fusion defers to your project's configured deferral environment, so you build only modified models and their downstream dependencies while the rest resolve against the production state.
 
 ### Disabling deferral[​](#disabling-deferral "Direct link to Disabling deferral")
 
@@ -269,15 +269,15 @@ The following table summarizes the key differences between the two development p
 | **Credentials**           | Managed through your dbt platform session, no `profiles.yml` needed                                                      | `profiles.yml` required; use `dbt init` to hydrate from dbt platform                                                              |
 | **Environment variables** | Same env vars as in dbt platform automatically                                                                           | Use a `.env` file at the project root                                                                                             |
 | **Version management**    | `dbt system update` to stay current                                                                                      | Dev container recommended for automatic sync                                                                                      |
-| **dbt Mesh / deferral**   | Auto-enabled when [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) present; `--no-defer` to disable | Auto-enabled when [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) present; toggle off in extension settings |
+| **dbt Mesh / deferral**   | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; `--no-defer` to disable | Auto-enabled when [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) present; toggle off in extension settings |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install Fusion](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [dbt platform CLI installation](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)
-* [Fusion releases and release channels](https://docs.getdbt.com/docs/fusion/fusion-releases.md)
-* [About profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md)
-* [Environment variables (local)](https://docs.getdbt.com/docs/local/configure-environment-variables.md)
+* [Install Fusion](../docs/local/install-dbt.md)
+* [dbt platform CLI installation](../docs/platform/dbt-cli-installation.md)
+* [Fusion releases and release channels](../docs/fusion/fusion-releases.md)
+* [About profiles.yml](../docs/local/profiles.yml.md)
+* [Environment variables (local)](../docs/local/configure-environment-variables.md)
 * [VS Code dev containers](https://code.visualstudio.com/docs/devcontainers/containers)
-* [dbt Mesh overview](https://docs.getdbt.com/docs/mesh/about-mesh.md)
-* [Deferral in dbt](https://docs.getdbt.com/docs/platform/about-defer.md)
+* [dbt Mesh overview](../docs/mesh/about-mesh.md)
+* [Deferral in dbt](../docs/platform/about-defer.md)

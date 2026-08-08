@@ -19,7 +19,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
 When managing private connectivity, consider the following:
 
-* Using [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) when configuring private connection endpoints isn't supported in dbt. Instead, use [Extended Attributes](https://docs.getdbt.com/docs/deploy/deploy-environments.md#extended-attributes) to dynamically change these values in your dbt environment.
+* Using [Environment variables](../../../build/environment-variables.md) when configuring private connection endpoints isn't supported in dbt. Instead, use [Extended Attributes](../../../deploy/deploy-environments.md#extended-attributes) to dynamically change these values in your dbt environment.
 
 * The [Administrative API v3](https://docs.getdbt.com/dbt-cloud/api-v3) supports private endpoint operations — [`list`](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/List%20Private%20Endpoints), [`create`](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Create%20Private%20Endpoints%20List%20Alias%20View), [`retrieve`](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Retrieve%20Private%20Endpoint), [`update`](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Update%20Private%20Endpoints%20Detail%20View), and [`delete`](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Delete%20Private%20Endpoints%20Detail%20View). You can use these endpoints to manage private connectivity programmatically.
 
@@ -27,20 +27,20 @@ When managing private connectivity, consider the following:
 
 Select your cloud platform to view private connectivity options, support matrix, and configuration guides.
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-overview.md)
+[![](/img/icons/dbt-bit.svg)](./aws/aws-overview.md)
 
-#### [AWS](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-overview.md)
+#### [AWS](./aws/aws-overview.md)
 
-[Amazon Web Services PrivateLink](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-overview.md)
+[Amazon Web Services PrivateLink](./aws/aws-overview.md)
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-overview.md)
+[![](/img/icons/dbt-bit.svg)](./azure/azure-overview.md)
 
-#### [Azure](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-overview.md)
+#### [Azure](./azure/azure-overview.md)
 
-[Microsoft Azure Private Link](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-overview.md)
+[Microsoft Azure Private Link](./azure/azure-overview.md)
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-overview.md)
+[![](/img/icons/dbt-bit.svg)](./gcp/gcp-overview.md)
 
-#### [GCP](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-overview.md)
+#### [GCP](./gcp/gcp-overview.md)
 
-[Google Cloud Platform Private Service Connect](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-overview.md)
+[Google Cloud Platform Private Service Connect](./gcp/gcp-overview.md)

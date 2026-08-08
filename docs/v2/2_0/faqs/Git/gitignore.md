@@ -84,7 +84,7 @@ dbt_modules/
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
-9. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
+9. [Rollback your repo to remote](../../docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
    <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
@@ -114,7 +114,7 @@ dbt_modules/
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
-11. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
+11. [Rollback your repo to remote](../../docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
     <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.

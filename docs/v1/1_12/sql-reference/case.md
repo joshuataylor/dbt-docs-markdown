@@ -8,7 +8,7 @@ In this page, we’ll break down how to use SQL case statements and demonstrate 
 
 ## How to use the SQL case statements[​](#how-to-use-the-sql-case-statements "Direct link to How to use the SQL case statements")
 
-Case when statements are created in [SELECT statements](https://docs.getdbt.com/sql-reference/select.md) along with other fields you choose to select. The general syntax for SQL case when statements is as follows:
+Case when statements are created in [SELECT statements](./select.md) along with other fields you choose to select. The general syntax for SQL case when statements is as follows:
 
 ```sql
 case when [scenario 1] then [result 1]
@@ -22,10 +22,10 @@ end as <new_field_name>
 Some notes on case statement functionality:
 
 * Scenarios in case statements are *evaluated in the order they’re listed*. What does this mean? It means that if multiple scenarios evaluate to true, the earliest listed true scenario is the one whose result is returned.
-* The results in each scenario need to be of the same data type; if scenario 1 results in a string, all other scenarios need to be [strings](https://docs.getdbt.com/sql-reference/strings.md).
+* The results in each scenario need to be of the same data type; if scenario 1 results in a string, all other scenarios need to be [strings](./strings.md).
 * Oftentimes data teams will omit a final `else` scenario since the `else [fallback result]`is optional and defaulted to `else null`.
 * In general, case statement performance in select statements is relatively efficient (compared to other SQL functionality like aggregates or clunky joins involving ANDs and ORs); this isn’t to say it’s efficient (or smart) to be comparing a ton of scenarios, but it likely won’t be the bottleneck in your data models.
-* Case when statement results can also be passed into aggregate functions, such as [MAX](https://docs.getdbt.com/sql-reference/max.md), [MIN](https://docs.getdbt.com/sql-reference/min.md), and [COUNT](https://docs.getdbt.com/sql-reference/count.md), or even date functions (ex. `date_trunc('month', <case when statement>`)
+* Case when statement results can also be passed into aggregate functions, such as [MAX](./max.md), [MIN](./min.md), and [COUNT](./count.md), or even date functions (ex. `date_trunc('month', <case when statement>`)
 
 Below, let’s take a look at a practical example using a case statement.
 
@@ -69,6 +69,6 @@ The use cases for case statements in dbt models and ad hoc queries is almost end
 Instead, it’s important to know *why* you’d want to use them in your data work and when you wouldn’t want to use them. Some example reasons you’d want to leverage case statements:
 
 * Create booleans from your existing data (ex. `case when cnt > 1 then true else false end as is_active`)
-* Establish mappings between raw data and more general buckets of data (see example earlier in the page); note that if you find yourself creating many case when scenarios for a mapping that doesn’t change over time, you’ll likely want to import that mapping either as its own dbt model or data source (a good use case for [seeds](https://docs.getdbt.com/docs/build/seeds.md))
-* If you find yourself creating the same case when statement throughout your models, consider abstracting that case when into its own model or into a DRY [macro](https://docs.getdbt.com/docs/build/jinja-macros.md)
+* Establish mappings between raw data and more general buckets of data (see example earlier in the page); note that if you find yourself creating many case when scenarios for a mapping that doesn’t change over time, you’ll likely want to import that mapping either as its own dbt model or data source (a good use case for [seeds](../docs/build/seeds.md))
+* If you find yourself creating the same case when statement throughout your models, consider abstracting that case when into its own model or into a DRY [macro](../docs/build/jinja-macros.md)
 * Generate more business-user friendly columns values that can be easily comprehended by business users

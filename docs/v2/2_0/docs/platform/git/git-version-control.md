@@ -14,8 +14,8 @@ When you develop in the command line interface (CLI) or Cloud integrated develop
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Version control basics](https://docs.getdbt.com/docs/platform/git/version-control-basics.md)
-* [Merge conflicts](https://docs.getdbt.com/docs/platform/git/merge-conflicts.md)
-* [Connect to GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md)
-* [Connect to GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md)
-* [Connect to Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md)
+* [Version control basics](./version-control-basics.md)
+* [Merge conflicts](./merge-conflicts.md)
+* [Connect to GitHub](./connect-github.md)
+* [Connect to GitLab](./connect-gitlab.md)
+* [Connect to Azure DevOps](./connect-azure-devops.md)

@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./redshift-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:
   <!-- -->
@@ -33,7 +33,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-redshift<!-- -->
 
-For <!-- -->Redshift<!-- -->-specific configuration, please refer to [Redshift<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md)
+For <!-- -->Redshift<!-- -->-specific configuration, please refer to [Redshift<!-- --> configs.](../../../reference/resource-configs/redshift-configs.md)
 
 ## Configurations[​](#configurations "Direct link to Configurations")
 
@@ -301,7 +301,7 @@ The following limitations apply when using `datasharing`:
 * Source freshness checks can have a lag of up to 5 minutes.
 * Metadata queries are limited to 10,000 rows. If a database has more than 10,000 schemas, or a schema has more than 10,000 tables, dbt runs can result in unexpected scenarios.
 * Cross-database writes require the `SNAPSHOT` transaction isolation level.
-* For views that reference tables in another database, define them as [late-binding views](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#late-binding-views).
+* For views that reference tables in another database, define them as [late-binding views](../../../reference/resource-configs/redshift-configs.md#late-binding-views).
 
 ### Deprecated `profile` parameters in 1.5[​](#deprecated-profile-parameters-in-15 "Direct link to deprecated-profile-parameters-in-15")
 
@@ -319,7 +319,7 @@ This option is intended for projects with no downstream dependents. If a depende
 
 ### `sort` and `dist` keys[​](#sort-and-dist-keys "Direct link to sort-and-dist-keys")
 
-Where possible, dbt enables the use of `sort` and `dist` keys. See the section on [Redshift specific configurations](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md).
+Where possible, dbt enables the use of `sort` and `dist` keys. See the section on [Redshift specific configurations](../../../reference/resource-configs/redshift-configs.md).
 
 #### retries[​](#retries "Direct link to retries")
 

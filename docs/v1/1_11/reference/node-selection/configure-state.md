@@ -1,6 +1,6 @@
 # Configure state selection
 
-State and [defer](https://docs.getdbt.com/reference/node-selection/defer.md) can be set by environment variables as well as CLI flags:
+State and [defer](./defer.md) can be set by environment variables as well as CLI flags:
 
 * `--state` or `DBT_ENGINE_STATE`: file path
 * `--defer` or `DBT_ENGINE_DEFER`: boolean
@@ -13,7 +13,7 @@ If both the flag and env var are provided, the flag takes precedence.
 #### Notes[​](#notes "Direct link to Notes")
 
 * The `--state` artifacts must be of schema versions that are compatible with the currently running dbt version.
-* These are powerful, complex features. Read about [known caveats and limitations](https://docs.getdbt.com/reference/node-selection/state-comparison-caveats.md) to state comparison.
+* These are powerful, complex features. Read about [known caveats and limitations](./state-comparison-caveats.md) to state comparison.
 
 Syntax deprecated
 
@@ -21,7 +21,7 @@ In [dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older vers
 
 ### The "result" status[​](#the-result-status "Direct link to The \"result\" status")
 
-Another element of job state is the `result` of a prior dbt invocation. After executing a `dbt run`, for example, dbt creates the `run_results.json` artifact which contains execution times and success / error status for dbt models. You can read more about `run_results.json` on the ['run results'](https://docs.getdbt.com/reference/artifacts/run-results-json.md) page.
+Another element of job state is the `result` of a prior dbt invocation. After executing a `dbt run`, for example, dbt creates the `run_results.json` artifact which contains execution times and success / error status for dbt models. You can read more about `run_results.json` on the ['run results'](../artifacts/run-results-json.md) page.
 
 The following dbt commands produce `run_results.json` artifacts whose results can be referenced in subsequent dbt invocations:
 
@@ -66,7 +66,7 @@ dbt run --select "result:<status>+" state:modified+ --defer --state ./<dbt-artif
 
 ### The "source\_status" status[​](#the-source_status-status "Direct link to The \"source_status\" status")
 
-Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](https://docs.getdbt.com/reference/artifacts/sources-json.md) page.
+Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](../artifacts/sources-json.md) page.
 
 The `dbt source freshness` command produces a `sources.json` artifact whose results can be referenced in subsequent dbt invocations.
 
@@ -82,9 +82,9 @@ dbt source freshness # must be run again to compare current to previous state
 dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 ```
 
-For more example commands, refer to [Pro-tips for workflows](https://docs.getdbt.com/best-practices/best-practice-workflows.md#pro-tips-for-workflows).
+For more example commands, refer to [Pro-tips for workflows](../../best-practices/best-practice-workflows.md#pro-tips-for-workflows).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About state in dbt](https://docs.getdbt.com/reference/node-selection/state-selection.md)
-* [State comparison caveats](https://docs.getdbt.com/reference/node-selection/state-comparison-caveats.md)
+* [About state in dbt](./state-selection.md)
+* [State comparison caveats](./state-comparison-caveats.md)

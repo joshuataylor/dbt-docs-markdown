@@ -4,9 +4,9 @@ important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -26,7 +26,7 @@ The most rigorous static analysis means you can trust that if the analysis succe
 
 Less strict static analysis also surfaces helpful information to developers as they work. There's no free lunch—what you gain in responsiveness you lose in correctness guarantees.
 
-The dbt Fusion engine uses the [`static_analysis`](https://docs.getdbt.com/reference/resource-configs/static-analysis.md) config to help you control how it performs static analysis for your models.
+The dbt Fusion engine uses the [`static_analysis`](../../reference/resource-configs/static-analysis.md) config to help you control how it performs static analysis for your models.
 
 The dbt Fusion engine is unique in that it can statically analyze not just a single model in isolation, but every query from one end of your DAG to the other. Even your database can only validate the query in front of it! Concepts like [information flow theory](https://roundup.getdbt.com/i/156064124/beyond-cll-information-flow-theory-and-metadata-propagation) — although not incorporated into the dbt platform [yet](https://www.getdbt.com/blog/where-we-re-headed-with-the-dbt-fusion-engine) — rely on stable inputs and the ability to trace columns DAG-wide.
 
@@ -87,7 +87,7 @@ Search table...
 
 Supported Snowflake functions
 
-To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](https://docs.getdbt.com/reference/resource-configs/snowflake-function-support.md)
+To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../reference/resource-configs/snowflake-function-support.md)
 
 CodeLens visibility
 
@@ -153,7 +153,7 @@ Setting `static_analysis` to `baseline` mode lets you start using Fusion immedia
 
 ## Recapping the differences between engines[​](#recapping-the-differences-between-engines "Direct link to Recapping the differences between engines")
 
-dbt Core v1.x and [dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
+dbt Core v1.x and [dbt Core 2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
 
 * Renders and runs models one at a time.
 * Never runs static analysis.
@@ -166,15 +166,15 @@ The dbt Fusion engine (strict mode):
 
 * Renders and statically analyzes all models before execution begins.
 * Guarantees nothing runs until the entire project is proven valid.
-* Parses `CREATE FUNCTION` in [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) and in [`on-run-start`](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md) hooks, then registers those UDFs so strict compilation can resolve calls to them. `baseline` and `off` don't register UDFs this way. See [User-defined functions (UDFs) in `strict` mode](https://docs.getdbt.com/reference/resource-configs/static-analysis.md#user-defined-functions-udfs-in-strict-mode).
+* Parses `CREATE FUNCTION` in [`sql_header`](../../reference/resource-configs/sql_header.md) and in [`on-run-start`](../../reference/project-configs/on-run-start-on-run-end.md) hooks, then registers those UDFs so strict compilation can resolve calls to them. `baseline` and `off` don't register UDFs this way. See [User-defined functions (UDFs) in `strict` mode](../../reference/resource-configs/static-analysis.md#user-defined-functions-udfs-in-strict-mode).
 
 ## Configuring `static_analysis`[​](#configuring-static_analysis "Direct link to configuring-static_analysis")
 
 You can modify the way static analysis is applied for specific models in your project. The static analysis configuration cascades from most strict to least strict. Going downstream in your lineage, a model can keep the same mode or relax it — it can't be stricter than its parent.
 
-Setting `static_analysis: strict` on a model does not automatically set `strict` for downstream models; they keep the project default unless you set them explicitly. For rules and examples, refer to [strict mode inheritance](#strict-mode-inheritance) and [How static analysis modes cascade](https://docs.getdbt.com/reference/resource-configs/static-analysis.md#how-static-analysis-modes-cascade).
+Setting `static_analysis: strict` on a model does not automatically set `strict` for downstream models; they keep the project default unless you set them explicitly. For rules and examples, refer to [strict mode inheritance](#strict-mode-inheritance) and [How static analysis modes cascade](../../reference/resource-configs/static-analysis.md#how-static-analysis-modes-cascade).
 
-The [`static_analysis`](https://docs.getdbt.com/reference/resource-configs/static-analysis.md) config options are:
+The [`static_analysis`](../../reference/resource-configs/static-analysis.md) config options are:
 
 * `baseline` (default): Statically analyze SQL. This is the recommended starting point for users transitioning from dbt Core, providing a smooth migration experience while still catching most SQL errors.
 * `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
@@ -188,7 +188,7 @@ The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use
 
 When you disable static analysis, features of the VS Code extension which depend on SQL comprehension will be unavailable.
 
-The best place to configure `static_analysis` is as a config on an individual model or group of models. As a debugging aid, you can also use the [`--static-analysis strict`](https://docs.getdbt.com/reference/global-configs/static-analysis-flag.md) or `--static-analysis off` CLI flags to override all model-level configuration.
+The best place to configure `static_analysis` is as a config on an individual model or group of models. As a debugging aid, you can also use the [`--static-analysis strict`](../../reference/global-configs/static-analysis-flag.md) or `--static-analysis off` CLI flags to override all model-level configuration.
 
 ### Incrementally adopting strict mode[​](#incrementally-adopting-strict-mode "Direct link to Incrementally adopting strict mode")
 
@@ -217,7 +217,7 @@ For example, in A → B → C with a default of `baseline`, configuring A (a roo
 
 This approach lets you gain the benefits of strict validation where possible while keeping the flexibility of baseline analysis for models that aren't yet compatible.
 
-Refer to [CLI options](https://docs.getdbt.com/reference/global-configs/command-line-options.md) and [Configurations and properties](https://docs.getdbt.com/reference/configs-and-properties.md) to learn more about configs.
+Refer to [CLI options](../../reference/global-configs/command-line-options.md) and [Configurations and properties](../../reference/configs-and-properties.md) to learn more about configs.
 
 ### Example configurations[​](#example-configurations "Direct link to Example configurations")
 
@@ -309,9 +309,9 @@ This is a very rare occurrence. If you encounter this situation, please [open an
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-* [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
-* [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+* [About the dbt extension](../about-dbt-extension.md)
+* [Supported features matrix](../fusion/supported-features.md)
+* [Install dbt](../local/install-dbt.md)
+* [Quickstart for Fusion](../../guides/fusion.md?step=1)
+* [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

@@ -2,7 +2,7 @@
 
 Use dbt debug to test database connections and check system setup.
 
-`dbt debug` is a utility function to test the database connection and display information for debugging purposes, such as the validity of your project file, the [dbt version](https://docs.getdbt.com/reference/dbt-jinja-functions/dbt_version.md), and your installation of any requisite dependencies (like `git` when you run `dbt deps`).
+`dbt debug` is a utility function to test the database connection and display information for debugging purposes, such as the validity of your project file, the [dbt version](../dbt-jinja-functions/dbt_version.md), and your installation of any requisite dependencies (like `git` when you run `dbt deps`).
 
 It checks your database connection, local configuration, and system setup across multiple axes to help identify potential issues before running dbt commands.
 
@@ -14,7 +14,7 @@ By default, `dbt debug` validates:
 * **Required dependencies** (such as `git` for `dbt deps`)
 * **Adapter details** (installed adapter versions and compatibility)
 
-\*Note: Not to be confused with [debug-level logging](https://docs.getdbt.com/reference/global-configs/logs.md#debug-level-logging) through the `--debug` option which increases verbosity.
+\*Note: Not to be confused with [debug-level logging](../global-configs/logs.md#debug-level-logging) through the `--debug` option which increases verbosity.
 
 ## Flags[​](#flags "Direct link to Flags")
 
@@ -22,7 +22,7 @@ Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in
 
 * dbt Core CLI: Supports all flags.
 * Studio IDE: Only supports dbt `debug` and `dbt debug --connection`.
-* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) command to interact with your dbt environment.
+* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](./dbt-environment.md?version=2.0) command to interact with your dbt environment.
 
 `dbt debug` supports the following flags in your terminal when using the command line interface (CLI):
 

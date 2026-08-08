@@ -16,7 +16,7 @@ Search table...
 
 dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
 
-In the past, dbt didn't enforce a standard vocabulary for the [`type`](https://docs.getdbt.com/reference/resource-properties/arguments.md#type) field on macro arguments in YAML. Because of this, the `type` field was used for documentation only, and dbt didn't check that:
+In the past, dbt didn't enforce a standard vocabulary for the [`type`](../../resource-properties/arguments.md#type) field on macro arguments in YAML. Because of this, the `type` field was used for documentation only, and dbt didn't check that:
 
 * the argument names matched those in your macro
 * the argument types were valid or consistent with the macro's Jinja definition
@@ -38,8 +38,8 @@ When you set the `validate_macro_args` flag to `true`, dbt will:
 * Validate macro arguments during project parsing.
 * Check that all argument names in your YAML match those in the macro definition.
 * Raise warnings if the names or types don't match.
-* Validate that the [`type` values follow the supported format](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
-* If no arguments are documented in the YAML, infer them from the macro and include them in the [`manifest.json` file](https://docs.getdbt.com/reference/artifacts/manifest-json.md).
+* Validate that the [`type` values follow the supported format](../../resource-properties/arguments.md#supported-types).
+* If no arguments are documented in the YAML, infer them from the macro and include them in the [`manifest.json` file](../../artifacts/manifest-json.md).
 
  When does validation occur?
 

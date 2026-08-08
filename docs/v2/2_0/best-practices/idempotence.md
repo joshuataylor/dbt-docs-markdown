@@ -68,9 +68,9 @@ select * from {{ source('events', 'raw_events') }}
 {% endif %}
 ```
 
-With `unique_key` set, dbt updates existing rows and inserts new rows instead of appending duplicates. Depending on your adapter and [incremental strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md), dbt does this with `merge` or `delete+insert`.
+With `unique_key` set, dbt updates existing rows and inserts new rows instead of appending duplicates. Depending on your adapter and [incremental strategy](../docs/build/incremental-strategy.md), dbt does this with `merge` or `delete+insert`.
 
-You can also use [microbatch incremental models](https://docs.getdbt.com/docs/build/incremental-microbatch.md) for large time-series datasets. Microbatch models process data in batches based on an `event_time` column, and can be more resilient for very large incremental workloads.
+You can also use [microbatch incremental models](../docs/build/incremental-microbatch.md) for large time-series datasets. Microbatch models process data in batches based on an `event_time` column, and can be more resilient for very large incremental workloads.
 
 ### Common risks[​](#common-risks "Direct link to Common risks")
 
@@ -91,6 +91,6 @@ Think of `--full-refresh` as proof that your underlying logic is still idempoten
 
 These docs cover the dbt features most affected by idempotence:
 
-* [State selection and stateless runs](https://docs.getdbt.com/reference/node-selection/state-selection.md)
-* [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md)
-* [Microbatch incremental models](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [State selection and stateless runs](../reference/node-selection/state-selection.md)
+* [Incremental models](../docs/build/incremental-models.md)
+* [Microbatch incremental models](../docs/build/incremental-microbatch.md)

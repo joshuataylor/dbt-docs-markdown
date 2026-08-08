@@ -2,11 +2,11 @@
 
 An analytics engineer favorite: the left join. Without a doubt, this is probably the most regularly used join in any dbt project (and for good reason).
 
-The left join returns all rows in the [FROM statement](https://docs.getdbt.com/sql-reference/from.md), regardless of match in the left join database object. Compare this to an [inner join](https://docs.getdbt.com/sql-reference/inner-join.md), where only rows are returned that have successful key matches between the database object in the FROM statement and in the inner join statement.
+The left join returns all rows in the [FROM statement](./from.md), regardless of match in the left join database object. Compare this to an [inner join](./inner-join.md), where only rows are returned that have successful key matches between the database object in the FROM statement and in the inner join statement.
 
 ## How to create a left join[​](#how-to-create-a-left-join "Direct link to How to create a left join")
 
-Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](https://docs.getdbt.com/sql-reference/select.md) to perform a left join:
+Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a left join:
 
 ```text
 select
@@ -16,7 +16,7 @@ left join <table_2> as t2
 on t1.id = t2.id 
 ```
 
-In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](https://docs.getdbt.com/sql-reference/where.md), [GROUP BY](https://docs.getdbt.com/sql-reference/group-by.md), [ORDER BY](https://docs.getdbt.com/sql-reference/order-by.md), [HAVING](https://docs.getdbt.com/sql-reference/having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also left (or any join really) as many joins as you’d like in an individual query or CTE.
+In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also left (or any join really) as many joins as you’d like in an individual query or CTE.
 
 ### SQL left join example[​](#sql-left-join-example "Direct link to SQL left join example")
 
@@ -82,4 +82,4 @@ Ensure your joins are just ~~left~~ right
 
 Something to note if you use left joins: if there are multiple records for an individual key in the left join database object, be aware that duplicates can potentially be introduced in the final query result. This is where dbt tests, such as testing for primary key uniqueness and [equal row count](https://github.com/dbt-labs/dbt-utils#equal_rowcount-source) across upstream source tables and downstream child models, can help you identify faulty data modeling logic and improve data quality.
 
-Where you will not (and should not) see left joins is in [staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) that are used to clean and prep raw source data for analytics uses. Any joins in your dbt projects should happen further downstream in [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) and [mart models](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md) to improve modularity and DAG cleanliness.
+Where you will not (and should not) see left joins is in [staging models](../best-practices/how-we-structure/2-staging.md) that are used to clean and prep raw source data for analytics uses. Any joins in your dbt projects should happen further downstream in [intermediate](../best-practices/how-we-structure/3-intermediate.md) and [mart models](../best-practices/how-we-structure/4-marts.md) to improve modularity and DAG cleanliness.

@@ -14,17 +14,17 @@ Previously, the thread value defaulted to 1, which can increase the runtime of y
 
 You can supply a custom thread count if you'd prefer more or less parallelization.
 
-For more information, read [Understanding threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md).
+For more information, read [Understanding threads](../running-a-dbt-project/using-threads.md).
 
 ### Creating a new job no longer triggers a run by default[​](#creating-a-new-job-no-longer-triggers-a-run-by-default "Direct link to Creating a new job no longer triggers a run by default")
 
 To help save compute time, new jobs will no longer be triggered to run by default. When you create a new job in dbt, you can trigger the job to run by selecting **Run on schedule** and completing the desired schedule and timing information.
 
-For more information, refer to [Deploy jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md).
+For more information, refer to [Deploy jobs](../deploy/deploy-jobs.md).
 
 ### Private packages must be cloned using access tokens provided by environment variables[​](#private-packages-must-be-cloned-using-access-tokens-provided-by-environment-variables "Direct link to Private packages must be cloned using access tokens provided by environment variables")
 
-The supported method for cloning private GitHub packages is the [git token method](https://docs.getdbt.com/docs/build/packages.md#git-token-method), where an appropriate access token is passed into the package repository URL with an environment variable.
+The supported method for cloning private GitHub packages is the [git token method](../build/packages.md#git-token-method), where an appropriate access token is passed into the package repository URL with an environment variable.
 
 A small number of people have been able to clone private packages using dbt's native GitHub application without explicitly providing an access token. This functionality is being deprecated as it’s limited in flexibility.
 
@@ -46,7 +46,7 @@ packages:
 
 dbt is the easiest and most reliable way to develop and deploy a dbt project. It helps remove complexity while also giving you more features and better performance. A simpler Databricks connection experience with support for Databricks’ Unity Catalog and better modeling defaults is now available for your use.
 
-For all the Databricks customers already using dbt with the dbt-spark adapter, you can now [migrate](https://docs.getdbt.com/guides/migrate-from-spark-to-databricks.md) your connection to the [dbt-databricks adapter](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md) to get the benefits. [Databricks](https://www.databricks.com/blog/2022/11/17/introducing-native-high-performance-integration-dbt-cloud.html) is committed to maintaining and improving the adapter, so this integrated experience will continue to provide the best of dbt and Databricks.
+For all the Databricks customers already using dbt with the dbt-spark adapter, you can now [migrate](../../guides/migrate-from-spark-to-databricks.md) your connection to the [dbt-databricks adapter](../local/connect-data-platform/databricks-setup.md) to get the benefits. [Databricks](https://www.databricks.com/blog/2022/11/17/introducing-native-high-performance-integration-dbt-cloud.html) is committed to maintaining and improving the adapter, so this integrated experience will continue to provide the best of dbt and Databricks.
 
 Check out our [live blog post](https://www.getdbt.com/blog/dbt-cloud-databricks-experience/) to learn more.
 
@@ -71,11 +71,11 @@ The new features are:
 
 * **Dark mode** — Use dark mode in the Studio IDE for low-light environments.
 
-Read more about all the [Cloud Studio IDE features](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#studio-ide-features).
+Read more about all the [Cloud Studio IDE features](../platform/studio-ide/develop-in-studio.md#studio-ide-features).
 
 ### Classic IDE deprecation notice[​](#classic-ide-deprecation-notice "Direct link to Classic IDE deprecation notice")
 
-In December 2022, dbt Labs will deprecate the classic Studio IDE. The [new and refreshed Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) will be available for *all* dbt users. You will no longer be able to access the classic Studio IDE and dbt Labs might introduce changes that break the classic Studio IDE.
+In December 2022, dbt Labs will deprecate the classic Studio IDE. The [new and refreshed Studio IDE](../platform/studio-ide/develop-in-studio.md) will be available for *all* dbt users. You will no longer be able to access the classic Studio IDE and dbt Labs might introduce changes that break the classic Studio IDE.
 
 With deprecation, dbt Labs will only support the refreshed version of the Studio IDE.
 
@@ -85,7 +85,7 @@ Virtual Private Cloud (VPC) customers with questions about when this change will
 
 ### Announcing dbt Cloud’s native integration with Azure DevOps[​](#announcing-dbt-clouds-native-integration-with-azure-devops "Direct link to Announcing dbt Cloud’s native integration with Azure DevOps")
 
-dbt now offers a native integration with Azure DevOps for dbt customers on the enterprise plan. We built this integration to remove friction, increase security, and unlock net new product experiences for our customers. [Setting up the Azure DevOps integration](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md) in dbt provides:
+dbt now offers a native integration with Azure DevOps for dbt customers on the enterprise plan. We built this integration to remove friction, increase security, and unlock net new product experiences for our customers. [Setting up the Azure DevOps integration](../platform/git/connect-azure-devops.md) in dbt provides:
 
 * easy dbt project set up,
 * an improved security posture,
@@ -106,7 +106,7 @@ Some of the improvements include:
 * Better organization and navigation with features like drag and drop of files, breadcrumb, build button drop-down, and more.
 * You can use new features like auto-format your file, auto-complete model names, and git diff view to see your changes before making a pull request.
 
-Read more about the new [Cloud Studio IDE features](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#studio-ide-features) and check out [New and improved Cloud Studio IDE](https://www.getdbt.com/blog/new-improved-cloud-ide/) blog for more info!
+Read more about the new [Cloud Studio IDE features](../platform/studio-ide/develop-in-studio.md#studio-ide-features) and check out [New and improved Cloud Studio IDE](https://www.getdbt.com/blog/new-improved-cloud-ide/) blog for more info!
 
 ## September 2022[​](#september-2022 "Direct link to September 2022")
 
@@ -116,7 +116,7 @@ On October 14th, 2022 dbt Labs is deprecating the List Steps API endpoint. From 
 
 dbt Labs will continue to maintain the [Retrieve Run](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run) endpoint, which is a viable alternative depending on the use case.
 
-You can fetch run steps for an individual run with a GET request to the following URL, replacing `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
+You can fetch run steps for an individual run with a GET request to the following URL, replacing `YOUR_ACCESS_URL` with the [appropriate Access URL](../platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
 
 `https://YOUR_ACCESS_URL/api/v2/accounts/{accountId}/runs/{runId}/?include_related=["run_steps"]`
 
@@ -124,7 +124,7 @@ You can fetch run steps for an individual run with a GET request to the followin
 
 In order to make the metadata API more scalable and improve its latency, we’ve implemented data retention limits. The metadata API can now query data from the previous three months. For example, if today was March 1, you could query data back to January 1st.
 
-For more information, see [Metadata API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md)
+For more information, see [Metadata API](../dbt-apis/discovery-api.md)
 
 ## August 2022[​](#august-2022 "Direct link to August 2022")
 
@@ -134,7 +134,7 @@ Cross-database queries for RA3 instances are now supported by dbt projects using
 
 With cross-database queries, you can seamlessly query data from any database in the cluster, regardless of which database you are connected to with dbt.
 
-The [connection configuration](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md) `ra3_node` has been defaulted to `true`. This allows users to:
+The [connection configuration](../local/connect-data-platform/redshift-setup.md) `ra3_node` has been defaulted to `true`. This allows users to:
 
 * benefit from the full RA3 nodes’ capabilities,
 * generate appropriate dbt documentation.
@@ -165,7 +165,7 @@ This additional security layer in the Studio IDE is available only to the dbt en
 
 To review actions performed by people in your organization, dbt provides logs of audited user and system events. The dbt audit log lists events triggered in your organization within the last 90 days.
 
-The audit log includes details such as who performed the action, what the action was, and when it was performed. For more details, review [the audit log for dbt Enterprise](https://docs.getdbt.com/docs/platform/manage-access/audit-log.md) documentation.
+The audit log includes details such as who performed the action, what the action was, and when it was performed. For more details, review [the audit log for dbt Enterprise](../platform/manage-access/audit-log.md) documentation.
 
 ### Credentials no longer accidentally wiped when editing an environment[​](#credentials-no-longer-accidentally-wiped-when-editing-an-environment "Direct link to Credentials no longer accidentally wiped when editing an environment")
 
@@ -207,7 +207,7 @@ Love the DAG in the Studio IDE as much as we do? Now when you click on a node in
 
 ### Service tokens and bug fixes[​](#service-tokens-and-bug-fixes "Direct link to Service tokens and bug fixes")
 
-Service tokens can now be assigned granular permissions to enforce least privilege access. If you're on Enterprise, you can assign any enterprise permission set to newly issued service tokens. If you're on Teams, you can assign the Job Admin permission set to newly issued service tokens. We highly recommend you re-issue service tokens with these new permissions to increase your security posture! See docs [here](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
+Service tokens can now be assigned granular permissions to enforce least privilege access. If you're on Enterprise, you can assign any enterprise permission set to newly issued service tokens. If you're on Teams, you can assign the Job Admin permission set to newly issued service tokens. We highly recommend you re-issue service tokens with these new permissions to increase your security posture! See docs [here](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens).
 
 #### New products and features[​](#new-products-and-features "Direct link to New products and features")
 
@@ -221,7 +221,7 @@ Service tokens can now be assigned granular permissions to enforce least privile
 
 ### Autocomplete snippets for SQL and YAML files in IDE[​](#autocomplete-snippets-for-sql-and-yaml-files-in-ide "Direct link to Autocomplete snippets for SQL and YAML files in IDE")
 
-Some noteworthy improvements include autocomplete snippets for SQL and YAML files in the IDE, which are available for use now! We also added a [new metric layer page](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) to docs.getdbt.com to help you begin thinking about the metrics layer in dbt Cloud.
+Some noteworthy improvements include autocomplete snippets for SQL and YAML files in the IDE, which are available for use now! We also added a [new metric layer page](../use-dbt-semantic-layer/dbt-sl.md) to docs.getdbt.com to help you begin thinking about the metrics layer in dbt Cloud.
 
 #### Performance improvements and enhancements[​](#performance-improvements-and-enhancements-1 "Direct link to Performance improvements and enhancements")
 
@@ -230,7 +230,7 @@ Some noteworthy improvements include autocomplete snippets for SQL and YAML file
 
 ### Model timing for Multi-tenant Team and Enterprise accounts[​](#model-timing-for-multi-tenant-team-and-enterprise-accounts "Direct link to Model timing for Multi-tenant Team and Enterprise accounts")
 
-We started the new year with a gift! Multi-tenant Team and Enterprise accounts can now use the new [Model timing](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#model-timing) tab in dbt. You can use this tab to further explore long-running models to see if they need refactoring or rescheduling.
+We started the new year with a gift! Multi-tenant Team and Enterprise accounts can now use the new [Model timing](../deploy/deploy-jobs.md#model-timing) tab in dbt. You can use this tab to further explore long-running models to see if they need refactoring or rescheduling.
 
 #### Performance improvements and enhancements[​](#performance-improvements-and-enhancements-2 "Direct link to Performance improvements and enhancements")
 

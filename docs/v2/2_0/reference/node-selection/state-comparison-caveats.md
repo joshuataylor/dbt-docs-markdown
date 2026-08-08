@@ -1,6 +1,6 @@
 # Caveats to state comparison
 
-The [`state:` selection method](https://docs.getdbt.com/reference/node-selection/methods.md#state) is a powerful feature, with a lot of underlying complexity. Below are a handful of considerations when setting up automated jobs that leverage state comparison.
+The [`state:` selection method](./methods.md#state) is a powerful feature, with a lot of underlying complexity. Below are a handful of considerations when setting up automated jobs that leverage state comparison.
 
 ### Seeds[​](#seeds "Direct link to Seeds")
 
@@ -67,9 +67,9 @@ To prevent the `manifest.json` from being overwritten before dbt reads it for ch
 
 ### False positives[​](#false-positives "Direct link to False positives")
 
-To reduce false positives during `state:modified` selection due to env-aware logic, you can set the `state_modified_compare_more_unrendered_values` [behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md) to `true`.
+To reduce false positives during `state:modified` selection due to env-aware logic, you can set the `state_modified_compare_more_unrendered_values` [behavior flag](../global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md) to `true`.
 
-You need to build the state directory using dbt v1.9 or higher, or [the dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), and you need to set `state_modified_compare_more_unrendered_values` to `true` within your dbt\_project.yml.
+You need to build the state directory using dbt v1.9 or higher, or [the dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md), and you need to set `state_modified_compare_more_unrendered_values` to `true` within your dbt\_project.yml.
 
 If the state directory was built with an older dbt version or if the `state_modified_compare_more_unrendered_values` behavior change flag was either not set or set to `false`, you need to rebuild the state directory to avoid false positives during state comparison with `state:modified`.
 
@@ -79,5 +79,5 @@ State comparison is complex. We hope to reach eventual consistency between all c
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About state in dbt](https://docs.getdbt.com/reference/node-selection/state-selection.md)
-* [Configure state selection](https://docs.getdbt.com/reference/node-selection/configure-state.md)
+* [About state in dbt](./state-selection.md)
+* [Configure state selection](./configure-state.md)

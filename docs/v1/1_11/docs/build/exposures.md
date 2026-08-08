@@ -3,12 +3,12 @@
 Exposures make it possible to define and describe a downstream use of your dbt project, such as in a dashboard, application, or data science pipeline. By defining exposures, you can then:
 
 * run, test, and list resources that feed into your exposure
-* populate a dedicated page in the auto-generated [documentation](https://docs.getdbt.com/docs/build/documentation.md) site with context relevant to data consumers
+* populate a dedicated page in the auto-generated [documentation](./documentation.md) site with context relevant to data consumers
 
 Exposures can be defined in two ways:
 
-* Manual — Declared [explicitly](https://docs.getdbt.com/docs/build/exposures.md#declaring-an-exposure) in your project’s YAML files.
-* Automatic — dbt [creates and visualizes downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md) automatically for supported integrations, removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), and behave like manual exposures. However, they don’t exist in YAML files.
+* Manual — Declared [explicitly](./exposures.md#declaring-an-exposure) in your project’s YAML files.
+* Automatic — dbt [creates and visualizes downstream exposures](../platform-integrations/downstream-exposures.md) automatically for supported integrations, removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](../explore/explore-projects.md), and behave like manual exposures. However, they don’t exist in YAML files.
 
 ### Declaring an exposure[​](#declaring-an-exposure "Direct link to Declaring an exposure")
 
@@ -55,7 +55,7 @@ exposures:
 
   tip
 
-  Do not confuse this `depends_on` YAML property with the [`-- depends_on`](https://docs.getdbt.com/reference/dbt-jinja-functions/statement-blocks.md#example-using-depends_on) a SQL comment directive defined at the top of a model SQL file, which explicitly adds dependencies to the DAG and ensures the referenced resources are built before the model executes.
+  Do not confuse this `depends_on` YAML property with the [`-- depends_on`](../../reference/dbt-jinja-functions/statement-blocks.md#example-using-depends_on) a SQL comment directive defined at the top of a model SQL file, which explicitly adds dependencies to the DAG and ensures the referenced resources are built before the model executes.
 
 *Optional:*
 
@@ -65,10 +65,10 @@ exposures:
 
 *General properties (optional)*
 
-* [**description**](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [**tags**](https://docs.getdbt.com/reference/resource-configs/tags.md)
-* [**meta**](https://docs.getdbt.com/reference/resource-configs/meta.md)
-* [**enabled**](https://docs.getdbt.com/reference/resource-configs/enabled.md) — You can set this property at the exposure level or at the project level in the [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md) file.
+* [**description**](../../reference/resource-properties/description.md)
+* [**tags**](../../reference/resource-configs/tags.md)
+* [**meta**](../../reference/resource-configs/meta.md)
+* [**enabled**](../../reference/resource-configs/enabled.md) — You can set this property at the exposure level or at the project level in the [`dbt_project.yml`](../../reference/dbt_project.yml.md) file.
 
 ### Referencing exposures[​](#referencing-exposures "Direct link to Referencing exposures")
 
@@ -79,7 +79,7 @@ dbt run -s +exposure:weekly_jaffle_report
 dbt test -s +exposure:weekly_jaffle_report
 ```
 
-When we generate the [Catalog site](https://docs.getdbt.com/docs/explore/explore-projects.md), you'll see the exposure appear:
+When we generate the [Catalog site](../explore/explore-projects.md), you'll see the exposure appear:
 
 [![Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.](/img/docs/building-a-dbt-project/dbt-explorer-exposures.png?v=2 "Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.")](#)Exposures has a dedicated section, under the project name in dbt Catalog, which lists each exposure in your project.
 
@@ -87,6 +87,6 @@ When we generate the [Catalog site](https://docs.getdbt.com/docs/explore/explore
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Exposure properties](https://docs.getdbt.com/reference/exposure-properties.md)
-* [`exposure:` selection method](https://docs.getdbt.com/reference/node-selection/methods.md#exposure)
-* [Data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md)
+* [Exposure properties](../../reference/exposure-properties.md)
+* [`exposure:` selection method](../../reference/node-selection/methods.md#exposure)
+* [Data health tiles](../explore/data-tile.md)

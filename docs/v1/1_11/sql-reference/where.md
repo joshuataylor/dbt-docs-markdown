@@ -1,6 +1,6 @@
 # SQL WHERE
 
-If the humble [SELECT statement](https://docs.getdbt.com/sql-reference/select.md) is an analytics engineer kitchen knife, the WHERE clause is the corresponding knife sharpener: no (good) cooking (or data modeling) is happening without it.
+If the humble [SELECT statement](./select.md) is an analytics engineer kitchen knife, the WHERE clause is the corresponding knife sharpener: no (good) cooking (or data modeling) is happening without it.
 
 The WHERE clause is a fundamental SQL statement—it allows you to appropriately filter your data models and queries, so you can look at specific subsets of data based on your requirements.
 

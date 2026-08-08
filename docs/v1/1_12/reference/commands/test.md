@@ -2,7 +2,7 @@
 
 `dbt test` runs data tests defined on models, sources, snapshots, and seeds and unit tests defined on SQL models. It expects that you have already created those resources through the appropriate commands.
 
-The tests to run can be selected using the `--select` flag discussed [here](https://docs.getdbt.com/reference/node-selection/syntax.md).
+The tests to run can be selected using the `--select` flag discussed [here](../node-selection/syntax.md).
 
 ```bash
 # run data and unit tests
@@ -33,4 +33,4 @@ dbt test --select "one_specific_model,test_type:data"
 dbt test --select "one_specific_model,test_type:unit"
 ```
 
-For more information on writing tests, read the [data testing](https://docs.getdbt.com/docs/build/data-tests.md) and [unit testing](https://docs.getdbt.com/docs/build/unit-tests.md) documentation.
+For more information on writing tests, read the [data testing](../../docs/build/data-tests.md) and [unit testing](../../docs/build/unit-tests.md) documentation.

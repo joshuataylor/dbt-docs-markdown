@@ -35,13 +35,13 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-firebolt<!-- -->
 
-For <!-- -->Firebolt<!-- -->-specific configuration, please refer to [Firebolt<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/firebolt-configs.md)
+For <!-- -->Firebolt<!-- -->-specific configuration, please refer to [Firebolt<!-- --> configs.](../../../reference/resource-configs/firebolt-configs.md)
 
 For other information including Firebolt feature support, see the [GitHub README](https://github.com/firebolt-db/dbt-firebolt/blob/main/README.md) and the [changelog](https://github.com/firebolt-db/dbt-firebolt/blob/main/CHANGELOG.md).
 
 ## Connecting to Firebolt[​](#connecting-to-firebolt "Direct link to Connecting to Firebolt")
 
-To connect to Firebolt from dbt, you'll need to add a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to your `profiles.yml` file. A Firebolt profile conforms to the following syntax:
+To connect to Firebolt from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A Firebolt profile conforms to the following syntax:
 
 profiles.yml
 
@@ -74,7 +74,7 @@ To specify values as environment variables, use the format `{{ env_var('<variabl
 | `database`      | Required. The name of the Firebolt database to connect to.                                                                                                                                                                                                            |
 | `engine_name`   | Required. The name (not the URL) of the Firebolt engine to use in the specified `database`. This must be a general purpose read-write engine and the engine must be running. If omitted in earlier versions, the default engine for the specified `database` is used. |
 | `account_name`  | Required. Specifies the account name under which the specified `database` exists.                                                                                                                                                                                     |
-| `schema`        | Recommended. A string to add as a prefix to the names of generated tables when using the [custom schemas workaround](https://docs.getdbt.com/docs/local/connect-data-platform/firebolt-setup.md#supporting-concurrent-development).                                   |
+| `schema`        | Recommended. A string to add as a prefix to the names of generated tables when using the [custom schemas workaround](./firebolt-setup.md#supporting-concurrent-development).                                   |
 | `threads`       | Required. Set to higher number to improve performance.                                                                                                                                                                                                                |
 | `host`          | Optional. The host name of the connection. For all customers it is `api.app.firebolt.io`, which will be used if omitted.                                                                                                                                              |
 

@@ -35,7 +35,7 @@ Installing `dbt-upsolver` will also install `dbt-core` and any other dependencie
 
 ## Configuring <!-- -->dbt-upsolver<!-- -->
 
-For <!-- -->Upsolver<!-- -->-specifc configuration please refer to [Upsolver<!-- --> Configuration](https://docs.getdbt.com/reference/resource-configs/upsolver-configs.md)
+For <!-- -->Upsolver<!-- -->-specifc configuration please refer to [Upsolver<!-- --> Configuration](../../../reference/resource-configs/upsolver-configs.md)
 
 For further info, refer to the GitHub repository: [Upsolver/dbt-upsolver](https://github.com/Upsolver/dbt-upsolver)
 

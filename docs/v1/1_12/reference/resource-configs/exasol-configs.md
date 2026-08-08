@@ -7,9 +7,9 @@ In dbt-exasol, the following incremental materialization strategies are supporte
 * `append` (default when `unique_key` is not defined)
 * `merge`
 * `delete+insert` (default when `unique_key` is defined)
-* [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [`microbatch`](../../docs/build/incremental-microbatch.md)
 
-All of these strategies are inherited from dbt-core. For more information on incremental strategies, refer to the [incremental strategy documentation](https://docs.getdbt.com/docs/build/incremental-strategy.md).
+All of these strategies are inherited from dbt-core. For more information on incremental strategies, refer to the [incremental strategy documentation](../../docs/build/incremental-strategy.md).
 
 ## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
 
@@ -127,7 +127,7 @@ For more information about Exasol's table distribution and partitioning, refer t
 
 ## Model contracts[​](#model-contracts "Direct link to Model contracts")
 
-Exasol supports [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) with the following database constraints:
+Exasol supports [model contracts](../../docs/mesh/govern/model-contracts.md) with the following database constraints:
 
 | Constraint Type | Support Status   | Description                                 |
 | --------------- | ---------------- | ------------------------------------------- |
@@ -170,13 +170,13 @@ models:
             expression: countries (country_id)
 ```
 
-For more information on model contracts, refer to the [model contracts documentation](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md).
+For more information on model contracts, refer to the [model contracts documentation](../../docs/mesh/govern/model-contracts.md).
 
 ## Timestamp format[​](#timestamp-format "Direct link to Timestamp format")
 
 Starting from dbt-exasol 1.2.2, the default timestamp format is `YYYY-MM-DDTHH:MI:SS.FF6`.
 
-You can customize the timestamp format in your [profile configuration](https://docs.getdbt.com/docs/local/connect-data-platform/exasol-setup.md):
+You can customize the timestamp format in your [profile configuration](../../docs/local/connect-data-platform/exasol-setup.md):
 
 profiles.yml
 
@@ -190,7 +190,7 @@ outputs:
 
 ### Microbatch strategy considerations[​](#microbatch-strategy-considerations "Direct link to Microbatch strategy considerations")
 
-When using the [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md) incremental strategy, Exasol requires timestamps without timezone suffix in model definitions:
+When using the [`microbatch`](../../docs/build/incremental-microbatch.md) incremental strategy, Exasol requires timestamps without timezone suffix in model definitions:
 
 ```sql
 -- ✅ Correct (Exasol compatible)
@@ -202,7 +202,7 @@ TIMESTAMP '2024-01-01 10:00:00-0'
 
 The dbt-exasol adapter automatically handles timestamp formatting for microbatch boundaries.
 
-For more information about the microbatch strategy, refer to the [microbatch documentation](https://docs.getdbt.com/docs/build/incremental-microbatch.md).
+For more information about the microbatch strategy, refer to the [microbatch documentation](../../docs/build/incremental-microbatch.md).
 
 ## Materialized views[​](#materialized-views "Direct link to Materialized views")
 
@@ -211,7 +211,7 @@ Exasol does not support materialized views. If you attempt to use `materialized=
 ### Workarounds[​](#workarounds "Direct link to Workarounds")
 
 * Use `materialized='table'` with appropriate refresh logic
-* Use `materialized='incremental'` with suitable [incremental strategies](https://docs.getdbt.com/docs/build/incremental-strategy.md)
+* Use `materialized='incremental'` with suitable [incremental strategies](../../docs/build/incremental-strategy.md)
 
 ## Clone operations[​](#clone-operations "Direct link to Clone operations")
 
@@ -219,7 +219,7 @@ Exasol does not support table cloning operations. This affects dbt features that
 
 ## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
 
-Exasol has specific limitations with [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md):
+Exasol has specific limitations with [unit tests](../../docs/build/unit-tests.md):
 
 ### Empty string handling[​](#empty-string-handling "Direct link to Empty string handling")
 
@@ -249,4 +249,4 @@ If you are interested in supporting materialized test fixtures, we encourage you
 
 ## Connection configuration[​](#connection-configuration "Direct link to Connection configuration")
 
-For information about connection parameters such as encryption, SSL/TLS validation, OpenID authentication, and other profile settings, refer to the [Exasol setup documentation](https://docs.getdbt.com/docs/local/connect-data-platform/exasol-setup.md).
+For information about connection parameters such as encryption, SSL/TLS validation, OpenID authentication, and other profile settings, refer to the [Exasol setup documentation](../../docs/local/connect-data-platform/exasol-setup.md).

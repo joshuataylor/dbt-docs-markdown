@@ -2,9 +2,9 @@
 
 tip
 
-Note that this best practices guide doesn't yet use the [new YAML specification](https://docs.getdbt.com/docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
+Note that this best practices guide doesn't yet use the [new YAML specification](../../docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
 
-To read more about the new spec, see [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md).
+To read more about the new spec, see [Creating metrics](../../docs/build/metrics-overview.md).
 
 ## How to build metrics[​](#how-to-build-metrics "Direct link to How to build metrics")
 

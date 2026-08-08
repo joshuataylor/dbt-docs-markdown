@@ -2,19 +2,19 @@
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
-Use [dbt platform job scheduler](https://docs.getdbt.com/docs/deploy/job-scheduler.md) to proactively refresh downstream exposures and the underlying data sources (extracts) that power your Tableau Workbooks.
+Use [dbt platform job scheduler](../deploy/job-scheduler.md) to proactively refresh downstream exposures and the underlying data sources (extracts) that power your Tableau Workbooks.
 
 Fusion not supported for this beta
 
-Orchestrating downstream exposures *isn’t* available when your deployments use [Fusion Stable](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). Supported jobs must use [Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with the dbt Core engine.
+Orchestrating downstream exposures *isn’t* available when your deployments use [Fusion Stable](../dbt-versions/dbt-release-tracks.md). Supported jobs must use [Latest](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine.
 
-On the [Fusion Stable](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) release track (the dbt Fusion engine preview), orchestrating downstream exposures isn’t supported yet. Setting `DBT_ACTIVE_EXPOSURES` and `DBT_ACTIVE_EXPOSURES_BUILD_AFTER` won’t enable orchestration behavior (like Tableau extract refreshes) or the related job log entries.
+On the [Fusion Stable](../dbt-versions/dbt-release-tracks.md) release track (the dbt Fusion engine preview), orchestrating downstream exposures isn’t supported yet. Setting `DBT_ACTIVE_EXPOSURES` and `DBT_ACTIVE_EXPOSURES_BUILD_AFTER` won’t enable orchestration behavior (like Tableau extract refreshes) or the related job log entries.
 
 The private beta is for dbt Enterprise accounts. Contact your account representative for access.
 
 <!-- -->
 
-Orchestrating exposures integrates with [downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md) and uses your `dbt build` job to ensure that Tableau extracts are updated regularly.
+Orchestrating exposures integrates with [downstream exposures](./downstream-exposures-tableau.md) and uses your `dbt build` job to ensure that Tableau extracts are updated regularly.
 
 Control the frequency of these refreshes by configuring environment variables in your dbt environment.
 
@@ -26,7 +26,7 @@ The following table summarizes the differences between visualizing and orchestra
 | ----------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Purpose           | Automatically brings downstream assets into your dbt lineage.                  | Proactively refreshes the underlying data sources during scheduled dbt jobs.                                                                                               |
 | Benefits          | Provides visibility into data flow and dependencies.                           | Ensures BI tools always have up-to-date data without manual intervention.                                                                                                  |
-| Location          | Exposed in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) | Exposed in [dbt scheduler](https://docs.getdbt.com/docs/deploy/deployments.md)                                                                                             |
+| Location          | Exposed in [Catalog](../explore/explore-projects.md) | Exposed in [dbt scheduler](../deploy/deployments.md)                                                                                             |
 | Supported BI tool | Tableau                                                                        | Tableau                                                                                                                                                                    |
 | Use case          | Helps users understand how models are used and reduces incidents.              | Optimizes timeliness and reduces costs by running models when needed.                                                                                                      |
 
@@ -40,15 +40,15 @@ Search table...
 
 To orchestrate downstream exposures, you should meet the following:
 
-* [Configured downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md) and ensured desired exposures are included in your lineage.
+* [Configured downstream exposures](./downstream-exposures-tableau.md) and ensured desired exposures are included in your lineage.
 
-* Verified your environment and jobs are on a supported dbt [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+* Verified your environment and jobs are on a supported dbt [release track](../dbt-versions/dbt-release-tracks.md).
 
 * Have a dbt account on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/).
 
-* Created a [production](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
+* Created a [production](../deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
 
-* Have [admin permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) in dbt to edit project settings or production environment settings.
+* Have [admin permissions](../platform/manage-access/enterprise-permissions.md) in dbt to edit project settings or production environment settings.
 
 * Configured a [Tableau personal access token (PAT)](https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm) whose creator has privileges to view and refresh the data sources used by your exposures. The PAT inherits the permissions of its creator. Use a PAT created by:
 
@@ -59,11 +59,11 @@ To orchestrate downstream exposures, you should meet the following:
 
 ## Orchestrate downstream exposures[​](#orchestrate-downstream-exposures "Direct link to Orchestrate downstream exposures")
 
-To orchestrate downstream exposures and see refreshes happen automatically during scheduled jobs on [Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with the dbt Core engine:
+To orchestrate downstream exposures and see refreshes happen automatically during scheduled jobs on [Latest](../dbt-versions/dbt-release-tracks.md) with the dbt Core engine:
 
 1. In the dbt platform, click **Deploy**, then **Environments**, and select the **Environment variables** tab.
 
-2. Click **Add variable** and set the [environment level variable](https://docs.getdbt.com/docs/build/environment-variables.md#setting-and-overriding-environment-variables) `DBT_ACTIVE_EXPOSURES` to `1` within the environment you want the refresh to happen.
+2. Click **Add variable** and set the [environment level variable](../build/environment-variables.md#setting-and-overriding-environment-variables) `DBT_ACTIVE_EXPOSURES` to `1` within the environment you want the refresh to happen.
 
 3. Then set the `DBT_ACTIVE_EXPOSURES_BUILD_AFTER` to control the maximum refresh frequency (in minutes) you want between each exposure refresh.
 
@@ -71,7 +71,7 @@ To orchestrate downstream exposures and see refreshes happen automatically durin
    <!-- -->
    [![Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.](/img/docs/platform-integrations/auto-exposures/active-exposures-env-var.jpg?v=2 "Set the environment variable `DBT_ACTIVE_EXPOSURES` to `1`.")](#)Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.
 
-5. Run a production job on [Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) with dbt Core. Each run can trigger a downstream exposure refresh; if a job runs before the configured interval has passed, dbt skips the downstream exposure refresh and marks it as `skipped` in the job logs.
+5. Run a production job on [Latest](../dbt-versions/dbt-release-tracks.md) with dbt Core. Each run can trigger a downstream exposure refresh; if a job runs before the configured interval has passed, dbt skips the downstream exposure refresh and marks it as `skipped` in the job logs.
 
 6. View downstream exposure entries in your run job logs.
 

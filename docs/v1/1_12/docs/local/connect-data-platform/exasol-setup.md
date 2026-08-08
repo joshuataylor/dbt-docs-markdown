@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-exasol<!-- -->
 
-For <!-- -->Exasol<!-- -->-specific configuration, please refer to [Exasol<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/exasol-configs.md)
+For <!-- -->Exasol<!-- -->-specific configuration, please refer to [Exasol<!-- --> configs.](../../../reference/resource-configs/exasol-configs.md)
 
 ### Connecting to Exasol with **dbt-exasol**[​](#connecting-to-exasol-with-dbt-exasol "Direct link to connecting-to-exasol-with-dbt-exasol")
 

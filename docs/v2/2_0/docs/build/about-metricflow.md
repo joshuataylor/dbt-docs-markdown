@@ -2,7 +2,7 @@
 
 This guide introduces MetricFlow's fundamental ideas for people new to this feature. MetricFlow, which powers the Semantic Layer, helps you define and manage the logic for your company's metrics. It's an opinionated set of abstractions and helps data consumers retrieve metric datasets from a data platform quickly and efficiently.
 
-MetricFlow handles SQL query construction and defines the specification for dbt semantic models and metrics. It allows you to define metrics in your dbt project and query them with [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) whether in dbt or dbt Core.
+MetricFlow handles SQL query construction and defines the specification for dbt semantic models and metrics. It allows you to define metrics in your dbt project and query them with [MetricFlow commands](./metricflow-commands.md) whether in dbt or dbt Core.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -10,25 +10,25 @@ Before you start, consider the following guidelines:
 
 <!-- -->
 
-* Define metrics in YAML and query them using the [latest metric specifications](https://docs.getdbt.com/docs/build/semantic-models.md).
-* Available on the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/install-fusion) or [dbt Latest](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform.
+* Define metrics in YAML and query them using the [latest metric specifications](./semantic-models.md).
+* Available on the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/install-fusion) or [dbt Latest](../dbt-versions/dbt-release-tracks.md) in the dbt platform.
 * Use MetricFlow with Snowflake, BigQuery, Databricks, Postgres (dbt Core only), or Redshift.
-* Discover insights and query your metrics using the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) and its diverse range of [available integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md).
+* Discover insights and query your metrics using the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) and its diverse range of [available integrations](../platform-integrations/avail-sl-integrations.md).
 
 ## MetricFlow[​](#metricflow "Direct link to MetricFlow")
 
 MetricFlow is a SQL query generation tool designed to streamline metric creation across different data dimensions for diverse business needs.
 
-* It operates through YAML files, where a semantic graph links language to data. This graph comprises [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) (data entry points) and [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) (functions for creating quantitative indicators).
-* MetricFlow is developed and maintained by dbt Labs and works with the [Apache Ossie](https://github.com/apache/ossie) format. Starting in dbt Core v1.12, you can also define semantic models using [Ossie documents](https://docs.getdbt.com/docs/build/ossie-semantic-models.md) as an alternative to dbt's native YAML configuration.
+* It operates through YAML files, where a semantic graph links language to data. This graph comprises [semantic models](./semantic-models.md) (data entry points) and [metrics](./metrics-overview.md) (functions for creating quantitative indicators).
+* MetricFlow is developed and maintained by dbt Labs and works with the [Apache Ossie](https://github.com/apache/ossie) format. Starting in dbt Core v1.12, you can also define semantic models using [Ossie documents](./ossie-semantic-models.md) as an alternative to dbt's native YAML configuration.
 * MetricFlow is compatible with dbt version 1.6 and higher.
 * MetricFlow is distributed under the [Apache 2.0 license](https://github.com/dbt-labs/metricflow/blob/main/LICENSE). Data practitioners and enthusiasts are highly encouraged to contribute. Read more about [MetricFlow's license history](https://github.com/dbt-labs/metricflow?tab=readme-ov-file#license-history).
 * As a part of the Semantic Layer, MetricFlow empowers organizations to define metrics using YAML abstractions.
-* To query metric dimensions, dimension values, and validate configurations, use [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md).
+* To query metric dimensions, dimension values, and validate configurations, use [MetricFlow commands](./metricflow-commands.md).
 
 note
 
-MetricFlow doesn't support dbt [builtin functions or packages](https://docs.getdbt.com/reference/dbt-jinja-functions/builtins.md) at this time, however, support is planned for the future.
+MetricFlow doesn't support dbt [builtin functions or packages](../../reference/dbt-jinja-functions/builtins.md) at this time, however, support is planned for the future.
 
 MetricFlow abides by these principles:
 
@@ -51,12 +51,12 @@ Semantic models are the starting points of your data and correspond to models in
 
 For a semantic model, there are three main pieces of metadata:
 
-* [Entities](https://docs.getdbt.com/docs/build/entities.md): The join keys of your semantic model (think of these as the traversal paths, or edges between semantic models).
-* [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md): These are the ways you want to group or slice/dice your metrics.
+* [Entities](./entities.md): The join keys of your semantic model (think of these as the traversal paths, or edges between semantic models).
+* [Dimensions](./dimensions.md): These are the ways you want to group or slice/dice your metrics.
 
 <!-- -->
 
-* [Simple metrics](https://docs.getdbt.com/docs/build/simple.md): Metrics that directly reference a single column expression within a semantic model, without any additional columns involved.
+* [Simple metrics](./simple.md): Metrics that directly reference a single column expression within a semantic model, without any additional columns involved.
 
 <!-- -->
 
@@ -70,11 +70,11 @@ MetricFlow supports different metric types:
 
 <!-- -->
 
-* [Conversion](https://docs.getdbt.com/docs/build/conversion.md): Tracks when a base event and a subsequent conversion event occurs for an entity within a set time period.
-* [Cumulative](https://docs.getdbt.com/docs/build/cumulative.md): Aggregates a simple metric over a given window.
-* [Derived](https://docs.getdbt.com/docs/build/derived.md): Defines a metric as an expression of other metrics, which allows you to do calculations on top of metrics.
-* [Ratio](https://docs.getdbt.com/docs/build/ratio.md): Defines a metric as the ratio of two simple metrics, such as revenue per customer.
-* [Simple](https://docs.getdbt.com/docs/build/simple.md): Defines a metric that directly references a single column expression within a semantic model.
+* [Conversion](./conversion.md): Tracks when a base event and a subsequent conversion event occurs for an entity within a set time period.
+* [Cumulative](./cumulative.md): Aggregates a simple metric over a given window.
+* [Derived](./derived.md): Defines a metric as an expression of other metrics, which allows you to do calculations on top of metrics.
+* [Ratio](./ratio.md): Defines a metric as the ratio of two simple metrics, such as revenue per customer.
+* [Simple](./simple.md): Defines a metric that directly references a single column expression within a semantic model.
 
 ## Use case[​](#use-case "Direct link to Use case")
 
@@ -393,7 +393,7 @@ MetricFlow is built to do denormalization efficiently. There are better tools to
 
  How does the dbt Semantic Layer handle joins?
 
-The dbt Semantic Layer, powered by MetricFlow, builds joins based on the types of keys and parameters that are passed to entities. To better understand how joins are constructed, see the documentation on [join types](https://docs.getdbt.com/docs/build/join-logic.md#types-of-joins).
+The dbt Semantic Layer, powered by MetricFlow, builds joins based on the types of keys and parameters that are passed to entities. To better understand how joins are constructed, see the documentation on [join types](./join-logic.md#types-of-joins).
 
 Rather than capturing arbitrary join logic, MetricFlow captures the types of each identifier and then helps users navigate to appropriate joins. This allows us to avoid the construction of fan out and chasm joins as well as generate legible SQL.
 
@@ -407,5 +407,5 @@ Yes, but because a dimension is considered an attribute of the primary or unique
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Joins](https://docs.getdbt.com/docs/build/join-logic.md)
-* [Validations](https://docs.getdbt.com/docs/build/validation.md)
+* [Joins](./join-logic.md)
+* [Validations](./validation.md)

@@ -30,8 +30,8 @@ Model query history is supported in the following data warehouses:
 To access the features, you should meet the following requirements:
 
 * You have a dbt account on an [Enterprise-tier plan](https://www.getdbt.com/pricing/). Single-tenant accounts should contact their account representative for setup.
-* You have set up a [production](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
-* You have [admin permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) in dbt to edit project settings or production environment settings.
+* You have set up a [production](../deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
+* You have [admin permissions](../platform/manage-access/enterprise-permissions.md) in dbt to edit project settings or production environment settings.
 * You use Snowflake, BigQuery, Redshift, or Databricks as your data warehouse and can enable [query history permissions](#credential-permissions) or work with an admin to do so.
   <!-- -->
   * For Snowflake users: You must have a Snowflake Enterprise-tier or higher subscription.
@@ -40,7 +40,7 @@ To access the features, you should meet the following requirements:
 
 New and existing production environments
 
-* **New production environments:** dbt automatically enables query history when you create a new [production deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) in **Orchestration** (marked **PROD**). This applies to Snowflake, BigQuery, Redshift, and Databricks on [Enterprise-tier plans](https://www.getdbt.com/pricing/). Development environments are not included.
+* **New production environments:** dbt automatically enables query history when you create a new [production deployment environment](../deploy/deploy-environments.md#set-as-production-environment) in **Orchestration** (marked **PROD**). This applies to Snowflake, BigQuery, Redshift, and Databricks on [Enterprise-tier plans](https://www.getdbt.com/pricing/). Development environments are not included.
 * **Existing production environments:** You must enable query history manually in your **PROD** environment settings. Configure the [credential permissions](#credential-permissions) for your warehouse prior to starting the steps in this section.
 
 To enable model query history in dbt, follow these steps:

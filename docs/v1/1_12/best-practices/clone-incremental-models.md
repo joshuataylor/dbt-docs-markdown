@@ -2,11 +2,11 @@
 
 Before you begin, you must be aware of a few conditions:
 
-* `dbt clone` is only available with dbt version 1.6 and newer. Refer to our [upgrade guide](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) for help enabling newer versions in dbt.
+* `dbt clone` is only available with dbt version 1.6 and newer. Refer to our [upgrade guide](../docs/dbt-versions/upgrade-dbt-platform-version.md) for help enabling newer versions in dbt.
 * This strategy only works for warehouse that support zero copy cloning (otherwise `dbt clone` will just create pointer views).
 * Some teams may want to test that their incremental models run in both incremental mode and full-refresh mode.
 
-Imagine you've created a [Slim CI job](https://docs.getdbt.com/docs/deploy/continuous-integration.md) in dbt and it is configured to:
+Imagine you've created a [Slim CI job](../docs/deploy/continuous-integration.md) in dbt and it is configured to:
 
 * Defer to your production environment.
 * Run the command `dbt build --select state:modified+` to run and test all of the models you've modified and their downstream dependencies.
@@ -24,12 +24,12 @@ This build mimics the behavior of what will happen once the PR is merged into th
 
 ## What happens when one of the modified models (or one of their downstream dependencies) is an incremental model?[​](#what-happens-when-one-of-the-modified-models-or-one-of-their-downstream-dependencies-is-an-incremental-model "Direct link to What happens when one of the modified models (or one of their downstream dependencies) is an incremental model?")
 
-Because your CI job is building modified models into a PR-specific schema, on the first execution of `dbt build --select state:modified+`, the modified incremental model will be built in its entirety *because it does not yet exist in the PR-specific schema* and [is\_incremental will be false](https://docs.getdbt.com/docs/build/incremental-models.md#understand-the-is_incremental-macro). You're running in `full-refresh` mode.
+Because your CI job is building modified models into a PR-specific schema, on the first execution of `dbt build --select state:modified+`, the modified incremental model will be built in its entirety *because it does not yet exist in the PR-specific schema* and [is\_incremental will be false](../docs/build/incremental-models.md#understand-the-is_incremental-macro). You're running in `full-refresh` mode.
 
 This can be suboptimal because:
 
 * Typically incremental models are your largest datasets, so they take a long time to build in their entirety which can slow down development time and incur high warehouse costs.
-* There are situations where a `full-refresh` of the incremental model passes successfully in your CI job but an *incremental* build of that same table in prod would fail when the PR is merged into main (think schema drift where [on\_schema\_change](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`)
+* There are situations where a `full-refresh` of the incremental model passes successfully in your CI job but an *incremental* build of that same table in prod would fail when the PR is merged into main (think schema drift where [on\_schema\_change](../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`)
 
 You can alleviate these problems by zero copy cloning the relevant, pre-existing incremental models into your PR-specific schema as the first step of the CI job using the `dbt clone` command. This way, the incremental models already exist in the PR-specific schema when you first execute the command `dbt build --select state:modified+` so the `is_incremental` flag will be `true`.
 
@@ -53,7 +53,7 @@ Because of your first clone step, the incremental models selected in your `dbt b
 
 Your CI jobs will run faster, and you're more accurately mimicking the behavior of what will happen once the PR has been merged into main.
 
-### Expansion on "think schema drift" where [on\_schema\_change](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`" from above[​](#expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above "Direct link to expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above")
+### Expansion on "think schema drift" where [on\_schema\_change](../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`" from above[​](#expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above "Direct link to expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above")
 
 Imagine you have an incremental model `my_incremental_model` with the following config:
 

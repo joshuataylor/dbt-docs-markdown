@@ -6,7 +6,7 @@ Skills are reusable instructions that help dbt Wizard follow your team's SQL con
 
 dbt Wizard also includes built-in skills from [dbt Agent skills](https://github.com/dbt-labs/dbt-agent-skills), maintained by dbt Labs. These are always available, no setup needed.
 
-For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
+For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](./wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
 
 ## How skills work[​](#how-skills-work "Direct link to How skills work")
 
@@ -25,7 +25,7 @@ If a custom skill and a built-in skill share the same name, the custom skill tak
 
 ## Create a skill[​](#create-a-skill "Direct link to Create a skill")
 
-In [Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md), use the file explorer to create the skill directory and file:
+In [Studio IDE](./wizard-ide.md), use the file explorer to create the skill directory and file:
 
 1. Create a folder at `.agents/skills/SKILL_NAME/` in your project root.
 
@@ -97,6 +97,6 @@ For the latest catalog, refer to the [dbt Agent Skills repository](https://githu
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Use skills locally](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md)
+* [Use skills locally](./wizard-skills.md)
+* [How dbt Wizard works](./wizard-how-it-works.md)

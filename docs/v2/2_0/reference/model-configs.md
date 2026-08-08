@@ -2,8 +2,8 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Models](https://docs.getdbt.com/docs/build/models.md)
-* [`run` command](https://docs.getdbt.com/reference/commands/run.md)
+* [Models](../docs/build/models.md)
+* [`run` command](./commands/run.md)
 
 ## Available configurations[​](#available-configurations "Direct link to Available configurations")
 
@@ -139,21 +139,21 @@ models/\<model\_name>.sql
 
 ### Warehouse-specific configurations[​](#warehouse-specific-configurations "Direct link to Warehouse-specific configurations")
 
-* [BigQuery configurations](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md)
-* [Redshift configurations](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md)
-* [Snowflake configurations](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md)
-* [Databricks configurations](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md)
-* [Spark configurations](https://docs.getdbt.com/reference/resource-configs/spark-configs.md)
+* [BigQuery configurations](./resource-configs/bigquery-configs.md)
+* [Redshift configurations](./resource-configs/redshift-configs.md)
+* [Snowflake configurations](./resource-configs/snowflake-configs.md)
+* [Databricks configurations](./resource-configs/databricks-configs.md)
+* [Spark configurations](./resource-configs/spark-configs.md)
 
 ## Configuring models[​](#configuring-models "Direct link to Configuring models")
 
 Model configurations are applied hierarchically. You can configure models from within an installed package and also from within your dbt project in the following ways, listed in order of precedence:
 
 1. Using a `config()` Jinja macro within a model.
-2. Using a `config` [resource property](https://docs.getdbt.com/reference/model-properties.md) in a `.yml` file.
+2. Using a `config` [resource property](./model-properties.md) in a `.yml` file.
 3. From the project YAML file (`dbt_project.yml`), under the `models:` key. In this case, the model that's nested the deepest will have the highest priority.
 
-The most specific configuration always takes precedence. In the project YAML file, for example, configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project. To apply a configuration to a model or directory of models, define the [resource path](https://docs.getdbt.com/reference/resource-configs/resource-path.md) as nested dictionary keys.
+The most specific configuration always takes precedence. In the project YAML file, for example, configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project. To apply a configuration to a model or directory of models, define the [resource path](./resource-configs/resource-path.md) as nested dictionary keys.
 
 Model configurations in your root dbt project have *higher* precedence than configurations in installed packages. This enables you to override the configurations of installed packages, providing more control over your dbt runs.
 
@@ -224,7 +224,7 @@ models:
 
 ### Configuring source freshness[​](#configuring-source-freshness "Direct link to Configuring source freshness")
 
-The model `freshness` config rebuilds models only when new source or upstream data is available. This is useful for models that depend on other models but only need to be updated periodically. For more information, see [freshness](https://docs.getdbt.com/reference/resource-configs/freshness.md).
+The model `freshness` config rebuilds models only when new source or upstream data is available. This is useful for models that depend on other models but only need to be updated periodically. For more information, see [freshness](./resource-configs/freshness.md).
 
 Note that for every `freshness` config, you're required to either set values for both `count` and `period`, or set `freshness: null`. This requirement applies to all `freshness` types: `freshness.warn_after`, `freshness.error_after`, and `freshness.build_after`.
 

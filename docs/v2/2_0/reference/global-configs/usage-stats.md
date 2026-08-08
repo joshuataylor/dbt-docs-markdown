@@ -17,7 +17,7 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 
 Fusion has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt-core/blob/main/crates/vortex-events/src/event_functions.rs).
 
-Telemetry requires outbound HTTPS access to `https://p.vx.dbt.com`. If the endpoint is unreachable, Fusion logs errors on each invocation. For the complete list of outbound endpoints, refer to [Fusion networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md).
+Telemetry requires outbound HTTPS access to `https://p.vx.dbt.com`. If the endpoint is unreachable, Fusion logs errors on each invocation. For the complete list of outbound endpoints, refer to [Fusion networking requirements](../../docs/local/fusion-networking-requirements.md).
 
 To disable anonymous usage statistics, set the following environment variable:
 

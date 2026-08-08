@@ -1,6 +1,6 @@
 # Metrics as dimensions with metric filters
 
-[Metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) provide users with valuable insights into their data, like number of active users and overall performance trends to inform business decisions. [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md), on the other hand, help categorize data through attributes, like user type or number of orders placed by a customer.
+[Metrics](./metrics-overview.md) provide users with valuable insights into their data, like number of active users and overall performance trends to inform business decisions. [Dimensions](./dimensions.md), on the other hand, help categorize data through attributes, like user type or number of orders placed by a customer.
 
 To make informed business decisions, some metrics need the value of another metric as part of the metric definition, leading us to "metrics as dimensions".
 
@@ -59,7 +59,7 @@ This SQL query calculates the number of `activated_accounts` by using the `data_
 
 #### YAML configuration[​](#yaml-configuration "Direct link to YAML configuration")
 
-Using the same `activated_accounts` example mentioned in [the usage example](#usage-example), the following YAML example explains how a company can create [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) and [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md), and use the `Metric()` object to reference the `data_model_runs` metric in the `activated_accounts` metric filter:
+Using the same `activated_accounts` example mentioned in [the usage example](#usage-example), the following YAML example explains how a company can create [semantic models](./semantic-models.md) and [metrics](./metrics-overview.md), and use the `Metric()` object to reference the `data_model_runs` metric in the `activated_accounts` metric filter:
 
 * Create two semantic models: `model_runs` and `accounts`.
 

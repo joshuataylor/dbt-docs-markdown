@@ -2,9 +2,9 @@
 
 tip
 
-Note that this best practices guide doesn't yet use the [new YAML specification](https://docs.getdbt.com/docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
+Note that this best practices guide doesn't yet use the [new YAML specification](../../docs/build/latest-metrics-spec.md). We're working on updating this guide to use the new spec and file structure soon!
 
-To read more about the new spec, see [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md).
+To read more about the new spec, see [Creating metrics](../../docs/build/metrics-overview.md).
 
 ## Files and Folders[​](#files-and-folders "Direct link to Files and Folders")
 
@@ -30,7 +30,7 @@ It’s not terribly difficult to shift between these (it can be done with some r
 
 tip
 
-Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](https://docs.getdbt.com/reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
+Make sure to save all semantic models and metrics under the directory defined in the [`model-paths`](../../reference/project-configs/model-paths.md) (or a subdirectory of it, like `models/semantic_models/`). If you save them outside of this path, it will result in an empty `semantic_manifest.json` file, and your semantic models or metrics won't be recognized.
 
 ## Naming[​](#naming "Direct link to Naming")
 

@@ -75,7 +75,7 @@ Search table...
 
 ### OAuth clients[​](#oauth-clients "Direct link to OAuth clients")
 
-These events cover the lifecycle of OAuth clients registered in **Account settings** → **Integrations** → **App integrations** (refer to [Connect apps with OAuth](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md)). Actions a user performs through an OAuth-connected client (for example, creating a job) are logged under the relevant event (such as `job_definition.added`) with the user as the actor.
+These events cover the lifecycle of OAuth clients registered in **Account settings** → **Integrations** → **App integrations** (refer to [Connect apps with OAuth](./connect-apps-oauth.md)). Actions a user performs through an OAuth-connected client (for example, creating a job) are logged under the relevant event (such as `job_definition.added`) with the user as the actor.
 
 | Event name                    | Event type                            | Description                                                                                                                                   |
 | ----------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -383,13 +383,13 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-Authenticate with a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md), passed as `Authorization: Bearer YOUR_TOKEN` or `Token YOUR_TOKEN`.
+Authenticate with a [service token](../../dbt-apis/service-tokens.md) or [personal access token](../../dbt-apis/user-tokens.md), passed as `Authorization: Bearer YOUR_TOKEN` or `Token YOUR_TOKEN`.
 
-Bulk exports require a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) as service tokens aren't supported for that step.
+Bulk exports require a [personal access token](../../dbt-apis/user-tokens.md) as service tokens aren't supported for that step.
 
 Without date parameters, list and CSV download requests default to the last 90 days.
 
-In the following examples, replace `YOUR_ACCESS_URL` with your dbt access URL, `ACCOUNT_ID` with your account ID, and `YOUR_TOKEN` with your token. You can find your account ID in **Account settings**, or refer to [Finding your user and account IDs](https://docs.getdbt.com/faqs/Accounts/find-user-id.md) for more information.
+In the following examples, replace `YOUR_ACCESS_URL` with your dbt access URL, `ACCOUNT_ID` with your account ID, and `YOUR_TOKEN` with your token. You can find your account ID in **Account settings**, or refer to [Finding your user and account IDs](../../../faqs/Accounts/find-user-id.md) for more information.
 
 ### Query events[​](#query-events "Direct link to Query events")
 
@@ -421,7 +421,7 @@ You can use the same `logged_at_start` and `logged_at_end` query parameters as t
 
 To export your full audit log history through the API, use the same workflow as **Export All** in the UI:
 
-1. Submit an export request with `POST` to `/api/v3/accounts/ACCOUNT_ID/audit-logs/export/`. The response returns a `job_id` in the `data` object (`data.job_id`). Use a [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) for this step.
+1. Submit an export request with `POST` to `/api/v3/accounts/ACCOUNT_ID/audit-logs/export/`. The response returns a `job_id` in the `data` object (`data.job_id`). Use a [personal access token](../../dbt-apis/user-tokens.md) for this step.
 
 ```shell
 curl --request POST \

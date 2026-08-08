@@ -21,21 +21,21 @@ Search table...
 
 <br />
 
-**Produced by**: Any [dbt command](https://docs.getdbt.com/category/list-of-commands.md) that parses the project. This includes all commands, *except* [`deps`](https://docs.getdbt.com/reference/commands/deps.md), [`clean`](https://docs.getdbt.com/reference/commands/clean.md), [`debug`](https://docs.getdbt.com/reference/commands/debug.md), and [`init`](https://docs.getdbt.com/reference/commands/init.md).
+**Produced by**: Any [dbt command](../../category/list-of-commands.md) that parses the project. This includes all commands, *except* [`deps`](../commands/deps.md), [`clean`](../commands/clean.md), [`debug`](../commands/debug.md), and [`init`](../commands/init.md).
 
 After executing a dbt command, the `manifest.json` file can be found in the project's `target/` directory:
 
 * If developing locally: Open the `target/` directory in your project folder
 * In the Studio IDE: Open the `target/` directory in the file tree
-* In dbt platform jobs: Download the `manifest.json` from the [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) tab for a given job run
+* In dbt platform jobs: Download the `manifest.json` from the [artifacts](./dbt-artifacts.md) tab for a given job run
 
 This file contains a full representation of your dbt project's resources (models, tests, macros, and more), including all node configurations and resource properties. Even if you're only running some models or tests, all resources will appear in the manifest (unless they are disabled) with most of their properties. Some properties, such as `compiled_sql`, are included only for executed nodes.
 
-Today, dbt uses this file to populate the [docs site](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md), and to perform [state comparison](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection). Members of the community also use it to analyze project health, such as checking for missing descriptions or tests.
+Today, dbt uses this file to populate the [docs site](../../docs/explore/build-and-view-your-docs.md), and to perform [state comparison](../node-selection/syntax.md#about-node-selection). Members of the community also use it to analyze project health, such as checking for missing descriptions or tests.
 
 ### Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
 
-* [`metadata`](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md#common-metadata)
+* [`metadata`](./dbt-artifacts.md#common-metadata)
 * `nodes`: Dictionary of all analyses, models, seeds, snapshots, and tests.
 * `sources`: Dictionary of sources
 * `metrics`: Dictionary of metrics
@@ -46,7 +46,7 @@ Today, dbt uses this file to populate the [docs site](https://docs.getdbt.com/do
 * `parent_map`: Dictionary that contains the first-order parents of each resource
 * `child_map`: Dictionary that contains the first-order children of each resource
 * `group_map`: Dictionary that maps group names to their resource nodes
-* `selectors`: Expanded dictionary representation of [YAML `selectors`](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md)
+* `selectors`: Expanded dictionary representation of [YAML `selectors`](../node-selection/yaml-selectors.md)
 * `disabled`: Array of resources with `enabled: false`
 
 ### Resource details[​](#resource-details "Direct link to Resource details")
@@ -68,4 +68,4 @@ You can refer to the [dbt JSON schema](https://schemas.getdbt.com/) for informat
 
 **Note**: The `manifest.json` version number is related to (but not *equal* to) your dbt version, so you *must* use the correct `manifest.json` version for your dbt version. To find the correct `manifest.json` version, select the dbt version on the top navigation (such as `v1.5`).
 
-Refer to the table at the beginning of [this page](https://docs.getdbt.com/reference/artifacts/manifest-json.md) to understand how the manifest version matches the dbt version.
+Refer to the table at the beginning of [this page](./manifest-json.md) to understand how the manifest version matches the dbt version.

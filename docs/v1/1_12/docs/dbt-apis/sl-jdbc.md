@@ -16,17 +16,17 @@ dbt Labs partners can use the JDBC API to build integrations in their tools with
 
 ## Using the JDBC API[​](#using-the-jdbc-api "Direct link to Using the JDBC API")
 
-If you are a dbt user or partner with access to dbt and the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), you can [setup](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right JDBC connection parameters described in this document.
+If you are a dbt user or partner with access to dbt and the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), you can [setup](../use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right JDBC connection parameters described in this document.
 
 You *may* be able to use our JDBC API with tools that do not have an official integration with the Semantic Layer. If the tool you use allows you to write SQL and either supports a generic JDBC driver option (such as DataGrip) or supports Dremio and uses ArrowFlightSQL driver version 12.0.0 or higher, you can access the Semantic Layer API.
 
-Refer to [Get started with the Semantic Layer](https://docs.getdbt.com/guides/sl-snowflake-qs.md) for more info.
+Refer to [Get started with the Semantic Layer](../../guides/sl-snowflake-qs.md) for more info.
 
 Note that the Semantic Layer GraphQL API doesn't support `ref` to call dbt objects. Instead, use the complete qualified table name. If you're using dbt macros at query time to calculate your metrics, you should move those calculations into your Semantic Layer metric definitions as code.
 
 ## Authentication[​](#authentication "Direct link to Authentication")
 
-dbt authorizes requests to the Semantic Layer API. You need to provide an Environment ID, Host, and [service account tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) or [personal access tokens](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md).
+dbt authorizes requests to the Semantic Layer API. You need to provide an Environment ID, Host, and [service account tokens](./service-tokens.md) or [personal access tokens](./user-tokens.md).
 
 ## Connection parameters[​](#connection-parameters "Direct link to Connection parameters")
 
@@ -41,9 +41,9 @@ jdbc:arrow-flight-sql://semantic-layer.cloud.getdbt.com:443?&environmentId=20233
 | JDBC parameter                    | Description                                                                                                                                                                                                                                                                                                                   | Example                                                                                       |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `jdbc:arrow-flight-sql://`        | The protocol for the JDBC driver.                                                                                                                                                                                                                                                                                             | `jdbc:arrow-flight-sql://`                                                                    |
-| `semantic-layer.cloud.getdbt.com` | The [access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your account's dbt region. You must always add the `semantic-layer` prefix before the access URL.                                                                                                                   | For dbt deployment hosted in North America, use `semantic-layer.cloud.getdbt.com`             |
+| `semantic-layer.cloud.getdbt.com` | The [access URL](../platform/about-platform/access-regions-ip-addresses.md) for your account's dbt region. You must always add the `semantic-layer` prefix before the access URL.                                                                                                                   | For dbt deployment hosted in North America, use `semantic-layer.cloud.getdbt.com`             |
 | `environmentId`                   | The unique identifier for the dbt production environment, you can retrieve this from the dbt URL<br />when you navigate to **Environments** under **Deploy**.                                                                                                                                                                 | If your URL ends with `.../environments/222222`, your `environmentId` is `222222`<br /><br /> |
-| `AUTHENTICATION_TOKEN`            | You can use either a dbt [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with “Semantic Layer Only” and "Metadata Only" permissions or a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md). Create a new service or personal token on the **Account Settings** page. | `token=AUTHENTICATION_TOKEN`                                                                  |
+| `AUTHENTICATION_TOKEN`            | You can use either a dbt [service token](./service-tokens.md) with “Semantic Layer Only” and "Metadata Only" permissions or a dbt [personal access token](./user-tokens.md). Create a new service or personal token on the **Account Settings** page. | `token=AUTHENTICATION_TOKEN`                                                                  |
 
 Search table...
 
@@ -402,7 +402,7 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
       }}
   ```
 
-* Use the following example to compile SQL with a [saved query](https://docs.getdbt.com/docs/build/saved-queries.md). You can use this for frequently used queries.
+* Use the following example to compile SQL with a [saved query](../build/saved-queries.md). You can use this for frequently used queries.
 
   ```sql
   select * from {{ semantic_layer.query(saved_query="new_customer_orders", limit=5, compile=True}}
@@ -410,11 +410,11 @@ semantic_layer.query(metrics=['food_order_amount', 'order_gross_profit'],
 
 A note on querying saved queries
 
-When querying [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md),you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
+When querying [saved queries](../build/saved-queries.md),you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
 
 ### Query a saved query[​](#query-a-saved-query "Direct link to Query a saved query")
 
-Use the following example to query a [saved query](https://docs.getdbt.com/docs/build/saved-queries.md):
+Use the following example to query a [saved query](../build/saved-queries.md):
 
 ```sql
 select * from {{ semantic_layer.query(saved_query="new_customer_orders", limit=5}}
@@ -482,7 +482,7 @@ In cases where you need to query across multiple related tables (multi-hop joins
 
 I'm receiving an \`Failed ALPN\` error when trying to connect to the dbt Semantic Layer.
 
-If you're receiving a `Failed ALPN` error when trying to connect the dbt Semantic Layer with the various [data integration tools](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md) (such as Tableau, DBeaver, Datagrip, ADBC, or JDBC), it typically happens when connecting from a computer behind a corporate VPN or Proxy (like Zscaler or Check Point).
+If you're receiving a `Failed ALPN` error when trying to connect the dbt Semantic Layer with the various [data integration tools](../platform-integrations/avail-sl-integrations.md) (such as Tableau, DBeaver, Datagrip, ADBC, or JDBC), it typically happens when connecting from a computer behind a corporate VPN or Proxy (like Zscaler or Check Point).
 
 The root cause is typically the proxy interfering with the TLS handshake as the Semantic Layer uses gRPC/HTTP2 for connectivity. To resolve this:
 
@@ -509,4 +509,4 @@ So for example, if the `time_dimension_name` is `ds` and the granularity level i
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic Layer integration best practices](https://docs.getdbt.com/guides/sl-partner-integration-guide.md)
+* [Semantic Layer integration best practices](../../guides/sl-partner-integration-guide.md)

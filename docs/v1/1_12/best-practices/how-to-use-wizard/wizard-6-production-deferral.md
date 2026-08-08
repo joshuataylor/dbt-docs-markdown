@@ -79,7 +79,7 @@ The `state` directory must contain a compatible production `manifest.json`. Keep
 
 Set this value deliberately. Favoring state is useful when you need a stable production baseline. Turning it off is useful when you want downstream work to consume models you have already built in development.
 
-For the underlying dbt behavior, refer to [`--favor-state`](https://docs.getdbt.com/reference/node-selection/defer.md#favor-state).
+For the underlying dbt behavior, refer to [`--favor-state`](../../reference/node-selection/defer.md#favor-state).
 
 ## Start a session and confirm the plan[​](#start-a-session-and-confirm-the-plan "Direct link to Start a session and confirm the plan")
 
@@ -113,8 +113,8 @@ Deferral changes where dbt resolves unbuilt relations. It doesn't make productio
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About deferral](https://docs.getdbt.com/reference/node-selection/defer.md)
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [dbt Wizard configuration](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md#deferral)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#deferral-and-state)
-* [Validating dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
+* [About deferral](../../reference/node-selection/defer.md)
+* [About dbt State](../../docs/deploy/dbt-state-about.md)
+* [dbt Wizard configuration](../../docs/dbt-ai/wizard-config.md#deferral)
+* [How dbt Wizard works](../../docs/dbt-ai/wizard-how-it-works.md#deferral-and-state)
+* [Validating dbt changes with dbt Wizard](./wizard-3-validate-changes.md)

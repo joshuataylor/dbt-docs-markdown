@@ -18,7 +18,7 @@ For new channels that you'd like to create and maintain, post a message in the #
 
 #### Get started[​](#get-started "Direct link to Get started")
 
-* Read the guide to [Maintaining a Slack Channel](https://docs.getdbt.com/community/resources/maintaining-a-channel.md)
+* Read the guide to [Maintaining a Slack Channel](../resources/maintaining-a-channel.md)
 
 ### Participating on the Community Forum[​](#participating-on-the-community-forum "Direct link to Participating on the Community Forum")
 
@@ -39,5 +39,5 @@ If you see a great question or answer, be generous with your 💜 reactions. Cli
 
 #### Get started[​](#get-started-1 "Direct link to Get started")
 
-* Read the [Community Forum Guidelines](https://docs.getdbt.com/community/resources/forum-guidelines.md) to understand what topics are a good fit and why this space is important in building long-term community knowledge.
+* Read the [Community Forum Guidelines](../resources/forum-guidelines.md) to understand what topics are a good fit and why this space is important in building long-term community knowledge.
 * Head over to the “[Help](https://discourse.getdbt.com/c/help/19)” section of the forum and look for areas to hop in! You don’t need to know the exact answer to a question to be able to provide a helpful pointer.

@@ -23,7 +23,7 @@ Something to note is that each data platform provider might have different appro
 
 Refer to the following database permission pages for more info on examples and how to set up database permissions:
 
-* [Databricks](https://docs.getdbt.com/reference/database-permissions/databricks-permissions.md)
-* [Postgres](https://docs.getdbt.com/reference/database-permissions/postgres-permissions.md)
-* [Redshift](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md)
-* [Snowflake](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md)
+* [Databricks](./databricks-permissions.md)
+* [Postgres](./postgres-permissions.md)
+* [Redshift](./redshift-permissions.md)
+* [Snowflake](./snowflake-permissions.md)

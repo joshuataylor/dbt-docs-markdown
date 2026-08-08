@@ -6,7 +6,7 @@ This workflow helps when you join a project, review an unfamiliar area of the DA
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-Start dbt Wizard from the dbt project root, and make sure the project has a current `target/manifest.json`. Refer to [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) for setup.
+Start dbt Wizard from the dbt project root, and make sure the project has a current `target/manifest.json`. Refer to [Use dbt Wizard locally](../../docs/dbt-ai/wizard-quickstart.md) for setup.
 
 If you want dbt Wizard to inspect warehouse results, you also need a working development connection and permission to query the relevant relations.
 
@@ -112,7 +112,7 @@ Use model owners, pull request history, and business documentation to fill these
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Validate dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
-* [dbt Wizard use cases](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
-* [About model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md)
+* [Validate dbt changes with dbt Wizard](./wizard-3-validate-changes.md)
+* [dbt Wizard use cases](../../docs/dbt-ai/wizard-use-cases.md)
+* [How dbt Wizard works](../../docs/dbt-ai/wizard-how-it-works.md)
+* [About model governance](../../docs/mesh/govern/about-model-governance.md)

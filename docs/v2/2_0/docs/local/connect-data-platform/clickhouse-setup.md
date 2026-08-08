@@ -35,11 +35,11 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-clickhouse<!-- -->
 
-For <!-- -->Clickhouse<!-- -->-specific configuration, please refer to [Clickhouse<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/clickhouse-configs.md)
+For <!-- -->Clickhouse<!-- -->-specific configuration, please refer to [Clickhouse<!-- --> configs.](../../../reference/resource-configs/clickhouse-configs.md)
 
 ## Connecting to ClickHouse[​](#connecting-to-clickhouse "Direct link to Connecting to ClickHouse")
 
-To connect to ClickHouse from dbt, you'll need to add a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to your `profiles.yml` configuration file. Follow the reference configuration below to set up a ClickHouse profile:
+To connect to ClickHouse from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` configuration file. Follow the reference configuration below to set up a ClickHouse profile:
 
 profiles.yml
 

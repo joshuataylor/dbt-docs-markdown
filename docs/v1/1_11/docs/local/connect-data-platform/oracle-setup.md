@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-oracle<!-- -->
 
-For <!-- -->Oracle<!-- -->-specific configuration, please refer to [Oracle<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/oracle-configs.md)
+For <!-- -->Oracle<!-- -->-specific configuration, please refer to [Oracle<!-- --> configs.](../../../reference/resource-configs/oracle-configs.md)
 
 ### Configure the Python driver mode[​](#configure-the-python-driver-mode "Direct link to Configure the Python driver mode")
 
@@ -210,7 +210,7 @@ SSL_SERVER_DN_MATCH=yes
 
 ## Connecting to Oracle Database[​](#connecting-to-oracle-database "Direct link to Connecting to Oracle Database")
 
-Define the following mandatory parameters as environment variables and refer them in the connection profile using [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) Jinja function. Optionally, you can also define these directly in the `profiles.yml` file, but this is not recommended.
+Define the following mandatory parameters as environment variables and refer them in the connection profile using [env\_var](../../../reference/dbt-jinja-functions/env_var.md) Jinja function. Optionally, you can also define these directly in the `profiles.yml` file, but this is not recommended.
 
 ```bash
 export DBT_ORACLE_USER=<username>

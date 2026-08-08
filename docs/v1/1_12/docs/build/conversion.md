@@ -4,7 +4,7 @@ Conversion metrics let you measure how often one event leads to another for a sp
 
 For example, you can track how often a user (entity) who visits your site (base event) makes a purchase (conversion event) within 7 days (time window). To set this up, you’ll specify both the time range and the entity that links/joins the two events.
 
-Conversion metrics are different from [ratio metrics](https://docs.getdbt.com/docs/build/ratio.md) because you need to include an entity in the pre-aggregated join.
+Conversion metrics are different from [ratio metrics](./ratio.md) because you need to include an entity in the pre-aggregated join.
 
 ## Parameters[​](#parameters "Direct link to Parameters")
 
@@ -294,7 +294,7 @@ group by
 
 Use the following additional settings to customize your conversion metrics:
 
-* **Null conversion values:** Set null conversions to zero using `fill_nulls_with`. Refer to [Fill null values for metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md) for more info.
+* **Null conversion values:** Set null conversions to zero using `fill_nulls_with`. Refer to [Fill null values for metrics](./fill-nulls-advanced.md) for more info.
 * **Calculation type:** Choose between showing raw conversions or conversion rate.
 * **Constant property:** Add conditions for specific scenarios to join conversions on constant properties.
 
@@ -333,7 +333,7 @@ This will return the following results:
 
 [![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")](#)Conversion metric with fill nulls with parameter
 
-Refer to [Fill null values for metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md) for more info.
+Refer to [Fill null values for metrics](./fill-nulls-advanced.md) for more info.
 
 Use the conversion calculation parameter to either show the raw number of conversions or the conversion rate. The default value is the conversion rate.
 
@@ -406,4 +406,4 @@ on
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for metrics](./fill-nulls-advanced.md)

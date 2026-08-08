@@ -1,6 +1,6 @@
 # SQL RANK
 
-There are many different ranking window functions…[ROW\_NUMBER](https://docs.getdbt.com/sql-reference/row-number.md), DENSE\_RANK, RANK. Let’s start off with the most basic (RANK) and talk about what it is, how to use it, and why it’s important in analytics engineering work.
+There are many different ranking window functions…[ROW\_NUMBER](./row-number.md), DENSE\_RANK, RANK. Let’s start off with the most basic (RANK) and talk about what it is, how to use it, and why it’s important in analytics engineering work.
 
 The RANK function is an effective way to create a ranked column or filter a query based on rankings. More specifically, the RANK function returns the rank of a value (starting at 1) in an ordered group or dataset. It's important to note that if multiple values executed by the rank function are the same, they’ll have the same rank.
 
@@ -51,7 +51,7 @@ Some notes on these results:
 
 Ranking functions to know
 
-RANK is just one of the ranking functions that analytics engineering practitioners will use throughout their data models. There’s also DENSE\_RANK and [ROW\_NUMBER](https://docs.getdbt.com/sql-reference/row-number.md) which rank rows differently than RANK.
+RANK is just one of the ranking functions that analytics engineering practitioners will use throughout their data models. There’s also DENSE\_RANK and [ROW\_NUMBER](./row-number.md) which rank rows differently than RANK.
 
 ## RANK syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#rank-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to RANK syntax in Snowflake, Databricks, BigQuery, and Redshift")
 
@@ -74,7 +74,7 @@ Search table...
 
 We most commonly see the RANK function used in data work to:
 
-* In [SELECT statements](https://docs.getdbt.com/sql-reference/select.md) to add explicit ranking to rows
+* In [SELECT statements](./select.md) to add explicit ranking to rows
 * In QUALIFY statements to filter a query on a ranking without having to add the rank to the query result
 
 This isn’t an extensive list of where your team may be using the RANK function throughout your dbt models and BI tool logic, but contains some common scenarios analytics engineers face in a day-to-day.

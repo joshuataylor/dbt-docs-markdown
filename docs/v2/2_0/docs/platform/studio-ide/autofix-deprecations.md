@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [Compatible or Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) of dbt Core before you upgrade to Fusion!
+You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [Compatible or Latest release track](../../dbt-versions/dbt-release-tracks.md) of dbt Core before you upgrade to Fusion!
 
 To find and fix deprecations:
 
@@ -42,10 +42,10 @@ To find and fix deprecations:
 
 9. Click **Commit and sync** in the top left of Studio IDE to commit these changes to the project repository.
 
-10. You are now ready to enable Fusion if you [meet the requirements](https://docs.getdbt.com/docs/fusion/supported-features.md#requirements)!
+10. You are now ready to enable Fusion if you [meet the requirements](../../fusion/supported-features.md#requirements)!
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Quickstart guide](https://docs.getdbt.com/guides.md)
-* [About dbt](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md)
-* [Develop in the Cloud](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)
+* [Quickstart guide](../../../guides.md)
+* [About dbt](../about-platform/dbt-platform-features.md)
+* [Develop in the Cloud](./develop-in-studio.md)

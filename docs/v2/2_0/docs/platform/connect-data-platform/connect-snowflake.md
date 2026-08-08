@@ -10,12 +10,12 @@ Snowflake column size change
 
  Assess impact and required actions
 
-If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../../dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
 
 * Contain string columns with collation defined
 * Use the `on_schema_change='sync_all_columns'` config
 
-To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+To check whether this change affects your project, run the following [list](../../../reference/commands/list.md) command:
 
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
@@ -25,7 +25,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../local/install-dbt.md) in the dbt Core v1 installation instructions.
   * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
   * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
 
@@ -33,7 +33,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 dbt platform connections and credentials inherit the permissions of the accounts configured. You can customize roles and associated permissions in Snowflake to fit your company's requirements and fine-tune access to database objects in your account.
 
-Refer to [Snowflake permissions](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md) for more information about customizing roles in Snowflake. To see which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](https://docs.getdbt.com/reference/resource-configs/snowflake-function-support.md).
+Refer to [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md) for more information about customizing roles in Snowflake. To see which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
 ## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")
 
@@ -133,7 +133,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For role examples in Snowflake, see [Snowflake permissions](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md).
+For role examples in Snowflake, see [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md).
 
 ## Connection fields[​](#connection-fields "Direct link to Connection fields")
 
@@ -141,7 +141,7 @@ The following fields are required when creating a Snowflake connection:
 
 | Field     | Description                                                                                                                                                                                                             | Examples                                                                                                  |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Account   | The Snowflake account to connect to. Take a look [here](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md#account) to determine what the account field should look like based on your region. |   ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com` |
+| Account   | The Snowflake account to connect to. Take a look [here](../../local/connect-data-platform/snowflake-setup.md#account) to determine what the account field should look like based on your region. |   ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com` |
 | Role      | A mandatory field indicating what role should be assumed after connecting to Snowflake                                                                                                                                  | `transformer`                                                                                             |
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                             | `analytics`                                                                                               |
 | Warehouse | The virtual warehouse to use for running queries.                                                                                                                                                                       | `transforming`                                                                                            |
@@ -154,7 +154,7 @@ Search table...
 
 ## Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
 
-This section describes the different authentication methods for connecting dbt to Snowflake. Configure deployment environment (Production, Staging, General) credentials globally in the [**Connections**](https://docs.getdbt.com/docs/deploy/deploy-environments.md#deployment-connection) area of **Account settings**. Individual users configure their user credentials in the [**Credentials**](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) area of their user profile.
+This section describes the different authentication methods for connecting dbt to Snowflake. Configure deployment environment (Production, Staging, General) credentials globally in the [**Connections**](../../deploy/deploy-environments.md#deployment-connection) area of **Account settings**. Individual users configure their user credentials in the [**Credentials**](../studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) area of their user profile.
 
 Snowflake authentication in the dbt platform
 
@@ -175,7 +175,7 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
 2. Finally, set the **Private Key** and **Private Key Passphrase** fields in the **Credentials** page to finish configuring dbt to authenticate with Snowflake using a key pair.
 
    * **Note:** Unencrypted private keys are permitted. Use a passphrase only if needed. dbt can specify a `private_key` directly as a string instead of a `private_key_path`. This `private_key` string can be in either Base64-encoded DER format, representing the key bytes, or in plain-text PEM format. Refer to [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth) for more info on how they generate the key.
-   * Specifying a private key using an [environment variable](https://docs.getdbt.com/docs/build/environment-variables.md) (for example, `{{ env_var('DBT_PRIVATE_KEY') }}`) is not supported.
+   * Specifying a private key using an [environment variable](../../build/environment-variables.md) (for example, `{{ env_var('DBT_PRIVATE_KEY') }}`) is not supported.
 
 3. To successfully fill in the Private Key field, you *must* include commented lines. If you receive a `Could not deserialize key data` or `JWT token` error, refer to [Troubleshooting](#troubleshooting) for more info.
 
@@ -220,7 +220,7 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
 
 The OAuth auth method permits dbt to run development queries on behalf of a Snowflake user without the configuration of Snowflake password in dbt.
 
-For more information on configuring a Snowflake OAuth connection in dbt, please see [the docs on setting up Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md).
+For more information on configuring a Snowflake OAuth connection in dbt, please see [the docs on setting up Snowflake OAuth](../manage-access/set-up-snowflake-oauth.md).
 
 [![Configuring Snowflake OAuth connection](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth connection")](#)Configuring Snowflake OAuth connection
 
@@ -236,7 +236,7 @@ To migrate off of username and password, follow the steps in [Key pair](#key-pai
 
 If you are still on username and password while you plan your migration, [MFA](https://docs.snowflake.com/en/user-guide/security-mfa) is required by Snowflake for all password logins. Snowflake's MFA support is powered by the Duo Security service.
 
-* In dbt, set the following [extended attribute](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) in the development environment **General settings** page, under the **Extended attributes** section:
+* In dbt, set the following [extended attribute](../../dbt-platform-environments.md#extended-attributes) in the development environment **General settings** page, under the **Extended attributes** section:
 
   ```yaml
   authenticator: username_password_mfa
@@ -254,11 +254,11 @@ If you are still on username and password while you plan your migration, [MFA](h
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Snowflake-specific configuration](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Snowflake-specific configuration](../../../reference/resource-configs/snowflake-configs.md).
 
 ### Custom domain URL[​](#custom-domain-url "Direct link to Custom domain URL")
 
-To connect to Snowflake through a custom domain (vanity URL) instead of the account locator, use [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) to configure the `host` parameter with the custom domain:
+To connect to Snowflake through a custom domain (vanity URL) instead of the account locator, use [extended attributes](../../dbt-platform-environments.md#extended-attributes) to configure the `host` parameter with the custom domain:
 
 ```yaml
 host: https://custom_domain_to_snowflake.com

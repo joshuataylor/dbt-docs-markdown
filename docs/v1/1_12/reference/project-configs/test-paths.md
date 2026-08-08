@@ -8,7 +8,7 @@ test-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [singular tests](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests) and [custom generic tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) are located.
+Optionally specify a custom list of directories where [singular tests](../../docs/build/data-tests.md#singular-data-tests) and [custom generic tests](../../docs/build/data-tests.md#generic-data-tests) are located.
 
 ## Default[​](#default "Direct link to Default")
 

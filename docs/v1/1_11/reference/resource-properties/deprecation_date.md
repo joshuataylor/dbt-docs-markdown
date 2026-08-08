@@ -34,11 +34,11 @@ When `deprecation_date` does not include an offset from UTC, then it is interpre
 
 Declaring a `deprecation_date` for a dbt model provides a mechanism to communicate plans and timelines for long-term support and maintenance and to facilitate change management.
 
-Setting a `deprecation_date` works well in conjunction with other [model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md) features like [model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md), but can also be used independently from them.
+Setting a `deprecation_date` works well in conjunction with other [model governance](../../docs/mesh/govern/about-model-governance.md) features like [model versions](../../docs/mesh/govern/model-versions.md), but can also be used independently from them.
 
 info
 
-If your model has an [enforced contract](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md), you cannot delete the model until after the `deprecation_date` has passed. dbt doesn't allow deleting models with enforced contracts before their `deprecation_date` to protect downstream consumers.
+If your model has an [enforced contract](../../docs/mesh/govern/model-contracts.md), you cannot delete the model until after the `deprecation_date` has passed. dbt doesn't allow deleting models with enforced contracts before their `deprecation_date` to protect downstream consumers.
 
 If you try to delete a versioned model before its `deprecation_date`, dbt will raise an error during development runs and cause jobs to fail.
 
@@ -46,7 +46,7 @@ If you try to delete a versioned model before its `deprecation_date`, dbt will r
 
 When a project references a model that's slated for deprecation or the deprecation date has passed, a warning is generated. If it's a versioned model, with a newer version available, then the warning says so. This added bit of cross-team communication, from producers to consumers, is an advantage of using dbt's built-in functionality around model versions to facilitate migrations.
 
-Additionally, [`WARN_ERROR_OPTIONS`](https://docs.getdbt.com/reference/global-configs/warnings.md) gives a mechanism whereby users can promote these warnings to actual runtime errors:
+Additionally, [`WARN_ERROR_OPTIONS`](../global-configs/warnings.md) gives a mechanism whereby users can promote these warnings to actual runtime errors:
 
 | Warning                        | Scenario                                           | Affected projects      |
 | ------------------------------ | -------------------------------------------------- | ---------------------- |
@@ -73,20 +73,20 @@ $ dbt parse
 
 ### Selection syntax[​](#selection-syntax "Direct link to Selection syntax")
 
-There is not specific [node selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) for `deprecation_date`. [Programmatic invocations](https://docs.getdbt.com/reference/programmatic-invocations.md) is one way to identify deprecated models (potentially in conjunction with [dbt list](https://docs.getdbt.com/reference/commands/list.md)). e.g., `dbt ls -q --output json --output-keys database schema alias deprecation_date`.
+There is not specific [node selection syntax](../node-selection/syntax.md) for `deprecation_date`. [Programmatic invocations](../programmatic-invocations.md) is one way to identify deprecated models (potentially in conjunction with [dbt list](../commands/list.md)). e.g., `dbt ls -q --output json --output-keys database schema alias deprecation_date`.
 
 ### Deprecation process[​](#deprecation-process "Direct link to Deprecation process")
 
 Additional steps are necessary to save on build-related compute and storage costs for a deprecated model.
 
-Deprecated models can continue to be built by producers and be selected by consumers until they are [disabled](https://docs.getdbt.com/reference/resource-configs/enabled.md) or removed.
+Deprecated models can continue to be built by producers and be selected by consumers until they are [disabled](../resource-configs/enabled.md) or removed.
 
-Just like it does not automatically [drop relations when models are deleted](https://docs.getdbt.com/faqs/Models/removing-deleted-models.md), dbt does not drop relations for deprecated models.
+Just like it does not automatically [drop relations when models are deleted](../../faqs/Models/removing-deleted-models.md), dbt does not drop relations for deprecated models.
 
 Strategies similar to [here](https://discourse.getdbt.com/t/faq-cleaning-up-removed-models-from-your-production-schema/113) or [here](https://discourse.getdbt.com/t/clean-your-warehouse-of-old-and-deprecated-models/1547) can be used to drop relations that have been deprecated and are no longer in use.
 
 ### Table expiration on BigQuery[​](#table-expiration-on-bigquery "Direct link to Table expiration on BigQuery")
 
-dbt-bigquery can set an [`hours_to_expiration`](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#controlling-table-expiration) that translates to `expiration_timestamp` within BigQuery.
+dbt-bigquery can set an [`hours_to_expiration`](../resource-configs/bigquery-configs.md#controlling-table-expiration) that translates to `expiration_timestamp` within BigQuery.
 
 dbt does not automatically synchronize `deprecation_date` and `hours_to_expiration`, but users may want to coordinate them in some fashion (such as setting a model to expire 48 hours after its `deprecation_date`). Expired tables in BigQuery will be deleted and their storage reclaimed.

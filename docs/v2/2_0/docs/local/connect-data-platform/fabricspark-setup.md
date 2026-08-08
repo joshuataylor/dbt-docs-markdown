@@ -4,11 +4,11 @@ Local developmentⓘ
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 Below is a guide for use with [Fabric Data Engineering](https://learn.microsoft.com/en-us/fabric/data-engineering/data-engineering-overview), a new product within Microsoft Fabric. This adapter currently supports connecting to a lakehouse endpoint.
 
-To learn how to set up dbt using Fabric Warehouse, refer to [Microsoft Fabric Data Warehouse](https://docs.getdbt.com/docs/local/connect-data-platform/fabric-setup.md).
+To learn how to set up dbt using Fabric Warehouse, refer to [Microsoft Fabric Data Warehouse](./fabric-setup.md).
 
 <!-- -->
 
@@ -41,7 +41,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-fabricspark<!-- -->
 
-For <!-- -->Microsoft Fabric<!-- -->-specific configuration, please refer to [Microsoft Fabric<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/fabricspark-configs.md)
+For <!-- -->Microsoft Fabric<!-- -->-specific configuration, please refer to [Microsoft Fabric<!-- --> configs.](../../../reference/resource-configs/fabricspark-configs.md)
 
 For further info, refer to the GitHub repository: [microsoft/dbt-fabricspark](https://github.com/microsoft/dbt-fabricspark)
 
@@ -245,9 +245,9 @@ Most dbt Core functionality is supported, Please refer to [Delta Lake interopora
 
 Delta-only features:
 
-1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#the-merge-strategy))
-2. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-3. [Persisting](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) column-level descriptions as database comments
+1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](../../../reference/resource-configs/spark-configs.md#the-merge-strategy))
+2. [Snapshots](../../build/snapshots.md)
+3. [Persisting](../../../reference/resource-configs/persist_docs.md) column-level descriptions as database comments
 
 ### Limitations[​](#limitations "Direct link to Limitations")
 

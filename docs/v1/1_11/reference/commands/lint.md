@@ -8,7 +8,7 @@ You can use your existing SQLFluff config with minimal changes. dbt Labs intends
 
 note
 
-`dbt lint` is part of the dbt Fusion engine. It is not the same as `dbt sqlfluff lint` on the dbt CLI. For SQLFluff on the platform CLI, see [Configure the dbt CLI](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md) continues to use SQLFluff at this time.
+`dbt lint` is part of the dbt Fusion engine. It is not the same as `dbt sqlfluff lint` on the dbt CLI. For SQLFluff on the platform CLI, see [Configure the dbt CLI](../../docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](../../docs/platform/studio-ide/lint-format.md) continues to use SQLFluff at this time.
 
 ## Benchmarks[​](#benchmarks "Direct link to Benchmarks")
 

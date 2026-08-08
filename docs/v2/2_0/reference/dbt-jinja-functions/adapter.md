@@ -9,7 +9,7 @@ Your database communicates with dbt using an internal database adapter object. F
 
 For example, the adapter methods below will be translated into specific SQL statements depending on the type of adapter your project is using:
 
-* [adapter.dispatch](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md)
+* [adapter.dispatch](./dispatch.md)
 * [adapter.get\_missing\_columns](#get_missing_columns)
 * [adapter.expand\_target\_column\_types](#expand_target_column_types)
 * [adapter.get\_relation](#get_relation) or [load\_relation](#load_relation)
@@ -30,16 +30,16 @@ The following adapter functions are deprecated, and will be removed in a future 
 
 ## dispatch[​](#dispatch "Direct link to dispatch")
 
-Moved to separate page: [dispatch](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md)
+Moved to separate page: [dispatch](./dispatch.md)
 
 ## get\_missing\_columns[​](#get_missing_columns "Direct link to get_missing_columns")
 
 **Args**:
 
-* `from_relation`: The source [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation)
-* `to_relation`: The target [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation)
+* `from_relation`: The source [Relation](../dbt-classes.md#relation)
+* `to_relation`: The target [Relation](../dbt-classes.md#relation)
 
-Returns a list of [Columns](https://docs.getdbt.com/reference/dbt-classes.md#column) that is the difference of the columns in the `from_table` and the columns in the `to_table`, i.e. (`set(from_relation.columns) - set(to_table.columns)`). Useful for detecting new columns in a source table.
+Returns a list of [Columns](../dbt-classes.md#column) that is the difference of the columns in the `from_table` and the columns in the `to_table`, i.e. (`set(from_relation.columns) - set(to_table.columns)`). Useful for detecting new columns in a source table.
 
 **Usage**:
 
@@ -61,8 +61,8 @@ models/example.sql
 
 **Args**:
 
-* `from_relation`: The source [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) to use as a template
-* `to_relation`: The [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) to mutate
+* `from_relation`: The source [Relation](../dbt-classes.md#relation) to use as a template
+* `to_relation`: The [Relation](../dbt-classes.md#relation) to mutate
 
 Expand the `to_relation` table's column types to match the schema of `from_relation`. Column expansion is constrained to string and numeric types on supported databases. Typical usage involves expanding column types (from eg. `varchar(16)` to `varchar(32)`) to support insert statements.
 
@@ -85,7 +85,7 @@ example.sql
 * `schema`: The schema of the relation to fetch
 * `identifier`: The identifier of the relation to fetch
 
-Returns a cached [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) object identified by the `database.schema.identifier` provided to the method, or `None` if the relation does not exist.
+Returns a cached [Relation](../dbt-classes.md#relation) object identified by the `database.schema.identifier` provided to the method, or `None` if the relation does not exist.
 
 **Usage**:
 
@@ -105,9 +105,9 @@ example.sql
 
 **Args**:
 
-* `relation`: The [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) to try to load
+* `relation`: The [Relation](../dbt-classes.md#relation) to try to load
 
-A convenience wrapper for [get\_relation](#get_relation). Returns the cached version of the [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) object, or `None` if the relation does not exist.
+A convenience wrapper for [get\_relation](#get_relation). Returns the cached version of the [Relation](../dbt-classes.md#relation) object, or `None` if the relation does not exist.
 
 **Usage**:
 
@@ -127,9 +127,9 @@ example.sql
 
 **Args**:
 
-* `relation`: The [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) to find the columns for
+* `relation`: The [Relation](../dbt-classes.md#relation) to find the columns for
 
-Returns a list of [Columns](https://docs.getdbt.com/reference/dbt-classes.md#column) in a table.
+Returns a list of [Columns](../dbt-classes.md#column) in a table.
 
 **Usage**:
 
@@ -254,7 +254,7 @@ This method is deprecated and will be removed in a future release. Please use [g
 * `schema_name`: The schema to test
 * `table_name`: The table (or view) from which to select columns
 
-Returns a list of [Columns](https://docs.getdbt.com/reference/dbt-classes.md#column) in a table.
+Returns a list of [Columns](../dbt-classes.md#column) in a table.
 
 models/example.sql
 

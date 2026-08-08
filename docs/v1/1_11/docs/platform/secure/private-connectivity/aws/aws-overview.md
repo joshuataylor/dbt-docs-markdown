@@ -17,18 +17,18 @@ For more details, refer to the [AWS PrivateLink documentation](https://docs.aws.
 
 ## AWS private connectivity matrix[​](#aws-private-connectivity-matrix "Direct link to AWS private connectivity matrix")
 
-The following charts outline private connectivity options for AWS deployments of dbt ([multi-tenant and single-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md)).
+The following charts outline private connectivity options for AWS deployments of dbt ([multi-tenant and single-tenant](../../../about-platform/tenancy.md)).
 
 **Legend:**
 
 * ✅ = Available
 * ❌ = Not currently available
 
-*Tenancy:* MT (multi-tenant) and ST (single-tenant) — [learn more about tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
+*Tenancy:* MT (multi-tenant) and ST (single-tenant) — [learn more about tenancy](../../../about-platform/tenancy.md).
 
 About the following matrix tables
 
-These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support) for guidance.
+These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support) for guidance.
 
 ***
 
@@ -38,8 +38,8 @@ Your services can connect to dbt over private connectivity using the dbt-provisi
 
 | Connectivity type              | MT | ST | Setup guide                                                                                  |
 | ------------------------------ | -- | -- | -------------------------------------------------------------------------------------------- |
-| Private dbt access             | ❌ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-ingress.md) |
-| Dual access (public + private) | ❌ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-ingress.md) |
+| Private dbt access             | ❌ | ✅ | [View](./aws-ingress.md) |
+| Dual access (public + private) | ❌ | ✅ | [View](./aws-ingress.md) |
 
 Search table...
 
@@ -55,14 +55,14 @@ dbt can establish private connections to managed data platforms and cloud-native
 
 | Service                    | MT | ST | Setup guide                                                                                     |
 | -------------------------- | -- | -- | ----------------------------------------------------------------------------------------------- |
-| Snowflake                  | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-snowflake.md)  |
-|   Snowflake Internal Stage | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-snowflake.md)  |
-| Databricks                 | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-databricks.md) |
-| Redshift                   | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-redshift.md)   |
-| Redshift Serverless        | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-redshift.md)   |
+| Snowflake                  | ✅ | ✅ | [View](./aws-snowflake.md)  |
+|   Snowflake Internal Stage | ✅ | ✅ | [View](./aws-snowflake.md)  |
+| Databricks                 | ✅ | ✅ | [View](./aws-databricks.md) |
+| Redshift                   | ✅ | ✅ | [View](./aws-redshift.md)   |
+| Redshift Serverless        | ✅ | ✅ | [View](./aws-redshift.md)   |
 | Amazon Athena w/ AWS Glue  | ❌ | ✅ |                                                                                                 |
 | AWS CodeCommit             | ❌ | ✅ |                                                                                                 |
-| Teradata VantageCloud      | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-teradata.md)   |
+| Teradata VantageCloud      | ✅ | ✅ | [View](./aws-teradata.md)   |
 
 Search table...
 
@@ -76,7 +76,7 @@ Search table...
 
 All of the services below share a common PrivateLink setup guide — backend configuration varies by service. Self-hosted connections use the customer-provisioned model — you are the service producer and dbt is the consumer.
 
-**Setup guide:** [Configuring AWS PrivateLink for self-hosted services](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-self-hosted.md)
+**Setup guide:** [Configuring AWS PrivateLink for self-hosted services](./aws-self-hosted.md)
 
 | Service                  | MT | ST |
 | ------------------------ | -- | -- |
@@ -95,7 +95,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-If you have questions about whether your specific architecture is supported, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support).
+If you have questions about whether your specific architecture is supported, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support).
 
 ## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
 

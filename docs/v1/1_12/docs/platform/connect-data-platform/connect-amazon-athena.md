@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-Your environment(s) must be on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to use the Amazon Athena connection.
+Your environment(s) must be on a supported [release track](../../dbt-versions/dbt-release-tracks.md) to use the Amazon Athena connection.
 
 Connect dbt to Amazon's Athena interactive query service to build your dbt project. The following are the required and optional fields for configuring the Athena connection:
 
@@ -50,16 +50,16 @@ If you prefer to not store long-lived IAM user AWS Access Key ID and AWS Secret 
 
 To use temporary credentials:
 
-1. Enter the **AWS Access Key ID** and **AWS Secret Access Key** in the [development environment settings](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) in the dbt platform user interface (UI).
+1. Enter the **AWS Access Key ID** and **AWS Secret Access Key** in the [development environment settings](../../dbt-platform-environments.md#create-a-development-environment) in the dbt platform user interface (UI).
 
-2. Since the `aws_session_token` isn't available as a UI field in dbt platform, add it using [Extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) in the environment settings or [dbt platform profiles](https://docs.getdbt.com/docs/platform/about-profiles.md).
+2. Since the `aws_session_token` isn't available as a UI field in dbt platform, add it using [Extended attributes](../../dbt-platform-environments.md#extended-attributes) in the environment settings or [dbt platform profiles](../about-profiles.md).
 
    When you set the `aws_session_token` in **Extended attributes**, the key is case-sensitive and must be exactly `aws_session_token`.
 
-   For example, you can use an [environment variable](https://docs.getdbt.com/docs/build/environment-variables.md) so the token isn't stored in the text box UI:
+   For example, you can use an [environment variable](../../build/environment-variables.md) so the token isn't stored in the text box UI:
 
    ```yaml
    aws_session_token: '{{ env_var(''DBT_ENV_AWS_SESSION_TOKEN'') }}'
    ```
 
-3. [Assign](https://docs.getdbt.com/docs/build/environment-variables.md#setting-environment-variables) `DBT_ENV_AWS_SESSION_TOKEN` for each environment. Since temporary credentials expire, you need to refresh your STS credentials and update the environment (or the variable value) before expiration.
+3. [Assign](../../build/environment-variables.md#setting-environment-variables) `DBT_ENV_AWS_SESSION_TOKEN` for each environment. Since temporary credentials expire, you need to refresh your STS credentials and update the environment (or the variable value) before expiration.

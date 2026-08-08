@@ -1,6 +1,6 @@
 # About dbt invocation command
 
-The `dbt invocation` command is available in the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) and allows you to:
+The `dbt invocation` command is available in the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and allows you to:
 
 * List active invocations to debug long-running or hanging invocations.
 * Identify and investigate sessions causing the `Session occupied` error.
@@ -81,5 +81,5 @@ To cancel an active session in the terminal, use the `Ctrl + Z` shortcut.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)
-* [Troubleshooting dbt CLI 'Session occupied' error](https://docs.getdbt.com/faqs/Troubleshooting/long-sessions-dbt-cli.md)
+* [Install dbt CLI](../../docs/platform/dbt-cli-installation.md)
+* [Troubleshooting dbt CLI 'Session occupied' error](../../faqs/Troubleshooting/long-sessions-dbt-cli.md)

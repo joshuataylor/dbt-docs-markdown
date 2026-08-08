@@ -32,11 +32,11 @@ wizard --version   # confirm the install
 wizard             # start an interactive session
 ```
 
-After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md) for more details.
+After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](./wizard-config.md) for more details.
 
 Upgrade for automatic updates
 
-Upgrade to [v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
+Upgrade to [v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
 Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and onboarding](#first-run-setup-and-onboarding) sections for more details.
 
@@ -44,7 +44,7 @@ Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and 
 
 * macOS, Windows, or Linux
 * A dbt project with a built `target/` directory (`dbt parse`, `dbt compile`, or `dbt build`)
-* Credentials for a supported CLI provider. Refer to [Supported AI providers](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md#supported-ai-providers) in the next section.
+* Credentials for a supported CLI provider. Refer to [Supported AI providers](./wizard-byok.md#supported-ai-providers) in the next section.
 
 ## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
 
@@ -66,30 +66,30 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+* [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
+* [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 New to the terminal?
 
-If you've never used the terminal before, check out the [terminal guide](https://docs.getdbt.com/guides/terminal-guide.md). Some tips include:
+If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md). Some tips include:
 
 * Enter `/` to see the available commands or try out `/overview` to get a quick summary of your project.
 * Press `Shift+Tab` to cycle through collaboration modes.
 
 ## First-run setup and onboarding[​](#first-run-setup-and-onboarding "Direct link to First-run setup and onboarding")
 
-The first time you start dbt Wizard in a project, it walks you through a short setup and saves your answers to [`wizard_config.toml`, `providers.json`, and `provider-auth.json`](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md), so you only do this once per project. You'll be asked to:
+The first time you start dbt Wizard in a project, it walks you through a short setup and saves your answers to [`wizard_config.toml`, `providers.json`, and `provider-auth.json`](./wizard-config.md), so you only do this once per project. You'll be asked to:
 
 * Review and accept the **Terms of Use**.
 * If you have a dbt platform account, sign in through the browser authentication link when prompted and follow the steps in the browser.
 * **Trust the directory** so dbt Wizard can read your project.
 * Confirm the **path to your dbt executable or virtual environment** — point it at `/path/to/bin/dbt` or a `.venv` root (dbt Wizard uses `bin/dbt` automatically).
 * Add any **extra compile flags** to append to the startup `dbt compile -s state:modified+`, or leave empty to skip.
-* **Configure [deferral](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md#deferral)** — choose **Wizard** (dbt Wizard manages it), **Manual**, or **Disabled**. If you choose **Wizard**, enter the `profiles.yml` target to defer to (defaults to `prod`). On the dbt Fusion engine connected to the dbt platform, dbt Wizard instead offers to let the platform handle deferral.
+* **Configure [deferral](./wizard-config.md#deferral)** — choose **Wizard** (dbt Wizard manages it), **Manual**, or **Disabled**. If you choose **Wizard**, enter the `profiles.yml` target to defer to (defaults to `prod`). On the dbt Fusion engine connected to the dbt platform, dbt Wizard instead offers to let the platform handle deferral.
 * Confirm your **detected dbt profile and target**, or customize the profile, target, or `profiles.yml` path.
-* **Configure a provider** (OpenAI subscription, OpenAI API key, Anthropic, Amazon Bedrock, Azure, Gemini, or Snowflake). Refer to [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md).
+* **Configure a provider** (OpenAI subscription, OpenAI API key, Anthropic, Amazon Bedrock, Azure, Gemini, or Snowflake). Refer to [Configure BYOK](./wizard-byok.md).
 
-To re-run any of these steps later, refer to [Re-trigger onboarding flows](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md#re-trigger-onboarding-flows).
+To re-run any of these steps later, refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
 
 Set your API key without the prompt
 
@@ -100,14 +100,14 @@ export OPENAI_API_KEY="sk-..."                  # or ANTHROPIC_API_KEY
 export AWS_BEARER_TOKEN_BEDROCK="ABSK..."       # for Amazon Bedrock
 ```
 
-For AWS Bedrock and Snowflake Cortex, refer to [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md).
+For AWS Bedrock and Snowflake Cortex, refer to [Configure BYOK](./wizard-byok.md).
 
 After onboarding, dbt Wizard shows a welcome screen with two sections:
 
 * **STATUS** — the dbt Wizard version, the active AI model (change it with `/model`), and your project directory.
-* **OVERVIEW** — a snapshot of your project from the [metadata engine](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#native-metadata-engine): build status and a count of passing (✓), warning (⚠), and failing (✗) checks.
+* **OVERVIEW** — a snapshot of your project from the [metadata engine](./wizard-how-it-works.md#native-metadata-engine): build status and a count of passing (✓), warning (⚠), and failing (✗) checks.
 
-Enter `/` to see the available [slash commands](https://docs.getdbt.com/docs/dbt-ai/wizard-slash-commands.md), or try `/overview` for a summary of your project. CLI commands use the `wizard` prefix, so you can also run [subcommands](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md) such as `wizard exec`, `wizard review`, and `wizard resume`.
+Enter `/` to see the available [slash commands](./wizard-slash-commands.md), or try `/overview` for a summary of your project. CLI commands use the `wizard` prefix, so you can also run [subcommands](./wizard-cli-reference.md) such as `wizard exec`, `wizard review`, and `wizard resume`.
 
 ## Update[​](#update "Direct link to Update")
 
@@ -121,21 +121,21 @@ wizard update
 
 dbt Wizard collects anonymous product telemetry to improve the AI agent experience, understand usage patterns, optimize performance, and attribute compute costs without capturing your code, queries, prompts, responses, or file contents.
 
-For details about what is collected, what is not collected, and how to opt out of client telemetry, refer to [dbt Wizard CLI data use and telemetry](https://docs.getdbt.com/docs/dbt-ai/wizard-telemetry.md).
+For details about what is collected, what is not collected, and how to opt out of client telemetry, refer to [dbt Wizard CLI data use and telemetry](./wizard-telemetry.md).
 
 Best practices for using dbt Wizard
 
-Once you're set up, refer to [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
+Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md): Install dbt Wizard and start a local terminal session
-* [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md): Manage your API key and choose an AI model
-* [Command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md): Full reference for all `wizard` subcommands and global flags
-* [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md): Realistic analytics engineering scenarios
-* [Migrate from another AI agent](https://docs.getdbt.com/docs/dbt-ai/wizard-migrate.md): Migrate from another AI agent to dbt Wizard
-* [CLI data use and telemetry](https://docs.getdbt.com/docs/dbt-ai/wizard-telemetry.md): What dbt Wizard CLI collects and how to opt out
-* [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
+* [Use dbt Wizard locally](./wizard-quickstart.md): Install dbt Wizard and start a local terminal session
+* [Configure BYOK](./wizard-byok.md): Manage your API key and choose an AI model
+* [Command reference](./wizard-cli-reference.md): Full reference for all `wizard` subcommands and global flags
+* [Use cases and examples](./wizard-use-cases.md): Realistic analytics engineering scenarios
+* [Migrate from another AI agent](./wizard-migrate.md): Migrate from another AI agent to dbt Wizard
+* [CLI data use and telemetry](./wizard-telemetry.md): What dbt Wizard CLI collects and how to opt out
+* [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
 
 See it in action and share your feedback
 

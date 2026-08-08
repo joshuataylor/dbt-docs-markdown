@@ -22,7 +22,7 @@ The Auth0 URI is not the same as your SCIM Base URL, though they share a similar
 
  Can I disable password logins for SSO users?
 
-When SSO is configured, it enforces SSO-only logins for the account. However, if [**Allow password logins for account administrators**](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md?version=1.12#sso-enforcement) is enabled, account admins and IT-licensed users can still sign in with email and password.
+When SSO is configured, it enforces SSO-only logins for the account. However, if [**Allow password logins for account administrators**](./sso-overview.md?version=1.12#sso-enforcement) is enabled, account admins and IT-licensed users can still sign in with email and password.
 
 caution
 
@@ -73,7 +73,7 @@ This occurs when tenant-level admin consent hasn't been granted for the dbt SSO 
 
  Receiving a 'AADSTS90094: Admin consent is required' error
 
-If you set up SSO before December 2025, your existing configuration may request `Directory.Read.All` instead of `GroupMember.Read.All` for new setups. To use the updated scopes, delete and re-create your SSO [configuration](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-microsoft-entra-id.md#configuring-permissions).
+If you set up SSO before December 2025, your existing configuration may request `Directory.Read.All` instead of `GroupMember.Read.All` for new setups. To use the updated scopes, delete and re-create your SSO [configuration](./set-up-sso-microsoft-entra-id.md#configuring-permissions).
 
  "This SSO endpoint is disabled. Please contact your administrator to have them update your IdP SSO settings to use Auth0 instead."
 

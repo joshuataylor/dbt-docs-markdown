@@ -57,13 +57,13 @@ analyses:
         description: The adjusted transaction amount for the account.
 ```
 
-For more information, refer to [Analysis properties](https://docs.getdbt.com/reference/analysis-properties.md).
+For more information, refer to [Analysis properties](../../reference/analysis-properties.md).
 
 ## Project-level configuration[​](#project-level-configuration "Direct link to Project-level configuration")
 
 You can also configure analyses at the project level in `dbt_project.yml`.
 
-To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
+To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](../../reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
 
 dbt\_project.yml
 

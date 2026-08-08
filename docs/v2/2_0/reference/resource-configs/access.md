@@ -71,7 +71,7 @@ After you define `access`, rerun a production job to apply the change.
 
 The access level of the model you are declaring properties for.
 
-Some models (not all) are designed to be referenced through the [ref](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) function across [groups](https://docs.getdbt.com/docs/build/groups.md).
+Some models (not all) are designed to be referenced through the [ref](../dbt-jinja-functions/ref.md) function across [groups](../../docs/build/groups.md).
 
 | Access    | Referenceable by                                                                          |
 | --------- | ----------------------------------------------------------------------------------------- |
@@ -103,5 +103,5 @@ By default, all models are "protected." This means that other models in the same
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Model Access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups)
-* [Group configuration](https://docs.getdbt.com/reference/resource-configs/group.md)
+* [Model Access](../../docs/mesh/govern/model-access.md#groups)
+* [Group configuration](./group.md)

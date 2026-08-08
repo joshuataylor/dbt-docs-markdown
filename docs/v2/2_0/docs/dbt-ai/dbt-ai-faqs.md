@@ -16,9 +16,9 @@ dbt Labs is committed to protecting your privacy and data. This page provides in
 
 dbt Wizard is the latest and recommended agentic experience for governed data development in dbt, available in both the dbt platform and the terminal CLI. It helps teams ship trusted dbt changes faster and with less risk by understanding project context, routing to the right dbt tools, validating changes, and supporting review before changes are persisted.
 
-Use dbt Wizard to investigate lineage and downstream impact, generate or refactor SQL from natural-language prompts, create [documentation](https://docs.getdbt.com/docs/build/documentation.md), [data tests](https://docs.getdbt.com/docs/build/data-tests.md), [metrics](https://docs.getdbt.com/docs/build/metrics-overview.md), and [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md), and validate changes with warehouse awareness.
+Use dbt Wizard to investigate lineage and downstream impact, generate or refactor SQL from natural-language prompts, create [documentation](../build/documentation.md), [data tests](../build/data-tests.md), [metrics](../build/metrics-overview.md), and [semantic models](../build/semantic-models.md), and validate changes with warehouse awareness.
 
-In the dbt platform, dbt Wizard is available in experiences such as the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-studio-ai.md), [Canvas](https://docs.getdbt.com/docs/platform/use-canvas.md), and [Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md).
+In the dbt platform, dbt Wizard is available in experiences such as the [Studio IDE](../platform/studio-ide/develop-studio-ai.md), [Canvas](../platform/use-canvas.md), and [Insights](../explore/dbt-insights.md).
 
 In the CLI, you can use dbt Wizard from your terminal for local development workflows.
 
@@ -26,10 +26,10 @@ In the CLI, you can use dbt Wizard from your terminal for local development work
 
 dbt Wizard is available in the dbt platform and as a terminal CLI.
 
-* In the platform, you can use dbt Wizard in the [Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) for governed data development in dbt.
-* In the CLI, use the [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md) for local development and automation.
+* In the platform, you can use dbt Wizard in the [Studio IDE](./wizard-ide.md) for governed data development in dbt.
+* In the CLI, use the [dbt Wizard CLI](./about-dbt-wizard-cli.md) for local development and automation.
 
-To use dbt Wizard in the platform, you need a dbt [Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/contact), and an admin must [enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account.
+To use dbt Wizard in the platform, you need a dbt [Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/contact), and an admin must [enable dbt Wizard](../platform/enable-dbt-ai.md) for your account.
 
  What are the benefits of using dbt Wizard?
 
@@ -61,17 +61,17 @@ Yes, as a temporary compatibility bridge through July 13, 2026 or longer (timeli
 
 **In the dbt platform**:
 
-When enabled by an admin, dbt Wizard is available to users with a dbt [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) on [Starter, Enterprise, and Enterprise+ accounts](https://www.getdbt.com/contact).
+When enabled by an admin, dbt Wizard is available to users with a dbt [developer license](../platform/manage-access/seats-and-users.md) on [Starter, Enterprise, and Enterprise+ accounts](https://www.getdbt.com/contact).
 
 **In the CLI**:
 
-For dbt Wizard CLI, bring your own API key or credentials for a supported provider using [BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md): OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, or Snowflake Cortex (preview). Install and configure the CLI on your local machine. BYOK means any token costs will be billed directly by whichever provider you choose.
+For dbt Wizard CLI, bring your own API key or credentials for a supported provider using [BYOK](./wizard-byok.md): OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, or Snowflake Cortex (preview). Install and configure the CLI on your local machine. BYOK means any token costs will be billed directly by whichever provider you choose.
 
-Refer to [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md) for more information.
+Refer to [Use dbt Wizard locally](./wizard-quickstart.md) for more information.
 
  Is dbt Wizard available for all deployment types?
 
-Yes, dbt Wizard is powered by ai-codegen-api, which is deployed everywhere including [multi-tenant and single-tenant deployments](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+Yes, dbt Wizard is powered by ai-codegen-api, which is deployed everywhere including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
 
 ## How it works[​](#how-it-works "Direct link to How it works")
 
@@ -81,9 +81,9 @@ dbt Wizard is supported by several third-party pre-trained AI models at your dis
 
  Which AI model providers does dbt Wizard use?
 
-In the dbt platform, dbt Wizard supports managed OpenAI, BYOK OpenAI, BYOK Anthropic, and BYOK Azure AI Foundry. By default, accounts use managed OpenAI. Enterprise-tier accounts can [bring their own provider keys](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#configure-ai-provider).
+In the dbt platform, dbt Wizard supports managed OpenAI, BYOK OpenAI, BYOK Anthropic, and BYOK Azure AI Foundry. By default, accounts use managed OpenAI. Enterprise-tier accounts can [bring their own provider keys](../platform/enable-dbt-ai.md#configure-ai-provider).
 
-The [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md) supports OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview) in bring-your-own-key mode. Refer to [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) and [Supported AI providers](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md#supported-ai-providers) for more information.
+The [dbt Wizard CLI](./wizard-cli.md) supports OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview) in bring-your-own-key mode. Refer to [Configure BYOK](./wizard-byok.md) and [Supported AI providers](./wizard-byok.md#supported-ai-providers) for more information.
 
  Do we support BYOK (bring your own key) at the project level?
 

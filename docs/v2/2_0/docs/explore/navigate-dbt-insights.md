@@ -36,7 +36,7 @@ The Query console menu is located at the top right of the Query editor. It conta
   * Let dbt Copilot do the writing for you — use the AI assistant to automatically generate a helpful description for your bookmark.
   * Access the newly created bookmark from the **Bookmark** icon in the [Query console sidebar menu](#query-console-sidebar-menu).
 
-* **Develop**: Open the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) to continue editing your SQL query.
+* **Develop**: Open the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [Canvas](../platform/canvas.md) to continue editing your SQL query.
 
 * **Run** button — Run your SQL query and view the results in the **Data** tab.
 
@@ -122,7 +122,7 @@ To save and manage bookmarks:
 2. Select the **Bookmark** icon in the sidebar to open your list of saved queries.
 3. Select a saved Insight to view its details or open it in the query editor.
 
-For sharing saved Insights and version history, check out [Save your Insights](https://docs.getdbt.com/docs/explore/access-dbt-insights.md#save-your-insights).
+For sharing saved Insights and version history, check out [Save your Insights](./access-dbt-insights.md#save-your-insights).
 
 [![Bookmark Query Details modal](/img/docs/dbt-insights/save-insights-modal.png?v=2 "Bookmark Query Details modal")](#)Bookmark Query Details modal
 
@@ -146,17 +146,17 @@ dbt Wizard is the new and recommended AI agent for governed data development in 
 
 dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 Use dbt Copilot to modify or generate queries using natural language prompts or to chat with the Analyst agent to gather insights about your data.
 
 Use dbt Copilot in Insights in two ways:
 
-* **Generate SQL**: Build queries in Insights with natural language prompts to explore and query data with an intuitive, context-rich interface. For more information, see [Build queries in dbt Insights](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md).
+* **Generate SQL**: Build queries in Insights with natural language prompts to explore and query data with an intuitive, context-rich interface. For more information, see [Build queries in dbt Insights](./navigate-dbt-insights.md).
 
 * **dbt Copilot Analyst agent** [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles"): Ask questions to get intelligent data analysis with automated workflows, governed insights, and actionable recommendations. This is a conversational AI feature where you can ask natural language prompts and receive analysis in real-time.
 
-  Enable beta features under **Account settings** > **Personal profile** > **Experimental features** to use the Analyst agent. For steps on how to enable, see [Preview new dbt platform features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md).
+  Enable beta features under **Account settings** > **Personal profile** > **Experimental features** to use the Analyst agent. For steps on how to enable, see [Preview new dbt platform features](../dbt-versions/experimental-features.md).
 
   Some sample questions you can ask the agent:
 
@@ -174,7 +174,7 @@ Use dbt Copilot in Insights in two ways:
 
   The agent can loop through these steps multiple times if it hasn't reached a complete answer, allowing for complex, multi-step analysis.⁠
 
-  For more information, see [dbt Copilot in Insights](https://docs.getdbt.com/docs/dbt-ai/analyst-agent.md).
+  For more information, see [dbt Copilot in Insights](../dbt-ai/analyst-agent.md).
 
 [![dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-tabs.png?v=2 "dbt Copilot in Insights")](#)dbt Copilot in Insights
 

@@ -76,10 +76,10 @@ If a source has a `freshness:` block, dbt will attempt to calculate freshness fo
 
 Currently, calculating freshness from warehouse metadata tables is supported on the following adapters:
 
-* [Snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md)
-* [Redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md)
-* [BigQuery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md) (Supported in [`dbt-bigquery`](https://github.com/dbt-labs/dbt-bigquery) version 1.7.3 or higher)
-* [Databricks](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md) (Supported in the dbt Fusion engine)
+* [Snowflake](../resource-configs/snowflake-configs.md)
+* [Redshift](../resource-configs/redshift-configs.md)
+* [BigQuery](../resource-configs/bigquery-configs.md) (Supported in [`dbt-bigquery`](https://github.com/dbt-labs/dbt-bigquery) version 1.7.3 or higher)
+* [Databricks](../resource-configs/databricks-configs.md) (Supported in the dbt Fusion engine)
 
 <!-- -->
 
@@ -96,13 +96,13 @@ To exclude a source from freshness calculations, explicitly set `freshness: null
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 
-In state-aware orchestration, dbt uses the warehouse metadata by default to check if sources (or upstream models in the case of Mesh) are fresh. For more information on how freshness is used by state-aware orchestration, see [Advanced configurations](https://docs.getdbt.com/docs/deploy/state-aware-setup.md#advanced-configurations).
+In state-aware orchestration, dbt uses the warehouse metadata by default to check if sources (or upstream models in the case of Mesh) are fresh. For more information on how freshness is used by state-aware orchestration, see [Advanced configurations](../../docs/deploy/state-aware-setup.md#advanced-configurations).
 
-If you're using [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md), `loaded_at_field` and `loaded_at_query` are also used for source freshness detection (for example, to ensure late-arriving records are detected). Refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md) for more details.
+If you're using [dbt State](../../docs/deploy/dbt-state-about.md), `loaded_at_field` and `loaded_at_query` are also used for source freshness detection (for example, to ensure late-arriving records are detected). Refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md) for more details.
 
 ## loaded\_at\_field[​](#loaded_at_field "Direct link to loaded_at_field")
 

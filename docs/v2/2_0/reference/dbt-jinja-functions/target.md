@@ -2,14 +2,14 @@
 
 The `target` variable contains information about your connection to the warehouse.
 
-* **dbt Core:** These values are based on the target defined in your [profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md) file. Please note that for certain adapters, additional configuration steps may be required. Refer to the [set up page](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) for your data platform.
+* **dbt Core:** These values are based on the target defined in your [profiles.yml](../../docs/local/profiles.yml.md) file. Please note that for certain adapters, additional configuration steps may be required. Refer to the [set up page](../../docs/local/connect-data-platform/about-dbt-connections.md) for your data platform.
 
-* **dbt** To learn more about setting up your adapter in dbt, refer to [About data platform connections](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+* **dbt** To learn more about setting up your adapter in dbt, refer to [About data platform connections](../../docs/platform/connect-data-platform/about-connections.md).
 
   <!-- -->
 
-  * **[Orchestrator](https://docs.getdbt.com/docs/deploy/job-scheduler.md)**: `target.name` is defined per job as described in [Custom target names](https://docs.getdbt.com/docs/build/custom-target-names.md). For other attributes, values are defined by the deployment connection. To check these values, click **Deploy** and select **Environments**. Then, select the relevant deployment environment, and click **Settings**.
-  * **[Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md)**: These values are defined by your connection and credentials. To edit these values, click on your account name in the left side menu and select **Account settings**. Then, click **Credentials**. Select and edit a project to set up the credentials and target name.
+  * **[Orchestrator](../../docs/deploy/job-scheduler.md)**: `target.name` is defined per job as described in [Custom target names](../../docs/build/custom-target-names.md). For other attributes, values are defined by the deployment connection. To check these values, click **Deploy** and select **Environments**. Then, select the relevant deployment environment, and click **Settings**.
+  * **[Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md)**: These values are defined by your connection and credentials. To edit these values, click on your account name in the left side menu and select **Account settings**. Then, click **Credentials**. Select and edit a project to set up the credentials and target name.
 
 Some configurations are shared between all adapters, while others are adapter-specific. You can also use the [`--target` flag](#using-the---target-flag) to set the active target when running dbt commands.
 

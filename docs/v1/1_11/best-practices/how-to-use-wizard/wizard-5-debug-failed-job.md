@@ -27,7 +27,7 @@ test just to make it pass.
 
 ## Give Wizard access to the evidence[​](#give-wizard-access-to-the-evidence "Direct link to Give Wizard access to the evidence")
 
-Connect the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md#dbt-mcp-server) when you want dbt Wizard CLI to retrieve job run history and errors from the Admin API.
+Connect the [dbt MCP server](../../docs/dbt-ai/wizard-mcp.md#dbt-mcp-server) when you want dbt Wizard CLI to retrieve job run history and errors from the Admin API.
 
 When the Admin API tools aren't available, provide the following artifacts:
 
@@ -90,8 +90,8 @@ Ask dbt Wizard to produce an investigation summary with the run ID, failed step,
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Jobs](https://docs.getdbt.com/docs/deploy/jobs.md)
-* [Job commands](https://docs.getdbt.com/docs/deploy/job-commands.md)
-* [Use MCP servers with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md)
-* [Validating dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
-* [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md#debug-a-job-failure)
+* [Jobs](../../docs/deploy/jobs.md)
+* [Job commands](../../docs/deploy/job-commands.md)
+* [Use MCP servers with dbt Wizard CLI](../../docs/dbt-ai/wizard-mcp.md)
+* [Validating dbt changes with dbt Wizard](./wizard-3-validate-changes.md)
+* [Use cases and examples](../../docs/dbt-ai/wizard-use-cases.md#debug-a-job-failure)

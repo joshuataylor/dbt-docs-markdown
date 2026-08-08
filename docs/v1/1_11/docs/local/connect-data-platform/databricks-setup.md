@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./databricks-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:
   <!-- -->
@@ -33,7 +33,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-databricks<!-- -->
 
-For <!-- -->Databricks<!-- -->-specific configuration, please refer to [Databricks<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md)
+For <!-- -->Databricks<!-- -->-specific configuration, please refer to [Databricks<!-- --> configs.](../../../reference/resource-configs/databricks-configs.md)
 
 `dbt-databricks` is the recommended adapter for Databricks. It includes features not available in `dbt-spark`, such as:
 
@@ -44,7 +44,7 @@ For <!-- -->Databricks<!-- -->-specific configuration, please refer to [Databric
 
 ## Connecting to Databricks[​](#connecting-to-databricks "Direct link to Connecting to Databricks")
 
-To connect to a data platform with dbt Core, create the appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Databricks SQL Warehouse/cluster. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more info, refer to [Connection profiles](https://docs.getdbt.com/docs/local/profiles.yml.md) and [profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md).
+To connect to a data platform with dbt Core, create the appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Databricks SQL Warehouse/cluster. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more info, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
 
 `dbt-databricks` can connect to Databricks SQL Warehouses and all-purpose clusters. Databricks SQL Warehouses is the recommended way to get started with Databricks.
 
@@ -128,7 +128,7 @@ Search table...
 
 ## Authentication parameters[​](#authentication-parameters "Direct link to Authentication parameters")
 
-The `dbt-databricks` adapter supports both [token-based authentication](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md?tokenoauth=token#examples) and [OAuth client-based authentication](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md?tokenoauth=oauth#examples).
+The `dbt-databricks` adapter supports both [token-based authentication](./databricks-setup.md?tokenoauth=token#examples) and [OAuth client-based authentication](./databricks-setup.md?tokenoauth=oauth#examples).
 
 Refer to the following **required** parameters to configure your profile for each type of authentication:
 
@@ -157,7 +157,7 @@ The following profile fields are optional to set up. They help you configure how
 | `connect_retries`    | The number of times dbt should retry the connection to Databricks (default is `1`)                                                                                                                           | `3`                       |
 | `connect_timeout`    | How many seconds before the connection to Databricks should timeout (default behavior is no timeouts)                                                                                                        | `1000`                    |
 | `session_properties` | This sets the Databricks session properties used in the connection. Execute `SET -v` to see available options                                                                                                | `ansi_mode: true`         |
-| `query_tags`         | JSON string of key-value pairs to attach as [query tags](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#query-tags) for tracking and auditing. (Available in dbt-databricks 1.11+) | `'{"team": "analytics"}'` |
+| `query_tags`         | JSON string of key-value pairs to attach as [query tags](../../../reference/resource-configs/databricks-configs.md#query-tags) for tracking and auditing. (Available in dbt-databricks 1.11+) | `'{"team": "analytics"}'` |
 
 Search table...
 
@@ -173,8 +173,8 @@ Most dbt Core functionality is supported, but some features are only available o
 
 Delta-only features:
 
-1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#the-merge-strategy))
-2. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
+1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](../../../reference/resource-configs/databricks-configs.md#the-merge-strategy))
+2. [Snapshots](../../build/snapshots.md)
 
 ### Unity Catalog[​](#unity-catalog "Direct link to Unity Catalog")
 

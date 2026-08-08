@@ -2,9 +2,9 @@
 
 What makes the analytics world go ‘round? Queries and bad graphs. (Since we’re here to keep it brief, we won’t go into the latter here 😉)
 
-The first thing someone learns in SQL: how to build a query using [SELECT](https://docs.getdbt.com/sql-reference/select.md) and FROM statements. The SQL FROM statement is the fundamental building block of any query: it allows you to identify the database schema object (table/view) you want to select data from in a query.
+The first thing someone learns in SQL: how to build a query using [SELECT](./select.md) and FROM statements. The SQL FROM statement is the fundamental building block of any query: it allows you to identify the database schema object (table/view) you want to select data from in a query.
 
-In a dbt project, a SQL dbt model is technically a singular SELECT statement (often built leveraging CTEs or subqueries) using a [reference](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) to an upstream data model or table in a FROM statement.
+In a dbt project, a SQL dbt model is technically a singular SELECT statement (often built leveraging CTEs or subqueries) using a [reference](../reference/dbt-jinja-functions/ref.md) to an upstream data model or table in a FROM statement.
 
 ## How to use SQL FROM statements[​](#how-to-use-sql-from-statements "Direct link to How to use SQL FROM statements")
 
@@ -21,7 +21,7 @@ limit 3
 
 Woah woah woah! That is not the typical FROM statement you’re probably used to seeing!
 
-Most FROM statements in the non-dbt world, such as when you’re running ad-hoc queries directly in your data warehouse, will follow the `FROM database.schema.table_name` syntax. In dbt projects, analytics engineers leverage [the ref statement](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) to refer to other data models and sources to automatically build a dependency graph and avoid having to hard-code schema names. This flexibility is valuable as analytics engineers develop in their own development environments (schemas) without having to rename tables in their FROM statements.
+Most FROM statements in the non-dbt world, such as when you’re running ad-hoc queries directly in your data warehouse, will follow the `FROM database.schema.table_name` syntax. In dbt projects, analytics engineers leverage [the ref statement](../reference/dbt-jinja-functions/ref.md) to refer to other data models and sources to automatically build a dependency graph and avoid having to hard-code schema names. This flexibility is valuable as analytics engineers develop in their own development environments (schemas) without having to rename tables in their FROM statements.
 
 This basic query is selecting three columns from the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop/blob/main/models/orders.sql) `orders` table and returning three rows. If you execute this query in your data warehouse, it will return a result looking like this:
 

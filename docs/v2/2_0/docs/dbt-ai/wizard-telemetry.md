@@ -46,7 +46,7 @@ Tool telemetry records the tool type, tool name, whether the call failed, and ex
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md)
-* [Configure BYOK for dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
-* [dbt Wizard in the dbt platform Data & privacy](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
-* [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md)
+* [Install dbt Wizard CLI](./wizard-cli.md)
+* [Configure BYOK for dbt Wizard](./wizard-byok.md)
+* [dbt Wizard in the dbt platform Data & privacy](./wizard-platform-privacy-data.md)
+* [dbt AI FAQs](./dbt-ai-faqs.md)

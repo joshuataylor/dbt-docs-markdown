@@ -14,7 +14,7 @@ We've codified our best practices in Git, in our [Git guide](https://github.com/
 
 ### Use separate development and production environments[​](#use-separate-development-and-production-environments "Direct link to Use separate development and production environments")
 
-dbt makes it easy to maintain separate production and development environments through the use of targets within a profile. We recommend using a `dev` target when running dbt from your command line and only running against a `prod` target when running from a production deployment. You can read more [about managing environments here](https://docs.getdbt.com/docs/environments-in-dbt.md).
+dbt makes it easy to maintain separate production and development environments through the use of targets within a profile. We recommend using a `dev` target when running dbt from your command line and only running against a `prod` target when running from a production deployment. You can read more [about managing environments here](../docs/environments-in-dbt.md).
 
 ### Use a style guide for your project[​](#use-a-style-guide-for-your-project "Direct link to Use a style guide for your project")
 
@@ -22,13 +22,13 @@ SQL styles, field naming conventions, and other rules for your dbt project shoul
 
 Our style guide
 
-We've made our [style guide](https://docs.getdbt.com/best-practices/how-we-style/0-how-we-style-our-dbt-projects.md) public – these can act as a good starting point for your own style guide.
+We've made our [style guide](./how-we-style/0-how-we-style-our-dbt-projects.md) public – these can act as a good starting point for your own style guide.
 
 ## Best practices in dbt projects[​](#best-practices-in-dbt-projects "Direct link to Best practices in dbt projects")
 
 ### Use the ref function[​](#use-the-ref-function "Direct link to Use the ref function")
 
-The [ref](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) function is what makes dbt so powerful! Using the `ref` function allows dbt to infer dependencies, ensuring that models are built in the correct order. It also ensures that your current model selects from upstream tables and views in the same environment that you're working in. Always use the `ref` function when selecting from another model, rather than using the direct relation reference (e.g. `my_schema.my_table`).
+The [ref](../reference/dbt-jinja-functions/ref.md) function is what makes dbt so powerful! Using the `ref` function allows dbt to infer dependencies, ensuring that models are built in the correct order. It also ensures that your current model selects from upstream tables and views in the same environment that you're working in. Always use the `ref` function when selecting from another model, rather than using the direct relation reference (e.g. `my_schema.my_table`).
 
 ### Limit references to raw data[​](#limit-references-to-raw-data "Direct link to Limit references to raw data")
 
@@ -36,7 +36,7 @@ Your dbt project will depend on raw data stored in your database. Since this dat
 
 Using sources for raw data references
 
-We recommend defining your raw data as [sources](https://docs.getdbt.com/docs/build/sources.md), and selecting from the source rather than using the direct relation reference. Our dbt projects don't contain any direct relation references in any models.
+We recommend defining your raw data as [sources](../docs/build/sources.md), and selecting from the source rather than using the direct relation reference. Our dbt projects don't contain any direct relation references in any models.
 
 ### Rename and recast fields once[​](#rename-and-recast-fields-once "Direct link to Rename and recast fields once")
 
@@ -54,7 +54,7 @@ What happened to base models?
 
 Earlier versions of this documentation recommended implementing “base models” as the first layer of transformation, and gave advice on the SQL within these models. We realized that while the reasons behind this convention were valid, the specific advice around "base models" represented an opinion, so we moved it out of the official documentation.
 
-You can instead find our opinions on [how we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md).
+You can instead find our opinions on [how we structure our dbt projects](./how-we-structure/1-guide-overview.md).
 
 ### Break complex models up into smaller pieces[​](#break-complex-models-up-into-smaller-pieces "Direct link to Break complex models up into smaller pieces")
 
@@ -69,7 +69,7 @@ Complex models often include multiple Common Table Expressions (CTEs). In dbt, y
 Within your `models/` directory, you can have any number of nested subdirectories. We leverage directories heavily, since using a nested structure within directories makes it easier to:
 
 * Configure groups of models, by specifying configurations in your `dbt_project.yml` file.
-* Run subsections of your DAG, by using the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md).
+* Run subsections of your DAG, by using the [model selection syntax](../reference/node-selection/syntax.md).
 * Communicate modeling steps to collaborators
 * Create conventions around the allowed upstream dependencies of a model, for example, "models in the `marts` directory can only select from other models in the `marts` directory, or from models in the `staging` directory".
 
@@ -88,12 +88,12 @@ Our [style guide](https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md)
 
 When a user connects to a data warehouse via a SQL client, they often rely on the names of schemas, relations, and columns, to understand the data they are presented with. To improve the information architecture of a data warehouse, we:
 
-* Use [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md) to separate relations into logical groupings, or hide intermediate models in a separate schema. Generally, these custom schemas align with the directories we use to group our models, and are configured from the `dbt_project.yml` file.
+* Use [custom schemas](../docs/build/custom-schemas.md) to separate relations into logical groupings, or hide intermediate models in a separate schema. Generally, these custom schemas align with the directories we use to group our models, and are configured from the `dbt_project.yml` file.
 * Use prefixes in table names (for example, `stg_`, `fct_` and `dim_`) to indicate which relations should be queried by end users.
 
 ### Choose your materializations wisely[​](#choose-your-materializations-wisely "Direct link to Choose your materializations wisely")
 
-[materialization](https://docs.getdbt.com/docs/build/materializations.md) determine the way models are built through configuration. As a general rule:
+[materialization](../docs/build/materializations.md) determine the way models are built through configuration. As a general rule:
 
 * Views are faster to build, but slower to query compared to tables.
 * Incremental models provide the same query performance as tables, are faster to build compared to the table materialization, however they introduce complexity into a project.
@@ -110,11 +110,11 @@ We often:
 
 ### Use the model selection syntax when running locally[​](#use-the-model-selection-syntax-when-running-locally "Direct link to Use the model selection syntax when running locally")
 
-When developing, it often makes sense to only run the model you are actively working on and any downstream models. You can choose which models to run by using the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md).
+When developing, it often makes sense to only run the model you are actively working on and any downstream models. You can choose which models to run by using the [model selection syntax](../reference/node-selection/syntax.md).
 
 ### Run only modified models to test changes ("slim CI")[​](#run-only-modified-models-to-test-changes-slim-ci "Direct link to Run only modified models to test changes (\"slim CI\")")
 
-To merge code changes with confidence, you want to know that those changes will not cause breakages elsewhere in your project. For that reason, we recommend running models and tests in a sandboxed environment, separated from your production data, as an automatic check in your git workflow. (If you use GitHub and dbt, read about [how to set up CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md).
+To merge code changes with confidence, you want to know that those changes will not cause breakages elsewhere in your project. For that reason, we recommend running models and tests in a sandboxed environment, separated from your production data, as an automatic check in your git workflow. (If you use GitHub and dbt, read about [how to set up CI jobs](../docs/deploy/ci-jobs.md).
 
 At the same time, it costs time (and money) to run and test all the models in your project. This inefficiency feels especially painful if your PR only proposes changes to a handful of models.
 
@@ -182,13 +182,13 @@ dbt source freshness # must be run again to compare current to previous state
 dbt build --select source_status:fresher+ --state path/to/prod/artifacts
 ```
 
-To learn more, read the docs on [state](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection).
+To learn more, read the docs on [state](../reference/node-selection/syntax.md#about-node-selection).
 
 ## Pro-tips for dbt Projects[​](#pro-tips-for-dbt-projects "Direct link to Pro-tips for dbt Projects")
 
 ### Limit the data processed when in development[​](#limit-the-data-processed-when-in-development "Direct link to Limit the data processed when in development")
 
-In a development environment, faster run times allow you to iterate your code more quickly. We frequently speed up our runs by using a pattern that limits data based on the [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) name:
+In a development environment, faster run times allow you to iterate your code more quickly. We frequently speed up our runs by using a pattern that limits data based on the [target](../reference/dbt-jinja-functions/target.md) name:
 
 ```sql
 select
@@ -199,7 +199,7 @@ where created_at >= dateadd('day', -3, current_date)
 {% endif %}
 ```
 
-Another option is to use the [environment variable `DBT_CLOUD_INVOCATION_CONTEXT`](https://docs.getdbt.com/docs/build/environment-variables.md#dbt-platform-context). This environment variable provides metadata about the execution context of dbt. The possible values are `prod`, `dev`, `staging`, and `ci`.
+Another option is to use the [environment variable `DBT_CLOUD_INVOCATION_CONTEXT`](../docs/build/environment-variables.md#dbt-platform-context). This environment variable provides metadata about the execution context of dbt. The possible values are `prod`, `dev`, `staging`, and `ci`.
 
 **Example usage**:
 
@@ -209,7 +209,7 @@ Another option is to use the [environment variable `DBT_CLOUD_INVOCATION_CONTEXT
 
 ### Use grants to manage privileges on objects that dbt creates[​](#use-grants-to-manage-privileges-on-objects-that-dbt-creates "Direct link to Use grants to manage privileges on objects that dbt creates")
 
-Use `grants` in [resource configs](https://docs.getdbt.com/reference/resource-configs/grants.md) to ensure that permissions are applied to the objects created by dbt. By codifying these grant statements, you can version control and repeatably apply these permissions.
+Use `grants` in [resource configs](../reference/resource-configs/grants.md) to ensure that permissions are applied to the objects created by dbt. By codifying these grant statements, you can version control and repeatably apply these permissions.
 
 ### Separate source-centric and business-centric transformations[​](#separate-source-centric-and-business-centric-transformations "Direct link to Separate source-centric and business-centric transformations")
 

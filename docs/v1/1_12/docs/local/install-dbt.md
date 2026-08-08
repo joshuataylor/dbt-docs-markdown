@@ -4,7 +4,7 @@ Local developmentⓘ
 
 Want faster dbt?
 
-Upgrade to v2 to get Fusion — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md).
+Upgrade to v2 to get Fusion — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](../dbt-versions/core-upgrade/upgrading-to-v2.md).
 
 ## Install dbt Core v1.x CLI[​](#install-dbt-core-v1x-cli "Direct link to Install dbt Core v1.x CLI")
 
@@ -19,7 +19,7 @@ dbt Core v1.x is the original open-source dbt engine. Install it with `pip`, Doc
 
 Does my operating system have prerequisites?
 
-Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md).
+Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](./install-dbt.md).
 
 ### CentOS[​](#centos "Direct link to CentOS")
 
@@ -68,11 +68,11 @@ Windows requires Python and git to successfully install and run dbt Core.
 
 Install [Git for Windows](https://git-scm.com/downloads) and [Python version 3.9 or higher for Windows](https://www.python.org/downloads/windows/).
 
-For further questions, please see the [Python compatibility FAQ](https://docs.getdbt.com/faqs/Core/install-python-compatibility.md)
+For further questions, please see the [Python compatibility FAQ](../../faqs/Core/install-python-compatibility.md)
 
 What version of Python can I use?
 
-Use this table to match dbt Core versions with their compatible Python versions. New [dbt minor versions](https://docs.getdbt.com/docs/dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
+Use this table to match dbt Core versions with their compatible Python versions. New [dbt minor versions](../dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
 
 ## Python compatibility matrix[​](#python-compatibility-matrix "Direct link to Python compatibility matrix")
 
@@ -94,7 +94,7 @@ Search table...
 
 Adapter plugins and their dependencies are not always compatible with the latest version of Python.
 
-Note that this shouldn't be confused with [dbt Python models](https://docs.getdbt.com/docs/build/python-models.md#specific-data-platforms). If you're using a data platform that supports Snowpark, use the `python_version` config to run a Snowpark model with [Python versions](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup) 3.9, 3.10, or 3.11.
+Note that this shouldn't be confused with [dbt Python models](../build/python-models.md#specific-data-platforms). If you're using a data platform that supports Snowpark, use the `python_version` config to run a Snowpark model with [Python versions](https://docs.snowflake.com/en/developer-guide/snowpark/python/setup) 3.9, 3.10, or 3.11.
 
 ### Create a virtual environment[​](#create-a-virtual-environment "Direct link to Create a virtual environment")
 
@@ -119,7 +119,7 @@ alias env_dbt='source <PATH_TO_VIRTUAL_ENV_CONFIG>/bin/activate'
 
 ### Install your adapter[​](#install-your-adapter "Direct link to Install your adapter")
 
-Installing an adapter automatically installs `dbt-core`. Choose your adapter from [Supported Data Platforms](https://docs.getdbt.com/docs/supported-data-platforms.md):
+Installing an adapter automatically installs `dbt-core`. Choose your adapter from [Supported Data Platforms](../supported-data-platforms.md):
 
 ```shell
 python -m pip install dbt-ADAPTER_NAME
@@ -156,7 +156,7 @@ dbt Core images are distributed via [GitHub Packages](https://github.com/dbt-lab
 ### Prerequisites[​](#prerequisites-1 "Direct link to Prerequisites")
 
 * [Docker](https://docs.docker.com/) installed
-* Familiarity with [adapters](https://docs.getdbt.com/docs/supported-data-platforms.md) and [Core versioning](https://docs.getdbt.com/docs/dbt-versions.md)
+* Familiarity with [adapters](../supported-data-platforms.md) and [Core versioning](../dbt-versions.md)
 
 ### Pull an image[​](#pull-an-image "Direct link to Pull an image")
 
@@ -186,7 +186,7 @@ Note: bind-mount sources must be absolute paths. You may need to adjust `--netwo
 
 ### Build a custom image[​](#build-a-custom-image "Direct link to Build a custom image")
 
-If the pre-made images don't fit your use case, use the [`Dockerfile`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/Dockerfile) and [`README`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/README.md) to build images with multiple adapters, third-party adapters, or different system architectures. Custom image builds are community-supported — [open an issue](https://github.com/dbt-labs/dbt-core/issues) or [ask the community](https://docs.getdbt.com/community/resources/getting-help.md) if you run into trouble.
+If the pre-made images don't fit your use case, use the [`Dockerfile`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/Dockerfile) and [`README`](https://github.com/dbt-labs/dbt-core/blob/1.latest/docker/README.md) to build images with multiple adapters, third-party adapters, or different system architectures. Custom image builds are community-supported — [open an issue](https://github.com/dbt-labs/dbt-core/issues) or [ask the community](../../community/resources/getting-help.md) if you run into trouble.
 
  Source
 
@@ -224,7 +224,7 @@ Most command-line tools, including dbt, support a `--help` flag that shows avail
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* Configure [environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md) to manage credentials.
-* Configure your [profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md#location-of-profilesyml) file.
-* Configure your [data platform connection](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md).
-* Create your first [dbt project](https://docs.getdbt.com/docs/build/projects.md) using the [`dbt init`](https://docs.getdbt.com/reference/commands/init.md) command.
+* Configure [environment variables](./configure-environment-variables.md) to manage credentials.
+* Configure your [profiles.yml](./profiles.yml.md#location-of-profilesyml) file.
+* Configure your [data platform connection](./connect-data-platform/about-dbt-connections.md).
+* Create your first [dbt project](../build/projects.md) using the [`dbt init`](../../reference/commands/init.md) command.

@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-yellowbrick<!-- -->
 
-For <!-- -->Yellowbrick Data<!-- -->-specific configuration, please refer to [Yellowbrick Data<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/yellowbrick-configs.md)
+For <!-- -->Yellowbrick Data<!-- -->-specific configuration, please refer to [Yellowbrick Data<!-- --> configs.](../../../reference/resource-configs/yellowbrick-configs.md)
 
 ## Profile configuration[​](#profile-configuration "Direct link to Profile configuration")
 
@@ -65,7 +65,7 @@ company-name:
 
 ### Configuration notes[​](#configuration-notes "Direct link to Configuration notes")
 
-This adapter is based on the dbt-postgres adapter documented here [Postgres profile setup](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md)
+This adapter is based on the dbt-postgres adapter documented here [Postgres profile setup](./postgres-setup.md)
 
 #### role[​](#role "Direct link to role")
 

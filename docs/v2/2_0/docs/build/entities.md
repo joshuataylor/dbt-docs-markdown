@@ -21,7 +21,7 @@ You can also use entities as dimensions, which allows you to aggregate a metric 
 
 ## Entity types[​](#entity-types "Direct link to Entity types")
 
-MetricFlow's join logic depends on the entity `type` you use and determines how to join semantic models. Refer to [Joins](https://docs.getdbt.com/docs/build/join-logic.md) for more info on how to construct joins.
+MetricFlow's join logic depends on the entity `type` you use and determines how to join semantic models. Refer to [Joins](./join-logic.md) for more info on how to construct joins.
 
 ### Primary[​](#primary "Direct link to Primary")
 
@@ -83,7 +83,7 @@ In this example, the `customer_id` in the `orders` table is a foreign key that r
 
 ### Natural[​](#natural "Direct link to Natural")
 
-Natural keys are columns or combinations of columns in a table that uniquely identify a record based on real-world data. For instance, if you have a `sales_person_department` dimension table, the `sales_person_id` can serve as a natural key. You can only use natural keys for [SCD type II dimensions](https://docs.getdbt.com/docs/build/dimensions.md#scd-type-ii).
+Natural keys are columns or combinations of columns in a table that uniquely identify a record based on real-world data. For instance, if you have a `sales_person_department` dimension table, the `sales_person_id` can serve as a natural key. You can only use natural keys for [SCD type II dimensions](./dimensions.md#scd-type-ii).
 
 ## Entities configuration[​](#entities-configuration "Direct link to Entities configuration")
 
@@ -151,7 +151,7 @@ derived_semantics:
 
 ## Combine columns with a key[​](#combine-columns-with-a-key "Direct link to Combine columns with a key")
 
-If a table doesn't have any key (like a primary key), use *surrogate combination* to form a key that will help you identify a record by combining two columns. This applies to any [entity type](https://docs.getdbt.com/docs/build/entities.md#entity-types). For example, you can combine `date_key` and `brand_code` from the `raw_brand_target_weekly` table to form a *surrogate key*. The following example creates a surrogate key by joining `date_key` and `brand_code` using a pipe (`|`) as a separator.
+If a table doesn't have any key (like a primary key), use *surrogate combination* to form a key that will help you identify a record by combining two columns. This applies to any [entity type](./entities.md#entity-types). For example, you can combine `date_key` and `brand_code` from the `raw_brand_target_weekly` table to form a *surrogate key*. The following example creates a surrogate key by joining `date_key` and `brand_code` using a pipe (`|`) as a separator.
 
 <!-- -->
 

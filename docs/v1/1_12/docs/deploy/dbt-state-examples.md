@@ -2,7 +2,7 @@
 
 Login required | Usage-basedⓘ
 
-These examples use the Jaffle Shop project to show side-by-side comparisons of CLI output with and without dbt State enabled. To enable dbt State, follow the steps in [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+These examples use the Jaffle Shop project to show side-by-side comparisons of CLI output with and without dbt State enabled. To enable dbt State, follow the steps in [Setting up dbt State](./dbt-state-setup.md).
 
 The following examples use this [Jaffle Shop project](https://github.com/dbt-labs/jaffle-shop) DAG as a reference. You can refer to it to understand the model lineage for each scenario.
 
@@ -126,7 +126,7 @@ dbt run --target prod
 
 For each model, dbt State compares the current logic and upstream data against the previous run. If nothing has changed, dbt State skips the build or clones the result from another environment.
 
-With dbt State enabled, the six table models are reused — nothing changed, so there's nothing to rebuild. The six staging views still rebuild because they use `select *`. [Learn why views with `select *` are always rebuilt.](https://docs.getdbt.com/faqs/State/views-rebuilt.md)
+With dbt State enabled, the six table models are reused — nothing changed, so there's nothing to rebuild. The six staging views still rebuild because they use `select *`. [Learn why views with `select *` are always rebuilt.](../../faqs/State/views-rebuilt.md)
 
 * Without dbt State
 * With dbt State
@@ -218,7 +218,7 @@ Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=6 TOTAL=12
 dbt run --target dev --select "customers"
 ```
 
-Imagine you've made a small change to the `customers` model and run it in a fresh developer schema. Without dbt State, dbt Core fails because upstream relations are missing. With dbt State, dbt [defers](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md) to prod for upstream models and runs only the updated `customers` model.
+Imagine you've made a small change to the `customers` model and run it in a fresh developer schema. Without dbt State, dbt Core fails because upstream relations are missing. With dbt State, dbt [defers](./dbt-state-deferral.md) to prod for upstream models and runs only the updated `customers` model.
 
 * Without dbt State
 * With dbt State
@@ -324,10 +324,10 @@ Done. PASS=0 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=1 TOTAL=1
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [Non-interactive environment setup for dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-cicd.md)
-* [Configuring deferral in dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-deferral.md)
-* [Monitoring dbt State activity in dbt platform](https://docs.getdbt.com/docs/deploy/dbt-state-interface.md)
-* [Migrating from state-aware orchestration to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
+* [About dbt State](./dbt-state-about.md)
+* [Setting up dbt State](./dbt-state-setup.md)
+* [Non-interactive environment setup for dbt State](./dbt-state-cicd.md)
+* [Configuring deferral in dbt State](./dbt-state-deferral.md)
+* [Monitoring dbt State activity in dbt platform](./dbt-state-interface.md)
+* [Migrating from state-aware orchestration to dbt State](./dbt-state-migration.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)

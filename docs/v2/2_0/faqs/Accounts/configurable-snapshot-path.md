@@ -2,7 +2,7 @@
 
 By default, dbt expects your snapshot files to be located in the `snapshots` subdirectory of your project.
 
-To change this, update the [snapshot-paths](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md) configuration in your `dbt_project.yml` file, like so:
+To change this, update the [snapshot-paths](../../reference/project-configs/snapshot-paths.md) configuration in your `dbt_project.yml` file, like so:
 
 dbt\_project.yml
 

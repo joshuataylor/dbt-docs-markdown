@@ -2,7 +2,7 @@
 
 "Model access" is not "User access"
 
-**Model groups and access** and **user groups and access** mean two different things. "User groups and access" is a specific term used in dbt to manage permissions. Refer to [User access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md) for more info.
+**Model groups and access** and **user groups and access** mean two different things. "User groups and access" is a specific term used in dbt to manage permissions. Refer to [User access](../../platform/manage-access/about-user-access.md) for more info.
 
 The two concepts will be closely related, as we develop multi-project collaboration workflows this year:
 
@@ -11,8 +11,8 @@ The two concepts will be closely related, as we develop multi-project collaborat
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [`groups`](https://docs.getdbt.com/docs/build/groups.md)
-* [`access`](https://docs.getdbt.com/reference/resource-configs/access.md)
+* [`groups`](../../build/groups.md)
+* [`access`](../../../reference/resource-configs/access.md)
 
 ## Groups[​](#groups "Direct link to Groups")
 
@@ -23,7 +23,7 @@ Why define model `groups`? There are two reasons:
 * It turns implicit relationships into an explicit grouping, with a defined owner. By thinking about the interface boundaries *between* groups, you can have a cleaner (less entangled) DAG. In the future, those interface boundaries could be appropriate as the interfaces between separate projects.
 * It enables you to designate certain models as having "private" access—for use exclusively within that group. Other models will be restricted from referencing (taking a dependency on) those models. In the future, they won't be visible to other teams taking a dependency on your project—only "public" models will be.
 
-If you follow our [best practices for structuring a dbt project](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md), you're probably already using subdirectories to organize your dbt project. It's easy to apply a `group` label to an entire subdirectory at once:
+If you follow our [best practices for structuring a dbt project](../../../best-practices/how-we-structure/1-guide-overview.md), you're probably already using subdirectories to organize your dbt project. It's easy to apply a `group` label to an entire subdirectory at once:
 
 dbt\_project.yml
 
@@ -51,7 +51,7 @@ There are some considerations to keep in mind when using model governance featur
 
 ## Access modifiers[​](#access-modifiers "Direct link to Access modifiers")
 
-Some models are implementation details, meant for reference only within their group of related models. Other models should be accessible through the [ref](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) function across groups and projects. Models can set an [access modifier](https://en.wikipedia.org/wiki/Access_modifiers) to indicate their intended level of accessibility.
+Some models are implementation details, meant for reference only within their group of related models. Other models should be accessible through the [ref](../../../reference/dbt-jinja-functions/ref.md) function across groups and projects. Models can set an [access modifier](https://en.wikipedia.org/wiki/Access_modifiers) to indicate their intended level of accessibility.
 
 | Access    | Referenceable by                                                                         |
 | --------- | ---------------------------------------------------------------------------------------- |
@@ -153,7 +153,7 @@ These are different!
 
 Specifying `access: public` on a model does not trigger dbt to automagically grant `select` on that model to every user or role in your data platform when you materialize it. You have complete control over managing database permissions on every model/schema, as makes sense to you & your organization.
 
-Of course, dbt can facilitate this by means of [the `grants` config](https://docs.getdbt.com/reference/resource-configs/grants.md), and other flexible mechanisms. For example:
+Of course, dbt can facilitate this by means of [the `grants` config](../../../reference/resource-configs/grants.md), and other flexible mechanisms. For example:
 
 * Grant access to downstream queriers on public models
 * Restrict access to private models, by revoking default/future grants, or by landing them in a different schema
@@ -164,8 +164,8 @@ As we continue to develop multi-project collaboration, `access: public` will mea
 
 You can `ref` a model from another project in two ways:
 
-1. [Project dependency](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md): In dbt Enterprise, you can use project dependencies to `ref` a model. dbt uses a behind-the-scenes metadata service to resolve the reference, enabling efficient collaboration across teams and at scale.
-2. ["Package" dependency](https://docs.getdbt.com/docs/build/packages.md): Another way to `ref` a model from another project is to treat the other project as a package dependency. This requires installing the other project as a package, including its full source code, as well as its upstream dependencies.
+1. [Project dependency](./project-dependencies.md): In dbt Enterprise, you can use project dependencies to `ref` a model. dbt uses a behind-the-scenes metadata service to resolve the reference, enabling efficient collaboration across teams and at scale.
+2. ["Package" dependency](../../build/packages.md): Another way to `ref` a model from another project is to treat the other project as a package dependency. This requires installing the other project as a package, including its full source code, as well as its upstream dependencies.
 
 ### How do I restrict access to models defined in a package?[​](#how-do-i-restrict-access-to-models-defined-in-a-package "Direct link to How do I restrict access to models defined in a package?")
 

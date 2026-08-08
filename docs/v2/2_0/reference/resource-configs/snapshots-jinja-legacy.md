@@ -2,11 +2,11 @@
 
 Use legacy SQL-based snapshot configurations with Jinja blocks in any dbt version. dbt v1.9 introduced YAML-based configs for better readability and environment awareness.
 
-There are situations where you want to use the legacy syntax for [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) in any dbt version or release track. This page details how you can use the legacy SQL-based configurations if you need to.
+There are situations where you want to use the legacy syntax for [snapshots](../../docs/build/snapshots.md) in any dbt version or release track. This page details how you can use the legacy SQL-based configurations if you need to.
 
-In dbt v1.9, this syntax was replaced with a [YAML-based configuration](https://docs.getdbt.com/reference/snapshot-configs.md#configuring-snapshots) in [dbt's **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). The benefits of YAML-based configurations are that the snapshots are environment aware, meaning you don't have to specify `schema` or `database`, and the syntax is more concise.
+In dbt v1.9, this syntax was replaced with a [YAML-based configuration](../snapshot-configs.md#configuring-snapshots) in [dbt's **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md). The benefits of YAML-based configurations are that the snapshots are environment aware, meaning you don't have to specify `schema` or `database`, and the syntax is more concise.
 
-For new snapshots, we recommend using these latest YAML-based configs. If you'd like to move to the YAML-based configuration for existing snapshots, you can [migrate over](https://docs.getdbt.com/reference/snapshot-configs.md#snapshot-configuration-migration).
+For new snapshots, we recommend using these latest YAML-based configs. If you'd like to move to the YAML-based configuration for existing snapshots, you can [migrate over](../snapshot-configs.md#snapshot-configuration-migration).
 
 When would you want to use the SQL-based syntax and YAML-based syntax?
 
@@ -19,7 +19,7 @@ When would you want to use the SQL-based syntax and YAML-based syntax?
 * YAML-based syntax:
 
   * Defined in `whatever_name.yml` or in the `snapshots` or `models` directory you prefer. Available in dbt's **Latest** release track and dbt v1.9 and later.
-  * Ideal for new snapshots or existing snapshots that need to be [migrated](https://docs.getdbt.com/reference/snapshot-configs.md#snapshot-configuration-migration).
+  * Ideal for new snapshots or existing snapshots that need to be [migrated](../snapshot-configs.md#snapshot-configuration-migration).
   * Create transformations separate from the snapshot file by creating an ephemeral model and referencing it in the snapshot using the `relation` field.
 
 ## Snapshot configurations[​](#snapshot-configurations "Direct link to Snapshot configurations")
@@ -82,8 +82,8 @@ snapshots/snapshot.sql
 
 Snapshot "strategies" define how dbt knows if a row has changed. There are two strategies built-in to dbt that require the `strategy` parameter:
 
-* [Timestamp](https://docs.getdbt.com/reference/resource-configs/snapshots-jinja-legacy.md?strategy=timestamp#snapshot-strategies) — Uses an `updated_at` column to determine if a row has changed.
-* [Check](https://docs.getdbt.com/reference/resource-configs/snapshots-jinja-legacy.md?strategy=check#snapshot-strategies) — Compares a list of columns between their current and historical values to determine if a row has changed. Uses the `check_cols` parameter.
+* [Timestamp](./snapshots-jinja-legacy.md?strategy=timestamp#snapshot-strategies) — Uses an `updated_at` column to determine if a row has changed.
+* [Check](./snapshots-jinja-legacy.md?strategy=check#snapshot-strategies) — Compares a list of columns between their current and historical values to determine if a row has changed. Uses the `check_cols` parameter.
 
 - Timestamp
 - Check
@@ -183,13 +183,13 @@ The following table outlines the configurations available for snapshots:
 
 | Config                                                                                                     | Description                                                                                  | Required?                              | Example     |
 | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
-| [database](https://docs.getdbt.com/reference/resource-configs/database.md)                                 | Specify a custom database for the snapshot                                                   | No                                     | analytics   |
-| [schema](https://docs.getdbt.com/reference/resource-configs/schema.md)                                     | Specify a custom schema for the snapshot                                                     | No                                     | snapshots   |
-| [strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md)                                 | The snapshot strategy to use. One of `timestamp` or `check`                                  | Yes                                    | timestamp   |
-| [unique\_key](https://docs.getdbt.com/reference/resource-configs/unique_key.md)                            | A primary key column or expression for the record                                            | Yes                                    | id          |
-| [check\_cols](https://docs.getdbt.com/reference/resource-configs/check_cols.md)                            | If using the `check` strategy, then the columns to check                                     | Only if using the `check` strategy     | \["status"] |
-| [updated\_at](https://docs.getdbt.com/reference/resource-configs/updated_at.md)                            | If using the `timestamp` strategy, the timestamp column to compare                           | Only if using the `timestamp` strategy | updated\_at |
-| [invalidate\_hard\_deletes](https://docs.getdbt.com/reference/resource-configs/invalidate_hard_deletes.md) | Find hard deleted records in source, and set `dbt_valid_to` current time if no longer exists | No                                     | True        |
+| [database](./database.md)                                 | Specify a custom database for the snapshot                                                   | No                                     | analytics   |
+| [schema](./schema.md)                                     | Specify a custom schema for the snapshot                                                     | No                                     | snapshots   |
+| [strategy](./strategy.md)                                 | The snapshot strategy to use. One of `timestamp` or `check`                                  | Yes                                    | timestamp   |
+| [unique\_key](./unique_key.md)                            | A primary key column or expression for the record                                            | Yes                                    | id          |
+| [check\_cols](./check_cols.md)                            | If using the `check` strategy, then the columns to check                                     | Only if using the `check` strategy     | \["status"] |
+| [updated\_at](./updated_at.md)                            | If using the `timestamp` strategy, the timestamp column to compare                           | Only if using the `timestamp` strategy | updated\_at |
+| [invalidate\_hard\_deletes](./invalidate_hard_deletes.md) | Find hard deleted records in source, and set `dbt_valid_to` current time if no longer exists | No                                     | True        |
 
 Search table...
 
@@ -197,10 +197,10 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-* A number of other configurations are also supported (like, `tags` and `post-hook`), check out the full list [here](https://docs.getdbt.com/reference/snapshot-configs.md).
-* Snapshots can be configured from both your `dbt_project.yml` file and a `config` block, check out the [configuration docs](https://docs.getdbt.com/reference/snapshot-configs.md) for more information.
+* A number of other configurations are also supported (like, `tags` and `post-hook`), check out the full list [here](../snapshot-configs.md).
+* Snapshots can be configured from both your `dbt_project.yml` file and a `config` block, check out the [configuration docs](../snapshot-configs.md) for more information.
 * Note: BigQuery users can use `target_project` and `target_dataset` as aliases for `target_database` and `target_schema`, respectively.
-* Before v1.9, `target_schema` (required) and `target_database` (optional) set a fixed schema or database for snapshots, making it hard to separate dev and prod environments. In v1.9, `target_schema` became optional, allowing environment-aware snapshots. By default, snapshots now use `generate_schema_name` or `generate_database_name`, but developers can still specify a custom location using [schema](https://docs.getdbt.com/reference/resource-configs/schema.md) and [database](https://docs.getdbt.com/reference/resource-configs/database.md), consistent with other resource types.
+* Before v1.9, `target_schema` (required) and `target_database` (optional) set a fixed schema or database for snapshots, making it hard to separate dev and prod environments. In v1.9, `target_schema` became optional, allowing environment-aware snapshots. By default, snapshots now use `generate_schema_name` or `generate_database_name`, but developers can still specify a custom location using [schema](./schema.md) and [database](./database.md), consistent with other resource types.
 
 ## Add snapshot to a project[​](#add-snapshot-to-a-project "Direct link to Add snapshot to a project")
 
@@ -231,7 +231,7 @@ select * from {{ source('jaffle_shop', 'orders') }}
 
 4. Check whether the result set of your query includes a reliable timestamp column that indicates when a record was last updated. For our example, the `updated_at` column reliably indicates record changes, so we can use the `timestamp` strategy. If your query result set does not have a reliable timestamp, you'll need to instead use the `check` strategy — more details on this in the next step.
 
-5. Add configurations to your snapshot using a `config` block. You can also [configure your snapshot from your `dbt_project.yml` file](https://docs.getdbt.com/reference/snapshot-configs.md).
+5. Add configurations to your snapshot using a `config` block. You can also [configure your snapshot from your `dbt_project.yml` file](../snapshot-configs.md).
 
 snapshots/orders\_snapshot.sql
 
@@ -254,7 +254,7 @@ select * from {{ source('jaffle_shop', 'orders') }}
 {% endsnapshot %}
 ```
 
-6. Run the `dbt snapshot` [command](https://docs.getdbt.com/reference/commands/snapshot.md). For our example, a new table will be created at `analytics.snapshots.orders_snapshot`. You can change the `target_database` configuration, the `target_schema` configuration and the name of the snapshot (as defined in `{% snapshot .. %}`) will change how dbt names this table.
+6. Run the `dbt snapshot` [command](../commands/snapshot.md). For our example, a new table will be created at `analytics.snapshots.orders_snapshot`. You can change the `target_database` configuration, the `target_schema` configuration and the name of the snapshot (as defined in `{% snapshot .. %}`) will change how dbt names this table.
 
 ```dbt
 Running with dbt=1.8.0
@@ -271,7 +271,7 @@ Completed successfully
 Done. PASS=2 ERROR=0 SKIP=0 TOTAL=1
 ```
 
-1. Inspect the results by selecting from the table dbt created. After the first run, you should see the results of your query, plus the [snapshot meta fields](https://docs.getdbt.com/docs/build/snapshots.md#snapshot-meta-fields) as described earlier.
+1. Inspect the results by selecting from the table dbt created. After the first run, you should see the results of your query, plus the [snapshot meta fields](../../docs/build/snapshots.md#snapshot-meta-fields) as described earlier.
 
 2. Run the `dbt snapshot` command again, and inspect the results. If any records have been updated, the snapshot should reflect this.
 
@@ -378,7 +378,7 @@ snapshots/orders.sql
 
  Using the unique\_key parameter
 
-The `unique_key` is a column name or expression that is unique for the inputs of a snapshot. dbt uses [`unique_key`](https://docs.getdbt.com/reference/resource-configs/unique_key.md) to match records between a result set and an existing snapshot, so that changes can be captured correctly.
+The `unique_key` is a column name or expression that is unique for the inputs of a snapshot. dbt uses [`unique_key`](./unique_key.md) to match records between a result set and an existing snapshot, so that changes can be captured correctly.
 
 snapshots/orders.sql
 

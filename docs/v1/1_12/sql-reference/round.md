@@ -51,7 +51,7 @@ Google BigQuery, Amazon Redshift, Snowflake, and Databricks all support the abil
 
 ## ROUND function use cases[​](#round-function-use-cases "Direct link to ROUND function use cases")
 
-If you find yourself rounding numeric data, either in data models or ad-hoc analyses, you’re probably rounding to improve the readability and usability of your data using downstream [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) or [mart models](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md). Specifically, you’ll likely use the ROUND function to:
+If you find yourself rounding numeric data, either in data models or ad-hoc analyses, you’re probably rounding to improve the readability and usability of your data using downstream [intermediate](../best-practices/how-we-structure/3-intermediate.md) or [mart models](../best-practices/how-we-structure/4-marts.md). Specifically, you’ll likely use the ROUND function to:
 
 * Make numeric calculations using division or averages a little cleaner and easier to understand
 * Create concrete buckets of data for a cleaner distribution of values during ad-hoc analysis

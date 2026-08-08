@@ -58,7 +58,7 @@ models:
 
 #### 3. Use the `dbt_utils.unique_combination_of_columns` test[​](#3-use-the-dbt_utilsunique_combination_of_columns-test "Direct link to 3-use-the-dbt_utilsunique_combination_of_columns-test")
 
-This is especially useful for large datasets since it is more performant. Check out the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) for more information.
+This is especially useful for large datasets since it is more performant. Check out the docs on [packages](../../docs/build/packages.md) for more information.
 
 models/orders.yml
 

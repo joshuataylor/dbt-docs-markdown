@@ -86,7 +86,7 @@ snapshots:
 
 A SQL statement (or list of SQL statements) to be run before or after a model, seed, or snapshot is built.
 
-Pre- and post-hooks can also call macros that return SQL statements. If your macro depends on values available only at execution time, such as using model configurations or `ref()` calls to other resources as inputs, you will need to [wrap your macro call in an extra set of curly braces](https://docs.getdbt.com/best-practices/dont-nest-your-curlies.md#an-exception).
+Pre- and post-hooks can also call macros that return SQL statements. If your macro depends on values available only at execution time, such as using model configurations or `ref()` calls to other resources as inputs, you will need to [wrap your macro call in an extra set of curly braces](../../best-practices/dont-nest-your-curlies.md#an-exception).
 
 ### Why would I use hooks?[​](#why-would-i-use-hooks "Direct link to Why would I use hooks?")
 
@@ -149,7 +149,7 @@ See: [Apache Spark docs on `ANALYZE TABLE`](https://spark.apache.org/docs/latest
 
 ### Additional examples[​](#additional-examples "Direct link to Additional examples")
 
-We've compiled some more in-depth examples [here](https://docs.getdbt.com/docs/build/hooks-operations.md#additional-examples).
+We've compiled some more in-depth examples [here](../../docs/build/hooks-operations.md#additional-examples).
 
 ## Usage notes[​](#usage-notes "Direct link to Usage notes")
 

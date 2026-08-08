@@ -2,14 +2,14 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Using sources](https://docs.getdbt.com/docs/build/sources.md)
-* [Declaring resource properties](https://docs.getdbt.com/reference/configs-and-properties.md)
+* [Using sources](../docs/build/sources.md)
+* [Declaring resource properties](./configs-and-properties.md)
 
 ## Overview[​](#overview "Direct link to Overview")
 
 <!-- -->
 
-Source properties can be declared in any `properties.yml` file in your `models/` directory (as defined by the [`model-paths` config](https://docs.getdbt.com/reference/project-configs/model-paths.md)). Source properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
+Source properties can be declared in any `properties.yml` file in your `models/` directory (as defined by the [`model-paths` config](./project-configs/model-paths.md)). Source properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory:
 

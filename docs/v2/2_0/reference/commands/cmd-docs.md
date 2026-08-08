@@ -1,10 +1,10 @@
 # About dbt docs commands
 
-The dbt Fusion engine uses the `--write-catalog` flag instead of the `dbt docs generate` command for generating your [`catalog.json`](https://docs.getdbt.com/reference/artifacts/catalog-json.md) file and hydrating metadata. When you use `dbt build --write-catalog`, you're using a flag that performs better because it's built for the Fusion engine. To see the latest metadata in Catalog, run a job in dbt platform which uploads the metadata.
+The dbt Fusion engine uses the `--write-catalog` flag instead of the `dbt docs generate` command for generating your [`catalog.json`](../artifacts/catalog-json.md) file and hydrating metadata. When you use `dbt build --write-catalog`, you're using a flag that performs better because it's built for the Fusion engine. To see the latest metadata in Catalog, run a job in dbt platform which uploads the metadata.
 
 ## --write-catalog flag[​](#--write-catalog-flag "Direct link to --write-catalog flag")
 
-The `--write-catalog` flag generates the [`catalog.json`](https://docs.getdbt.com/reference/artifacts/catalog-json.md) artifact, which contains metadata about the tables and views produced by the models in your project. Fusion jobs running in dbt platform, dbt automatically runs `write-catalog`, `build`, and `run`, and hydrates your Catalog, so you don't need to manually include it. You can use this flag with the following commands:
+The `--write-catalog` flag generates the [`catalog.json`](../artifacts/catalog-json.md) artifact, which contains metadata about the tables and views produced by the models in your project. Fusion jobs running in dbt platform, dbt automatically runs `write-catalog`, `build`, and `run`, and hydrates your Catalog, so you don't need to manually include it. You can use this flag with the following commands:
 
 * `dbt build`
 * `dbt run`
@@ -33,11 +33,11 @@ dbt build --write-catalog
 
 ### What's different from docs generate[​](#whats-different-from-docs-generate "Direct link to What's different from docs generate")
 
-The `--write-catalog` flag focuses solely on metadata hydration, generating the `catalog.json` file that powers [Catalog](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) and metadata APIs. It does not generate the static documentation website files (`index.html`).
+The `--write-catalog` flag focuses solely on metadata hydration, generating the `catalog.json` file that powers [Catalog](../../docs/explore/build-and-view-your-docs.md) and metadata APIs. It does not generate the static documentation website files (`index.html`).
 
 ## dbt Docs v2 alpha[​](#dbt-docs-v2- "Direct link to dbt-docs-v2-")
 
-The dbt Fusion engine and dbt Core 2.0 deliver a new version of `dbt docs serve` that powers [dbt Docs v2](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2).
+The dbt Fusion engine and dbt Core 2.0 deliver a new version of `dbt docs serve` that powers [dbt Docs v2](../../docs/build/view-documentation.md#dbt-docs-v2).
 
 Instead of loading a static `manifest.json` in the browser, v2 builds a compact binary index of your project and serves it through a local HTTP server with a REST API. This makes the experience fast even for large projects, and makes metadata queryable by AI agents and external tooling.
 
@@ -53,7 +53,7 @@ dbt compile --write-index
 dbt build --write-index
 ```
 
-Add [`--static-analysis strict`](https://docs.getdbt.com/docs/build/about-static-analysis.md) to for column lineage and richer column metadata from your warehouse:
+Add [`--static-analysis strict`](../../docs/build/about-static-analysis.md) to for column lineage and richer column metadata from your warehouse:
 
 ```shell
 dbt build --write-index --static-analysis strict

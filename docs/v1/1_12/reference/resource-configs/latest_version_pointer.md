@@ -12,7 +12,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # latest\_version\_pointer
 
@@ -58,9 +58,9 @@ dbt platform on Fusion
 
 In Fusion, `latest_version_pointer` is enabled by default for all versioned models. If you have a versioned model with an explicit `alias` that matches the model's base name, you may see a `dbt1005` collision error. See [Naming collisions](#naming-collisions) below for how to resolve it.
 
-The `latest_version_pointer` config creates a view named after a [versioned model's](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). The view is created after the model with `is_latest_version = true` materializes successfully and is skipped for all other versions.
+The `latest_version_pointer` config creates a view named after a [versioned model's](../../docs/mesh/govern/model-versions.md) base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). The view is created after the model with `is_latest_version = true` materializes successfully and is skipped for all other versions.
 
-You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`:
+You can also enable this feature globally for all versioned models by setting the [`latest_version_pointer_enabled_by_default`](../global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`:
 
 dbt\_project.yml
 
@@ -87,7 +87,7 @@ Search table...
 By default, the pointer view uses the model's base name (for example, `dim_customers`). You can customize this in two ways:
 
 * **Per model**: Set `latest_version_pointer.alias` in the model config.
-* **Globally**: Override the [`generate_latest_version_pointer_alias`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project. This macro follows the same pattern as [`generate_alias_name`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_alias_name).
+* **Globally**: Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project. This macro follows the same pattern as [`generate_alias_name`](../../docs/build/custom-aliases.md#generate_alias_name).
 
 ## Naming collisions[​](#naming-collisions "Direct link to Naming collisions")
 
@@ -149,7 +149,7 @@ This approach is immediately backward-compatible for pre-existing `alias` config
 
 #### Override the `generate_latest_version_pointer_alias` macro[​](#override-the-generate_latest_version_pointer_alias-macro "Direct link to override-the-generate_latest_version_pointer_alias-macro")
 
-Override the [`generate_latest_version_pointer_alias`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
+Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
 
 macros/generate\_latest\_version\_pointer\_alias.sql
 
@@ -161,8 +161,8 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md)
-* [Pointing to the latest version](https://docs.getdbt.com/docs/mesh/govern/model-versions.md#pointing-to-the-latest-version)
-* [`latest_version_pointer_enabled_by_default` flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md)
-* [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md)
-* [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md)
+* [Model versions](../../docs/mesh/govern/model-versions.md)
+* [Pointing to the latest version](../../docs/mesh/govern/model-versions.md#pointing-to-the-latest-version)
+* [`latest_version_pointer_enabled_by_default` flag](../global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md)
+* [`versions`](../resource-properties/versions.md)
+* [`latest_version`](../resource-properties/latest_version.md)

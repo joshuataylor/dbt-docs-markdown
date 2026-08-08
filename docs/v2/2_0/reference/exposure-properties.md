@@ -2,8 +2,8 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Using exposures](https://docs.getdbt.com/docs/build/exposures.md)
-* [Declaring resource properties](https://docs.getdbt.com/reference/configs-and-properties.md)
+* [Using exposures](../docs/build/exposures.md)
+* [Declaring resource properties](./configs-and-properties.md)
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -11,7 +11,7 @@
 
 Exposures are defined in `properties.yml` files nested under an `exposures:` key. You may define `exposures` in YAML files that also define `sources` or `models`. Exposure properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
 
-Note that while most exposure properties must be configured directly in these YAML files, you can set the [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) config at the [project level](#project-level-configs) in the`dbt_project.yml` file.
+Note that while most exposure properties must be configured directly in these YAML files, you can set the [`enabled`](./resource-configs/enabled.md) config at the [project level](#project-level-configs) in the`dbt_project.yml` file.
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory.
 
@@ -99,7 +99,7 @@ exposures:
 
 #### Project-level configs[​](#project-level-configs "Direct link to Project-level configs")
 
-You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](https://docs.getdbt.com/reference/resource-configs/enabled.md) is supported:
+You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](./resource-configs/enabled.md) is supported:
 
 dbt\_project.yml
 

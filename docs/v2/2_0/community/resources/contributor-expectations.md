@@ -59,7 +59,7 @@ An issue could be a bug you've identified while using the product or reading the
 
 #### Best practices for issues[​](#best-practices-for-issues "Direct link to Best practices for issues")
 
-* Issues are **not** for support / troubleshooting / debugging help. Please see [dbt support](https://docs.getdbt.com/docs/dbt-support.md) for more details and suggestions on how to get help.
+* Issues are **not** for support / troubleshooting / debugging help. Please see [dbt support](../../docs/dbt-support.md) for more details and suggestions on how to get help.
 * Always search existing issues first, to see if someone else had the same idea / found the same bug you did.
 * Many dbt repositories offer templates for creating issues, such as reporting a bug or requesting a new feature. If available, please select the relevant template and fill it out to the best of your ability. This information helps us (and others) understand your issue.
 
@@ -124,7 +124,7 @@ Automation labels new issues for triage — currently with both the faceted `sta
 **Automation that can help us:** Many repositories have a template for pull request descriptions, which will include a checklist that must be completed before the PR can be merged. You don't have to do all of these things to get an initial PR, but they will delay our review process. Those include:
 
 * **Tests, tests, tests.** When you open a PR, some tests and code checks will run. (For security reasons, some may need to be approved by a maintainer.) We will not merge any PRs with failing tests. If you're not sure why a test is failing, please say so, and we'll do our best to get to the bottom of it together.
-* **Contributor License Agreement** (CLA): This ensures that we can merge your code, without worrying about unexpected implications for the copyright or license of open source or source-available dbt software. For more details, read: ["Contributor License Agreements"](https://docs.getdbt.com/community/resources/contributor-license-agreements.md)
+* **Contributor License Agreement** (CLA): This ensures that we can merge your code, without worrying about unexpected implications for the copyright or license of open source or source-available dbt software. For more details, read: ["Contributor License Agreements"](./contributor-license-agreements.md)
 * **Changelog:** In projects that include a number of changes in each release, we need a reliable way to signal what's been included. The mechanism for this will vary by repository, so keep an eye out for notes about how to update the changelog.
 * **Semver label:** Some repositories require every pull request to carry exactly one `semver:patch` (bug fixes and other safe changes) or `semver:minor` (new, non-breaking features) label; `semver:major` isn't accepted. Where this applies, CI enforces it.
 
@@ -132,11 +132,11 @@ Automation labels new issues for triage — currently with both the faceted `sta
 
 #### dbt Core v1.x
 
-Both bug fixes and backwards-compatible new features will be included in the [next minor release of dbt Core](https://docs.getdbt.com/docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning). Fixes for regressions and net-new bugs that were present in the minor version's original release will be backported to versions with [active support](https://docs.getdbt.com/docs/dbt-versions.md). Other bug fixes may be backported when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
+Both bug fixes and backwards-compatible new features will be included in the [next minor release of dbt Core](../../docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning). Fixes for regressions and net-new bugs that were present in the minor version's original release will be backported to versions with [active support](../../docs/dbt-versions.md). Other bug fixes may be backported when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
 
 #### dbt Core 2.0[​](#-1 "Direct link to -1")
 
-[dbt Core 2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
+[dbt Core 2.0](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
 
 #### dbt Fusion engine[​](#-2 "Direct link to -2")
 

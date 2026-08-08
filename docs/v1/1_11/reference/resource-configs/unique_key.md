@@ -5,7 +5,7 @@ unique\_key identifies records for incremental models or snapshots, ensuring cha
 * Models
 * Snapshots
 
-Configure the `unique_key` in the `config` block of your [incremental model's](https://docs.getdbt.com/docs/build/incremental-models.md) SQL file, in your `models/properties.yml` file, or in your `dbt_project.yml` file.
+Configure the `unique_key` in the `config` block of your [incremental model's](../../docs/build/incremental-models.md) SQL file, in your `models/properties.yml` file, or in your `dbt_project.yml` file.
 
 models/my\_incremental\_model.sql
 
@@ -40,7 +40,7 @@ models:
       +unique_key: id
 ```
 
-For [snapshots](https://docs.getdbt.com/docs/build/snapshots.md), configure the `unique_key` in the your `snapshot/filename.yml` file or in your `dbt_project.yml` file.
+For [snapshots](../../docs/build/snapshots.md), configure the `unique_key` in the your `snapshot/filename.yml` file or in your `dbt_project.yml` file.
 
 snapshots/\<filename>.yml
 
@@ -67,7 +67,7 @@ A column name or expression that uniquely identifies each record in the inputs o
 * In an incremental model, dbt replaces the old row (like a merge key or upsert).
 * In a snapshot, dbt keeps history, storing multiple rows for that same `unique_key` as it evolves over time.
 
-In dbt **Latest** release track and from dbt v1.9, [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) are defined and configured in YAML files within your `snapshots/` directory. You can specify one or multiple `unique_key` values within your snapshot YAML file's `config` key.
+In dbt **Latest** release track and from dbt v1.9, [snapshots](../../docs/build/snapshots.md) are defined and configured in YAML files within your `snapshots/` directory. You can specify one or multiple `unique_key` values within your snapshot YAML file's `config` key.
 
 caution
 
@@ -138,7 +138,7 @@ snapshots:
 
 Configure multiple unique keys for an incremental model as a string representing a single column or a list of single-quoted column names that can be used together, for example, `['col1', 'col2', …]`.
 
-Columns must not contain null values, otherwise the incremental model will fail to match rows and generate duplicate rows. Refer to [Defining a unique key](https://docs.getdbt.com/docs/build/incremental-models.md#defining-a-unique-key-optional) for more information.
+Columns must not contain null values, otherwise the incremental model will fail to match rows and generate duplicate rows. Refer to [Defining a unique key](../../docs/build/incremental-models.md#defining-a-unique-key-optional) for more information.
 
 models/my\_incremental\_model.sql
 

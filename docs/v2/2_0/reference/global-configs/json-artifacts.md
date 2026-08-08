@@ -2,7 +2,7 @@
 
 ### Write JSON artifacts[​](#write-json-artifacts "Direct link to Write JSON artifacts")
 
-The `WRITE_JSON` config determines whether dbt writes [JSON artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) (for example, `manifest.json`, `run_results.json`) to the `target/` directory. JSON serialization can be slow, and turning this flag off *might* make invocations of dbt faster. Alternatively, you can disable this config to perform a dbt operation and avoid overwriting artifacts from a previous run step.
+The `WRITE_JSON` config determines whether dbt writes [JSON artifacts](../artifacts/dbt-artifacts.md) (for example, `manifest.json`, `run_results.json`) to the `target/` directory. JSON serialization can be slow, and turning this flag off *might* make invocations of dbt faster. Alternatively, you can disable this config to perform a dbt operation and avoid overwriting artifacts from a previous run step.
 
 Usage
 

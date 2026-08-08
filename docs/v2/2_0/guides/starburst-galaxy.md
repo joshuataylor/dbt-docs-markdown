@@ -1,6 +1,6 @@
 # Quickstart for dbt and Starburst Galaxy
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt platform
 
@@ -34,7 +34,7 @@ You can also watch the [Build Better Data Pipelines with dbt and Starburst](http
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* You have a [multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) deployment in [dbt](https://www.getdbt.com/signup/). For more information, refer to [Tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
+* You have a [multi-tenant](../docs/platform/about-platform/access-regions-ip-addresses.md) deployment in [dbt](https://www.getdbt.com/signup/). For more information, refer to [Tenancy](../docs/platform/about-platform/tenancy.md).
 
 * You have a [Starburst Galaxy account](https://www.starburst.io/platform/starburst-galaxy/). If you don't, you can start a free trial. Refer to the [getting started guide](https://docs.starburst.io/starburst-galaxy/get-started.html) in the Starburst Galaxy docs for further setup details.
 
@@ -50,9 +50,9 @@ You can also watch the [Build Better Data Pipelines with dbt and Starburst](http
 ### Related content[​](#related-content "Direct link to Related content")
 
 * [dbt Learn courses](https://learn.getdbt.com)
-* [dbt CI job](https://docs.getdbt.com/docs/deploy/continuous-integration.md)
-* [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md)
-* [Source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md)
+* [dbt CI job](../docs/deploy/continuous-integration.md)
+* [Job notifications](../docs/deploy/job-notifications.md)
+* [Source freshness](../docs/deploy/source-freshness.md)
 * [SQL overview for Starburst Galaxy](https://docs.starburst.io/starburst-galaxy/sql/index.html)
 
 ## Load data to an Amazon S3 bucket[​](#load-data-to-s3 "Direct link to Load data to an Amazon S3 bucket")
@@ -233,7 +233,7 @@ To query the Jaffle Shop data with Starburst Galaxy, you need to create tables u
 
 4. Find your cluster in the **View clusters** table and click **Connection info**. Choose **dbt** from the **Select client** dropdown. Keep the **Connection information** modal open. You will use details from that modal in dbt.
 
-5. In another browser tab, log in to [dbt](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+5. In another browser tab, log in to [dbt](../docs/platform/about-platform/access-regions-ip-addresses.md).
 
 6. Create a new project in dbt. Click on your account name in the left side menu, select **Account settings**, and click **+ New Project**.
 
@@ -259,9 +259,9 @@ To query the Jaffle Shop data with Starburst Galaxy, you need to create tables u
 
 ## Set up a dbt managed repository[​](#set-up-a-dbt-managed-repository "Direct link to Set up a dbt managed repository")
 
-When you develop in dbt, you can leverage [Git](https://docs.getdbt.com/docs/platform/git/git-version-control.md) to version control your code.
+When you develop in dbt, you can leverage [Git](../docs/platform/git/git-version-control.md) to version control your code.
 
-To connect to a repository, you can either set up a dbt-hosted [managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md) or directly connect to a [supported git provider](https://docs.getdbt.com/docs/platform/git/connect-github.md). Managed repositories are a great way to trial dbt without needing to create a new repository. In the long run, it's better to connect to a supported git provider to use features like automation and [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+To connect to a repository, you can either set up a dbt-hosted [managed repository](../docs/platform/git/managed-repository.md) or directly connect to a [supported git provider](../docs/platform/git/connect-github.md). Managed repositories are a great way to trial dbt without needing to create a new repository. In the long run, it's better to connect to a supported git provider to use features like automation and [continuous integration](../docs/deploy/continuous-integration.md).
 
 To set up a managed repository:
 
@@ -387,7 +387,7 @@ By default, dbt builds models in your target schema. To change your target schem
 * If you're developing in **dbt**, these are set for each user when you first use a development environment.
 * If you're developing with **dbt Core**, this is the `schema:` parameter in your `profiles.yml` file.
 
-If you wish to split your models across multiple schemas, check out the docs on [using custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md).
+If you wish to split your models across multiple schemas, check out the docs on [using custom schemas](../docs/build/custom-schemas.md).
 
 Note: on BigQuery, `dataset` is used interchangeably with `schema`.
 
@@ -399,7 +399,7 @@ If I rerun dbt, will there be any downtime as models are rebuilt?
 
 Nope! The SQL that dbt generates behind the scenes ensures that any relations are replaced atomically (i.e. your business users won't experience any downtime).
 
-The implementation of this varies on each warehouse, check out the [logs](https://docs.getdbt.com/faqs/Runs/checking-logs.md) to see the SQL dbt is executing.
+The implementation of this varies on each warehouse, check out the [logs](../faqs/Runs/checking-logs.md) to see the SQL dbt is executing.
 
 What happens if the SQL in my query is bad or I get a database error?
 
@@ -426,7 +426,7 @@ Database Error in model customers (models/customers.sql)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
-Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](https://docs.getdbt.com/faqs/Runs/checking-logs.md) to debug any errors.
+Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
 
 ## Change the way your model is materialized[​](#change-the-way-your-model-is-materialized "Direct link to Change the way your model is materialized")
 
@@ -494,27 +494,27 @@ By default, everything gets created as a view. You can override that at the dire
 
 What materializations are available in dbt?
 
-dbt ships with five built-in materializations: `view`, `table`, `incremental`, `ephemeral`, and `materialized_view`. Check out the documentation on [materializations](https://docs.getdbt.com/docs/build/materializations.md) for more information on each of these options.
+dbt ships with five built-in materializations: `view`, `table`, `incremental`, `ephemeral`, and `materialized_view`. Check out the documentation on [materializations](../docs/build/materializations.md) for more information on each of these options.
 
-You can also create your own [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md). This is an advanced feature of dbt.
+You can also create your own [custom materializations](./create-new-materializations.md). This is an advanced feature of dbt.
 
 Which materialization should I use for my model?
 
 Start out with views, and then change models to tables when required for performance reasons (i.e. downstream queries have slowed).
 
-Check out the [docs on materializations](https://docs.getdbt.com/docs/build/materializations.md) for advice on when to use each materialization.
+Check out the [docs on materializations](../docs/build/materializations.md) for advice on when to use each materialization.
 
 What model configurations exist?
 
 You can also configure:
 
-* [tags](https://docs.getdbt.com/reference/resource-configs/tags.md) to support easy categorization and graph selection
-* [custom schemas](https://docs.getdbt.com/reference/resource-properties/schema.md) to split your models across multiple schemas
-* [aliases](https://docs.getdbt.com/reference/resource-configs/alias.md) if your view/table name should differ from the filename
-* Snippets of SQL to run at the start or end of a model, known as [hooks](https://docs.getdbt.com/docs/build/hooks-operations.md)
+* [tags](../reference/resource-configs/tags.md) to support easy categorization and graph selection
+* [custom schemas](../reference/resource-properties/schema.md) to split your models across multiple schemas
+* [aliases](../reference/resource-configs/alias.md) if your view/table name should differ from the filename
+* Snippets of SQL to run at the start or end of a model, known as [hooks](../docs/build/hooks-operations.md)
 * Warehouse-specific configurations for performance (e.g. `sort` and `dist` keys on Redshift, `partitions` on BigQuery)
 
-Check out the docs on [model configurations](https://docs.getdbt.com/reference/model-configs.md) to learn more.
+Check out the docs on [model configurations](../reference/model-configs.md) to learn more.
 
 ## Delete the example models[​](#delete-the-example-models "Direct link to Delete the example models")
 
@@ -566,7 +566,7 @@ Check out this [article](https://discourse.getdbt.com/t/faq-i-got-an-unused-mode
 
 As a best practice in SQL, you should separate logic that cleans up your data from logic that transforms your data. You have already started doing this in the existing query by using common table expressions (CTEs).
 
-Now you can experiment by separating the logic out into separate models and using the [ref](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
+Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
 [![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
 
@@ -662,25 +662,25 @@ To run one model, use the `--select` flag (or `-s` flag), followed by the name o
 $ dbt run --select customers
 ```
 
-Check out the [model selection syntax documentation](https://docs.getdbt.com/reference/node-selection/syntax.md) for more operators and examples.
+Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for more operators and examples.
 
 Do ref-able resource names need to be unique?
 
 Within one project: yes! To build dependencies between resources (such as models, seeds, and snapshots), you need to use the `ref` function, and pass in the resource name as an argument. dbt uses that resource name to uniquely resolve the `ref` to a specific resource. As a result, these resource names need to be unique, *even if they are in distinct folders*.
 
-A resource in one project can have the same name as a resource in another project (installed as a dependency). dbt uses the project name to uniquely identify each resource. We call this "namespacing." If you `ref` a resource with a duplicated name, it will resolve to the resource within the same namespace (package or project), or raise an error because of an ambiguous reference. Use [two-argument `ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#ref-project-specific-models) to disambiguate references by specifying the namespace.
+A resource in one project can have the same name as a resource in another project (installed as a dependency). dbt uses the project name to uniquely identify each resource. We call this "namespacing." If you `ref` a resource with a duplicated name, it will resolve to the resource within the same namespace (package or project), or raise an error because of an ambiguous reference. Use [two-argument `ref`](../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) to disambiguate references by specifying the namespace.
 
-Those resource will still need to land in distinct locations in the data warehouse. Read the docs on [custom aliases](https://docs.getdbt.com/docs/build/custom-aliases.md) and [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md) for details on how to achieve this.
+Those resource will still need to land in distinct locations in the data warehouse. Read the docs on [custom aliases](../docs/build/custom-aliases.md) and [custom schemas](../docs/build/custom-schemas.md) for details on how to achieve this.
 
 As I create more models, how should I keep my project organized? What should I name my models?
 
 There's no one best way to structure a project! Every organization is unique.
 
-If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md).
+If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
 ## Add tests to your models[​](#add-tests-to-your-models "Direct link to Add tests to your models")
 
-Adding [data tests](https://docs.getdbt.com/docs/build/data-tests.md) to a project helps validate that your models are working correctly.
+Adding [data tests](../docs/build/data-tests.md) to a project helps validate that your models are working correctly.
 
 To add data tests to your project:
 
@@ -743,9 +743,9 @@ Out of the box, dbt ships with the following data tests:
 * `accepted_values`
 * `relationships` (for example, referential integrity)
 
-You can also write your own [custom generic tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests).
+You can also write your own [custom generic tests](../docs/build/data-tests.md#generic-data-tests).
 
-Some additional generic tests have been open-sourced in the [dbt-utils package](https://github.com/dbt-labs/dbt-utils#generic-tests). Check out the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) to learn how to make these tests available in your project.
+Some additional generic tests have been open-sourced in the [dbt-utils package](https://github.com/dbt-labs/dbt-utils#generic-tests). Check out the docs on [packages](../docs/build/packages.md) to learn how to make these tests available in your project.
 
 How do I test one model at a time?
 
@@ -755,7 +755,7 @@ Running tests on one model looks very similar to running a model: use the `--sel
 dbt test --select customers
 ```
 
-Check out the [model selection syntax documentation](https://docs.getdbt.com/reference/node-selection/syntax.md) for full syntax, and [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) in particular.
+Check out the [model selection syntax documentation](../reference/node-selection/syntax.md) for full syntax, and [test selection examples](../reference/node-selection/test-selection-examples.md) in particular.
 
 One of my tests failed, how can I debug it?
 
@@ -779,7 +779,7 @@ No! You can name this file whatever you want (including `whatever_you_want.yml`)
 * The file is in your `models/` directory¹
 * The file has `.yml` extension
 
-Check out the [docs](https://docs.getdbt.com/reference/configs-and-properties.md) for more information.
+Check out the [docs](../reference/configs-and-properties.md) for more information.
 
 ¹If you're declaring properties for seeds, snapshots, or macros, you can also place this file in the related directory — `seeds/`, `snapshots/` and `macros/` respectively.
 
@@ -789,7 +789,7 @@ Once upon a time, the structure of these `.yml` files was very different (s/o to
 
 From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
-Also starting in v1.5, both the [`config-version: 2`](https://docs.getdbt.com/reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
+Also starting in v1.5, both the [`config-version: 2`](../reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 
 Resource YAML files do not currently require this config. We only support `version: 2` if it's specified. Although we do not expect to update YAML files to `version: 3` soon, having this config will make it easier for us to introduce new structures in the future
 
@@ -799,7 +799,7 @@ We recommend that every model has a data test on a primary key, that is, a colum
 
 We also recommend that you test any assumptions on your source data. For example, if you believe that your payments can only be one of three payment methods, you should test that assumption regularly — a new payment method may introduce logic errors in your SQL.
 
-In advanced dbt projects, we recommend using [sources](https://docs.getdbt.com/docs/build/sources.md) and running these source data-integrity tests against the sources rather than models.
+In advanced dbt projects, we recommend using [sources](../docs/build/sources.md) and running these source data-integrity tests against the sources rather than models.
 
 When should I run my data tests?
 
@@ -807,7 +807,7 @@ You should run your data tests whenever you are writing new code (to ensure you 
 
 ## Document your models[​](#document-your-models "Direct link to Document your models")
 
-Adding [documentation](https://docs.getdbt.com/docs/build/documentation.md) to your project allows you to describe your models in rich detail, and share that information with your team. Here, we're going to add some basic documentation to our project.
+Adding [documentation](../docs/build/documentation.md) to your project allows you to describe your models in rich detail, and share that information with your team. Here, we're going to add some basic documentation to our project.
 
 Update your `models/schema.yml` file to include some descriptions, such as those below.
 
@@ -862,7 +862,7 @@ models:
 * View in Catalog
 * View in Studio IDE
 
-[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
+[Catalog](../docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
 
 1. Run one of the following commands:
 
@@ -926,15 +926,15 @@ models:
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
 
-3. Use a [docs block](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
+3. Use a [docs block](../docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
 
 How do I access documentation in dbt Catalog?
 
-If you're using dbt to deploy your project and have a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/), you can use Catalog to view your project's [resources](https://docs.getdbt.com/docs/build/projects.md) (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
+If you're using dbt to deploy your project and have a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/), you can use Catalog to view your project's [resources](../docs/build/projects.md) (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. You can have up to 5 read-only users access the documentation for your project.
 
-dbt developer plan and dbt Core users can use [dbt Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
 ## Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
 
@@ -981,7 +981,7 @@ As the `jaffle_shop` business gains more customers, and those customers create m
 5. Under **Commands**, add this command as part of your job if you don't see it:
    <!-- -->
    * `dbt build`
-6. Select the **Generate docs on run** option to automatically [generate updated project docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) each time your job runs.
+6. Select the **Generate docs on run** option to automatically [generate updated project docs](../docs/explore/build-and-view-your-docs.md) each time your job runs.
 7. For this exercise, do *not* set a schedule for your project to run — while your organization's project should run regularly, there's no need to run this example project on a schedule. Scheduling a job is sometimes referred to as *deploying a project*.
 8. Click **Save**, then click **Run now** to run your job.
 9. Click the run and watch its progress under **Run summary**.

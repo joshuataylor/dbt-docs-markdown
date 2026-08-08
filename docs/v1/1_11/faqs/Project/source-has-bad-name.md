@@ -2,7 +2,7 @@
 
 By default, dbt will use the `name:` parameters to construct the source reference.
 
-If these names are a little less-than-perfect, use the [schema](https://docs.getdbt.com/reference/resource-properties/schema.md) and [identifier](https://docs.getdbt.com/reference/resource-properties/identifier.md) properties to define the names as per the database, and use your `name:` property for the name that makes sense!
+If these names are a little less-than-perfect, use the [schema](../../reference/resource-properties/schema.md) and [identifier](../../reference/resource-properties/identifier.md) properties to define the names as per the database, and use your `name:` property for the name that makes sense!
 
 models/\<filename>.yml
 

@@ -16,7 +16,7 @@ To set up BigQuery OAuth in the dbt platform, a BigQuery admin must:
 
 1. [Locate the redirect URI value](#locate-the-redirect-uri-value) in the dbt platform.
 2. [Create a BigQuery OAuth 2.0 client ID and secret](#creating-a-bigquery-oauth-20-client-id-and-secret) in BigQuery.
-3. [Configure the connection](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#configure-the-connection-in-dbt) in the dbt platform.
+3. [Configure the connection](./set-up-bigquery-oauth.md#configure-the-connection-in-dbt) in the dbt platform.
 
 To use BigQuery in the Studio IDE, all developers must:
 
@@ -248,7 +248,7 @@ To get started, create a new connection in the dbt platform:
 
    <!-- -->
 
-   * [BigQuery OAuth](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md#bigquery-oauth) (recommended).
+   * [BigQuery OAuth](../connect-data-platform/connect-bigquery.md#bigquery-oauth) (recommended).
      <!-- -->
      * Set this up in the same connection as the one you're using for WIF under **`OAuth2.0 settings`**
    * Service JSON.

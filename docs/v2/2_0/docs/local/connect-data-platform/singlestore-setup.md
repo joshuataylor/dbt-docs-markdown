@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-singlestore<!-- -->
 
-For <!-- -->SingleStore<!-- -->-specific configuration, please refer to [SingleStore<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/singlestore-configs.md)
+For <!-- -->SingleStore<!-- -->-specific configuration, please refer to [SingleStore<!-- --> configs.](../../../reference/resource-configs/singlestore-configs.md)
 
 ### Set up a SingleStore Target[​](#set-up-a-singlestore-target "Direct link to Set up a SingleStore Target")
 

@@ -6,7 +6,7 @@ Selector methods return all resources that share a common property, using the sy
 
 tip
 
-You can combine multiple selector methods in one `--select` command by separating them with commas (`,`) without whitespace (for example, `dbt run --select "marts.finance,tag:nightly"`). This only selects resources that satisfy *all* arguments. In this example, the command runs models that are in the `marts/finance` subdirectory and tagged `nightly`. For more information, see [Set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md).
+You can combine multiple selector methods in one `--select` command by separating them with commas (`,`) without whitespace (for example, `dbt run --select "marts.finance,tag:nightly"`). This only selects resources that satisfy *all* arguments. In this example, the command runs models that are in the `marts/finance` subdirectory and tagged `nightly`. For more information, see [Set operators](./set-operators.md).
 
 Many of the methods below support Unix-style wildcards:
 
@@ -32,7 +32,7 @@ dbt list --select "package:*_source"
 
 ### access[​](#access "Direct link to access")
 
-The `access` method selects models based on their [access](https://docs.getdbt.com/reference/resource-configs/access.md) property.
+The `access` method selects models based on their [access](../resource-configs/access.md) property.
 
 ```bash
 dbt list --select "access:public"      # list all public models
@@ -42,7 +42,7 @@ dbt list --select "access:protected"       # list all protected models
 
 ### config[​](#config "Direct link to config")
 
-The `config` method is used to select models that match a specified [node config](https://docs.getdbt.com/reference/configs-and-properties.md).
+The `config` method is used to select models that match a specified [node config](../configs-and-properties.md).
 
 ```bash
 dbt run --select "config.materialized:incremental"    # run all models that are materialized incrementally
@@ -78,7 +78,7 @@ dbt ls -s config.transient:true
 
 ### exposure[​](#exposure "Direct link to exposure")
 
-The `exposure` method is used to select parent resources of a specified [exposure](https://docs.getdbt.com/docs/build/exposures.md). Use in conjunction with the `+` operator.
+The `exposure` method is used to select parent resources of a specified [exposure](../../docs/build/exposures.md). Use in conjunction with the `+` operator.
 
 ```bash
 dbt run --select "+exposure:weekly_kpis"                # run all models that feed into the weekly_kpis exposure
@@ -109,7 +109,7 @@ dbt build --select "my_function+"
 
 ### fqn[​](#fqn "Direct link to fqn")
 
-The `fqn` method is used to select nodes based off their "fully qualified names" (FQN) within the dbt graph. The default output of [`dbt list`](https://docs.getdbt.com/reference/commands/list.md) is a listing of FQN. The default FQN format is composed of the project name, subdirectories within the path, and the file name (without extension) separated by periods.
+The `fqn` method is used to select nodes based off their "fully qualified names" (FQN) within the dbt graph. The default output of [`dbt list`](../commands/list.md) is a listing of FQN. The default FQN format is composed of the project name, subdirectories within the path, and the file name (without extension) separated by periods.
 
 ```bash
 dbt run --select "fqn:some_model"
@@ -121,7 +121,7 @@ dbt run --select "fqn:your_project.some_path.some_model"
 
 ### group[​](#group "Direct link to group")
 
-The `group` method is used to select models defined within a [group](https://docs.getdbt.com/reference/resource-configs/group.md).
+The `group` method is used to select models defined within a [group](../resource-configs/group.md).
 
 ```bash
 dbt run --select "group:finance" # run all models that belong to the finance group.
@@ -129,7 +129,7 @@ dbt run --select "group:finance" # run all models that belong to the finance gro
 
 ### metric[​](#metric "Direct link to metric")
 
-The `metric` method is used to select parent resources of a specified [metric](https://docs.getdbt.com/docs/build/build-metrics-intro.md). Use in conjunction with the `+` operator.
+The `metric` method is used to select parent resources of a specified [metric](../../docs/build/build-metrics-intro.md). Use in conjunction with the `+` operator.
 
 ```bash
 dbt build --select "+metric:weekly_active_users"       # build all resources upstream of weekly_active_users metric
@@ -175,7 +175,7 @@ dbt build --select "functions/my_function.sql"
 
 <!-- -->
 
-Use the `resource_type` method to select nodes of a particular type (`model`, `test`, `exposure`, `function`, and so on). This is similar to the `--resource-type` flag used by the `dbt build`, `dbt test`, `dbt clone`, and `dbt list` [commands](https://docs.getdbt.com/reference/dbt-commands.md#available-commands).
+Use the `resource_type` method to select nodes of a particular type (`model`, `test`, `exposure`, `function`, and so on). This is similar to the `--resource-type` flag used by the `dbt build`, `dbt test`, `dbt clone`, and `dbt list` [commands](../dbt-commands.md#available-commands).
 
 ```bash
 dbt build --select "resource_type:exposure"    # build all resources upstream of exposures
@@ -186,7 +186,7 @@ dbt list --select "resource_type:source"       # list all sources in your projec
 
 ### result[​](#result "Direct link to result")
 
-The `result` method is related to the [`state` method](https://docs.getdbt.com/reference/node-selection/methods.md#state) and can be used to select resources based on their result status from a prior run. Note that one of the dbt commands \[`run`, `test`, `build`, `seed`] must have been performed in order to create the result on which a result selector operates.
+The `result` method is related to the [`state` method](./methods.md#state) and can be used to select resources based on their result status from a prior run. Note that one of the dbt commands \[`run`, `test`, `build`, `seed`] must have been performed in order to create the result on which a result selector operates.
 
 You can use `result` selectors in conjunction with the `+` operator.
 
@@ -222,7 +222,7 @@ dbt seed --select "result:error" --state path/to/artifacts
 
 ### saved\_query[​](#saved_query "Direct link to saved_query")
 
-The `saved_query` method selects [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md).
+The `saved_query` method selects [saved queries](../../docs/build/saved-queries.md).
 
 ```bash
 dbt list --select "saved_query:*"                    # list all saved queries 
@@ -231,7 +231,7 @@ dbt list --select "+saved_query:orders_saved_query"  # list your saved query nam
 
 ### selector[​](#selector "Direct link to selector")
 
-The `selector` method selects the nodes defined by a named [YAML selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) in `selectors.yml`. Use it in `--select` or `--exclude` strings so you can compose a named selector with other [methods](https://docs.getdbt.com/reference/node-selection/methods.md), [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md), and [set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md).
+The `selector` method selects the nodes defined by a named [YAML selector](./yaml-selectors.md) in `selectors.yml`. Use it in `--select` or `--exclude` strings so you can compose a named selector with other [methods](./methods.md), [graph operators](./graph-operators.md), and [set operators](./set-operators.md).
 
 ```bash
 dbt run --select "selector:my_selector"          # same node set as `dbt run --selector my_selector`
@@ -244,13 +244,13 @@ dbt run --select "selector:staging" --exclude "selector:exclude_tests"
 
 When you use the legacy `--selector` flag together with `--select` or `--exclude`, dbt only uses `--selector` for node selection and ignores `--select` and `--exclude`. Starting in dbt Core v1.12, dbt raises `SelectExcludeIgnoredWithSelectorWarning` when `--selector` is combined with `--select` or `--exclude`. If you want to combine a selector with these flags, use the `selector:` method instead.
 
-When you run an "unqualified" command (without `--select` or `--exclude`), dbt applies the [default selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#default) if you have defined one in `selectors.yml`. When you use `--select` or `--exclude`, dbt ignores the default selector. To include a selector in a `--select` or `--exclude` string, you must explicitly reference it using the `selector:` method.
+When you run an "unqualified" command (without `--select` or `--exclude`), dbt applies the [default selector](./yaml-selectors.md#default) if you have defined one in `selectors.yml`. When you use `--select` or `--exclude`, dbt ignores the default selector. To include a selector in a `--select` or `--exclude` string, you must explicitly reference it using the `selector:` method.
 
-If selector definitions reference each other in a cycle, dbt raises the `DbtRecursionError` at runtime. For more information, refer to [Selector inheritance](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#selector-inheritance).
+If selector definitions reference each other in a cycle, dbt raises the `DbtRecursionError` at runtime. For more information, refer to [Selector inheritance](./yaml-selectors.md#selector-inheritance).
 
 ### semantic\_model[​](#semantic_model "Direct link to semantic_model")
 
-The `semantic_model` method selects [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+The `semantic_model` method selects [semantic models](../../docs/build/semantic-models.md).
 
 ```bash
 dbt list --select "semantic_model:*"        # list all semantic models 
@@ -259,18 +259,18 @@ dbt list --select "+semantic_model:orders"  # list your semantic model named "or
 
 ### source[​](#source "Direct link to source")
 
-The `source` method is used to select models that select from a specified [source](https://docs.getdbt.com/docs/build/sources.md#using-sources). Use in conjunction with the `+` operator.
+The `source` method is used to select models that select from a specified [source](../../docs/build/sources.md#using-sources). Use in conjunction with the `+` operator.
 
 ```bash
 dbt run --select "source:snowplow+"    # run all models that select from Snowplow sources
 dbt run --select "source:snowplow.events+"    # run all models downstream of the events table in the Snowplow source
 ```
 
-Refer to [source FAQs](https://docs.getdbt.com/docs/build/sources.md#faqs) for more info.
+Refer to [source FAQs](../../docs/build/sources.md#faqs) for more info.
 
 ### source\_status[​](#source_status "Direct link to source_status")
 
-Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](https://docs.getdbt.com/reference/artifacts/sources-json.md) page.
+Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](../artifacts/sources-json.md) page.
 
 The following dbt commands produce `sources.json` artifacts whose results can be referenced in subsequent dbt invocations:
 
@@ -288,9 +288,9 @@ dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 
 ### state[​](#state "Direct link to state")
 
-**N.B.** [State-based selection](https://docs.getdbt.com/reference/node-selection/state-selection.md) is a powerful, complex feature. Read about [known caveats and limitations](https://docs.getdbt.com/reference/node-selection/state-comparison-caveats.md) to state comparison.
+**N.B.** [State-based selection](./state-selection.md) is a powerful, complex feature. Read about [known caveats and limitations](./state-comparison-caveats.md) to state comparison.
 
-The `state` method is used to select nodes by comparing them against a previous version of the same project, which is represented by a [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md). The file path of the comparison manifest *must* be specified via the `--state` flag or `DBT_ENGINE_STATE` environment variable.
+The `state` method is used to select nodes by comparing them against a previous version of the same project, which is represented by a [manifest](../artifacts/manifest-json.md). The file path of the comparison manifest *must* be specified via the `--state` flag or `DBT_ENGINE_STATE` environment variable.
 
 `state:new`: There is no node with the same `unique_id` in the comparison manifest
 
@@ -309,7 +309,7 @@ Because state comparison is complex, and everyone's project is different, dbt su
 * `state:modified.relation`: Changes to `database`/`schema`/`alias` (the database representation of this node), irrespective of `target` values or `generate_x_name` macros
 * `state:modified.persisted_descriptions`: Changes to relation- or column-level `description`, *if and only if* `persist_docs` is enabled at each level
 * `state:modified.macros`: Changes to upstream macros (whether called directly or indirectly by another macro)
-* `state:modified.contract`: Changes to a model's [contract](https://docs.getdbt.com/reference/resource-configs/contract.md), which currently include the `name` and `data_type` of `columns`. Removing or changing the type of an existing column is considered a breaking change, and will raise an error.
+* `state:modified.contract`: Changes to a model's [contract](../resource-configs/contract.md), which currently include the `name` and `data_type` of `columns`. Removing or changing the type of an existing column is considered a breaking change, and will raise an error.
 
 Remember that `state:modified` includes *all* of the criteria above, as well as some extra resource-specific criteria, such as modifying a source's `freshness` or `quoting` rules or an exposure's `maturity` property. (View the source code for the full set of checks used when comparing [sources](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L660-L681), [exposures](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L768-L783), and [executable nodes](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L319-L330).)
 
@@ -324,9 +324,9 @@ These selectors can help you shorten run times by excluding unchanged nodes. Cur
 
 `state:modified` identifies any new nodes added, changes to existing nodes, and any changes made to:
 
-* [access](https://docs.getdbt.com/reference/resource-configs/access.md) permissions
-* [`deprecation_date`](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md)
-* [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md)
+* [access](../resource-configs/access.md) permissions
+* [`deprecation_date`](../resource-properties/deprecation_date.md)
+* [`latest_version`](../resource-properties/latest_version.md)
 
 If a node changes its group, downstream references may break, potentially causing build failures.
 
@@ -378,7 +378,7 @@ To prevent the `manifest.json` from being overwritten before dbt reads it for ch
 
 ### tag[​](#tag "Direct link to tag")
 
-The `tag:` method is used to select models that match a specified [tag](https://docs.getdbt.com/reference/resource-configs/tags.md).
+The `tag:` method is used to select models that match a specified [tag](../resource-configs/tags.md).
 
 ```bash
 dbt run --select "tag:nightly"    # run all models with the `nightly` tag
@@ -386,7 +386,7 @@ dbt run --select "tag:nightly"    # run all models with the `nightly` tag
 
 ### test\_name[​](#test_name "Direct link to test_name")
 
-The `test_name` method is used to select tests based on the name of the generic test that defines it. For more information about how generic tests are defined, read about [data tests](https://docs.getdbt.com/docs/build/data-tests.md).
+The `test_name` method is used to select tests based on the name of the generic test that defines it. For more information about how generic tests are defined, read about [data tests](../../docs/build/data-tests.md).
 
 ```bash
 dbt test --select "test_name:unique"            # run all instances of the `unique` test
@@ -398,14 +398,14 @@ dbt test --select "test_name:range_min_max"     # run all instances of a custom 
 
 The `test_type` method is used to select tests based on their type:
 
-* [Unit tests](https://docs.getdbt.com/docs/build/unit-tests.md)
+* [Unit tests](../../docs/build/unit-tests.md)
 
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md):
+* [Data tests](../../docs/build/data-tests.md):
 
   <!-- -->
 
-  * [Singular](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests)
-  * [Generic](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests)
+  * [Singular](../../docs/build/data-tests.md#singular-data-tests)
+  * [Generic](../../docs/build/data-tests.md#generic-data-tests)
 
 ```bash
 dbt test --select "test_type:unit"           # run all unit tests
@@ -416,7 +416,7 @@ dbt test --select "test_type:singular"       # run all singular data tests
 
 ### unit\_test[​](#unit_test "Direct link to unit_test")
 
-The `unit_test` method selects [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md).
+The `unit_test` method selects [unit tests](../../docs/build/unit-tests.md).
 
 ```bash
 dbt list --select "unit_test:*"                        # list all unit tests 
@@ -425,7 +425,7 @@ dbt list --select "+unit_test:orders_with_zero_items"  # list your unit test nam
 
 ### version[​](#version "Direct link to version")
 
-The `version` method selects [versioned models](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) based on their [version identifier](https://docs.getdbt.com/reference/resource-properties/versions.md) and [latest version](https://docs.getdbt.com/reference/resource-properties/latest_version.md).
+The `version` method selects [versioned models](../../docs/mesh/govern/model-versions.md) based on their [version identifier](../resource-properties/versions.md) and [latest version](../resource-properties/latest_version.md).
 
 ```bash
 dbt list --select "version:latest"      # only 'latest' versions

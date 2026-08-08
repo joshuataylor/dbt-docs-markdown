@@ -41,7 +41,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->ibm-dbt-db2<!-- -->
 
-For <!-- -->IBM Db2<!-- -->-specific configuration, please refer to [IBM Db2<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/ibm-db2-config.md)
+For <!-- -->IBM Db2<!-- -->-specific configuration, please refer to [IBM Db2<!-- --> configs.](../../../reference/resource-configs/ibm-db2-config.md)
 
 ## Connecting to IBM Db2[​](#connecting-to-ibm-db2 "Direct link to Connecting to IBM Db2")
 

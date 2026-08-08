@@ -16,7 +16,7 @@ snapshots:
 
 ## Description[​](#description "Direct link to Description")
 
-The name of a snapshot, which is used when selecting from a snapshot using the [`ref` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md)
+The name of a snapshot, which is used when selecting from a snapshot using the [`ref` function](../dbt-jinja-functions/ref.md)
 
 This name must not conflict with the name of any other "refable" resource (models, seeds, other snapshots) defined in this project or package.
 

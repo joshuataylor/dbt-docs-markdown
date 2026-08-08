@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-The [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) is a tool for developers to effortlessly build, test, run, and version-control their dbt projects, and enhance data governance — all from the convenience of your browser. Use the Studio IDE to compile dbt code into SQL and run it against your database directly — no command line required!
+The [Studio IDE](./develop-in-studio.md) is a tool for developers to effortlessly build, test, run, and version-control their dbt projects, and enhance data governance — all from the convenience of your browser. Use the Studio IDE to compile dbt code into SQL and run it against your database directly — no command line required!
 
 This page offers comprehensive definitions and terminology of user interface elements, allowing you to navigate the Studio IDE landscape with ease.
 
@@ -45,7 +45,7 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
 [![Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status](/img/docs/dbt-platform/platform-ide/ide-command-bar.png?v=2 "Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status")](#)Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status
 
-5. **Command bar:** The Command bar, located in the lower left of the Studio IDE, is used to invoke [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md). When a command is invoked, the associated logs are shown in the Invocation History Drawer.
+5. **Command bar:** The Command bar, located in the lower left of the Studio IDE, is used to invoke [dbt commands](../../../reference/dbt-commands.md). When a command is invoked, the associated logs are shown in the Invocation History Drawer.
 
 6. **Defer menu:** The **Defer menu** allows developers to configure the deferral environment:
 
@@ -55,9 +55,9 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
    [![Set the \`defer\` environment.](/img/docs/dbt-platform/platform-ide/defer-menu.png?v=2 "Set the `defer` environment.")](#)Set the \`defer\` environment.
 
-Refer to [Using defer in dbt](https://docs.getdbt.com/docs/platform/about-defer.md#defer-in-the-dbt-ide) for more info.
+Refer to [Using defer in dbt](../about-defer.md#defer-in-the-dbt-ide) for more info.
 
-7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](https://docs.getdbt.com/docs/about-dbt-lsp.md) status if you're on Fusion or the engine server status if you're on dbt Core. It includes shortcuts to environment settings and user credentials.
+7. **Status:** The Studio IDE Status button, located on the lower right of the Studio IDE, displays the current connection statuses to both the warehouse and the dbt [language server (LSP)](../../about-dbt-lsp.md) status if you're on Fusion or the engine server status if you're on dbt Core. It includes shortcuts to environment settings and user credentials.
 
    [![View the connection statuses for your account.](/img/docs/dbt-platform/platform-ide/server-status.png?v=2 "View the connection statuses for your account.")](#)View the connection statuses for your account.
 
@@ -76,8 +76,8 @@ Refer to [Using defer in dbt](https://docs.getdbt.com/docs/platform/about-defer.
      * **View status details:** View more detailed information about your connection status.
      * **Restart Studio:** You will lose any unsaved information.
      * **Reinstall dependencies:** Overwrites project dependencies with a fresh installation.
-     * **Clean dbt project:** Runs the [`dbt clean` command](https://docs.getdbt.com/reference/commands/clean.md) for your project.
-     * **Autofix deprecation warnings:** Runs the dbt [autofix tool](https://docs.getdbt.com/docs/platform/studio-ide/autofix-deprecations.md). Helps prepare for Fusion upgrade.
+     * **Clean dbt project:** Runs the [`dbt clean` command](../../../reference/commands/clean.md) for your project.
+     * **Autofix deprecation warnings:** Runs the dbt [autofix tool](./autofix-deprecations.md). Helps prepare for Fusion upgrade.
 
      [![IDE menu with additional information and actions.](/img/docs/dbt-platform/platform-ide/ide-menu.png?v=2 "IDE menu with additional information and actions.")](#)IDE menu with additional information and actions.
 
@@ -130,19 +130,19 @@ The Studio IDE features some delightful tools and layouts to make it easier for 
 
 1. **File editor —** The file editor is where you edit code. Tabs break out the region for each opened file, and unsaved files are marked with a blue dot icon in the tab view. You can edit, format, or lint files and execute dbt commands in your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
-   * Use intuitive [keyboard shortcuts](https://docs.getdbt.com/docs/platform/studio-ide/keyboard-shortcuts.md) to make development easier for you and your team.
+   * Use intuitive [keyboard shortcuts](./keyboard-shortcuts.md) to make development easier for you and your team.
 
 2. **Save button —** The editor has a **Save** button that saves editable files. Pressing the button or using the Command-S or Control-S shortcut saves the file contents. You don't need to save to preview code results in the Console section, but it's necessary before changes appear in a dbt invocation. The file editor tab shows a blue icon for unsaved changes.
 
 3. **Version Control —** This menu contains all git-related elements, including the Git actions button. The button updates relevant actions based on your editor's state, such as prompting to pull remote changes, commit and sync when reverted commit changes are present, creating a merge/pull request when appropriate, or pruning branches deleted from the remote repository.
 
    * The dropdown menu on the Git actions button allows users to revert changes, refresh Git state, create merge/pull requests, prune branches, and change branches.
-   * You can also [resolve merge conflicts](https://docs.getdbt.com/docs/platform/git/merge-conflicts.md) and for more info on git, refer to [Version control basics](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide).
+   * You can also [resolve merge conflicts](../git/merge-conflicts.md) and for more info on git, refer to [Version control basics](../git/version-control-basics.md#the-git-button-in-the-cloud-ide).
    * **Version Control Options menu —** The **Changes** section, under the Git actions button, lists all file changes since the last commit. You can click on a change to open the Git Diff View to see the inline changes. You can also right-click any file and use the file-specific options in the Version Control Options menu.
 
 [![Right-click edited files to access Version Control Options menu](/img/docs/dbt-platform/platform-ide/version-control-options-menu.png?v=2 "Right-click edited files to access Version Control Options menu")](#)Right-click edited files to access Version Control Options menu
 
-* Use the **Prune branches** option to remove local branches that have already been deleted from the remote repository. Selecting this triggers a [pop-up modal](#prune-branches-modal), where you can confirm the deletion of the specific local branches, keeping your branch management tidy. Note that this won't delete the branch you're currently on. Pruning branches isn't available for [managed repositories](https://docs.getdbt.com/docs/platform/git/managed-repository.md) because they don't have a typical remote setup, which prevents remote branch deletion.
+* Use the **Prune branches** option to remove local branches that have already been deleted from the remote repository. Selecting this triggers a [pop-up modal](#prune-branches-modal), where you can confirm the deletion of the specific local branches, keeping your branch management tidy. Note that this won't delete the branch you're currently on. Pruning branches isn't available for [managed repositories](../git/managed-repository.md) because they don't have a typical remote setup, which prevents remote branch deletion.
 
 ## Additional editing features[​](#additional-editing-features "Direct link to Additional editing features")
 
@@ -190,13 +190,13 @@ Starting from dbt v1.6 or higher, when you save changes to a model, you can comp
 
 3. **Build button —** The build button allows users to quickly access dbt commands related to the active model in the file editor. The available commands include dbt build, dbt test, and dbt run, with options to include only the current resource, the resource and its upstream dependencies, the resource, and its downstream dependencies, or the resource with all dependencies. This menu is available for all executable nodes.
 
-4. **Lint button** — The **Lint** button runs the [linter](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md) on the active file in the file editor. The linter checks for syntax errors and style issues in your code and displays the results in the **Code quality** tab.
+4. **Lint button** — The **Lint** button runs the [linter](./lint-format.md) on the active file in the file editor. The linter checks for syntax errors and style issues in your code and displays the results in the **Code quality** tab.
 
-5. **dbt Wizard** — [dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) is the new and recommended governed agentic experience integrated into the Studio IDE that uses your project context to help you develop governed dbt changes faster. It can generate or refactor models, semantic models, tests, and documentation from natural language prompts. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+5. **dbt Wizard** — [dbt Wizard](../../dbt-ai/wizard-ide.md) is the new and recommended governed agentic experience integrated into the Studio IDE that uses your project context to help you develop governed dbt changes faster. It can generate or refactor models, semantic models, tests, and documentation from natural language prompts. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-   [dbt Copilot](https://docs.getdbt.com/docs/platform/studio-ide/develop-studio-ai.md#dbt-copilot-in-studio-ide) is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
+   [dbt Copilot](./develop-studio-ai.md#dbt-copilot-in-studio-ide) is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-6. **Commands tab** — View the most recently run [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) from your current IDE session, their results, and relevant system logs.
+6. **Commands tab** — View the most recently run [dbt commands](../../../reference/dbt-commands.md) from your current IDE session, their results, and relevant system logs.
 
 7. **Problems tab** — You must be running the dbt Fusion engine to utilize the problems tab. Gain insights into problems with your dbt project that may prevent it from running properly in Fusion as you edit and before you execute runs.
 

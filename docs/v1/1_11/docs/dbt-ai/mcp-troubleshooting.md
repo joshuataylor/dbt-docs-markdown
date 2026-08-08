@@ -1,6 +1,6 @@
 # MCP troubleshooting
 
-This page consolidates troubleshooting steps for all dbt MCP setups. For specific troubleshooting steps for your AI client, see the troubleshooting sections in the [Get started](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md) and [Setup and config](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) pages.
+This page consolidates troubleshooting steps for all dbt MCP setups. For specific troubleshooting steps for your AI client, see the troubleshooting sections in the [Get started](./mcp-quickstart-oauth.md) and [Setup and config](./setup-local-mcp.md) pages.
 
  Can't find the uvx executable
 
@@ -52,7 +52,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 3. Restart your client and try connecting again.
 
-If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md).
+If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md).
 
  Server not starting
 
@@ -68,7 +68,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 
 * Missing or incorrect `DBT_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
 * Invalid or expired authentication tokens — generate a new token and update your config.
-* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
+* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 
  Configuration not working in WSL (VS Code)
 
@@ -92,7 +92,7 @@ Configure MCP in the WSL-specific settings instead of local user settings:
 
 **Solution:**
 
-1. Generate a [Personal Access Token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) in **Account settings** → **API tokens** → **Personal tokens**.
+1. Generate a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md) in **Account settings** → **API tokens** → **Personal tokens**.
 2. Use the PAT as your `DBT_TOKEN` value.
 3. Also ensure `DBT_DEV_ENV_ID` and `DBT_USER_ID` are set — these are required for `execute_sql`.
 
@@ -104,7 +104,7 @@ Configure MCP in the WSL-specific settings instead of local user settings:
 
 **Solution:**
 
-1. Check that all required variables for the toolset are set — see [Tool requirements](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
+1. Check that all required variables for the toolset are set — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 2. Check whether you have any `DISABLE_*` variables set to `true` that might be turning off the toolset.
 3. If you're using enable mode (`DBT_MCP_ENABLE_*`), make sure the toolset you need is listed.
 4. Set `DBT_MCP_LOG_LEVEL=DEBUG` to see which toolsets are active at startup.
@@ -128,7 +128,7 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
-See [Finding your IDs](https://docs.getdbt.com/docs/dbt-ai/mcp-find-ids.md) for step-by-step instructions.
+See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
  Multi-cell or static subdomain account connection issues
 

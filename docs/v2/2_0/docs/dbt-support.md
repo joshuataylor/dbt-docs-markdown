@@ -27,7 +27,7 @@ To create a support ticket in dbt:
 
 dbt Support Assistant is an AI widget that provides instant, AI-generated responses to common questions. This feature is available to dbt users and can help answer troubleshooting questions, give a synopsis of features and functionality, or link to relevant documentation.
 
-The dbt Support Assistant AI widget is separate from [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md), a powerful AI engine that helps with code generation to accelerate your analytics workflows. The dbt Support Assistant focuses on answering documentation and troubleshooting-related questions. Enabling or disabling AI features in dbt won't affect the dbt Support Assistant's availability.
+The dbt Support Assistant AI widget is separate from [dbt Wizard](./platform/wizard-platform.md), a powerful AI engine that helps with code generation to accelerate your analytics workflows. The dbt Support Assistant focuses on answering documentation and troubleshooting-related questions. Enabling or disabling AI features in dbt won't affect the dbt Support Assistant's availability.
 
 info
 
@@ -39,8 +39,8 @@ We want to help you work through implementing and utilizing dbt platform at your
 
 * **Enterprise and Enterprise+ plans** — Priority [support](#severity-level-for-enterprise-support), optional premium plans, enhanced SLAs, implementation assistance, dedicated management, and dbt Labs security reviews depending on price point.
 * **Developer and Starter plans** — 24x5 support (no service level agreement (SLA); [contact Sales](https://www.getdbt.com/pricing/) for Enterprise plan inquiries).
-* **Support team help** — Assistance with [common dbt questions](https://docs.getdbt.com/category/troubleshooting.md), like project setup, login issues, error understanding, setup private packages, link to a new GitHub account, [how to generate a har file](https://docs.getdbt.com/faqs/Troubleshooting/generate-har-file.md), and so on.
-* **Resource guide** — Check the [guide](https://docs.getdbt.com/community/resources/getting-help.md) for effective help-seeking strategies.
+* **Support team help** — Assistance with [common dbt questions](../category/troubleshooting.md), like project setup, login issues, error understanding, setup private packages, link to a new GitHub account, [how to generate a har file](../faqs/Troubleshooting/generate-har-file.md), and so on.
+* **Resource guide** — Check the [guide](../community/resources/getting-help.md) for effective help-seeking strategies.
 
 Example of common support questions
 

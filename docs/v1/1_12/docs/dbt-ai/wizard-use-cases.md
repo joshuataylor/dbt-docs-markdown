@@ -14,11 +14,11 @@ dbt Wizard works best when you give it a clear scope (which dbt model or area), 
 * [Validate before shipping](#validate-before-shipping)
 * [Add a semantic model](#add-a-semantic-model)
 
-This page assumes you're using dbt Wizard in the terminal with an active session or in dbt platform. For examples of using dbt Wizard in the Studio IDE, refer to the [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md).
+This page assumes you're using dbt Wizard in the terminal with an active session or in dbt platform. For examples of using dbt Wizard in the Studio IDE, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md). To use dbt Wizard in the CLI, use the `wizard` [command reference](./wizard-cli-reference.md).
 
 Best practices for using dbt Wizard
 
-Once you're set up, refer to [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
+Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
 
 ## Build a new model[​](#build-a-new-model "Direct link to Build a new model")
 
@@ -90,7 +90,7 @@ active, churned, and prospect. Write a column description for each.
 * You can ask dbt Wizard to write descriptions in a specific voice or format: "Write the descriptions in plain language, one sentence each"
 * To document a whole layer at once: "Generate documentation for all models in `models/staging/` that don't have a YAML file yet"
 
-For a workflow that finds coverage gaps and checks candidate assertions against warehouse data, refer to [Add data-informed tests with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md).
+For a workflow that finds coverage gaps and checks candidate assertions against warehouse data, refer to [Add data-informed tests with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md).
 
 ## Debug a job failure[​](#debug-a-job-failure "Direct link to Debug a job failure")
 
@@ -114,7 +114,7 @@ The nightly job failed. What's the root cause and how do I fix it?
 * You can be more specific: "What caused the failure in `fct_orders` in the last run of the Production job?"
 * Wizard won't apply a fix without your approval, which is especially useful when the failure is in a production model
 
-For the evidence-gathering, diagnosis, and validation procedure, refer to [Debug a failed dbt job with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md).
+For the evidence-gathering, diagnosis, and validation procedure, refer to [Debug a failed dbt job with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md).
 
 ## Assess source impact[​](#assess-source-impact "Direct link to Assess source impact")
 
@@ -206,7 +206,7 @@ validation, investigate any failures, and summarize skipped checks.
 4. Reports failures, differences, unresolved risks, and skipped checks
 5. Shows the proposed changes for you to review
 
-In dbt Wizard CLI, choose light, medium, heavy, or skipped validation based on the risk and cost of the change. Follow the [validation workflow](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md) for the checks included at each level.
+In dbt Wizard CLI, choose light, medium, heavy, or skipped validation based on the risk and cost of the change. Follow the [validation workflow](../../best-practices/how-to-use-wizard/wizard-3-validate-changes.md) for the checks included at each level.
 
 **Tips:**
 
@@ -234,19 +234,19 @@ week, and month granularity.
 **Tips:**
 
 * If you're unsure what entities to use, ask first: "What would be good entities for a semantic model on fct\_orders?"
-* dbt Wizard follows the [dbt Semantic Layer documentation](https://docs.getdbt.com/docs/build/semantic-models.md): you can ask it to explain any generated field
+* dbt Wizard follows the [dbt Semantic Layer documentation](../build/semantic-models.md): you can ask it to explain any generated field
 
-For version-specific examples and validation steps, refer to [Build Semantic Layer definitions with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-7-semantic-layer.md).
+For version-specific examples and validation steps, refer to [Build Semantic Layer definitions with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-7-semantic-layer.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
-* [Understand a dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-2-understand-project.md)
-* [Validate dbt changes](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
-* [Add data-informed tests](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md)
-* [Debug a failed job](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md)
-* [Build Semantic Layer definitions](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-7-semantic-layer.md)
-* [dbt Wizard overview](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md)
-* [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md): same agent, in the dbt platform
-* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md): more prompt patterns for the dbt Wizard in Studio IDE (many apply to the CLI too)
+* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [Understand a dbt project](../../best-practices/how-to-use-wizard/wizard-2-understand-project.md)
+* [Validate dbt changes](../../best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
+* [Add data-informed tests](../../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md)
+* [Debug a failed job](../../best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md)
+* [Build Semantic Layer definitions](../../best-practices/how-to-use-wizard/wizard-7-semantic-layer.md)
+* [dbt Wizard overview](./about-dbt-wizard-cli.md)
+* [Configure BYOK](./wizard-byok.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md): same agent, in the dbt platform
+* [Prompt cookbook](../../guides/prompt-cookbook.md): more prompt patterns for the dbt Wizard in Studio IDE (many apply to the CLI too)

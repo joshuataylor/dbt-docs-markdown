@@ -20,7 +20,7 @@ Search table...
 
 Starting in dbt Core v1.12, `skip_nodes_if_on_run_start_fails` defaults to `true`, skipping all selected resources if there is a failure on an `on-run-start` hook.
 
-For more information, refer to [`on-run-start` / `on-run-end`](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md).
+For more information, refer to [`on-run-start` / `on-run-end`](../../project-configs/on-run-start-on-run-end.md).
 
 ## Impact[​](#impact "Direct link to Impact")
 

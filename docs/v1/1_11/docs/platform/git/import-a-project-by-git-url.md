@@ -35,18 +35,18 @@ ssh://user@custom-host.example.com/organization/repo-name.git
 
 ## Availability of features by Git provider[​](#availability-of-features-by-git-provider "Direct link to Availability of features by Git provider")
 
-* If your git provider has a [native dbt integration](https://docs.getdbt.com/docs/platform/git/configure-git.md), you can seamlessly set up [continuous integration (CI)](https://docs.getdbt.com/docs/deploy/ci-jobs.md) jobs directly within dbt.
+* If your git provider has a [native dbt integration](./configure-git.md), you can seamlessly set up [continuous integration (CI)](../../deploy/ci-jobs.md) jobs directly within dbt.
 
-* For providers without native integration, you can still use the [Git clone method](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md) to import your git URL and leverage the [dbt Administrative API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) to trigger a CI job to run.
+* For providers without native integration, you can still use the [Git clone method](./import-a-project-by-git-url.md) to import your git URL and leverage the [dbt Administrative API](../../dbt-apis/admin-api.md) to trigger a CI job to run.
 
 The following table outlines the available integration options and their corresponding capabilities.
 
 | **Git provider**                                                                                                                                                                                                                                                                                                                             | **Native dbt integration** | **Automated CI job** | **Git clone** | **Information**                                                                                                                                                                                  | **Supported plans**     |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
-| [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md)<br />                                                                                                                                                                                                                                                      | ✅                         | ✅                   | ✅            | Organizations on the Starter and Developer plans can connect to Azure DevOps using a deploy key. Note, you won’t be able to configure automated CI jobs but you can still develop.               | Enterprise, Enterprise+ |
-| [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
-| [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
-| All other git providers using [Git clone](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md) ([BitBucket](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](https://docs.getdbt.com/guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
+| [Azure DevOps](./connect-azure-devops.md)<br />                                                                                                                                                                                                                                                      | ✅                         | ✅                   | ✅            | Organizations on the Starter and Developer plans can connect to Azure DevOps using a deploy key. Note, you won’t be able to configure automated CI jobs but you can still develop.               | Enterprise, Enterprise+ |
+| [GitHub](./connect-github.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
+| [GitLab](./connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
+| All other git providers using [Git clone](./import-a-project-by-git-url.md) ([BitBucket](./import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](./import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](../../../guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
 
 Search table...
 
@@ -81,7 +81,7 @@ If you still can't connect, [contact dbt Support](mailto:support@getdbt.com) and
 
 Use GitHub?
 
-If you use GitHub, you can import your repo directly using [dbt's GitHub Application](https://docs.getdbt.com/docs/platform/git/connect-github.md). Connecting your repo via the GitHub Application [enables Continuous Integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+If you use GitHub, you can import your repo directly using [dbt's GitHub Application](./connect-github.md). Connecting your repo via the GitHub Application [enables Continuous Integration](../../deploy/continuous-integration.md).
 
 ### Locate your SSH URL[​](#locate-your-ssh-url "Direct link to Locate your SSH URL")
 
@@ -104,7 +104,7 @@ To add a deploy key to a GitHub account, navigate to the Deploy keys tab of the 
 
 Use GitLab?
 
-If you use GitLab, you can import your repo directly using [dbt's GitLab Application](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md). Connecting your repo via the GitLab Application [enables Continuous Integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+If you use GitLab, you can import your repo directly using [dbt's GitLab Application](./connect-gitlab.md). Connecting your repo via the GitLab Application [enables Continuous Integration](../../deploy/continuous-integration.md).
 
 * To add a deploy key to a GitLab account, navigate to the [SSH keys](https://gitlab.com/profile/keys) tab in the User Settings page of your GitLab account.
 * Next, paste in the deploy key generated by dbt for your repository.
@@ -159,7 +159,7 @@ dbt can work with dbt projects hosted on AWS CodeCommit, but there are some extr
 
 #### Step 4: Specify a custom branch in dbt[​](#step-4-specify-a-custom-branch-in-dbt "Direct link to Step 4: Specify a custom branch in dbt")
 
-CodeCommit uses `master` as its default branch, and to initialize your project, you'll need to specify the `master` branch as a [custom branch](https://docs.getdbt.com/faqs/Environments/custom-branch-settings.md#development) in dbt.
+CodeCommit uses `master` as its default branch, and to initialize your project, you'll need to specify the `master` branch as a [custom branch](../../../faqs/Environments/custom-branch-settings.md#development) in dbt.
 
 * Go to **Deploy** -> **Environments** -> **Development**.
 * Select **Settings** -> **Edit** and under **General Settings**, check the **Default to a custom branch** checkbox.
@@ -167,14 +167,14 @@ CodeCommit uses `master` as its default branch, and to initialize your project, 
 
 #### Step 5: Configure pull request template URLs (Optional)[​](#step-5-configure-pull-request-template-urls-optional "Direct link to Step 5: Configure pull request template URLs (Optional)")
 
-To prevent users from directly merging code changes into the default branch, configure the [PR Template URL](https://docs.getdbt.com/docs/platform/git/pr-template.md) in the **Repository details** page for your project. Once configured, dbt will prompt users to open a new PR after committing and synching code changes on the branch in the Studio IDE, before merging any changes into the default branch.
+To prevent users from directly merging code changes into the default branch, configure the [PR Template URL](./pr-template.md) in the **Repository details** page for your project. Once configured, dbt will prompt users to open a new PR after committing and synching code changes on the branch in the Studio IDE, before merging any changes into the default branch.
 
 * Go to **Account Settings** -> **Projects** -> Select the project.
 * Click the repository link under **Repository**.
 * In the **Repository details** page, click **Edit** in the lower right.
   <!-- -->
   [![Configure PR template in the 'Repository details' page.](/img/docs/collaborate/repo-details.jpg?v=2 "Configure PR template in the 'Repository details' page.")](#)Configure PR template in the 'Repository details' page.
-* In the **Pull request URL** field, set the URL based on the suggested [PR template format](https://docs.getdbt.com/docs/platform/git/pr-template.md#aws-codecommit).
+* In the **Pull request URL** field, set the URL based on the suggested [PR template format](./pr-template.md#aws-codecommit).
 * Replace `<repo>` with the name of your repository (Note that it is case sensitive). In the following example, the repository name is `New_Repo`.
   <!-- -->
   [![In the Pull request URL field example, the repository name is 'New\_Repo'.](/img/docs/collaborate/pr-template-example.jpg?v=2 "In the Pull request URL field example, the repository name is 'New_Repo'.")](#)In the Pull request URL field example, the repository name is 'New\_Repo'.
@@ -186,7 +186,7 @@ To prevent users from directly merging code changes into the default branch, con
 
 Use Azure DevOps?
 
-If you use Azure DevOps and you are on the dbt Enterprise or Enterprise+ plan, you can import your repo directly using [dbt's Azure DevOps Integration](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md). Connecting your repo via the Azure DevOps Application [enables Continuous Integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+If you use Azure DevOps and you are on the dbt Enterprise or Enterprise+ plan, you can import your repo directly using [dbt's Azure DevOps Integration](./connect-azure-devops.md). Connecting your repo via the Azure DevOps Application [enables Continuous Integration](../../deploy/continuous-integration.md).
 
 1. To add a deploy key to an Azure DevOps account, navigate to the **SSH public keys** page in the User Settings of your user's Azure DevOps account or a service user's account.
 
@@ -300,7 +300,7 @@ dbt_modules/
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
-9. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
+9. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
    <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
@@ -330,7 +330,7 @@ dbt_modules/
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
-11. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
+11. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
     <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
@@ -347,7 +347,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
    As an example, if you're migrating from GitHub to Azure DevOps, you'll need to import your existing repository (GitHub) into your new Git provider (Azure DevOps). For detailed steps on how to do this, refer to your Git provider's documentation (Such as [GitHub](https://docs.github.com/en/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer), [GitLab](https://docs.gitlab.com/ee/user/project/import/repo_by_url.html), [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops))
 
-2. Go back to dbt and set up your [integration for the new Git provider](https://docs.getdbt.com/docs/platform/git/configure-git.md), if needed.
+2. Go back to dbt and set up your [integration for the new Git provider](./configure-git.md), if needed.
 
 3. Disconnect the old repository in dbt by going to **Account Settings** and then **Projects**.
 

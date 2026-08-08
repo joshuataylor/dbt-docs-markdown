@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-dbt is [hosted](https://docs.getdbt.com/docs/platform/about-platform/architecture.md) in multiple regions across the following service providers:
+dbt is [hosted](./architecture.md) in multiple regions across the following service providers:
 
 * [Amazon Web Services](#AWS)
 * [Google Cloud Platform](#GCP)
@@ -24,7 +24,7 @@ Your dbt account will always connect to your data platform or git provider from 
 | EMEA                                 | eu-central-1 (Frankfurt)    | ACCOUNT\_PREFIX.eu1.dbt.com | 3.123.45.39<br />3.126.140.248<br />3.72.153.148                                                          | All Enterprise plans                                      | [EMEA AWS](https://status.getdbt.com/emea-aws)                                                                                                                                                                                                                                                                                                       |
 | APAC                                 | ap-southeast-2 (Sydney)     | ACCOUNT\_PREFIX.au1.dbt.com | 52.65.89.235<br />3.106.40.33<br />13.239.155.206<br />                                                   | All Enterprise plans                                      | [APAC AWS](https://status.getdbt.com/apac-aws)                                                                                                                                                                                                                                                                                                       |
 | Japan                                | ap-northeast-1 (Tokyo)      | ACCOUNT\_PREFIX.jp1.dbt.com | 35.76.76.152<br />54.238.211.79<br />13.115.236.233<br />                                                 | All Enterprise plans                                      | [JP Cell 1 AWS](https://status.getdbt.com/jp-cell-1-aws)                                                                                                                                                                                                                                                                                             |
-| Virtual Private dbt or Single tenant | Customized                  | Customized                  | Ask [Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support) for your IPs | All Enterprise plans                                      | Customized                                                                                                                                                                                                                                                                                                                                           |
+| Virtual Private dbt or Single tenant | Customized                  | Customized                  | Ask [Support](../../../community/resources/getting-help.md#dbt-cloud-support) for your IPs | All Enterprise plans                                      | Customized                                                                                                                                                                                                                                                                                                                                           |
 
 Search table...
 

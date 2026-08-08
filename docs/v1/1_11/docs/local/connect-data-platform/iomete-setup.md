@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-iomete<!-- -->
 
-For <!-- -->iomete<!-- -->-specific configuration, please refer to [iomete<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->iomete<!-- -->-specific configuration, please refer to [iomete<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 Set up a iomete Target
 

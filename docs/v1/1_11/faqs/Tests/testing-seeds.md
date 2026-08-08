@@ -1,6 +1,6 @@
 # How do I test and document seeds?
 
-To test and document seeds, use a [properties file](https://docs.getdbt.com/reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
+To test and document seeds, use a [properties file](../../reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
 
 ## Example[​](#example "Direct link to Example")
 

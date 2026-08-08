@@ -70,4 +70,4 @@ Search table...
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Azure Synapse DWH configurations](https://docs.getdbt.com/reference/resource-configs/azuresynapse-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Azure Synapse DWH configurations](../../../reference/resource-configs/azuresynapse-configs.md).

@@ -21,7 +21,7 @@ For all of these opportunities, please fill out an [interest form](https://docs.
 
 #### Get Started[​](#get-started "Direct link to Get Started")
 
-* Read [How to Deliver a Fantastic Meetup Talk](https://docs.getdbt.com/community/resources/speaking-at-a-meetup.md).
+* Read [How to Deliver a Fantastic Meetup Talk](../resources/speaking-at-a-meetup.md).
 * Find a [Meetup near you](https://www.meetup.com/pro/dbt/), start attending and let the organizers know you are interested! ß
 
 ### Speak at dbt Summit[​](#speak-at-dbt-summit "Direct link to Speak at dbt Summit")

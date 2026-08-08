@@ -1,6 +1,6 @@
 # Building dbt packages
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Core
 
@@ -18,7 +18,7 @@ Creating packages is an **advanced use of dbt**. If you're new to the tool, we r
 
 A strong understanding of:
 
-* [packages](https://docs.getdbt.com/docs/build/packages.md)
+* [packages](../docs/build/packages.md)
 * administering a repository on GitHub
 * [semantic versioning](https://semver.org/)
 
@@ -29,7 +29,7 @@ Packages typically contain either:
 * macros that solve a particular analytics engineering problem — for example, [auditing the results of a query](https://hub.getdbt.com/dbt-labs/audit_helper/latest/), [generating code](https://hub.getdbt.com/dbt-labs/codegen/latest/), or [adding additional schema tests to a dbt project](https://hub.getdbt.com/calogica/dbt_expectations/latest/).
 * models for a common dataset — for example a dataset for software products like [MailChimp](https://hub.getdbt.com/fivetran/mailchimp/latest/) or [Snowplow](https://hub.getdbt.com/dbt-labs/snowplow/latest/), or even models for metadata about your data stack like [Snowflake query spend](https://hub.getdbt.com/gitlabhq/snowflake_spend/latest/) and [the artifacts produced by `dbt run`](https://hub.getdbt.com/tailsdotcom/dbt_artifacts/latest/). In general, there should be a shared set of industry-standard metrics that you can model (e.g. email open rate).
 
-We also recommend ensuring your package is compatible with [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
+We also recommend ensuring your package is compatible with [Fusion](../docs/fusion/about-fusion.md) and [dbt Core](../docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](./fusion-package-compat.md).
 
 Packages are *not* a good fit for sharing models that contain business-specific logic, for example, writing code for marketing attribution, or monthly recurring revenue. Instead, consider sharing a blog post and a link to a sample repo, rather than bundling this code as a package (here's our blog post on [marketing attribution](https://blog.getdbt.com/modeling-marketing-attribution/) as an example).
 
@@ -39,7 +39,7 @@ Using the command line for package development
 
 We tend to use the command line interface for package development. The development workflow often involves installing a local copy of your package in another dbt project — at present dbt is not designed for this workflow.
 
-1. Use the [dbt init](https://docs.getdbt.com/reference/commands/init.md) command to create a new dbt project, which will be your package:
+1. Use the [dbt init](../reference/commands/init.md) command to create a new dbt project, which will be your package:
 
 ```shell
 $ dbt init [package_name]
@@ -47,7 +47,7 @@ $ dbt init [package_name]
 
 2. Create a public GitHub¹ repo, named `dbt-<package-name>`, e.g. `dbt-mailchimp`. Follow the GitHub instructions to link this to the dbt project you just created.
 3. Update the `name:` of the project in `dbt_project.yml` to your package name, e.g. `mailchimp`.
-4. Define the allowed dbt versions by using the [`require-dbt-version` config](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md).
+4. Define the allowed dbt versions by using the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md).
 
 ¹Currently, our package registry only supports packages that are hosted in GitHub.
 
@@ -59,7 +59,7 @@ When working on your package, we often find it useful to install a local copy of
 
 ### Ensure Fusion compatibility[​](#ensure-fusion-compatibility "Direct link to Ensure Fusion compatibility")
 
-If you're building a package, we recommend you ensure it's compatible with [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md) and [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md).
+If you're building a package, we recommend you ensure it's compatible with [Fusion](../docs/fusion/about-fusion.md) and [dbt Core](../docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](./fusion-package-compat.md).
 
 Doing so will ensure your package is compatible with dbt Fusion engine (and dbt Core), but will be displayed with a Fusion-compatible badge in dbt package hub.
 
@@ -67,7 +67,7 @@ Doing so will ensure your package is compatible with dbt Fusion engine (and dbt 
 
 *Modeling packages only*
 
-Use our [dbt coding conventions](https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md), our article on [how we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md), and our [best practices](https://docs.getdbt.com/best-practices.md) for all of our advice on how to build your dbt project.
+Use our [dbt coding conventions](https://github.com/dbt-labs/corp/blob/main/dbt_style_guide.md), our article on [how we structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md), and our [best practices](../best-practices.md) for all of our advice on how to build your dbt project.
 
 This is where it comes in especially handy to have worked on your own dbt project previously.
 
@@ -77,7 +77,7 @@ This is where it comes in especially handy to have worked on your own dbt projec
 
 Not every user of your package is going to store their Mailchimp data in a schema named `mailchimp`. As such, you'll need to make the location of raw data configurable.
 
-We recommend using [sources](https://docs.getdbt.com/docs/build/sources.md) and [variables](https://docs.getdbt.com/docs/build/project-variables.md) to achieve this. Check out [this package](https://github.com/fivetran/dbt_facebook_ads_source/blob/main/models/src_facebook_ads.yml#L5-L6) for an example — notably, the README [includes instructions](https://github.com/fivetran/dbt_facebook_ads_source#configuration) on how to override the default schema from a `dbt_project.yml` file.
+We recommend using [sources](../docs/build/sources.md) and [variables](../docs/build/project-variables.md) to achieve this. Check out [this package](https://github.com/fivetran/dbt_facebook_ads_source/blob/main/models/src_facebook_ads.yml#L5-L6) for an example — notably, the README [includes instructions](https://github.com/fivetran/dbt_facebook_ads_source#configuration) on how to override the default schema from a `dbt_project.yml` file.
 
 ### Install upstream packages from hub.getdbt.com[​](#install-upstream-packages-from-hubgetdbtcom "Direct link to Install upstream packages from hub.getdbt.com")
 
@@ -100,8 +100,8 @@ Many SQL functions are specific to a particular database. For example, the funct
 If you wish to support multiple warehouses, we have a number of tricks up our sleeve:
 
 * We've written a number of macros that compile to valid SQL snippets on each of the original four adapters. Where possible, leverage these macros.
-* If you need to implement cross-database compatibility for one of your macros, use the [`adapter.dispatch` macro](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md) to achieve this. Check out the cross-database macros in dbt-utils for examples.
-* If you're working on a modeling package, you may notice that you need write different models for each warehouse (for example, if the EL tool you are working with stores data differently on each warehouse). In this case, you can write different versions of each model, and use the [`enabled` config](https://docs.getdbt.com/reference/resource-configs/enabled.md), in combination with [`target.type`](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) to enable the correct models — check out [this package](https://github.com/fivetran/dbt_facebook_ads_creative_history/blob/main/dbt_project.yml#L11-L16) as an example.
+* If you need to implement cross-database compatibility for one of your macros, use the [`adapter.dispatch` macro](../reference/dbt-jinja-functions/dispatch.md) to achieve this. Check out the cross-database macros in dbt-utils for examples.
+* If you're working on a modeling package, you may notice that you need write different models for each warehouse (for example, if the EL tool you are working with stores data differently on each warehouse). In this case, you can write different versions of each model, and use the [`enabled` config](../reference/resource-configs/enabled.md), in combination with [`target.type`](../reference/dbt-jinja-functions/target.md) to enable the correct models — check out [this package](https://github.com/fivetran/dbt_facebook_ads_creative_history/blob/main/dbt_project.yml#L11-L16) as an example.
 
 If your package has only been written to work for one data warehouse, make sure you document this in your package README.
 
@@ -121,9 +121,9 @@ The major exception to this is when working with data sources that benefit from 
 
 ### Test and document your package[​](#test-and-document-your-package "Direct link to Test and document your package")
 
-It's critical that you [test](https://docs.getdbt.com/docs/build/data-tests.md) your models and sources. This will give your end users confidence that your package is actually working on top of their dataset as intended.
+It's critical that you [test](../docs/build/data-tests.md) your models and sources. This will give your end users confidence that your package is actually working on top of their dataset as intended.
 
-Further, adding [documentation](https://docs.getdbt.com/docs/build/documentation.md) via descriptions will help communicate your package to end users, and benefit their stakeholders that use the outputs of this package.
+Further, adding [documentation](../docs/build/documentation.md) via descriptions will help communicate your package to end users, and benefit their stakeholders that use the outputs of this package.
 
 ### Include useful GitHub artifacts[​](#include-useful-github-artifacts "Direct link to Include useful GitHub artifacts")
 
@@ -162,7 +162,7 @@ packages:
 
 4. Add resources to the package (seeds, models, tests) so that you can successfully run your project, and compare the output with what you expect. The exact approach here will vary depending on your packages. In general you will find that you need to:
 
-   * Add mock data via a [seed](https://docs.getdbt.com/docs/build/seeds.md) with a few sample (anonymized) records. Configure the `integration_tests` project to point to the seeds instead of raw data tables.
+   * Add mock data via a [seed](../docs/build/seeds.md) with a few sample (anonymized) records. Configure the `integration_tests` project to point to the seeds instead of raw data tables.
    * Add more seeds that represent the expected output of your models, and use the [dbt\_utils.equality](https://github.com/dbt-labs/dbt-utils#equality-source) test to confirm the output of your package, and the expected output matches.
 
 5. Confirm that you can run `dbt run` and `dbt test` from your command line successfully.

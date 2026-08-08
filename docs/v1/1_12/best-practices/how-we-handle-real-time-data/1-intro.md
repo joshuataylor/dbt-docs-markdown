@@ -4,11 +4,11 @@ By design, dbt is batch-oriented with jobs having a defined start and end time. 
 
 This guide covers multiple patterns for achieving near real-time data freshness with dbt:
 
-1. [Incremental patterns](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/2-incremental-patterns.md) — `merge` strategies, Change Data Capture (CDC), and microbatch processing
-2. [Warehouse-native features](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md) — When to use dynamic tables and materialized views
-3. [Lambda views pattern](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/4-lambda-views.md) — Combining batch and real-time data in a single view
-4. [Views-only pattern](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/5-views-only-pattern.md) - Maximum freshness for lightweight transformations
-5. [Operational considerations](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/6-operational-considerations.md) — Challenges, risks, and cost management
+1. [Incremental patterns](./2-incremental-patterns.md) — `merge` strategies, Change Data Capture (CDC), and microbatch processing
+2. [Warehouse-native features](./3-warehouse-native-features.md) — When to use dynamic tables and materialized views
+3. [Lambda views pattern](./4-lambda-views.md) — Combining batch and real-time data in a single view
+4. [Views-only pattern](./5-views-only-pattern.md) - Maximum freshness for lightweight transformations
+5. [Operational considerations](./6-operational-considerations.md) — Challenges, risks, and cost management
 
 Each pattern includes practical code examples, use cases, and tradeoffs to help you choose the right approach.
 
@@ -29,7 +29,7 @@ To achieve real-time data with dbt, we recommend using a two-layer architecture:
 
 Continuous data landing using your data warehouse's streaming ingestion features.
 
-Streaming ingestion features such as [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html), [Snowpipe](https://docs.snowflake.com/en/user-guide/snowpipe-streaming/data-load-snowpipe-streaming-overview), or [Storage Write API](https://docs.cloud.google.com/bigquery/docs/write-api-streaming) work well for this. To find streaming ingestion features for your warehouse, refer to the [additional resources](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#resources-by-warehouse) section.
+Streaming ingestion features such as [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html), [Snowpipe](https://docs.snowflake.com/en/user-guide/snowpipe-streaming/data-load-snowpipe-streaming-overview), or [Storage Write API](https://docs.cloud.google.com/bigquery/docs/write-api-streaming) work well for this. To find streaming ingestion features for your warehouse, refer to the [additional resources](./3-warehouse-native-features.md#resources-by-warehouse) section.
 
 #### dbt transformation layer[​](#dbt-transformation-layer "Direct link to dbt transformation layer")
 
@@ -37,10 +37,10 @@ Run dbt every few minutes to transform the data, and use materialized views or d
 
 Specific transformation approaches include:
 
-* [Incremental models](https://docs.getdbt.com/docs/build/incremental-models-overview.md) with merge or append strategies
-* [Microbatch incremental strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) for large time-series tables
+* [Incremental models](../../docs/build/incremental-models-overview.md) with merge or append strategies
+* [Microbatch incremental strategy](../../docs/build/incremental-microbatch.md) for large time-series tables
 * Jobs scheduled very frequently (like every 5 minutes)
-* [Dynamic tables](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized views](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) with short refresh intervals
+* [Dynamic tables](../../reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized views](../../docs/build/materializations.md#materialized-view) with short refresh intervals
 
 ## Key recommendations[​](#key-recommendations "Direct link to Key recommendations")
 

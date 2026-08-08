@@ -32,7 +32,7 @@ dbt *packages* are in fact standalone dbt projects, with models, macros, and oth
 * You can use `ref` in your own models to refer to models from the package.
 * You can use `source` to refer to sources in the package.
 * You can use macros in the package in your own project.
-* It's important to note that defining and installing dbt packages is different from [defining and installing Python packages](https://docs.getdbt.com/docs/build/python-models.md#using-pypi-packages)
+* It's important to note that defining and installing dbt packages is different from [defining and installing Python packages](./python-models.md#using-pypi-packages)
 
 <!-- -->
 
@@ -40,8 +40,8 @@ dbt *packages* are in fact standalone dbt projects, with models, macros, and oth
 
 The following setup will work for every dbt project:
 
-* Add [any package dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#when-to-use-project-dependencies) to `packages.yml`
-* Add [any project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#when-to-use-package-dependencies) to `dependencies.yml`
+* Add [any package dependencies](../mesh/govern/project-dependencies.md#when-to-use-project-dependencies) to `packages.yml`
+* Add [any project dependencies](../mesh/govern/project-dependencies.md#when-to-use-package-dependencies) to `dependencies.yml`
 
 However, you may be able to consolidate both into a single `dependencies.yml` file. Read the following section to learn more.
 
@@ -49,21 +49,21 @@ However, you may be able to consolidate both into a single `dependencies.yml` fi
 
 The `dependencies.yml`. file can contain both types of dependencies: "package" and "project" dependencies.
 
-* [Package dependencies](https://docs.getdbt.com/docs/build/packages.md#how-do-i-add-a-package-to-my-project) lets you add source code from someone else's dbt project into your own, like a library.
+* [Package dependencies](./packages.md#how-do-i-add-a-package-to-my-project) lets you add source code from someone else's dbt project into your own, like a library.
 * Project dependencies provide a different way to build on top of someone else's work in dbt.
 * Private packages are not supported in `dependencies.yml` because they intentionally don't support Jinja rendering or conditional configuration. This is to maintain static and predictable configuration and ensures compatibility with other services, like dbt.
 
-If your dbt project doesn't require the use of Jinja within the package specifications, you can simply rename your existing `packages.yml` to `dependencies.yml`. However, something to note is if your project's package specifications use Jinja, particularly for scenarios like adding an environment variable or a [Git token method](https://docs.getdbt.com/docs/build/packages.md#git-token-method) in a private Git package specification, you should continue using the `packages.yml` file name.
+If your dbt project doesn't require the use of Jinja within the package specifications, you can simply rename your existing `packages.yml` to `dependencies.yml`. However, something to note is if your project's package specifications use Jinja, particularly for scenarios like adding an environment variable or a [Git token method](./packages.md#git-token-method) in a private Git package specification, you should continue using the `packages.yml` file name.
 
 Use the following toggles to understand the differences and determine when to use `dependencies.yml` or `packages.yml` (or both). Refer to the [FAQs](#faqs) for more info.
 
  When to use Project dependencies
 
-Project dependencies are designed for the [dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) and [cross-project reference](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) workflow:
+Project dependencies are designed for the [dbt Mesh](../../best-practices/how-we-mesh/mesh-1-intro.md) and [cross-project reference](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) workflow:
 
 * Use `dependencies.yml` when you need to set up cross-project references between different dbt projects, especially in a dbt Mesh setup.
 * Use `dependencies.yml` when you want to include both projects and non-private dbt packages in your project's dependencies.
-* Use `dependencies.yml` for organization and maintainability if you're using both [cross-project refs](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) and [dbt Hub packages](https://hub.getdbt.com/). This reduces the need for multiple YAML files to manage dependencies.
+* Use `dependencies.yml` for organization and maintainability if you're using both [cross-project refs](../mesh/govern/project-dependencies.md#how-to-write-cross-project-ref) and [dbt Hub packages](https://hub.getdbt.com/). This reduces the need for multiple YAML files to manage dependencies.
 
  When to use Package dependencies
 
@@ -71,23 +71,23 @@ Package dependencies allow you to add source code from someone else's dbt projec
 
 * If you only use packages like those from the [dbt Hub](https://hub.getdbt.com/), remain with `packages.yml`.
 * Use `packages.yml` when you want to download dbt packages, such as dbt projects, into your root or parent dbt project. Something to note is that it doesn't contribute to the dbt Mesh workflow.
-* Use `packages.yml` to include packages in your project's dependencies. This includes both public packages, such as those from the [dbt Hub](https://hub.getdbt.com/), and private packages. dbt now supports [native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages).
-* [`packages.yml` supports Jinja rendering](https://docs.getdbt.com/docs/build/dbt-tips.md#yaml-tips) for historical reasons, allowing dynamic configurations. This can be useful if you need to insert values, like a [Git token method](https://docs.getdbt.com/docs/build/packages.md#git-token-method) from an environment variable, into your package specifications.
+* Use `packages.yml` to include packages in your project's dependencies. This includes both public packages, such as those from the [dbt Hub](https://hub.getdbt.com/), and private packages. dbt now supports [native private packages](./packages.md#native-private-packages).
+* [`packages.yml` supports Jinja rendering](./dbt-tips.md#yaml-tips) for historical reasons, allowing dynamic configurations. This can be useful if you need to insert values, like a [Git token method](./packages.md#git-token-method) from an environment variable, into your package specifications.
 
-Previously, to use private Git repositories in dbt, you needed to use a workaround that involved embedding a Git token with Jinja. This is not ideal as it requires extra steps like creating a user and sharing a Git token. We’ve introduced support for [native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages-) to address this.
+Previously, to use private Git repositories in dbt, you needed to use a workaround that involved embedding a Git token with Jinja. This is not ideal as it requires extra steps like creating a user and sharing a Git token. We’ve introduced support for [native private packages](./packages.md#native-private-packages-) to address this.
 
 ## How do I create a package?[​](#how-do-i-create-a-package "Direct link to How do I create a package?")
 
-Creating packages is an advanced use of dbt, but it can be a relatively simple task. The only strict requirement is the presence of a [`dbt_project.yml` file](https://docs.getdbt.com/reference/dbt_project.yml.md).
+Creating packages is an advanced use of dbt, but it can be a relatively simple task. The only strict requirement is the presence of a [`dbt_project.yml` file](../../reference/dbt_project.yml.md).
 
 The most common use-cases for packages are:
 
-* Sharing [models](https://docs.getdbt.com/docs/build/models.md) to share across multiple projects.
-* Sharing [macros](https://docs.getdbt.com/docs/build/jinja-macros.md) to share across multiple projects.
+* Sharing [models](./models.md) to share across multiple projects.
+* Sharing [macros](./jinja-macros.md) to share across multiple projects.
 
 Note that packages can be [private](#private-packages) — they don't need to be shared publicly. Private packages can be hosted on your own Git provider (for example, GitHub or GitLab).
 
-For instructions on creating dbt packages and additional information, refer to our guide [Building dbt packages](https://docs.getdbt.com/guides/building-packages.md?step=1).
+For instructions on creating dbt packages and additional information, refer to our guide [Building dbt packages](../../guides/building-packages.md?step=1).
 
 ## How do I add a package to my project?[​](#how-do-i-add-a-package-to-my-project "Direct link to How do I add a package to my project?")
 
@@ -105,7 +105,7 @@ packages:
   - local: /opt/dbt/redshift
 ```
 
-The default [`packages-install-path`](https://docs.getdbt.com/reference/project-configs/packages-install-path.md) is `dbt_packages`.
+The default [`packages-install-path`](../../reference/project-configs/packages-install-path.md) is `dbt_packages`.
 
 3. Run `dbt deps` to install the package(s). Packages get installed in the `dbt_packages` directory – by default this directory is ignored by git, to avoid duplicating the source code for the package.
 
@@ -216,7 +216,7 @@ Where `name: 'dbt_utils'` specifies the subfolder of `dbt_packages` that's creat
 
 Native private packages let you install packages from [supported](#prerequisites) private Git repos using the `private` key, without having to configure a [token](#git-token-method) or write out a full Git URL. This simplifies setup and reduces credential management.
 
-* dbt platform: Uses your existing Git [integration](https://docs.getdbt.com/docs/platform/git/configure-git.md) for authentication.
+* dbt platform: Uses your existing Git [integration](../platform/git/configure-git.md) for authentication.
 * Locally using Fusion or dbt Core v1.12+: Uses your system's SSH configuration. Requires the [`provider` key](#using-the-provider-key).
 
 #### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
@@ -225,10 +225,10 @@ Native private packages let you install packages from [supported](#prerequisites
 
   <!-- -->
 
-  * **[GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md)**
-  * **[Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md)**
+  * **[GitHub](../platform/git/connect-github.md)**
+  * **[Azure DevOps](../platform/git/connect-azure-devops.md)**
     * Use the `org/project/repo` path with the `ado` provider.
-  * **[GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md)**
+  * **[GitLab](../platform/git/connect-gitlab.md)**
     * Every GitLab repo with private packages must also be a dbt platform project.
 
 * **Locally using Fusion or dbt Core v1.12+**: You must have an SSH key configured on your machine for the relevant Git provider and include the [`provider` key](#using-the-provider-key) in your package configuration.
@@ -295,7 +295,7 @@ packages:
 Add the `provider` key when:
 
 * You are using multiple Git integrations or using the dbt Fusion engine.
-* You are using Fusion locally (with the [Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) or the [VS Code extension](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)) (required).
+* You are using Fusion locally (with the [Fusion CLI](../local/install-dbt.md?version=2) or the [VS Code extension](../local/install-dbt.md?version=2)) (required).
 * You are using dbt Core v1.12 or later for SSH-based cloning (required).
 
 ```yaml
@@ -337,7 +337,7 @@ packages:
   - git: "git@github.com:dbt-labs/dbt-utils.git" # git SSH URL
 ```
 
-If you're using the dbt platform, the SSH key method will not work, but you can use [native private packages](#native-private-packages) or the [HTTPS Git Token Method](https://docs.getdbt.com/docs/build/packages.md#git-token-method).
+If you're using the dbt platform, the SSH key method will not work, but you can use [native private packages](#native-private-packages) or the [HTTPS Git Token Method](./packages.md#git-token-method).
 
 ### Git token method[​](#git-token-method "Direct link to Git token method")
 
@@ -452,13 +452,13 @@ To see the library of published dbt packages, check out the [dbt package hub](ht
 
 <!-- -->
 
-To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
 * Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with Fusion. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
   Even if a package doesn't reflect compatibility in the package hub, it may still work with Fusion. Work with package maintainers to track updates, and [thoroughly test packages](https://docs.getdbt.com/guides/fusion-package-compat?step=5) that aren't clearly compatible before deploying.
 
-* Package maintainers who would like to make their package compatible with Fusion can refer to the [Fusion package upgrade guide](https://docs.getdbt.com/guides/fusion-package-compat.md) for instructions.
+* Package maintainers who would like to make their package compatible with Fusion can refer to the [Fusion package upgrade guide](../../guides/fusion-package-compat.md) for instructions.
 
 Fivetran package considerations:
 
@@ -495,7 +495,7 @@ dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current v
 
 ### Updating a package[​](#updating-a-package "Direct link to Updating a package")
 
-When you update a version or revision in your `packages.yml` file, it isn't automatically updated in your dbt project. You should run `dbt deps` to update the package. You may also need to run a [full refresh](https://docs.getdbt.com/reference/commands/run.md) of the models in this package.
+When you update a version or revision in your `packages.yml` file, it isn't automatically updated in your dbt project. You should run `dbt deps` to update the package. You may also need to run a [full refresh](../../reference/commands/run.md) of the models in this package.
 
 ### Uninstalling a package[​](#uninstalling-a-package "Direct link to Uninstalling a package")
 
@@ -506,7 +506,7 @@ When you remove a package from your `packages.yml` file, it isn't automatically 
 
 ### Pinning packages[​](#pinning-packages "Direct link to Pinning packages")
 
-Running [`dbt deps`](https://docs.getdbt.com/reference/commands/deps.md) "pins" each package by creating or updating the `package-lock.yml` file in the *project\_root* where `packages.yml` is recorded.
+Running [`dbt deps`](../../reference/commands/deps.md) "pins" each package by creating or updating the `package-lock.yml` file in the *project\_root* where `packages.yml` is recorded.
 
 * The `package-lock.yml` file contains a record of all packages installed.
 * If subsequent `dbt deps` runs contain no changes to `dependencies.yml` or `packages.yml`, dbt-core installs from `package-lock.yml`.

@@ -6,20 +6,20 @@ The grant resource configs enable you to apply permissions at build time to a sp
 
 dbt aims to use the most efficient approach when updating grants, which varies based on the adapter you're using, and whether dbt is replacing or updating an object that already exists. You can always check the debug logs for the full set of grant and revoke statements that dbt runs.
 
-You should define grants as resource configs whenever possible, but you might occasionally need to write grants statements manually and run them using [hooks](https://docs.getdbt.com/docs/build/hooks-operations.md). For example, hooks may be appropriate if you want to:
+You should define grants as resource configs whenever possible, but you might occasionally need to write grants statements manually and run them using [hooks](../../docs/build/hooks-operations.md). For example, hooks may be appropriate if you want to:
 
 * Apply grants on other database objects besides views and tables.
 * Create more granular row- and column-level access, use masking policies, or apply future grants.
 * Take advantage of more advanced permission capabilities offered by your data platform, for which dbt does not offer out-of-the-box support using resource configuration.
 * Apply grants in a more complex or custom manner, beyond what the built-in grants capability can provide.
 
-For more information on hooks, see [Hooks & operations](https://docs.getdbt.com/docs/build/hooks-operations.md).
+For more information on hooks, see [Hooks & operations](../../docs/build/hooks-operations.md).
 
 ## Definition[​](#definition "Direct link to Definition")
 
 You can use the `grants` field to set permissions or grants for a resource. When you `run` a model, `seed` data, or `snapshot` a dataset, dbt will run `grant` and/or `revoke` statements to ensure that the permissions on the database object match the `grants` you have configured on the resource.
 
-Like all configurations, `grants` will be included in dbt project metadata, including [the manifest artifact](https://docs.getdbt.com/reference/artifacts/manifest-json.md).
+Like all configurations, `grants` will be included in dbt project metadata, including [the manifest artifact](../artifacts/manifest-json.md).
 
 ### Common syntax[​](#common-syntax "Direct link to Common syntax")
 
@@ -51,7 +51,7 @@ The `grants` config can also be defined:
 * under the `models` config in the project file (`dbt_project.yml`)
 * in a `config()` Jinja macro within a model's SQL file
 
-See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+See [configs and properties](../configs-and-properties.md) for details.
 
 seeds/schema.yml
 
@@ -63,7 +63,7 @@ seeds:
         select: ['reporter', 'bi']
 ```
 
-The `grants` config can also be defined under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+The `grants` config can also be defined under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
 snapshots/schema.yml
 
@@ -81,7 +81,7 @@ The `grants` config can be defined:
 * Under the `snapshots` config in the project file (`dbt_project.yml`)
 * In a snapshot's SQL file `config()` Jinja macro
 
-See [configs and properties](https://docs.getdbt.com/reference/configs-and-properties.md) for details.
+See [configs and properties](../configs-and-properties.md) for details.
 
 ### Grant config inheritance[​](#grant-config-inheritance "Direct link to Grant config inheritance")
 
@@ -118,7 +118,7 @@ Now, the model will grant select to `user_a`, `user_b`, AND `user_c`!
 **Notes:**
 
 * This will only take effect for privileges which include the `+` prefix. Each privilege controls that behavior separately. If we were granting other privileges, in addition to `select`, and those privilege names lacked the `+` prefix, they would continue to "clobber" rather than "add" new grantees.
-* This use of `+`, controlling clobber vs. add merge behavior, is distinct from the use of `+` in `dbt_project.yml` (shown in the example above) for defining configs with dictionary values. For more information, see [the plus prefix](https://docs.getdbt.com/reference/resource-configs/plus-prefix.md).
+* This use of `+`, controlling clobber vs. add merge behavior, is distinct from the use of `+` in `dbt_project.yml` (shown in the example above) for defining configs with dictionary values. For more information, see [the plus prefix](./plus-prefix.md).
 * `grants` is the first config to support a `+` prefix for controlling config merge behavior. Currently, it's the only one. If it proves useful, we may extend this capability to new and existing configs in the future.
 
 ### Conditional grants[​](#conditional-grants "Direct link to Conditional grants")
@@ -235,8 +235,8 @@ Note
 
 The `grants` config and the `grant_access_to` config are distinct.
 
-* **`grant_access_to`:** Enables you to set up authorized views. When configured, dbt provides an authorized view access to show partial information from other datasets, without providing end users with full access to those underlying datasets. For more information, see ["BigQuery configurations: Authorized views"](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#authorized-views)
-* **`grants`:** Provides specific permissions to users, groups, or service accounts for managing access to datasets you're producing with dbt. For more information, see ["Resource configs: grants"](https://docs.getdbt.com/reference/resource-configs/grants.md)
+* **`grant_access_to`:** Enables you to set up authorized views. When configured, dbt provides an authorized view access to show partial information from other datasets, without providing end users with full access to those underlying datasets. For more information, see ["BigQuery configurations: Authorized views"](./bigquery-configs.md#authorized-views)
+* **`grants`:** Provides specific permissions to users, groups, or service accounts for managing access to datasets you're producing with dbt. For more information, see ["Resource configs: grants"](./grants.md)
 
 You can use the two features together: "authorize" a view model with the `grants_access_to` configuration, and then add `grants` to that view model to share its query results (and *only* its query results) with other users, groups, or service accounts.
 
@@ -269,7 +269,7 @@ models:
   * [Enable table access control for your workspace](https://docs.databricks.com/administration-guide/access-control/table-acl.html)
   * [Enable table access control for a cluster](https://docs.databricks.com/security/access-control/table-acls/table-acl.html)
 
-* In order to grant `READ_METADATA` or `USAGE`, use [post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md)
+* In order to grant `READ_METADATA` or `USAGE`, use [post-hooks](./pre-hook-post-hook.md)
 
 - Redshift supports granting to users, [groups](https://docs.aws.amazon.com/redshift/latest/dg/r_Groups.html), and [roles](https://docs.aws.amazon.com/redshift/latest/dg/r_roles-managing.html). Use the `group:` or `role:` prefix in grantee names to grant to groups or roles. Unprefixed names are treated as users.
 
@@ -279,5 +279,5 @@ models:
     select: ["user1", "user:user2", "group:analysts", "role:reporter"]
 ```
 
-* dbt accounts for the [`copy_grants` configuration](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#copying-grants) when calculating which grants need to be added or removed.
+* dbt accounts for the [`copy_grants` configuration](./snowflake-configs.md#copying-grants) when calculating which grants need to be added or removed.
 * Granting to / revoking from is only fully supported for Snowflake roles (not [database roles](https://docs.snowflake.com/user-guide/security-access-control-overview#types-of-roles)).

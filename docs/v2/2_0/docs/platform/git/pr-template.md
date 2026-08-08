@@ -14,8 +14,8 @@ The PR Template URL setting will be automatically set for most repositories, dep
 
 * If you connect to your repository via in-app integrations with your git provider or the "Git Clone" method via SSH, this URL setting will be auto-populated and editable.
   <!-- -->
-  * For AWS CodeCommit, this URL setting isn't auto-populated and must be [manually configured](https://docs.getdbt.com/docs/platform/git/import-a-project-by-git-url.md#step-5-configure-pull-request-template-urls-optional).
-* If you connect via a dbt [Managed repository](https://docs.getdbt.com/docs/platform/git/managed-repository.md), this URL will not be set, and the Studio IDE will prompt users to merge the changes directly into their default branch.
+  * For AWS CodeCommit, this URL setting isn't auto-populated and must be [manually configured](./import-a-project-by-git-url.md#step-5-configure-pull-request-template-urls-optional).
+* If you connect via a dbt [Managed repository](./managed-repository.md), this URL will not be set, and the Studio IDE will prompt users to merge the changes directly into their default branch.
 
 The PR template URL supports two variables that can be used to build a URL string. These variables, `{{source}}` and `{{destination}}` return branch names based on the state of the configured Environment and active branch open in the IDE. The `{{source}}` variable represents the active development branch, and the `{{destination}}` variable represents the configured base branch for the environment, eg. `master`.
 

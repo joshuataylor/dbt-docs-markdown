@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-Your environment(s) must be on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to use the Teradata connection.
+Your environment(s) must be on a supported [release track](../../dbt-versions/dbt-release-tracks.md) to use the Teradata connection.
 
 | Field           | Description                                                                                      | Type           | Required? | Example                               |
 | --------------- | ------------------------------------------------------------------------------------------------ | -------------- | --------- | ------------------------------------- |

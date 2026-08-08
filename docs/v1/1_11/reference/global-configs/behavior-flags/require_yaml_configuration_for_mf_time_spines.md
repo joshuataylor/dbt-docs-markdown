@@ -22,7 +22,7 @@ In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine confi
 
 Starting in dbt Core v1.12, this flag defaults to `true`. When enabled, dbt suppresses the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
 
-The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) for more details.
+The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for more details.
 
 ## Impact[​](#impact "Direct link to Impact")
 
@@ -44,4 +44,4 @@ flags:
   require_yaml_configuration_for_mf_time_spines: false
 ```
 
-To remove the deprecation warning permanently, migrate `metricflow_time_spine.sql` to a YAML `time_spine` block under a model entry in `models:`. Refer to [MetricFlow timespine](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) for the current syntax.
+To remove the deprecation warning permanently, migrate `metricflow_time_spine.sql` to a YAML `time_spine` block under a model entry in `models:`. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for the current syntax.

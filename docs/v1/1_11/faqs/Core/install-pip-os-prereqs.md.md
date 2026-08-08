@@ -1,6 +1,6 @@
 # Does my operating system have prerequisites?
 
-Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md).
+Your operating system may require pre-installation setup before installing dbt Core with pip. After downloading and installing any dependencies specific to your development environment, you can proceed with the [pip installation of dbt Core](../../docs/local/install-dbt.md).
 
 ### CentOS[​](#centos "Direct link to CentOS")
 
@@ -49,4 +49,4 @@ Windows requires Python and git to successfully install and run dbt Core.
 
 Install [Git for Windows](https://git-scm.com/downloads) and [Python version 3.9 or higher for Windows](https://www.python.org/downloads/windows/).
 
-For further questions, please see the [Python compatibility FAQ](https://docs.getdbt.com/faqs/Core/install-python-compatibility.md)
+For further questions, please see the [Python compatibility FAQ](./install-python-compatibility.md)

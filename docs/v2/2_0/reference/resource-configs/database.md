@@ -78,7 +78,7 @@ This would result in the test results being stored in the `test_results` databas
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom database for a [model](https://docs.getdbt.com/docs/build/sql-models.md), [seed](https://docs.getdbt.com/docs/build/seeds.md), [snapshot](https://docs.getdbt.com/docs/build/snapshots.md), or [data test](https://docs.getdbt.com/docs/build/data-tests.md).
+Optionally specify a custom database for a [model](../../docs/build/sql-models.md), [seed](../../docs/build/seeds.md), [snapshot](../../docs/build/snapshots.md), or [data test](../../docs/build/data-tests.md).
 
 When dbt creates a relation (table/view) in a database, it creates it as: `{{ database }}.{{ schema }}.{{ identifier }}`, e.g. `analytics.finance.payments`
 
@@ -87,7 +87,7 @@ The standard behavior of dbt is:
 * If a custom database is *not* specified, the database of the relation is the target database (`{{ target.database }}`).
 * If a custom database is specified, the database of the relation is the `{{ database }}` value.
 
-To learn more about changing the way that dbt generates a relation's `database`, read [Using Custom Databases](https://docs.getdbt.com/docs/build/custom-databases.md)
+To learn more about changing the way that dbt generates a relation's `database`, read [Using Custom Databases](../../docs/build/custom-databases.md)
 
 ## Warehouse specific information[​](#warehouse-specific-information "Direct link to Warehouse specific information")
 

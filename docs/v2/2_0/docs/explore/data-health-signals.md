@@ -6,7 +6,7 @@ Data health signals offer a quick, at-a-glance view of data health when browsing
 
 Note, we don’t calculate data health for non-dbt resources.
 
-* Supported resources are [models](https://docs.getdbt.com/docs/build/models.md), [sources](https://docs.getdbt.com/docs/build/sources.md), and [exposures](https://docs.getdbt.com/docs/build/exposures.md).
+* Supported resources are [models](../build/models.md), [sources](../build/sources.md), and [exposures](../build/exposures.md).
 * For accurate health data, ensure the resource is up-to-date and had a recent job run.
 * Each data health signal reflects key data health components, such as test success status, missing resource descriptions, missing tests, absence of builds in 30-day windows, [and more](#data-health-signal-criteria).
 
@@ -16,13 +16,13 @@ Note, we don’t calculate data health for non-dbt resources.
 
 Access data health signals in the following places:
 
-* In the [search function](https://docs.getdbt.com/docs/explore/explore-projects.md#search-resources) or under **Models**, **Sources**, or **Exposures** in the **Resource** tab.
+* In the [search function](./explore-projects.md#search-resources) or under **Models**, **Sources**, or **Exposures** in the **Resource** tab.
   <!-- -->
-  * For sources, the data health signal also indicates the [source freshness](https://docs.getdbt.com/docs/deploy/source-freshness.md) status.
-* In the **Health** column on [each resource's details page](https://docs.getdbt.com/docs/explore/explore-projects.md#view-resource-details). Hover over or click the signal to view detailed information.
+  * For sources, the data health signal also indicates the [source freshness](../deploy/source-freshness.md) status.
+* In the **Health** column on [each resource's details page](./explore-projects.md#view-resource-details). Hover over or click the signal to view detailed information.
 * In the **Health** column of public models tables.
-* In the [DAG lineage graph](https://docs.getdbt.com/docs/explore/explore-projects.md#project-lineage). Click any node to open the node details panel where you can view it and its details.
-* In [Data health tiles](https://docs.getdbt.com/docs/explore/data-tile.md) through an embeddable iFrame and visible in your BI dashboard.
+* In the [DAG lineage graph](./explore-projects.md#project-lineage). Click any node to open the node details panel where you can view it and its details.
+* In [Data health tiles](./data-tile.md) through an embeddable iFrame and visible in your BI dashboard.
 
 [![Access data health signals in multiple places in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-health-signal.gif?v=2 "Access data health signals in multiple places in dbt Catalog.")](#)Access data health signals in multiple places in dbt Catalog.
 
@@ -38,7 +38,7 @@ The health state of a model is determined by the following criteria:
 
 | **Health state** | **Criteria**                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅ **Healthy**   | All of the following must be true:<br /><br />- Built successfully in the last run<br />- Built in the last 30 days<br />- Model has tests configured<br />- All tests passed<br />- All upstream [sources are fresh](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) or freshness is not applicable (set to `null`)<br />- Has a description  |
+| ✅ **Healthy**   | All of the following must be true:<br /><br />- Built successfully in the last run<br />- Built in the last 30 days<br />- Model has tests configured<br />- All tests passed<br />- All upstream [sources are fresh](../build/sources.md#source-data-freshness) or freshness is not applicable (set to `null`)<br />- Has a description  |
 | 🟡 **Caution**   | One of the following must be true:<br /><br />- Not built in the last 30 days<br />- Tests are not configured<br />- Tests return warnings<br />- One or more upstream sources are stale:<br />    - Has a freshness check configured<br />    - Freshness check ran in the past 30 days<br />    - Freshness check returned a warning<br />- Missing a description |
 | 🔴 **Degraded**  | One of the following must be true:<br /><br />- Model failed to build<br />- Model has failing tests<br />- One or more upstream sources are stale:<br />    - Freshness check hasn’t run in the past 30 days<br />    - Freshness check returned an error                                                                                                          |
 | ⚪ **Unknown**   | - Unable to determine health of resource; no job runs have processed the resource.                                                                                                                                                                                                                                                                                  |

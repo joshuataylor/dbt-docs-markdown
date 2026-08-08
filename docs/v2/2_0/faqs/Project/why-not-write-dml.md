@@ -22,6 +22,6 @@ You can test your models, generate documentation, create snapshots, and more!
 
 #### You reduce your vendor lock in[​](#you-reduce-your-vendor-lock-in "Direct link to You reduce your vendor lock in")
 
-SQL dialects tend to diverge the most in DML and DDL (rather than in `select` statements) — check out the example [here](https://docs.getdbt.com/faqs/Models/sql-dialect.md). By writing less SQL, it can make a migration to a new database technology easier.
+SQL dialects tend to diverge the most in DML and DDL (rather than in `select` statements) — check out the example [here](../Models/sql-dialect.md). By writing less SQL, it can make a migration to a new database technology easier.
 
-If you do need to write custom DML, there are ways to do this in dbt using [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md).
+If you do need to write custom DML, there are ways to do this in dbt using [custom materializations](../../guides/create-new-materializations.md).

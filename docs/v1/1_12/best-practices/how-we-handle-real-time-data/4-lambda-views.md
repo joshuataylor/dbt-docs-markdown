@@ -9,14 +9,14 @@ A lambda view pattern combines a batch / incremental fact table with a small nea
 ## When to use lambda views[​](#when-to-use-lambda-views "Direct link to When to use lambda views")
 
 * You need fresher reads than your normal incremental schedule, but
-* You can't (or don't want to) use [dynamic tables](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized views](https://docs.getdbt.com/docs/build/materializations.md#materialized-view), or you want to keep logic entirely in dbt SQL. The examples used in this page assume the following setup:
+* You can't (or don't want to) use [dynamic tables](../../reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized views](../../docs/build/materializations.md#materialized-view), or you want to keep logic entirely in dbt SQL. The examples used in this page assume the following setup:
 
 ### Assumptions[​](#assumptions "Direct link to Assumptions")
 
 The examples used in this page assume the following setup:
 
 * Raw events land continuously into `raw.events` using your warehouse's streaming ingestion feature (like Snowpipe, Databricks Auto Loader, Kafka, or a similar ingestion mechanism).
-* You already maintain an [incremental fact table](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/2-incremental-patterns.md#incremental-merge-from-append-only-tables) that is rebuilt every few minutes using `incremental_strategy='merge'`.
+* You already maintain an [incremental fact table](./2-incremental-patterns.md#incremental-merge-from-append-only-tables) that is rebuilt every few minutes using `incremental_strategy='merge'`.
 * Most dashboards are fine reading from that incremental table, but a small set of operational dashboards want "as‑of‑now" data (for example, the last few minutes of events).
 
 ### How this pattern works[​](#how-this-pattern-works "Direct link to How this pattern works")
@@ -29,7 +29,7 @@ Downstream BI or dashboards query only the lambda view.
 
 ## Base incremental table[​](#base-incremental-table "Direct link to Base incremental table")
 
-You can reuse the incremental `merge` from [Snowflake pattern 1](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/2-incremental-patterns.md#incremental-merge-from-append-only-tables) as your base table; for completeness:
+You can reuse the incremental `merge` from [Snowflake pattern 1](./2-incremental-patterns.md#incremental-merge-from-append-only-tables) as your base table; for completeness:
 
 ```sql
 -- models/fct_events.sql
@@ -158,7 +158,7 @@ Take the following into consideration when using this pattern:
 
 * **Complexity vs alternatives**
 
-  * For many modern Snowflake implementations, a [dynamic table](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized view](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) with a small `target_lag` can provide similar "always within X minutes" service level agreements with less custom SQL and warehouse‑managed incremental logic.
+  * For many modern Snowflake implementations, a [dynamic table](../../reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized view](../../docs/build/materializations.md#materialized-view) with a small `target_lag` can provide similar "always within X minutes" service level agreements with less custom SQL and warehouse‑managed incremental logic.
 
   * Lambda views are best positioned as an *advanced / legacy pattern* you can still use for when you:
 

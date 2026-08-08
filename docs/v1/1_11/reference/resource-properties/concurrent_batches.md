@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 * Project YAML file
 * SQL file config
@@ -44,13 +44,13 @@ select ...
 
 `concurrent_batches` is an override which allows you to decide whether or not you want to run batches in parallel or sequentially (one at a time).
 
-For more information, refer to [how batch execution works](https://docs.getdbt.com/docs/build/parallel-batch-execution.md#how-parallel-batch-execution-works).
+For more information, refer to [how batch execution works](../../docs/build/parallel-batch-execution.md#how-parallel-batch-execution-works).
 
 ## Example[​](#example "Direct link to Example")
 
 By default, dbt auto-detects whether batches can run in parallel for microbatch models. However, you can override dbt's detection by setting the `concurrent_batches` config to `false` in your `dbt_project.yml` or model `.sql` file to specify parallel or sequential execution, given you meet these conditions:
 
-* You've configured a [microbatch incremental strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md).
+* You've configured a [microbatch incremental strategy](../../docs/build/incremental-microbatch.md).
 * You're working with cumulative metrics or any logic that depends on batch order.
 
 Set `concurrent_batches` config to `false` to ensure batches are processed sequentially. For example:

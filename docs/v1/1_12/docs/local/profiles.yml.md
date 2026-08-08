@@ -18,7 +18,7 @@ The `profiles.yml` file stores database connection credentials and configuration
 * **Execution parameters** — Thread count, timeouts, and retry settings.
 * **Credential separation** — Keep sensitive information out of version control.
 
-The `profile` field in [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md) references a profile name defined in `profiles.yml`.
+The `profile` field in [`dbt_project.yml`](../../reference/dbt_project.yml.md) references a profile name defined in `profiles.yml`.
 
 ## Location of profiles.yml[​](#location-of-profilesyml "Direct link to Location of profiles.yml")
 
@@ -65,7 +65,7 @@ The easiest way to create and configure a `profiles.yml` file is to execute `dbt
 
 If your project has an existing `profiles.yml` file, running `dbt init` will prompt you to amend or overwrite it. If you select the existing adapter for configuration, dbt will automatically populate the existing values.
 
-You can also manually create the file and add it to the proper location. To configure an adapter manually, copy and paste the fields from the adapter setup instructions for [dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) or [Fusion](https://docs.getdbt.com/docs/local/profiles.yml.md) along with the appropriate values for each.
+You can also manually create the file and add it to the proper location. To configure an adapter manually, copy and paste the fields from the adapter setup instructions for [dbt Core](./connect-data-platform/about-dbt-connections.md) or [Fusion](./profiles.yml.md) along with the appropriate values for each.
 
 ### Example configuration[​](#example-configuration "Direct link to Example configuration")
 
@@ -122,7 +122,7 @@ my_second_project_profile:
 
 ### Environment variables[​](#environment-variables "Direct link to Environment variables")
 
-Use environment variables to keep sensitive credentials out of your `profiles.yml` file. Check out the [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) reference for more information.
+Use environment variables to keep sensitive credentials out of your `profiles.yml` file. Check out the [env\_var](../../reference/dbt-jinja-functions/env_var.md) reference for more information.
 
 Example:
 
@@ -144,17 +144,17 @@ my_profile:
       threads: 4
 ```
 
-When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. dbt, the dbt VS Code extension, and dbt Core v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md#using-the-env-file).
+When using dbt locally, you can also store environment variables in a `.env` file in your project root instead of setting them directly in your shell. dbt, the dbt VS Code extension, and dbt Core v1.12+ automatically load the `.env` file from your current working directory. Environment variables set in your shell take precedence over values in the `.env` file. For more information, refer to [About env\_var function](../../reference/dbt-jinja-functions/env_var.md#using-the-env-file).
 
 To keep credentials out of version control, add `.env` to your `.gitignore` file — new projects on v1.12 and higher created with `dbt init` include this by default.
 
 ## User config[​](#user-config "Direct link to User config")
 
-You can set default values of global configs for all projects that you run using your local machine. Refer to [About global configs](https://docs.getdbt.com/reference/global-configs/about-global-configs.md) for details.
+You can set default values of global configs for all projects that you run using your local machine. Refer to [About global configs](../../reference/global-configs/about-global-configs.md) for details.
 
 ## Understanding targets in profiles[​](#understanding-targets-in-profiles "Direct link to Understanding targets in profiles")
 
-dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](https://docs.getdbt.com/docs/local/dbt-core-environments.md).
+dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](./dbt-core-environments.md).
 
 A typical profile for an analyst using dbt locally will have a target named `dev`, and have this set as the default.
 
@@ -178,7 +178,7 @@ dbt compile --target qa
 
 ### Overriding profiles and targets[​](#overriding-profiles-and-targets "Direct link to Overriding profiles and targets")
 
-When running dbt commands, you can specify which profile and target to use from the CLI using the `--profile` and `--target` [flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md#available-flags). These flags override what’s defined in your `dbt_project.yml` as long as the specified profile and target are already defined in your `profiles.yml` file.
+When running dbt commands, you can specify which profile and target to use from the CLI using the `--profile` and `--target` [flags](../../reference/global-configs/about-global-configs.md#available-flags). These flags override what’s defined in your `dbt_project.yml` as long as the specified profile and target are already defined in your `profiles.yml` file.
 
 To run your dbt project with a different profile or target than the default, you can do so using the followingCLI flags:
 
@@ -221,15 +221,15 @@ In development, a pattern we’ve found to work well is to name the schema in yo
 
 Note that there’s no need to create your target schema beforehand – dbt will check if the schema already exists when it runs, and create it if it doesn’t.
 
-While the target schema represents the default schema that dbt will use, it may make sense to split your models into separate schemas, which can be done by using [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md).
+While the target schema represents the default schema that dbt will use, it may make sense to split your models into separate schemas, which can be done by using [custom schemas](../build/custom-schemas.md).
 
 ## Understanding threads[​](#understanding-threads "Direct link to Understanding threads")
 
 When dbt runs, it creates a directed acyclic graph (DAG) of links between models. The number of threads represents the maximum number of paths through the graph dbt may work on at once – increasing the number of threads can minimize the run time of your project. The default value for threads in user profiles is 4 threads.
 
-For more information, check out [using threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md).
+For more information, check out [using threads](../running-a-dbt-project/using-threads.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Connection profiles](https://docs.getdbt.com/docs/local/connection-profiles.md)
+* [Install dbt](./install-dbt.md)
+* [Connection profiles](./connection-profiles.md)

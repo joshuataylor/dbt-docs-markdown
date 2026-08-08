@@ -2,9 +2,9 @@
 
 note
 
-Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [database](https://docs.getdbt.com/reference/resource-configs/database.md) config as an alternative to define a custom database while still respecting the `generate_database_name` macro.
+Starting in dbt Core v1.9+, this functionality is no longer utilized. Use the [database](./database.md) config as an alternative to define a custom database while still respecting the `generate_database_name` macro.
 
-Try it now in the [dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+Try it now in the [dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -24,7 +24,7 @@ snapshots/\<filename>.sql
 
 ## Description[​](#description "Direct link to Description")
 
-The database that dbt should build a [snapshot](https://docs.getdbt.com/docs/build/snapshots.md) table into.
+The database that dbt should build a [snapshot](../../docs/build/snapshots.md) table into.
 
 Notes:
 
@@ -40,7 +40,7 @@ Runtime Error
 
 ## Default[​](#default "Direct link to Default")
 
-By default, dbt will use the [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) database associated with your profile/connection.
+By default, dbt will use the [target](../dbt-jinja-functions/target.md) database associated with your profile/connection.
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -55,7 +55,7 @@ snapshots:
 
 ### Use a target-aware database[​](#use-a-target-aware-database "Direct link to Use a target-aware database")
 
-Use the [`{{ target }}` variable](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md) to change which database a snapshot table is built in.
+Use the [`{{ target }}` variable](../dbt-jinja-functions/target.md) to change which database a snapshot table is built in.
 
 Note: consider whether this use-case is right for you, as downstream `refs` will select from the `dev` version of a snapshot, which can make it hard to validate models that depend on snapshots.
 
@@ -68,7 +68,7 @@ snapshots:
 
 ### Use the same database-naming behavior as models[​](#use-the-same-database-naming-behavior-as-models "Direct link to Use the same database-naming behavior as models")
 
-Leverage the [`generate_database_name` macro](https://docs.getdbt.com/docs/build/custom-databases.md) to build snapshots in databases that follow the same naming behavior as your models.
+Leverage the [`generate_database_name` macro](../../docs/build/custom-databases.md) to build snapshots in databases that follow the same naming behavior as your models.
 
 Notes:
 

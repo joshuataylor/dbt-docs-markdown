@@ -2,29 +2,29 @@
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
-[Continuous integration workflows](https://docs.getdbt.com/docs/deploy/continuous-integration.md) help increase the governance and improve the quality of the data. Additionally for these CI jobs, you can use Advanced CI features, such as [compare changes](#compare-changes), that provide details about the changes between what's currently in your production environment and the pull request's latest commit, giving you observability into how data changes are affected by your code changes.
+[Continuous integration workflows](./continuous-integration.md) help increase the governance and improve the quality of the data. Additionally for these CI jobs, you can use Advanced CI features, such as [compare changes](#compare-changes), that provide details about the changes between what's currently in your production environment and the pull request's latest commit, giving you observability into how data changes are affected by your code changes.
 
 By analyzing the data changes that code changes produce, you can ensure you're always shipping trustworthy data products as you're developing.
 
 How to enable this feature
 
-You can opt into Advanced CI in dbt. Please refer to [Account access to Advanced CI features](https://docs.getdbt.com/docs/platform/account-settings.md#account-access-to-advanced-ci-features) to learn how enable it in your dbt account.
+You can opt into Advanced CI in dbt. Please refer to [Account access to Advanced CI features](../platform/account-settings.md#account-access-to-advanced-ci-features) to learn how enable it in your dbt account.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt Enterprise or Enterprise+ account.
-* You have [Advanced CI features](https://docs.getdbt.com/docs/platform/account-settings.md#account-access-to-advanced-features) enabled.
+* You have [Advanced CI features](../platform/account-settings.md#account-access-to-advanced-features) enabled.
 * You use a supported data platform: BigQuery, Databricks, Postgres, Redshift, or Snowflake. Support for additional data platforms coming soon.
 
 ## Compare changes feature[​](#compare-changes "Direct link to Compare changes feature")
 
-For [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) that have the [**dbt compare** option enabled](https://docs.getdbt.com/docs/deploy/ci-jobs.md#set-up-ci-jobs), dbt compares the changes between the last applied state of the production environment (defaulting to deferral for lower compute costs) and the latest changes from the pull request, whenever a pull request is opened or new commits are pushed.
+For [CI jobs](./ci-jobs.md) that have the [**dbt compare** option enabled](./ci-jobs.md#set-up-ci-jobs), dbt compares the changes between the last applied state of the production environment (defaulting to deferral for lower compute costs) and the latest changes from the pull request, whenever a pull request is opened or new commits are pushed.
 
-You can also compare changes in development. For more details, see [Compare changes in development](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes-in-development).
+You can also compare changes in development. For more details, see [Compare changes in development](./advanced-ci.md#compare-changes-in-development).
 
 dbt reports the comparison differences in:
 
-* **dbt** — Shows the changes (if any) to the data's primary keys, rows, and columns in the [Compare tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#compare-tab) from the [Job run details](https://docs.getdbt.com/docs/deploy/run-visibility.md#job-run-details) page.
+* **dbt** — Shows the changes (if any) to the data's primary keys, rows, and columns in the [Compare tab](./run-visibility.md#compare-tab) from the [Job run details](./run-visibility.md#job-run-details) page.
 * **The pull request from your Git provider** — Shows a summary of the changes as a Git comment.
 
 [![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
@@ -33,7 +33,7 @@ dbt reports the comparison differences in:
 
 You can compare changes locally in development to preview data changes caused by your local edits (for example, added/removed rows or joins) directly in your editor, and without waiting on CI. Compare changes in development is available through the dbt VS Code extension, which is powered by the dbt Fusion engine.
 
-For more details on how to use this feature, see [Compare changes in local development](https://docs.getdbt.com/docs/fusion/vs-compare-changes.md).
+For more details on how to use this feature, see [Compare changes in local development](../fusion/vs-compare-changes.md).
 
  Differences between compare changes in development and Advanced CI compare changes
 
@@ -43,16 +43,16 @@ For more details on how to use this feature, see [Compare changes in local devel
 | **Trigger**         | On-demand in editor                                                           | PR open/update and CI job                                                                                       |
 | **Scope**           | Your working copy and local target                                            | Branch head versus prod state in CI                                                                             |
 | **Output** location | Compare panel in VS Code/Cursor. Does not create a PR comment in Git provider | Deployment job compare tab and PR summary comment in Git provider                                               |
-| **Data caching**    | Editor-side                                                                   | dbt platform [caches](https://docs.getdbt.com/docs/deploy/advanced-ci.md#about-the-cached-data) limited samples |
+| **Data caching**    | Editor-side                                                                   | dbt platform [caches](./advanced-ci.md#about-the-cached-data) limited samples |
 | **Governance**      | Local development credentials                                                 | Production credentials                                                                                          |
 
 ### Optimizing comparisons[​](#optimizing-comparisons "Direct link to Optimizing comparisons")
 
-When an [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
+When an [`event_time`](../../reference/resource-configs/event-time.md) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
 
 This is useful in scenarios like:
 
-* **Subset of data in CI** — When CI builds only a [subset of data](https://docs.getdbt.com/best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) (like the most recent 7 days), compare changes would interpret the excluded data as "deleted rows." Configuring `event_time` allows you to avoid this issue by limiting comparisons to the overlapping timeframe, preventing false alerts about data deletions that are just filtered out in CI.
+* **Subset of data in CI** — When CI builds only a [subset of data](../../best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) (like the most recent 7 days), compare changes would interpret the excluded data as "deleted rows." Configuring `event_time` allows you to avoid this issue by limiting comparisons to the overlapping timeframe, preventing false alerts about data deletions that are just filtered out in CI.
 * **Fresher data in CI than in production** — When your CI job includes fresher data than production (because it has run more recently), compare changes would flag the additional rows as "new" data, even though they’re just fresher data in CI. With `event_time` configured, the comparison only includes the shared timeframe and correctly reflects actual changes in the data.
 
 [![event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.](/img/docs/deploy/apples_to_apples.png?v=2 "event_time ensures the same time-slice of data is accurately compared between your CI and production environments.")](#)event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.

@@ -30,4 +30,4 @@ macros/materialization\_view\.sql
 {% endmaterialization %}
 ```
 
-In the future, we may extend the project-level [`dispatch` configuration](https://docs.getdbt.com/reference/project-configs/dispatch-config.md) to support a list of authorized packages for overriding built-in materializations.
+In the future, we may extend the project-level [`dispatch` configuration](../../project-configs/dispatch-config.md) to support a list of authorized packages for overriding built-in materializations.

@@ -81,7 +81,7 @@ Let’s break down that `where` clause a bit, because this is where the action i
    2. check if it’s **greater than our cutoff,**
    3. if so it will satisfy our where clause, so we’re **selecting all the rows more recent than our cutoff.**
 
-This logic would let us isolate and apply our transformations to just the records that have come in since our last run, and I’ve got some great news: that magic `{{ this }}` keyword [does in fact exist in dbt](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md), so we can write exactly this logic in our models.
+This logic would let us isolate and apply our transformations to just the records that have come in since our last run, and I’ve got some great news: that magic `{{ this }}` keyword [does in fact exist in dbt](../../reference/dbt-jinja-functions/this.md), so we can write exactly this logic in our models.
 
 ### Configuring incremental models[​](#configuring-incremental-models "Direct link to Configuring incremental models")
 
@@ -127,11 +127,11 @@ So we’re going to use an **if statement** to apply our cutoff filter **only wh
 * ➕  we’ve set the materialization **config** to incremental,
 * 🛠️  there is an **existing table** for this model in the warehouse to build on,
 * 🙅‍♀️  and the `--full-refresh` **flag was *not* passed.**
-  * [full refresh](https://docs.getdbt.com/reference/resource-configs/full_refresh.md) is a configuration and flag that is specifically designed to let us override the incremental materialization and build a table from scratch again.
+  * [full refresh](../../reference/resource-configs/full_refresh.md) is a configuration and flag that is specifically designed to let us override the incremental materialization and build a table from scratch again.
 
 Thankfully, we don’t have to dig into the guts of dbt to sort out each of these conditions individually.
 
-* ⚙️  dbt provides us with a **macro [`is_incremental`](https://docs.getdbt.com/docs/build/incremental-models.md#understand-the-is_incremental-macro)** that checks all of these conditions for this exact use case.
+* ⚙️  dbt provides us with a **macro [`is_incremental`](../../docs/build/incremental-models.md#understand-the-is_incremental-macro)** that checks all of these conditions for this exact use case.
 * 🔀  By **wrapping our cutoff logic** in this macro, it will only get applied when the macro returns true for all of the above conditions.
 
 Let’s take a look at all these pieces together:
@@ -170,11 +170,11 @@ Our last concern specific to incremental models is what to do when data is inevi
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with incremental models. Use [`lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md) to control how frequently the model rebuilds based on upstream data changes, and [`pre_clone`](https://docs.getdbt.com/reference/resource-configs/pre-clone.md) to pre-populate the model by cloning from production before a run. For example, to skip a rebuild if upstream data changed less than 4 hours ago, and always start from the current production state in local development:
+[dbt State](../../docs/deploy/dbt-state-about.md) works with incremental models. Use [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) to control how frequently the model rebuilds based on upstream data changes, and [`pre_clone`](../../reference/resource-configs/pre-clone.md) to pre-populate the model by cloning from production before a run. For example, to skip a rebuild if upstream data changed less than 4 hours ago, and always start from the current production state in local development:
 
 ```yaml
 models:
@@ -201,7 +201,7 @@ sources:
             where ingested_at >= current_timestamp - interval '3 days'
 ```
 
-For more details, refer to [dbt State configurations](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md) and [Source freshness](https://docs.getdbt.com/reference/resource-properties/freshness.md).
+For more details, refer to [dbt State configurations](../../reference/resource-configs/dbt-state-configs.md) and [Source freshness](../../reference/resource-properties/freshness.md).
 
 ### Long-term considerations[​](#long-term-considerations "Direct link to Long-term considerations")
 

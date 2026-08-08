@@ -18,7 +18,7 @@ For the DATEDIFF function, there are three elements, or arguments, passed in:
 * The first (start) date/time
 * The second (end) date/time
 
-The DATEDIFF function can be used in [SELECT](https://docs.getdbt.com/sql-reference/select.md) statements and WHERE clauses.
+The DATEDIFF function can be used in [SELECT](./select.md) statements and WHERE clauses.
 
 Most, if not all, modern cloud data warehouses support some type of the DATEDIFF function. There may be some minor differences between the argument order and function name for DATEDIFF across data warehouses, but the functionality very much remains the same.
 
@@ -40,7 +40,7 @@ The syntax for using the DATEDIFF function in [Google BigQuery](https://cloud.go
 
 * Unlike in Snowflake, Amazon Redshift, and Databricks where the `<date part>` is passed as the first argument, the `<date part>` is passed in as the last argument in Google BigQuery.
 * Google BigQuery also calls the function DATETIME\_DIFF with an additional underscore separating the function name. This is on par with [Google BigQuery’s preference to have underscores in function names](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions).
-* The DATETIME\_DIFF arguments are datetimes, not dates; Snowflake, Redshift, and Databricks’ DATEDIFF functions support multiple [date types](https://docs.getdbt.com/sql-reference/data-types.md#date-data-types) such as dates and timestamps. BigQuery also supports a separate [DATE\_DIFF function](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_diff) that will return the difference between two date types, unlike the DATETIME\_DIFF that only supports the datetime type.
+* The DATETIME\_DIFF arguments are datetimes, not dates; Snowflake, Redshift, and Databricks’ DATEDIFF functions support multiple [date types](./data-types.md#date-data-types) such as dates and timestamps. BigQuery also supports a separate [DATE\_DIFF function](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_diff) that will return the difference between two date types, unlike the DATETIME\_DIFF that only supports the datetime type.
 
 ## A hero in the shadows: The DATEDIFF dbt macro!​[​](#a-hero-in-the-shadows-the-datediff-dbt-macro "Direct link to A hero in the shadows: The DATEDIFF dbt macro!​")
 
@@ -48,7 +48,7 @@ You may be able to memorize the syntax for the DATEDIFF function for the primary
 
 Luckily, [dbt Core](https://github.com/dbt-labs/dbt-core) has your back! dbt Core is the open source dbt product that helps data folks write their [data transformations](https://www.getdbt.com/analytics-engineering/transformation/) following software engineering best practices.
 
-[Adapters](https://docs.getdbt.com/docs/supported-data-platforms.md) support [cross-database macros](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md) to help you write certain functions, like DATE\_TRUNC and DATEDIFF, without having to memorize sticky function syntax.
+[Adapters](../docs/supported-data-platforms.md) support [cross-database macros](../reference/dbt-jinja-functions/cross-database-macros.md) to help you write certain functions, like DATE\_TRUNC and DATEDIFF, without having to memorize sticky function syntax.
 
 Using the DATEDIFF macro, you can calculate the difference between two dates without having to worry about finicky syntax. Specifically, this means you could successfully run the same code across multiple databases without having to worry about the finicky differences in syntax.
 

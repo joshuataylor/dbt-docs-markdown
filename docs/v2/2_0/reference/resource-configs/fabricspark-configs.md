@@ -2,7 +2,7 @@
 
 ## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](../model-configs.md).
 
 | Option                                 | Description                                                                                                                                                                                                                                                                       | Required?                               | Example                                                                                                                                                                                                                                                                            |
 | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,12 +23,12 @@ Search table...
 
 dbt seeks to offer useful, intuitive modeling abstractions by means of its built-in configurations and materializations. Because there is so much variance between Spark clusters out in the world—not to mention the powerful features offered to open source users by the Delta file format and custom runtime—making sense of all the available options is an undertaking in its own right.
 
-For that reason, the dbt-fabricspark plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
+For that reason, the dbt-fabricspark plugin leans heavily on the [`incremental_strategy` config](../../docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of three values:
 
 * **`append`** (default): Insert new records without updating or overwriting any existing data.
 * **`insert_overwrite`**: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
 * **`merge`** (Delta file format only): Match records based on a `unique_key`; update old records, insert new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
-* `microbatch` Implements the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) using `event_time` to define time-based ranges for filtering data.
+* `microbatch` Implements the [microbatch strategy](../../docs/build/incremental-microbatch.md) using `event_time` to define time-based ranges for filtering data.
 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
@@ -219,7 +219,7 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
 
 ## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
 
-Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](./persist_docs.md).
 
 When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
 
@@ -229,7 +229,7 @@ Fabric Spark uses the terms "schema" and "database" interchangeably. dbt underst
 
 ## Default file format configurations[​](#default-file-format-configurations "Direct link to Default file format configurations")
 
-To access advanced incremental strategies features, such as [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) and the `merge` incremental strategy, you will want to use the Delta file format as the default file format when materializing models as tables.
+To access advanced incremental strategies features, such as [snapshots](../../docs/build/snapshots.md) and the `merge` incremental strategy, you will want to use the Delta file format as the default file format when materializing models as tables.
 
 It's quite convenient to do this by setting a top-level configuration in your project file:
 

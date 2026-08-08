@@ -4,7 +4,7 @@ The `graph` context variable contains information about the *nodes* in your dbt 
 
 Heads up
 
-dbt actively builds the `graph` variable during the [parsing phase](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) of running dbt projects, so some properties of the `graph` context variable will be missing or incorrect during parsing. Please read the information below carefully to understand how to effectively use this variable.
+dbt actively builds the `graph` variable during the [parsing phase](./execute.md) of running dbt projects, so some properties of the `graph` context variable will be missing or incorrect during parsing. Please read the information below carefully to understand how to effectively use this variable.
 
 ### The graph context variable[​](#the-graph-context-variable "Direct link to The graph context variable")
 
@@ -70,7 +70,7 @@ The exact contract for these model and source nodes is not currently documented,
 
 ### Accessing models[​](#accessing-models "Direct link to Accessing models")
 
-The `model` entries in the `graph` dictionary will be incomplete or incorrect during parsing. If accessing the models in your project via the `graph` variable, be sure to use the [execute](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) flag to ensure that this code only executes at run-time and not at parse-time. Do not use the `graph` variable to build your DAG, as the resulting dbt behavior will be undefined and likely incorrect. Example usage:
+The `model` entries in the `graph` dictionary will be incomplete or incorrect during parsing. If accessing the models in your project via the `graph` variable, be sure to use the [execute](./execute.md) flag to ensure that this code only executes at run-time and not at parse-time. Do not use the `graph` variable to build your DAG, as the resulting dbt behavior will be undefined and likely incorrect. Example usage:
 
 graph-usage.sql
 

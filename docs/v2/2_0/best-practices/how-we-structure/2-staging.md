@@ -6,7 +6,7 @@ We'll use an analogy for working with dbt throughout this guide: thinking modula
 
 ### Staging: Files and folders[​](#staging-files-and-folders "Direct link to Staging: Files and folders")
 
-Let's zoom into the staging directory from our `models` file tree [in the overview](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) and walk through what's going on here.
+Let's zoom into the staging directory from our `models` file tree [in the overview](./1-guide-overview.md) and walk through what's going on here.
 
 ```shell
 models/staging
@@ -25,7 +25,7 @@ models/staging
 └── stg_supplies.yml
 ```
 
-* **Folders.** Folder structure is extremely important in dbt. Not only do we need a consistent structure to find our way around the codebase, as with any software project, but our folder structure is also one of the key interfaces for understanding the knowledge graph encoded in our project (alongside the DAG and the data output into our warehouse). It should reflect how the data flows, step-by-step, from a wide variety of source-conformed models into fewer, richer business-conformed models. Moreover, we can use our folder structure as a means of selection in dbt [selector syntax](https://docs.getdbt.com/reference/node-selection/syntax.md). For example, with the above structure, if we got fresh e-commerce data loaded and wanted to run all the models that build on our staging layer, we can easily run `dbt build --select staging+` and we're all set for building more up-to-date reports.
+* **Folders.** Folder structure is extremely important in dbt. Not only do we need a consistent structure to find our way around the codebase, as with any software project, but our folder structure is also one of the key interfaces for understanding the knowledge graph encoded in our project (alongside the DAG and the data output into our warehouse). It should reflect how the data flows, step-by-step, from a wide variety of source-conformed models into fewer, richer business-conformed models. Moreover, we can use our folder structure as a means of selection in dbt [selector syntax](../../reference/node-selection/syntax.md). For example, with the above structure, if we got fresh e-commerce data loaded and wanted to run all the models that build on our staging layer, we can easily run `dbt build --select staging+` and we're all set for building more up-to-date reports.
 
   <!-- -->
 
@@ -45,7 +45,7 @@ models/staging
 
 Now that we’ve got a feel for how the files and folders fit together, let’s look inside one of these files and dig into what makes for a well-structured staging model.
 
-Below is an example of a standard staging model (from our `stg_orders` model) that illustrates the common patterns within the staging layer. We’ve organized our model into two CTEs: one pulling in a source table via the [source macro](https://docs.getdbt.com/docs/build/sources.md#selecting-from-a-source) and the other applying our transformations.
+Below is an example of a standard staging model (from our `stg_orders` model) that illustrates the common patterns within the staging layer. We’ve organized our model into two CTEs: one pulling in a source table via the [source macro](../../docs/build/sources.md#selecting-from-a-source) and the other applying our transformations.
 
 While our later layers of transformation will vary greatly from model to model, every one of our staging models will follow this exact same pattern. As such, we need to make sure the pattern we’ve established is rock solid and consistent.
 
@@ -98,7 +98,7 @@ select * from renamed
 
 * ✅ **Materialized as views.** Looking at a partial view of our `dbt_project.yml` below, we can see that we’ve configured the entire staging directory to be materialized as views. As they’re not intended to be final artifacts themselves, but rather building blocks for later models, staging models should typically be materialized as views for two key reasons:
 
-  * Any downstream model (discussed more in [marts](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md)) referencing our staging models will always get the freshest data possible from all of the component views it’s pulling together and materializing
+  * Any downstream model (discussed more in [marts](./4-marts.md)) referencing our staging models will always get the freshest data possible from all of the component views it’s pulling together and materializing
 
   * It avoids wasting space in the warehouse on models that are not intended to be queried by data consumers, and thus do not need to perform as quickly or efficiently
 
@@ -111,7 +111,7 @@ select * from renamed
           +materialized: view
     ```
 
-* Staging models are the only place we'll use the [`source` macro](https://docs.getdbt.com/docs/build/sources.md), and our staging models should have a 1-to-1 relationship to our source tables. That means for each source system table we’ll have a single staging model referencing it, acting as its entry point — *staging* it — for use downstream.
+* Staging models are the only place we'll use the [`source` macro](../../docs/build/sources.md), and our staging models should have a 1-to-1 relationship to our source tables. That means for each source system table we’ll have a single staging model referencing it, acting as its entry point — *staging* it — for use downstream.
 
 Don’t Repeat Yourself.
 

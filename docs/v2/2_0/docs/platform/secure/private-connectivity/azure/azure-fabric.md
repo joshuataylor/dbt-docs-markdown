@@ -159,7 +159,7 @@ Once dbt Support confirms the endpoint is available, configure the connection in
 
 ### Configure authentication[​](#configure-authentication "Direct link to Configure authentication")
 
-The **Connection** page only includes **Server**, **Port**, and **Database**. Configure the following later when you [set up your development credentials](https://docs.getdbt.com/docs/dbt-platform-environments.md#set-user-credentials) or [create a deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md):
+The **Connection** page only includes **Server**, **Port**, and **Database**. Configure the following later when you [set up your development credentials](../../../../dbt-platform-environments.md#set-user-credentials) or [create a deployment environment](../../../../deploy/deploy-environments.md):
 
 | Field              | Value                                            |
 | ------------------ | ------------------------------------------------ |

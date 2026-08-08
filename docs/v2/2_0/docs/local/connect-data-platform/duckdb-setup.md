@@ -8,7 +8,7 @@ DuckDB does not require authentication — it runs locally on your machine.
 
 ### Installing dbt-duckdb[​](#installing-dbt-duckdb "Direct link to Installing dbt-duckdb")
 
-The DuckDB adapter is built into v2. To get started, [install dbt](https://docs.getdbt.com/docs/local/install-dbt.md). We recommend using the [VS Code Extension](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) as the development interface.
+The DuckDB adapter is built into v2. To get started, [install dbt](../install-dbt.md). We recommend using the [VS Code Extension](../install-dbt.md?version=2) as the development interface.
 
 #### DuckDB driver and extensions[​](#driver-and-extensions "Direct link to DuckDB driver and extensions")
 
@@ -27,7 +27,7 @@ The DuckDB adapter for Fusion is in beta. Some features available in the `dbt-du
 
 #### Static analysis and local flat files[​](#static-analysis-and-local-flat-files "Direct link to Static analysis and local flat files")
 
-dbt Fusion engine performs static analysis on your SQL models to determine column types and lineage without executing queries. If your models reference local flat files (CSV, Parquet, or JSON) through DuckDB's `read_csv()`, `read_parquet()`, or `read_json()` functions, Fusion may not be able to infer the schema of those files at analysis time. As a result, you may see type-resolution warnings or compilation errors even when the query would succeed at runtime. To learn more, refer to [New concepts](https://docs.getdbt.com/docs/build/about-static-analysis.md).
+dbt Fusion engine performs static analysis on your SQL models to determine column types and lineage without executing queries. If your models reference local flat files (CSV, Parquet, or JSON) through DuckDB's `read_csv()`, `read_parquet()`, or `read_json()` functions, Fusion may not be able to infer the schema of those files at analysis time. As a result, you may see type-resolution warnings or compilation errors even when the query would succeed at runtime. To learn more, refer to [New concepts](../../build/about-static-analysis.md).
 
 <!-- -->
 
@@ -135,9 +135,9 @@ default:
   target: dev
 ```
 
-You can refer to attached databases by the basename of the file (without its suffix) or by an `alias` you specify. The `type` argument supports `duckdb`, `sqlite`, and `postgres`. You can also pass arbitrary options using the `options` dictionary — refer to [Arbitrary ATTACH options](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#arbitrary-attach-options) for details.
+You can refer to attached databases by the basename of the file (without its suffix) or by an `alias` you specify. The `type` argument supports `duckdb`, `sqlite`, and `postgres`. You can also pass arbitrary options using the `options` dictionary — refer to [Arbitrary ATTACH options](../../../reference/resource-configs/duckdb-configs.md#arbitrary-attach-options) for details.
 
-For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#ducklake) section for details.
+For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](../../../reference/resource-configs/duckdb-configs.md#ducklake) section for details.
 
 ## Extensions[​](#extensions "Direct link to Extensions")
 
@@ -173,10 +173,10 @@ extensions:
     repo: core_nightly
 ```
 
-For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md) page.
+For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](../../../reference/resource-configs/duckdb-configs.md) page.
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md).
+Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](../../../reference/resource-configs/duckdb-configs.md).
 
 For adapter source code, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).

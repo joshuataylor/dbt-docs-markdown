@@ -10,7 +10,7 @@ We are committed to maintaining the spirit of this community, and have written t
 
 We want everyone in this community to have a fulfilling and positive experience. Therefore, this first rule is serious and straightforward; we simply will not tolerate disrespectful behavior of any kind.
 
-Everyone interacting on a dbt platform – including Slack, the forum, codebase, issue trackers, and mailing lists – is expected to follow the [Community Code of Conduct](https://docs.getdbt.com/community/resources/code-of-conduct.md). If you are unable to abide by the code of conduct set forth here, we encourage you not to participate in the community.
+Everyone interacting on a dbt platform – including Slack, the forum, codebase, issue trackers, and mailing lists – is expected to follow the [Community Code of Conduct](./code-of-conduct.md). If you are unable to abide by the code of conduct set forth here, we encourage you not to participate in the community.
 
 ### Rule 2: Keep it in public spaces[​](#rule-2-keep-it-in-public-spaces "Direct link to Rule 2: Keep it in public spaces")
 
@@ -20,7 +20,7 @@ We highly value the time community members put into helping each other, and we h
 
 ### Rule 3: Follow messaging etiquette[​](#rule-3-follow-messaging-etiquette "Direct link to Rule 3: Follow messaging etiquette")
 
-In short: put effort into your question, use threads, post in the right channel, and do not seek extra attention by tagging individuals or double-posting. For more information, see our [guide on getting help](https://docs.getdbt.com/community/resources/getting-help.md).
+In short: put effort into your question, use threads, post in the right channel, and do not seek extra attention by tagging individuals or double-posting. For more information, see our [guide on getting help](./getting-help.md).
 
 ### Rule 4: Do not solicit community members[​](#rule-4-do-not-solicit-community-members "Direct link to Rule 4: Do not solicit community members")
 
@@ -58,7 +58,7 @@ The definition of "vendor content" can be blurry at the edges, and we defer to m
 
 ### One more tip: Be yourself[​](#one-more-tip-be-yourself "Direct link to One more tip: Be yourself")
 
-Speak in your own voice, and join in any or all of the conversations that interest you. Share your expertise as a data professional. Make a meme if you're so inclined. Get in a (friendly) debate. You are not limited to only your company's products and services, and making yourself known as a familiar face outside of commercial contexts is one of the most effective ways of building trust with the community. Put another way, [create more value than you capture](https://docs.getdbt.com/community/resources/code-of-conduct.md#create-more-value-than-you-capture).
+Speak in your own voice, and join in any or all of the conversations that interest you. Share your expertise as a data professional. Make a meme if you're so inclined. Get in a (friendly) debate. You are not limited to only your company's products and services, and making yourself known as a familiar face outside of commercial contexts is one of the most effective ways of building trust with the community. Put another way, [create more value than you capture](./code-of-conduct.md#create-more-value-than-you-capture).
 
 Because unaffiliated community members are able to share links in any channel, the most effective way to have your work reach a wider audience is to create things that are genuinely useful to the community.
 

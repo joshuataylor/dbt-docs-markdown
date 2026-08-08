@@ -1,6 +1,6 @@
 # Quickstart for dbt Canvas
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Canvas
 
@@ -32,7 +32,7 @@ Before using Canvas, you should:
 
 * Have a [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing) account.
 
-* Have a [developer license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) with user credentials set up.
+* Have a [developer license](../docs/platform/manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
 
@@ -45,7 +45,7 @@ Before using Canvas, you should:
   * Trino
   * You can access the Canvas with adapters not listed, but some features may be missing at this time.
 
-* Use [GitHub](https://docs.getdbt.com/docs/platform/git/connect-github.md), [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md), or [Azure DevOps](https://docs.getdbt.com/docs/platform/git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
+* Use [GitHub](../docs/platform/git/connect-github.md), [GitLab](../docs/platform/git/connect-gitlab.md), or [Azure DevOps](../docs/platform/git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
 
   <!-- -->
 
@@ -54,9 +54,9 @@ Before using Canvas, you should:
 
 * Have an existing dbt project already created with a Staging or Production run completed.
 
-* Verify your Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
+* Verify your Development environment is on a supported [release track](../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 
-* Have read-only access to the [Staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information.
+* Have read-only access to the [Staging environment](../docs/deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](../docs/platform/manage-access/environment-permissions-setup.md) for more information.
 
 Prerequisite for using the Jaffle Shop
 
@@ -93,7 +93,7 @@ Click on an icon to expand its section or execute an action depending on its pur
 
 7. The **Operators** toolbar (`Input`, `Transform`, and `Output`) contains the building blocks for creating a model with the editor.
 
-8. The [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) icon (where available). Use natural language to build your Canvas models.
+8. The [dbt Wizard](../docs/platform/wizard-platform.md) icon (where available). Use natural language to build your Canvas models.
 
 9. The **SQL code** area displays the SQL that compiles your model.
 
@@ -125,7 +125,7 @@ Operators are divided into three types:
 
 [![The operator’s menu on the side of the Canvas workspace.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator’s menu on the side of the Canvas workspace.")](#)The operator’s menu on the side of the Canvas workspace.
 
-Read more about the [individual operators](https://docs.getdbt.com/docs/platform/canvas-interface.md#operators) to understand the basic purpose of each. The dbt model created by the Canvas builds off of existing models. In this guide, there will be input (source) models and an output model (what you are building) which will be *your model*.
+Read more about the [individual operators](../docs/platform/canvas-interface.md#operators) to understand the basic purpose of each. The dbt model created by the Canvas builds off of existing models. In this guide, there will be input (source) models and an output model (what you are building) which will be *your model*.
 
 More about operator tiles
 
@@ -284,13 +284,13 @@ To run your model, you only need to click the big **Run** button. With the Canva
 
 [![The results of a successful run in the 'Runs and previews' pane.](/img/docs/dbt-platform/canvas/run-results.png?v=2 "The results of a successful run in the 'Runs and previews' pane.")](#)The results of a successful run in the 'Runs and previews' pane.
 
-This will [materialize](https://docs.getdbt.com/docs/build/materializations.md) the data as a `view` in your developer schema in the database. Once the model has been merged with your project and `dbt run` is executed in your Staging or Production environments, it will be materialized as a view in related schemas.
+This will [materialize](../docs/build/materializations.md) the data as a `view` in your developer schema in the database. Once the model has been merged with your project and `dbt run` is executed in your Staging or Production environments, it will be materialized as a view in related schemas.
 
 [![Preview of the transformed data in Snowflake.](/img/docs/dbt-platform/canvas/preview-data.png?v=2 "Preview of the transformed data in Snowflake.")](#)Preview of the transformed data in Snowflake.
 
 tip
 
-Have dbt [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) enabled for your dbt Enterprise account? Clear the board and try using natural language to build the model in this guide without manually configuring any operators.
+Have dbt [dbt Wizard](../docs/platform/wizard-platform.md) enabled for your dbt Enterprise account? Clear the board and try using natural language to build the model in this guide without manually configuring any operators.
 
 ### Git commit[​](#git-commit "Direct link to Git commit")
 
@@ -319,6 +319,6 @@ You've just submitted your first model from the Canvas for review. Once approved
 
 tip
 
-Want to take your skills to the next level? Try taking the SQL output from your Canvas model and using it to create a model in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+Want to take your skills to the next level? Try taking the SQL output from your Canvas model and using it to create a model in the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md).
 
 Want to learn more? Be sure to check out our [Canvas fundamentals course](https://learn.getdbt.com/learn/course/canvas-fundamentals) on [dbt Learn](https://learn.getdbt.com/catalog).

@@ -4,14 +4,14 @@ Local developmentⓘ
 
 Move from Claude Code to dbt Wizard while keeping your project conventions.
 
-dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with [Use dbt Wizard locally](./wizard-quickstart.md).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 You'll need:
 
-* [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md) installed or dbt Wizard enabled in the [dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) configured for a supported CLI provider (OpenAI, Anthropic, AWS Bedrock, or Snowflake Cortex in preview)
+* [dbt Wizard CLI](./wizard-cli.md) installed or dbt Wizard enabled in the [dbt platform](../platform/wizard-platform.md)
+* [BYOK](./wizard-byok.md) configured for a supported CLI provider (OpenAI, Anthropic, AWS Bedrock, or Snowflake Cortex in preview)
 * Any existing Claude Code files you want to migrate, such as `CLAUDE.md`, `.claude/CLAUDE.md`, or `.claude/skills/`
 
 ## Review project context and skills[​](#review-project-context-and-skills "Direct link to Review project context and skills")
@@ -29,7 +29,7 @@ dbt Wizard automatically reads common agent instruction files and skills from yo
 
 dbt Wizard also walks the directory tree from your project root to your current working directory, picks up instruction files at each level, and combines them for the session.
 
-For the full skill format, refer to [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md).
+For the full skill format, refer to [Skills](./wizard-skills.md).
 
 ### Convert reusable prompts to skills[​](#convert-reusable-prompts-to-skills "Direct link to Convert reusable prompts to skills")
 
@@ -57,7 +57,7 @@ Write a specific `description:` because dbt Wizard uses it to decide when to loa
 
 ## Configure model settings[​](#configure-model-settings "Direct link to Configure model settings")
 
-Set provider credentials in [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md).
+Set provider credentials in [Configure BYOK](./wizard-byok.md).
 
 To set a default model across sessions, add this to `~/.dbt/wizard/config.toml`:
 
@@ -90,8 +90,8 @@ And if your conventions aren't applied, check:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
-* [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
-* [Configure BYOK](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md)
-* [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
-* [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
+* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [Skills](./wizard-skills.md)
+* [Configure BYOK](./wizard-byok.md)
+* [Use cases and examples](./wizard-use-cases.md)
+* [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows

@@ -26,11 +26,11 @@ To set up Cost Insights, follow these steps:
 3. [(Optional) Configure Cost Insights settings.](#configure-cost-insights-settings-optional)
 4. [(Optional) Enable dbt State or state-aware orchestration in your job settings.](#enable-dbt-state-or-state-aware-orchestration-optional)
 
-After completing these setup steps, you can view cost and optimization data across multiple areas of the dbt platform. Refer to [Explore cost data](https://docs.getdbt.com/docs/explore/explore-cost-data.md) to learn more about the Cost Insights section and how to use it.
+After completing these setup steps, you can view cost and optimization data across multiple areas of the dbt platform. Refer to [Explore cost data](./explore-cost-data.md) to learn more about the Cost Insights section and how to use it.
 
 ## Assign required permissions[​](#assign-required-permissions "Direct link to Assign required permissions")
 
-Users with the following [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) can view cost data by default:
+Users with the following [permission sets](../platform/manage-access/enterprise-permissions.md) can view cost data by default:
 
 * Account Admin
 * Account Viewer
@@ -42,7 +42,7 @@ Users with the following [permission sets](https://docs.getdbt.com/docs/platform
 * Project Creator
 * Team Admin
 
-For more information on how to assign permissions to users, refer to [About user access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md).
+For more information on how to assign permissions to users, refer to [About user access](../platform/manage-access/about-user-access.md).
 
 ## Configure platform metadata credentials[​](#configure-platform-metadata-credentials "Direct link to Configure platform metadata credentials")
 
@@ -171,11 +171,11 @@ These custom values will apply to all future cost calculations for this connecti
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
 
-Cost Insights displays cost data for your dbt models and jobs without dbt State. However, to understand the impact of optimizations and see cost reductions from model and test reuse, you must enable dbt State in your jobs. For steps on how to enable it, see [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+Cost Insights displays cost data for your dbt models and jobs without dbt State. However, to understand the impact of optimizations and see cost reductions from model and test reuse, you must enable dbt State in your jobs. For steps on how to enable it, see [Setting up dbt State](../deploy/dbt-state-setup.md).
 
 Cost Insights also reflects cost reductions and efficiency gains from state-aware orchestration if you have it enabled.
 

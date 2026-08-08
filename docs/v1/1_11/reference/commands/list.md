@@ -1,6 +1,6 @@
 # About dbt ls (list) command
 
-The `dbt ls` command lists resources in your dbt project. It accepts selector arguments that are similar to those provided in [dbt run](https://docs.getdbt.com/reference/commands/run.md). `dbt list` is an alias for `dbt ls`. While `dbt ls` will read your [connection profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to resolve [`target`](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md)-specific logic, this command will not connect to your database or run any queries.
+The `dbt ls` command lists resources in your dbt project. It accepts selector arguments that are similar to those provided in [dbt run](./run.md). `dbt list` is an alias for `dbt ls`. While `dbt ls` will read your [connection profile](../../docs/local/profiles.yml.md) to resolve [`target`](../dbt-jinja-functions/target.md)-specific logic, this command will not connect to your database or run any queries.
 
 <!-- -->
 
@@ -17,7 +17,7 @@ dbt ls
      [--output-keys KEY_NAME [KEY_NAME]]
 ```
 
-Refer to [resource selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) for more information on how to select resources in dbt
+Refer to [resource selection syntax](../node-selection/syntax.md) for more information on how to select resources in dbt
 
 **Arguments**:
 

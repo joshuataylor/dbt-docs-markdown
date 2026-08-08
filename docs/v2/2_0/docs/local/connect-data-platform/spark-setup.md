@@ -6,7 +6,7 @@ The dbt Fusion engine supports Apache Spark, enabling faster compilation and exe
 
 ## Fusion and Spark[​](#fusion-and-spark "Direct link to Fusion and Spark")
 
-Fusion uses the Databricks SQL dialect for [static analysis](https://docs.getdbt.com/docs/build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
+Fusion uses the Databricks SQL dialect for [static analysis](../../build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
 
 ## Authentication[​](#authentication "Direct link to Authentication")
 
@@ -150,4 +150,4 @@ spark-emr-eks:
         "spark.executor.cores": 4
 ```
 
-For detailed configuration options, refer to the [Spark configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md) page.
+For detailed configuration options, refer to the [Spark configuration](../../../reference/resource-configs/spark-configs.md) page.

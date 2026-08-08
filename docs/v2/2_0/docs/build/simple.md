@@ -55,7 +55,7 @@ models:
         agg_time_dimension: my_other_time_dimension_column # Optional, if not using the default time dimension
 ```
 
-For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md), ensuring numeric values for every data row.
+For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Simple metrics example[​](#simple-metrics-example "Direct link to Simple metrics example")
 
@@ -86,4 +86,4 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for simple, derived, or ratio metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

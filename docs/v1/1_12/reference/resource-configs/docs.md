@@ -81,7 +81,7 @@ snapshots:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-You can configure `docs` for analyses in the `config` block under `analyses:` in your YAML file. Refer to [Analysis properties](https://docs.getdbt.com/reference/analysis-properties.md) for more information.
+You can configure `docs` for analyses in the `config` block under `analyses:` in your YAML file. Refer to [Analysis properties](../analysis-properties.md) for more information.
 
 analysis/schema.yml
 
@@ -95,7 +95,7 @@ analyses:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-You can configure `docs` for macros in the `config` block under `macros:` in your YAML file. Refer to [Macro properties](https://docs.getdbt.com/reference/macro-properties.md) for more information.
+You can configure `docs` for macros in the `config` block under `macros:` in your YAML file. Refer to [Macro properties](../macro-properties.md) for more information.
 
 macros/schema.yml
 
@@ -156,7 +156,7 @@ models:
 
 ## Custom node colors[​](#custom-node-colors "Direct link to Custom node colors")
 
-The `docs` attribute supports `node_color` to customize the display color of some node types in the DAG within [dbt Docs](https://docs.getdbt.com/docs/build/view-documentation.md). You can define node colors in the following files and apply overrides where needed.
+The `docs` attribute supports `node_color` to customize the display color of some node types in the DAG within [dbt Docs](../../docs/build/view-documentation.md). You can define node colors in the following files and apply overrides where needed.
 
 * `node_color` hierarchy:
   <!-- -->
@@ -166,7 +166,7 @@ Note, you need to run or re-run the `dbt docs generate` command (dbt Core v1.x o
 
 Custom node colors not applicable in Catalog
 
-The custom `node_color` attribute isn't applicable in Catalog. Instead, Explorer provides [lenses](https://docs.getdbt.com/docs/explore/explore-projects.md#lenses), which are map layers for your DAG. Lenses help you better understand your project's contextual metadata at scale and distinguish specific models or subsets of models.
+The custom `node_color` attribute isn't applicable in Catalog. Instead, Explorer provides [lenses](../../docs/explore/explore-projects.md#lenses), which are map layers for your DAG. Lenses help you better understand your project's contextual metadata at scale and distinguish specific models or subsets of models.
 
 ## Examples[​](#examples-1 "Direct link to Examples")
 

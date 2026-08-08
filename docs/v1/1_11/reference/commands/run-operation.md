@@ -2,7 +2,7 @@
 
 ## Overview[​](#overview "Direct link to Overview")
 
-The `dbt run-operation` command is used to invoke a macro or execute a SQL or Jinja string directly against the target database. For usage information on macro-based operations, refer to [operations](https://docs.getdbt.com/docs/build/hooks-operations.md#about-operations).
+The `dbt run-operation` command is used to invoke a macro or execute a SQL or Jinja string directly against the target database. For usage information on macro-based operations, refer to [operations](../../docs/build/hooks-operations.md#about-operations).
 
 <!-- -->
 
@@ -56,7 +56,7 @@ Note that you cannot combine the `--sql` flag with a macro name or `--args`.
 
 `--sql` is useful for quick, one-off operations that don't warrant a macro file (for example, granting permissions, dropping a table, or running a data fix).
 
-If you need to reuse the operation across environments or share it with your team, write a [macro](https://docs.getdbt.com/docs/build/jinja-macros.md) instead so it's version-controlled and testable.
+If you need to reuse the operation across environments or share it with your team, write a [macro](../../docs/build/jinja-macros.md) instead so it's version-controlled and testable.
 
 ## Command line examples[​](#command-line-examples "Direct link to Command line examples")
 

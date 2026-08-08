@@ -8,7 +8,7 @@ dbt Wizard also includes built-in skills from [dbt Agent skills](https://github.
 
 When you initialize dbt Wizard in a project, it can also detect existing Claude Code skills in the current directory.
 
-For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
+For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](./wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
 
 ## Locations and precedence[​](#locations-and-precedence "Direct link to Locations and precedence")
 
@@ -173,7 +173,7 @@ Built-in skills are updated with each dbt Wizard release. Custom skills with the
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Use skills in the dbt platform](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
-* [dbt Wizard CLI overview](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md)
+* [Use skills in the dbt platform](./wizard-platform-skills.md)
+* [How dbt Wizard works](./wizard-how-it-works.md)
+* [dbt Wizard CLI overview](./about-dbt-wizard-cli.md)

@@ -56,7 +56,7 @@ Switching back and forth between those SQL syntaxes usually requires a quick sca
 
 But couldn’t we be doing something better with those keystrokes, like typing out and then deleting a tweet?
 
-dbt helps smooth out these wrinkles of writing [SQL across data warehouses](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md).
+dbt helps smooth out these wrinkles of writing [SQL across data warehouses](../reference/dbt-jinja-functions/cross-database-macros.md).
 
 Instead of looking up the syntax each time you use it, you can just write it the same way each time, and the macro compiles it to run on your chosen warehouse:
 

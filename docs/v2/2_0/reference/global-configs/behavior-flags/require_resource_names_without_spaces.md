@@ -18,7 +18,7 @@ Search table...
 
 dbt raises an error if it detects a space in a resource name. Resource names should contain letters, numbers, and underscores only.
 
-dbt raises the [`ResourceNamesWithSpacesDeprecation`](https://docs.getdbt.com/reference/deprecations.md#resourcenameswithspacesdeprecation) warning if it detects a space in a resource name. When this flag is set to `true` (now always-on in dbt Core 2.0), dbt raises an error instead.
+dbt raises the [`ResourceNamesWithSpacesDeprecation`](../../deprecations.md#resourcenameswithspacesdeprecation) warning if it detects a space in a resource name. When this flag is set to `true` (now always-on in dbt Core 2.0), dbt raises an error instead.
 
 models/model name with spaces.sql
 
@@ -26,4 +26,4 @@ models/model name with spaces.sql
 -- This model file should be renamed to model_name_with_underscores.sql
 ```
 
-See also [`require_source_and_semantic_model_names_without_spaces`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_source_and_semantic_model_names_without_spaces.md), which extends this behavior to source and semantic model names.
+See also [`require_source_and_semantic_model_names_without_spaces`](./require_source_and_semantic_model_names_without_spaces.md), which extends this behavior to source and semantic model names.

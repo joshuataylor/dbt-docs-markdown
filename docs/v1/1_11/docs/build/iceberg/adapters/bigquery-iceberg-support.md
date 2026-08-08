@@ -9,8 +9,8 @@ dbt supports materializing models in the Iceberg table format in two ways:
 
 dbt supports creating Iceberg tables for two of the BigQuery materializations:
 
-* [Table](https://docs.getdbt.com/docs/build/materializations.md#table)
-* [Incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental)
+* [Table](../../materializations.md#table)
+* [Incremental](../../materializations.md#incremental)
 
 ## Iceberg catalogs[​](#iceberg-catalogs "Direct link to Iceberg catalogs")
 

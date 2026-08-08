@@ -8,12 +8,12 @@ Snowflake column size change
 
  Assess impact and required actions
 
-If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
 
 * Contain string columns with collation defined
 * Use the `on_schema_change='sync_all_columns'` config
 
-To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+To check whether this change affects your project, run the following [list](../../reference/commands/list.md) command:
 
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
@@ -23,7 +23,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../local/install-dbt.md) in the dbt Core v1 installation instructions.
   * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
   * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
 
@@ -68,7 +68,7 @@ Note that the SQL in your model needs to be valid whether `is_incremental()` eva
 
 To tell dbt which rows it should transform on an incremental run, wrap valid SQL that filters for these rows in the `is_incremental()` macro.
 
-Often, you'll want to filter for "new" rows, as in, rows that have been created since the last time dbt ran this model. The best way to find the timestamp of the most recent run of this model is by checking the most recent timestamp in your target table. dbt makes it easy to query your target table by using the "[{{ this }}](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md)" variable.
+Often, you'll want to filter for "new" rows, as in, rows that have been created since the last time dbt ran this model. The best way to find the timestamp of the most recent run of this model is by checking the most recent timestamp in your target table. dbt makes it easy to query your target table by using the "[{{ this }}](../../reference/dbt-jinja-functions/this.md)" variable.
 
 Also common is wanting to capture both new and updated records. For updated records, you'll need to [define a unique key](#defining-a-unique-key-optional) to ensure you don't bring in modified records as duplicates. Your `is_incremental()` code will check for rows created *or modified* since the last time dbt ran this model.
 
@@ -179,7 +179,7 @@ with large_source_table as (
 
 ### Defining a unique key[​](#defining-a-unique-key "Direct link to Defining a unique key")
 
-Defining the optional [`unique_key` parameter](https://docs.getdbt.com/reference/resource-configs/unique_key.md) enables updating existing rows instead of just appending new rows. If new information arrives for an existing `unique_key`, that new information can replace the current information instead of being appended to the table. If a duplicate row arrives, it can be ignored. Refer to [strategy specific configs](https://docs.getdbt.com/docs/build/incremental-strategy.md#strategy-specific-configs) for more options on managing this update behavior, like choosing only specific columns to update.
+Defining the optional [`unique_key` parameter](../../reference/resource-configs/unique_key.md) enables updating existing rows instead of just appending new rows. If new information arrives for an existing `unique_key`, that new information can replace the current information instead of being appended to the table. If a duplicate row arrives, it can be ignored. Refer to [strategy specific configs](./incremental-strategy.md#strategy-specific-configs) for more options on managing this update behavior, like choosing only specific columns to update.
 
 If you don't specify a `unique_key`, most adapters will result in `append`-only behavior, which means dbt inserts all rows returned by the model's SQL into the preexisting target table without regard for whether the rows represent duplicates.
 
@@ -199,14 +199,14 @@ Alternatively, you can define a single-column [surrogate key](https://www.getdbt
 
 When you define a `unique_key`, you'll see this behavior for each row of "new" data returned by your dbt model:
 
-* If the same `unique_key` is present in the "new" and "old" model data, dbt will update/replace the old row with the new row of data. The exact mechanics of how that update/replace takes place will vary depending on your database, [incremental strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md), and [strategy specific configs](https://docs.getdbt.com/docs/build/incremental-strategy.md#strategy-specific-configs).
+* If the same `unique_key` is present in the "new" and "old" model data, dbt will update/replace the old row with the new row of data. The exact mechanics of how that update/replace takes place will vary depending on your database, [incremental strategy](./incremental-strategy.md), and [strategy specific configs](./incremental-strategy.md#strategy-specific-configs).
 * If the `unique_key` is *not* present in the "old" data, dbt will insert the entire row into the table.
 
-Please note that if there's a unique\_key with more than one row in either the existing target table or the new incremental rows, the incremental model may fail depending on your database and [incremental strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md). If you're having issues running an incremental model, it's a good idea to double check that the unique key is truly unique in both your existing database table and your new incremental rows. You can [learn more about surrogate keys here](https://www.getdbt.com/blog/guide-to-surrogate-key).
+Please note that if there's a unique\_key with more than one row in either the existing target table or the new incremental rows, the incremental model may fail depending on your database and [incremental strategy](./incremental-strategy.md). If you're having issues running an incremental model, it's a good idea to double check that the unique key is truly unique in both your existing database table and your new incremental rows. You can [learn more about surrogate keys here](https://www.getdbt.com/blog/guide-to-surrogate-key).
 
 info
 
-While common incremental strategies, such as `delete+insert` + `merge`, might use `unique_key`, others don't. For example, the `insert_overwrite` strategy does not use `unique_key`, because it operates on partitions of data rather than individual rows. For more information, see [About incremental\_strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md).
+While common incremental strategies, such as `delete+insert` + `merge`, might use `unique_key`, others don't. For example, the `insert_overwrite` strategy does not use `unique_key`, because it operates on partitions of data rather than individual rows. For more information, see [About incremental\_strategy](./incremental-strategy.md).
 
 #### `unique_key` example[​](#unique_key-example "Direct link to unique_key-example")
 
@@ -254,9 +254,9 @@ $ dbt run --full-refresh --select my_incremental_model+
 
 The trailing `+` in the command above will also run all downstream models that depend on `my_incremental_model`. If any of those downstream dependencies are also incremental models, they will be fully refreshed as well.
 
-You can optionally use the [`full_refresh config`](https://docs.getdbt.com/reference/resource-configs/full_refresh.md) to set a resource to always or never full-refresh at the project or resource level. If specified as true or false, the `full_refresh` config will take precedence over the presence or absence of the `--full-refresh` flag.
+You can optionally use the [`full_refresh config`](../../reference/resource-configs/full_refresh.md) to set a resource to always or never full-refresh at the project or resource level. If specified as true or false, the `full_refresh` config will take precedence over the presence or absence of the `--full-refresh` flag.
 
-For detailed usage instructions, check out the [dbt run](https://docs.getdbt.com/reference/commands/run.md) documentation.
+For detailed usage instructions, check out the [dbt run](../../reference/commands/run.md) documentation.
 
 ## What if the columns of my incremental model change?[​](#what-if-the-columns-of-my-incremental-model-change "Direct link to What if the columns of my incremental model change?")
 

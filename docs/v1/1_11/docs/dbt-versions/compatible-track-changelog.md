@@ -6,7 +6,7 @@ Select the **Compatible** and **Extended** release tracks if you need a less-fre
 
 Each monthly **Compatible** release includes functionality matching up-to-date open source versions of dbt Core and adapters at the time of release.
 
-For more information, see [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+For more information, see [release tracks](./dbt-release-tracks.md).
 
 ## July 2026[​](#july-2026 "Direct link to July 2026")
 
@@ -500,7 +500,7 @@ Release date: August 12, 2025
 
 This compatible upgrade brings in a minor update to `dbt-core`, from `dbt-core==1.9.8` to `dbt-core==1.10.8`. Some noteworthy changes from this minor version include:
 
-* Introduction of several new [deprecations](https://docs.getdbt.com/reference/deprecations.md) that warn about project incompatibilities between dbt Core and Fusion engines.
+* Introduction of several new [deprecations](../../reference/deprecations.md) that warn about project incompatibilities between dbt Core and Fusion engines.
 * Support for defining `meta` and `tags` within `config` of columns and exposures, as well as defining `freshness` within `config` of sources. These changes lead to manifest.json minor schema evolutions which may cause an intermittent increase in false positives during `state:modified` comparisons.
 
 ### dbt cloud-based platform[​](#dbt-cloud-based-platform-7 "Direct link to dbt cloud-based platform")
@@ -781,7 +781,7 @@ These changes reflect capabilities that are only available in dbt.
 
 ### Features[​](#features-1 "Direct link to Features")
 
-* Add [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) to cross-project ref artifact.
+* Add [`event_time`](../../reference/resource-configs/event-time.md) to cross-project ref artifact.
 * Include debug exception message in ObservabilityMetric.
 
 ### Fixes[​](#fixes-3 "Direct link to Fixes")

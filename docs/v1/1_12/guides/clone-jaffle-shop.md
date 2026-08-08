@@ -1,6 +1,6 @@
 # Clone the Jaffle Shop sample project
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt
 
@@ -22,9 +22,9 @@ To run dbt commands like `dbt seed`, `dbt run`, and `dbt test`, you also need db
 
 ### Related content[​](#related-content "Direct link to Related content")
 
-* [Install dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [About dbt projects](https://docs.getdbt.com/docs/build/projects.md)
-* [Example dbt projects](https://docs.getdbt.com/faqs/Project/example-projects.md)
+* [Install dbt Core](../docs/local/install-dbt.md)
+* [About dbt projects](../docs/build/projects.md)
+* [Example dbt projects](../faqs/Project/example-projects.md)
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -160,29 +160,29 @@ jaffle-shop/
 └── data-tests/
 ```
 
-Staging models sit closest to the raw seed data. Marts models join and shape that data into the tables you use for analysis. You don't need to read every file yet. This layout follows a standard [dbt project](https://docs.getdbt.com/docs/build/projects.md) pattern that appears in many real-world projects.
+Staging models sit closest to the raw seed data. Marts models join and shape that data into the tables you use for analysis. You don't need to read every file yet. This layout follows a standard [dbt project](../docs/build/projects.md) pattern that appears in many real-world projects.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
 To run or develop the project, you need dbt installed and a database connected. These links can help:
 
-* **[Install self-hosted dbt](https://docs.getdbt.com/docs/local/install-dbt.md):** Cloning doesn't install dbt. You need it to run commands.
-* **[Set up a virtual environment](https://docs.getdbt.com/docs/local/install-dbt.md):** Keeps dbt separate from other Python projects on your machine.
-* **[About dbt deps command](https://docs.getdbt.com/reference/commands/deps.md):** The repo lists packages in `packages.yml`. Run `dbt deps` after you install dbt.
-* **[About dbt projects](https://docs.getdbt.com/docs/build/projects.md):** Learn the project structure before editing models.
+* **[Install self-hosted dbt](../docs/local/install-dbt.md):** Cloning doesn't install dbt. You need it to run commands.
+* **[Set up a virtual environment](../docs/local/install-dbt.md):** Keeps dbt separate from other Python projects on your machine.
+* **[About dbt deps command](../reference/commands/deps.md):** The repo lists packages in `packages.yml`. Run `dbt deps` after you install dbt.
+* **[About dbt projects](../docs/build/projects.md):** Learn the project structure before editing models.
 * **[dbt Learn](https://learn.getdbt.com/):** Interactive courses for new users.
 
 ### Warehouse quickstarts[​](#warehouse-quickstarts "Direct link to Warehouse quickstarts")
 
 To run the project, you need a database and adapter configured in `profiles.yml`. Choose the quickstart for your warehouse or local setup:
 
-* [Quickstart for dbt and Snowflake](https://docs.getdbt.com/guides/snowflake.md)
-* [Quickstart for dbt and BigQuery](https://docs.getdbt.com/guides/bigquery.md)
-* [Quickstart for dbt and Databricks](https://docs.getdbt.com/guides/databricks.md)
-* [Quickstart for dbt and Redshift](https://docs.getdbt.com/guides/redshift.md)
-* [Quickstart for dbt Core using DuckDB](https://docs.getdbt.com/guides/duckdb.md): Clone [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) and follow the guide.
+* [Quickstart for dbt and Snowflake](./snowflake.md)
+* [Quickstart for dbt and BigQuery](./bigquery.md)
+* [Quickstart for dbt and Databricks](./databricks.md)
+* [Quickstart for dbt and Redshift](./redshift.md)
+* [Quickstart for dbt Core using DuckDB](./duckdb.md): Clone [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) and follow the guide.
 
-You can also browse [all guides](https://docs.getdbt.com/guides.md) or other [example dbt projects](https://docs.getdbt.com/faqs/Project/example-projects.md).
+You can also browse [all guides](../guides.md) or other [example dbt projects](../faqs/Project/example-projects.md).
 
 ## Optional cleanup[​](#optional-cleanup "Direct link to Optional cleanup")
 

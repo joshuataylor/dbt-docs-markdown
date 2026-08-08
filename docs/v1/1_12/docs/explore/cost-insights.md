@@ -2,15 +2,15 @@
 
 dbt platform | Enterprise, Enterprise+ⓘ
 
-Cost Insights shows estimated costs and compute time for your dbt projects and models directly in the dbt platform, so you can measure and share the impact of optimizations like [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) and [state-aware orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md).
+Cost Insights shows estimated costs and compute time for your dbt projects and models directly in the dbt platform, so you can measure and share the impact of optimizations like [dbt State](../deploy/dbt-state-about.md) and [state-aware orchestration](../deploy/state-aware-about.md).
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) and [state-aware orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md) make your dbt workflows more efficient by reusing models and tests instead of running full rebuilds. When either is enabled, Cost Insights helps you demonstrate the resulting cost reductions and efficiency gains. These cost and cost reduction estimates are based on a retroactive analysis of runs after you enable Fusion and dbt State or state-aware orchestration. They reflect actual historical usage, *not* forecasts of future costs or cost reductions.
+[dbt State](../deploy/dbt-state-about.md) and [state-aware orchestration](../deploy/state-aware-about.md) make your dbt workflows more efficient by reusing models and tests instead of running full rebuilds. When either is enabled, Cost Insights helps you demonstrate the resulting cost reductions and efficiency gains. These cost and cost reduction estimates are based on a retroactive analysis of runs after you enable Fusion and dbt State or state-aware orchestration. They reflect actual historical usage, *not* forecasts of future costs or cost reductions.
 
 With Cost Insights, you can see:
 
@@ -22,9 +22,9 @@ With Cost Insights, you can see:
 
 The Cost Insights section is available in different dbt platform areas and lets you view your cost data and the impact of dbt State and state-aware orchestration optimizations across various dimensions:
 
-* [Project dashboard](https://docs.getdbt.com/docs/explore/explore-cost-data.md#project-dashboard)
-* [Catalog on Model page](https://docs.getdbt.com/docs/explore/explore-cost-data.md#model-performance-in-catalog)
-* [Job details page](https://docs.getdbt.com/docs/explore/explore-cost-data.md#job-details)
+* [Project dashboard](./explore-cost-data.md#project-dashboard)
+* [Catalog on Model page](./explore-cost-data.md#model-performance-in-catalog)
+* [Job details page](./explore-cost-data.md#job-details)
 
 [![Cost Insights in the project dashboard](/img/docs/dbt-platform/cost-insights/cost-insights-project.png?v=2 "Cost Insights in the project dashboard")](#)Cost Insights in the project dashboard
 
@@ -38,7 +38,7 @@ The Cost Insights section is available in different dbt platform areas and lets 
 
 To view cost data, ensure you have:
 
-* One of the roles listed in [Assign required permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#assign-required-permissions).
+* One of the roles listed in [Assign required permissions](./set-up-cost-insights.md#assign-required-permissions).
 
 * A supported data warehouse:
 
@@ -49,7 +49,7 @@ To view cost data, ensure you have:
   * Databricks
   * Amazon Redshift [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-For setup instructions, see [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md).
+For setup instructions, see [Set up Cost Insights](./set-up-cost-insights.md).
 
 ## Understanding cost and reduction estimates[​](#understanding-cost-and-reduction-estimates "Direct link to Understanding cost and reduction estimates")
 
@@ -65,7 +65,7 @@ The following sections explain how costs are calculated for each supported wareh
 
  Snowflake
 
-dbt computes Snowflake query costs using Snowflake's query attribution data and your credit price (`price_per_credit`). dbt pulls the `price_per_credit` value directly from Snowflake when available; otherwise, dbt uses the configured or default value in the dbt platform. For more information about configuring or viewing these values, see [Configure Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional).
+dbt computes Snowflake query costs using Snowflake's query attribution data and your credit price (`price_per_credit`). dbt pulls the `price_per_credit` value directly from Snowflake when available; otherwise, dbt uses the configured or default value in the dbt platform. For more information about configuring or viewing these values, see [Configure Cost Insights settings](./set-up-cost-insights.md#configure-cost-insights-settings-optional).
 
 Formula:
 
@@ -80,7 +80,7 @@ Where:
   <!-- -->
 
   * For standard and Generation 2 warehouses, dbt sources this value from [`QUERY_ATTRIBUTION_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history).
-  * For [Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive), dbt sources this value from [`QUERY_METERING_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_metering_history) — refer to [Configure platform metadata credentials](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#snowflake) for required permissions.
+  * For [Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive), dbt sources this value from [`QUERY_METERING_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_metering_history) — refer to [Configure platform metadata credentials](./set-up-cost-insights.md#snowflake) for required permissions.
 
 * `price_per_credit` — Your Snowflake credit price (from Snowflake system tables when available, otherwise from your configured input or the default rate).
 
@@ -179,7 +179,7 @@ On Redshift, dbt attributes query costs using the comments it automatically inje
   Where:
 
   * `rpu_hours_per_query` - RPU-hours attributed to the query based on its proportional overlap with each billing period. dbt sources billing period data from `SYS_SERVERLESS_USAGE`. For more information, see the [Amazon Redshift documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-billing.html).
-  * `rpu_price_per_hour` - Your RPU price per hour (from your configured value in [Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional)).
+  * `rpu_price_per_hour` - Your RPU price per hour (from your configured value in [Cost Insights settings](./set-up-cost-insights.md#configure-cost-insights-settings-optional)).
 
 * **Redshift Provisioned**
 
@@ -195,12 +195,12 @@ On Redshift, dbt attributes query costs using the comments it automatically inje
 
   * `elapsed_time_hours` - Query execution time in hours. dbt sources this from `SYS_QUERY_HISTORY`.
   * `node_count` - Number of nodes in your cluster. dbt sources this from `STV_SLICES`.
-  * `node_price_per_hour` - Your price per node per hour (from your configured value in [Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional)).
+  * `node_price_per_hour` - Your price per node per hour (from your configured value in [Cost Insights settings](./set-up-cost-insights.md#configure-cost-insights-settings-optional)).
 
 **Additional considerations:**
 
 * **Data retention**: Redshift system tables (`SYS_QUERY_HISTORY`, `SYS_SERVERLESS_USAGE`) retain only seven days of history. Cost data for Redshift may cover a shorter window than other warehouses. dbt calculates costs for whatever data is available within that window.
-* **Pricing required**: There are no default price values for Redshift. Costs will appear as $0 until you configure `rpu_price_per_hour` (serverless) or `node_price_per_hour` (provisioned) in [Cost Insights settings](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional).
+* **Pricing required**: There are no default price values for Redshift. Costs will appear as $0 until you configure `rpu_price_per_hour` (serverless) or `node_price_per_hour` (provisioned) in [Cost Insights settings](./set-up-cost-insights.md#configure-cost-insights-settings-optional).
 
 Concurrent query costs
 
@@ -257,7 +257,7 @@ Keep the following in mind when using Cost Insights:
 
 * Cost Insights uses your platform metadata credentials to access warehouse system tables. No separate credentials are needed beyond the platform metadata setup.
   <!-- -->
-  * You need sufficient [permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-platform-metadata-credentials) to query warehouse metadata tables.
+  * You need sufficient [permissions](./set-up-cost-insights.md#configure-platform-metadata-credentials) to query warehouse metadata tables.
 
 * Cost data is calculated *once per day* by a scheduled job that runs at approximately 17:00 UTC.
 
@@ -273,7 +273,7 @@ Keep the following in mind when using Cost Insights:
 **Cost accuracy**
 
 * dbt calculates costs using warehouse-reported usage data and applies default credit or compute costs based on standard warehouse pricing.
-* If you have custom pricing agreements with your warehouse provider, override the default values in your account settings to ensure accurate cost reporting. For more information, see [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-cost-insights-settings-optional).
+* If you have custom pricing agreements with your warehouse provider, override the default values in your account settings to ensure accurate cost reporting. For more information, see [Set up Cost Insights](./set-up-cost-insights.md#configure-cost-insights-settings-optional).
 * Update your cost variables whenever your warehouse pricing contracts change to maintain accurate tracking.
 * Changes to cost variables only apply to future calculations — historical cost data remains unchanged.
 
@@ -285,7 +285,7 @@ Keep the following in mind when using Cost Insights:
 
 **Exporting data**
 
-* You can export cost data as a CSV file for further analysis and reporting. For more information, see [Explore cost data](https://docs.getdbt.com/docs/explore/explore-cost-data.md).
+* You can export cost data as a CSV file for further analysis and reporting. For more information, see [Explore cost data](./explore-cost-data.md).
 
 ## Related FAQs[​](#related-faqs "Direct link to Related FAQs")
 
@@ -307,8 +307,8 @@ How do I troubleshoot if cost data isn't appearing?
 
 If cost data isn't appearing in Cost Insights, check the following:
 
-* Verify that platform metadata credentials are configured in your account settings and that the credential test is passing. For more information, see [Set up Cost Insights](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#configure-platform-metadata-credentials).
-* Ensure you have one of the required permissions to view cost data. For more information, see [Assign required permissions](https://docs.getdbt.com/docs/explore/set-up-cost-insights.md#assign-required-permissions).
+* Verify that platform metadata credentials are configured in your account settings and that the credential test is passing. For more information, see [Set up Cost Insights](./set-up-cost-insights.md#configure-platform-metadata-credentials).
+* Ensure you have one of the required permissions to view cost data. For more information, see [Assign required permissions](./set-up-cost-insights.md#assign-required-permissions).
 * Confirm that at least one job is running in a production environment. Cost data only appears after jobs have executed.
 * Cost data refreshes daily and reflects the previous day's usage, which means there is a lag of up to one day between when a job runs and when its cost data appears. If you just ran a job, wait until the next day to see the data.
 * After enabling Cost Insights, dbt looks back 10 days to build baselines for cost reduction calculations. If you don't see cost reduction data, ensure you have sufficient job history within the last 10 days.
@@ -327,7 +327,7 @@ This metric shows the efficiency impact of reuse within your current workload. I
 
 What happened to state-aware orchestration?
 
-On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)**[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") as a new and improved version of state-aware orchestration. A key feature is [`lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md), which controls how much time must pass since the last upstream data change before a node is eligible for a rebuild.
+On June 1, 2026, dbt Labs and Fivetran announced **[dbt State](../deploy/dbt-state-about.md)**[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") as a new and improved version of state-aware orchestration. A key feature is [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md), which controls how much time must pass since the last upstream data change before a node is eligible for a rebuild.
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
@@ -335,8 +335,8 @@ dbt State improves upon state-aware orchestration in a few key ways:
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
-If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](../platform/billing.md#dbt-state-usage).
 
 While dbt State is in preview, there is no required migration timeline — dbt Labs will communicate a timeline when dbt State reaches general availability.
 
-To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).

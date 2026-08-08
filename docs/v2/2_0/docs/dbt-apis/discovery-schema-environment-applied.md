@@ -8,7 +8,7 @@ The [Example queries](#example/docs/dbt-apis-queries) illustrate a few fields yo
 
 `executionInfo` fields track two different concepts
 
-Within `executionInfo`, `lastRun*` fields reflect the most recent run *attempt* (regardless of outcome), while `execute*`, `executionTime`, `runGeneratedAt`, and `lastSuccess*` fields reflect the most recent *successful* materialization. Refer to [Project state](https://docs.getdbt.com/docs/dbt-apis/project-state.md#definition-logical-vs-applied-state-of-dbt-nodes) for more information.
+Within `executionInfo`, `lastRun*` fields reflect the most recent run *attempt* (regardless of outcome), while `execute*`, `executionTime`, `runGeneratedAt`, and `lastSuccess*` fields reflect the most recent *successful* materialization. Refer to [Project state](./project-state.md#definition-logical-vs-applied-state-of-dbt-nodes) for more information.
 
 ### Example queries[​](#example-queries "Direct link to Example queries")
 

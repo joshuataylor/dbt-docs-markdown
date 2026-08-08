@@ -17,7 +17,7 @@ sources:
 
 The schema name as stored in the database.
 
-This parameter is useful if you want to use a [source](https://docs.getdbt.com/reference/source-properties.md) name that differs from the schema name.
+This parameter is useful if you want to use a [source](../source-properties.md) name that differs from the schema name.
 
 BigQuery terminology
 

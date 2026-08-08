@@ -4,8 +4,8 @@ The following context methods are available when configuring resources in the `p
 
 **Available context methods:**
 
-* [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-* [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) (*Note: only variables defined with `--vars` are available*)
+* [env\_var](./env_var.md)
+* [var](./var.md) (*Note: only variables defined with `--vars` are available*)
 
 ### Example usage[​](#example-usage "Direct link to Example usage")
 

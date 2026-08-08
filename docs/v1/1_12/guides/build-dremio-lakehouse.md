@@ -1,6 +1,6 @@
 # Build a data lakehouse with dbt Core and Dremio Cloud
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Dremio
 
@@ -21,7 +21,7 @@ This guide will demonstrate how to build a data lakehouse with dbt Core 1.5 or n
 * You must have a [Dremio Cloud](https://docs.dremio.com/cloud/) account.
 * You must have Python 3 installed.
 * You must have dbt Core v1.5 or newer [installed](//docs/local/install-dbt).
-* You must have the Dremio adapter 1.5.0 or newer [installed and configured](https://docs.getdbt.com/docs/local/connect-data-platform/dremio-setup.md) for Dremio Cloud.
+* You must have the Dremio adapter 1.5.0 or newer [installed and configured](../docs/local/connect-data-platform/dremio-setup.md) for Dremio Cloud.
 * You must have basic working knowledge of Git and the command line interface (CLI).
 
 ## Validate your environment[​](#validate-your-environment "Direct link to Validate your environment")

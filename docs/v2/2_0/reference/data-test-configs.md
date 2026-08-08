@@ -2,11 +2,11 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md)
+* [Data tests](../docs/build/data-tests.md)
 
 Data tests can be configured in a few different ways:
 
-1. Properties within `.yml` definition (generic tests only, see [test properties](https://docs.getdbt.com/reference/resource-properties/data-tests.md) for full syntax)
+1. Properties within `.yml` definition (generic tests only, see [test properties](./resource-properties/data-tests.md) for full syntax)
 2. A `config()` block within the test's SQL definition
 3. In `dbt_project.yml`
 
@@ -95,7 +95,7 @@ data_tests:
 
 This configuration mechanism is supported for specific instances of generic tests only. To configure a specific singular test, you should use the `config()` macro in its SQL definition.
 
-Starting in dbt Core v1.12, you can set [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `config.sql_header` in your data tests.
+Starting in dbt Core v1.12, you can set [`sql_header`](./resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](./global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `config.sql_header` in your data tests.
 
 ### General configurations[​](#general-configurations "Direct link to General configurations")
 
@@ -246,7 +246,7 @@ Given the config, the data test runs on a different Snowflake virtual warehouse 
 
 #### Add a description to generic and singular tests[​](#add-a-description-to-generic-and-singular-tests "Direct link to Add a description to generic and singular tests")
 
-Starting from dbt v1.9 (also available to dbt [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md)), you can add [descriptions](https://docs.getdbt.com/reference/resource-properties/data-tests.md#description) to both generic and singular tests.
+Starting from dbt v1.9 (also available to dbt [release tracks](../docs/dbt-versions/dbt-release-tracks.md)), you can add [descriptions](./resource-properties/data-tests.md#description) to both generic and singular tests.
 
 For a generic test, add the description in line with the existing YAML:
 
@@ -265,7 +265,7 @@ models:
               description: "This test checks whether there are unexpected delivery statuses. If it fails, check with logistics team"
 ```
 
-You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
+You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
 For a singular test, define it in the test's directory:
 
@@ -278,11 +278,11 @@ data_tests:
     description: "This test checks whether the rolling average of returns is inside of expected bounds. If it isn't, flag to customer success team"
 ```
 
-For more information refer to [Add a description to a data test](https://docs.getdbt.com/reference/resource-properties/description.md#add-a-description-to-a-data-test).
+For more information refer to [Add a description to a data test](./resource-properties/description.md#add-a-description-to-a-data-test).
 
 #### Set `sql_header` in a generic data test[​](#set-sql_header-in-a-generic-data-test "Direct link to set-sql_header-in-a-generic-data-test")
 
-When the [`require_sql_header_in_test_configs`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag is enabled, you can set [`sql_header`](https://docs.getdbt.com/reference/resource-configs/sql_header.md) in the `config` of a generic data test so that the specified SQL runs before the test executes (for example, to set session parameters or add a comment):
+When the [`require_sql_header_in_test_configs`](./global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag is enabled, you can set [`sql_header`](./resource-configs/sql_header.md) in the `config` of a generic data test so that the specified SQL runs before the test executes (for example, to set session parameters or add a comment):
 
 models/properties.yml
 

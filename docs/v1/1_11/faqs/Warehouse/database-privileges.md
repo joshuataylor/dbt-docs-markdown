@@ -6,7 +6,7 @@ Your user will need to be able to:
 * `create` schemas, and therefore create tables/views within that schema¹
 * read system views to generate documentation (i.e. views in `information_schema`)
 
-On Postgres, Redshift, Databricks, and Snowflake, use a series of `grants` to ensure that your user has the correct privileges. Check out [example permissions](https://docs.getdbt.com/reference/database-permissions/about-database-permissions.md) for these warehouses.
+On Postgres, Redshift, Databricks, and Snowflake, use a series of `grants` to ensure that your user has the correct privileges. Check out [example permissions](../../reference/database-permissions/about-database-permissions.md) for these warehouses.
 
 On BigQuery, use the "BigQuery User" role to assign these privileges.
 

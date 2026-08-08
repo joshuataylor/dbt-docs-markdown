@@ -29,7 +29,7 @@ Typical examples:
 * Dashboards showing current system status (like active user sessions, current queue depth, or recent device heartbeats) where you need to see the latest data immediately.
 * Event data that you're forwarding to other tools with minimal transformation (raw data with just a bit of normalization, like cleaning up field names or adding a few reference fields).
 
-If your transform logic becomes heavier, multiple teams depend on the data, or you need better cost and performance control, transition to [incremental models](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/2-incremental-patterns.md) or [dynamic tables/materialized views](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md). Reserve this pattern for the smallest, most latency‑sensitive use cases.
+If your transform logic becomes heavier, multiple teams depend on the data, or you need better cost and performance control, transition to [incremental models](./2-incremental-patterns.md) or [dynamic tables/materialized views](./3-warehouse-native-features.md). Reserve this pattern for the smallest, most latency‑sensitive use cases.
 
 #### Assumptions[​](#assumptions "Direct link to Assumptions")
 
@@ -150,8 +150,8 @@ If your logic evolves into large joins, deep view chains, or expensive aggregati
 
 In those cases, use either of the following:
 
-* [Incremental models](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/2-incremental-patterns.md)
-* [Dynamic tables or materialized views](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md), where appropriate
+* [Incremental models](./2-incremental-patterns.md)
+* [Dynamic tables or materialized views](./3-warehouse-native-features.md), where appropriate
 
 ### No "frozen" intermediate tables[​](#no-frozen-intermediate-tables "Direct link to No \"frozen\" intermediate tables")
 

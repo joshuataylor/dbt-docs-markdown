@@ -1,6 +1,6 @@
 # Migrate from dbt-spark to dbt-databricks
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Migration
 
@@ -24,7 +24,7 @@ You can migrate your projects from using the `dbt-spark` adapter to using the [d
 
 ### Simpler authentication[​](#simpler-authentication "Direct link to Simpler authentication")
 
-Previously, you had to provide a `cluster` or `endpoint` ID which was hard to parse from the `http_path` that you were given. Now, it doesn't matter if you're using a cluster or an SQL endpoint because the [dbt-databricks setup](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md) requires the *same* inputs for both. All you need to provide is:
+Previously, you had to provide a `cluster` or `endpoint` ID which was hard to parse from the `http_path` that you were given. Now, it doesn't matter if you're using a cluster or an SQL endpoint because the [dbt-databricks setup](../docs/local/connect-data-platform/databricks-setup.md) requires the *same* inputs for both. All you need to provide is:
 
 * hostname of the Databricks workspace
 * HTTP path of the Databricks SQL warehouse or cluster
@@ -38,9 +38,9 @@ The `dbt-databricks` adapter provides better defaults than `dbt-spark` does. The
 * Accelerate your expensive queries with the [Photon engine](https://docs.databricks.com/runtime/photon.html).
 * The `incremental_strategy` config is set to `merge`.
 
-With dbt-spark, however, the default for `incremental_strategy` is `append`. If you want to continue using `incremental_strategy=append`, you must set this config specifically on your incremental models. If you already specified `incremental_strategy=merge` on your incremental models, you don't need to change anything when moving to dbt-databricks; but, you can keep your models clean (tidy) by removing the config since it's redundant. Read [About incremental\_strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md) to learn more.
+With dbt-spark, however, the default for `incremental_strategy` is `append`. If you want to continue using `incremental_strategy=append`, you must set this config specifically on your incremental models. If you already specified `incremental_strategy=merge` on your incremental models, you don't need to change anything when moving to dbt-databricks; but, you can keep your models clean (tidy) by removing the config since it's redundant. Read [About incremental\_strategy](../docs/build/incremental-strategy.md) to learn more.
 
-For more information on defaults, see [Caveats](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md#caveats).
+For more information on defaults, see [Caveats](../docs/local/connect-data-platform/databricks-setup.md#caveats).
 
 ### Pure Python[​](#pure-python "Direct link to Pure Python")
 

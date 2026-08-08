@@ -2,22 +2,22 @@
 
 Local developmentⓘ
 
-The dbt VS Code extension comes with a suite of features that are available to all users for 14 days. After the 14-day trial, sign in or register for a dbt platform account to keep using all features, including advanced features such as [live preview for models and CTEs](https://docs.getdbt.com/docs/dbt-extension-features.md#live-preview-for-models-and-ctes), [column-level lineage](https://docs.getdbt.com/docs/dbt-extension-features.md#rich-lineage-in-context), and more.
+The dbt VS Code extension comes with a suite of features that are available to all users for 14 days. After the 14-day trial, sign in or register for a dbt platform account to keep using all features, including advanced features such as [live preview for models and CTEs](./dbt-extension-features.md#live-preview-for-models-and-ctes), [column-level lineage](./dbt-extension-features.md#rich-lineage-in-context), and more.
 
-Refer to [VS Code extension features](https://docs.getdbt.com/docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
+Refer to [VS Code extension features](./dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
 Most features remain available without signing in — only advanced features prompt you to sign in after the trial ends.
 
-To continue using all the features, register or log in from the command line using [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0), available with v2 and later. Your login state can be shared across dbt features, including the dbt VS Code extension and, in supported versions, dbt State.
+To continue using all the features, register or log in from the command line using [`dbt login`](../reference/commands/login.md?version=2.0), available with v2 and later. Your login state can be shared across dbt features, including the dbt VS Code extension and, in supported versions, dbt State.
 
-Run [`dbt login status`](https://docs.getdbt.com/reference/commands/login.md?version=2.0#dbt-login-status) to view your currently authenticated status.
+Run [`dbt login status`](../reference/commands/login.md?version=2.0#dbt-login-status) to view your currently authenticated status.
 
 ## Key points[​](#key-points "Direct link to Key points")
 
 * The extension is free for organizations for up to 15 users. Refer to the [acceptable use policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup).
 * Registration links your editor to your registered dbt platform account so you can keep using advanced features after the 14-day trial.
 * You can authenticate with `dbt login` or register from inside the extension. If you don't have a dbt platform account, you can create a free account during authentication to unlock advanced features.
-* If a valid [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file exists on your machine, the extension can use it automatically.
+* If a valid [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file exists on your machine, the extension can use it automatically.
 
 If you've registered before, you won't need to authenticate again unless your session expired.
 
@@ -26,7 +26,7 @@ If you've registered before, you won't need to authenticate again unless your se
 Your sign-in session stays active across editor restarts. dbt automatically renews your session while you're using the extension or the CLI. You may need to re-authorize in a few specific cases:
 
 * **Session expired after 7 days of inactivity.** The extension shows the message: "Your dbt extension session expired. Sign in again to continue using the extension." Click the prompt or run **dbt: Register dbt extension** from the command palette to sign in again.
-* **A feature needs broader access than your initial sign-in granted.** [`dbt login`](https://docs.getdbt.com/reference/commands/login.md?version=2.0) and the dbt VS Code extension may request different sets of permissions. If you signed in via `dbt login` and later use an extension feature that needs more access (for example, the catalog tab or running a job), the extension prompts you to re-authorize. You'll re-authorize with the same dbt platform account — you don't need a second account.
+* **A feature needs broader access than your initial sign-in granted.** [`dbt login`](../reference/commands/login.md?version=2.0) and the dbt VS Code extension may request different sets of permissions. If you signed in via `dbt login` and later use an extension feature that needs more access (for example, the catalog tab or running a job), the extension prompts you to re-authorize. You'll re-authorize with the same dbt platform account — you don't need a second account.
 * **You authenticated with `dbt_cloud.yml` instead of OAuth.** File-based credentials don't expire on the 7-day inactivity rule. You only re-authenticate if you regenerate the file or it's removed.
 
 When re-authorizing, the **Authorize dbt login** consent screen lists the access being requested. Click **Allow access** to continue.
@@ -37,10 +37,10 @@ There are a couple of different ways to sign in or register for a dbt platform a
 
 | If you...                                                             | Use this path                                                                                                                                                       |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Starting authentication from the terminal                             | [`dbt login`](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=dbt-login#choose-a-sign-in-path) from the command line.                       |
-| Are new to dbt and don't have a dbt platform account                  | [First-time registration](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=first-time#choose-a-sign-in-path) from the dbt VS Code extension. |
-| Can't sign in or need to reset access                                 | [Recover your login](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=recover-login#choose-a-sign-in-path) from the dbt VS Code extension.   |
-| Prefer file-based authentication to remove need for re-authenticating | [`dbt_cloud.yml`](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=dbt-cloud-yml#choose-a-sign-in-path) from the dbt VS Code extension.      |
+| Starting authentication from the terminal                             | [`dbt login`](./sign-in-dbt-extension.md?registration-path=dbt-login#choose-a-sign-in-path) from the command line.                       |
+| Are new to dbt and don't have a dbt platform account                  | [First-time registration](./sign-in-dbt-extension.md?registration-path=first-time#choose-a-sign-in-path) from the dbt VS Code extension. |
+| Can't sign in or need to reset access                                 | [Recover your login](./sign-in-dbt-extension.md?registration-path=recover-login#choose-a-sign-in-path) from the dbt VS Code extension.   |
+| Prefer file-based authentication to remove need for re-authenticating | [`dbt_cloud.yml`](./sign-in-dbt-extension.md?registration-path=dbt-cloud-yml#choose-a-sign-in-path) from the dbt VS Code extension.      |
 
 * dbt login
 * First-time registration
@@ -60,9 +60,9 @@ Use this path if you prefer the terminal or want a single auth flow that works a
 
 2. Complete the sign-in or sign-up flow in your browser.
 
-   * Refer to [First-time registration](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=first-time#first-time-registration) if you've never registered
-   * Refer to [Existing account sign-in](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=existing-account#existing-dbt-account) if you already have a dbt account.
-   * Refer to [Recover your login](https://docs.getdbt.com/docs/sign-in-dbt-extension.md?registration-path=recover-login#recover-your-login) if you've forgotten your password or your account is locked.
+   * Refer to [First-time registration](./sign-in-dbt-extension.md?registration-path=first-time#first-time-registration) if you've never registered
+   * Refer to [Existing account sign-in](./sign-in-dbt-extension.md?registration-path=existing-account#existing-dbt-account) if you already have a dbt account.
+   * Refer to [Recover your login](./sign-in-dbt-extension.md?registration-path=recover-login#recover-your-login) if you've forgotten your password or your account is locked.
 
 3. On the **Authorize dbt login** screen, click **Allow access**. dbt saves your credentials to your local dbt configuration directory and uses them for future CLI commands:
 
@@ -79,13 +79,13 @@ Authorizing additional access
 
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
-For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
 
-You've now unlocked the full feature set of the dbt VS Code extension. For details on what `dbt login` unlocks across tools, refer to the [`dbt login` reference](https://docs.getdbt.com/reference/commands/login.md?version=2.0).
+You've now unlocked the full feature set of the dbt VS Code extension. For details on what `dbt login` unlocks across tools, refer to the [`dbt login` reference](../reference/commands/login.md?version=2.0).
 
 ### First-time registration
 
-Register to unlock the full [feature set](https://docs.getdbt.com/docs/dbt-extension-features.md) of the dbt VS Code extension. Use this path if you've never registered before. The extension and the CLI open the same browser flow, so you can start from either entry point:
+Register to unlock the full [feature set](./dbt-extension-features.md) of the dbt VS Code extension. Use this path if you've never registered before. The extension and the CLI open the same browser flow, so you can start from either entry point:
 
 * **From the extension:** Click the registration prompt, or open the command palette (Windows/Linux: Ctrl + Shift + P, macOS: Cmd + Shift + P) and run **dbt: Register dbt extension**.
 
@@ -105,13 +105,13 @@ After you start the flow, complete the browser steps:
 
 4. Return to your editor. The extension shows **Registered**. If you started from the CLI, your credentials are also saved for future CLI commands.
 
-5. Continue with the [Get started](https://docs.getdbt.com/docs/install-dbt-extension.md#getting-started) workflow.
+5. Continue with the [Get started](./install-dbt-extension.md#getting-started) workflow.
 
 Authorizing additional access
 
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
-For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
 
 ### Existing account sign-in
 
@@ -134,7 +134,7 @@ After you start the flow, complete the browser steps:
 
 5. On the **Authorize dbt login** screen, review the requested access and click **Allow access**.
 
-**When you might still need a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md):**
+**When you might still need a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md):**
 
 * You want a file-based credential for automations or defer.
 * You use platform features that require `dbt_cloud.yml`, such as Mesh or auto-deferral.
@@ -143,7 +143,7 @@ Authorizing additional access
 
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
-For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
 
 ### Recover your login
 
@@ -164,7 +164,7 @@ Authorizing additional access
 
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
-For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
 
 ### Register with `dbt_cloud.yml`
 
@@ -176,7 +176,7 @@ Use this path if your workflow requires a credential file or if you want to remo
 
 2. Go to **Account settings** → **VS Code extension**.
 
-3. In the **Set up your credentials** section, click **Download credentials** to get your [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file.
+3. In the **Set up your credentials** section, click **Download credentials** to get your [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file.
 
    [![Download the dbt\_cloud.yml file from your dbt platform account.](/img/docs/extension/download-registration-2.png?v=2 "Download the dbt_cloud.yml file from your dbt platform account.")](#)Download the dbt\_cloud.yml file from your dbt platform account.
 
@@ -191,10 +191,10 @@ Use this path if your workflow requires a credential file or if you want to remo
 
 **Behavior details:**
 
-* If a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file exists, the extension uses it automatically.
+* If a [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file exists, the extension uses it automatically.
 * If the file is missing, the extension prompts you to sign in or add the file.
 
-If your dbt project uses environment variables, configure them locally so the extension can use the same values as your dbt environment. For more information, refer to [Configure environment variables](https://docs.getdbt.com/docs/configure-dbt-extension.md).
+If your dbt project uses environment variables, configure them locally so the extension can use the same values as your dbt environment. For more information, refer to [Configure environment variables](./configure-dbt-extension.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -303,34 +303,34 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](./local/install-dbt.md?version=2)
 
  dbt Fusion binary not found at the configured path
 
 If the extension reports that the dbt Fusion engine binary can't be found at the configured path (for example, `dbt-fusion binary not found at [path]`), the `dbt.fusionPath` setting is pointing to a location that doesn't contain a valid binary.
 
-* Verify that [`dbt.fusionPath`](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
+* Verify that [`dbt.fusionPath`](./configure-dbt-extension.md#dbt-extension-settings) points to a valid Fusion binary.
 * If you haven't installed Fusion manually, clear the setting and let the extension download and manage it for you.
-* To install manually, follow [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+* To install manually, follow [Install the Fusion CLI](./local/install-dbt.md?version=2).
 
  dbt Fusion version is not compatible with this extension
 
 If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
 
 1. Run `dbt --version` to check your installed Fusion version.
-2. Compare it against the [version compatibility matrix](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
+2. Compare it against the [version compatibility matrix](./dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
 3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
 
  dbt Fusion crashes on startup
 
 If the extension reports that Fusion crashed on startup, confirm the binary runs on its own:
 
-1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2).
+1. Run `dbt --version` in your terminal. If this fails, reinstall Fusion using [Install the Fusion CLI](./local/install-dbt.md?version=2).
 2. Use the **Show Logs** action in the notification (or open the **Output** tab) to review the startup error.
 
  A known-bad dbt Fusion version is installed
 
-If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](./dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
 
 For standalone installations:
 
@@ -338,7 +338,7 @@ For standalone installations:
 dbt system update
 ```
 
-The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
+The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](./dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 
  Addressing the 'dbt language server is not running in this workspace' error
 
@@ -365,9 +365,9 @@ For Azure refer to [Fallback to internet for Azure Private DNS zones](https://le
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-* [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
-* [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+* [About the dbt extension](./about-dbt-extension.md)
+* [Supported features matrix](./fusion/supported-features.md)
+* [Install dbt](./local/install-dbt.md)
+* [Quickstart for Fusion](../guides/fusion.md?step=1)
+* [Upgrade guide](./dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

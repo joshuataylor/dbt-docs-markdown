@@ -19,11 +19,11 @@ From a project's **Overview** page, click **View lineage** in the upper right co
 * Click on an upstream (parent) project to view the other projects that reference it in the **Relationships** tab, showing the number of downstream (child) projects that depend on them.
   <!-- -->
   * This includes all projects listing the upstream one as a dependency in its `dependencies.yml` file, even without a direct `{{ ref() }}`.
-* Select a project node from a public model to open its detailed lineage graph if you have the [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to do so.
+* Select a project node from a public model to open its detailed lineage graph if you have the [permissions](../platform/manage-access/enterprise-permissions.md) to do so.
 
 Indirect dependencies
 
-When viewing a project's lineage, Catalog shows only *directly* [referenced](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md) public models. It doesn't show [indirect dependencies](https://docs.getdbt.com/faqs/Project_ref/indirectly-reference-upstream-model.md). If a referenced model in your project depends on another upstream public model, the second-level model won't appear in Catalog, however it will appear in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) lineage view.
+When viewing a project's lineage, Catalog shows only *directly* [referenced](../mesh/govern/project-dependencies.md) public models. It doesn't show [indirect dependencies](../../faqs/Project_ref/indirectly-reference-upstream-model.md). If a referenced model in your project depends on another upstream public model, the second-level model won't appear in Catalog, however it will appear in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) lineage view.
 
 [![View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.](/img/docs/collaborate/dbt-explorer/cross-project-lineage-parent.png?v=2 "View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.")](#)View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.
 
@@ -37,7 +37,7 @@ When viewing a downstream (child) project that imports and refs public models fr
 
 ## Explore the project-level lineage graph[​](#explore-the-project-level-lineage-graph "Direct link to Explore the project-level lineage graph")
 
-For cross-project collaboration, you can interact with the DAG in all the same ways as described in [Explore your project's lineage](https://docs.getdbt.com/docs/explore/explore-projects.md#project-lineage). You can also interact with it at the project level and view the details.
+For cross-project collaboration, you can interact with the DAG in all the same ways as described in [Explore your project's lineage](./explore-projects.md#project-lineage). You can also interact with it at the project level and view the details.
 
 If you have permissions for a project in the account, you can view all public models used across the entire account. However, you can only view full public model details and private models if you have permissions for the specific project where those models are defined.
 

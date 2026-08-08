@@ -52,6 +52,6 @@ Search table...
 
 ## String support in Snowflake, Databricks, BigQuery, and Redshift[​](#string-support-in-snowflake-databricks-bigquery-and-redshift "Direct link to String support in Snowflake, Databricks, BigQuery, and Redshift")
 
-Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the string [data type](https://docs.getdbt.com/sql-reference/data-types.md#string-data-types). They may have slightly varying sub-types for strings; some data warehouses such as Snowflake and Redshift support text, char, and character string types which typically differ in byte length in comparison to the generic string type.
+Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the string [data type](./data-types.md#string-data-types). They may have slightly varying sub-types for strings; some data warehouses such as Snowflake and Redshift support text, char, and character string types which typically differ in byte length in comparison to the generic string type.
 
 Again, since most string type columns are inherent in your data, you’ll likely be ok using generic varchar or strings for casting, but it never hurts to read up on the docs specific to your data warehouse string support!

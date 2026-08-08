@@ -4,7 +4,7 @@ dbt platformⓘ
 
 Managed repositories are a great way to trial dbt without needing to create a new repository. If you don't already have a Git repository for your dbt project, you can let dbt host and manage a repository for you.
 
-If in the future you choose to host this repository elsewhere, you can export the information from dbt at any time. Refer to [Move from a managed repository to a self-hosted repository](https://docs.getdbt.com/faqs/Git/managed-repo.md) for more information on how to do that.
+If in the future you choose to host this repository elsewhere, you can export the information from dbt at any time. Refer to [Move from a managed repository to a self-hosted repository](../../../faqs/Git/managed-repo.md) for more information on how to do that.
 
 info
 
@@ -29,6 +29,6 @@ To download a copy of your managed repository from dbt to your local machine:
 2. Click **Dashboard** from the main left-side menu.
 3. From the dashboard, click **Settings**.
 4. Locate the **Repository** field and click the hyperlink for the repo.
-5. Below the **Deploy key** you will find the **Download repository** option. Click the button to download. If you don't see this option, you're either not assigned a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-permissions) with `write` access to Git repositories, or you don't have a managed repo for your project.
+5. Below the **Deploy key** you will find the **Download repository** option. Click the button to download. If you don't see this option, you're either not assigned a [permission set](../manage-access/enterprise-permissions.md#account-permissions) with `write` access to Git repositories, or you don't have a managed repo for your project.
 
 [![The download button for a managed repo.](/img/docs/dbt-platform/platform-configuring-dbt-platform/download-managed-repo.png?v=2 "The download button for a managed repo.")](#)The download button for a managed repo.

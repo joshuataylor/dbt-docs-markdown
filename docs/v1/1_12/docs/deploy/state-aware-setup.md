@@ -8,9 +8,9 @@ Set up state-aware orchestration to automatically determine which models to buil
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
 <!-- -->
 
@@ -18,9 +18,9 @@ important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -30,12 +30,12 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 To use state-aware orchestration, make sure you meet these prerequisites:
 
-* You must have a dbt [Enterprise and Enterprise+ accounts](https://www.getdbt.com/signup/) and a [Developer seat license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-* You have updated the environment that will run state-aware orchestration to the dbt Fusion engine. For more information, refer to [Upgrading to dbt Fusion engine](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md).
+* You must have a dbt [Enterprise and Enterprise+ accounts](https://www.getdbt.com/signup/) and a [Developer seat license](../platform/manage-access/seats-and-users.md).
+* You have updated the environment that will run state-aware orchestration to the dbt Fusion engine. For more information, refer to [Upgrading to dbt Fusion engine](../dbt-versions/core-upgrade/upgrading-to-v2.md).
 * Your account must have access to state-aware orchestration. Contact your account manager to request access.
-* You must have a dbt project connected to a [data platform](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
-* You must have [access permission](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md) to view, create, modify, or run jobs.
-* You must set up a [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) that is production or staging only.
+* You must have a dbt project connected to a [data platform](../platform/connect-data-platform/about-connections.md).
+* You must have [access permission](../platform/manage-access/about-user-access.md) to view, create, modify, or run jobs.
+* You must set up a [deployment environment](./deploy-environments.md) that is production or staging only.
 * You must use a deploy job. Continuous integration (CI) and merge jobs currently do not support state-aware orchestration.
 * (Optional) To customize behavior, you have configured your model or source data with [advanced configurations](#advanced-configurations).
 
@@ -73,8 +73,8 @@ To create a state-aware job:
 
   <!-- -->
 
-  * **Commands**: By default, it includes the `dbt build` command. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when the job runs.
-  * **Generate docs on run**: Enable this option if you want to [generate project docs](https://docs.getdbt.com/docs/build/documentation.md) when this deploy job runs.
+  * **Commands**: By default, it includes the `dbt build` command. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when the job runs.
+  * **Generate docs on run**: Enable this option if you want to [generate project docs](../build/documentation.md) when this deploy job runs.
   * **Enable Fusion cost optimization features**: Select this option to enable **State-aware orchestration**. **Efficient testing** is disabled by default. You can expand **More options** to enable or disable individual settings.
 
 * **Triggers** section:
@@ -94,12 +94,12 @@ To create a state-aware job:
 
     * **Project**: Specify the parent project that has that upstream deploy job.
     * **Job**: Specify the upstream deploy job.
-    * **Completes on**: Select the job run status(es) that will [enqueue](https://docs.getdbt.com/docs/deploy/job-scheduler.md#scheduler-queue) the deploy job.
+    * **Completes on**: Select the job run status(es) that will [enqueue](./job-scheduler.md#scheduler-queue) the deploy job.
 
 6. (Optional) Options in the **Advanced settings** section:
 
-   * **Environment variables**: Define [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) to customize the behavior of your project when the deploy job runs.
-   * **Target name**: Define the [target name](https://docs.getdbt.com/docs/build/custom-target-names.md) to customize the behavior of your project when the deploy job runs. Environment variables and target names are often used interchangeably.
+   * **Environment variables**: Define [environment variables](../build/environment-variables.md) to customize the behavior of your project when the deploy job runs.
+   * **Target name**: Define the [target name](../build/custom-target-names.md) to customize the behavior of your project when the deploy job runs. Environment variables and target names are often used interchangeably.
    * **Run timeout**: Cancel the deploy job if the run time exceeds the timeout value.
    * **Compare changes against**: By default, it’s set to **No deferral**. Select either **Environment** or **This Job** to let dbt know what it should compare the changes against.
 
@@ -165,7 +165,7 @@ Some notes when using `loaded_at_field` or `loaded_at_query`:
 
 * If a source is a view in the data warehouse, dbt can’t track updates from the warehouse metadata when the view changes. Without a `loaded_at_field` or `loaded_at_query`, dbt treats the source as "always fresh” and emits a warning during freshness checks. To check freshness for sources that are views, add a `loaded_at_field` or `loaded_at_query` to your configuration.
 
-To learn more about model freshness and `build_after`, refer to [model `freshness` config](https://docs.getdbt.com/reference/resource-configs/freshness.md). To learn more about source and upstream model freshness configs, refer to [resource `freshness` config](https://docs.getdbt.com/reference/resource-properties/freshness.md).
+To learn more about model freshness and `build_after`, refer to [model `freshness` config](../../reference/resource-configs/freshness.md). To learn more about source and upstream model freshness configs, refer to [resource `freshness` config](../../reference/resource-properties/freshness.md).
 
 ### Customizing behavior[​](#customizing-behavior "Direct link to Customizing behavior")
 
@@ -246,7 +246,7 @@ You can optionally configure state-aware orchestration when you want to fine-tun
 
 ### Handling late-arriving data[​](#handling-late-arriving-data "Direct link to Handling late-arriving data")
 
-If your incremental models use a lookback window to capture [late-arriving data](https://docs.getdbt.com/best-practices/materializations/4-incremental-models.md#late-arriving-facts), make sure your freshness logic aligns with that window.
+If your incremental models use a lookback window to capture [late-arriving data](../../best-practices/materializations/4-incremental-models.md#late-arriving-facts), make sure your freshness logic aligns with that window.
 
 When you use a `loaded_at_field` or `loaded_at_query`, state-aware orchestration uses that value to determine whether new data has arrived. When the `loaded_at` value reflects an event timestamp (for example, `event_date`), late-arriving records may not update this value if the event occurred in the past. In these cases, state-aware orchestration may not trigger a rebuild, even though your incremental model’s lookback window would normally include those rows.
 
@@ -407,12 +407,12 @@ This way, if either `dim_wizards` or `dim_worlds` has fresh upstream data and en
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [State-aware orchestration configuration](https://docs.getdbt.com/docs/deploy/state-aware-about.md)
-* [Artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md)
-* [Continuous integration (CI) jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md)
-* [`freshness`](https://docs.getdbt.com/reference/resource-configs/freshness.md)
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
-* [Migrate to dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md)
+* [State-aware orchestration configuration](./state-aware-about.md)
+* [Artifacts](./artifacts.md)
+* [Continuous integration (CI) jobs](./ci-jobs.md)
+* [`freshness`](../../reference/resource-configs/freshness.md)
+* [About dbt State](./dbt-state-about.md)
+* [Setting up dbt State](./dbt-state-setup.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)
+* [Migrate to dbt State](./dbt-state-migration.md)

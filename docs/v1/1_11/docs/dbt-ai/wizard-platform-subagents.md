@@ -48,7 +48,7 @@ You don't need to declare these — dbt Wizard routes to them automatically when
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Use subagents locally](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
+* [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md)
+* [Use subagents locally](./wizard-subagents.md)
+* [How dbt Wizard works](./wizard-how-it-works.md)

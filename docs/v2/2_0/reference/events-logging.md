@@ -3,7 +3,7 @@
 As dbt runs, it generates events. The most common way to see those events is as log messages, written in real time to two places:
 
 * The command line terminal (`stdout`), to provide interactive feedback while running dbt.
-* The debug log file (`logs/dbt.log`), to enable detailed [debugging of errors](https://docs.getdbt.com/guides/debug-errors.md) when they occur. The text-formatted log messages in this file include all `DEBUG`-level events, as well as contextual information, such as log level and thread name. The location of this file can be configured via [the `log-path` flag](https://docs.getdbt.com/reference/global-configs/logs.md).
+* The debug log file (`logs/dbt.log`), to enable detailed [debugging of errors](../guides/debug-errors.md) when they occur. The text-formatted log messages in this file include all `DEBUG`-level events, as well as contextual information, such as log level and thread name. The location of this file can be configured via [the `log-path` flag](./global-configs/logs.md).
 
 CLI
 
@@ -24,11 +24,11 @@ logs/dbt.log
 
 ## Structured logging[​](#structured-logging "Direct link to Structured logging")
 
-The dbt Fusion engine emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt Core's JSON event logs. To view it locally, use `--log-format otel` or the options in [Fusion telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md#available-output-formats).
+The dbt Fusion engine emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt Core's JSON event logs. To view it locally, use `--log-format otel` or the options in [Fusion telemetry and observability](./telemetry-observability.md#available-output-formats).
 
-In dbt platform, you can [download OTel logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs) from Fusion job runs.
+In dbt platform, you can [download OTel logs](../docs/deploy/run-visibility.md#access-logs) from Fusion job runs.
 
-For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](https://docs.getdbt.com/reference/global-configs/logs.md).
+For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](./global-configs/logs.md).
 
 <!-- -->
 

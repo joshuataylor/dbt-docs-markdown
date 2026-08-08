@@ -82,7 +82,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For example SQL grants in Redshift, refer to [Redshift permissions](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md).
+For example SQL grants in Redshift, refer to [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md).
 
 ## Connection fields[​](#connection-fields "Direct link to Connection fields")
 
@@ -90,7 +90,7 @@ The following fields are required when creating a connection:
 
 | Field     | Description                                                                                                                                                                                                                                   | Examples                                           |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| Host Name | The hostname of the database to connect to. This can either be a hostname or an IP address. Refer to [set up pages](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) to find the hostname for your adapter. | Redshift: `hostname.region.redshift.amazonaws.com` |
+| Host Name | The hostname of the database to connect to. This can either be a hostname or an IP address. Refer to [set up pages](../../local/connect-data-platform/about-dbt-connections.md) to find the hostname for your adapter. | Redshift: `hostname.region.redshift.amazonaws.com` |
 | Port      | Usually 5439 (Redshift)                                                                                                                                                                                                                       | `5439`                                             |
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                                                   | `analytics`                                        |
 
@@ -110,10 +110,10 @@ See the following supported authentication methods for Redshift:
 
 * Username and password
 * SSH tunneling
-* AWS IAM Identity Center via [external OAuth](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md) (Okta or Entra ID) for development connections
-* IAM User authentication via [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes)
+* AWS IAM Identity Center via [external OAuth](../manage-access/redshift-external-oauth.md) (Okta or Entra ID) for development connections
+* IAM User authentication via [extended attributes](../../dbt-platform-environments.md#extended-attributes)
 
-On the dbt platform, the IAM user authentication is currently only supported via [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes). Once the project is created, development and deployment environments can be updated to use extended attributes to pass the fields described below, as some are not supported via textbox.
+On the dbt platform, the IAM user authentication is currently only supported via [extended attributes](../../dbt-platform-environments.md#extended-attributes). Once the project is created, development and deployment environments can be updated to use extended attributes to pass the fields described below, as some are not supported via textbox.
 
 You will need to create an IAM User, generate an [access key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey), and either:
 
@@ -140,7 +140,7 @@ Search table...
 
 #### Example Extended Attributes for IAM User on Redshift Serverless[​](#example-extended-attributes-for-iam-user-on-redshift-serverless "Direct link to Example Extended Attributes for IAM User on Redshift Serverless")
 
-To avoid pasting secrets in extended attributes, leverage [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md#handling-secrets):
+To avoid pasting secrets in extended attributes, leverage [environment variables](../../build/environment-variables.md#handling-secrets):
 
 \~/.dbt/profiles.yml
 
@@ -152,13 +152,13 @@ access_key_id: '{{ env_var(''DBT_ENV_ACCESS_KEY_ID'') }}'
 secret_access_key: '{{ env_var(''DBT_ENV_SECRET_ACCESS_KEY'') }}'
 ```
 
-Both `DBT_ENV_ACCESS_KEY_ID` and `DBT_ENV_SECRET_ACCESS_KEY` will need [to be assigned](https://docs.getdbt.com/docs/build/environment-variables.md) for every environment leveraging extended attributes as such.
+Both `DBT_ENV_ACCESS_KEY_ID` and `DBT_ENV_SECRET_ACCESS_KEY` will need [to be assigned](../../build/environment-variables.md) for every environment leveraging extended attributes as such.
 
 ### Connecting using an SSH Tunnel[​](#connecting-using-an-ssh-tunnel "Direct link to Connecting using an SSH Tunnel")
 
 <!-- -->
 
-Use an SSH tunnel when your <!-- -->Redshift<!-- --> instance is not publicly accessible and must be reached through a [bastion server](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
+Use an SSH tunnel when your <!-- -->Redshift<!-- --> instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
 
 To configure a connection using an SSH tunnel:
 
@@ -193,7 +193,7 @@ Make sure the location of the instance is the same Virtual Private Cloud (VPC) a
 
 To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of your bastion server, username, and port, of your choosing, that dbt will connect to. Review the following steps:
 
-1. Verify the bastion server has its network security rules set up to accept connections from the [dbt IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) on whatever port you configured.
+1. Verify the bastion server has its network security rules set up to accept connections from the [dbt IP addresses](../about-platform/access-regions-ip-addresses.md) on whatever port you configured.
 
 2. Set up the user account by using the bastion servers instance's CLI, The following example uses the username `dbtcloud`:
 
@@ -213,9 +213,9 @@ The bastion server should now be ready for dbt to use as a tunnel into the <!-- 
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To optimize performance with data platform-specific configurations in dbt, refer to [Redshift-specific configuration](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md).
+To optimize performance with data platform-specific configurations in dbt, refer to [Redshift-specific configuration](../../../reference/resource-configs/redshift-configs.md).
 
-To grant users or roles database permissions (access rights and privileges), refer to the [Redshift permissions](https://docs.getdbt.com/reference/database-permissions/redshift-permissions.md) page.
+To grant users or roles database permissions (access rights and privileges), refer to the [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md) page.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 

@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-sqlite<!-- -->
 
-For <!-- -->SQLite<!-- -->-specific configuration, please refer to [SQLite<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->SQLite<!-- -->-specific configuration, please refer to [SQLite<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 Starting with the release of dbt Core 1.0.0, versions of dbt-sqlite are aligned to the same major+minor [version](https://semver.org/) of dbt Core.
 

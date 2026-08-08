@@ -40,7 +40,7 @@ After clicking:
 
 Configuration settings for users who want OAuth authentication with the dbt platform.
 
-Before you begin, make sure your account admin has enabled AI features on your dbt platform account. Refer to [Enable dbt AI](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+Before you begin, make sure your account admin has enabled AI features on your dbt platform account. Refer to [Enable dbt AI](../platform/enable-dbt-ai.md) for more info.
 
 * [dbt platform only](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJodHRwczovLzx5b3VyLWRidC1ob3N0LXdpdGgtY3VzdG9tLXN1YmRvbWFpbj4iLCJESVNBQkxFX0RCVF9DTEkiOiJ0cnVlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D)
 * [dbt platform + CLI](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJodHRwczovLzx5b3VyLWRidC1ob3N0LXdpdGgtY3VzdG9tLXN1YmRvbWFpbj4iLCJEQlRfUFJPSkVDVF9ESVIiOiIvcGF0aC90by9wcm9qZWN0IiwiREJUX1BBVEgiOiJwYXRoL3RvL2RidC9leGVjdXRhYmxlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D)
@@ -53,7 +53,7 @@ After clicking:
 
 ### Custom environment variables[​](#custom-environment-variables "Direct link to Custom environment variables")
 
-Use this method if you need custom environment variables or prefer to use service tokens. Refer to the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md) for the complete list of available environment variables for the self-hosted MCP server.
+Use this method if you need custom environment variables or prefer to use service tokens. Refer to the [Environment variables reference](./mcp-environment-variables.md) for the complete list of available environment variables for the self-hosted MCP server.
 
 1. Click the following link with Cursor open:
 
@@ -80,13 +80,13 @@ Remote MCP supports **OAuth** or **token-based** headers.
 
 **Before you connect**
 
-* Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication) instead.
-* On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
-* Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](https://docs.getdbt.com/docs/platform/manage-access/connect-apps-oauth.md#manual-registration).
+* Your MCP client must support OAuth for HTTP-based MCP servers. If it doesn't, use [token-based authentication](./setup-remote-mcp.md#token-based-authentication) instead.
+* On first connect, your client opens a browser for sign-in. dbt then shows a consent screen with the scopes (the specific permissions the client is allowed to use) it's requesting — see [Scopes and consent](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent) for what each scope means.
+* Most modern MCP clients self-register on first connect via [dynamic registration (RFC 7591)](../platform/manage-access/connect-apps-oauth.md#dynamic-registration). Clients that don't support it need an admin to register them in **Account settings → Integrations → App integrations**. See [Manual registration](../platform/manage-access/connect-apps-oauth.md#manual-registration).
 
-For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#oauth-remote-mcp).
+For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](./setup-remote-mcp.md#oauth-remote-mcp).
 
-The deeplink below configures **token-based** authentication (URL and headers). For OAuth setup, follow the [remote MCP quickstart](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md#5-configure-your-mcp-client).
+The deeplink below configures **token-based** authentication (URL and headers). For OAuth setup, follow the [remote MCP quickstart](./mcp-quickstart-remote.md#5-configure-your-mcp-client).
 
 1. Click the following application link with Cursor open:
 

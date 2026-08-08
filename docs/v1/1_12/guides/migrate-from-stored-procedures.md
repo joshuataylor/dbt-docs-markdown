@@ -1,6 +1,6 @@
 # Migrate from DDL, DML, and stored procedures
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Migration
 
@@ -24,7 +24,7 @@ If your data warehouse supports `SHOW CREATE TABLE`, that can be a quick way to 
 
 As for ensuring that you have the right column types, since models materialized by dbt generally use `CREATE TABLE AS SELECT` or `CREATE VIEW AS SELECT` as the driver for object creation, tables can end up with unintended column types if the queries aren’t explicit. For example, if you care about `INT` versus `DECIMAL` versus `NUMERIC`, it’s generally going to be best to be explicit. The good news is that this is easy with dbt: you just cast the column to the type you intend.
 
-We also generally recommend that column renaming and type casting happen as close to the source tables as possible, typically in a layer of staging transformations, which helps ensure that future dbt modelers will know where to look for those transformations! See [How we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) for more guidance on overall project structure.
+We also generally recommend that column renaming and type casting happen as close to the source tables as possible, typically in a layer of staging transformations, which helps ensure that future dbt modelers will know where to look for those transformations! See [How we structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md) for more guidance on overall project structure.
 
 ### Operations we need to map[​](#operations-we-need-to-map "Direct link to Operations we need to map")
 
@@ -49,7 +49,7 @@ INSERT INTO returned_orders (order_id, order_date, total_return)
 SELECT order_id, order_date, total FROM orders WHERE type = 'return'
 ```
 
-Converting this with a first pass to a [dbt model](https://docs.getdbt.com/guides/bigquery.md?step=8) (in a file called returned\_orders.sql) might look something like:
+Converting this with a first pass to a [dbt model](./bigquery.md?step=8) (in a file called returned\_orders.sql) might look something like:
 
 ```sql
 SELECT
@@ -186,11 +186,11 @@ SELECT * FROM soft_deletes WHERE to_delete = false
 
 This approach flags all of the deleted records, and the final `SELECT` filters out any deleted data, so the resulting table contains only the remaining records. It’s a lot more verbose than just inverting the `DELETE` logic, but for complex `DELETE` logic, this ends up being a very effective way of performing the `DELETE` that retains historical context.
 
-It’s worth calling out that while this doesn’t enable a hard delete, hard deletes can be executed a number of ways, the most common being to execute a dbt [macros](https://docs.getdbt.com/docs/build/jinja-macros.md) via as a [run-operation](https://docs.getdbt.com/reference/commands/run-operation.md), or by using a [post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md) to perform a `DELETE` statement after the records to-be-deleted have been marked. These are advanced approaches outside the scope of this guide.
+It’s worth calling out that while this doesn’t enable a hard delete, hard deletes can be executed a number of ways, the most common being to execute a dbt [macros](../docs/build/jinja-macros.md) via as a [run-operation](../reference/commands/run-operation.md), or by using a [post-hook](../reference/resource-configs/pre-hook-post-hook.md) to perform a `DELETE` statement after the records to-be-deleted have been marked. These are advanced approaches outside the scope of this guide.
 
 ## Map MERGEs[​](#map-merges "Direct link to Map MERGEs")
 
-dbt has a concept called [materialization](https://docs.getdbt.com/docs/build/materializations.md), which determines how a model is physically or logically represented in the warehouse. `INSERT`s, `UPDATE`s, and `DELETE`s will typically be accomplished using table or view materializations. For incremental workloads accomplished via commands like `MERGE` or `UPSERT`, dbt has a particular materialization called [incremental](https://docs.getdbt.com/docs/build/incremental-models.md). The incremental materialization is specifically used to handle incremental loads and updates to a table without recreating the entire table from scratch on every run.
+dbt has a concept called [materialization](../docs/build/materializations.md), which determines how a model is physically or logically represented in the warehouse. `INSERT`s, `UPDATE`s, and `DELETE`s will typically be accomplished using table or view materializations. For incremental workloads accomplished via commands like `MERGE` or `UPSERT`, dbt has a particular materialization called [incremental](../docs/build/incremental-models.md). The incremental materialization is specifically used to handle incremental loads and updates to a table without recreating the entire table from scratch on every run.
 
 ### Step 1: Map the MERGE like an INSERT/UPDATE to start[​](#step-1-map-the-merge-like-an-insertupdate-to-start "Direct link to Step 1: Map the MERGE like an INSERT/UPDATE to start")
 
@@ -295,7 +295,7 @@ The three configuration fields in this example are the most important ones.
 
 * Setting `materialized='incremental'` tells dbt to apply UPSERT logic to the target table.
 * The `unique_key` should be a primary key of the target table. This is used to match records with the existing table.
-* `incremental_strategy` here is set to MERGE any existing rows in the target table with a value for the `unique_key` which matches the incoming batch of data. There are [various incremental strategies](https://docs.getdbt.com/docs/build/incremental-strategy.md) for different situations and warehouses.
+* `incremental_strategy` here is set to MERGE any existing rows in the target table with a value for the `unique_key` which matches the incoming batch of data. There are [various incremental strategies](../docs/build/incremental-strategy.md) for different situations and warehouses.
 
 The bulk of the work in converting a model to an incremental materialization comes in determining how the logic should change for incremental loads versus full backfills or initial loads. dbt offers a special macro, `is_incremental()`, which evaluates false for initial loads or for backfills (called full refreshes in dbt parlance), but true for incremental loads.
 

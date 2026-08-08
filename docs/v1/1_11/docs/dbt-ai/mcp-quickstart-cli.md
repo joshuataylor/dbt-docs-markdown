@@ -4,9 +4,9 @@ Local developmentⓘ
 
 This quickstart walks you through connecting dbt MCP server to your local dbt project. This setup gives you dbt command tools (`run`, `build`, `test`, `compile`, and more) inside your AI assistant.
 
-If you'd like to connect to dbt platform with the CLI, see the [OAuth quickstart](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md).
+If you'd like to connect to dbt platform with the CLI, see the [OAuth quickstart](./mcp-quickstart-oauth.md).
 
-To connect to dbt Wizard, see the [dbt Wizard quickstart](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+To connect to dbt Wizard, see the [dbt Wizard quickstart](./wizard-quickstart.md).
 
 No clone required
 
@@ -18,7 +18,7 @@ You don't need to clone the dbt-mcp repository. Install [uv](https://docs.astral
 * A local dbt project (the folder containing your `dbt_project.yml` file)
 * dbt installed and available locally
 
-For the full list of environment variables and how to enable or disable toolsets, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+For the full list of environment variables and how to enable or disable toolsets, see the [Environment variables reference](./mcp-environment-variables.md).
 
 ## Step 1: Find your paths[​](#step-1-find-your-paths "Direct link to Step 1: Find your paths")
 
@@ -146,9 +146,9 @@ With CLI-only setup, your AI assistant can use:
 
 * `dbt run`, `dbt build`, `dbt test`, `dbt compile`, `dbt list`, `dbt parse`, `dbt show`
 * Model lineage and node details from your local project
-* Codegen tools (when enabled — see [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md))
+* Codegen tools (when enabled — see [Environment variables reference](./mcp-environment-variables.md))
 
-Platform features like Semantic Layer, Discovery API, and metadata queries require a dbt platform account. To add them, see [Connect to dbt platform](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md).
+Platform features like Semantic Layer, Discovery API, and metadata queries require a dbt platform account. To add them, see [Connect to dbt platform](./mcp-quickstart-oauth.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -201,11 +201,11 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 * Missing or incorrect `DBT_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
 * Invalid or expired authentication tokens — generate a new token and update your config.
-* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
+* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 
-For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.com/docs/dbt-ai/mcp-troubleshooting.md).
+For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* Add dbt platform features: see [Connect to dbt platform](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-oauth.md)
-* Configure toolsets or disable specific tools: see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md)
+* Add dbt platform features: see [Connect to dbt platform](./mcp-quickstart-oauth.md)
+* Configure toolsets or disable specific tools: see the [Environment variables reference](./mcp-environment-variables.md)

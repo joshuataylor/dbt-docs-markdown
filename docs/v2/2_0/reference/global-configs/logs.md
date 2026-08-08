@@ -8,7 +8,7 @@ dbt outputs logs to two different locations: CLI console and the log file.
 
 The `LOG_FORMAT` and `LOG_FORMAT_FILE` configs specify how dbt's logs should be formatted. Shared options are `text`, `json`, and `default`. The `otel` option is available for `LOG_FORMAT` only (console output). Setting `--log-format-file otel` has no effect.
 
-The `otel` format streams [OpenTelemetry](https://opentelemetry.io/)-style structured telemetry to the console. It uses a different schema than dbt Core's `json` logs. For JSONL files, Parquet export, OTLP, and how this maps to dbt Core structured logging, refer to [Fusion telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md).
+The `otel` format streams [OpenTelemetry](https://opentelemetry.io/)-style structured telemetry to the console. It uses a different schema than dbt Core's `json` logs. For JSONL files, Parquet export, OTLP, and how this maps to dbt Core structured logging, refer to [Fusion telemetry and observability](../telemetry-observability.md).
 
 Usage
 
@@ -52,7 +52,7 @@ dbt run --log-format-file json
 
 Tip: structured observability
 
-Use `--log-format otel` to stream OpenTelemetry-style telemetry to the console, or use `--otel-file-name` and related flags for file and platform integrations. Refer to [Fusion telemetry and observability](https://docs.getdbt.com/reference/telemetry-observability.md).
+Use `--log-format otel` to stream OpenTelemetry-style telemetry to the console, or use `--otel-file-name` and related flags for file and platform integrations. Refer to [Fusion telemetry and observability](../telemetry-observability.md).
 
 For JSON-formatted log lines, use `--log-format json` with the `DEBUG` config:
 
@@ -108,7 +108,7 @@ Just like other global configs, it is possible to override these values for your
 
 ### Suppress non-error logs in output[​](#suppress-non-error-logs-in-output "Direct link to Suppress non-error logs in output")
 
-By default, dbt shows all logs in standard out (stdout). You can use the `QUIET` config to show only error logs in stdout. Logs will still include the output of anything passed to the [`print()`](https://docs.getdbt.com/reference/dbt-jinja-functions/print.md) macro. For example, you might suppress all but error logs to more easily find and debug a Jinja error.
+By default, dbt shows all logs in standard out (stdout). You can use the `QUIET` config to show only error logs in stdout. Logs will still include the output of anything passed to the [`print()`](../dbt-jinja-functions/print.md) macro. For example, you might suppress all but error logs to more easily find and debug a Jinja error.
 
 profiles.yml
 
@@ -125,7 +125,7 @@ dbt run --quiet
 
 ### dbt list logging[​](#dbt-list-logging "Direct link to dbt list logging")
 
-In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](https://docs.getdbt.com/reference/commands/list.md) command to include `INFO` level logs by default.
+In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](../commands/list.md) command to include `INFO` level logs by default.
 
 You can use either of these parameters to ensure clean output that's compatible with downstream processes, such as piping results to [`jq`](https://jqlang.github.io/jq/manual/), a file, or another process:
 

@@ -1,6 +1,6 @@
 # Microsoft Azure Synapse DWH configurations
 
-All [configuration options for the Microsoft SQL Server adapter](https://docs.getdbt.com/reference/resource-configs/mssql-configs.md) also apply to this adapter.
+All [configuration options for the Microsoft SQL Server adapter](./mssql-configs.md) also apply to this adapter.
 
 Additionally, the configuration options below are available.
 

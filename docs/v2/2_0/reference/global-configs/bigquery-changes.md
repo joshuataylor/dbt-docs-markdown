@@ -42,7 +42,7 @@ Runtime Error in source my_* (models/schema.yml)
   this source to use a query-based freshness check instead.
 ```
 
-To calculate freshness for wildcard tables, configure [`loaded_at_field`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_field) on the source to use query-based freshness checks instead.
+To calculate freshness for wildcard tables, configure [`loaded_at_field`](../resource-properties/freshness.md#loaded_at_field) on the source to use query-based freshness checks instead.
 
 Example configuration:
 

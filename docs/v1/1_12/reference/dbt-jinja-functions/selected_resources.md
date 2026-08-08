@@ -6,7 +6,7 @@ Currently, this variable is not accessible when using the command `run-operation
 
 Warning!
 
-dbt actively builds the graph during the [parsing phase](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) of running dbt projects, so the `selected_resources` context variable will be empty during parsing. Please read the information on this page to effectively use this variable.
+dbt actively builds the graph during the [parsing phase](./execute.md) of running dbt projects, so the `selected_resources` context variable will be empty during parsing. Please read the information on this page to effectively use this variable.
 
 ### Usage[​](#usage "Direct link to Usage")
 
@@ -18,7 +18,7 @@ For a given run it will look like:
 ["model.my_project.model1", "model.my_project.model2", "snapshot.my_project.my_snapshot"]
 ```
 
-Each value corresponds to a key in the `nodes` object within the [graph](https://docs.getdbt.com/reference/dbt-jinja-functions/graph.md) context variable.
+Each value corresponds to a key in the `nodes` object within the [graph](./graph.md) context variable.
 
 It can be used in macros in a `pre-hook`, `post-hook`, `on-run-start` or `on-run-end` to evaluate what nodes are selected and trigger different logic whether a particular node is selected or not.
 

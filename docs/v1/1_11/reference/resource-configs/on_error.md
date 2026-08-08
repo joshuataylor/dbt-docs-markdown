@@ -12,7 +12,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # on\_error
 
@@ -47,7 +47,7 @@ models/\<model\_name>.sql
 
 ## Definition[​](#definition "Direct link to Definition")
 
-The `on_error` config controls what happens to downstream (child) models when a model fails during a run. This config only applies to models; it has no effect on tests. To control whether downstream models run after a test failure, use the [`severity`](https://docs.getdbt.com/reference/resource-configs/severity.md) config on your tests instead.
+The `on_error` config controls what happens to downstream (child) models when a model fails during a run. This config only applies to models; it has no effect on tests. To control whether downstream models run after a test failure, use the [`severity`](./severity.md) config on your tests instead.
 
 `on_error` accepts two values:
 
@@ -71,7 +71,7 @@ select 1 as id
 
 When `on_error` is set to `continue` on a model that fails, dbt runs its downstream models rather than skipping them. The failed model still appears as an error in the run results, and the overall run still fails even if all downstream models succeed.
 
-The [`--fail-fast`](https://docs.getdbt.com/reference/global-configs/failing-fast.md) flag takes precedence over `on_error: continue`. When `--fail-fast` is set, dbt stops at the first failure and skips all remaining models, regardless of their `on_error` configuration.
+The [`--fail-fast`](../global-configs/failing-fast.md) flag takes precedence over `on_error: continue`. When `--fail-fast` is set, dbt stops at the first failure and skips all remaining models, regardless of their `on_error` configuration.
 
 ## Behavior with multiple upstream models[​](#behavior-with-multiple-upstream-models "Direct link to Behavior with multiple upstream models")
 

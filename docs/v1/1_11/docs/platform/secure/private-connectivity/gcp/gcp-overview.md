@@ -17,7 +17,7 @@ For more details, refer to the [GCP Private Service Connect documentation](https
 
 ## GCP private connectivity matrix[​](#gcp-private-connectivity-matrix "Direct link to GCP private connectivity matrix")
 
-The following charts outline private connectivity options for GCP deployments of dbt ([multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md)).
+The following charts outline private connectivity options for GCP deployments of dbt ([multi-tenant](../../../about-platform/tenancy.md)).
 
 **Legend:**
 
@@ -25,11 +25,11 @@ The following charts outline private connectivity options for GCP deployments of
 * ❌ = Not currently available
 * \* = Shared endpoint (all others are dedicated)
 
-*Tenancy:* MT (multi-tenant) — [learn more about tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
+*Tenancy:* MT (multi-tenant) — [learn more about tenancy](../../../about-platform/tenancy.md).
 
 About the following matrix tables
 
-These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support) for guidance.
+These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support) for guidance.
 
 **GCP regional considerations:** Some GCP services, such as BigQuery, may have regional restrictions for Private Service Connect endpoints. Refer to [Google's Private Service Connect documentation](https://cloud.google.com/vpc/docs/private-service-connect) for service-specific regional availability.
 
@@ -41,8 +41,8 @@ dbt can establish private connections to managed data platforms and cloud-native
 
 | Service               | MT   | Setup guide                                                                                    |
 | --------------------- | ---- | ---------------------------------------------------------------------------------------------- |
-| Snowflake             | ✅   | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-snowflake.md) |
-| Google BigQuery       | ✅\* | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-bigquery.md)  |
+| Snowflake             | ✅   | [View](./gcp-snowflake.md) |
+| Google BigQuery       | ✅\* | [View](./gcp-bigquery.md)  |
 | Teradata VantageCloud | ✅   |                                                                                                |
 
 Search table...
@@ -57,7 +57,7 @@ Search table...
 
 All of the services below share a common Private Service Connect setup guide — backend configuration varies by service. Self-hosted connections use the customer-provisioned model — you are the service producer and dbt is the consumer.
 
-**Setup guide:** [Configuring GCP Private Service Connect for self-hosted services](https://docs.getdbt.com/docs/platform/secure/private-connectivity/gcp/gcp-self-hosted.md)
+**Setup guide:** [Configuring GCP Private Service Connect for self-hosted services](./gcp-self-hosted.md)
 
 | Service                  | MT |
 | ------------------------ | -- |
@@ -75,7 +75,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-If you have questions about whether your specific architecture is supported, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support).
+If you have questions about whether your specific architecture is supported, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support).
 
 ## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
 

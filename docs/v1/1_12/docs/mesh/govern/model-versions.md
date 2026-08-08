@@ -4,9 +4,9 @@ Model versions, dbt\_project.yml versions, and .yml versions
 
 The word "version" appears in multiple places in docs site and with different meanings:
 
-* [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) — A dbt Mesh feature that enables better governance and data model management by allowing you to track changes and updates to models over time.
-* [dbt\_project.yml version](https://docs.getdbt.com/reference/project-configs/version.md#dbt_projectyml-versions)(optional) — `dbt_project.yml` version is unrelated to Mesh and refers to the compatibility of the dbt project with a specific version of dbt.
-* [.yml property file version](https://docs.getdbt.com/reference/project-configs/version.md#yml-property-file-versions)(optional) — Version numbers within .yml property files inform how dbt parses those YAML files. Unrelated to Mesh.
+* [Model versions](./model-versions.md) — A dbt Mesh feature that enables better governance and data model management by allowing you to track changes and updates to models over time.
+* [dbt\_project.yml version](../../../reference/project-configs/version.md#dbt_projectyml-versions)(optional) — `dbt_project.yml` version is unrelated to Mesh and refers to the compatibility of the dbt project with a specific version of dbt.
+* [.yml property file version](../../../reference/project-configs/version.md#yml-property-file-versions)(optional) — Version numbers within .yml property files inform how dbt parses those YAML files. Unrelated to Mesh.
 
 Versioning APIs is a hard problem in software engineering. The root of the challenge is that the producers and consumers of an API have competing incentives:
 
@@ -27,14 +27,14 @@ There are some considerations to keep in mind when using model governance featur
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [`versions`](https://docs.getdbt.com/reference/resource-properties/versions.md)
-* [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md)
-* [`include` and `exclude`](https://docs.getdbt.com/reference/resource-properties/versions.md#include)
-* [`ref` with `version` argument](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#versioned-ref)
+* [`versions`](../../../reference/resource-properties/versions.md)
+* [`latest_version`](../../../reference/resource-properties/latest_version.md)
+* [`include` and `exclude`](../../../reference/resource-properties/versions.md#include)
+* [`ref` with `version` argument](../../../reference/dbt-jinja-functions/ref.md#versioned-ref)
 
 ## Why version a model?[​](#why-version-a-model "Direct link to Why version a model?")
 
-If a model defines a ["contract"](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) (a set of guarantees for its structure), it's also possible to change that model's structure in a way that breaks the previous set of guarantees. This could be as obvious as removing or renaming a column, or more subtle, like changing its data type or nullability.
+If a model defines a ["contract"](./model-contracts.md) (a set of guarantees for its structure), it's also possible to change that model's structure in a way that breaks the previous set of guarantees. This could be as obvious as removing or renaming a column, or more subtle, like changing its data type or nullability.
 
 One approach is to force every model consumer to immediately handle the breaking change as soon as it's deployed to production. This is actually the appropriate answer at many smaller organizations, or while rapidly iterating on a not-yet-mature set of data models. But it doesn’t scale well beyond that.
 
@@ -46,7 +46,7 @@ Instead, for mature models at larger organizations, powering queries inside & ou
 
 During that migration window, anywhere that model is being used downstream, it can continue to be referenced at a specific version.
 
-dbt Core 1.6 introduced first-class support for **deprecating models** by specifying a [`deprecation_date`](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md). Taken together, model versions and deprecation offer a pathway for model producers to *sunset* old models, and consumers the time to *migrate* across breaking changes. It's a way of managing change across an organization: develop a new version, bump the latest, slate the old version for deprecation, update downstream references, and then remove the old version.
+dbt Core 1.6 introduced first-class support for **deprecating models** by specifying a [`deprecation_date`](../../../reference/resource-properties/deprecation_date.md). Taken together, model versions and deprecation offer a pathway for model producers to *sunset* old models, and consumers the time to *migrate* across breaking changes. It's a way of managing change across an organization: develop a new version, bump the latest, slate the old version for deprecation, update downstream references, and then remove the old version.
 
 There is a real trade-off that exists here—the cost to frequently migrate downstream code, and the cost (and clutter) of materializing multiple versions of a model in the data warehouse. Model versions do not make that problem go away, but by setting a deprecation date, and communicating a clear window for consumers to gracefully migrate off old versions, they put a known boundary on the cost of that migration.
 
@@ -64,9 +64,9 @@ Rather than constantly adding a new version for each small change, you should op
 
 ## How is this different from "version control"?[​](#how-is-this-different-from-version-control "Direct link to How is this different from \"version control\"?")
 
-[Version control](https://docs.getdbt.com/docs/platform/git/git-version-control.md) allows your team to collaborate simultaneously on a single code repository, manage conflicts between changes, and review changes before deploying into production. In that sense, version control is an essential tool for versioning the deployment of an entire dbt project—always the latest state of the `main` branch. In general, only one version of your project code is deployed into an environment at a time. If something goes wrong, you have the ability to roll back changes by reverting a commit or pull request, or by leveraging data platform capabilities around "time travel."
+[Version control](../../platform/git/git-version-control.md) allows your team to collaborate simultaneously on a single code repository, manage conflicts between changes, and review changes before deploying into production. In that sense, version control is an essential tool for versioning the deployment of an entire dbt project—always the latest state of the `main` branch. In general, only one version of your project code is deployed into an environment at a time. If something goes wrong, you have the ability to roll back changes by reverting a commit or pull request, or by leveraging data platform capabilities around "time travel."
 
-When you make updates to a model's source code — its logical definition, in SQL or Python, or related configuration — dbt can [compare your project to the previous state](https://docs.getdbt.com/reference/node-selection/syntax.md#about-node-selection), enabling you to rebuild only models that have changed, and models downstream of a change. In this way, it's possible to develop changes to a model, quickly test in CI, and efficiently deploy into production — all coordinated via your version control system.
+When you make updates to a model's source code — its logical definition, in SQL or Python, or related configuration — dbt can [compare your project to the previous state](../../../reference/node-selection/syntax.md#about-node-selection), enabling you to rebuild only models that have changed, and models downstream of a change. In this way, it's possible to develop changes to a model, quickly test in CI, and efficiently deploy into production — all coordinated via your version control system.
 
 **Versioned models are different.** Defining model `versions` is appropriate when people, systems, and processes beyond your team's control, inside or outside of dbt, depend on your models. You can neither simply go migrate them all, nor break their queries on a whim. You need to offer a migration path, with clear diffs and deprecation dates.
 
@@ -108,7 +108,7 @@ Search table...
 
 As you'll see in the implementation section below, a versioned model can reuse the majority of its YAML properties and configuration. Each version needs to only say how it *differs* from the shared set of attributes. This gives you, as the producer of a versioned model, the opportunity to highlight the differences across versions—which is otherwise difficult to detect in models with dozens or hundreds of columns—and to clearly track, in one place, all versions of the model which are currently live.
 
-dbt also supports [`version`-based selection](https://docs.getdbt.com/reference/node-selection/methods.md#version). For example, you could define a [default YAML selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md#default) that avoids running any old model versions in development, even while you continue to run them in production through a sunset and migration period. (You could accomplish something similar by applying `tags` to these models, and cycling through those tags over time.)
+dbt also supports [`version`-based selection](../../../reference/node-selection/methods.md#version). For example, you could define a [default YAML selector](../../../reference/node-selection/yaml-selectors.md#default) that avoids running any old model versions in development, even while you continue to run them in production through a sunset and migration period. (You could accomplish something similar by applying `tags` to these models, and cycling through those tags over time.)
 
 selectors.yml
 
@@ -269,7 +269,7 @@ Note: If none of your model versions specify columns, you don't need to define c
 
 The configuration above says: Instead of two unrelated models, I have two versioned definitions of the same model: `dim_customers_v1` and `dim_customers_v2`.
 
-**Where are they defined?** dbt expects each model version to be defined in a file named `<model_name>_v<v>`. In this case: `dim_customers_v1.sql` and `dim_customers_v2.sql`. It's also possible to define the "latest" version in `dim_customers.sql` (no suffix), without additional configuration. Finally, you can override this convention by setting [`defined_in: any_file_name_you_want`](https://docs.getdbt.com/reference/resource-properties/versions.md#defined_in)—but we strongly encourage you to follow the convention, unless you have a very good reason.
+**Where are they defined?** dbt expects each model version to be defined in a file named `<model_name>_v<v>`. In this case: `dim_customers_v1.sql` and `dim_customers_v2.sql`. It's also possible to define the "latest" version in `dim_customers.sql` (no suffix), without additional configuration. Finally, you can override this convention by setting [`defined_in: any_file_name_you_want`](../../../reference/resource-properties/versions.md#defined_in)—but we strongly encourage you to follow the convention, unless you have a very good reason.
 
 **Where will they be materialized?** Each model version will create a database relation with alias `<model_name>_v<v>`. In this case: `dim_customers_v1` and `dim_customers_v2`. See [the section below](#configuring-database-location-with-alias) for more details on configuring aliases.
 
@@ -313,9 +313,9 @@ If you want a view that always tracks the latest model version instead of pinnin
 
 ### Pointing to the latest version[​](#pointing-to-the-latest-version "Direct link to Pointing to the latest version")
 
-The [`latest_version_pointer`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) config automatically creates a view named after the model's base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). When you enable it, querying outside of dbt always returns the current version. This config only applies to versioned models.
+The [`latest_version_pointer`](../../../reference/resource-configs/latest_version_pointer.md) config automatically creates a view named after the model's base name (for example, `dim_customers`) that always points to the latest versioned relation (for example, `dim_customers_v2`). When you enable it, querying outside of dbt always returns the current version. This config only applies to versioned models.
 
-Enable this feature in your project by setting the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`, or enable it per model with the `latest_version_pointer.enabled` config:
+Enable this feature in your project by setting the [`latest_version_pointer_enabled_by_default`](../../../reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`, or enable it per model with the `latest_version_pointer.enabled` config:
 
 * Enable globally
 * Enable per model
@@ -341,7 +341,7 @@ models:
         alias: dim_customers_current  # optional custom name
 ```
 
-The pointer view uses the model's base name by default (for example, `dim_customers`). You can override the alias per model with `latest_version_pointer.alias`, or globally by overriding the [`generate_latest_version_pointer_alias`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project.
+The pointer view uses the model's base name by default (for example, `dim_customers`). You can override the alias per model with `latest_version_pointer.alias`, or globally by overriding the [`generate_latest_version_pointer_alias`](../../build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project.
 
 #### Naming collisions[​](#naming-collisions "Direct link to Naming collisions")
 
@@ -403,7 +403,7 @@ This approach is immediately backward-compatible for pre-existing `alias` config
 
 #### Override the `generate_latest_version_pointer_alias` macro[​](#override-the-generate_latest_version_pointer_alias-macro "Direct link to override-the-generate_latest_version_pointer_alias-macro")
 
-Override the [`generate_latest_version_pointer_alias`](https://docs.getdbt.com/docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
+Override the [`generate_latest_version_pointer_alias`](../../build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
 
 macros/generate\_latest\_version\_pointer\_alias.sql
 
@@ -415,7 +415,7 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 
 ### Run a model with multiple versions[​](#run-a-model-with-multiple-versions "Direct link to Run a model with multiple versions")
 
-To run a model with multiple versions, you can use the [`--select` flag](https://docs.getdbt.com/reference/node-selection/syntax.md). For example:
+To run a model with multiple versions, you can use the [`--select` flag](../../../reference/node-selection/syntax.md). For example:
 
 * Run all versions of `dim_customers`:
 
@@ -472,4 +472,4 @@ In the example above, the third point might be tricky. It's easier to *exclude* 
 
 Safely releasing a new model version requires coordination between model producers (who build the models) and model consumers (who depend on them).
 
-For practical guidance on how producers and consumers should communicate, test, and roll out versioned models across projects, refer to [Coordinating model versions best practices](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-6-coordinate-versions.md).
+For practical guidance on how producers and consumers should communicate, test, and roll out versioned models across projects, refer to [Coordinating model versions best practices](../../../best-practices/how-we-mesh/mesh-6-coordinate-versions.md).

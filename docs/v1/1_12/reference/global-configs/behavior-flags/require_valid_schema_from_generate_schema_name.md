@@ -14,7 +14,7 @@ Search table...
 
 The `generate_schema_name` macro determines the schema where dbt creates models and other resources. Returning a `null` value from this macro can result in invalid schema names and lead to unpredictable behavior during dbt runs.
 
-The `require_valid_schema_from_generate_schema_name` behavior flag is set to `false` by default. When `false`, dbt raises the [`GenerateSchemaNameNullValueDeprecation`](https://docs.getdbt.com/reference/deprecations.md#generateschemanamenullvaluedeprecation) warning when a custom `generate_schema_name` macro returns a `null` value.
+The `require_valid_schema_from_generate_schema_name` behavior flag is set to `false` by default. When `false`, dbt raises the [`GenerateSchemaNameNullValueDeprecation`](../../deprecations.md#generateschemanamenullvaluedeprecation) warning when a custom `generate_schema_name` macro returns a `null` value.
 
 When `require_valid_schema_from_generate_schema_name` is set to `true`, dbt enforces stricter validation and raises a parsing error.
 

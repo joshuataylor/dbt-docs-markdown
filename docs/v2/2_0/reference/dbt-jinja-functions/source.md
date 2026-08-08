@@ -8,13 +8,13 @@ select * from {{ source("source_name", "table_name") }}
 
 This function:
 
-* Returns a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) for a [source](https://docs.getdbt.com/docs/build/sources.md)
-* Creates dependencies between a source and the current model, which is useful for documentation and [node selection](https://docs.getdbt.com/reference/node-selection/syntax.md)
+* Returns a [Relation](../dbt-classes.md#relation) for a [source](../../docs/build/sources.md)
+* Creates dependencies between a source and the current model, which is useful for documentation and [node selection](../node-selection/syntax.md)
 * Compiles to the full object name in the database
 
 ## Related guides[​](#related-guides "Direct link to Related guides")
 
-* [Using sources](https://docs.getdbt.com/docs/build/sources.md)
+* [Using sources](../../docs/build/sources.md)
 
 ## Arguments[​](#arguments "Direct link to Arguments")
 

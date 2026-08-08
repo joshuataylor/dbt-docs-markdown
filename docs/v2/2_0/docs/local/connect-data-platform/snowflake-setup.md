@@ -6,7 +6,7 @@ Snowflake enforcing strong authentication
 
 Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
 
-You can configure the Snowflake adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type. To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](https://docs.getdbt.com/reference/resource-configs/snowflake-function-support.md).
+You can configure the Snowflake adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type. To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
 The Snowflake adapter for Fusion supports the following [authentication methods](#supported-authentication-types):
 
@@ -115,7 +115,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For role examples and SQL grants in Snowflake, you can also refer to [Snowflake permissions](https://docs.getdbt.com/reference/database-permissions/snowflake-permissions.md).
+For role examples and SQL grants in Snowflake, you can also refer to [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md).
 
 ## Snowflake configuration details[​](#snowflake-configuration-details "Direct link to Snowflake configuration details")
 
@@ -264,4 +264,4 @@ default:
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find Snowflake-specific configuration information in the [Snowflake adapter reference guide](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md).
+Find Snowflake-specific configuration information in the [Snowflake adapter reference guide](../../../reference/resource-configs/snowflake-configs.md).

@@ -1,6 +1,6 @@
 # Databricks adapter behavior changes
 
-The following are the current [behavior change flags](https://docs.getdbt.com/reference/global-configs/behavior-changes.md#behavior-change-flags) that are specific to `dbt-databricks`:
+The following are the current [behavior change flags](./behavior-changes.md#behavior-change-flags) that are specific to `dbt-databricks`:
 
 | Flag                                                                                        | `dbt-databricks`: Intro | `dbt-databricks`: Maturity | Status                      |
 | ------------------------------------------------------------------------------------------- | ----------------------- | -------------------------- | --------------------------- |
@@ -136,7 +136,7 @@ Additionally, this change makes it possible to support other column features —
 
 #### Constraints[​](#constraints "Direct link to Constraints")
 
-For several feature releases now, dbt-databricks supported both dbt's [constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md) implementation and our own alternative, earlier version called `persist_constraints`. With the `use_materialization_v2` flag, we're beginning to deprecate `persist_constraints` and shifting fully to dbt's native constraint support.
+For several feature releases now, dbt-databricks supported both dbt's [constraints](../resource-properties/constraints.md) implementation and our own alternative, earlier version called `persist_constraints`. With the `use_materialization_v2` flag, we're beginning to deprecate `persist_constraints` and shifting fully to dbt's native constraint support.
 
 One new enhancement is support for the `expression` field on primary and foreign keys, which lets you pass additional Databricks options — like using [`RELY` to tell the Databricks optimizer that it may exploit the constraint to rewrite queries](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-ddl-create-table-constraint).
 

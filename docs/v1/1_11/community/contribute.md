@@ -10,26 +10,26 @@ There are opportunities here for everyone to get involved, whether you are just 
 
 Below you’ll find a sampling of the ways to get involved. There are a lot of options but these are ultimately just variations on the theme of sharing knowledge with the broader community.
 
-[![](/img/icons/pencil-paper.svg)](https://docs.getdbt.com/community/contributing/contributing-writing.md)
+[![](/img/icons/pencil-paper.svg)](./contributing/contributing-writing.md)
 
-#### [Writing contributions](https://docs.getdbt.com/community/contributing/contributing-writing.md)
+#### [Writing contributions](./contributing/contributing-writing.md)
 
-[Learn how to share and grow the collective knowledge of the dbt Community through blogs, guides, and documentation.](https://docs.getdbt.com/community/contributing/contributing-writing.md)
+[Learn how to share and grow the collective knowledge of the dbt Community through blogs, guides, and documentation.](./contributing/contributing-writing.md)
 
-[![](/img/icons/folder.svg)](https://docs.getdbt.com/community/contributing/contributing-coding.md)
+[![](/img/icons/folder.svg)](./contributing/contributing-coding.md)
 
-#### [Coding contributions](https://docs.getdbt.com/community/contributing/contributing-coding.md)
+#### [Coding contributions](./contributing/contributing-coding.md)
 
-[The dbt Community supports a wide variety of open source and source-available projects, and this software is at the heart of everything we do. Learn how to get involved with projects in the dbt ecosystem.](https://docs.getdbt.com/community/contributing/contributing-coding.md)
+[The dbt Community supports a wide variety of open source and source-available projects, and this software is at the heart of everything we do. Learn how to get involved with projects in the dbt ecosystem.](./contributing/contributing-coding.md)
 
-[![](/img/icons/discussions.svg)](https://docs.getdbt.com/community/contributing/contributing-online-community.md)
+[![](/img/icons/discussions.svg)](./contributing/contributing-online-community.md)
 
-#### [Online community building](https://docs.getdbt.com/community/contributing/contributing-online-community.md)
+#### [Online community building](./contributing/contributing-online-community.md)
 
-[Getting involved in the dbt Community Forum or Slack is one of the best entry points for contributing. Share your knowledge and learn from others.](https://docs.getdbt.com/community/contributing/contributing-online-community.md)
+[Getting involved in the dbt Community Forum or Slack is one of the best entry points for contributing. Share your knowledge and learn from others.](./contributing/contributing-online-community.md)
 
-[![](/img/icons/calendar.svg)](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md)
+[![](/img/icons/calendar.svg)](./contributing/contributing-realtime-events.md)
 
-#### [Realtime event participation](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md)
+#### [Realtime event participation](./contributing/contributing-realtime-events.md)
 
-[Want to speak at a Meetup or conference? Learn how to get involved and check out best practices for crafting a talk that everyone will remember.](https://docs.getdbt.com/community/contributing/contributing-realtime-events.md)
+[Want to speak at a Meetup or conference? Learn how to get involved and check out best practices for crafting a talk that everyone will remember.](./contributing/contributing-realtime-events.md)

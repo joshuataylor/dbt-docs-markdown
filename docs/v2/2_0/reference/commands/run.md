@@ -2,7 +2,7 @@
 
 ## Overview[​](#overview "Direct link to Overview")
 
-The `dbt run` command only applies to models. It doesn't run tests, snapshots, seeds, or other resource types. To run those commands, use the appropriate dbt commands found in the [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) section — such as `dbt test`, `dbt snapshot`, or `dbt seed`. Alternatively, use `dbt build` with a [resource type selector](https://docs.getdbt.com/reference/node-selection/methods.md#resource_type).
+The `dbt run` command only applies to models. It doesn't run tests, snapshots, seeds, or other resource types. To run those commands, use the appropriate dbt commands found in the [dbt commands](../dbt-commands.md) section — such as `dbt test`, `dbt snapshot`, or `dbt seed`. Alternatively, use `dbt build` with a [resource type selector](../node-selection/methods.md#resource_type).
 
 You can use the `dbt run` command when you want to build or rebuild models in your project.
 
@@ -28,7 +28,7 @@ dbt run --full-refresh
 
 You can also supply the flag by its short name: `dbt run -f`.
 
-In the dbt compilation context, this flag will be available as [flags.FULL\_REFRESH](https://docs.getdbt.com/reference/dbt-jinja-functions/flags.md). Further, the `is_incremental()` macro will return `false` for *all* models in response when the `--full-refresh` flag is specified.
+In the dbt compilation context, this flag will be available as [flags.FULL\_REFRESH](../dbt-jinja-functions/flags.md). Further, the `is_incremental()` macro will return `false` for *all* models in response when the `--full-refresh` flag is specified.
 
 models/example.sql
 
@@ -49,21 +49,21 @@ select * from all_events
 
 dbt will also allow you select which specific models you'd like to materialize. This can be useful during special scenarios where you may prefer running a different set of models at various intervals. This can also be helpful when you may want to limit the tables materialized while you develop and test new models.
 
-For more information, see the [Model Selection Syntax Documentation](https://docs.getdbt.com/reference/node-selection/syntax.md).
+For more information, see the [Model Selection Syntax Documentation](../node-selection/syntax.md).
 
-For more information on running parents or children of specific models, see the [Graph Operators Documentation](https://docs.getdbt.com/reference/node-selection/graph-operators.md).
+For more information on running parents or children of specific models, see the [Graph Operators Documentation](../node-selection/graph-operators.md).
 
 ## Treat warnings as errors[​](#treat-warnings-as-errors "Direct link to Treat warnings as errors")
 
-See [global configs](https://docs.getdbt.com/reference/global-configs/warnings.md)
+See [global configs](../global-configs/warnings.md)
 
 ## Failing fast[​](#failing-fast "Direct link to Failing fast")
 
-See [global configs](https://docs.getdbt.com/reference/global-configs/failing-fast.md)
+See [global configs](../global-configs/failing-fast.md)
 
 ## Enable or Disable Colorized Logs[​](#enable-or-disable-colorized-logs "Direct link to Enable or Disable Colorized Logs")
 
-See [global configs](https://docs.getdbt.com/reference/global-configs/print-output.md#print-color)
+See [global configs](../global-configs/print-output.md#print-color)
 
 ## The `--empty` flag[​](#the---empty-flag "Direct link to the---empty-flag")
 

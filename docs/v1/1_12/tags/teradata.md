@@ -1,3 +1,3 @@
-## [Quickstart for dbt and Teradata](https://docs.getdbt.com/guides/teradata.md)
+## [Quickstart for dbt and Teradata](../guides/teradata.md)
 
 Introduction

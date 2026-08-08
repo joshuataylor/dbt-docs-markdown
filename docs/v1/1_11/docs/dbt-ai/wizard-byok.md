@@ -12,7 +12,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md).
+The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](../platform/wizard-byok-platform.md).
 
 The "key" in BYOK is whatever credential your chosen provider uses to authenticate API requests — an API key for OpenAI or Anthropic, a bearer token for AWS Bedrock, or a token/PAT for Snowflake Cortex. When you configure a provider with that credential, dbt Wizard calls the provider's API directly using it, so:
 
@@ -39,8 +39,8 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+* [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
+* [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 ## Configure a provider[​](#configure-a-provider "Direct link to Configure a provider")
 
@@ -145,7 +145,7 @@ When you configure a provider through dbt Wizard, credentials are stored in `~/.
 Set the key as an environment variable if you want to:
 
 * Run dbt Wizard in headless mode, such as with `wizard exec`.
-* Use a key for the current terminal [session](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#sessions) only.
+* Use a key for the current terminal [session](./wizard-how-it-works.md#sessions) only.
 * Reuse the same key across different terminal sessions.
 * Avoid storing credentials in the dbt Wizard config directory.
 
@@ -321,6 +321,6 @@ model = "databricks/claude-sonnet-4-6"
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Install dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md)
-* [Configuration reference](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+* [Install dbt Wizard](./wizard-cli.md)
+* [Configuration reference](./wizard-config.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md)

@@ -2,10 +2,10 @@
 
 `this` is the database representation of the current model. It is useful when:
 
-* Defining a `where` statement within [incremental models](https://docs.getdbt.com/docs/build/incremental-models.md)
-* Using [pre or post hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md)
+* Defining a `where` statement within [incremental models](../../docs/build/incremental-models.md)
+* Using [pre or post hooks](../resource-configs/pre-hook-post-hook.md)
 
-`this` is a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation), and as such, properties such as `{{ this.database }}` and `{{ this.schema }}` compile as expected.
+`this` is a [Relation](../dbt-classes.md#relation), and as such, properties such as `{{ this.database }}` and `{{ this.schema }}` compile as expected.
 
 * Note — Prior to dbt v1.6,
   <!-- -->

@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -42,7 +42,7 @@ functions:
 
 ## Definition[​](#definition "Direct link to Definition")
 
-The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](https://docs.getdbt.com/docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
+The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](../../docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
 Each overload references a separate file that contains its function body, with optional `arguments` and `returns`. All overloads are grouped into one DAG node (the root function), so they're built and selected together. On retry, dbt skips overloads that succeeded and reruns only those that failed.
 
@@ -51,8 +51,8 @@ Each overload references a separate file that contains its function body, with o
 dbt runs all overloads regardless of individual failures, so you get a complete picture of which overloads succeeded and which failed. The following behaviors apply:
 
 * If any overload fails, dbt marks the function node as `PARTIAL_SUCCESS` and skips downstream nodes.
-* [`dbt retry`](https://docs.getdbt.com/reference/commands/retry.md) skips overloads that already succeeded and only re-runs the previously failed ones.
-* [`state:modified`](https://docs.getdbt.com/reference/node-selection/methods.md#the-state-method) detects changes to any overload's function body, arguments, or return type and marks the root function node as modified.
+* [`dbt retry`](../commands/retry.md) skips overloads that already succeeded and only re-runs the previously failed ones.
+* [`state:modified`](../node-selection/methods.md#the-state-method) detects changes to any overload's function body, arguments, or return type and marks the root function node as modified.
 
 ## Properties[​](#properties "Direct link to Properties")
 
@@ -72,11 +72,11 @@ dbt raises a parsing error if:
 
 ### arguments[​](#arguments "Direct link to arguments")
 
-The argument list for the overload. Follows the same structure as [function arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md).
+The argument list for the overload. Follows the same structure as [function arguments](./function-arguments.md).
 
 ### returns[​](#returns "Direct link to returns")
 
-The return type for the overload. Follows the same structure as [returns](https://docs.getdbt.com/reference/resource-properties/returns.md). If omitted, the overload inherits the return type of the root function.
+The return type for the overload. Follows the same structure as [returns](./returns.md). If omitted, the overload inherits the return type of the root function.
 
 ## Example[​](#example "Direct link to Example")
 
@@ -200,7 +200,7 @@ return val;
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
-* [returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function arguments](./function-arguments.md)
+* [returns](./returns.md)

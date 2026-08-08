@@ -4,8 +4,8 @@ Learn about using snapshot configurations in dbt, including snapshot-specific co
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-* The `dbt snapshot` [command](https://docs.getdbt.com/reference/commands/snapshot.md)
+* [Snapshots](../docs/build/snapshots.md)
+* The `dbt snapshot` [command](./commands/snapshot.md)
 
 Learn by video!
 
@@ -52,7 +52,7 @@ snapshots:
     +hard_deletes: string
 ```
 
-Refer to [configuring snapshots](https://docs.getdbt.com/docs/build/snapshots.md#configuring-snapshots) for the available configurations.
+Refer to [configuring snapshots](../docs/build/snapshots.md#configuring-snapshots) for the available configurations.
 
 snapshots/schema.yml
 
@@ -74,11 +74,11 @@ snapshots:
 
 info
 
-Starting from [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](https://docs.getdbt.com/docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ### Snapshot configuration migration[​](#snapshot-configuration-migration "Direct link to Snapshot configuration migration")
 
-The latest snapshot configurations introduced in dbt Core v1.9 (such as [`snapshot_meta_column_names`](https://docs.getdbt.com/reference/resource-configs/snapshot_meta_column_names.md), [`dbt_valid_to_current`](https://docs.getdbt.com/reference/resource-configs/dbt_valid_to_current.md), and `hard_deletes`) are best suited for new snapshots, but you can also adopt them in existing snapshots by migrating your table schema and configs carefully to avoid any inconsistencies in your snapshots.
+The latest snapshot configurations introduced in dbt Core v1.9 (such as [`snapshot_meta_column_names`](./resource-configs/snapshot_meta_column_names.md), [`dbt_valid_to_current`](./resource-configs/dbt_valid_to_current.md), and `hard_deletes`) are best suited for new snapshots, but you can also adopt them in existing snapshots by migrating your table schema and configs carefully to avoid any inconsistencies in your snapshots.
 
 Here's how you can do it:
 
@@ -180,16 +180,16 @@ snapshots:
 
 info
 
-Starting from [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](https://docs.getdbt.com/docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
+Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
 ## Configuring snapshots[​](#configuring-snapshots "Direct link to Configuring snapshots")
 
 Snapshots can be configured in multiple ways:
 
-1. Defined in YAML files using the `config` [resource property](https://docs.getdbt.com/reference/model-properties.md), typically in your [snapshots directory](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md) or whichever folder you prefer. Available in [the dbt release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), dbt v1.9 and higher.
+1. Defined in YAML files using the `config` [resource property](./model-properties.md), typically in your [snapshots directory](./project-configs/snapshot-paths.md) or whichever folder you prefer. Available in [the dbt release track](../docs/dbt-versions/dbt-release-tracks.md), dbt v1.9 and higher.
 2. From the `dbt_project.yml` file, under the `snapshots:` key. To apply a configuration to a snapshot, or directory of snapshots, define the resource path as nested dictionary keys.
 
-Snapshot configurations are applied hierarchically in the order above with higher taking precedence. You can also apply [data tests](https://docs.getdbt.com/reference/snapshot-properties.md) to snapshots using the [`tests` property](https://docs.getdbt.com/reference/resource-properties/data-tests.md).
+Snapshot configurations are applied hierarchically in the order above with higher taking precedence. You can also apply [data tests](./snapshot-properties.md) to snapshots using the [`tests` property](./resource-properties/data-tests.md).
 
 ### Examples[​](#examples "Direct link to Examples")
 
@@ -197,7 +197,7 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
 
 * #### Apply configurations to all snapshots[​](#apply-configurations-to-all-snapshots "Direct link to Apply configurations to all snapshots")
 
-  To apply a configuration to all snapshots, including those in any installed [packages](https://docs.getdbt.com/docs/build/packages.md), nest the configuration directly under the `snapshots` key:
+  To apply a configuration to all snapshots, including those in any installed [packages](../docs/build/packages.md), nest the configuration directly under the `snapshots` key:
 
   dbt\_project.yml
 

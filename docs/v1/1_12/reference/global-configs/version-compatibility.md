@@ -1,6 +1,6 @@
 # Checking version compatibility
 
-For the first several years of dbt Core's development, breaking changes were more common. For this reason, we encouraged setting [dbt version requirements](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md) — especially if they use features that are newer or which may break in future versions of dbt Core. By default, if you run a project with an incompatible dbt version, dbt will raise an error.
+For the first several years of dbt Core's development, breaking changes were more common. For this reason, we encouraged setting [dbt version requirements](../project-configs/require-dbt-version.md) — especially if they use features that are newer or which may break in future versions of dbt Core. By default, if you run a project with an incompatible dbt version, dbt will raise an error.
 
 You can use the `VERSION_CHECK` config to disable this check and suppress the error message:
 
@@ -12,13 +12,13 @@ Found 13 models, 2 tests, 1 archives, 0 analyses, 204 macros, 2 operations....
 
 dbt release tracks
 
-Starting in 2024, when you select a [release track in dbt](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
+Starting in 2024, when you select a [release track in dbt](../../docs/dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades, dbt will ignore the `require-dbt-version` config.
 
 dbt Labs is committed to zero breaking changes for code in dbt projects, with ongoing releases to dbt and new versions of dbt Core. We also recommend these best practices:
 
  Installing dbt packages
 
-If you install dbt packages for use in your project, whether the package is maintained by your colleagues or a member of the open source dbt community, we recommend pinning the package to a specific revision or `version` boundary. dbt manages this out-of-the-box by *locking* the version/revision of packages in development in order to guarantee predictable builds in production. To learn more, refer to [Predictable package installs](https://docs.getdbt.com/reference/commands/deps.md#predictable-package-installs).
+If you install dbt packages for use in your project, whether the package is maintained by your colleagues or a member of the open source dbt community, we recommend pinning the package to a specific revision or `version` boundary. dbt manages this out-of-the-box by *locking* the version/revision of packages in development in order to guarantee predictable builds in production. To learn more, refer to [Predictable package installs](../commands/deps.md#predictable-package-installs).
 
  Maintaining dbt packages
 

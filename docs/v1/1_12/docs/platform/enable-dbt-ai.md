@@ -19,14 +19,14 @@ dbt Wizard is the new and recommended AI agent for governed data development in 
 
 dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](./billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Must have a [on Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
   <!-- -->
-  * Certain features like [natural prompts in Canvas](https://docs.getdbt.com/docs/platform/build-canvas-copilot.md) are only available on Enterprise and Enterprise+ plans.
-* Development environment is on a supported [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
+  * Certain features like [natural prompts in Canvas](./build-canvas-copilot.md) are only available on Enterprise and Enterprise+ plans.
+* Development environment is on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.
 * Opt-in to AI features by following the steps in the next section in your **Account settings**.
 * Use a supported AI provider
 
@@ -52,8 +52,8 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+* [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
+* [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 #### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
 
@@ -79,9 +79,9 @@ Note: To disable (only after enabled), repeat steps 1 to 3, toggle off in step 4
 
 ## Configure AI provider [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#configure-ai-provider- "Direct link to configure-ai-provider-")
 
-Once AI features have been [enabled](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
+Once AI features have been [enabled](./enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
 
-\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
+\* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
 
 ### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
 
@@ -96,7 +96,7 @@ To configure your AI provider for dbt Wizard:
 * Azure AI Foundry
 * Anthropic
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
@@ -140,7 +140,7 @@ Supported formats include:
 
 [![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
 
-**Managed by dbt Labs** (default, no setup required). Refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
+**Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select **dbt Labs** from the list to use dbt Labs' managed\* Anthropic key.
 2. Click **Save**.
@@ -210,7 +210,7 @@ Supported formats include:
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled.
 
-To bring your own key instead of using dbt Labs' managed infrastructure, refer to [Configure BYOK for dbt Wizard in dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md).
+To bring your own key instead of using dbt Labs' managed infrastructure, refer to [Configure BYOK for dbt Wizard in dbt platform](./wizard-byok-platform.md).
 
 ## Try your first prompt[​](#try-your-first-prompt "Direct link to Try your first prompt")
 
@@ -226,9 +226,9 @@ Use the home tab to investigate, generate, review diffs, and run validations. Us
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md)
+* [dbt Wizard home tab](./wizard-home.md)
+* [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
+* [Prompt cookbook](../../guides/prompt-cookbook.md)
 
 *dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
 

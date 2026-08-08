@@ -2,7 +2,7 @@
 
 Measures are deprecated in the new spec
 
-Heads up, measures have been deprecated in favor of simple metrics under the `metrics:` key. Migrate by converting each measure to a `type: simple` metric. For more info, check out [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md) and [upgrade to dbt Fusion v2.0](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md).
+Heads up, measures have been deprecated in favor of simple metrics under the `metrics:` key. Migrate by converting each measure to a `type: simple` metric. For more info, check out [Migrate to the latest YAML spec](./latest-metrics-spec.md) and [upgrade to dbt Fusion v2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md).
 
 Measures are aggregations performed on columns in your model. They can be used as final metrics or as building blocks for more complex metrics.
 
@@ -12,16 +12,16 @@ Measures have several inputs, which are described in the following table along w
 
 | Parameter                                                                                          | Description                                                                                                                                                                                                                                                | Required | Type    |
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| [`name`](https://docs.getdbt.com/docs/build/measures.md#name)                                      | Provide a name for the measure, which must be unique and can't be repeated across all semantic models in your dbt project.                                                                                                                                 | Required | String  |
-| [`description`](https://docs.getdbt.com/docs/build/measures.md#description)                        | Describes the calculated measure.                                                                                                                                                                                                                          | Optional | String  |
-| [`agg`](https://docs.getdbt.com/docs/build/measures.md#aggregation)                                | dbt supports the following aggregations: `sum`, `max`, `min`, `average`, `median`, `count_distinct`, `percentile`, and `sum_boolean`.                                                                                                                      | Required | String  |
-| [`expr`](https://docs.getdbt.com/docs/build/measures.md#expr)                                      | Either reference an existing column in the table or use a SQL expression to create or derive a new one.                                                                                                                                                    | Optional | String  |
-| [`non_additive_dimension`](https://docs.getdbt.com/docs/build/measures.md#non-additive-dimensions) | Non-additive dimensions can be specified for measures that cannot be aggregated over certain dimensions, such as bank account balances, to avoid producing incorrect results.                                                                              | Optional | String  |
+| [`name`](./measures.md#name)                                      | Provide a name for the measure, which must be unique and can't be repeated across all semantic models in your dbt project.                                                                                                                                 | Required | String  |
+| [`description`](./measures.md#description)                        | Describes the calculated measure.                                                                                                                                                                                                                          | Optional | String  |
+| [`agg`](./measures.md#aggregation)                                | dbt supports the following aggregations: `sum`, `max`, `min`, `average`, `median`, `count_distinct`, `percentile`, and `sum_boolean`.                                                                                                                      | Required | String  |
+| [`expr`](./measures.md#expr)                                      | Either reference an existing column in the table or use a SQL expression to create or derive a new one.                                                                                                                                                    | Optional | String  |
+| [`non_additive_dimension`](./measures.md#non-additive-dimensions) | Non-additive dimensions can be specified for measures that cannot be aggregated over certain dimensions, such as bank account balances, to avoid producing incorrect results.                                                                              | Optional | String  |
 | `agg_params`                                                                                       | Specific aggregation properties, such as a percentile.                                                                                                                                                                                                     | Optional | Dict    |
 | `agg_time_dimension`                                                                               | The time field. Defaults to the default agg time dimension for the semantic model.                                                                                                                                                                         | Optional | String  |
 | `label`                                                                                            | String that defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`). Available in dbt version 1.7 or higher.                                                                    | Optional | String  |
 | `create_metric`                                                                                    | Create a `simple` metric from a measure by setting `create_metric: True`. The `label` and `description` attributes will be automatically propagated to the created metric. Available in dbt version 1.7 or higher.                                         | Optional | Boolean |
-| `config`                                                                                           | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your metric. Supports the [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md) property, nested under `config`. | Optional |         |
+| `config`                                                                                           | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports the [`meta`](../../reference/resource-configs/meta.md) property, nested under `config`. | Optional |         |
 
 Search table...
 
@@ -312,8 +312,8 @@ mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_dat
 
 Metric nodes will reflect dependencies on semantic models based on their *measures*. However, dependencies based on filters should not be reflected in:
 
-* [dbt selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md)
-* Visualization of the DAG in dbt-docs and the [integrated development environment](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) (IDE).
+* [dbt selection syntax](../../reference/node-selection/syntax.md)
+* Visualization of the DAG in dbt-docs and the [integrated development environment](../platform/studio-ide/develop-in-studio.md) (IDE).
 
 This is because metrics need to source nodes for their `depends_on` attribute from a few different places:
 

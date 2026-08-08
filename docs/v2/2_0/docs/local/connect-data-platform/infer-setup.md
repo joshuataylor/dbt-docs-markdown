@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-infer<!-- -->
 
-For <!-- -->Infer<!-- -->-specific configuration, please refer to [Infer<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/infer-configs.md)
+For <!-- -->Infer<!-- -->-specific configuration, please refer to [Infer<!-- --> configs.](../../../reference/resource-configs/infer-configs.md)
 
 ## Connecting to Infer with **dbt-infer**[​](#connecting-to-infer-with-dbt-infer "Direct link to connecting-to-infer-with-dbt-infer")
 

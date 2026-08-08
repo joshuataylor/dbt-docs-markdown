@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-rockset<!-- -->
 
-For <!-- -->Rockset<!-- -->-specific configuration, please refer to [Rockset<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Rockset<!-- -->-specific configuration, please refer to [Rockset<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to Rockset with **dbt-rockset**[​](#connecting-to-rockset-with-dbt-rockset "Direct link to connecting-to-rockset-with-dbt-rockset")
 

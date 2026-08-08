@@ -14,17 +14,17 @@ Want to learn how organizations around the world are tackling the biggest challe
 
 [Have a question about how to do something in dbt? Hop into the Community Forum and work with others to create long lived community knowledge.](https://discourse.getdbt.com/)
 
-[![](/img/icons/pencil-paper.svg)](https://docs.getdbt.com/community/contribute.md)
+[![](/img/icons/pencil-paper.svg)](./contribute.md)
 
-#### [How to contribute](https://docs.getdbt.com/community/contribute.md)
+#### [How to contribute](./contribute.md)
 
-[Want to get involved? This is the place! Learn how to contribute to our public repositories, write for the blog, speak at a meetup and more.](https://docs.getdbt.com/community/contribute.md)
+[Want to get involved? This is the place! Learn how to contribute to our public repositories, write for the blog, speak at a meetup and more.](./contribute.md)
 
-[![](/img/icons/folder.svg)](https://docs.getdbt.com/community/resources/code-of-conduct.md)
+[![](/img/icons/folder.svg)](./resources/code-of-conduct.md)
 
-#### [Code of Conduct](https://docs.getdbt.com/community/resources/code-of-conduct.md)
+#### [Code of Conduct](./resources/code-of-conduct.md)
 
-[We are committed to creating a space where everyone can feel welcome and safe. Our Code of Conduct reflects the agreement that all Community members make to uphold these ideals.](https://docs.getdbt.com/community/resources/code-of-conduct.md)
+[We are committed to creating a space where everyone can feel welcome and safe. Our Code of Conduct reflects the agreement that all Community members make to uphold these ideals.](./resources/code-of-conduct.md)
 
 [![](/img/icons/calendar.svg)](https://www.getdbt.com/resources/webinars)
 

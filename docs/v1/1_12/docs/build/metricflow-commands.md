@@ -1,8 +1,8 @@
 # MetricFlow commands
 
-Once you define metrics in your dbt project, you can query metrics, dimensions, and dimension values, and validate your configs using the MetricFlow commands, available across the dbt Core or [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md). To upgrade to Fusion, see [Get started with Fusion](https://docs.getdbt.com/docs/fusion/get-started-fusion.md).
+Once you define metrics in your dbt project, you can query metrics, dimensions, and dimension values, and validate your configs using the MetricFlow commands, available across the dbt Core or [dbt Fusion engine](../fusion/about-fusion.md). To upgrade to Fusion, see [Get started with Fusion](../fusion/get-started-fusion.md).
 
-MetricFlow allows you to define and query metrics in your dbt project in [dbt platform](https://docs.getdbt.com/docs/platform/about-develop-dbt.md) or [dbt Core](https://docs.getdbt.com/docs/local/install-dbt.md). To experience the power of the universal [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) and dynamically query those metrics in downstream tools, you'll need a dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) account.
+MetricFlow allows you to define and query metrics in your dbt project in [dbt platform](../platform/about-develop-dbt.md) or [dbt Core](../local/install-dbt.md). To experience the power of the universal [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) and dynamically query those metrics in downstream tools, you'll need a dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) account.
 
 MetricFlow is compatible with Python versions 3.8, 3.9, 3.10, 3.11, and 3.12.
 
@@ -17,10 +17,10 @@ MetricFlow is a Python library that allows you to define and query metrics in yo
 
 This section applies to dbt platform users running the dbt Fusion engine, where commands and validations execute remotely in dbt platform.
 
-* Run MetricFlow commands using the `dbt sl` prefix in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or using the [VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md).
-* For CLI or VS Code/Cursor users, MetricFlow commands are embedded, which means you can immediately run them once you install the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or [VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md) and don't need to install MetricFlow separately.
+* Run MetricFlow commands using the `dbt sl` prefix in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt CLI](../platform/dbt-cli-installation.md) or using the [VS Code extension](../install-dbt-extension.md).
+* For CLI or VS Code/Cursor users, MetricFlow commands are embedded, which means you can immediately run them once you install the [dbt CLI](../platform/dbt-cli-installation.md) or [VS Code extension](../install-dbt-extension.md) and don't need to install MetricFlow separately.
 * Using MetricFlow with dbt platform doesn't require you to manage versioning — your dbt account will automatically manage the versioning.
-* dbt jobs support the `dbt sl validate` command to [automatically test your semantic nodes](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci). You can also add MetricFlow validations with your Git provider (such as GitHub Actions) by installing MetricFlow (`python -m pip install metricflow`). This allows you to run MetricFlow commands as part of your continuous integration checks on PRs.
+* dbt jobs support the `dbt sl validate` command to [automatically test your semantic nodes](../deploy/ci-jobs.md#semantic-validations-in-ci). You can also add MetricFlow validations with your Git provider (such as GitHub Actions) by installing MetricFlow (`python -m pip install metricflow`). This allows you to run MetricFlow commands as part of your continuous integration checks on PRs.
 
 This section applies to dbt Core users running the dbt Core engine or users running [source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement) Fusion locally and aren't on dbt platform.
 
@@ -41,7 +41,7 @@ Use MetricFlow commands to retrieve metadata and query metrics. The following ta
 
 | Development setup                                   | Engine                                            | Hosted on     | Prefix   | Notes                                                                                                                                                                                                          |
 | --------------------------------------------------- | ------------------------------------------------- | ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Studio IDE/dbt CLI or VS Code extension Fusion only | dbt Fusion engine or dbt Core engine              | dbt platform  | `dbt sl` | Remote execution; Platform manages versions.<br />VS Code extension users must have a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform |
+| Studio IDE/dbt CLI or VS Code extension Fusion only | dbt Fusion engine or dbt Core engine              | dbt platform  | `dbt sl` | Remote execution; Platform manages versions.<br />VS Code extension users must have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform |
 | Open-source<br />(no dbt platform project)          | Fusion (source available) or<br />dbt Core engine | Local machine | `mf`     | Install and manage MetricFlow locally.                                                                                                                                                                         |
 
 Search table...
@@ -50,10 +50,10 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-* If you’re using Fusion with dbt platform and have a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform, run MetricFlow commands using the `dbt sl` prefix.
+* If you’re using Fusion with dbt platform and have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform, run MetricFlow commands using the `dbt sl` prefix.
   <!-- -->
-  * This allows you to interact with metrics that are executed remotely on dbt platform (for example, from the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)).
-* If you’re using [Fusion CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) ([source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement)) and aren't connected to dbt platform, install MetricFlow separately and use the `mf` prefix to run commands locally.
+  * This allows you to interact with metrics that are executed remotely on dbt platform (for example, from the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt CLI](../platform/dbt-cli-installation.md)).
+* If you’re using [Fusion CLI](../local/install-dbt.md?version=2) ([source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement)) and aren't connected to dbt platform, install MetricFlow separately and use the `mf` prefix to run commands locally.
 * If you’re using dbt Core locally without Fusion, run MetricFlow commands using the `mf` prefix.
 
 - Commands for dbt platform
@@ -202,7 +202,7 @@ The list of available saved queries:
 
 The following command performs validations against the defined semantic model configurations.
 
-* For Fusion and dbt users in the dbt platform CLI or locally with a valid [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md):
+* For Fusion and dbt users in the dbt platform CLI or locally with a valid [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md):
 
   ```bash
   dbt sl validate
@@ -482,7 +482,7 @@ mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --o
 
 ### Query saved queries[​](#query-saved-queries "Direct link to Query saved queries")
 
-You can use this for frequently used queries. Replace `<name>` with the name of your [saved query](https://docs.getdbt.com/docs/build/saved-queries.md).
+You can use this for frequently used queries. Replace `<name>` with the name of your [saved query](./saved-queries.md).
 
 **Query**
 
@@ -496,7 +496,7 @@ For example, if you use dbt and have a saved query named `new_customer_orders`, 
 
 A note on querying saved queries
 
-When querying [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md), you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
+When querying [saved queries](./saved-queries.md), you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
 
 ## Additional query examples[​](#additional-query-examples "Direct link to Additional query examples")
 
@@ -575,7 +575,7 @@ mf query --metrics revenue --group-by metric_time__month # For open-source users
 
 ## Export[​](#export "Direct link to Export")
 
-Run [exports for a specific saved query](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md#exports-for-single-saved-query). Use this command to test and generate exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query. Refer to [exports in development](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
+Run [exports for a specific saved query](../use-dbt-semantic-layer/exports.md#exports-for-single-saved-query). Use this command to test and generate exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
 
 Export is available in dbt.
 
@@ -585,7 +585,7 @@ dbt sl export # For dbt platform users (Core or Fusion engine)
 
 ## Export-all[​](#export-all "Direct link to Export-all")
 
-Run [exports for multiple saved queries](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md#exports-for-multiple-saved-queries) at once. This command provides a convenient way to manage and execute exports for several queries simultaneously, saving time and effort. Refer to [exports in development](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
+Run [exports for multiple saved queries](../use-dbt-semantic-layer/exports.md#exports-for-multiple-saved-queries) at once. This command provides a convenient way to manage and execute exports for several queries simultaneously, saving time and effort. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
 
 Export is available in dbt.
 

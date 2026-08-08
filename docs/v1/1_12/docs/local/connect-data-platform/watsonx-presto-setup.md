@@ -41,7 +41,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-watsonx-presto<!-- -->
 
-For <!-- -->IBM watsonx.data<!-- -->-specific configuration, please refer to [IBM watsonx.data<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/watsonx-presto-config.md)
+For <!-- -->IBM watsonx.data<!-- -->-specific configuration, please refer to [IBM watsonx.data<!-- --> configs.](../../../reference/resource-configs/watsonx-presto-config.md)
 
 ## Connecting to IBM watsonx.data presto[​](#connecting-to-ibm-watsonxdata-presto "Direct link to Connecting to IBM watsonx.data presto")
 

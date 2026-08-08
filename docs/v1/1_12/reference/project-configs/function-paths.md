@@ -8,7 +8,7 @@ function-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [user-defined functions (UDFs)](https://docs.getdbt.com/docs/build/udfs.md) are located.
+Optionally specify a custom list of directories where [user-defined functions (UDFs)](../../docs/build/udfs.md) are located.
 
 ## Default[​](#default "Direct link to Default")
 

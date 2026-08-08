@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-layer-bigquery<!-- -->
 
-For <!-- -->Layer<!-- -->-specific configuration, please refer to [Layer<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Layer<!-- -->-specific configuration, please refer to [Layer<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ### Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
 
@@ -46,7 +46,7 @@ Add your `layer_api_key` to your `profiles.yaml` to authenticate with Layer. To 
 
 #### Bigquery Authentication[​](#bigquery-authentication "Direct link to Bigquery Authentication")
 
-You can use any [authentication method](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md) supported in the official dbt Bigquery adapter since Layer uses `dbt-bigquery` adapter to connect to your Bigquery instance.
+You can use any [authentication method](./bigquery-setup.md) supported in the official dbt Bigquery adapter since Layer uses `dbt-bigquery` adapter to connect to your Bigquery instance.
 
 A sample profile:
 

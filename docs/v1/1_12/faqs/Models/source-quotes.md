@@ -4,7 +4,7 @@ This is reasonably common on Snowflake in particular.
 
 By default, dbt will not quote the database, schema, or identifier for the source tables that you've specified.
 
-To force dbt to quote one of these values, use the [`quoting` property](https://docs.getdbt.com/reference/resource-properties/quoting.md):
+To force dbt to quote one of these values, use the [`quoting` property](../../reference/resource-properties/quoting.md):
 
 models/\<filename>.yml
 

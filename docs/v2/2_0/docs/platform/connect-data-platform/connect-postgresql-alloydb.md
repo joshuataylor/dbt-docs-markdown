@@ -8,7 +8,7 @@ The following fields are required when creating a connection:
 
 | Field     | Description                                                                                                                                                                                                                              | Examples                                |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| Host Name | The hostname of the database to connect to. This can either be a hostname or an IP address. Refer to the [set up pages](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) for adapter-specific details. | Postgres: `xxx.us-east-1.amazonaws.com` |
+| Host Name | The hostname of the database to connect to. This can either be a hostname or an IP address. Refer to the [set up pages](../../local/connect-data-platform/about-dbt-connections.md) for adapter-specific details. | Postgres: `xxx.us-east-1.amazonaws.com` |
 | Port      | Usually 5432                                                                                                                                                                                                                             | `5439`                                  |
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                                              | `analytics`                             |
 
@@ -43,7 +43,7 @@ Search table...
 
 <!-- -->
 
-Use an SSH tunnel when your <!-- -->Postgres or AlloyDB<!-- --> instance is not publicly accessible and must be reached through a [bastion server](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
+Use an SSH tunnel when your <!-- -->Postgres or AlloyDB<!-- --> instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
 
 To configure a connection using an SSH tunnel:
 
@@ -78,7 +78,7 @@ Make sure the location of the instance is the same Virtual Private Cloud (VPC) a
 
 To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of your bastion server, username, and port, of your choosing, that dbt will connect to. Review the following steps:
 
-1. Verify the bastion server has its network security rules set up to accept connections from the [dbt IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) on whatever port you configured.
+1. Verify the bastion server has its network security rules set up to accept connections from the [dbt IP addresses](../about-platform/access-regions-ip-addresses.md) on whatever port you configured.
 
 2. Set up the user account by using the bastion servers instance's CLI, The following example uses the username `dbtcloud`:
 
@@ -98,7 +98,7 @@ The bastion server should now be ready for dbt to use as a tunnel into the <!-- 
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To grant users or roles database permissions (access rights and privileges), refer to the [Postgres permissions](https://docs.getdbt.com/reference/database-permissions/postgres-permissions.md) page.
+To grant users or roles database permissions (access rights and privileges), refer to the [Postgres permissions](../../../reference/database-permissions/postgres-permissions.md) page.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 

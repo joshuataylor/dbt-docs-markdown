@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-materialize<!-- -->
 
-For <!-- -->Materialize<!-- -->-specific configuration, please refer to [Materialize<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/materialize-configs.md)
+For <!-- -->Materialize<!-- -->-specific configuration, please refer to [Materialize<!-- --> configs.](../../../reference/resource-configs/materialize-configs.md)
 
 ## Connecting to Materialize[​](#connecting-to-materialize "Direct link to Connecting to Materialize")
 
@@ -68,7 +68,7 @@ materialize:
 
 `cluster`: The default [cluster](https://materialize.com/docs/overview/key-concepts/#clusters) is used to maintain materialized views or indexes. A [`default` cluster](https://materialize.com/docs/sql/show-clusters/#default-cluster) is pre-installed in every environment, but we recommend creating dedicated clusters to isolate the workloads in your dbt project (for example, `staging` and `data_mart`).
 
-`keepalives_idle`: The number of seconds before sending a ping to keep the Materialize connection active. If you are encountering `SSL SYSCALL error: EOF detected`, you may want to lower the [keepalives\_idle](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md#keepalives_idle) value to prevent the database from closing its connection.
+`keepalives_idle`: The number of seconds before sending a ping to keep the Materialize connection active. If you are encountering `SSL SYSCALL error: EOF detected`, you may want to lower the [keepalives\_idle](./postgres-setup.md#keepalives_idle) value to prevent the database from closing its connection.
 
 To test the connection to Materialize, run:
 
@@ -102,15 +102,15 @@ Search table...
 
 ### Indexes[​](#indexes "Direct link to Indexes")
 
-Materialized views (`materializedview`), views (`view`) and sources (`source`) may have a list of [`indexes`](https://docs.getdbt.com/reference/resource-configs/materialize-configs.md#indexes) defined.
+Materialized views (`materializedview`), views (`view`) and sources (`source`) may have a list of [`indexes`](../../../reference/resource-configs/materialize-configs.md#indexes) defined.
 
 ### Seeds[​](#seeds "Direct link to Seeds")
 
-Running [`dbt seed`](https://docs.getdbt.com/reference/commands/seed.md) will create a static materialized view from a CSV file. You will not be able to add to or update this view after it has been created.
+Running [`dbt seed`](../../../reference/commands/seed.md) will create a static materialized view from a CSV file. You will not be able to add to or update this view after it has been created.
 
 ### Tests[​](#tests "Direct link to Tests")
 
-Running [`dbt test`](https://docs.getdbt.com/reference/commands/test.md) with the optional `--store-failures` flag or [`store_failures` config](https://docs.getdbt.com/reference/resource-configs/store_failures.md) will create a materialized view for each configured test that can keep track of failures over time.
+Running [`dbt test`](../../../reference/commands/test.md) with the optional `--store-failures` flag or [`store_failures` config](../../../reference/resource-configs/store_failures.md) will create a materialized view for each configured test that can keep track of failures over time.
 
 ## Resources[​](#resources "Direct link to Resources")
 

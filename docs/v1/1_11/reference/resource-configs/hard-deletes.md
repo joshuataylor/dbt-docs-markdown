@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 snapshots/schema.yml
 
@@ -70,7 +70,7 @@ You can use `hard_deletes` with dbt-postgres, dbt-bigquery, dbt-snowflake, and d
 
 warning
 
-If you're updating an existing snapshot to use the `hard_deletes` config, dbt *will not* handle migrations automatically. We recommend either only using these settings for net-new snapshots, or [arranging an update](https://docs.getdbt.com/reference/snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
+If you're updating an existing snapshot to use the `hard_deletes` config, dbt *will not* handle migrations automatically. We recommend either only using these settings for net-new snapshots, or [arranging an update](../snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
 
 ## Default[​](#default "Direct link to Default")
 

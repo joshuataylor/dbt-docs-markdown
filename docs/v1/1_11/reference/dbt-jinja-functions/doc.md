@@ -2,7 +2,7 @@
 
 You can specify documentation text in a docs block, then use the `doc()` Jinja function in description fields as a way to reuse the same text in multiple places. You can only use the `doc()` Jinja function in properties YAML files for resources with description properties. For example, models, model columns, sources, source tables, source columns, and so on.
 
-The `doc()` Jinja function, which is analogous to `ref()`, looks up the named docs block (for example, `{% docs orders %} ... {% enddocs %}` in a `docs.md` file) and returns its rendered content. For more information, refer to the [Documentation guide](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md).
+The `doc()` Jinja function, which is analogous to `ref()`, looks up the named docs block (for example, `{% docs orders %} ... {% enddocs %}` in a `docs.md` file) and returns its rendered content. For more information, refer to the [Documentation guide](../../docs/explore/build-and-view-your-docs.md).
 
 ## Usage[​](#usage "Direct link to Usage")
 

@@ -235,8 +235,8 @@ Inspect the current session state without changing anything.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Wizard CLI command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md) for flags and subcommands
-* [Use subagents](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md) for the `/agent` and `/subagents` commands
-* [Headless mode](https://docs.getdbt.com/docs/dbt-ai/wizard-headless.md) for using `wizard exec` in scripts and CI
-* [Configuration reference](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md) for `config.toml` keys and precedence
-* [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands
+* [Wizard CLI command reference](./wizard-cli-reference.md) for flags and subcommands
+* [Use subagents](./wizard-subagents.md) for the `/agent` and `/subagents` commands
+* [Headless mode](./wizard-headless.md) for using `wizard exec` in scripts and CI
+* [Configuration reference](./wizard-config.md) for `config.toml` keys and precedence
+* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands

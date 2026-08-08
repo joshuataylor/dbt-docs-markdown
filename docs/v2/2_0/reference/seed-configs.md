@@ -90,7 +90,7 @@ Seed configurations, like model configurations, are applied hierarchically — c
 
 #### Apply the `schema` configuration to all seeds[​](#apply-the-schema-configuration-to-all-seeds "Direct link to apply-the-schema-configuration-to-all-seeds")
 
-To apply a configuration to all seeds, including those in any installed [packages](https://docs.getdbt.com/docs/build/packages.md), nest the configuration directly under the `seeds` key:
+To apply a configuration to all seeds, including those in any installed [packages](../docs/build/packages.md), nest the configuration directly under the `seeds` key:
 
 dbt\_project.yml
 
@@ -102,7 +102,7 @@ seeds:
 
 #### Apply the `schema` configuration to all seeds in your project[​](#apply-the-schema-configuration-to-all-seeds-in-your-project "Direct link to apply-the-schema-configuration-to-all-seeds-in-your-project")
 
-To apply a configuration to all seeds in your project only (i.e. *excluding* any seeds in installed packages), provide your [project name](https://docs.getdbt.com/reference/project-configs/name.md) as part of the resource path.
+To apply a configuration to all seeds in your project only (i.e. *excluding* any seeds in installed packages), provide your [project name](./project-configs/name.md) as part of the resource path.
 
 For a project named `jaffle_shop`:
 

@@ -6,13 +6,13 @@ This workflow is useful after you edit a model, test, macro, or YAML file and wa
 
 CLI workflow
 
-The validation levels on this page are available in dbt Wizard CLI. Validation controls in the dbt platform can differ. Refer to [dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md) for platform behavior.
+The validation levels on this page are available in dbt Wizard CLI. Validation controls in the dbt platform can differ. Refer to [dbt Wizard in the dbt platform](../../docs/platform/wizard-platform.md) for platform behavior.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 Before you begin:
 
-* [Install and configure dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-quickstart.md).
 * Open your dbt project in the terminal and start dbt Wizard from the project root.
 * Make sure the project has a current `target/manifest.json`. Run `dbt parse`, `dbt compile`, or `dbt build` if needed.
 * Configure a development target that dbt Wizard can use for commands that query or materialize data.
@@ -100,7 +100,7 @@ Validation is evidence, not a guarantee that a change is correct. Keep these lim
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Understanding a dbt project with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-2-understand-project.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
-* [Use subagents with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md)
-* [About dbt state](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
+* [Understanding a dbt project with dbt Wizard](./wizard-2-understand-project.md)
+* [How dbt Wizard works](../../docs/dbt-ai/wizard-how-it-works.md)
+* [Use subagents with dbt Wizard CLI](../../docs/dbt-ai/wizard-subagents.md)
+* [About dbt state](../../docs/deploy/dbt-state-about.md)

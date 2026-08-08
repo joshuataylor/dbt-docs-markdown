@@ -28,6 +28,6 @@ Yes. dbt Wizard conversation history is retained for 90 days by default, feedb
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [dbt Wizard CLI Data & privacy](https://docs.getdbt.com/docs/dbt-ai/wizard-telemetry.md)
+* [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [dbt Wizard in Studio IDE](./wizard-ide.md)
+* [dbt Wizard CLI Data & privacy](./wizard-telemetry.md)

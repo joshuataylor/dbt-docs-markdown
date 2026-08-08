@@ -52,7 +52,7 @@ Search table...
 
 Now, all characters in the `first_name` and `last_name` columns are lowercase.
 
-> Changing all string columns to lowercase to create uniformity across data sources typically happens in our [dbt project’s staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lowercasing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
+> Changing all string columns to lowercase to create uniformity across data sources typically happens in our [dbt project’s staging models](../best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lowercasing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
 
 ## SQL LOWER function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-lower-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL LOWER function syntax in Snowflake, Databricks, BigQuery, and Redshift")
 

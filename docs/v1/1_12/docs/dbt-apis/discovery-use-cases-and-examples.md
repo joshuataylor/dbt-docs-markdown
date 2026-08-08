@@ -244,7 +244,7 @@ query ($jobId: BigInt!, $runId: BigInt!) {
 }
 ```
 
-For jobs with many models, paginate with `first`, `after`, and `paginationCursor`. Refer to [Job-based queries](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md#job-based-queries) in the Discovery API querying guide.
+For jobs with many models, paginate with `first`, `after`, and `paginationCursor`. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) in the Discovery API querying guide.
 
 ```graphql
 query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: String) {
@@ -314,7 +314,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 ## Quality[​](#quality "Direct link to Quality")
 
-You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
+You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](../deploy/webhooks.md), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
 
 For quality use cases, people typically query the historical or latest applied state, often in the upstream part of the DAG (for example, sources), using the `environment` or `environment { applied { modelHistoricalRuns } }` endpoints.
 
@@ -490,7 +490,7 @@ Graph example:
 
 ### Are my data sources fresh?[​](#are-my-data-sources-fresh "Direct link to Are my data sources fresh?")
 
-Checking [source freshness](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
+Checking [source freshness](../build/sources.md#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
 
 [![Source freshness page in dbt](/img/docs/dbt-platform/discovery-api/source-freshness-page.png?v=2 "Source freshness page in dbt")](#)Source freshness page in dbt
 
@@ -540,7 +540,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 ### What’s the test coverage and status?[​](#whats-the-test-coverage-and-status "Direct link to What’s the test coverage and status?")
 
-[Data tests](https://docs.getdbt.com/docs/build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
+[Data tests](../build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
 
 Example query
 
@@ -658,7 +658,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 The Discovery API enables access to comprehensive model-level data lineage by exposing:
 
-* Upstream dependencies of models, including relationships to [sources](https://docs.getdbt.com/docs/build/sources.md), [seeds](https://docs.getdbt.com/docs/build/seeds.md), and [snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
+* Upstream dependencies of models, including relationships to [sources](../build/sources.md), [seeds](../build/seeds.md), and [snapshots](../build/snapshots.md)
 * Model execution metadata such as run status, execution time, and freshness
 * Column-level details, including tests and descriptions
 * References between models to reconstruct lineage across your project
@@ -696,7 +696,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 ### Which metrics are available?[​](#which-metrics-are-available "Direct link to Which metrics are available?")
 
-You can define and query metrics using the [Semantic Layer](https://docs.getdbt.com/docs/build/about-metricflow.md), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
+You can define and query metrics using the [Semantic Layer](../build/about-metricflow.md), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
 
 Example query
 
@@ -821,7 +821,7 @@ For development use cases, people typically query the historical or latest defin
 
 ### How is this model or metric used in downstream tools?[​](#how-is-this-model-or-metric-used-in-downstream-tools "Direct link to How is this model or metric used in downstream tools?")
 
-[Exposures](https://docs.getdbt.com/docs/build/exposures.md) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
+[Exposures](../build/exposures.md) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
 
 [![Embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Embed data health tiles in your dashboards to distill trust signals for data consumers.")](#)Embed data health tiles in your dashboards to distill trust signals for data consumers.
 
@@ -933,4 +933,4 @@ query ($environmentId: BigInt!, $first: Int!) {
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Query Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md)
+* [Query Discovery API](./discovery-querying.md)

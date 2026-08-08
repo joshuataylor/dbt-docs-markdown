@@ -29,4 +29,4 @@ When selecting the catalog and the schema, make sure the user has read and write
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Starburst/Trino-specific configuration](https://docs.getdbt.com/reference/resource-configs/trino-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Starburst/Trino-specific configuration](../../../reference/resource-configs/trino-configs.md).

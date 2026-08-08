@@ -1,6 +1,6 @@
 # Dimension properties
 
-Dimensions are non-aggregatable expressions that define how metrics can be grouped or sliced. They are always defined within a [semantic model](https://docs.getdbt.com/reference/semantic-model-properties.md). See [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md) for concepts and examples.
+Dimensions are non-aggregatable expressions that define how metrics can be grouped or sliced. They are always defined within a [semantic model](./semantic-model-properties.md). See [Dimensions](../docs/build/dimensions.md) for concepts and examples.
 
 <!-- -->
 
@@ -12,7 +12,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-For more information, refer to [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
 ## Latest spec (model YAML)[​](#latest-spec-model-yaml "Direct link to Latest spec (model YAML)")
 
@@ -51,10 +51,10 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-**Derived dimensions:** To define dimensions with an `expr` that is not tied to a single column, use the semantic model’s optional `derived_semantics.dimensions` list. That structure is part of the [semantic model](https://docs.getdbt.com/reference/semantic-model-properties.md) configuration (alongside `columns:`), not a property nested under a column’s `dimension:` block. See [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md) and [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md) for examples.
+**Derived dimensions:** To define dimensions with an `expr` that is not tied to a single column, use the semantic model’s optional `derived_semantics.dimensions` list. That structure is part of the [semantic model](./semantic-model-properties.md) configuration (alongside `columns:`), not a property nested under a column’s `dimension:` block. See [Semantic models](../docs/build/semantic-models.md) and [Dimensions](../docs/build/dimensions.md) for examples.
 
 * **Column-level:** Under the model's `columns:` list, each column can have a `dimension:` block with *time* or *categorical* type, and optional `name`, `description`, `label`, `is_partition`, `config`.
 * **Time dimensions:** The column must also have a top-level `granularity:` (for example, `day`).
 * **Validity (SCD):** Time dimensions can specify `validity_params` (for example, `is_start`, `is_end`).
 
-For concepts and usage patterns, refer to [Dimensions](https://docs.getdbt.com/docs/build/dimensions.md). For the latest spec, refer to [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+For concepts and usage patterns, refer to [Dimensions](../docs/build/dimensions.md). For the latest spec, refer to [Semantic models](../docs/build/semantic-models.md).

@@ -4,7 +4,7 @@ The cleanest and easiest of SQL joins: the humble inner join. Just as its name s
 
 ## How to create an inner join[​](#how-to-create-an-inner-join "Direct link to How to create an inner join")
 
-Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](https://docs.getdbt.com/sql-reference/select.md) to perform an inner join:
+Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform an inner join:
 
 ```text
 select
@@ -14,9 +14,9 @@ inner join <table_2> as t2
 on t1.id = t2.id 
 ```
 
-In this example above, there’s only one field from each table being used to join the two together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](https://docs.getdbt.com/sql-reference/where.md), [GROUP BY](https://docs.getdbt.com/sql-reference/group-by.md), [ORDER BY](https://docs.getdbt.com/sql-reference/order-by.md), [HAVING](https://docs.getdbt.com/sql-reference/having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
+In this example above, there’s only one field from each table being used to join the two together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
 
-As with any query, you can perform as many joins as you want in a singular query. A general word of advice: try to keep data models modular by performing regular DAG audits. If you join certain tables further upstream, are those individual tables needed again further downstream? If your query involves multiple joins and complex logic and is exposed to end business users, ensure that you leverage table or [incremental materializations](https://docs.getdbt.com/docs/build/incremental-models.md).
+As with any query, you can perform as many joins as you want in a singular query. A general word of advice: try to keep data models modular by performing regular DAG audits. If you join certain tables further upstream, are those individual tables needed again further downstream? If your query involves multiple joins and complex logic and is exposed to end business users, ensure that you leverage table or [incremental materializations](../docs/build/incremental-models.md).
 
 ### SQL inner join example[​](#sql-inner-join-example "Direct link to SQL inner join example")
 
@@ -75,4 +75,4 @@ Because there’s no `user_id` = 4 in Table A and no `user_id` = 2 in Table B, r
 
 ## SQL inner join use cases[​](#sql-inner-join-use-cases "Direct link to SQL inner join use cases")
 
-There are probably countless scenarios where you’d want to inner join multiple tables together—perhaps you have some really nicely structured tables with the exact same primary keys that should really just be one larger, wider table or you’re joining two tables together don’t want any null or missing column values if you used a left or right join—it’s all pretty dependent on your source data and end use cases. Where you will not (and should not) see inner joins is in [staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) that are used to clean and prep raw source data for analytics uses. Any joins in your dbt projects should happen further downstream in [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) and [mart models](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md) to improve modularity and DAG cleanliness.
+There are probably countless scenarios where you’d want to inner join multiple tables together—perhaps you have some really nicely structured tables with the exact same primary keys that should really just be one larger, wider table or you’re joining two tables together don’t want any null or missing column values if you used a left or right join—it’s all pretty dependent on your source data and end use cases. Where you will not (and should not) see inner joins is in [staging models](../best-practices/how-we-structure/2-staging.md) that are used to clean and prep raw source data for analytics uses. Any joins in your dbt projects should happen further downstream in [intermediate](../best-practices/how-we-structure/3-intermediate.md) and [mart models](../best-practices/how-we-structure/4-marts.md) to improve modularity and DAG cleanliness.

@@ -1,6 +1,6 @@
 # Why do I need to quote column names in Jinja?
 
-In the [macro example](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) we passed the column name `amount` quotes:
+In the [macro example](../../docs/build/jinja-macros.md#macros) we passed the column name `amount` quotes:
 
 ```sql
 {{ cents_to_dollars('amount') }} as amount_usd
@@ -14,4 +14,4 @@ Quoting in Jinja can take a while to get used to! The rule is that you're within
 
 Single and double quotes are equivalent in Jinja – just make sure you match them appropriately.
 
-And if you do need to pass a variable as an argument, make sure you [don't nest your curlies](https://docs.getdbt.com/best-practices/dont-nest-your-curlies.md).
+And if you do need to pass a variable as an argument, make sure you [don't nest your curlies](../../best-practices/dont-nest-your-curlies.md).

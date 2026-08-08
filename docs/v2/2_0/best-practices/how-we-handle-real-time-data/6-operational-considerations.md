@@ -44,7 +44,7 @@ The net effect: you should treat near real-time SLAs as a premium service and pr
 
 ## Lambda view DAG complexity and correctness[​](#lambda-view-dag-complexity-and-correctness "Direct link to Lambda view DAG complexity and correctness")
 
-If you're using the [lambda views pattern](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/4-lambda-views.md), you face additional complexity:
+If you're using the [lambda views pattern](./4-lambda-views.md), you face additional complexity:
 
 * **Duplicated logic**: You either centralize SQL in macros (more DRY, less readable) or duplicate the same transformations in both history (HIST) and NRT flows (more readable, more to maintain).
 * **Complex DAGs**: Every "product" model now has at least three artifacts (HIST table, NRT view, lambda union), plus supporting upstream layers.
@@ -91,4 +91,4 @@ Lambda views and NRT dbt jobs sit on top of your ingestion architecture:
 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
-These challenges are why we position lambda views and ultra-frequent dbt schedules as special-case patterns. They're powerful when you truly need them, but they require deliberate design around scheduler behavior, cost, DAG structure, and ingestion architecture. In many cases, they're better replaced by [dynamic tables](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#dynamic-tables), [materialized views](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/3-warehouse-native-features.md#materialized-views), or a dedicated streaming stack.
+These challenges are why we position lambda views and ultra-frequent dbt schedules as special-case patterns. They're powerful when you truly need them, but they require deliberate design around scheduler behavior, cost, DAG structure, and ingestion architecture. In many cases, they're better replaced by [dynamic tables](./3-warehouse-native-features.md#dynamic-tables), [materialized views](./3-warehouse-native-features.md#materialized-views), or a dedicated streaming stack.

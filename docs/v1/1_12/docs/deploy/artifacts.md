@@ -2,19 +2,19 @@
 
 dbt platformⓘ
 
-When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the dbt platform, namely: [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [dbt Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs), and [source freshness reporting](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness).
+When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the dbt platform, namely: [Catalog](../explore/explore-projects.md), [dbt Docs](../explore/build-and-view-your-docs.md#dbt-docs), and [source freshness reporting](../build/sources.md#source-data-freshness).
 
 ## Create dbt Artifacts[​](#create-dbt-artifacts "Direct link to Create dbt Artifacts")
 
-[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) uses the metadata provided by the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) to display the details about [the state of your project](https://docs.getdbt.com/docs/dbt-apis/project-state.md). It uses metadata from your staging and production [deployment environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md).
+[Catalog](../explore/explore-projects.md#generate-metadata) uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display the details about [the state of your project](../dbt-apis/project-state.md). It uses metadata from your staging and production [deployment environments](./deploy-environments.md).
 
 Catalog automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project — meaning it's always automatically updated after each job run.
 
-To view a resource, its metadata, and what commands are needed, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+To view a resource, its metadata, and what commands are needed, refer to [generate metadata](../explore/explore-projects.md#generate-metadata) for more details.
 
  For dbt Docs
 
-The following steps are for legacy dbt Docs only. For the current documentation experience, see [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
+The following steps are for legacy dbt Docs only. For the current documentation experience, see [dbt Catalog](../explore/explore-projects.md).
 
 While running any job can produce artifacts, you should only associate one production job with a given project to produce the project's artifacts. You can designate this connection on the **Project details** page. To access this page:
 
@@ -32,9 +32,9 @@ When you add a production job to a project, dbt updates the content and provides
 
 ### Documentation[​](#documentation "Direct link to Documentation")
 
-Navigate to [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
+Navigate to [Catalog](../explore/explore-projects.md) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
 
-To view a resource, its metadata, and what commands are needed, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+To view a resource, its metadata, and what commands are needed, refer to [generate metadata](../explore/explore-projects.md#generate-metadata) for more details.
 
 Both the job's commands and the docs generate step (triggered by the **Generate docs on run** checkbox) must succeed during the job invocation to update the documentation.
 
@@ -44,7 +44,7 @@ When set up, dbt updates the Documentation link in the header tab so it links to
 
 ### Source Freshness[​](#source-freshness "Direct link to Source Freshness")
 
-To view the latest source freshness result, refer to [generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more detail. Then navigate to Catalog through the **Explore** link.
+To view the latest source freshness result, refer to [generate metadata](../explore/explore-projects.md#generate-metadata) for more detail. Then navigate to Catalog through the **Explore** link.
 
  For dbt Docs
 

@@ -15,10 +15,10 @@ These credentials are configured separately from dbt environment credentials and
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Have a dbt account on the [Enterprise or Enterprise+](https://www.getdbt.com/pricing) plan.
-* You must be an [account admin with permission](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-admin) to edit connections.
+* You must be an [account admin with permission](../platform/manage-access/enterprise-permissions.md#account-admin) to edit connections.
   <!-- -->
-  * The credentials must have [sufficient read-level access to fetch metadata](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md#configuration-instructions).
-* Have [**global navigation**](https://docs.getdbt.com/docs/explore/explore-projects.md#catalog-overview) enabled.
+  * The credentials must have [sufficient read-level access to fetch metadata](./external-metadata-ingestion.md#configuration-instructions).
+* Have [**global navigation**](./explore-projects.md#catalog-overview) enabled.
 * Use Snowflake as your data platform.
 * Support for additional adapters is coming soon!
 
@@ -26,7 +26,7 @@ These credentials are configured separately from dbt environment credentials and
 
 ### Enable external metadata ingestion[​](#enable-external-metadata-ingestion "Direct link to Enable external metadata ingestion")
 
-1. Click your account name at the bottom of the left-side menu and click **[Account settings](https://docs.getdbt.com/docs/platform/account-settings.md)**.
+1. Click your account name at the bottom of the left-side menu and click **[Account settings](../platform/account-settings.md)**.
 2. Under Account information, go to **Settings** and click **Edit** at the top right corner of the page.
 3. Select the **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** option (if not already enabled).
 
@@ -36,7 +36,7 @@ These credentials are configured separately from dbt environment credentials and
 
 2. Click **Connections** from the left-hand side panel.
 
-3. Select an existing connection or create a [**New connection**](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md) where you want to ingest metadata from.
+3. Select an existing connection or create a [**New connection**](../platform/connect-data-platform/connect-snowflake.md) where you want to ingest metadata from.
 
 4. Scroll to the **Platform metadata credentials** section. Depending on your current configuration, you may see one of the following:
 
@@ -63,7 +63,7 @@ These credentials are configured separately from dbt environment credentials and
      <!-- -->
      * **Note:** To include all databases or schemas, enter `.*` in the **Allow** field.
 
-   * It is strongly recommended to filter by certain schemas. See [Important considerations](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md#important-considerations) for more information.
+   * It is strongly recommended to filter by certain schemas. See [Important considerations](./external-metadata-ingestion.md#important-considerations) for more information.
 
    * These fields accept CSV-formatted regular expressions:
 
@@ -158,7 +158,7 @@ GRANT IMPORTED PRIVILEGES ON DATABASE SNOWFLAKE TO ROLE dbt_metadata_role;
 
 The following are best practices for external metadata ingestion, designed to ensure consistent, reliable, and scalable integration of metadata from third-party systems.
 
-* Catalog unifies the shared resources between dbt and Snowflake. For example, if there’s a Snowflake table that represents a dbt model, these are represented as a single resource in Catalog. In order for proper unification to occur, the same connection must be used by both the [production environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) and the external metadata ingestion credential.
+* Catalog unifies the shared resources between dbt and Snowflake. For example, if there’s a Snowflake table that represents a dbt model, these are represented as a single resource in Catalog. In order for proper unification to occur, the same connection must be used by both the [production environment](../deploy/deploy-environments.md#set-as-production-environment) and the external metadata ingestion credential.
 * Avoid duplicates: Use one metadata connection per platform if possible (for example, one for Snowflake, one for BigQuery).
   <!-- -->
   * Having multiple connections pointing to the same warehouse can cause duplicate metadata.

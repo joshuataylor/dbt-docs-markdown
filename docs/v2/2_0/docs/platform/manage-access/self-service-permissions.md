@@ -4,7 +4,7 @@ dbt platform | Starterⓘ
 
 Self-service Starter accounts are a quick and easy way to get dbt up and running for a small team.
 
-For teams looking to scale and access advanced features like SSO, group management, and support for larger user bases, upgrading to an [Enterprise-tier](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) account unlocks these capabilities — if you're interested in upgrading, contact [dbt Labs today](https://www.getdbt.com/contact).
+For teams looking to scale and access advanced features like SSO, group management, and support for larger user bases, upgrading to an [Enterprise-tier](./enterprise-permissions.md) account unlocks these capabilities — if you're interested in upgrading, contact [dbt Labs today](https://www.getdbt.com/contact).
 
 ## Groups and permissions[​](#groups-and-permissions "Direct link to Groups and permissions")
 
@@ -28,7 +28,7 @@ There are three license types:
 * **Read-Only** — Read-only access to your project, including environments Catalog. Doesn't have access to account settings at all. Functions the same regardless of group assignments. You're allotted up to 5 read-only licenses per account.
 * **IT** — Partial access to the account settings including users, integrations, billing, and API settings. Cannot create or edit connects or access the project at all. Functions the same regardless of group assignments. You're allocated 1 seat per account.
 
-See [Seats and Users](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) for more information on the impact of licenses on these permissions.
+See [Seats and Users](./seats-and-users.md) for more information on the impact of licenses on these permissions.
 
 <!-- -->
 

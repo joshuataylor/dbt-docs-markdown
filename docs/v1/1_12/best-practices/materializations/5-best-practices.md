@@ -79,7 +79,7 @@ When to avoid ephemeral models
 
 Ephemeral models can make troubleshooting more difficult since they don't exist as queryable objects. If you need to inspect intermediate results during development, consider materializing them as views in a custom schema with restricted permissions instead. This gives you visibility while keeping them separate from production models.
 
-For more details on intermediate model patterns, refer to [How we structure our dbt projects: Intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md).
+For more details on intermediate model patterns, refer to [How we structure our dbt projects: Intermediate](../how-we-structure/3-intermediate.md).
 
 ### Table and incremental marts[​](#table-and-incremental-marts "Direct link to Table and incremental marts")
 

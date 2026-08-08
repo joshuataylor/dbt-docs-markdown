@@ -1,6 +1,6 @@
 # store\_failures\_as
 
-For the `test` resource type, `store_failures_as` is an optional config that specifies how test failures should be stored in the database. If [`store_failures`](https://docs.getdbt.com/reference/resource-configs/store_failures.md) is also configured, `store_failures_as` takes precedence.
+For the `test` resource type, `store_failures_as` is an optional config that specifies how test failures should be stored in the database. If [`store_failures`](./store_failures.md) is also configured, `store_failures_as` takes precedence.
 
 The three supported values are:
 
@@ -14,7 +14,7 @@ You can configure it in all the same places as `store_failures`, including singu
 
 #### Singular test[​](#singular-test "Direct link to Singular test")
 
-[Singular test](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests) in `tests/singular/check_something.sql` file
+[Singular test](../../docs/build/data-tests.md#singular-data-tests) in `tests/singular/check_something.sql` file
 
 ```sql
 {{ config(store_failures_as="table") }}
@@ -26,7 +26,7 @@ where 1=0
 
 #### Generic test[​](#generic-test "Direct link to Generic test")
 
-[Generic tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests) in `models/_models.yml` file
+[Generic tests](../../docs/build/data-tests.md#generic-data-tests) in `models/_models.yml` file
 
 ```yaml
 models:
@@ -67,7 +67,7 @@ As with most other configurations, `store_failures_as` is "clobbered" when appli
 
 Additional resources:
 
-* [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md#related-documentation)
-* [Data test-specific configurations](https://docs.getdbt.com/reference/data-test-configs.md#test-data-specific-configurations)
-* [Configuring directories of models in dbt\_project.yml](https://docs.getdbt.com/reference/model-configs.md#configuring-directories-of-models-in-dbt_projectyml)
-* [Config inheritance](https://docs.getdbt.com/reference/define-configs.md#config-inheritance)
+* [Data test configurations](../data-test-configs.md#related-documentation)
+* [Data test-specific configurations](../data-test-configs.md#test-data-specific-configurations)
+* [Configuring directories of models in dbt\_project.yml](../model-configs.md#configuring-directories-of-models-in-dbt_projectyml)
+* [Config inheritance](../define-configs.md#config-inheritance)

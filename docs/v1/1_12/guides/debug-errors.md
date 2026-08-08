@@ -1,6 +1,6 @@
 # Debug errors
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Troubleshooting
 
@@ -34,7 +34,7 @@ Learning how to debug is a skill, and one that will make you great at your role!
    * **dbt users**: Use the above, or the `Details` tab in the command output.
    * **dbt Core users**: Note that your code editor *may* be hiding these files from the tree view [VSCode help](https://stackoverflow.com/questions/42891463/how-can-i-show-ignored-files-in-visual-studio-code)).
 
-5. If you are really stuck, try [asking for help](https://docs.getdbt.com/community/resources/getting-help.md). Before doing so, take the time to write your question well so that others can diagnose the problem quickly.
+5. If you are really stuck, try [asking for help](../community/resources/getting-help.md). Before doing so, take the time to write your question well so that others can diagnose the problem quickly.
 
 ## Types of errors[​](#types-of-errors "Direct link to Types of errors")
 
@@ -120,7 +120,7 @@ To view your profiles.yml file, run:
 open /Users/alice/.dbt
 ```
 
-* Then execute `open /Users/alice/.dbt` (adjusting accordingly), and check that you have a `profiles.yml` file. If you do not have one, set one up using [these docs](https://docs.getdbt.com/docs/local/profiles.yml.md)
+* Then execute `open /Users/alice/.dbt` (adjusting accordingly), and check that you have a `profiles.yml` file. If you do not have one, set one up using [these docs](../docs/local/profiles.yml.md)
 
 ### Failed to connect[​](#failed-to-connect "Direct link to Failed to connect")
 
@@ -181,7 +181,7 @@ name: jaffle_shop
 hello: world # this is not allowed
 ```
 
-* Use the reference section for [`dbt_project.yml` files](https://docs.getdbt.com/reference/dbt_project.yml.md) to correct this issue.
+* Use the reference section for [`dbt_project.yml` files](../reference/dbt_project.yml.md) to correct this issue.
 * If you're using a key that is valid according to the documentation, check that you're using the latest version of dbt with `dbt --version`.
 
 ## Compilation Errors[​](#compilation-errors "Direct link to Compilation Errors")
@@ -302,7 +302,7 @@ Debugging
 
 * Open the file (e.g. `models/schema.yml`) as per the error message
 * Search for the offending key (e.g. `hello`, as per "**'hello'** was unexpected")
-* Fix it. Use the [model properties](https://docs.getdbt.com/reference/model-properties.md) docs to find valid keys
+* Fix it. Use the [model properties](../reference/model-properties.md) docs to find valid keys
 * If you are using a valid key, check that you're using the latest version of dbt with `dbt --version`
 
 ## Dependency Errors[​](#dependency-errors "Direct link to Dependency Errors")
@@ -318,7 +318,7 @@ Found a cycle: model.jaffle_shop.customers --> model.jaffle_shop.stg_customers -
 Your dbt DAG is not acyclic, and needs to be fixed!
 
 * Update the `ref` functions to break the cycle.
-* If you need to reference the current model, use the [`{{ this }}` variable](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md) instead.
+* If you need to reference the current model, use the [`{{ this }}` variable](../reference/dbt-jinja-functions/this.md) instead.
 
 ## Database Errors[​](#database-errors "Direct link to Database Errors")
 
@@ -463,7 +463,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
 * Reconnecting to Snowflake OAuth after authentication expires
 
-  When you connect Snowflake to dbt platform using [OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md), dbt stores a refresh token. This allows your user credentials to be reused in tools like the Studio IDE and the dbt Semantic Layer without needing to re-authenticate each time.
+  When you connect Snowflake to dbt platform using [OAuth](../docs/platform/manage-access/set-up-snowflake-oauth.md), dbt stores a refresh token. This allows your user credentials to be reused in tools like the Studio IDE and the dbt Semantic Layer without needing to re-authenticate each time.
 
   If you see an `authentication has expired` error when you try to run queries, you must renew your connection between Snowflake and the dbt platform.
 
@@ -473,7 +473,7 @@ Here are some useful FAQs to help you debug your dbt project:
   2. Navigate to **Credentials** and then choose the project where you're experiencing the issue.
   3. Under **User credentials**, click the **Reconnect Snowflake Account** button. This will guide you through re-authenticating using your SSO workflow.
 
-  Your Snowflake administrator can [configure the refresh token validity period](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md#create-a-security-integration), up to the maximum 90 days.
+  Your Snowflake administrator can [configure the refresh token validity period](../docs/platform/manage-access/set-up-snowflake-oauth.md#create-a-security-integration), up to the maximum 90 days.
 
   If you've tried these step and are still getting this error, please contact the Support team at <support@getdbt.com> for further assistance.
 
@@ -531,7 +531,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
 * I'm receiving a 'This run exceeded your account's run memory limits' error in my failed job
 
-  If you're receiving a `This run exceeded your account's run memory limits` error in your failed job, it means that the job exceeded the [memory limits](https://docs.getdbt.com/docs/deploy/job-scheduler.md#job-memory) set for your account. All dbt accounts have a pod memory of 600Mib and memory limits are on a per run basis. They're typically influenced by the amount of result data that dbt has to ingest and process, which is small but can become bloated unexpectedly by project design choices.
+  If you're receiving a `This run exceeded your account's run memory limits` error in your failed job, it means that the job exceeded the [memory limits](../docs/deploy/job-scheduler.md#job-memory) set for your account. All dbt accounts have a pod memory of 600Mib and memory limits are on a per run basis. They're typically influenced by the amount of result data that dbt has to ingest and process, which is small but can become bloated unexpectedly by project design choices.
 
   ### Common reasons[​](#common-reasons "Direct link to Common reasons")
 
@@ -615,4 +615,4 @@ Here are some useful FAQs to help you debug your dbt project:
   Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
   ```
 
-  Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](https://docs.getdbt.com/faqs/Runs/checking-logs.md) to debug any errors.
+  Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.

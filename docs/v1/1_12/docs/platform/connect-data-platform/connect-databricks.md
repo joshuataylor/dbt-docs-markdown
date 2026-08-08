@@ -26,9 +26,9 @@ The dbt-databricks adapter offers:
 * **Better defaults:** The dbt-databricks adapter is more opinionated, guiding users to an improved experience with less effort. Design choices of this adapter include defaulting to Delta format, using merge for incremental models, and running expensive queries with Photon.
 * **Support for Unity Catalog:** Unity Catalog allows Databricks users to centrally manage all data assets, simplifying access management and improving search and query performance. Databricks users can now get three-part data hierarchies – catalog, schema, model name – which solves a longstanding friction point in data organization and governance.
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Databricks-specific configuration](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Databricks-specific configuration](../../../reference/resource-configs/databricks-configs.md).
 
-To grant users or roles database permissions (access rights and privileges), refer to the [example permissions](https://docs.getdbt.com/reference/database-permissions/databricks-permissions.md) page.
+To grant users or roles database permissions (access rights and privileges), refer to the [example permissions](../../../reference/database-permissions/databricks-permissions.md) page.
 
 ## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")
 

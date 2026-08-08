@@ -2,15 +2,15 @@
 
 Local developmentⓘ
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./spark-setup.md?version=2 "Fusion compatible") connection also available.
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 If you're using Databricks, use `dbt-databricks`
 
-If you're using Databricks, the `dbt-databricks` adapter is recommended over `dbt-spark`. If you're still using dbt-spark with Databricks consider [migrating from the dbt-spark adapter to the dbt-databricks adapter](https://docs.getdbt.com/guides/migrate-from-spark-to-databricks.md).
+If you're using Databricks, the `dbt-databricks` adapter is recommended over `dbt-spark`. If you're still using dbt-spark with Databricks consider [migrating from the dbt-spark adapter to the dbt-databricks adapter](../../../guides/migrate-from-spark-to-databricks.md).
 
 For the Databricks version of this page, refer to [Databricks setup](#databricks-setup).
 
@@ -43,7 +43,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-spark<!-- -->
 
-For <!-- -->Spark<!-- -->-specific configuration, please refer to [Spark<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/spark-configs.md)
+For <!-- -->Spark<!-- -->-specific configuration, please refer to [Spark<!-- --> configs.](../../../reference/resource-configs/spark-configs.md)
 
 If connecting to Databricks via ODBC driver, it requires `pyodbc`. Depending on your system, you can install it separately or via pip. See the [`pyodbc` wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for OS-specific installation details.
 
@@ -64,7 +64,7 @@ $ python -m pip install "dbt-spark[session]"
 
 ## Configuring <!-- -->dbt-spark<!-- -->
 
-For <!-- -->Spark<!-- -->-specific configuration please refer to [Spark<!-- --> Configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md)
+For <!-- -->Spark<!-- -->-specific configuration please refer to [Spark<!-- --> Configuration](../../../reference/resource-configs/spark-configs.md)
 
 For further info, refer to the GitHub repository: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters)
 
@@ -223,9 +223,9 @@ Most dbt Core functionality is supported, but some features are only available o
 
 Delta-only features:
 
-1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#the-merge-strategy))
-2. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md)
-3. [Persisting](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) column-level descriptions as database comments
+1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](../../../reference/resource-configs/spark-configs.md#the-merge-strategy))
+2. [Snapshots](../../build/snapshots.md)
+3. [Persisting](../../../reference/resource-configs/persist_docs.md) column-level descriptions as database comments
 
 ### Default namespace with Thrift connection method[​](#default-namespace-with-thrift-connection-method "Direct link to Default namespace with Thrift connection method")
 

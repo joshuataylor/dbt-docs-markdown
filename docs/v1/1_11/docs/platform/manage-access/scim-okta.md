@@ -4,15 +4,15 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 SCIM available for Okta
 
-System for Cross-Domain Identity Management (SCIM) [license mapping](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) is currently only supported for Okta. For other providers, license types must be [managed](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration) within the dbt platform user interface.
+System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-manage-user-licenses.md) is currently only supported for Okta. For other providers, license types must be [managed](./seats-and-users.md#mapped-configuration) within the dbt platform user interface.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Available on [Enterprise or Enterprise+ plans](https://www.getdbt.com/pricing).
 * You must use Okta as your single sign-on (SSO) provider and have it connected in the dbt platform.
-* You must have [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to configure the account settings in dbt platform.
-* Complete [setup SSO with Okta](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-okta.md) before configuring SCIM settings.
-* Complete the [Set up SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim.md#set-up-dbt) to get your SCIM base URL and token.
+* You must have [permissions](./enterprise-permissions.md) to configure the account settings in dbt platform.
+* Complete [setup SSO with Okta](./set-up-sso-okta.md) before configuring SCIM settings.
+* Complete the [Set up SCIM](./scim.md#set-up-dbt) to get your SCIM base URL and token.
 
 ## Set up Okta[​](#set-up-okta "Direct link to Set up Okta")
 
@@ -28,7 +28,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](https://doc
 
 5. Open the **Provisioning** tab and select **Integration**.
 
-6. Click **Edit** and enter the **SCIM base URL** from [Set up SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim.md#set-up-dbt) in the first field. For **Unique identifier field for users**, we recommend `userName`.
+6. Click **Edit** and enter the **SCIM base URL** from [Set up SCIM](./scim.md#set-up-dbt) in the first field. For **Unique identifier field for users**, we recommend `userName`.
 
 7. Under **Supported provisioning actions**, select:
 
@@ -60,17 +60,17 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](https://doc
 
 ## Assign permission sets to SCIM groups[​](#assign-permission-sets-to-scim-groups "Direct link to Assign permission sets to SCIM groups")
 
-SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
+SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](./enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
 
 1. After the sync, go to **Account settings** → **Groups & Licenses**, where the SCIM group appears automatically.
 2. Open the SCIM-synced group. Don't create another group for the same IdP group, as this creates a duplicate.
 3. Under **Access & permissions**, click **Add permission**.
-4. Select a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), the projects it should apply to, and [environment-level access](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md) if applicable.
+4. Select a [permission set](./enterprise-permissions.md), the projects it should apply to, and [environment-level access](./environment-permissions.md) if applicable.
 5. Click **Save**.
 
 Repeat for each SCIM-synced group that needs access.
 
-You've now configured SCIM for the Okta SSO integration in dbt platform. You can [manage user licenses with SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) to set license type for users as they are provisioned.
+You've now configured SCIM for the Okta SSO integration in dbt platform. You can [manage user licenses with SCIM](./scim-manage-user-licenses.md) to set license type for users as they are provisioned.
 
 ## SCIM username format[​](#scim-username-format "Direct link to SCIM username format")
 
@@ -89,11 +89,11 @@ When you use both SSO and SCIM with Okta, the SAML **Application username** form
 
 ## SCIM license mapping[​](#scim-license-mapping "Direct link to SCIM license mapping")
 
-To automate seat assignments in Okta for users as they are provisioned, see [Manage user licenses with SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
+To automate seat assignments in Okta for users as they are provisioned, see [Manage user licenses with SCIM](./scim-manage-user-licenses.md).
 
 ## Existing Okta integrations[​](#existing-okta-integrations "Direct link to Existing Okta integrations")
 
-If you are adding SCIM to an existing Okta integration in dbt platform (as opposed to setting up SCIM and SSO concurrently for the first time), be aware of the following behavior. Refer to [SCIM FAQ](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md) for more details on what happens to pre-existing users:
+If you are adding SCIM to an existing Okta integration in dbt platform (as opposed to setting up SCIM and SSO concurrently for the first time), be aware of the following behavior. Refer to [SCIM FAQ](./scim-faq.md) for more details on what happens to pre-existing users:
 
 * Users and groups already synced to dbt will become SCIM-managed once you complete the SCIM configuration.
 
@@ -105,8 +105,8 @@ If you are adding SCIM to an existing Okta integration in dbt platform (as oppos
   * Use **Import Users** to sync all users from dbt, including previously deleted users, if you need to re-provision those users.
   * Read more about this feature in the [Okta documentation](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-import-groups-app-provisioning.htm).
 
-To set license type for users as they are provisioned, see [Manage user licenses with SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
+To set license type for users as they are provisioned, see [Manage user licenses with SCIM](./scim-manage-user-licenses.md).
 
 ## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
 
-For common questions about SCIM provisioning with Okta — including onboarding workflows, SSO group mapping behavior, and troubleshooting, refer to [SCIM FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md).
+For common questions about SCIM provisioning with Okta — including onboarding workflows, SSO group mapping behavior, and troubleshooting, refer to [SCIM FAQs and troubleshooting](./scim-faq.md).

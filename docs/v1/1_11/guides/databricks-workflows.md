@@ -1,6 +1,6 @@
 # Use Databricks workflows to run dbt jobs
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Databricks
 
@@ -21,21 +21,21 @@ Intermediate
 Using Databricks workflows to call the dbt job API can be useful for several reasons:
 
 1. **Integration with other ETL processes** — If you're already running other ETL processes in Databricks, you can use a Databricks workflow to trigger a dbt job after those processes are done.
-2. **Utilizes dbt jobs features —** dbt gives the ability to monitor job progress, manage historical logs and documentation, optimize model timing, and much [more](https://docs.getdbt.com/docs/deploy/deploy-jobs.md).
+2. **Utilizes dbt jobs features —** dbt gives the ability to monitor job progress, manage historical logs and documentation, optimize model timing, and much [more](../docs/deploy/deploy-jobs.md).
 3. [**Separation of concerns —**](https://en.wikipedia.org/wiki/Separation_of_concerns) Detailed logs for dbt jobs in the dbt environment can lead to more modularity and efficient debugging. By doing so, it becomes easier to isolate bugs quickly while still being able to see the overall status in Databricks.
 4. **Custom job triggering —** Use a Databricks workflow to trigger dbt jobs based on custom conditions or logic that aren't natively supported by dbt's scheduling feature. This can give you more flexibility in terms of when and how your dbt jobs run.
 
 ### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Active [Enterprise or Enterprise+ dbt account](https://www.getdbt.com/pricing/)
-* You must have a configured and existing [dbt deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md)
+* You must have a configured and existing [dbt deploy job](../docs/deploy/deploy-jobs.md)
 * Active Databricks account with access to [Data Science and Engineering workspace](https://docs.databricks.com/workspace-index.html) and [Manage secrets](https://docs.databricks.com/security/secrets/index.html)
 * [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html)
   * **Note**: You only need to set up your authentication. Once you have set up your Host and Token and are able to run `databricks workspace ls /Users/<someone@example.com>`, you can proceed with the rest of this guide.
 
 ## Set up a Databricks secret scope[​](#set-up-a-databricks-secret-scope "Direct link to Set up a Databricks secret scope")
 
-1. Retrieve \*\*[personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) \*\*or \*\*[Service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md#generating-service-account-tokens) \*\*from dbt
+1. Retrieve \*\*[personal access token](../docs/dbt-apis/user-tokens.md) \*\*or \*\*[Service account token](../docs/dbt-apis/service-tokens.md#generating-service-account-tokens) \*\*from dbt
 
 2. Set up a **Databricks secret scope**, which is used to securely store your dbt API key.
 
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 
 3. Replace **`<YOUR_SECRET_SCOPE>`** and **`<YOUR_SECRET_KEY>`** with the values you used [previously](#set-up-a-databricks-secret-scope)
 
-4. Replace **`<YOUR_BASE_URL>`** and **`<YOUR_ACCOUNT_ID>`** with the correct values of your environment and [Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
+4. Replace **`<YOUR_BASE_URL>`** and **`<YOUR_ACCOUNT_ID>`** with the correct values of your environment and [Access URL](../docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
 
    * To find these values, navigate to dbt, select **Deploy -> Jobs**. Select the Job you want to run and copy the URL. For example: `https://YOUR_ACCESS_URL/deploy/000000/projects/111111/jobs/222222` and therefore valid code would be:
 

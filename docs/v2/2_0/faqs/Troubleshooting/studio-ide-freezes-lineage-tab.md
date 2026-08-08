@@ -68,7 +68,7 @@ This workaround is browser-dependent. In DevTools, select the Local Storage orig
 
 If freezing continues after trying these workarounds, [contact dbt Support](mailto:support@getdbt.com) and include:
 
-* A HAR file (refer to [How to generate HAR files](https://docs.getdbt.com/faqs/Troubleshooting/generate-har-file.md))
+* A HAR file (refer to [How to generate HAR files](./generate-har-file.md))
 * Your account URL
 * Browser and version
 * Approximate number of open model tabs

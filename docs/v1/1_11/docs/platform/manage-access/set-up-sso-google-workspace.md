@@ -42,7 +42,7 @@ Search table...
 [![GSuite Consent Screen configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-consent-top.png?v=2 "GSuite Consent Screen configuration")](#)GSuite Consent Screen configuration
 
 6. Save the **Consent screen** settings to navigate back to the **Create OAuth client id** page.
-7. Use the following configuration values when creating your Credentials, replacing `YOUR_ACCESS_URL` and `YOUR_AUTH0_URI`, which need to be replaced with the appropriate Access URL and Auth0 URI from your [account settings](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris).
+7. Use the following configuration values when creating your Credentials, replacing `YOUR_ACCESS_URL` and `YOUR_AUTH0_URI`, which need to be replaced with the appropriate Access URL and Auth0 URI from your [account settings](./sso-overview.md#auth0-uris).
 
 | Config                            | Value                                   |
 | --------------------------------- | --------------------------------------- |
@@ -98,15 +98,15 @@ Logging in
 
 Users can sign in at <https://login.dbt.com> to view accounts they have access to across instances and choose where to open dbt platform. This is the recommended entry point for most users.
 
-For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
+For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan:
 
 `https://YOUR_ACCESS_URL/enterprise-login/LOGIN-SLUG`
 
-Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
 ## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
 
-Now you have completed setting up SSO with GSuite, the next steps will be to set up [RBAC groups](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control-) to complete your access control configuration.
+Now you have completed setting up SSO with GSuite, the next steps will be to set up [RBAC groups](./about-user-access.md#role-based-access-control-) to complete your access control configuration.
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -125,6 +125,6 @@ If OAuth verification does not complete successfully, double check that:
 * The Client ID and Client Secret provided match the values generated in the GCP Credentials page
 * An Authorized Domain was provided in the OAuth Consent Screen configuration If authentication with the GSuite API succeeds but you do not see a `groups` entry on the **Credentials** page, then you may not have permissions to access Groups in your GSuite account. Either request that your GSuite user is granted the ability to request groups from an administrator, or have an administrator log into dbt and authorize the GSuite integration.
 
-For additional troubleshooting — including email verification issues, MFA double prompts, and SSO enforcement behavior — refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
+For additional troubleshooting — including email verification issues, MFA double prompts, and SSO enforcement behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
 ## Learn more[​](#learn-more "Direct link to Learn more")

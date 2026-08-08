@@ -102,4 +102,4 @@ default:
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find BigQuery-specific configuration information in the [BigQuery adapter reference guide](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md).
+Find BigQuery-specific configuration information in the [BigQuery adapter reference guide](../../../reference/resource-configs/bigquery-configs.md).

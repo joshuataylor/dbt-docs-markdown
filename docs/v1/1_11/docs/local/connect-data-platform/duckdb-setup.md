@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./duckdb-setup.md?version=2 "Fusion compatible") connection also available.
 
 Community plugin
 
@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-duckdb<!-- -->
 
-For <!-- -->Duck DB<!-- -->-specific configuration, please refer to [Duck DB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md)
+For <!-- -->Duck DB<!-- -->-specific configuration, please refer to [Duck DB<!-- --> configs.](../../../reference/resource-configs/duckdb-configs.md)
 
 ## Connecting to DuckDB[​](#connecting-to-duckdb "Direct link to Connecting to DuckDB")
 
@@ -143,9 +143,9 @@ default:
   target: dev
 ```
 
-You can refer to attached databases by the basename of the file (without its suffix) or by an `alias` you specify. The `type` argument supports `duckdb`, `sqlite`, and `postgres`. You can also pass arbitrary options using the `options` dictionary — refer to [Arbitrary ATTACH options](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#arbitrary-attach-options) for details.
+You can refer to attached databases by the basename of the file (without its suffix) or by an `alias` you specify. The `type` argument supports `duckdb`, `sqlite`, and `postgres`. You can also pass arbitrary options using the `options` dictionary — refer to [Arbitrary ATTACH options](../../../reference/resource-configs/duckdb-configs.md#arbitrary-attach-options) for details.
 
-For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#ducklake) section for details.
+For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](../../../reference/resource-configs/duckdb-configs.md#ducklake) section for details.
 
 ## Extensions[​](#extensions "Direct link to Extensions")
 
@@ -181,10 +181,10 @@ extensions:
     repo: core_nightly
 ```
 
-For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md) page.
+For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](../../../reference/resource-configs/duckdb-configs.md) page.
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md).
+Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](../../../reference/resource-configs/duckdb-configs.md).
 
 For adapter source code, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).

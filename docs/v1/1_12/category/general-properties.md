@@ -1,3 +1,3 @@
-## [📄️<!-- --> <!-- -->anchors](https://docs.getdbt.com/reference/resource-properties/anchors.md)
+## [📄️<!-- --> <!-- -->anchors](../reference/resource-properties/anchors.md)
 
-[Definition](https://docs.getdbt.com/reference/resource-properties/anchors.md)
+[Definition](../reference/resource-properties/anchors.md)

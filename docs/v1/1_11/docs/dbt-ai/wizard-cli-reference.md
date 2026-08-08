@@ -6,7 +6,7 @@ Full reference for all `wizard` subcommands and global flags.
 
 Not the same as dbt commands
 
-This page is auto-generated and covers `wizard` commands and flags. For standard dbt project commands (`dbt run`, `dbt build`, `dbt test`, and so on.) refer to the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md).
+This page is auto-generated and covers `wizard` commands and flags. For standard dbt project commands (`dbt run`, `dbt build`, `dbt test`, and so on.) refer to the [dbt command reference](../../reference/dbt-commands.md).
 
 If you see any issues, please [file an issue](https://github.com/dbt-labs/docs.getdbt.com/issues) and we'll be happy to sort it out.
 
@@ -657,7 +657,7 @@ Here are some examples and commands that you might use. Replace the example prom
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Slash command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-slash-commands.md) for interactive TUI slash commands
-* [Headless mode](https://docs.getdbt.com/docs/dbt-ai/wizard-headless.md)
-* [Configuration reference](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md)
-* [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands
+* [Slash command reference](./wizard-slash-commands.md) for interactive TUI slash commands
+* [Headless mode](./wizard-headless.md)
+* [Configuration reference](./wizard-config.md)
+* [dbt command reference](../../reference/dbt-commands.md) for `dbt run`, `dbt build`, and other dbt Core commands

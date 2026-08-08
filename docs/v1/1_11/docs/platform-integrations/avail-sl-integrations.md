@@ -4,35 +4,35 @@ dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 There are a number of data applications that seamlessly integrate with the Semantic Layer, powered by MetricFlow, from business intelligence tools to notebooks, spreadsheets, data catalogs, and more. These integrations allow you to query and unlock valuable insights from your data ecosystem.
 
-Use the [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) to simplify metric queries, optimize your development workflow, and reduce coding. This approach also ensures data governance and consistency for data consumers.
+Use the [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) to simplify metric queries, optimize your development workflow, and reduce coding. This approach also ensures data governance and consistency for data consumers.
 
 <!-- -->
 
 The following tools integrate with the dbt Semantic Layer:
 
-[![](/img/icons/pbi.svg)](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/power-bi.md)
+[![](/img/icons/pbi.svg)](./semantic-layer/power-bi.md)
 
-#### [Power BI](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/power-bi.md)
+#### [Power BI](./semantic-layer/power-bi.md)
 
-[Use reports to query the dbt Semantic Layer with Power BI and produce dashboards with trusted data.](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/power-bi.md)
+[Use reports to query the dbt Semantic Layer with Power BI and produce dashboards with trusted data.](./semantic-layer/power-bi.md)
 
-[![](/img/icons/tableau-software.svg)](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/tableau.md)
+[![](/img/icons/tableau-software.svg)](./semantic-layer/tableau.md)
 
-#### [Tableau](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/tableau.md)
+#### [Tableau](./semantic-layer/tableau.md)
 
-[Learn how to connect to Tableau for querying metrics and collaborating with your team.](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/tableau.md)
+[Learn how to connect to Tableau for querying metrics and collaborating with your team.](./semantic-layer/tableau.md)
 
-[![](/img/icons/google-sheets-logo-icon.svg)](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/gsheets.md)
+[![](/img/icons/google-sheets-logo-icon.svg)](./semantic-layer/gsheets.md)
 
-#### [Google Sheets](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/gsheets.md)
+#### [Google Sheets](./semantic-layer/gsheets.md)
 
-[Discover how to connect to Google Sheets for querying metrics and collaborating with your team.](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/gsheets.md)
+[Discover how to connect to Google Sheets for querying metrics and collaborating with your team.](./semantic-layer/gsheets.md)
 
-[![](/img/icons/excel.svg)](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md)
+[![](/img/icons/excel.svg)](./semantic-layer/excel.md)
 
-#### [Microsoft Excel](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md)
+#### [Microsoft Excel](./semantic-layer/excel.md)
 
-[Connect to Microsoft Excel to query metrics and collaborate with your team. Available for Excel Desktop or Excel Online.](https://docs.getdbt.com/docs/platform-integrations/semantic-layer/excel.md)
+[Connect to Microsoft Excel to query metrics and collaborate with your team. Available for Excel Desktop or Excel Online.](./semantic-layer/excel.md)
 
 [![](/img/icons/omni.svg)](https://docs.omni.co/integrations/dbt/semantic-layer)
 
@@ -100,13 +100,13 @@ The following tools integrate with the dbt Semantic Layer:
 
 <br />
 
-Before you connect to these tools, you'll need to first [set up the dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) and [generate a service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) to create **Semantic Layer Only** and **Metadata Only** permissions.
+Before you connect to these tools, you'll need to first [set up the dbt Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) and [generate a service token](../dbt-apis/service-tokens.md) to create **Semantic Layer Only** and **Metadata Only** permissions.
 
 ### Custom integration[​](#custom-integration "Direct link to Custom integration")
 
-* All BI tools can use [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) with the Semantic Layer, even if they don’t have a native integration.
+* All BI tools can use [exports](../use-dbt-semantic-layer/exports.md) with the Semantic Layer, even if they don’t have a native integration.
 
-* [Consume metrics](https://docs.getdbt.com/docs/use-dbt-semantic-layer/consume-metrics.md) and develop custom integrations using different languages and tools, supported through [JDBC](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md), ADBC, and [GraphQL](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md) APIs, and [Python SDK library](https://docs.getdbt.com/docs/dbt-apis/sl-python.md). For more info, check out [our examples on GitHub](https://github.com/dbt-labs/example-semantic-layer-clients/).
+* [Consume metrics](../use-dbt-semantic-layer/consume-metrics.md) and develop custom integrations using different languages and tools, supported through [JDBC](../dbt-apis/sl-jdbc.md), ADBC, and [GraphQL](../dbt-apis/sl-graphql.md) APIs, and [Python SDK library](../dbt-apis/sl-python.md). For more info, check out [our examples on GitHub](https://github.com/dbt-labs/example-semantic-layer-clients/).
 
 * Connect to any tool that supports SQL queries. These tools must meet one of the two criteria:
 
@@ -118,8 +118,8 @@ Before you connect to these tools, you'll need to first [set up the dbt Semantic
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
 * [dbt Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview) to learn how to integrate and query your metrics in downstream tools.
-* [Semantic Layer API query syntax](https://docs.getdbt.com/docs/dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata)
+* [Semantic Layer API query syntax](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata)
 * [Hex Semantic Layer cells](https://learn.hex.tech/docs/explore-data/cells/data-cells/dbt-metrics-cells) to set up SQL cells in Hex.
-* [Resolve 'Failed APN'](https://docs.getdbt.com/faqs/Troubleshooting/sl-alpn-error.md) error when connecting to the Semantic Layer.
+* [Resolve 'Failed APN'](../../faqs/Troubleshooting/sl-alpn-error.md) error when connecting to the Semantic Layer.
 * [Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer)
-* [Semantic Layer FAQs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md)
+* [Semantic Layer FAQs](../use-dbt-semantic-layer/sl-faqs.md)

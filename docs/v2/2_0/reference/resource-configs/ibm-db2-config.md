@@ -18,7 +18,7 @@ The `ibm-dbt-db2` adapter supports the following IBM Db2 platforms:
 
 The `ibm-dbt-db2` adapter offers comprehensive support for all Db2 data types in seed files. To leverage this functionality, you must explicitly define the data types for each column in your seed configuration.
 
-You can configure column data types either in the `dbt_project.yml` file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](https://docs.getdbt.com/reference/seed-configs.md).
+You can configure column data types either in the `dbt_project.yml` file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](../seed-configs.md).
 
 ### Example seed configuration[​](#example-seed-configuration "Direct link to Example seed configuration")
 

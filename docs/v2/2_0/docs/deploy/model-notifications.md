@@ -4,7 +4,7 @@ dbt platformⓘ
 
 Set up dbt to notify model owners through email about issues in your deployment environments.
 
-Configure dbt to send email notifications to model owners about issues in deployment [environments](https://docs.getdbt.com/docs/dbt-platform-environments.md#types-of-environments) as soon as they happen — while the job is still running. Model owners can specify which statuses to receive notifications about:
+Configure dbt to send email notifications to model owners about issues in deployment [environments](../dbt-platform-environments.md#types-of-environments) as soon as they happen — while the job is still running. Model owners can specify which statuses to receive notifications about:
 
 * **Success** and **Fails** for models
 * **Warning**, **Success**, and **Fails** for tests
@@ -23,11 +23,11 @@ Create configuration YAML files in your project for dbt to send notifications ab
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Your dbt administrator has [enabled the appropriate account setting](#enable-access-to-model-notifications) for you.
-* Your deployment environment(s) must be on a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) instead of a legacy dbt Core version.
+* Your deployment environment(s) must be on a [release track](../dbt-versions/dbt-release-tracks.md) instead of a legacy dbt Core version.
 
 ## Configure groups[​](#configure-groups "Direct link to Configure groups")
 
-Define your [groups](https://docs.getdbt.com/docs/build/groups.md) in any `.yml` file in your [models directory](https://docs.getdbt.com/reference/project-configs/model-paths.md). Each group's owner can now specify one or multiple email addresses to receive model-level notifications.
+Define your [groups](../build/groups.md) in any `.yml` file in your [models directory](../../reference/project-configs/model-paths.md). Each group's owner can now specify one or multiple email addresses to receive model-level notifications.
 
 The `email` field supports a single email address as a string or a list of multiple email addresses.
 

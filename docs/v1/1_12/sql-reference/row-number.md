@@ -4,7 +4,7 @@ In this page, let’s go deep into the ROW\_NUMBER function and talk about what 
 
 The ROW\_NUMBER window function is an effective way to create a ranked column or filter a query based on rankings. More specifically, the ROW\_NUMBER function returns the *unique* row number of a row in an ordered group or dataset.
 
-Unlike the [RANK](https://docs.getdbt.com/sql-reference/rank.md) and DENSE\_RANK functions, ROW\_NUMBER is non-deterministic, meaning that a *unique* number is assigned arbitrarily for rows with duplicate values.
+Unlike the [RANK](./rank.md) and DENSE\_RANK functions, ROW\_NUMBER is non-deterministic, meaning that a *unique* number is assigned arbitrarily for rows with duplicate values.
 
 ## How to use the ROW\_NUMBER function[​](#how-to-use-the-row_number-function "Direct link to How to use the ROW_NUMBER function")
 
@@ -71,7 +71,7 @@ Search table...
 
 We most commonly see the ROW\_NUMBER function used in data work to:
 
-* In [SELECT statements](https://docs.getdbt.com/sql-reference/select.md) to add explicit and unique row numbers in a group of data or across an entire table
+* In [SELECT statements](./select.md) to add explicit and unique row numbers in a group of data or across an entire table
 * Paired with QUALIFY statement, filter CTEs, queries, or models to capture one unique row per specified partition with the ROW\_NUMBER function. This is particularly useful when you need to remove duplicate rows from a dataset (but use this wisely!).
 
 This isn’t an extensive list of where your team may be using the ROW\_NUMBER function throughout your dbts some common scenarios analytics engineers face day-to-day.

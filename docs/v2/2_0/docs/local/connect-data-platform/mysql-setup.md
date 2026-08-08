@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-mysql<!-- -->
 
-For <!-- -->MySQL<!-- -->-specific configuration, please refer to [MySQL<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->MySQL<!-- -->-specific configuration, please refer to [MySQL<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 This is an experimental plugin:
 

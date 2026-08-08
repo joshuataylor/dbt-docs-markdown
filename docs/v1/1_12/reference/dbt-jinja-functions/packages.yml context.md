@@ -4,15 +4,15 @@ The following context methods and variables are available when configuring a `pa
 
 **Available context methods:**
 
-* [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-  * Use `env_var()` in any dbt YAML file that supports Jinja. Only `packages.yml` and `profiles.yml` support environment variables for [secure values](https://docs.getdbt.com/docs/build/dbt-tips.md#yaml-tips) (using the `DBT_ENV_SECRET_` prefix).
-* [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) (Note: only variables defined with `--vars` are available. Refer to [YAML tips](https://docs.getdbt.com/docs/build/dbt-tips.md#yaml-tips) for more information)
+* [env\_var](./env_var.md)
+  * Use `env_var()` in any dbt YAML file that supports Jinja. Only `packages.yml` and `profiles.yml` support environment variables for [secure values](../../docs/build/dbt-tips.md#yaml-tips) (using the `DBT_ENV_SECRET_` prefix).
+* [var](./var.md) (Note: only variables defined with `--vars` are available. Refer to [YAML tips](../../docs/build/dbt-tips.md#yaml-tips) for more information)
 
 **Available context variables:**
 
-* [builtins](https://docs.getdbt.com/reference/dbt-jinja-functions/builtins.md)
-* [dbt\_version](https://docs.getdbt.com/reference/dbt-jinja-functions/dbt_version.md)
-* [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md)
+* [builtins](./builtins.md)
+* [dbt\_version](./dbt_version.md)
+* [target](./target.md)
 
 ## Example usage[​](#example-usage "Direct link to Example usage")
 
@@ -53,4 +53,4 @@ packages:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Packages](https://docs.getdbt.com/docs/build/packages.md)
+* [Packages](../../docs/build/packages.md)

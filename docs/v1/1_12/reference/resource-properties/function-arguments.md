@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -33,7 +33,7 @@ functions:
 
 The `arguments` property is used to define the parameters that a resource can accept. Each argument can have a `name`, a `data_type` field, and optional properties such as `description` and `default_value`.
 
-For **functions**, you can add `arguments` to a [function property](https://docs.getdbt.com/reference/function-properties.md), which defines the parameters for user-defined functions (UDFs) in your warehouse. The `data_type` for function arguments is warehouse-specific (for example, `STRING`, `VARCHAR`, `INTEGER`) and should match the data types supported by your data platform.
+For **functions**, you can add `arguments` to a [function property](../function-properties.md), which defines the parameters for user-defined functions (UDFs) in your warehouse. The `data_type` for function arguments is warehouse-specific (for example, `STRING`, `VARCHAR`, `INTEGER`) and should match the data types supported by your data platform.
 
 ## Properties[​](#properties "Direct link to Properties")
 
@@ -159,7 +159,7 @@ functions:
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [Arguments (for macros)](https://docs.getdbt.com/reference/resource-properties/arguments.md)
-* [Returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+* [Function properties](../function-properties.md)
+* [Function configurations](../function-configs.md)
+* [Arguments (for macros)](./arguments.md)
+* [Returns](./returns.md)

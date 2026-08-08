@@ -17,18 +17,18 @@ For more details, refer to the [Azure Private Link documentation](https://learn.
 
 ## Azure private connectivity matrix[​](#azure-private-connectivity-matrix "Direct link to Azure private connectivity matrix")
 
-The following charts outline private connectivity options for Azure deployments of dbt ([multi-tenant and single-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md)).
+The following charts outline private connectivity options for Azure deployments of dbt ([multi-tenant and single-tenant](../../../about-platform/tenancy.md)).
 
 **Legend:**
 
 * ✅ = Available
 * ❌ = Not currently available
 
-*Tenancy:* MT (multi-tenant) and ST (single-tenant) — [learn more about tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md).
+*Tenancy:* MT (multi-tenant) and ST (single-tenant) — [learn more about tenancy](../../../about-platform/tenancy.md).
 
 About the following matrix tables
 
-These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support) for guidance.
+These tables indicate whether private connectivity can be established to specific services, considering major factors such as the network and basic auth layers. dbt has validated these configurations using common deployment patterns and typical use cases. However, individual configurations may vary. If you encounter issues or have questions about your environment, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support) for guidance.
 
 ***
 
@@ -55,13 +55,13 @@ dbt can establish private connections to managed data platforms and cloud-native
 
 | Service                                                                                                                                                | MT | ST | Setup guide                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -- | -- | --------------------------------------------------------------------------------------------------- |
-| Snowflake                                                                                                                                              | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-snowflake.md)  |
-|   Snowflake Internal Stage                                                                                                                             | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-snowflake.md)  |
-| Databricks                                                                                                                                             | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-databricks.md) |
-| Azure Database for PostgreSQL Flexible Server                                                                                                          | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-postgres.md)   |
-| Azure Synapse                                                                                                                                          | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-synapse.md)    |
-| Azure Fabric [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-fabric.md)     |
-| Teradata VantageCloud                                                                                                                                  | ✅ | ✅ | [View](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-teradata.md)   |
+| Snowflake                                                                                                                                              | ✅ | ✅ | [View](./azure-snowflake.md)  |
+|   Snowflake Internal Stage                                                                                                                             | ✅ | ✅ | [View](./azure-snowflake.md)  |
+| Databricks                                                                                                                                             | ✅ | ✅ | [View](./azure-databricks.md) |
+| Azure Database for PostgreSQL Flexible Server                                                                                                          | ✅ | ✅ | [View](./azure-postgres.md)   |
+| Azure Synapse                                                                                                                                          | ✅ | ✅ | [View](./azure-synapse.md)    |
+| Azure Fabric [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅ | ✅ | [View](./azure-fabric.md)     |
+| Teradata VantageCloud                                                                                                                                  | ✅ | ✅ | [View](./azure-teradata.md)   |
 
 Search table...
 
@@ -75,7 +75,7 @@ Search table...
 
 All of the services below share a common Private Link setup guide — backend configuration varies by service. Self-hosted connections use the customer-provisioned model — you are the service producer and dbt is the consumer.
 
-**Setup guide:** [Configuring Azure Private Link for self-hosted services](https://docs.getdbt.com/docs/platform/secure/private-connectivity/azure/azure-self-hosted.md)
+**Setup guide:** [Configuring Azure Private Link for self-hosted services](./azure-self-hosted.md)
 
 | Service                  | MT | ST |
 | ------------------------ | -- | -- |
@@ -93,7 +93,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-If you have questions about whether your specific architecture is supported, [contact dbt Support](https://docs.getdbt.com/community/resources/getting-help.md#dbt-cloud-support).
+If you have questions about whether your specific architecture is supported, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support).
 
 ## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
 

@@ -1,6 +1,6 @@
 # DuckDB configurations
 
-These configurations are specific to `dbt-duckdb`. For profile setup and connection options, refer to [Connect DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md). For general dbt concepts, refer to [Materializations](https://docs.getdbt.com/docs/build/materializations.md) and [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md).
+These configurations are specific to `dbt-duckdb`. For profile setup and connection options, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md). For general dbt concepts, refer to [Materializations](../../docs/build/materializations.md) and [Incremental models](../../docs/build/incremental-models.md).
 
 Some features require a minimum version of `dbt-duckdb`. Version requirements are noted inline throughout this page.
 
@@ -78,7 +78,7 @@ Each entry must include an `fs` property that identifies the `fsspec` protocol t
 
 ## Arbitrary ATTACH options[​](#arbitrary-attach-options "Direct link to Arbitrary ATTACH options")
 
-For the basic `attach` profile syntax, refer to [Connecting to DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md#attaching-additional-databases). Use the `options` dictionary when you need to pass additional key-value pairs to DuckDB's `ATTACH` statement:
+For the basic `attach` profile syntax, refer to [Connecting to DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md#attaching-additional-databases). Use the `options` dictionary when you need to pass additional key-value pairs to DuckDB's `ATTACH` statement:
 
 ```yml
 attach:
@@ -254,6 +254,6 @@ Microbatching might not always be the best option from a performance perspective
 
 ## More information[​](#more-information "Direct link to More information")
 
-* For connection modes and profile setup, refer to [Connect DuckDB](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md).
+* For connection modes and profile setup, refer to [Connect DuckDB](../../docs/local/connect-data-platform/duckdb-setup.md).
 * For adapter source code and plugins, refer to the [`dbt-duckdb` repository](https://github.com/duckdb/dbt-duckdb). For adapter release notes, refer to the [`dbt-duckdb` releases page](https://github.com/duckdb/dbt-duckdb/releases).
-* For dbt Core concepts used on this page, refer to [Materializations](https://docs.getdbt.com/docs/build/materializations.md), [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md), and [Python models](https://docs.getdbt.com/docs/build/python-models.md).
+* For dbt Core concepts used on this page, refer to [Materializations](../../docs/build/materializations.md), [Incremental models](../../docs/build/incremental-models.md), and [Python models](../../docs/build/python-models.md).

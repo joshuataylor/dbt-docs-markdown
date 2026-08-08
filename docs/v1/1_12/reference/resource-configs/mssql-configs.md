@@ -88,7 +88,7 @@ from ...
 
 ## Grants with auto provisioning[​](#grants-with-auto-provisioning "Direct link to Grants with auto provisioning")
 
-dbt 1.2 introduced the capability to grant/revoke access using the `grants` [configuration option](https://docs.getdbt.com/reference/resource-configs/grants.md). In dbt-sqlserver, you can additionally set `auto_provision_aad_principals` to `true` in your model configuration if you are using Microsoft Entra ID authentication with an Azure SQL Database or Azure Synapse Dedicated SQL Pool.
+dbt 1.2 introduced the capability to grant/revoke access using the `grants` [configuration option](./grants.md). In dbt-sqlserver, you can additionally set `auto_provision_aad_principals` to `true` in your model configuration if you are using Microsoft Entra ID authentication with an Azure SQL Database or Azure Synapse Dedicated SQL Pool.
 
 This will automatically create the Microsoft Entra ID principal inside your database if it does not exist yet. Note that the principals need to exist in your Microsoft Entra ID, this just makes them available to use in your database.
 

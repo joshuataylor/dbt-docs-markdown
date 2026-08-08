@@ -26,7 +26,7 @@
 
 info
 
-☁️ dbt users can use the built-in [SQLFluff Studio IDE integration](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md) to automatically lint and format their SQL. The default style sheet is based on dbt Labs style as outlined in this guide, but you can customize this to fit your needs. No need to setup any external tools, just hit `Lint`! Also, the more opinionated [sqlfmt](http://sqlfmt.com/) formatter is also available if you prefer that style.
+☁️ dbt users can use the built-in [SQLFluff Studio IDE integration](../../docs/platform/studio-ide/lint-format.md) to automatically lint and format their SQL. The default style sheet is based on dbt Labs style as outlined in this guide, but you can customize this to fit your needs. No need to setup any external tools, just hit `Lint`! Also, the more opinionated [sqlfmt](http://sqlfmt.com/) formatter is also available if you prefer that style.
 
 ## Fields, aggregations, and grouping[​](#fields-aggregations-and-grouping "Direct link to Fields, aggregations, and grouping")
 

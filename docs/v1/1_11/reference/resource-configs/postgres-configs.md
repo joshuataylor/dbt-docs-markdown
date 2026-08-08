@@ -7,7 +7,7 @@ In dbt-postgres, the following incremental materialization strategies are suppor
 * `append` (default when `unique_key` is not defined)
 * `merge`
 * `delete+insert` (default when `unique_key` is defined)
-* [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [`microbatch`](../../docs/build/incremental-microbatch.md)
 
 ## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
 
@@ -88,7 +88,7 @@ The Postgres adapter supports [materialized views](https://www.postgresql.org/do
 
 | Parameter                                                                                                  | Type               | Required | Default | Change Monitoring Support |
 | ---------------------------------------------------------------------------------------------------------- | ------------------ | -------- | ------- | ------------------------- |
-| [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) | `<string>`         | no       | `apply` | n/a                       |
+| [`on_configuration_change`](./on_configuration_change.md) | `<string>`         | no       | `apply` | n/a                       |
 | [`indexes`](#indexes)                                                                                      | `[{<dictionary>}]` | no       | `none`  | alter                     |
 
 Search table...

@@ -25,7 +25,7 @@ dbt State performs metadata introspection queries to determine whether models ne
 
 If omitted, dbt State falls back to the `warehouse` setting in `profiles.yml`.
 
-You can also use `metadata_warehouse` on the dbt platform by adding it as an [extended attribute](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) in your environment settings.
+You can also use `metadata_warehouse` on the dbt platform by adding it as an [extended attribute](../../docs/dbt-platform-environments.md#extended-attributes) in your environment settings.
 
 note
 
@@ -56,5 +56,5 @@ my_project:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Snowflake configuration](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md)
+* [About dbt State](../../docs/deploy/dbt-state-about.md)
+* [Snowflake configuration](./snowflake-configs.md)

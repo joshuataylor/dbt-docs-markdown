@@ -6,11 +6,11 @@ warning
 
 User API tokens have been deprecated and will no longer work. [Migrate](#migrate-deprecated-user-api-keys-to-personal-access-tokens) to personal access tokens to resume services.
 
-Each dbt user with a [Developer, Read-only, or IT license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md) can create a new personal access token (PAT) to access the dbt API and dbt CLI. This token can execute queries against the dbt API on the user's behalf. To access dbt APIs and resources on behalf of the *account*, we recommend using service tokens instead. Learn more about [which token type you should use](https://docs.getdbt.com/docs/dbt-apis/authentication.md#which-token-type-should-you-use) to understand the token differences.
+Each dbt user with a [Developer, Read-only, or IT license](../platform/manage-access/seats-and-users.md) can create a new personal access token (PAT) to access the dbt API and dbt CLI. This token can execute queries against the dbt API on the user's behalf. To access dbt APIs and resources on behalf of the *account*, we recommend using service tokens instead. Learn more about [which token type you should use](./authentication.md#which-token-type-should-you-use) to understand the token differences.
 
 PATs inherit the permissions of the user that created them. For example, if a developer-licensed user with Project Admin role access to specific projects creates a PAT, the token will get the Project Admin role with access to the same projects as the user. These tokens are also account-specific, so if a user has access to more than one dbt account with the same email address, they need to create a unique PAT for each one of these accounts.
 
-You can't use a PAT to create a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md). Requests to create a service token authenticated with a PAT return a `400` error — use an existing service token to create new ones instead.
+You can't use a PAT to create a [service token](./service-tokens.md). Requests to create a service token authenticated with a PAT return a `400` error — use an existing service token to create new ones instead.
 
 ## Create a personal access token[​](#create-a-personal-access-token "Direct link to Create a personal access token")
 

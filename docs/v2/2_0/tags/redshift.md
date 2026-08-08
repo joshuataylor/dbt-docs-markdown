@@ -1,3 +1,3 @@
-## [Quickstart for dbt and Redshift](https://docs.getdbt.com/guides/redshift.md)
+## [Quickstart for dbt and Redshift](../guides/redshift.md)
 
 Introduction

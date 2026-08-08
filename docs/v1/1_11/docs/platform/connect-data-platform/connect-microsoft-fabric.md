@@ -52,4 +52,4 @@ Search table...
 
 ## Configuration[​](#configuration "Direct link to Configuration")
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Fabric Data Warehouse configurations](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Fabric Data Warehouse configurations](../../../reference/resource-configs/fabric-configs.md).

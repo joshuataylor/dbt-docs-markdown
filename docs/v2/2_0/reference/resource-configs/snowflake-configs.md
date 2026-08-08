@@ -6,12 +6,12 @@ Snowflake column size change
 
  Assess impact and required actions
 
-If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../../docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
 
 * Contain string columns with collation defined
 * Use the `on_schema_change='sync_all_columns'` config
 
-To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+To check whether this change affects your project, run the following [list](../commands/list.md) command:
 
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
@@ -21,7 +21,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../../docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
   * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
   * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
 
@@ -29,11 +29,11 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 ## Iceberg table format[​](#iceberg-table-format "Direct link to Iceberg table format")
 
-Our Snowflake Iceberg table content has moved to a [new page](https://docs.getdbt.com/docs/build/iceberg/adapters/snowflake-iceberg-support.md)!
+Our Snowflake Iceberg table content has moved to a [new page](../../docs/build/iceberg/adapters/snowflake-iceberg-support.md)!
 
 ## Dynamic tables[​](#dynamic-tables "Direct link to Dynamic tables")
 
-The Snowflake adapter supports [dynamic tables](https://docs.snowflake.com/en/user-guide/dynamic-tables-about). This materialization is specific to Snowflake, which means that any model configuration that would normally come along for the ride from `dbt-core` (e.g. as with a `view`) may not be available for dynamic tables. This gap will decrease in future patches and versions. While this materialization is specific to Snowflake, it very much follows the implementation of [materialized views](https://docs.getdbt.com/docs/build/materializations.md#Materialized-View). In particular, dynamic tables have access to the `on_configuration_change` setting. Dynamic tables are supported with the following configuration parameters:
+The Snowflake adapter supports [dynamic tables](https://docs.snowflake.com/en/user-guide/dynamic-tables-about). This materialization is specific to Snowflake, which means that any model configuration that would normally come along for the ride from `dbt-core` (e.g. as with a `view`) may not be available for dynamic tables. This gap will decrease in future patches and versions. While this materialization is specific to Snowflake, it very much follows the implementation of [materialized views](../../docs/build/materializations.md#Materialized-View). In particular, dynamic tables have access to the `on_configuration_change` setting. Dynamic tables are supported with the following configuration parameters:
 
 <!-- -->
 
@@ -41,7 +41,7 @@ The Snowflake adapter supports [dynamic tables](https://docs.snowflake.com/en/us
 
 | Parameter                                                                                                  | Type                   | Required | Default     | Change Monitoring Support |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------- | -------- | ----------- | ------------------------- |
-| [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) | `<string>`             | no       | `apply`     | n/a                       |
+| [`on_configuration_change`](./on_configuration_change.md) | `<string>`             | no       | `apply`     | n/a                       |
 | [`target_lag`](#target-lag)                                                                                | `<string>`             | no       |             | alter                     |
 | [`scheduler`](#scheduler)                                                                                  | `<string>`             | no       | `DISABLE`   | alter                     |
 | [`snowflake_warehouse`](#configuring-virtual-warehouses)                                                   | `<string>`             | yes      |             | alter                     |
@@ -298,7 +298,7 @@ Learn more about `COPY GRANTS` in [Snowflake's docs](https://docs.snowflake.com/
 
 You can create dynamic tables as transient to reduce storage costs. Transient dynamic tables do not use Snowflake's [Fail-safe](https://docs.snowflake.com/en/user-guide/data-failsafe) period, so they consume less storage than permanent dynamic tables. To create a dynamic table as transient, set `transient: true` in the model configuration.
 
-If you want all dynamic tables to be transient by default (without setting `transient: true` on each one), enable the [`snowflake_default_transient_dynamic_tables`](https://docs.getdbt.com/reference/global-configs/snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag) flag in your `dbt_project.yml`. This flag defaults to `false`, meaning dynamic tables are created as permanent by default.
+If you want all dynamic tables to be transient by default (without setting `transient: true` on each one), enable the [`snowflake_default_transient_dynamic_tables`](../global-configs/snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag) flag in your `dbt_project.yml`. This flag defaults to `false`, meaning dynamic tables are created as permanent by default.
 
 **Key points:**
 
@@ -357,7 +357,7 @@ As with materialized views on most data platforms, there are limitations associa
 
 Find more information about dynamic table limitations in Snowflake's [docs](https://docs.snowflake.com/en/user-guide/dynamic-tables-tasks-create#dynamic-table-limitations-and-supported-functions).
 
-For dbt limitations, [Model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) are not supported.
+For dbt limitations, [Model contracts](../../docs/mesh/govern/model-contracts.md) are not supported.
 
 ### Troubleshooting dynamic tables[​](#troubleshooting-dynamic-tables "Direct link to Troubleshooting dynamic tables")
 
@@ -578,7 +578,7 @@ Snowflake supports the creation of [transient tables](https://docs.snowflake.net
 
 ### Configuring transient tables in dbt\_project.yml[​](#configuring-transient-tables-in-dbt_projectyml "Direct link to Configuring transient tables in dbt_project.yml")
 
-A whole folder (or package) can be configured to be transient (or not) by adding a line to the `dbt_project.yml` file. This config works just like all of the [model configs](https://docs.getdbt.com/reference/model-configs.md) defined in `dbt_project.yml`.
+A whole folder (or package) can be configured to be transient (or not) by adding a line to the `dbt_project.yml` file. This config works just like all of the [model configs](../model-configs.md) defined in `dbt_project.yml`.
 
 dbt\_project.yml
 
@@ -609,7 +609,7 @@ select * from ...
 
 [Query tags](https://docs.snowflake.com/en/sql-reference/parameters.html#query-tag) are a Snowflake parameter that can be quite useful later on when searching in the [QUERY\_HISTORY view](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html).
 
-dbt supports setting a default query tag for the duration of its Snowflake connections in [your profile](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md). You can set more precise values (and override the default) for subsets of models by setting a `query_tag` model config or by overriding the default `set_query_tag` macro:
+dbt supports setting a default query tag for the duration of its Snowflake connections in [your profile](../../docs/local/connect-data-platform/snowflake-setup.md). You can set more precise values (and override the default) for subsets of models by setting a `query_tag` model config or by overriding the default `set_query_tag` macro:
 
 dbt\_project.yml
 
@@ -649,16 +649,16 @@ In this example, you can set up a query tag to be applied to every query with th
 
 ## Merge behavior (incremental models)[​](#merge-behavior-incremental-models "Direct link to Merge behavior (incremental models)")
 
-The [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md) controls how dbt builds incremental models. By default, dbt will use a [merge statement](https://docs.snowflake.net/manuals/sql-reference/sql/merge.html) on Snowflake to refresh incremental tables.
+The [`incremental_strategy` config](../../docs/build/incremental-strategy.md) controls how dbt builds incremental models. By default, dbt will use a [merge statement](https://docs.snowflake.net/manuals/sql-reference/sql/merge.html) on Snowflake to refresh incremental tables.
 
 Snowflake supports the following incremental strategies:
 
-* [`merge`](https://docs.getdbt.com/docs/build/incremental-strategy.md#merge) (default)
-* [`append`](https://docs.getdbt.com/docs/build/incremental-strategy.md#append)
-* [`delete+insert`](https://docs.getdbt.com/docs/build/incremental-strategy.md#deleteinsert)
-* [`insert_overwrite`](https://docs.getdbt.com/docs/build/incremental-strategy.md#insert_overwrite)
+* [`merge`](../../docs/build/incremental-strategy.md#merge) (default)
+* [`append`](../../docs/build/incremental-strategy.md#append)
+* [`delete+insert`](../../docs/build/incremental-strategy.md#deleteinsert)
+* [`insert_overwrite`](../../docs/build/incremental-strategy.md#insert_overwrite)
   * Note: This is not a standard dbt incremental strategy. `insert_overwrite` behaves like `truncate` + re-`insert` commands on Snowflake. It doesn't support partition-based overwrites, which means it'll overwrite the entire table intentionally. It's implemented as an incremental strategy because it aligns with dbt's workflow of not dropping existing tables. You can use [`overwrite_columns`](#overwrite_columns) to control which columns are included in the `INSERT OVERWRITE` statement.
-* [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [`microbatch`](../../docs/build/incremental-microbatch.md)
 
 Snowflake's `merge` statement fails with a "nondeterministic merge" error if the `unique_key` specified in your model config is not actually unique. If you encounter this error, you can instruct dbt to use a two-step incremental approach by setting the `incremental_strategy` config for your model to `delete+insert`.
 
@@ -889,9 +889,9 @@ For more information on using this configuration, refer to [Snowflake's document
 
 ## Configuring virtual warehouses[​](#configuring-virtual-warehouses "Direct link to Configuring virtual warehouses")
 
-The default warehouse that dbt uses can be configured in your [Profile](https://docs.getdbt.com/docs/local/profiles.yml.md) for Snowflake connections. To override the warehouse that is used for specific models (or groups of models), use the `snowflake_warehouse` model configuration. This configuration can be used to specify a larger warehouse for certain models in order to control Snowflake costs and project build times.
+The default warehouse that dbt uses can be configured in your [Profile](../../docs/local/profiles.yml.md) for Snowflake connections. To override the warehouse that is used for specific models (or groups of models), use the `snowflake_warehouse` model configuration. This configuration can be used to specify a larger warehouse for certain models in order to control Snowflake costs and project build times.
 
-[Tests](https://docs.getdbt.com/docs/build/data-tests.md) also supports the `snowflake_warehouse` configuration. This can be useful when you want to you run tests on a different Snowflake virtual warehouse than the one used to build models, for example, using a smaller warehouse for lightweight data tests while models run on a larger warehouse.
+[Tests](../../docs/build/data-tests.md) also supports the `snowflake_warehouse` configuration. This can be useful when you want to you run tests on a different Snowflake virtual warehouse than the one used to build models, for example, using a smaller warehouse for lightweight data tests while models run on a larger warehouse.
 
 * Project file
 * Property file
@@ -1051,7 +1051,7 @@ Per the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/in
 
 By default, when dbt encounters a schema with up to 100,000 objects, it will paginate the results from `show objects` at 10,000 per page for up to 10 pages.
 
-Environments with more than 100,000 objects in a schema can customize the number of results per page and the page limit using the following [flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md) in the `dbt_project.yml`:
+Environments with more than 100,000 objects in a schema can customize the number of results per page and the page limit using the following [flags](../global-configs/about-global-configs.md) in the `dbt_project.yml`:
 
 * `list_relations_per_page` — The number of relations on each page (Max 10k as this is the most Snowflake allows).
 * `list_relations_page_limit` — The maximum number of pages to include in the results.

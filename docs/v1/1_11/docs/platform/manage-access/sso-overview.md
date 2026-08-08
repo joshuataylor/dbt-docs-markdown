@@ -4,15 +4,15 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 This overview explains how users are provisioned in dbt using single sign-on (SSO). dbt supports JIT (Just-in-Time) provisioning and IdP-initiated login.
 
-* Use the <https://login.dbt.com> URL as the recommended way to sign in to dbt platform. After you enter your email, dbt sends a verification code to your email to verify it. Once you verify your email, you can view the accounts you have access to across instances and select an account to open. For a full explanation of the login process, refer to [Log in to dbt platform](https://docs.getdbt.com/docs/platform/about-platform/login.md).
-* You can also open your account using your **Access URL** from **Account settings** if you already know it. Refer to [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for more information.
-* Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery). When account discovery is disabled, users sign in using the account **Access URL** and their existing [SSO](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md) configuration, if applicable.
+* Use the <https://login.dbt.com> URL as the recommended way to sign in to dbt platform. After you enter your email, dbt sends a verification code to your email to verify it. Once you verify your email, you can view the accounts you have access to across instances and select an account to open. For a full explanation of the login process, refer to [Log in to dbt platform](../about-platform/login.md).
+* You can also open your account using your **Access URL** from **Account settings** if you already know it. Refer to [Access, Regions, & IP addresses](../about-platform/access-regions-ip-addresses.md) for more information.
+* Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery). When account discovery is disabled, users sign in using the account **Access URL** and their existing [SSO](./sso-overview.md) configuration, if applicable.
 
 For SSO, users also use your account **Access URL** or **dbt Enterprise Login URL**, as described in this page.
 
 In the dbt platform, dbt assigns an SSO slug (an identifier used in your SSO login URL) to your SSO configuration. The slug is system-generated and read-only. Existing SSO configurations remain valid, but you can’t edit the slug. If you delete and recreate your SSO configuration, the new configuration uses a new, system-generated slug.
 
-To further automate your workflow, you can use [System for Cross-Domain Identity Management (SCIM)](https://docs.getdbt.com/docs/platform/manage-access/scim.md) to provision users, manage group memberships, and automate license assignments directly from your identity provider (IdP) (Okta or Microsoft Entra ID).
+To further automate your workflow, you can use [System for Cross-Domain Identity Management (SCIM)](./scim.md) to provision users, manage group memberships, and automate license assignments directly from your identity provider (IdP) (Okta or Microsoft Entra ID).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -79,7 +79,7 @@ The diagram below explains the basic process by which users are provisioned in d
   * **Yes**: If so, skip the user creation process
   * **No**: If so, create a new entry in the dbt database for the new user.
 
-* **Create dbt User**: This will create a new entry in the dbt database for the new user. This user record contains the user's email address, first and last name, and any IdP attributes (for example, groups) passed along from the Identity Provider. dbt will send a verification email, and the user must follow the steps in the [User experience section](https://docs.getdbt.com/docs/platform/manage-access/invite-users.md#user-experience) to use SSO in dbt.
+* **Create dbt User**: This will create a new entry in the dbt database for the new user. This user record contains the user's email address, first and last name, and any IdP attributes (for example, groups) passed along from the Identity Provider. dbt will send a verification email, and the user must follow the steps in the [User experience section](./invite-users.md#user-experience) to use SSO in dbt.
 
 * **Attach Matching Accounts**: dbt finds all of the accounts configured to match the SSO config used by this user to log in, and then creates a user license record mapping the user to the account. This step also deletes any licenses that the user should not have based on the current SSO config.
 
@@ -94,7 +94,7 @@ The diagram below explains the basic process by which users are provisioned in d
 
 License and permission mappings use IdP groups
 
-License type mappings and SSO group mappings are based on **IdP group** membership (groups in your identity provider), not dbt platform group names. When configuring [license mappings](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration) or group assignments, use the group names and memberships from your IdP.
+License type mappings and SSO group mappings are based on **IdP group** membership (groups in your identity provider), not dbt platform group names. When configuring [license mappings](./seats-and-users.md#mapped-configuration) or group assignments, use the group names and memberships from your IdP.
 
 ## SSO enforcement[​](#sso-enforcement "Direct link to SSO enforcement")
 
@@ -123,4 +123,4 @@ If you have any non-admin users logging into dbt with a password today:
 
 ## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
 
-For common questions and troubleshooting guidance, refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
+For common questions and troubleshooting guidance, refer to [SSO FAQs and troubleshooting](./sso-faq.md).

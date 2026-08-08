@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) is dbt’s new knowledge base and lineage visualization experience. It offers an interactive and high-level view of your company’s entire data estate, where you can dive deep into the context you need to understand and improve lineage so your teams can trust the data they’re using to make decisions.
+[Catalog](./explore-projects.md) is dbt’s new knowledge base and lineage visualization experience. It offers an interactive and high-level view of your company’s entire data estate, where you can dive deep into the context you need to understand and improve lineage so your teams can trust the data they’re using to make decisions.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -28,13 +28,13 @@ No. Catalog and all of its features are only available as a dbt user experience.
 
  How does dbt Catalog support dbt environments?
 
-Catalog supports a production or staging [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) for each project you want to explore. It defaults to the latest production or staging state of a project. Users can only assign one production and one staging environment per dbt project.
+Catalog supports a production or staging [deployment environment](../deploy/deploy-environments.md) for each project you want to explore. It defaults to the latest production or staging state of a project. Users can only assign one production and one staging environment per dbt project.
 
 Support for development (dbt CLI and Studio IDE) environments is coming soon.
 
  How do I get started in Catalog? How does it update?
 
-Simply select **Catalog** from the dbt top navigation bar. Catalog automatically updates after each dbt run in the given project’s environment (production, by default). The dbt commands you run within the environment will generate and update the metadata in Catalog, so make sure to run the correct combination of commands within the jobs of the environment; for more details, refer to [Generate metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata).
+Simply select **Catalog** from the dbt top navigation bar. Catalog automatically updates after each dbt run in the given project’s environment (production, by default). The dbt commands you run within the environment will generate and update the metadata in Catalog, so make sure to run the correct combination of commands within the jobs of the environment; for more details, refer to [Generate metadata](./explore-projects.md#generate-metadata).
 
  Is it possible to export dbt lineage to an external system or catalog?
 
@@ -52,11 +52,11 @@ Catalog automatically deletes stale metadata after 3 months if no jobs were run 
 
  Does dbt Catalog support multi-project discovery (dbt Mesh)?
 
-Yes. Refer to [Explore multiple projects](https://docs.getdbt.com/docs/explore/explore-multiple-projects.md) to learn more.
+Yes. Refer to [Explore multiple projects](./explore-multiple-projects.md) to learn more.
 
  What kind of search capabilities does dbt Catalog support?
 
-Resource search capabilities include using keywords, partial strings (fuzzy search), and set operators like `OR`. Meanwhile, lineage search supports using dbt selectors. For details, refer to [Keyword search](https://docs.getdbt.com/docs/explore/explore-projects.md#search-resources).
+Resource search capabilities include using keywords, partial strings (fuzzy search), and set operators like `OR`. Meanwhile, lineage search supports using dbt selectors. For details, refer to [Keyword search](./explore-projects.md#search-resources).
 
  Can I view model execution information for a job that is currently being run?
 
@@ -95,7 +95,7 @@ No. Cross-project column lineage is supported in the sense of viewing how a publ
 
  Can column descriptions be propagated down in downstream lineage automatically?
 
-Yes, a reused column, labeled as passthrough or rename, inherits its description from source and upstream model columns. In other words, source and upstream model columns propagate their descriptions downstream whenever they are not transformed, meaning you don’t need to manually define the description. Refer to [Inherited column descriptions](https://docs.getdbt.com/docs/explore/column-level-lineage.md#inherited-column-descriptions) for more info.
+Yes, a reused column, labeled as passthrough or rename, inherits its description from source and upstream model columns. In other words, source and upstream model columns propagate their descriptions downstream whenever they are not transformed, meaning you don’t need to manually define the description. Refer to [Inherited column descriptions](./column-level-lineage.md#inherited-column-descriptions) for more info.
 
  Is column-level lineage also available in the development tab?
 
@@ -109,7 +109,7 @@ Read-only users can consume metadata in Catalog. More bespoke experiences and ex
 
  Does dbt Catalog require a specific dbt plan?
 
-Catalog is available on dbt Starter and all Enterprise plans. Certain features within Catalog are only available on Enterprise and Enterprise+ plans, including Model Performance, project recommendations, multi-project lineage, column-level lineage, and more. Refer to the [availability by plan](https://docs.getdbt.com/docs/explore/explore-projects.md#availability-by-plan) table for a complete list.
+Catalog is available on dbt Starter and all Enterprise plans. Certain features within Catalog are only available on Enterprise and Enterprise+ plans, including Model Performance, project recommendations, multi-project lineage, column-level lineage, and more. Refer to the [availability by plan](./explore-projects.md#availability-by-plan) table for a complete list.
 
  Will dbt Core users be able to leverage any of these new dbt Catalog features?
 
@@ -125,6 +125,6 @@ The ability to embed and share views is being evaluated as a potential future ca
 
   Is dbt Catalog accessible from other areas inside dbt?
 
-Yes, you can [access Catalog from various dbt features](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md), ensuring you have a seamless experience navigating between resources and lineage in your project.
+Yes, you can [access Catalog from various dbt features](./access-from-dbt-platform.md), ensuring you have a seamless experience navigating between resources and lineage in your project.
 
-While the primary way to access Catalog is through the **Catalog** link in the navigation, you can also access it from the [Studio IDE](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#studio-ide), [the lineage tab in jobs](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#lineage-tab-in-jobs), and the [model timing tab in jobs](https://docs.getdbt.com/docs/explore/access-from-dbt-platform.md#model-timing-tab-in-jobs).
+While the primary way to access Catalog is through the **Catalog** link in the navigation, you can also access it from the [Studio IDE](./access-from-dbt-platform.md#studio-ide), [the lineage tab in jobs](./access-from-dbt-platform.md#lineage-tab-in-jobs), and the [model timing tab in jobs](./access-from-dbt-platform.md#model-timing-tab-in-jobs).

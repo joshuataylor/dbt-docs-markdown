@@ -10,24 +10,24 @@ In traditional software engineering, different environments often use completely
 
 Configure environments to tell dbt or dbt Core how to build and execute your project in development and production:
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-platform-environments.md)
+[![](/img/icons/dbt-bit.svg)](./dbt-platform-environments.md)
 
-#### [Environments in dbt](https://docs.getdbt.com/docs/dbt-platform-environments.md)
+#### [Environments in dbt](./dbt-platform-environments.md)
 
-[Seamlessly configure development and deployment environments in dbt to control how your project runs in both the Studio IDE, dbt platform CLI, and dbt jobs.](https://docs.getdbt.com/docs/dbt-platform-environments.md)
+[Seamlessly configure development and deployment environments in dbt to control how your project runs in both the Studio IDE, dbt platform CLI, and dbt jobs.](./dbt-platform-environments.md)
 
-[![](/img/icons/command-line.svg)](https://docs.getdbt.com/docs/local/dbt-core-environments.md)
+[![](/img/icons/command-line.svg)](./local/dbt-core-environments.md)
 
-#### [Environments in dbt Core](https://docs.getdbt.com/docs/local/dbt-core-environments.md)
+#### [Environments in dbt Core](./local/dbt-core-environments.md)
 
-[Setup and maintain separate deployment and development environments through the use of targets within a profile file](https://docs.getdbt.com/docs/local/dbt-core-environments.md)
+[Setup and maintain separate deployment and development environments through the use of targets within a profile file](./local/dbt-core-environments.md)
 
 <br />
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt environment best practices](https://docs.getdbt.com/guides/set-up-ci.md)
-* [Deployment environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md)
-* [About dbt Core versions](https://docs.getdbt.com/docs/dbt-versions.md)
-* [Set Environment variables in dbt](https://docs.getdbt.com/docs/build/environment-variables.md#special-environment-variables)
-* [Use Environment variables in jinja](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
+* [dbt environment best practices](../guides/set-up-ci.md)
+* [Deployment environments](./deploy/deploy-environments.md)
+* [About dbt Core versions](./dbt-versions.md)
+* [Set Environment variables in dbt](./build/environment-variables.md#special-environment-variables)
+* [Use Environment variables in jinja](../reference/dbt-jinja-functions/env_var.md)

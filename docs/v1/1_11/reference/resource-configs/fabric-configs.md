@@ -166,11 +166,11 @@ select * from raw_events
 
 #### Notes[​](#notes "Direct link to Notes")
 
-* [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md) must be a valid timestamp column.
+* [`event_time`](./event-time.md) must be a valid timestamp column.
 * dbt processes each batch independently, allowing efficient incremental refresh of large time-series datasets.
 * If you don't specify a `unique_key`, dbt-fabric defaults to `append`.
 
-For more details, see [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md).
+For more details, see [Incremental models](../../docs/build/incremental-models.md).
 
 ## Permissions[​](#permissions "Direct link to Permissions")
 

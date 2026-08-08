@@ -14,7 +14,7 @@ Fusion automatically loads environment variables from a `.env` file in your curr
    DBT_SECRET_KEY=my_secret_value
    ```
 
-2. Reference these variables in your `profiles.yml` using the [`env_var` Jinja function](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md):
+2. Reference these variables in your `profiles.yml` using the [`env_var` Jinja function](../../reference/dbt-jinja-functions/env_var.md):
 
    ```yaml
    my_profile:
@@ -57,4 +57,4 @@ tip
 
 Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to version control. The `dbtf init` command automatically includes `.env` in the generated `.gitignore` file.
 
-For more details on managing environment variables locally, refer to [Configure your local environment](https://docs.getdbt.com/docs/configure-dbt-extension.md#set-environment-variables-locally).
+For more details on managing environment variables locally, refer to [Configure your local environment](../configure-dbt-extension.md#set-environment-variables-locally).

@@ -3,7 +3,7 @@
 Retry re-executes the last invocation from the point of failure.
 
 * If no nodes are executed before the failure (for example, if a run failed early due to a warehouse connection or permission errors), retry won't run anything since there are no recorded nodes to retry from.
-* In these cases, we recommend checking your [`run_results.json` file](https://docs.getdbt.com/reference/artifacts/run-results-json.md) and manually re-running the full job so the nodes build.
+* In these cases, we recommend checking your [`run_results.json` file](../artifacts/run-results-json.md) and manually re-running the full job so the nodes build.
 * Once some nodes have run, you can use retry to re-execute from any new point of failure.
 * If the previously executed command completed successfully, retry will finish as `no operation`.
 
@@ -13,7 +13,7 @@ The `dbt retry` flags apply when you use a self-hosted dbt installation or the S
 
 dbt platform CLI
 
-If you use the [dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) against your cloud environment, `dbt retry` accepts only a small subset of overrides—typically `--threads`, `--vars`, and related options. Use `dbt retry --help` on your machine for the exact list your CLI build supports.
+If you use the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) against your cloud environment, `dbt retry` accepts only a small subset of overrides—typically `--threads`, `--vars`, and related options. Use `dbt retry --help` on your machine for the exact list your CLI build supports.
 
 <!-- -->
 
@@ -41,7 +41,7 @@ Run `dbt retry --help` for the full list of flags available.
 
 ### Fusion node selection[​](#fusion-node-selection "Direct link to Fusion node selection")
 
-Unlike `dbt retry` with dbt Core, Fusion lets you narrow what gets retried using [`--select`](https://docs.getdbt.com/reference/node-selection/syntax.md), [`--exclude`](https://docs.getdbt.com/reference/node-selection/syntax.md), and [`--selector`](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md). Those arguments override the prior invocation’s selection set for the retry run instead of only inheriting it.
+Unlike `dbt retry` with dbt Core, Fusion lets you narrow what gets retried using [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), and [`--selector`](../node-selection/yaml-selectors.md). Those arguments override the prior invocation’s selection set for the retry run instead of only inheriting it.
 
 #### Examples[​](#examples "Direct link to Examples")
 
@@ -57,21 +57,21 @@ dbt retry --exclude package:analytics --selector nightly_models
 
 Retry works with the following commands:
 
-* [`build`](https://docs.getdbt.com/reference/commands/build.md)
-* [`compile`](https://docs.getdbt.com/reference/commands/compile.md)
-* [`clone`](https://docs.getdbt.com/reference/commands/clone.md)
-* [`docs generate`](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate)
-* [`seed`](https://docs.getdbt.com/reference/commands/seed.md)
-* [`snapshot`](https://docs.getdbt.com/reference/commands/snapshot.md)
-* [`test`](https://docs.getdbt.com/reference/commands/test.md)
-* [`run`](https://docs.getdbt.com/reference/commands/run.md)
-* [`run-operation`](https://docs.getdbt.com/reference/commands/run-operation.md)
+* [`build`](./build.md)
+* [`compile`](./compile.md)
+* [`clone`](./clone.md)
+* [`docs generate`](./cmd-docs.md#dbt-docs-generate)
+* [`seed`](./seed.md)
+* [`snapshot`](./snapshot.md)
+* [`test`](./test.md)
+* [`run`](./run.md)
+* [`run-operation`](./run-operation.md)
 
-Retry references [run\_results.json](https://docs.getdbt.com/reference/artifacts/run-results-json.md) to determine where to start. Executing retry without correcting the previous failures yields idempotent results.
+Retry references [run\_results.json](../artifacts/run-results-json.md) to determine where to start. Executing retry without correcting the previous failures yields idempotent results.
 
 <!-- -->
 
-With `dbt retry`, you can optionally pass new [`--select`](https://docs.getdbt.com/reference/node-selection/syntax.md), [`--exclude`](https://docs.getdbt.com/reference/node-selection/syntax.md), or [`--selector`](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) arguments to narrow the retry scope, as described in [Retry flags](#retry-flags).
+With `dbt retry`, you can optionally pass new [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments to narrow the retry scope, as described in [Retry flags](#retry-flags).
 
 Example results of executing `dbt retry` after a successful `dbt run`:
 

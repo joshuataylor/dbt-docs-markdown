@@ -1,6 +1,6 @@
 # Quickstart for dbt Core using DuckDB
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Core
 
@@ -16,7 +16,7 @@ Beginner
 
 In this quickstart guide, you'll learn how to use dbt Core with DuckDB, enabling you to get set up quickly and efficiently. [DuckDB](https://duckdb.org/) is an open-source database management system which is designed for analytical workloads. It is designed to provide fast and easy access to large datasets, making it well-suited for data analytics tasks.
 
-This guide covers DuckDB with dbt Core command-line interface (CLI). For Fusion-specific DuckDB setup, refer to [DuckDB setup](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=2).
+This guide covers DuckDB with dbt Core command-line interface (CLI). For Fusion-specific DuckDB setup, refer to [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md?version=2).
 
 This guide will demonstrate how to:
 
@@ -30,10 +30,10 @@ You can learn more through high-quality [dbt Learn courses and workshops](https:
 
 ### Related content[​](#related-content "Direct link to Related content")
 
-* [DuckDB setup](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md)
-* [Create a GitHub repository](https://docs.getdbt.com/guides/manual-install.md?step=2)
-* [Build your first models](https://docs.getdbt.com/guides/manual-install.md?step=3)
-* [Test and document your project](https://docs.getdbt.com/guides/manual-install.md?step=4)
+* [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md)
+* [Create a GitHub repository](./manual-install.md?step=2)
+* [Build your first models](./manual-install.md?step=3)
+* [Test and document your project](./manual-install.md?step=4)
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -60,7 +60,7 @@ Below is an example of the `requirements.txt` file alongside other key files lik
 └── requirements.txt
 ```
 
-For more information, refer to the [DuckDB setup](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md).
+For more information, refer to the [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md).
 
 * Local
 * Web browser
@@ -113,17 +113,17 @@ For more information, refer to the [DuckDB setup](https://docs.getdbt.com/docs/l
    venv\Scripts\Activate.ps1
    ```
 
-4. Ensure your profile is setup correctly from the command line by running the following [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md).
+4. Ensure your profile is setup correctly from the command line by running the following [dbt commands](../reference/dbt-commands.md).
 
-   * [dbt seed](https://docs.getdbt.com/reference/commands/seed.md) — loads CSV files located in the seed-paths directory of your project into your data warehouse
-   * [dbt compile](https://docs.getdbt.com/reference/commands/compile.md) — generates executable SQL from your project source files
-   * [dbt run](https://docs.getdbt.com/reference/commands/run.md) — compiles and runs your project
-   * [dbt test](https://docs.getdbt.com/reference/commands/test.md) — compiles and tests your project
-   * [dbt build](https://docs.getdbt.com/reference/commands/build.md) — compiles, runs, and tests your project
-   * [dbt docs generate](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate) — generates your project's documentation.
-   * [dbt docs serve](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-serve) — starts a webserver on port 8080 to serve your documentation locally and opens the documentation site in your default browser.
+   * [dbt seed](../reference/commands/seed.md) — loads CSV files located in the seed-paths directory of your project into your data warehouse
+   * [dbt compile](../reference/commands/compile.md) — generates executable SQL from your project source files
+   * [dbt run](../reference/commands/run.md) — compiles and runs your project
+   * [dbt test](../reference/commands/test.md) — compiles and tests your project
+   * [dbt build](../reference/commands/build.md) — compiles, runs, and tests your project
+   * [dbt docs generate](../reference/commands/cmd-docs.md#dbt-docs-generate) — generates your project's documentation.
+   * [dbt docs serve](../reference/commands/cmd-docs.md#dbt-docs-serve) — starts a webserver on port 8080 to serve your documentation locally and opens the documentation site in your default browser.
 
-For complete details, refer to the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md).
+For complete details, refer to the [dbt command reference](../reference/dbt-commands.md).
 
 Here's what a successful output will look like:
 
@@ -153,7 +153,7 @@ Here's what a successful output will look like:
 To query data, some useful commands you can run from the command line:
 
 * `dbt show --select "raw_orders"` — run a query against the data warehouse and preview the results in the terminal.
-* [`dbt source`](https://docs.getdbt.com/reference/commands/source.md) — provides subcommands such as [`dbt source freshness`](https://docs.getdbt.com/reference/commands/source.md#dbt-source-freshness) that are useful when working with source data.
+* [`dbt source`](../reference/commands/source.md) — provides subcommands such as [`dbt source freshness`](../reference/commands/source.md#dbt-source-freshness) that are useful when working with source data.
   <!-- -->
   * `dbt source freshness` — checks the freshness (how up to date) a specific source table is.
 
@@ -196,16 +196,16 @@ As a last resort, deleting the database file will get you back in action (*but* 
 
    You can also use the [duckcli](https://duckdb.org/docs/api/cli/overview.html) to write SQL against the warehouse from the command line or build reports in the [Evidence](https://evidence.dev/) project provided in the `reports` directory.
 
-   For complete information, refer to the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md). Common commands are:
+   For complete information, refer to the [dbt command reference](../reference/dbt-commands.md). Common commands are:
 
-   * [dbt compile](https://docs.getdbt.com/reference/commands/compile.md) — generates executable SQL from your project source files
-   * [dbt run](https://docs.getdbt.com/reference/commands/run.md) — compiles and runs your project
-   * [dbt test](https://docs.getdbt.com/reference/commands/test.md) — compiles and tests your project
-   * [dbt build](https://docs.getdbt.com/reference/commands/build.md) — compiles, runs, and tests your project
+   * [dbt compile](../reference/commands/compile.md) — generates executable SQL from your project source files
+   * [dbt run](../reference/commands/run.md) — compiles and runs your project
+   * [dbt test](../reference/commands/test.md) — compiles and tests your project
+   * [dbt build](../reference/commands/build.md) — compiles, runs, and tests your project
 
 ## Local storage[​](#local-storage "Direct link to Local storage")
 
-DuckDB stores your data in a local `.duckdb` file on your machine. The location of this file is defined by the `path` field in your [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md).
+DuckDB stores your data in a local `.duckdb` file on your machine. The location of this file is defined by the `path` field in your [`profiles.yml`](../docs/local/profiles.yml.md).
 
 In this quickstart, the project is configured to use a file named `jaffle_shop.duckdb`. After running `dbt build`, you can confirm that the database file was created by running the following command:
 
@@ -243,7 +243,7 @@ If you'd like to work with a larger selection of Jaffle Shop data, you can gener
    jafgen --years NUMBER_OF_YEARS
    ```
 
-   Replace `NUMBER_OF_YEARS` with the number of years you want to simulate. For example, to generate data for 6 years, run `jafgen --years 6`. This command builds the CSV files and stores them in the `jaffle-data` folder, and is automatically sourced based on the `sources.yml` file and the [dbt-duckdb](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md) adapter.
+   Replace `NUMBER_OF_YEARS` with the number of years you want to simulate. For example, to generate data for 6 years, run `jafgen --years 6`. This command builds the CSV files and stores them in the `jaffle-data` folder, and is automatically sourced based on the `sources.yml` file and the [dbt-duckdb](../docs/local/connect-data-platform/duckdb-setup.md) adapter.
 
 As you increase the number of years, it takes exponentially more time to generate the data because the Jaffle Shop stores grow in size and number. For a good balance of data size and time to build, dbt Labs suggests a maximum of 6 years.
 
@@ -251,21 +251,21 @@ As you increase the number of years, it takes exponentially more time to generat
 
 Now that you have dbt Core, DuckDB, and the Jaffle Shop data up and running, you can explore dbt's capabilities. Refer to these materials to get a better understanding of dbt projects and commands:
 
-* The [About projects](https://docs.getdbt.com/docs/build/projects.md) page guides you through the structure of a dbt project and its components.
-* [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md) explains the various commands available and what they do.
+* The [About projects](../docs/build/projects.md) page guides you through the structure of a dbt project and its components.
+* [dbt command reference](../reference/dbt-commands.md) explains the various commands available and what they do.
 * [dbt Labs courses](https://courses.getdbt.com/collections) offer a variety of beginner, intermediate, and advanced learning modules designed to help you become a dbt expert.
 * Once you see the potential of dbt and what it can do for your organization, sign up for a free trial of [dbt](https://www.getdbt.com/signup). It's the fastest and easiest way to deploy dbt today!
-* Check out the other [quickstart guides](https://docs.getdbt.com/guides.md?tags=Quickstart) to begin integrating into your existing data warehouse.
+* Check out the other [quickstart guides](../guides.md?tags=Quickstart) to begin integrating into your existing data warehouse.
 
-Additionally, with your new understanding of the basics of using DuckDB, consider optimizing your setup by [documenting your project](https://docs.getdbt.com/guides/duckdb.md#document-your-project), [commit your changes](https://docs.getdbt.com/guides/duckdb.md#commit-your-changes) and, [schedule a job](https://docs.getdbt.com/guides/duckdb.md#schedule-a-job).
+Additionally, with your new understanding of the basics of using DuckDB, consider optimizing your setup by [documenting your project](./duckdb.md#document-your-project), [commit your changes](./duckdb.md#commit-your-changes) and, [schedule a job](./duckdb.md#schedule-a-job).
 
 ### Document your project[​](#document-your-project "Direct link to Document your project")
 
 To document your dbt projects with DuckDB, follow the steps:
 
 * Use the `dbt docs generate` command to compile information about your dbt project and warehouse into `manifest.json` and `catalog.json` files
-* Run the [`dbt docs serve`](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-serve) command to create a local website using the generated `.json` files. This allows you to view your project's documentation in a web browser.
-* Enhance your documentation by adding [descriptions](https://docs.getdbt.com/reference/resource-properties/description.md) to models, columns, and sources using the `description` key in your YAML files.
+* Run the [`dbt docs serve`](../reference/commands/cmd-docs.md#dbt-docs-serve) command to create a local website using the generated `.json` files. This allows you to view your project's documentation in a web browser.
+* Enhance your documentation by adding [descriptions](../reference/resource-properties/description.md) to models, columns, and sources using the `description` key in your YAML files.
 
 ### Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
 
@@ -284,9 +284,9 @@ git push
 ### Schedule a job[​](#schedule-a-job "Direct link to Schedule a job")
 
 1. Ensure dbt Core is installed and configured to connect to your DuckDB instance.
-2. Create a dbt project and define your [`models`](https://docs.getdbt.com/docs/build/models.md), [`seeds`](https://docs.getdbt.com/reference/seed-properties.md), and [`tests`](https://docs.getdbt.com/reference/commands/test.md).
-3. Use a scheduler such [Prefect](https://docs.getdbt.com/docs/deploy/deployment-tools.md#prefect) to schedule your dbt runs. You can create a DAG (Directed Acyclic Graph) that triggers dbt commands at specified intervals.
-4. Write a script that runs your dbt commands, such as [`dbt run`](https://docs.getdbt.com/reference/commands/run.md), `dbt test` and more so.
+2. Create a dbt project and define your [`models`](../docs/build/models.md), [`seeds`](../reference/seed-properties.md), and [`tests`](../reference/commands/test.md).
+3. Use a scheduler such [Prefect](../docs/deploy/deployment-tools.md#prefect) to schedule your dbt runs. You can create a DAG (Directed Acyclic Graph) that triggers dbt commands at specified intervals.
+4. Write a script that runs your dbt commands, such as [`dbt run`](../reference/commands/run.md), `dbt test` and more so.
 5. Use your chosen scheduler to run the script at your desired frequency.
 
 Congratulations on making it through the guide 🎉!

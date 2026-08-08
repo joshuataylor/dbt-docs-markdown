@@ -1,6 +1,6 @@
 # Optimize and troubleshoot dbt models on Databricks
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Databricks
 
@@ -16,7 +16,7 @@ Intermediate
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-Building on the [Set up your dbt project with Databricks](https://docs.getdbt.com/guides/set-up-your-databricks-dbt-project.md) guide, we'd like to discuss performance optimization. In this follow-up post, we outline simple strategies to optimize for cost, performance, and simplicity when you architect data pipelines. We’ve encapsulated these strategies in this acronym-framework:
+Building on the [Set up your dbt project with Databricks](./set-up-your-databricks-dbt-project.md) guide, we'd like to discuss performance optimization. In this follow-up post, we outline simple strategies to optimize for cost, performance, and simplicity when you architect data pipelines. We’ve encapsulated these strategies in this acronym-framework:
 
 * Platform Components
 * Patterns & Best Practices
@@ -36,7 +36,7 @@ To select the appropriate size of your SQL warehouse, consider the use case and 
 
 ### Provision warehouses by workload[​](#provision-warehouses-by-workload "Direct link to Provision warehouses by workload")
 
-Another technique worth implementing is to provision separate SQL warehouses for building dbt pipelines instead of ad hoc, interactive SQL analysis. This is because the query design patterns and compute usage are different for these two types of workloads. Choose T-shirt sizes based on data volumes and SLAs (scale-up principle), and choose auto-scaling based on concurrency requirements (scale-out principle). For larger deployments, this approach could be expanded to map different workload sizes to multiple “pipeline” warehouses, if needed. On the dbt side, take into account the [number of threads you have](https://docs.getdbt.com/docs/local/profiles.yml.md#understanding-threads), meaning how many dbt models you can run in parallel. The higher the thread count, the more compute you will require.
+Another technique worth implementing is to provision separate SQL warehouses for building dbt pipelines instead of ad hoc, interactive SQL analysis. This is because the query design patterns and compute usage are different for these two types of workloads. Choose T-shirt sizes based on data volumes and SLAs (scale-up principle), and choose auto-scaling based on concurrency requirements (scale-out principle). For larger deployments, this approach could be expanded to map different workload sizes to multiple “pipeline” warehouses, if needed. On the dbt side, take into account the [number of threads you have](../docs/local/profiles.yml.md#understanding-threads), meaning how many dbt models you can run in parallel. The higher the thread count, the more compute you will require.
 
 ### Configure auto-stop[​](#configure-auto-stop "Direct link to Configure auto-stop")
 
@@ -46,7 +46,7 @@ Because of the ability of serverless warehouses to spin up in a matter of second
 
 Now that we have a solid sense of the infrastructure components, we can shift our focus to best practices and design patterns on pipeline development.  We recommend the staging/intermediate/mart approach which is analogous to the medallion architecture bronze/silver/gold approach that’s recommended by Databricks. Let’s dissect each stage further.
 
-dbt has guidelines on how you can [structure your dbt project](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) which you can learn more about.
+dbt has guidelines on how you can [structure your dbt project](../best-practices/how-we-structure/1-guide-overview.md) which you can learn more about.
 
 ### Bronze / Staging Layer:[​](#bronze--staging-layer "Direct link to Bronze / Staging Layer:")
 
@@ -60,9 +60,9 @@ The main benefit of leveraging `COPY INTO` is that it's an incremental operation
 
 Now that we have our bronze table taken care of, we can proceed with the silver layer.
 
-For cost and performance reasons, many customers opt to implement an incremental pipeline approach. The main benefit with this approach is that you process a lot less data when you insert new records into the silver layer, rather than re-create the table each time with all the data from the bronze layer. However it should be noted that by default, [dbt recommends using views and tables](https://docs.getdbt.com/best-practices/materializations/1-guide-overview.md) to start out with and then moving to incremental as you require more performance optimization.
+For cost and performance reasons, many customers opt to implement an incremental pipeline approach. The main benefit with this approach is that you process a lot less data when you insert new records into the silver layer, rather than re-create the table each time with all the data from the bronze layer. However it should be noted that by default, [dbt recommends using views and tables](../best-practices/materializations/1-guide-overview.md) to start out with and then moving to incremental as you require more performance optimization.
 
-dbt has an [incremental model materialization](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#the-merge-strategy) to facilitate this framework. How this works at a high level is that Databricks will create a temp view with a snapshot of data and then merge that snapshot into the silver table. You can customize the time range of the snapshot to suit your specific use case by configuring the `where` conditional in your `is_incremental` logic. The most straightforward implementation is to merge data using a timestamp that’s later than the current max timestamp in the silver table, but there are certainly valid use cases for increasing the temporal range of the source snapshot.
+dbt has an [incremental model materialization](../reference/resource-configs/spark-configs.md#the-merge-strategy) to facilitate this framework. How this works at a high level is that Databricks will create a temp view with a snapshot of data and then merge that snapshot into the silver table. You can customize the time range of the snapshot to suit your specific use case by configuring the `where` conditional in your `is_incremental` logic. The most straightforward implementation is to merge data using a timestamp that’s later than the current max timestamp in the silver table, but there are certainly valid use cases for increasing the temporal range of the source snapshot.
 
 While merge should be fairly performant out of the box but if you have particularly tight SLAs, there are some more advanced tuning techniques that you can incorporate into your logic. Let us discuss several examples in further detail.
 
@@ -100,13 +100,13 @@ An important item to clarify is that you will want to prioritize statistics for 
 
 ### Vacuum[​](#vacuum "Direct link to Vacuum")
 
-When you delete a record from a Delta table, it is a soft delete. What this means is that the record is deleted from the transaction log and is not included in subsequent queries, but the underlying file still remains in cloud storage. If you want to delete the underlying files as well (whether for reducing storage cost or augmenting performance on merges), you can run a vacuum command. The factor you will want to be very cognizant of is restoring older versions of the table. Let’s say  you vacuum a table to delete all unused files that’s older than 7 days. You won’t be  able to restore versions of the table from over 7 days ago that rely on those deleted  files, so use with caution. If/when you choose to leverage vacuum, you will likely want to run vacuum using the dbt functionality [on-run-end](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md) after your model builds or run vacuum as a separate scheduled dbt job on a consistent cadence (whether it is daily, weekly, or monthly) using the dbt [run-operation](https://docs.getdbt.com/reference/commands/run-operation.md) command (with the vaccum statement in a macro).
+When you delete a record from a Delta table, it is a soft delete. What this means is that the record is deleted from the transaction log and is not included in subsequent queries, but the underlying file still remains in cloud storage. If you want to delete the underlying files as well (whether for reducing storage cost or augmenting performance on merges), you can run a vacuum command. The factor you will want to be very cognizant of is restoring older versions of the table. Let’s say  you vacuum a table to delete all unused files that’s older than 7 days. You won’t be  able to restore versions of the table from over 7 days ago that rely on those deleted  files, so use with caution. If/when you choose to leverage vacuum, you will likely want to run vacuum using the dbt functionality [on-run-end](../reference/project-configs/on-run-start-on-run-end.md) after your model builds or run vacuum as a separate scheduled dbt job on a consistent cadence (whether it is daily, weekly, or monthly) using the dbt [run-operation](../reference/commands/run-operation.md) command (with the vaccum statement in a macro).
 
 ### Gold / Marts Layer[​](#gold--marts-layer "Direct link to Gold / Marts Layer")
 
 Now onto the most final layer — the gold marts that business stakeholders typically interact with from their preferred BI tool. The considerations here will be fairly similar to the silver layer except that these marts are more likely to handling aggregations. Further, you will likely want to be even more intentional about Z-Ordering these tables as SLAs tend to be lower with these direct stakeholder facing tables.
 
-In addition, these tables are well suited for defining [metrics](https://docs.getdbt.com/docs/build/build-metrics-intro.md) on to ensure simplicity and consistency across your key business KPIs! Using the [MetricFlow](https://github.com/dbt-labs/metricflow), you can query the metrics inside of your own dbt project even. With the upcoming Semantic Layer Integration, you can also then query the metrics in any of the partner integrated tools.
+In addition, these tables are well suited for defining [metrics](../docs/build/build-metrics-intro.md) on to ensure simplicity and consistency across your key business KPIs! Using the [MetricFlow](https://github.com/dbt-labs/metricflow), you can query the metrics inside of your own dbt project even. With the upcoming Semantic Layer Integration, you can also then query the metrics in any of the partner integrated tools.
 
 ### Filter rows in target and/or source[​](#filter-rows-in-target-andor-source "Direct link to Filter rows in target and/or source")
 
@@ -171,14 +171,14 @@ Databricks is committed to continuously improving its performance. For example, 
 
 ### dbt Discovery API[​](#dbt-discovery-api "Direct link to dbt Discovery API")
 
-Now you might be wondering, how do you identify opportunities for performance improvement inside of dbt? Well, with each job run, dbt generates metadata on the timing, configuration, and freshness of models in your dbt project. The [dbt Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) is a GraphQL service that supports queries on this metadata, using  the [graphical explorer](https://metadata.cloud.getdbt.com/graphiql) or the endpoint itself. Teams can pipe this data into their data warehouse and analyze it like any other data source in a business intelligence platform. dbt users can also use the data from the [Model Timing tab](https://docs.getdbt.com/docs/deploy/run-visibility.md#model-timing) to visually identify models that take the most time and may require refactoring.
+Now you might be wondering, how do you identify opportunities for performance improvement inside of dbt? Well, with each job run, dbt generates metadata on the timing, configuration, and freshness of models in your dbt project. The [dbt Discovery API](../docs/dbt-apis/discovery-api.md) is a GraphQL service that supports queries on this metadata, using  the [graphical explorer](https://metadata.cloud.getdbt.com/graphiql) or the endpoint itself. Teams can pipe this data into their data warehouse and analyze it like any other data source in a business intelligence platform. dbt users can also use the data from the [Model Timing tab](../docs/deploy/run-visibility.md#model-timing) to visually identify models that take the most time and may require refactoring.
 
 ### dbt Admin API[​](#dbt-admin-api "Direct link to dbt Admin API")
 
-With the [dbt Admin API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md), you can  pull the dbt artifacts from your dbt run,  put the generated `manifest.json` into an S3 bucket, stage it, and model the data using the [dbt artifacts package](https://hub.getdbt.com/brooklyn-data/dbt_artifacts/latest/). That package can help you identify inefficiencies in your dbt models and pinpoint where opportunities for improvement are.
+With the [dbt Admin API](../docs/dbt-apis/admin-api.md), you can  pull the dbt artifacts from your dbt run,  put the generated `manifest.json` into an S3 bucket, stage it, and model the data using the [dbt artifacts package](https://hub.getdbt.com/brooklyn-data/dbt_artifacts/latest/). That package can help you identify inefficiencies in your dbt models and pinpoint where opportunities for improvement are.
 
 ### Conclusion[​](#conclusion "Direct link to Conclusion")
 
-This builds on the content in [Set up your dbt project with Databricks](https://docs.getdbt.com/guides/set-up-your-databricks-dbt-project.md).
+This builds on the content in [Set up your dbt project with Databricks](./set-up-your-databricks-dbt-project.md).
 
 We welcome you to try these strategies on our example open source TPC-H implementation and to provide us with thoughts/feedback as you start to incorporate these features into production. Looking forward to your feedback on [#db-databricks-and-spark](https://getdbt.slack.com/archives/CNGCW8HKL) Slack channel!

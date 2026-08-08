@@ -52,7 +52,7 @@ Drivers handle authentication through key-value options set on the database. Fus
 
 For a complete example of how Fusion translates profile options, see the [Snowflake authentication source code](https://github.com/dbt-labs/dbt-fusion/blob/main/crates/dbt-auth/src/snowflake/mod.rs).
 
-For more information on profile configuration, refer to [dbt profiles](https://docs.getdbt.com/docs/local/profiles.yml.md).
+For more information on profile configuration, refer to [dbt profiles](../local/profiles.yml.md).
 
 #### Credential caching[​](#credential-caching "Direct link to Credential caching")
 

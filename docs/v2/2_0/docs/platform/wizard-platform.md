@@ -6,11 +6,11 @@ dbt Wizard helps teams ship trusted dbt changes faster and with less risk. It us
 
 dbt Wizard is more than a general coding agent with access to dbt. Built for governed data development in dbt, it understands lineage, documentation, tests, and semantic definitions, and accounts for dev builds, compute, run time, and post-build inspection. Its suggestions are grounded in your project's actual data *and* context.
 
-An admin must [enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account before you can use it in the platform.
+An admin must [enable dbt Wizard](./enable-dbt-ai.md) for your account before you can use it in the platform.
 
 dbt Wizard comes with various features like:
 
-* Built-in [agent mode](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#agent-modes) to help you manage agent control:
+* Built-in [agent mode](../dbt-ai/wizard-ide.md#agent-modes) to help you manage agent control:
 
   <!-- -->
 
@@ -41,31 +41,31 @@ dbt Wizard supports different AI providers depending on where you use it.
 
 Refer to the following pages for more information:
 
-* [Configure dbt platform](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+* [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
+* [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
-Looking for the terminal experience? Visit [About dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/about-dbt-wizard-cli.md).
+Looking for the terminal experience? Visit [About dbt Wizard CLI](../dbt-ai/about-dbt-wizard-cli.md).
 
 ## What you can do[​](#what-you-can-do "Direct link to What you can do")
 
 Use dbt Wizard in the dbt platform to:
 
-* Leverage agentic capabilities in the [Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md) or [Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md) for governed data development in dbt.
+* Leverage agentic capabilities in the [Wizard home tab](./wizard-home.md) or [Studio IDE](../dbt-ai/wizard-ide.md) for governed data development in dbt.
 * Ask project-aware questions and get context-grounded answers
 * Generate documentation, semantic models, tests, and metrics
 * Build or refactor models from plain-language prompts
 * Review file changes as diffs before persisting
 * Run end-to-end tasks in approval or automatic edit modes
 
-For more examples, visit [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md).
+For more examples, visit [Use cases and examples](../dbt-ai/wizard-use-cases.md).
 
 Best practices for using dbt Wizard
 
-Most of the workflows in [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) apply here too — the prompts work the same in Studio IDE and the Wizard home tab.
+Most of the workflows in [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) apply here too — the prompts work the same in Studio IDE and the Wizard home tab.
 
 tip
 
-Always review AI-generated content, as it may be incorrect. For prompt best practices, refer to the [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md).
+Always review AI-generated content, as it may be incorrect. For prompt best practices, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md).
 
 *dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
 
@@ -73,44 +73,44 @@ Please contact dbt Support with any questions
 
 ## Get started in the dbt platform[​](#get-started-in-the-dbt-platform "Direct link to Get started in the dbt platform")
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md)
+[![](/img/icons/wizard.svg)](./enable-dbt-ai.md)
 
-#### [Get started in dbt platform](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md)
+#### [Get started in dbt platform](./enable-dbt-ai.md)
 
-[Turn on dbt Wizard and dbt Copilot for your account in the dbt platform.](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md)
+[Turn on dbt Wizard and dbt Copilot for your account in the dbt platform.](./enable-dbt-ai.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+[![](/img/icons/wizard.svg)](../dbt-ai/wizard-ide.md)
 
-#### [Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+#### [Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
 
-[Leverage agentic development in the Studio IDE for governed data development in dbt.](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
+[Leverage agentic development in the Studio IDE for governed data development in dbt.](../dbt-ai/wizard-ide.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/platform/wizard-home.md)
+[![](/img/icons/wizard.svg)](./wizard-home.md)
 
-#### [Wizard home tab](https://docs.getdbt.com/docs/platform/wizard-home.md)
+#### [Wizard home tab](./wizard-home.md)
 
-[Use the agent-native home tab to iterate in natural language, review inline diffs, and validate changes.](https://docs.getdbt.com/docs/platform/wizard-home.md)
+[Use the agent-native home tab to iterate in natural language, review inline diffs, and validate changes.](./wizard-home.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
+[![](/img/icons/wizard.svg)](./wizard-byok-platform.md)
 
-#### [Configure BYOK](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
+#### [Configure BYOK](./wizard-byok-platform.md)
 
-[Bring your own API key to use dbt Wizard or dbt Copilot in the dbt platform.](https://docs.getdbt.com/docs/platform/wizard-byok-platform.md)
+[Bring your own API key to use dbt Wizard or dbt Copilot in the dbt platform.](./wizard-byok-platform.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
+[![](/img/icons/wizard.svg)](../dbt-ai/wizard-platform-skills.md)
 
-#### [Use skills](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
+#### [Use skills](../dbt-ai/wizard-platform-skills.md)
 
-[Give dbt Wizard reusable instructions for your project.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-skills.md)
+[Give dbt Wizard reusable instructions for your project.](../dbt-ai/wizard-platform-skills.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-mcp.md)
+[![](/img/icons/wizard.svg)](../dbt-ai/wizard-platform-mcp.md)
 
-#### [Use MCP servers](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-mcp.md)
+#### [Use MCP servers](../dbt-ai/wizard-platform-mcp.md)
 
-[Understand MCP server support in the dbt platform experience.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-mcp.md)
+[Understand MCP server support in the dbt platform experience.](../dbt-ai/wizard-platform-mcp.md)
 
-[![](/img/icons/wizard.svg)](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
+[![](/img/icons/wizard.svg)](../dbt-ai/wizard-platform-privacy-data.md)
 
-#### [Data & Privacy](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
+#### [Data & Privacy](../dbt-ai/wizard-platform-privacy-data.md)
 
-[Understand how dbt Wizard in the dbt platform handles privacy and data.](https://docs.getdbt.com/docs/dbt-ai/wizard-platform-privacy-data.md)
+[Understand how dbt Wizard in the dbt platform handles privacy and data.](../dbt-ai/wizard-platform-privacy-data.md)

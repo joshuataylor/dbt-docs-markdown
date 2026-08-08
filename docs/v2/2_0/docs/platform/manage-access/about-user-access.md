@@ -6,7 +6,7 @@ This page covers user groups and access, including:
 * Role-based access controls for projects and environments
 * Single sign-on, and secure authentication
 
-For model-specific access and their availability across projects, refer to [Model access](https://docs.getdbt.com/docs/mesh/govern/model-access.md).
+For model-specific access and their availability across projects, refer to [Model access](../../mesh/govern/model-access.md).
 
 # About user access
 
@@ -16,7 +16,7 @@ You can regulate access to dbt by various measures, including licenses, groups, 
 
 ## Users[​](#users "Direct link to Users")
 
-Individual users in dbt can be people you [manually invite](https://docs.getdbt.com/docs/platform/manage-access/invite-users.md) or grant access via an external identity provider (IdP), such as Microsoft Entra ID, Okta, or Google Workspace.
+Individual users in dbt can be people you [manually invite](./invite-users.md) or grant access via an external identity provider (IdP), such as Microsoft Entra ID, Okta, or Google Workspace.
 
 In either scenario, when you add a user to dbt, they are assigned a [license](#licenses). You assign licenses at the individual user or group levels. When you manually invite a user, you will assign the license in the invitation window.
 
@@ -28,7 +28,7 @@ You can edit an existing user's license by navigating to the **Users** section o
 
 ### User passwords[​](#user-passwords "Direct link to User passwords")
 
-By default, new users will be prompted to set a password for their account. All plan tiers support and enforce [multi-factor authentication](https://docs.getdbt.com/docs/platform/manage-access/mfa.md) for users with password logins. However, they will still need to configure their password before configuring MFA. Enterprise tier accounts can configure [SSO](#sso-mappings) and advanced authentication measures. Developer and Starter plans only support user passwords with MFA.
+By default, new users will be prompted to set a password for their account. All plan tiers support and enforce [multi-factor authentication](./mfa.md) for users with password logins. However, they will still need to configure their password before configuring MFA. Enterprise tier accounts can configure [SSO](#sso-mappings) and advanced authentication measures. Developer and Starter plans only support user passwords with MFA.
 
 User passwords must meet the following criteria:
 
@@ -41,7 +41,7 @@ User passwords must meet the following criteria:
 
 Groups in dbt serve much of the same purpose as they do in traditional directory tools — to gather individual users together to make bulk assignments of permissions easier.
 
-The permissions available depends on whether you're on an [Enterprise-tier](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) or [self-service Starter](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md) plan.
+The permissions available depends on whether you're on an [Enterprise-tier](./enterprise-permissions.md) or [self-service Starter](./self-service-permissions.md) plan.
 
 * Admins use groups in dbt to assign [licenses](#licenses) and [permissions](#permissions).
 * The permissions are more granular than licenses, and you only assign them at the group level; *you can’t assign permissions at the user level.*
@@ -57,8 +57,8 @@ default group permissions
 
 The `Owner` and `Member` groups have default permission sets:
 
-* **Starter plan:** The `Owner` and `Member` groups use the `Owner` and `Member` [permission sets](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md#table-of-groups-licenses-and-permissions), respectively.
-* **Enterprise plans:** By default, dbt assigns the `Owner` group an [`Account Admin`](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-admin) permission set, and the `Member` group a `Member` permission set, which doesn't appear in the settings, but has the same privileges as the [`Admin`](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#admin) permission set.
+* **Starter plan:** The `Owner` and `Member` groups use the `Owner` and `Member` [permission sets](./self-service-permissions.md#table-of-groups-licenses-and-permissions), respectively.
+* **Enterprise plans:** By default, dbt assigns the `Owner` group an [`Account Admin`](./enterprise-permissions.md#account-admin) permission set, and the `Member` group a `Member` permission set, which doesn't appear in the settings, but has the same privileges as the [`Admin`](./enterprise-permissions.md#admin) permission set.
 
 Default groups are automatically provisioned for all accounts to simplify the initial set up. We recommend creating your own organizational groups so you can customize the permissions. Once you create your own groups, you can delete the default groups.
 
@@ -120,7 +120,7 @@ dbt users have both a license (assigned to an individual user or by group member
 
 ### Licenses[​](#licenses "Direct link to Licenses")
 
-Every user in dbt will have a license assigned. Licenses consume "seats" which impact how your account is [billed](https://docs.getdbt.com/docs/platform/billing.md), depending on your [service plan](https://www.getdbt.com/pricing).
+Every user in dbt will have a license assigned. Licenses consume "seats" which impact how your account is [billed](../billing.md), depending on your [service plan](https://www.getdbt.com/pricing).
 
 There are four license types in dbt:
 
@@ -129,11 +129,11 @@ There are four license types in dbt:
   <!-- -->
 
   * User can be granted *any* permission sets.
-  * \* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+  * \* The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 * **Developer** — User can be granted *any* permission sets.
 
-* **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
+* **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](./enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
 
   <!-- -->
 
@@ -146,15 +146,15 @@ There are four license types in dbt:
   <!-- -->
 
   * User has read-only permissions applied to all dbt resources.
-  * Intended to view the [artifacts](https://docs.getdbt.com/docs/deploy/artifacts.md) and the [deploy](https://docs.getdbt.com/docs/deploy/deployments.md) section (jobs, runs, schedules) in a dbt account, but can’t make changes.
+  * Intended to view the [artifacts](../../deploy/artifacts.md) and the [deploy](../../deploy/deployments.md) section (jobs, runs, schedules) in a dbt account, but can’t make changes.
   * *Read-only licensed users do not inherit rights from any permission sets*.
   * Every read-only licensed user has the same access across the account, regardless of the group permissions assigned.
 
-\* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+\* The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 Developer licenses will make up a majority of the users in your environment and have the highest impact on billing, so it's important to monitor how many you have at any given time.
 
-For more information on these license types, see [Seats & Users](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md)
+For more information on these license types, see [Seats & Users](./seats-and-users.md)
 
 <!-- -->
 
@@ -168,23 +168,23 @@ This ensures that license restrictions are always enforced, regardless of group 
 
 Permissions determine what users can do in your dbt account. By default, members of the `Owner` and `Member` groups have full access to all areas and features. When you want to restrict access to features, assign users to groups with stricter permission sets. Keep in mind that if a user belongs to multiple groups, the most permissive group will take precedence.
 
-The permissions available depend on whether you're on an [Enterprise, Enterprise+](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), or [self-service Starter](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md) plan. Developer accounts only have a single user, so permissions aren't applicable.
+The permissions available depend on whether you're on an [Enterprise, Enterprise+](./enterprise-permissions.md), or [self-service Starter](./self-service-permissions.md) plan. Developer accounts only have a single user, so permissions aren't applicable.
 
-Some access to user settings (for example, **Credentials** settings in **Your profile**) can be granted with additional permissions (such as `user_credential_write`). Refer to [Enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for more information.
+Some access to user settings (for example, **Credentials** settings in **Your profile**) can be granted with additional permissions (such as `user_credential_write`). Refer to [Enterprise permissions](./enterprise-permissions.md) for more information.
 
 [![Example permissions dropdown while editing an existing group.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/assign-group-permissions.png?v=2 "Example permissions dropdown while editing an existing group.")](#)Example permissions dropdown while editing an existing group.
 
-Some permissions (those that don't grant full access, like admins) allow groups to be "assigned" to specific projects and environments only. Read about [environment-level permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions-setup.md) for more information on restricting environment access.
+Some permissions (those that don't grant full access, like admins) allow groups to be "assigned" to specific projects and environments only. Read about [environment-level permissions](./environment-permissions-setup.md) for more information on restricting environment access.
 
 [![Example environment access control for a group with Git admin assigned.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/environment-access-control.png?v=2 "Example environment access control for a group with Git admin assigned.")](#)Example environment access control for a group with Git admin assigned.
 
 ### Set up read-only user access [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#set-up-read-only-user-access- "Direct link to set-up-read-only-user-access-")
 
-To give users read-only access to analyze dbt models and project resources, assign them the [Analyst read](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#analyst-read) permission set through a group. Users won't have access until they're added to a group that's assigned the permission set.
+To give users read-only access to analyze dbt models and project resources, assign them the [Analyst read](./enterprise-permissions.md#analyst-read) permission set through a group. Users won't have access until they're added to a group that's assigned the permission set.
 
 Availability
 
-The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md)) is available to use. The **Analyst read** permission set and the read-only permission changes described here are in **private beta**. To enable it, contact your account manager.
+The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../../dbt-ai/about-mcp.md)) is available to use. The **Analyst read** permission set and the read-only permission changes described here are in **private beta**. To enable it, contact your account manager.
 
 **1. Create a group with the Analyst read permission set**
 
@@ -206,7 +206,7 @@ You can skip or automate this step if license mapping and group mapping are enab
 
 [![Assign a user the read-only license and add them to the group](/img/docs/dbt-platform/access-control/analyst-read-permission.png?v=2 "Assign a user the read-only license and add them to the group")](#)Assign a user the read-only license and add them to the group
 
-For more information, refer to [Grant access](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#grant-access).
+For more information, refer to [Grant access](./about-user-access.md#grant-access).
 
 ## Role-based access control [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#role-based-access-control- "Direct link to role-based-access-control-")
 
@@ -220,9 +220,9 @@ There are a few things you need to know before you configure RBAC for SSO users:
   [![The Group details SSO section with a group configured.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/sso-window-details.png?v=2 "The Group details SSO section with a group configured.")](#)The Group details SSO section with a group configured.
 * dbt Labs recommends that your dbt group names match the IdP group names.
 
-Let's say you have a new employee being onboarded into your organization using [Okta](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-okta.md) as the IdP and dbt groups with SSO mappings. In this scenario, users are working on `The Big Project` and a new analyst named `Euclid Ean` is joining the group.
+Let's say you have a new employee being onboarded into your organization using [Okta](./set-up-sso-okta.md) as the IdP and dbt groups with SSO mappings. In this scenario, users are working on `The Big Project` and a new analyst named `Euclid Ean` is joining the group.
 
-Check out the following example configurations for an idea of how you can implement RBAC for your organization (these examples assume you have already configured [SSO](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md)):
+Check out the following example configurations for an idea of how you can implement RBAC for your organization (these examples assume you have already configured [SSO](./sso-overview.md)):
 
  Okta configuration
 
@@ -241,7 +241,7 @@ You and your dbt admin team configure the groups in your account's settings:
 1. Navigate to the **Account settings** and click **Groups & Licenses** on the left-side menu.
 2. Click **Create group** or select an existing group and click **Edit**.
 3. Enter the group name in the **SSO** field.
-4. Configure the **Access and permissions** fields to your needs. Select a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), the project they can access, and [environment-level access](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md).
+4. Configure the **Access and permissions** fields to your needs. Select a [permission set](./enterprise-permissions.md), the project they can access, and [environment-level access](./environment-permissions.md).
 
 [![The group configuration with SSO field filled out in dbt.](/img/docs/dbt-platform/dbt-platform-enterprise/access-control/dbt-cloud-group-config.png?v=2 "The group configuration with SSO field filled out in dbt.")](#)The group configuration with SSO field filled out in dbt.
 
@@ -285,7 +285,7 @@ With RBAC configured, you now have granular control over user access to features
 
 ### SCIM license management[​](#scim-license-management "Direct link to SCIM license management")
 
-As part of the SSO configuration for supported IdPs, you can also configure the [System for Cross-Domain Identity Management (SCIM)](https://docs.getdbt.com/docs/platform/manage-access/scim.md) settings to add a layer of security to your user lifecycle management. As part of this process, you can integrate user license distribution into the user provisioning process through your IdP. See the [SCIM license management instructions](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) for more information.
+As part of the SSO configuration for supported IdPs, you can also configure the [System for Cross-Domain Identity Management (SCIM)](./scim.md) settings to add a layer of security to your user lifecycle management. As part of this process, you can integrate user license distribution into the user provisioning process through your IdP. See the [SCIM license management instructions](./scim-manage-user-licenses.md) for more information.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -299,7 +299,7 @@ Yes, see the documentation on [Manual Assignment](#manual-assignment) above for 
 
  Can I configure a user's license type based on IdP attributes?
 
-Yes, see the docs on [managing license types](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#managing-license-types) for more information.
+Yes, see the docs on [managing license types](./seats-and-users.md#managing-license-types) for more information.
 
  Why can't I edit a user's group membership?
 
@@ -309,9 +309,9 @@ Don't try to edit your own user, as this isn't allowed for security reasons. You
 
 Each dbt plan has a base number of Developer and Read-Only licenses. You can add or remove licenses by modifying the number of users in your account settings.
 
-* If you're on an Enterprise or Enterprise+ plan and have the correct [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), you can add or remove developers by adjusting your developer user seat count in **Account settings** -> **Users**.
-* If you're on a Starter plan and have the correct [permissions](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md), you can add or remove developers by making two changes: adjust your developer user seat count AND your developer billing seat count in **Account settings** -> **Users** and then in **Account settings** -> **Billing**.
+* If you're on an Enterprise or Enterprise+ plan and have the correct [permissions](./enterprise-permissions.md), you can add or remove developers by adjusting your developer user seat count in **Account settings** -> **Users**.
+* If you're on a Starter plan and have the correct [permissions](./self-service-permissions.md), you can add or remove developers by making two changes: adjust your developer user seat count AND your developer billing seat count in **Account settings** -> **Users** and then in **Account settings** -> **Billing**.
 
-For detailed steps, refer to [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses).
+For detailed steps, refer to [Users and licenses](./seats-and-users.md#licenses).
 
 ## Learn more[​](#learn-more "Direct link to Learn more")

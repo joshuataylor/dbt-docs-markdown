@@ -28,9 +28,9 @@ With the Cloud Studio IDE, you can:
 
 [![The Studio IDE in dark mode](/img/docs/dbt-platform/platform-ide/cloud-ide-v2.png?v=2 "The Studio IDE in dark mode")](#)The Studio IDE in dark mode
 
-For more information, read the complete [Cloud Studio IDE guide](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+For more information, read the complete [Cloud Studio IDE guide](../studio-ide/develop-in-studio.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Studio IDE user interface](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md)
-* [Keyboard shortcuts](https://docs.getdbt.com/docs/platform/studio-ide/keyboard-shortcuts.md)
+* [Studio IDE user interface](../studio-ide/ide-user-interface.md)
+* [Keyboard shortcuts](../studio-ide/keyboard-shortcuts.md)

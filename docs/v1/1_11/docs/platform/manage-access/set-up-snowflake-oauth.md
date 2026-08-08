@@ -4,7 +4,7 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 Subdomain migration
 
-We're migrating dbt platform [multi-tenant accounts worldwide](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) to static subdomains. After the migration, you’ll be automatically redirected from your original URL (for example, `cloud.getdbt.com`) to the new URL static subdomain (for example, `abc123.us1.dbt.com`), which you can find in your account settings. If your organization has network allow listing, add the `us1.dbt.com` domain to your allow list.
+We're migrating dbt platform [multi-tenant accounts worldwide](../about-platform/access-regions-ip-addresses.md) to static subdomains. After the migration, you’ll be automatically redirected from your original URL (for example, `cloud.getdbt.com`) to the new URL static subdomain (for example, `abc123.us1.dbt.com`), which you can find in your account settings. If your organization has network allow listing, add the `us1.dbt.com` domain to your allow list.
 
 The migration may require additional actions in your Snowflake account. See [subdomain migration](#subdomain-migration) for more information.
 
@@ -14,7 +14,7 @@ dbt Enterprise and Enterprise+ supports [OAuth authentication](https://docs.snow
 
 Snowflake OAuth with PrivateLink
 
-Users connecting to Snowflake using [Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md) over an AWS PrivateLink connection from dbt will also require access to a PrivateLink endpoint from their local workstation. Where possible, use [Snowflake External OAuth](https://docs.getdbt.com/docs/platform/manage-access/snowflake-external-oauth.md) instead to bypass this limitation.
+Users connecting to Snowflake using [Snowflake OAuth](./set-up-snowflake-oauth.md) over an AWS PrivateLink connection from dbt will also require access to a PrivateLink endpoint from their local workstation. Where possible, use [Snowflake External OAuth](./snowflake-external-oauth.md) instead to bypass this limitation.
 
 From the [Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-overview#label-sso-private-connectivity) docs:
 
@@ -43,7 +43,7 @@ To get started, copy the connection's redirect URI from dbt:
 
 In Snowflake, execute a query to create a security integration. Please find the complete documentation on creating a security integration for custom clients [here](https://docs.snowflake.net/manuals/sql-reference/sql/create-security-integration.html#syntax).
 
-In the following `CREATE OR REPLACE SECURITY INTEGRATION` example query, replace `<REDIRECT_URI>` value with the Redirect URI (also referred to as the [access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md)) copied in dbt. To locate the Redirect URI, refer to the previous [locate the redirect URI value](#locate-the-redirect-uri-value) section.
+In the following `CREATE OR REPLACE SECURITY INTEGRATION` example query, replace `<REDIRECT_URI>` value with the Redirect URI (also referred to as the [access URL](../about-platform/access-regions-ip-addresses.md)) copied in dbt. To locate the Redirect URI, refer to the previous [locate the redirect URI value](#locate-the-redirect-uri-value) section.
 
 Important: If you’re using secondary roles, you must include `OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';` in the statement.
 
@@ -125,9 +125,9 @@ If you are planning to set up the same Snowflake account to different dbt projec
 
 ## Subdomain migration[​](#subdomain-migration "Direct link to Subdomain migration")
 
-If your account uses a static subdomain for the [access URL migration](https://docs.getdbt.com/docs/platform/about-platform/account-url-migration.md), you might need to update Snowflake security integrations shared across projects or connections to prevent service disruptions.
+If your account uses a static subdomain for the [access URL migration](../about-platform/account-url-migration.md), you might need to update Snowflake security integrations shared across projects or connections to prevent service disruptions.
 
-Connections created after migration require an additional OAuth redirect URI. Find this redirect URI under the [connection's OAuth details](#locate-the-redirect-uri-value) or in [API access URLs](https://docs.getdbt.com/docs/dbt-apis/overview.md), then add it to your existing Snowflake security integration.
+Connections created after migration require an additional OAuth redirect URI. Find this redirect URI under the [connection's OAuth details](#locate-the-redirect-uri-value) or in [API access URLs](../../dbt-apis/overview.md), then add it to your existing Snowflake security integration.
 
 ```sql
 ALTER SECURITY INTEGRATION IF EXISTS <INTEGRATION_NAME>
@@ -155,7 +155,7 @@ This error might be because of a configuration issue in the Snowflake OAuth flow
 
  Server error 500
 
-If you experience a 500 server error when redirected from Snowflake to dbt, double-check that you have allow-listed [dbt's IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md), or [VPC Endpoint ID (for PrivateLink connections)](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-snowflake.md#configuring-network-policies), on a Snowflake account level.
+If you experience a 500 server error when redirected from Snowflake to dbt, double-check that you have allow-listed [dbt's IP addresses](../about-platform/access-regions-ip-addresses.md), or [VPC Endpoint ID (for PrivateLink connections)](../secure/private-connectivity/aws/aws-snowflake.md#configuring-network-policies), on a Snowflake account level.
 
 Enterprise customers who have single-tenant deployments will have a different range of IP addresses (network CIDR ranges) to allow list.
 

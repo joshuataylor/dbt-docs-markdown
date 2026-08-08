@@ -24,9 +24,9 @@ Archived release notes for dbt from 2023
 
 *  External attributes
 
-  The extended attributes feature in dbt Cloud is now GA! It allows for an environment level override on any YAML attribute that a dbt adapter accepts in its `profiles.yml`. You can provide a YAML snippet to add or replace any [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) value.
+  The extended attributes feature in dbt Cloud is now GA! It allows for an environment level override on any YAML attribute that a dbt adapter accepts in its `profiles.yml`. You can provide a YAML snippet to add or replace any [profile](../local/profiles.yml.md) value.
 
-  To learn more, refer to [Extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes).
+  To learn more, refer to [Extended attributes](../dbt-platform-environments.md#extended-attributes).
 
   The **Extended Attributes** text box is available from your environment's settings page:
 
@@ -40,12 +40,12 @@ Archived release notes for dbt from 2023
 
   ### Why this change?[​](#why-this-change "Direct link to Why this change?")
 
-  The [re-released dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), powered by MetricFlow, offers enhanced flexibility, performance, and user experience, marking a significant advancement for the dbt community.
+  The [re-released dbt Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), powered by MetricFlow, offers enhanced flexibility, performance, and user experience, marking a significant advancement for the dbt community.
 
   ### Key changes and impact[​](#key-changes-and-impact "Direct link to Key changes and impact")
 
   * **Deprecation date** — The legacy Semantic Layer and dbt Metrics will be officially deprecated on December 15th, 2023.
-  * **Replacement** — [MetricFlow](https://docs.getdbt.com/docs/build/build-metrics-intro.md) replaces dbt Metrics for defining semantic logic. The `dbt_metrics` package will no longer be supported post-deprecation.
+  * **Replacement** — [MetricFlow](../build/build-metrics-intro.md) replaces dbt Metrics for defining semantic logic. The `dbt_metrics` package will no longer be supported post-deprecation.
   * **New feature** — Exports replaces the materializing data with `metrics.calculate` functionality and will be available in dbt Cloud in December or January.
 
   ### Breaking changes and recommendations[​](#breaking-changes-and-recommendations "Direct link to Breaking changes and recommendations")
@@ -64,8 +64,8 @@ Archived release notes for dbt from 2023
 
   * Feedback and community support — Engage and share feedback with the dbt Labs team and dbt Community slack using channels like [#dbt-cloud-semantic-layer](https://getdbt.slack.com/archives/C046L0VTVR6) and [#dbt-metricflow](https://getdbt.slack.com/archives/C02CCBBBR1D). Or reach out to your dbt Cloud account representative.
   * Resources for upgrading — Refer to some additional info and resources to help you upgrade your dbt version:
-  * [Upgrade version in dbt Cloud](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md)
-  * [Version migration guides](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md)
+  * [Upgrade version in dbt Cloud](./upgrade-dbt-platform-version.md)
+  * [Version migration guides](./core-upgrade.md)
 
 ## November 2023[​](#november-2023 "Direct link to November 2023")
 
@@ -84,7 +84,7 @@ Archived release notes for dbt from 2023
 
   * Any account admin can now edit slack notifications, not just the person who created them.
 
-  To learn more, check out [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md).
+  To learn more, check out [Job notifications](../deploy/job-notifications.md).
 
 *  Job notifications
 
@@ -101,13 +101,13 @@ Archived release notes for dbt from 2023
 
   * Any account admin can now edit slack notifications, not just the person who created them.
 
-  To learn more, check out [Job notifications](https://docs.getdbt.com/docs/deploy/job-notifications.md).
+  To learn more, check out [Job notifications](../deploy/job-notifications.md).
 
 *  Repo caching
 
   Now available for dbt Cloud Enterprise plans is a new option to enable Git repository caching for your job runs. When enabled, dbt Cloud caches your dbt project's Git repository and uses the cached copy instead if there's an outage with the Git provider. This feature improves the reliability and stability of your job runs.
 
-  To learn more, refer to [Repo caching](https://docs.getdbt.com/docs/platform/account-settings.md#git-repository-caching).
+  To learn more, refer to [Repo caching](../platform/account-settings.md#git-repository-caching).
 
   [![Example of the Repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Repository caching option")](#)Example of the Repository caching option
 
@@ -115,9 +115,9 @@ Archived release notes for dbt from 2023
 
 *  dbt Cloud APIs
 
-  Beginning December 1, 2023, the [Administrative API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) v2 and v3 will expect you to limit all "list" or `GET` API methods to 100 results per API request. This limit enhances the efficiency and stability of our services. If you need to handle more than 100 results, then use the `limit` and `offset` query parameters to paginate those results; otherwise, you will receive an error.
+  Beginning December 1, 2023, the [Administrative API](../dbt-apis/admin-api.md) v2 and v3 will expect you to limit all "list" or `GET` API methods to 100 results per API request. This limit enhances the efficiency and stability of our services. If you need to handle more than 100 results, then use the `limit` and `offset` query parameters to paginate those results; otherwise, you will receive an error.
 
-  This maximum limit applies to [multi-tenant instances](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) only, and *does not* apply to single tenant instances.
+  This maximum limit applies to [multi-tenant instances](../platform/about-platform/access-regions-ip-addresses.md) only, and *does not* apply to single tenant instances.
 
   Refer to the [API v3 Pagination](https://docs.getdbt.com/dbt-cloud/api-v3#/) or [API v2 Pagination](https://docs.getdbt.com/dbt-cloud/api-v2#/) sections for more information on how to paginate your API responses.
 
@@ -140,19 +140,19 @@ Archived release notes for dbt from 2023
 
   * Automatic deferral of build artifacts to your Cloud project's production environment
   * Secure credential storage in the dbt Cloud platform
-  * Support for dbt Mesh ([cross-project `ref`](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md))
+  * Support for dbt Mesh ([cross-project `ref`](../mesh/govern/project-dependencies.md))
   * Development workflow for dbt Semantic Layer
   * Speedier, lower cost builds
 
-  Refer to [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) to learn more.
+  Refer to [dbt CLI](../platform/dbt-cli-installation.md) to learn more.
 
 *  Custom branch fix
 
-  If you don't set a [custom branch](https://docs.getdbt.com/docs/dbt-platform-environments.md#custom-branch-behavior) for your dbt Cloud environment, it now defaults to the default branch of your Git repository (for example, `main`). Previously, [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) would run for pull requests (PRs) that were opened against *any branch* or updated with new commits if the **Custom Branch** option wasn't set.
+  If you don't set a [custom branch](../dbt-platform-environments.md#custom-branch-behavior) for your dbt Cloud environment, it now defaults to the default branch of your Git repository (for example, `main`). Previously, [CI jobs](../deploy/ci-jobs.md) would run for pull requests (PRs) that were opened against *any branch* or updated with new commits if the **Custom Branch** option wasn't set.
 
   ## Azure DevOps[​](#azure-devops "Direct link to Azure DevOps")
 
-  Your Git pull requests (PRs) might not trigger against your default branch if you're using Azure DevOps and the default branch isn't `main` or `master`. To resolve this, [set up a custom branch](https://docs.getdbt.com/faqs/Environments/custom-branch-settings.md) with the branch you want to target.
+  Your Git pull requests (PRs) might not trigger against your default branch if you're using Azure DevOps and the default branch isn't `main` or `master`. To resolve this, [set up a custom branch](../../faqs/Environments/custom-branch-settings.md) with the branch you want to target.
 
 *  dbt deps auto install
 
@@ -170,7 +170,7 @@ Archived release notes for dbt from 2023
 
   Previously in dbt Cloud, you could only rerun an errored job from start but now you can also rerun it from its point of failure.
 
-  You can view which job failed to complete successfully, which command failed in the run step, and choose how to rerun it. To learn more, refer to [Retry jobs](https://docs.getdbt.com/docs/deploy/retry-jobs.md).
+  You can view which job failed to complete successfully, which command failed in the run step, and choose how to rerun it. To learn more, refer to [Retry jobs](../deploy/retry-jobs.md).
 
   [![Example of the Rerun options in dbt Cloud](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt Cloud")](#)Example of the Rerun options in dbt Cloud
 
@@ -185,21 +185,21 @@ Archived release notes for dbt from 2023
   ## ☁ Cloud projects[​](#cloud-projects "Direct link to ☁ Cloud projects")
 
   * Continuous integration jobs are now generally available and no longer in beta!
-  * Added [Postgres PrivateLink set up page](https://docs.getdbt.com/docs/platform/secure/private-connectivity/aws/aws-postgres.md)
-  * Published beta docs for [dbt Explorer](https://docs.getdbt.com/docs/explore/explore-projects.md).
-  * Added a new Semantic Layer [GraphQL API doc](https://docs.getdbt.com/docs/dbt-apis/sl-graphql.md) and updated the [integration docs](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md) to include Hex. Responded to dbt community feedback and clarified Metricflow use cases for dbt Core and dbt Cloud.
-  * Added an [FAQ](https://docs.getdbt.com/faqs/Git/git-migration.md) describing how to migrate from one git provider to another in dbt Cloud.
-  * Clarified an example and added a [troubleshooting section](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md#troubleshooting) to Snowflake connection docs to address common errors and provide solutions.
+  * Added [Postgres PrivateLink set up page](../platform/secure/private-connectivity/aws/aws-postgres.md)
+  * Published beta docs for [dbt Explorer](../explore/explore-projects.md).
+  * Added a new Semantic Layer [GraphQL API doc](../dbt-apis/sl-graphql.md) and updated the [integration docs](../platform-integrations/avail-sl-integrations.md) to include Hex. Responded to dbt community feedback and clarified Metricflow use cases for dbt Core and dbt Cloud.
+  * Added an [FAQ](../../faqs/Git/git-migration.md) describing how to migrate from one git provider to another in dbt Cloud.
+  * Clarified an example and added a [troubleshooting section](../platform/connect-data-platform/connect-snowflake.md#troubleshooting) to Snowflake connection docs to address common errors and provide solutions.
 
   ## 🎯 Core projects[​](#core-projects "Direct link to 🎯 Core projects")
 
   * Deprecated dbt Core v1.0 and v1.1 from the docs.
-  * Added configuration instructions for the [AWS Glue](https://docs.getdbt.com/docs/local/connect-data-platform/glue-setup.md) community plugin.
-  * Revised the dbt Core quickstart, making it easier to follow. Divided this guide into steps that align with the [other guides](https://docs.getdbt.com/guides/manual-install.md?step=1).
+  * Added configuration instructions for the [AWS Glue](../local/connect-data-platform/glue-setup.md) community plugin.
+  * Revised the dbt Core quickstart, making it easier to follow. Divided this guide into steps that align with the [other guides](../../guides/manual-install.md?step=1).
 
   ## New 📚 Guides, ✏️ blog posts, and FAQs[​](#newguides️blog-posts-and-faqs "Direct link to New 📚 Guides, ✏️ blog posts, and FAQs")
 
-  Added a [style guide template](https://docs.getdbt.com/best-practices/how-we-style/6-how-we-style-conclusion.md#style-guide-template) that you can copy & paste to make sure you adhere to best practices when styling dbt projects!
+  Added a [style guide template](../../best-practices/how-we-style/6-how-we-style-conclusion.md#style-guide-template) that you can copy & paste to make sure you adhere to best practices when styling dbt projects!
 
   ## Upcoming changes[​](#upcoming-changes "Direct link to Upcoming changes")
 
@@ -207,33 +207,33 @@ Archived release notes for dbt from 2023
 
 *  Semantic layer GA
 
-  If you're using the legacy Semantic Layer, we *highly* recommend you [upgrade your dbt version](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) to dbt v1.6 or higher and migrate to the latest Semantic Layer.
+  If you're using the legacy Semantic Layer, we *highly* recommend you [upgrade your dbt version](./upgrade-dbt-platform-version.md) to dbt v1.6 or higher and migrate to the latest Semantic Layer.
 
-  dbt Labs is thrilled to announce that the [dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) is now generally available. It offers consistent data organization, improved governance, reduced costs, enhanced efficiency, and accessible data for better decision-making and collaboration across organizations.
+  dbt Labs is thrilled to announce that the [dbt Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) is now generally available. It offers consistent data organization, improved governance, reduced costs, enhanced efficiency, and accessible data for better decision-making and collaboration across organizations.
 
   It aims to bring the best of modeling and semantics to downstream applications by introducing:
 
-  * Brand new [integrations](https://docs.getdbt.com/docs/platform-integrations/avail-sl-integrations.md) such as Tableau, Google Sheets, Hex, Mode, and Lightdash.
-  * New [Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) using GraphQL and JDBC to query metrics and build integrations.
-  * dbt Cloud [multi-tenant regional](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) support for North America, EMEA, and APAC. Single-tenant support coming soon.
+  * Brand new [integrations](../platform-integrations/avail-sl-integrations.md) such as Tableau, Google Sheets, Hex, Mode, and Lightdash.
+  * New [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) using GraphQL and JDBC to query metrics and build integrations.
+  * dbt Cloud [multi-tenant regional](../platform/about-platform/access-regions-ip-addresses.md) support for North America, EMEA, and APAC. Single-tenant support coming soon.
   * Coming soon — Schedule exports (a way to build tables in your data platform) as part of your dbt Cloud job. Use the APIs to call an export, then access them in your preferred BI tool.
 
   [![Use the universal dbt Semantic Layer to define and queried metrics in integration tools.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "Use the universal dbt Semantic Layer to define and queried metrics in integration tools.")](#)Use the universal dbt Semantic Layer to define and queried metrics in integration tools.
 
   The dbt Semantic Layer is available to [dbt Cloud Team or Enterprise](https://www.getdbt.com/) multi-tenant plans on dbt v1.6 or higher.
 
-  * Team and Enterprise customers can use 1,000 Queried Metrics per month for no additional cost on a limited trial basis, subject to reasonable use limitations. Refer to [Billing](https://docs.getdbt.com/docs/platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) for more information.
+  * Team and Enterprise customers can use 1,000 Queried Metrics per month for no additional cost on a limited trial basis, subject to reasonable use limitations. Refer to [Billing](../platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) for more information.
   * dbt Developer plans and dbt Core users can define metrics but won't be able to query them with integrated tools.
 
 ## September 2023[​](#september-2023 "Direct link to September 2023")
 
 *  CI updates
 
-  dbt Cloud now has two distinct job types: [deploy jobs](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) for building production data assets, and [continuous integration (CI) jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) for checking code changes. These jobs perform fundamentally different tasks so dbt Labs improved the setup experience with better defaults for each.
+  dbt Cloud now has two distinct job types: [deploy jobs](../deploy/deploy-jobs.md) for building production data assets, and [continuous integration (CI) jobs](../deploy/ci-jobs.md) for checking code changes. These jobs perform fundamentally different tasks so dbt Labs improved the setup experience with better defaults for each.
 
   With two types of jobs, instead of one generic type, we can better guide you through the setup flow. Best practices are built into the default settings so you can go from curious to being set up in seconds.
 
-  And, we now have more efficient state comparisons on CI checks: never waste a build or test on code that hasn’t been changed. We now diff between the Git pull request (PR) code and what’s running in production more efficiently with the introduction of deferral to an environment versus a job. To learn more, refer to [Continuous integration in dbt](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+  And, we now have more efficient state comparisons on CI checks: never waste a build or test on code that hasn’t been changed. We now diff between the Git pull request (PR) code and what’s running in production more efficiently with the introduction of deferral to an environment versus a job. To learn more, refer to [Continuous integration in dbt](../deploy/continuous-integration.md).
 
   Below is a comparison table that describes how deploy jobs and CI jobs behave differently:
 
@@ -254,26 +254,26 @@ Archived release notes for dbt from 2023
 
   ## What you need to update[​](#what-you-need-to-update "Direct link to What you need to update")
 
-  * If you want to set up a CI environment for your jobs, dbt Labs recommends that you create your CI job in a dedicated [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#create-a-deployment-environment) that's connected to a staging database. To learn more about these environment best practices, refer to the guide [Get started with continuous integration tests](https://docs.getdbt.com/guides/set-up-ci.md).
+  * If you want to set up a CI environment for your jobs, dbt Labs recommends that you create your CI job in a dedicated [deployment environment](../deploy/deploy-environments.md#create-a-deployment-environment) that's connected to a staging database. To learn more about these environment best practices, refer to the guide [Get started with continuous integration tests](../../guides/set-up-ci.md).
 
   * If you had set up a CI job before October 2, 2023, the job might've been misclassified as a deploy job with this update. Below describes how to fix the job type:
 
-  If you used the [Create Job](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) API endpoint but didn't set `"triggers":triggers.git_provider_webhook`, the job was misclassified as a deploy job and you must re-create it as described in [Trigger a CI job with the API](https://docs.getdbt.com/docs/deploy/ci-jobs.md#trigger-a-ci-job-with-the-api).
+  If you used the [Create Job](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) API endpoint but didn't set `"triggers":triggers.git_provider_webhook`, the job was misclassified as a deploy job and you must re-create it as described in [Trigger a CI job with the API](../deploy/ci-jobs.md#trigger-a-ci-job-with-the-api).
 
-  If you used the dbt UI but didn't enable the **Run on Pull Requests** option that was in the **Continuous Integration** (CI) tab, the job was misclassified as a deploy job and you must re-create it as described in [Set up CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md#set-up-ci-jobs).
+  If you used the dbt UI but didn't enable the **Run on Pull Requests** option that was in the **Continuous Integration** (CI) tab, the job was misclassified as a deploy job and you must re-create it as described in [Set up CI jobs](../deploy/ci-jobs.md#set-up-ci-jobs).
 
-  To check for the job type, review your CI jobs in dbt's [Run History](https://docs.getdbt.com/docs/deploy/run-visibility.md#run-history) and check for the **CI Job** tag below the job name. If it doesn't have this tag, it was misclassified and you need to re-create the job.
+  To check for the job type, review your CI jobs in dbt's [Run History](../deploy/run-visibility.md#run-history) and check for the **CI Job** tag below the job name. If it doesn't have this tag, it was misclassified and you need to re-create the job.
 
   **CI update phase 3 — Update: Improved automatic deletion of temporary schemas**
 
   Temporary schemas are now being automatically deleted (dropped) for all adapters (like Databricks), PrivateLink connections, and environment variables in connection strings.
 
-  dbt Labs has rearchitected how schema deletion works for [continuous integration (CI)](https://docs.getdbt.com/docs/deploy/continuous-integration.md) runs. We created a new service to delete any schema with a prefix of `dbt_cloud_pr_` that's been generated by a PR run.
+  dbt Labs has rearchitected how schema deletion works for [continuous integration (CI)](../deploy/continuous-integration.md) runs. We created a new service to delete any schema with a prefix of `dbt_cloud_pr_` that's been generated by a PR run.
 
   However, temporary schemas will not be automatically deleted if:
 
-  * Your project overrides the [generate\_schema\_name macro](https://docs.getdbt.com/docs/build/custom-schemas.md) but it doesn't contain the required prefix `dbt_cloud_pr_`. For details, refer to [Troubleshooting](https://docs.getdbt.com/docs/deploy/ci-jobs.md#troubleshooting).
-  * You're using a [non-native Git integration](https://docs.getdbt.com/docs/deploy/ci-jobs.md#trigger-a-ci-job-with-the-api). This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
+  * Your project overrides the [generate\_schema\_name macro](../build/custom-schemas.md) but it doesn't contain the required prefix `dbt_cloud_pr_`. For details, refer to [Troubleshooting](../deploy/ci-jobs.md#troubleshooting).
+  * You're using a [non-native Git integration](../deploy/ci-jobs.md#trigger-a-ci-job-with-the-api). This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
 
 *  Product docs updates
 
@@ -283,25 +283,25 @@ Archived release notes for dbt from 2023
 
   We'd also like to give a special thanks to the 22 community members who contributed to the [dbt Product docs](https://docs.getdbt.com) for the first time. <!-- -->🙏<!-- --> Based on feedback from the dbt community, we made these changes:
 
-  * Added a [permissions table](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for Enterprise accounts
-  * Added a [browser session page](https://docs.getdbt.com/docs/platform/about-platform/browsers.md#browser-sessions) that clarifies dbt Cloud’s browser session time and when it logs users off.
+  * Added a [permissions table](../platform/manage-access/enterprise-permissions.md) for Enterprise accounts
+  * Added a [browser session page](../platform/about-platform/browsers.md#browser-sessions) that clarifies dbt Cloud’s browser session time and when it logs users off.
 
   You can provide feedback by opening a pull request or issue in [our repo](https://github.com/dbt-labs/docs.getdbt.com) or reaching out in the dbt community Slack channel [#dbt-product-docs](https://getdbt.slack.com/archives/C0441GSRU04)).
 
   ## ⚡<!-- --> General docs projects[​](#zap-general-docs-projects "Direct link to zap-general-docs-projects")
 
   * Added the ability to collapse sections you’re not currently looking at. There were quite a few people who wanted this, and it bugged us too, so we were happy to get this shipped!
-  * Introduced the idea of [“Trusted” adapters](https://docs.getdbt.com/docs/supported-data-platforms.md#types-of-adapters).
+  * Introduced the idea of [“Trusted” adapters](../supported-data-platforms.md#types-of-adapters).
 
   ## ☁ Cloud projects[​](#cloud-projects-1 "Direct link to ☁ Cloud projects")
 
   * The **What’s new?** product update widget is back in the dbt Cloud UI! The Docs team will begin updating the content to keep you informed about new features.
-  * Launched the re-released [Semantic Layer beta docs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), which introduces users to the new API, new guide to set up MetricFlow and the new Semantic Layer, as well as revamp the ‘Use the dbt Semantic Layer’ section for users.
-  * Updated [Admin API v2 and v3](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) to help you understand the differences between them and which version includes the endpoints you use.
-  * To improve discoverability, the docs team made changes to the [deploy dbt sidebar](https://docs.getdbt.com/docs/deploy/deployments.md). We added cards and aligned better with the dbt Cloud UI and the way it’s used.
-  * Deprecated legacy job schemas in the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md).
-  * Added a page to describe [experimental and beta features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md) in dbt Cloud and what you need to know about them.
-  * Added a section to introduce a new beta feature [**Extended Attributes**](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes-beta), which allows users to set a flexible `profiles.yml` snippet in their dbt Cloud Environment settings.
+  * Launched the re-released [Semantic Layer beta docs](../use-dbt-semantic-layer/dbt-sl.md), which introduces users to the new API, new guide to set up MetricFlow and the new Semantic Layer, as well as revamp the ‘Use the dbt Semantic Layer’ section for users.
+  * Updated [Admin API v2 and v3](../dbt-apis/admin-api.md) to help you understand the differences between them and which version includes the endpoints you use.
+  * To improve discoverability, the docs team made changes to the [deploy dbt sidebar](../deploy/deployments.md). We added cards and aligned better with the dbt Cloud UI and the way it’s used.
+  * Deprecated legacy job schemas in the [Discovery API](../dbt-apis/discovery-api.md).
+  * Added a page to describe [experimental and beta features](./experimental-features.md) in dbt Cloud and what you need to know about them.
+  * Added a section to introduce a new beta feature [**Extended Attributes**](../dbt-platform-environments.md#extended-attributes-beta), which allows users to set a flexible `profiles.yml` snippet in their dbt Cloud Environment settings.
 
   ## 🎯 Core projects[​](#core-projects-1 "Direct link to 🎯 Core projects")
 
@@ -309,14 +309,14 @@ Archived release notes for dbt from 2023
 
   ## New 📚 Guides, ✏️ blog posts, and FAQs[​](#newguides️blog-posts-and-faqs-1 "Direct link to New 📚 Guides, ✏️ blog posts, and FAQs")
 
-  * Learn how to [join the dbt community](https://docs.getdbt.com/community/join.md).
+  * Learn how to [join the dbt community](../../community/join.md).
   * Blog posts published this summer include [Optimizing Materialized Views with dbt](https://docs.getdbt.com/blog/announcing-materialized-views), [Data Vault 2.0 with dbt Cloud](https://docs.getdbt.com/blog/data-vault-with-dbt-cloud), and [Create dbt Documentation and Tests 10x faster with ChatGPT](https://docs.getdbt.com/blog/create-dbt-documentation-10x-faster-with-ChatGPT)
 
-  - We now have two new best practice guides: [How we build our metrics](https://docs.getdbt.com/best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) and [Set up Continuous Integration](https://docs.getdbt.com/guides/set-up-ci.md).
+  - We now have two new best practice guides: [How we build our metrics](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) and [Set up Continuous Integration](../../guides/set-up-ci.md).
 
 *  Removing prerelease versions
 
-  Previously, when dbt Labs released a new [version](https://docs.getdbt.com/docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning) in dbt Cloud, the older patch *prerelease* version and the *latest* version remained as options in the dropdown menu available in the **Environment settings**. Now, when the *latest* version is released, the *prerelease* version will be removed and all customers remaining on it will be migrated seamlessly. There will be no interruptions to service when this migration occurs.
+  Previously, when dbt Labs released a new [version](../dbt-versions.md#how-dbt-core-uses-semantic-versioning) in dbt Cloud, the older patch *prerelease* version and the *latest* version remained as options in the dropdown menu available in the **Environment settings**. Now, when the *latest* version is released, the *prerelease* version will be removed and all customers remaining on it will be migrated seamlessly. There will be no interruptions to service when this migration occurs.
 
   To see which version you are currently using and to upgrade, select **Deploy** in the top navigation bar and select **Environments**. Choose the preferred environment and click **Settings**. Click **Edit** to make a change to the current dbt version. dbt Labs recommends always using the latest version whenever possible to take advantage of new features and functionality.
 
@@ -324,7 +324,7 @@ Archived release notes for dbt from 2023
 
 *  Deprecation of endpoints in the Discovery API
 
-  dbt Labs has deprecated and will be deprecating certain query patterns and replacing them with new conventions to enhance the performance of the dbt Cloud [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md).
+  dbt Labs has deprecated and will be deprecating certain query patterns and replacing them with new conventions to enhance the performance of the dbt Cloud [Discovery API](../dbt-apis/discovery-api.md).
 
   All these changes will be in effect on *September 7, 2023*.
 
@@ -484,7 +484,7 @@ Archived release notes for dbt from 2023
 
   ## Faster run starts[​](#faster-run-starts "Direct link to Faster run starts")
 
-  The Scheduler takes care of preparing each dbt Cloud job to run in your cloud data platform. This [prep](https://docs.getdbt.com/docs/deploy/job-scheduler.md#scheduler-queue) involves readying a Kubernetes pod with the right version of dbt installed, setting environment variables, loading data platform credentials, and git provider authorization, amongst other environment-setting tasks. Only after the environment is set up, can dbt execution begin. We display this time to the user in dbt Cloud as “prep time”.
+  The Scheduler takes care of preparing each dbt Cloud job to run in your cloud data platform. This [prep](../deploy/job-scheduler.md#scheduler-queue) involves readying a Kubernetes pod with the right version of dbt installed, setting environment variables, loading data platform credentials, and git provider authorization, amongst other environment-setting tasks. Only after the environment is set up, can dbt execution begin. We display this time to the user in dbt Cloud as “prep time”.
 
   [![The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.](/img/run-start.jpg?v=2 "The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.")](#)The scheduler prepares a job for execution and displays it as 'prep time' in dbt Cloud.
 
@@ -519,7 +519,7 @@ Archived release notes for dbt from 2023
 
   For SQL files, you can easily lint and format your code using [SQLFluff](https://sqlfluff.com/) and apply consistent formatting using [sqlfmt](http://sqlfmt.com/). Additionally, for other file types like YAML, Markdown, JSON, and Python, you can utilize the respective tools powered by [Prettier](https://prettier.io/) and [Black](https://black.readthedocs.io/en/latest/) to ensure clean and standardized code formatting.
 
-  For more info, read [Lint and format your code](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md).
+  For more info, read [Lint and format your code](../platform/studio-ide/lint-format.md).
 
   [![Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.")](#)Use SQLFluff to lint/format your SQL code, and view code errors in the Code Quality tab.
 
@@ -543,16 +543,16 @@ Archived release notes for dbt from 2023
 
   * **Run CI checks without blocking production runs**. CI checks will no longer consume run slots, meaning you can have as many CI checks running as you want, without impeding your production jobs.
 
-  To learn more, refer to [Continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) and [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md).
+  To learn more, refer to [Continuous integration](../deploy/continuous-integration.md) and [CI jobs](../deploy/ci-jobs.md).
 
 *  Admin API
 
-  dbt Labs updated the docs for the [dbt Cloud Administrative API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md) and they are now available for both [v2](https://docs.getdbt.com/dbt-cloud/api-v2#/) and [v3](https://docs.getdbt.com/dbt-cloud/api-v3#/).
+  dbt Labs updated the docs for the [dbt Cloud Administrative API](../dbt-apis/admin-api.md) and they are now available for both [v2](https://docs.getdbt.com/dbt-cloud/api-v2#/) and [v3](https://docs.getdbt.com/dbt-cloud/api-v3#/).
 
   * Now using Spotlight for improved UI and UX.
   * All endpoints are now documented for v2 and v3. Added automation to the docs so they remain up to date.
   * Documented many of the request and response bodies.
-  * You can now test endpoints directly from within the API docs. And, you can choose which [regional server](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) to use (North America, APAC, or EMEA).
+  * You can now test endpoints directly from within the API docs. And, you can choose which [regional server](../platform/about-platform/access-regions-ip-addresses.md) to use (North America, APAC, or EMEA).
   * With the new UI, you can more easily generate code for any endpoint.
 
 *  Product docs updates
@@ -563,32 +563,32 @@ Archived release notes for dbt from 2023
 
   ## ☁ Cloud projects[​](#cloud-projects-2 "Direct link to ☁ Cloud projects")
 
-  * We clarified the nuances of [CI and CI jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md), updated the [Scheduler content](https://docs.getdbt.com/docs/deploy/job-scheduler.md), added two new pages for the job settings and run visibility, moved the project state page to the [Syntax page](https://docs.getdbt.com/reference/node-selection/syntax.md), and provided a landing page for [Deploying with Cloud](https://docs.getdbt.com/docs/deploy/jobs.md) to help readers navigate the content better.
-  * We reformatted the [Supported data platforms page](https://docs.getdbt.com/docs/supported-data-platforms.md) by adding dbt Cloud to the page, splitting it into multiple pages, using cards to display verified adapters, and moving the [Warehouse setup pages](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md) to the Docs section.
-  * We launched a new [Lint and format page](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md), which highlights the awesome new dbt Cloud IDE linting/formatting function.
-  * We enabled a connection between [dbt Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md) and the dbt Slack community. This means new dbt Cloud release notes are automatically sent to the slack community [#dbt-cloud channel](https://getdbt.slack.com/archives/CMZ2V0X8V) via RSS feed, keeping users up to date with changes that may affect them.
-  * We’ve added two new docs links in the dbt Cloud Job settings user interface (UI). This will provide additional guidance and help users succeed when setting up a dbt Cloud job: [job commands](https://docs.getdbt.com/docs/deploy/job-commands.md) and job triggers.
-  * We added information related to the newly created [IT license](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#license-based-access-control), available for Team and Enterprise plans.
-  * We added a new [Supported browser page](https://docs.getdbt.com/docs/platform/about-platform/browsers.md), which lists the recommended browsers for dbt Cloud.
-  * We launched a new page informing users of [new Experimental features option](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md) in dbt Cloud.
-  * We worked with dbt Engineering to help publish new beta versions of the dbt [dbt Cloud Administrative API docs](https://docs.getdbt.com/docs/dbt-apis/admin-api.md).
+  * We clarified the nuances of [CI and CI jobs](../deploy/continuous-integration.md), updated the [Scheduler content](../deploy/job-scheduler.md), added two new pages for the job settings and run visibility, moved the project state page to the [Syntax page](../../reference/node-selection/syntax.md), and provided a landing page for [Deploying with Cloud](../deploy/jobs.md) to help readers navigate the content better.
+  * We reformatted the [Supported data platforms page](../supported-data-platforms.md) by adding dbt Cloud to the page, splitting it into multiple pages, using cards to display verified adapters, and moving the [Warehouse setup pages](../local/connect-data-platform/about-dbt-connections.md) to the Docs section.
+  * We launched a new [Lint and format page](../platform/studio-ide/lint-format.md), which highlights the awesome new dbt Cloud IDE linting/formatting function.
+  * We enabled a connection between [dbt Cloud release notes](./release-notes.md) and the dbt Slack community. This means new dbt Cloud release notes are automatically sent to the slack community [#dbt-cloud channel](https://getdbt.slack.com/archives/CMZ2V0X8V) via RSS feed, keeping users up to date with changes that may affect them.
+  * We’ve added two new docs links in the dbt Cloud Job settings user interface (UI). This will provide additional guidance and help users succeed when setting up a dbt Cloud job: [job commands](../deploy/job-commands.md) and job triggers.
+  * We added information related to the newly created [IT license](../platform/manage-access/about-user-access.md#license-based-access-control), available for Team and Enterprise plans.
+  * We added a new [Supported browser page](../platform/about-platform/browsers.md), which lists the recommended browsers for dbt Cloud.
+  * We launched a new page informing users of [new Experimental features option](./experimental-features.md) in dbt Cloud.
+  * We worked with dbt Engineering to help publish new beta versions of the dbt [dbt Cloud Administrative API docs](../dbt-apis/admin-api.md).
 
   ## 🎯 Core projects[​](#core-projects-2 "Direct link to 🎯 Core projects")
 
-  * We launched the new [MetricFlow docs](https://docs.getdbt.com/docs/build/build-metrics-intro.md) on dbt Core v1.6 beta.
-  * Split [Global configs](https://docs.getdbt.com/reference/global-configs/about-global-configs.md) into individual pages, making it easier to find, especially using search.
+  * We launched the new [MetricFlow docs](../build/build-metrics-intro.md) on dbt Core v1.6 beta.
+  * Split [Global configs](../../reference/global-configs/about-global-configs.md) into individual pages, making it easier to find, especially using search.
 
   ## New 📚 Guides, ✏️ blog posts, and FAQs[​](#newguides️blog-posts-and-faqs-2 "Direct link to New 📚 Guides, ✏️ blog posts, and FAQs")
 
-  * Add an Azure DevOps example in the [Customizing CI/CD with custom pipelines](https://docs.getdbt.com/guides/custom-cicd-pipelines.md) guide.
+  * Add an Azure DevOps example in the [Customizing CI/CD with custom pipelines](../../guides/custom-cicd-pipelines.md) guide.
 
 ## May 2023[​](#may-2023 "Direct link to May 2023")
 
 *  dbt Cloud IDE
 
-  To continue improving your [Cloud IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) development experience, the dbt Labs team continues to work on adding new features, fixing bugs, and increasing reliability ✨.
+  To continue improving your [Cloud IDE](../platform/studio-ide/develop-in-studio.md) development experience, the dbt Labs team continues to work on adding new features, fixing bugs, and increasing reliability ✨.
 
-  Stay up-to-date with [IDE-related changes](https://docs.getdbt.com/tags/ide.md).
+  Stay up-to-date with [IDE-related changes](../../tags/ide.md).
 
   ## New features[​](#new-features-1 "Direct link to New features")
 
@@ -596,7 +596,7 @@ Archived release notes for dbt from 2023
   * Format markdown files with prettier
   * Leverage developer experience shortcuts, including ``Ctrl + ` ``(toggle history drawer), `CMD + Option + /` (toggle block comment), `CMD + Shift + P` (open command palette), `Option + W` (close editor tab)
   * Display parent folder name for files with same name in Changes section
-  * Navigate the new IDE features quickly using [the IDE User Interface](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md) help page
+  * Navigate the new IDE features quickly using [the IDE User Interface](../platform/studio-ide/ide-user-interface.md) help page
   * Use `top X` in SQL when previewing in the IDE
   * Opt into the new IDE backend layer over the past month (still with dbt-rpc). Ready for beta later in June!
 
@@ -608,7 +608,7 @@ Archived release notes for dbt from 2023
 
     * Reduced cold start time by 60+%
     * Improved render time of modals in the IDE by 98%
-    * Improved IDE performance with dbt Core v1.5+ (faster and snappier – highly encourage you to [upgrade your dbt version](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md)!)
+    * Improved IDE performance with dbt Core v1.5+ (faster and snappier – highly encourage you to [upgrade your dbt version](./upgrade-dbt-platform-version.md)!)
 
   * Upgraded sqlfmt (which powers the Format button) to 0.18.0
 
@@ -678,30 +678,30 @@ Archived release notes for dbt from 2023
 
   ## 🔎 Discoverability[​](#-discoverability "Direct link to 🔎 Discoverability")
 
-  * We made sure everyone knows that Cloud-users don’t need a [profiles.yml file](https://docs.getdbt.com/docs/local/profiles.yml.md) by adding a callout on several key pages.
-  * Fleshed out the [model Jinja variable page](https://docs.getdbt.com/reference/dbt-jinja-functions/model.md), which originally lacked conceptual info and didn’t link to the schema page.
-  * Added a new [Quickstarts landing page](https://docs.getdbt.com/guides.md). This new format sets up for future iterations that will include filtering! But for now, we are excited you can step through quickstarts in a focused way.
+  * We made sure everyone knows that Cloud-users don’t need a [profiles.yml file](../local/profiles.yml.md) by adding a callout on several key pages.
+  * Fleshed out the [model Jinja variable page](../../reference/dbt-jinja-functions/model.md), which originally lacked conceptual info and didn’t link to the schema page.
+  * Added a new [Quickstarts landing page](../../guides.md). This new format sets up for future iterations that will include filtering! But for now, we are excited you can step through quickstarts in a focused way.
 
   ## Cloud projects[​](#cloud-projects-3 "Direct link to Cloud projects")
 
-  * We launched [dbt Cloud IDE user interface doc](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md), which provides a thorough walkthrough of the IDE UI elements and their definitions.
+  * We launched [dbt Cloud IDE user interface doc](../platform/studio-ide/ide-user-interface.md), which provides a thorough walkthrough of the IDE UI elements and their definitions.
 
-  * Launched a sparkling new [dbt Cloud Scheduler page](https://docs.getdbt.com/docs/deploy/job-scheduler.md) ✨! We went from previously having little content around the scheduler to a subsection that breaks down the awesome scheduler features and how it works.
+  * Launched a sparkling new [dbt Cloud Scheduler page](../deploy/job-scheduler.md) ✨! We went from previously having little content around the scheduler to a subsection that breaks down the awesome scheduler features and how it works.
 
-  * Updated the [dbt Cloud user license page](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#licenses) to clarify how to add or remove cloud users.
+  * Updated the [dbt Cloud user license page](../platform/manage-access/seats-and-users.md#licenses) to clarify how to add or remove cloud users.
 
   * Shipped these Discovery API docs to coincide with the launch of the Discovery API:
 
     <!-- -->
 
-    * [About the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md)
-    * [Use cases and examples for the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md)
-    * [Query the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-querying.md)
+    * [About the Discovery API](../dbt-apis/discovery-api.md)
+    * [Use cases and examples for the Discovery API](../dbt-apis/discovery-use-cases-and-examples.md)
+    * [Query the Discovery API](../dbt-apis/discovery-querying.md)
 
   ## 🎯 Core projects[​](#core-projects-3 "Direct link to 🎯 Core projects")
 
   * See what’s coming up [in Core v 1.6](https://github.com/dbt-labs/docs.getdbt.com/issues?q=is%3Aissue+label%3A%22dbt-core+v1.6%22)!
-  * We turned the `profiles.yml` [page](https://docs.getdbt.com/docs/local/profiles.yml.md) into a landing page, added more context to profiles.yml page, and moved the ‘About CLI’ higher up in the `Set up dbt` section.
+  * We turned the `profiles.yml` [page](../local/profiles.yml.md) into a landing page, added more context to profiles.yml page, and moved the ‘About CLI’ higher up in the `Set up dbt` section.
 
   ## New 📚 Guides, ✏️ blog posts, and FAQs[​](#newguides️blog-posts-and-faqs-3 "Direct link to New 📚 Guides, ✏️ blog posts, and FAQs")
 
@@ -709,7 +709,7 @@ Archived release notes for dbt from 2023
 
   * Published a blog post: [Accelerate your documentation workflow: Generate docs for whole folders at once](https://docs.getdbt.com/blog/generating-dynamic-docs-dbt)
   * Published a blog post: [Data engineers + dbt v1.5: Evolving the craft for scale](https://docs.getdbt.com/blog/evolving-data-engineer-craft)
-  * Added an [FAQ](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md) to clarify the common question users have on *Why does dbt compile needs to connect to the database?*
+  * Added an [FAQ](../../faqs/Warehouse/db-connection-dbt-compile.md) to clarify the common question users have on *Why does dbt compile needs to connect to the database?*
   * Published a [discourse article](https://discourse.getdbt.com/t/how-to-configure-external-user-email-notifications-in-dbt-cloud/8393) about configuring job notifications for non-dbt Cloud users
 
 ## April 2023[​](#april-2023 "Direct link to April 2023")
@@ -761,7 +761,7 @@ Archived release notes for dbt from 2023
 
   Access URLs
 
-  dbt Cloud is hosted in multiple regions around the world, and each region has a different access URL. Users on Enterprise plans can choose to have their account hosted in any one of these regions. For a complete list of available dbt Cloud access URLs, refer to [Regions & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+  dbt Cloud is hosted in multiple regions around the world, and each region has a different access URL. Users on Enterprise plans can choose to have their account hosted in any one of these regions. For a complete list of available dbt Cloud access URLs, refer to [Regions & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
   For more info, refer to our [documentation](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/List%20Runs).
 
@@ -777,7 +777,7 @@ Archived release notes for dbt from 2023
 
 *  Starburst adapter GA
 
-  The Starburst (Trino compatible) connection is now generally available in dbt Cloud. This means you can now use dbt Cloud to connect with Starburst Galaxy, Starburst Enterprise, and self-hosted Trino. This feature is powered by the [`dbt-trino`](https://github.com/starburstdata/dbt-trino) adapter. To learn more, check out our Quickstart guide for [dbt Cloud and Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md).
+  The Starburst (Trino compatible) connection is now generally available in dbt Cloud. This means you can now use dbt Cloud to connect with Starburst Galaxy, Starburst Enterprise, and self-hosted Trino. This feature is powered by the [`dbt-trino`](https://github.com/starburstdata/dbt-trino) adapter. To learn more, check out our Quickstart guide for [dbt Cloud and Starburst Galaxy](../../guides/starburst-galaxy.md).
 
 *  Product docs updates
 
@@ -785,34 +785,34 @@ Archived release notes for dbt from 2023
 
   ## 🔎 Discoverability[​](#-discoverability-1 "Direct link to 🔎 Discoverability")
 
-  * [API docs](https://docs.getdbt.com/docs/dbt-apis/overview.md) now live in the left sidebar to improve discoverability.
-  * [The deploy dbt jobs sidebar](https://docs.getdbt.com/docs/deploy/deployments.md) has had a glow up 💅 that splits the ‘about deployment’ into two paths (deploy w dbt cloud and deploy w other tools), adds more info about the dbt cloud scheduler, its features, and how to create a job, adds ADF deployment guidance. We hope the changes improve the user experience and provide users with guidance when deploying with other tools.
+  * [API docs](../dbt-apis/overview.md) now live in the left sidebar to improve discoverability.
+  * [The deploy dbt jobs sidebar](../deploy/deployments.md) has had a glow up 💅 that splits the ‘about deployment’ into two paths (deploy w dbt cloud and deploy w other tools), adds more info about the dbt cloud scheduler, its features, and how to create a job, adds ADF deployment guidance. We hope the changes improve the user experience and provide users with guidance when deploying with other tools.
 
   ## ☁ Cloud projects[​](#cloud-projects-4 "Direct link to ☁ Cloud projects")
 
   * Added Starburst/Trino adapter docs, including:
 
-  - [dbt Cloud quickstart guide](https://docs.getdbt.com/guides/starburst-galaxy.md), 
+  - [dbt Cloud quickstart guide](../../guides/starburst-galaxy.md), 
 
-  - [connection page](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md), 
+  - [connection page](../platform/connect-data-platform/connect-starburst-trino.md), 
 
-  - [set up page](https://docs.getdbt.com/docs/local/connect-data-platform/trino-setup.md), and [config page](https://docs.getdbt.com/reference/resource-configs/trino-configs.md).
+  - [set up page](../local/connect-data-platform/trino-setup.md), and [config page](../../reference/resource-configs/trino-configs.md).
 
-    * Enhanced [dbt Cloud jobs page](https://docs.getdbt.com/docs/deploy/jobs.md) and section to include conceptual info on the queue time, improvements made around it, and about failed jobs.
-    * Check out the April dbt [Cloud release notes](https://docs.getdbt.com/docs/dbt-versions/release-notes.md)
+    * Enhanced [dbt Cloud jobs page](../deploy/jobs.md) and section to include conceptual info on the queue time, improvements made around it, and about failed jobs.
+    * Check out the April dbt [Cloud release notes](./release-notes.md)
 
     ## 🎯 Core projects[​](#core-projects-4 "Direct link to 🎯 Core projects")
 
-    * Clearer descriptions in the [Jinja functions page](https://docs.getdbt.com/reference/dbt-jinja-functions-context-variables.md), that improve content for each card. 
+    * Clearer descriptions in the [Jinja functions page](../../reference/dbt-jinja-functions-context-variables.md), that improve content for each card. 
     * [1.5 Docs](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) have been released as a Release Candidate (RC)!
     * See the beautiful [work captured in Core v 1.5](https://github.com/dbt-labs/docs.getdbt.com/issues?q=is%3Aissue+label%3A%22dbt-core+v1.5%22+is%3Aclosed).
 
     ## New 📚 Guides and ✏️ blog posts[​](#newguides-and️blog-posts "Direct link to New 📚 Guides and ✏️ blog posts")
 
-    * [Use Databricks workflows to run dbt Cloud jobs](https://docs.getdbt.com/guides/databricks-workflows.md)
-    * [Refresh Tableau workbook with extracts after a job finishes](https://docs.getdbt.com/guides/zapier-refresh-tableau-workbook.md)
-    * [dbt Python Snowpark workshop/tutorial](https://docs.getdbt.com/guides/dbt-python-snowpark.md)
-    * [How to optimize and troubleshoot dbt Models on Databricks](https://docs.getdbt.com/guides/optimize-dbt-models-on-databricks.md)
+    * [Use Databricks workflows to run dbt Cloud jobs](../../guides/databricks-workflows.md)
+    * [Refresh Tableau workbook with extracts after a job finishes](../../guides/zapier-refresh-tableau-workbook.md)
+    * [dbt Python Snowpark workshop/tutorial](../../guides/dbt-python-snowpark.md)
+    * [How to optimize and troubleshoot dbt Models on Databricks](../../guides/optimize-dbt-models-on-databricks.md)
     * [The missing guide to debug() in dbt](https://docs.getdbt.com/blog/guide-to-jinja-debug)
     * [dbt Squared: Leveraging dbt Core and dbt Cloud together at scale](https://docs.getdbt.com/blog/dbt-squared)
     * [Audit\_helper in dbt: Bringing data auditing to a higher level](https://docs.getdbt.com/blog/audit-helper-for-migration)
@@ -825,24 +825,24 @@ Archived release notes for dbt from 2023
 
   Any environments or jobs configured with a dbt version lower than 1.0 were automatically updated to dbt v1.4, which is the latest minor version available on dbt Cloud.
 
-  For more info on dbt versions, releases, and dbt Cloud support timeline, refer to [About dbt Core versions](https://docs.getdbt.com/docs/dbt-versions.md#latest-releases).
+  For more info on dbt versions, releases, and dbt Cloud support timeline, refer to [About dbt Core versions](../dbt-versions.md#latest-releases).
 
   Refer to some additional info and resources to help you upgrade your dbt version:
 
   * [How to upgrade dbt without fear](https://docs.getdbt.com/blog/upgrade-dbt-without-fear)
-  * [Upgrade Q\&A on breaking changes](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#upgrading-legacy-versions-under-10)
-  * [Version migration guides](https://docs.getdbt.com/docs/dbt-versions/core-upgrade.md)
+  * [Upgrade Q\&A on breaking changes](./upgrade-dbt-platform-version.md#upgrading-legacy-versions-under-10)
+  * [Version migration guides](./core-upgrade.md)
 
 *  dbt Cloud IDE
 
-  To continue improving your [Cloud IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) development experience, the dbt Labs team continue to work on adding new features, fixing bugs, and increasing reliability ✨.
+  To continue improving your [Cloud IDE](../platform/studio-ide/develop-in-studio.md) development experience, the dbt Labs team continue to work on adding new features, fixing bugs, and increasing reliability ✨.
 
-  Read more about the [upcoming improvements to the Cloud IDE](https://www.getdbt.com/blog/improvements-to-the-dbt-cloud-ide/) and stay up-to-date with [IDE-related changes](https://docs.getdbt.com/tags/ide.md).
+  Read more about the [upcoming improvements to the Cloud IDE](https://www.getdbt.com/blog/improvements-to-the-dbt-cloud-ide/) and stay up-to-date with [IDE-related changes](../../tags/ide.md).
 
   ## New features[​](#new-features-3 "Direct link to New features")
 
   * Commit and revert individual files under **Version Control**.
-  * Use the [command palette](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#studio-ide-features) to invoke common complex dbt commands, such as resuming from the last failure.
+  * Use the [command palette](../platform/studio-ide/develop-in-studio.md#studio-ide-features) to invoke common complex dbt commands, such as resuming from the last failure.
   * Create PRs even when there are uncommitted changes (under the **git** dropdown).
   * The IDE will display more autocomplete suggestions when editing a YML file, powered by [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema).
   * The file tree now has additional options in the right-click menu, such as Copy model as ref or Copy file path.
@@ -881,7 +881,7 @@ Archived release notes for dbt from 2023
 
   To make the API more scalable and reliable, we've implemented a maximum limit of `100` for all API requests to our `list` endpoints. If API requests exceed the maximum limit parameter of `100`, a user will receive an API error message.
 
-  This maximum limit applies to [multi-tenant instances](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) only, and *does not* apply to single tenant instances.
+  This maximum limit applies to [multi-tenant instances](../platform/about-platform/access-regions-ip-addresses.md) only, and *does not* apply to single tenant instances.
 
   Refer to the [Pagination](https://docs.getdbt.com/dbt-cloud/api-v2#/) section of the overview for more information on this change.
 
@@ -891,11 +891,11 @@ Archived release notes for dbt from 2023
 
   You can now use the `--no-partial-parse` flag to disable partial parsing in your dbt Cloud job commands. 
 
-  Previously, the [`--no-partial-parse` global config](https://docs.getdbt.com/reference/global-configs/parsing.md) was only available in dbt Core. For more information, refer to [partial parsing](https://docs.getdbt.com/reference/parsing.md#partial-parsing).
+  Previously, the [`--no-partial-parse` global config](../../reference/global-configs/parsing.md) was only available in dbt Core. For more information, refer to [partial parsing](../../reference/parsing.md#partial-parsing).
 
 *  dbt Cloud IDE
 
-  To continue improving our [Cloud IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) experience, the dbt Labs team worked on fixing bugs, increasing reliability, and adding new features ✨.
+  To continue improving our [Cloud IDE](../platform/studio-ide/develop-in-studio.md) experience, the dbt Labs team worked on fixing bugs, increasing reliability, and adding new features ✨.
 
   Learn more about the [February changes](https://getdbt.slack.com/archives/C03SAHKKG2Z/p1677605383451109).
 
@@ -909,7 +909,7 @@ Archived release notes for dbt from 2023
   * Right-clicking on file tabs has new options and will now open at your cursor instead of in the middle of the tab
   * The git branch name above **Version Control** links to the repo for specific git providers
     <!-- -->
-    * Currently available for all [multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) instances using GitHub or GitLab providers
+    * Currently available for all [multi-tenant](../platform/about-platform/access-regions-ip-addresses.md) instances using GitHub or GitLab providers
 
   ## Product refinements[​](#product-refinements-4 "Direct link to Product refinements")
 
@@ -928,13 +928,13 @@ Archived release notes for dbt from 2023
   * You no longer encounter node statuses failing to update in the history drawer for those on version 1.4 core. (This is a partial fix that may be fully addressed by core version 1.5)
   * You can now use the **Copy File Name** option to copy up to the last dot, rather than the first dot
   * You can now use the `--no-partial-parse` flag to disable partial parsing in your dbt Cloud job commands. 
-  * Previously, the [`--no-partial-parse` global config](https://docs.getdbt.com/reference/global-configs/parsing.md) was only available in dbt Core. For more information, refer to [partial parsing](https://docs.getdbt.com/reference/parsing.md#partial-parsing).
+  * Previously, the [`--no-partial-parse` global config](../../reference/global-configs/parsing.md) was only available in dbt Core. For more information, refer to [partial parsing](../../reference/parsing.md#partial-parsing).
 
 ## January 2023[​](#january-2023 "Direct link to January 2023")
 
 *  dbt Cloud IDE
 
-  In the spirit of continuing to improve our [Cloud IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) experience, the dbt Labs team worked on fixing bugs, increasing reliability, and adding new features ✨.
+  In the spirit of continuing to improve our [Cloud IDE](../platform/studio-ide/develop-in-studio.md) experience, the dbt Labs team worked on fixing bugs, increasing reliability, and adding new features ✨.
 
   Learn more about the [January changes](https://getdbt.slack.com/archives/C03SAHKKG2Z/p1675272600286119) and what's coming soon.
 

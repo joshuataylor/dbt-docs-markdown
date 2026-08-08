@@ -32,7 +32,7 @@ Search table...
 
 ## The git button in the Cloud IDE[​](#the-git-button-in-the-cloud-ide "Direct link to The git button in the Cloud IDE")
 
-You can perform git tasks with the git button in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md). The following are descriptions of each git button command and what they do:
+You can perform git tasks with the git button in the [Studio IDE](../studio-ide/develop-in-studio.md). The following are descriptions of each git button command and what they do:
 
 | Name                    | Actions                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,7 +57,7 @@ Search table...
 
 Merge conflicts often occur when multiple users are concurrently making edits to the same section in the same file. This makes it difficult for Git to determine which change should be kept.
 
-Refer to [merge conflicts](https://docs.getdbt.com/docs/platform/git/merge-conflicts.md) to learn how to resolve merge conflicts.
+Refer to [merge conflicts](./merge-conflicts.md) to learn how to resolve merge conflicts.
 
 ## The .gitignore file[​](#the-gitignore-file "Direct link to The .gitignore file")
 
@@ -81,4 +81,4 @@ note
 
 * **Migrating project from dbt Core to dbt** — Make sure you check the `.gitignore` file contains the necessary entries. dbt Core doesn't interact with git so dbt doesn't automatically add or verify entries in the `.gitignore` file. Additionally, if the repository already contains dbt code and doesn't require initialization, dbt won't add any missing entries to the .gitignore file.
 
-For additional info or troubleshooting tips please refer to the [detailed FAQ](https://docs.getdbt.com/faqs/Git/gitignore.md).
+For additional info or troubleshooting tips please refer to the [detailed FAQ](../../../faqs/Git/gitignore.md).

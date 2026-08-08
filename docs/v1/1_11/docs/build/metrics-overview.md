@@ -1,6 +1,6 @@
 # Creating metrics
 
-After building [semantic models](https://docs.getdbt.com/docs/build/semantic-models.md), it's time to start adding metrics. This page explains the different supported metric types you can add to your dbt project.
+After building [semantic models](./semantic-models.md), it's time to start adding metrics. This page explains the different supported metric types you can add to your dbt project.
 
 Metrics must be defined in a YAML file — either within the same file as your semantic models or in a separate YAML file in a subdirectory of your dbt project. They shouldn't be defined in a `config` block on a model.
 
@@ -17,7 +17,7 @@ The keys for metrics parameters are:
 | `type`        | Define the type of metric, which can be `conversion`, `cumulative`, `derived`, `ratio`, or `simple`.                                                                                                                                                                                                                                                                                          | Required | String |
 | `type_params` | Additional parameters used to configure metrics. `type_params` are different for each metric type.                                                                                                                                                                                                                                                                                            | Required | Dict   |
 | `label`       | Required string that defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                      | Required | String |
-| `config`      | Use the [`config`](https://docs.getdbt.com/reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md), [`group`](https://docs.getdbt.com/reference/resource-configs/group.md), and [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md) configurations. | Optional | Dict   |
+| `config`      | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) configurations. | Optional | Dict   |
 | `filter`      | You can optionally add a [filter](#filters) string to any metric type, applying filters to dimensions, entities, time dimensions, or other metrics during metric computation. Consider it as your WHERE clause.                                                                                                                                                                               | Optional | String |
 
 Search table...
@@ -111,7 +111,7 @@ metrics:
 
 ## Conversion metrics[​](#conversion-metrics "Direct link to Conversion metrics")
 
-[Conversion metrics](https://docs.getdbt.com/docs/build/conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
+[Conversion metrics](./conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
 
 models/metrics/file\_name.yml
 
@@ -143,7 +143,7 @@ metrics:
 
 ## Cumulative metrics[​](#cumulative-metrics "Direct link to Cumulative metrics")
 
-[Cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md) aggregate a measure over a given window. If no window is specified, the window will accumulate the measure over all of the recorded time period. Note that you will need to create the [time spine model](https://docs.getdbt.com/docs/build/metricflow-time-spine.md) before you add cumulative metrics.
+[Cumulative metrics](./cumulative.md) aggregate a measure over a given window. If no window is specified, the window will accumulate the measure over all of the recorded time period. Note that you will need to create the [time spine model](./metricflow-time-spine.md) before you add cumulative metrics.
 
 models/metrics/file\_name.yml
 
@@ -166,7 +166,7 @@ metrics:
 
 ## Derived metrics[​](#derived-metrics "Direct link to Derived metrics")
 
-[Derived metrics](https://docs.getdbt.com/docs/build/derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
+[Derived metrics](./derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
 
 models/metrics/file\_name.yml
 
@@ -189,7 +189,7 @@ metrics:
 
 ## Ratio metrics[​](#ratio-metrics "Direct link to Ratio metrics")
 
-[Ratio metrics](https://docs.getdbt.com/docs/build/ratio.md) involve a numerator metric and a denominator metric. A `filter` string can be applied to both the numerator and denominator or separately to the numerator or denominator.
+[Ratio metrics](./ratio.md) involve a numerator metric and a denominator metric. A `filter` string can be applied to both the numerator and denominator or separately to the numerator or denominator.
 
 models/metrics/file\_name.yml
 
@@ -218,7 +218,7 @@ metrics:
 
 ## Simple metrics[​](#simple-metrics "Direct link to Simple metrics")
 
-[Simple metrics](https://docs.getdbt.com/docs/build/simple.md) point directly to a measure. You may think of it as a function that takes only one measure as the input.
+[Simple metrics](./simple.md) point directly to a measure. You may think of it as a function that takes only one measure as the input.
 
 * `name` — Use this parameter to define the reference name of the metric. The name must be unique amongst metrics and can include lowercase letters, numbers, and underscores. You can use this name to call the metric from the Semantic Layer API.
 
@@ -247,7 +247,7 @@ metrics:
 
 Configure a filter using Jinja templating and the following syntax to reference entities, dimensions, time dimensions, or metrics in filters.
 
-Refer to [Metrics as dimensions](https://docs.getdbt.com/docs/build/ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
+Refer to [Metrics as dimensions](./ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
 
 models/metrics/file\_name.yml
 
@@ -274,6 +274,6 @@ filter: |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md)
-* [Fill null values for metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
-* [Metrics as dimensions with metric filters](https://docs.getdbt.com/docs/build/ref-metrics-in-filters.md)
+* [Semantic models](./semantic-models.md)
+* [Fill null values for metrics](./fill-nulls-advanced.md)
+* [Metrics as dimensions with metric filters](./ref-metrics-in-filters.md)

@@ -6,13 +6,13 @@ This workflow uses the built-in `test_writer` agent. Unlike a request that names
 
 CLI workflow
 
-The built-in `test_writer` agent is available in dbt Wizard CLI. Refer to [Use subagents with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md) for availability and agent behavior.
+The built-in `test_writer` agent is available in dbt Wizard CLI. Refer to [Use subagents with dbt Wizard CLI](../../docs/dbt-ai/wizard-subagents.md) for availability and agent behavior.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 Before you begin:
 
-* [Install and configure dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+* [Install and configure dbt Wizard CLI](../../docs/dbt-ai/wizard-quickstart.md).
 * Start dbt Wizard from a dbt project with a current `target/manifest.json`.
 * Configure a development connection that can query the models you want to inspect.
 * Build the relevant models if their development relations don't exist.
@@ -88,7 +88,7 @@ For each proposed YAML change, confirm that:
 * Test names, arguments, configuration, and severity follow project conventions.
 * The diff doesn't include unrelated documentation or model changes.
 
-The `test_writer` agent writes the tests. The normal dbt Wizard validation flow is responsible for running them. Select an appropriate [validation level](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md#choose-a-validation-level) and review any failing rows before accepting the final change.
+The `test_writer` agent writes the tests. The normal dbt Wizard validation flow is responsible for running them. Select an appropriate [validation level](./wizard-3-validate-changes.md#choose-a-validation-level) and review any failing rows before accepting the final change.
 
 ## Investigate a failed candidate[​](#investigate-a-failed-candidate "Direct link to Investigate a failed candidate")
 
@@ -116,7 +116,7 @@ Data-informed test generation still requires engineering judgment:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Validate dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
-* [Use subagents with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md)
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md)
-* [Test best practices](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md)
+* [Validate dbt changes with dbt Wizard](./wizard-3-validate-changes.md)
+* [Use subagents with dbt Wizard CLI](../../docs/dbt-ai/wizard-subagents.md)
+* [Data tests](../../docs/build/data-tests.md)
+* [Test best practices](../writing-custom-generic-tests.md)

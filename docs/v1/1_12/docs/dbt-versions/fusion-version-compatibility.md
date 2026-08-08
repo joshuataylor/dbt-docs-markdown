@@ -50,7 +50,7 @@ For a machine-readable summary you can paste into a bug report or parse in tooli
 dbt --version --format json
 ```
 
-For details on the full output, refer to [About dbt --version](https://docs.getdbt.com/reference/commands/version.md).
+For details on the full output, refer to [About dbt --version](../../reference/commands/version.md).
 
 ## Verify binaries for manual and air-gapped installs[​](#verify-binaries-for-manual-and-air-gapped-installs "Direct link to Verify binaries for manual and air-gapped installs")
 
@@ -75,16 +75,16 @@ If you install Fusion manually in an air-gapped or firewall-restricted environme
 
    Compare the printed hash against the value in the checksum file.
 
-4. Point the dbt VS Code extension at the verified binary using the `dbt.fusionPath` setting. Refer to [dbt extension settings](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings).
+4. Point the dbt VS Code extension at the verified binary using the `dbt.fusionPath` setting. Refer to [dbt extension settings](../configure-dbt-extension.md#dbt-extension-settings).
 
-For network and proxy requirements, and how to pre-build an offline bundle, refer to [Networking requirements](https://docs.getdbt.com/docs/local/fusion-networking-requirements.md#restricted-network-installation).
+For network and proxy requirements, and how to pre-build an offline bundle, refer to [Networking requirements](../local/fusion-networking-requirements.md#restricted-network-installation).
 
 ## Known-bad releases[​](#known-bad-releases "Direct link to Known-bad releases")
 
 If a shipped Fusion release is later found to contain a regression, dbt Labs flags it as a known-bad release. When you have a flagged version installed, the dbt VS Code extension shows a warning notification telling you which version to update to, even if that version is otherwise within the supported range.
 
-Air-gapped users who don't have outbound network access can distribute the known-bad releases manifest alongside their binary bundle and point the extension at the local copy with the `dbt.badReleasesManifestPath` setting. Refer to [dbt extension settings](https://docs.getdbt.com/docs/configure-dbt-extension.md#dbt-extension-settings).
+Air-gapped users who don't have outbound network access can distribute the known-bad releases manifest alongside their binary bundle and point the extension at the local copy with the `dbt.badReleasesManifestPath` setting. Refer to [dbt extension settings](../configure-dbt-extension.md#dbt-extension-settings).
 
 ## Troubleshooting version issues[​](#troubleshooting-version-issues "Direct link to Troubleshooting version issues")
 
-If the extension can't find, start, or verify a compatible Fusion binary, it surfaces an actionable error with a link or button to resolve it. Refer to the [dbt VS Code extension troubleshooting](https://docs.getdbt.com/docs/sign-in-dbt-extension.md#troubleshooting) section for the full list of messages and fixes.
+If the extension can't find, start, or verify a compatible Fusion binary, it surfaces an actionable error with a link or button to resolve it. Refer to the [dbt VS Code extension troubleshooting](../sign-in-dbt-extension.md#troubleshooting) section for the full list of messages and fixes.

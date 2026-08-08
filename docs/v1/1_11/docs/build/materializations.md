@@ -10,9 +10,9 @@ Materializations are strategies for persisting dbt models in a warehouse. There 
 * ephemeral
 * materialized view
 
-You can also configure [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
+You can also configure [custom materializations](../../guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
 
-For a detailed guide on materializations, refer to [Materializations best practices](https://docs.getdbt.com/best-practices/materializations/1-guide-overview.md). For information about data streaming, refer to [How to handle real-time data](https://docs.getdbt.com/best-practices/how-we-handle-real-time-data/1-intro.md).
+For a detailed guide on materializations, refer to [Materializations best practices](../../best-practices/materializations/1-guide-overview.md). For information about data streaming, refer to [How to handle real-time data](../../best-practices/how-we-handle-real-time-data/1-intro.md).
 
 <!-- -->
 
@@ -34,7 +34,7 @@ Materializations
 
 ## Configuring materializations[​](#configuring-materializations "Direct link to Configuring materializations")
 
-By default, dbt models are materialized as "views". Models can be configured with a different materialization by supplying the [`materialized` configuration](https://docs.getdbt.com/reference/resource-configs/materialized.md) parameter as shown in the following tabs.
+By default, dbt models are materialized as "views". Models can be configured with a different materialization by supplying the [`materialized` configuration](../../reference/resource-configs/materialized.md) parameter as shown in the following tabs.
 
 * Project file
 * Model file
@@ -67,7 +67,7 @@ models:
       +materialized: view
 ```
 
-Alternatively, materializations can be configured directly inside of the model SQL files. This can be useful if you are also setting \[Performance Optimization] configs for specific models (for example, [Redshift specific configurations](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md) or [BigQuery specific configurations](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md)).
+Alternatively, materializations can be configured directly inside of the model SQL files. This can be useful if you are also setting \[Performance Optimization] configs for specific models (for example, [Redshift specific configurations](../../reference/resource-configs/redshift-configs.md) or [BigQuery specific configurations](../../reference/resource-configs/bigquery-configs.md)).
 
 models/events/stg\_event\_log.sql
 
@@ -79,7 +79,7 @@ select *
 from ...
 ```
 
-Materializations can also be configured in the model's `properties.yml` file. The following example shows the `table` materialization type. For a complete list of materialization types, refer to [materializations](https://docs.getdbt.com/docs/build/materializations.md#materializations).
+Materializations can also be configured in the model's `properties.yml` file. The following example shows the `table` materialization type. For a complete list of materialization types, refer to [materializations](./materializations.md#materializations).
 
 models/properties.yml
 
@@ -128,7 +128,7 @@ When using the `table` materialization, your model is rebuilt as a table on each
 
 * **Pros:** You can significantly reduce the build time by just transforming new records
 
-* **Cons:** Incremental models require extra configuration and are an advanced usage of dbt. Read more about using incremental models [here](https://docs.getdbt.com/docs/build/incremental-models.md).
+* **Cons:** Incremental models require extra configuration and are an advanced usage of dbt. Read more about using incremental models [here](./incremental-models.md).
 
 * **Advice:**
 
@@ -137,19 +137,19 @@ When using the `table` materialization, your model is rebuilt as a table on each
 
 ### Ephemeral[​](#ephemeral "Direct link to Ephemeral")
 
-`ephemeral` models are not directly built into the database. Instead, dbt will interpolate the code from an ephemeral model into its dependent models using a common table expression (CTE). You can control the identifier for this CTE using a [model alias](https://docs.getdbt.com/docs/build/custom-aliases.md), but dbt will always prefix the model identifier with `__dbt__cte__`.
+`ephemeral` models are not directly built into the database. Instead, dbt will interpolate the code from an ephemeral model into its dependent models using a common table expression (CTE). You can control the identifier for this CTE using a [model alias](./custom-aliases.md), but dbt will always prefix the model identifier with `__dbt__cte__`.
 
 * **Pros:**
 
   * You can still write reusable logic
-  * Ephemeral models can help keep your data warehouse clean by reducing clutter (also consider splitting your models across multiple schemas by [using custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md)).
+  * Ephemeral models can help keep your data warehouse clean by reducing clutter (also consider splitting your models across multiple schemas by [using custom schemas](./custom-schemas.md)).
 
 * **Cons:**
 
   * You cannot select directly from this model.
-  * [Operations](https://docs.getdbt.com/docs/build/hooks-operations.md#about-operations) (for example, macros called using [`dbt run-operation`](https://docs.getdbt.com/reference/commands/run-operation.md) cannot `ref()` ephemeral nodes)
+  * [Operations](./hooks-operations.md#about-operations) (for example, macros called using [`dbt run-operation`](../../reference/commands/run-operation.md) cannot `ref()` ephemeral nodes)
   * Overuse of ephemeral materialization can also make queries harder to debug.
-  * Ephemeral materialization doesn't support [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md#where-are-contracts-supported).
+  * Ephemeral materialization doesn't support [model contracts](../mesh/govern/model-contracts.md#where-are-contracts-supported).
 
 * **Advice:** Use the ephemeral materialization for:
 
@@ -179,7 +179,7 @@ The `materialized_view` materialization allows the creation and maintenance of m
 
 #### Configuration Change Monitoring[​](#configuration-change-monitoring "Direct link to Configuration Change Monitoring")
 
-This materialization makes use of the [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) config, which aligns with the incremental nature of the namesake database object. This setting tells dbt to attempt to make configuration changes directly to the object when possible, as opposed to completely recreating the object to implement the updated configuration. Using `dbt-postgres` as an example, indexes can be dropped and created on the materialized view without the need to recreate the materialized view itself.
+This materialization makes use of the [`on_configuration_change`](../../reference/resource-configs/on_configuration_change.md) config, which aligns with the incremental nature of the namesake database object. This setting tells dbt to attempt to make configuration changes directly to the object when possible, as opposed to completely recreating the object to implement the updated configuration. Using `dbt-postgres` as an example, indexes can be dropped and created on the materialized view without the need to recreate the materialized view itself.
 
 #### Scheduled Refreshes[​](#scheduled-refreshes "Direct link to Scheduled Refreshes")
 
@@ -187,7 +187,7 @@ In the context of a `dbt run` command, materialized views should be thought of a
 
 info
 
-`dbt-snowflake` *does not* support materialized views, it uses Dynamic Tables instead. For details, refer to [Snowflake specific configurations](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables).
+`dbt-snowflake` *does not* support materialized views, it uses Dynamic Tables instead. For details, refer to [Snowflake specific configurations](../../reference/resource-configs/snowflake-configs.md#dynamic-tables).
 
 ## Python materializations[​](#python-materializations "Direct link to Python materializations")
 
@@ -196,7 +196,7 @@ Python models support two materializations:
 * `table`
 * `incremental`
 
-Incremental Python models support all the same [incremental strategies](https://docs.getdbt.com/docs/build/incremental-strategy.md) as their SQL counterparts. The specific strategies supported depend on your adapter.
+Incremental Python models support all the same [incremental strategies](./incremental-strategy.md) as their SQL counterparts. The specific strategies supported depend on your adapter.
 
 Python models can't be materialized as `view` or `ephemeral`. Python isn't supported for non-model resource types (like tests and snapshots).
 

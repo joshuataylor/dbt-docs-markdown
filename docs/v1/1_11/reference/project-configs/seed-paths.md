@@ -8,7 +8,7 @@ seed-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [seed](https://docs.getdbt.com/docs/build/seeds.md) files are located.
+Optionally specify a custom list of directories where [seed](../../docs/build/seeds.md) files are located.
 
 ## Default[​](#default "Direct link to Default")
 

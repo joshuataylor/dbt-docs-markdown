@@ -1,6 +1,6 @@
 # How do I document macros?
 
-To document macros, use a [properties file](https://docs.getdbt.com/reference/macro-properties.md) and nest the configurations under a `macros:` key
+To document macros, use a [properties file](../../reference/macro-properties.md) and nest the configurations under a `macros:` key
 
 ## Example[​](#example "Direct link to Example")
 
@@ -23,15 +23,15 @@ tip
 
 From dbt Core v1.10, you can opt into validating the arguments you define in macro documentation using the `validate_macro_args` behavior change flag. When enabled, dbt will:
 
-* Infer arguments from the macro and includes them in the [manifest.json](https://docs.getdbt.com/reference/artifacts/manifest-json.md) file if no arguments are documented.
+* Infer arguments from the macro and includes them in the [manifest.json](../../reference/artifacts/manifest-json.md) file if no arguments are documented.
 * Raise a warning if documented argument names don't match the macro definition.
-* Raise a warning if `type` fields don't follow [supported formats](https://docs.getdbt.com/reference/resource-properties/arguments.md#supported-types).
+* Raise a warning if `type` fields don't follow [supported formats](../../reference/resource-properties/arguments.md#supported-types).
 
-Learn more about [macro argument validation](https://docs.getdbt.com/reference/global-configs/behavior-flags/validate_macro_args.md).
+Learn more about [macro argument validation](../../reference/global-configs/behavior-flags/validate_macro_args.md).
 
 ## Document a custom materialization[​](#document-a-custom-materialization "Direct link to Document a custom materialization")
 
-When you create a [custom materialization](https://docs.getdbt.com/guides/create-new-materializations.md), dbt creates an associated macro with the following format:
+When you create a [custom materialization](../../guides/create-new-materializations.md), dbt creates an associated macro with the following format:
 
 ```text
 materialization_{materialization_name}_{adapter}

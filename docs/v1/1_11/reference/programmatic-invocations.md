@@ -33,7 +33,7 @@ For implementation details, refer to the source definitions of `dbtRunner` and `
 
 `dbtRunner.invoke` accepts the same arguments as the dbt Core CLI. The first positional argument is the command (for example, `run`, `build`, `test`), followed by any flags and options you would normally pass on the command line.
 
-For example, `dbt.invoke(["run", "--select", "tag:my_tag"])` is equivalent to running `dbt run --select tag:my_tag`. There is no separate, dbtRunner‑specific list of arguments; the authoritative source for available options is the CLI help reference (`dbt --help`, `dbt run --help`, and so on) and the [dbt command reference](https://docs.getdbt.com/reference/dbt-commands.md) documentation.
+For example, `dbt.invoke(["run", "--select", "tag:my_tag"])` is equivalent to running `dbt run --select tag:my_tag`. There is no separate, dbtRunner‑specific list of arguments; the authoritative source for available options is the CLI help reference (`dbt --help`, `dbt run --help`, and so on) and the [dbt command reference](./dbt-commands.md) documentation.
 
 ```python
 from dbt.cli.main import dbtRunner
@@ -45,12 +45,12 @@ dbt.invoke(["run"], select="tag:my_tag")
 
 ## Parallel execution not supported[​](#parallel-execution-not-supported "Direct link to Parallel execution not supported")
 
-[`dbt-core`](https://pypi.org/project/dbt-core/) doesn't support [safe parallel execution](https://docs.getdbt.com/reference/dbt-commands.md#parallel-execution) for multiple invocations in the same process. Running multiple dbt commands concurrently in one process is unsafe and officially discouraged, and requires a wrapping process to manage subprocesses. This is because:
+[`dbt-core`](https://pypi.org/project/dbt-core/) doesn't support [safe parallel execution](./dbt-commands.md#parallel-execution) for multiple invocations in the same process. Running multiple dbt commands concurrently in one process is unsafe and officially discouraged, and requires a wrapping process to manage subprocesses. This is because:
 
 * Running concurrent commands can unexpectedly interact with the data platform. For example, running `dbt run` and `dbt build` for the same models simultaneously could lead to unpredictable results.
 * Each `dbt-core` command interacts with global Python variables. To ensure safe operation, commands need to be executed in separate processes, for example by spawning subprocesses or using Celery for orchestration.
 
-For [safe parallel execution](https://docs.getdbt.com/reference/dbt-commands.md#available-commands), you can use the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), both of which do that additional work to manage concurrency (multiple processes) on your behalf.
+For [safe parallel execution](./dbt-commands.md#available-commands), you can use the [dbt CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md), both of which do that additional work to manage concurrency (multiple processes) on your behalf.
 
 ## `dbtRunnerResult`[​](#dbtrunnerresult "Direct link to dbtrunnerresult")
 
@@ -60,7 +60,7 @@ Each command returns a `dbtRunnerResult` object with three attributes:
 * `result`: When the command completes (successfully or with handled errors), it returns the command's result(s). The return type varies by command.
 * `exception`: When the dbt invocation encounters an unhandled error and does not complete, the exception that was raised.
 
-There is a one-to-one correspondence between [CLI exit codes](https://docs.getdbt.com/reference/exit-codes.md) and the `dbtRunnerResult` returned by a programmatic invocation:
+There is a one-to-one correspondence between [CLI exit codes](./exit-codes.md) and the `dbtRunnerResult` returned by a programmatic invocation:
 
 | Scenario                                                                                              | CLI Exit Code | `success` | `result`          | `exception` |
 | ----------------------------------------------------------------------------------------------------- | ------------- | --------- | ----------------- | ----------- |
@@ -78,7 +78,7 @@ Search table...
 
 We're making an ongoing commitment to providing a Python entry point at functional parity with dbt Core's CLI. We reserve the right to change the underlying implementation used to achieve that goal. We expect that the current implementation will unlock real use cases in the short- and medium-term while we work on a set of stable, long-term interfaces that will ultimately replace it.
 
-In particular, the objects returned by each command in `dbtRunnerResult.result` are not fully contracted, and therefore liable to change. Some of the returned objects are partially documented, because they overlap in part with the contents of [dbt artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md). As Python objects, they contain many more fields and methods than what's available in the serialized JSON artifacts. These additional fields and methods should be considered **internal and liable to change in future versions of dbt-core.**
+In particular, the objects returned by each command in `dbtRunnerResult.result` are not fully contracted, and therefore liable to change. Some of the returned objects are partially documented, because they overlap in part with the contents of [dbt artifacts](./artifacts/dbt-artifacts.md). As Python objects, they contain many more fields and methods than what's available in the serialized JSON artifacts. These additional fields and methods should be considered **internal and liable to change in future versions of dbt-core.**
 
 ## Advanced usage patterns[​](#advanced-usage-patterns "Direct link to Advanced usage patterns")
 

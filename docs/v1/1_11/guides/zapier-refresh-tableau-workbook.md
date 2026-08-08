@@ -1,6 +1,6 @@
 # Refresh Tableau workbook with extracts after a job finishes
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Webhooks
 
@@ -21,7 +21,7 @@ This guide will teach you how to refresh a Tableau workbook that leverages [extr
 
 To set up the integration, you need to be familiar with:
 
-* [dbt Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
+* [dbt Webhooks](../docs/deploy/webhooks.md)
 * Zapier
 * The [Tableau API](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm)
 * The [version](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_versions.htm#rest_api_versioning) of Tableau's REST API that is compatible with your server
@@ -32,7 +32,7 @@ To authenticate with the Tableau API, obtain a [Personal Access Token](https://h
 
 ## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
 
-To trigger an action with the delivery of a webhook in Zapier, you'll want to create a new Zap with **Webhooks by Zapier** as the Trigger and **Catch Raw Hook** as the Event. However, if you choose not to [validate the authenticity of your webhook](https://docs.getdbt.com/docs/deploy/webhooks.md#validate-a-webhook), which isn't recommended, you can choose **Catch Hook** instead.
+To trigger an action with the delivery of a webhook in Zapier, you'll want to create a new Zap with **Webhooks by Zapier** as the Trigger and **Catch Raw Hook** as the Event. However, if you choose not to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook), which isn't recommended, you can choose **Catch Hook** instead.
 
 Press **Continue**, then copy the webhook URL.
 
@@ -40,7 +40,7 @@ Press **Continue**, then copy the webhook URL.
 
 ## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
 
-To set up a webhook subscription for dbt, follow the instructions in [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription). For the event, choose **Run completed** and modify the **Jobs** list to include only the jobs that should trigger a report refresh.
+To set up a webhook subscription for dbt, follow the instructions in [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription). For the event, choose **Run completed** and modify the **Jobs** list to include only the jobs that should trigger a report refresh.
 
 Remember to save the Webhook Secret Key for later. Paste in the webhook URL obtained from Zapier in step 2 into the **Endpoint** field and test the endpoint.
 

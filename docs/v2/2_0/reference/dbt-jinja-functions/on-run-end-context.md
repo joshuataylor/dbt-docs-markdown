@@ -66,7 +66,7 @@ on-run-end:
 
 ## Results[​](#results "Direct link to Results")
 
-The `results` variable contains a list of [Result objects](https://docs.getdbt.com/reference/dbt-classes.md#result-objects) with one element per resource that executed in the dbt job. The Result object provides access within the Jinja on-run-end context to the information that will populate the [run results JSON artifact](https://docs.getdbt.com/reference/artifacts/run-results-json.md).
+The `results` variable contains a list of [Result objects](../dbt-classes.md#result-objects) with one element per resource that executed in the dbt job. The Result object provides access within the Jinja on-run-end context to the information that will populate the [run results JSON artifact](../artifacts/run-results-json.md).
 
 Example usage:
 

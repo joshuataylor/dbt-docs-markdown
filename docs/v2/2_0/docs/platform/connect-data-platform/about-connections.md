@@ -8,10 +8,10 @@ For most supported data platforms, we recommend the v2 experience. v2 supports t
 
 | Connection                                                                                         | Available on v2 |
 | -------------------------------------------------------------------------------------------------- | --------------- |
-| [Snowflake](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)      | ✅              |
-| [Amazon Redshift](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md) | Preview         |
-| [Databricks](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)    | Preview         |
-| [Google BigQuery](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md) | Preview         |
+| [Snowflake](./connect-snowflake.md)      | ✅              |
+| [Amazon Redshift](./connect-redshift.md) | Preview         |
+| [Databricks](./connect-databricks.md)    | Preview         |
+| [Google BigQuery](./connect-bigquery.md) | Preview         |
 
 *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
@@ -32,7 +32,7 @@ To connect to your database in dbt:
 
 [![Choose a connection](/img/docs/connect-data-platform/choose-a-connection.png?v=2 "Choose a connection")](#)Choose a connection
 
-These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](https://docs.getdbt.com/guides.md).
+These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](../../../guides.md).
 
 ### Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
 
@@ -51,7 +51,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-\*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](https://docs.getdbt.com/docs/platform/secure/private-connectivity/private-connectivity.md) for details.
+\*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](../secure/private-connectivity/private-connectivity.md) for details.
 
 <!-- -->
 
@@ -59,7 +59,7 @@ Search table...
 
 Warehouse connections are an account-level resource. You can find them under **Accounts settings** > **Connections**.
 
-Warehouse connections can be re-used across projects. If multiple projects all connect to the same warehouse, you should re-use the same connection to streamline your management operations. Connections are assigned to a project via an [environment](https://docs.getdbt.com/docs/dbt-platform-environments.md).
+Warehouse connections can be re-used across projects. If multiple projects all connect to the same warehouse, you should re-use the same connection to streamline your management operations. Connections are assigned to a project via an [environment](../../dbt-platform-environments.md).
 
 [![Connection model](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-new-model.png?v=2 "Connection model")](#)Connection model
 
@@ -121,8 +121,8 @@ Please consider the following actions, as the steps you take will depend on the 
 
 ## IP Restrictions[​](#ip-restrictions "Direct link to IP Restrictions")
 
-dbt will always connect to your data platform from the IP addresses specified in the [Regions & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) page.
+dbt will always connect to your data platform from the IP addresses specified in the [Regions & IP addresses](../about-platform/access-regions-ip-addresses.md) page.
 
 Be sure to allow traffic from these IPs in your firewall, and include them in any database grants.
 
-Allowing these IP addresses only enables the connection to your data warehouse. However, you might want to send API requests from your restricted network to the dbt API. Using the dbt API requires allowing the `cloud.getdbt.com` subdomain. For more on the dbt architecture, see [Deployment architecture](https://docs.getdbt.com/docs/platform/about-platform/architecture.md).
+Allowing these IP addresses only enables the connection to your data warehouse. However, you might want to send API requests from your restricted network to the dbt API. Using the dbt API requires allowing the `cloud.getdbt.com` subdomain. For more on the dbt architecture, see [Deployment architecture](../about-platform/architecture.md).

@@ -36,15 +36,15 @@ select ...
 
 ## Definition[​](#definition "Direct link to Definition")
 
-[Materializations](https://docs.getdbt.com/docs/build/materializations.md#materializations) are strategies for persisting dbt models in a warehouse. These are the materialization types built into dbt:
+[Materializations](../../docs/build/materializations.md#materializations) are strategies for persisting dbt models in a warehouse. These are the materialization types built into dbt:
 
-* `ephemeral` — [ephemeral](https://docs.getdbt.com/docs/build/materializations.md#ephemeral) models are not directly built into the database
-* `table` — a model is rebuilt as a [table](https://docs.getdbt.com/docs/build/materializations.md#table) on each run
-* `view` — a model is rebuilt as a [view](https://docs.getdbt.com/docs/build/materializations.md#view) on each run
-* `materialized_view` — allows the creation and maintenance of [materialized views](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) in the target database
-* `incremental` — [incremental](https://docs.getdbt.com/docs/build/materializations.md#incremental) models allow dbt to insert or update records into a `table` since the last time that model was run
+* `ephemeral` — [ephemeral](../../docs/build/materializations.md#ephemeral) models are not directly built into the database
+* `table` — a model is rebuilt as a [table](../../docs/build/materializations.md#table) on each run
+* `view` — a model is rebuilt as a [view](../../docs/build/materializations.md#view) on each run
+* `materialized_view` — allows the creation and maintenance of [materialized views](../../docs/build/materializations.md#materialized-view) in the target database
+* `incremental` — [incremental](../../docs/build/materializations.md#incremental) models allow dbt to insert or update records into a `table` since the last time that model was run
 
-You can also configure [custom materializations](https://docs.getdbt.com/guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
+You can also configure [custom materializations](../../guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
 
 <!-- -->
 
@@ -54,7 +54,7 @@ Materializations are implemented following this "drop through" life cycle:
 
 1. If a model does not exist with the provided path, create the new model.
 2. If a model exists, but has a different type, drop the existing model and create the new model.
-3. If [`--full-refresh`](https://docs.getdbt.com/reference/resource-configs/full_refresh.md) is supplied, replace the existing model regardless of configuration changes and the [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) setting.
+3. If [`--full-refresh`](./full_refresh.md) is supplied, replace the existing model regardless of configuration changes and the [`on_configuration_change`](./on_configuration_change.md) setting.
    <!-- -->
    * BigQuery users may need to run `dbt run --full-refresh` (instead of `dbt run`) after changing a model’s materialization (for example, from `table` to `view`) to ensure dbt fully replaces the existing relation and the change is fully applied.
 4. If there are no configuration changes, perform the default action for that type (e.g. apply refresh for a materialized view).

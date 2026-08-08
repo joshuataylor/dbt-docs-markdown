@@ -146,5 +146,5 @@ models:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
+* [About dbt State](../../docs/deploy/dbt-state-about.md)
+* [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

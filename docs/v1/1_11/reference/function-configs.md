@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../docs/dbt-versions/dbt-release-tracks.md).
 
 ## Available configurations[​](#available-configurations "Direct link to Available configurations")
 
@@ -101,15 +101,15 @@ functions:
 
 Functions are configured in YAML files, either in `dbt_project.yml` or within an individual function's YAML properties file. The function body is defined in a SQL file in the `functions/` directory.
 
-Function configurations, like model configurations, are applied hierarchically. For more info, refer to [config inheritance](https://docs.getdbt.com/reference/define-configs.md#config-inheritance).
+Function configurations, like model configurations, are applied hierarchically. For more info, refer to [config inheritance](./define-configs.md#config-inheritance).
 
-Functions respect the same name-generation macros as models: [`generate_database_name`](https://docs.getdbt.com/docs/build/custom-databases.md), [`generate_schema_name`](https://docs.getdbt.com/docs/build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name), and [`generate_alias_name`](https://docs.getdbt.com/docs/build/custom-aliases.md).
+Functions respect the same name-generation macros as models: [`generate_database_name`](../docs/build/custom-databases.md), [`generate_schema_name`](../docs/build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name), and [`generate_alias_name`](../docs/build/custom-aliases.md).
 
 ### Examples[​](#examples "Direct link to Examples")
 
 #### Apply the `schema` configuration to all functions[​](#apply-the-schema-configuration-to-all-functions "Direct link to apply-the-schema-configuration-to-all-functions")
 
-To apply a configuration to all functions, including those in any installed [packages](https://docs.getdbt.com/docs/build/packages.md), nest the configuration directly under the `functions` key:
+To apply a configuration to all functions, including those in any installed [packages](../docs/build/packages.md), nest the configuration directly under the `functions` key:
 
 dbt\_project.yml
 
@@ -121,7 +121,7 @@ functions:
 
 #### Apply the `schema` configuration to all functions in your project[​](#apply-the-schema-configuration-to-all-functions-in-your-project "Direct link to apply-the-schema-configuration-to-all-functions-in-your-project")
 
-To apply a configuration to all functions in your project only (i.e. *excluding* any functions in installed packages), provide your [project name](https://docs.getdbt.com/reference/project-configs/name.md) as part of the resource path.
+To apply a configuration to all functions in your project only (i.e. *excluding* any functions in installed packages), provide your [project name](./project-configs/name.md) as part of the resource path.
 
 For a project named `jaffle_shop`:
 

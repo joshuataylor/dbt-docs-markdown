@@ -2,8 +2,8 @@
 
 Metrics define measurable quantities that you can query through the Semantic Layer. You define them in different places, depending on your dbt version:
 
-* In a model using the *latest* YAML spec. Top-level `metrics:` list on a [model](https://docs.getdbt.com/reference/model-properties.md) that has semantic modeling enabled, alongside `semantic_model:` and `columns:`. Available in the dbt platform **Latest** release track and the dbt Fusion engine.
-* In the standalone *legacy* YAML spec. Refer to [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md) for more information.
+* In a model using the *latest* YAML spec. Top-level `metrics:` list on a [model](./model-properties.md) that has semantic modeling enabled, alongside `semantic_model:` and `columns:`. Available in the dbt platform **Latest** release track and the dbt Fusion engine.
+* In the standalone *legacy* YAML spec. Refer to [Creating metrics](../docs/build/metrics-overview.md) for more information.
 
 <!-- -->
 
@@ -15,7 +15,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-For more information, refer to [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
 ## Latest spec (model YAML)[​](#latest-spec-model-yaml "Direct link to Latest spec (model YAML)")
 
@@ -30,7 +30,7 @@ In the latest YAML spec, you can define metrics on a model that has semantic mod
 | description | string | No       | Documentation for the metric.                                                                                                                                                                                                                                                                    |
 | label       | string | No       | Display name in downstream tools.                                                                                                                                                                                                                                                                |
 | filter      | string | No       | MetricFlow filter expression (dimensions, entities, or other metrics).                                                                                                                                                                                                                           |
-| config      | object | No       | Supports [meta](https://docs.getdbt.com/reference/resource-configs/meta.md), [group](https://docs.getdbt.com/reference/resource-configs/group.md), [tags](https://docs.getdbt.com/reference/resource-configs/tags.md), [enabled](https://docs.getdbt.com/reference/resource-configs/enabled.md). |
+| config      | object | No       | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [tags](./resource-configs/tags.md), [enabled](./resource-configs/enabled.md). |
 
 Search table...
 
@@ -43,11 +43,11 @@ Search table...
 | Metric type                                                    | Key properties                                                                                                                  |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | All                                                            | name, type, description, label, hidden, filter, config                                                                          |
-| [Simple](https://docs.getdbt.com/docs/build/simple.md)         | agg, expr, time\_granularity, agg\_time\_dimension, join\_to\_timespine, fill\_nulls\_with; optionally non\_additive\_dimension |
-| [Derived](https://docs.getdbt.com/docs/build/derived.md)       | expr, input\_metrics (each with optional alias, filter, offset\_window)                                                         |
-| [Ratio](https://docs.getdbt.com/docs/build/ratio.md)           | numerator, denominator (each a metric name or a dict with name, filter, alias)                                                  |
-| [Conversion](https://docs.getdbt.com/docs/build/conversion.md) | entity, calculation, base\_metric, conversion\_metric, window; optional constant\_properties                                    |
-| [Cumulative](https://docs.getdbt.com/docs/build/cumulative.md) | input\_metric, window, grain\_to\_date, period\_agg                                                                             |
+| [Simple](../docs/build/simple.md)         | agg, expr, time\_granularity, agg\_time\_dimension, join\_to\_timespine, fill\_nulls\_with; optionally non\_additive\_dimension |
+| [Derived](../docs/build/derived.md)       | expr, input\_metrics (each with optional alias, filter, offset\_window)                                                         |
+| [Ratio](../docs/build/ratio.md)           | numerator, denominator (each a metric name or a dict with name, filter, alias)                                                  |
+| [Conversion](../docs/build/conversion.md) | entity, calculation, base\_metric, conversion\_metric, window; optional constant\_properties                                    |
+| [Cumulative](../docs/build/cumulative.md) | input\_metric, window, grain\_to\_date, period\_agg                                                                             |
 
 Search table...
 
@@ -59,4 +59,4 @@ Search table...
 
 **Note:** For the legacy spec, all metrics were defined in standalone YAML; there was no model-level `metrics:` list.
 
-For the latest spec, refer to [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md). For metric types, `type_params`, and more examples, refer to [Creating metrics](https://docs.getdbt.com/docs/build/metrics-overview.md).
+For the latest spec, refer to [Semantic models](../docs/build/semantic-models.md). For metric types, `type_params`, and more examples, refer to [Creating metrics](../docs/build/metrics-overview.md).

@@ -13,7 +13,7 @@ For detailed setup instructions, including setting up watsonx.data, adding the S
 
 With IBM watsonx.data SaaS/Software instance, you can [set session properties](https://sparkdb.io/docs/current/sql/set-session.html) to modify the current configuration for your user session.
 
-To temporarily adjust session properties for a specific dbt model or a group of models, use a [dbt hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md). For example:
+To temporarily adjust session properties for a specific dbt model or a group of models, use a [dbt hook](./pre-hook-post-hook.md). For example:
 
 ```sql
 {{
@@ -87,13 +87,13 @@ By specifying file format dbt models. For example:
 
 ## Seeds and prepared statements[​](#seeds-and-prepared-statements "Direct link to Seeds and prepared statements")
 
-You can configure column data types either in the dbt\_project.yml file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](https://docs.getdbt.com/reference/seed-configs.md).
+You can configure column data types either in the dbt\_project.yml file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](../seed-configs.md).
 
 ## Materializations[​](#materializations "Direct link to Materializations")
 
 The `dbt-watsonx-spark` adapter supports table materializations, allowing you to manage how your data is stored and queried in watsonx.data Spark.
 
-For further information on configuring materializations, refer to the [dbt materializations documentation](https://docs.getdbt.com/reference/resource-configs/materialized.md).
+For further information on configuring materializations, refer to the [dbt materializations documentation](./materialized.md).
 
 ### Table[​](#table "Direct link to Table")
 

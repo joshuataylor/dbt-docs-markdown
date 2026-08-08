@@ -80,7 +80,7 @@ Test one capability at a time after installation:
 4. Ask dbt Wizard to list the skill or MCP capability you expect the plugin to provide.
 5. Run a read-only prompt that exercises the capability before granting write access or broader tool approvals.
 
-If a plugin bundles an MCP server, its tools still follow the [MCP approval settings](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md#approvals-and-tool-permissions). A plugin doesn't bypass the CLI sandbox or tool approval policy.
+If a plugin bundles an MCP server, its tools still follow the [MCP approval settings](../../docs/dbt-ai/wizard-mcp.md#approvals-and-tool-permissions). A plugin doesn't bypass the CLI sandbox or tool approval policy.
 
 ## Update or remove an extension[​](#update-or-remove-an-extension "Direct link to Update or remove an extension")
 
@@ -118,14 +118,14 @@ Use a plugin when several capabilities need to be installed and versioned togeth
 
 | Need                                                   | Use                                                                                           |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| Reusable team instructions                             | A project [skill](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md) in `.agents/skills/`. |
-| Tools from another service                             | A configured [MCP server](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md).                 |
+| Reusable team instructions                             | A project [skill](../../docs/dbt-ai/wizard-skills.md) in `.agents/skills/`. |
+| Tools from another service                             | A configured [MCP server](../../docs/dbt-ai/wizard-mcp.md).                 |
 | A command that runs at a lifecycle event               | A hook, distributed only from a source your team trusts.                                      |
 | Skills, tools, apps, and hooks that must ship together | A plugin from a reviewed marketplace.                                                         |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Use skills with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
-* [Use MCP servers with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md)
-* [Approval and sandboxing](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#approval-and-sandboxing)
-* [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)
+* [Use skills with dbt Wizard CLI](../../docs/dbt-ai/wizard-skills.md)
+* [Use MCP servers with dbt Wizard CLI](../../docs/dbt-ai/wizard-mcp.md)
+* [Approval and sandboxing](../../docs/dbt-ai/wizard-how-it-works.md#approval-and-sandboxing)
+* [dbt Wizard command reference](../../docs/dbt-ai/wizard-cli-reference.md)

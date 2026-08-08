@@ -21,7 +21,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
 Snowflake OAuth with PrivateLink
 
-Users connecting to Snowflake using [Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md) over an AWS PrivateLink connection from dbt will also require access to a PrivateLink endpoint from their local workstation. Where possible, use [Snowflake External OAuth](https://docs.getdbt.com/docs/platform/manage-access/snowflake-external-oauth.md) instead to bypass this limitation.
+Users connecting to Snowflake using [Snowflake OAuth](../../../manage-access/set-up-snowflake-oauth.md) over an AWS PrivateLink connection from dbt will also require access to a PrivateLink endpoint from their local workstation. Where possible, use [Snowflake External OAuth](../../../manage-access/snowflake-external-oauth.md) instead to bypass this limitation.
 
 From the [Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-overview#label-sso-private-connectivity) docs:
 
@@ -42,7 +42,7 @@ This section walks you through the process of requesting a new Snowflake Private
 
 ##### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* [Account admin](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md?version=2.0#account-admin) or [Project creator](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md?version=2.0#project-creator) permission sets in dbt platform. Users with an IT license can also create private endpoints.
+* [Account admin](../../../manage-access/enterprise-permissions.md?version=2.0#account-admin) or [Project creator](../../../manage-access/enterprise-permissions.md?version=2.0#project-creator) permission sets in dbt platform. Users with an IT license can also create private endpoints.
 * [Snowflake `ACCOUNTADMIN` permissions](https://docs.snowflake.com/en/user-guide/security-access-control-overview#system-defined-roles).
 
 ##### Before you begin[​](#before-you-begin "Direct link to Before you begin")

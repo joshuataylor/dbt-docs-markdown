@@ -50,4 +50,4 @@ asset-paths: ["assets"]
 
 Any files included in this directory will be copied to the `target/` directory as part of `dbt docs generate`, making them accessible as images in your project documentation.
 
-Check out the full writeup on including images in your descriptions [here](https://docs.getdbt.com/reference/resource-properties/description.md#include-an-image-from-your-repo-in-your-descriptions).
+Check out the full writeup on including images in your descriptions [here](../resource-properties/description.md#include-an-image-from-your-repo-in-your-descriptions).

@@ -7,7 +7,7 @@ Connecting your GitLab account to dbt provides convenience and another layer of 
 * Import new GitLab repos with a couple of clicks during dbt project setup.
 * Clone repos using HTTPS rather than SSH.
 * Carry GitLab user permissions through to dbt and dbt CLI git actions.
-* Trigger [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) builds when merge requests are opened in GitLab.
+* Trigger [continuous integration](../../deploy/continuous-integration.md) builds when merge requests are opened in GitLab.
 
 info
 
@@ -90,11 +90,11 @@ To create a group-owned OAuth application in GitLab:
    | ---------------- | - | - | - | - |
    | Loading table... |   |   |   |   |
 
-   For the **Redirect URI** field, replace `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
+   For the **Redirect URI** field, replace `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
 
 3. Click **Save application**. GitLab will generate an **Application ID** and **Secret**. These values remain available even if you close the app screen, so you can return to save them later.
 
-If you're a Business Critical customer using [IP restrictions](https://docs.getdbt.com/docs/platform/secure/ip-restrictions.md), ensure you've added the appropriate GitLab CIDRs to your IP restriction rules, or else the GitLab connection will fail.
+If you're a Business Critical customer using [IP restrictions](../secure/ip-restrictions.md), ensure you've added the appropriate GitLab CIDRs to your IP restriction rules, or else the GitLab connection will fail.
 
 ### Adding the GitLab OAuth application to dbt[​](#adding-the-gitlab-oauth-application-to-dbt "Direct link to Adding the GitLab OAuth application to dbt")
 
@@ -144,7 +144,7 @@ Once you approve authorization, you will be redirected to dbt, and you should se
 
 Unable to trigger a CI job with GitLab
 
-When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) when you push to the repository.
+When you connect dbt to a GitLab repository, GitLab automatically registers a webhook in the background, viewable under the repository settings. This webhook is also used to trigger [CI jobs](../../deploy/ci-jobs.md) when you push to the repository.
 
 If you're unable to trigger a CI job, this usually indicates that the webhook registration is missing or incorrect.
 
@@ -255,7 +255,7 @@ dbt_modules/
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
-9. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
+9. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
    <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
@@ -285,7 +285,7 @@ dbt_modules/
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
-11. [Rollback your repo to remote](https://docs.getdbt.com/docs/platform/git/version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
+11. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
     <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
@@ -333,7 +333,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
    As an example, if you're migrating from GitHub to Azure DevOps, you'll need to import your existing repository (GitHub) into your new Git provider (Azure DevOps). For detailed steps on how to do this, refer to your Git provider's documentation (Such as [GitHub](https://docs.github.com/en/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer), [GitLab](https://docs.gitlab.com/ee/user/project/import/repo_by_url.html), [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops))
 
-2. Go back to dbt and set up your [integration for the new Git provider](https://docs.getdbt.com/docs/platform/git/configure-git.md), if needed.
+2. Go back to dbt and set up your [integration for the new Git provider](./configure-git.md), if needed.
 
 3. Disconnect the old repository in dbt by going to **Account Settings** and then **Projects**.
 

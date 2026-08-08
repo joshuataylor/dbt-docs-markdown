@@ -1,12 +1,12 @@
 # Trusted adapters
 
-Trusted adapters take part in the Trusted Adapter Program, including a commitment to meet the program's requirements. They are maintained by dbt Labs, partners, and community members. Trusted adapters in dbt undergo an additional rigorous process that covers development, documentation, user experience, and maintenance requirements. We strongly recommend using them in production environments. For further details, refer to [What it means to be trusted](https://docs.getdbt.com/guides/adapter-creation.md?step=8#what-it-means-to-be-trusted).
+Trusted adapters take part in the Trusted Adapter Program, including a commitment to meet the program's requirements. They are maintained by dbt Labs, partners, and community members. Trusted adapters in dbt undergo an additional rigorous process that covers development, documentation, user experience, and maintenance requirements. We strongly recommend using them in production environments. For further details, refer to [What it means to be trusted](../guides/adapter-creation.md?step=8#what-it-means-to-be-trusted).
 
 Free and open-source tools for the data professional are increasingly abundant. This is by-and-large a *good thing*, however it requires due diligence that wasn't required in a paid-license, closed-source software world. As a user, there are important questions to answer before taking a dependency on an open-source project. The trusted adapter designation is meant to streamline this process for end users.
 
 ### Trusted adapter specifications[​](#trusted-adapter-specifications "Direct link to Trusted adapter specifications")
 
-Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.com/guides/adapter-creation.md) guide for more information, particularly if you are an adapter maintainer considering having your adapter be added to the trusted list.
+Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for more information, particularly if you are an adapter maintainer considering having your adapter be added to the trusted list.
 
 ### Trusted adapters[​](#trusted-adapters "Direct link to Trusted adapters")
 
@@ -18,9 +18,9 @@ Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.c
 
 #### AlloyDB
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-postgresql-alloydb.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/alloydb-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/alloydb-setup.md)
 
 <br />
 
@@ -32,10 +32,10 @@ dbt platformdbt Core
 
 #### Apache Spark
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-apache-spark.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-apache-spark.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/spark-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/spark-setup.md)
 
 <br />
 
@@ -47,9 +47,9 @@ dbt platformdbt CoreFusion
 
 #### Athena
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-amazon-athena.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-amazon-athena.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/athena-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/athena-setup.md)
 
 <br />
 
@@ -63,9 +63,9 @@ dbt platformdbt Core
 
 #### Azure Synapse
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-azure-synapse-analytics.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-azure-synapse-analytics.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/azuresynapse-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/azuresynapse-setup.md)
 
 <br />
 
@@ -77,11 +77,11 @@ dbt platformdbt Core
 
 #### BigQuery
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-bigquery.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/bigquery-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/bigquery-setup.md)
 
 <br />
 
@@ -93,7 +93,7 @@ dbt platformdbt CoreFusion
 
 #### ClickHouse
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/clickhouse-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/clickhouse-setup.md)
 
 <br />
 
@@ -105,11 +105,11 @@ dbt Core
 
 #### Databricks
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-databricks.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/databricks-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/databricks-setup.md)
 
 <br />
 
@@ -121,9 +121,9 @@ dbt platformdbt CoreFusion
 
 #### DuckDB
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=1)
+* [Install with dbt Core](./local/connect-data-platform/duckdb-setup.md?version=1)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=2)
+* [Install with dbt Fusion](./local/connect-data-platform/duckdb-setup.md?version=2)
 
 <br />
 
@@ -135,7 +135,7 @@ dbt CoreFusion
 
 #### Dremio
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/dremio-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/dremio-setup.md)
 
 <br />
 
@@ -149,7 +149,7 @@ dbt Core
 
 #### Glue
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/glue-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/glue-setup.md)
 
 <br />
 
@@ -163,7 +163,7 @@ dbt Core
 
 #### Exasol
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/exasol-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/exasol-setup.md)
 
 <br />
 
@@ -177,7 +177,7 @@ dbt Core
 
 #### IBM Db2
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/ibm-db2-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/ibm-db2-setup.md)
 
 <br />
 
@@ -191,7 +191,7 @@ dbt Core
 
 #### IBM Netezza
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/ibmnetezza-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/ibmnetezza-setup.md)
 
 <br />
 
@@ -205,7 +205,7 @@ dbt Core
 
 #### Databricks Lakebase
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/lakebase-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/lakebase-setup.md)
 
 <br />
 
@@ -219,7 +219,7 @@ dbt platformdbt Core
 
 #### Materialize
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/materialize-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/materialize-setup.md)
 
 <br />
 
@@ -233,9 +233,9 @@ dbt Core
 
 #### Microsoft Fabric Warehouse
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-microsoft-fabric.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-microsoft-fabric.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/fabric-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/fabric-setup.md)
 
 <br />
 
@@ -247,7 +247,7 @@ dbt platformdbt Core
 
 #### Microsoft Fabric Lakehouse
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/fabricspark-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/fabricspark-setup.md)
 
 <br />
 
@@ -259,7 +259,7 @@ dbt Core
 
 #### Oracle Autonomous Database
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/oracle-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/oracle-setup.md)
 
 <br />
 
@@ -271,9 +271,9 @@ dbt Core
 
 #### Postgres
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-postgresql-alloydb.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-postgresql-alloydb.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/postgres-setup.md)
 
 <br />
 
@@ -285,11 +285,11 @@ dbt platformdbt Core
 
 #### Redshift
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-redshift.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/redshift-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/redshift-setup.md)
 
 <br />
 
@@ -301,7 +301,7 @@ dbt platformdbt CoreFusion
 
 #### RisingWave
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/risingwave-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/risingwave-setup.md)
 
 <br />
 
@@ -315,7 +315,7 @@ dbt Core
 
 #### SingleStore
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/singlestore-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/singlestore-setup.md)
   <br />
   <br />
   [![](https://badge.fury.io/py/dbt-singlestore.svg/)](https://badge.fury.io/py/dbt-singlestore)
@@ -326,11 +326,11 @@ dbt Core
 
 #### Snowflake
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-snowflake.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/snowflake-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/snowflake-setup.md)
 
 <br />
 
@@ -342,9 +342,9 @@ dbt platformdbt CoreFusion
 
 #### Starburst/Trino
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-starburst-trino.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-starburst-trino.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/trino-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/trino-setup.md)
 
 <br />
 
@@ -356,9 +356,9 @@ dbt platformdbt Core
 
 #### Teradata
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-teradata.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-teradata.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/teradata-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/teradata-setup.md)
 
 <br />
 

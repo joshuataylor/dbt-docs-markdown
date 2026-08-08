@@ -14,9 +14,9 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
 
-Historically, dbt's test coverage was confined to [“data” tests](https://docs.getdbt.com/docs/build/data-tests.md), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed *after* building a model.
+Historically, dbt's test coverage was confined to [“data” tests](./data-tests.md), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed *after* building a model.
 
 There is an additional type of test in dbt: unit tests. In software programming, unit tests validate small portions of your functional code, and they work much the same way here. Unit tests allow you to validate your SQL modeling logic on a small set of static inputs *before* you materialize your full model in production. Unit tests enable test-driven development, benefiting developer efficiency and code reliability.
 
@@ -26,27 +26,27 @@ There is an additional type of test in dbt: unit tests. In software programming,
 
 * We currently only support unit testing SQL models.
 * We currently only support adding unit tests to models in your *current* project.
-* We currently *don't* support unit testing models that use the [`materialized view`](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) materialization.
+* We currently *don't* support unit testing models that use the [`materialized view`](./materializations.md#materialized-view) materialization.
 * We currently *don't* support unit testing models that use recursive SQL.
 * We currently *don't* support unit testing models that use introspective queries.
-* If your model has multiple versions, by default the unit test will run on *all* versions of your model. Read [unit testing versioned models](https://docs.getdbt.com/reference/resource-properties/unit-testing-versions.md) for more information.
-* Unit tests must be defined in a YML file in your [`models/` directory](https://docs.getdbt.com/reference/project-configs/model-paths.md).
+* If your model has multiple versions, by default the unit test will run on *all* versions of your model. Read [unit testing versioned models](../../reference/resource-properties/unit-testing-versions.md) for more information.
+* Unit tests must be defined in a YML file in your [`models/` directory](../../reference/project-configs/model-paths.md).
 * Table names must be aliased in order to unit test `join` logic.
-* Include all [`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md) or [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) model references in the unit test configuration as `input`s to avoid "node not found" errors during compilation.
+* Include all [`ref`](../../reference/dbt-jinja-functions/ref.md) or [`source`](../../reference/dbt-jinja-functions/source.md) model references in the unit test configuration as `input`s to avoid "node not found" errors during compilation.
 
-Unit tests are discovered from `model-paths` (by default, the `models/` directory), so define them alongside your models in a `.yml` file under your `model-paths`. Don't define unit test YAML in the `tests/` directory, which is reserved for [data tests](https://docs.getdbt.com/docs/build/data-tests.md).
+Unit tests are discovered from `model-paths` (by default, the `models/` directory), so define them alongside your models in a `.yml` file under your `model-paths`. Don't define unit test YAML in the `tests/` directory, which is reserved for [data tests](./data-tests.md).
 
 #### Adapter-specific caveats[​](#adapter-specific-caveats "Direct link to Adapter-specific caveats")
 
 * You must specify all fields in a BigQuery `STRUCT` in a unit test. You cannot use only a subset of fields in a `STRUCT`.
-* Redshift customers need to be aware of a [limitation when building unit tests](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#unit-test-limitations) that requires a workaround.
+* Redshift customers need to be aware of a [limitation when building unit tests](../../reference/resource-configs/redshift-configs.md#unit-test-limitations) that requires a workaround.
 * Redshift sources need to be in the same database as the models.
 
 tip
 
 Check out our [Unit tests on-demand course](https://learn.getdbt.com/learn/course/unit-testing/welcome-to-unit-testing-5min/introduction-to-unit-testing) to learn how to add unit tests and more!
 
-Read the [reference doc](https://docs.getdbt.com/reference/resource-properties/unit-tests.md) for more details about formatting your unit tests.
+Read the [reference doc](../../reference/resource-properties/unit-tests.md) for more details about formatting your unit tests.
 
 ### When to add a unit test to your model[​](#when-to-add-a-unit-test-to-your-model "Direct link to When to add a unit test to your model")
 
@@ -78,7 +78,7 @@ You should unit test a model:
 
 dbt Labs strongly recommends only running unit tests in development or CI environments. Since the inputs of the unit tests are static, there's no need to use additional compute cycles running them in production. Use them in development for a test-driven approach and CI to ensure changes don't break them.
 
-Use the [resource type](https://docs.getdbt.com/reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the `DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
+Use the [resource type](../../reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the `DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
 
 To run only unit tests on demand, use the `test_type` selector — this works across all engines (dbt Core and Fusion):
 
@@ -154,7 +154,7 @@ unit_tests:
         - {email: missingdot@gmailcom, is_valid_email_address: false}
 ```
 
-The previous example defines the mock data using the inline `dict` format, but you can also use `csv` or `sql` either inline or in a separate fixture file. Store your fixture files in a `fixtures` subdirectory in any of your [test paths](https://docs.getdbt.com/reference/project-configs/test-paths.md). For example, `tests/fixtures/my_unit_test_fixture.sql`.
+The previous example defines the mock data using the inline `dict` format, but you can also use `csv` or `sql` either inline or in a separate fixture file. Store your fixture files in a `fixtures` subdirectory in any of your [test paths](../../reference/project-configs/test-paths.md). For example, `tests/fixtures/my_unit_test_fixture.sql`.
 
 The following examples show how to define mock data and expected output using `csv` and `sql`.
 
@@ -213,7 +213,7 @@ note
 
 The direct parents of the model that you’re unit testing (in this example, `stg_customers` and `top_level_email_domains`) need to exist in the warehouse before you can execute the unit test.
 
-Use the [`--empty`](https://docs.getdbt.com/reference/commands/build.md#the---empty-flag) flag to build an empty version of the models to save warehouse spend.
+Use the [`--empty`](../../reference/commands/build.md#the---empty-flag) flag to build an empty version of the models to save warehouse spend.
 
 ```bash
 
@@ -296,7 +296,7 @@ When configuring your unit test, you can override the output of macros, vars, or
 
 note
 
-Incremental models need to exist in the database before running unit tests or doing a `dbt build`. Use the [`--empty` flag](https://docs.getdbt.com/reference/commands/build.md#the---empty-flag) to build an empty version of the models to save warehouse spend. You can also optionally select only your incremental models using the [`--select` flag](https://docs.getdbt.com/reference/node-selection/syntax.md#shorthand).
+Incremental models need to exist in the database before running unit tests or doing a `dbt build`. Use the [`--empty` flag](../../reference/commands/build.md#the---empty-flag) to build an empty version of the models to save warehouse spend. You can also optionally select only your incremental models using the [`--select` flag](../../reference/node-selection/syntax.md#shorthand).
 
 ```shell
 dbt run --select "config.materialized:incremental" --empty
@@ -395,13 +395,13 @@ Unit test successes and failures are represented by two exit codes:
 
 Exit codes differ from data test success and failure outputs because they don't directly reflect failing data tests. Data tests are queries designed to check specific conditions in your data, and they return one row per failed test case (for example, the number of values with duplicates for the `unique` test). dbt reports the number of failing records as failures. Whereas, each unit test represents one 'test case', so results are always 0 (pass) or 1 (fail) regardless of how many records failed within that test case.
 
-Learn about [exit codes](https://docs.getdbt.com/reference/exit-codes.md) for more information.
+Learn about [exit codes](../../reference/exit-codes.md) for more information.
 
 ## Additional resources[​](#additional-resources "Direct link to Additional resources")
 
-* [Unit testing reference page](https://docs.getdbt.com/reference/resource-properties/unit-tests.md)
-* [Supported data formats for mock data](https://docs.getdbt.com/reference/resource-properties/data-formats.md)
-* [Unit testing versioned models](https://docs.getdbt.com/reference/resource-properties/unit-testing-versions.md)
-* [Unit test inputs](https://docs.getdbt.com/reference/resource-properties/unit-test-input.md)
-* [Unit test overrides](https://docs.getdbt.com/reference/resource-properties/unit-test-overrides.md)
-* [Platform-specific data types](https://docs.getdbt.com/reference/resource-properties/data-types.md)
+* [Unit testing reference page](../../reference/resource-properties/unit-tests.md)
+* [Supported data formats for mock data](../../reference/resource-properties/data-formats.md)
+* [Unit testing versioned models](../../reference/resource-properties/unit-testing-versions.md)
+* [Unit test inputs](../../reference/resource-properties/unit-test-input.md)
+* [Unit test overrides](../../reference/resource-properties/unit-test-overrides.md)
+* [Platform-specific data types](../../reference/resource-properties/data-types.md)

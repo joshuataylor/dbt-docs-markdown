@@ -7,13 +7,13 @@ The following tips are organized into the following categories:
 * [Package tips](#package-tips) to help you streamline your workflow.
 * [Advanced tips and techniques](#advanced-tips-and-techniques) to help you get the most out of dbt.
 
-If you're developing with the Studio IDE, you can refer to the [keyboard shortcuts](https://docs.getdbt.com/docs/platform/studio-ide/keyboard-shortcuts.md) page to help make development more productive and easier for everyone.
+If you're developing with the Studio IDE, you can refer to the [keyboard shortcuts](../platform/studio-ide/keyboard-shortcuts.md) page to help make development more productive and easier for everyone.
 
 ## YAML tips[​](#yaml-tips "Direct link to YAML tips")
 
-This section clarifies where you can use [Jinja](https://docs.getdbt.com/docs/build/jinja-macros.md), nest [vars](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) and [`env_var`](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) in your YAML files.
+This section clarifies where you can use [Jinja](./jinja-macros.md), nest [vars](../../reference/dbt-jinja-functions/var.md) and [`env_var`](../../reference/dbt-jinja-functions/env_var.md) in your YAML files.
 
-* You can use Jinja in almost every YAML file in dbt *except* the [`dependencies.yml` file](https://docs.getdbt.com/docs/build/packages.md#use-cases). This is because the `dependencies.yml` file doesn't support Jinja.
+* You can use Jinja in almost every YAML file in dbt *except* the [`dependencies.yml` file](./packages.md#use-cases). This is because the `dependencies.yml` file doesn't support Jinja.
 * Use `vars` in any YAML file that supports Jinja (like `schema.yml`, `snapshots.yml`). However, note that:
   <!-- -->
   * In `dbt_project.yml`, `packages.yml`, and `profiles.yml` files, you must pass `vars` through the CLI using `--vars`, not defined inside the `vars:` block in the YAML file. This is because these files are parsed before Jinja is rendered.
@@ -45,24 +45,24 @@ Search table...
 
 * Use your folder structure as your primary selector method. `dbt build --select marts.marketing` is simpler and more resilient than relying on tagging every model.
 * Think about jobs in terms of build cadences and SLAs. Run models that have hourly, daily, or weekly build cadences together.
-* Use the [where config](https://docs.getdbt.com/reference/resource-configs/where.md) for tests to test an assertion on a subset of records.
-* [store\_failures](https://docs.getdbt.com/reference/resource-configs/store_failures.md) lets you examine records that cause tests to fail, so you can either repair the data or change the test as needed.
-* Use [severity](https://docs.getdbt.com/reference/resource-configs/severity.md) thresholds to set an acceptable number of failures for a test.
-* Use [incremental\_strategy](https://docs.getdbt.com/docs/build/incremental-strategy.md) in your incremental model config to implement the most effective behavior depending on the volume of your data and reliability of your unique keys.
+* Use the [where config](../../reference/resource-configs/where.md) for tests to test an assertion on a subset of records.
+* [store\_failures](../../reference/resource-configs/store_failures.md) lets you examine records that cause tests to fail, so you can either repair the data or change the test as needed.
+* Use [severity](../../reference/resource-configs/severity.md) thresholds to set an acceptable number of failures for a test.
+* Use [incremental\_strategy](./incremental-strategy.md) in your incremental model config to implement the most effective behavior depending on the volume of your data and reliability of your unique keys.
 * Set `vars` in your `dbt_project.yml` to define global defaults for certain conditions, which you can then override using the `--vars` flag in your commands.
-* Use [for loops](https://docs.getdbt.com/guides/using-jinja.md?step=3) in Jinja to DRY up repetitive logic, such as selecting a series of columns that all require the same transformations and naming patterns to be applied.
-* Instead of relying on post-hooks, use the [grants config](https://docs.getdbt.com/reference/resource-configs/grants.md) to apply permission grants in the warehouse resiliently.
-* Define [source-freshness](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) thresholds on your sources to avoid running transformations on data that has already been processed.
+* Use [for loops](../../guides/using-jinja.md?step=3) in Jinja to DRY up repetitive logic, such as selecting a series of columns that all require the same transformations and naming patterns to be applied.
+* Instead of relying on post-hooks, use the [grants config](../../reference/resource-configs/grants.md) to apply permission grants in the warehouse resiliently.
+* Define [source-freshness](./sources.md#source-data-freshness) thresholds on your sources to avoid running transformations on data that has already been processed.
 * Use the `+` operator on the left of a model `dbt build --select +model_name` to run a model and all of its upstream dependencies. Use the `+` operator on the right of the model `dbt build --select model_name+` to run a model and everything downstream that depends on it.
 * Use `dir_name` to run all models in a package or directory.
 * Use the `@` operator on the left of a model in a non-state-aware CI setup to test it. This operator runs all of a selection’s parents and children, and also runs the parents of its children, which in a fresh CI schema will likely not exist yet.
-* Use the [--exclude flag](https://docs.getdbt.com/reference/node-selection/exclude.md) to remove a subset of models out of a selection.
-* Use the [--full-refresh](https://docs.getdbt.com/reference/commands/run.md#refresh-incremental-models) flag to rebuild an incremental model from scratch.
-* Use [seeds](https://docs.getdbt.com/docs/build/seeds.md) to create manual lookup tables, like zip codes to states or marketing UTMs to campaigns. `dbt seed` will build these from CSVs into your warehouse and make them `ref` able in your models.
-* Use [target.name](https://docs.getdbt.com/docs/build/custom-schemas.md#an-alternative-pattern-for-generating-schema-names) to pivot logic based on what environment you’re using. For example, to build into a single development schema while developing, but use multiple schemas in production.
+* Use the [--exclude flag](../../reference/node-selection/exclude.md) to remove a subset of models out of a selection.
+* Use the [--full-refresh](../../reference/commands/run.md#refresh-incremental-models) flag to rebuild an incremental model from scratch.
+* Use [seeds](./seeds.md) to create manual lookup tables, like zip codes to states or marketing UTMs to campaigns. `dbt seed` will build these from CSVs into your warehouse and make them `ref` able in your models.
+* Use [target.name](./custom-schemas.md#an-alternative-pattern-for-generating-schema-names) to pivot logic based on what environment you’re using. For example, to build into a single development schema while developing, but use multiple schemas in production.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Quickstart guide](https://docs.getdbt.com/guides.md)
-* [About dbt](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features.md)
-* [Develop in the Cloud](https://docs.getdbt.com/docs/platform/about-develop-dbt.md)
+* [Quickstart guide](../../guides.md)
+* [About dbt](../platform/about-platform/dbt-platform-features.md)
+* [Develop in the Cloud](../platform/about-develop-dbt.md)

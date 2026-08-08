@@ -1,16 +1,16 @@
 # User-defined functions
 
-User-defined functions (UDFs) enable you to define and register custom functions in your warehouse. Like [macros](https://docs.getdbt.com/docs/build/jinja-macros.md), UDFs promote code reuse, but they are objects in the warehouse so you can reuse the same logic in tools outside dbt, such as BI tools, data science notebooks, and more.
+User-defined functions (UDFs) enable you to define and register custom functions in your warehouse. Like [macros](./jinja-macros.md), UDFs promote code reuse, but they are objects in the warehouse so you can reuse the same logic in tools outside dbt, such as BI tools, data science notebooks, and more.
 
 UDFs are particularly valuable for sharing logic across multiple tools, standardizing complex business calculations, improving performance for compute-intensive operations (since they're compiled and optimized by your warehouse's query engine), and version controlling custom logic within your dbt project.
 
-dbt creates, updates, and renames UDFs as part of DAG execution. The UDF is built in the warehouse before the model that references it. Refer to [listing and building UDFs](https://docs.getdbt.com/docs/build/udfs.md#listing-and-building-udfs) for more info on how to build UDFs in your project.
+dbt creates, updates, and renames UDFs as part of DAG execution. The UDF is built in the warehouse before the model that references it. Refer to [listing and building UDFs](./udfs.md#listing-and-building-udfs) for more info on how to build UDFs in your project.
 
-Refer to [Function properties](https://docs.getdbt.com/reference/function-properties.md) or [Function configurations](https://docs.getdbt.com/reference/function-configs.md) for more information on the configs/properties for UDFs.
+Refer to [Function properties](../../reference/function-properties.md) or [Function configurations](../../reference/function-configs.md) for more information on the configs/properties for UDFs.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
+* Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](../dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
 
 * Use one of the following adapters:
 
@@ -123,14 +123,14 @@ Follow these steps to define UDFs in dbt:
 
    The following configs are required when defining a Python UDF on Snowflake and BigQuery:
 
-   * [`runtime_version`](https://docs.getdbt.com/reference/resource-configs/runtime-version.md) — Specify the Python version to run. Supported values are:
+   * [`runtime_version`](../../reference/resource-configs/runtime-version.md) — Specify the Python version to run. Supported values are:
 
      <!-- -->
 
      * [Snowflake](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction): `3.10`, `3.11`, `3.12`, and `3.13`
      * [BigQuery](https://cloud.google.com/bigquery/docs/user-defined-functions-python): `3.11`
 
-   * [`entry_point`](https://docs.getdbt.com/reference/resource-configs/entry-point.md) — Specify the Python function to be called.
+   * [`entry_point`](../../reference/resource-configs/entry-point.md) — Specify the Python function to be called.
 
    <br />
 
@@ -164,7 +164,7 @@ Follow these steps to define UDFs in dbt:
            data_type: integer         # required
    ```
 
-   You can optionally set [`snowflake.quote_args`](https://docs.getdbt.com/reference/resource-configs/quote_args.md) to control whether argument names are quoted when creating a JavaScript UDF on Snowflake.
+   You can optionally set [`snowflake.quote_args`](../../reference/resource-configs/quote_args.md) to control whether argument names are quoted when creating a JavaScript UDF on Snowflake.
 
    functions/is\_positive\_int.yml
 
@@ -185,7 +185,7 @@ Follow these steps to define UDFs in dbt:
 
    volatility warehouse-specific
 
-   `volatility` is accepted in dbt for SQL, Python, and JavaScript UDFs, but the handling of it is warehouse-specific. For SQL and Python UDFs on BigQuery, `volatility` is ignored and dbt displays a warning. For JavaScript UDFs on BigQuery, `deterministic` and `non-deterministic` are applied when creating the UDF; `stable` is not supported. In Snowflake, all supported volatility values are applied when creating the UDF. Refer to [volatility](https://docs.getdbt.com/reference/resource-configs/volatility.md) for more information.
+   `volatility` is accepted in dbt for SQL, Python, and JavaScript UDFs, but the handling of it is warehouse-specific. For SQL and Python UDFs on BigQuery, `volatility` is ignored and dbt displays a warning. For JavaScript UDFs on BigQuery, `deterministic` and `non-deterministic` are applied when creating the UDF; `stable` is not supported. In Snowflake, all supported volatility values are applied when creating the UDF. Refer to [volatility](../../reference/resource-configs/volatility.md) for more information.
 
 3. Run one of the following `dbt build` commands to build your UDFs and create them in the warehouse:
 
@@ -339,7 +339,7 @@ Follow these steps to define UDFs in dbt:
    from {{ ref('a_model_i_like') }}
    ```
 
-   When using [`--defer`](https://docs.getdbt.com/reference/node-selection/defer.md), `function()` resolves to the existing UDF in the deferred environment (for example, production) if the function is not selected or not yet built in your target environment. This requires a state manifest specified using `--state` or an equivalent environment variable (such as `DBT_ENGINE_STATE`), which dbt uses to determine where to defer. This allows models that depend on UDFs to run successfully in [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) and development workflows. For more information, refer to [Configure state selection](https://docs.getdbt.com/reference/node-selection/configure-state.md).
+   When using [`--defer`](../../reference/node-selection/defer.md), `function()` resolves to the existing UDF in the deferred environment (for example, production) if the function is not selected or not yet built in your target environment. This requires a state manifest specified using `--state` or an equivalent environment variable (such as `DBT_ENGINE_STATE`), which dbt uses to determine where to defer. This allows models that depend on UDFs to run successfully in [continuous integration](../deploy/continuous-integration.md) and development workflows. For more information, refer to [Configure state selection](../../reference/node-selection/configure-state.md).
 
 5. Run `dbt compile` to see how the UDF is referenced. In the following example, the `{{ function('is_positive_int') }}` is replaced by the UDF name `udf_db.udf_schema.is_positive_int`.
 
@@ -362,11 +362,11 @@ After defining a UDF, your changes are applied to the UDF in the warehouse the n
 * Its configurations
 * Its properties defined in the `.yml` file (such as `arguments` or `returns`)
 
-dbt detects all of these changes when using [`state:modified`](https://docs.getdbt.com/reference/node-selection/methods.md#state).
+dbt detects all of these changes when using [`state:modified`](../../reference/node-selection/methods.md#state).
 
 ### Defining overloaded UDFs[​](#defining-overloaded-udfs "Direct link to Defining overloaded UDFs")
 
-Use the [`overloads`](https://docs.getdbt.com/reference/resource-properties/overloads.md) property (available in dbt Core v1.12+) to define multiple argument signatures for the same function. This lets you call the same function name with different input types, without creating separate UDFs for each variant. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
+Use the [`overloads`](../../reference/resource-properties/overloads.md) property (available in dbt Core v1.12+) to define multiple argument signatures for the same function. This lets you call the same function name with different input types, without creating separate UDFs for each variant. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
 To define overloaded UDFs:
 
@@ -413,11 +413,11 @@ To define overloaded UDFs:
 
 All overloads are grouped into one DAG node (the root function), so they're built and selected together. On retry, dbt skips overloads that succeeded and reruns only those that failed. When dbt builds the function, it renders a separate `CREATE FUNCTION` statement for each overload using the same function name but different argument types.
 
-For more information, refer to [`overloads`](https://docs.getdbt.com/reference/resource-properties/overloads.md).
+For more information, refer to [`overloads`](../../reference/resource-properties/overloads.md).
 
 ## Using UDFs in unit tests[​](#using-udfs-in-unit-tests "Direct link to Using UDFs in unit tests")
 
-You can use [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md) to validate models that reference UDFs. Before running unit tests, make sure the function exists in your warehouse. To ensure that the function exists for a unit test, run:
+You can use [unit tests](./unit-tests.md) to validate models that reference UDFs. Before running unit tests, make sure the function exists in your warehouse. To ensure that the function exists for a unit test, run:
 
 ```bash
 dbt build --select "+my_model_to_test" --empty
@@ -449,18 +449,18 @@ unit_tests:
 
 ## Listing and building UDFs[​](#listing-and-building-udfs "Direct link to Listing and building UDFs")
 
-Use the [`list` command](https://docs.getdbt.com/reference/commands/list.md#listing-functions) to list UDFs in your project: `dbt list --select "resource_type:function"` or `dbt list --resource-type function`.
+Use the [`list` command](../../reference/commands/list.md#listing-functions) to list UDFs in your project: `dbt list --select "resource_type:function"` or `dbt list --resource-type function`.
 
-Use the [`build` command](https://docs.getdbt.com/reference/commands/build.md#functions) to select UDFs when building a project: `dbt build --select "resource_type:function"`.
+Use the [`build` command](../../reference/commands/build.md#functions) to select UDFs when building a project: `dbt build --select "resource_type:function"`.
 
-For more information about selecting UDFs, see the examples in [Node selector methods](https://docs.getdbt.com/reference/node-selection/methods.md#file).
+For more information about selecting UDFs, see the examples in [Node selector methods](../../reference/node-selection/methods.md#file).
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 
 * UDFs in other languages (for example, Java or Scala) are not yet supported.
 * JavaScript UDFs are supported in Snowflake and BigQuery only. Using JavaScript UDFs on an unsupported adapter raises a parsing error.
 * Python UDFs are supported in Snowflake, BigQuery, and Databricks only (when using dbt Core or Fusion). Other warehouses aren't yet supported for Python UDFs.
-* Only scalar and aggregate functions are currently supported. For more information, see [Supported function types](https://docs.getdbt.com/reference/resource-configs/type.md#supported-function-types).
+* Only scalar and aggregate functions are currently supported. For more information, see [Supported function types](../../reference/resource-configs/type.md#supported-function-types).
 * The `overloads` property is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
 ## Related FAQs[​](#related-faqs "Direct link to Related FAQs")
@@ -525,7 +525,7 @@ Currently, SQL and Python UDFs are supported. Java and Scala UDFs are planned fo
 
  You need to adapt SQL across different warehouses
 
-Macros can use Jinja conditional logic to generate warehouse-specific SQL (see [cross-database macros](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md)), making your dbt project portable across platforms.
+Macros can use Jinja conditional logic to generate warehouse-specific SQL (see [cross-database macros](../../reference/dbt-jinja-functions/cross-database-macros.md)), making your dbt project portable across platforms.
 
 UDFs are warehouse-specific objects. Even though UDFs can include Jinja templating in their definitions, each warehouse has different syntax for creating functions, different supported data types, and different SQL dialects. You would need to define separate UDF files for each warehouse you support.
 
@@ -554,5 +554,5 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 
 #### Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Jinja macros](https://docs.getdbt.com/docs/build/jinja-macros.md)
+* [User-defined functions](./udfs.md)
+* [Jinja macros](./jinja-macros.md)

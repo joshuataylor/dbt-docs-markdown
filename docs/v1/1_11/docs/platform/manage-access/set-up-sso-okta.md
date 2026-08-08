@@ -6,7 +6,7 @@ dbt Enterprise-tier plans support single-sign on via Okta (using SAML).
 
 SCIM available for Okta
 
-After setting up single sign-on (SSO), you can [set up System for Cross-Domain Identity Management (SCIM)](https://docs.getdbt.com/docs/platform/manage-access/scim-okta.md) with Okta to automate user and group provisioning, and license assignment.
+After setting up single sign-on (SSO), you can [set up System for Cross-Domain Identity Management (SCIM)](./scim-okta.md) with Okta to automate user and group provisioning, and license assignment.
 
 Currently supported SSO features include:
 
@@ -48,7 +48,7 @@ Click **Next** to continue.
 
 ### Configure SAML Settings[​](#configure-saml-settings "Direct link to Configure SAML Settings")
 
-The SAML Settings page configures how Okta and dbt communicate. You will want to use an [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan.
+The SAML Settings page configures how Okta and dbt communicate. You will want to use an [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
 
 <!-- -->
 
@@ -56,7 +56,7 @@ To complete this section, you will need your login URL slug. This slug controls 
 
 Users can also sign in at <https://login.dbt.com> to see accounts they have access to across instances. The enterprise login URL that includes your slug remains the URL used for IdP-initiated SSO flows with your identity provider.
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 * **Single sign on URL**: `https://YOUR_AUTH0_URI/login/callback?connection=<login URL slug>`
 * **Audience URI (SP Entity ID)**: `urn:auth0:<YOUR_AUTH0_ENTITYID>:{login URL slug}`
@@ -153,22 +153,22 @@ Logging in
 
 Users can sign in at <https://login.dbt.com> to view accounts they have access to across instances and choose where to open dbt platform. This is the recommended entry point for most users.
 
-For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
+For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan:
 
 `https://YOUR_ACCESS_URL/enterprise-login/LOGIN-SLUG`
 
-Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
 ## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
 
-Now you have completed setting up SSO with Okta, the next steps will be to set up [RBAC groups](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control-) to complete your access control configuration.
+Now you have completed setting up SSO with Okta, the next steps will be to set up [RBAC groups](./about-user-access.md#role-based-access-control-) to complete your access control configuration.
 
 Set up SCIM
 
-Now that you've set up SSO with Okta, you can [set up SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim-okta.md) to automate user and group provisioning (and license assignment for Okta).
+Now that you've set up SSO with Okta, you can [set up SCIM](./scim-okta.md) to automate user and group provisioning (and license assignment for Okta).
 
 ## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
 
-For common questions and troubleshooting guidance — including issues with email verification, MFA prompts, and SSO group mapping behavior — refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
+For common questions and troubleshooting guidance — including issues with email verification, MFA prompts, and SSO group mapping behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
 ## Learn more[​](#learn-more "Direct link to Learn more")

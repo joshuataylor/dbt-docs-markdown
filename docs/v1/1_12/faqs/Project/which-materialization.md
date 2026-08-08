@@ -2,4 +2,4 @@
 
 Start out with views, and then change models to tables when required for performance reasons (i.e. downstream queries have slowed).
 
-Check out the [docs on materializations](https://docs.getdbt.com/docs/build/materializations.md) for advice on when to use each materialization.
+Check out the [docs on materializations](../../docs/build/materializations.md) for advice on when to use each materialization.

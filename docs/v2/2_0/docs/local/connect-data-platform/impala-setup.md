@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-impala<!-- -->
 
-For <!-- -->Impala<!-- -->-specific configuration, please refer to [Impala<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/impala-configs.md)
+For <!-- -->Impala<!-- -->-specific configuration, please refer to [Impala<!-- --> configs.](../../../reference/resource-configs/impala-configs.md)
 
 ## Connection Methods[​](#connection-methods "Direct link to Connection Methods")
 
@@ -139,7 +139,7 @@ Note: A typical setup of Cloudera EDH will involve the following steps to setup 
 
 By default, the adapter will send instrumentation events to Cloudera to help improve functionality and understand bugs. If you want to specifically switch this off, for instance, in a production environment, you can explicitly set the flag `usage_tracking: false` in your `profiles.yml` file.
 
-To turn off dbt Labs anonymous usage tracking, refer to [Anonymous usage stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md) for more details.
+To turn off dbt Labs anonymous usage tracking, refer to [Anonymous usage stats](../../../reference/global-configs/usage-stats.md) for more details.
 
 ### Supported Functionality[​](#supported-functionality "Direct link to Supported Functionality")
 

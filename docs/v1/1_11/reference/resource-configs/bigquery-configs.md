@@ -241,7 +241,7 @@ The `reservation` config routes dbt-submitted BigQuery jobs to a specific [reser
 
 You can set `reservation` at three levels, from lowest to highest precedence:
 
-1. **Target level** (`profiles.yml`) — applies to all jobs for the target. See [Connect BigQuery](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md?version=1.12#reservation).
+1. **Target level** (`profiles.yml`) — applies to all jobs for the target. See [Connect BigQuery](../../docs/local/connect-data-platform/bigquery-setup.md?version=1.12#reservation).
 
 2. **Project level** (`dbt_project.yml`) — applies to all matching models.
 
@@ -500,17 +500,17 @@ models:
         - 'projects/<gcp-project>/locations/<location>/taxonomies/<taxonomy>/policyTags/<tag>'
 ```
 
-Please note that in order for policy tags to take effect, [column-level `persist_docs`](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) must be enabled for the model, seed, or snapshot. Consider using [variables](https://docs.getdbt.com/docs/build/project-variables.md) to manage taxonomies and make sure to add the required security [roles](https://cloud.google.com/bigquery/docs/column-level-security-intro#roles) to your BigQuery service account key.
+Please note that in order for policy tags to take effect, [column-level `persist_docs`](./persist_docs.md) must be enabled for the model, seed, or snapshot. Consider using [variables](../../docs/build/project-variables.md) to manage taxonomies and make sure to add the required security [roles](https://cloud.google.com/bigquery/docs/column-level-security-intro#roles) to your BigQuery service account key.
 
 ## Merge behavior (incremental models)[​](#merge-behavior-incremental-models "Direct link to Merge behavior (incremental models)")
 
-The [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md) controls how dbt builds incremental models. dbt uses a [merge statement](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax) on BigQuery to refresh incremental tables.
+The [`incremental_strategy` config](../../docs/build/incremental-strategy.md) controls how dbt builds incremental models. dbt uses a [merge statement](https://cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax) on BigQuery to refresh incremental tables.
 
 The `incremental_strategy` config can be set to one of the following values:
 
 * `merge` (default)
 * `insert_overwrite`
-* [`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md)
+* [`microbatch`](../../docs/build/incremental-microbatch.md)
 
 ### Change history[​](#change-history "Direct link to Change history")
 
@@ -758,8 +758,8 @@ Note
 
 The `grants` config and the `grant_access_to` config are distinct.
 
-* **`grant_access_to`:** Enables you to set up authorized views. When configured, dbt provides an authorized view access to show partial information from other datasets, without providing end users with full access to those underlying datasets. For more information, see ["BigQuery configurations: Authorized views"](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#authorized-views)
-* **`grants`:** Provides specific permissions to users, groups, or service accounts for managing access to datasets you're producing with dbt. For more information, see ["Resource configs: grants"](https://docs.getdbt.com/reference/resource-configs/grants.md)
+* **`grant_access_to`:** Enables you to set up authorized views. When configured, dbt provides an authorized view access to show partial information from other datasets, without providing end users with full access to those underlying datasets. For more information, see ["BigQuery configurations: Authorized views"](./bigquery-configs.md#authorized-views)
+* **`grants`:** Provides specific permissions to users, groups, or service accounts for managing access to datasets you're producing with dbt. For more information, see ["Resource configs: grants"](./grants.md)
 
 You can use the two features together: "authorize" a view model with the `grants_access_to` configuration, and then add `grants` to that view model to share its query results (and *only* its query results) with other users, groups, or service accounts.
 
@@ -795,13 +795,13 @@ The BigQuery adapter supports [materialized views](https://cloud.google.com/bigq
 
 | Parameter                                                                                                  | Type                   | Required | Default | Change Monitoring Support |
 | ---------------------------------------------------------------------------------------------------------- | ---------------------- | -------- | ------- | ------------------------- |
-| [`on_configuration_change`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) | `<string>`             | no       | `apply` | n/a                       |
+| [`on_configuration_change`](./on_configuration_change.md) | `<string>`             | no       | `apply` | n/a                       |
 | [`cluster_by`](#clustering-clause)                                                                         | `[<string>]`           | no       | `none`  | drop/create               |
 | [`partition_by`](#partition-clause)                                                                        | `{<dictionary>}`       | no       | `none`  | drop/create               |
 | [`enable_refresh`](#auto-refresh)                                                                          | `<boolean>`            | no       | `true`  | alter                     |
 | [`refresh_interval_minutes`](#auto-refresh)                                                                | `<float>`              | no       | `30`    | alter                     |
 | [`max_staleness`](#auto-refresh) (in Preview)                                                              | `<interval>`           | no       | `none`  | alter                     |
-| [`description`](https://docs.getdbt.com/reference/resource-properties/description.md)                      | `<string>`             | no       | `none`  | alter                     |
+| [`description`](../resource-properties/description.md)                      | `<string>`             | no       | `none`  | alter                     |
 | [`labels`](#specifying-labels)                                                                             | `{<string>: <string>}` | no       | `none`  | alter                     |
 | [`resource_tags`](#resource-tags)                                                                          | `{<string>: <string>}` | no       | `none`  | alter                     |
 | [`hours_to_expiration`](#controlling-table-expiration)                                                     | `<integer>`            | no       | `none`  | alter                     |
@@ -1022,7 +1022,7 @@ Dataproc (`serverless` or pre-configured `cluster`) can execute Python models as
 
 [![Add the Spark BigQuery connector as an initialization action](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-connector-initialization.png?v=2 "Add the Spark BigQuery connector as an initialization action")](#)Add the Spark BigQuery connector as an initialization action
 
-The following configurations are needed to run Python models on Dataproc. You can add these to your [BigQuery profile](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc) or configure them on specific Python models:
+The following configurations are needed to run Python models on Dataproc. You can add these to your [BigQuery profile](../../docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc) or configure them on specific Python models:
 
 * `gcs_bucket`: Storage bucket to which dbt will upload your model's compiled PySpark code.
 * `dataproc_region`: GCP region in which you have enabled Dataproc (for example `us-central1`).
@@ -1044,7 +1044,7 @@ models:
       submission_method: serverless
 ```
 
-Python models running on Dataproc Serverless can be further configured in your [BigQuery profile](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc).
+Python models running on Dataproc Serverless can be further configured in your [BigQuery profile](../../docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc).
 
 Any user or service account that runs dbt Python models will need the following permissions, in addition to the required BigQuery permissions:
 
@@ -1156,4 +1156,4 @@ Search table...
 
 ## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
 
-You must specify all fields in a BigQuery `STRUCT` for [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md). You cannot use only a subset of fields in a `STRUCT`.
+You must specify all fields in a BigQuery `STRUCT` for [unit tests](../../docs/build/unit-tests.md). You cannot use only a subset of fields in a `STRUCT`.

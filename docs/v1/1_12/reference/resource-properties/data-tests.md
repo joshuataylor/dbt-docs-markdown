@@ -2,7 +2,7 @@
 
 ## Description[​](#description "Direct link to Description")
 
-The `data_tests` property defines assertions about a column, table, or view. The property contains a list of [generic data tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests), referenced by name, which can include the four built-in generic tests available in dbt. For example, you can add data tests that ensure a column contains no duplicates and zero null values. Any arguments or [configurations](https://docs.getdbt.com/reference/data-test-configs.md) passed to those data tests should be nested below the `arguments` property.
+The `data_tests` property defines assertions about a column, table, or view. The property contains a list of [generic data tests](../../docs/build/data-tests.md#generic-data-tests), referenced by name, which can include the four built-in generic tests available in dbt. For example, you can add data tests that ensure a column contains no duplicates and zero null values. Any arguments or [configurations](../data-test-configs.md) passed to those data tests should be nested below the `arguments` property.
 
 Once these data tests are defined, you can validate their correctness by running `dbt test`.
 
@@ -138,7 +138,7 @@ models:
       ...
 ```
 
-You can add an arguments block for test inputs and a config block for options like `severity` or `where`. Refer to [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md?version=2.0#data-test-specific-configurations) for the full list. If you see a deprecation warning about test arguments, refer to [Deprecations](https://docs.getdbt.com/reference/deprecations.md?version=2.0) for test-related warnings.
+You can add an arguments block for test inputs and a config block for options like `severity` or `where`. Refer to [Data test configurations](../data-test-configs.md?version=2.0#data-test-specific-configurations) for the full list. If you see a deprecation warning about test arguments, refer to [Deprecations](../deprecations.md?version=2.0) for test-related warnings.
 
 ### `unique`[​](#unique "Direct link to unique")
 
@@ -208,7 +208,7 @@ models:
                 field: id
 ```
 
-The `to` argument accepts a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) – this means you can pass it a `ref` to a model (e.g. `ref('customers')`), or a `source` (e.g. `source('jaffle_shop', 'customers')`).
+The `to` argument accepts a [Relation](../dbt-classes.md#relation) – this means you can pass it a `ref` to a model (e.g. `ref('customers')`), or a `source` (e.g. `source('jaffle_shop', 'customers')`).
 
 ## Additional examples[​](#additional-examples "Direct link to Additional examples")
 
@@ -251,7 +251,7 @@ models:
           - primary_key  # name of my custom generic test
 ```
 
-Check out the guide on writing a [custom generic data test](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md) for more information.
+Check out the guide on writing a [custom generic data test](../../best-practices/writing-custom-generic-tests.md) for more information.
 
 ### Custom data test name[​](#custom-data-test-name "Direct link to Custom data test name")
 
@@ -384,7 +384,7 @@ $ dbt test
 12:48:04  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 ```
 
-**If using [`store_failures`](https://docs.getdbt.com/reference/resource-configs/store_failures.md):** dbt uses each data test's name as the name of the table in which to store any failing records. If you have defined a custom name for one data test, that custom name will also be used for its table of failures. You may optionally configure an [`alias`](https://docs.getdbt.com/reference/resource-configs/alias.md) for the data test, to separately control both the name of the data test (for metadata) and the name of its database table (for storing failures).
+**If using [`store_failures`](../resource-configs/store_failures.md):** dbt uses each data test's name as the name of the table in which to store any failing records. If you have defined a custom name for one data test, that custom name will also be used for its table of failures. You may optionally configure an [`alias`](../resource-configs/alias.md) for the data test, to separately control both the name of the data test (for metadata) and the name of its database table (for storing failures).
 
 ### Alternative format for defining tests[​](#alternative-format-for-defining-tests "Direct link to Alternative format for defining tests")
 
@@ -415,4 +415,4 @@ models:
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Data testing guide](https://docs.getdbt.com/docs/build/data-tests.md)
+* [Data testing guide](../../docs/build/data-tests.md)

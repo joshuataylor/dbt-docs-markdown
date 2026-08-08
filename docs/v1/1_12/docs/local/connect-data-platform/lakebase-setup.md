@@ -31,11 +31,11 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-postgres<!-- -->
 
-For <!-- -->Lakebase<!-- -->-specific configuration, please refer to [Lakebase<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/postgres-configs.md)
+For <!-- -->Lakebase<!-- -->-specific configuration, please refer to [Lakebase<!-- --> configs.](../../../reference/resource-configs/postgres-configs.md)
 
 ## Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
 
-Databricks Lakebase targets are configured exactly the same as [Postgres targets](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md#profile-configuration).
+Databricks Lakebase targets are configured exactly the same as [Postgres targets](./postgres-setup.md#profile-configuration).
 
 Use these key parameters to connect to Databricks Lakebase:
 

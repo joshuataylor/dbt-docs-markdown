@@ -125,7 +125,7 @@ Note: If you're using a workgroup with a default output location configured, `s3
 
 ### Incremental models[​](#incremental-models "Direct link to Incremental models")
 
-The following [incremental models](https://docs.getdbt.com/docs/build/incremental-models.md) strategies are supported:
+The following [incremental models](../../docs/build/incremental-models.md) strategies are supported:
 
 * `insert_overwrite` (default): The insert-overwrite strategy deletes the overlapping partitions from the destination table and then inserts the new records from the source. This strategy depends on the `partitioned_by` keyword! dbt will fall back to the `append` strategy if no partitions are defined.
 * `append`: Insert new records without updating, deleting or overwriting any existing data. There might be duplicate data (great for log or historical data).
@@ -144,7 +144,7 @@ The `on_schema_change` option reflects changes of the schema in incremental mode
 * `append_new_columns`
 * `sync_all_columns`
 
-To learn more, refer to [What if the columns of my incremental model change](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
+To learn more, refer to [What if the columns of my incremental model change](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
 
 ### Iceberg[​](#iceberg "Direct link to Iceberg")
 
@@ -306,7 +306,7 @@ When dropping a model, the `dbt-athena` adapter performs two cleanup steps for b
 * It deletes the table from the AWS Glue catalog using Glue APIs.
 * It removes the associated S3 data files using a delete operation.
 
-However, for Iceberg tables, using standard SQL like [`DROP TABLE`](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg-drop-table.html) may not remove all related S3 objects. To ensure proper cleanup in a dbt workflow, the adapter includes a workaround that explicitly deletes these S3 objects. Alternatively, users can enable [`native_drop`](https://docs.getdbt.com/reference/resource-configs/athena-configs.md#table-configuration) to let Iceberg handle the cleanup natively.
+However, for Iceberg tables, using standard SQL like [`DROP TABLE`](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg-drop-table.html) may not remove all related S3 objects. To ensure proper cleanup in a dbt workflow, the adapter includes a workaround that explicitly deletes these S3 objects. Alternatively, users can enable [`native_drop`](./athena-configs.md#table-configuration) to let Iceberg handle the cleanup natively.
 
 ### Update glue data catalog[​](#update-glue-data-catalog "Direct link to Update glue data catalog")
 
@@ -331,7 +331,7 @@ models:
             primary_key: true
 ```
 
-Refer to [persist\_docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md) for more details.
+Refer to [persist\_docs](./persist_docs.md) for more details.
 
 ## Snapshots[​](#snapshots "Direct link to Snapshots")
 
@@ -339,15 +339,15 @@ The adapter supports snapshot materialization. It supports both the timestamp an
 
 ### Timestamp strategy[​](#timestamp-strategy "Direct link to Timestamp strategy")
 
-Refer to [Timestamp strategy](https://docs.getdbt.com/docs/build/snapshots.md#timestamp-strategy-recommended) for details on how to use it.
+Refer to [Timestamp strategy](../../docs/build/snapshots.md#timestamp-strategy-recommended) for details on how to use it.
 
 ### Check strategy[​](#check-strategy "Direct link to Check strategy")
 
-Refer to [Check strategy](https://docs.getdbt.com/docs/build/snapshots.md#check-strategy) for details on how to use it.
+Refer to [Check strategy](../../docs/build/snapshots.md#check-strategy) for details on how to use it.
 
 ### Hard deletes[​](#hard-deletes "Direct link to Hard deletes")
 
-The materialization also supports invalidating hard deletes. For usage details, refer to [Hard deletes](https://docs.getdbt.com/docs/build/snapshots.md#hard-deletes-opt-in).
+The materialization also supports invalidating hard deletes. For usage details, refer to [Hard deletes](../../docs/build/snapshots.md#hard-deletes-opt-in).
 
 ### Snapshots known issues[​](#snapshots-known-issues "Direct link to Snapshots known issues")
 

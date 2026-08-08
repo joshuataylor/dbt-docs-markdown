@@ -41,7 +41,7 @@ With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a
 
 Linting considerations
 
-* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
+* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](../../fusion/supported-features.md#limitations).
 * Linting doesn't support ephemeral models in dbt v1.5 and lower. Refer to the [FAQs](#faqs) for more info.
 
 ### Enable linting[​](#enable-linting "Direct link to Enable linting")
@@ -50,7 +50,7 @@ Linting is available on all branches, including your protected primary git branc
 
 1. To enable linting, open a `.sql` file and click the **Code quality** tab.
 
-2. Click the **`</> Config`** button on the right side of the [console section](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#console-section), below the **File editor**.
+2. Click the **`</> Config`** button on the right side of the [console section](./ide-user-interface.md#console-section), below the **File editor**.
 
 3. In the **Code quality tool configuration** dialog, select **SQLFluff (linting & formatting)**.
 
@@ -74,7 +74,7 @@ You can lint multiple SQL files at once, depending on how you are working with d
 
 * **dbt Core:** Does not include a built-in linter. To lint SQL files in your project, use a third-party linter such as SQLFluff configured to use the [dbt templater](https://docs.sqlfluff.com/en/stable/configuration/templating/dbt.html). You can lint multiple files by specifying one or more file or directory paths as arguments to the command.
 
-* **dbt CLI:** Supports the same linting [commands](https://docs.getdbt.com/docs/platform/configure-dbt-cli.md#lint-sql-files) as dbt Core:
+* **dbt CLI:** Supports the same linting [commands](../configure-dbt-cli.md#lint-sql-files) as dbt Core:
 
   ```text
   dbt sqlfluff lint [PATHS]... [flags]
@@ -97,7 +97,7 @@ To configure your own linting rules:
 
 #### Snapshot linting[​](#snapshot-linting "Direct link to Snapshot linting")
 
-By default, dbt lints all modified `.sql` files in your project, including snapshots. [Snapshots](https://docs.getdbt.com/docs/build/snapshots.md) can be defined in YAML *and* `.sql` files, but their SQL isn't lintable and can cause errors during linting.
+By default, dbt lints all modified `.sql` files in your project, including snapshots. [Snapshots](../../build/snapshots.md) can be defined in YAML *and* `.sql` files, but their SQL isn't lintable and can cause errors during linting.
 
 To prevent SQLFluff from linting snapshot files, add the snapshots directory to your `.sqlfluffignore` file (for example `snapshots/`).
 
@@ -150,7 +150,7 @@ capitalisation_policy = lower
 group_by_and_order_by_style = implicit
 ```
 
-For more information on styling best practices, refer to [How we style our SQL](https://docs.getdbt.com/best-practices/how-we-style/2-how-we-style-our-sql.md).
+For more information on styling best practices, refer to [How we style our SQL](../../../best-practices/how-we-style/2-how-we-style-our-sql.md).
 
 [![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
@@ -241,6 +241,6 @@ To avoid this, break up your model into smaller models (files) so that they are 
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [User interface](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md)
-* [Keyboard shortcuts](https://docs.getdbt.com/docs/platform/studio-ide/keyboard-shortcuts.md)
-* [SQL linting in CI jobs](https://docs.getdbt.com/docs/deploy/continuous-integration.md#sql-linting)
+* [User interface](./ide-user-interface.md)
+* [Keyboard shortcuts](./keyboard-shortcuts.md)
+* [SQL linting in CI jobs](../../deploy/continuous-integration.md#sql-linting)

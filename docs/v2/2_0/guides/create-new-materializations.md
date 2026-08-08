@@ -1,6 +1,6 @@
 # Create new materializations
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Advanced
 
@@ -89,7 +89,7 @@ Materializations are responsible for creating new tables or views in the databas
 
 In this example, the `get_relation` method is used to fetch the state of the currently-executing model from the database. If the model exists as a view, then the view is dropped to make room for the table that will be built later in the materialization.
 
-This is a simplified example, and the setup phase for a materialization can become quite complicated indeed! When building a materialization, be sure to consider the state of the database and any supplied [flags](https://docs.getdbt.com/reference/dbt-jinja-functions/flags.md) (ie. `--full-refresh`) to ensure that the materialization code behaves correctly in different scenarios.
+This is a simplified example, and the setup phase for a materialization can become quite complicated indeed! When building a materialization, be sure to consider the state of the database and any supplied [flags](../reference/dbt-jinja-functions/flags.md) (ie. `--full-refresh`) to ensure that the materialization code behaves correctly in different scenarios.
 
 ### Run pre-hooks[​](#run-pre-hooks "Direct link to Run pre-hooks")
 
@@ -103,7 +103,7 @@ Pre- and post-hooks can be specified for any model -- be sure that your material
 
 ### Executing SQL[​](#executing-sql "Direct link to Executing SQL")
 
-Construct your materialization DML to account for the different permutations of table existence, materialization flags, etc. There are a number of [adapter functions](https://docs.getdbt.com/reference/dbt-jinja-functions/adapter.md) and context variables that can help you here. Be sure to consult the Reference section of this site for a full list of variables and functions at your disposal.
+Construct your materialization DML to account for the different permutations of table existence, materialization flags, etc. There are a number of [adapter functions](../reference/dbt-jinja-functions/adapter.md) and context variables that can help you here. Be sure to consult the Reference section of this site for a full list of variables and functions at your disposal.
 
 ### Run post-hooks[​](#run-post-hooks "Direct link to Run post-hooks")
 
@@ -121,7 +121,7 @@ Be sure to `commit` the transaction in the `cleanup` phase of the materializatio
 
 ### Update the Relation cache[​](#update-the-relation-cache "Direct link to Update the Relation cache")
 
-Materializations should [return](https://docs.getdbt.com/reference/dbt-jinja-functions/return.md) the list of Relations that they have created at the end of execution. dbt will use this list of Relations to update the relation cache in order to reduce the number of queries executed against the database's `information_schema`. If a list of Relations is not returned, then dbt will raise a Deprecation Warning and infer the created relation from the model's configured database, schema, and alias.
+Materializations should [return](../reference/dbt-jinja-functions/return.md) the list of Relations that they have created at the end of execution. dbt will use this list of Relations to update the relation cache in order to reduce the number of queries executed against the database's `information_schema`. If a list of Relations is not returned, then dbt will raise a Deprecation Warning and infer the created relation from the model's configured database, schema, and alias.
 
 macros/my\_view\_materialization.sql
 
@@ -151,11 +151,11 @@ macros/my\_view\_materialization.sql
 
 If a materialization solely creates a single relation, then returning that relation at the end of the materialization is sufficient to synchronize the dbt Relation cache. If the materialization *renames* or *drops* Relations other than the relation returned by the materialization, then additional work is required to keep the cache in sync with the database.
 
-To explicitly remove a relation from the cache, use [adapter.drop\_relation](https://docs.getdbt.com/reference/dbt-jinja-functions/adapter.md). To explicitly rename a relation in the cache, use [adapter.rename\_relation](https://docs.getdbt.com/reference/dbt-jinja-functions/adapter.md). Calling these methods is preferable to executing the corresponding SQL directly, as they will mutate the cache as required. If you do need to execute the SQL to drop or rename relations directly, use the `adapter.cache_dropped` and `adapter.cache_renamed` methods to synchronize the cache.
+To explicitly remove a relation from the cache, use [adapter.drop\_relation](../reference/dbt-jinja-functions/adapter.md). To explicitly rename a relation in the cache, use [adapter.rename\_relation](../reference/dbt-jinja-functions/adapter.md). Calling these methods is preferable to executing the corresponding SQL directly, as they will mutate the cache as required. If you do need to execute the SQL to drop or rename relations directly, use the `adapter.cache_dropped` and `adapter.cache_renamed` methods to synchronize the cache.
 
 ## Materialization Configuration[​](#materialization-configuration "Direct link to Materialization Configuration")
 
-Materializations support custom configuration. You might be familiar with some of these configs from materializations like `unique_key` in [incremental models](https://docs.getdbt.com/docs/build/incremental-models.md) or `strategy` in [snapshots](https://docs.getdbt.com/docs/build/snapshots.md) .
+Materializations support custom configuration. You might be familiar with some of these configs from materializations like `unique_key` in [incremental models](../docs/build/incremental-models.md) or `strategy` in [snapshots](../docs/build/snapshots.md) .
 
 ### Specifying configuration options[​](#specifying-configuration-options "Direct link to Specifying configuration options")
 
@@ -168,7 +168,7 @@ config.get('optional_config_name', default="the default")
 config.require('required_config_name')
 ```
 
-For more information on the `config` dbt Jinja function, see the [config](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md) reference.
+For more information on the `config` dbt Jinja function, see the [config](../reference/dbt-jinja-functions/config.md) reference.
 
 ## Materialization precedence[​](#materialization-precedence "Direct link to Materialization precedence")
 

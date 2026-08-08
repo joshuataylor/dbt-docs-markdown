@@ -21,11 +21,11 @@ Recommended use cases include:
 * different materialization logic based on "run modes," such as `flags.FULL_REFRESH`, `flags.STORE_FAILURES`, and `flags.EMPTY`
 * running hooks conditionally based on the current command / task type, via `flags.WHICH`
 
-**Note:** It is *not* recommended to use flags as an input to parse-time configurations, properties, or dependencies (`ref` + `source`). Flags are likely to change in every invocation of dbt, and their parsed values will become stale (and yield incorrect results) in subsequent invocations that have partial parsing enabled. For more details, see [the docs on parsing](https://docs.getdbt.com/reference/parsing.md).
+**Note:** It is *not* recommended to use flags as an input to parse-time configurations, properties, or dependencies (`ref` + `source`). Flags are likely to change in every invocation of dbt, and their parsed values will become stale (and yield incorrect results) in subsequent invocations that have partial parsing enabled. For more details, see [the docs on parsing](../parsing.md).
 
 ### invocation\_args\_dict[​](#invocation_args_dict "Direct link to invocation_args_dict")
 
-For the full set of information passed from the CLI—subcommand, flags, arguments—you can use `invocation_args_dict`. This is equivalent to the `args` dictionary in [`run_results.json`](https://docs.getdbt.com/reference/artifacts/run-results-json.md).
+For the full set of information passed from the CLI—subcommand, flags, arguments—you can use `invocation_args_dict`. This is equivalent to the `args` dictionary in [`run_results.json`](../artifacts/run-results-json.md).
 
 models/my\_model.sql
 
@@ -62,7 +62,7 @@ select 1 as id
 
 ## flags.EMPTY[​](#flagsempty "Direct link to flags.EMPTY")
 
-`flags.EMPTY` returns `True` when the [`--empty` flag](https://docs.getdbt.com/docs/build/empty-flag.md) is passed to a dbt command, and `False` otherwise. This is useful when you need to customize materialization logic or macro behavior depending on whether dbt is running in empty (schema-only) mode.
+`flags.EMPTY` returns `True` when the [`--empty` flag](../../docs/build/empty-flag.md) is passed to a dbt command, and `False` otherwise. This is useful when you need to customize materialization logic or macro behavior depending on whether dbt is running in empty (schema-only) mode.
 
 ```sql
 {% macro my_custom_ref(model_name) %}

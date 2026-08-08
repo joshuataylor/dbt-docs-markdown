@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-This `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. To access the adapter, [install Fusion](https://docs.getdbt.com/docs/fusion/about-fusion-install.md). We recommend using the [VS Code Extension](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
+This `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. To access the adapter, [install Fusion](../../fusion/about-fusion-install.md). We recommend using the [VS Code Extension](../install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
 
 <!-- -->
 
@@ -94,4 +94,4 @@ Search table...
 
 ## More information[​](#more-information "Direct link to More information")
 
-Find Salesforce-specific configuration information in the [Salesforce adapter reference guide](https://docs.getdbt.com/reference/resource-configs/data-cloud-configs.md).
+Find Salesforce-specific configuration information in the [Salesforce adapter reference guide](../../../reference/resource-configs/data-cloud-configs.md).

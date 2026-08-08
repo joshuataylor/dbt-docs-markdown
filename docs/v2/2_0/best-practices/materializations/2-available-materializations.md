@@ -2,13 +2,13 @@
 
 Views and tables and incremental models, oh my! In this section we’ll start getting our hands dirty digging into the three basic materializations that ship with dbt. They are considerably less scary and more helpful than lions, tigers, or bears — although perhaps not as cute (can data be cute? We at dbt Labs think so). We’re going to define, implement, and explore:
 
-* 🔍 [**views**](https://docs.getdbt.com/docs/build/materializations.md#view)
-* ⚒️ [**tables**](https://docs.getdbt.com/docs/build/materializations.md#table)
-* 📚 [**incremental model**](https://docs.getdbt.com/docs/build/materializations.md#incremental)
+* 🔍 [**views**](../../docs/build/materializations.md#view)
+* ⚒️ [**tables**](../../docs/build/materializations.md#table)
+* 📚 [**incremental model**](../../docs/build/materializations.md#incremental)
 
 info
 
-👻 There is a fourth default materialization available in dbt called [**ephemeral materialization**](https://docs.getdbt.com/docs/build/materializations.md#ephemeral). It is less broadly applicable than the other three, and better deployed for specific use cases that require weighing some tradeoffs. We chose to leave it out of this guide and focus on the three materializations that will power 99% of your modeling needs.
+👻 There is a fourth default materialization available in dbt called [**ephemeral materialization**](../../docs/build/materializations.md#ephemeral). It is less broadly applicable than the other three, and better deployed for specific use cases that require weighing some tradeoffs. We chose to leave it out of this guide and focus on the three materializations that will power 99% of your modeling needs.
 
 **Views and Tables are the two basic categories** of object that we can create across warehouses. They exist natively as types of objects in the warehouse, as you can see from this screenshot of Snowflake (depending on your warehouse the interface will look a little different). **Incremental models** and other materializations types are a little bit different. They tell dbt to **construct tables in a special way**.
 

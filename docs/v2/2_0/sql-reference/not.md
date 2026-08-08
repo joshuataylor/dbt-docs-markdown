@@ -8,7 +8,7 @@ In this page, we’ll dive into how to use the NOT operator, demonstrate an exam
 
 ## How to use the SQL NOT operator[​](#how-to-use-the-sql-not-operator "Direct link to How to use the SQL NOT operator")
 
-The NOT boolean is kind of similar to an adjective—it’s often put in front of another operator, such as [BETWEEN](https://docs.getdbt.com/sql-reference/between.md), [LIKE](https://docs.getdbt.com/sql-reference/like.md)/[ILIKE](https://docs.getdbt.com/sql-reference/ilike.md), IS, and [IN](https://docs.getdbt.com/sql-reference/in.md), to return rows that do not meet the specified criteria. Below is an example of how to use NOT in front of a LIKE operator:
+The NOT boolean is kind of similar to an adjective—it’s often put in front of another operator, such as [BETWEEN](./between.md), [LIKE](./like.md)/[ILIKE](./ilike.md), IS, and [IN](./in.md), to return rows that do not meet the specified criteria. Below is an example of how to use NOT in front of a LIKE operator:
 
 `where <field_name> not like <value>`
 
@@ -53,4 +53,4 @@ Search table...
 
 ## NOT operator example use cases[​](#not-operator-example-use-cases "Direct link to NOT operator example use cases")
 
-There are probably many scenarios where you’d want to use the NOT operators in your WHERE clauses or case statements, but we commonly see NOT operators used to remove nulls or boolean-identifed deleted rows in source data in [staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md). This removal of unnecessary rows can potentially help the performance of downstream [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) and [mart models](https://docs.getdbt.com/best-practices/how-we-structure/4-marts.md).
+There are probably many scenarios where you’d want to use the NOT operators in your WHERE clauses or case statements, but we commonly see NOT operators used to remove nulls or boolean-identifed deleted rows in source data in [staging models](../best-practices/how-we-structure/2-staging.md). This removal of unnecessary rows can potentially help the performance of downstream [intermediate](../best-practices/how-we-structure/3-intermediate.md) and [mart models](../best-practices/how-we-structure/4-marts.md).

@@ -2,7 +2,7 @@
 
 tip
 
-Not to be confused with the `{% set foo = "bar" ... %}` expression in Jinja, which defines a variable. For examples of constructing SQL strings with `{% set %}` (and why `{{ }}` should not be nested inside quoted strings), see [Don’t nest your curlies](https://docs.getdbt.com/best-practices/dont-nest-your-curlies.md).
+Not to be confused with the `{% set foo = "bar" ... %}` expression in Jinja, which defines a variable. For examples of constructing SQL strings with `{% set %}` (and why `{{ }}` should not be nested inside quoted strings), see [Don’t nest your curlies](../../best-practices/dont-nest-your-curlies.md).
 
 You can use the `set` context method to convert any iterable to a sequence of iterable elements that are unique (a set).
 

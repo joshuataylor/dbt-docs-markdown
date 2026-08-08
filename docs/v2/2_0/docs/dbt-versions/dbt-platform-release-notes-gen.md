@@ -61,7 +61,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### dbt AI and agents[​](#dbt-ai-and-agents-2 "Direct link to dbt AI and agents")
 
-* **Unified `get_node_details` MCP tool**: The [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md#discovery) now uses one `get_node_details` tool for all resource types. The older type-specific tools are deprecated and will be removed in a future release.
+* **Unified `get_node_details` MCP tool**: The [dbt MCP server](../dbt-ai/mcp-available-tools.md#discovery) now uses one `get_node_details` tool for all resource types. The older type-specific tools are deprecated and will be removed in a future release.
 
 ### Orchestration and run status[​](#orchestration-and-run-status-1 "Direct link to Orchestration and run status")
 
@@ -129,19 +129,19 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Orchestration and run status[​](#orchestration-and-run-status-3 "Direct link to Orchestration and run status")
 
-* **Hybrid job type**: You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
+* **Hybrid job type**: You can now create hybrid jobs to track runs triggered by an external orchestrator. Hybrid jobs have a simplified setup that omits execution steps, triggers, advanced settings, and cost-optimization controls. They display **Externally triggered** as their next-run schedule and are available only for projects configured as [Hybrid projects](../deploy/hybrid-projects.md).
 
 ## Enhancements[​](#enhancements-3 "Direct link to Enhancements")
 
 ### Orchestration and run status[​](#orchestration-and-run-status-4 "Direct link to Orchestration and run status")
 
-* **Faster linting for Fusion-version runs**: Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](https://docs.getdbt.com/reference/commands/lint.md?version=2.0) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
+* **Faster linting for Fusion-version runs**: Runs using a Fusion dbt version now invoke the built-in [`dbt lint`](../../reference/commands/lint.md?version=2.0) command instead of SQLFluff. Fusion virtual environments do not include SQLFluff, so linting now works for all Fusion-version runs and runs faster.
 
 ### dbt AI and agents[​](#dbt-ai-and-agents-4 "Direct link to dbt AI and agents")
 
 * **Compaction indicator during context optimization**: When the agent compresses conversation context in the background, a spinner labeled **Optimizing conversation context…** now appears in the chat area. Submitting new messages and stopping the agent are disabled while compaction is in progress to prevent conflicts.
 
-* **Wizard unavailable screen replaces generic "not enabled" message**: When [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) is unavailable (not activated, trial expired, or spend limit reached), Studio IDE now shows a dedicated screen with the specific reason and an appropriate action instead of a generic message.
+* **Wizard unavailable screen replaces generic "not enabled" message**: When [dbt Wizard](../platform/wizard-platform.md) is unavailable (not activated, trial expired, or spend limit reached), Studio IDE now shows a dedicated screen with the specific reason and an appropriate action instead of a generic message.
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-2 "Direct link to APIs, Identity, and Administration")
 
@@ -149,9 +149,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ### dbt platform[​](#dbt-platform-1 "Direct link to dbt platform")
 
-* **Global account discovery generally available**: The **Enable global account discovery** setting on the **Account settings** page is now visible to all entitled accounts without requiring a feature flag. You can allow or restrict account discovery from [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+* **Global account discovery generally available**: The **Enable global account discovery** setting on the **Account settings** page is now visible to all entitled accounts without requiring a feature flag. You can allow or restrict account discovery from [Account settings](../platform/account-settings.md#enable-global-account-discovery).
 
-* **Connection overrides visible in profile view mode**: Credential-level [connection overrides](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) (such as Databricks catalog, Snowflake warehouse, role, and database) are now surfaced as a read-only **Connection overrides** section in the profile details view, without requiring you to open the edit form.
+* **Connection overrides visible in profile view mode**: Credential-level [connection overrides](../dbt-platform-environments.md#extended-attributes) (such as Databricks catalog, Snowflake warehouse, role, and database) are now surfaced as a read-only **Connection overrides** section in the profile details view, without requiring you to open the edit form.
 
 ## Fixes[​](#fixes-1 "Direct link to Fixes")
 
@@ -161,7 +161,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Semantic Layer[​](#semantic-layer-1 "Direct link to Semantic Layer")
 
-* **More reliable SSH tunnel connections**: The Secure Shell (SSH) connection and authentication timeouts for Semantic Layer data platform connections are now 30 seconds (previously 1 second). If your bastion host or network path has higher latency, you will no longer experience deterministic connection failures. Refer to [Set up the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/setup-sl.md) for more information.
+* **More reliable SSH tunnel connections**: The Secure Shell (SSH) connection and authentication timeouts for Semantic Layer data platform connections are now 30 seconds (previously 1 second). If your bastion host or network path has higher latency, you will no longer experience deterministic connection failures. Refer to [Set up the Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) for more information.
 
 * **Compile SQL rejects oversized query shapes**: Some types of Compile SQL queries are now rejected if they are too complex. If a request fails with a validation error, try reducing the number of metrics or group-by dimensions in the query.
 
@@ -169,7 +169,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-3 "Direct link to APIs, Identity, and Administration")
 
-* **Service token creation now requires service token authentication**: You can no longer create a [service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) using an account-scoped [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) (PAT). Requests authenticated with a PAT now return a `400` error. Use a service token to create new ones instead.
+* **Service token creation now requires service token authentication**: You can no longer create a [service token](../dbt-apis/service-tokens.md) using an account-scoped [personal access token](../dbt-apis/user-tokens.md) (PAT). Requests authenticated with a PAT now return a `400` error. Use a service token to create new ones instead.
 
 ## July 13, 2026[​](#july-13-2026 "Direct link to July 13, 2026")
 
@@ -187,7 +187,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **User list search and group filtering**: The user listing API now supports a `search` parameter (case-insensitive substring match across email and name) and a `group_id` parameter to retrieve only members of a specific group, enabling paginated group-member lookups for large accounts.
 
-* **Expanded Analyst Read permission set**: The [Analyst Read](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#analyst-read) permission set now includes the project and account read permissions analysts need to browse catalog and configuration without write access.
+* **Expanded Analyst Read permission set**: The [Analyst Read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set now includes the project and account read permissions analysts need to browse catalog and configuration without write access.
 
 ## Fixes[​](#fixes-2 "Direct link to Fixes")
 
@@ -251,7 +251,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Studio IDE[​](#studio-ide-1 "Direct link to Studio IDE")
 
-* **Find in files**: The [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/ide-user-interface.md#search-your-project) now includes search and replace functionality and a command palette, enabling you to quickly find and replace text across your project, navigate files, jump to symbols, and run IDE configuration commands.
+* **Find in files**: The [Studio IDE](../platform/studio-ide/ide-user-interface.md#search-your-project) now includes search and replace functionality and a command palette, enabling you to quickly find and replace text across your project, navigate files, jump to symbols, and run IDE configuration commands.
 
 ### Catalog[​](#catalog-2 "Direct link to Catalog")
 
@@ -328,12 +328,12 @@ Release notes are grouped by date for single-tenant environments.
 
 ### dbt AI and agents[​](#dbt-ai-and-agents-8 "Direct link to dbt AI and agents")
 
-* **Live streaming for Wizard dbt command output**: [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](https://docs.getdbt.com/docs/platform/wizard-home.md).
+* **Live streaming for Wizard dbt command output**: [dbt Wizard](../platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](../platform/wizard-home.md).
 * **OAuth scopes declared in Model Context Protocol resource metadata**: The Model Context Protocol (MCP) protected resource metadata endpoint now advertises the OAuth scopes it supports (`offline_access`, `account:read`, `projects:query`, `catalog:read`, `projects:develop`, and `jobs:run`). MCP clients that perform dynamic capability discovery can now request the correct scopes automatically.
 
 ### dbt platform[​](#dbt-platform-4 "Direct link to dbt platform")
 
-* **dbt State in development**: [Enable dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md#enabling-dbt-state-in-studio) in development environments, or override it per user in **User development settings**. Requires dbt State to be enabled on the account by an admin.
+* **dbt State in development**: [Enable dbt State](../deploy/dbt-state-setup.md#enabling-dbt-state-in-studio) in development environments, or override it per user in **User development settings**. Requires dbt State to be enabled on the account by an admin.
 * **dbt State disabled for unsupported warehouse adapters on jobs**: The dbt State checkbox in job settings is now disabled when the job's environment uses an unsupported warehouse adapter. A help icon displays a tooltip explaining the limitation, and the feature is automatically removed from the job payload on save.
 
 ## June 10, 2026[​](#june-10-2026 "Direct link to June 10, 2026")
@@ -342,9 +342,9 @@ Release notes are grouped by date for single-tenant environments.
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-1 "Direct link to dbt Copilot and agents")
 
-* **dbt documentation search and retrieval tools**: The [remote dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md) now includes `search_product_docs` and `get_product_doc_pages`. Available in
+* **dbt documentation search and retrieval tools**: The [remote dbt MCP server](../dbt-ai/mcp-quickstart-remote.md) now includes `search_product_docs` and `get_product_doc_pages`. Available in
   <!-- -->
-  and in agent clients connected to remote dbt MCP. Refer to the [product docs toolset](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md?version=2.0#product-docs).
+  and in agent clients connected to remote dbt MCP. Refer to the [product docs toolset](../dbt-ai/mcp-available-tools.md?version=2.0#product-docs).
 * **Dimension values lookup tool**: A new `get_dimension_values` MCP tool lets agents retrieve distinct values for a given Semantic Layer dimension, optionally scoped to specific metrics. Use this to discover valid filter values (for example, available regions or order statuses) before building a `where` clause in a `query_metrics` call.
 
 ## Enhancements[​](#enhancements-8 "Direct link to Enhancements")
@@ -459,7 +459,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-11 "Direct link to APIs, Identity, and Administration")
 
-* **Notification Manager permission set**: A new `notification_manager` account-level role grants read and write access to job notification settings, Slack integration status, and member listings without requiring broader admin permissions. Refer to [Notification Manger](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#notification-manager) for more information.
+* **Notification Manager permission set**: A new `notification_manager` account-level role grants read and write access to job notification settings, Slack integration status, and member listings without requiring broader admin permissions. Refer to [Notification Manger](../platform/manage-access/enterprise-permissions.md#notification-manager) for more information.
 
 ## Enhancements[​](#enhancements-11 "Direct link to Enhancements")
 
@@ -493,7 +493,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Deployment and configuration[​](#deployment-and-configuration "Direct link to Deployment and configuration")
 
-* **Environment permission elevation for the `job creator` role**: The `job_creator` role is now included in the set of roles that allow environment-level permission elevation, consistent with other development roles such as `developer` and `git_admin`. Refer to [Job creator](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#job-creator) for more information.
+* **Environment permission elevation for the `job creator` role**: The `job_creator` role is now included in the set of roles that allow environment-level permission elevation, consistent with other development roles such as `developer` and `git_admin`. Refer to [Job creator](../platform/manage-access/enterprise-permissions.md#job-creator) for more information.
 
 ## May 13, 2026[​](#may-13-2026 "Direct link to May 13, 2026")
 
@@ -501,7 +501,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-13 "Direct link to APIs, Identity, and Administration")
 
-* **Job creator permission set**: Adds a new [Job creator permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#job-creator) for users who need to create, edit, and run jobs within assigned projects and environments. Job creators have read-only access to environments and environment variables and cannot edit environment settings.
+* **Job creator permission set**: Adds a new [Job creator permission set](../platform/manage-access/enterprise-permissions.md#job-creator) for users who need to create, edit, and run jobs within assigned projects and environments. Job creators have read-only access to environments and environment variables and cannot edit environment settings.
 
 ### Studio IDE[​](#studio-ide-6 "Direct link to Studio IDE")
 
@@ -531,7 +531,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Catalog[​](#catalog-5 "Direct link to Catalog")
 
-* **Multi-value test result status filtering**: The `TestAppliedFilter` input now supports a `lastKnownResults` field that accepts an array of test statuses, allowing you to filter applied tests by multiple result states in a single query. You can include `null` in the array to match tests with no known result. The previous scalar field `lastKnownResult` is deprecated; use `lastKnownResults` instead. For more information, refer to [Filter tests by last-known result](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied-tests.md#filter-tests-by-last-known-result)
+* **Multi-value test result status filtering**: The `TestAppliedFilter` input now supports a `lastKnownResults` field that accepts an array of test statuses, allowing you to filter applied tests by multiple result states in a single query. You can include `null` in the array to match tests with no known result. The previous scalar field `lastKnownResult` is deprecated; use `lastKnownResults` instead. For more information, refer to [Filter tests by last-known result](../dbt-apis/discovery-schema-environment-applied-tests.md#filter-tests-by-last-known-result)
 
 ## Fixes[​](#fixes-7 "Direct link to Fixes")
 
@@ -573,19 +573,19 @@ Release notes are grouped by date for single-tenant environments.
 
 ### Packages[​](#packages "Direct link to Packages")
 
-* **New:** [Native private packages](https://docs.getdbt.com/docs/build/packages.md#native-private-packages) are now generally available (GA).
+* **New:** [Native private packages](../build/packages.md#native-private-packages) are now generally available (GA).
 
 ### Discovery API[​](#discovery-api "Direct link to Discovery API")
 
-* **Enhancement:** In the Discovery API [Tests object schema](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-environment-applied-tests.md), you can now filter `environment.applied.tests` by multiple test result statuses in a single query using the new `lastKnownResults: [TestStatus]` filter field on `TestAppliedFilter`. The single-value `lastKnownResult` filter field is still supported but deprecated. Update your queries to use `lastKnownResults` going forward.
+* **Enhancement:** In the Discovery API [Tests object schema](../dbt-apis/discovery-schema-environment-applied-tests.md), you can now filter `environment.applied.tests` by multiple test result statuses in a single query using the new `lastKnownResults: [TestStatus]` filter field on `TestAppliedFilter`. The single-value `lastKnownResult` filter field is still supported but deprecated. Update your queries to use `lastKnownResults` going forward.
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-7 "Direct link to dbt Copilot and agents")
 
-* **Preview**: The [Developer agent](https://docs.getdbt.com/docs/platform/wizard-platform.md) is now in preview. Use natural language prompts to build or refactor models, and generate SQL, tests, documentation, and semantic models from scratch. For more information, refer to the [Developer agent](https://docs.getdbt.com/docs/platform/wizard-platform.md).
-* **Enhancement:** Delete individual [chat conversations](https://docs.getdbt.com/docs/platform/wizard-platform.md#availability-and-considerations) from the conversation list (**More actions** menu (three dots) > **Delete**). Deleting the open conversation clears the panel.
+* **Preview**: The [Developer agent](../platform/wizard-platform.md) is now in preview. Use natural language prompts to build or refactor models, and generate SQL, tests, documentation, and semantic models from scratch. For more information, refer to the [Developer agent](../platform/wizard-platform.md).
+* **Enhancement:** Delete individual [chat conversations](../platform/wizard-platform.md#availability-and-considerations) from the conversation list (**More actions** menu (three dots) > **Delete**). Deleting the open conversation clears the panel.
 * **Enhancement:** Commands run by
   <!-- -->
-  and the [](https://docs.getdbt.com/docs/platform/wizard-platform.md)now appear in the Studio IDE **Commands** tab with a
+  and the [](../platform/wizard-platform.md)now appear in the Studio IDE **Commands** tab with a
   <!-- -->
   icon and **Run by Copilot** tooltip, so you can tell agent-run commands apart from manually run ones.
 
@@ -597,7 +597,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### APIs, Identity, and Administration[​](#apis-identity-and-administration-14 "Direct link to APIs, Identity, and Administration")
 
-* **Notification Manager permission set**: A new account-level **Notification Manager** [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) is now available for Enterprise accounts. Assign it to users who need to manage Slack, Microsoft Teams, and email job notifications across all projects without requiring full Account Admin access.
+* **Notification Manager permission set**: A new account-level **Notification Manager** [permission set](../platform/manage-access/enterprise-permissions.md) is now available for Enterprise accounts. Assign it to users who need to manage Slack, Microsoft Teams, and email job notifications across all projects without requiring full Account Admin access.
 
 * **Credentials page access with `user_credential_write` permission**: Users with the `user_credential_write` permission on any project can now access the Credentials settings page and edit their user credentials, even without a Developer-tier license or `develop_access`.
 
@@ -623,7 +623,7 @@ Release notes are grouped by date for single-tenant environments.
 
 ### dbt Copilot and agents[​](#dbt-copilot-and-agents-9 "Direct link to dbt Copilot and agents")
 
-* **Job investigation support in Studio agent**: The Studio IDE dev agent can now help you investigate and troubleshoot dbt job and run failures using the `troubleshooting-dbt-job-errors` skill. The agent notes when your local project state may differ from the job (for example, a different branch or uncommitted changes). This feature is currently in beta. Refer to [Debug job failures](https://docs.getdbt.com/docs/platform/wizard-platform.md?version=2.0#debug-job-failures) for more information.
+* **Job investigation support in Studio agent**: The Studio IDE dev agent can now help you investigate and troubleshoot dbt job and run failures using the `troubleshooting-dbt-job-errors` skill. The agent notes when your local project state may differ from the job (for example, a different branch or uncommitted changes). This feature is currently in beta. Refer to [Debug job failures](../platform/wizard-platform.md?version=2.0#debug-job-failures) for more information.
 
 ### Semantic Layer[​](#semantic-layer-4 "Direct link to Semantic Layer")
 
@@ -1567,7 +1567,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Canvas**
 
-  * **Existing CSV upload SSE endpoint deprecated**: Migrate to the new two-step [upload source](https://docs.getdbt.com/docs/platform/use-canvas.md#upload-data-to-canvas) flow.
+  * **Existing CSV upload SSE endpoint deprecated**: Migrate to the new two-step [upload source](../platform/use-canvas.md#upload-data-to-canvas) flow.
 
 ## January 21, 2026[​](#january-21-2026 "Direct link to January 21, 2026")
 
@@ -1606,7 +1606,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **AI-assisted workflows**
 
-  * **Enhancement:** [dbt ](https://docs.getdbt.com/docs/platform/wizard-platform.md)adds missing column descriptions more accurately.
+  * **Enhancement:** [dbt ](../platform/wizard-platform.md)adds missing column descriptions more accurately.
     <!-- -->
     generated documentation now correctly detects column names across various `schema.yml` files, adds only missing descriptions, and preserves existing ones.
 

@@ -84,7 +84,7 @@ create table analytics.dbt_alice.dim_customers
 
 If you're using Snowflake, we recommend:
 
-* Setting all quoting configs to `False` in your [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md) to avoid quoting model and column names unnecessarily and to help prevent case sensitivity issues.
+* Setting all quoting configs to `False` in your [`dbt_project.yml`](../dbt_project.yml.md) to avoid quoting model and column names unnecessarily and to help prevent case sensitivity issues.
 
   * Setting all quoting configs to `False` also means you cannot use reserved words as identifiers, such as model or table names. We recommend you avoid using these reserved words anyway.
 
@@ -103,7 +103,7 @@ If you're using Snowflake, we recommend:
 
 Quoting a source
 
-If a Snowflake source table uses a quoted database, schema, or table identifier, you can configure this in the source.yml file. Refer to [configuring quoting](https://docs.getdbt.com/reference/resource-properties/quoting.md) for more information.
+If a Snowflake source table uses a quoted database, schema, or table identifier, you can configure this in the source.yml file. Refer to [configuring quoting](../resource-properties/quoting.md) for more information.
 
 #### Explanation[​](#explanation "Direct link to Explanation")
 

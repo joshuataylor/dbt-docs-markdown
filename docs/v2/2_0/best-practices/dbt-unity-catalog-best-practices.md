@@ -1,18 +1,18 @@
 # Best practices for dbt and Unity Catalog
 
-Your Databricks dbt project should be configured after following the ["How to set up your databricks dbt project guide"](https://docs.getdbt.com/guides/set-up-your-databricks-dbt-project.md). Now we’re ready to start building a dbt project using Unity Catalog. However, we should first consider how we want to allow dbt users to interact with our different catalogs. We recommend the following best practices to ensure the integrity of your production data:
+Your Databricks dbt project should be configured after following the ["How to set up your databricks dbt project guide"](../guides/set-up-your-databricks-dbt-project.md). Now we’re ready to start building a dbt project using Unity Catalog. However, we should first consider how we want to allow dbt users to interact with our different catalogs. We recommend the following best practices to ensure the integrity of your production data:
 
 ## Isolate your Bronze (aka source) data[​](#isolate-your-bronze-aka-source-data "Direct link to Isolate your Bronze (aka source) data")
 
 We recommend using Unity Catalog because it allows you to reference data across your organization from any other catalog, legacy Hive metastore, external metastore, or Delta Live Table pipeline outputs. Additionally, Databricks offers the capability to [interact with external data](https://docs.databricks.com/external-data/index.html#interact-with-external-data-on-databricks) and supports query federation to many [database solutions](https://docs.databricks.com/query-federation/index.html#what-is-query-federation-for-databricks-sql). This means your dev and prod environments will have access to your source data, even if it is defined in another catalog or external data source.
 
-Raw data in your Bronze layer should be defined as dbt [sources](https://docs.getdbt.com/docs/build/sources.md) and should be read-only for all dbt interactions in both development and production. By default, we recommend that all of these inputs should be accessible by all dbt users in all dbt environments. This ensures that transformations in all environments begin with the same input data, and the results observed in development will be replicated when that code is deployed. That being said, there are times when your company’s data governance requirements necessitate using multiple workspaces or data catalogs depending on the environment.
+Raw data in your Bronze layer should be defined as dbt [sources](../docs/build/sources.md) and should be read-only for all dbt interactions in both development and production. By default, we recommend that all of these inputs should be accessible by all dbt users in all dbt environments. This ensures that transformations in all environments begin with the same input data, and the results observed in development will be replicated when that code is deployed. That being said, there are times when your company’s data governance requirements necessitate using multiple workspaces or data catalogs depending on the environment.
 
-If you have different data catalogs/schemas for your source data depending on your environment, you can use the [target.name](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md#use-targetname-to-change-your-source-database) to change the data catalog/schema you’re pulling from depending on the environment.
+If you have different data catalogs/schemas for your source data depending on your environment, you can use the [target.name](../reference/dbt-jinja-functions/target.md#use-targetname-to-change-your-source-database) to change the data catalog/schema you’re pulling from depending on the environment.
 
-If you use multiple Databricks workspaces to isolate development from production, you can use dbt’s [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) in your connection config strings to reference multiple workspaces from one dbt project. You can also do the same thing for your SQL warehouse so you can have different sizes based on your environments.
+If you use multiple Databricks workspaces to isolate development from production, you can use dbt’s [environment variables](../docs/build/environment-variables.md) in your connection config strings to reference multiple workspaces from one dbt project. You can also do the same thing for your SQL warehouse so you can have different sizes based on your environments.
 
-To do so, use dbt's [environment variable syntax](https://docs.getdbt.com/docs/build/environment-variables.md#special-environment-variables) for Server Hostname of your Databricks workspace URL and HTTP Path for the SQL warehouse in your connection settings. Note that Server Hostname still needs to appear to be a valid domain name to pass validation checks, so you will need to hard-code the domain suffix on the URL, eg `{{env_var('DBT_HOSTNAME')}}.cloud.databricks.com` and the path prefix for your warehouses, eg `/sql/1.0/warehouses/{{env_var('DBT_HTTP_PATH')}}`.
+To do so, use dbt's [environment variable syntax](../docs/build/environment-variables.md#special-environment-variables) for Server Hostname of your Databricks workspace URL and HTTP Path for the SQL warehouse in your connection settings. Note that Server Hostname still needs to appear to be a valid domain name to pass validation checks, so you will need to hard-code the domain suffix on the URL, eg `{{env_var('DBT_HOSTNAME')}}.cloud.databricks.com` and the path prefix for your warehouses, eg `/sql/1.0/warehouses/{{env_var('DBT_HTTP_PATH')}}`.
 
 [![Using environment variable syntax in connection configs](/img/guides/databricks-guides/databricks-connection-env-vars.png?v=2 "Using environment variable syntax in connection configs")](#)Using environment variable syntax in connection configs
 
@@ -22,7 +22,7 @@ When you create environments in dbt, you can assign environment variables to pop
 
 ## Access Control[​](#access-control "Direct link to Access Control")
 
-For granting access to data consumers, use dbt’s [grants config](https://docs.getdbt.com/reference/resource-configs/grants.md) to apply permissions to database objects generated by dbt models. This lets you configure grants as a structured dictionary rather than writing all the SQL yourself and lets dbt take the most efficient path to apply those grants.
+For granting access to data consumers, use dbt’s [grants config](../reference/resource-configs/grants.md) to apply permissions to database objects generated by dbt models. This lets you configure grants as a structured dictionary rather than writing all the SQL yourself and lets dbt take the most efficient path to apply those grants.
 
 As for permissions to run dbt and read non-consumer-facing data sources, the table below summarizes an access model. Effectively, all developers should get no more than read access on the prod catalog and write access in the dev catalog. When using dbt, schema creation is taken care of for you; unlike traditional data warehousing workflows, you do not need to manually create any Unity Catalog assets other than the top-level catalogs.
 
@@ -62,9 +62,9 @@ Ready to start transforming your Unity Catalog datasets with dbt?
 
 Check out the resources below for guides, tips, and best practices:
 
-* [How we structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md)
+* [How we structure our dbt projects](./how-we-structure/1-guide-overview.md)
 * [Self-paced dbt fundamentals training course](https://learn.getdbt.com/courses/dbt-fundamentals)
-* [Customizing CI/CD](https://docs.getdbt.com/guides/custom-cicd-pipelines.md)
-* [Debugging errors](https://docs.getdbt.com/guides/debug-errors.md)
-* [Writing custom generic tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md)
+* [Customizing CI/CD](../guides/custom-cicd-pipelines.md)
+* [Debugging errors](../guides/debug-errors.md)
+* [Writing custom generic tests](./writing-custom-generic-tests.md)
 * [dbt packages hub](https://hub.getdbt.com/)

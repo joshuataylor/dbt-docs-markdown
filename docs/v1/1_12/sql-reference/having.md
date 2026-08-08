@@ -2,7 +2,7 @@
 
 SQL HAVING is just one of those little things that are going to make your ad hoc data work a little easier.
 
-A not-so-fun fact about the [WHERE clause](https://docs.getdbt.com/sql-reference/where.md) is that you can’t filter on aggregates with it…that’s where HAVING comes in. With HAVING, you can not only define an aggregate in a [select](https://docs.getdbt.com/sql-reference/select.md) statement, but also filter on that newly created aggregate within the HAVING clause.
+A not-so-fun fact about the [WHERE clause](./where.md) is that you can’t filter on aggregates with it…that’s where HAVING comes in. With HAVING, you can not only define an aggregate in a [select](./select.md) statement, but also filter on that newly created aggregate within the HAVING clause.
 
 This page will walk through how to use HAVING, when you should use it, and discuss data warehouse support for it.
 
@@ -10,7 +10,7 @@ This page will walk through how to use HAVING, when you should use it, and discu
 
 The HAVING clause essentially requires one thing: an aggregate field to evaluate. Since HAVING is technically a boolean, it will return rows that execute to true, similar to the WHERE clause.
 
-The HAVING condition is followed after a [GROUP BY statement](https://docs.getdbt.com/sql-reference/group-by.md) and optionally enclosed with an ORDER BY statement:
+The HAVING condition is followed after a [GROUP BY statement](./group-by.md) and optionally enclosed with an ORDER BY statement:
 
 ```sql
 select

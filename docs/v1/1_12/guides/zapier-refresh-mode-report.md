@@ -1,6 +1,6 @@
 # Refresh a Mode dashboard when a job completes
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Webhooks
 
@@ -23,13 +23,13 @@ Although we are using the Mode API for a concrete example, the principles are re
 
 In order to set up the integration, you should have familiarity with:
 
-* [dbt Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
+* [dbt Webhooks](../docs/deploy/webhooks.md)
 * Zapier
 * The [Mode API](https://mode.com/developer/api-reference/introduction/)
 
 ## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
 
-Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](https://docs.getdbt.com/docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
+Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
 
 Press **Continue**, then copy the webhook URL.
 
@@ -37,7 +37,7 @@ Press **Continue**, then copy the webhook URL.
 
 ## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
 
-See [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**, and you need to change the **Jobs** list to only contain any jobs whose completion should trigger a report refresh.
+See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**, and you need to change the **Jobs** list to only contain any jobs whose completion should trigger a report refresh.
 
 Make note of the Webhook Secret Key for later.
 
@@ -47,7 +47,7 @@ The sample body's values are hard-coded and not reflective of your project, but 
 
 ## Store secrets[​](#store-secrets "Direct link to Store secrets")
 
-In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md), as well as a [Mode API token and secret](https://mode.com/developer/api-reference/authentication/).
+In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md), as well as a [Mode API token and secret](https://mode.com/developer/api-reference/authentication/).
 
 Zapier allows you to [store secrets](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps), which prevents your keys from being displayed in plaintext in the Zap code. You will be able to access them via the [StoreClient utility](https://help.zapier.com/hc/en-us/articles/8496293969549-Store-data-from-code-steps-with-StoreClient).
 

@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-Common questions about dbt plans, billing, and usage. For pricing and plan details, refer to [Billing](https://docs.getdbt.com/docs/platform/billing.md).
+Common questions about dbt plans, billing, and usage. For pricing and plan details, refer to [Billing](./billing.md).
 
  What happens if I need more seats on the Starter plan?
 

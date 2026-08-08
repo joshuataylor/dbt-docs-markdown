@@ -1,6 +1,6 @@
 # Quickstart with dbt Mesh
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt platform
 
@@ -34,9 +34,9 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 ### Related content:[​](#related-content "Direct link to Related content:")
 
 * [Data mesh concepts: What it is and how to get started](https://www.getdbt.com/blog/data-mesh-concepts-what-it-is-and-how-to-get-started)
-* [Deciding how to structure your Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-3-structures.md)
-* [Mesh best practices guide](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-4-implementation.md)
-* [Mesh FAQs](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-5-faqs.md)
+* [Deciding how to structure your Mesh](../best-practices/how-we-mesh/mesh-3-structures.md)
+* [Mesh best practices guide](../best-practices/how-we-mesh/mesh-4-implementation.md)
+* [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md)
 
 ## Prerequisites​[​](#prerequisites "Direct link to Prerequisites​")
 
@@ -50,12 +50,12 @@ To leverage Mesh, you need the following:
 
   <!-- -->
 
-  * [Snowflake](https://docs.getdbt.com/guides/snowflake.md?step=3)
-  * [Databricks](https://docs.getdbt.com/guides/databricks.md?step=3)
-  * [Redshift](https://docs.getdbt.com/guides/redshift.md?step=3)
-  * [BigQuery](https://docs.getdbt.com/guides/bigquery.md?step=3)
-  * [Fabric](https://docs.getdbt.com/guides/microsoft-fabric.md?step=2)
-  * [Starburst Galaxy](https://docs.getdbt.com/guides/starburst-galaxy.md?step=2)
+  * [Snowflake](./snowflake.md?step=3)
+  * [Databricks](./databricks.md?step=3)
+  * [Redshift](./redshift.md?step=3)
+  * [BigQuery](./bigquery.md?step=3)
+  * [Fabric](./microsoft-fabric.md?step=2)
+  * [Starburst Galaxy](./starburst-galaxy.md?step=2)
 
 This guide assumes you have experience with or fundamental knowledge of dbt. Take the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course first if you are brand new to dbt.
 
@@ -68,7 +68,7 @@ In this section, you'll create two new, empty projects in dbt to serve as your f
 
 For example, the always-enterprising and fictional account "Jaffle Labs" will create two projects for their data analytics and finance team: **Jaffle | Data Analytics** and **Jaffle | Finance**.
 
-To [create](https://docs.getdbt.com/docs/platform/about-platform-setup.md) a new project in dbt:
+To [create](../docs/platform/about-platform-setup.md) a new project in dbt:
 
 1. From **Account settings**, go to **Projects**. Click **New project**.
 
@@ -89,7 +89,7 @@ To [create](https://docs.getdbt.com/docs/platform/about-platform-setup.md) a new
 
    <!-- -->
 
-   * For this guide, make sure you create a single [development](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) and [Deployment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) per project.
+   * For this guide, make sure you create a single [development](../docs/dbt-platform-environments.md#create-a-development-environment) and [Deployment](../docs/deploy/deploy-environments.md) per project.
 
      <!-- -->
 
@@ -102,7 +102,7 @@ To [create](https://docs.getdbt.com/docs/platform/about-platform-setup.md) a new
 
    * A data platform connection
    * New git repo
-   * One or more [environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md) (such as development, deployment)
+   * One or more [environments](../docs/deploy/deploy-environments.md) (such as development, deployment)
 
 [![Navigate to Account settings.](/img/guides/dbt-ecosystem/dbt-python-snowpark/5-development-schema-name/1-settings-gear-icon.png?v=2 "Navigate to Account settings.")](#)Navigate to Account settings.
 
@@ -116,7 +116,7 @@ To [create](https://docs.getdbt.com/docs/platform/about-platform-setup.md) a new
 
 ### Create a production environment[​](#create-a-production-environment "Direct link to Create a production environment")
 
-In dbt, each project can have one deployment environment designated as "Production.". You must set up a ["Production" or "Staging" deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) for each project you want to "mesh" together. This enables you to leverage Catalog in the [later steps](https://docs.getdbt.com/guides/mesh-qs.md?step=5#create-and-run-a-dbt-cloud-job) of this guide.
+In dbt, each project can have one deployment environment designated as "Production.". You must set up a ["Production" or "Staging" deployment environment](../docs/deploy/deploy-environments.md) for each project you want to "mesh" together. This enables you to leverage Catalog in the [later steps](./mesh-qs.md?step=5#create-and-run-a-dbt-cloud-job) of this guide.
 
 To set a production environment:
 
@@ -134,7 +134,7 @@ To set a production environment:
 
 This upstream project is where you build your core data assets. This project will contain the raw data sources, staging models, and core business logic.
 
-dbt enables data practitioners to develop in their tool of choice and comes equipped with a local [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or in-browser [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+dbt enables data practitioners to develop in their tool of choice and comes equipped with a local [dbt CLI](../docs/platform/dbt-cli-installation.md) or in-browser [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md).
 
 In this section of the guide, you will set the "Jaffle | Data Analytics" project as your foundational project using the Studio IDE.
 
@@ -242,10 +242,10 @@ select * from final
 
 Before a downstream team can leverage assets from this foundational project, you need to first:
 
-* [Create and define](https://docs.getdbt.com/docs/mesh/govern/model-access.md) at least one model as “public”
-* Run a [deployment job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) successfully
+* [Create and define](../docs/mesh/govern/model-access.md) at least one model as “public”
+* Run a [deployment job](../docs/deploy/deploy-jobs.md) successfully
   <!-- -->
-  * Note, Enable [**Generate docs on run**](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
+  * Note, Enable [**Generate docs on run**](../docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
 
 ## Define a public model and run first job[​](#define-a-public-model-and-run-first-job "Direct link to Define a public model and run first job")
 
@@ -300,7 +300,7 @@ models:
         description: "Days between this purchase and customer's first purchase"
 ```
 
-Note: By default, model access is set to "protected", which means they can only be referenced within the same project. Learn more about access types and model groups [here](https://docs.getdbt.com/docs/mesh/govern/model-access.md#access-modifiers).
+Note: By default, model access is set to "protected", which means they can only be referenced within the same project. Learn more about access types and model groups [here](../docs/mesh/govern/model-access.md#access-modifiers).
 
 2. Navigate to the Studio IDE **Lineage** tab to see the model noted as **Public**, below the model name.
 
@@ -311,7 +311,7 @@ Note: By default, model access is set to "protected", which means they can only 
 
 ### Create and run a dbt job[​](#create-and-run-a-dbt-job "Direct link to Create and run a dbt job")
 
-Before a downstream team can leverage assets from this foundational project, you need to [create a production environment](https://docs.getdbt.com/guides/mesh-qs.md?step=3#create-a-production-environment) and run a [deployment job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md) successfully.
+Before a downstream team can leverage assets from this foundational project, you need to [create a production environment](./mesh-qs.md?step=3#create-a-production-environment) and run a [deployment job](../docs/deploy/deploy-jobs.md) successfully.
 
 To run your first deployment dbt job, you will need to create a new dbt job.
 
@@ -325,11 +325,11 @@ To run your first deployment dbt job, you will need to create a new dbt job.
 5. Click **Run now** to trigger the job.
 6. After the run is complete, navigate to Catalog. You should now see your lineage, tests, and documentation coming through successfully.
 
-For details on how dbt uses metadata from the Staging environment to resolve references in downstream projects, check out the section on [Staging with downstream dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#staging-with-downstream-dependencies).
+For details on how dbt uses metadata from the Staging environment to resolve references in downstream projects, check out the section on [Staging with downstream dependencies](../docs/mesh/govern/project-dependencies.md#staging-with-downstream-dependencies).
 
 ## Reference a public model in your downstream project[​](#reference-a-public-model-in-your-downstream-project "Direct link to Reference a public model in your downstream project")
 
-In this section, you will set up the downstream project, "Jaffle | Finance", and [cross-project reference](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md) the `fct_orders` model from the foundational project. Navigate to the **Develop** page to set up our project:
+In this section, you will set up the downstream project, "Jaffle | Finance", and [cross-project reference](../docs/mesh/govern/project-dependencies.md) the `fct_orders` model from the foundational project. Navigate to the **Develop** page to set up our project:
 
 1. If you’ve also started with a new git repo, click **Initialize dbt project** under the **Version control** section.
 2. Delete the `models/example` folder.
@@ -447,8 +447,8 @@ You're now set to add a model that explores how payment types vary throughout a 
 
 How can you enhance resilience and add guardrails to this type of multi-project relationship? You can adopt best practices from software engineering by:
 
-1. Defining model contracts — Set up [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) in dbt to define a set of upfront "guarantees" that define the shape of your model. While building your model, dbt will verify that your model's transformation will produce a dataset matching up with its contract; if not, the build fails.
-2. Defining model versions — Use [model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) to manage updates and handle breaking changes systematically.
+1. Defining model contracts — Set up [model contracts](../docs/mesh/govern/model-contracts.md) in dbt to define a set of upfront "guarantees" that define the shape of your model. While building your model, dbt will verify that your model's transformation will produce a dataset matching up with its contract; if not, the build fails.
+2. Defining model versions — Use [model versions](../docs/mesh/govern/model-versions.md) to manage updates and handle breaking changes systematically.
 
 ### Set up model contracts[​](#set-up-model-contracts "Direct link to Set up model contracts")
 
@@ -639,7 +639,7 @@ select * from final
 
 ## View lineage with dbt Catalog[​](#view-lineage-with-dbt-catalog "Direct link to View lineage with dbt Catalog")
 
-Use [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) to view the lineage across projects in dbt. Navigate to the **Explore** page for each of your projects — you should now view the [lineage seamlessly across projects](https://docs.getdbt.com/docs/explore/explore-multiple-projects.md).
+Use [Catalog](../docs/explore/explore-projects.md) to view the lineage across projects in dbt. Navigate to the **Explore** page for each of your projects — you should now view the [lineage seamlessly across projects](../docs/explore/explore-multiple-projects.md).
 
 [![View 'Jaffle | Data Analytics' lineage with dbt Catalog ](/img/guides/dbt-mesh/jaffle_da_final_lineage.png?v=2 "View 'Jaffle | Data Analytics' lineage with dbt Catalog ")](#)View 'Jaffle | Data Analytics' lineage with dbt Catalog
 
@@ -654,9 +654,9 @@ Congratulations 🎉! You're ready to bring the benefits of Mesh to your organiz
 
 Here are some additional resources to help you continue your journey:
 
-* [How we build our dbt mesh projects](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md)
-* [Mesh FAQs](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-5-faqs.md)
-* [Implement Mesh with the Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md#how-can-i-implement-dbt-mesh-with-the-dbt-semantic-layer)
-* [Cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref)
-* [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)
-* [Hybrid development with dbt platform and Fusion](https://docs.getdbt.com/guides/fusion-platform-local-workflow.md) — keep your local and platform environments in sync across credentials, env vars, and Fusion versions
+* [How we build our dbt mesh projects](../best-practices/how-we-mesh/mesh-1-intro.md)
+* [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md)
+* [Implement Mesh with the Semantic Layer](../docs/use-dbt-semantic-layer/sl-faqs.md#how-can-i-implement-dbt-mesh-with-the-dbt-semantic-layer)
+* [Cross-project references](../docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref)
+* [Catalog](../docs/explore/explore-projects.md)
+* [Hybrid development with dbt platform and Fusion](./fusion-platform-local-workflow.md) — keep your local and platform environments in sync across credentials, env vars, and Fusion versions

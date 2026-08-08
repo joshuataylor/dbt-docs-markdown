@@ -22,11 +22,11 @@ models:
 
 In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
 
-For more details, refer to the [`lag_tolerance` config reference](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md).
+For more details, refer to the [`lag_tolerance` config reference](../../../reference/resource-configs/lag-tolerance.md).
 
 #### Use selectors with `dbt build` to run limited upstream nodes[​](#use-selectors-with-dbt-build-to-run-limited-upstream-nodes "Direct link to use-selectors-with-dbt-build-to-run-limited-upstream-nodes")
 
-In development, use [selectors](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) with `dbt build` to limit how many upstream nodes run. Nodes that are not selected can be [deferred](https://docs.getdbt.com/reference/node-selection/defer.md) instead of rebuilt, which avoids extra dbt State activity on those targets. Automatic `state:modified` selection in development may be supported in a future release.
+In development, use [selectors](../../../reference/node-selection/yaml-selectors.md) with `dbt build` to limit how many upstream nodes run. Nodes that are not selected can be [deferred](../../../reference/node-selection/defer.md) instead of rebuilt, which avoids extra dbt State activity on those targets. Automatic `state:modified` selection in development may be supported in a future release.
 
 #### Avoid conditional materializations[​](#avoid-conditional-materializations "Direct link to Avoid conditional materializations")
 
@@ -48,7 +48,7 @@ If you have views that contain macros with case statements based on upstream tab
 
 #### Exclude views while running tests[​](#exclude-views-while-running-tests "Direct link to Exclude views while running tests")
 
-Running tests for views in every job run can help keep data quality intact and save you from the need to rerun failed jobs. To exclude views from your job run while running tests, you can follow these steps to create a custom [selector](https://docs.getdbt.com/reference/node-selection/yaml-selectors.md) for your job command.
+Running tests for views in every job run can help keep data quality intact and save you from the need to rerun failed jobs. To exclude views from your job run while running tests, you can follow these steps to create a custom [selector](../../../reference/node-selection/yaml-selectors.md) for your job command.
 
 1. Open your dbt project in the Studio IDE.
 
@@ -83,14 +83,14 @@ Running tests for views in every job run can help keep data quality intact and s
 
 If you want to ensure that you're building views whenever the logic is changed, create a merge job that gets triggered when code is merged into main:
 
-1. Ensure you have a [CI job setup](https://docs.getdbt.com/docs/deploy/ci-jobs.md) in your environment.
-2. Create a new [deploy job](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#create-and-schedule-jobs) and call it “Merge Job".
-3. Set the **Environment** to your CI environment. Refer to [Types of environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md#types-of-environments) for more details.
+1. Ensure you have a [CI job setup](../../deploy/ci-jobs.md) in your environment.
+2. Create a new [deploy job](../../deploy/deploy-jobs.md#create-and-schedule-jobs) and call it “Merge Job".
+3. Set the **Environment** to your CI environment. Refer to [Types of environments](../../deploy/deploy-environments.md#types-of-environments) for more details.
 4. Set **Commands** to: `dbt run -s state:modified+`. Executing `dbt build` in this context is unnecessary because the CI job was used to both run and test the code that just got merged into main.
 5. Under the **Execution Settings**, select the default production job to compare changes against:
    <!-- -->
    * **Defer to a previous run state** — Select the “Merge Job” you created so the job compares and identifies what has changed since the last merge.
-6. Follow [Customizing CI/CD with custom pipelines](https://docs.getdbt.com/guides/custom-cicd-pipelines.md) to create a script that triggers the dbt API to run your job after a merge, or watch this [video](https://www.loom.com/share/e7035c61dbed47d2b9b36b5effd5ee78?sid=bcf4dd2e-b249-4e5d-b173-8ca204d9becb).
+6. Follow [Customizing CI/CD with custom pipelines](../../../guides/custom-cicd-pipelines.md) to create a script that triggers the dbt API to run your job after a merge, or watch this [video](https://www.loom.com/share/e7035c61dbed47d2b9b36b5effd5ee78?sid=bcf4dd2e-b249-4e5d-b173-8ca204d9becb).
 
 The merge job immediately deploys PR changes to production and keeps production views current with your codebase while staying cost-efficient. Decide whether this change is right for your dbt project.
 
@@ -108,6 +108,6 @@ Once you've identified which models could be optimized, check out these other re
 
 * [Build scalable and trustworthy data pipelines with dbt and BigQuery](https://services.google.com/fh/files/misc/dbt_bigquery_whitepaper.pdf)
 * [Best Practices for Optimizing Your dbt and Snowflake Deployment](https://www.snowflake.com/wp-content/uploads/2021/10/Best-Practices-for-Optimizing-Your-dbt-and-Snowflake-Deployment.pdf)
-* [How to optimize and troubleshoot dbt models on Databricks](https://docs.getdbt.com/guides/optimize-dbt-models-on-databricks.md)
+* [How to optimize and troubleshoot dbt models on Databricks](../../../guides/optimize-dbt-models-on-databricks.md)
 
-For answers to common plan and billing questions, refer to [Billing FAQs](https://docs.getdbt.com/docs/platform/billing-faqs.md).
+For answers to common plan and billing questions, refer to [Billing FAQs](../billing-faqs.md).

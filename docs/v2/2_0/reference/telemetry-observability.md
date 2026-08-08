@@ -1,10 +1,10 @@
 # Fusion telemetry and observability
 
-The dbt Fusion engine provides a comprehensive observability system that replaces [dbt Core's structured logging](https://docs.getdbt.com/reference/events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
+The dbt Fusion engine provides a comprehensive observability system that replaces [dbt Core's structured logging](./events-logging.md#structured-logging). Built on [OpenTelemetry](https://opentelemetry.io/) conventions and backed by a stable protobuf schema, it enables deep integration with orchestrators, observability platforms, and custom tooling.
 
-For shared CLI logging configs such as `--log-format` and `--log-level`, refer to [Logs](https://docs.getdbt.com/reference/global-configs/logs.md).
+For shared CLI logging configs such as `--log-format` and `--log-level`, refer to [Logs](./global-configs/logs.md).
 
-This system is separate from the anonymous usage statistics that dbt sends to dbt Labs. To configure anonymous usage statistics, refer to [Anonymous usage stats](https://docs.getdbt.com/reference/global-configs/usage-stats.md).
+This system is separate from the anonymous usage statistics that dbt sends to dbt Labs. To configure anonymous usage statistics, refer to [Anonymous usage stats](./global-configs/usage-stats.md).
 
 This uses the same integration that dbt platform relies on for orchestration and monitoring, providing proven and production-ready features that work at scale.
 
@@ -60,7 +60,7 @@ OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" dbtf build --export-to-otlp
 
 ### Download telemetry from platform job runs[​](#download-telemetry-from-platform-job-runs "Direct link to Download telemetry from platform job runs")
 
-On the dbt platform, Fusion job runs store OTel telemetry as Parquet artifacts for dbt command steps. From a completed run, open the **Run summary** tab, select a step, and click **Download** > **Download OTel log**. The option appears only for Fusion runs where the step produced an OTel file. For step-by-step instructions, refer to [Downloading logs](https://docs.getdbt.com/docs/deploy/run-visibility.md#access-logs).
+On the dbt platform, Fusion job runs store OTel telemetry as Parquet artifacts for dbt command steps. From a completed run, open the **Run summary** tab, select a step, and click **Download** > **Download OTel log**. The option appears only for Fusion runs where the step produced an OTel file. For step-by-step instructions, refer to [Downloading logs](../docs/deploy/run-visibility.md#access-logs).
 
 ## Telemetry data[​](#telemetry-data "Direct link to Telemetry data")
 
@@ -112,7 +112,7 @@ When Fusion skips a node, the telemetry includes a reason:
 | Skip reason      | Description                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `upstream`       | A dependency failed.                                                                                                            |
-| `cached`         | Fusion reused results from cache (no changes detected via [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)). |
+| `cached`         | Fusion reused results from cache (no changes detected via [dbt State](../docs/deploy/dbt-state-about.md)). |
 | `phase_disabled` | The phase was disabled (for example, `--static-analysis off`).                                                                  |
 | `noop`           | Node doesn't perform work in this phase (for example, ephemeral models).                                                        |
 
@@ -258,13 +258,13 @@ Search table...
 
 Note that dbt Core's `fail` status maps to Fusion's `node_outcome: success` because Fusion distinguishes between "the test ran successfully and found data issues" versus "the test couldn't run." This separation enables more precise alerting and retry logic.
 
-Fusion adds `skip_reason: cached` for nodes reused via [State Aware Orchestration](https://docs.getdbt.com/docs/deploy/state-aware-about.md), which has no dbt Core equivalent.
+Fusion adds `skip_reason: cached` for nodes reused via [State Aware Orchestration](../docs/deploy/state-aware-about.md), which has no dbt Core equivalent.
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
 ## Record structure[​](#record-structure "Direct link to Record structure")
 

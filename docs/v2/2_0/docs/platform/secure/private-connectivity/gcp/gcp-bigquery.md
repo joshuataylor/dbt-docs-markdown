@@ -38,7 +38,7 @@ dbt Labs will work on your behalf to complete the private connection setup. Plea
 
 ## (Optional) Generate BigQuery credentials[​](#optional-generate-bigquery-credentials "Direct link to (Optional) Generate BigQuery credentials")
 
-You may already have credentials set up for your datasets. If not, you can follow the steps in our [BigQuery quickstart guide](https://docs.getdbt.com/guides/bigquery.md?step=4) to generate credentials.
+You may already have credentials set up for your datasets. If not, you can follow the steps in our [BigQuery quickstart guide](../../../../../guides/bigquery.md?step=4) to generate credentials.
 
 ## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
 

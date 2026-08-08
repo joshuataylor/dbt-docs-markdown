@@ -8,7 +8,7 @@ macro-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [macros](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) are located. Note that you cannot co-locate models and macros.
+Optionally specify a custom list of directories where [macros](../../docs/build/jinja-macros.md#macros) are located. Note that you cannot co-locate models and macros.
 
 ## Default[​](#default "Direct link to Default")
 

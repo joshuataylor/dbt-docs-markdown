@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-The `dbt_cloud.yml` file stores the credentials that dbt tools — like the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md), the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md), and more — use to authenticate with dbt platform. You can download it from dbt platform and save it locally to your `.dbt` directory.
+The `dbt_cloud.yml` file stores the credentials that dbt tools — like the [dbt CLI](../docs/platform/dbt-cli-installation.md), the [dbt VS Code extension](../docs/about-dbt-extension.md), and more — use to authenticate with dbt platform. You can download it from dbt platform and save it locally to your `.dbt` directory.
 
 This page covers:
 
@@ -19,9 +19,9 @@ The `dbt_cloud.yml` file contains API keys. Store it securely and make sure you 
 
 <!-- -->
 
-How you download the file depends on whether you're configuring the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md). The downloaded `dbt_cloud.yml` includes your [personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md).
+How you download the file depends on whether you're configuring the [dbt CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension](../docs/about-dbt-extension.md). The downloaded `dbt_cloud.yml` includes your [personal access token (PAT)](../docs/dbt-apis/user-tokens.md).
 
-1. In dbt platform, select the project you want to work on. The project must already have a [development environment](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) set up.
+1. In dbt platform, select the project you want to work on. The project must already have a [development environment](../docs/dbt-platform-environments.md#create-a-development-environment) set up.
 2. Go to **Account settings** → **Your profile**, then follow the steps for your tool:
 
 * dbt CLI: Navigate to **CLI** → **Configure Cloud authentication** and click **Download CLI configuration file**.
@@ -166,13 +166,13 @@ projects:
 | `version`                | Yes      | The schema version of the file. Currently `"1"`.                                                                                                                                                                                                          |
 | `context.active-host`    | Yes      | The `account-host` to use by default. You can find it in the **Account settings** page.                                                                                                                                                                   |
 | `context.active-project` | Yes      | The `project-id` of the project to use by default when running commands. Must match a `project-id` listed under `projects`.                                                                                                                               |
-| `context.defer-env-id`   | No       | The environment ID to defer to for build artifacts. Optional override of the project's default deferral environment. dbt CLI only. Refer to [Configure deferral](https://docs.getdbt.com/docs/platform/about-defer.md#configure-deferral-environment-id). |
+| `context.defer-env-id`   | No       | The environment ID to defer to for build artifacts. Optional override of the project's default deferral environment. dbt CLI only. Refer to [Configure deferral](../docs/platform/about-defer.md#configure-deferral-environment-id). |
 | `projects.project-name`  | Yes      | A human-readable name for the project.                                                                                                                                                                                                                    |
 | `projects.project-id`    | Yes      | The dbt platform project ID. Find it in the URL when viewing your project (for example, `…/projects/123456`).                                                                                                                                             |
 | `projects.account-name`  | Yes      | A human-readable name for the account.                                                                                                                                                                                                                    |
 | `projects.account-id`    | Yes      | The dbt platform account ID.                                                                                                                                                                                                                              |
 | `projects.account-host`  | Yes      | The host for your account, for example `cloud.getdbt.com`, `emea.dbt.com`, or your single-tenant access URL.                                                                                                                                              |
-| `projects.token-name`    | Yes      | A name for the [Personal access token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md).                                                                                                                                                       |
+| `projects.token-name`    | Yes      | A name for the [Personal access token (PAT)](../docs/dbt-apis/user-tokens.md).                                                                                                                                                       |
 | `projects.token-value`   | Yes      | The PAT value. Treat this as a secret.                                                                                                                                                                                                                    |
 
 ## The dbt-cloud block in dbt\_project.yml[​](#the-dbt-cloud-block-in-dbt_projectyml "Direct link to The dbt-cloud block in dbt_project.yml")
@@ -194,10 +194,10 @@ dbt-cloud:
 | Field          | Required | Description                                                                                                                                                                             |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `project-id`   | Yes      | The dbt platform project ID this local project maps to. Find it in the URL when viewing your project (for example, `https://YOUR_ACCESS_URL/develop/26228/projects/123456` → `123456`). |
-| `defer-env-id` | No       | The environment ID to defer to for build artifacts. Used for Fusion [auto-deferral](https://docs.getdbt.com/docs/platform/about-defer.md) and dbt CLI deferral overrides.               |
+| `defer-env-id` | No       | The environment ID to defer to for build artifacts. Used for Fusion [auto-deferral](../docs/platform/about-defer.md) and dbt CLI deferral overrides.               |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md)
-* [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [`dbt_project.yml`](https://docs.getdbt.com/reference/dbt_project.yml.md)
+* [dbt CLI](../docs/platform/dbt-cli-installation.md)
+* [dbt VS Code extension](../docs/about-dbt-extension.md)
+* [`dbt_project.yml`](./dbt_project.yml.md)

@@ -2,15 +2,15 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [pre-hook & post-hook](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md)
-* [on-run-start & on-run-end](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md)
-* [`run-operation` command](https://docs.getdbt.com/reference/commands/run-operation.md)
+* [pre-hook & post-hook](../../reference/resource-configs/pre-hook-post-hook.md)
+* [on-run-start & on-run-end](../../reference/project-configs/on-run-start-on-run-end.md)
+* [`run-operation` command](../../reference/commands/run-operation.md)
 
 ### Assumed knowledge[​](#assumed-knowledge "Direct link to Assumed knowledge")
 
-* [Project configurations](https://docs.getdbt.com/reference/dbt_project.yml.md)
-* [Model configurations](https://docs.getdbt.com/reference/model-configs.md)
-* [Macros](https://docs.getdbt.com/docs/build/jinja-macros.md#macros)
+* [Project configurations](../../reference/dbt_project.yml.md)
+* [Model configurations](../../reference/model-configs.md)
+* [Macros](./jinja-macros.md#macros)
 
 ## Getting started with hooks and operations[​](#getting-started-with-hooks-and-operations "Direct link to Getting started with hooks and operations")
 
@@ -45,7 +45,7 @@ Hooks are snippets of SQL that are executed at different times:
 
 Hooks are a more-advanced capability that enable you to run custom SQL, and leverage database-specific actions, beyond what dbt makes available out-of-the-box with standard materializations and configurations.
 
-If (and only if) you can't leverage the [`grants` resource-config](https://docs.getdbt.com/reference/resource-configs/grants.md), you can use `post-hook` to perform more advanced workflows:
+If (and only if) you can't leverage the [`grants` resource-config](../../reference/resource-configs/grants.md), you can use `post-hook` to perform more advanced workflows:
 
 * Need to apply `grants` in a more complex way, which the dbt Core `grants` config doesn't (yet) support.
 * Need to perform post-processing that dbt does not support out-of-the-box. For example, `analyze table`, `alter table set property`, `alter table ... add row access policy`, etc.
@@ -54,7 +54,7 @@ If (and only if) you can't leverage the [`grants` resource-config](https://docs.
 
 You can use hooks to trigger actions at certain times when running an operation or building a model, seed, or snapshot.
 
-For more information about when hooks can be triggered, see reference sections for [`on-run-start` and `on-run-end` hooks](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md) and [`pre-hook`s and `post-hook`s](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md).
+For more information about when hooks can be triggered, see reference sections for [`on-run-start` and `on-run-end` hooks](../../reference/project-configs/on-run-start-on-run-end.md) and [`pre-hook`s and `post-hook`s](../../reference/resource-configs/pre-hook-post-hook.md).
 
 You can use hooks to provide database-specific functionality not available out-of-the-box with dbt. For example, you can use a `config` block to run an `ALTER TABLE` statement right after building an individual model using a `post-hook`:
 
@@ -70,7 +70,7 @@ models/\<model\_name>.sql
 
 ### Calling a macro in a hook[​](#calling-a-macro-in-a-hook "Direct link to Calling a macro in a hook")
 
-You can also use a [macro](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) to bundle up hook logic. Check out some of the examples in the reference sections for [on-run-start and on-run-end hooks](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md) and [pre- and post-hooks](https://docs.getdbt.com/reference/resource-configs/pre-hook-post-hook.md).
+You can also use a [macro](./jinja-macros.md#macros) to bundle up hook logic. Check out some of the examples in the reference sections for [on-run-start and on-run-end hooks](../../reference/project-configs/on-run-start-on-run-end.md) and [pre- and post-hooks](../../reference/resource-configs/pre-hook-post-hook.md).
 
 models/\<model\_name>.sql
 
@@ -103,11 +103,11 @@ models:
 
 ## About operations[​](#about-operations "Direct link to About operations")
 
-Operations are [macros](https://docs.getdbt.com/docs/build/jinja-macros.md#macros) that you can run using the [`run-operation`](https://docs.getdbt.com/reference/commands/run-operation.md) command. As such, operations aren't actually a separate resource in your dbt project — they are just a convenient way to invoke a macro without needing to run a model.
+Operations are [macros](./jinja-macros.md#macros) that you can run using the [`run-operation`](../../reference/commands/run-operation.md) command. As such, operations aren't actually a separate resource in your dbt project — they are just a convenient way to invoke a macro without needing to run a model.
 
 Explicitly execute the SQL in an operation
 
-Unlike hooks, you need to explicitly execute a query within a macro, by using either a [statement block](https://docs.getdbt.com/reference/dbt-jinja-functions/statement-blocks.md) or a helper macro like the [run\_query](https://docs.getdbt.com/reference/dbt-jinja-functions/run_query.md) macro. Otherwise, dbt will return the query as a string without executing it.
+Unlike hooks, you need to explicitly execute a query within a macro, by using either a [statement block](../../reference/dbt-jinja-functions/statement-blocks.md) or a helper macro like the [run\_query](../../reference/dbt-jinja-functions/run_query.md) macro. Otherwise, dbt will return the query as a string without executing it.
 
 This macro performs a similar action as the above hooks:
 
@@ -134,7 +134,7 @@ Running with dbt=1.6.0
 Privileges granted
 ```
 
-Full usage docs for the `run-operation` command can be found [here](https://docs.getdbt.com/reference/commands/run-operation.md).
+Full usage docs for the `run-operation` command can be found [here](../../reference/commands/run-operation.md).
 
 ## Additional examples[​](#additional-examples "Direct link to Additional examples")
 

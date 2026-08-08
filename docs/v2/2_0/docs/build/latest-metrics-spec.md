@@ -51,9 +51,9 @@ semantic_models:
 
 Cross-project refs unsupported in latest SL YAML spec
 
-When using [dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
+When using [dbt Mesh](../../best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
 
-In the [latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
+In the [latest YAML spec](./latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
 
 ### Entities and dimensions[​](#entities-and-dimensions "Direct link to Entities and dimensions")
 
@@ -336,7 +336,7 @@ metrics:
       percentile_type: discrete
 ```
 
-For [derived metrics](https://docs.getdbt.com/docs/build/derived.md), `type_params.metrics` is renamed `input_metrics`.
+For [derived metrics](./derived.md), `type_params.metrics` is renamed `input_metrics`.
 
 #### New spec
 
@@ -372,7 +372,7 @@ metrics:
         alias: bookings_7_days_ago
 ```
 
-For [ratio metrics](https://docs.getdbt.com/docs/build/ratio.md), `numerator` and `denominator` are now direct keys on the metric.
+For [ratio metrics](./ratio.md), `numerator` and `denominator` are now direct keys on the metric.
 
 #### New spec
 
@@ -395,7 +395,7 @@ metrics:
       denominator: sessions
 ```
 
-For [cumulative metrics](https://docs.getdbt.com/docs/build/cumulative.md):
+For [cumulative metrics](./cumulative.md):
 
 * `type_params.measure` is renamed `input_metric` and must reference a metric.
 * `type_params.cumulative_type_params` values are direct keys on the metric: `window`, `grain_to_date`, and `period_agg`.
@@ -426,7 +426,7 @@ metrics:
         period_agg: sum
 ```
 
-For [conversion metrics](https://docs.getdbt.com/docs/build/conversion.md), the following `type_params.conversion_type_params` values are direct keys on the metric:
+For [conversion metrics](./conversion.md), the following `type_params.conversion_type_params` values are direct keys on the metric:
 
 * `entity`
 * `calculation`
@@ -469,11 +469,11 @@ metrics:
 
 Studio IDE YAML validation
 
-The Studio IDE validates dbt YAML using JSON Schema from the [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project. These definitions are aligned with the dbt Fusion engine and apply across all [dbt platform release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md), including when your development environment is still running dbt Core.
+The Studio IDE validates dbt YAML using JSON Schema from the [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project. These definitions are aligned with the dbt Fusion engine and apply across all [dbt platform release tracks](../dbt-versions/dbt-release-tracks.md), including when your development environment is still running dbt Core.
 
 If the Studio IDE flags your YAML as invalid but dbt commands succeed, trust your run results. Share examples with [dbt Support](mailto:support@getdbt.com) or your account team so the schema can be updated.
 
-Migrate your legacy metrics to the latest YAML spec using the dbt-autofix tool in your CLI, the [dbt VS Code extension](https://docs.getdbt.com/docs/about-dbt-extension.md), or dbt platform's Studio IDE.
+Migrate your legacy metrics to the latest YAML spec using the dbt-autofix tool in your CLI, the [dbt VS Code extension](../about-dbt-extension.md), or dbt platform's Studio IDE.
 
 <!-- -->
 
@@ -493,7 +493,7 @@ To update packages, a package maintainer should:
 
 2. Validate the changes by running:
 
-* For Fusion and dbt users in the dbt CLI or locally with a valid [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md):
+* For Fusion and dbt users in the dbt CLI or locally with a valid [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md):
 
   ```bash
   dbt parse
@@ -511,7 +511,7 @@ To update packages, a package maintainer should:
 
 3. Release a new version of the package with the updated metrics definitions.
 
-After a compatible version is released, update your project to [install the new package version](https://docs.getdbt.com/docs/build/packages.md). You can then migrate your metrics to the latest spec with the following steps, depending on which tool you're using.
+After a compatible version is released, update your project to [install the new package version](./packages.md). You can then migrate your metrics to the latest spec with the following steps, depending on which tool you're using.
 
 * [Using the CLI or VS Code extension](#using-the-cli-or-vs-code-extension)
 * [Using the Studio IDE](#using-the-studio-ide)

@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-cratedb2<!-- -->
 
-For <!-- -->CrateDB<!-- -->-specific configuration, please refer to [CrateDB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->CrateDB<!-- -->-specific configuration, please refer to [CrateDB<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 [CrateDB](https://cratedb.com/database) is compatible with PostgreSQL, so its dbt adapter strongly depends on dbt-postgres, documented at [PostgreSQL profile setup](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup).
 

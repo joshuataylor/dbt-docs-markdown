@@ -12,18 +12,18 @@ That's where **Mesh** comes in - empowering data teams to work *independently an
 
 Mesh is not a single product - it is a pattern enabled by a convergence of several features in dbt:
 
-* **[Cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref)** - this is the foundational feature that enables the multi-project deployments. `{{ ref() }}`s now work across dbt projects on Enterprise and Enterprise+ plans.
+* **[Cross-project references](../../docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref)** - this is the foundational feature that enables the multi-project deployments. `{{ ref() }}`s now work across dbt projects on Enterprise and Enterprise+ plans.
 
-* **[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)** - dbt's metadata-powered documentation platform, complete with full, cross-project lineage.
+* **[Catalog](../../docs/explore/explore-projects.md)** - dbt's metadata-powered documentation platform, complete with full, cross-project lineage.
 
 * **Governance** - dbt's governance features allow you to manage access to your dbt models both within and across projects.
 
   <!-- -->
 
-  * **[Groups](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups)** - With groups, you can organize nodes in your dbt DAG that share a logical connection (for example, by functional area) and assign an owner to the entire group.
-  * **[Access](https://docs.getdbt.com/docs/mesh/govern/model-access.md#access-modifiers)** - access configs allow you to control who can reference models.
-  * **[Model Versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md)** - when coordinating across projects and teams, we recommend treating your data models as stable APIs. Model versioning is the mechanism to allow graceful adoption and deprecation of models as they evolve.
-  * **[Model Contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md)** - data contracts set explicit expectations on the shape of the data to ensure data changes upstream of dbt or within a project's logic don't break downstream consumers' data products.
+  * **[Groups](../../docs/mesh/govern/model-access.md#groups)** - With groups, you can organize nodes in your dbt DAG that share a logical connection (for example, by functional area) and assign an owner to the entire group.
+  * **[Access](../../docs/mesh/govern/model-access.md#access-modifiers)** - access configs allow you to control who can reference models.
+  * **[Model Versions](../../docs/mesh/govern/model-versions.md)** - when coordinating across projects and teams, we recommend treating your data models as stable APIs. Model versioning is the mechanism to allow graceful adoption and deprecation of models as they evolve.
+  * **[Model Contracts](../../docs/mesh/govern/model-contracts.md)** - data contracts set explicit expectations on the shape of the data to ensure data changes upstream of dbt or within a project's logic don't break downstream consumers' data products.
 
 ## When is the right time to use dbt Mesh?[​](#when-is-the-right-time-to-use-dbt-mesh "Direct link to When is the right time to use dbt Mesh?")
 
@@ -38,7 +38,7 @@ dbt is designed to coordinate the features above and simplify the complexity to 
 
 If you're just starting your dbt journey, don't worry about building a multi-project architecture right away. You can *incrementally* adopt the features in this guide as you scale. The collection of features work effectively as independent tools. Familiarizing yourself with the tooling and features that make up a multi-project architecture, and how they can apply to your organization will help you make better decisions as you grow.
 
-For additional information, refer to the [Mesh FAQs](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-5-faqs.md).
+For additional information, refer to the [Mesh FAQs](./mesh-5-faqs.md).
 
 ## Learning goals[​](#learning-goals "Direct link to Learning goals")
 
@@ -50,4 +50,4 @@ For additional information, refer to the [Mesh FAQs](https://docs.getdbt.com/bes
 
 tip
 
-To help you get started, check out our [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
+To help you get started, check out our [Quickstart with Mesh](../../guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!

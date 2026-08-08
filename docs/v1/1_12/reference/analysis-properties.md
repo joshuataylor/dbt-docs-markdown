@@ -1,6 +1,6 @@
 # Analysis properties
 
-We recommend you define analysis properties in your `analyses/` directory, which is illustrated in the [`analysis-paths`](https://docs.getdbt.com/reference/project-configs/analysis-paths.md) configuration. You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `analyses/` or `models/` directory.
+We recommend you define analysis properties in your `analyses/` directory, which is illustrated in the [`analysis-paths`](./project-configs/analysis-paths.md) configuration. You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `analyses/` or `models/` directory.
 
 analyses/\<filename>.yml
 
@@ -23,7 +23,7 @@ analyses:
   - name: ... # declare properties of additional analyses
 ```
 
-To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
+To configure analyses at the project level, set the [`require_corrected_analysis_fqns`](./global-configs/behavior-flags/require_corrected_analysis_fqns.md) flag to `true` and add an `analyses` block in your `dbt_project.yml`. The project-level configuration applies to existing analyses in the `analyses/` folder — for example, setting `+enabled: false` disables them all.
 
 dbt\_project.yml
 

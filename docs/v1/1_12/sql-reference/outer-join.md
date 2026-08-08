@@ -1,12 +1,12 @@
 # SQL OUTER JOIN
 
-SQL full outer joins exist and therefore we have to talk about them, but they’re *highly unlikely* to be a join you regularly leverage in your data work. In plain terms, a SQL full outer join is a join between two tables that returns *all rows* from both tables, regardless of join key match success; compare this to [left](https://docs.getdbt.com/sql-reference/left-join.md), [inner](https://docs.getdbt.com/sql-reference/outer-join.md), or [right joins](https://docs.getdbt.com/sql-reference/right-join.md) that require matches to be successful to return certain rows.
+SQL full outer joins exist and therefore we have to talk about them, but they’re *highly unlikely* to be a join you regularly leverage in your data work. In plain terms, a SQL full outer join is a join between two tables that returns *all rows* from both tables, regardless of join key match success; compare this to [left](./left-join.md), [inner](./outer-join.md), or [right joins](./right-join.md) that require matches to be successful to return certain rows.
 
 In this page, we’ll unpack how to create a full outer join and demonstrate when you might need one in your analytics engineering work.
 
 ## How to create a full outer join[​](#how-to-create-a-full-outer-join "Direct link to How to create a full outer join")
 
-Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](https://docs.getdbt.com/sql-reference/select.md) to perform a full outer join:
+Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a full outer join:
 
 ```text
 select
@@ -16,7 +16,7 @@ full outer join <table_1> as t2
 on t1.id = t2.id 
 ```
 
-In this example above, there’s only one field being used to join the table together; if you’re joining between database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](https://docs.getdbt.com/sql-reference/where.md), [GROUP BY](https://docs.getdbt.com/sql-reference/group-by.md), [ORDER BY](https://docs.getdbt.com/sql-reference/order-by.md), [HAVING](https://docs.getdbt.com/sql-reference/having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
+In this example above, there’s only one field being used to join the table together; if you’re joining between database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations.
 
 A note on full outer joins: it may sound obvious, but because full outer joins can return all rows between two tables, they therefore can return *many* rows, which is not necessarily a recipe for efficiency. When you use full outer joins, you often can find alternatives using different joins or unions to potentially bypass major inefficiencies caused by a full outer join.
 

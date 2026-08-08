@@ -2,9 +2,9 @@
 
 dbt platformⓘ
 
-To set up and configure environment-level permissions, you must have write permissions to the **Groups & Licenses** settings of your dbt account. For more information about roles and permissions, check out [User permissions and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+To set up and configure environment-level permissions, you must have write permissions to the **Groups & Licenses** settings of your dbt account. For more information about roles and permissions, check out [User permissions and licenses](./seats-and-users.md).
 
-Environment-level permissions are not the same as account-level [role-based access control (RBAC)](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control) and are configured separately from those workflows.
+Environment-level permissions are not the same as account-level [role-based access control (RBAC)](./about-user-access.md#role-based-access-control) and are configured separately from those workflows.
 
 ## Setup instructions[​](#setup-instructions "Direct link to Setup instructions")
 
@@ -46,7 +46,7 @@ In your dbt account:
 
 ## User experience[​](#user-experience "Direct link to User experience")
 
-Users with permissions to the environment will see all capabilities assigned to their role. The environment-level permissions are `write` or `read-only` access. This feature does not currently support determining which features in the environment are accessible. For more details on what can and can not be done with environment-level permissions, refer to [About environment-permissions](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md).
+Users with permissions to the environment will see all capabilities assigned to their role. The environment-level permissions are `write` or `read-only` access. This feature does not currently support determining which features in the environment are accessible. For more details on what can and can not be done with environment-level permissions, refer to [About environment-permissions](./environment-permissions.md).
 
 For example, here is an overview of the **Jobs** section of the environment page if a user has been granted access:
 

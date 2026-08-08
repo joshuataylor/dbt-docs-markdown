@@ -61,9 +61,9 @@ To upgrade later, run `dbt system update`.
   dbt login
   ```
 
-Refer to the [dbt VS Code extension docs](https://docs.getdbt.com/docs/about-dbt-extension.md) for more info.
+Refer to the [dbt VS Code extension docs](../about-dbt-extension.md) for more info.
 
-If you or your org has a strict requirement to use the open-source runtime, install it [here](https://docs.getdbt.com/docs/local/install-dbt-core-v2.md).
+If you or your org has a strict requirement to use the open-source runtime, install it [here](./install-dbt-core-v2.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -81,22 +81,22 @@ Common issues and resolutions:
 
 *  Can I download the Apache 2.0 runtime only?
 
-  Yes if you need to use the Apache 2.0 runtime, you can [install dbt Core 2.0](https://docs.getdbt.com/docs/local/install-dbt-core-v2.md), the open-source project behind Fusion.
+  Yes if you need to use the Apache 2.0 runtime, you can [install dbt Core 2.0](./install-dbt-core-v2.md), the open-source project behind Fusion.
 
 ## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
 
-* [About the dbt extension](https://docs.getdbt.com/docs/about-dbt-extension.md)
-* [Supported features matrix](https://docs.getdbt.com/docs/fusion/supported-features.md)
-* [Install dbt](https://docs.getdbt.com/docs/local/install-dbt.md)
-* [Quickstart for Fusion](https://docs.getdbt.com/guides/fusion.md?step=1)
-* [Upgrade guide](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md)
+* [About the dbt extension](../about-dbt-extension.md)
+* [Supported features matrix](../fusion/supported-features.md)
+* [Install dbt](./install-dbt.md)
+* [Quickstart for Fusion](../../guides/fusion.md?step=1)
+* [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
 <!-- -->
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* Configure [environment variables](https://docs.getdbt.com/docs/local/configure-environment-variables.md) to manage credentials.
-* Configure your [profiles.yml](https://docs.getdbt.com/docs/local/profiles.yml.md#location-of-profilesyml) file.
-* Configure your [data platform connection](https://docs.getdbt.com/docs/local/connect-data-platform/about-dbt-connections.md).
-* Create your first [dbt project](https://docs.getdbt.com/docs/build/projects.md) using the [`dbt init`](https://docs.getdbt.com/reference/commands/init.md) command.
+* Configure [environment variables](./configure-environment-variables.md) to manage credentials.
+* Configure your [profiles.yml](./profiles.yml.md#location-of-profilesyml) file.
+* Configure your [data platform connection](./connect-data-platform/about-dbt-connections.md).
+* Create your first [dbt project](../build/projects.md) using the [`dbt init`](../../reference/commands/init.md) command.

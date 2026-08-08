@@ -4,9 +4,9 @@ Modern data warehouses offer native features that can simplify near real-time da
 
 This section covers when to use dynamic tables and materialized views instead of incremental models for near real-time data.
 
-* [Dynamic tables](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables) are a warehouse-specific feature in Snowflake that lets the warehouse keep a table updated for you. You define what the table should look like, and the warehouse keeps the table fresh automatically.
-* [Materialized views](https://docs.getdbt.com/docs/build/materializations.md#materialized-view) are a warehouse-specific feature that lets the warehouse save the results of a query so they’re faster to read, and refresh them as the underlying data changes. Note that the exact behavior depends on the warehouse.
-* [Incremental models](https://docs.getdbt.com/docs/build/incremental-models.md) are a dbt feature that lets dbt update a table by processing only new data. You tell dbt how new data should be added using your incremental logic SQL, and dbt runs the right SQL when the model is built.
+* [Dynamic tables](../../reference/resource-configs/snowflake-configs.md#dynamic-tables) are a warehouse-specific feature in Snowflake that lets the warehouse keep a table updated for you. You define what the table should look like, and the warehouse keeps the table fresh automatically.
+* [Materialized views](../../docs/build/materializations.md#materialized-view) are a warehouse-specific feature that lets the warehouse save the results of a query so they’re faster to read, and refresh them as the underlying data changes. Note that the exact behavior depends on the warehouse.
+* [Incremental models](../../docs/build/incremental-models.md) are a dbt feature that lets dbt update a table by processing only new data. You tell dbt how new data should be added using your incremental logic SQL, and dbt runs the right SQL when the model is built.
 
 #### When to consider warehouse-native features[​](#when-to-consider-warehouse-native-features "Direct link to When to consider warehouse-native features")
 
@@ -53,7 +53,7 @@ where event_ts >= current_timestamp() - interval '7 days';
 
 #### target\_lag config[​](#target_lag-config "Direct link to target_lag config")
 
-The [`target_lag` parameter](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#target-lag) tells the warehouse the maximum acceptable staleness of the dynamic table relative to its sources, and helps determine when the table should be refreshed.
+The [`target_lag` parameter](../../reference/resource-configs/snowflake-configs.md#target-lag) tells the warehouse the maximum acceptable staleness of the dynamic table relative to its sources, and helps determine when the table should be refreshed.
 
 For example:
 
@@ -116,29 +116,29 @@ Here are some resources for each warehouse:
 
 #### BigQuery[​](#bigquery "Direct link to BigQuery")
 
-* [dbt developer docs: BigQuery materialized views](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#materialized-views)
+* [dbt developer docs: BigQuery materialized views](../../reference/resource-configs/bigquery-configs.md#materialized-views)
 * [BigQuery docs: Materialized views intro](https://cloud.google.com/bigquery/docs/materialized-views-intro)
 * [BigQuery docs: Streaming API](https://docs.cloud.google.com/bigquery/docs/write-api)
 
 #### Databricks[​](#databricks "Direct link to Databricks")
 
-* [dbt developer docs: Databricks materialized views and streaming tables](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#materialized-views-and-streaming-tables)
+* [dbt developer docs: Databricks materialized views and streaming tables](../../reference/resource-configs/databricks-configs.md#materialized-views-and-streaming-tables)
 * [Databricks docs: Materialized views](https://docs.databricks.com/en/views/materialized.html)
 
 #### Postgres[​](#postgres "Direct link to Postgres")
 
-* [dbt developer docs: Postgres materialized views](https://docs.getdbt.com/reference/resource-configs/postgres-configs.md#materialized-views)
+* [dbt developer docs: Postgres materialized views](../../reference/resource-configs/postgres-configs.md#materialized-views)
 * [Postgres docs: Materialized views](https://www.postgresql.org/docs/current/rules-materializedviews.html)
 
 #### Redshift[​](#redshift "Direct link to Redshift")
 
-* [dbt developer docs: Redshift materialized views](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#materialized-views)
+* [dbt developer docs: Redshift materialized views](../../reference/resource-configs/redshift-configs.md#materialized-views)
 * [Redshift docs: Materialized views overview](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html)
 * [Redshift docs: Streaming ingestion to a materialized view](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-streaming-ingestion.html)
 
 #### Snowflake[​](#snowflake "Direct link to Snowflake")
 
-* [dbt developer docs: Dynamic tables configurations](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#dynamic-tables)
+* [dbt developer docs: Dynamic tables configurations](../../reference/resource-configs/snowflake-configs.md#dynamic-tables)
 * [Snowflake docs: Dynamic tables intro](https://docs.snowflake.com/en/user-guide/dynamic-tables-intro)
 * [Snowflake blog: Dynamic tables for streaming pipelines](https://www.snowflake.com/en/blog/dynamic-tables-delivering-declarative-streaming-data-pipelines/)
 * [Snowflake docs: Materialized views](https://docs.snowflake.com/en/user-guide/views-materialized)

@@ -1,6 +1,6 @@
 # Semantic model properties
 
-Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](https://docs.getdbt.com/reference/model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](./model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](../docs/build/semantic-models.md).
 
 <!-- -->
 
@@ -12,7 +12,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-For more information, refer to [Migrate to the latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md).
+For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
 <!-- -->
 
@@ -30,10 +30,10 @@ Semantic models are defined in a top-level `semantic_models:` list in standalone
 | defaults        | object | Yes      | Defaults; typically `agg_time_dimension`.                                                                                                                                                                                    |
 | entities        | array  | Yes      | Join keys and type (primary, foreign, unique); each with `name`, `type`, optional `expr`.                                                                                                                                    |
 | primary\_entity | string | No       | Name of the primary entity if not declared on an entity.                                                                                                                                                                     |
-| dimensions      | array  | Yes      | List of [dimension](https://docs.getdbt.com/reference/dimension-properties.md) definitions (time or categorical).                                                                                                            |
+| dimensions      | array  | Yes      | List of [dimension](./dimension-properties.md) definitions (time or categorical).                                                                                                            |
 | measures        | array  | No       | List of measures (simple aggregations).                                                                                                                                                                                      |
 | label           | string | No       | Display name in downstream tools.                                                                                                                                                                                            |
-| config          | object | No       | Supports [meta](https://docs.getdbt.com/reference/resource-configs/meta.md), [group](https://docs.getdbt.com/reference/resource-configs/group.md), [enabled](https://docs.getdbt.com/reference/resource-configs/enabled.md). |
+| config          | object | No       | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [enabled](./resource-configs/enabled.md). |
 
 Search table...
 
@@ -69,4 +69,4 @@ semantic_models:
       enabled: true | false
 ```
 
-For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md).
+For the latest spec (model-embedded form with top-level `semantic_model:` and `metrics:` on the model), see [Semantic models](../docs/build/semantic-models.md).

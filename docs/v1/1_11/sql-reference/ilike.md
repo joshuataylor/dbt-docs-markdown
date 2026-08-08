@@ -72,4 +72,4 @@ Search table...
 
 ## ILIKE operator example use cases[​](#ilike-operator-example-use-cases "Direct link to ILIKE operator example use cases")
 
-The ILIKE operator has very similar use cases to the [LIKE operator](https://docs.getdbt.com/sql-reference/like.md), so we won’t repeat ourselves here. The important thing to understand when using the LIKE or ILIKE operators is what the casing variations look like in your data: if casing is inconsistent within a column, ILIKE will be your friend; if your backend engineers and analytics engineers rigorously follow a style-guide (and our source data is magically of the same case), the LIKE operator is there for you if you need it.
+The ILIKE operator has very similar use cases to the [LIKE operator](./like.md), so we won’t repeat ourselves here. The important thing to understand when using the LIKE or ILIKE operators is what the casing variations look like in your data: if casing is inconsistent within a column, ILIKE will be your friend; if your backend engineers and analytics engineers rigorously follow a style-guide (and our source data is magically of the same case), the LIKE operator is there for you if you need it.

@@ -12,11 +12,11 @@ Pick the best documentation for your platform to configure OAuth and have develo
 
 | Platform                 | Doc                                                                                                                     | Description                                                   |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| **Snowflake**            | [Set up Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md)                 | Authorize user credentials with Snowflake (or Snowflake SSO). |
-| **Databricks**           | [Set up Databricks OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-databricks-oauth.md)               | Authorize user credentials with Databricks.                   |
-| **BigQuery**             | [Set up BigQuery OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md)                   | Authorize user credentials with Google.                       |
-| **Snowflake (external)** | [Set up external OAuth with Snowflake](https://docs.getdbt.com/docs/platform/manage-access/snowflake-external-oauth.md) | Use an external identity provider (IdP) for Snowflake OAuth.  |
-| **Redshift (external)**  | [Set up external OAuth with Redshift](https://docs.getdbt.com/docs/platform/manage-access/redshift-external-oauth.md)   | Use an external identity provider (IdP) for Redshift OAuth.   |
+| **Snowflake**            | [Set up Snowflake OAuth](./set-up-snowflake-oauth.md)                 | Authorize user credentials with Snowflake (or Snowflake SSO). |
+| **Databricks**           | [Set up Databricks OAuth](./set-up-databricks-oauth.md)               | Authorize user credentials with Databricks.                   |
+| **BigQuery**             | [Set up BigQuery OAuth](./set-up-bigquery-oauth.md)                   | Authorize user credentials with Google.                       |
+| **Snowflake (external)** | [Set up external OAuth with Snowflake](./snowflake-external-oauth.md) | Use an external identity provider (IdP) for Snowflake OAuth.  |
+| **Redshift (external)**  | [Set up external OAuth with Redshift](./redshift-external-oauth.md)   | Use an external identity provider (IdP) for Redshift OAuth.   |
 
 Search table...
 

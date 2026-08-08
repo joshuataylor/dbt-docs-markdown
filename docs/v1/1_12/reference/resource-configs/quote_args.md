@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -86,10 +86,10 @@ $$;
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [volatility](https://docs.getdbt.com/reference/resource-configs/volatility.md)
-* [type](https://docs.getdbt.com/reference/resource-configs/type.md)
-* [arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
-* [returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function configurations](../function-configs.md)
+* [volatility](./volatility.md)
+* [type](./type.md)
+* [arguments](../resource-properties/function-arguments.md)
+* [returns](../resource-properties/returns.md)

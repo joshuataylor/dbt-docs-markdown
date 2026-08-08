@@ -2,7 +2,7 @@
 
 note
 
-This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your dbt environment, read [Upgrade dbt version in Cloud](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md).
+This changelog references dbt versions that are no longer supported and have been removed from the docs. For more information about upgrading to a supported version of dbt in your dbt environment, read [Upgrade dbt version in Cloud](../upgrade-dbt-platform-version.md).
 
 Welcome to the 2021 changelog for the dbt application! You can use this changelog to see highlights of what was new, fixed, and enhanced.
 
@@ -24,11 +24,11 @@ We shipped environment variables in dbt. Environment variables create a way to s
 
 #### New products and features[​](#new-products-and-features-1 "Direct link to New products and features")
 
-* You can now add environment variables to your dbt project. Why does this matter? Environment variables are a fundamental building block of a dbt project, which until now, we only enabled in dbt Core. They power many use cases such as cloning private packages, limiting the amount of data that is processed in development environments, changing your data sources depending on the environment, and more. Read about environment variables in our [blog post](https://blog.getdbt.com/introducing-environment-variables-in-dbt-cloud/) or [docs](https://docs.getdbt.com/docs/build/environment-variables.md).
+* You can now add environment variables to your dbt project. Why does this matter? Environment variables are a fundamental building block of a dbt project, which until now, we only enabled in dbt Core. They power many use cases such as cloning private packages, limiting the amount of data that is processed in development environments, changing your data sources depending on the environment, and more. Read about environment variables in our [blog post](https://blog.getdbt.com/introducing-environment-variables-in-dbt-cloud/) or [docs](../../build/environment-variables.md).
 
 ## dbt Cloud v1.1.38 (October 27, 2021)[​](#dbt-cloud-v1138-october-27-2021 "Direct link to dbt Cloud v1.1.38 (October 27, 2021)")
 
-Have you used the [Metadata API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) yet? The Metadata API is available to customers on the Team and Enterprise plans, and with it, you can learn tons about your dbt project, if it's running dbt v0.19.0 or later. You can now query information about *any* run, not just the last run of a job. Mo' data, mo' fun!
+Have you used the [Metadata API](../../dbt-apis/discovery-api.md) yet? The Metadata API is available to customers on the Team and Enterprise plans, and with it, you can learn tons about your dbt project, if it's running dbt v0.19.0 or later. You can now query information about *any* run, not just the last run of a job. Mo' data, mo' fun!
 
 ## dbt Cloud v1.1.37 (October 13, 2021)[​](#dbt-cloud-v1137-october-13-2021 "Direct link to dbt Cloud v1.1.37 (October 13, 2021)")
 
@@ -81,7 +81,7 @@ We added a DAG in the Studio IDE, so that you can see your model dependencies as
 
 #### New products and features[​](#new-products-and-features-4 "Direct link to New products and features")
 
-* [Dashboard Status Tiles](https://docs.getdbt.com/docs/explore/data-tile.md) can now be embedded on dashboards (or anywhere you can embed an iFrame) to give immediate insight into data freshness and quality. This helps dbt project maintainers build trust internally about the data that end users are seeing.
+* [Dashboard Status Tiles](../../explore/data-tile.md) can now be embedded on dashboards (or anywhere you can embed an iFrame) to give immediate insight into data freshness and quality. This helps dbt project maintainers build trust internally about the data that end users are seeing.
 * We shipped DAG in the Studio IDE to GA!
 * Support for `dbt v0.20.1` in Cloud.
 
@@ -92,11 +92,11 @@ We added a DAG in the Studio IDE, so that you can see your model dependencies as
 
 ## dbt Cloud v1.1.32 (August 4, 2021)[​](#dbt-cloud-v1132-august-4-2021 "Direct link to dbt Cloud v1.1.32 (August 4, 2021)")
 
-The Metadata API is now in GA! When dbt invokes certain commands like run, test, seed, etc, dbt generates metadata in the form of [artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md). These artifacts give you tons of information about project set up, run times, test details, compiled SQL, and so much more. Now dbt serves a GraphQL API which supports arbitrary queries over these artifacts, so you can retrieve the metadata you want almost instantaneously.
+The Metadata API is now in GA! When dbt invokes certain commands like run, test, seed, etc, dbt generates metadata in the form of [artifacts](../../../reference/artifacts/dbt-artifacts.md). These artifacts give you tons of information about project set up, run times, test details, compiled SQL, and so much more. Now dbt serves a GraphQL API which supports arbitrary queries over these artifacts, so you can retrieve the metadata you want almost instantaneously.
 
 #### New products and features[​](#new-products-and-features-5 "Direct link to New products and features")
 
-* The Metadata API is the start of our metadata product suite. Learn more about how to use the Metadata API [here](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md).
+* The Metadata API is the start of our metadata product suite. Learn more about how to use the Metadata API [here](../../dbt-apis/discovery-api.md).
 * dbt Enterprise customers using GitHub now get better fine-grained access control in their dbt projects. dbt will enforce git permissions for every developer to ensure that read / write policies in GitHub carry through to the IDE.
 
 ## dbt Cloud v1.1.31 (July 21, 2021)[​](#dbt-cloud-v1131-july-21-2021 "Direct link to dbt Cloud v1.1.31 (July 21, 2021)")
@@ -115,7 +115,7 @@ We’ve improved the tabbing experience in the Studio IDE. Tabs now work much mo
 #### Performance improvements and enhancements[​](#performance-improvements-and-enhancements-4 "Direct link to Performance improvements and enhancements")
 
 * We've been working on some nice improvements to tabs in our Studio IDE. We’ve fixed deficiencies with tabs that caused users to lose work if they didn’t hit save regularly enough. Additionally, opening, closing, and the order of the tabs work much more smoothly.
-* You may have noticed that there is now a source freshness checkbox in your execution settings when you configure a job on dbt Cloud. Selecting this checkbox will run `dbt source freshness` as the first step in your job, but it will not break subsequent steps if it fails. Updated source freshness documentation available [here](https://docs.getdbt.com/docs/deploy/source-freshness.md).
+* You may have noticed that there is now a source freshness checkbox in your execution settings when you configure a job on dbt Cloud. Selecting this checkbox will run `dbt source freshness` as the first step in your job, but it will not break subsequent steps if it fails. Updated source freshness documentation available [here](../../deploy/source-freshness.md).
 * Added a new endpoint to allow API key rotation via `POST https://cloud.getdbt.com/api/v2/users/{user-id}/apikey`
 
 ## dbt Cloud v1.1.30 (July 7, 2021)[​](#dbt-cloud-v1130-july-7-2021 "Direct link to dbt Cloud v1.1.30 (July 7, 2021)")
@@ -157,9 +157,9 @@ We shipped a far better experience for GitLab users. Be sure to check out new CI
 
 #### New products and features[​](#new-products-and-features-9 "Direct link to New products and features")
 
-* `Slim CI`: We’ve made Slim CI available for all our cloud customers! With Slim CI, you don't have to rebuild and test all your models; you can instruct dbt Cloud to run jobs on only modified or new resources. If you are a GitHub or GitLab user, try creating a new job that runs on pull requests and you can signal to dbt to run only on these modified resources by including the `state:modified+` argument. Read more about Slim CI [here](https://docs.getdbt.com/docs/deploy/continuous-integration.md).
+* `Slim CI`: We’ve made Slim CI available for all our cloud customers! With Slim CI, you don't have to rebuild and test all your models; you can instruct dbt Cloud to run jobs on only modified or new resources. If you are a GitHub or GitLab user, try creating a new job that runs on pull requests and you can signal to dbt to run only on these modified resources by including the `state:modified+` argument. Read more about Slim CI [here](../../deploy/continuous-integration.md).
 
-* Native GitLab authentication for dbt Developer and Team Tiers: We’ve shipped native GitLab auth into GA. You can now import new GitLab repos with a couple clicks, trigger CI builds when Merge Requests are opened in GitLab, and carry GitLab permissions through to Studio IDE's git actions. Read how to set up native GitLab auth [here](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md).
+* Native GitLab authentication for dbt Developer and Team Tiers: We’ve shipped native GitLab auth into GA. You can now import new GitLab repos with a couple clicks, trigger CI builds when Merge Requests are opened in GitLab, and carry GitLab permissions through to Studio IDE's git actions. Read how to set up native GitLab auth [here](../../platform/git/connect-gitlab.md).
 
 #### Bug fixes[​](#bug-fixes-6 "Direct link to Bug fixes")
 

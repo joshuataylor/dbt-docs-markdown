@@ -8,14 +8,14 @@ Usage is based on the number of [Successful Models Built](#what-counts-as-a-succ
 
 ### What counts as a seat license?[​](#what-counts-as-a-seat-license "Direct link to What counts as a seat license?")
 
-You can learn more about allocating users to your account in [Users and licenses](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md). There are four types of possible seat licenses:
+You can learn more about allocating users to your account in [Users and licenses](../manage-access/seats-and-users.md). There are four types of possible seat licenses:
 
 * **Analyst**\* — for permission sets assigned and shared amongst those who don't need day-to-day access.
 * **Developer** — for permission sets that require day-to-day interaction with the dbt platform.
 * **IT** — for access to specific features related to account management (for example, configuring git integration).
 * **Read-Only** — for access to view certain documents and reports.
 
-\* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+\* The [Analyst license type](../manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 ### What counts as a Successful Model Built?[​](#what-counts-as-a-successful-model-built "Direct link to What counts as a Successful Model Built?")
 
@@ -23,7 +23,7 @@ A Successful Model Built is any model successfully built in a dbt deployment env
 
 Any models built in a dbt development environment (for example, via the Studio IDE) do not count towards your usage. Tests, seeds, ephemeral models, and snapshots also do not count.
 
-When a dynamic table is initially created, the model is counted (if the creation is successful). However, in subsequent runs, dbt skips these models unless the definition of the dynamic table has changed. This refers not to changes in the SQL logic but to changes in dbt's logic, specifically those governed by [`on_configuration_change config`](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md)). The dynamic table continues to update on a cadence because the adapter is orchestrating that refresh rather than dbt.
+When a dynamic table is initially created, the model is counted (if the creation is successful). However, in subsequent runs, dbt skips these models unless the definition of the dynamic table has changed. This refers not to changes in the SQL logic but to changes in dbt's logic, specifically those governed by [`on_configuration_change config`](../../../reference/resource-configs/on_configuration_change.md)). The dynamic table continues to update on a cadence because the adapter is orchestrating that refresh rather than dbt.
 
 | What counts towards Successful Models Built |    |
 | ------------------------------------------- | -- |

@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-tidb<!-- -->
 
-For <!-- -->TiDB<!-- -->-specific configuration, please refer to [TiDB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->TiDB<!-- -->-specific configuration, please refer to [TiDB<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to TiDB with **dbt-tidb**[​](#connecting-to-tidb-with-dbt-tidb "Direct link to connecting-to-tidb-with-dbt-tidb")
 

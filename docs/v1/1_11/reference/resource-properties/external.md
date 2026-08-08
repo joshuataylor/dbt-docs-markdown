@@ -29,7 +29,7 @@ An extensible dictionary of metadata properties specific to sources that point t
 
 You may wish to define the `external` property in order to:
 
-* Power macros that introspect [`graph.sources`](https://docs.getdbt.com/reference/dbt-jinja-functions/graph.md)
-* Define metadata that you can later extract from the [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md)
+* Power macros that introspect [`graph.sources`](../dbt-jinja-functions/graph.md)
+* Define metadata that you can later extract from the [manifest](../artifacts/manifest-json.md)
 
 For an example of how this property can be used to power custom workflows, see the [`dbt-external-tables`](https://github.com/dbt-labs/dbt-external-tables) package.

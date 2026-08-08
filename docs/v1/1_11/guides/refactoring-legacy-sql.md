@@ -1,6 +1,6 @@
 # Refactoring legacy SQL to dbt
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 SQL
 
@@ -29,7 +29,7 @@ Let's get into it!
 
 More resources
 
-This guide is excerpted from the new dbt Learn On-demand Course, "Refactoring SQL for Modularity" - if you're curious, pick up the [free refactoring course here](https://learn.getdbt.com/courses/refactoring-sql-for-modularity), which includes example and practice refactoring projects. Or for a more in-depth look at migrating DDL and DML from stored procedures, refer to the[Migrate from stored procedures](https://docs.getdbt.com/guides/migrate-from-stored-procedures.md) guide.
+This guide is excerpted from the new dbt Learn On-demand Course, "Refactoring SQL for Modularity" - if you're curious, pick up the [free refactoring course here](https://learn.getdbt.com/courses/refactoring-sql-for-modularity), which includes example and practice refactoring projects. Or for a more in-depth look at migrating DDL and DML from stored procedures, refer to the[Migrate from stored procedures](./migrate-from-stored-procedures.md) guide.
 
 ## Migrate your existing SQL code[​](#migrate-your-existing-sql-code "Direct link to Migrate your existing SQL code")
 
@@ -43,7 +43,7 @@ To get going, you'll copy your legacy SQL query into your dbt project, by saving
 
 Once you've copied it over, you'll want to `dbt run` to execute the query and populate the table in your warehouse.
 
-If this is your first time running dbt, you may want to start with the [Introduction to dbt](https://docs.getdbt.com/docs/introduction.md) and the earlier sections of the [quickstart guide](https://docs.getdbt.com/guides.md) before diving into refactoring.
+If this is your first time running dbt, you may want to start with the [Introduction to dbt](../docs/introduction.md) and the earlier sections of the [quickstart guide](../guides.md) before diving into refactoring.
 
 This step may sound simple, but if you're porting over an existing set of SQL transformations to a new SQL dialect, you will need to consider how your legacy SQL dialect differs from your new SQL flavor, and you may need to modify your legacy code to get it to run at all.
 
@@ -55,7 +55,7 @@ If you're not migrating data warehouses at the moment, then you can keep your SQ
 
 ## Create sources from table references[​](#create-sources-from-table-references "Direct link to Create sources from table references")
 
-To query from your data warehouse, we recommend creating [sources in dbt](https://docs.getdbt.com/docs/build/sources.md) rather than querying the database table directly.
+To query from your data warehouse, we recommend creating [sources in dbt](../docs/build/sources.md) rather than querying the database table directly.
 
 This allows you to call the same table in multiple places with `{{ src('my_source', 'my_table') }}` rather than `my_database.my_schema.my_table`.
 
@@ -63,7 +63,7 @@ We start here for several reasons:
 
 #### Source freshness reporting[​](#source-freshness-reporting "Direct link to Source freshness reporting")
 
-Using sources unlocks the ability to run [source freshness reporting](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) to make sure your raw data isn't stale.
+Using sources unlocks the ability to run [source freshness reporting](../docs/build/sources.md#source-data-freshness) to make sure your raw data isn't stale.
 
 #### Easy dependency tracing[​](#easy-dependency-tracing "Direct link to Easy dependency tracing")
 
@@ -129,7 +129,7 @@ We generally recommend the **alongside** approach, which we'll follow in this tu
 
 ## Implement CTE groupings[​](#implement-cte-groupings "Direct link to Implement CTE groupings")
 
-Once you choose your refactoring strategy, you'll want to do some cosmetic cleanups according to your data modeling best practices and start moving code into CTE groupings. This will give you a head start on porting SQL snippets from CTEs into modular [dbt data models](https://docs.getdbt.com/docs/build/models.md).
+Once you choose your refactoring strategy, you'll want to do some cosmetic cleanups according to your data modeling best practices and start moving code into CTE groupings. This will give you a head start on porting SQL snippets from CTEs into modular [dbt data models](../docs/build/models.md).
 
 ### What's a CTE?[​](#whats-a-cte "Direct link to What's a CTE?")
 
@@ -212,13 +212,13 @@ After you have moved everything into CTEs, you'll want to write a `select * from
 
 This allows anyone after us to easily step through the CTEs when troubleshooting, rather than having to untangle nested queries.
 
-> For more background on CTEs, check out the [dbt Labs style guide](https://docs.getdbt.com/best-practices/how-we-style/0-how-we-style-our-dbt-projects.md).
+> For more background on CTEs, check out the [dbt Labs style guide](../best-practices/how-we-style/0-how-we-style-our-dbt-projects.md).
 
 ## Port CTEs to individual data models[​](#port-ctes-to-individual-data-models "Direct link to Port CTEs to individual data models")
 
-Rather than keep our SQL code confined to one long SQL file, we'll now start splitting it into modular + reusable [dbt data models](https://docs.getdbt.com/docs/build/models.md).
+Rather than keep our SQL code confined to one long SQL file, we'll now start splitting it into modular + reusable [dbt data models](../docs/build/models.md).
 
-Internally at dbt Labs, we follow roughly this [data modeling technique](https://www.getdbt.com/analytics-engineering/modular-data-modeling-technique/) and we [structure our dbt projects](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) accordingly.
+Internally at dbt Labs, we follow roughly this [data modeling technique](https://www.getdbt.com/analytics-engineering/modular-data-modeling-technique/) and we [structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md) accordingly.
 
 We'll follow those structures in this walkthrough, but your team's conventions may of course differ from ours.
 

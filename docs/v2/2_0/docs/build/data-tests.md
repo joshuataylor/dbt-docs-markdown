@@ -2,7 +2,7 @@
 
 Tip
 
-Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to generate
+Use [dbt Wizard](../platform/wizard-overview.md) to generate
 
 <!-- -->
 
@@ -14,14 +14,14 @@ in the dbt platform or locally in the CLI.
 
 ## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
 
-* [Test command](https://docs.getdbt.com/reference/commands/test.md)
-* [Data test properties](https://docs.getdbt.com/reference/resource-properties/data-tests.md)
-* [Data test configurations](https://docs.getdbt.com/reference/data-test-configs.md)
-* [Test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md)
+* [Test command](../../reference/commands/test.md)
+* [Data test properties](../../reference/resource-properties/data-tests.md)
+* [Data test configurations](../../reference/data-test-configs.md)
+* [Test selection examples](../../reference/node-selection/test-selection-examples.md)
 
 important
 
-Tests are now called data tests to disambiguate from [unit tests](https://docs.getdbt.com/docs/build/unit-tests.md). The YAML key `tests:` is still supported as an alias for `data_tests:`. Refer to [New `data_tests:` syntax](#new-data_tests-syntax) for more information.
+Tests are now called data tests to disambiguate from [unit tests](./unit-tests.md). The YAML key `tests:` is still supported as an alias for `data_tests:`. Refer to [New `data_tests:` syntax](#new-data_tests-syntax) for more information.
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -35,14 +35,14 @@ Like almost everything in dbt, data tests are SQL queries. In particular, they a
 
 There are two ways of defining data tests in dbt:
 
-* A **singular** data test, in its simplest form, is when you write a SQL query that returns failing rows, you can save that query in a `.sql` file within your [test directory](https://docs.getdbt.com/reference/project-configs/test-paths.md). It's now a data test, and it will be executed by the `dbt test` command.
-* A **generic** data test is a parameterized query that accepts arguments. The test query is defined in a special `test` block (like a [macro](https://docs.getdbt.com/docs/build/jinja-macros.md)). Once defined, you can reference the generic test by name throughout your `.yml` files—define it on models, columns, sources, snapshots, and seeds. dbt ships with four generic data tests built in, and we think you should use them!
+* A **singular** data test, in its simplest form, is when you write a SQL query that returns failing rows, you can save that query in a `.sql` file within your [test directory](../../reference/project-configs/test-paths.md). It's now a data test, and it will be executed by the `dbt test` command.
+* A **generic** data test is a parameterized query that accepts arguments. The test query is defined in a special `test` block (like a [macro](./jinja-macros.md)). Once defined, you can reference the generic test by name throughout your `.yml` files—define it on models, columns, sources, snapshots, and seeds. dbt ships with four generic data tests built in, and we think you should use them!
 
 Defining data tests is a great way to confirm that your outputs and inputs are as expected, and helps prevent regressions when your code changes. Because you can use them over and over again, making similar assertions with minor variations, generic data tests tend to be much more common—they should make up the bulk of your dbt data testing suite. That said, both ways of defining data tests have their time and place.
 
 Creating your first data tests
 
-If you're new to dbt, we recommend that you check out our [online dbt Fundamentals course](https://learn.getdbt.com/learn/course/dbt-fundamentals/data-tests-30min/building-tests?page=1) or [quickstart guide](https://docs.getdbt.com/guides.md) to build your first dbt project with models and tests.
+If you're new to dbt, we recommend that you check out our [online dbt Fundamentals course](https://learn.getdbt.com/learn/course/dbt-fundamentals/data-tests-30min/building-tests?page=1) or [quickstart guide](../../guides.md) to build your first dbt project with models and tests.
 
 ## Singular data tests[​](#singular-data-tests "Direct link to Singular data tests")
 
@@ -102,7 +102,7 @@ You'll notice that there are two arguments, `model` and `column_name`, which are
 
 info
 
-If this is your first time working with adding properties to a resource, check out the docs on [declaring properties](https://docs.getdbt.com/reference/configs-and-properties.md).
+If this is your first time working with adding properties to a resource, check out the docs on [declaring properties](../../reference/configs-and-properties.md).
 
 Out of the box, dbt ships with four generic data tests already defined: `unique`, `not_null`, `accepted_values`, and `relationships`. Here's a full example using those tests on an `orders` model:
 
@@ -137,15 +137,15 @@ In plain English, these data tests translate to:
 
 Behind the scenes, dbt constructs a `select` query for each data test, using the parameterized query from the generic test block. These queries return the rows where your assertion is *not* true; if the test returns zero rows, your assertion passes.
 
-You can find more information about these data tests, and additional configurations (including [`severity`](https://docs.getdbt.com/reference/resource-configs/severity.md) and [`tags`](https://docs.getdbt.com/reference/resource-configs/tags.md)) in the [reference section](https://docs.getdbt.com/reference/resource-properties/data-tests.md). You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
+You can find more information about these data tests, and additional configurations (including [`severity`](../../reference/resource-configs/severity.md) and [`tags`](../../reference/resource-configs/tags.md)) in the [reference section](../../reference/resource-properties/data-tests.md). You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
 ### More generic data tests[​](#more-generic-data-tests "Direct link to More generic data tests")
 
-Those four tests are enough to get you started. You'll quickly find you want to use a wider variety of data tests — a good thing! You can also install generic data tests from a package, or write your own, to use (and reuse) across your dbt project. Check out the [guide on custom generic data tests](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md) for more information.
+Those four tests are enough to get you started. You'll quickly find you want to use a wider variety of data tests — a good thing! You can also install generic data tests from a package, or write your own, to use (and reuse) across your dbt project. Check out the [guide on custom generic data tests](../../best-practices/writing-custom-generic-tests.md) for more information.
 
 info
 
-There are generic data tests defined in some open-source packages, such as [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) and [dbt-expectations](https://hub.getdbt.com/calogica/dbt_expectations/latest/) — skip ahead to the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) to learn more!
+There are generic data tests defined in some open-source packages, such as [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) and [dbt-expectations](https://hub.getdbt.com/calogica/dbt_expectations/latest/) — skip ahead to the docs on [packages](./packages.md) to learn more!
 
 ### Example[​](#example "Direct link to Example")
 
@@ -166,7 +166,7 @@ models:
           - not_null
 ```
 
-2. Run the [`dbt test` command](https://docs.getdbt.com/reference/commands/test.md):
+2. Run the [`dbt test` command](../../reference/commands/test.md):
 
 ```text
 $ dbt test
@@ -254,11 +254,11 @@ To run data tests while excluding unit tests, use the `test_type` selector — t
 dbt test --select "test_type:data"
 ```
 
-In dbt Core (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md).
+In dbt Core (v1.9+), you can also use `dbt test --resource-type test`. For more options, refer to [test selection examples](../../reference/node-selection/test-selection-examples.md).
 
 ## Storing data test failures[​](#storing-data-test-failures "Direct link to Storing data test failures")
 
-Normally, a data test query will calculate failures as part of its execution. If you set the optional `--store-failures` flag, the [`store_failures`](https://docs.getdbt.com/reference/resource-configs/store_failures.md), or the [`store_failures_as`](https://docs.getdbt.com/reference/resource-configs/store_failures_as.md) configs, dbt will first save the results of a test query to a table in the database, and then query that table to calculate the number of failures.
+Normally, a data test query will calculate failures as part of its execution. If you set the optional `--store-failures` flag, the [`store_failures`](../../reference/resource-configs/store_failures.md), or the [`store_failures_as`](../../reference/resource-configs/store_failures_as.md) configs, dbt will first save the results of a test query to a table in the database, and then query that table to calculate the number of failures.
 
 This workflow allows you to query and examine failing records much more quickly in development:
 
@@ -266,7 +266,7 @@ This workflow allows you to query and examine failing records much more quickly 
 
 Note that, if you choose to store data test failures:
 
-* Test result tables are created in a schema suffixed or named `dbt_test__audit`, by default. It is possible to change this value by setting a `schema` config. (For more details on schema naming, see [using custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md).)
+* Test result tables are created in a schema suffixed or named `dbt_test__audit`, by default. It is possible to change this value by setting a `schema` config. (For more details on schema naming, see [using custom schemas](./custom-schemas.md).)
 * A test's results will always **replace** previous failures for the same test.
 
 ## New `data_tests:` syntax[​](#new-data_tests-syntax "Direct link to new-data_tests-syntax")
@@ -305,9 +305,9 @@ Out of the box, dbt ships with the following data tests:
 * `accepted_values`
 * `relationships` (for example, referential integrity)
 
-You can also write your own [custom generic tests](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests).
+You can also write your own [custom generic tests](./data-tests.md#generic-data-tests).
 
-Some additional generic tests have been open-sourced in the [dbt-utils package](https://github.com/dbt-labs/dbt-utils#generic-tests). Check out the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) to learn how to make these tests available in your project.
+Some additional generic tests have been open-sourced in the [dbt-utils package](https://github.com/dbt-labs/dbt-utils#generic-tests). Check out the docs on [packages](./packages.md) to learn how to make these tests available in your project.
 
 How do I test one model at a time?
 
@@ -317,7 +317,7 @@ Running tests on one model looks very similar to running a model: use the `--sel
 dbt test --select customers
 ```
 
-Check out the [model selection syntax documentation](https://docs.getdbt.com/reference/node-selection/syntax.md) for full syntax, and [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) in particular.
+Check out the [model selection syntax documentation](../../reference/node-selection/syntax.md) for full syntax, and [test selection examples](../../reference/node-selection/test-selection-examples.md) in particular.
 
 One of my tests failed, how can I debug it?
 
@@ -340,7 +340,7 @@ We recommend that every model has a data test on a primary key, that is, a colum
 
 We also recommend that you test any assumptions on your source data. For example, if you believe that your payments can only be one of three payment methods, you should test that assumption regularly — a new payment method may introduce logic errors in your SQL.
 
-In advanced dbt projects, we recommend using [sources](https://docs.getdbt.com/docs/build/sources.md) and running these source data-integrity tests against the sources rather than models.
+In advanced dbt projects, we recommend using [sources](./sources.md) and running these source data-integrity tests against the sources rather than models.
 
 When should I run my data tests?
 
@@ -350,7 +350,7 @@ Can I store my data tests in a directory other than the \`tests\` directory in m
 
 By default, dbt expects your singular data test files to be located in the `tests` subdirectory of your project, and generic data test definitions to be located in `tests/generic` or `macros`.
 
-To change this, update the [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md) configuration in your `dbt_project.yml` file, like so:
+To change this, update the [test-paths](../../reference/project-configs/test-paths.md) configuration in your `dbt_project.yml` file, like so:
 
 dbt\_project.yml
 
@@ -384,12 +384,12 @@ $ dbt test --select source:jaffle_shop.orders
 
 Can I set test failure thresholds?
 
-You can use the `error_if` and `warn_if` configs to set custom failure thresholds in your tests. For more details, see [reference](https://docs.getdbt.com/reference/resource-configs/severity.md) for more information.
+You can use the `error_if` and `warn_if` configs to set custom failure thresholds in your tests. For more details, see [reference](../../reference/resource-configs/severity.md) for more information.
 
 You can also try the following solutions:
 
-* Setting the [severity](https://docs.getdbt.com/reference/resource-configs/severity.md) to `warn` or `error`
-* Writing a [custom generic test](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md) that accepts a threshold argument ([example](https://discourse.getdbt.com/t/creating-an-error-threshold-for-schema-tests/966))
+* Setting the [severity](../../reference/resource-configs/severity.md) to `warn` or `error`
+* Writing a [custom generic test](../../best-practices/writing-custom-generic-tests.md) that accepts a threshold argument ([example](https://discourse.getdbt.com/t/creating-an-error-threshold-for-schema-tests/966))
 
 Can I test the uniqueness of two columns?
 
@@ -451,7 +451,7 @@ models:
 
 #### 3. Use the `dbt_utils.unique_combination_of_columns` test[​](#3-use-the-dbt_utilsunique_combination_of_columns-test "Direct link to 3-use-the-dbt_utilsunique_combination_of_columns-test")
 
-This is especially useful for large datasets since it is more performant. Check out the docs on [packages](https://docs.getdbt.com/docs/build/packages.md) for more information.
+This is especially useful for large datasets since it is more performant. Check out the docs on [packages](./packages.md) for more information.
 
 models/orders.yml
 

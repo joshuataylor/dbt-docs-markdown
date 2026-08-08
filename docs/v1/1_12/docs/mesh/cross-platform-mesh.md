@@ -1,6 +1,6 @@
 # Cross-platform Mesh using Iceberg catalogs
 
-If a model is configured with `catalog_name`, dbt uses the current project's [catalog definition](https://docs.getdbt.com/docs/build/iceberg/about-catalogs.md) (in `catalogs.yml`), for the current active adapter, to resolve the top-level namespace of that model.
+If a model is configured with `catalog_name`, dbt uses the current project's [catalog definition](../build/iceberg/about-catalogs.md) (in `catalogs.yml`), for the current active adapter, to resolve the top-level namespace of that model.
 
 This means that you can materialize a dbt model in your `databricks_project` to an Iceberg table in Unity catalog, and select from it in another model in your `snowflake_project`. You can even materialize that model back to Unity catalog, and then use it for other models in `databricks_project`.
 
@@ -84,10 +84,10 @@ with monthly_revenue as (
 
 ![Flow chart: The marketing project's ROI by channel model depends on the finance project's monthly revenue model](https://github.com/user-attachments/assets/e0a07911-b9d5-4422-9a81-6287e1946ca2)
 
-This works for [both ways of resolving cross-project references](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md):
+This works for [both ways of resolving cross-project references](./govern/project-dependencies.md):
 
 1. `package` dependencies (supported in dbt Core + dbt platform)
-2. `project` dependencies (dbt platform Enterprise; refer to the [advantages of this approach](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md#advantages))
+2. `project` dependencies (dbt platform Enterprise; refer to the [advantages of this approach](./govern/project-dependencies.md#advantages))
 
 **For `package` dependencies:**
 

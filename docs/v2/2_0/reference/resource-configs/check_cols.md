@@ -29,7 +29,7 @@ A list of columns within the results of your snapshot query to check for changes
 
 Alternatively, use all columns using the `all` value (however this may be less performant).
 
-This parameter is **required if using the `check` [strategy](https://docs.getdbt.com/reference/resource-configs/strategy.md)**.
+This parameter is **required if using the `check` [strategy](./strategy.md)**.
 
 ## Default[​](#default "Direct link to Default")
 

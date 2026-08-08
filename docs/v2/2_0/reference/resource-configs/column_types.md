@@ -2,7 +2,7 @@
 
 ## Description[​](#description "Direct link to Description")
 
-Optionally specify the database type of columns in a [seed](https://docs.getdbt.com/docs/build/seeds.md), by providing a dictionary where the keys are the column names, and the values are a valid datatype (this varies across databases).
+Optionally specify the database type of columns in a [seed](../../docs/build/seeds.md), by providing a dictionary where the keys are the column names, and the values are a valid datatype (this varies across databases).
 
 Without specifying this, dbt will infer the datatype based on the column values in your seed file.
 

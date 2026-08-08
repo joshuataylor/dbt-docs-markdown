@@ -16,7 +16,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-Project hooks ([`on-run-start` / `on-run-end`](https://docs.getdbt.com/reference/project-configs/on-run-start-on-run-end.md)) now run as part of the `dbt source freshness` command by default. Previously, hooks did not execute during `dbt source freshness`.
+Project hooks ([`on-run-start` / `on-run-end`](../../project-configs/on-run-start-on-run-end.md)) now run as part of the `dbt source freshness` command by default. Previously, hooks did not execute during `dbt source freshness`.
 
 If you have hooks that should not run before or after `dbt source freshness`, add a conditional check:
 

@@ -4,8 +4,8 @@ Use `dbt show` to:
 
 * Compile the dbt-SQL definition of a single `model`, `test`, `analysis`, or an arbitrary dbt-SQL query passed `--inline`
 
-  * `dbt show` does not support [Python (dbt-py)](https://docs.getdbt.com/docs/build/python-models.md) models.
-  * Only selecting a single node is supported. [Selector methods](https://docs.getdbt.com/reference/node-selection/methods.md), [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md), and other methods that select multiple nodes will not be utilized.
+  * `dbt show` does not support [Python (dbt-py)](../../docs/build/python-models.md) models.
+  * Only selecting a single node is supported. [Selector methods](../node-selection/methods.md), [graph operators](../node-selection/graph-operators.md), and other methods that select multiple nodes will not be utilized.
 
 * Run that query against the data warehouse
 

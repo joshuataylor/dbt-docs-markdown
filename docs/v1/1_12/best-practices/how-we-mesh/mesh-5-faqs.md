@@ -17,11 +17,11 @@ Most importantly, all this can be accomplished without the central data team los
 
  What are model contracts?
 
-dbt [model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) serve as a governance tool enabling the definition and enforcement of data structure standards in your dbt models. They allow you to specify and uphold data model guarantees, including column data types, allowing for the stability of dependent models. Should a model fail to adhere to its established contracts, it will not build successfully.
+dbt [model contracts](../../docs/mesh/govern/model-contracts.md) serve as a governance tool enabling the definition and enforcement of data structure standards in your dbt models. They allow you to specify and uphold data model guarantees, including column data types, allowing for the stability of dependent models. Should a model fail to adhere to its established contracts, it will not build successfully.
 
  What are model versions?
 
-dbt [model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) are iterations of your dbt models made over time. In many cases, you might knowingly choose to change a model’s structure in a way that “breaks” the previous model contract, and may break downstream queries depending on that model’s structure. When you do so, creating a new version of the model is useful to signify this change.
+dbt [model versions](../../docs/mesh/govern/model-versions.md) are iterations of your dbt models made over time. In many cases, you might knowingly choose to change a model’s structure in a way that “breaks” the previous model contract, and may break downstream queries depending on that model’s structure. When you do so, creating a new version of the model is useful to signify this change.
 
 You can use model versions to:
 
@@ -31,7 +31,7 @@ You can use model versions to:
 
  What are model access modifiers?
 
-A [model access modifier](https://docs.getdbt.com/docs/mesh/govern/model-access.md) in dbt determines if a model is accessible as an input to other dbt models and projects. It specifies where a model can be referenced using [the `ref` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md). There are three types of access modifiers:
+A [model access modifier](../../docs/mesh/govern/model-access.md) in dbt determines if a model is accessible as an input to other dbt models and projects. It specifies where a model can be referenced using [the `ref` function](../../reference/dbt-jinja-functions/ref.md). There are three types of access modifiers:
 
 * **Private:** A model with a private access modifier is only referenceable by models within the same group. This is intended for models that are implementation details and are meant to be used only within a specific group of related models.
 * **Protected:** Models with a protected access modifier can be referenced by any other model within the same dbt project or when the project is installed as a package. This is the default setting for all models, ensuring backward compatibility, especially when groups are assigned to an existing set of models.
@@ -39,7 +39,7 @@ A [model access modifier](https://docs.getdbt.com/docs/mesh/govern/model-access.
 
  What are model groups?
 
-A [model group](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups) in dbt is a concept used to organize models under a common category or ownership. This categorization can be based on various criteria, such as the team responsible for the models or the specific data source they model.
+A [model group](../../docs/mesh/govern/model-access.md#groups) in dbt is a concept used to organize models under a common category or ownership. This categorization can be based on various criteria, such as the team responsible for the models or the specific data source they model.
 
  What are some potential challenges when using dbt Mesh?
 
@@ -74,13 +74,13 @@ While it’s not currently possible to share sources across projects, it would b
 
  What if a model I've already built on from another project later becomes protected?
 
-This would be a breaking change for downstream consumers of that model. If the maintainers of the upstream project wish to remove the model (or “downgrade” its access modifier, effectively the same thing), they should mark that model for deprecation (using [deprecation\_date](https://docs.getdbt.com/reference/resource-properties/deprecation_date.md)), which will deliver a warning to all downstream consumers of that model.
+This would be a breaking change for downstream consumers of that model. If the maintainers of the upstream project wish to remove the model (or “downgrade” its access modifier, effectively the same thing), they should mark that model for deprecation (using [deprecation\_date](../../reference/resource-properties/deprecation_date.md)), which will deliver a warning to all downstream consumers of that model.
 
-In the future, we plan for dbt to also be able to proactively flag this scenario in [continuous integration](https://docs.getdbt.com/docs/deploy/continuous-integration.md) for the maintainers of the upstream public model.
+In the future, we plan for dbt to also be able to proactively flag this scenario in [continuous integration](../../docs/deploy/continuous-integration.md) for the maintainers of the upstream public model.
 
  If I run \`dbt build --select +model\`, will this trigger a run of upstream models in other projects?
 
-No, unless upstream projects are installed as [packages](https://docs.getdbt.com/docs/build/packages.md) (source code). In that case, the models in project installed as a project become “your” models, and you can select or run them. There are cases in which this can be desirable; see docs on [project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md).
+No, unless upstream projects are installed as [packages](../../docs/build/packages.md) (source code). In that case, the models in project installed as a project become “your” models, and you can select or run them. There are cases in which this can be desirable; see docs on [project dependencies](../../docs/mesh/govern/project-dependencies.md).
 
  If each project/domain has its own data warehouse, is it still possible to build models across them?
 
@@ -88,7 +88,7 @@ Yes, as long as they’re in the same data platform (BigQuery, Databricks, Redsh
 
  Can I run tests that involve tables from multiple different projects?
 
-Yes, because the cross-project collaboration is done using the `{{ ref() }}` macro, you can use those models from other teams in [singular tests](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests).
+Yes, because the cross-project collaboration is done using the `{{ ref() }}` macro, you can use those models from other teams in [singular tests](../../docs/build/data-tests.md#singular-data-tests).
 
  Which team's data schema would dbt Mesh create?
 
@@ -99,11 +99,11 @@ By default, each project belonging to a team will create:
 * One schema for production runs (for example, `finance`).
 * One schema per developer (for example, `dev_jerco`).
 
-Depending on each team’s needs, this can be customized with model-level [schema configurations](https://docs.getdbt.com/docs/build/custom-schemas.md), including the ability to define different rules by environment.
+Depending on each team’s needs, this can be customized with model-level [schema configurations](../../docs/build/custom-schemas.md), including the ability to define different rules by environment.
 
  Is it possible to apply model contracts to source data?
 
-No, contracts can only be applied at the [model level](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md). It is a recommended best practice to [define staging models](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) on top of sources, and it is possible to define contracts on top of those staging models.
+No, contracts can only be applied at the [model level](../../docs/mesh/govern/model-contracts.md). It is a recommended best practice to [define staging models](../how-we-structure/2-staging.md) on top of sources, and it is possible to define contracts on top of those staging models.
 
  Can contracts be partially enforced?
 
@@ -114,11 +114,11 @@ No. A contract applies to an entire model, including all columns in the model’
 
  Can I have multiple owners in a group?
 
-No, a [group](https://docs.getdbt.com/docs/mesh/govern/model-access.md#groups) can only be assigned to a single owner. However, the assigned owner can be a *team*, rather than an individual.
+No, a [group](../../docs/mesh/govern/model-access.md#groups) can only be assigned to a single owner. However, the assigned owner can be a *team*, rather than an individual.
 
  Can contracts be assigned individual owners?
 
-Not directly, but contracts are [assigned to models](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) and models can be assigned to individual owners. You can use meta fields for this purpose.
+Not directly, but contracts are [assigned to models](../../docs/mesh/govern/model-contracts.md) and models can be assigned to individual owners. You can use meta fields for this purpose.
 
  Can I make a model “public” only for specific team(s) to use?
 
@@ -126,7 +126,7 @@ This is not currently possible, but something we hope to enable in the near futu
 
  Is it possible to orchestrate job runs across multiple different projects?
 
-Yes. You can configure dbt to trigger a job when another job completes, including jobs in different projects. This is one way to execute a pipeline end to end across projects. For details, refer to [Trigger on job completion](https://docs.getdbt.com/docs/deploy/deploy-jobs.md#trigger-on-job-completion).
+Yes. You can configure dbt to trigger a job when another job completes, including jobs in different projects. This is one way to execute a pipeline end to end across projects. For details, refer to [Trigger on job completion](../../docs/deploy/deploy-jobs.md#trigger-on-job-completion).
 
  Integrations available between the dbt Discovery API and other tools for cross-project lineage?
 
@@ -140,9 +140,9 @@ If a data quality issue does slip through, you also have the option of simply ro
 
  How does dbt handle job run logs and can it feed them to standard monitoring tools, reports, etc.?
 
-Yes, all of this metadata is accessible via the [dbt Admin API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md). This metadata can be fed into a monitoring tool, or used to create reports and dashboards.
+Yes, all of this metadata is accessible via the [dbt Admin API](../../docs/dbt-apis/admin-api.md). This metadata can be fed into a monitoring tool, or used to create reports and dashboards.
 
-We also expose some of this information in dbt itself in [jobs](https://docs.getdbt.com/docs/deploy/jobs.md), [environments](https://docs.getdbt.com/docs/environments-in-dbt.md) and in [Catalog](https://www.getdbt.com/product/dbt-explorer).
+We also expose some of this information in dbt itself in [jobs](../../docs/deploy/jobs.md), [environments](../../docs/environments-in-dbt.md) and in [Catalog](https://www.getdbt.com/product/dbt-explorer).
 
  Can dbt Mesh reference models in other accounts within the same data platform?
 
@@ -154,7 +154,7 @@ For example, [Snowflake cross-account data shares](https://docs.snowflake.com/en
 
  How do user access permissions work in dbt Mesh?
 
-The existence of projects that have at least one public model will be visible to everyone in the organization with [read-only access](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
+The existence of projects that have at least one public model will be visible to everyone in the organization with [read-only access](../../docs/platform/manage-access/seats-and-users.md).
 
 Private or protected models require a user to have read-only access to the specific project to see its existence.
 
@@ -162,11 +162,11 @@ Private or protected models require a user to have read-only access to the speci
 
 There’s model-level access within dbt, role-based access for users and groups in dbt, and access to the underlying data within the data platform.
 
-First things first: access to underlying data is always defined and enforced by the underlying data platform (for example, BigQuery, Databricks, Redshift, Snowflake, Starburst, etc.) This access is managed by executing “DCL statements” (namely `grant`). dbt makes it easy to [configure `grants` on models](https://docs.getdbt.com/reference/resource-configs/grants.md), which provision data access for other roles/users/groups in the data warehouse. However, dbt does *not* automatically define or coordinate those grants unless they are configured explicitly. Refer to your organization's system for managing data warehouse permissions.
+First things first: access to underlying data is always defined and enforced by the underlying data platform (for example, BigQuery, Databricks, Redshift, Snowflake, Starburst, etc.) This access is managed by executing “DCL statements” (namely `grant`). dbt makes it easy to [configure `grants` on models](../../reference/resource-configs/grants.md), which provision data access for other roles/users/groups in the data warehouse. However, dbt does *not* automatically define or coordinate those grants unless they are configured explicitly. Refer to your organization's system for managing data warehouse permissions.
 
-[dbt Enterprise and Enterprise+ plans](https://www.getdbt.com/pricing) support [role-based access control (RBAC)](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control-) that manages granular permissions for users and user groups. You can control which users can see or edit all aspects of a dbt project. A user’s access to dbt projects also determines whether they can “explore” that project in detail. Roles, users, and groups are defined within the dbt application via the UI or by integrating with an identity provider.
+[dbt Enterprise and Enterprise+ plans](https://www.getdbt.com/pricing) support [role-based access control (RBAC)](../../docs/platform/manage-access/about-user-access.md#role-based-access-control-) that manages granular permissions for users and user groups. You can control which users can see or edit all aspects of a dbt project. A user’s access to dbt projects also determines whether they can “explore” that project in detail. Roles, users, and groups are defined within the dbt application via the UI or by integrating with an identity provider.
 
-[Model access](https://docs.getdbt.com/docs/mesh/govern/model-access.md) defines where models can be referenced. It also informs the discoverability of those projects within Catalog. Model `access` is defined in code, just like any other model configuration (`materialized`, `tags`, etc).
+[Model access](../../docs/mesh/govern/model-access.md) defines where models can be referenced. It also informs the discoverability of those projects within Catalog. Model `access` is defined in code, just like any other model configuration (`materialized`, `tags`, etc).
 
 * **Public:** Models with `public` access can be referenced everywhere. These are the “data products” of your organization.
 
@@ -190,7 +190,7 @@ Yes! As long as a user has permissions (at least read-only access) on all projec
 
 By default, cross-project references resolve to the “Production” deployment environment of the upstream project. If your organization has genuinely different data in production versus non-production environments, this poses an issue.
 
-For this reason, we rolled out canonical type of deployment environment: “[Staging](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment).” If a project defines both a “Production” environment and a “Staging” environment, then cross-project references from development and “Staging” environments will resolve to “Staging,” whereas only references coming from “Production” environments will resolve to “Production.” In this way, you are guaranteed separation of data environments, without needing to duplicate project configurations.
+For this reason, we rolled out canonical type of deployment environment: “[Staging](../../docs/deploy/deploy-environments.md#staging-environment).” If a project defines both a “Production” environment and a “Staging” environment, then cross-project references from development and “Staging” environments will resolve to “Staging,” whereas only references coming from “Production” environments will resolve to “Production.” In this way, you are guaranteed separation of data environments, without needing to duplicate project configurations.
 
  Does dbt Mesh work if projects are 'duplicated' (dev project <> prod project)?
 
@@ -202,23 +202,23 @@ Historical limitations required customers to "duplicate" projects so that one ac
 
  How does the dbt Semantic Layer relate to and work with dbt Mesh?
 
-The [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md) and dbt Mesh are complementary mechanisms enabled by dbt that work together to enhance the management, usability, and governance of data in large-scale data environments.
+The [Semantic Layer](../../docs/use-dbt-semantic-layer/dbt-sl.md) and dbt Mesh are complementary mechanisms enabled by dbt that work together to enhance the management, usability, and governance of data in large-scale data environments.
 
 The Semantic Layer in dbt allows teams to centrally define business metrics and dimensions. It ensures consistent and reliable metric definitions across various analytics tools and platforms.
 
 Mesh enables organizations to split their data architecture into multiple domain-specific projects, while retaining the ability to reference “public” models across projects. It is also possible to reference a “public” model from another project for the purpose of defining semantic models and metrics. Your organization can have multiple dbt projects feed into a unified semantic layer, ensuring that metrics and dimensions are consistently defined and understood across these domains.
 
-When using the dbt Semantic Layer in a [dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) setting, we recommend the following:
+When using the dbt Semantic Layer in a [dbt Mesh](./mesh-1-intro.md) setting, we recommend the following:
 
 * You have one standalone project that contains your semantic models and metrics.
-* Then as you build your Semantic Layer, you can [cross-reference dbt models](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md) across your various projects or packages to create your semantic models using the [two-argument `ref` function](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#ref-project-specific-models) (`ref('project_name', 'model_name')`).
+* Then as you build your Semantic Layer, you can [cross-reference dbt models](../../docs/mesh/govern/project-dependencies.md) across your various projects or packages to create your semantic models using the [two-argument `ref` function](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) (`ref('project_name', 'model_name')`).
 * Your dbt Semantic Layer project serves as a global source of truth across the rest of your projects.
 
 Cross-project refs unsupported in latest SL YAML spec
 
-When using [dbt Mesh](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
+When using [dbt Mesh](./mesh-1-intro.md) with the [Semantic Layer](../../docs/use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
 
-In the [latest YAML spec](https://docs.getdbt.com/docs/build/latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
+In the [latest YAML spec](../../docs/build/latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
 
 #### Usage example[​](#usage-example "Direct link to Usage example")
 
@@ -248,13 +248,13 @@ Notice that in the `model` parameter, we're using the `ref` function with two ar
 
  How does dbt Catalog relate to and work with dbt Mesh?
 
-**[Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)** is a tool within dbt that serves as a knowledge base and lineage visualization platform. It provides a comprehensive view of your dbt assets, including models, tests, sources, and their interdependencies.
+**[Catalog](../../docs/explore/explore-projects.md)** is a tool within dbt that serves as a knowledge base and lineage visualization platform. It provides a comprehensive view of your dbt assets, including models, tests, sources, and their interdependencies.
 
 Used in conjunction with dbt Mesh, Catalog becomes a powerful tool for visualizing and understanding the relationships and dependencies between models across multiple dbt projects.
 
  How does the dbt platform CLI relate to and work with dbt Mesh?
 
-The [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) allows users to develop and run dbt commands from their preferred development environments, like VS Code, Sublime Text, or terminal interfaces. This flexibility is particularly beneficial in a dbt Mesh setup, where managing multiple projects can be complex. Developers can work in their preferred tools while leveraging the centralized capabilities of dbt.
+The [dbt CLI](../../docs/platform/dbt-cli-installation.md) allows users to develop and run dbt commands from their preferred development environments, like VS Code, Sublime Text, or terminal interfaces. This flexibility is particularly beneficial in a dbt Mesh setup, where managing multiple projects can be complex. Developers can work in their preferred tools while leveraging the centralized capabilities of dbt.
 
  Can I upgrade Mesh projects to Fusion incrementally?
 
@@ -275,29 +275,29 @@ While basic Mesh functionality works in hybrid setups, some advanced platform fe
 
  Does dbt Mesh require me to be on a specific version of dbt?
 
-Yes, your account must be on [at least dbt v1.6](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) to take advantage of [cross-project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md), one of the most crucial underlying capabilities required to implement a dbt Mesh.
+Yes, your account must be on [at least dbt v1.6](../../docs/dbt-versions/upgrade-dbt-platform-version.md) to take advantage of [cross-project dependencies](../../docs/mesh/govern/project-dependencies.md), one of the most crucial underlying capabilities required to implement a dbt Mesh.
 
  Is there a way to leverage dbt Mesh capabilities in dbt Core?
 
 While dbt Core defines several of the foundational elements for dbt Mesh, dbt offers an enhanced experience that leverages these elements for scaled collaboration across multiple teams, facilitated by multi-project discovery in Catalog that’s tailored to each user’s access.
 
-Several key components that underpin the dbt Mesh pattern, including [model contracts, versions, and access modifiers](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md), are defined and implemented in dbt Core. We believe these are components of the core language, which is why their implementations are open source. We want to define a standard pattern that analytics engineers everywhere can adopt, extend, and help us improve.
+Several key components that underpin the dbt Mesh pattern, including [model contracts, versions, and access modifiers](../../docs/mesh/govern/about-model-governance.md), are defined and implemented in dbt Core. We believe these are components of the core language, which is why their implementations are open source. We want to define a standard pattern that analytics engineers everywhere can adopt, extend, and help us improve.
 
-To reference models defined in another project, users can also leverage [packages](https://docs.getdbt.com/docs/build/packages.md), a longstanding feature of dbt Core. By importing an upstream project as a package, dbt will import all models defined in that project, which enables the resolution of cross-project references to those models. They can be [optionally restricted](https://docs.getdbt.com/docs/mesh/govern/model-access.md#how-do-i-restrict-access-to-models-defined-in-a-package) to just the models with `public` access.
+To reference models defined in another project, users can also leverage [packages](../../docs/build/packages.md), a longstanding feature of dbt Core. By importing an upstream project as a package, dbt will import all models defined in that project, which enables the resolution of cross-project references to those models. They can be [optionally restricted](../../docs/mesh/govern/model-access.md#how-do-i-restrict-access-to-models-defined-in-a-package) to just the models with `public` access.
 
 The major distinction comes with dbt's metadata service, which is unique to the dbt platform and allows for the resolution of references to only the public models in a project. This service enables users to take dependencies on upstream projects, and reference just their `public` models, *without* needing to load the full complexity of those upstream projects into their local development environment.
 
  Does dbt Mesh require a specific dbt plan?
 
-Yes, a [dbt Enterprise-tier](https://www.getdbt.com/pricing) plan is required to set up multiple projects and reference models across them. Refer to [model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md) for more information on the features available across dbt plans.
+Yes, a [dbt Enterprise-tier](https://www.getdbt.com/pricing) plan is required to set up multiple projects and reference models across them. Refer to [model governance](../../docs/mesh/govern/about-model-governance.md) for more information on the features available across dbt plans.
 
 ## Tips on implementing dbt Mesh[​](#tips-on-implementing-dbt-mesh "Direct link to Tips on implementing dbt Mesh")
 
  Is there a recommended migration or implementation process?
 
-Refer to our developer guide on [How we structure our dbt Mesh projects](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md).
+Refer to our developer guide on [How we structure our dbt Mesh projects](./mesh-1-intro.md).
 
-You can also learn how to implement dbt Mesh by following our [Quickstart dbt Mesh](https://docs.getdbt.com/guides/mesh-qs.md) guide.
+You can also learn how to implement dbt Mesh by following our [Quickstart dbt Mesh](../../guides/mesh-qs.md) guide.
 
  My team isn’t structured to require multiple projects today. What aspects of dbt Mesh are relevant to me?
 

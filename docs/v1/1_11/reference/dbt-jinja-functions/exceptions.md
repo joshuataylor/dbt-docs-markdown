@@ -11,11 +11,11 @@ This is useful when your macro or model needs to check for a problem and tell db
 
 These are errors or warnings that you choose to raise in your own Jinja code. They're different from the automatic dbt or Jinja errors, like syntax errors or undefined variables.
 
-If you're not writing custom Jinja code and are instead trying to fix an error from dbt, refer to [Debug errors](https://docs.getdbt.com/guides/debug-errors.md).
+If you're not writing custom Jinja code and are instead trying to fix an error from dbt, refer to [Debug errors](../../guides/debug-errors.md).
 
 When calling these functions during `dbt run` or `dbt run-operation`, wrap them in `{% if execute %}`. This ensures the function runs only when dbt executes your code, rather than when it parses your project.
 
-Learn more about the [`execute`](https://docs.getdbt.com/reference/dbt-jinja-functions/execute.md) variable.
+Learn more about the [`execute`](./execute.md) variable.
 
 ## raise\_compiler\_error[​](#raise_compiler_error "Direct link to raise_compiler_error")
 
@@ -115,7 +115,7 @@ Use the `exceptions.warn` method to raise a compiler warning with the provided m
 * If you use the `--warn-error` flag, all warnings will be promoted to errors.
 * To promote only Jinja warnings to errors (and leave other warnings alone), use `--warn-error-options`. For example, `--warn-error-options '{"error": ["JinjaLogWarning"]}'`.
 
-Learn more about [Warnings](https://docs.getdbt.com/reference/global-configs/warnings.md).
+Learn more about [Warnings](../global-configs/warnings.md).
 
 **Example usage**:
 

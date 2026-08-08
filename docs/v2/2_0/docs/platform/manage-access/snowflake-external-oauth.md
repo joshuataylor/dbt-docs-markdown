@@ -14,7 +14,7 @@ dbt Enterprise and Enterprise+ plans support OAuth authentication with external
 
 The process of setting up external OAuth will require a little bit of back-and-forth between your dbt, IdP, and data warehouse accounts, and having them open in multiple browser tabs will help speed up the configuration process:
 
-* **dbt:** You’ll primarily be working in the **Account settings** —> **Integrations** page. You will need [proper permission](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to set up the integration and create the connections.
+* **dbt:** You’ll primarily be working in the **Account settings** —> **Integrations** page. You will need [proper permission](./enterprise-permissions.md) to set up the integration and create the connections.
 
 **Identity providers:**
 

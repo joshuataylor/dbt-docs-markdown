@@ -4,9 +4,9 @@ dbt platform | Starter, Enterpriseⓘ
 
 You can set up a merge job to implement a continuous deployment (CD) workflow in dbt. The merge job triggers a dbt job to run when someone merges Git pull requests into production. This workflow creates a seamless development experience where changes made in code will automatically update production data.
 
-You can also use a merge job to refresh an environment’s `manifest.json` so downstream [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) stay fast. For example, run [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md) or, to avoid warehouse work entirely, [`dbt parse --no-partial-parse`](https://docs.getdbt.com/reference/commands/parse.md) in a dedicated environment—the same one your CI jobs defer to under **Compare changes against**, so the manifest those pull request runs compare against updates quickly. Use the same base branch that environment tracks (for example, `main` or a [custom branch](https://docs.getdbt.com/faqs/Environments/custom-branch-settings.md) such as `develop`). If merge also kicks off a long `dbt build`, consider a separate merge triggered job that runs *only* `dbt parse --no-partial-parse` so the manifest updates before the build finishes.
+You can also use a merge job to refresh an environment’s `manifest.json` so downstream [CI jobs](./ci-jobs.md) stay fast. For example, run [`dbt compile`](../../reference/commands/compile.md) or, to avoid warehouse work entirely, [`dbt parse --no-partial-parse`](../../reference/commands/parse.md) in a dedicated environment—the same one your CI jobs defer to under **Compare changes against**, so the manifest those pull request runs compare against updates quickly. Use the same base branch that environment tracks (for example, `main` or a [custom branch](../../faqs/Environments/custom-branch-settings.md) such as `develop`). If merge also kicks off a long `dbt build`, consider a separate merge triggered job that runs *only* `dbt parse --no-partial-parse` so the manifest updates before the build finishes.
 
-By using CD in dbt, you can take advantage of deferral to build only the edited model and any downstream changes. With merge jobs, state will be updated almost instantly, always giving the most up-to-date state information in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md).
+By using CD in dbt, you can take advantage of deferral to build only the edited model and any downstream changes. With merge jobs, state will be updated almost instantly, always giving the most up-to-date state information in [Catalog](../explore/explore-projects.md).
 
 Triggering merge jobs in monorepos
 
@@ -15,9 +15,9 @@ If you have a monorepo with several dbt projects, merging a single pull request 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt account.
-* You have set up a [connection with your Git provider](https://docs.getdbt.com/docs/platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
+* You have set up a [connection with your Git provider](../platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
   <!-- -->
-  * If you're using a native [GitLab](https://docs.getdbt.com/docs/platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
+  * If you're using a native [GitLab](../platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
 * For deferral (which is the default), make sure there has been at least one successful job run in the environment you defer to.
 
 ## Set up job trigger on Git merge[​](#set-up-merge-jobs "Direct link to Set up job trigger on Git merge")
@@ -38,19 +38,19 @@ If you have a monorepo with several dbt projects, merging a single pull request 
 
    <!-- -->
 
-   * **Commands** — By default, it includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that you want to be invoked when this job runs.
+   * **Commands** — By default, it includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when this job runs.
    * **Compare changes against** — By default, it's set to compare changes against the environment you created the job from. This option allows dbt to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG. To change the default settings, you can select **No deferral**, **This job** for self-deferral, or choose a different environment.
-   * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md) and [Enabling dbt State on individual jobs](https://docs.getdbt.com/docs/deploy/dbt-state-enable-jobs.md).
+   * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](./dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
 
 5. (optional) Options in the **Advanced settings** section:
 
    <!-- -->
 
-   * **Environment variables** — Define [environment variables](https://docs.getdbt.com/docs/build/environment-variables.md) to customize the behavior of your project when this job runs.
-   * **Target name** — Define the [target name](https://docs.getdbt.com/docs/build/custom-target-names.md). Similar to environment variables, this option lets you customize the behavior of the project.
+   * **Environment variables** — Define [environment variables](../build/environment-variables.md) to customize the behavior of your project when this job runs.
+   * **Target name** — Define the [target name](../build/custom-target-names.md). Similar to environment variables, this option lets you customize the behavior of the project.
    * **Run timeout** — Cancel this job if the run time exceeds the timeout value.
-   * **dbt version** — By default, it’s set to inherit the [dbt version](https://docs.getdbt.com/docs/dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
-   * **Threads** — By default, it’s set to 4 [threads](https://docs.getdbt.com/docs/local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
+   * **dbt version** — By default, it’s set to inherit the [dbt version](../dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
+   * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
 
 [![Example of creating a merge job](/img/docs/dbt-platform/using-dbt-platform/example-create-merge-job.png?v=2 "Example of creating a merge job")](#)Example of creating a merge job
 

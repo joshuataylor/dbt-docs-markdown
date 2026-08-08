@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-sqlserver<!-- -->
 
-For <!-- -->SQL Server<!-- -->-specific configuration, please refer to [SQL Server<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/mssql-configs.md)
+For <!-- -->SQL Server<!-- -->-specific configuration, please refer to [SQL Server<!-- --> configs.](../../../reference/resource-configs/mssql-configs.md)
 
 Default settings change in dbt-sqlserver v1.2 / ODBC Driver 18
 
@@ -336,7 +336,7 @@ your_profile_name:
 
 ### Automatic Microsoft Entra ID principal provisioning for grants[​](#automatic-microsoft-entra-id-principal-provisioning-for-grants "Direct link to Automatic Microsoft Entra ID principal provisioning for grants")
 
-In dbt 1.2 or newer you can use the [grants](https://docs.getdbt.com/reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups. This is fully supported in this adapter and comes with an additional feature.
+In dbt 1.2 or newer you can use the [grants](../../../reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups. This is fully supported in this adapter and comes with an additional feature.
 
 By setting `auto_provision_aad_principals` to `true` in your model configuration, you can automatically provision Microsoft Entra ID principals (users or groups) that don't exist yet.
 

@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-dbt Labs often tests experimental features before deciding to continue on the [Product lifecycle](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles.md).
+dbt Labs often tests experimental features before deciding to continue on the [Product lifecycle](./product-lifecycles.md).
 
 You can access experimental features to preview beta features that haven’t yet been released to dbt. You can toggle on or off all experimental features by clicking your account name in the bottom left, selecting **Your profile**, and finding the toggle under **User profile**. Experimental features:
 

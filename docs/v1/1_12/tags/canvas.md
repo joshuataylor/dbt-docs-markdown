@@ -1,3 +1,3 @@
-## [Quickstart for dbt Canvas](https://docs.getdbt.com/guides/canvas.md)
+## [Quickstart for dbt Canvas](../guides/canvas.md)
 
 Introduction

@@ -1,6 +1,6 @@
 # Integrate with other orchestration tools
 
-Alongside [dbt](https://docs.getdbt.com/docs/deploy/jobs.md), discover other ways to schedule and run your dbt jobs with the help of tools such as the ones described on this page.
+Alongside [dbt](./jobs.md), discover other ways to schedule and run your dbt jobs with the help of tools such as the ones described on this page.
 
 Build and install these tools to automate your data workflows, trigger dbt jobs (including those hosted on dbt), and enjoy a hassle-free experience, saving time and increasing efficiency.
 
@@ -27,7 +27,7 @@ Automation servers (such as CodeDeploy, GitLab CI/CD ([video](https://youtu.be/-
 
 ## Azure Data Factory[​](#azure-data-factory "Direct link to Azure Data Factory")
 
-Integrate dbt and [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/) (ADF) for a smooth data process from data ingestion to data transformation. You can seamlessly trigger dbt jobs upon completion of ingestion jobs by using the [dbt API](https://docs.getdbt.com/docs/dbt-apis/overview.md) in ADF.
+Integrate dbt and [Azure Data Factory](https://learn.microsoft.com/en-us/azure/data-factory/) (ADF) for a smooth data process from data ingestion to data transformation. You can seamlessly trigger dbt jobs upon completion of ingestion jobs by using the [dbt API](../dbt-apis/overview.md) in ADF.
 
 The following steps provides you with a detailed overview of how to trigger a dbt job using the API in Azure Data Factory. To use the dbt API to trigger a job in dbt through ADF:
 
@@ -52,7 +52,7 @@ If your organization uses [Dagster](https://dagster.io/), you can use the [dagst
 
 Use Databricks workflows to call the dbt job API, which has several benefits such as integration with other ETL processes, utilizing dbt job features, separation of concerns, and custom job triggering based on custom conditions or logic. These advantages lead to more modularity, efficient debugging, and flexibility in scheduling dbt jobs.
 
-For more info, refer to the guide on [Databricks workflows and dbt jobs](https://docs.getdbt.com/guides/databricks-workflows.md).
+For more info, refer to the guide on [Databricks workflows and dbt jobs](../../guides/databricks-workflows.md).
 
 ## Kestra[​](#kestra "Direct link to Kestra")
 
@@ -104,7 +104,7 @@ If your organization uses [Prefect](https://www.prefect.io/), the way you will r
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
 * [dbt plans and pricing](https://www.getdbt.com/pricing/)
-* [Quickstart guides](https://docs.getdbt.com/guides.md)
-* [Webhooks for your jobs](https://docs.getdbt.com/docs/deploy/webhooks.md)
-* [Orchestration guides](https://docs.getdbt.com/guides.md)
+* [Quickstart guides](../../guides.md)
+* [Webhooks for your jobs](./webhooks.md)
+* [Orchestration guides](../../guides.md)
 * [Commands for your production deployment](https://discourse.getdbt.com/t/what-are-the-dbt-commands-you-run-in-your-production-deployment-of-dbt/366)

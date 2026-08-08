@@ -4,16 +4,16 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 Downstream exposures integrate natively with Tableau (Power BI coming soon) and auto-generate downstream lineage in Catalog for a richer experience.
 
-As a data team, it’s critical that you have context into the downstream use cases and users of your data products. By leveraging downstream [exposures](https://docs.getdbt.com/docs/build/exposures.md) automatically, data teams can:
+As a data team, it’s critical that you have context into the downstream use cases and users of your data products. By leveraging downstream [exposures](../build/exposures.md) automatically, data teams can:
 
 * Gain a better understanding of how models are used in downstream analytics, improving governance and decision-making.
 * Reduce incidents and optimize workflows by linking upstream models to downstream dependencies.
 * Automate exposure tracking for supported BI tools, ensuring lineage is always up to date.
-* [Orchestrate exposures](https://docs.getdbt.com/docs/platform-integrations/orchestrate-exposures.md) to refresh the underlying data sources during scheduled dbt jobs, improving timeliness and reducing costs. Orchestrating exposures is essentially a way to ensure that your BI tools are updated regularly by using the [dbt job scheduler](https://docs.getdbt.com/docs/deploy/deployments.md).
+* [Orchestrate exposures](../platform-integrations/orchestrate-exposures.md) to refresh the underlying data sources during scheduled dbt jobs, improving timeliness and reducing costs. Orchestrating exposures is essentially a way to ensure that your BI tools are updated regularly by using the [dbt job scheduler](../deploy/deployments.md).
   <!-- -->
-  * For more info on the differences between visualizing and orchestrating exposures, see [Visualize and orchestrate downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures.md).
+  * For more info on the differences between visualizing and orchestrating exposures, see [Visualize and orchestrate downstream exposures](../platform-integrations/downstream-exposures.md).
 
-To configure downstream exposures automatically from dashboards in Tableau, prerequisites, and more — refer to [Configure downstream exposures](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md).
+To configure downstream exposures automatically from dashboards in Tableau, prerequisites, and more — refer to [Configure downstream exposures](../platform-integrations/downstream-exposures-tableau.md).
 
 ### Supported plans[​](#supported-plans "Direct link to Supported plans")
 
@@ -21,13 +21,13 @@ Downstream exposures is available on all dbt [Enterprise-tier plans](https://www
 
 Tableau Server
 
-If you're using Tableau Server, you need to [allowlist dbt's IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your dbt region.
+If you're using Tableau Server, you need to [allowlist dbt's IP addresses](../platform/about-platform/access-regions-ip-addresses.md) for your dbt region.
 
 <!-- -->
 
 ## View downstream exposures[​](#view-downstream-exposures "Direct link to View downstream exposures")
 
-After setting up downstream exposures in dbt, you can view them in [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) for a richer experience.
+After setting up downstream exposures in dbt, you can view them in [Catalog](./explore-projects.md) for a richer experience.
 
 Navigate to Catalog by selecting **Catalog** from the top-level navigation. You can view downstream exposures from a couple of places:
 
@@ -40,12 +40,12 @@ Navigate to Catalog by selecting **Catalog** from the top-level navigation. You 
 View all downstream exposures for a project from the Catalog sidebar:
 
 1. In the sidebar, select your project.
-2. Under the project, select **Exposure**. You will only see this option if you set up downstream exposures in [Tableau](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md#set-up-in-tableau) and [dbt](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md#set-up-in-dbt-cloud).
+2. Under the project, select **Exposure**. You will only see this option if you set up downstream exposures in [Tableau](../platform-integrations/downstream-exposures-tableau.md#set-up-in-tableau) and [dbt](../platform-integrations/downstream-exposures-tableau.md#set-up-in-dbt-cloud).
 
 The **Exposures** table lists every exposure in the project so you can quickly access and manage them:
 
 * **Name**: The name of the exposure.
-* **Health**: The [data health signal](https://docs.getdbt.com/docs/explore/data-health-signals.md) of the exposure.
+* **Health**: The [data health signal](./data-health-signals.md) of the exposure.
 * **Type**: The type of exposure, such as `dashboard` or `notebook`.
 * **Owner**: The owner of the exposure.
 * **Owner email**: The email address of the owner of the exposure.
@@ -58,7 +58,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 
 After you open the **Exposures** table ([previous section](#exposures-menu)), select an exposure name to open its detail page.
 
-On the exposure detail page, you can review metadata, [data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
+On the exposure detail page, you can review metadata, [data health signals](./data-health-signals.md), description, and lineage. For Tableau auto exposures, use **Open in Dashboard** to open the workbook in Tableau, or **Modify integration** to update your Tableau connection settings.
 
 [![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
 

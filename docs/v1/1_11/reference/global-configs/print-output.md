@@ -2,7 +2,7 @@
 
 ### Suppress `print()` messages in stdout[​](#suppress-print-messages-in-stdout "Direct link to suppress-print-messages-in-stdout")
 
-By default, dbt includes [`print()`](https://docs.getdbt.com/reference/dbt-jinja-functions/print.md) messages in standard out (stdout). You can use the `DBT_ENGINE_PRINT` environment variable to prevent these messages from showing up in stdout.
+By default, dbt includes [`print()`](../dbt-jinja-functions/print.md) messages in standard out (stdout). You can use the `DBT_ENGINE_PRINT` environment variable to prevent these messages from showing up in stdout.
 
 Syntax deprecation
 

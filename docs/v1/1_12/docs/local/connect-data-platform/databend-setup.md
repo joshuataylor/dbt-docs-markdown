@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-databend-cloud<!-- -->
 
-For <!-- -->Databend Cloud<!-- -->-specific configuration, please refer to [Databend Cloud<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->Databend Cloud<!-- -->-specific configuration, please refer to [Databend Cloud<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to Databend Cloud with **dbt-databend-cloud**[​](#connecting-to-databend-cloud-with-dbt-databend-cloud "Direct link to connecting-to-databend-cloud-with-dbt-databend-cloud")
 

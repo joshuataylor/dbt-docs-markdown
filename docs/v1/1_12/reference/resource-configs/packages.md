@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -108,12 +108,12 @@ def main(a_string):
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [User-defined functions](https://docs.getdbt.com/docs/build/udfs.md)
-* [Function properties](https://docs.getdbt.com/reference/function-properties.md)
-* [Function configurations](https://docs.getdbt.com/reference/function-configs.md)
-* [runtime\_version](https://docs.getdbt.com/reference/resource-configs/runtime-version.md)
-* [entry\_point](https://docs.getdbt.com/reference/resource-configs/entry-point.md)
-* [type](https://docs.getdbt.com/reference/resource-configs/type.md)
-* [volatility](https://docs.getdbt.com/reference/resource-configs/volatility.md)
-* [arguments](https://docs.getdbt.com/reference/resource-properties/function-arguments.md)
-* [returns](https://docs.getdbt.com/reference/resource-properties/returns.md)
+* [User-defined functions](../../docs/build/udfs.md)
+* [Function properties](../function-properties.md)
+* [Function configurations](../function-configs.md)
+* [runtime\_version](./runtime-version.md)
+* [entry\_point](./entry-point.md)
+* [type](./type.md)
+* [volatility](./volatility.md)
+* [arguments](../resource-properties/function-arguments.md)
+* [returns](../resource-properties/returns.md)

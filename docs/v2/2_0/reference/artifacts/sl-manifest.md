@@ -1,12 +1,12 @@
 # Semantic manifest
 
-**Produced by:** Any command that parses your project. This includes all commands *except* [`deps`](https://docs.getdbt.com/reference/commands/deps.md), [`clean`](https://docs.getdbt.com/reference/commands/clean.md), [`debug`](https://docs.getdbt.com/reference/commands/debug.md), and [`init`](https://docs.getdbt.com/reference/commands/init.md).
+**Produced by:** Any command that parses your project. This includes all commands *except* [`deps`](../commands/deps.md), [`clean`](../commands/clean.md), [`debug`](../commands/debug.md), and [`init`](../commands/init.md).
 
-dbt creates an [artifact](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) file called the *Semantic Manifest* (`semantic_manifest.json`), which MetricFlow requires to build and run metric queries properly for the dbt Semantic Layer. This artifact contains comprehensive information about your dbt Semantic Layer. It is an internal file that acts as the integration point with MetricFlow.
+dbt creates an [artifact](./dbt-artifacts.md) file called the *Semantic Manifest* (`semantic_manifest.json`), which MetricFlow requires to build and run metric queries properly for the dbt Semantic Layer. This artifact contains comprehensive information about your dbt Semantic Layer. It is an internal file that acts as the integration point with MetricFlow.
 
 By using the semantic manifest produced by dbt Core, MetricFlow will instantiate a data flow plan and generate SQL from Semantic Layer query requests. It's a valuable reference that you can use to understand the structure and details of your data models.
 
-Similar to the [`manifest.json` file](https://docs.getdbt.com/reference/artifacts/manifest-json.md), the `semantic_manifest.json` file also lives in the [target directory](https://docs.getdbt.com/reference/global-configs/json-artifacts.md) of your dbt project where dbt stores various artifacts (such as compiled models and tests) generated during the execution of your project.
+Similar to the [`manifest.json` file](./manifest-json.md), the `semantic_manifest.json` file also lives in the [target directory](../global-configs/json-artifacts.md) of your dbt project where dbt stores various artifacts (such as compiled models and tests) generated during the execution of your project.
 
 There are two reasons why `semantic_manifest.json` exists alongside `manifest.json`:
 
@@ -137,5 +137,5 @@ If the semantic manifest fails validation, dbt logs an `error` level `SemanticVa
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic Layer API](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md)
-* [About dbt artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md)
+* [Semantic Layer API](../../docs/dbt-apis/sl-api-overview.md)
+* [About dbt artifacts](./dbt-artifacts.md)

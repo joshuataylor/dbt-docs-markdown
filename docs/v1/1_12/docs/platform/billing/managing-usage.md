@@ -9,7 +9,7 @@ From dbt, click on your account name in the left side menu and select **Account 
 Every plan automatically sends email alerts when 75%, 90%, and 100% of usage estimates have been reached.
 
 * Starter plan — All users within the Owner group receive alerts.
-* Enterprise-tier plans — All users with the Account Admin and Billing Admin [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#permission-sets) receive alerts.
+* Enterprise-tier plans — All users with the Account Admin and Billing Admin [permission sets](../manage-access/enterprise-permissions.md#permission-sets) receive alerts.
 
 Users cannot opt out of these emails. To have additional users to receive these alert emails, assign them the applicable permissions mentioned earlier. Note that your usage may already be higher than the percentage indicated in the alert due to your usage pattern and minor latency times.
 

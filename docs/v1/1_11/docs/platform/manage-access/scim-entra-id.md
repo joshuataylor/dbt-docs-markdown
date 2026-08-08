@@ -10,18 +10,18 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
  Toggle options per identity provider
 
-* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
-* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](./scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](./seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
 
-For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
+For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * Available on [Enterprise or Enterprise+ plans](https://www.getdbt.com/pricing).
 * You must use Entra ID as your single sign-on (SSO) provider and have it connected in the dbt platform.
-* You must have [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to configure the account settings in dbt platform.
-* Complete [setup SSO with Entra ID](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-microsoft-entra-id.md) before configuring SCIM settings.
-* Complete the [Set up SCIM](https://docs.getdbt.com/docs/platform/manage-access/scim.md#set-up-dbt) to get your SCIM base URL and token.
+* You must have [permissions](./enterprise-permissions.md) to configure the account settings in dbt platform.
+* Complete [setup SSO with Entra ID](./set-up-sso-microsoft-entra-id.md) before configuring SCIM settings.
+* Complete the [Set up SCIM](./scim.md#set-up-dbt) to get your SCIM base URL and token.
 
 ## Set up Entra ID[​](#set-up-entra-id "Direct link to Set up Entra ID")
 
@@ -153,16 +153,16 @@ The following steps go over how to assign users/groups to the SCIM app. Refer to
 
 ## Assign permission sets to SCIM groups[​](#assign-permission-sets-to-scim-groups "Direct link to Assign permission sets to SCIM groups")
 
-SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
+SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](./enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
 
 1. After the sync, go to **Account settings** → **Groups & Licenses**, where the SCIM group appears automatically.
 2. Open the SCIM-synced group. Don't create another group for the same IdP group, as this creates a duplicate.
 3. Under **Access & permissions**, click **Add permission**.
-4. Select a [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md), the projects it should apply to, and [environment-level access](https://docs.getdbt.com/docs/platform/manage-access/environment-permissions.md) if applicable.
+4. Select a [permission set](./enterprise-permissions.md), the projects it should apply to, and [environment-level access](./environment-permissions.md) if applicable.
 5. Click **Save**.
 
 Repeat for each SCIM-synced group that needs access.
 
 ## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
 
-For common questions about SCIM provisioning with Entra ID — including onboarding workflows, attribute matching, IP allowlisting issues, and troubleshooting — refer to [SCIM FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md).
+For common questions about SCIM provisioning with Entra ID — including onboarding workflows, attribute matching, IP allowlisting issues, and troubleshooting — refer to [SCIM FAQs and troubleshooting](./scim-faq.md).

@@ -20,7 +20,7 @@ from <table_1> as t1
 on t1.id = t2.id
 ```
 
-Since you can choose the dialect of join for a self join, you can specify if you want to do a [left](https://docs.getdbt.com/sql-reference/left-join.md), [outer](https://docs.getdbt.com/sql-reference/outer-join.md), [inner](https://docs.getdbt.com/sql-reference/inner-join.md), [cross](https://docs.getdbt.com/sql-reference/cross-join.md), or [right join](https://docs.getdbt.com/sql-reference/right-join.md) in the join statement.
+Since you can choose the dialect of join for a self join, you can specify if you want to do a [left](./left-join.md), [outer](./outer-join.md), [inner](./inner-join.md), [cross](./cross-join.md), or [right join](./right-join.md) in the join statement.
 
 ### SQL self join example[​](#sql-self-join-example "Direct link to SQL self join example")
 
@@ -69,6 +69,6 @@ Search table...
 
 ## SQL self join use cases[​](#sql-self-join-use-cases "Direct link to SQL self join use cases")
 
-Again, self joins are probably rare in your dbt project and will most often be utilized in tables that contain a hierarchical structure, such as consisting of a column which is a foreign key to the primary key of the same table. If you do have use cases for self joins, such as in the example above, you’ll typically want to perform that self join early upstream in your DAG, such as in a [staging](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md) or [intermediate](https://docs.getdbt.com/best-practices/how-we-structure/3-intermediate.md) model; if your raw, unjoined table is going to need to be accessed further downstream sans self join, that self join should happen in a modular intermediate model.
+Again, self joins are probably rare in your dbt project and will most often be utilized in tables that contain a hierarchical structure, such as consisting of a column which is a foreign key to the primary key of the same table. If you do have use cases for self joins, such as in the example above, you’ll typically want to perform that self join early upstream in your DAG, such as in a [staging](../best-practices/how-we-structure/2-staging.md) or [intermediate](../best-practices/how-we-structure/3-intermediate.md) model; if your raw, unjoined table is going to need to be accessed further downstream sans self join, that self join should happen in a modular intermediate model.
 
 You can also use self joins to create a cartesian product (aka a cross join) of a table against itself. Again, slim use cases, but still there for you if you need it 😉

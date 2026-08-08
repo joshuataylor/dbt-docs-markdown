@@ -17,7 +17,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
 Snowflake OAuth with Private Link
 
-Users connecting to Snowflake using [Snowflake OAuth](https://docs.getdbt.com/docs/platform/manage-access/set-up-snowflake-oauth.md) over an Azure Private Link connection from dbt also require access to a Private Link endpoint from their local workstation. Where possible, use [Snowflake External OAuth](https://docs.getdbt.com/docs/platform/manage-access/snowflake-external-oauth.md) instead to bypass this limitation.
+Users connecting to Snowflake using [Snowflake OAuth](../../../manage-access/set-up-snowflake-oauth.md) over an Azure Private Link connection from dbt also require access to a Private Link endpoint from their local workstation. Where possible, use [Snowflake External OAuth](../../../manage-access/snowflake-external-oauth.md) instead to bypass this limitation.
 
 Snowflake docs:
 

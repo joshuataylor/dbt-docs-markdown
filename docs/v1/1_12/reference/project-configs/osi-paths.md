@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -24,7 +24,7 @@ osi-paths: [directorypath]
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom list of directories where [Apache Ossie semantic layer documents](https://docs.getdbt.com/docs/build/ossie-semantic-models.md) are located.
+Optionally specify a custom list of directories where [Apache Ossie semantic layer documents](../../docs/build/ossie-semantic-models.md) are located.
 
 ## Default[​](#default "Direct link to Default")
 

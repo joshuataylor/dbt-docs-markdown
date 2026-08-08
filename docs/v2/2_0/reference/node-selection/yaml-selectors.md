@@ -22,7 +22,7 @@ selectors:
     definition: ...
 ```
 
-Starting in dbt Core v1.12, you can reference a named selector from `--select` or `--exclude` using the [`selector` method](https://docs.getdbt.com/reference/node-selection/methods.md#selector) (for example, `selector:my_selector`).
+Starting in dbt Core v1.12, you can reference a named selector from `--select` or `--exclude` using the [`selector` method](./methods.md#selector) (for example, `selector:my_selector`).
 
 ## Definitions[​](#definitions "Direct link to Definitions")
 
@@ -41,7 +41,7 @@ definition:
   'tag:nightly'
 ```
 
-This simple syntax supports use of the `+`, `@`, and `*` [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) operators, [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators, and `exclude`.
+This simple syntax supports use of the `+`, `@`, and `*` [graph](./graph-operators.md) operators, [set](./set-operators.md) operators, and `exclude`.
 
 ### Key-value[​](#key-value "Direct link to Key-value")
 
@@ -50,13 +50,13 @@ definition:
   tag: nightly
 ```
 
-This simple syntax does not support any [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) or [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators or `exclude`.
+This simple syntax does not support any [graph](./graph-operators.md) or [set](./set-operators.md) operators or `exclude`.
 
 ### Full YAML[​](#full-yaml "Direct link to Full YAML")
 
-This is the most thorough syntax, which can include the operator-equivalent keywords for [graph](https://docs.getdbt.com/reference/node-selection/graph-operators.md) and [set](https://docs.getdbt.com/reference/node-selection/set-operators.md) operators.
+This is the most thorough syntax, which can include the operator-equivalent keywords for [graph](./graph-operators.md) and [set](./set-operators.md) operators.
 
-Review [methods](https://docs.getdbt.com/reference/node-selection/methods.md) for the available list.
+Review [methods](./methods.md) for the available list.
 
 ```yml
 definition:
@@ -106,7 +106,7 @@ The `exclude` keyword is only supported by fully-qualified dictionaries. It may 
 
 Note: The `exclude` argument in YAML selectors is subtly different from the `--exclude` CLI argument. Here, `exclude` *always* returns a [set difference](https://en.wikipedia.org/wiki/Complement_\(set_theory\)), and it is always applied *last* within its scope.
 
-When more than one "yeslist" (`--select`) is passed, they are treated as a [union](https://docs.getdbt.com/reference/node-selection/set-operators.md#unions) rather than an [intersection](https://docs.getdbt.com/reference/node-selection/set-operators.md#intersections). Same thing when there is more than one "nolist" (`--exclude`).
+When more than one "yeslist" (`--select`) is passed, they are treated as a [union](./set-operators.md#unions) rather than an [intersection](./set-operators.md#intersections). Same thing when there is more than one "nolist" (`--exclude`).
 
 #### Indirect selection[​](#indirect-selection "Direct link to Indirect selection")
 
@@ -132,7 +132,7 @@ As a general rule, dbt will indirectly select *all* tests if they touch *any* re
 
 If provided, a YAML selector's `indirect_selection` value will take precedence over the CLI flag `--indirect-selection`. Because `indirect_selection` is defined separately for *each* selection criterion, it's possible to mix eager/cautious/buildable/empty modes within the same definition, to achieve the exact behavior that you need. <!-- -->You can always test out your criteria with `dbt ls --select selector:SELECTOR_NAME`.
 
-See [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md) for more details about indirect selection.
+See [test selection examples](./test-selection-examples.md) for more details about indirect selection.
 
 ## Example[​](#example "Direct link to Example")
 
@@ -299,7 +299,7 @@ selectors:
 
 ## Using `selector:` with `--select`[​](#using-selector-with---select "Direct link to using-selector-with---select")
 
-Starting in dbt Core v1.12, dbt raises `SelectExcludeIgnoredWithSelectorWarning` when the legacy `--selector` flag is combined with `--select` or `--exclude`. Use the [`selector:` method](https://docs.getdbt.com/reference/node-selection/methods.md#selector) directly with `--select` to reference a predefined selector alongside other selection criteria.
+Starting in dbt Core v1.12, dbt raises `SelectExcludeIgnoredWithSelectorWarning` when the legacy `--selector` flag is combined with `--select` or `--exclude`. Use the [`selector:` method](./methods.md#selector) directly with `--select` to reference a predefined selector alongside other selection criteria.
 
 For example:
 

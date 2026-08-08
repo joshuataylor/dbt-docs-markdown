@@ -24,6 +24,6 @@ flags:
   send_anonymous_usage_stats: false
 ```
 
-You can also set the `DO_NOT_TRACK` environment variable. For more information, refer to [Environment variables](https://docs.getdbt.com/docs/build/environment-variables.md).
+You can also set the `DO_NOT_TRACK` environment variable. For more information, refer to [Environment variables](../../docs/build/environment-variables.md).
 
 `DO_NOT_TRACK=1` is equivalent to `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.

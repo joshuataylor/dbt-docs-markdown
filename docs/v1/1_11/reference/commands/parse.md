@@ -2,9 +2,9 @@
 
 The `dbt parse` command parses and validates the contents of your dbt project. If your project contains Jinja or YAML syntax errors, the command will fail.
 
-It will also produce an artifact with detailed timing information, which is useful to understand parsing times for large projects. Refer to [Project parsing](https://docs.getdbt.com/reference/parsing.md) for more information.
+It will also produce an artifact with detailed timing information, which is useful to understand parsing times for large projects. Refer to [Project parsing](../parsing.md) for more information.
 
-Starting in v1.5, `dbt parse` will write or return a [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md), enabling you to introspect dbt's understanding of all the resources in your project. Since `dbt parse` doesn't connect to your warehouse, [this manifest will not contain any compiled code](https://docs.getdbt.com/faqs/Warehouse/db-connection-dbt-compile.md).
+Starting in v1.5, `dbt parse` will write or return a [manifest](../artifacts/manifest-json.md), enabling you to introspect dbt's understanding of all the resources in your project. Since `dbt parse` doesn't connect to your warehouse, [this manifest will not contain any compiled code](../../faqs/Warehouse/db-connection-dbt-compile.md).
 
 By default, the Studio IDE will attempt a "partial" parse, which means it'll only check changes since the last parse (new or updated parts of your project when you make changes). Since the Studio IDE automatically parses in the background whenever you save your work, manually running `dbt parse` yourself is likely to be fast because it's just looking at recent changes.
 

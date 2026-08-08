@@ -13,14 +13,14 @@ Insights provides a rich console experience with editor navigation. You can expe
 * Create a visualization of your query results using the **Chart** tab
 * View the history of queries and their statuses (like Success, Error, Pending) using the **Query history** tab
 * Use dbt Copilot in Insights to generate or edit SQL queries using natural language prompts
-* Integrate with [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md), [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), and [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) to provide a seamless experience for data exploration, AI-assisted writing, and collaboration
+* Integrate with [Catalog](./explore-projects.md), [Studio IDE](../platform/studio-ide/develop-in-studio.md), and [Canvas](../platform/canvas.md) to provide a seamless experience for data exploration, AI-assisted writing, and collaboration
 
 ## Access the dbt Insights interface[​](#access-the-dbt-insights-interface-1 "Direct link to Access the dbt Insights interface")
 
-Before accessing Insights, ensure that the [prerequisites](https://docs.getdbt.com/docs/explore/dbt-insights.md#prerequisites) are met.
+Before accessing Insights, ensure that the [prerequisites](./dbt-insights.md#prerequisites) are met.
 
 1. To access Insights, select the **Insights** option in the navigation sidebar.
-2. If your [user credentials](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) aren’t set up, Insights will prompt you to set them up. The ability to query data is subject to warehouse provider permissions according to your user credentials.
+2. If your [user credentials](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) aren’t set up, Insights will prompt you to set them up. The ability to query data is subject to warehouse provider permissions according to your user credentials.
 3. Once your credentials are set up, you can write, run, and edit SQL queries in the Insights editor for existing models in your project.
 
 ## Run queries[​](#run-queries "Direct link to Run queries")
@@ -28,7 +28,7 @@ Before accessing Insights, ensure that the [prerequisites](https://docs.getdbt.c
 To run queries in Insights, you can use:
 
 * Standard SQL
-* Jinja ([`ref`](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md), [`source`](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md) functions, and other Jinja functions)
+* Jinja ([`ref`](../../reference/dbt-jinja-functions/ref.md), [`source`](../../reference/dbt-jinja-functions/source.md) functions, and other Jinja functions)
 * Links from SQL code `ref` to the corresponding Explorer page
 * CTEs and subqueries
 * Basic aggregations and joins
@@ -71,7 +71,7 @@ Let's use an example to illustrate how to run queries in Insights:
 
 ### Use dbt Copilot[​](#use-dbt-copilot "Direct link to Use dbt Copilot")
 
-To make things easier, [use dbt Copilot in Insights](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md) to save time and explore other ways to analyze the data. dbt Copilot can help you quickly update the query or generate a new one based on your prompt.
+To make things easier, [use dbt Copilot in Insights](./navigate-dbt-insights.md) to save time and explore other ways to analyze the data. dbt Copilot can help you quickly update the query or generate a new one based on your prompt.
 
 <!-- -->
 
@@ -81,7 +81,7 @@ dbt Wizard is the new and recommended AI agent for governed data development in 
 
 dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 
-Refer to [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](https://docs.getdbt.com/docs/platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 1. Click the **dbt Copilot** icon in the Query console sidebar.
 
@@ -114,11 +114,11 @@ From here, you can:
 * [Visualize results](#chart-results) in the **Chart** tab.
 * Check the [**Query history**](#query-history) for status and past runs.
 * Use [**Catalog**](#use-dbt-explorer) to explore model lineage and context.
-* If you want to save the query, you can click **Save Insight** in the [query console menu](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#query-console-menu) to save it for future reference.
+* If you want to save the query, you can click **Save Insight** in the [query console menu](./navigate-dbt-insights.md#query-console-menu) to save it for future reference.
 
 Want to turn a query into a model?
 
-You can access the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) or [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) from the [Query console menu](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#query-console-menu) to promote your SQL into a reusable dbt model — all within dbt!
+You can access the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [Canvas](../platform/canvas.md) from the [Query console menu](./navigate-dbt-insights.md#query-console-menu) to promote your SQL into a reusable dbt model — all within dbt!
 
 ### View results[​](#view-results "Direct link to View results")
 
@@ -164,7 +164,7 @@ The query history is stored indefinitely.
 
 ### Use dbt Catalog[​](#use-dbt-catalog "Direct link to Use dbt Catalog")
 
-Access [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md) directly in Insights to view project resources such as models, columns, metrics, and dimensions, and more — all integrated in the Insights interface.
+Access [Catalog](./explore-projects.md) directly in Insights to view project resources such as models, columns, metrics, and dimensions, and more — all integrated in the Insights interface.
 
 This integrated view allows you and your users to maintain your query workflow, while getting more context on models, semantic models, metrics, macros, and more. The integrated Catalog view comes with:
 
@@ -173,7 +173,7 @@ This integrated view allows you and your users to maintain your query workflow, 
 * Hyperlink from SQL code `ref` to the corresponding Catalog page
 * View assets in more detail by opening with the full Catalog experience or open them in dbt Copilot.
 
-To access Catalog, click on the **Catalog** icon in the [Query console sidebar menu](https://docs.getdbt.com/docs/explore/navigate-dbt-insights.md#query-console-sidebar-menu).
+To access Catalog, click on the **Catalog** icon in the [Query console sidebar menu](./navigate-dbt-insights.md#query-console-sidebar-menu).
 
 [![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
 
@@ -203,7 +203,7 @@ Insights offers a robust save feature for quickly finding the queries you use mo
 ## Considerations[​](#considerations "Direct link to Considerations")
 
 * Insights uses your user credentials to query. You have the ability to query against any object in your data warehouse that is accessible using your user credentials configured in **Account settings**.
-* Every Jinja function uses [`defer --favor-state`](https://docs.getdbt.com/reference/node-selection/defer.md) to resolve Jinja.
+* Every Jinja function uses [`defer --favor-state`](../../reference/node-selection/defer.md) to resolve Jinja.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 

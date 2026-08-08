@@ -1,6 +1,6 @@
 # Migrate between dbt platform tenancy types
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Migration
 
@@ -22,7 +22,7 @@ Make sure you contact your account manager before starting this process to confi
 
 ## Overview[​](#overview "Direct link to Overview")
 
-This guide walks you through a self-serve migration between [dbt platform tenancy types](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md) — for example, moving from multi-tenant to single-tenant.
+This guide walks you through a self-serve migration between [dbt platform tenancy types](../docs/platform/about-platform/tenancy.md) — for example, moving from multi-tenant to single-tenant.
 
 It's meant for accounts that have been assessed by the dbt Labs team as low complexity. Your dbt Labs contact will provide a migration window before you begin — do not start until you've received it.
 
@@ -44,8 +44,8 @@ The following factors add coordination overhead regardless of account size — f
 
 ### Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Tenancy](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md)
-* [Access, regions, and IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md)
+* [Tenancy](../docs/platform/about-platform/tenancy.md)
+* [Access, regions, and IP addresses](../docs/platform/about-platform/access-regions-ip-addresses.md)
 
 ## What doesn't migrate automatically[​](#what-doesnt-migrate-automatically "Direct link to What doesn't migrate automatically")
 

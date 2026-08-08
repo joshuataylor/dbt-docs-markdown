@@ -11,11 +11,11 @@ Certain properties are special, because:
 
 These properties are:
 
-* [`description`](https://docs.getdbt.com/reference/resource-properties/description.md)
-* [`tests`](https://docs.getdbt.com/reference/resource-properties/data-tests.md)
-* [`docs`](https://docs.getdbt.com/reference/resource-configs/docs.md)
+* [`description`](../../reference/resource-properties/description.md)
+* [`tests`](../../reference/resource-properties/data-tests.md)
+* [`docs`](../../reference/resource-configs/docs.md)
 * `columns`
-* [`quote`](https://docs.getdbt.com/reference/resource-properties/columns.md#quote)
-* [`source` properties](https://docs.getdbt.com/reference/source-properties.md) (e.g. `loaded_at_field`, `freshness`)
-* [`exposure` properties](https://docs.getdbt.com/reference/exposure-properties.md) (e.g. `type`, `maturity`)
-* [`macro` properties](https://docs.getdbt.com/reference/resource-properties/arguments.md) (e.g. `arguments`)
+* [`quote`](../../reference/resource-properties/columns.md#quote)
+* [`source` properties](../../reference/source-properties.md) (e.g. `loaded_at_field`, `freshness`)
+* [`exposure` properties](../../reference/exposure-properties.md) (e.g. `type`, `maturity`)
+* [`macro` properties](../../reference/resource-properties/arguments.md) (e.g. `arguments`)

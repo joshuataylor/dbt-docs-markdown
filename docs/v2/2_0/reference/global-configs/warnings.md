@@ -46,8 +46,8 @@ The `error` parameter can be set to `"all"` or `"*"` to treat all warnings as er
 
 Here's how you can use the [`--warn-error-options`](#use---warn-error-options-for-targeted-warnings) flag to promote *specific* warnings to errors:
 
-* [Test warnings](https://docs.getdbt.com/reference/resource-configs/severity.md) with the `--warn-error-options '{"error": ["LogTestResult"]}'` flag.
-* Jinja [exception warnings](https://docs.getdbt.com/reference/dbt-jinja-functions/exceptions.md#warn) with `--warn-error-options '{"error": ["JinjaLogWarning"]}'`.
+* [Test warnings](../resource-configs/severity.md) with the `--warn-error-options '{"error": ["LogTestResult"]}'` flag.
+* Jinja [exception warnings](../dbt-jinja-functions/exceptions.md#warn) with `--warn-error-options '{"error": ["JinjaLogWarning"]}'`.
 * No nodes selected with `--warn-error-options '{"error": ["NoNodesForSelectionCriteria"]}'`.
 * Deprecation warnings with `--warn-error-options '{"error": ["Deprecations"]}'` (new in v1.10).
 

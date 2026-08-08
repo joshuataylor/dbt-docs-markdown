@@ -108,5 +108,5 @@ For read-only analysis tasks (coverage checks, impact queries, documentation gap
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)
-* [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
+* [dbt Wizard command reference](./wizard-cli-reference.md)
+* [Use cases and examples](./wizard-use-cases.md)

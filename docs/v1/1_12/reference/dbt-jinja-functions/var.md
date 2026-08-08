@@ -6,7 +6,7 @@ Variables defined in `vars.yml` or `dbt_project.yml` act as project-wide default
 
 To retrieve a variable inside a model, hook, or macro, use the `var()` function. The `var()` function returns the value defined in your project or passed using `--vars`, based on precedence.
 
-You can use `var()` anywhere dbt renders Jinja during compilation, including most `.sql` and `.yml` files in your project. It does not work in configuration files that dbt reads before compilation, such as [`profiles.yml`](https://docs.getdbt.com/reference/dbt-jinja-functions/profiles-yml-context.md) or [`packages.yml`](<https://docs.getdbt.com/reference/dbt-jinja-functions/packages.yml context.md>).
+You can use `var()` anywhere dbt renders Jinja during compilation, including most `.sql` and `.yml` files in your project. It does not work in configuration files that dbt reads before compilation, such as [`profiles.yml`](./profiles-yml-context.md) or [`packages.yml`](<https://docs.getdbt.com/reference/dbt-jinja-functions/packages.yml context.md>).
 
 To add a variable to a model, use the `var()` function:
 
@@ -61,7 +61,7 @@ models:
 
 You cannot define variables in both `vars.yml` and `dbt_project.yml`; you can only use one or the other. If both files contain a `vars` block with definitions, dbt raises an error.
 
-See the docs on [using variables](https://docs.getdbt.com/docs/build/project-variables.md) for more information on how to define variables in your dbt project.
+See the docs on [using variables](../../docs/build/project-variables.md) for more information on how to define variables in your dbt project.
 
 ### Variable default values[​](#variable-default-values "Direct link to Variable default values")
 
@@ -125,4 +125,4 @@ $ dbt run --vars '{"key": "value", "date": 20180101}'
 $ dbt run --vars '{key: value, date: 20180101}'
 ```
 
-Variables defined using `--var`, override values defined in `dbt_project.yml`. This makes `--vars` useful for temporarily overriding configuration without changing your committed project files. For the complete order of precedence (including package-scoped variables and default values defined in `var()`), see [Variable precedence](https://docs.getdbt.com/docs/build/project-variables.md#variable-precedence).
+Variables defined using `--var`, override values defined in `dbt_project.yml`. This makes `--vars` useful for temporarily overriding configuration without changing your committed project files. For the complete order of precedence (including package-scoped variables and default values defined in `var()`), see [Variable precedence](../../docs/build/project-variables.md#variable-precedence).

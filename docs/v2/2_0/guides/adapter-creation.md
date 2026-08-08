@@ -1,6 +1,6 @@
 # Build, test, document, and promote adapters
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Adapter creation
 
@@ -12,7 +12,7 @@ Advanced
 
 dbt Core v1.x
 
-This guide is for creating adapters for the Python-based dbt Core v1. For adapter creation on the Rust-based dbt Core v2.0, check out our [new guide](https://docs.getdbt.com/guides/adapter-creation-v2.md?step=1)
+This guide is for creating adapters for the Python-based dbt Core v1. For adapter creation on the Rust-based dbt Core v2.0, check out our [new guide](./adapter-creation-v2.md?step=1)
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
@@ -196,7 +196,7 @@ Prior to dbt Core v1.x version 1.8, we recommended that the minor version of you
 
 This step will walk you through the first creating the necessary adapter classes and macros, and provide some resources to help you validate that your new adapter is working correctly. Make sure you've familiarized yourself with the previous steps in this guide.
 
-Once the adapter is passing most of the functional tests in the previous "Testing a new adapter" step, please let the community know that is available to use by adding the adapter to the ["Supported Data Platforms"](https://docs.getdbt.com/docs/supported-data-platforms.md) page by following the steps given in "Documenting your adapter.
+Once the adapter is passing most of the functional tests in the previous "Testing a new adapter" step, please let the community know that is available to use by adding the adapter to the ["Supported Data Platforms"](../docs/supported-data-platforms.md) page by following the steps given in "Documenting your adapter.
 
 For any questions you may have, don't hesitate to ask in the [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM) Slack channel. The community is very helpful and likely has experienced a similar issue as you.
 
@@ -251,7 +251,7 @@ Edit the connection manager at `myadapter/dbt/adapters/myadapter/connections.py`
 
 #### The Credentials class[​](#the-credentials-class "Direct link to The Credentials class")
 
-The credentials class defines all of the database-specific credentials (e.g. `username` and `password`) that users will need in the [connection profile](https://docs.getdbt.com/docs/supported-data-platforms.md) for your new adapter. Each credentials contract should subclass dbt.adapters.base.Credentials, and be implemented as a python dataclass.
+The credentials class defines all of the database-specific credentials (e.g. `username` and `password`) that users will need in the [connection profile](../docs/supported-data-platforms.md) for your new adapter. Each credentials contract should subclass dbt.adapters.base.Credentials, and be implemented as a python dataclass.
 
 Note that the base class includes required database and schema fields, as dbt uses those values internally.
 
@@ -296,7 +296,7 @@ class MyAdapterCredentials(Credentials):
 There are a few things you can do to make it easier for users when connecting to your database:
 
 * Be sure to implement the Credentials' `_connection_keys` method shown above. This method will return the keys that should be displayed in the output of the `dbt debug` command. As a general rule, it's good to return all the arguments used in connecting to the actual database except the password (even optional arguments).
-* Create a `profile_template.yml` to enable configuration prompts for a brand-new user setting up a connection profile via the [`dbt init` command](https://docs.getdbt.com/reference/commands/init.md). You will find more details in the following steps.
+* Create a `profile_template.yml` to enable configuration prompts for a brand-new user setting up a connection profile via the [`dbt init` command](../reference/commands/init.md). You will find more details in the following steps.
 * You may also want to define an `ALIASES` mapping on your Credentials class to include any config names you want users to be able to use in place of 'database' or 'schema'. For example if everyone using the MyAdapter database calls their databases "collections", you might do:
 
 connections.py
@@ -554,7 +554,7 @@ adapters.sql
 The `adapter.dispatch()` macro takes a second argument, `packages`, which represents a set of "search namespaces" in which to find potential implementations of a dispatched macro. This allows users of community-supported adapters to extend or "shim" dispatched macros from common packages, such as `dbt-utils`, with adapter-specific versions in their own project or other installed packages. See:
 
 * "Shim" package examples: [`spark-utils`](https://github.com/dbt-labs/spark-utils), [`tsql-utils`](https://github.com/dbt-msft/tsql-utils)
-* [`adapter.dispatch` docs](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md)
+* [`adapter.dispatch` docs](../reference/dbt-jinja-functions/dispatch.md)
 
 #### Overriding adapter methods[​](#overriding-adapter-methods "Direct link to Overriding adapter methods")
 
@@ -579,7 +579,7 @@ See [this GitHub discussion](https://github.com/dbt-labs/dbt-core/discussions/54
 
 ### Behavior change flags[​](#behavior-change-flags "Direct link to Behavior change flags")
 
-Starting in `dbt-adapters==1.5.0` and `dbt-core==1.8.7`, adapter maintainers can implement their own behavior change flags. Refer to [Behavior changes](https://docs.getdbt.com/reference/global-configs/behavior-changes.md) for more information.
+Starting in `dbt-adapters==1.5.0` and `dbt-core==1.8.7`, adapter maintainers can implement their own behavior change flags. Refer to [Behavior changes](../reference/global-configs/behavior-changes.md) for more information.
 
 Behavior Flags are not intended to be long-living feature flags. They should be implemented with the expectation that the behavior will be the default within an expected period of time. To implement a behavior change flag, you must provide a name for the flag, a default setting (`True` / `False`), an optional source, and a description and/or a link to the flag's documentation on docs.getdbt.com.
 
@@ -672,7 +672,7 @@ As a result, evaluating the flag earlier in the logic flow is easier. Then, take
 
 #### `profile_template.yml`[​](#profile_templateyml "Direct link to profile_templateyml")
 
-In order to enable the [`dbt init` command](https://docs.getdbt.com/reference/commands/init.md) to prompt users when setting up a new project and connection profile, you should include a **profile template**. The filepath needs to be `dbt/include/<adapter_name>/profile_template.yml`. It's possible to provide hints, default values, and conditional prompts based on connection methods that require different supporting attributes. Users will also be able to include custom versions of this file in their own projects, with fixed values specific to their organization, to support their colleagues when using your dbt adapter for the first time.
+In order to enable the [`dbt init` command](../reference/commands/init.md) to prompt users when setting up a new project and connection profile, you should include a **profile template**. The filepath needs to be `dbt/include/<adapter_name>/profile_template.yml`. It's possible to provide hints, default values, and conditional prompts based on connection methods that require different supporting attributes. Users will also be able to include custom versions of this file in their own projects, with fixed values specific to their organization, to support their colleagues when using your dbt adapter for the first time.
 
 See examples:
 
@@ -708,7 +708,7 @@ It includes basic utilities for setting up pytest + dbt. These are used by all "
 Those utilities allow you to do three basic things:
 
 1. **Quickly set up a dbt "project."** Define project resources via methods such as `models()` and `seeds()`. Use `project_config_update()` to pass configurations into `dbt_project.yml`.
-2. **Define a sequence of dbt commands.** The most important utility is `run_dbt()`, which returns the [results](https://docs.getdbt.com/reference/dbt-classes.md#result-objects) of each dbt command. It takes a list of CLI specifiers (subcommand + flags), as well as an optional second argument, `expect_pass=False`, for cases where you expect the command to fail.
+2. **Define a sequence of dbt commands.** The most important utility is `run_dbt()`, which returns the [results](../reference/dbt-classes.md#result-objects) of each dbt command. It takes a list of CLI specifiers (subcommand + flags), as well as an optional second argument, `expect_pass=False`, for cases where you expect the command to fail.
 3. **Validate the results of those dbt commands.** For example, `check_relations_equal()` asserts that two database objects have the same structure and content. You can also write your own `assert` statements, by inspecting the results of a dbt command, or querying arbitrary database objects with `project.run_sql()`.
 
 You can see the full suite of utilities, with arguments and annotations, in [`util.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tests/util.py). You'll also see them crop up across a number of test cases. While all utilities are intended to be reusable, you won't need all of them for every test. In the example below, we'll show a simple test case that uses only a few utilities.
@@ -858,7 +858,7 @@ tests/functional/test_example.py .X                                  [100%]
 
 You can find more ways to run tests, along with a full command reference, in the [pytest usage docs](https://docs.pytest.org/how-to/usage.html).
 
-We've found the `-s` flag (or `--capture=no`) helpful to print logs from the underlying dbt invocations, and to step into an interactive debugger if you've added one. You can also use environment variables to set [global dbt configs](https://docs.getdbt.com/reference/global-configs/about-global-configs.md), such as `DBT_ENGINE_DEBUG` (to show debug-level logs).
+We've found the `-s` flag (or `--capture=no`) helpful to print logs from the underlying dbt invocations, and to step into an interactive debugger if you've added one. You can also use environment variables to set [global dbt configs](../reference/global-configs/about-global-configs.md), such as `DBT_ENGINE_DEBUG` (to show debug-level logs).
 
 ### Testing this adapter[​](#testing-this-adapter "Direct link to Testing this adapter")
 
@@ -1169,7 +1169,7 @@ Many community members maintain their adapter plugins under open source licenses
 
 * Hosting on a public git provider (for example, GitHub or Gitlab)
 * Publishing to [PyPI](https://pypi.org/)
-* Adding to the list of ["Supported Data Platforms"](https://docs.getdbt.com/docs/supported-data-platforms.md#community-supported) (more info below)
+* Adding to the list of ["Supported Data Platforms"](../docs/supported-data-platforms.md#community-supported) (more info below)
 
 ### General Guidelines[​](#general-guidelines "Direct link to General Guidelines")
 
@@ -1277,7 +1277,7 @@ Tell a story that engages dbt users and the community. Highlight new use cases a
 
 * Existing users of your technology who are new to dbt
 
-  * Provide a general overview of the value dbt will deliver to your users. This can lean on dbt's messaging and talking points which are laid out in the [dbt viewpoint.](https://docs.getdbt.com/community/resources/viewpoint.md)
+  * Provide a general overview of the value dbt will deliver to your users. This can lean on dbt's messaging and talking points which are laid out in the [dbt viewpoint.](../community/resources/viewpoint.md)
   * Give examples of a rollout that speaks to the overall value of dbt and your product.
 
 * Users who are already familiar with dbt and the community
@@ -1405,7 +1405,7 @@ Proceed to the "Document a new adapter" step for more information.
 
 Keeping an adapter up-to-date with the latest features of dbt, as defined in [dbt-adapters](https://github.com/dbt-labs/dbt-adapters), is an integral part of being a trusted adapter. We encourage adapter maintainers to keep track of new dbt-adapter releases and support new features relevant to their platform, ensuring users have the best version of dbt.
 
-Before [dbt Core v1.x version 1.8](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#new-dbt-core-adapter-installation-procedure), adapter versions needed to match the semantic versioning of dbt Core v1.x. After v1.8, this is no longer required. This means users can use an adapter on v1.8+ with a different version of dbt Core v1.x v1.8+. For example, a user could use dbt-core v1.9 with dbt-postgres v1.8.
+Before [dbt Core v1.x version 1.8](../docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#new-dbt-core-adapter-installation-procedure), adapter versions needed to match the semantic versioning of dbt Core v1.x. After v1.8, this is no longer required. This means users can use an adapter on v1.8+ with a different version of dbt Core v1.x v1.8+. For example, a user could use dbt-core v1.9 with dbt-postgres v1.8.
 
 ### Community responsiveness[​](#community-responsiveness "Direct link to Community responsiveness")
 

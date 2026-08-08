@@ -37,7 +37,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-For more information on regions and hosting, refer to [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+For more information on regions and hosting, refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
 ## DBT\_ACCOUNT\_ID (account ID)[​](#dbt-account-id "Direct link to DBT_ACCOUNT_ID (account ID)")
 
@@ -45,7 +45,7 @@ For more information on regions and hosting, refer to [Access, Regions, & IP add
 2. Go to **Account settings**.
 3. The account ID is displayed on the settings page, or you can find it in the URL: `https://cloud.getdbt.com/settings/accounts/ACCOUNT_ID/`. So for example, if the URL is `https://YOUR_ACCESS_URL/settings/accounts/12345/`, the account ID would be `12345`.
 
-Alternatively, see [Finding your user and account IDs](https://docs.getdbt.com/faqs/Accounts/find-user-id.md) for additional methods.
+Alternatively, see [Finding your user and account IDs](../../faqs/Accounts/find-user-id.md) for additional methods.
 
 ## DBT\_PROD\_ENV\_ID (production environment ID)[​](#dbt-prod-env-id "Direct link to DBT_PROD_ENV_ID (production environment ID)")
 
@@ -70,7 +70,7 @@ This variable is required for `execute_sql`. If you don't have a dedicated devel
 
 Copy only the number.
 
-Alternatively, see [Finding your user and account IDs](https://docs.getdbt.com/faqs/Accounts/find-user-id.md).
+Alternatively, see [Finding your user and account IDs](../../faqs/Accounts/find-user-id.md).
 
 ## DBT\_TOKEN (access token)[​](#dbt-token "Direct link to DBT_TOKEN (access token)")
 
@@ -92,4 +92,4 @@ Used for shared or team setups. Better for CI/automation.
 2. Click **+ New token**, assign the required permissions, and copy the token value.
 3. For full MCP access, the service token needs at least `Semantic Layer Only`, `Metadata Only`, and `Developer` permissions.
 
-For more information, see [User tokens (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) and [Service tokens](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
+For more information, see [User tokens (PAT)](../dbt-apis/user-tokens.md) and [Service tokens](../dbt-apis/service-tokens.md).

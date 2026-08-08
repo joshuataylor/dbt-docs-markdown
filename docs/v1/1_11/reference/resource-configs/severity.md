@@ -1,6 +1,6 @@
 # severity, error\_if, and warn\_if
 
-Tests return a number of failures—most often, this is the count of rows returned by the test query, but it could be a [custom calculation](https://docs.getdbt.com/reference/resource-configs/fail_calc.md). Generally, if the number of failures is nonzero, the test returns an error. This makes sense, as test queries are designed to return all the rows you *don't* want: duplicate records, null values, and more.
+Tests return a number of failures—most often, this is the count of rows returned by the test query, but it could be a [custom calculation](./fail_calc.md). Generally, if the number of failures is nonzero, the test returns an error. This makes sense, as test queries are designed to return all the rows you *don't* want: duplicate records, null values, and more.
 
 It's possible to configure tests to return warnings instead of errors, or to make the test status conditional on the number of failures returned. Maybe 1 duplicate record can count as a warning, but 10 duplicate records should count as an error.
 
@@ -22,7 +22,7 @@ By default, a test with `severity: warn` will only ever return a warning, and no
 * `--warn-error`: Promotes *all* dbt warnings (including test warnings, Jinja warnings, deprecations, and so on.) to errors.
 * `--warn-error-options`: Promotes *only specific types* of warnings.
 
-For more information, refer to [Warnings](https://docs.getdbt.com/reference/global-configs/warnings.md).
+For more information, refer to [Warnings](../global-configs/warnings.md).
 
 * Out-of-the-box generic tests
 * Singular tests

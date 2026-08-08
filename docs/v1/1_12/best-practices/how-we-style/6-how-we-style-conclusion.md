@@ -10,7 +10,7 @@ You can use [pre-commit hooks](https://pre-commit.com/) to automatically check y
 
 ## dbt Project Evaluator[​](#dbt-project-evaluator "Direct link to dbt Project Evaluator")
 
-The [`dbt_project_evaluator`](https://github.com/dbt-labs/dbt-project-evaluator) is a package that ensures compliance to [dbt's style guide and best practices](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md). The `dbt_project_evaluator` package highlights areas of a dbt project that are not aligned with dbt's best practices and provides recommendations on how to improve a project. This enables analytics engineers to determine exactly where their projects deviated from dbt's best practices and improve their projects on their own. The `dbt_project_evaluator` package covers the following categories:
+The [`dbt_project_evaluator`](https://github.com/dbt-labs/dbt-project-evaluator) is a package that ensures compliance to [dbt's style guide and best practices](../how-we-structure/1-guide-overview.md). The `dbt_project_evaluator` package highlights areas of a dbt project that are not aligned with dbt's best practices and provides recommendations on how to improve a project. This enables analytics engineers to determine exactly where their projects deviated from dbt's best practices and improve their projects on their own. The `dbt_project_evaluator` package covers the following categories:
 
 * Modeling
 * Testing

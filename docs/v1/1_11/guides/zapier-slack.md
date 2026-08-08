@@ -1,6 +1,6 @@
 # Post to Slack with error context when a job fails
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Webhooks
 
@@ -12,7 +12,7 @@ Advanced
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-This guide will show you how to set up an integration between dbt jobs and Slack using [dbt webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md) and Zapier. It builds on the native [native Slack integration](https://docs.getdbt.com/docs/deploy/job-notifications.md#slack-notifications) by attaching error message details of models and tests in a thread.
+This guide will show you how to set up an integration between dbt jobs and Slack using [dbt webhooks](../docs/deploy/webhooks.md) and Zapier. It builds on the native [native Slack integration](../docs/deploy/job-notifications.md#slack-notifications) by attaching error message details of models and tests in a thread.
 
 Note: Because there is not a webhook for Run Cancelled, you may want to keep the standard Slack integration installed to receive those notifications. You could also use the [alternative integration](#alternate-approach) that augments the native integration without replacing it.
 
@@ -29,19 +29,19 @@ When a dbt job finishes running, the integration will:
 
 In order to set up the integration, you should have familiarity with:
 
-* [dbt webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
+* [dbt webhooks](../docs/deploy/webhooks.md)
 * Zapier
 
 ## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
 
-1. Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](https://docs.getdbt.com/docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
+1. Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
 2. Click **Continue**, then copy the webhook URL.
 
 ![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
 
 ## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
 
-See [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Choose **Run completed** as the Event. You can alternatively choose **Run errored**, but you will need to account for the fact that the necessary metadata [might not be available immediately](https://docs.getdbt.com/docs/deploy/webhooks.md#completed-errored-event-difference).
+See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Choose **Run completed** as the Event. You can alternatively choose **Run errored**, but you will need to account for the fact that the necessary metadata [might not be available immediately](../docs/deploy/webhooks.md#completed-errored-event-difference).
 
 Remember the Webhook Secret Key for later.
 
@@ -51,7 +51,7 @@ The sample body's values are hardcoded and not reflective of your project, but t
 
 ## Store secrets[​](#store-secrets "Direct link to Store secrets")
 
-In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
+In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md).
 
 Zapier allows you to [store secrets](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps). This prevents your keys from being displayed as plaintext in the Zap code. You can access them with the [StoreClient utility](https://help.zapier.com/hc/en-us/articles/8496293969549-Store-data-from-code-steps-with-StoreClient).
 
@@ -241,7 +241,7 @@ A one-minute delay is generally sufficient.
 
 ### 5. Store secrets[​](#5-store-secrets "Direct link to 5. Store secrets")
 
-In the next step, you will need either a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md).
+In the next step, you will need either a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md).
 
 Zapier allows you to [store secrets](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps). This prevents your keys from being displayed as plaintext in the Zap code. You can access them with the [StoreClient utility](https://help.zapier.com/hc/en-us/articles/8496293969549-Store-data-from-code-steps-with-StoreClient).
 

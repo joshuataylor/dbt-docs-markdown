@@ -1,12 +1,12 @@
 # Trusted adapters
 
-Trusted adapters take part in the Trusted Adapter Program, including a commitment to meet the program's requirements. They are maintained by dbt Labs, partners, and community members. Trusted adapters in dbt undergo an additional rigorous process that covers development, documentation, user experience, and maintenance requirements. We strongly recommend using them in production environments. For further details, refer to [What it means to be trusted](https://docs.getdbt.com/guides/adapter-creation.md?step=8#what-it-means-to-be-trusted).
+Trusted adapters take part in the Trusted Adapter Program, including a commitment to meet the program's requirements. They are maintained by dbt Labs, partners, and community members. Trusted adapters in dbt undergo an additional rigorous process that covers development, documentation, user experience, and maintenance requirements. We strongly recommend using them in production environments. For further details, refer to [What it means to be trusted](../guides/adapter-creation.md?step=8#what-it-means-to-be-trusted).
 
 Free and open-source tools for the data professional are increasingly abundant. This is by-and-large a *good thing*, however it requires due diligence that wasn't required in a paid-license, closed-source software world. As a user, there are important questions to answer before taking a dependency on an open-source project. The trusted adapter designation is meant to streamline this process for end users.
 
 ### Trusted adapter specifications[​](#trusted-adapter-specifications "Direct link to Trusted adapter specifications")
 
-Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.com/guides/adapter-creation.md) guide for more information, particularly if you are an adapter maintainer considering having your adapter be added to the trusted list.
+Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for more information, particularly if you are an adapter maintainer considering having your adapter be added to the trusted list.
 
 ### Trusted adapters[​](#trusted-adapters "Direct link to Trusted adapters")
 
@@ -16,8 +16,8 @@ Refer to the [Build, test, document, and promote adapters](https://docs.getdbt.c
 
 #### Apache Spark
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/spark-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/spark-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/spark-setup.md)
 
 <br />
 
@@ -29,11 +29,11 @@ dbt CoreFusion
 
 #### BigQuery
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-bigquery.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-bigquery.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/bigquery-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/bigquery-setup.md)
 
 <br />
 
@@ -45,11 +45,11 @@ dbt platformdbt CoreFusion
 
 #### Databricks
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-databricks.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-databricks.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/databricks-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/databricks-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/databricks-setup.md)
 
 <br />
 
@@ -61,9 +61,9 @@ dbt platformdbt CoreFusion
 
 #### DuckDB
 
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=1)
+* [Install with dbt Core](./local/connect-data-platform/duckdb-setup.md?version=1)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/duckdb-setup.md?version=2)
+* [Install with dbt Fusion](./local/connect-data-platform/duckdb-setup.md?version=2)
 
 <br />
 
@@ -75,11 +75,11 @@ dbt CoreFusion
 
 #### Redshift
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-redshift.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-redshift.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/redshift-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/redshift-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/redshift-setup.md)
 
 <br />
 
@@ -91,11 +91,11 @@ dbt platformdbt CoreFusion
 
 #### Snowflake
 
-* [Set up in the dbt platform](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-snowflake.md)
+* [Set up in the dbt platform](./platform/connect-data-platform/connect-snowflake.md)
   <br />
-* [Install with dbt Core](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md)
+* [Install with dbt Core](./local/connect-data-platform/snowflake-setup.md)
   <br />
-* [Install with dbt Fusion](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md)
+* [Install with dbt Fusion](./local/connect-data-platform/snowflake-setup.md)
 
 <br />
 

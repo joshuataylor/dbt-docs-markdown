@@ -57,7 +57,7 @@ analyses:
         description: The adjusted transaction amount for the account.
 ```
 
-For more information, refer to [Analysis properties](https://docs.getdbt.com/reference/analysis-properties.md).
+For more information, refer to [Analysis properties](../../reference/analysis-properties.md).
 
 <!-- -->
 

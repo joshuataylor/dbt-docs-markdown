@@ -1,3 +1,3 @@
-## [Quickstart for dbt and Amazon Athena](https://docs.getdbt.com/guides/athena.md)
+## [Quickstart for dbt and Amazon Athena](../guides/athena.md)
 
 Introduction

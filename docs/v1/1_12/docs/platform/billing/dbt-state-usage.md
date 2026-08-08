@@ -2,11 +2,11 @@
 
 Login required | Usage-basedⓘ
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) enables dbt to reuse nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed. It's a separate, usage-based product available to dbt Core, dbt platform, and dbt Fusion engine users. Learn more about how your usage influences the price so you can plan your savings effectively.
+[dbt State](../../deploy/dbt-state-about.md) enables dbt to reuse nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed. It's a separate, usage-based product available to dbt Core, dbt platform, and dbt Fusion engine users. Learn more about how your usage influences the price so you can plan your savings effectively.
 
 ### About free trial[​](#about-free-trial "Direct link to About free trial")
 
-* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](https://docs.getdbt.com/docs/deploy/dbt-state-trial.md#continuing-after-the-trial-ends).
+* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](../../deploy/dbt-state-trial.md#continuing-after-the-trial-ends).
 * To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally.
 * Once started, you cannot pause the trial.
 * If you're using state-aware orchestration prior to June 1, 2026, your trial is extended until the billing period begins on September 1, 2026. If the extension isn't applied to your account, contact your account team.

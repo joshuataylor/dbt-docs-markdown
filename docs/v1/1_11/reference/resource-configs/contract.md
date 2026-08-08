@@ -3,7 +3,7 @@
 When the `contract` configuration is enforced, dbt will ensure that your model's returned dataset exactly matches the attributes you have defined in YAML:
 
 * `name` and `data_type` for every column
-* Additional [`constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md), as supported for this materialization and data platform
+* Additional [`constraints`](../resource-properties/constraints.md), as supported for this materialization and data platform
 
 This is to ensure that the people querying your model downstream—both inside and outside dbt—have a predictable and consistent set of columns to use in their analyses. Even a subtle change in data type, such as from `boolean` (`true`/`false`) to `integer` (`0`/`1`), could cause queries to fail in surprising ways.
 
@@ -29,7 +29,7 @@ Contracts give you control over how schemas are enforced, whether that’s on a 
   * `view` — views offer limited support for column names and data types, but not `constraints`
   * `incremental` — with `on_schema_change: append_new_columns` or `on_schema_change: fail`
 
-* Certain data platforms, but the supported and [enforced `constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md) vary by platform
+* Certain data platforms, but the supported and [enforced `constraints`](../resource-properties/constraints.md) vary by platform
 
 **These places do *NOT* support model contracts:**
 
@@ -39,7 +39,7 @@ Contracts give you control over how schemas are enforced, whether that’s on a 
 * Models with recursive CTE's in BigQuery
 * Other resource types, such as `sources`, `seeds`, `snapshots`, and so on
 
-Refer to the [Examples](https://docs.getdbt.com/reference/resource-configs/contract.md#examples) to see how to apply contracts in your project.
+Refer to the [Examples](./contract.md#examples) to see how to apply contracts in your project.
 
 ## Data type aliasing[​](#data-type-aliasing "Direct link to Data type aliasing")
 
@@ -61,7 +61,7 @@ models:
 
 ## Size, precision, and scale[​](#size-precision-and-scale "Direct link to Size, precision, and scale")
 
-When dbt compares data types, it will not compare granular details such as size, precision, or scale. We don't think you should sweat the difference between `varchar(256)` and `varchar(257)`, because it doesn't really affect the experience of downstream queriers. You can accomplish a more-precise assertion by [writing or using a custom test](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md).
+When dbt compares data types, it will not compare granular details such as size, precision, or scale. We don't think you should sweat the difference between `varchar(256)` and `varchar(257)`, because it doesn't really affect the experience of downstream queriers. You can accomplish a more-precise assertion by [writing or using a custom test](../../best-practices/writing-custom-generic-tests.md).
 
 Note that you need to specify a varchar size or numeric scale, otherwise dbt relies on default values. For example, if a `numeric` type defaults to a precision of 38 and a scale of 0, then the numeric column stores 0 digits to the right of the decimal (it only stores whole numbers), which might cause it to fail contract enforcement. To avoid this implicit coercion, specify your `data_type` with a nonzero scale, like `numeric(38, 6)`. dbt Core 1.7 and higher provides a warning if you don't specify precision and scale when providing a numeric data type.
 
@@ -159,11 +159,11 @@ select
 from {{ source('property_management', 'rental_applications') }}  -- replace with your source name and table
 ```
 
-Refer to [General configurations](https://docs.getdbt.com/reference/model-configs.md#general-configurations) for more information on the supported configs available for model SQL files, `dbt_project.yml` and `properties.yml`.
+Refer to [General configurations](../model-configs.md#general-configurations) for more information on the supported configs available for model SQL files, `dbt_project.yml` and `properties.yml`.
 
 ### Incremental models and `on_schema_change`[​](#incremental-models-and-on_schema_change "Direct link to incremental-models-and-on_schema_change")
 
-Why require that incremental models also set [`on_schema_change`](https://docs.getdbt.com/docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change), and why to `append_new_columns` or `fail`?
+Why require that incremental models also set [`on_schema_change`](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change), and why to `append_new_columns` or `fail`?
 
 Imagine:
 
@@ -180,28 +180,28 @@ Why `append_new_columns` (or `fail`) rather than `sync_all_columns`? Because rem
 
 **What went wrong:** When a model has an enforced contract, dbt ensures the model’s returned dataset exactly matches the YAML-defined `name` and `data_type` for every column; if they don’t match, dbt errors.
 
-**Solution:** Ensure the `name`, `data_type`, and number of columns in the contract match the columns in the model’s definition. For details, refer to the [contract docs](https://docs.getdbt.com/reference/resource-configs/contract.md).
+**Solution:** Ensure the `name`, `data_type`, and number of columns in the contract match the columns in the model’s definition. For details, refer to the [contract docs](./contract.md).
 
  My new column isn’t showing up in my incremental model
 
 **What went wrong:** Contracts on incremental models are supported when `on_schema_change` is set to `append_new_columns` or `fail`. If you add a new column but don’t set `on_schema_change` (or set it to `ignore`), dbt doesn’t add that column to the existing table, which can create a mismatch between the YAML-defined contract and the actual table schema.
 
-**Solution:** Set `on_schema_change: append_new_columns` (or `fail`) for contracted incremental models. For details, refer to [Incremental models and `on_schema_change`](https://docs.getdbt.com/reference/resource-configs/contract.md#incremental-models-and-on_schema_change).
+**Solution:** Set `on_schema_change: append_new_columns` (or `fail`) for contracted incremental models. For details, refer to [Incremental models and `on_schema_change`](./contract.md#incremental-models-and-on_schema_change).
 
  A column disappeared from my incremental model table
 
 **What went wrong:** `sync_all_columns` adds any new columns to the existing table, and removes any columns that are now missing, so a column can be removed from the target table if it’s missing from the new model query.
 
-**Solution:** For contracted incremental models, use `append_new_columns` (or `fail`) rather than `sync_all_columns`. Removing existing columns is a breaking change for contracted models. For details, refer to [Incremental models and `on_schema_change`](https://docs.getdbt.com/reference/resource-configs/contract.md#incremental-models-and-on_schema_change).
+**Solution:** For contracted incremental models, use `append_new_columns` (or `fail`) rather than `sync_all_columns`. Removing existing columns is a breaking change for contracted models. For details, refer to [Incremental models and `on_schema_change`](./contract.md#incremental-models-and-on_schema_change).
 
  I’m getting a data type mismatch I didn’t expect
 
 **What went wrong:** dbt applies built-in type aliasing for YAML `data_type` values, and relying on default precision/scale (especially for `numeric`) can lead to implicit coercion that may cause contract enforcement to fail.
 
-**Solution:** If you want to avoid aliasing, set `alias_types: false`. To avoid implicit numeric coercion, specify a `data_type` with a nonzero scale (for example, `numeric(38, 6)`). For details, refer to the [contract docs](https://docs.getdbt.com/reference/resource-configs/contract.md).
+**Solution:** If you want to avoid aliasing, set `alias_types: false`. To avoid implicit numeric coercion, specify a `data_type` with a nonzero scale (for example, `numeric(38, 6)`). For details, refer to the [contract docs](./contract.md).
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [What is a model contract?](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md)
-* [Defining `columns`](https://docs.getdbt.com/reference/resource-properties/columns.md)
-* [Defining `constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md)
+* [What is a model contract?](../../docs/mesh/govern/model-contracts.md)
+* [Defining `columns`](../resource-properties/columns.md)
+* [Defining `constraints`](../resource-properties/constraints.md)

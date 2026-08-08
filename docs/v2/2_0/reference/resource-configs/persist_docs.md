@@ -76,7 +76,7 @@ select ...
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally persist [resource descriptions](https://docs.getdbt.com/reference/resource-properties/description.md) as column and relation comments in the database. By default, documentation persistence is disabled, but it can be enabled for specific resources or groups of resources as needed.
+Optionally persist [resource descriptions](../resource-properties/description.md) as column and relation comments in the database. By default, documentation persistence is disabled, but it can be enabled for specific resources or groups of resources as needed.
 
 ## Support[​](#support "Direct link to Support")
 
@@ -101,7 +101,7 @@ Some known issues and limitations:
 * If a column name in a SQL model is in a mixed-case format (for example, `ca_net_ht_N`), the docs for that column will not be persisted. For the docs to persist, there are two options:
 
   * Define the column name in the corresponding YML file using lowercase or uppercase letters only.
-  * Use the [`quote`](https://docs.getdbt.com/reference/resource-properties/columns.md#quoter) configuration in the corresponding YML file.
+  * Use the [`quote`](../resource-properties/columns.md#quoter) configuration in the corresponding YML file.
 
   See the following sample steps on how to use the `quote` field for columns in a mixed-case format.
 
@@ -141,7 +141,7 @@ Some known issues and limitations:
 
 ### Documenting columns and relations[​](#documenting-columns-and-relations "Direct link to Documenting columns and relations")
 
-Supply a [description](https://docs.getdbt.com/reference/resource-properties/description.md) for a model:
+Supply a [description](../resource-properties/description.md) for a model:
 
 models/schema.yml
 

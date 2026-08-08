@@ -2,9 +2,9 @@
 
 ## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
 
-When materializing a model as `table`, you may include several optional configs that are specific to the dbt-databricks plugin, in addition to the standard [model configs](https://docs.getdbt.com/reference/model-configs.md).
+When materializing a model as `table`, you may include several optional configs that are specific to the dbt-databricks plugin, in addition to the standard [model configs](../model-configs.md).
 
-dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). All other table configurations were also supported in 1.8.
+dbt-databricks v1.9 adds support for the `table_format: iceberg` config. Try it now on the [dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md). All other table configurations were also supported in 1.8.
 
 | Option                        | Description                                                                                                                                                                                                        | Required?                               | Model support    | Example                     |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------- | ---------------- | --------------------------- |
@@ -40,13 +40,13 @@ Search table...
 
 § `skip_optimize` gives you per-model control over the post-materialization `OPTIMIZE` call. Because it's a standard dbt model config, you can also set it at the folder or project level through config inheritance. The run-wide `DATABRICKS_SKIP_OPTIMIZE` variable takes precedence over `skip_optimize`; if you set `DATABRICKS_SKIP_OPTIMIZE=true` (or `databricks_skip_optimize: true`), the variable skips `OPTIMIZE` for every model, and you can't re-enable it for an individual model with `skip_optimize: false`. Use `skip_optimize` when you want to keep `OPTIMIZE` on for most models but opt specific ones out — for example, if you delegate `OPTIMIZE` to [Predictive Optimization](https://docs.databricks.com/en/optimizations/predictive-optimization.html) or schedule it out of band. Refer to [issue #703](https://github.com/databricks/dbt-databricks/issues/703).
 
-In dbt-databricks v1.10, there are several new model configurations options gated behind the `use_materialization_v2` flag. For details, see the [documentation of Databricks behavior flags](https://docs.getdbt.com/reference/global-configs/databricks-changes.md).
+In dbt-databricks v1.10, there are several new model configurations options gated behind the `use_materialization_v2` flag. For details, see the [documentation of Databricks behavior flags](../global-configs/databricks-changes.md).
 
 ### Python submission methods[​](#python-submission-methods "Direct link to Python submission methods")
 
 *Available in versions 1.9 or higher*
 
-In dbt-databricks v1.9 (try it now in [the dbt **Latest** release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md)), you can use these four options for `submission_method`:
+In dbt-databricks v1.9 (try it now in [the dbt **Latest** release track](../../docs/dbt-versions/dbt-release-tracks.md)), you can use these four options for `submission_method`:
 
 * `all_purpose_cluster`: Executes the python model either directly using the [command api](https://docs.databricks.com/api/workspace/commandexecution) or by uploading a notebook and creating a one-off job run
 
@@ -160,7 +160,7 @@ models:
 
 *Available in versions 1.10 or higher*
 
-When materializing models of various types, you may include several optional column-level configs that are specific to the dbt-databricks plugin, in addition to the standard [column configs](https://docs.getdbt.com/reference/resource-properties/columns.md). Support for column tags and column masks were added in dbt-databricks v1.10.4.
+When materializing models of various types, you may include several optional column-level configs that are specific to the dbt-databricks plugin, in addition to the standard [column configs](../resource-properties/columns.md). Support for column tags and column masks were added in dbt-databricks v1.10.4.
 
 | Option           | Description                                                                                                                                                                                               | Required? | Model support | Materialization support                                | Example                                           |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------- | ------------------------------------------------------ | ------------------------------------------------- |
@@ -249,14 +249,14 @@ This breaking change affects all incremental strategies: `append`, `insert_overw
 
 For more details on v1.11.0 changes, see the [dbt-databricks v1.11.0 changelog](https://github.com/databricks/dbt-databricks/blob/main/CHANGELOG.md).
 
-dbt-databricks plugin leans heavily on the [`incremental_strategy` config](https://docs.getdbt.com/docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of six values:
+dbt-databricks plugin leans heavily on the [`incremental_strategy` config](../../docs/build/incremental-strategy.md). This config tells the incremental materialization how to build models in runs beyond their first. It can be set to one of six values:
 
 * `append`: Insert new records without updating or overwriting any existing data.
 * `insert_overwrite`: If `partition_by` is specified, overwrite partitions in the table with new data. If no `partition_by` is specified, overwrite the entire table with new data.
 * `merge`(default; Delta and Hudi file format only): Match records based on a `unique_key`, updating old records, and inserting new ones. (If no `unique_key` is specified, all new data is inserted, similar to `append`.)
 * `replace_where` (Delta file format only): Match records based on `incremental_predicates`, replacing all records that match the predicates from the existing table with records matching the predicates from the new data. (If no `incremental_predicates` are specified, all new data is inserted, similar to `append`.)
 * `delete+insert` (Delta file format only, available in v1.11+): Match records based on a required `unique_key`, delete matching records, and insert new records. Optionally filter using `incremental_predicates`.
-* `microbatch` (Delta file format only): Implements the [microbatch strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) using `replace_where` with predicates generated based `event_time`.
+* `microbatch` (Delta file format only): Implements the [microbatch strategy](../../docs/build/incremental-microbatch.md) using `replace_where` with predicates generated based `event_time`.
 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
@@ -306,9 +306,9 @@ The `insert_overwrite` strategy updates data in a table by replacing existing re
 
 When using `liquid_clustered_by`, the `replace on` keys used will be the same as the `liquid_clustered_by` keys (same as `partition_by` behavior).
 
-When you set [`use_replace_on_for_insert_overwrite`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `true` (in SQL warehouses or when using cluster computes) dbt dynamically overwrites partitions and only replaces the partitions or clusters returned by your model query. dbt runs a [partitionOverwriteMode='dynamic' `insert overwrite` statement](https://docs.databricks.com/aws/en/delta/selective-overwrite#dynamic-partition-overwrites-with-partitionoverwritemode-legacyl), which helps reduce unnecessary overwrites and improves performance.
+When you set [`use_replace_on_for_insert_overwrite`](../global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `true` (in SQL warehouses or when using cluster computes) dbt dynamically overwrites partitions and only replaces the partitions or clusters returned by your model query. dbt runs a [partitionOverwriteMode='dynamic' `insert overwrite` statement](https://docs.databricks.com/aws/en/delta/selective-overwrite#dynamic-partition-overwrites-with-partitionoverwritemode-legacyl), which helps reduce unnecessary overwrites and improves performance.
 
-When you set [`use_replace_on_for_insert_overwrite`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `false` in SQL warehouses, dbt truncates (empties) the entire table before inserting new data. This replaces all rows in the table each time the model runs, which can increase run time and cost for large datasets
+When you set [`use_replace_on_for_insert_overwrite`](../global-configs/databricks-changes.md#use-replace-on-for-insert_overwrite-strategy) to `false` in SQL warehouses, dbt truncates (empties) the entire table before inserting new data. This replaces all rows in the table each time the model runs, which can increase run time and cost for large datasets
 
 If you don't specify `partition_by` or `liquid_clustered_by`, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` and `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
@@ -744,7 +744,7 @@ where date_day >= date_add(current_date, -1)
 
 *Available in versions 1.9 or higher*
 
-The Databricks adapter implements the `microbatch` strategy using `replace_where`. Note the requirements and caution statements for `replace_where` above. For more information about this strategy, see the [microbatch reference page](https://docs.getdbt.com/docs/build/incremental-microbatch.md).
+The Databricks adapter implements the `microbatch` strategy using `replace_where`. Note the requirements and caution statements for `replace_where` above. For more information about this strategy, see the [microbatch reference page](../../docs/build/incremental-microbatch.md).
 
 In the following example, the upstream table `events` have been annotated with an `event_time` column called `ts` in its schema file.
 
@@ -917,7 +917,7 @@ note
 
 You need to use the same set of names for compute across your outputs, though you may supply different http\_paths, allowing you to use different computes in different deployment scenarios.
 
-To configure this inside of dbt, use the [extended attributes feature](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) on the desired environments:
+To configure this inside of dbt, use the [extended attributes feature](../../docs/dbt-platform-environments.md#extended-attributes) on the desired environments:
 
 ```yaml
 
@@ -1010,7 +1010,7 @@ If your default compute is a SQL Warehouse, you will need to specify an all purp
 
 ## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
 
-Relation-level docs persistence is supported. For more information on configuring docs persistence, see [the docs](https://docs.getdbt.com/reference/resource-configs/persist_docs.md).
+Relation-level docs persistence is supported. For more information on configuring docs persistence, see [the docs](./persist_docs.md).
 
 When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
 
@@ -1130,7 +1130,7 @@ Query tags appear in Databricks system tables and query history. For information
 
 ## Default file format configurations[​](#default-file-format-configurations "Direct link to Default file format configurations")
 
-To access advanced incremental strategies features, such as [snapshots](https://docs.getdbt.com/reference/commands/snapshot.md) and the `merge` incremental strategy, you will want to use the Delta or Hudi file format as the default file format when materializing models as tables.
+To access advanced incremental strategies features, such as [snapshots](../commands/snapshot.md) and the `merge` incremental strategy, you will want to use the Delta or Hudi file format as the default file format when materializing models as tables.
 
 It's quite convenient to do this by setting a top-level configuration in your project file:
 
@@ -1173,13 +1173,13 @@ streaming\_table.sql
  ) }}
 ```
 
-We support [on\_configuration\_change](https://docs.getdbt.com/reference/resource-configs/on_configuration_change.md) for most available properties of these materializations. The following table summarizes our configuration support. Refer to [Configuration details](#configuration-details) for more details on each config:
+We support [on\_configuration\_change](./on_configuration_change.md) for most available properties of these materializations. The following table summarizes our configuration support. Refer to [Configuration details](#configuration-details) for more details on each config:
 
 | Databricks Concept                                                                                                                 | Config Name                                                                           | MV/ST support                         | Version |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------- | ------- |
 | [PARTITIONED BY](https://docs.databricks.com/en/sql/language-manual/sql-ref-partition.html#partitioned-by)                         | `partition_by`                                                                        | MV/ST                                 | All     |
 | [CLUSTER BY](https://docs.databricks.com/en/delta/clustering.html)                                                                 | `liquid_clustered_by`                                                                 | MV/ST                                 | v1.11+  |
-| COMMENT                                                                                                                            | [`description`](https://docs.getdbt.com/reference/resource-properties/description.md) | MV/ST                                 | All     |
+| COMMENT                                                                                                                            | [`description`](../resource-properties/description.md) | MV/ST                                 | All     |
 | [TBLPROPERTIES](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-tblproperties.html#tblproperties)            | `tblproperties`                                                                       | MV/ST                                 | All     |
 | [TAGS](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html)                                                     | `databricks_tags`                                                                     | MV/ST                                 | v1.11+  |
 | [SCHEDULE CRON](https://docs.databricks.com/en/sql/language-manual/sql-ref-syntax-ddl-create-materialized-view.html#parameters)    | `schedule: { 'cron': '\<cron schedule\>', 'time_zone_value': '\<time zone value\>' }` | MV/ST                                 | All     |
@@ -1366,13 +1366,13 @@ Reference the source relation in `source` with `ref()` so dbt resolves dependenc
 
 dbt passes the YAML body through to Databricks unchanged, so a metric view supports the **entire** [Unity Catalog metric view YAML specification](https://docs.databricks.com/aws/en/business-semantics/metric-views/yaml-reference), not only the keys shown above. Any field Databricks accepts server-side works through dbt, including [`synonyms`](https://docs.databricks.com/aws/en/metric-views/semantic-metadata) and `display_name` on dimensions and measures, and `format` and `window` on measures.
 
-You can also set `databricks_tags` and [`grants`](https://docs.getdbt.com/reference/resource-configs/grants.md) on a metric view. `tblproperties` are applied only when the view is updated in place (with `view_update_via_alter`) or replaced, not on first creation.
+You can also set `databricks_tags` and [`grants`](./grants.md) on a metric view. `tblproperties` are applied only when the view is updated in place (with `view_update_via_alter`) or replaced, not on first creation.
 
 ### Updating a metric view[​](#updating-a-metric-view "Direct link to Updating a metric view")
 
 By default, dbt rebuilds the metric view with `CREATE OR REPLACE VIEW` on every run.
 
-When you set [`view_update_via_alter`](https://docs.getdbt.com/reference/global-configs/databricks-changes.md#changes-to-the-view-materialization) to `true`, dbt applies incremental changes in place instead of replacing the view:
+When you set [`view_update_via_alter`](../global-configs/databricks-changes.md#changes-to-the-view-materialization) to `true`, dbt applies incremental changes in place instead of replacing the view:
 
 * Changes to the YAML definition are applied with `ALTER VIEW ... AS`.
 * Changes to `databricks_tags` or `tblproperties` are applied with `ALTER VIEW ... SET`.

@@ -82,7 +82,7 @@ A profile consists of *targets*, and a specified *default target*.
 
 Each *target* specifies the type of warehouse you are connecting to, the credentials to connect to the warehouse, and some dbt-specific configurations.
 
-The credentials you need to provide in your target varies across warehouses — sample profiles for each supported warehouse are available in the [Supported Data Platforms](https://docs.getdbt.com/docs/supported-data-platforms.md) section.
+The credentials you need to provide in your target varies across warehouses — sample profiles for each supported warehouse are available in the [Supported Data Platforms](../supported-data-platforms.md) section.
 
 **Pro Tip:** You may need to surround your password in quotes if it contains special characters. More details [here](https://stackoverflow.com/a/37015689/10415173).
 
@@ -105,11 +105,11 @@ To set up your profile, copy the correct sample profile for your warehouse into 
 
 You can find more information on which values to use in your targets below.
 
-Use the [debug](https://docs.getdbt.com/reference/dbt-jinja-functions/debug-method.md) command to validate your warehouse connection. Run `dbt debug` from within a dbt project to test your connection.
+Use the [debug](../../reference/dbt-jinja-functions/debug-method.md) command to validate your warehouse connection. Run `dbt debug` from within a dbt project to test your connection.
 
 ## Understanding targets in profiles[​](#understanding-targets-in-profiles "Direct link to Understanding targets in profiles")
 
-dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](https://docs.getdbt.com/docs/local/dbt-core-environments.md).
+dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](./dbt-core-environments.md).
 
 A typical profile for an analyst using dbt locally will have a target named `dev`, and have this set as the default.
 
@@ -133,7 +133,7 @@ dbt compile --target qa
 
 ### Overriding profiles and targets[​](#overriding-profiles-and-targets "Direct link to Overriding profiles and targets")
 
-When running dbt commands, you can specify which profile and target to use from the CLI using the `--profile` and `--target` [flags](https://docs.getdbt.com/reference/global-configs/about-global-configs.md#available-flags). These flags override what’s defined in your `dbt_project.yml` as long as the specified profile and target are already defined in your `profiles.yml` file.
+When running dbt commands, you can specify which profile and target to use from the CLI using the `--profile` and `--target` [flags](../../reference/global-configs/about-global-configs.md#available-flags). These flags override what’s defined in your `dbt_project.yml` as long as the specified profile and target are already defined in your `profiles.yml` file.
 
 To run your dbt project with a different profile or target than the default, you can do so using the followingCLI flags:
 
@@ -176,13 +176,13 @@ In development, a pattern we’ve found to work well is to name the schema in yo
 
 Note that there’s no need to create your target schema beforehand – dbt will check if the schema already exists when it runs, and create it if it doesn’t.
 
-While the target schema represents the default schema that dbt will use, it may make sense to split your models into separate schemas, which can be done by using [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md).
+While the target schema represents the default schema that dbt will use, it may make sense to split your models into separate schemas, which can be done by using [custom schemas](../build/custom-schemas.md).
 
 ## Understanding threads[​](#understanding-threads "Direct link to Understanding threads")
 
 When dbt runs, it creates a directed acyclic graph (DAG) of links between models. The number of threads represents the maximum number of paths through the graph dbt may work on at once – increasing the number of threads can minimize the run time of your project. The default value for threads in user profiles is 4 threads.
 
-For more information, check out [using threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md).
+For more information, check out [using threads](../running-a-dbt-project/using-threads.md).
 
 ## Advanced: Customizing a profile directory[​](#advanced-customizing-a-profile-directory "Direct link to Advanced: Customizing a profile directory")
 
@@ -243,8 +243,8 @@ Note: This environment variable isn't supported in Fusion.
 
 ## Advanced: Using environment variables[​](#advanced-using-environment-variables "Direct link to Advanced: Using environment variables")
 
-Credentials can be placed directly into the `profiles.yml` file or loaded from environment variables. Using environment variables is especially useful for production deployments of dbt. You can find more information about environment variables [here](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md).
+Credentials can be placed directly into the `profiles.yml` file or loaded from environment variables. Using environment variables is especially useful for production deployments of dbt. You can find more information about environment variables [here](../../reference/dbt-jinja-functions/env_var.md).
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About `profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md)
+* [About `profiles.yml`](./profiles.yml.md)

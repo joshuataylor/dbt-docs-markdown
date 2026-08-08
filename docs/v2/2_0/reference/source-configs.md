@@ -2,7 +2,7 @@
 
 ## Available configurations[​](#available-configurations "Direct link to Available configurations")
 
-Sources configurations support [`enabled`](https://docs.getdbt.com/reference/resource-configs/enabled.md), [`event_time`](https://docs.getdbt.com/reference/resource-configs/event-time.md), and [`meta`](https://docs.getdbt.com/reference/resource-configs/meta.md)
+Sources configurations support [`enabled`](./resource-configs/enabled.md), [`event_time`](./resource-configs/event-time.md), and [`meta`](./resource-configs/meta.md)
 
 ### General configurations[​](#general-configurations "Direct link to General configurations")
 
@@ -53,9 +53,9 @@ sources:
 
 ## Configuring sources[​](#configuring-sources "Direct link to Configuring sources")
 
-Sources can be configured via a `config:` block within their `.yml` definitions, or from the `dbt_project.yml` file under the `sources:` key. This configuration is most useful for configuring sources imported from [a package](https://docs.getdbt.com/docs/build/packages.md).
+Sources can be configured via a `config:` block within their `.yml` definitions, or from the `dbt_project.yml` file under the `sources:` key. This configuration is most useful for configuring sources imported from [a package](../docs/build/packages.md).
 
-You can disable sources imported from a package to prevent them from rendering in the documentation, or to prevent [source freshness checks](https://docs.getdbt.com/docs/build/sources.md#source-data-freshness) from running on source tables imported from packages.
+You can disable sources imported from a package to prevent them from rendering in the documentation, or to prevent [source freshness checks](../docs/build/sources.md#source-data-freshness) from running on source tables imported from packages.
 
 * **Note**: To disable a source table nested in a properties YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that properties YAML file, as well as the source name and the table name in the project YAML file (`dbt_project.yml`).<br /><br />The following example shows how to disable a source table nested in a properties YAML file in a subfolder:
 
@@ -79,7 +79,7 @@ The following examples show how to configure sources in your dbt project.
 
 #### Disable all sources imported from a package[​](#disable-all-sources-imported-from-a-package "Direct link to Disable all sources imported from a package")
 
-To apply a configuration to all sources included from a [package](https://docs.getdbt.com/docs/build/packages.md), state your configuration under the [project name](https://docs.getdbt.com/reference/project-configs/name.md) in the `sources:` config as a part of the resource path.
+To apply a configuration to all sources included from a [package](../docs/build/packages.md), state your configuration under the [project name](./project-configs/name.md) in the `sources:` config as a part of the resource path.
 
 dbt\_project.yml
 
@@ -110,7 +110,7 @@ sources:
           enabled: false
 ```
 
-You can configure specific source tables, and use [variables](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md) as the input to that configuration:
+You can configure specific source tables, and use [variables](./dbt-jinja-functions/var.md) as the input to that configuration:
 
 models/sources.yml
 
@@ -164,7 +164,7 @@ sources:
       +event_time: event_timestamp
 ```
 
-In this example, the `event_time` is set to `event_timestamp`, which has the exact time each clickstream event happened. Not only is this required for the [incremental microbatching strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md), but when you compare data across [CI and production](https://docs.getdbt.com/docs/deploy/advanced-ci.md#speeding-up-comparisons) environments, dbt will use `event_timestamp` to filter and match data by this event-based timeframe, ensuring that only overlapping timeframes are compared.
+In this example, the `event_time` is set to `event_timestamp`, which has the exact time each clickstream event happened. Not only is this required for the [incremental microbatching strategy](../docs/build/incremental-microbatch.md), but when you compare data across [CI and production](../docs/deploy/advanced-ci.md#speeding-up-comparisons) environments, dbt will use `event_timestamp` to filter and match data by this event-based timeframe, ensuring that only overlapping timeframes are compared.
 
 #### Configure meta to a source[​](#configure-meta-to-a-source "Direct link to Configure meta to a source")
 
@@ -189,7 +189,7 @@ Use a `freshness` block to define expectations about how frequently a table is u
 
 dbt compares the most recently updated timestamp calculated from a column, warehouse metadata, or custom query against the current timestamp when the freshness check is running.
 
-You can provide one or both of the `warn_after` and `error_after` parameters. If neither is provided, then dbt will not calculate freshness snapshots for the tables in this source. For more information, see [freshness](https://docs.getdbt.com/reference/resource-properties/freshness.md).
+You can provide one or both of the `warn_after` and `error_after` parameters. If neither is provided, then dbt will not calculate freshness snapshots for the tables in this source. For more information, see [freshness](./resource-properties/freshness.md).
 
 See the following example of a `dbt_project.yml` file using the `freshness` config:
 

@@ -4,9 +4,9 @@ Model versions, dbt\_project.yml versions, and .yml versions
 
 The word "version" appears in multiple places in docs site and with different meanings:
 
-* [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) — A dbt Mesh feature that enables better governance and data model management by allowing you to track changes and updates to models over time.
-* [dbt\_project.yml version](https://docs.getdbt.com/reference/project-configs/version.md#dbt_projectyml-versions)(optional) — `dbt_project.yml` version is unrelated to Mesh and refers to the compatibility of the dbt project with a specific version of dbt.
-* [.yml property file version](https://docs.getdbt.com/reference/project-configs/version.md#yml-property-file-versions)(optional) — Version numbers within .yml property files inform how dbt parses those YAML files. Unrelated to Mesh.
+* [Model versions](../../docs/mesh/govern/model-versions.md) — A dbt Mesh feature that enables better governance and data model management by allowing you to track changes and updates to models over time.
+* [dbt\_project.yml version](../project-configs/version.md#dbt_projectyml-versions)(optional) — `dbt_project.yml` version is unrelated to Mesh and refers to the compatibility of the dbt project with a specific version of dbt.
+* [.yml property file version](../project-configs/version.md#yml-property-file-versions)(optional) — Version numbers within .yml property files inform how dbt parses those YAML files. Unrelated to Mesh.
 
 models/\<schema>.yml
 
@@ -35,11 +35,11 @@ The standard convention for naming model versions is `<model_name>_v<v>`. This h
 
 The version identifier for a version of a model. This value can be numeric (integer or float), or any string.
 
-The value of the version identifier is used to order versions of a model relative to one another. If a versioned model does *not* explicitly configure a [`latest_version`](https://docs.getdbt.com/reference/resource-properties/latest_version.md), the highest version number is used as the latest version to resolve `ref` calls to the model without a `version` argument.
+The value of the version identifier is used to order versions of a model relative to one another. If a versioned model does *not* explicitly configure a [`latest_version`](./latest_version.md), the highest version number is used as the latest version to resolve `ref` calls to the model without a `version` argument.
 
 In general, we recommend that you use a simple "major versioning" scheme for your models: `1`, `2`, `3`, and so on, where each version reflects a breaking change from previous versions. You are able to use other versioning schemes. dbt will sort your version identifiers alphabetically if the values are not all numeric. You should **not** include the letter `v` in the version identifier, as dbt will do that for you.
 
-To run a model with multiple versions, you can use the [`--select` flag](https://docs.getdbt.com/reference/node-selection/syntax.md). Refer to [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
+To run a model with multiple versions, you can use the [`--select` flag](../node-selection/syntax.md). Refer to [Model versions](../../docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
 
 ### `defined_in`[​](#defined_in "Direct link to defined_in")
 
@@ -56,7 +56,7 @@ This default can be overwritten in two ways:
 * Configuring a custom `alias` within the version yaml, or the versioned model's definition
 * Overwriting dbt's `generate_alias_name` macro, to use different behavior based on `node.version`
 
-See ["Custom aliases"](https://docs.getdbt.com/docs/build/custom-aliases.md) for more details.
+See ["Custom aliases"](../../docs/build/custom-aliases.md) for more details.
 
 Note that the value of `defined_in` and the `alias` configuration of a model are not coordinated, except by convention. The two are declared and determined independently.
 
@@ -75,7 +75,7 @@ The specification of which columns are defined in a model's top-level `columns` 
 
 tip
 
-Not to be confused with the `--select/--exclude` [syntax](https://docs.getdbt.com/reference/node-selection/exclude.md), which is used for model selection.
+Not to be confused with the `--select/--exclude` [syntax](../node-selection/exclude.md), which is used for model selection.
 
 The `columns` list of a versioned model can have *at most one* `include/exclude` element. However, if none of your model versions specify columns, you don't need to define columns at all and can omit the `columns/include`/`exclude` keys from the versioned model. In this case, dbt will automatically use all top-level columns for all versions.
 
@@ -166,7 +166,7 @@ Each other version has declared a modification from the top-level property:
 
 * Follow a consistent naming convention for model versions and aliases.
 * Use `defined_in` and `alias` only if you have good reason.
-* Use the [`latest_version_pointer`](https://docs.getdbt.com/reference/resource-configs/latest_version_pointer.md) config to automatically create a view pointing to the latest version of your model. Enable it per model or globally with the [`latest_version_pointer_enabled_by_default`](https://docs.getdbt.com/reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag in `dbt_project.yml`.
+* Use the [`latest_version_pointer`](../resource-configs/latest_version_pointer.md) config to automatically create a view pointing to the latest version of your model. Enable it per model or globally with the [`latest_version_pointer_enabled_by_default`](../global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag in `dbt_project.yml`.
 
 ### Detecting breaking changes[​](#detecting-breaking-changes "Direct link to Detecting breaking changes")
 

@@ -1,6 +1,6 @@
 # Using catalogs.yml
 
-Now that you understand [what an Iceberg catalog is](https://docs.getdbt.com/docs/build/iceberg/about-catalogs.md), let's talk about how to use them within dbt.
+Now that you understand [what an Iceberg catalog is](./about-catalogs.md), let's talk about how to use them within dbt.
 
 ## Getting started: Managed catalogs[​](#getting-started-managed-catalogs "Direct link to Getting started: Managed catalogs")
 
@@ -77,7 +77,7 @@ Search table...
 
 #### Config inheritance[​](#config-inheritance "Direct link to Config inheritance")
 
-Configurations defined in `catalogs.yml` are lowest in the [model-config precedence](https://docs.getdbt.com/reference/model-configs.md). This means that if you set a more-specific config for one model (within its `.sql` or `.py` file), or set a project-level config, those take precedence.
+Configurations defined in `catalogs.yml` are lowest in the [model-config precedence](../../../reference/model-configs.md). This means that if you set a more-specific config for one model (within its `.sql` or `.py` file), or set a project-level config, those take precedence.
 
 For example, you set a default `base_location_root` for all models in the `finance_db` catalog:
 

@@ -4,11 +4,11 @@ Available in v2 | Local development | Login requiredⓘ
 
 info
 
-This feature is in beta. All dbt VS Code extension users can use compare changes during the 14-day trial. After the trial, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using it.
+This feature is in beta. All dbt VS Code extension users can use compare changes during the 14-day trial. After the trial, [sign in or register](../sign-in-dbt-extension.md) for a dbt platform account to keep using it.
 
 The dbt VS Code extension previews and compares how your local edits affect your data in your dbt platform account — including added/removed rows and join verification — without waiting on CI.
 
-Use compare changes to check impact early and validate changes before you open a PR or run a [CI job](https://docs.getdbt.com/docs/deploy/ci-jobs.md):
+Use compare changes to check impact early and validate changes before you open a PR or run a [CI job](../deploy/ci-jobs.md):
 
 * Validate outputs are correct when refactoring logic, adding or removing columns, or implementing join modifications.
 * It compares your current working copy against your `manifest.json` (for example, your last production state) and shows changes to primary keys, rows, and columns in the **Compare** tab.
@@ -25,15 +25,15 @@ Compare changes in development is available for models only. Support for seeds, 
 
 To use the dbt VS Code extension compare changes feature, you need:
 
-* A Fusion [supported data platform](https://docs.getdbt.com/docs/fusion/supported-features.md?version=2.0#requirements) (BigQuery, Databricks, Redshift, or Snowflake)
-* The [dbt VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md) installed with a self-hosted installation of the [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/get-started-fusion.md)
-* A baseline state to compare your changes against — refer to [How it works](#how-it-works) to choose between [automatic deferral](https://docs.getdbt.com/docs/platform/about-defer.md) or [`manifest.json`](https://docs.getdbt.com/reference/artifacts/manifest-json.md?version=2.0) manual setup.
+* A Fusion [supported data platform](./supported-features.md?version=2.0#requirements) (BigQuery, Databricks, Redshift, or Snowflake)
+* The [dbt VS Code extension](../install-dbt-extension.md) installed with a self-hosted installation of the [dbt Fusion engine](./get-started-fusion.md)
+* A baseline state to compare your changes against — refer to [How it works](#how-it-works) to choose between [automatic deferral](../platform/about-defer.md) or [`manifest.json`](../../reference/artifacts/manifest-json.md?version=2.0) manual setup.
 
 **Sign-in and authentication**
 
 Compare changes is available to all dbt VS Code extension users during the 14-day trial. After the trial:
 
-* **If you use dbt platform deferral (recommended):** [Sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a free dbt platform account. You'll also need a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file in your local `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux) so the extension can fetch the deferred manifest from your environment.
+* **If you use dbt platform deferral (recommended):** [Sign in or register](../sign-in-dbt-extension.md) for a free dbt platform account. You'll also need a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file in your local `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux) so the extension can fetch the deferred manifest from your environment.
 * **If you set the baseline manually with a `manifest.json`:** No dbt platform account is required. Point the extension at a local `manifest.json` and compare changes runs against it.
 
 ## How it works[​](#how-it-works "Direct link to How it works")
@@ -82,7 +82,7 @@ The **Compare** tab displays the changes to the data's primary keys, rows, and c
 
  Are queries run on behalf of the developer?
 
-Yes. All comparison queries in development run using your development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
+Yes. All comparison queries in development run using your development credentials or platform-based user credentials, directly from the dbt VS Code extension. If you authenticated with a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file, these are the credentials configured in your **Account settings**; otherwise it uses the credentials from your active dbt profile. The dbt Fusion engine uses your credentials to execute comparison queries in your warehouse. The results are stored in memory, so that we can keep them populated into the Compare tab for that file until you re-run.
 
  Is this using my warehouse credits?
 
@@ -92,11 +92,11 @@ Yes. Because the comparison runs in your development environment using your dev 
 
 No. When you click **Compare**, the extension builds the model into your development schema automatically, so you don’t need to run `dbt build` yourself. It then compares that development build against the version in your deferred environment (usually staging or production).
 
-If the model hasn’t been built yet in your deferred environment, the comparison can’t run. For more details, see [Defer to production](https://docs.getdbt.com/docs/platform/about-defer.md).
+If the model hasn’t been built yet in your deferred environment, the comparison can’t run. For more details, see [Defer to production](../platform/about-defer.md).
 
  How is this different from Advanced CI compare changes?
 
-The dbt VS Code extension's compare changes feature applies only to your self-hosted dbt development environment. If you're looking to compare changes between your production environment and the pull request's latest commit, check out [Advanced CI compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes).
+The dbt VS Code extension's compare changes feature applies only to your self-hosted dbt development environment. If you're looking to compare changes between your production environment and the pull request's latest commit, check out [Advanced CI compare changes](../deploy/advanced-ci.md#compare-changes).
 
 | Aspect              | In development (compare changes)                                              | In deployment (Advanced CI)                                                                                     |
 | ------------------- | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -104,9 +104,9 @@ The dbt VS Code extension's compare changes feature applies only to your self-ho
 | **Trigger**         | On-demand in editor                                                           | PR open/update and CI job                                                                                       |
 | **Scope**           | Your working copy and local target                                            | Branch head versus prod state in CI                                                                             |
 | **Output** location | Compare panel in VS Code/Cursor. Does not create a PR comment in Git provider | Deployment job compare tab and PR summary comment in Git provider                                               |
-| **Data caching**    | Editor-side                                                                   | dbt platform [caches](https://docs.getdbt.com/docs/deploy/advanced-ci.md#about-the-cached-data) limited samples |
+| **Data caching**    | Editor-side                                                                   | dbt platform [caches](../deploy/advanced-ci.md#about-the-cached-data) limited samples |
 | **Governance**      | Local development credentials                                                 | Production credentials                                                                                          |
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Advanced CI compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#compare-changes)
+* [Advanced CI compare changes](../deploy/advanced-ci.md#compare-changes)

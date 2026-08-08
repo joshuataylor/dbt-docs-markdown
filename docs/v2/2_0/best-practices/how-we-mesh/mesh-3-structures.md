@@ -19,7 +19,7 @@ At a high level, you’ll need to decide:
 
 tip
 
-To help you get started, check out our [Quickstart with Mesh](https://docs.getdbt.com/guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
+To help you get started, check out our [Quickstart with Mesh](../../guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
 
 ## Define your project interfaces by splitting your DAG[​](#define-your-project-interfaces-by-splitting-your-dag "Direct link to Define your project interfaces by splitting your DAG")
 
@@ -81,7 +81,7 @@ When setting up projects that depend on each other, it's important to do so in a
 
 ### Tips and tricks[​](#tips-and-tricks "Direct link to Tips and tricks")
 
-The [implementation](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-4-implementation.md) page provides more in-depth examples of how to split a monolithic project into multiple projects. Here are some tips to get you started when considering the splitting methods listed above on your own projects:
+The [implementation](./mesh-4-implementation.md) page provides more in-depth examples of how to split a monolithic project into multiple projects. Here are some tips to get you started when considering the splitting methods listed above on your own projects:
 
 1. Start by drawing a diagram of your teams doing data work. Map each team to a single dbt project. If you already have an existing monolithic project, and you’re onboarding *net-new teams,* this could be as simple as declaring the existing project as your “hub” and creating new “spoke” sandbox projects for each team.
 2. Split off common foundations when you know that multiple downstream teams will require the same data source. Those could be upstreamed into a centralized hub or split off into a separate foundational project. need some splits to facilitate other splits, for example, source staging models in A that are used in both B and C (lack of project cycles).

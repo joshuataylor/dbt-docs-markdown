@@ -2,7 +2,7 @@
 
 dbt platformⓘ
 
-dbt is available in single-tenant (virtual private) and multi-tenant SaaS configurations. Many multi-tenant accounts use cell-based hosting with account-specific access URLs. For more information, refer to [Multi-cell hosting](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-cell-hosting).
+dbt is available in single-tenant (virtual private) and multi-tenant SaaS configurations. Many multi-tenant accounts use cell-based hosting with account-specific access URLs. For more information, refer to [Multi-cell hosting](./tenancy.md#multi-cell-hosting).
 
 ## Multi-tenant[​](#multi-tenant "Direct link to Multi-tenant")
 
@@ -12,7 +12,7 @@ The Multi Tenant (SaaS) deployment environment refers to the SaaS dbt applicatio
 
 Multi-cell (also called cell-based hosting) means your dbt platform account runs in a cell: a defined slice of our shared SaaS stack with its own capacity, scaling, and status boundaries. Cells segment how we run multi-tenant infrastructure at scale; you still remain on the same multi-tenant product managed by dbt Labs. Cell-based hosting is different from [single tenant](#single-tenant) in that it doesn't provide a dedicated virtual private cloud (VPC) or isolated cloud account on its own.
 
-Generally, your plan and the features available to you stay the same as for other multi-tenant accounts in your managed cloud provider and region (described in [Available features](#available-features)). The main differences are in some setup details, such as the URL you use to sign in, which IP addresses to allow, and which status page to monitor if something goes wrong in your cell. Refer to the [API access URLs](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md#api-access-urls) section for more information.
+Generally, your plan and the features available to you stay the same as for other multi-tenant accounts in your managed cloud provider and region (described in [Available features](#available-features)). The main differences are in some setup details, such as the URL you use to sign in, which IP addresses to allow, and which status page to monitor if something goes wrong in your cell. Refer to the [API access URLs](./access-regions-ip-addresses.md#api-access-urls) section for more information.
 
 ## Single tenant[​](#single-tenant "Direct link to Single tenant")
 
@@ -29,7 +29,7 @@ A few common reasons for choosing a single tenant deployment over the Production
 
 The following table outlines which dbt features are supported on the different SaaS options available today. For more information about feature availability, please [contact us](https://www.getdbt.com/contact/).
 
-Cell-based (multi-cell) accounts are still multi-tenant SaaS. Use the multi-tenant column for your cloud provider (for example, the AWS Multi-tenant column). This table does not list features by cell. For differences in hosting and access URLs compared with single tenant, refer to [Multi-cell hosting](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-cell-hosting).
+Cell-based (multi-cell) accounts are still multi-tenant SaaS. Use the multi-tenant column for your cloud provider (for example, the AWS Multi-tenant column). This table does not list features by cell. For differences in hosting and access URLs compared with single tenant, refer to [Multi-cell hosting](./tenancy.md#multi-cell-hosting).
 
 | Feature                     | AWS Multi-tenant | AWS single tenant | Azure multi-tenant | Azure single tenant | GCP multi-tenant | GCP single tenant |
 | --------------------------- | ---------------- | ----------------- | ------------------ | ------------------- | ---------------- | ----------------- |

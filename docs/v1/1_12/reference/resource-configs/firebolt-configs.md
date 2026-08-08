@@ -2,7 +2,7 @@
 
 ## Setting `quote_columns`[​](#setting-quote_columns "Direct link to setting-quote_columns")
 
-To prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](https://docs.getdbt.com/reference/resource-configs/quote_columns.md) for more information.
+To prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](./quote_columns.md) for more information.
 
 ```yaml
 seeds:
@@ -167,7 +167,7 @@ For example, a join index could be named `my_users__id__join_1633504263` and an 
 
 ## Managing ingestion via external tables[​](#managing-ingestion-via-external-tables "Direct link to Managing ingestion via external tables")
 
-`dbt-firebolt` supports dbt's [external tables feature](https://docs.getdbt.com/reference/resource-properties/external.md), which allows dbt to manage the table ingestion process from S3 into Firebolt. This is an optional feature but can be highly convenient depending on your use case.
+`dbt-firebolt` supports dbt's [external tables feature](../resource-properties/external.md), which allows dbt to manage the table ingestion process from S3 into Firebolt. This is an optional feature but can be highly convenient depending on your use case.
 
 More information on using external tables including properly configuring IAM can be found in the Firebolt [documentation](https://docs.firebolt.io/godocs/Guides/loading-data/working-with-external-tables.html).
 
@@ -243,7 +243,7 @@ $ dbt run-operation stage_external_sources --vars "ext_full_refresh: true"
 
 ## Incremental models[​](#incremental-models "Direct link to Incremental models")
 
-The [`incremental_strategy` configuration](https://docs.getdbt.com/docs/build/incremental-strategy.md) controls how dbt builds incremental models. Firebolt currently supports `append`, `insert_overwrite` and `delete+insert` configuration. You can specify `incremental_strategy` in `dbt_project.yml` or within a model file's `config()` block. The `append` configuration is the default. Specifying this configuration is optional.
+The [`incremental_strategy` configuration](../../docs/build/incremental-strategy.md) controls how dbt builds incremental models. Firebolt currently supports `append`, `insert_overwrite` and `delete+insert` configuration. You can specify `incremental_strategy` in `dbt_project.yml` or within a model file's `config()` block. The `append` configuration is the default. Specifying this configuration is optional.
 
 The `append` strategy performs an `INSERT INTO` statement with all the new data based on the model definition. This strategy doesn't update or delete existing rows, so if you do not filter the data to the most recent records only, it is likely that duplicate records will be inserted.
 

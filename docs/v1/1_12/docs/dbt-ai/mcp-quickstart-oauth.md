@@ -4,9 +4,9 @@ dbt platformⓘ
 
 This quickstart uses the local MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs local dbt.
 
-For self-hosted CLI only (with or without a dbt platform account), see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) or [Run self-hosted dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md).
+For self-hosted CLI only (with or without a dbt platform account), see [Run self-hosted dbt](./mcp-quickstart-cli.md) or [Run self-hosted dbt Wizard](./wizard-quickstart.md).
 
-To configure or disable specific tools, see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+To configure or disable specific tools, see the [Environment variables reference](./mcp-environment-variables.md).
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -19,7 +19,7 @@ To configure or disable specific tools, see the [Environment variables reference
   <!-- -->
 
   * MCP OAuth is available for Starter, Enterprise, and Enterprise+ plans.
-  * An account admin has to enable AI features on your dbt platform account. Refer to [Enable AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for more info.
+  * An account admin has to enable AI features on your dbt platform account. Refer to [Enable AI features](../platform/enable-dbt-ai.md) for more info.
 
 ## Step 1: Choose your auth method and configure[​](#step-1-choose-your-auth-method-and-configure "Direct link to Step 1: Choose your auth method and configure")
 
@@ -30,11 +30,11 @@ To configure or disable specific tools, see the [Environment variables reference
 
 OAuth is the fastest setup for dbt platform accounts, no tokens to copy or manage. A browser window opens to authenticate the first time you connect.
 
-For OAuth *without* a self-hosted installation, use the [remote MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md). If your client does not support OAuth or you need token-based access, use [token-based authentication](https://docs.getdbt.com/docs/dbt-ai/setup-remote-mcp.md#token-based-authentication).
+For OAuth *without* a self-hosted installation, use the [remote MCP server](./mcp-quickstart-remote.md). If your client does not support OAuth or you need token-based access, use [token-based authentication](./setup-remote-mcp.md#token-based-authentication).
 
 Static subdomains required
 
-Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
+Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
 #### Find your Access URL[​](#find-your-access-url "Direct link to Find your Access URL")
 
@@ -48,7 +48,7 @@ Multi-cell and DBT\_HOST format
 * If your Access URL is `abc123.us1.dbt.com`, split it into two variables:
 
   * `DBT_HOST=us1.dbt.com`
-  * `MULTICELL_ACCOUNT_PREFIX=abc123` Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#api-and-sql-tool-settings).
+  * `MULTICELL_ACCOUNT_PREFIX=abc123` Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](./setup-local-mcp.md#api-and-sql-tool-settings).
 
 #### Add the config to your MCP client[​](#add-the-config-to-your-mcp-client "Direct link to Add the config to your MCP client")
 
@@ -153,11 +153,11 @@ Which token should I use?
 * **PAT (Personal Access Token):** Required if you want to use `execute_sql`. Tied to your user account.
 * **Service token:** Works for all other platform toolsets. Better for shared or team setups.
 
-See [Choosing an auth method](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#choose-your-auth-method) for full guidance.
+See [Choosing an auth method](./setup-local-mcp.md#choose-your-auth-method) for full guidance.
 
 ### Find your paths and IDs[​](#find-your-paths-and-ids "Direct link to Find your paths and IDs")
 
-You need the following values. See [Finding your IDs](https://docs.getdbt.com/docs/dbt-ai/mcp-find-ids.md) for step-by-step instructions.
+You need the following values. See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
 | Variable          | Where to find it                                                           |
 | ----------------- | -------------------------------------------------------------------------- |
@@ -196,7 +196,7 @@ If your Access URL is `abc123.us1.dbt.com`, split it into two variables:
 * `DBT_HOST=us1.dbt.com`
 * `MULTICELL_ACCOUNT_PREFIX=abc123`
 
-Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#api-and-sql-tool-settings).
+Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](./setup-local-mcp.md#api-and-sql-tool-settings).
 
 ### Add the config to your MCP client[​](#add-the-config-to-your-mcp-client-1 "Direct link to Add the config to your MCP client")
 
@@ -337,14 +337,14 @@ With the platform setup, your AI assistant can use:
 * Semantic Layer queries
 * Metadata Discovery (model lineage, test results, source freshness)
 * Admin API (trigger jobs, list runs, get artifacts)
-* SQL execution and text-to-SQL (requires a [PAT](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md))
+* SQL execution and text-to-SQL (requires a [PAT](../dbt-apis/user-tokens.md))
 * All dbt commands if you added `DBT_PROJECT_DIR` and `DBT_PATH`
 
-For the complete tool list, see [Available tools](https://docs.getdbt.com/docs/dbt-ai/mcp-available-tools.md).
+For the complete tool list, see [Available tools](./mcp-available-tools.md).
 
 Looking for self-hosted dbt CLI only?
 
-If you only need to run dbt commands locally (with or without a dbt platform account), see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md).
+If you only need to run dbt commands locally (with or without a dbt platform account), see [Run self-hosted dbt](./mcp-quickstart-cli.md).
 
 ## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
 
@@ -402,7 +402,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 3. Restart your client and try connecting again.
 
-If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md).
+If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md).
 
  Server not starting
 
@@ -420,7 +420,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 
 * Missing or incorrect `DBT_PROJECT_DIR` or `DBT_PATH` — verify the paths exist and are absolute paths.
 * Invalid or expired authentication tokens — generate a new token and update your config.
-* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
+* Missing required environment variables for the toolset you're trying to use — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 
  execute\_sql tool not working
 
@@ -432,7 +432,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 
 **Solution:**
 
-1. Generate a [Personal Access Token (PAT)](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) in **Account settings** → **API tokens** → **Personal tokens**.
+1. Generate a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md) in **Account settings** → **API tokens** → **Personal tokens**.
 2. Use the PAT as your `DBT_TOKEN` value.
 3. Also ensure `DBT_DEV_ENV_ID` and `DBT_USER_ID` are set — these are required for `execute_sql`.
 
@@ -446,7 +446,7 @@ If these steps don't resolve the issue, confirm that AI features are enabled on 
 
 **Solution:**
 
-1. Check that all required variables for the toolset are set — see [Tool requirements](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance).
+1. Check that all required variables for the toolset are set — see [Tool requirements](./setup-local-mcp.md#tool-requirements-at-a-glance).
 2. Check whether you have any `DISABLE_*` variables set to `true` that might be turning off the toolset.
 3. If you're using enable mode (`DBT_MCP_ENABLE_*`), make sure the toolset you need is listed.
 4. Set `DBT_MCP_LOG_LEVEL=DEBUG` to see which toolsets are active at startup.
@@ -472,7 +472,7 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
-See [Finding your IDs](https://docs.getdbt.com/docs/dbt-ai/mcp-find-ids.md) for step-by-step instructions.
+See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
  Multi-cell account connection issues
 
@@ -490,10 +490,10 @@ DBT_ACCOUNT_ID=12345  # required for PAT-based auth
 
 You no longer need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. If you have these set from an older configuration, remove them.
 
-For all troubleshooting topics, see [MCP troubleshooting](https://docs.getdbt.com/docs/dbt-ai/mcp-troubleshooting.md).
+For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
-* Run dbt commands locally: see [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md)
-* Configure specific toolsets: see the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md)
-* Understand toolset requirements: see [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md#tool-requirements-at-a-glance)
+* Run dbt commands locally: see [Run self-hosted dbt](./mcp-quickstart-cli.md)
+* Configure specific toolsets: see the [Environment variables reference](./mcp-environment-variables.md)
+* Understand toolset requirements: see [Set up self-hosted MCP](./setup-local-mcp.md#tool-requirements-at-a-glance)

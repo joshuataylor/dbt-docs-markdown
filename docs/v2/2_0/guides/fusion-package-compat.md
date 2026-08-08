@@ -2,7 +2,7 @@
 
 Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Fusion engine
 
@@ -14,12 +14,12 @@ Advanced
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-Thank you for being part of the [dbt's package hub community](https://hub.getdbt.com/) and maintaining [packages](https://docs.getdbt.com/docs/build/packages.md)! Your work makes dbt’s ecosystem possible and helps thousands of teams reuse trusted models and macros to build faster, more reliable analytics.
+Thank you for being part of the [dbt's package hub community](https://hub.getdbt.com/) and maintaining [packages](../docs/build/packages.md)! Your work makes dbt’s ecosystem possible and helps thousands of teams reuse trusted models and macros to build faster, more reliable analytics.
 
-This guide helps you upgrade your dbt packages to be [Fusion](https://docs.getdbt.com/docs/fusion/about-fusion.md)-compatible. A Fusion-compatible package:
+This guide helps you upgrade your dbt packages to be [Fusion](../docs/fusion/about-fusion.md)-compatible. A Fusion-compatible package:
 
-* Supports [dbt Fusion engine](https://docs.getdbt.com/docs/fusion/about-fusion.md) version `2.0.0`
-* Uses the [`require-dbt-version` config](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md) to signal compatibility in the dbt package hub
+* Supports [dbt Fusion engine](../docs/fusion/about-fusion.md) version `2.0.0`
+* Uses the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md) to signal compatibility in the dbt package hub
 * Aligns with the latest JSON schema introduced in dbt Core v1.10.0
 
 In this guide, we'll go over:
@@ -35,13 +35,13 @@ This guide is for any dbt package maintainer, like [`dbt-utils`](https://hub.get
 
 A user stores their package in a `packages.yml` or `dependencies.yml` file. If a package excludes `2.0.0`, Fusion warns today and errors in a future release, matching dbt Core behavior.
 
-This guide assumes you're using the command line and Git to make changes in your package repository. If you're interested in creating a new package from scratch, we recommend using the [dbt package guide](https://docs.getdbt.com/guides/building-packages.md) to get started.
+This guide assumes you're using the command line and Git to make changes in your package repository. If you're interested in creating a new package from scratch, we recommend using the [dbt package guide](./building-packages.md) to get started.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 Before you begin, make sure you meet the following:
 
-* dbt package maintainer — You maintain a package on [dbt's package hub](https://hub.getdbt.com/) or are interested in [creating one](https://docs.getdbt.com/guides/building-packages.md?step=1).
+* dbt package maintainer — You maintain a package on [dbt's package hub](https://hub.getdbt.com/) or are interested in [creating one](./building-packages.md?step=1).
 * `dbt-autofix` installed — [Install `dbt-autofix`](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation) to automatically update the package's YAML files to align with the latest dbt updates and best practices. We recommend [using/installing uv/uvx](https://docs.astral.sh/uv/getting-started/installation/) to run the tool.
   <!-- -->
   * Run the command `uvx dbt-autofix` for the latest version of the tool. For more installation options, see the [official `dbt-autofix` doc](https://github.com/dbt-labs/dbt-autofix?tab=readme-ov-file#installation).
@@ -53,10 +53,10 @@ Before you begin, make sure you meet the following:
 
 This section covers how to upgrade your package to be compatible with Fusion by:
 
-* [Using `dbt-autofix` to automatically update your YAML files](https://docs.getdbt.com/guides/fusion-package-compat.md?step=)
-* [Testing your package with Fusion](https://docs.getdbt.com/guides/fusion-package-compat.md?step=5)
-* [Updating your `require-dbt-version` config](https://docs.getdbt.com/guides/fusion-package-compat.md?step=6)
-* [Publishing a new release of your package](https://docs.getdbt.com/guides/fusion-package-compat.md?step=7)
+* [Using `dbt-autofix` to automatically update your YAML files](./fusion-package-compat.md?step=)
+* [Testing your package with Fusion](./fusion-package-compat.md?step=5)
+* [Updating your `require-dbt-version` config](./fusion-package-compat.md?step=6)
+* [Publishing a new release of your package](./fusion-package-compat.md?step=7)
 
 If you're ready to get started, let's begin!
 
@@ -78,7 +78,7 @@ If you're ready to get started, let's begin!
 
 ## Test package with Fusion[​](#test-package-with-fusion "Direct link to Test package with Fusion")
 
-Now that you've run `dbt-autofix`, let's test your package with Fusion to ensure it's compatible before [updating](https://docs.getdbt.com/guides/fusion-package-compat?step=6) your `require-dbt-version` config. Refer to the [Fusion limitations documentation](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations) for more information on what to look out for. You can test your package two ways:
+Now that you've run `dbt-autofix`, let's test your package with Fusion to ensure it's compatible before [updating](https://docs.getdbt.com/guides/fusion-package-compat?step=6) your `require-dbt-version` config. Refer to the [Fusion limitations documentation](../docs/fusion/supported-features.md#limitations) for more information on what to look out for. You can test your package two ways:
 
 * [Running your integration tests with Fusion](#running-your-integration-tests-with-fusion) — Use if your package has [integration tests](https://docs.getdbt.com/guides/building-packages?step=4) using an `integration_tests/` folder.
 * [Manually validating your package](#manually-validating-your-package) — Use if your package doesn't have [integration tests](https://docs.getdbt.com/guides/building-packages?step=4). Consider creating one to help validate your package.
@@ -101,7 +101,7 @@ If your package doesn't have integration tests, follow these steps:
 
 ## Update `require-dbt-version`[​](#update-require-dbt-version "Direct link to update-require-dbt-version")
 
-Only update the [`require-dbt-version` config](https://docs.getdbt.com/reference/project-configs/require-dbt-version.md) after testing and confirming that your package works with Fusion.
+Only update the [`require-dbt-version` config](../reference/project-configs/require-dbt-version.md) after testing and confirming that your package works with Fusion.
 
 1. Update the `require-dbt-version` in your `dbt_project.yml` to include `2.0.0`. We recommend using a range to ensure stability across releases:
 

@@ -2,42 +2,42 @@
 
 dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
-With Catalog, you can view your project's [resources](https://docs.getdbt.com/docs/build/projects.md) (such as models, tests, and metrics), their lineage, and [model consumption](https://docs.getdbt.com/docs/explore/view-downstream-exposures.md) to gain a better understanding of its latest production state.
+With Catalog, you can view your project's [resources](../build/projects.md) (such as models, tests, and metrics), their lineage, and [model consumption](./view-downstream-exposures.md) to gain a better understanding of its latest production state.
 
-Use Catalog to navigate and manage your projects within dbt to help you and other data developers, analysts, and consumers discover and leverage your dbt resources. Catalog integrates with the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), [dbt Insights](https://docs.getdbt.com/docs/explore/dbt-insights.md), [Orchestrator](https://docs.getdbt.com/docs/deploy/deployments.md), and [Canvas](https://docs.getdbt.com/docs/platform/canvas.md) to help you develop or view your dbt resources.
+Use Catalog to navigate and manage your projects within dbt to help you and other data developers, analysts, and consumers discover and leverage your dbt resources. Catalog integrates with the [Studio IDE](../platform/studio-ide/develop-in-studio.md), [dbt Insights](./dbt-insights.md), [Orchestrator](../deploy/deployments.md), and [Canvas](../platform/canvas.md) to help you develop or view your dbt resources.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You have a dbt account on the [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
-* You have set up a [production](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment) or [staging](https://docs.getdbt.com/docs/deploy/deploy-environments.md#create-a-staging-environment) deployment environment for each project you want to explore.
-* You have at least one successful job run in the deployment environment. Note that [CI jobs](https://docs.getdbt.com/docs/deploy/ci-jobs.md) do not update Catalog.
+* You have set up a [production](../deploy/deploy-environments.md#set-as-production-environment) or [staging](../deploy/deploy-environments.md#create-a-staging-environment) deployment environment for each project you want to explore.
+* You have at least one successful job run in the deployment environment. Note that [CI jobs](../deploy/ci-jobs.md) do not update Catalog.
 * You are on the Catalog page. To do this, select **Catalog** from the top-level navigation in dbt.
 
 <!-- -->
 
 ## Generate metadata[​](#generate-metadata "Direct link to Generate metadata")
 
-Catalog uses the metadata provided by the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) to display the details about [the state of your dbt project](https://docs.getdbt.com/docs/dbt-apis/project-state.md). The metadata that's available depends on the [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) you've designated as *production* or *staging* in your dbt project.
+Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display the details about [the state of your dbt project](../dbt-apis/project-state.md). The metadata that's available depends on the [deployment environment](../deploy/deploy-environments.md) you've designated as *production* or *staging* in your dbt project.
 
-Catalog also allows you to ingest metadata from your data warehouse, giving you visibility into external resources in Catalog. For information on supported warehouses, refer to [External metadata ingestion](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md#prerequisites).
+Catalog also allows you to ingest metadata from your data warehouse, giving you visibility into external resources in Catalog. For information on supported warehouses, refer to [External metadata ingestion](./external-metadata-ingestion.md#prerequisites).
 
 ## dbt metadata[​](#dbt-metadata "Direct link to dbt metadata")
 
-If you're using a [hybrid project setup](https://docs.getdbt.com/docs/deploy/hybrid-setup.md) and uploading artifacts from dbt Core, make sure to follow the [setup instructions](https://docs.getdbt.com/docs/deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
+If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploading artifacts from dbt Core, make sure to follow the [setup instructions](../deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
 
 * To ensure all metadata is available in Catalog, run `dbt build` and `dbt docs generate` as part of your job in your production or staging environment. Running these two commands ensures all relevant metadata (like lineage, test results, documentation, and more) is available in Catalog.
 * Catalog automatically retrieves the metadata updates after each job run in the production or staging deployment environment so it always has the latest results for your project. This includes deploy and merge jobs.
   <!-- -->
   * Note that CI jobs don't update Catalog. This is because they don't reflect the production state and don't provide the necessary metadata updates.
 * To view a resource and its metadata, you must define the resource in your project and run a job in the production or staging environment.
-* The resulting metadata depends on the [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) executed by the jobs.
+* The resulting metadata depends on the [commands](../deploy/job-commands.md) executed by the jobs.
 
 ### When dbt creates model metadata[​](#when-dbt-creates-model-metadata "Direct link to When dbt creates model metadata")
 
 dbt populates a model's metadata in Catalog when both of the following conditions are met:
 
 * The model is defined in your dbt project (it exists in the manifest).
-* The model appears in the `run_results` of a [`dbt build`](https://docs.getdbt.com/reference/commands/build.md), [`dbt run`](https://docs.getdbt.com/reference/commands/run.md), or [`dbt clone`](https://docs.getdbt.com/reference/commands/clone.md) command, regardless of the run's success or failure status. Note that `dbt docs generate` alone does not create model entries in Catalog. It provides supplementary metadata like column details and descriptions for models that already exist.
+* The model appears in the `run_results` of a [`dbt build`](../../reference/commands/build.md), [`dbt run`](../../reference/commands/run.md), or [`dbt clone`](../../reference/commands/clone.md) command, regardless of the run's success or failure status. Note that `dbt docs generate` alone does not create model entries in Catalog. It provides supplementary metadata like column details and descriptions for models that already exist.
 
 ### When dbt removes model metadata[​](#when-dbt-removes-model-metadata "Direct link to When dbt removes model metadata")
 
@@ -48,14 +48,14 @@ dbt removes a model's metadata from Catalog in these two cases:
 
 | To view in Catalog                                        | You must successfully run                                                                                                                                                                                                                                                                                |
 | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| All metadata                                              | [dbt build](https://docs.getdbt.com/reference/commands/build.md), [dbt docs generate](https://docs.getdbt.com/reference/commands/cmd-docs.md), and [dbt source freshness](https://docs.getdbt.com/reference/commands/source.md#dbt-source-freshness) together as part of the same job in the environment |
-| Model lineage, details, or results                        | [dbt run](https://docs.getdbt.com/reference/commands/run.md) or [dbt build](https://docs.getdbt.com/reference/commands/build.md) on a given model within a job in the environment                                                                                                                        |
-| Columns and statistics for models, sources, and snapshots | [dbt docs generate](https://docs.getdbt.com/reference/commands/cmd-docs.md) within [a job](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md) in the environment                                                                                                                          |
-| Data test results                                         | [dbt test](https://docs.getdbt.com/reference/commands/test.md) or [dbt build](https://docs.getdbt.com/reference/commands/build.md) within a job in the environment                                                                                                                                       |
-| Unit test results                                         | [dbt test](https://docs.getdbt.com/reference/commands/test.md) or [dbt build](https://docs.getdbt.com/reference/commands/build.md) within a job in the environment. Unit tests are typically run in development or CI environments, so their results rarely appear in production Catalog.                |
-| Source freshness results                                  | [dbt source freshness](https://docs.getdbt.com/reference/commands/source.md#dbt-source-freshness) within a job in the environment                                                                                                                                                                        |
-| Snapshot details                                          | [dbt snapshot](https://docs.getdbt.com/reference/commands/snapshot.md) or [dbt build](https://docs.getdbt.com/reference/commands/build.md) within a job in the environment                                                                                                                               |
-| Seed details                                              | [dbt seed](https://docs.getdbt.com/reference/commands/seed.md) or [dbt build](https://docs.getdbt.com/reference/commands/build.md) within a job in the environment                                                                                                                                       |
+| All metadata                                              | [dbt build](../../reference/commands/build.md), [dbt docs generate](../../reference/commands/cmd-docs.md), and [dbt source freshness](../../reference/commands/source.md#dbt-source-freshness) together as part of the same job in the environment |
+| Model lineage, details, or results                        | [dbt run](../../reference/commands/run.md) or [dbt build](../../reference/commands/build.md) on a given model within a job in the environment                                                                                                                        |
+| Columns and statistics for models, sources, and snapshots | [dbt docs generate](../../reference/commands/cmd-docs.md) within [a job](./build-and-view-your-docs.md) in the environment                                                                                                                          |
+| Data test results                                         | [dbt test](../../reference/commands/test.md) or [dbt build](../../reference/commands/build.md) within a job in the environment                                                                                                                                       |
+| Unit test results                                         | [dbt test](../../reference/commands/test.md) or [dbt build](../../reference/commands/build.md) within a job in the environment. Unit tests are typically run in development or CI environments, so their results rarely appear in production Catalog.                |
+| Source freshness results                                  | [dbt source freshness](../../reference/commands/source.md#dbt-source-freshness) within a job in the environment                                                                                                                                                                        |
+| Snapshot details                                          | [dbt snapshot](../../reference/commands/snapshot.md) or [dbt build](../../reference/commands/build.md) within a job in the environment                                                                                                                               |
+| Seed details                                              | [dbt seed](../../reference/commands/seed.md) or [dbt build](../../reference/commands/build.md) within a job in the environment                                                                                                                                       |
 
 Search table...
 
@@ -65,33 +65,33 @@ Search table...
 
 tip
 
-If your organization works in both dbt Core and Cloud, you can unify these workflows by automatically uploading dbt Core artifacts into dbt Cloud and viewing them in Catalog for a more connected dbt experience. To learn more, visit [hybrid projects](https://docs.getdbt.com/docs/deploy/hybrid-projects.md).
+If your organization works in both dbt Core and Cloud, you can unify these workflows by automatically uploading dbt Core artifacts into dbt Cloud and viewing them in Catalog for a more connected dbt experience. To learn more, visit [hybrid projects](../deploy/hybrid-projects.md).
 
 ### External metadata ingestion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#external-metadata-ingestion- "Direct link to external-metadata-ingestion-")
 
-Connect directly to your data warehouse with [external metadata ingestion](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md), giving you visibility into tables, views, and other resources that aren't defined in dbt with Catalog.
+Connect directly to your data warehouse with [external metadata ingestion](./external-metadata-ingestion.md), giving you visibility into tables, views, and other resources that aren't defined in dbt with Catalog.
 
-We create dbt metadata and pull external metadata. Catalog uses the metadata provided by the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) to display details about the state of your project. The available metadata depends on which [deployment environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) you’ve designated as production or staging in your dbt project.
+We create dbt metadata and pull external metadata. Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display details about the state of your project. The available metadata depends on which [deployment environment](../deploy/deploy-environments.md) you’ve designated as production or staging in your dbt project.
 
 ## Catalog overview[​](#catalog-overview "Direct link to Catalog overview")
 
-[Global navigation](https://docs.getdbt.com/docs/explore/global-navigation.md) [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+[Global navigation](./global-navigation.md) [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-Catalog introduces the ability to widen your search by including dbt resources (models, seeds, snapshots, sources, exposures, and more) across your entire account. This broadens the results returned and gives you greater insight into all the assets across your dbt projects. Learn more in [Global navigation](https://docs.getdbt.com/docs/explore/global-navigation.md) or in our [video overview](https://www.loom.com/share/ae93b3d241cd439fbe5f98f5e6872113?).
+Catalog introduces the ability to widen your search by including dbt resources (models, seeds, snapshots, sources, exposures, and more) across your entire account. This broadens the results returned and gives you greater insight into all the assets across your dbt projects. Learn more in [Global navigation](./global-navigation.md) or in our [video overview](https://www.loom.com/share/ae93b3d241cd439fbe5f98f5e6872113?).
 
 Navigate the Catalog overview page to access your project's resources and metadata. The page includes the following sections:
 
 * **Search bar** — [Search](#search-resources) for resources in your project by keyword. You can also use filters to refine your search results.
-* **Sidebar** — Use the left sidebar to browse your project's [resources, file tree, and database](#browse-with-the-sidebar) in the lower section of the sidebar. You can also browse model [performance](https://docs.getdbt.com/docs/explore/model-performance.md) and [project recommendations](https://docs.getdbt.com/docs/explore/project-recommendations.md) depending on your plan. Refer to [Availability by plan](#availability-by-plan) for more info.
+* **Sidebar** — Use the left sidebar to browse your project's [resources, file tree, and database](#browse-with-the-sidebar) in the lower section of the sidebar. You can also browse model [performance](./model-performance.md) and [project recommendations](./project-recommendations.md) depending on your plan. Refer to [Availability by plan](#availability-by-plan) for more info.
   <!-- -->
   * Find your project recommendations within your project's landing page.\*
 * **Lineage graph** — Explore your project's or account's [lineage graph](#project-lineage) to visualize the relationships between resources.
 * **ERD view** — Explore structural relationships between models to understand potential join paths and connecting keys for analysis. Alpha
 * **Latest updates** — View the latest changes or issues related to your project's resources, including the most recent job runs, changed properties, lineage, and issues.
-* **Marts and public models** — View the [marts](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview) and [public models](https://docs.getdbt.com/docs/mesh/govern/model-access.md#access-modifiers) in your project. You can also navigate to all public models in your account through this view.
-* **Model query history** — Use [model query history](https://docs.getdbt.com/docs/explore/model-query-history.md) to track consumption queries on your models for deeper insights.
-* **Visualize downstream exposures** — [Set up](https://docs.getdbt.com/docs/platform-integrations/downstream-exposures-tableau.md) and [visualize downstream exposures](https://docs.getdbt.com/docs/explore/view-downstream-exposures.md) to automatically expose relevant data models from Tableau to enhance visibility.
-* **Data health signals** — View the [data-health-signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) for each resource to understand its health and performance.
+* **Marts and public models** — View the [marts](../../best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview) and [public models](../mesh/govern/model-access.md#access-modifiers) in your project. You can also navigate to all public models in your account through this view.
+* **Model query history** — Use [model query history](./model-query-history.md) to track consumption queries on your models for deeper insights.
+* **Visualize downstream exposures** — [Set up](../platform-integrations/downstream-exposures-tableau.md) and [visualize downstream exposures](./view-downstream-exposures.md) to automatically expose relevant data models from Tableau to enhance visibility.
+* **Data health signals** — View the [data-health-signals](./data-health-signals.md) for each resource to understand its health and performance.
 
 ### Catalog permissions[​](#catalog-permissions "Direct link to Catalog permissions")
 
@@ -99,7 +99,7 @@ When using global navigation and searching across your projects, the following p
 
 * Your project access permissions determine which dbt projects appear in the left-hand menu of the global navigation.
 * In Catalog searches, we use soft access controls, you'll see all matching resources in search results, with clear indicators for items you don't have access to.
-* For external metadata, the global platform credential controls which resources metadata users can discover. See [External metadata ingestion](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md) for more details.
+* For external metadata, the global platform credential controls which resources metadata users can discover. See [External metadata ingestion](./external-metadata-ingestion.md) for more details.
 
 ### Availability by plan[​](#availability-by-plan "Direct link to Availability by plan")
 
@@ -108,17 +108,17 @@ Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However,
 | Feature                                                                                            | Starter | Enterprise | Enterprise+ |
 | -------------------------------------------------------------------------------------------------- | ------- | ---------- | ----------- |
 | Core lineage & resource browsing                                                                   | ✅      | ✅         | ✅          |
-| [Global navigation](https://docs.getdbt.com/docs/explore/global-navigation.md)                     | ✅      | ✅         | ✅          |
-| [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md)                 | ✅      | ✅         | ✅          |
+| [Global navigation](./global-navigation.md)                     | ✅      | ✅         | ✅          |
+| [Data health signals](./data-health-signals.md)                 | ✅      | ✅         | ✅          |
 | [ERD view](#explore-your-projects-erd-view) Alpha                                                  | ✅      | ✅         | ✅          |
-| [Model performance](https://docs.getdbt.com/docs/explore/model-performance.md)                     | ❌      | ✅         | ✅          |
-| [Project recommendations](https://docs.getdbt.com/docs/explore/project-recommendations.md)         | ❌      | ✅         | ✅          |
-| [Column-level lineage](https://docs.getdbt.com/docs/explore/column-level-lineage.md)               | ❌      | ✅         | ✅          |
-| [Multi-project lineage](https://docs.getdbt.com/docs/explore/explore-multiple-projects.md)         | ❌      | ✅         | ✅          |
-| [Model query history](https://docs.getdbt.com/docs/explore/model-query-history.md)                 | ❌      | ✅         | ✅          |
-| [Downstream exposures](https://docs.getdbt.com/docs/explore/view-downstream-exposures.md)          | ❌      | ✅         | ✅          |
-| [Data health tile](https://docs.getdbt.com/docs/explore/data-tile.md)                              | ❌      | ✅         | ✅          |
-| [External metadata ingestion](https://docs.getdbt.com/docs/explore/external-metadata-ingestion.md) | ❌      | ✅         | ✅          |
+| [Model performance](./model-performance.md)                     | ❌      | ✅         | ✅          |
+| [Project recommendations](./project-recommendations.md)         | ❌      | ✅         | ✅          |
+| [Column-level lineage](./column-level-lineage.md)               | ❌      | ✅         | ✅          |
+| [Multi-project lineage](./explore-multiple-projects.md)         | ❌      | ✅         | ✅          |
+| [Model query history](./model-query-history.md)                 | ❌      | ✅         | ✅          |
+| [Downstream exposures](./view-downstream-exposures.md)          | ❌      | ✅         | ✅          |
+| [Data health tile](./data-tile.md)                              | ❌      | ✅         | ✅          |
+| [External metadata ingestion](./external-metadata-ingestion.md) | ❌      | ✅         | ✅          |
 
 Search table...
 
@@ -140,7 +140,7 @@ If you don't see the project lineage graph immediately, click **Render Lineage**
 
 The nodes in the lineage graph represent the project's resources and the edges represent the relationships between the nodes. Nodes are color-coded and include iconography according to their resource type.
 
-By default, Catalog shows the project's [applied state](https://docs.getdbt.com/docs/dbt-apis/project-state.md#definition-logical-vs-applied-state-of-dbt-nodes) lineage. That is, it shows models that have been successfully built and are available to query, not just the models defined in the project.
+By default, Catalog shows the project's [applied state](../dbt-apis/project-state.md#definition-logical-vs-applied-state-of-dbt-nodes) lineage. That is, it shows models that have been successfully built and are available to query, not just the models defined in the project.
 
 To explore the lineage graphs of tests and macros, view [their resource details pages](#view-resource-details). By default, Catalog excludes these resources from the full lineage graph unless a search query returns them as results.
 
@@ -162,20 +162,20 @@ To explore the lineage graphs of tests and macros, view [their resource details 
 * Select a resource to highlight its relationship with other resources in your project. A panel opens on the graph's right-hand side that displays a high-level summary of the resource's details. The side panel includes a **General** tab for information like description, materialized type, and other details. In the side panel's upper right corner:
 
   * Click the View Resource icon to [view the resource details](#view-resource-details).
-  * Click the [Open in IDE](#open-in-ide) icon to examine the resource using the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+  * Click the [Open in IDE](#open-in-ide) icon to examine the resource using the [Studio IDE](../platform/studio-ide/develop-in-studio.md).
   * Click the Copy Link to Page icon to copy the page's link to your clipboard.
 
-* Use [selectors](https://docs.getdbt.com/reference/node-selection/methods.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. All selectors are available for use, except those requiring a state comparison (result, source status, and state). You can also use the `--exclude` and the `--select` flag (which is optional). Examples:
+* Use [selectors](../../reference/node-selection/methods.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. All selectors are available for use, except those requiring a state comparison (result, source status, and state). You can also use the `--exclude` and the `--select` flag (which is optional). Examples:
 
   * `resource_type:model [RESOURCE_NAME]` — Returns all models matching the name search
   * `resource_type:metric,tag:nightly` — Returns metrics with the tag `nightly`
 
-* Use [graph operators](https://docs.getdbt.com/reference/node-selection/graph-operators.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. Examples:
+* Use [graph operators](../../reference/node-selection/graph-operators.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. Examples:
 
   * `+orders` — Returns all the upstream nodes of `orders`
   * `+dim_customers,resource_type:source` — Returns all sources that are upstream of `dim_customers`
 
-* Use [set operators](https://docs.getdbt.com/reference/node-selection/set-operators.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. For example:
+* Use [set operators](../../reference/node-selection/set-operators.md) (in the search bar) to select specific resources or a subset of the DAG. This can help narrow the focus on the resources that interest you. For example:
 
   * `+snowplow_sessions +fct_orders` — Use space-delineated arguments for a union operation. Returns resources that are upstream nodes of either `snowplow_sessions` or `fct_orders`.
 
@@ -290,13 +290,13 @@ Lenses are helpful to analyze a subset of the DAG if you're zoomed in, or to fin
 
 A resource in your project is characterized by resource type, materialization type, or model layer, as well as its latest run or latest test status. Lenses are available for the following metadata:
 
-* **Resource type**: Organizes resources by resource type, such as models, tests, seeds, saved query, and [more](https://docs.getdbt.com/docs/build/projects.md). Resource type uses the `resource_type` selector.
+* **Resource type**: Organizes resources by resource type, such as models, tests, seeds, saved query, and [more](../build/projects.md). Resource type uses the `resource_type` selector.
 
 * **Materialization type**: Identifies the strategy for building the dbt models in your data platform.
 
 * **Latest status**: The status from the latest execution of the resource in the current environment. For example, diagnosing a failed DAG region.
 
-* **Model layer**: The modeling layer that the model belongs to according to [best practices guide](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview). For example, discovering marts models to analyze.
+* **Model layer**: The modeling layer that the model belongs to according to [best practices guide](../../best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview). For example, discovering marts models to analyze.
 
   <!-- -->
 
@@ -349,56 +349,56 @@ You can locate resources in your project by performing a keyword search in the s
 
 The **Filters** side panel becomes available after you perform a keyword search. Use this panel to further refine the results from your keyword search. By default, Catalog searches across all resources in the project. You can filter on:
 
-* [Resource type](https://docs.getdbt.com/docs/build/projects.md) (like models, sources, and so on)
-* [Model access](https://docs.getdbt.com/docs/mesh/govern/model-access.md) (like public, private)
-* [Model layer](https://docs.getdbt.com/best-practices/how-we-structure/1-guide-overview.md) (like marts, staging)
-* [Model materialization](https://docs.getdbt.com/docs/build/materializations.md) (like view, table)
-* [Tags](https://docs.getdbt.com/reference/resource-configs/tags.md) (supports multi-select)
+* [Resource type](../build/projects.md) (like models, sources, and so on)
+* [Model access](../mesh/govern/model-access.md) (like public, private)
+* [Model layer](../../best-practices/how-we-structure/1-guide-overview.md) (like marts, staging)
+* [Model materialization](../build/materializations.md) (like view, table)
+* [Tags](../../reference/resource-configs/tags.md) (supports multi-select)
 
 Under the **Models** option, you can filter on model properties (access or materialization type). Also available are **Advanced** options, where you can limit the search results to column name, model code, and more.
 
  Global navigation
 
-Catalog builds on the functionality of the old navigation and introduces exciting new capabilities to enhance your experience. For more information, refer to [Global navigation](https://docs.getdbt.com/docs/explore/global-navigation.md).
+Catalog builds on the functionality of the old navigation and introduces exciting new capabilities to enhance your experience. For more information, refer to [Global navigation](./global-navigation.md).
 
 ### Example of keyword search[​](#example-of-keyword-search "Direct link to Example of keyword search")
 
-Example of results from searching on the keyword `customers` and applying the filters models, description, and code. [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) are visible to the right of the model name in the search results.
+Example of results from searching on the keyword `customers` and applying the filters models, description, and code. [Data health signals](./data-health-signals.md) are visible to the right of the model name in the search results.
 
 ## Browse with the sidebar[​](#browse-with-the-sidebar "Direct link to Browse with the sidebar")
 
 From the sidebar, you can browse your project's resources, its file tree, and the database.
 
-* **Resources** tab — All resources in the project organized by type. Select any resource type in the list and all those resources in the project will display as a table in the main section of the page. For a description on the different resource types (like models, metrics, and so on), refer to [About dbt projects](https://docs.getdbt.com/docs/build/projects.md).
+* **Resources** tab — All resources in the project organized by type. Select any resource type in the list and all those resources in the project will display as a table in the main section of the page. For a description on the different resource types (like models, metrics, and so on), refer to [About dbt projects](../build/projects.md).
   <!-- -->
-  * [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) are visible to the right of the resource name under the **Health** column.
+  * [Data health signals](./data-health-signals.md) are visible to the right of the resource name under the **Health** column.
 * **File Tree** tab — All resources in the project organized by the file in which they are defined. This mirrors the file tree in your dbt project repository.
-* **Database** tab — All resources in the project organized by the database and schema in which they are built. This mirrors your data platform's structure that represents the [applied state](https://docs.getdbt.com/docs/dbt-apis/project-state.md) of your project.
+* **Database** tab — All resources in the project organized by the database and schema in which they are built. This mirrors your data platform's structure that represents the [applied state](../dbt-apis/project-state.md) of your project.
 
 ## Integrated tool access[​](#integrated-tool-access "Direct link to Integrated tool access")
 
-Users with a [developer license](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#license-based-access-control) or an analyst seat\* can open a resource directly from the Catalog in the Studio IDE to view its model files, in Insights to query it, or in Canvas for visual editing.
+Users with a [developer license](../platform/manage-access/about-user-access.md#license-based-access-control) or an analyst seat\* can open a resource directly from the Catalog in the Studio IDE to view its model files, in Insights to query it, or in Canvas for visual editing.
 
-\* The [Analyst license type](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
+\* The [Analyst license type](../platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 ## View model versions[​](#view-model-versions "Direct link to View model versions")
 
-If models in the project are versioned, you can see which [version of the model](https://docs.getdbt.com/docs/mesh/govern/model-versions.md) is being applied — `prerelease`, `latest`, and `old` — in the title of the model's details page and in the model list from the sidebar.
+If models in the project are versioned, you can see which [version of the model](../mesh/govern/model-versions.md) is being applied — `prerelease`, `latest`, and `old` — in the title of the model's details page and in the model list from the sidebar.
 
 ## View resource details[​](#view-resource-details "Direct link to View resource details")
 
 You can view the definition and latest run results of any resource in your project. To find a resource and view its details, you can interact with the lineage graph, use search, or browse the Catalog.
 
-The details (metadata) available to you depends on the resource's type, its definition, and the [commands](https://docs.getdbt.com/docs/deploy/job-commands.md) that run within jobs in the production environment.
+The details (metadata) available to you depends on the resource's type, its definition, and the [commands](../deploy/job-commands.md) that run within jobs in the production environment.
 
 In the upper right corner of the resource details page, you can:
 
-* Click the [Open in Studio IDE](#open-in-ide) icon to examine the resource using the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+* Click the [Open in Studio IDE](#open-in-ide) icon to examine the resource using the [Studio IDE](../platform/studio-ide/develop-in-studio.md).
 * Click the Share icon to copy the page's link to your clipboard.
 
  What details are available for a model?
 
-* **Data health signals** — [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a model is Healthy, Caution, Degraded, or Unknown. Hover over an icon to view detailed information about the model's health.
+* **Data health signals** — [Data health signals](./data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a model is Healthy, Caution, Degraded, or Unknown. Hover over an icon to view detailed information about the model's health.
 
 * **Status bar** (below the page title) — Information on the last time the model ran, whether the run was successful, how the data is materialized, number of rows, and the size of the model.
 
@@ -407,9 +407,9 @@ In the upper right corner of the resource details page, you can:
   <!-- -->
 
   * **Lineage** graph — The model's lineage graph that you can interact with. The graph includes one upstream node and one downstream node from the model. Click the Expand icon in the graph's upper right corner to view the model in full lineage graph mode.
-  * **Description** section — A [description of the model](https://docs.getdbt.com/docs/build/documentation.md#adding-descriptions-to-your-project).
+  * **Description** section — A [description of the model](../build/documentation.md#adding-descriptions-to-your-project).
   * **Recent** section — Information on the last time the model ran, how long it ran for, whether the run was successful, the job ID, and the run ID.
-  * **Tests** section — [Data tests](https://docs.getdbt.com/docs/build/data-tests.md) for the model, including a status indicator for the latest test status. A
+  * **Tests** section — [Data tests](../build/data-tests.md) for the model, including a status indicator for the latest test status. A
     <!-- -->
     ✅
     <!-- -->
@@ -429,7 +429,7 @@ In the upper right corner of the resource details page, you can:
 
 * **Status bar** (below the page title) — Information on the last time the exposure was updated.
 
-* **Data health signals** — [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a resource is Healthy, Caution, or Degraded. Hover over an icon to view detailed information about the exposure's health.
+* **Data health signals** — [Data health signals](./data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a resource is Healthy, Caution, or Degraded. Hover over an icon to view detailed information about the exposure's health.
 
 * **General** tab includes:
 
@@ -467,7 +467,7 @@ Example of the Tests view:
 
 * **Status bar** (below the page title) — Information on the last time the source was updated and the number of tables the source uses.
 
-* **Data health signals** — [Data health signals](https://docs.getdbt.com/docs/explore/data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a resource is Healthy, Caution, or Degraded. Hover over an icon to view detailed information about the source's health.
+* **Data health signals** — [Data health signals](./data-health-signals.md) offer a quick, at-a-glance view of data health. These icons indicate whether a resource is Healthy, Caution, or Degraded. Hover over an icon to view detailed information about the source's health.
 
 * **General** tab includes:
 
@@ -501,12 +501,12 @@ On the **General** tab, you can review the description, latest status, and linea
 
 ## Staging environment[​](#staging-environment "Direct link to Staging environment")
 
-Catalog supports views for [staging deployment environments](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment), in addition to the production environment. This gives you a unique view into your pre-production data workflows, with the same tools available in production, while providing an extra layer of scrutiny.
+Catalog supports views for [staging deployment environments](../deploy/deploy-environments.md#staging-environment), in addition to the production environment. This gives you a unique view into your pre-production data workflows, with the same tools available in production, while providing an extra layer of scrutiny.
 
-You can explore the metadata from your production or staging environment to inform your data development lifecycle. Just [set a single environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) per dbt project as "production" or "staging," and ensure the proper metadata has been generated then you'll be able to view it in Catalog. Refer to [Generating metadata](https://docs.getdbt.com/docs/explore/explore-projects.md#generate-metadata) for more details.
+You can explore the metadata from your production or staging environment to inform your data development lifecycle. Just [set a single environment](../deploy/deploy-environments.md) per dbt project as "production" or "staging," and ensure the proper metadata has been generated then you'll be able to view it in Catalog. Refer to [Generating metadata](./explore-projects.md#generate-metadata) for more details.
 
 ## Related content[​](#related-content "Direct link to Related content")
 
-* [Enterprise permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md)
-* [About model governance](https://docs.getdbt.com/docs/mesh/govern/about-model-governance.md)
+* [Enterprise permissions](../platform/manage-access/enterprise-permissions.md)
+* [About model governance](../mesh/govern/about-model-governance.md)
 * Blog on [What is data mesh?](https://www.getdbt.com/blog/what-is-data-mesh-the-definition-and-importance-of-data-mesh)

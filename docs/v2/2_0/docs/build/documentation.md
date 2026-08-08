@@ -4,7 +4,7 @@ Good documentation for your dbt models will help downstream consumers discover a
 
 Tip
 
-Use [dbt Wizard](https://docs.getdbt.com/docs/platform/wizard-overview.md) to generate
+Use [dbt Wizard](../platform/wizard-overview.md) to generate
 
 <!-- -->
 
@@ -16,14 +16,14 @@ in the dbt platform or locally in the CLI.
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [Declaring properties](https://docs.getdbt.com/reference/configs-and-properties.md)
-* [`dbt docs` command](https://docs.getdbt.com/reference/commands/cmd-docs.md)
-* [`doc` Jinja function](https://docs.getdbt.com/reference/dbt-jinja-functions/doc.md)
-* If you're new to dbt, we recommend that you check out our [quickstart guide](https://docs.getdbt.com/guides.md) to build your first dbt project, complete with documentation.
+* [Declaring properties](../../reference/configs-and-properties.md)
+* [`dbt docs` command](../../reference/commands/cmd-docs.md)
+* [`doc` Jinja function](../../reference/dbt-jinja-functions/doc.md)
+* If you're new to dbt, we recommend that you check out our [quickstart guide](../../guides.md) to build your first dbt project, complete with documentation.
 
 ## Assumed knowledge[​](#assumed-knowledge "Direct link to Assumed knowledge")
 
-* [Data tests](https://docs.getdbt.com/docs/build/data-tests.md)
+* [Data tests](./data-tests.md)
 
 ## Overview[​](#overview "Direct link to Overview")
 
@@ -37,7 +37,7 @@ The following sections describe how to [add descriptions](#adding-descriptions-t
 
 ## Adding descriptions to your project[​](#adding-descriptions-to-your-project "Direct link to Adding descriptions to your project")
 
-Before generating documentation, add [descriptions](https://docs.getdbt.com/reference/resource-properties/description.md) to your project resources. Add the `description:` key to the same YAML files where you declare [data tests](https://docs.getdbt.com/docs/build/data-tests.md). For example:
+Before generating documentation, add [descriptions](../../reference/resource-properties/description.md) to your project resources. Add the `description:` key to the same YAML files where you declare [data tests](./data-tests.md). For example:
 
 models/\<filename>.yml
 
@@ -67,8 +67,8 @@ Are there any example dbt documentation sites?
 
 Yes!
 
-* **Quickstart Tutorial:** You can build your own example dbt project in the [quickstart guide](https://docs.getdbt.com/docs/get-started-dbt.md)
-* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store. Refer to [Clone the Jaffle Shop sample project](https://docs.getdbt.com/guides/clone-jaffle-shop.md) for clone instructions, or view the [main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using DuckDB](https://github.com/dbt-labs/jaffle_shop_duckdb) on GitHub.
+* **Quickstart Tutorial:** You can build your own example dbt project in the [quickstart guide](../get-started-dbt.md)
+* **Jaffle Shop:** A demonstration project (closely related to the tutorial) for a fictional e-commerce store. Refer to [Clone the Jaffle Shop sample project](../../guides/clone-jaffle-shop.md) for clone instructions, or view the [main source code](https://github.com/dbt-labs/jaffle-shop) and [source code using DuckDB](https://github.com/dbt-labs/jaffle_shop_duckdb) on GitHub.
 * **GitLab:** Gitlab's internal dbt project is open source and is a great example of how to use dbt at scale ([source code](https://gitlab.com/gitlab-com/content-sites/handbook/blob/main/content/handbook/enterprise-data/platform/dbt-guide.md))
 * **dummy-dbt:** A containerized dbt project that populates the Sakila database in Postgres and populates dbt seeds, models, snapshots, and tests. The project can be used for testing and experimentation purposes ([source code](https://github.com/gmyrianthous/dbt-dummy))
 * **Google Analytics 4:** A demonstration project that transforms the Google Analytics 4 BigQuery exports to various models ([source code](https://github.com/stacktonic-com/stacktonic-dbt-example-project), [docs](https://stacktonic.com/article/google-analytics-big-query-and-dbt-a-dbt-example-project))
@@ -110,19 +110,19 @@ models:
       * tempor incididunt ut labore et dolore magna aliqua.
 ```
 
-3. Use a [docs block](https://docs.getdbt.com/docs/build/documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
+3. Use a [docs block](./documentation.md#using-docs-blocks) to write the description in a separate Markdown file.
 
 How do I access documentation in dbt Catalog?
 
-If you're using dbt to deploy your project and have a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/), you can use Catalog to view your project's [resources](https://docs.getdbt.com/docs/build/projects.md) (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
+If you're using dbt to deploy your project and have a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/), you can use Catalog to view your project's [resources](./projects.md) (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state.
 
 Access Catalog in dbt by clicking the **Catalog** link in the navigation. You can have up to 5 read-only users access the documentation for your project.
 
-dbt developer plan and dbt Core users can use [dbt Docs](https://docs.getdbt.com/docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
+dbt developer plan and dbt Core users can use [dbt Docs](../explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
 Can I document things other than models, like sources, seeds, and snapshots?
 
-Yes! You can document almost everything in your project using the `description:` key. Check out the reference docs on [descriptions](https://docs.getdbt.com/reference/resource-properties/description.md) for more info!
+Yes! You can document almost everything in your project using the `description:` key. Check out the reference docs on [descriptions](../../reference/resource-properties/description.md) for more info!
 
 ## Generating documentation[​](#generating-documentation "Direct link to Generating documentation")
 
@@ -133,15 +133,15 @@ Using the dbt Fusion engine, dbt Docs v2 replaces the v1 static site with a mode
 1. Run any dbt command with `--write-index` to build the index (for example, `dbt compile --write-index` or `dbt build --write-index`). This writes index files to `target/index/`, which is what `dbt docs serve` reads from.
 2. Run `dbt docs serve` to start the local documentation server.
 
-Refer to [dbt docs commands](https://docs.getdbt.com/reference/commands/cmd-docs.md) for full usage details.
+Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage details.
 
-dbt provides three complementary ways to [view documentation](https://docs.getdbt.com/docs/build/view-documentation.md) after descriptions are generated:
+dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
 
-* [**dbt Docs (Legacy)**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
-* [**dbt Docs v2**](https://docs.getdbt.com/docs/build/view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core 2.0.
-* [**Catalog**](https://docs.getdbt.com/docs/explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
+* [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
+* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core 2.0.
+* [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
 
-Refer to [View documentation](https://docs.getdbt.com/docs/build/view-documentation.md) to get the most out of your dbt project's documentation.
+Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.
 
 ## Using docs blocks[​](#using-docs-blocks "Direct link to Using docs blocks")
 
@@ -177,13 +177,13 @@ In this example, a docs block named `table_events` is defined with some descript
 
 <!-- -->
 
-Place docs blocks in `.md` files. You can also use Jinja-style extensions (`.md.j2`, `.md.jinja`, `.md.jinja2`), however these require setting [`allow_jinja_file_extensions: true`](https://docs.getdbt.com/reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) in your `dbt_project.yml`. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
+Place docs blocks in `.md` files. You can also use Jinja-style extensions (`.md.j2`, `.md.jinja`, `.md.jinja2`), however these require setting [`allow_jinja_file_extensions: true`](../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) in your `dbt_project.yml`. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
 
-By default, dbt searches in all resource paths for docs blocks (for example, the combined list of [model-paths](https://docs.getdbt.com/reference/project-configs/model-paths.md), [seed-paths](https://docs.getdbt.com/reference/project-configs/seed-paths.md), [analysis-paths](https://docs.getdbt.com/reference/project-configs/analysis-paths.md), [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md), [macro-paths](https://docs.getdbt.com/reference/project-configs/macro-paths.md), and [snapshot-paths](https://docs.getdbt.com/reference/project-configs/snapshot-paths.md)). You can adjust this behavior using the [docs-paths](https://docs.getdbt.com/reference/project-configs/docs-paths.md) config.
+By default, dbt searches in all resource paths for docs blocks (for example, the combined list of [model-paths](../../reference/project-configs/model-paths.md), [seed-paths](../../reference/project-configs/seed-paths.md), [analysis-paths](../../reference/project-configs/analysis-paths.md), [test-paths](../../reference/project-configs/test-paths.md), [macro-paths](../../reference/project-configs/macro-paths.md), and [snapshot-paths](../../reference/project-configs/snapshot-paths.md)). You can adjust this behavior using the [docs-paths](../../reference/project-configs/docs-paths.md) config.
 
 ### Usage[​](#usage "Direct link to Usage")
 
-To use a docs block, reference it from your `schema.yml` file with the [doc()](https://docs.getdbt.com/reference/dbt-jinja-functions/doc.md) function in place of a markdown string. Using the examples above, the `table_events` docs can be included in the `schema.yml` file as shown here:
+To use a docs block, reference it from your `schema.yml` file with the [doc()](../../reference/dbt-jinja-functions/doc.md) function in place of a markdown string. Using the examples above, the `table_events` docs can be included in the `schema.yml` file as shown here:
 
 schema.yml
 
@@ -207,7 +207,7 @@ In the resulting documentation, `'{{ doc("table_events") }}'` will be expanded t
 
 Availability
 
-This feature is available only in [dbt Docs](https://docs.getdbt.com/docs/build/documentation.md), the generated documentation site for your dbt project.
+This feature is available only in [dbt Docs](./documentation.md), the generated documentation site for your dbt project.
 
 The "overview" shown in the dbt Docs website can be overridden by supplying your own docs block called `__overview__`.
 

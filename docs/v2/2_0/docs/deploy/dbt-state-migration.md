@@ -8,7 +8,7 @@ dbt State improves upon state-aware orchestration in a few key ways:
 * **Smarter data freshness tracking** — dbt State tracks data freshness across the DAG and automatically propagates it through models materialized as views. Unlike state-aware orchestration's `build_after` config which compares against the model's last successful execution, dbt State's `lag_tolerance` compares against the freshness of the underlying data.
 * **Advanced change detection** — dbt State can detect and ignore file modifications that don't change actual transformation logic, such as adding a comment or cleaning up whitespace.
 
-If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](https://docs.getdbt.com/docs/platform/billing.md#dbt-state-usage).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. For details on billing after the trial ends, refer to [dbt State usage and pricing](../platform/billing.md#dbt-state-usage).
 
 While dbt State is in preview, there is no required migration timeline — dbt Labs will communicate a timeline when dbt State reaches general availability.
 
@@ -20,8 +20,8 @@ To migrate to dbt State, move your configs from `freshness.build_after` to the n
 
 | State-aware orchestration                                      | dbt State                                                                                                        | Notes                                                                                                                                                                                               |
 | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `freshness.build_after.updates_on`                             | [`state.require_fresh_data_from`](https://docs.getdbt.com/reference/resource-configs/require-fresh-data-from.md) | Same `any` and `all` options with the same behavior:<br />- `any` (default): rebuilds when *any* direct parent has fresh data<br />- `all`: rebuilds only when *all* direct parents have fresh data |
-| `freshness.build_after.count` + `freshness.build_after.period` | [`state.lag_tolerance`](https://docs.getdbt.com/reference/resource-configs/lag-tolerance.md)                     | Combined into a single field with shorthand values (for example, `1800s`, `30m`, `12h`, `1d`, `2w`) or Jinja expressions                                                                            |
+| `freshness.build_after.updates_on`                             | [`state.require_fresh_data_from`](../../reference/resource-configs/require-fresh-data-from.md) | Same `any` and `all` options with the same behavior:<br />- `any` (default): rebuilds when *any* direct parent has fresh data<br />- `all`: rebuilds only when *all* direct parents have fresh data |
+| `freshness.build_after.count` + `freshness.build_after.period` | [`state.lag_tolerance`](../../reference/resource-configs/lag-tolerance.md)                     | Combined into a single field with shorthand values (for example, `1800s`, `30m`, `12h`, `1d`, `2w`) or Jinja expressions                                                                            |
 
 Search table...
 
@@ -34,7 +34,7 @@ Backward compatibility in Fusion
 In the dbt Fusion engine, you can enable dbt State without updating your project configs first.
 
 * If `lag_tolerance` and `require_fresh_data_from` are not set, dbt State falls back to your existing `build_after` configs until `build_after` is deprecated.
-* If neither `build_after` nor the `state` configs exist, dbt State uses its [default configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md): `lag_tolerance: 45m` and `require_fresh_data_from: any`.
+* If neither `build_after` nor the `state` configs exist, dbt State uses its [default configs](../../reference/resource-configs/dbt-state-configs.md): `lag_tolerance: 45m` and `require_fresh_data_from: any`.
 
 dbt Labs will communicate a migration timeline for state-aware orchestration users when dbt State reaches general availability.
 
@@ -126,9 +126,9 @@ State-aware orchestration and dbt State differ in a few ways:
   * **Non-determinism in Jinja-templated SQL**: Macros like `dbt_utils.get_relations_by_pattern` with `dbt_utils.union_relations` can return relations in a different order on each run, which produces different compiled SQL. dbt State detects a new hash and rebuilds the model. If that model has downstream dependencies, those models rebuild, too.
   * **Models with external sources on BigQuery**: Models that use external sources (such as Google Sheets) always rebuild because BigQuery doesn't expose modification timestamps for external sources, so dbt State can't determine freshness.
 
-  To avoid this, configure [`loaded_at_field`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](https://docs.getdbt.com/reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field — this lets dbt State query a timestamp field directly to determine freshness, instead of relying on warehouse metadata.
+  To avoid this, configure [`loaded_at_field`](../../reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](../../reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field — this lets dbt State query a timestamp field directly to determine freshness, instead of relying on warehouse metadata.
 
-  Refer to [Why is my model being rebuilt instead of reused?](https://docs.getdbt.com/faqs/State/views-rebuilt.md) for details on each cause and how to diagnose them.
+  Refer to [Why is my model being rebuilt instead of reused?](../../faqs/State/views-rebuilt.md) for details on each cause and how to diagnose them.
 
 * **`build_after` vs `lag_tolerance`**: Both configs reduce how often a model runs when upstream data is frequently fresh, but they work differently:
 
@@ -139,6 +139,6 @@ State-aware orchestration and dbt State differ in a few ways:
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md)
-* [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md)
-* [dbt State configs](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md)
+* [About dbt State](./dbt-state-about.md)
+* [Set up dbt State](./dbt-state-setup.md)
+* [dbt State configs](../../reference/resource-configs/dbt-state-configs.md)

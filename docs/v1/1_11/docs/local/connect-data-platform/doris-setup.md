@@ -29,7 +29,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-doris<!-- -->
 
-For <!-- -->Apache Doris / SelectDB<!-- -->-specific configuration, please refer to [Apache Doris / SelectDB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/doris-configs.md)
+For <!-- -->Apache Doris / SelectDB<!-- -->-specific configuration, please refer to [Apache Doris / SelectDB<!-- --> configs.](../../../reference/resource-configs/doris-configs.md)
 
 ## Connecting to Doris/SelectDB with **dbt-doris**[​](#connecting-to-dorisselectdb-with-dbt-doris "Direct link to connecting-to-dorisselectdb-with-dbt-doris")
 

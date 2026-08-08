@@ -3,7 +3,7 @@
 As dbt runs, it generates events. The most common way to see those events is as log messages, written in real time to two places:
 
 * The command line terminal (`stdout`), to provide interactive feedback while running dbt.
-* The debug log file (`logs/dbt.log`), to enable detailed [debugging of errors](https://docs.getdbt.com/guides/debug-errors.md) when they occur. The text-formatted log messages in this file include all `DEBUG`-level events, as well as contextual information, such as log level and thread name. The location of this file can be configured via [the `log-path` flag](https://docs.getdbt.com/reference/global-configs/logs.md).
+* The debug log file (`logs/dbt.log`), to enable detailed [debugging of errors](../guides/debug-errors.md) when they occur. The text-formatted log messages in this file include all `DEBUG`-level events, as well as contextual information, such as log level and thread name. The location of this file can be configured via [the `log-path` flag](./global-configs/logs.md).
 
 CLI
 
@@ -42,7 +42,7 @@ Every event has the same two top-level keys:
 | `category`                                                                                | Placeholder for future use (see [dbt-labs/dbt-core#5958](https://github.com/dbt-labs/dbt-core/issues/5958))                                                                                   |
 | `code`                                                                                    | Unique shorthand identifier for this event type, e.g. `A123`                                                                                                                                  |
 | `extra`                                                                                   | Dictionary of custom environment metadata, based on environment variables prefixed with `DBT_ENV_CUSTOM_ENV_`                                                                                 |
-| [`invocation_id`](https://docs.getdbt.com/reference/dbt-jinja-functions/invocation_id.md) | A unique identifier for this invocation of dbt                                                                                                                                                |
+| [`invocation_id`](./dbt-jinja-functions/invocation_id.md) | A unique identifier for this invocation of dbt                                                                                                                                                |
 | `level`                                                                                   | A string representation of the log level (`debug`, `info`, `warn`, `error`)                                                                                                                   |
 | `log_version`                                                                             | Integer indicating version                                                                                                                                                                    |
 | `msg`                                                                                     | Human-friendly log message, constructed from structured `data`. **Note**: This message is not intended for machine consumption. Log messages are subject to change in future versions of dbt. |
@@ -64,7 +64,7 @@ Many events are fired while compiling or running a specific DAG node (model, see
 | Field              | Description                                                                                                                                                                                                                                                 |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `materialized`     | view, table, incremental, etc.                                                                                                                                                                                                                              |
-| `meta`             | User-configured [`meta` dictionary](https://docs.getdbt.com/reference/resource-configs/meta.md) for this node                                                                                                                                               |
+| `meta`             | User-configured [`meta` dictionary](./resource-configs/meta.md) for this node                                                                                                                                               |
 | `node_finished_at` | Timestamp when node processing completed                                                                                                                                                                                                                    |
 | `node_name`        | Name of this model/seed/test/etc                                                                                                                                                                                                                            |
 | `node_path`        | File path to where this resource is defined                                                                                                                                                                                                                 |
@@ -72,7 +72,7 @@ Many events are fired while compiling or running a specific DAG node (model, see
 | `node_started_at`  | Timestamp when node processing started                                                                                                                                                                                                                      |
 | `node_status`      | Current status of the node, either `RunningStatus` (while running) or `NodeStatus` (finished) as defined in [the result contract](https://github.com/dbt-labs/dbt-core/blob/eba90863ed4043957330ea44ca267db1a2d81fcd/core/dbt/contracts/results.py#L75-L88) |
 | `resource_type`    | `model`, `test`, `seed`, `snapshot`, etc.                                                                                                                                                                                                                   |
-| `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md)                                                                           |
+| `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](./artifacts/manifest-json.md)                                                                           |
 
 Search table...
 
@@ -132,6 +132,6 @@ Search table...
 
 Older versions of `dbt-core` made available a full history of events fired during an invocation, in the form of an `EVENT_HISTORY` object.
 
-When [invoking dbt programmatically](https://docs.getdbt.com/reference/programmatic-invocations.md#registering-callbacks), it is possible to register a callback on dbt's `EventManager`. This allows access to structured events as Python objects, to enable custom logging and integration with other systems.
+When [invoking dbt programmatically](./programmatic-invocations.md#registering-callbacks), it is possible to register a callback on dbt's `EventManager`. This allows access to structured events as Python objects, to enable custom logging and integration with other systems.
 
 The Python interface into events is significantly less mature than the structured logging interface. For all standard use cases, we recommend parsing JSON-formatted logs.

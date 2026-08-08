@@ -14,7 +14,7 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 * Models
 * Seeds
@@ -99,17 +99,17 @@ sources:
 
 ## Definition[​](#definition "Direct link to Definition")
 
-dbt uses `event_time` to understand when an event occurred. Configure it in your project YAML file (`dbt_project.yml`), properties YAML file (`models/properties.yml`), or SQL file config for [models](https://docs.getdbt.com/docs/build/models.md), [seeds](https://docs.getdbt.com/docs/build/seeds.md), or [sources](https://docs.getdbt.com/docs/build/sources.md).
+dbt uses `event_time` to understand when an event occurred. Configure it in your project YAML file (`dbt_project.yml`), properties YAML file (`models/properties.yml`), or SQL file config for [models](../../docs/build/models.md), [seeds](../../docs/build/seeds.md), or [sources](../../docs/build/sources.md).
 
 Required
 
 For incremental microbatch models, if your upstream models don't have `event_time` configured, dbt *cannot* automatically filter them during batch processing and will perform full table scans on every batch run.
 
-To avoid this, configure `event_time` on every upstream model that should be filtered. Learn how to exclude a model from auto-filtering by [opting out of auto-filtering](https://docs.getdbt.com/docs/build/incremental-microbatch.md#opting-out-of-auto-filtering).
+To avoid this, configure `event_time` on every upstream model that should be filtered. Learn how to exclude a model from auto-filtering by [opting out of auto-filtering](../../docs/build/incremental-microbatch.md#opting-out-of-auto-filtering).
 
 ### Usage[​](#usage "Direct link to Usage")
 
-`event_time` is required for the [incremental microbatch](https://docs.getdbt.com/docs/build/incremental-microbatch.md) strategy<!-- -->, the [`--sample` flag](https://docs.getdbt.com/docs/build/sample-flag.md),<!-- --> and highly recommended for [Advanced CI's compare changes](https://docs.getdbt.com/docs/deploy/advanced-ci.md#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
+`event_time` is required for the [incremental microbatch](../../docs/build/incremental-microbatch.md) strategy<!-- -->, the [`--sample` flag](../../docs/build/sample-flag.md),<!-- --> and highly recommended for [Advanced CI's compare changes](../../docs/deploy/advanced-ci.md#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
 ### Best practices[​](#best-practices "Direct link to Best practices")
 
@@ -117,7 +117,7 @@ Set the `event_time` to the name of the field that represents the actual timesta
 
 However, if an ingestion date (like `loaded_at`, `ingested_at`, or `last_updated_at`) are the only timestamps you use, you can set `event_time` to these fields. Here are some considerations to keep in mind if you do this:
 
-* Using `last_updated_at` or `loaded_at` — May result in duplicate entries in the resulting table in the data warehouse over multiple runs. Setting an appropriate [lookback](https://docs.getdbt.com/reference/resource-configs/lookback.md) value can reduce duplicates but it can't fully eliminate them since some updates outside the lookback window won't be processed.
+* Using `last_updated_at` or `loaded_at` — May result in duplicate entries in the resulting table in the data warehouse over multiple runs. Setting an appropriate [lookback](./lookback.md) value can reduce duplicates but it can't fully eliminate them since some updates outside the lookback window won't be processed.
 * Using `ingested_at` — Since this column is created by your ingestion/EL tool instead of coming from the original source, it will change if/when you need to resync your connector for some reason. This means that data will be reprocessed and loaded into your warehouse for a second time against a second date. As long as this never happens (or you run a full refresh when it does), microbatches will be processed correctly when using `ingested_at`.
 
 Here are some examples of recommended and not recommended `event_time` columns:

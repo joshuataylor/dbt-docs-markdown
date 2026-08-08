@@ -1,3 +1,3 @@
-## [🗃️<!-- --> <!-- -->Accounts](https://docs.getdbt.com/category/accounts.md)
+## [🗃️<!-- --> <!-- -->Accounts](../category/accounts.md)
 
-[13 items](https://docs.getdbt.com/category/accounts.md)
+[13 items](../category/accounts.md)

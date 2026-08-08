@@ -2,7 +2,7 @@
 
 Local developmentⓘ
 
-After [installing the dbt VS Code extension](https://docs.getdbt.com/docs/install-dbt-extension.md), use the **Get started** panel to upgrade your project to the dbt Fusion engine if you haven't already done so.
+After [installing the dbt VS Code extension](./install-dbt-extension.md), use the **Get started** panel to upgrade your project to the dbt Fusion engine if you haven't already done so.
 
 note
 
@@ -44,7 +44,7 @@ You can start manual onboarding in either of the following ways:
 
 Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
 
-Next, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 
 * From your terminal, run:
 
@@ -89,13 +89,13 @@ The tool compiles your project with full Fusion static analysis. This checks tha
 
 Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
 
-Next, [sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
 Once you've upgraded your project to Fusion, you can:
 
-* [Sign in or register](https://docs.getdbt.com/docs/sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
-* [Configure your local environment](https://docs.getdbt.com/docs/configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](https://docs.getdbt.com/docs/configure-dbt-extension.md#configure-environment-variables) required by your project.
-* [Compare changes locally](https://docs.getdbt.com/docs/fusion/vs-compare-changes.md) to preview data changes caused by your local edits.
-* Review the [limitations and unsupported features](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations).
+* [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+* [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.
+* [Compare changes locally](./fusion/vs-compare-changes.md) to preview data changes caused by your local edits.
+* Review the [limitations and unsupported features](./fusion/supported-features.md#limitations).

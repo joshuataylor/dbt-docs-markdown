@@ -4,7 +4,7 @@
 
 #### Overview[​](#overview "Direct link to Overview")
 
-The [dbt Product Documentation](https://docs.getdbt.com/docs/introduction.md) sits at the heart of how people learn to use and engage with dbt. From explaining dbt to newcomers to providing references for advanced functionality and APIs, the product docs are a frequent resource for *every* dbt Developer.
+The [dbt Product Documentation](../../docs/introduction.md) sits at the heart of how people learn to use and engage with dbt. From explaining dbt to newcomers to providing references for advanced functionality and APIs, the product docs are a frequent resource for *every* dbt Developer.
 
 #### Contribution opportunities[​](#contribution-opportunities "Direct link to Contribution opportunities")
 
@@ -23,7 +23,7 @@ We appreciate these contributions because they contain context in the original p
 #### Get started[​](#get-started "Direct link to Get started")
 
 * You can contribute to [docs.getdbt.com](http://docs.getdbt.com) by looking at our repository’s [README](https://github.com/dbt-labs/docs.getdbt.com#readme) or clicking **Edit this page** at the bottom of most pages at docs.getdbt.com.
-* Read the [Contributor Expectations](https://docs.getdbt.com/community/resources/contributor-expectations.md).
+* Read the [Contributor Expectations](../resources/contributor-expectations.md).
 * Find an issue labeled “[good first issue](https://github.com/dbt-labs/docs.getdbt.com/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+).”
 * Need help: Visit #community-writers on the Community Slack or mention `@dbt-labs/product-docs` in a pull request or issue comment.
 

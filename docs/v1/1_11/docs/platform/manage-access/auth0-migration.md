@@ -4,7 +4,7 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 dbt Labs is partnering with Auth0 to bring enhanced features to dbt's single sign-on (SSO) capabilities. Auth0 is an identity and access management (IAM) platform with advanced security features, and it will be leveraged by dbt. These changes will require some action from customers with SSO configured in dbt today, and this guide will outline the necessary changes for each environment.
 
-If you have not yet configured SSO in dbt, refer instead to our setup guides for [SAML](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-saml-2.0.md), [Okta](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-okta.md), [Google Workspace](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-google-workspace.md), or [Microsoft Entra ID (formerly Azure AD)](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-microsoft-entra-id.md) single sign-on services.
+If you have not yet configured SSO in dbt, refer instead to our setup guides for [SAML](./set-up-sso-saml-2.0.md), [Okta](./set-up-sso-okta.md), [Google Workspace](./set-up-sso-google-workspace.md), or [Microsoft Entra ID (formerly Azure AD)](./set-up-sso-microsoft-entra-id.md) single sign-on services.
 
 ## Start the migration[​](#start-the-migration "Direct link to Start the migration")
 
@@ -21,7 +21,7 @@ There are two fields in the SSO settings that you need for the migration:
 * **Single sign-on URL:** This will be in the format of your login URL `https://<YOUR_AUTH0_URI>/login/callback?connection=<SLUG>`
 * **Audience URI (SP Entity ID):** This will be in the format `urn:auth0:<YOUR_AUTH0_ENTITYID>:<SLUG>`
 
-Once you have opted to begin the migration process, the following steps will vary depending on the configured identity provider. You can just skip to the section that's right for your environment. These steps only apply to customers going through the migration; new setups will use the existing [setup instructions](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md).
+Once you have opted to begin the migration process, the following steps will vary depending on the configured identity provider. You can just skip to the section that's right for your environment. These steps only apply to customers going through the migration; new setups will use the existing [setup instructions](./sso-overview.md).
 
 ## SAML 2.0[​](#saml-20 "Direct link to SAML 2.0")
 

@@ -4,9 +4,9 @@ The `builtins` variable exists to provide references to builtin dbt context meth
 
 The `builtins` variable is a dictionary containing the following keys:
 
-* [ref](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md)
-* [source](https://docs.getdbt.com/reference/dbt-jinja-functions/source.md)
-* [config](https://docs.getdbt.com/reference/dbt-jinja-functions/config.md)
+* [ref](./ref.md)
+* [source](./source.md)
+* [config](./config.md)
 
 ## Usage[​](#usage "Direct link to Usage")
 
@@ -14,7 +14,7 @@ important
 
 Using the `builtins` variable in this way is an advanced development workflow. Users should be ready to maintain and update these overrides when upgrading in the future.
 
-From dbt v1.5 and higher, use the following macro to override the `ref` method available in the model compilation context to return a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) with the database name overriden to `dev`.
+From dbt v1.5 and higher, use the following macro to override the `ref` method available in the model compilation context to return a [Relation](../dbt-classes.md#relation) with the database name overriden to `dev`.
 
 It includes logic to extract user-provided arguments, including `version`, and call the `builtins.ref()` function with either a single `modelname` argument or both `packagename` and `modelname` arguments, based on the number of positional arguments in `varargs`.
 

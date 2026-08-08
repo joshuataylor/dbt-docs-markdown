@@ -18,13 +18,13 @@ While you can use caching to speed up your queries and reduce compute time, know
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * dbt [Enterprise or Enterprise+](https://www.getdbt.com/) plans.
-* dbt environments must be on [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) and not legacy dbt Core versions.
-* A successful job run and [production environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#set-as-production-environment).
-* For declarative caching, you need to have [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) defined in your [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md) YAML configuration file.
+* dbt environments must be on [release tracks](../dbt-versions/dbt-release-tracks.md) and not legacy dbt Core versions.
+* A successful job run and [production environment](../deploy/deploy-environments.md#set-as-production-environment).
+* For declarative caching, you need to have [exports](./exports.md) defined in your [saved queries](../build/saved-queries.md) YAML configuration file.
 
 ## Result caching[​](#result-caching "Direct link to Result caching")
 
-Result caching leverages your data platform’s built-in caching layer and features. [MetricFlow](https://docs.getdbt.com/docs/build/about-metricflow.md) generates the same SQL for multiple query requests, this means it can take advantage of your data platform’s cache. Double-check your data platform's specifications.
+Result caching leverages your data platform’s built-in caching layer and features. [MetricFlow](../build/about-metricflow.md) generates the same SQL for multiple query requests, this means it can take advantage of your data platform’s cache. Double-check your data platform's specifications.
 
 Here's how caching works, using Snowflake as an example, and should be similar across other data platforms:
 
@@ -42,7 +42,7 @@ Different data platforms might have different caching layers and cache invalidat
 
 ## Declarative caching[​](#declarative-caching "Direct link to Declarative caching")
 
-Declarative caching enables you to pre-warm the cache using [saved queries](https://docs.getdbt.com/docs/build/saved-queries.md) by setting the cache config to `true` in your `saved_queries` settings. This is useful for optimizing performance for key dashboards or common ad-hoc query requests.
+Declarative caching enables you to pre-warm the cache using [saved queries](../build/saved-queries.md) by setting the cache config to `true` in your `saved_queries` settings. This is useful for optimizing performance for key dashboards or common ad-hoc query requests.
 
 tip
 
@@ -54,7 +54,7 @@ For configuration details, refer to [Declarative caching setup](#declarative-cac
 
 How declarative caching works:
 
-* Make sure your saved queries YAML configuration file has [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) defined.
+* Make sure your saved queries YAML configuration file has [exports](./exports.md) defined.
 
 * Running a saved query triggers the Semantic Layer to:
 
@@ -92,7 +92,7 @@ saved_queries:
           export_as: table
 ```
 
-To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](https://docs.getdbt.com/reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
+To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](../../reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
 
 dbt\_project.yml
 
@@ -106,9 +106,9 @@ saved-queries:
 
 ### Run your declarative cache[​](#run-your-declarative-cache "Direct link to Run your declarative cache")
 
-After setting up declarative caching in your YAML configuration, you can now run [exports](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) with the dbt job scheduler to build a cached table from a saved query into your data platform.
+After setting up declarative caching in your YAML configuration, you can now run [exports](./exports.md) with the dbt job scheduler to build a cached table from a saved query into your data platform.
 
-* Use [exports to set up a job](https://docs.getdbt.com/docs/use-dbt-semantic-layer/exports.md) to run a saved query dbt.
+* Use [exports to set up a job](./exports.md) to run a saved query dbt.
 * The dbt Semantic Layer builds a cache table in your data platform in a dedicated `dbt_sl_cache` schema.
 * The cache schema and tables are created using your deployment credentials. You need to grant read access to this schema for your Semantic Layer user.
 * The cache refreshes (or rebuilds) on the same schedule as the saved query job.
@@ -123,7 +123,7 @@ dbt uses the metadata from your dbt model runs to intelligently manage cache inv
 
 If an upstream model has data in it that was created after the cache was created, dbt invalidates the cache. This means queries won't use outdated cases and will instead query directly from the source data. Stale, outdated cache tables are periodically dropped and dbt will write a new cache the next time your saved query runs.
 
-You can manually invalidate the cache through the [dbt Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview.md) using the `InvalidateCacheResult` field.
+You can manually invalidate the cache through the [dbt Semantic Layer APIs](../dbt-apis/sl-api-overview.md) using the `InvalidateCacheResult` field.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -135,6 +135,6 @@ In the future, we plan to clone credentials, identify the minimum access level n
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Validate semantic nodes in CI](https://docs.getdbt.com/docs/deploy/ci-jobs.md#semantic-validations-in-ci)
-* [Saved queries](https://docs.getdbt.com/docs/build/saved-queries.md)
-* [Semantic Layer FAQs](https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs.md)
+* [Validate semantic nodes in CI](../deploy/ci-jobs.md#semantic-validations-in-ci)
+* [Saved queries](../build/saved-queries.md)
+* [Semantic Layer FAQs](./sl-faqs.md)

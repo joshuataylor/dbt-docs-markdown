@@ -1,11 +1,11 @@
 # About dbt clone command
 
-The `dbt clone` command clones selected nodes from the [specified state](https://docs.getdbt.com/reference/node-selection/syntax.md#establishing-state) to the target schema(s). This command makes use of the `clone` materialization:
+The `dbt clone` command clones selected nodes from the [specified state](../node-selection/syntax.md#establishing-state) to the target schema(s). This command makes use of the `clone` materialization:
 
 * If your data platform supports zero-copy cloning of tables (Snowflake, Databricks, or BigQuery), and this model exists as a table in the source environment, dbt will create it in your target environment as a clone.
 * Otherwise, dbt will create a simple pointer view (`select * from` the source object)
 * By default, `dbt clone` will not recreate pre-existing relations in the current target. To override this, use the `--full-refresh` flag.
-* You may want to specify a higher number of [threads](https://docs.getdbt.com/docs/running-a-dbt-project/using-threads.md) to decrease execution time since individual clone statements are independent of one another.
+* You may want to specify a higher number of [threads](../../docs/running-a-dbt-project/using-threads.md) to decrease execution time since individual clone statements are independent of one another.
 
 The `clone` command is useful for:
 
@@ -28,7 +28,7 @@ dbt clone --state path/to/artifacts --full-refresh
 dbt clone --state path/to/artifacts --threads 50
 ```
 
-### When to use `dbt clone` instead of [deferral](https://docs.getdbt.com/reference/node-selection/defer.md)?[​](#when-to-use-dbt-clone-instead-of-deferral "Direct link to when-to-use-dbt-clone-instead-of-deferral")
+### When to use `dbt clone` instead of [deferral](../node-selection/defer.md)?[​](#when-to-use-dbt-clone-instead-of-deferral "Direct link to when-to-use-dbt-clone-instead-of-deferral")
 
 Unlike deferral, `dbt clone` requires some compute and creation of additional objects in your data warehouse. In many cases, deferral is a cheaper and simpler alternative to `dbt clone`. However, `dbt clone` covers additional use cases where deferral may not be possible.
 
@@ -38,7 +38,7 @@ As another example, you could `clone` your modified incremental models as the fi
 
 ## Cloning in dbt[​](#cloning-in-dbt "Direct link to Cloning in dbt")
 
-You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md) and the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md) and relies on the [`--defer`](https://docs.getdbt.com/reference/node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](https://docs.getdbt.com/docs/platform/about-defer.md).
+You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) and the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and relies on the [`--defer`](../node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](../../docs/platform/about-defer.md).
 
 * **Using dbt CLI** — The `dbt clone` command in the dbt CLI automatically includes the `--defer` flag. This means you can use the `dbt clone` command without any additional setup.
 

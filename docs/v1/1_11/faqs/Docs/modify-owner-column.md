@@ -2,7 +2,7 @@
 
 You cannot change the `owner` column in your generated documentation.
 
-dbt pulls the `owner` field in `dbt-docs` from database metadata ([catalog.json](https://docs.getdbt.com/reference/artifacts/catalog-json.md)), meaning the `owner` of that table in the database. With the exception of [exposures](https://docs.getdbt.com/docs/build/exposures.md), dbt does not pull this value from an `owner` field set within dbt.
+dbt pulls the `owner` field in `dbt-docs` from database metadata ([catalog.json](../../reference/artifacts/catalog-json.md)), meaning the `owner` of that table in the database. With the exception of [exposures](../../docs/build/exposures.md), dbt does not pull this value from an `owner` field set within dbt.
 
 Generally, dbt's database user owns the tables created in the database. The service responsible for ingesting or loading the data usually owns the source tables.
 

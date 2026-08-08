@@ -40,7 +40,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-ibm-netezza<!-- -->
 
-For <!-- -->IBM Netezza<!-- -->-specific configuration, please refer to [IBM Netezza<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/ibm-netezza-config.md)
+For <!-- -->IBM Netezza<!-- -->-specific configuration, please refer to [IBM Netezza<!-- --> configs.](../../../reference/resource-configs/ibm-netezza-config.md)
 
 ## Connecting to IBM Netezza[​](#connecting-to-ibm-netezza "Direct link to Connecting to IBM Netezza")
 

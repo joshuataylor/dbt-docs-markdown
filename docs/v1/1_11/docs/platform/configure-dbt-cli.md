@@ -5,25 +5,25 @@ dbt platformⓘ
 Learn how to configure the dbt CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
 
 * Secure credential storage in the dbt platform.
-* [Automatic deferral](https://docs.getdbt.com/docs/platform/about-defer.md) of build artifacts to your project's production environment.
+* [Automatic deferral](./about-defer.md) of build artifacts to your project's production environment.
 * Speedier, lower-cost builds.
-* Support for Mesh ([cross-project ref](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md)), and more.
+* Support for Mesh ([cross-project ref](../mesh/govern/project-dependencies.md)), and more.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * You must set up a project in dbt.
   <!-- -->
-  * **Note** — If you're using the dbt CLI, you can connect to your [data platform](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md) file.
-* You must have your [personal user credentials](https://docs.getdbt.com/docs/dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
-* You must be on dbt version 1.5 or higher. Refer to [dbt versions](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
+  * **Note** — If you're using the dbt CLI, you can connect to your [data platform](./connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](../local/profiles.yml.md) file.
+* You must have your [personal user credentials](../dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
+* You must be on dbt version 1.5 or higher. Refer to [dbt versions](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
 ## Configure the dbt CLI[​](#configure-the-dbt-cli "Direct link to Configure the dbt CLI")
 
 Once you install the dbt CLI, you need to configure it to connect to a dbt project.
 
-1. In dbt, select the project you want to configure your dbt CLI with. The project must already have a [development environment](https://docs.getdbt.com/docs/dbt-platform-environments.md#create-a-development-environment) set up.
+1. In dbt, select the project you want to configure your dbt CLI with. The project must already have a [development environment](../dbt-platform-environments.md#create-a-development-environment) set up.
 
-2. Download your `dbt_cloud.yml` credentials file and save it to your `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux, `C:\Users\yourusername\.dbt\dbt_cloud.yml` on Windows). For download steps, the full file structure, and a field reference, refer to [`dbt_cloud.yml`](https://docs.getdbt.com/reference/dbt_cloud.yml.md).
+2. Download your `dbt_cloud.yml` credentials file and save it to your `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux, `C:\Users\yourusername\.dbt\dbt_cloud.yml` on Windows). For download steps, the full file structure, and a field reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
 
 3. After downloading the config file and creating your directory, navigate to a project in your terminal:
 
@@ -31,7 +31,7 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
    cd ~/dbt-projects/jaffle_shop
    ```
 
-4. In your `dbt_project.yml` file, ensure you have or include a [`dbt-cloud` block](https://docs.getdbt.com/reference/dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml) with a `project-id` field that points to your dbt project.
+4. In your `dbt_project.yml` file, ensure you have or include a [`dbt-cloud` block](../../reference/dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml) with a `project-id` field that points to your dbt project.
 
    ```yaml
    # dbt_project.yml
@@ -39,7 +39,7 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
        project-id: PROJECT_ID
    ```
 
-5. You should now be able to [use the ](#use-the-dbt-cli)and run [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) like [`dbt environment show`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
+5. You should now be able to [use the ](#use-the-dbt-cli)and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
 
 With your repo recloned, you can add, edit, and sync files with your repo.
 
@@ -54,11 +54,11 @@ To set environment variables in the dbt CLI for your dbt project:
 
 ## Use the dbt CLI[​](#use-the-dbt-cli "Direct link to Use the dbt CLI")
 
-The dbt CLI uses the same set of [dbt commands](https://docs.getdbt.com/reference/dbt-commands.md) and [MetricFlow commands](https://docs.getdbt.com/docs/build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](https://docs.getdbt.com/reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt CLI, you can:
+The dbt CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt CLI, you can:
 
-* Run [multiple invocations in parallel](https://docs.getdbt.com/reference/dbt-commands.md) and ensure [safe parallelism](https://docs.getdbt.com/reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
+* Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
 * Automatically defer build artifacts to your project's production environment.
-* Support [project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md), which allows you to depend on another project using the metadata service in dbt.
+* Support [project dependencies](../mesh/govern/project-dependencies.md), which allows you to depend on another project using the metadata service in dbt.
   <!-- -->
   * Project dependencies instantly connect to and reference (or `ref`) public models defined in other projects. You don't need to execute or analyze these upstream models yourself. Instead, you treat them as an API that returns a dataset.
 
@@ -102,9 +102,9 @@ When running `dbt sqlfluff` from the dbt CLI, the following are important behavi
 
 <!-- -->
 
-The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](https://docs.getdbt.com/docs/build/packages.md). Instead, use the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
+The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
 
-Here's an example of a [local package](https://docs.getdbt.com/docs/build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt CLI:
+Here's an example of a [local package](../build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt CLI:
 
 ```yaml
 # repository_root/my_dbt_project_in_a_subdirectory/packages.yml
@@ -118,7 +118,7 @@ In this example, `../shared_macros` is a relative path that tells dbt to look fo
 * `..` — Go one directory up (to `repository_root`).
 * `/shared_macros` — Find the `shared_macros` folder in the root directory.
 
-To work around this limitation, use the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
+To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
 
 ## FAQs[​](#faqs "Direct link to FAQs")
 
@@ -166,7 +166,7 @@ move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
 
  How to skip artifacts from being downloaded
 
-By default, the dbt CLI downloads [all artifacts](https://docs.getdbt.com/reference/artifacts/dbt-artifacts.md) when you execute dbt commands. To skip these files from being downloaded, add `--download-artifacts=false` to the command you want to run. This can help improve run-time performance but might break workflows that depend on assets like the [manifest](https://docs.getdbt.com/reference/artifacts/manifest-json.md).
+By default, the dbt CLI downloads [all artifacts](../../reference/artifacts/dbt-artifacts.md) when you execute dbt commands. To skip these files from being downloaded, add `--download-artifacts=false` to the command you want to run. This can help improve run-time performance but might break workflows that depend on assets like the [manifest](../../reference/artifacts/manifest-json.md).
 
  I'm getting a \`Session occupied\` error in dbt CLI?
 
@@ -174,6 +174,6 @@ If you're receiving a `Session occupied` error in the dbt CLI or if you're exper
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 
-To learn more about the `dbt invocation` command, see the [dbt invocation command reference](https://docs.getdbt.com/reference/commands/invocation.md?version=2.0).
+To learn more about the `dbt invocation` command, see the [dbt invocation command reference](../../reference/commands/invocation.md?version=2.0).
 
 Alternatively, you can reattach to your existing session with `dbt reattach` and then press `Control-C` and choose to cancel the invocation.

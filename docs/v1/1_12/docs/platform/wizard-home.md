@@ -16,15 +16,15 @@ Thanks so much for your help in improving dbt Wizard and dbt data development!
 
 [![dbt Wizard agent refactoring a docs github model for tech writers :) ](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard agent refactoring a docs github model for tech writers :) ")](#)dbt Wizard agent refactoring a docs github model for tech writers :)
 
-The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md). Where the Studio IDE supports users working directly within a traditional IDE environment, the home tab is purpose-built for agent-native development — it reduces overhead and keeps you focused on supervising and validating agent-generated work.
+The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio IDE](../dbt-ai/wizard-ide.md). Where the Studio IDE supports users working directly within a traditional IDE environment, the home tab is purpose-built for agent-native development — it reduces overhead and keeps you focused on supervising and validating agent-generated work.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
 * A Starter, Enterprise, or Enterprise+ plan
-* A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md).
-* A [development environment](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
-* [Enabled AI features](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md#enable-ai-features) for your account.
-* If you're using dbt Wizard in the home tab, you need to [enable experimental features](https://docs.getdbt.com/docs/dbt-versions/experimental-features.md) for your account.
+* A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](./manage-access/seats-and-users.md).
+* A [development environment](./studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
+* [Enabled AI features](./enable-dbt-ai.md#enable-ai-features) for your account.
+* If you're using dbt Wizard in the home tab, you need to [enable experimental features](../dbt-versions/experimental-features.md) for your account.
 
 ## What you can do[​](#what-you-can-do "Direct link to What you can do")
 
@@ -39,11 +39,11 @@ Use dbt Wizard in the home tab to:
 
 Best practices for using dbt Wizard
 
-Refer to [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows — including [debugging a failed job](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md), which applies directly to the home tab.
+Refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows — including [debugging a failed job](../../best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md), which applies directly to the home tab.
 
 tip
 
-Always review AI-generated content before applying it. For prompt best practices, refer to the [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md).
+Always review AI-generated content before applying it. For prompt best practices, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md).
 
 ## Inline preview mode[​](#inline-preview-mode "Direct link to Inline preview mode")
 
@@ -71,8 +71,8 @@ For most development workflows, you can move between the two surfaces freely. Us
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md)
-* [About dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md)
-* [Prompt cookbook](https://docs.getdbt.com/guides/prompt-cookbook.md)
-* [dbt AI FAQs](https://docs.getdbt.com/docs/dbt-ai/dbt-ai-faqs.md)
+* [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
+* [About dbt Wizard in the dbt platform](./wizard-platform.md)
+* [How dbt Wizard works](../dbt-ai/wizard-how-it-works.md)
+* [Prompt cookbook](../../guides/prompt-cookbook.md)
+* [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md)

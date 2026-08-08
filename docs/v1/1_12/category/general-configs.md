@@ -1,3 +1,3 @@
-## [📄️<!-- --> <!-- -->Advanced usage](https://docs.getdbt.com/reference/advanced-config-usage.md)
+## [📄️<!-- --> <!-- -->Advanced usage](../reference/advanced-config-usage.md)
 
-[Alternative SQL file config syntax](https://docs.getdbt.com/reference/advanced-config-usage.md)
+[Alternative SQL file config syntax](../reference/advanced-config-usage.md)

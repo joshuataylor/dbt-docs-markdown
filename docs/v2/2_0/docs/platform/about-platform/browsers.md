@@ -24,4 +24,4 @@ To improve your experience using dbt, we suggest that you turn off ad blockers.
 
 A session is a period of time during which you’re signed in to a dbt account from a browser. If you close your browser, it will end your session and log you out. You'll need to log in again the next time you try to access dbt.
 
-If you've logged in using [SSO](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md), you can customize your maximum session duration, which might vary depending on your identity provider (IdP).
+If you've logged in using [SSO](../manage-access/sso-overview.md), you can customize your maximum session duration, which might vary depending on your identity provider (IdP).

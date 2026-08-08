@@ -19,14 +19,14 @@ For help, contact the dbt Support Team at <support@getdbt.com>.
 We highly recommended you take these actions:
 
 * Ensure pending user invitations are accepted or note outstanding invitations. Pending user invitations might be voided during the migration. You can resend user invitations after the migration is complete.
-* Commit unsaved changes in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md). Unsaved changes might be lost during migration.
-* Export and download [audit logs](https://docs.getdbt.com/docs/platform/manage-access/audit-log.md) older than 90 days, as they will be unavailable from dbt after the migration is complete. Logs older than 90 days while within the data retention period are not deleted, but you will have to work with the dbt Labs Customer Support team to recover.
+* Commit unsaved changes in the [Studio IDE](./studio-ide/develop-in-studio.md). Unsaved changes might be lost during migration.
+* Export and download [audit logs](./manage-access/audit-log.md) older than 90 days, as they will be unavailable from dbt after the migration is complete. Logs older than 90 days while within the data retention period are not deleted, but you will have to work with the dbt Labs Customer Support team to recover.
 
 ## Required actions[​](#required-actions "Direct link to Required actions")
 
 These actions are required to prevent users from losing access dbt:
 
-* If you still need to, complete [Auth0 migration for SSO](https://docs.getdbt.com/docs/platform/manage-access/auth0-migration.md) before your scheduled migration date to avoid service disruptions. If you've completed the Auth0 migration, your account SSO configurations will be transferred automatically.
+* If you still need to, complete [Auth0 migration for SSO](./manage-access/auth0-migration.md) before your scheduled migration date to avoid service disruptions. If you've completed the Auth0 migration, your account SSO configurations will be transferred automatically.
 
 * Update your IP allow lists. dbt will be using new IPs to access your warehouse post-migration. Allow inbound traffic from all of the following new IPs in your firewall and include them in any database grants:
 
@@ -40,7 +40,7 @@ These actions are required to prevent users from losing access dbt:
 
 All runs available in dbt will be migrated with your account. This includes metadata about the run, like its status, execution start time, and duration. However, the individual steps associated with a run will not be migrated with your account. Therefore, the dbt commands executed during a run, along with their logs and artifact files, will not be available in dbt after your migration.
 
-The [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) will contain a subset of data after your account has been migrated. Metadata generated in the past 7 days will be migrated with your account. A maximum of 20 runs will be available when querying the [job object](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job.md) after migration.
+The [Discovery API](../dbt-apis/discovery-api.md) will contain a subset of data after your account has been migrated. Metadata generated in the past 7 days will be migrated with your account. A maximum of 20 runs will be available when querying the [job object](../dbt-apis/discovery-schema-job.md) after migration.
 
 ## Post-migration​[​](#post-migration "Direct link to Post-migration​")
 
@@ -48,9 +48,9 @@ Complete all of these items to ensure your dbt resources and jobs will continue 
 
 Use one of these URL login options:
 
-* <https://login.dbt.com>: Universal login shows the accounts you can access across instances. Account administrators can enable or disable this path with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+* <https://login.dbt.com>: Universal login shows the accounts you can access across instances. Account administrators can enable or disable this path with **Enable global account discovery** in [Account settings](./account-settings.md#enable-global-account-discovery).
 * `us1.dbt.com`: If you previously signed in with a username and password at `login.dbt.com`, plan to sign in at `us1.dbt.com` instead. The original URL still works, but you need to click through to continue after sign-in. If SSO is configured, use the unique URL listed in your SSO account settings, for example, `ACCOUNT_PREFIX.us1.dbt.com`.
-* `ACCOUNT_PREFIX.us1.dbt.com`: A unique URL specifically for your account. If you belong to multiple accounts, each will have a unique URL available as long as they have been migrated to multi-cell. Check out [access, regions, and IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for more information.
+* `ACCOUNT_PREFIX.us1.dbt.com`: A unique URL specifically for your account. If you belong to multiple accounts, each will have a unique URL available as long as they have been migrated to multi-cell. Check out [access, regions, and IP addresses](./about-platform/access-regions-ip-addresses.md) for more information.
 
 Remove the following old IP addresses from your firewall and database grants:
 

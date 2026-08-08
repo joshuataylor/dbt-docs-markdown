@@ -2,9 +2,9 @@
 
 dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
-The Discovery API supports ad-hoc queries and integrations. If you are new to the API, refer to [About the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-api.md) for an introduction.
+The Discovery API supports ad-hoc queries and integrations. If you are new to the API, refer to [About the Discovery API](./discovery-api.md) for an introduction.
 
-For request quotas and throttling behavior, refer to [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md).
+For request quotas and throttling behavior, refer to [API rate limits](./rate-limits.md).
 
 Use the Discovery API to evaluate data pipeline health and project state across runs or at a moment in time. dbt Labs provide a default [GraphQL explorer](https://metadata.cloud.getdbt.com/graphql) for this API, enabling you to run queries and browse the schema. However, you can also use any GraphQL client of your choice to query the API.
 
@@ -12,23 +12,23 @@ Since GraphQL describes the data in the API, the schema displayed in the GraphQL
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* You must have a dbt [multi-tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#multi-tenant) or [single tenant](https://docs.getdbt.com/docs/platform/about-platform/tenancy.md#single-tenant) account.
+* You must have a dbt [multi-tenant](../platform/about-platform/tenancy.md#multi-tenant) or [single tenant](../platform/about-platform/tenancy.md#single-tenant) account.
 * You must be on a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
-* Your projects must be on a dbt [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) or dbt version 1.0 or later. Refer to [Upgrade dbt version in Cloud](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
+* Your projects must be on a dbt [release tracks](../dbt-versions/dbt-release-tracks.md) or dbt version 1.0 or later. Refer to [Upgrade dbt version in Cloud](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
 ## Authorization[​](#authorization "Direct link to Authorization")
 
-Currently, authorization of requests takes place [using a service token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md). dbt admin users can generate a Metadata Only service token that is authorized to execute a specific query against the Discovery API.
+Currently, authorization of requests takes place [using a service token](./service-tokens.md). dbt admin users can generate a Metadata Only service token that is authorized to execute a specific query against the Discovery API.
 
 Once you've created a token, you can use it in the Authorization header of requests to the dbt Discovery API. Be sure to include the Token prefix in the Authorization header, or the request will fail with a `401 Unauthorized` error. Note that `Bearer` can be used instead of `Token` in the Authorization header. Both syntaxes are equivalent.
 
 ## Access the Discovery API[​](#access-the-discovery-api "Direct link to Access the Discovery API")
 
-1. Create a [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) to authorize requests. dbt Admin users can generate a *Metadata Only* service token, which can be used to execute a specific query against the Discovery API to authorize requests.
+1. Create a [service account token](./service-tokens.md) to authorize requests. dbt Admin users can generate a *Metadata Only* service token, which can be used to execute a specific query against the Discovery API to authorize requests.
 
 2. Find the API URL to use from the [Discovery API endpoints](#discovery-api-endpoints) table.
 
-3. For specific query points, refer to the [schema documentation](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job.md).
+3. For specific query points, refer to the [schema documentation](./discovery-schema-job.md).
 
 ## Run queries using HTTP requests[​](#run-queries-using-http-requests "Direct link to Run queries using HTTP requests")
 
@@ -66,7 +66,7 @@ metadata = response.json()['data'][ENDPOINT]
 
 Every query will require an environment ID or job ID. You can get the ID from a dbt URL or using the Admin API.
 
-There are several illustrative example queries on this page. For more examples, refer to [Use cases and examples for the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md).
+There are several illustrative example queries on this page. For more examples, refer to [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md).
 
 ## Discovery API endpoints[​](#discovery-api-endpoints "Direct link to Discovery API endpoints")
 
@@ -77,7 +77,7 @@ Find your Discovery API endpoint in **Account settings** under **Access URLs** i
 | Multi-tenant    | `https://ACCOUNT_PREFIX.metadata.REGION.dbt.com/graphql`            |
 | Single-tenant   | `https://ACCOUNT_PREFIX.metadata.ROUTING_SUBDOMAIN.dbt.com/graphql` |
 
-* Replace the following placeholders with your actual values. Refer to [Access, Regions, & IP addresses](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for more information on the regions and subdomains:
+* Replace the following placeholders with your actual values. Refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md) for more information on the regions and subdomains:
 
   <!-- -->
 
@@ -204,7 +204,7 @@ The previously described `PageInfo` and `totalCount` pattern applies to the `env
 
 #### Job-based endpoint pagination[​](#job-based-endpoint-pagination "Direct link to Job-based endpoint pagination")
 
-Job-based list endpoints also support cursor-based pagination. Use this pattern when you query resources under the [`job`](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job.md) object. These endpoints return a flat list rather than an `edges`/`nodes` connection, so they do not expose a `PageInfo` object.
+Job-based list endpoints also support cursor-based pagination. Use this pattern when you query resources under the [`job`](./discovery-schema-job.md) object. These endpoints return a flat list rather than an `edges`/`nodes` connection, so they do not expose a `PageInfo` object.
 
 The following job-based list fields accept `first` and `after`:
 
@@ -227,9 +227,9 @@ Upcoming change to unpaginated requests
 
 In a future update, requests that omit `first` and `after` will return at most 100 rows. dbt Labs will provide advance notice before that change rolls out.
 
-To run the example, use your [Discovery API endpoint](#discovery-api-endpoints) and a [Metadata Only service token](#authorization). Get `jobId` and optional `runId` from the job or run URL, or with the [Admin API](https://docs.getdbt.com/docs/dbt-apis/admin-api.md). If you omit `runId`, the API uses the job's latest run. Run the query in the [GraphQL explorer](#run-queries-with-the-graphql-explorer) or via [HTTP requests](#run-queries-using-http-requests).
+To run the example, use your [Discovery API endpoint](#discovery-api-endpoints) and a [Metadata Only service token](#authorization). Get `jobId` and optional `runId` from the job or run URL, or with the [Admin API](./admin-api.md). If you omit `runId`, the API uses the job's latest run. Run the query in the [GraphQL explorer](#run-queries-with-the-graphql-explorer) or via [HTTP requests](#run-queries-using-http-requests).
 
-The example below uses a job's `models` list. The same `first` and `after` arguments work for the other resource types listed above. For a use-case example with more fields, refer to [Use cases and examples for the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md).
+The example below uses a job's `models` list. The same `first` and `after` arguments work for the other resource types listed above. For a use-case example with more fields, refer to [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md).
 
 ```graphql
 query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: String) {
@@ -266,7 +266,7 @@ For the next page, set `after` to the `paginationCursor` from the *last* row of 
 
 ### Filters[​](#filters "Direct link to Filters")
 
-Filtering helps to narrow down the results of an API query. If you want to query and return only models and tests that are failing or find models that are taking too long to run, you can fetch execution details such as [`executionTime`](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job-models.md#fields), [`runElapsedTime`](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job-models.md#fields), or [`status`](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job-models.md#fields). This helps data teams monitor the performance of their models, identify bottlenecks, and optimize the overall data pipeline.
+Filtering helps to narrow down the results of an API query. If you want to query and return only models and tests that are failing or find models that are taking too long to run, you can fetch execution details such as [`executionTime`](./discovery-schema-job-models.md#fields), [`runElapsedTime`](./discovery-schema-job-models.md#fields), or [`status`](./discovery-schema-job-models.md#fields). This helps data teams monitor the performance of their models, identify bottlenecks, and optimize the overall data pipeline.
 
 Below is an example that filters for results of models that have succeeded on their `lastRunStatus`:
 
@@ -305,5 +305,5 @@ query ModelsAndTests($environmentId: BigInt!, $first: Int!) {
 
 ## Related content[​](#related-content "Direct link to Related content")
 
-* [Use cases and examples for the Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-use-cases-and-examples.md)
-* [Schema](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job.md)
+* [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md)
+* [Schema](./discovery-schema-job.md)

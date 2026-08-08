@@ -8,7 +8,7 @@ dbt Enterprise-tier plans support single-sign on (SSO) for any SAML 2.0-complian
 * SP-initiated SSO
 * Just-in-time provisioning
 
-This document details the steps to integrate dbt with an identity provider in order to configure Single Sign On and [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control).
+This document details the steps to integrate dbt with an identity provider in order to configure Single Sign On and [role-based access control](./about-user-access.md#role-based-access-control).
 
 ## Auth0 URIs[​](#auth0-uris "Direct link to Auth0 URIs")
 
@@ -66,7 +66,7 @@ You'll need administrator access to your SAML 2.0 compliant identity provider to
 
 #### Configuring the application[​](#configuring-the-application "Direct link to Configuring the application")
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -79,7 +79,7 @@ When prompted for the SAML 2.0 application configurations, supply the following 
 
 - Relay State: `<login URL slug>` (Note: Relay state may be shown as optional in the IdP settings; it is *required* for the dbt SSO configuration.)
 
-Additionally, you may configure the IdP attributes passed from your identity provider into dbt. [SCIM configuration](https://docs.getdbt.com/docs/platform/manage-access/scim.md) requires `NameID` and `email` to associate logins with the correct user. If you're using license mapping for groups, you need to additionally configure the `groups` attribute. We recommend using the following values:
+Additionally, you may configure the IdP attributes passed from your identity provider into dbt. [SCIM configuration](./scim.md) requires `NameID` and `email` to associate logins with the correct user. If you're using license mapping for groups, you need to additionally configure the `groups` attribute. We recommend using the following values:
 
 | name        | name format | value            | description              |
 | ----------- | ----------- | ---------------- | ------------------------ |
@@ -96,7 +96,7 @@ Search table...
 
 `NameID` values can be persistent (`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`) rather than unspecified if your IdP supports these values. Using an email address for `NameID` will work, but dbt creates an entirely new user if that email address changes. Configuring a value that will not change, even if the user's email address does, is a best practice.
 
-dbt's [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure your identity provider to provide group membership information in user attribute called `groups`:
+dbt's [role-based access control](./about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure your identity provider to provide group membership information in user attribute called `groups`:
 
 | name   | name format | value            | description                             |
 | ------ | ----------- | ---------------- | --------------------------------------- |
@@ -168,7 +168,7 @@ You can use the instructions in this section to configure Okta as your identity 
 
 ### Configure the Okta application[​](#configure-the-okta-application "Direct link to Configure the Okta application")
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -196,7 +196,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 [![Configure the app's SAML Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-top.png?v=2 "Configure the app's SAML Settings")](#)Configure the app's SAML Settings
 
-2. Map your organization's Okta User and Group Attributes to the format that dbt expects by using the Attribute Statements and Group Attribute Statements forms. [SCIM configuration](https://docs.getdbt.com/docs/platform/manage-access/scim.md) requires `email` to associate logins with the correct user. If you're using license mapping for groups, you need to additionally configure the `groups` attribute.
+2. Map your organization's Okta User and Group Attributes to the format that dbt expects by using the Attribute Statements and Group Attribute Statements forms. [SCIM configuration](./scim.md) requires `email` to associate logins with the correct user. If you're using license mapping for groups, you need to additionally configure the `groups` attribute.
 
 3. The following table illustrates expected User Attribute Statements:
 
@@ -255,7 +255,7 @@ Use this section if you are configuring Google as your identity provider.
 
 ### Configure the Google application[​](#configure-the-google-application "Direct link to Configure the Google application")
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -316,7 +316,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-9. To use [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control) in dbt, enter the groups in the **Group membership** field during configuration:
+9. To use [role-based access control](./about-user-access.md#role-based-access-control) in dbt, enter the groups in the **Group membership** field during configuration:
 
 | Google groups  | App attributes |
 | -------------- | -------------- |
@@ -350,7 +350,7 @@ If you're using Microsoft Entra ID (formerly Azure AD), the instructions below w
 
 ### Create a Microsoft Entra ID Enterprise application[​](#create-a-microsoft-entra-id-enterprise-application "Direct link to Create a Microsoft Entra ID Enterprise application")
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -456,7 +456,7 @@ To configure OneLogin, you will need **Administrator** access.
 
 ### Configure the OneLogin application[​](#configure-the-onelogin-application "Direct link to Configure the OneLogin application")
 
-The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](https://docs.getdbt.com/docs/platform/manage-access/sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
+The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -499,7 +499,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-dbt's [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure OneLogin to provide group membership information in user attribute called `groups`:
+dbt's [role-based access control](./about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure OneLogin to provide group membership information in user attribute called `groups`:
 
 | name   | name format | value                                             | description                             |
 | ------ | ----------- | ------------------------------------------------- | --------------------------------------- |
@@ -591,14 +591,14 @@ Logging in
 
 Users can sign in at <https://login.dbt.com> to view accounts they have access to across instances and choose where to open dbt platform. This is the recommended entry point for most users.
 
-For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan:
+For SSO through your identity provider, you can also use the following URL format with your account login URL slug. Replace `LOGIN_SLUG` with the value from the previous steps and `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan:
 
 `https://YOUR_ACCESS_URL/enterprise-login/LOGIN-SLUG`
 
-Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](https://docs.getdbt.com/docs/platform/account-settings.md#enable-global-account-discovery).
+Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
 ### Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
 
-After configuring an identity provider, you will be able to set up [role-based access control](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) for your account.
+After configuring an identity provider, you will be able to set up [role-based access control](./enterprise-permissions.md) for your account.
 
-For common questions and troubleshooting — including "Access Denied" after SAML authentication, ACS URL or Entity ID changes, and email verification issues — refer to [SSO FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/sso-faq.md).
+For common questions and troubleshooting — including "Access Denied" after SAML authentication, ACS URL or Entity ID changes, and email verification issues — refer to [SSO FAQs and troubleshooting](./sso-faq.md).

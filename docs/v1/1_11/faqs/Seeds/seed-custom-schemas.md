@@ -1,6 +1,6 @@
 # Can I build my seeds in a schema other than my target schema or can I split my seeds across multiple schemas?
 
-Yes! Use the [schema](https://docs.getdbt.com/reference/resource-configs/schema.md) configuration in your `dbt_project.yml` file.
+Yes! Use the [schema](../../reference/resource-configs/schema.md) configuration in your `dbt_project.yml` file.
 
 dbt\_project.yml
 

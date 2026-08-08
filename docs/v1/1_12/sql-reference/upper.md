@@ -1,6 +1,6 @@
 # SQL UPPER
 
-UPPER is the counterpart to [LOWER](https://docs.getdbt.com/sql-reference/lower.md) (who would have guessed?)—and they’re probably the most intuitive of SQL functions.
+UPPER is the counterpart to [LOWER](./lower.md) (who would have guessed?)—and they’re probably the most intuitive of SQL functions.
 
 Using the UPPER function on a string value will return the input as an all-uppercase string. It’s an effective way to create expected capitalization for certain string values across your data.
 
@@ -44,7 +44,7 @@ Search table...
 
 Now, all characters in the `first_name` are uppercase (and `last_name` are unchanged).
 
-> Changing string columns to uppercase to create uniformity across data sources typically happens in our [dbtodels](https://docs.getdbt.com/best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lower or upper casing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
+> Changing string columns to uppercase to create uniformity across data sources typically happens in our [dbtodels](../best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lower or upper casing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
 
 ## SQL UPPER function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-upper-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL UPPER function syntax in Snowflake, Databricks, BigQuery, and Redshift")
 

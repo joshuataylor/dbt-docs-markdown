@@ -8,7 +8,7 @@ note
 
 If this is your first time setting up an Entra app as a service principal, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal) for any prerequisite steps you may need to take to prepare.
 
-To use dbt's native integration with Azure DevOps, an account admin needs to set up a Microsoft Entra ID app as a service principal. We recommend setting up a separate [Entra ID application than used for SSO](https://docs.getdbt.com/docs/platform/manage-access/set-up-sso-microsoft-entra-id.md).
+To use dbt's native integration with Azure DevOps, an account admin needs to set up a Microsoft Entra ID app as a service principal. We recommend setting up a separate [Entra ID application than used for SSO](../manage-access/set-up-sso-microsoft-entra-id.md).
 
 The application's service principal represents the Entra ID application object. While a "service user" represents a real user in Azure with an Entra ID (and an applicable license), the "service principal" is a secure identity used by an application to access Azure resources unattended. The service principal authenticates with a client ID and secret rather than a username and password (or any other form of user auth). Service principals are the [Microsoft recommended method](https://learn.microsoft.com/en-us/entra/architecture/secure-service-accounts#types-of-microsoft-entra-service-accounts) for authenticating apps.
 
@@ -16,7 +16,7 @@ The application's service principal represents the Entra ID application object. 
 2. [Connect Azure DevOps to your new app](#connect-azure-devops-to-your-new-app).
 3. [Add your Entra ID app to dbt](#connect-your-microsoft-entra-id-app-to-dbt).
 
-Once the Microsoft Entra ID app is added to dbt, it will act as a [service principal](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser), which will be used to power headless actions in dbt such as deployment runs and CI. The dbt developers can then personally authenticate in dbt from Azure DevOps. For more, see [Authenticate with Azure DevOps](https://docs.getdbt.com/docs/platform/git/authenticate-azure.md).
+Once the Microsoft Entra ID app is added to dbt, it will act as a [service principal](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser), which will be used to power headless actions in dbt such as deployment runs and CI. The dbt developers can then personally authenticate in dbt from Azure DevOps. For more, see [Authenticate with Azure DevOps](./authenticate-azure.md).
 
 The following personas are required to complete the steps on this page:
 
@@ -137,7 +137,7 @@ To create the configuration:
      <!-- -->
      [![Fields for adding Entra ID app to dbt.](/img/docs/platform-integrations/service-principal-fields.png?v=2 "Fields for adding Entra ID app to dbt.")](#)Fields for adding Entra ID app to dbt.
 
-Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](https://docs.getdbt.com/docs/platform/git/authenticate-azure.md).
+Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](./authenticate-azure.md).
 
 ## Migrate to service principal[​](#migrate-to-service-principal "Direct link to Migrate to service principal")
 

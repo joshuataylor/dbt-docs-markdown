@@ -1,6 +1,6 @@
 # Create Datadog events from dbt results
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 Webhooks
 
@@ -12,7 +12,7 @@ Advanced
 
 ## Introduction[​](#introduction "Direct link to Introduction")
 
-This guide will teach you how to build and host a basic Python app which will add dbt job events to Datadog. To do this, when a dbt job completes it will create a log entry for each node that was run, containing all information about the node provided by the [Discovery API](https://docs.getdbt.com/docs/dbt-apis/discovery-schema-job-models.md).
+This guide will teach you how to build and host a basic Python app which will add dbt job events to Datadog. To do this, when a dbt job completes it will create a log entry for each node that was run, containing all information about the node provided by the [Discovery API](../docs/dbt-apis/discovery-schema-job-models.md).
 
 In this example, we will use [fly.io](https://fly.io) for hosting/running the service. fly.io is a platform for running full stack apps without provisioning servers etc. This level of usage should comfortably fit inside of the Free tier. You can also use an alternative tool such as [AWS Lambda](https://ademoverflow.com/en/posts/tutorial-fastapi-aws-lambda-serverless/) or [Google Cloud Run](https://github.com/sekR4/FastAPI-on-Google-Cloud-Run).
 
@@ -20,7 +20,7 @@ In this example, we will use [fly.io](https://fly.io) for hosting/running the se
 
 This guide assumes some familiarity with:
 
-* [dbt Webhooks](https://docs.getdbt.com/docs/deploy/webhooks.md)
+* [dbt Webhooks](../docs/deploy/webhooks.md)
 * CLI apps
 * Deploying code to a serverless code runner like fly.io or AWS Lambda
 
@@ -99,7 +99,7 @@ Wrote config file fly.toml
 
 ## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
 
-1. See [Create a webhook subscription](https://docs.getdbt.com/docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**.
+1. See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**.
 2. Set the webhook URL to the host name you created earlier (`APP_NAME.fly.dev`).
 3. Make note of the Webhook Secret Key for later.
 
@@ -109,7 +109,7 @@ Wrote config file fly.toml
 
 The application requires four secrets to be set, using these names:
 
-* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](https://docs.getdbt.com/docs/dbt-apis/user-tokens.md) or [service account token](https://docs.getdbt.com/docs/dbt-apis/service-tokens.md) with at least the `Metdata Only` permission.
+* `DBT_CLOUD_SERVICE_TOKEN`: a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md) with at least the `Metdata Only` permission.
 * `DBT_CLOUD_AUTH_TOKEN`: the Secret Key for the dbt webhook you created earlier.
 * `DD_API_KEY`: the API key you created earlier.
 * `DD_SITE`: The Datadog site for your organisation, e.g. `datadoghq.com`.

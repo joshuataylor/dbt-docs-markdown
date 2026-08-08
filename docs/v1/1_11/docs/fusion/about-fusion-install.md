@@ -6,9 +6,9 @@ important
 
 The dbt Fusion engine is currently available for installation in:
 
-* [Local command line interface (CLI) tools](https://docs.getdbt.com/docs/local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [VS Code and Cursor with the dbt extension](https://docs.getdbt.com/docs/install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* [dbt platform environments](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+* [Local command line interface (CLI) tools](../local/install-dbt.md?version=2) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [VS Code and Cursor with the dbt extension](../install-dbt-extension.md) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+* [dbt platform environments](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
 Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](https://getdbt.slack.com/archives/C088YCAB6GH).
 
@@ -34,8 +34,8 @@ Before installing Fusion, ensure that you:
   * Native OAuth
   * External OAuth
     <!-- -->
-    * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
-  * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
+    * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
    Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -89,22 +89,22 @@ Before installing Fusion, ensure that you:
 
 ## Getting started[​](#getting-started "Direct link to Getting started")
 
-If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [Fusion availability](https://docs.getdbt.com/docs/fusion/fusion-availability.md) page.
+If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [Fusion availability](./fusion-availability.md) page.
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
 
-#### [dbt VS Code Extension](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+#### [dbt VS Code Extension](../local/install-dbt.md?version=2)
 
-[Learn how to connect to a data platform, integrate with secure authentication methods, and configure a sync with a git repo.](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+[Learn how to connect to a data platform, integrate with secure authentication methods, and configure a sync with a git repo.](../local/install-dbt.md?version=2)
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+[![](/img/icons/dbt-bit.svg)](../local/install-dbt.md?version=2)
 
-#### [dbt Fusion engine from the CLI](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+#### [dbt Fusion engine from the CLI](../local/install-dbt.md?version=2)
 
-[Learn how to install the dbt Fusion engine on the command line interface (CLI).](https://docs.getdbt.com/docs/local/install-dbt.md?version=2)
+[Learn how to install the dbt Fusion engine on the command line interface (CLI).](../local/install-dbt.md?version=2)
 
-[![](/img/icons/dbt-bit.svg)](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+[![](/img/icons/dbt-bit.svg)](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
-#### [dbt Fusion engine upgrade](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+#### [dbt Fusion engine upgrade](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
 
-[Learn how you can upgrade and leverage the speed and scale of the dbt Fusion engine](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)
+[Learn how you can upgrade and leverage the speed and scale of the dbt Fusion engine](../dbt-versions/upgrade-dbt-platform-version.md#dbt-fusion-engine)

@@ -20,7 +20,7 @@ For dbt users working in a lakehouse or multi-engine architecture, data catalogs
 
 * **Table discovery:** dbt models are materialized in an open table format (often Iceberg) and registered in a catalog. Understanding the catalog structure is critical for managing datasets and informing dbt about what has already been built and where it resides.
 
-* **Cross-engine interoperability:** Iceberg catalogs allow datasets created by one compute engine to be read by another, without replication. This is the foundation for [cross-platform dbt Mesh](https://docs.getdbt.com/docs/mesh/cross-platform-mesh.md).
+* **Cross-engine interoperability:** Iceberg catalogs allow datasets created by one compute engine to be read by another, without replication. This is the foundation for [cross-platform dbt Mesh](../../mesh/cross-platform-mesh.md).
 
 Without a catalog, each Iceberg table's metadata needs to be registered with the query engine individually, requiring many additional `create iceberg table` and `alter ... refresh` queries. With a catalog, each table's metadata is registered and refreshed automatically, and there's a single endpoint to ask about every table.
 
@@ -28,7 +28,7 @@ Over the past year, data platform vendors have been adding support for catalog "
 
 ## How dbt works with Iceberg catalogs[​](#how-dbt-works-with-iceberg-catalogs "Direct link to How dbt works with Iceberg catalogs")
 
-dbt uses [Iceberg catalogs defined in `catalogs.yml`](https://docs.getdbt.com/docs/build/iceberg/catalogs-yml.md) in order to:
+dbt uses [Iceberg catalogs defined in `catalogs.yml`](./catalogs-yml.md) in order to:
 
 * **Materialize models:** When dbt materializes a model as a table or view, if the catalog integration is declared, the underlying adapter (such as Spark, Trino, or Snowflake) creates an Iceberg table entry in the specified catalog, both built-in or external.
 

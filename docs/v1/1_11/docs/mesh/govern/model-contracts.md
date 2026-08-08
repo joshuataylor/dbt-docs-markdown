@@ -2,9 +2,9 @@
 
 ## Related documentation[​](#related-documentation "Direct link to Related documentation")
 
-* [`contract`](https://docs.getdbt.com/reference/resource-configs/contract.md)
-* [`columns`](https://docs.getdbt.com/reference/resource-properties/columns.md)
-* [`constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md)
+* [`contract`](../../../reference/resource-configs/contract.md)
+* [`columns`](../../../reference/resource-properties/columns.md)
+* [`constraints`](../../../reference/resource-properties/constraints.md)
 
 ## Why define a contract?[​](#why-define-a-contract "Direct link to Why define a contract?")
 
@@ -42,7 +42,7 @@ There are some considerations to keep in mind when using model governance featur
   * `view` — views offer limited support for column names and data types, but not `constraints`
   * `incremental` — with `on_schema_change: append_new_columns` or `on_schema_change: fail`
 
-* Certain data platforms, but the supported and [enforced `constraints`](https://docs.getdbt.com/reference/resource-properties/constraints.md) vary by platform
+* Certain data platforms, but the supported and [enforced `constraints`](../../../reference/resource-properties/constraints.md) vary by platform
 
 **These places do *NOT* support model contracts:**
 
@@ -78,7 +78,7 @@ To enforce a model's contract, set `enforced: true` under the `contract` configu
 
 When enforced, your contract *must* include every column's `name` and `data_type` (where `data_type` matches one that your data platform understands).
 
-If your model is materialized as `table` or `incremental`, and depending on your data platform, you may optionally specify additional [constraints](https://docs.getdbt.com/reference/resource-properties/constraints.md), such as `not_null` (containing zero null values).
+If your model is materialized as `table` or `incremental`, and depending on your data platform, you may optionally specify additional [constraints](../../../reference/resource-properties/constraints.md), such as `not_null` (containing zero null values).
 
 models/marts/customers.yml
 
@@ -107,7 +107,7 @@ When building a model with a defined contract, dbt will do two things differentl
 
 <!-- -->
 
-Select the adapter-specific tab for more information on [constraint](https://docs.getdbt.com/reference/resource-properties/constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
+Select the adapter-specific tab for more information on [constraint](../../../reference/resource-properties/constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
 
 * **Definable and enforced** — The model won't build if it violates the constraint.
 * **Definable and not enforced** — The platform supports specifying the type of constraint, but a model can still build even if building the model violates the constraint. This constraint exists for metadata purposes only. This approach is more typical in cloud data warehouses than in transactional databases, where strict rule enforcement is more common.
@@ -227,16 +227,16 @@ Search table...
 
 ### Which models should have contracts?[​](#which-models-should-have-contracts "Direct link to Which models should have contracts?")
 
-Any model meeting the criteria described above *can* define a contract. We recommend defining contracts for ["public" models](https://docs.getdbt.com/docs/mesh/govern/model-access.md) that are being relied on downstream.
+Any model meeting the criteria described above *can* define a contract. We recommend defining contracts for ["public" models](./model-access.md) that are being relied on downstream.
 
-* Inside of dbt: Shared with other groups, other teams, and [other dbt projects](https://docs.getdbt.com/best-practices/how-we-mesh/mesh-1-intro.md).
-* Outside of dbt: Reports, dashboards, or other systems & processes that expect this model to have a predictable structure. You might reflect these downstream uses with [exposures](https://docs.getdbt.com/docs/build/exposures.md).
+* Inside of dbt: Shared with other groups, other teams, and [other dbt projects](../../../best-practices/how-we-mesh/mesh-1-intro.md).
+* Outside of dbt: Reports, dashboards, or other systems & processes that expect this model to have a predictable structure. You might reflect these downstream uses with [exposures](../../build/exposures.md).
 
 ### How are contracts different from tests?[​](#how-are-contracts-different-from-tests "Direct link to How are contracts different from tests?")
 
 A model's contract defines the **shape** of the returned dataset. If the model's logic or input data doesn't conform to that shape, the model does not build.
 
-[Data Tests](https://docs.getdbt.com/docs/build/data-tests.md) are a more flexible mechanism for validating the content of your model *after* it's built. So long as you can write the query, you can run the data test. Data tests are more configurable, such as with [custom severity thresholds](https://docs.getdbt.com/reference/resource-configs/severity.md). They are easier to debug after finding failures because you can query the already-built model, or [store the failing records in the data warehouse](https://docs.getdbt.com/reference/resource-configs/store_failures.md).
+[Data Tests](../../build/data-tests.md) are a more flexible mechanism for validating the content of your model *after* it's built. So long as you can write the query, you can run the data test. Data tests are more configurable, such as with [custom severity thresholds](../../../reference/resource-configs/severity.md). They are easier to debug after finding failures because you can query the already-built model, or [store the failing records in the data warehouse](../../../reference/resource-configs/store_failures.md).
 
 In some cases, you can replace a data test with its equivalent constraint. This has the advantage of guaranteeing the validation at build time, and it probably requires less compute (cost) in your data platform. The prerequisites for replacing a data test with a constraint are:
 
@@ -270,4 +270,4 @@ Breaking changes include:
     versioned models will raise an error. unversioned models will raise a warning.
     <!-- -->
 
-More details are available in the [contract reference](https://docs.getdbt.com/reference/resource-configs/contract.md#incremental-models-and-on_schema_change).
+More details are available in the [contract reference](../../../reference/resource-configs/contract.md#incremental-models-and-on_schema_change).

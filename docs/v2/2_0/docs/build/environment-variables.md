@@ -1,6 +1,6 @@
 # Environment variables
 
-Environment variables can be used to customize the behavior of a dbt project depending on where the project is running. Refer to the docs on [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md) for more information on how to call the Jinja function `{{env_var('DBT_KEY','OPTIONAL_DEFAULT')}}` in your project code.
+Environment variables can be used to customize the behavior of a dbt project depending on where the project is running. Refer to the docs on [env\_var](../../reference/dbt-jinja-functions/env_var.md) for more information on how to call the Jinja function `{{env_var('DBT_KEY','OPTIONAL_DEFAULT')}}` in your project code.
 
 Environment Variable Naming and Prefixing
 
@@ -83,7 +83,7 @@ There are some known issues with partial parsing of a project and changing envir
 
 If you are using the dbt VS Code extension, you can set environment variables locally in your shell profile (`~/.zshrc` or `~/.bashrc`) or in a `.env` file at the root level of your dbt project.
 
-For more information, refer to [Configure the dbt VS Code extension](https://docs.getdbt.com/docs/configure-dbt-extension.md#set-environment-variables-locally).
+For more information, refer to [Configure the dbt VS Code extension](../configure-dbt-extension.md#set-environment-variables-locally).
 
 ### Handling secrets[​](#handling-secrets "Direct link to Handling secrets")
 
@@ -93,7 +93,7 @@ Environment variables prefixed with `DBT_ENV_SECRET_` are protected with additio
 
 [![DBT\_ENV\_SECRET prefix obfuscation](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/DBT_ENV_SECRET.png?v=2> "DBT_ENV_SECRET prefix obfuscation")](#)DBT\_ENV\_SECRET prefix obfuscation
 
-**Note**: An environment variable can be used to store a [git token for repo cloning](https://docs.getdbt.com/docs/build/environment-variables.md#clone-private-packages). We recommend you make the git token's permissions read only and consider using a machine account or service user's PAT with limited repo access in order to practice good security hygiene.
+**Note**: An environment variable can be used to store a [git token for repo cloning](./environment-variables.md#clone-private-packages). We recommend you make the git token's permissions read only and consider using a machine account or service user's PAT with limited repo access in order to practice good security hygiene.
 
 ### Special environment variables[​](#special-environment-variables "Direct link to Special environment variables")
 
@@ -103,15 +103,15 @@ dbt has a number of pre-defined variables built in. Variables are set automatica
 
 The following environment variable is set automatically for the Studio IDE:
 
-* `DBT_CLOUD_GIT_BRANCH` — Provides the development Git branch name in the [Studio IDE](https://docs.getdbt.com/docs/platform/studio-ide/develop-in-studio.md).
+* `DBT_CLOUD_GIT_BRANCH` — Provides the development Git branch name in the [Studio IDE](../platform/studio-ide/develop-in-studio.md).
 
   <!-- -->
 
   * The variable changes when the branch is changed.
   * Doesn't require restarting the Studio IDE after a branch change.
-  * Currently not available in the [dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation.md).
+  * Currently not available in the [dbt CLI](../platform/dbt-cli-installation.md).
 
-Use case — This is useful in cases where you want to dynamically use the Git branch name as a prefix for a [development schema](https://docs.getdbt.com/docs/build/custom-schemas.md) (`{{ env_var('DBT_CLOUD_GIT_BRANCH') }}`).
+Use case — This is useful in cases where you want to dynamically use the Git branch name as a prefix for a [development schema](./custom-schemas.md) (`{{ env_var('DBT_CLOUD_GIT_BRANCH') }}`).
 
 #### dbt platform context[​](#dbt-platform-context "Direct link to dbt platform context")
 
@@ -119,7 +119,7 @@ The following environment variables are set automatically:
 
 * `DBT_ENV` — This key is reserved for the dbt application and will always resolve to 'prod'. For deployment runs only.
 * `DBT_CLOUD_ENVIRONMENT_NAME` — The name of the dbt environment in which `dbt` is running.
-* `DBT_CLOUD_ENVIRONMENT_TYPE` — The type of dbt environment in which `dbt` is running. The valid values are `dev`, `staging`, or `prod`. The value will be empty for [General deployment environments](https://docs.getdbt.com/docs/dbt-platform-environments.md#types-of-environments), so use a default like `{{ env_var('DBT_CLOUD_ENVIRONMENT_TYPE', '') }}`.
+* `DBT_CLOUD_ENVIRONMENT_TYPE` — The type of dbt environment in which `dbt` is running. The valid values are `dev`, `staging`, or `prod`. The value will be empty for [General deployment environments](../dbt-platform-environments.md#types-of-environments), so use a default like `{{ env_var('DBT_CLOUD_ENVIRONMENT_TYPE', '') }}`.
 * `DBT_CLOUD_INVOCATION_CONTEXT` — The context type in which `dbt` is invoked. The values are `dev`, `staging`, `prod`, or `ci`.
   <!-- -->
   * Additionally, use `DBT_CLOUD_INVOCATION_CONTEXT` in the `generate_schema_name()` macro to define explicit guidelines to use the default schema only (with the `dbt_cloud_pr prefix`) in CI job runs, even if those CI jobs run in the same environment as production jobs.
@@ -147,7 +147,7 @@ Environment variables can be used in many ways, and they give you the power and 
 
  Clone private packages
 
-Now that you can set secrets as environment variables, you can pass git tokens into your package HTTPS URLs to allow for on-the-fly cloning of private repositories. Read more about enabling [private package cloning](https://docs.getdbt.com/docs/build/packages.md#private-packages).
+Now that you can set secrets as environment variables, you can pass git tokens into your package HTTPS URLs to allow for on-the-fly cloning of private repositories. Read more about enabling [private package cloning](./packages.md#private-packages).
 
  Dynamically set your warehouse in your Snowflake connection
 
@@ -163,13 +163,13 @@ Currently, it's not possible to dynamically set environment variables across mod
 
 Environment variables and Snowflake OAuth limitations
 
-Env vars work well with username/password and keypair, including scheduled jobs, because dbt Core consumes the Jinja inserted into the autogenerated [`profiles.yml`](https://docs.getdbt.com/docs/local/profiles.yml.md) and resolves it to do an `env_var` lookup.
+Env vars work well with username/password and keypair, including scheduled jobs, because dbt Core consumes the Jinja inserted into the autogenerated [`profiles.yml`](../local/profiles.yml.md) and resolves it to do an `env_var` lookup.
 
 However, there are some limitations when using env vars with Snowflake OAuth Connection settings:
 
-* You can't use them in the account/host field, but they can be used for database, warehouse, and role. For these fields, [use extended attributes](https://docs.getdbt.com/docs/deploy/deploy-environments.md#deployment-connection).
+* You can't use them in the account/host field, but they can be used for database, warehouse, and role. For these fields, [use extended attributes](../deploy/deploy-environments.md#deployment-connection).
 
-Something to note, if you supply an environment variable in the account/host field, Snowflake OAuth Connection will **fail** to connect. This happens because the field doesn't pass through Jinja rendering, so dbt simply passes the literal `env_var` code into a URL string like `{{ env_var("DBT_ACCOUNT_HOST_NAME") }}.snowflakecomputing.com`, which is an invalid hostname. Use [extended attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) instead.
+Something to note, if you supply an environment variable in the account/host field, Snowflake OAuth Connection will **fail** to connect. This happens because the field doesn't pass through Jinja rendering, so dbt simply passes the literal `env_var` code into a URL string like `{{ env_var("DBT_ACCOUNT_HOST_NAME") }}.snowflakecomputing.com`, which is an invalid hostname. Use [extended attributes](../dbt-platform-environments.md#extended-attributes) instead.
 
  Audit your run metadata
 
@@ -201,7 +201,7 @@ from users_aggregated
 
  Configure Semantic Layer credentials
 
-Use [Extended Attributes](https://docs.getdbt.com/docs/dbt-platform-environments.md#extended-attributes) and [Environment Variables](https://docs.getdbt.com/docs/build/environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
+Use [Extended Attributes](../dbt-platform-environments.md#extended-attributes) and [Environment Variables](./environment-variables.md) when connecting to the Semantic Layer. If you set a value directly in the Semantic Layer Credentials, it will have a higher priority than Extended Attributes. When using environment variables, the default value for the environment will be used.
 
 For example, set the warehouse by using `{{env_var('DBT_WAREHOUSE')}}` in your Semantic Layer credentials.
 

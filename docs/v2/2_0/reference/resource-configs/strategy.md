@@ -45,7 +45,7 @@ snapshots:
 
 ## Description[​](#description "Direct link to Description")
 
-The snapshot strategy dbt should use to detect record changes. Read the guide to [snapshots](https://docs.getdbt.com/docs/build/snapshots.md#detecting-row-changes) to understand the differences between the two.
+The snapshot strategy dbt should use to detect record changes. Read the guide to [snapshots](../../docs/build/snapshots.md#detecting-row-changes) to understand the differences between the two.
 
 ## Default[​](#default "Direct link to Default")
 

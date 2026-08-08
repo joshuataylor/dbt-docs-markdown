@@ -2,7 +2,7 @@
 
 By default, dbt expects your singular data test files to be located in the `tests` subdirectory of your project, and generic data test definitions to be located in `tests/generic` or `macros`.
 
-To change this, update the [test-paths](https://docs.getdbt.com/reference/project-configs/test-paths.md) configuration in your `dbt_project.yml` file, like so:
+To change this, update the [test-paths](../../reference/project-configs/test-paths.md) configuration in your `dbt_project.yml` file, like so:
 
 dbt\_project.yml
 

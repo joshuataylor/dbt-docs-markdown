@@ -9,11 +9,11 @@
 * 📏 Lines of YAML should be no longer than 80 characters.
 * 🛠️ Use the [dbt JSON schema](https://github.com/dbt-labs/dbt-jsonschema) with any compatible Studio IDE and a YAML formatter (we recommend [Prettier](https://prettier.io/)) to validate your YAML files and format them automatically.
 
-Note, refer to [YAML tips](https://docs.getdbt.com/docs/build/dbt-tips.md#yaml-tips) for more YAML information.
+Note, refer to [YAML tips](../../docs/build/dbt-tips.md#yaml-tips) for more YAML information.
 
 info
 
-☁️ As with Python and SQL, the Studio IDE comes with built-in formatting for YAML files (Markdown and JSON too!), via Prettier. Just click the `Format` button and you're in perfect style. As with the other tools, you can [also customize the formatting rules](https://docs.getdbt.com/docs/platform/studio-ide/lint-format.md#format-yaml-markdown-json) to your liking to fit your company's style guide.
+☁️ As with Python and SQL, the Studio IDE comes with built-in formatting for YAML files (Markdown and JSON too!), via Prettier. Just click the `Format` button and you're in perfect style. As with the other tools, you can [also customize the formatting rules](../../docs/platform/studio-ide/lint-format.md#format-yaml-markdown-json) to your liking to fit your company's style guide.
 
 ### Example YAML[​](#example-yaml "Direct link to Example YAML")
 

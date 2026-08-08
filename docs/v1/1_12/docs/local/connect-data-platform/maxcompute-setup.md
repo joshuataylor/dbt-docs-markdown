@@ -29,7 +29,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-maxcompute<!-- -->
 
-For <!-- -->MaxCompute<!-- -->-specific configuration, please refer to [MaxCompute<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/no-configs.md)
+For <!-- -->MaxCompute<!-- -->-specific configuration, please refer to [MaxCompute<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
 
 ## Connecting to MaxCompute with **dbt-maxcompute**[​](#connecting-to-maxcompute-with-dbt-maxcompute "Direct link to connecting-to-maxcompute-with-dbt-maxcompute")
 

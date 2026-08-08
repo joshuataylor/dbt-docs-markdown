@@ -6,7 +6,7 @@ Built for governed data development in dbt, dbt Wizard understands the full proj
 
 Unlike general coding agents, dbt Wizard is aware of warehouse operations. It understands that validation can mean compiling code, building to a dev schema, considering compute and run time, and proposing what to inspect after the build completes.
 
-Most of how dbt Wizard works is the same in the [dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md) and in the [terminal CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
+Most of how dbt Wizard works is the same in the [dbt platform](../platform/wizard-platform.md) and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
 
 ## Native metadata engine[​](#native-metadata-engine "Direct link to Native metadata engine")
 
@@ -43,7 +43,7 @@ In dbt Wizard CLI, choose light, medium, heavy, or skipped validation. Medium va
 * Medium validation adds development materialization and downstream checks.
 * Heavy validation adds explicit expectations and development-to-production comparisons when the required relations are available.
 
-dbt Wizard reports failures and checks it couldn't complete. A passing check doesn't remove the need to review business logic, and a skipped check should remain visible in your review. For a complete procedure and the approval points for warehouse commands, refer to [Validate dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md).
+dbt Wizard reports failures and checks it couldn't complete. A passing check doesn't remove the need to review business logic, and a skipped check should remain visible in your review. For a complete procedure and the approval points for warehouse commands, refer to [Validate dbt changes with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-3-validate-changes.md).
 
 ## Tools and capabilities[​](#tools-and-capabilities "Direct link to Tools and capabilities")
 
@@ -71,11 +71,11 @@ dbt Wizard supports reusable skills and memories that help it apply your team's 
 
 dbt Wizard automatically loads skills from your project and local directories in both the platform and the CLI. In the platform, start a new chat after adding or changing skills so they are picked up.
 
-Refer to the [Skills](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md) page for more details.
+Refer to the [Skills](./wizard-skills.md) page for more details.
 
 ## In the dbt platform[​](#in-the-dbt-platform "Direct link to In the dbt platform")
 
-Use dbt Wizard in the [dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md) from the home app or Studio IDE. An admin must [enable dbt Wizard](https://docs.getdbt.com/docs/platform/enable-dbt-ai.md) for your account first.
+Use dbt Wizard in the [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE. An admin must [enable dbt Wizard](../platform/enable-dbt-ai.md) for your account first.
 
 ### Approval and review[​](#approval-and-review "Direct link to Approval and review")
 
@@ -99,15 +99,15 @@ In the platform, a session is a saved conversation in the dbt Wizard panel or ho
 
 Start a new session with **Start new dbt Wizard chat** in the panel. Chat history is retained for 90 days. Refreshing the same browser tab keeps your active session; opening a new tab starts empty.
 
-For Studio-specific behavior and availability, refer to [dbt Wizard in Studio IDE](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md).
+For Studio-specific behavior and availability, refer to [dbt Wizard in Studio IDE](./wizard-ide.md).
 
 ## In the terminal (CLI)[​](#in-the-terminal-cli "Direct link to In the terminal (CLI)")
 
-Use the [dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-cli.md) for local development.
+Use the [dbt Wizard CLI](./wizard-cli.md) for local development.
 
 ### Connections and authentication (MCP)[​](#connections-and-authentication-mcp "Direct link to Connections and authentication (MCP)")
 
-dbt Wizard can connect to MCP servers from the CLI, including the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md), for access to platform APIs, Semantic Layer metadata, and cross-project context. For the complete setup (like supported server types, configuration keys, authentication, and examples), refer to [Use MCP servers with the dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-mcp.md).
+dbt Wizard can connect to MCP servers from the CLI, including the [dbt MCP server](./about-mcp.md), for access to platform APIs, Semantic Layer metadata, and cross-project context. For the complete setup (like supported server types, configuration keys, authentication, and examples), refer to [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md).
 
 To connect to an MCP server, run the following commands, replacing `MCP_NAME` with a name of your choice and `YOUR_MCP_URL` with the URL of the MCP server:
 
@@ -134,11 +134,11 @@ The dbt MCP server reads its connection settings — such as `DBT_HOST`, `DBT_TO
 
 If dbt Wizard can't reach the server, confirm these values are set, then restart `wizard` so it picks up the changes.
 
-For the full list of variables and an example `.env` file, refer to [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md) and the [Environment variables reference](https://docs.getdbt.com/docs/dbt-ai/mcp-environment-variables.md).
+For the full list of variables and an example `.env` file, refer to [Set up self-hosted MCP](./setup-local-mcp.md) and the [Environment variables reference](./mcp-environment-variables.md).
 
 ### Deferral and state[​](#deferral-and-state "Direct link to Deferral and state")
 
-When you work on part of a project, dbt Wizard uses [deferral](https://docs.getdbt.com/reference/node-selection/defer.md) so it can reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything. This saves time and warehouse cost.
+When you work on part of a project, dbt Wizard uses [deferral](../../reference/node-selection/defer.md) so it can reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything. This saves time and warehouse cost.
 
 How deferral is handled depends on the mode set up in `wizard_config.toml` for your project:
 
@@ -151,11 +151,11 @@ How deferral is handled depends on the mode set up in `wizard_config.toml` for y
 | `"manual"`            | You maintain the deferral manifest path manually.                                                                                                                                                                                                                                                   |
 | `"disabled"`          | Deferral is disabled for the project.                                                                                                                                                                                                                                                               |
 
-For more about dbt State, refer to [About dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md).
+For more about dbt State, refer to [About dbt State](../deploy/dbt-state-about.md).
 
 The per-project `favor_state` setting defaults to `true`. With favor-state on, deferred relations take precedence. Set `favor_state = false` when you want dbt to use relations you have already built in development and fall back to the deferred environment for relations that aren't available there.
 
-dbt Wizard stores the deferral mode for each project in `wizard_config.toml` under `deferral.mode`. For a complete setup and verification procedure, refer to [Developing with production deferral](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
+dbt Wizard stores the deferral mode for each project in `wizard_config.toml` under `deferral.mode`. For a complete setup and verification procedure, refer to [Developing with production deferral](../../best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
 
 ### Approval and sandboxing[​](#approval-and-sandboxing "Direct link to Approval and sandboxing")
 
@@ -184,7 +184,7 @@ wizard --sandbox workspace-write
 
 Use relaxed settings when you want dbt Wizard to move faster on a scoped task you trust, such as a large refactor, generating documentation, or applying repetitive test updates. The tradeoff is that dbt Wizard has more freedom to act before you review each step, so use these settings in a clean working tree or feature branch.
 
-Approval settings apply to the current session. They are not scoped per action type in the command line flags shown above; for example, `--ask-for-approval never` relaxes prompts broadly for that session. To set defaults that persist across sessions or apply only to a specific project, use the [configuration file](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md).
+Approval settings apply to the current session. They are not scoped per action type in the command line flags shown above; for example, `--ask-for-approval never` relaxes prompts broadly for that session. To set defaults that persist across sessions or apply only to a specific project, use the [configuration file](./wizard-config.md).
 
 You can view more options by running:
 
@@ -213,8 +213,8 @@ Each CLI session is saved locally. This is separate from platform conversations,
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt Wizard overview](https://docs.getdbt.com/docs/platform/wizard-overview.md)
-* [dbt Wizard in the dbt platform](https://docs.getdbt.com/docs/platform/wizard-platform.md)
-* [Use dbt Wizard locally](https://docs.getdbt.com/docs/dbt-ai/wizard-quickstart.md)
-* [dbt Wizard command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md)
-* [How to use dbt Wizard in your dbt project](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows
+* [dbt Wizard overview](../platform/wizard-overview.md)
+* [dbt Wizard in the dbt platform](../platform/wizard-platform.md)
+* [Use dbt Wizard locally](./wizard-quickstart.md)
+* [dbt Wizard command reference](./wizard-cli-reference.md)
+* [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows

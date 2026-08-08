@@ -6,7 +6,7 @@ dbt supports connecting to [Onehouse SQL](https://www.onehouse.ai/product/quanto
 
 note
 
-Connect to a Onehouse SQL Cluster with the [dbt-spark](https://docs.getdbt.com/docs/platform/connect-data-platform/connect-apache-spark.md) adapter.\*\*
+Connect to a Onehouse SQL Cluster with the [dbt-spark](./connect-apache-spark.md) adapter.\*\*
 
 ## Requirements[​](#requirements "Direct link to Requirements")
 

@@ -1,6 +1,6 @@
 # limit
 
-Limit the number of failures that will be returned by a test query. We recommend using this config when working with large datasets and [storing failures in the database](https://docs.getdbt.com/reference/resource-configs/store_failures.md).
+Limit the number of failures that will be returned by a test query. We recommend using this config when working with large datasets and [storing failures in the database](./store_failures.md).
 
 * Specific test
 * One-off test

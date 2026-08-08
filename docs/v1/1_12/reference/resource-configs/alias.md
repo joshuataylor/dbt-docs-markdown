@@ -163,11 +163,11 @@ tests/unique\_order\_id\_test.sql
 ) }}
 ```
 
-When using [`store_failures_as`](https://docs.getdbt.com/reference/resource-configs/store_failures_as.md), this would return the name `analytics.dbt_test__audit.orders_order_id_unique_order_id_test` in the database.
+When using [`store_failures_as`](./store_failures_as.md), this would return the name `analytics.dbt_test__audit.orders_order_id_unique_order_id_test` in the database.
 
 ## Definition[​](#definition "Direct link to Definition")
 
-Optionally specify a custom alias for a [model](https://docs.getdbt.com/docs/build/models.md), [data test](https://docs.getdbt.com/docs/build/data-tests.md), [snapshot](https://docs.getdbt.com/docs/build/snapshots.md), or [seed](https://docs.getdbt.com/docs/build/seeds.md).
+Optionally specify a custom alias for a [model](../../docs/build/models.md), [data test](../../docs/build/data-tests.md), [snapshot](../../docs/build/snapshots.md), or [seed](../../docs/build/seeds.md).
 
 When dbt creates a relation (table/view) in a database, it creates it as: `{{ database }}.{{ schema }}.{{ identifier }}`, e.g. `analytics.finance.payments`
 
@@ -176,6 +176,6 @@ The standard behavior of dbt is:
 * If a custom alias is *not* specified, the identifier of the relation is the resource name (i.e. the filename).
 * If a custom alias is specified, the identifier of the relation is the `{{ alias }}` value.
 
-**Note** With an [ephemeral model](https://docs.getdbt.com/docs/build/materializations.md), dbt will always apply the prefix `__dbt__cte__` to the CTE identifier. This means that if an alias is set on an ephemeral model, then its CTE identifier will be `__dbt__cte__{{ alias }}`, but if no alias is set then its identifier will be `__dbt__cte__{{ filename }}`.
+**Note** With an [ephemeral model](../../docs/build/materializations.md), dbt will always apply the prefix `__dbt__cte__` to the CTE identifier. This means that if an alias is set on an ephemeral model, then its CTE identifier will be `__dbt__cte__{{ alias }}`, but if no alias is set then its identifier will be `__dbt__cte__{{ filename }}`.
 
-To learn more about changing the way that dbt generates a relation's `identifier`, read [Using Aliases](https://docs.getdbt.com/docs/build/custom-aliases.md).
+To learn more about changing the way that dbt generates a relation's `identifier`, read [Using Aliases](../../docs/build/custom-aliases.md).

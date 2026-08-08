@@ -14,11 +14,11 @@ or with the
 
 <!-- -->
 
-[dbt "Latest" release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md).
+[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 ## Definition[​](#definition "Direct link to Definition")
 
-The `batch_size` config determines how large batches are when running a [microbatch incremental model](https://docs.getdbt.com/docs/build/incremental-microbatch.md). Accepted values are `hour`, `day`, `month`, or `year`. You can configure `batch_size` for a [model](https://docs.getdbt.com/docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or config block.
+The `batch_size` config determines how large batches are when running a [microbatch incremental model](../../docs/build/incremental-microbatch.md). Accepted values are `hour`, `day`, `month`, or `year`. You can configure `batch_size` for a [model](../../docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or config block.
 
 ## Examples[​](#examples "Direct link to Examples")
 

@@ -4,7 +4,7 @@ dbt can feel like magic, but it isn't actually magic. Under the hood, it's runni
 
 As such, your models should just use the **SQL dialect of your own database**. Then, when dbt wraps your `select` statements in the appropriate DDL or DML, it will use the correct DML for your warehouse — all of this logic is written in to dbt.
 
-You can find more information about the databases, platforms, and query engines that dbt supports in the [Supported Data Platforms](https://docs.getdbt.com/docs/supported-data-platforms.md) docs.
+You can find more information about the databases, platforms, and query engines that dbt supports in the [Supported Data Platforms](../../docs/supported-data-platforms.md) docs.
 
 Want to go a little deeper on how this works? Consider a snippet of SQL that works on each warehouse:
 

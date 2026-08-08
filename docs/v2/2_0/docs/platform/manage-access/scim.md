@@ -4,7 +4,7 @@ dbt platform | Enterprise, Enterprise+ⓘ
 
 The System for Cross-Domain Identity Management (SCIM) makes user data more secure and simplifies the admin and end-user lifecycle experience by automating user identities and groups. You can create or disable user identities in your Identity Provider (IdP), and SCIM will automatically make those changes in near real-time downstream in dbt.
 
-When configuring your IdP, review [API rate limits](https://docs.getdbt.com/docs/dbt-apis/rate-limits.md) for SCIM provisioning quotas and `429` retry behavior.
+When configuring your IdP, review [API rate limits](../../dbt-apis/rate-limits.md) for SCIM provisioning quotas and `429` retry behavior.
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
@@ -12,8 +12,8 @@ To configure SCIM in your dbt environment:
 
 * You must be on an [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing).
 * You must use Okta or Entra ID as your SSO provider and have it connected in the dbt platform.
-* You must have [permissions](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) to configure the account settings in dbt platform and change application settings in [Okta](https://help.okta.com/en-us/content/topics/security/administrators-admin-comparison.htm).
-* If you have IP restrictions enabled, you must add [Okta's IPs](https://help.okta.com/en-us/content/topics/security/ip-address-allow-listing.htm) to your allowlist. If you're using Entra ID with IP restrictions enabled, refer to [Azure SCIM provisioning fails due to IP allowlisting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md) in the SCIM FAQ.
+* You must have [permissions](./enterprise-permissions.md) to configure the account settings in dbt platform and change application settings in [Okta](https://help.okta.com/en-us/content/topics/security/administrators-admin-comparison.htm).
+* If you have IP restrictions enabled, you must add [Okta's IPs](https://help.okta.com/en-us/content/topics/security/ip-address-allow-listing.htm) to your allowlist. If you're using Entra ID with IP restrictions enabled, refer to [Azure SCIM provisioning fails due to IP allowlisting](./scim-faq.md) in the SCIM FAQ.
 
 ### Supported features[​](#supported-features "Direct link to Supported features")
 
@@ -28,7 +28,7 @@ When SCIM is enabled, the following functionality will change:
 
 * Users are not automatically added to default groups
 * Manual actions such as inviting users, updating user information and updating group memberships are disabled by default
-* SSO group mappings are disabled in favor of SCIM group management. Refer to [Do SSO group mappings still apply when SCIM is enabled?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md) for details.
+* SSO group mappings are disabled in favor of SCIM group management. Refer to [Do SSO group mappings still apply when SCIM is enabled?](./scim-faq.md) for details.
 
 To overwrite these updates to functionality with SCIM enabled, enable manual updates as part of the SCIM configuration (not recommended).
 
@@ -40,8 +40,8 @@ When users are provisioned, the following attributes are supported
 
 The following IdPs are supported in the dbt user interface:
 
-* [Set up SCIM with Okta](https://docs.getdbt.com/docs/platform/manage-access/scim-okta.md) (includes [license management](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md))
-* [Set up SCIM with Entra ID](https://docs.getdbt.com/docs/platform/manage-access/scim-entra-id.md)
+* [Set up SCIM with Okta](./scim-okta.md) (includes [license management](./scim-manage-user-licenses.md))
+* [Set up SCIM with Entra ID](./scim-entra-id.md)
 
 If your IdP isn't on the list, it can be supported using dbt [APIs](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/Retrieve%20SCIM%20configuration).
 
@@ -51,10 +51,10 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
  Toggle options per identity provider
 
-* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md).
-* **Entra ID:** Use [SSO-based Active Directory group → license mapping](https://docs.getdbt.com/docs/platform/manage-access/seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+* **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](./scim-manage-user-licenses.md).
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](./seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
 
-For more details, refer to the [Does SCIM support automatic license assignment?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
+For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
 ## Set up dbt[​](#set-up-dbt "Direct link to Set up dbt")
 
@@ -90,7 +90,7 @@ To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 
    <!-- -->
 
-   * However, if you need to make manual updates (like update group membership for a SCIM-managed group), you can enable this setting by clicking **Allow manual updates** and confirming the **Allow manual updates** pop up. For more details on this setting, refer to [What does "Allow manual updates" mean?](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md?version=1.12#what-does-allow-manual-updates-mean) in the SCIM FAQ.
+   * However, if you need to make manual updates (like update group membership for a SCIM-managed group), you can enable this setting by clicking **Allow manual updates** and confirming the **Allow manual updates** pop up. For more details on this setting, refer to [What does "Allow manual updates" mean?](./scim-faq.md?version=1.12#what-does-allow-manual-updates-mean) in the SCIM FAQ.
 
    [![Enabling manual updates in SCIM settings.](/img/docs/dbt-platform/access-control/scim-manual-updates.png?v=2 "Enabling manual updates in SCIM settings.")](#)Enabling manual updates in SCIM settings.
 
@@ -98,6 +98,6 @@ To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 
 Configure SCIM for your identity provider and optionally manage licenses:
 
-* **[Set up SCIM with Okta](https://docs.getdbt.com/docs/platform/manage-access/scim-okta.md)** — User and group provisioning, profile updates, and [license management](https://docs.getdbt.com/docs/platform/manage-access/scim-manage-user-licenses.md) (Okta only).
-* **[Set up SCIM with Entra ID](https://docs.getdbt.com/docs/platform/manage-access/scim-entra-id.md)** — User and group provisioning and profile updates, plus assigning users to the SCIM app.
-* **[SCIM FAQs and troubleshooting](https://docs.getdbt.com/docs/platform/manage-access/scim-faq.md)** — Common questions and troubleshooting for SCIM provisioning.
+* **[Set up SCIM with Okta](./scim-okta.md)** — User and group provisioning, profile updates, and [license management](./scim-manage-user-licenses.md) (Okta only).
+* **[Set up SCIM with Entra ID](./scim-entra-id.md)** — User and group provisioning and profile updates, plus assigning users to the SCIM app.
+* **[SCIM FAQs and troubleshooting](./scim-faq.md)** — Common questions and troubleshooting for SCIM provisioning.

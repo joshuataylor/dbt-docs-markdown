@@ -16,15 +16,15 @@ models:
 The latest version of this model. The "latest" version is relevant for:
 
 1. Resolving `ref()` calls to this model that are "unpinned" (a version is not explicitly specified)
-2. Selecting model versions using the [`version:` selection method](https://docs.getdbt.com/reference/node-selection/methods.md#version), based on whether a given model version is `latest`, `prerelease`, or `old`
+2. Selecting model versions using the [`version:` selection method](../node-selection/methods.md#version), based on whether a given model version is `latest`, `prerelease`, or `old`
 
-This value can be a string or a numeric (integer or float) value. It must be one of the [version identifiers](https://docs.getdbt.com/reference/resource-properties/versions.md#v) specified in this model's list of `versions`.
+This value can be a string or a numeric (integer or float) value. It must be one of the [version identifiers](./versions.md#v) specified in this model's list of `versions`.
 
-To run the latest version of a model, you can use the [`--select` flag](https://docs.getdbt.com/reference/node-selection/syntax.md). Refer to [Model versions](https://docs.getdbt.com/docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
+To run the latest version of a model, you can use the [`--select` flag](../node-selection/syntax.md). Refer to [Model versions](../../docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
 
 ## Default[​](#default "Direct link to Default")
 
-If not specified for a versioned model, `latest_version` defaults to the largest [version identifier](https://docs.getdbt.com/reference/resource-properties/versions.md#v): numerically greatest (if all version identifiers are numeric), otherwise the alphabetically last (if they are strings).
+If not specified for a versioned model, `latest_version` defaults to the largest [version identifier](./versions.md#v): numerically greatest (if all version identifiers are numeric), otherwise the alphabetically last (if they are strings).
 
 For a non-versioned model (no `versions` list), `latest_version` has no value.
 

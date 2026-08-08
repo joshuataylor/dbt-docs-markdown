@@ -2,7 +2,7 @@
 
 Fusion availability
 
-This page shows release information for local builds of Fusion only. Fusion releases on the dbt platform adhere to the [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) categories, giving you control over release cadence and stability.
+This page shows release information for local builds of Fusion only. Fusion releases on the dbt platform adhere to the [release tracks](../dbt-versions/dbt-release-tracks.md) categories, giving you control over release cadence and stability.
 
 Track current versions and full release history for the dbt Fusion engine. This data updates live from dbt release channels.
 
@@ -26,17 +26,17 @@ Search table...
 
 ## Known-bad releases[​](#known-bad-releases "Direct link to Known-bad releases")
 
-If a shipped Fusion release is later found to contain a regression, dbt Labs flags it as a known-bad release. If you have a flagged version installed, the dbt VS Code extension shows a warning notification telling you which version to update to. To move off a flagged version, update it using your installation method (for example, pip or Homebrew). For details, including how air-gapped users receive these notifications, refer to [Known-bad releases](https://docs.getdbt.com/docs/dbt-versions/fusion-version-compatibility.md#known-bad-releases).
+If a shipped Fusion release is later found to contain a regression, dbt Labs flags it as a known-bad release. If you have a flagged version installed, the dbt VS Code extension shows a warning notification telling you which version to update to. To move off a flagged version, update it using your installation method (for example, pip or Homebrew). For details, including how air-gapped users receive these notifications, refer to [Known-bad releases](../dbt-versions/fusion-version-compatibility.md#known-bad-releases).
 
 ## dbt platform Fusion release tracks[​](#dbt-platform-fusion-release-tracks "Direct link to dbt platform Fusion release tracks")
 
-On dbt platform, each [environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md) uses the account default or your chosen **Fusion release track**. Release tracks control how often that environment receives new Fusion builds. They're separate from the local CLI release channels in the previous section.
+On dbt platform, each [environment](../deploy/deploy-environments.md) uses the account default or your chosen **Fusion release track**. Release tracks control how often that environment receives new Fusion builds. They're separate from the local CLI release channels in the previous section.
 
-For cadence, plan availability, and API values (`fusion-nightly`, `fusion-stable`, and more), refer to [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md#fusion-release-tracks). To change the release track for an environment, follow [Upgrade dbt in dbt platform](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md).
+For cadence, plan availability, and API values (`fusion-nightly`, `fusion-stable`, and more), refer to [Fusion release tracks](../dbt-versions/dbt-release-tracks.md#fusion-release-tracks). To change the release track for an environment, follow [Upgrade dbt in dbt platform](../dbt-versions/upgrade-dbt-platform-version.md).
 
 Live data below is for local CLI channels
 
-The **Current versions** cards and full release list below pull the public Fusion manifest used for *local* installs (`dev`, `canary`, `latest`). You should use [release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) for dbt platform planning.
+The **Current versions** cards and full release list below pull the public Fusion manifest used for *local* installs (`dev`, `canary`, `latest`). You should use [release tracks](../dbt-versions/dbt-release-tracks.md) for dbt platform planning.
 
 Updating your self-hosted Fusion installation
 

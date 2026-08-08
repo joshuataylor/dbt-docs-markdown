@@ -6,7 +6,7 @@ Some core functionality may be limited. If you're interested in contributing, ch
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
-If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](https://docs.getdbt.com/docs/fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](https://docs.getdbt.com/docs/platform/connect-data-platform/about-connections.md).
+If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
 <!-- -->
 
@@ -39,7 +39,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-teradata<!-- -->
 
-For <!-- -->Teradata<!-- -->-specific configuration, please refer to [Teradata<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/teradata-configs.md)
+For <!-- -->Teradata<!-- -->-specific configuration, please refer to [Teradata<!-- --> configs.](../../../reference/resource-configs/teradata-configs.md)
 
 ## Python compatibility[​](#python-compatibility "Direct link to Python compatibility")
 
@@ -84,7 +84,7 @@ Search table...
 
 ### Connecting to Teradata[​](#connecting-to-teradata "Direct link to Connecting to Teradata")
 
-To connect to Teradata Vantage from dbt, you'll need to add a [profile](https://docs.getdbt.com/docs/local/profiles.yml.md) to your `profiles.yml` file. A Teradata profile conforms to the following syntax:
+To connect to Teradata Vantage from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A Teradata profile conforms to the following syntax:
 
 profiles.yml
 
@@ -190,8 +190,8 @@ The following incremental materialization strategies are supported:
 
 info
 
-* To learn more about dbt incremental strategies, refer to [the dbt incremental strategy documentation](https://docs.getdbt.com/docs/build/incremental-strategy.md).
-* To learn more about `valid_history` incremental strategy, refer to [Teradata configs](https://docs.getdbt.com/reference/resource-configs/teradata-configs.md).
+* To learn more about dbt incremental strategies, refer to [the dbt incremental strategy documentation](../../build/incremental-strategy.md).
+* To learn more about `valid_history` incremental strategy, refer to [Teradata configs](../../../reference/resource-configs/teradata-configs.md).
 
 ### Commands[​](#commands "Direct link to Commands")
 
@@ -215,7 +215,7 @@ Search table...
 | ---------------- | - | - | - | - |
 | Loading table... |   |   |   |   |
 
-Refer to [Model contracts](https://docs.getdbt.com/docs/mesh/govern/model-contracts.md) for more info.
+Refer to [Model contracts](../../mesh/govern/model-contracts.md) for more info.
 
 ## Support for `dbt-utils` package[​](#support-for-dbt-utils-package "Direct link to support-for-dbt-utils-package")
 
@@ -266,7 +266,7 @@ Search table...
 
 ##### []()hash[​](#hash "Direct link to hash")
 
-`Hash` macro needs an `md5` function implementation. Teradata doesn't support `md5` natively. You need to install a User Defined Function (UDF) and optionally specify `md5_udf` [variable](https://docs.getdbt.com/docs/build/project-variables.md).
+`Hash` macro needs an `md5` function implementation. Teradata doesn't support `md5` natively. You need to install a User Defined Function (UDF) and optionally specify `md5_udf` [variable](../../build/project-variables.md).
 
 If not specified the code defaults to using `GLOBAL_FUNCTIONS.hash_md5`. See the following instructions on how to install the custom UDF:
 
@@ -313,7 +313,7 @@ vars:
 
 `last_day` in `teradata_utils`, unlike the corresponding macro in `dbt_utils`, doesn't support `quarter` datepart.
 
-dbt-teradata 1.8.0 and later versions support unit tests, enabling you to validate SQL models and logic with a small set of static inputs before going to production. This feature enhances test-driven development and boosts developer efficiency and code reliability. Learn more about dbt unit tests [here](https://docs.getdbt.com/docs/build/unit-tests.md).
+dbt-teradata 1.8.0 and later versions support unit tests, enabling you to validate SQL models and logic with a small set of static inputs before going to production. This feature enhances test-driven development and boosts developer efficiency and code reliability. Learn more about dbt unit tests [here](../../build/unit-tests.md).
 
 ## Limitations[​](#limitations "Direct link to Limitations")
 

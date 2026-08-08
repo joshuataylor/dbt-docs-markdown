@@ -50,8 +50,8 @@ The correct YAML structure depends on the dbt version in your project. Review th
 
 | Project version                                                                                                                                                                                                                                                      | Expected structure                                                                                                                                                                       |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dbt Core 1.12 and later](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.12.md?version=2.0#new-semantic-layer-yaml-spec), and the [dbt Fusion engine](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v2.md?version=2.0) | Configure `semantic_model` on a model, annotate entities and dimensions on columns, and define metrics on the model. Don't use a top-level `semantic_models:` block for new definitions. |
-| [dbt Core 1.6 through 1.11](https://docs.getdbt.com/docs/dbt-versions/core-upgrade/upgrading-to-v1.11.md?version=2.0)                                                                                                                                                | Define semantic models in a top-level `semantic_models:` block and define metrics with `type_params` that reference measures.                                                            |
+| [dbt Core 1.12 and later](../../docs/dbt-versions/core-upgrade/upgrading-to-v1.12.md?version=2.0#new-semantic-layer-yaml-spec), and the [dbt Fusion engine](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md?version=2.0) | Configure `semantic_model` on a model, annotate entities and dimensions on columns, and define metrics on the model. Don't use a top-level `semantic_models:` block for new definitions. |
+| [dbt Core 1.6 through 1.11](../../docs/dbt-versions/core-upgrade/upgrading-to-v1.11.md?version=2.0)                                                                                                                                                | Define semantic models in a top-level `semantic_models:` block and define metrics with `type_params` that reference measures.                                                            |
 
 For dbt Core 1.12 and later and the dbt Fusion engine, a generated definition can resemble the following example:
 
@@ -141,7 +141,7 @@ At minimum, validation should confirm that:
 * The selected metric aggregation matches the model grain.
 * Semantic Layer validation passes when the project's dbt runtime supports it.
 
-When a validation command isn't available in the current environment, dbt Wizard should report that limitation instead of treating the work as fully validated. For a broader validation procedure, refer to [Validating dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md).
+When a validation command isn't available in the current environment, dbt Wizard should report that limitation instead of treating the work as fully validated. For a broader validation procedure, refer to [Validating dbt changes with dbt Wizard](./wizard-3-validate-changes.md).
 
 ## Extend the first definitions[​](#extend-the-first-definitions "Direct link to Extend the first definitions")
 
@@ -160,8 +160,8 @@ segment. Reuse existing entities and dimensions, and validate every reference.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Semantic models](https://docs.getdbt.com/docs/build/semantic-models.md)
-* [Metrics overview](https://docs.getdbt.com/docs/build/metrics-overview.md)
-* [Use cases and examples](https://docs.getdbt.com/docs/dbt-ai/wizard-use-cases.md)
-* [Use skills with dbt Wizard CLI](https://docs.getdbt.com/docs/dbt-ai/wizard-skills.md)
-* [Validating dbt changes with dbt Wizard](https://docs.getdbt.com/best-practices/how-to-use-wizard/wizard-3-validate-changes.md)
+* [Semantic models](../../docs/build/semantic-models.md)
+* [Metrics overview](../../docs/build/metrics-overview.md)
+* [Use cases and examples](../../docs/dbt-ai/wizard-use-cases.md)
+* [Use skills with dbt Wizard CLI](../../docs/dbt-ai/wizard-skills.md)
+* [Validating dbt changes with dbt Wizard](./wizard-3-validate-changes.md)

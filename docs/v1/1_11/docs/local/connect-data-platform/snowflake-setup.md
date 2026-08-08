@@ -6,7 +6,7 @@ Snowflake enforcing strong authentication
 
 Starting August 31, 2026, password authentication will no longer be supported. Please update your environments to use key-pair or OAuth by that date to prevent service disruptions.
 
-[Fusion compatible](https://docs.getdbt.com/docs/local/connect-data-platform/snowflake-setup.md?version=2 "Fusion compatible") connection also available.
+[Fusion compatible](./snowflake-setup.md?version=2 "Fusion compatible") connection also available.
 
 * **Maintained by**:
   <!-- -->
@@ -37,7 +37,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-snowflake<!-- -->
 
-For <!-- -->Snowflake<!-- -->-specific configuration, please refer to [Snowflake<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md)
+For <!-- -->Snowflake<!-- -->-specific configuration, please refer to [Snowflake<!-- --> configs.](../../../reference/resource-configs/snowflake-configs.md)
 
 Snowflake column size change
 
@@ -45,12 +45,12 @@ Snowflake column size change
 
  Assess impact and required actions
 
-If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
+If you're using a `dbt-snowflake` version below v1.10.6 or have not yet migrated to a [release track](../../dbt-versions/dbt-release-tracks.md) in the dbt platform, your adapter version is incompatible with this change and may fail to build incremental models that meet *both* of the following conditions:
 
 * Contain string columns with collation defined
 * Use the `on_schema_change='sync_all_columns'` config
 
-To check whether this change affects your project, run the following [list](https://docs.getdbt.com/reference/commands/list.md) command:
+To check whether this change affects your project, run the following [list](../../../reference/commands/list.md) command:
 
 ```bash
 dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_columns --resource-type model
@@ -60,7 +60,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
 * If the command returns one or more models (for example, `Found 1000 models, 644 macros`), you may be impacted if those models have string columns that don't specify a width. In that case, upgrade to a version that includes the fix:
 
-  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](https://docs.getdbt.com/docs/local/install-dbt.md) in the dbt Core v1 installation instructions.
+  * **dbt Core**: `dbt-snowflake` v1.10.6 or later. For upgrade instructions, refer to [Upgrade adapters](../install-dbt.md) in the dbt Core v1 installation instructions.
   * **dbt platform**: Any release track (Latest, Compatible, Extended, or Fallback).
   * **dbt Fusion engine**: v2.0.0-preview\.147 or higher.
 
@@ -271,7 +271,7 @@ The "base" configs for Snowflake targets are shown below. Note that you should a
 | user                                  | Yes                  | The user to log in as                                                                                                                                                                                                                                                        |
 | database                              | Yes                  | The database that dbt should create models in                                                                                                                                                                                                                                |
 | warehouse                             | Yes                  | The warehouse to use when building models                                                                                                                                                                                                                                    |
-| schema                                | Yes                  | The schema to build models into by default. Can be overridden with [custom schemas](https://docs.getdbt.com/docs/build/custom-schemas.md)                                                                                                                                    |
+| schema                                | Yes                  | The schema to build models into by default. Can be overridden with [custom schemas](../../build/custom-schemas.md)                                                                                                                                    |
 | role                                  | No (but recommended) | The role to assume when running queries as the specified user.                                                                                                                                                                                                               |
 | client\_session\_keep\_alive          | No                   | If `True`, the snowflake client will keep connections for longer than the default 4 hours. This is helpful when particularly long-running queries are executing (> 4 hours). Default: False (see [note below](#client_session_keep_alive))                                   |
 | threads                               | No                   | The number of concurrent models dbt should build. Set this to a higher number if using a bigger warehouse. Default=1                                                                                                                                                         |

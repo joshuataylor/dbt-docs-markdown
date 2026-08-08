@@ -4,16 +4,16 @@ The following context methods and variables are available when configuring resou
 
 **Available context methods:**
 
-* [env\_var](https://docs.getdbt.com/reference/dbt-jinja-functions/env_var.md)
-* [var](https://docs.getdbt.com/reference/dbt-jinja-functions/var.md)
+* [env\_var](./env_var.md)
+* [var](./var.md)
   <!-- -->
   (*Note: Only variables defined with `--vars` are available*)
 
 **Available context variables:**
 
-* [target](https://docs.getdbt.com/reference/dbt-jinja-functions/target.md)
-* [builtins](https://docs.getdbt.com/reference/dbt-jinja-functions/builtins.md)
-* [dbt\_version](https://docs.getdbt.com/reference/dbt-jinja-functions/dbt_version.md)
+* [target](./target.md)
+* [builtins](./builtins.md)
+* [dbt\_version](./dbt_version.md)
 
 ### Example configuration[​](#example-configuration "Direct link to Example configuration")
 

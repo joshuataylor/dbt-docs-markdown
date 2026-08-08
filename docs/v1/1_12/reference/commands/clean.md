@@ -1,6 +1,6 @@
 # About dbt clean command
 
-`dbt clean` is a utility function that deletes the paths specified within the [`clean-targets`](https://docs.getdbt.com/reference/project-configs/clean-targets.md) list in the `dbt_project.yml` file. It helps by removing unnecessary files or directories generated during the execution of other dbt commands, ensuring a clean state for the project.
+`dbt clean` is a utility function that deletes the paths specified within the [`clean-targets`](../project-configs/clean-targets.md) list in the `dbt_project.yml` file. It helps by removing unnecessary files or directories generated during the execution of other dbt commands, ensuring a clean state for the project.
 
 ## Example usage[​](#example-usage "Direct link to Example usage")
 

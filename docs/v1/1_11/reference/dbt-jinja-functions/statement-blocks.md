@@ -2,7 +2,7 @@
 
 Recommendation
 
-We recommend using the [`run_query` macro](https://docs.getdbt.com/reference/dbt-jinja-functions/run_query.md) instead of `statement` blocks. The `run_query` macro provides a more convenient way to run queries and fetch their results by wrapping `statement` blocks. You can use this macro to write more concise code that is easier to maintain.
+We recommend using the [`run_query` macro](./run_query.md) instead of `statement` blocks. The `run_query` macro provides a more convenient way to run queries and fetch their results by wrapping `statement` blocks. You can use this macro to write more concise code that is easier to maintain.
 
 <!-- -->
 
@@ -26,7 +26,7 @@ The signature of the `statement` block looks like this:
 statement(name=None, fetch_result=False, auto_begin=True)
 ```
 
-When executing a `statement`, dbt needs to understand how to resolve references to other dbt models or resources. If you are already `ref`ing the model outside of the statement block, the dependency will be automatically inferred, but otherwise you will need to [force the dependency](https://docs.getdbt.com/reference/dbt-jinja-functions/ref.md#forcing-dependencies) with `-- depends_on`.
+When executing a `statement`, dbt needs to understand how to resolve references to other dbt models or resources. If you are already `ref`ing the model outside of the statement block, the dependency will be automatically inferred, but otherwise you will need to [force the dependency](./ref.md#forcing-dependencies) with `-- depends_on`.
 
  Example using -- depends\_on
 
@@ -68,7 +68,7 @@ select id * 2 from {{ ref('users') }}
 
 Once the statement block has executed, the result set is accessible via the `load_result` function. The result object includes three keys:
 
-* `response`: Structured object containing metadata returned from the database, which varies by adapter. E.g. success `code`, number of `rows_affected`, total `bytes_processed`, etc. Comparable to `adapter_response` in the [Result object](https://docs.getdbt.com/reference/dbt-classes.md#result-objects).
+* `response`: Structured object containing metadata returned from the database, which varies by adapter. E.g. success `code`, number of `rows_affected`, total `bytes_processed`, etc. Comparable to `adapter_response` in the [Result object](../dbt-classes.md#result-objects).
 * `data`: Pythonic representation of data returned by query (arrays, tuples, dictionaries).
 * `table`: [Agate](https://agate.readthedocs.io/page/api/table.html) table representation of data returned by query.
 

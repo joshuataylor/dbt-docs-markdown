@@ -2,7 +2,7 @@
 
 This guide helps you implement an in-place upgrade from the latest version of dbt Core to the dbt Fusion engine in the dbt platform.
 
-[Back to guides](https://docs.getdbt.com/guides.md)
+[Back to guides](../guides.md)
 
 dbt Fusion engine
 
@@ -23,7 +23,7 @@ The dbt Fusion engine represents the next evolution of data transformation. dbt 
 Once you complete the Fusion migration, your team will benefit from:
 
 * ⚡ Up to 30x faster parsing and compilation
-* 💰 30%+ reduction in warehouse costs (with [dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md))
+* 💰 30%+ reduction in warehouse costs (with [dbt State](../docs/deploy/dbt-state-about.md))
 * 🔍 Enhanced SQL validation and error messages
 * 🛠️ Modern development tools
 
@@ -31,7 +31,7 @@ Once you complete the Fusion migration, your team will benefit from:
 
 Before upgrading your development environment, confirm:
 
-* Your project is on the **Latest** release track (completed in [Part 1: Preparing to upgrade](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md))
+* Your project is on the **Latest** release track (completed in [Part 1: Preparing to upgrade](./prepare-fusion-upgrade.md))
 
 * Your project must be using a supported adapter and auth method.
 
@@ -43,8 +43,8 @@ Before upgrading your development environment, confirm:
   * Native OAuth
   * External OAuth
     <!-- -->
-    * [Workload Identity Federation](https://docs.getdbt.com/docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
-  * [Required permissions](https://docs.getdbt.com/docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
+    * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
+  * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
    Databricks[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -80,7 +80,7 @@ Always upgrade your development environment first before moving to production. T
 
 ### Assign upgrade access (optional)[​](#assign-upgrade-access-optional "Direct link to Assign upgrade access (optional)")
 
-The Fusion upgrade assistant is controlled by two account-level settings. An [account admin](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-admin) must first enable the readiness experience, and can optionally restrict which users can execute the upgrade.
+The Fusion upgrade assistant is controlled by two account-level settings. An [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) must first enable the readiness experience, and can optionally restrict which users can execute the upgrade.
 
 #### Enable the Fusion readiness experience[​](#enable-the-fusion-readiness-experience "Direct link to Enable the Fusion readiness experience")
 
@@ -101,7 +101,7 @@ By default, any user who can see the upgrade assistant can use it. To restrict u
 2. Select the checkbox next to **Enable restricted Fusion upgrade permissions**.
 3. Click **Save**.
 
-When this is enabled, only users with the **Fusion admin** [permission set](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#fusion-admin) can execute upgrades. To assign this permission:
+When this is enabled, only users with the **Fusion admin** [permission set](../docs/platform/manage-access/enterprise-permissions.md#fusion-admin) can execute upgrades. To assign this permission:
 
 1. Navigate to **Account settings** → **Groups** and choose the group to grant access.
 2. Click **Edit** and scroll to **Access and permissions**.
@@ -111,7 +111,7 @@ When this is enabled, only users with the **Fusion admin** [permission set](http
 
 [![Assign Fusion admin permissions to groups](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/assign-fusion-admin.png?v=2 "Assign Fusion admin permissions to groups")](#)Assign Fusion admin permissions to groups
 
-For more details on access control, see [Assign access to upgrade](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#assign-access-to-upgrade).
+For more details on access control, see [Assign access to upgrade](../docs/dbt-versions/upgrade-dbt-platform-version.md#assign-access-to-upgrade).
 
 ### Step 1: Start the upgrade assistant[​](#step-1-start-the-upgrade-assistant "Direct link to Step 1: Start the upgrade assistant")
 
@@ -158,7 +158,7 @@ If you find deprecation warnings, use the autofix tool to resolve them:
 
 [![Success message when deprecations are resolved](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "Success message when deprecations are resolved")](#)Success message when deprecations are resolved
 
-For detailed information about the autofix process, see [Fix deprecation warnings](https://docs.getdbt.com/docs/platform/studio-ide/autofix-deprecations.md).
+For detailed information about the autofix process, see [Fix deprecation warnings](../docs/platform/studio-ide/autofix-deprecations.md).
 
 Manual fixes required?
 
@@ -187,7 +187,7 @@ Confirm your development environment is running Fusion:
 
 1. Open or create a dbt model file in the Studio IDE.
 
-2. Look for Fusion-powered [features](https://docs.getdbt.com/docs/fusion/supported-features.md#features-and-capabilities):
+2. Look for Fusion-powered [features](../docs/fusion/supported-features.md#features-and-capabilities):
 
    <!-- -->
 
@@ -217,7 +217,7 @@ Before declaring victory, test your typical development workflows:
 
 Share feedback
 
-If you encounter any unexpected behavior or have feedback about the Fusion experience, share it with your account team or [dbt Support](https://docs.getdbt.com/docs/dbt-support.md).
+If you encounter any unexpected behavior or have feedback about the Fusion experience, share it with your account team or [dbt Support](../docs/dbt-support.md).
 
 ### What about production?[​](#what-about-production "Direct link to What about production?")
 
@@ -245,7 +245,7 @@ Staging environments provide:
 
 ### What is a staging environment?[​](#what-is-a-staging-environment "Direct link to What is a staging environment?")
 
-A [staging environment](https://docs.getdbt.com/docs/deploy/deploy-environments.md#staging-environment) is a deployment environment that mirrors your production setup but uses non-production data or limited access credentials. It enables your team to test deployment workflows, scheduled jobs, and data transformations without affecting production systems.
+A [staging environment](../docs/deploy/deploy-environments.md#staging-environment) is a deployment environment that mirrors your production setup but uses non-production data or limited access credentials. It enables your team to test deployment workflows, scheduled jobs, and data transformations without affecting production systems.
 
 If you don't have a staging environment yet, consider creating one before upgrading production to Fusion. It provides an invaluable testing ground.
 
@@ -296,7 +296,7 @@ If you have scheduled jobs in your staging environment, monitor their next sched
 
 Test any integrations or dependencies that rely on your staging environment:
 
-1. **Cross-project references**: If using [dbt Mesh](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md), verify downstream projects can still reference your staging models.
+1. **Cross-project references**: If using [dbt Mesh](../docs/mesh/govern/project-dependencies.md), verify downstream projects can still reference your staging models.
 2. **BI tools**: Check that any BI tools or dashboards connected to staging still function correctly.
 3. **Downstream consumers**: Notify teams that consume staging data to verify their processes still work.
 4. **CI/CD workflows**: Run any CI jobs that target staging to ensure they execute properly.
@@ -307,10 +307,10 @@ Found an issue?
 
 If you encounter problems in staging:
 
-* Review the [Fusion limitations](https://docs.getdbt.com/docs/fusion/supported-features.md#limitations) to see if it's a known issue.
+* Review the [Fusion limitations](../docs/fusion/supported-features.md#limitations) to see if it's a known issue.
 * Check job logs for specific error messages.
 * Test the same models in your development environment to isolate the problem.
-* Contact [dbt Support](https://docs.getdbt.com/docs/dbt-support.md) or your account team for assistance.
+* Contact [dbt Support](../docs/dbt-support.md) or your account team for assistance.
 
 You can revert the staging environment to **Latest** release track while investigating.
 
@@ -399,19 +399,19 @@ If the job succeeds, your production upgrade is successful!
 
 Enable the Fusion readiness panel
 
-The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](https://docs.getdbt.com/guides/prepare-fusion-upgrade.md?step=2) for setup steps.
+The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](./prepare-fusion-upgrade.md?step=2) for setup steps.
 
-If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](https://docs.getdbt.com/docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
+If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
 ### Step 5: Enable dbt State (optional but recommended) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#step-5-enable-dbt-state-optional-but-recommended- "Direct link to step-5-enable-dbt-state-optional-but-recommended-")
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) automatically determines which models need rebuilding based on code or data changes, which can reduce warehouse costs by 30% or more. dbt State is in preview. To get started, see [Set up dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-setup.md).
+[dbt State](../docs/deploy/dbt-state-about.md) automatically determines which models need rebuilding based on code or data changes, which can reduce warehouse costs by 30% or more. dbt State is in preview. To get started, see [Set up dbt State](../docs/deploy/dbt-state-setup.md).
 
 State-aware orchestration is now dbt State
 
-[dbt State](https://docs.getdbt.com/docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
+[dbt State](../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](https://docs.getdbt.com/docs/deploy/dbt-state-migration.md).
+If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
 ### Step 6: Monitor production jobs[​](#step-6-monitor-production-jobs "Direct link to Step 6: Monitor production jobs")
 
@@ -419,7 +419,7 @@ Watch your production jobs closely for the first 24-48 hours:
 
 * **Check scheduled job runs:** Navigate to **Deploy** → **Jobs** → **Run history**
 * **Monitor run times:** Compare to historical averages. You should see significant improvements.
-* **Review cost savings**: If you enabled dbt State, check [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) to see savings in action.
+* **Review cost savings**: If you enabled dbt State, check [Cost Insights](../docs/explore/cost-insights.md) to see savings in action.
 * **Watch for warnings**: Review logs for any unexpected messages.
 
 ### Step 7: Validate downstream integrations[​](#step-7-validate-downstream-integrations "Direct link to Step 7: Validate downstream integrations")
@@ -429,12 +429,12 @@ Ensure all systems dependent on your production data still function correctly:
 1. **BI tools:** Verify dashboards and reports refresh properly.
 2. **Data consumers:** Confirm downstream teams can access and query data.
 3. **APIs and integrations:** Test any applications that consume dbt outputs.
-4. **Semantic Layer:** If using the [dbt Semantic Layer](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl.md), verify metrics queries work.
+4. **Semantic Layer:** If using the [dbt Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), verify metrics queries work.
 5. **Alerts and monitoring**: Check that data quality alerts and monitors function correctly.
 
 ### Step 8: Update any remaining jobs with version overrides[​](#step-8-update-any-remaining-jobs-with-version-overrides "Direct link to Step 8: Update any remaining jobs with version overrides")
 
-Some jobs might have [version overrides](https://docs.getdbt.com/docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version) set from earlier testing. Now that production is on Fusion, remove these overrides:
+Some jobs might have [version overrides](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version) set from earlier testing. Now that production is on Fusion, remove these overrides:
 
 1. Navigate to **Orchestration** → **Jobs**.
 2. Review each job's settings.
@@ -476,7 +476,7 @@ dbt lint --fix
 dbt lint --changed
 ```
 
-See the [`dbt lint` reference](https://docs.getdbt.com/reference/commands/lint.md?version=2.0) for the full list of flags, supported dialects, and suppression syntax.
+See the [`dbt lint` reference](../reference/commands/lint.md?version=2.0) for the full list of flags, supported dialects, and suppression syntax.
 
 ## Next steps[​](#next-steps "Direct link to Next steps")
 
@@ -486,8 +486,8 @@ You've successfully upgraded your entire dbt platform project to Fusion!
 
 For your next steps:
 
-* **Optimize further**: Explore [dbt State configurations](https://docs.getdbt.com/reference/resource-configs/dbt-state-configs.md) to fine-tune refresh intervals.
-* **Monitor savings**: Use [Cost Insights](https://docs.getdbt.com/docs/explore/cost-insights.md) to track models built vs. reused.
+* **Optimize further**: Explore [dbt State configurations](../reference/resource-configs/dbt-state-configs.md) to fine-tune refresh intervals.
+* **Monitor savings**: Use [Cost Insights](../docs/explore/cost-insights.md) to track models built vs. reused.
 * **Train your team**: Share Fusion features and best practices with your team.
 * **Explore new features**: Check out column-level lineage, live CTE previews, and other Fusion-powered capabilities.
 * **Stay informed**: Follow the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for updates on new features.

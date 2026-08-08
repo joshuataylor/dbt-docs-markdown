@@ -8,8 +8,8 @@ dbt makes it easy to invite new users to your environment out of the box. This f
 
 You must have proper permissions to invite new users:
 
-* [**Starter accounts**](https://docs.getdbt.com/docs/platform/manage-access/self-service-permissions.md) — must have `member` or `owner` permissions.
-* [**Enterprise-tier accounts**](https://docs.getdbt.com/docs/platform/manage-access/enterprise-permissions.md) — must have `admin`, `account admin`, `project creator`, or `security admin` permissions.
+* [**Starter accounts**](./self-service-permissions.md) — must have `member` or `owner` permissions.
+* [**Enterprise-tier accounts**](./enterprise-permissions.md) — must have `admin`, `account admin`, `project creator`, or `security admin` permissions.
 * The admin inviting the users must have a `developer` or `IT` license.
 
 ## Invite new users[​](#invite-new-users "Direct link to Invite new users")
@@ -33,7 +33,7 @@ Email verification
 
 Email verification is mandatory for all new users in dbt, including using Single Sign-On (SSO)⁠⁠. Automatic provisioning without email verification is not allowed. This is a security requirement that cannot be bypassed.
 
-dbt generates and sends emails from `support@getdbt.com` to the specified addresses. Make sure that traffic from the `support@getdbt.com` email is allowed in your settings to avoid emails from going to spam or being blocked. This is the originating email address for all [instances worldwide](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses.md).
+dbt generates and sends emails from `support@getdbt.com` to the specified addresses. Make sure that traffic from the `support@getdbt.com` email is allowed in your settings to avoid emails from going to spam or being blocked. This is the originating email address for all [instances worldwide](../about-platform/access-regions-ip-addresses.md).
 
 The email contains a link to create an account. When the user clicks on this link, they will be brought to one of two screens depending on whether SSO is configured or not.
 

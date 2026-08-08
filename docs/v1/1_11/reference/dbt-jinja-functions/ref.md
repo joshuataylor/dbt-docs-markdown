@@ -8,8 +8,8 @@ select * from {{ ref("node_name") }}
 
 This function:
 
-* Returns a [Relation](https://docs.getdbt.com/reference/dbt-classes.md#relation) for a [model](https://docs.getdbt.com/docs/build/models.md), [seed](https://docs.getdbt.com/docs/build/seeds.md), or [snapshot](https://docs.getdbt.com/docs/build/snapshots.md)
-* Creates dependencies between the referenced node and the current model, which is useful for documentation and [node selection](https://docs.getdbt.com/reference/node-selection/syntax.md)
+* Returns a [Relation](../dbt-classes.md#relation) for a [model](../../docs/build/models.md), [seed](../../docs/build/seeds.md), or [snapshot](../../docs/build/snapshots.md)
+* Creates dependencies between the referenced node and the current model, which is useful for documentation and [node selection](../node-selection/syntax.md)
 * Compiles to the full object name in the database
 
 The most important function in dbt is `ref()`; it's impossible to build even moderately complex models without it. `ref()` is how you reference one model within another. This is a very common behavior, as typically models are built to be "stacked" on top of one another. Here is how this looks in practice:
@@ -30,7 +30,7 @@ from {{ref('model_a')}}
 
 `ref()` is, under the hood, actually doing two important things. First, it is interpolating the schema into your model file to allow you to change your deployment schema via configuration. Second, it is using these references between models to automatically build the dependency graph. This will enable dbt to deploy models in the correct order when using `dbt run`.
 
-The `{{ ref }}` function returns a `Relation` object that has the same `table`, `schema`, and `name` attributes as the [{{ this }} variable](https://docs.getdbt.com/reference/dbt-jinja-functions/this.md).
+The `{{ ref }}` function returns a `Relation` object that has the same `table`, `schema`, and `name` attributes as the [{{ this }} variable](./this.md).
 
 ## Advanced ref usage[​](#advanced-ref-usage "Direct link to Advanced ref usage")
 
@@ -70,7 +70,7 @@ select * from {{ ref('model_name') }}
 
 You can also reference models from different projects using the two-argument variant of the `ref` function. By specifying both a namespace (which could be a project or package) and a model name, you ensure clarity and avoid any ambiguity in the `ref`. This is also useful when dealing with models across various projects or packages.
 
-When using two arguments with projects (not packages), you also need to set [cross project dependencies](https://docs.getdbt.com/docs/mesh/govern/project-dependencies.md).
+When using two arguments with projects (not packages), you also need to set [cross project dependencies](../../docs/mesh/govern/project-dependencies.md).
 
 The following syntax demonstrates how to reference a model from a specific project or package:
 

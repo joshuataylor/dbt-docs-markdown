@@ -33,12 +33,12 @@ If no keys are provided, both limits remain unset (`null`), and `sqlparse` does 
 
 You can use `--sqlparse` with the following commands:
 
-* [`dbt compile`](https://docs.getdbt.com/reference/commands/compile.md)
-* [`dbt run`](https://docs.getdbt.com/reference/commands/run.md)
-* [`dbt build`](https://docs.getdbt.com/reference/commands/build.md)
-* [`dbt test`](https://docs.getdbt.com/reference/commands/test.md)
-* [`dbt seed`](https://docs.getdbt.com/reference/commands/seed.md)
-* [`dbt snapshot`](https://docs.getdbt.com/reference/commands/snapshot.md)
-* [`dbt source freshness`](https://docs.getdbt.com/reference/commands/source.md#dbt-source-freshness)
-* [`dbt docs generate`](https://docs.getdbt.com/reference/commands/cmd-docs.md#dbt-docs-generate)
-* [`dbt show`](https://docs.getdbt.com/reference/commands/show.md)
+* [`dbt compile`](../commands/compile.md)
+* [`dbt run`](../commands/run.md)
+* [`dbt build`](../commands/build.md)
+* [`dbt test`](../commands/test.md)
+* [`dbt seed`](../commands/seed.md)
+* [`dbt snapshot`](../commands/snapshot.md)
+* [`dbt source freshness`](../commands/source.md#dbt-source-freshness)
+* [`dbt docs generate`](../commands/cmd-docs.md#dbt-docs-generate)
+* [`dbt show`](../commands/show.md)

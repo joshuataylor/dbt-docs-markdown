@@ -94,13 +94,13 @@ dbt replaces `{{ model }}` in generic test definitions with `{{ get_where_subque
 You can override this behavior by:
 
 * Defining a custom `get_where_subquery` in your root project
-* Defining a custom `<adapter>__get_where_subquery` [dispatch candidate](https://docs.getdbt.com/reference/dbt-jinja-functions/dispatch.md) in your package or adapter plugin
+* Defining a custom `<adapter>__get_where_subquery` [dispatch candidate](../dbt-jinja-functions/dispatch.md) in your package or adapter plugin
 
-Within this macro definition, you can reference whatever custom macros you want, based on static inputs from the configuration. At simplest, this enables you to DRY up code that you'd otherwise need to repeat across many different `.yml` files. Because the `get_where_subquery` macro is resolved at runtime, your custom macros can also include [fetching the results of introspective database queries](https://docs.getdbt.com/reference/dbt-jinja-functions/run_query.md).
+Within this macro definition, you can reference whatever custom macros you want, based on static inputs from the configuration. At simplest, this enables you to DRY up code that you'd otherwise need to repeat across many different `.yml` files. Because the `get_where_subquery` macro is resolved at runtime, your custom macros can also include [fetching the results of introspective database queries](../dbt-jinja-functions/run_query.md).
 
 #### Example[​](#example "Direct link to Example")
 
-Filter your test to the past N days of data, using dbt's cross-platform [`dateadd()`](https://docs.getdbt.com/reference/dbt-jinja-functions/cross-database-macros.md#dateadd) utility macro. You can set the number of days in the placeholder string.
+Filter your test to the past N days of data, using dbt's cross-platform [`dateadd()`](../dbt-jinja-functions/cross-database-macros.md#dateadd) utility macro. You can set the number of days in the placeholder string.
 
 models/config.yml
 

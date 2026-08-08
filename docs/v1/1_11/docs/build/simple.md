@@ -17,7 +17,7 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `type_params`               | The type parameters of the metric.                                                                                                                                                            | Required | Dict    |
 | `measure`                   | A list of measure inputs.                                                                                                                                                                     | Required | List    |
 | `measure.name`              | The measure you're referencing.                                                                                                                                                               | Required | String  |
-| `measure.alias`             | Optional [`alias`](https://docs.getdbt.com/reference/resource-configs/alias.md) to rename the measure.                                                                                        | Optional | String  |
+| `measure.alias`             | Optional [`alias`](../../reference/resource-configs/alias.md) to rename the measure.                                                                                        | Optional | String  |
 | `measure.filter`            | Optional `filter` applied to the measure.                                                                                                                                                     | Optional | String  |
 | `measure.fill_nulls_with`   | Set the value in your metric definition instead of null (such as zero).                                                                                                                       | Optional | Integer |
 | `measure.join_to_timespine` | Indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. Default `false`.                                                                       | Optional | Boolean |
@@ -49,7 +49,7 @@ metrics:
 
 <!-- -->
 
-For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md), ensuring numeric values for every data row.
+For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
 ## Simple metrics example[​](#simple-metrics-example "Direct link to Simple metrics example")
 
@@ -81,4 +81,4 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [Fill null values for simple, derived, or ratio metrics](https://docs.getdbt.com/docs/build/fill-nulls-advanced.md)
+* [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

@@ -31,8 +31,8 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-postgres<!-- -->
 
-For <!-- -->AlloyDB<!-- -->-specific configuration, please refer to [AlloyDB<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/postgres-configs.md)
+For <!-- -->AlloyDB<!-- -->-specific configuration, please refer to [AlloyDB<!-- --> configs.](../../../reference/resource-configs/postgres-configs.md)
 
 ## Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
 
-AlloyDB targets are configured exactly the same as [Postgres targets](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md#profile-configuration).
+AlloyDB targets are configured exactly the same as [Postgres targets](./postgres-setup.md#profile-configuration).

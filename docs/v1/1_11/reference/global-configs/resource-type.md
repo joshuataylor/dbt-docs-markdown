@@ -14,7 +14,7 @@ If you're using dbt Core v1.9+, you can also use `--resource-type`:
 * `dbt test --resource-type unit_test` — runs only unit tests
 * `dbt test --resource-type test` — runs only data tests
 
-For more examples, see [test selection examples](https://docs.getdbt.com/reference/node-selection/test-selection-examples.md).
+For more examples, see [test selection examples](../node-selection/test-selection-examples.md).
 
 This means the flags enable you to specify which types of resources to include or exclude when running the commands, instead of targeting specific resources.
 
@@ -26,18 +26,18 @@ The available resource types are:
 
 <!-- -->
 
-* [`analysis`](https://docs.getdbt.com/docs/build/analyses.md)
-* [`exposure`](https://docs.getdbt.com/docs/build/exposures.md)
-* [`function`](https://docs.getdbt.com/docs/build/udfs.md)
-* [`metric`](https://docs.getdbt.com/docs/build/build-metrics-intro.md)
-* [`model`](https://docs.getdbt.com/docs/build/models.md)
-* [`saved_query`](https://docs.getdbt.com/docs/build/saved-queries.md)
-* [`seed`](https://docs.getdbt.com/docs/build/seeds.md)
-* [`semantic_model`](https://docs.getdbt.com/docs/build/semantic-models.md)
-* [`snapshot`](https://docs.getdbt.com/docs/build/snapshots.md)
-* [`source`](https://docs.getdbt.com/docs/build/sources.md)
-* [`test`](https://docs.getdbt.com/docs/build/data-tests.md)
-* [`unit_test`](https://docs.getdbt.com/docs/build/unit-tests.md)
+* [`analysis`](../../docs/build/analyses.md)
+* [`exposure`](../../docs/build/exposures.md)
+* [`function`](../../docs/build/udfs.md)
+* [`metric`](../../docs/build/build-metrics-intro.md)
+* [`model`](../../docs/build/models.md)
+* [`saved_query`](../../docs/build/saved-queries.md)
+* [`seed`](../../docs/build/seeds.md)
+* [`semantic_model`](../../docs/build/semantic-models.md)
+* [`snapshot`](../../docs/build/snapshots.md)
+* [`source`](../../docs/build/sources.md)
+* [`test`](../../docs/build/data-tests.md)
+* [`unit_test`](../../docs/build/unit-tests.md)
 
 ## Positive vs negative filters[​](#positive-vs-negative-filters "Direct link to Positive vs negative filters")
 

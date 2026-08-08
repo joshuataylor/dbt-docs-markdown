@@ -12,7 +12,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-For background on MCP itself, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction). For the dbt-maintained server specifically, refer to the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md).
+For background on MCP itself, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction). For the dbt-maintained server specifically, refer to the [dbt MCP server](./about-mcp.md).
 
 ## Locations and precedence[​](#locations-and-precedence "Direct link to Locations and precedence")
 
@@ -32,7 +32,7 @@ Avoid defining the same MCP server name in more than one location unless you int
 
 ## Why use an MCP server[​](#why-use-an-mcp-server "Direct link to Why use an MCP server")
 
-dbt Wizard natively understands your dbt project. An MCP server extends that reach to the other tools and systems your work depends on, so you can do more without leaving your [session](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#sessions). Each server you add gives dbt Wizard a new set of tools it can call on your behalf. For example:
+dbt Wizard natively understands your dbt project. An MCP server extends that reach to the other tools and systems your work depends on, so you can do more without leaving your [session](./wizard-how-it-works.md#sessions). Each server you add gives dbt Wizard a new set of tools it can call on your behalf. For example:
 
 * dbt MCP server for governed access to your models, metrics, and lineage.
 * GitHub server to read and review pull requests.
@@ -81,13 +81,13 @@ For example, add a filesystem MCP server that runs locally through `npx`. This s
 wizard mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /Users/you/my-project
 ```
 
-To connect the [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md), use the streamable HTTP form below — refer to [dbt MCP server](#dbt-mcp-server) under Examples.
+To connect the [dbt MCP server](./about-mcp.md), use the streamable HTTP form below — refer to [dbt MCP server](#dbt-mcp-server) under Examples.
 
 ```bash
 wizard mcp add SERVER_NAME --url https://example.com/mcp --bearer-token-env-var MY_TOKEN
 ```
 
-To see all MCP subcommands, run `wizard mcp --help`. For the full list of flags, refer to the [CLI command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md).
+To see all MCP subcommands, run `wizard mcp --help`. For the full list of flags, refer to the [CLI command reference](./wizard-cli-reference.md).
 
 Instead of the `wizard mcp add` command, you can edit `config.toml` yourself. dbt Wizard stores user-level MCP configuration in `~/.dbt/wizard/config.toml` alongside its other settings:
 
@@ -106,7 +106,7 @@ bearer_token_env_var = "GITHUB_MCP_TOKEN"
 http_headers = { "X-Region" = "us-east-1" }
 ```
 
-Restart `wizard` after editing `config.toml` — MCP servers are loaded at session start. For how settings resolve, refer to [Config precedence](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md#config-precedence).
+Restart `wizard` after editing `config.toml` — MCP servers are loaded at session start. For how settings resolve, refer to [Config precedence](./wizard-config.md#config-precedence).
 
 ## Configuration keys[​](#configuration-keys "Direct link to Configuration keys")
 
@@ -172,7 +172,7 @@ Manage your configured servers through the dbt Wizard CLI, or by editing `config
 
 ## Approvals and tool permissions[​](#approvals-and-tool-permissions "Direct link to Approvals and tool permissions")
 
-MCP tool calls follow the same [approval and sandboxing](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#approval-and-sandboxing) rules as the rest of dbt Wizard. Set `enabled_tools` and `disabled_tools` in `config.toml` to control which tools a server exposes (there's no dedicated CLI flag). That way, dbt Wizard calls only the tools you intend.
+MCP tool calls follow the same [approval and sandboxing](./wizard-how-it-works.md#approval-and-sandboxing) rules as the rest of dbt Wizard. Set `enabled_tools` and `disabled_tools` in `config.toml` to control which tools a server exposes (there's no dedicated CLI flag). That way, dbt Wizard calls only the tools you intend.
 
 ## Examples[​](#examples "Direct link to Examples")
 
@@ -180,7 +180,7 @@ The following examples show common scenarios for adding an MCP server and how to
 
 ### dbt MCP server[​](#dbt-mcp-server "Direct link to dbt MCP server")
 
-The [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md) gives dbt Wizard governed access to your project's models, metrics, lineage, freshness, and platform APIs. You can connect it two ways:
+The [dbt MCP server](./about-mcp.md) gives dbt Wizard governed access to your project's models, metrics, lineage, freshness, and platform APIs. You can connect it two ways:
 
 * Self-hosted (no account required)
 * Remote (dbt platform account)
@@ -191,7 +191,7 @@ Runs on your machine through `uvx` and works with or without a dbt platform acco
 wizard mcp add dbt -- uvx dbt-mcp
 ```
 
-The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-cli.md) and [Set up self-hosted MCP](https://docs.getdbt.com/docs/dbt-ai/setup-local-mcp.md).
+The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](./mcp-quickstart-cli.md) and [Set up self-hosted MCP](./setup-local-mcp.md).
 
 Hosted on the dbt platform. Build the URL from your platform host (`https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`, for example `https://cloud.getdbt.com/api/ai/v1/mcp/`), then authenticate:
 
@@ -200,7 +200,7 @@ wizard mcp add dbt --url https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/
 wizard mcp login dbt
 ```
 
-For finding your host and token, refer to [Connect to the remote dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/mcp-quickstart-remote.md) and [Connections and authentication (MCP)](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md#connections-and-authentication-mcp).
+For finding your host and token, refer to [Connect to the remote dbt MCP server](./mcp-quickstart-remote.md) and [Connections and authentication (MCP)](./wizard-how-it-works.md#connections-and-authentication-mcp).
 
 Then prompt dbt Wizard:
 
@@ -238,8 +238,8 @@ new columns and confirm downstream refs still resolve.
 
 ## Related docs[​](#related-docs "Direct link to Related docs")
 
-* [dbt MCP server](https://docs.getdbt.com/docs/dbt-ai/about-mcp.md): The dbt-maintained server and its available tools
-* [Use subagents with dbt Wizard](https://docs.getdbt.com/docs/dbt-ai/wizard-subagents.md): Delegate work to specialized agents
-* [dbt Wizard CLI config](https://docs.getdbt.com/docs/dbt-ai/wizard-config.md): `config.toml` keys and precedence
-* [dbt Wizard CLI command reference](https://docs.getdbt.com/docs/dbt-ai/wizard-cli-reference.md): `wizard mcp` flags and subcommands
-* [How dbt Wizard works](https://docs.getdbt.com/docs/dbt-ai/wizard-how-it-works.md): Approvals and sandboxing
+* [dbt MCP server](./about-mcp.md): The dbt-maintained server and its available tools
+* [Use subagents with dbt Wizard](./wizard-subagents.md): Delegate work to specialized agents
+* [dbt Wizard CLI config](./wizard-config.md): `config.toml` keys and precedence
+* [dbt Wizard CLI command reference](./wizard-cli-reference.md): `wizard mcp` flags and subcommands
+* [How dbt Wizard works](./wizard-how-it-works.md): Approvals and sandboxing

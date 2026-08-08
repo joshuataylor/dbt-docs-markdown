@@ -92,7 +92,7 @@ macros:
         description: markdown_string
 ```
 
-You can add a description to a [singular data test](https://docs.getdbt.com/docs/build/data-tests.md#singular-data-tests) or a [generic data test](https://docs.getdbt.com/docs/build/data-tests.md#generic-data-tests).
+You can add a description to a [singular data test](../../docs/build/data-tests.md#singular-data-tests) or a [generic data test](../../docs/build/data-tests.md#generic-data-tests).
 
 tests/schema.yml
 
@@ -169,9 +169,9 @@ A user-defined description used to document:
 * unit tests for models
 * groups (dbt Core v1.10+)
 
-These descriptions are used in the documentation website rendered by dbt (refer to [the documentation guide](https://docs.getdbt.com/docs/build/documentation.md) or [Catalog](https://docs.getdbt.com/docs/explore/explore-projects.md)).
+These descriptions are used in the documentation website rendered by dbt (refer to [the documentation guide](../../docs/build/documentation.md) or [Catalog](../../docs/explore/explore-projects.md)).
 
-Descriptions can include markdown, as well as the [`doc` Jinja function](https://docs.getdbt.com/reference/dbt-jinja-functions/doc.md).
+Descriptions can include markdown, as well as the [`doc` Jinja function](../dbt-jinja-functions/doc.md).
 
 You may need to quote your YAML
 
@@ -256,7 +256,7 @@ models:
 
 ### Use a docs block in a description[​](#use-a-docs-block-in-a-description "Direct link to Use a docs block in a description")
 
-If you have a long description, especially if it contains markdown, it may make more sense to leverage a [`docs` block](https://docs.getdbt.com/reference/dbt-jinja-functions/doc.md). A benefit of this approach is that code editors will correctly highlight markdown, making it easier to debug as you write.
+If you have a long description, especially if it contains markdown, it may make more sense to leverage a [`docs` block](../dbt-jinja-functions/doc.md). A benefit of this approach is that code editors will correctly highlight markdown, making it easier to debug as you write.
 
 models/schema.yml
 
@@ -323,7 +323,7 @@ Both dbt and dbt Core users can [include an image from the web](#include-an-imag
 To include an image in your model's `description` field:
 
 1. Add the file in a subdirectory, e.g. `assets/dbt-logo.svg`
-2. Set the [`asset-paths` config](https://docs.getdbt.com/reference/project-configs/asset-paths.md) in your `dbt_project.yml` file so that this directory gets copied to the `target/` directory as part of `dbt docs generate`
+2. Set the [`asset-paths` config](../project-configs/asset-paths.md) in your `dbt_project.yml` file so that this directory gets copied to the `target/` directory as part of `dbt docs generate`
 
 dbt\_project.yml
 
@@ -397,7 +397,7 @@ models:
               description: "The order_id is unique for every row in the orders model"
 ```
 
-You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](https://docs.getdbt.com/best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
+You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
 #### Singular data test[​](#singular-data-test "Direct link to Singular data test")
 

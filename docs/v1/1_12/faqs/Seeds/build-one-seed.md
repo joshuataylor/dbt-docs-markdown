@@ -9,4 +9,4 @@ $ dbt seed --select country_codes
 
 There is also an `--exclude` option.
 
-Check out more in the [model selection syntax](https://docs.getdbt.com/reference/node-selection/syntax.md) documentation.
+Check out more in the [model selection syntax](../../reference/node-selection/syntax.md) documentation.

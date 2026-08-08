@@ -12,29 +12,29 @@ An optional `incremental_strategy` config is provided in some adapters that cont
 
 Microbatch
 
-The [`microbatch` incremental strategy](https://docs.getdbt.com/docs/build/incremental-microbatch.md) is intended for large time-series datasets. dbt will process the incremental model in multiple queries (or "batches") based on a configured `event_time` column. Depending on the volume and nature of your data, this can be more efficient and resilient than using a single query for adding new data.
+The [`microbatch` incremental strategy](./incremental-microbatch.md) is intended for large time-series datasets. dbt will process the incremental model in multiple queries (or "batches") based on a configured `event_time` column. Depending on the volume and nature of your data, this can be more efficient and resilient than using a single query for adding new data.
 
 ### Supported incremental strategies by adapter[​](#supported-incremental-strategies-by-adapter "Direct link to Supported incremental strategies by adapter")
 
-This table shows the support of each incremental strategy across adapters available on Fusion or dbt's [Latest release track](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on Latest and the feature hasn't been released to the Compatible track.
+This table shows the support of each incremental strategy across adapters available on Fusion or dbt's [Latest release track](../dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on Latest and the feature hasn't been released to the Compatible track.
 
-If you're interested in incremental strategies for additional adapters, check out the [adapter's individual configuration page](https://docs.getdbt.com/reference/resource-configs.md) for more details.
+If you're interested in incremental strategies for additional adapters, check out the [adapter's individual configuration page](../../reference/resource-configs.md) for more details.
 
 Click the name of the adapter in the following table for more information about supported incremental strategies:
 
 | Data platform adapter                                                                                                                     | `append` | `merge` | `delete+insert` | `insert_overwrite` | `microbatch` |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | --------------- | ------------------ | ------------ |
-| [dbt-postgres](https://docs.getdbt.com/reference/resource-configs/postgres-configs.md#incremental-materialization-strategies)             | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-redshift](https://docs.getdbt.com/reference/resource-configs/redshift-configs.md#incremental-materialization-strategies)             | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-bigquery](https://docs.getdbt.com/reference/resource-configs/bigquery-configs.md#merge-behavior-incremental-models)                  |          | ✅      |                 | ✅                 | ✅           |
-| [dbt-spark](https://docs.getdbt.com/reference/resource-configs/spark-configs.md#incremental-models)                                       | ✅       | ✅      |                 | ✅                 | ✅           |
-| [dbt-databricks](https://docs.getdbt.com/reference/resource-configs/databricks-configs.md#incremental-models)                             | ✅       | ✅      | ✅              | ✅                 | ✅           |
-| [dbt-snowflake](https://docs.getdbt.com/reference/resource-configs/snowflake-configs.md#merge-behavior-incremental-models)                | ✅       | ✅      | ✅              | ✅                 | ✅           |
-| [dbt-trino](https://docs.getdbt.com/reference/resource-configs/trino-configs.md#incremental)                                              | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-fabric](https://docs.getdbt.com/reference/resource-configs/fabric-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-athena](https://docs.getdbt.com/reference/resource-configs/athena-configs.md#incremental-models)                                     | ✅       | ✅      |                 | ✅                 | ✅           |
-| [dbt-teradata](https://docs.getdbt.com/reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
-| [dbt-duckdb](https://docs.getdbt.com/reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-postgres](../../reference/resource-configs/postgres-configs.md#incremental-materialization-strategies)             | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-redshift](../../reference/resource-configs/redshift-configs.md#incremental-materialization-strategies)             | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-bigquery](../../reference/resource-configs/bigquery-configs.md#merge-behavior-incremental-models)                  |          | ✅      |                 | ✅                 | ✅           |
+| [dbt-spark](../../reference/resource-configs/spark-configs.md#incremental-models)                                       | ✅       | ✅      |                 | ✅                 | ✅           |
+| [dbt-databricks](../../reference/resource-configs/databricks-configs.md#incremental-models)                             | ✅       | ✅      | ✅              | ✅                 | ✅           |
+| [dbt-snowflake](../../reference/resource-configs/snowflake-configs.md#merge-behavior-incremental-models)                | ✅       | ✅      | ✅              | ✅                 | ✅           |
+| [dbt-trino](../../reference/resource-configs/trino-configs.md#incremental)                                              | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-fabric](../../reference/resource-configs/fabric-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-athena](../../reference/resource-configs/athena-configs.md#incremental-models)                                     | ✅       | ✅      |                 | ✅                 | ✅           |
+| [dbt-teradata](../../reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
+| [dbt-duckdb](../../reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
 
 Search table...
 
@@ -195,11 +195,11 @@ Before diving into [custom strategies](#custom-strategies), it's important to un
 
 | `incremental_strategy`                                                                            | Corresponding macro                    |
 | ------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| [`append`](https://docs.getdbt.com/docs/build/incremental-strategy.md#append)                     | `get_incremental_append_sql`           |
-| [`delete+insert`](https://docs.getdbt.com/docs/build/incremental-strategy.md#deleteinsert)        | `get_incremental_delete_insert_sql`    |
-| [`merge`](https://docs.getdbt.com/docs/build/incremental-strategy.md#merge)                       | `get_incremental_merge_sql`            |
-| [`insert_overwrite`](https://docs.getdbt.com/docs/build/incremental-strategy.md#insert_overwrite) | `get_incremental_insert_overwrite_sql` |
-| [`microbatch`](https://docs.getdbt.com/docs/build/incremental-strategy.md#microbatch)             | `get_incremental_microbatch_sql`       |
+| [`append`](./incremental-strategy.md#append)                     | `get_incremental_append_sql`           |
+| [`delete+insert`](./incremental-strategy.md#deleteinsert)        | `get_incremental_delete_insert_sql`    |
+| [`merge`](./incremental-strategy.md#merge)                       | `get_incremental_merge_sql`            |
+| [`insert_overwrite`](./incremental-strategy.md#insert_overwrite) | `get_incremental_insert_overwrite_sql` |
+| [`microbatch`](./incremental-strategy.md#microbatch)             | `get_incremental_microbatch_sql`       |
 
 Search table...
 
@@ -257,7 +257,7 @@ The `delete+insert` strategy deletes the data for the `unique_key` from the targ
 
 `delete+insert` doesn't map directly to SCD logic (type 1 or 2) because it overwrites data at the row level and while it can add new rows, it does not track history.
 
-For SCD2, use [dbt snapshots](https://docs.getdbt.com/docs/build/snapshots.md#what-are-snapshots), not `delete+insert`.
+For SCD2, use [dbt snapshots](./snapshots.md#what-are-snapshots), not `delete+insert`.
 
 ##### `merge`[​](#merge "Direct link to merge")
 
@@ -281,9 +281,9 @@ It's ideal for tables partitioned by date or another key and useful for refreshi
 
 ##### `microbatch`[​](#microbatch "Direct link to microbatch")
 
-[`microbatch`](https://docs.getdbt.com/docs/build/incremental-microbatch.md#what-is-microbatch-in-dbt) is an incremental strategy designed for processing large time-series datasets by splitting the data into time-based batches (for example, daily or hourly). It supports [parallel batch execution](https://docs.getdbt.com/docs/build/parallel-batch-execution.md#how-parallel-batch-execution-works) for faster runs.
+[`microbatch`](./incremental-microbatch.md#what-is-microbatch-in-dbt) is an incremental strategy designed for processing large time-series datasets by splitting the data into time-based batches (for example, daily or hourly). It supports [parallel batch execution](./parallel-batch-execution.md#how-parallel-batch-execution-works) for faster runs.
 
-For details on which incremental strategies are supported by each adapter, refer to the section [Supported incremental strategies by adapter](https://docs.getdbt.com/docs/build/incremental-strategy.md#supported-incremental-strategies-by-adapter).
+For details on which incremental strategies are supported by each adapter, refer to the section [Supported incremental strategies by adapter](./incremental-strategy.md#supported-incremental-strategies-by-adapter).
 
 ### Custom strategies[​](#custom-strategies "Direct link to Custom strategies")
 
@@ -291,7 +291,7 @@ limited support
 
 Custom strategies are not currently supported on the BigQuery and Spark adapters.
 
-From dbt v1.2 and onwards, users have an easier alternative to [creating an entirely new materialization](https://docs.getdbt.com/guides/create-new-materializations.md). They define and use their own "custom" incremental strategies by:
+From dbt v1.2 and onwards, users have an easier alternative to [creating an entirely new materialization](../../guides/create-new-materializations.md). They define and use their own "custom" incremental strategies by:
 
 1. Defining a macro named `get_incremental_STRATEGY_sql`. Note that `STRATEGY` is a placeholder and you should replace it with the name of your custom incremental strategy.
 2. Configuring `incremental_strategy: STRATEGY` within an incremental model.
@@ -335,13 +335,13 @@ models/my\_model.sql
 ...
 ```
 
-If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](https://docs.getdbt.com/reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
+If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](../../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
 
 ### Custom strategies from a package[​](#custom-strategies-from-a-package "Direct link to Custom strategies from a package")
 
 To use the `merge_null_safe` custom incremental strategy from the `example` package:
 
-* [Install the package](https://docs.getdbt.com/docs/build/packages.md#how-do-i-add-a-package-to-my-project)
+* [Install the package](./packages.md#how-do-i-add-a-package-to-my-project)
 * Add the following macro to your project:
 
 macros/my\_custom\_strategies.sql

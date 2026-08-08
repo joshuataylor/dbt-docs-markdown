@@ -31,7 +31,7 @@ Use `pip` to install the adapter. Use the following command for installation:
 
 ## Configuring <!-- -->dbt-greenplum<!-- -->
 
-For <!-- -->Greenplum<!-- -->-specific configuration, please refer to [Greenplum<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/greenplum-configs.md)
+For <!-- -->Greenplum<!-- -->-specific configuration, please refer to [Greenplum<!-- --> configs.](../../../reference/resource-configs/greenplum-configs.md)
 
 For further (and more likely up-to-date) info, see the [README](https://github.com/markporoshin/dbt-greenplum#README.md)
 
@@ -63,4 +63,4 @@ company-name:
 
 ### Notes[​](#notes "Direct link to Notes")
 
-This adapter strongly depends on dbt-postgres, so you can read more about configurations here [Profile Setup](https://docs.getdbt.com/docs/local/connect-data-platform/postgres-setup.md)
+This adapter strongly depends on dbt-postgres, so you can read more about configurations here [Profile Setup](./postgres-setup.md)

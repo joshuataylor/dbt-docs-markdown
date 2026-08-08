@@ -6,7 +6,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
    As an example, if you're migrating from GitHub to Azure DevOps, you'll need to import your existing repository (GitHub) into your new Git provider (Azure DevOps). For detailed steps on how to do this, refer to your Git provider's documentation (Such as [GitHub](https://docs.github.com/en/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer), [GitLab](https://docs.gitlab.com/ee/user/project/import/repo_by_url.html), [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops))
 
-2. Go back to dbt and set up your [integration for the new Git provider](https://docs.getdbt.com/docs/platform/git/configure-git.md), if needed.
+2. Go back to dbt and set up your [integration for the new Git provider](../../docs/platform/git/configure-git.md), if needed.
 
 3. Disconnect the old repository in dbt by going to **Account Settings** and then **Projects**.
 

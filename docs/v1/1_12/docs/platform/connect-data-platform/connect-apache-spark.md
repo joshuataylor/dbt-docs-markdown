@@ -4,7 +4,7 @@ dbt platformⓘ
 
 If you're using Databricks, use `dbt-databricks`
 
-If you're using Databricks, the `dbt-databricks` adapter is recommended over `dbt-spark`. If you're still using dbt-spark with Databricks consider [migrating from the dbt-spark adapter to the dbt-databricks adapter](https://docs.getdbt.com/guides/migrate-from-spark-to-databricks.md).
+If you're using Databricks, the `dbt-databricks` adapter is recommended over `dbt-spark`. If you're still using dbt-spark with Databricks consider [migrating from the dbt-spark adapter to the dbt-databricks adapter](../../../guides/migrate-from-spark-to-databricks.md).
 
 For the Databricks version of this page, refer to [Databricks setup](#databricks-setup).
 
@@ -14,7 +14,7 @@ See [Connect Databricks](#connect-databricks) for the Databricks version of this
 
 dbt supports connecting to an Apache Spark cluster using the HTTP method or the Thrift method. Note: While the HTTP method can be used to connect to an all-purpose Databricks cluster, the ODBC method is recommended for all Databricks connections. For further details on configuring these connection parameters, please see the [dbt-spark documentation](https://github.com/dbt-labs/dbt-spark#configuring-your-profile).
 
-To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Apache Spark-specific configuration](https://docs.getdbt.com/reference/resource-configs/spark-configs.md).
+To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Apache Spark-specific configuration](../../../reference/resource-configs/spark-configs.md).
 
 The following fields are available when creating an Apache Spark connection using the HTTP and Thrift connection methods:
 
