@@ -4,38 +4,37 @@ Pre-compiled dbt documentation as plain markdown, rebuilt every two hours from t
 
 ## The problem
 
-The dbt docs site is a Docusaurus app. It does expose `.md` URLs, but those serve raw MDX source -- import statements and JSX components (`<FAQ>`, `<VersionBlock>`, `<File>`, etc.) are passed through verbatim rather than rendered. Content in partials (`/snippets/`) is never inlined. Version-gated content inside `<VersionBlock>` is not expanded. The result is markdown that is largely unparseable by anything that isn't the Docusaurus runtime.
+The dbt docs site is a Docusaurus app. Its `.md` URLs used to serve raw MDX source -- import statements and JSX components (`<FAQ>`, `<VersionBlock>`, `<File>`, etc.) passed through verbatim, partials (`/snippets/`) never inlined. That part is fixed upstream now ([#9765](https://github.com/dbt-labs/docs.getdbt.com/pull/9765)): the site generates compiled markdown from the rendered HTML. What remains is versioning: the site is built once at the default version, so its `.md` reflects a single version and everything gated behind `<VersionBlock>` for other versions is absent. This repo exists to produce a complete, correctly filtered set per supported dbt version.
 
 ## What this repo does
 
-A GitHub Actions workflow runs every two hours and produces one set of `.md` files per supported dbt version under `docs/<version>/`:
+A GitHub Actions workflow runs every two hours and produces one set of `.md` files per supported dbt version under `docs/<product>/<version>/`:
 
 ```
 docs/
-  fusion/
-    2_0/    # version=2.0&name=Fusion (dbt platform stable)
-  core/
-    2_0/    # version=2.0&name=Core (dbt Core v2.0 alpha)
-    1_12/   # version=1.12&name=Core (dbt platform latest)
-    1_11/   # version=1.11&name=Core
+  v2/
+    2_0/    # the Fusion engine line (dbt platform)
+  v1/
+    1_12/   # dbt Core v1.12
+    1_11/   # dbt Core v1.11
 ```
 
 Each file is a fully rendered page: partials inlined, components expanded, with only the content appropriate for that version and product. The set of builds is derived dynamically from `dbt-versions.js` in the source repo, so new versions and products are picked up automatically.
 
 ## How it works
 
-The workflow patches the upstream Docusaurus source before each build to fix three things that prevent clean static output:
+The markdown generator itself now lives upstream: [dbt-labs/docs.getdbt.com#9765](https://github.com/dbt-labs/docs.getdbt.com/pull/9765) replaced the raw-MDX-source generator with `@signalwire/docusaurus-plugin-llms-txt`, which derives per-page `.md` from the final rendered HTML -- partials inlined, components expanded, links rewritten to be document-relative. What upstream does not do is build per version, so this repo layers two things on top:
 
-**1. Switch the markdown generator**
+**1. Patch the source for static per-version output**
 
-The dbt docs repo ships two markdown generators. The default one (`buildRawMarkdownData`) emits raw MDX source. The other (`@signalwire/docusaurus-plugin-llms-txt`) generates markdown from the final rendered HTML -- with partials inlined and components expanded -- but is disabled to avoid a route conflict with the first. The workflow disables `buildRawMarkdownData` and enables the llms-txt generator instead.
+Before each build, the workflow applies the compare diff of
+[`feature/fix-markdown`](https://github.com/joshuataylor/docs.getdbt.com/tree/feature/fix-markdown)
+(the non-upstreamable delta, rebased onto upstream `current`; `git apply --allow-empty` tolerates the diff being empty if everything is ever merged). It currently carries:
 
-**2. Fix VersionBlock for static builds**
+- **VersionBlock SSR fix.** The `VersionBlock` component guards its content with a `loading` state that is always `true` during SSR and only cleared client-side, so every `<VersionBlock>` renders `null` in static HTML and version-gated content is silently absent. The patch removes the guard so SSR renders from the context version and product.
+- **`SKIP_LINK_CHECK` support.** Per-version builds gate pages out on purpose, so links to them dangle; the patch downgrades `onBrokenLinks` from `throw` to `warn` only when the workflow sets `SKIP_LINK_CHECK=true`.
+- **`data-md-hide` stripping.** A rehype plugin in the llms-txt conversion pipeline drops any element marked with a `data-md-hide` attribute from the generated markdown without touching the rendered site (first user: the "Was this page helpful?" feedback widget).
 
-The `VersionBlock` React component guards its content with a `loading` state that is always `true` during SSR and only cleared client-side. This means every `<VersionBlock>` returns `null` in the static HTML regardless of which version or product is active -- all version-gated content is silently absent from a normal build.
-
-The workflow removes the loading guard so SSR renders based on the context version and product. Without this, switching the default version would have no effect on the output.
-
-**3. Build once per (product, version)**
+**2. Build once per (product, version)**
 
 `VersionBlock` filters on both version and product name (`<VersionBlock firstVersion="2.0" product="Fusion">`). The workflow reads `dbt-versions.js` with Node.js to discover all unique (product, version) combinations, then for each: patches `VersionContext.js` to hard-code the appropriate subProduct as the default, runs a full Docusaurus build, and copies the resulting `.md` files to `docs/<name>/<version>/`.
