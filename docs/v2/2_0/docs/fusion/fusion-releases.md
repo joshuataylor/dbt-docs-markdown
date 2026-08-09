@@ -60,15 +60,15 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Dev
 
-[`v2.0.0-preview.208`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview208 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
 
-2026-08-08
+2026-08-09
 
 #### Canary
 
-[`v2.0.0-preview.206`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
 
-2026-08-05
+2026-08-09
 
 #### Latest
 
@@ -102,19 +102,19 @@ of
 
 releases
 
-[v2.0.0-preview.208](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview208 "View this release in the dbt Fusion changelog")GoodDevnightly
+[v2.0.0-preview.208](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview208 "View this release in the dbt Fusion changelog")Known BadDevnightly
 
 Released by: **github-merge-queue**Aug 8, 2026, 08:59 AM
 
 Automated promotion
 
-[v2.0.0-preview.207](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview207 "View this release in the dbt Fusion changelog")GoodDevnightly
+[v2.0.0-preview.207](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview207 "View this release in the dbt Fusion changelog")Known BadDevnightly
 
 Released by: **akbog**Aug 6, 2026, 12:33 AM
 
 Automated promotion
 
-[v2.0.0-preview.206](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
+[v2.0.0-preview.206](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview206 "View this release in the dbt Fusion changelog")Known BadDevnightlyCanary
 
 Released by: **akbog**Aug 5, 2026, 01:11 AM
 
@@ -122,9 +122,9 @@ Planned Promotion
 
 [v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
-Released by: **akbog**Aug 5, 2026, 01:09 AM
+Released by: **j-clemons**Aug 9, 2026, 04:33 PM
 
-Planned Promotion
+Rollback dev for INC-7642
 
 [v2.0.0-preview.204](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview204 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
