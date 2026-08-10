@@ -120,11 +120,11 @@ Released by: **akbog**Aug 5, 2026, 01:11 AM
 
 Planned Promotion
 
-[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
+[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
 
-Released by: **j-clemons**Aug 9, 2026, 04:33 PM
+Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
 
-Rollback dev for INC-7642
+Automated ST snapshot
 
 [v2.0.0-preview.204](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview204 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
@@ -132,9 +132,9 @@ Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stable
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extended
 
-Released by: **laconc**Aug 6, 2026, 10:00 PM
+Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
 
 Automated ST snapshot
 
@@ -186,9 +186,9 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallback
 
-Released by: **laconc**Aug 6, 2026, 10:00 PM
+Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
 
 Automated ST snapshot
 
