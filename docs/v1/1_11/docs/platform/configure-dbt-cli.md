@@ -39,7 +39,7 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
        project-id: PROJECT_ID
    ```
 
-5. You should now be able to [use the ](#use-the-dbt-cli)and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
+5. You should now be able to [use the dbt CLI](#use-the-dbt-cli) and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
 
 With your repo recloned, you can add, edit, and sync files with your repo.
 

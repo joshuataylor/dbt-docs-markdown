@@ -103,9 +103,7 @@ To take advantage of the upgrade assistant, you'll need to meet the following pr
 
 * Your dbt project must be updated to use the **Latest** release track.
 * You must have a `developer` license.
-* You must have the
-  <!-- -->
-  beta enabled for your account. For more information, please contact your account manager.
+* You must have the Fusion beta enabled for your account. For more information, please contact your account manager.
 
 #### Assign access to upgrade[​](#assign-access-to-upgrade "Direct link to Assign access to upgrade")
 
@@ -162,7 +160,7 @@ To begin the process of upgrading to Fusion with the assistant:
 
 [![You're now ready to upgrade to Fusion in your development environment!](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "You're now ready to upgrade to Fusion in your development environment!")](#)You're now ready to upgrade to Fusion in your development environment!
 
-Now that you've upgraded your development environment to <!-- -->, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](#release-tracks) to upgrade.
+Now that you've upgraded your development environment to Fusion, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](#release-tracks) to upgrade.
 
 <!-- -->
 

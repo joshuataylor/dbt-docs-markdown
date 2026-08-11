@@ -14,7 +14,7 @@ The dbt platform offers the easiest and most reliable way to run your dbt projec
 * Uses [exports](../use-dbt-semantic-layer/exports.md) to write [saved queries](../build/saved-queries.md) in your data platform for reliable and fast metric reporting
 * [Visualize](../platform-integrations/downstream-exposures-tableau.md) and [orchestrate](../platform-integrations/orchestrate-exposures.md) downstream exposures to understand how models are used in downstream tools and proactively refresh the underlying data sources during scheduled dbt jobs. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 * Use [dbt's Git repository caching](../platform/account-settings.md#git-repository-caching) to protect against third-party outages and improve job run reliability. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
-* Use [Hybrid projects](./hybrid-projects.md) to upload dbt artifacts into the dbt platform for central visibility, cross-project referencing, and easier collaboration. [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") Preview
+* Use [Hybrid projects](./hybrid-projects.md) to upload dbt artifacts into the dbt platform for central visibility, cross-project referencing, and easier collaboration. [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Before continuing, make sure you understand dbt's approach to [deployment environments](./deploy-environments.md).
 
@@ -118,7 +118,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 <br />
 
-## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") Preview[​](#hybrid-projects-- "Direct link to hybrid-projects--")
+## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#hybrid-projects-- "Direct link to hybrid-projects--")
 
 [![](/img/icons/dbt-bit.svg)](./hybrid-projects.md)
 

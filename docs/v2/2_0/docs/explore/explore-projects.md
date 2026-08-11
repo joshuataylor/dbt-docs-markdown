@@ -86,7 +86,6 @@ Navigate the Catalog overview page to access your project's resources and metada
   <!-- -->
   * Find your project recommendations within your project's landing page.\*
 * **Lineage graph** — Explore your project's or account's [lineage graph](#project-lineage) to visualize the relationships between resources.
-* **ERD view** — Explore structural relationships between models to understand potential join paths and connecting keys for analysis. Alpha
 * **Latest updates** — View the latest changes or issues related to your project's resources, including the most recent job runs, changed properties, lineage, and issues.
 * **Marts and public models** — View the [marts](../../best-practices/how-we-structure/1-guide-overview.md#guide-structure-overview) and [public models](../mesh/govern/model-access.md#access-modifiers) in your project. You can also navigate to all public models in your account through this view.
 * **Model query history** — Use [model query history](./model-query-history.md) to track consumption queries on your models for deeper insights.
@@ -110,7 +109,6 @@ Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However,
 | Core lineage & resource browsing                                                                   | ✅      | ✅         | ✅          |
 | [Global navigation](./global-navigation.md)                     | ✅      | ✅         | ✅          |
 | [Data health signals](./data-health-signals.md)                 | ✅      | ✅         | ✅          |
-| [ERD view](#explore-your-projects-erd-view) Alpha                                                  | ✅      | ✅         | ✅          |
 | [Model performance](./model-performance.md)                     | ❌      | ✅         | ✅          |
 | [Project recommendations](./project-recommendations.md)         | ❌      | ✅         | ✅          |
 | [Column-level lineage](./column-level-lineage.md)               | ❌      | ✅         | ✅          |
@@ -192,91 +190,6 @@ To explore a model in your project's lineage graph in Catalog:
 3. Click a model to view the description.
 
 [![Example of full lineage graph](/img/docs/collaborate/dbt-explorer/example-project-lineage-graph.png?v=2 "Example of full lineage graph")](#)Example of full lineage graph
-
-## Explore your project's ERD view Alpha[​](#explore-your-projects-erd-view- "Direct link to explore-your-projects-erd-view-")
-
-[Entity relationship diagrams (ERD)](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model) in Catalog help you understand how models relate structurally. This includes which models can be joined and which keys connect them. ERD complements lineage by showing relationship paths for analysis, not only transformation dependencies.
-
-info
-
-ERD is currently in alpha and is enabled for selected customer accounts. To request access for your account, contact your account manager.
-
-To access ERD in Catalog:
-
-1. Navigate to **Catalog** in the top-level navigation.
-2. Select a model.
-3. Open the **Relationships** tab (marked **alpha**) on the model's resource details page to access ERD.
-
-[![Open the Relationships tab in Catalog to access ERD.](/img/docs/collaborate/dbt-explorer/erd-in-catalog.png?v=2 "Open the Relationships tab in Catalog to access ERD.")](#)Open the Relationships tab in Catalog to access ERD.
-
-### Why ERD is useful[​](#why-erd-is-useful "Direct link to Why ERD is useful")
-
-When you explore an unfamiliar part of your business data (for example, `orders`, `customers`, or `subscriptions`), you often need to answer questions like which dimensions you can access when you join models.
-
-Without ERD, you may need to inspect schema files manually, run local tooling, or ask teammates. ERD brings this context into Catalog so you can investigate faster in dbt platform.
-
-### ERD versus lineage[​](#erd-versus-lineage "Direct link to ERD versus lineage")
-
-ERD and lineage answer different questions:
-
-* **Lineage (DAG)** shows how data is built, that is, the transformation dependencies between resources.
-* **ERD** shows how data is related for analysis, that is, which models can be joined and which keys connect them.
-
-Use lineage to understand build flow. Use ERD to understand join paths.
-
-### How ERD determines relationships[​](#how-erd-determines-relationships "Direct link to How ERD determines relationships")
-
-In Catalog, ERD builds model connections using metadata from your dbt project. This includes relationship tests, model contracts, and Semantic Layer entities.
-
-If ERD cannot find enough explicit relationship metadata, it can also suggest likely model connections based on available dbt context.
-
-Because ERD relies on dbt metadata, relationships defined only in your warehouse might not appear unless that relationship metadata is also represented in data that Catalog uses.
-
-ERD supports multiple overlays so you can compare explicit and suggested connections:
-
-* **Relationship tests**: Relationships defined in `schema.yml` tests.
-* **Semantic Layer entities**: Relationships inferred from MetricFlow entity definitions, such as primary and foreign entity matches.
-* **Foreign key (FK) constraints**: Relationships derived from foreign key constraints in model contracts.
-* **Heuristic inferred**: Candidate relationships inferred from `_id` naming patterns and scored by confidence.
-
-### Understanding summary and overlay state[​](#understanding-summary-and-overlay-state "Direct link to Understanding summary and overlay state")
-
-Each overlay uses a distinct visual style and color in the ERD canvas so you can quickly identify relationship sources.
-
-The relationships summary panel shows relationship totals, model count, and a per-type breakdown for the current graph scope.
-
-Overlay controls reflect availability:
-
-* If a relationship type exists in the current scope, you can toggle it on or off.
-* If no connections of that type exist, the toggle is disabled and marked as unavailable in the current view.
-
-[![Toggle ERD relationship types based on availability in the current scope.](/img/docs/collaborate/dbt-explorer/erd-overlay-toggle.png?v=2 "Toggle ERD relationship types based on availability in the current scope.")](#)Toggle ERD relationship types based on availability in the current scope.
-
-### Confidence and review for inferred relationships[​](#confidence-and-review-for-inferred-relationships "Direct link to Confidence and review for inferred relationships")
-
-Relationship tests and FK constraints are stronger signals because they are defined directly in your project.
-
-When explicit relationship metadata is limited, ERD suggests additional relationships to support discovery. For heuristic suggestions, you can:
-
-* Inspect confidence and supporting evidence.
-* Review a generated YAML snippet.
-* Approve or dismiss individual suggestions.
-* Approve all high-confidence suggestions in bulk.
-
-### What you can do in ERD[​](#what-you-can-do-in-erd "Direct link to What you can do in ERD")
-
-In an ERD, you can:
-
-* Navigate with zoom, pan, and minimap.
-* Filter by schema or domain scope.
-* Search and highlight matching models.
-* Click any edge type to inspect relationship details.
-* Open a model details panel for metadata, columns, and relationships.
-* Set a model as focus to recenter the graph on that model and its one-hop neighbors.
-
-### Consideration[​](#consideration "Direct link to Consideration")
-
-Use ERD for testing and exploration only. Because the feature is still maturing, behavior and interfaces may change, including potentially breaking changes.
 
 ## Lenses[​](#lenses "Direct link to Lenses")
 

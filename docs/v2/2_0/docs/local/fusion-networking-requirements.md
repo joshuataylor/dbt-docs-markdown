@@ -75,7 +75,7 @@ Search table...
 
 To suppress these errors without allowlisting the URL, disable telemetry using the options described in [Anonymous usage stats](../../reference/global-configs/usage-stats.md).
 
-## Manifest downloads (dbt platform only) enterprise[​](#manifest-downloads "Direct link to manifest-downloads")
+## Manifest downloads (dbt platform only) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#manifest-downloads "Direct link to manifest-downloads")
 
 For [dbt platform](../platform/about-platform/dbt-platform-features.md) customers using Fusion locally, Fusion downloads production manifests from dbt platform to enable features like [deferral](../../reference/node-selection/defer.md) and [cross-project references](../mesh/govern/project-dependencies.md). The [cloud storage provider](../platform/about-platform/access-regions-ip-addresses.md) hosting your dbt platform cell serves these manifests via **pre-signed URLs**.
 

@@ -23,7 +23,7 @@ Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-co
 
 ## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
 
-* Must have a [on Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
+* Must have a [dbt platform account on Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
   <!-- -->
   * Certain features like [natural prompts in Canvas](./build-canvas-copilot.md) are only available on Enterprise and Enterprise+ plans.
 * Development environment is on a supported [release track](../dbt-versions/dbt-release-tracks.md) to receive ongoing updates.

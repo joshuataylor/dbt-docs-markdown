@@ -294,7 +294,7 @@ where date_day > dateadd(year, -4, current_timestamp())
 and date_hour < dateadd(day, 30, current_timestamp())
 ```
 
-## Custom calendar Preview[​](#custom-calendar- "Direct link to custom-calendar-")
+## Custom calendar [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#custom-calendar- "Direct link to custom-calendar-")
 
 tip
 

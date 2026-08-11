@@ -7,9 +7,7 @@
 
 `this` is a [Relation](../dbt-classes.md#relation), and as such, properties such as `{{ this.database }}` and `{{ this.schema }}` compile as expected.
 
-* Note — Prior to dbt v1.6,
-  <!-- -->
-  returns `request` as the result of `{{ ref.identifier }}`.
+* Note — Prior to dbt v1.6, Studio IDE returns `request` as the result of `{{ ref.identifier }}`.
 
 `this` can be thought of as equivalent to `ref('<the_current_model>')`, and is a neat way to avoid circular dependencies.
 

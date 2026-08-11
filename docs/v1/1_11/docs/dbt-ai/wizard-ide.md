@@ -83,7 +83,7 @@ The dbt Wizard panel contains:
 
 [![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dev-agent-copilot-panel.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")](#)The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
 
-also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
+dbt Wizard also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
 
  Agent modes
 
