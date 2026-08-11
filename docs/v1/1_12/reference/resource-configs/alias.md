@@ -103,23 +103,23 @@ In the `snapshots/snapshot_name.yml` file:
 
 snapshots/snapshot\_name.yml
 
-````yml
+```yml
 
 snapshots:
   - name: your_snapshot_name
     config:
       alias: the_best_snapshot
-</File>
+```
 
 In `snapshots/your_snapshot.sql` file:
 
-<File name='snapshots/your_snapshot.sql'>
+snapshots/your\_snapshot.sql
 
 ```sql
 {{ config(
     alias="the_best_snapshot"
 ) }}
-````
+```
 
 This would build your snapshot to `analytics.finance.the_best_snapshot` in the database.
 
