@@ -65,7 +65,7 @@ Choose **Run Python** as the Event. Run the following code:
 
 ```python
 store = StoreClient('abc123') #replace with your UUID secret
-store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with your <Constant name="dbt" /> API token
+store.set('DBT_WEBHOOK_KEY', 'abc123') #replace with your dbt API token
 store.set('MODE_API_TOKEN', 'abc123') #replace with your Mode API Token
 store.set('MODE_API_SECRET', 'abc123') #replace with your Mode API Secret
 ```
@@ -106,7 +106,7 @@ password = secret_store.get('MODE_API_SECRET')
 signature = hmac.new(hook_secret.encode('utf-8'), raw_body.encode('utf-8'), hashlib.sha256).hexdigest()
 
 if signature != auth_header:
-  raise Exception("Calculated signature doesn't match contents of the Authorization header. This webhook may not have been sent from <Constant name="dbt" />.")
+  raise Exception("Calculated signature doesn't match contents of the Authorization header. This webhook may not have been sent from dbt.")
 
 full_body = json.loads(raw_body)
 hook_data = full_body['data'] 

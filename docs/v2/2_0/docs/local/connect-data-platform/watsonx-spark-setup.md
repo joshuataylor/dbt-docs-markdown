@@ -39,7 +39,7 @@ Read the official documentation for using **watsonx.data** with `dbt-watsonx-spa
 Note: Installing an adapter doesn't install 'dbt Core' automatically. This is because adapters and dbt Core versions are decoupled to avoid overwriting dbt Core installations. Use the following command for installation:
 
 ```sh
-python -m pip install <Constant name="core" /> dbt-watsonx-spark
+python -m pip install dbt Core dbt-watsonx-spark
 ```
 
 ## Configuring `dbt-watsonx-spark`
