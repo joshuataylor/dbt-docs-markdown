@@ -1,12 +1,12 @@
 # Definition object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The definition object allows you to query the logical state of a given project node given its most recent manifest generated models.
 
 The [Example queries](#example-queries) illustrate a few fields you can query with this `definition` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Example queries[​](#example-queries "Direct link to Example queries")
+### Example queries
 
 You can use your production environment's `id`:
 
@@ -24,7 +24,7 @@ query Example {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying the `definition` field of `environment`, you can use the following fields.
 

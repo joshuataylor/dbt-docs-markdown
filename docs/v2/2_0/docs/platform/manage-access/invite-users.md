@@ -1,10 +1,10 @@
 # Invite users to dbt
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 dbt makes it easy to invite new users to your environment out of the box. This feature is available to all dbt customers on Starter, Enterprise, and Enterprise+ plans.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 You must have proper permissions to invite new users:
 
@@ -12,7 +12,7 @@ You must have proper permissions to invite new users:
 * [**Enterprise-tier accounts**](./enterprise-permissions.md) — must have `admin`, `account admin`, `project creator`, or `security admin` permissions.
 * The admin inviting the users must have a `developer` or `IT` license.
 
-## Invite new users[​](#invite-new-users "Direct link to Invite new users")
+## Invite new users
 
 1. In your dbt account, select your account name in the bottom left corner. Then select **Account settings**.
 2. Under **Settings**, select **Users**.
@@ -24,10 +24,9 @@ You must have proper permissions to invite new users:
 5. Select the license type for the batch of users from the **License** dropdown.
 6. Select the group(s) you want the invitees to belong to.
 7. Click **Send invitations**.
-   <!-- -->
    * If the list of invitees exceeds the number of licenses your account has available, you will receive a warning when you click **Send Invitations** and the invitations will not be sent.
 
-## User experience[​](#user-experience "Direct link to User experience")
+## User experience
 
 Email verification
 
@@ -39,12 +38,13 @@ The email contains a link to create an account. When the user clicks on this lin
 
 [![Example or an email invitation](/img/docs/dbt-platform/access-control/email-invite.png?v=2 "Example or an email invitation")](#)Example or an email invitation
 
-* Local user
-* SSO user
+### Local user
 
 The default settings send the email, the user clicks the link, and is prompted to create their account:
 
 [![Default user invitation](/img/docs/dbt-platform/access-control/default-user-invite.png?v=2 "Default user invitation")](#)Default user invitation
+
+### SSO user
 
 If SSO is configured for the environment, the user must:
 
@@ -60,7 +60,7 @@ Accepting the invite doesn't fully complete the process. The user *must* log in 
 
 Once the user completes this process, their email and user information will populate in the **Users** screen in dbt.
 
-## FAQ[​](#faq "Direct link to FAQ")
+## FAQ
 
  Is there a limit to the number of users I can invite?
 

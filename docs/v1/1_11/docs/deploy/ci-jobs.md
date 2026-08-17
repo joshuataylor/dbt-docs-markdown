@@ -1,6 +1,6 @@
 # Continuous integration jobs in dbt
 
-dbt platformⓘ
+dbt platform
 
 You can set up [continuous integration](./continuous-integration.md) (CI) jobs to run when someone opens a new pull request (PR) in your Git repository. By running and testing only *modified* models, dbt keeps these jobs as resource-conscious as possible on your data platform.
 
@@ -8,13 +8,11 @@ Triggering CI jobs in monorepos
 
 If you have a monorepo with several dbt projects, opening a single pull request in one of your projects will trigger jobs for all projects connected to the monorepo. To address this, you can use separate target branches per project (for example, `main-project-a`, `main-project-b`) to separate CI triggers.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a dbt account.
 
 * CI features:
-
-  <!-- -->
 
   * For both the [concurrent CI checks](./continuous-integration.md#concurrent-ci-checks) and [smart cancellation of stale builds](./continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
   * [SQL linting](./continuous-integration.md#sql-linting) is available on [dbt release tracks](../dbt-versions/dbt-release-tracks.md) and to dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) accounts. Refer to [Configure SQLFluff linting](./continuous-integration.md#to-configure-sqlfluff-linting) when you add SQLFluff to your project.
@@ -24,15 +22,11 @@ SQLFluff and the dbt Fusion engine
 SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../fusion/supported-features.md#limitations).
 
 * [Advanced CI](./advanced-ci.md) features:
-  <!-- -->
   * For the [compare changes](./advanced-ci.md#compare-changes) feature, your dbt account must be on an [Enterprise-tier plan](https://www.getdbt.com/pricing/) and have enabled Advanced CI features. Please ask your [dbt administrator to enable](../platform/account-settings.md#account-access-to-advanced-ci-features) this feature for you. After enablement, the **dbt compare** option becomes available in the CI job settings.
 * Set up a [connection with your Git provider](../platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
-  <!-- -->
   * If you're using a native [GitLab](../platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
 
-<!-- -->
-
-## Availability of features by Git provider[​](#availability-of-features-by-git-provider "Direct link to Availability of features by Git provider")
+## Availability of features by Git provider
 
 * If your git provider has a [native dbt integration](../platform/git/configure-git.md), you can seamlessly set up [continuous integration (CI)](./ci-jobs.md) jobs directly within dbt.
 
@@ -47,13 +41,7 @@ The following table outlines the available integration options and their corresp
 | [GitLab](../platform/git/connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
 | All other git providers using [Git clone](../platform/git/import-a-project-by-git-url.md) ([BitBucket](../platform/git/import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](../platform/git/import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](../../guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Set up CI jobs[​](#set-up-ci-jobs "Direct link to Set up CI jobs")
+## Set up CI jobs
 
 dbt Labs recommends that you create your CI job in a dedicated dbt [deployment environment](./deploy-environments.md#create-a-deployment-environment) that's connected to a staging database. A separate CI environment improves isolation between your temporary CI schemas and production builds.
 
@@ -74,7 +62,6 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 3. Options in the **Git trigger** section:
 
    * **Triggered by pull requests** — By default, it’s enabled. Every time a developer opens up a pull request or pushes a commit to an existing pull request, this job will get triggered to run.
-     <!-- -->
      * **Run on draft pull request** — Enable this option if you want to also trigger the job to run every time a developer opens up a draft pull request or pushes a commit to that draft pull request.
 
 4. Options in the **Execution settings** section:
@@ -114,36 +101,33 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 
    [![Example of CI Job page in the dbt UI](/img/docs/dbt-platform/using-dbt-platform/create-ci-job.png?v=2 "Example of CI Job page in the dbt UI")](#)Example of CI Job page in the dbt UI
 
-### Example of CI check in pull request[​](#example-ci-check "Direct link to Example of CI check in pull request")
+### Example of CI check in pull request
 
 The following is an example of a CI check in a GitHub pull request. The green checkmark means the dbt build and tests were successful. Clicking on the dbt section takes you to the relevant CI run in dbt.
 
 [![Example of CI check in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-pr.png?v=2 "Example of CI check in GitHub pull request")](#)Example of CI check in GitHub pull request
 
-### Example of CI report in pull request [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#example-ci-report "Direct link to example-ci-report")
+### Example of CI report in pull request [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 The following is an example of a CI report in a GitHub pull request, which is shown when the **dbt compare** option is enabled for the CI job. It displays a high-level summary of the models that changed from the pull request.
 
 [![Example of CI report comment in GitHub pull request](/img/docs/dbt-platform/using-dbt-platform/example-github-ci-report.png?v=2 "Example of CI report comment in GitHub pull request")](#)Example of CI report comment in GitHub pull request
 
-## Trigger a CI job with the API [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#trigger-a-ci-job-with-the-api- "Direct link to trigger-a-ci-job-with-the-api-")
+## Trigger a CI job with the API [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 If you're not using dbt’s native Git integration with [GitHub](../platform/git/connect-github.md), [GitLab](../platform/git/connect-gitlab.md), or [Azure DevOps](../platform/git/connect-azure-devops.md), you can use the [Administrative API](../dbt-apis/admin-api.md) to trigger a CI job to run. However, dbt will not automatically delete the temporary schema for you. This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
 
 If you instead need workflows that run after a merge (not CI checks on an open pull request), refer to [Continuous deployment in dbt](./continuous-deployment.md) and [Merge jobs](./merge-jobs.md).
 
-### Prerequisites[​](#prerequisites-1 "Direct link to Prerequisites")
+### Prerequisites
 
 * You have a dbt account.
 * You have a dbt [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/). Legacy Team plans also retain access.
-  <!-- -->
   * For the [Concurrent CI checks](./continuous-integration.md#concurrent-ci-checks) and [Smart cancellation of stale builds](./continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/), and legacy Team plans. Starter plans do not have access to these features when triggering a CI job with the API.
 
 1. Set up a CI job with the [Create Job](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) API endpoint using `"job_type": ci` or from the [dbt UI](#set-up-ci-jobs).
 
 2. Call the [Trigger Job Run](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Trigger%20Job%20Run) API endpoint to trigger the CI job. You must include both of these fields to the payload:
-
-   <!-- -->
 
    * Provide the pull request (PR) ID using one of these fields:
 
@@ -154,7 +138,7 @@ If you instead need workflows that run after a merge (not CI checks on an open p
 
    * Provide the `git_sha` or `git_branch` to target the correct commit or branch to run the job against.
 
-## Semantic validations in CI [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#semantic-validations-in-ci- "Direct link to semantic-validations-in-ci-")
+## Semantic validations in CI [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Automatically test your semantic nodes (metrics, semantic models, and saved queries) during code reviews by adding warehouse validation checks in your CI job, guaranteeing that any code changes made to dbt models don't break these metrics.
 
@@ -162,14 +146,14 @@ To do this, add the command `dbt sl validate --select state:modified+` in the CI
 
 [![Semantic validations in CI workflow](/img/docs/dbt-platform/deployment/sl-ci-job.png?v=2 "Semantic validations in CI workflow")](#)Semantic validations in CI workflow
 
-#### Benefits[​](#benefits "Direct link to Benefits")
+#### Benefits
 
 * Testing semantic nodes in a CI job supports deferral and selection of semantic nodes.
 * It allows you to catch issues early in the development process and deliver high-quality data to your end users.
 * Semantic validation executes an explain query in the data warehouse for semantic nodes to ensure the generated SQL will execute.
 * For semantic nodes and models that aren't downstream of modified models, dbt defers to the production models.
 
-### Set up semantic validations in your CI job[​](#set-up-semantic-validations-in-your-ci-job "Direct link to Set up semantic validations in your CI job")
+### Set up semantic validations in your CI job
 
 To learn how to set this up, refer to the following steps:
 
@@ -185,7 +169,7 @@ There are additional commands and use cases described in the [next section](#use
 
 [![Validate semantic nodes downstream of model changes in your CI job.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-downstream.png?v=2 "Validate semantic nodes downstream of model changes in your CI job.")](#)Validate semantic nodes downstream of model changes in your CI job.
 
-### Use cases[​](#use-cases "Direct link to Use cases")
+### Use cases
 
 Use or combine different selectors or commands to validate semantic nodes in your CI job. Semantic validations in CI support the following use cases:
 
@@ -243,7 +227,7 @@ dbt sl validate
 
 [![Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.](/img/docs/dbt-platform/deployment/ci-dbt-sl-validate-all.png?v=2 "Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.")](#)Validate all semantic nodes in your CI job by adding the command: 'dbt sl validate' in your job execution settings.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 Unable to trigger a CI job with GitLab
 

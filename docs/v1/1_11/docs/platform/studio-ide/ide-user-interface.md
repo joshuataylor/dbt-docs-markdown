@@ -1,6 +1,6 @@
 # IDE user interface
 
-dbt platformⓘ
+dbt platform
 
 The [Studio IDE](./develop-in-studio.md) is a tool for developers to effortlessly build, test, run, and version-control their dbt projects, and enhance data governance — all from the convenience of your browser. Use the Studio IDE to compile dbt code into SQL and run it against your database directly — no command line required!
 
@@ -8,11 +8,11 @@ This page offers comprehensive definitions and terminology of user interface ele
 
 [![The Studio IDE layout includes version control on the upper left, files/folders and search on the left, editor on the right, command palette at the top, and command/console at the bottom](/img/docs/dbt-platform/platform-ide/ide-basic-layout.png?v=2 "The Studio IDE layout includes version control on the upper left, files/folders and search on the left, editor on the right, command palette at the top, and command/console at the bottom")](#)The Studio IDE layout includes version control on the upper left, files/folders and search on the left, editor on the right, command palette at the top, and command/console at the bottom
 
-## Basic layout[​](#basic-layout "Direct link to Basic layout")
+## Basic layout
 
 The Studio IDE streamlines your workflow, and features a popular user interface layout with files and folders on the left, editor on the right, and command and console information at the bottom.
 
-#### The side menu[​](#the-side-menu "Direct link to The side menu")
+#### The side menu
 
 [![The Git repo link, documentation site button, Version Control menu, and File Explorer](/img/docs/dbt-platform/platform-ide/ide-side-menu.png?v=2 "The Git repo link, documentation site button, Version Control menu, and File Explorer")](#)The Git repo link, documentation site button, Version Control menu, and File Explorer
 
@@ -34,14 +34,12 @@ The Studio IDE streamlines your workflow, and features a popular user interface 
 
    * Use file indicators, located to the right of your files or folder name, to see when changes or actions were made:
 
-     <!-- -->
-
      * Unsaved (•) — The Studio IDE detects unsaved changes to your file/folder
      * Modification (M) — The Studio IDE detects a modification of existing files/folders
      * Added (A) — The Studio IDE detects added files
      * Deleted (D) — The Studio IDE detects deleted files.
 
-#### The command and status bar[​](#the-command-and-status-bar "Direct link to The command and status bar")
+#### The command and status bar
 
 [![Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status](/img/docs/dbt-platform/platform-ide/ide-command-bar.png?v=2 "Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status")](#)Use the Command bar to write dbt commands, toggle 'Defer', and view the current IDE status
 
@@ -71,8 +69,6 @@ Refer to [Using defer in dbt](../about-defer.md#defer-in-the-dbt-ide) for more i
 
    * **Options menu:** Access the options menu by clicking the three-dot menu located at the bottom right corner of the Studio IDE. This menu contains global options:
 
-     <!-- -->
-
      * **View status details:** View more detailed information about your connection status.
      * **Restart Studio:** You will lose any unsaved information.
      * **Reinstall dependencies:** Overwrites project dependencies with a fresh installation.
@@ -81,7 +77,7 @@ Refer to [Using defer in dbt](../about-defer.md#defer-in-the-dbt-ide) for more i
 
      [![IDE menu with additional information and actions.](/img/docs/dbt-platform/platform-ide/ide-menu.png?v=2 "IDE menu with additional information and actions.")](#)IDE menu with additional information and actions.
 
-## Search bar and command palette[​](#search-bar-and-command-palette "Direct link to Search bar and command palette")
+## Search bar and command palette
 
 The Studio IDE provides tools to help you quickly navigate your project's files, find information, run commands, and replace syntax with just a few clicks in a layout that's familiar to users of popular IDEs.
 
@@ -90,7 +86,7 @@ The Studio IDE provides tools to help you quickly navigate your project's files,
 1. [Search and replace](#search-and-replace)
 2. [Command palette](#command-palette)
 
-### Search and replace[​](#search-and-replace "Direct link to Search and replace")
+### Search and replace
 
 The search feature enables you to quickly find specific terms or phrases and replace them with the click of a button.
 
@@ -100,7 +96,7 @@ The search feature enables you to quickly find specific terms or phrases and rep
 2. Search for words or phrases. Enhance the search to match case and/or whole words. You can also input replacement words or phrases. Click the icon next to the **Replace** field to replace all entries.
 3. Navigate the search results. Click an entry to open the related file and highlight it on the screen. If you've entered replacement text, you'll see a preview of the new syntax. Click the symbol next to an entry to substitute the text with whatever is in the **Replace** field.
 
-### Command palette[​](#command-palette "Direct link to Command palette")
+### Command palette
 
 The command palette enhances navigation of your dbt project, enabling you to search files, content, and symbols, show and run IDE commands, view recent files, and more. Click the command palette to view the available options. Actions supporting keyboard shortcuts display to the right of the text.
 
@@ -122,7 +118,7 @@ The command palette enhances navigation of your dbt project, enabling you to sea
 
 [![More.](/img/docs/dbt-platform/platform-ide/more.png?v=2 "More.")](#)More.
 
-## Editing features[​](#editing-features "Direct link to Editing features")
+## Editing features
 
 The Studio IDE features some delightful tools and layouts to make it easier for you to write dbt code and collaborate with teammates.
 
@@ -144,7 +140,7 @@ The Studio IDE features some delightful tools and layouts to make it easier for 
 
 * Use the **Prune branches** option to remove local branches that have already been deleted from the remote repository. Selecting this triggers a [pop-up modal](#prune-branches-modal), where you can confirm the deletion of the specific local branches, keeping your branch management tidy. Note that this won't delete the branch you're currently on. Pruning branches isn't available for [managed repositories](../git/managed-repository.md) because they don't have a typical remote setup, which prevents remote branch deletion.
 
-## Additional editing features[​](#additional-editing-features "Direct link to Additional editing features")
+## Additional editing features
 
 * **Minimap —** A Minimap (code outline) gives you a high-level overview of your source code, which is useful for quick navigation and code understanding. A file's minimap is displayed on the upper-right side of the editor. To quickly jump to different sections of your file, click the shaded area.
 
@@ -162,7 +158,7 @@ The Studio IDE features some delightful tools and layouts to make it easier for 
 
 [![View CSV code in the CSV Preview console tab below the Editor tab.](/img/docs/dbt-platform/platform-ide/ide-csv.png?v=2 "View CSV code in the CSV Preview console tab below the Editor tab.")](#)View CSV code in the CSV Preview console tab below the Editor tab.
 
-## Console section[​](#console-section "Direct link to Console section")
+## Console section
 
 The console section, located below the file editor, includes various console tabs and buttons to help you with tasks such as previewing, compiling, building, and viewing the DAG. Refer to the following sub-bullets for more details on the console tabs and buttons.
 
@@ -214,15 +210,13 @@ Starting from dbt v1.6 or higher, when you save changes to a model, you can comp
 
 11. **Lineage tab —** The Lineage tab in the file editor displays the active model's lineage or DAG. By default, it shows two degrees of lineage in both directions (`2+model_name+2`), however, you can change it to +model+ (full DAG). To use the lineage:
 
-    <!-- -->
-
     * Double-click a node in the DAG to open that file in a new tab
     * Expand or shrink the DAG using node selection syntax.
     * Note, the `--exclude` flag isn't supported.
 
 [![View resource lineage in the Lineage tab](/img/docs/dbt-platform/platform-ide/lineage-console-tab.png?v=2 "View resource lineage in the Lineage tab")](#)View resource lineage in the Lineage tab
 
-## Invocation history[​](#invocation-history "Direct link to Invocation history")
+## Invocation history
 
 The Invocation History Drawer stores information on dbt invocations in the IDE. When you invoke a command, like executing a dbt command such as `dbt run`, the associated logs are displayed in the Invocation History Drawer.
 
@@ -250,53 +244,53 @@ You can open the drawer in multiple ways:
 
 7. **Node result list —** The Node result list shows all the Node Results used in the dbt run, and you can filter it by clicking on a Result Status tab.
 
-## Modals and Menus[​](#modals-and-menus "Direct link to Modals and Menus")
+## Modals and Menus
 
 Use menus and modals to interact with Studio IDE and access useful options to help your development workflow.
 
-#### Editor tab menu[​](#editor-tab-menu "Direct link to Editor tab menu")
+#### Editor tab menu
 
 To interact with open editor tabs, right-click any tab to access the helpful options in the file tab menu.
 
 [![ Right-click a tab to view the Editor tab menu options](/img/docs/dbt-platform/platform-ide/editor-tab-menu-with-save.png?v=2 " Right-click a tab to view the Editor tab menu options")](#) Right-click a tab to view the Editor tab menu options
 
-#### Global command shortcut[​](#global-command-shortcut "Direct link to Global command shortcut")
+#### Global command shortcut
 
 The global command shortcut provides helpful shortcuts to interact with the Studio IDE, such as git actions, specialized dbt commands, and compile, and preview actions, among others. To open the menu, use Command-P or Control-P.
 
 [![The Command History returns a log and detail of all your dbt invocations.](/img/docs/dbt-platform/platform-ide/ide-global-command-palette-with-save.png?v=2 "The Command History returns a log and detail of all your dbt invocations.")](#)The Command History returns a log and detail of all your dbt invocations.
 
-#### Studio IDE Status modal[​](#-status-modal "Direct link to -status-modal")
+#### Studio IDE Status modal
 
 The Studio IDE Status modal shows the current error message and debug logs for the server. This also contains an option to restart the Studio IDE. Open this by clicking on the Studio IDE Status button.
 
 [![The Command History returns a log and detail of all your dbt invocations.](/img/docs/dbt-platform/platform-ide/ide-status-modal-with-save.png?v=2 "The Command History returns a log and detail of all your dbt invocations.")](#)The Command History returns a log and detail of all your dbt invocations.
 
-#### Commit to a new branch[​](#commit-to-a-new-branch "Direct link to Commit to a new branch")
+#### Commit to a new branch
 
 Edit directly on your protected primary git branch and commit those changes to a new branch when ready.
 
 [![Commit changes to a new branch](/img/docs/dbt-platform/using-dbt-platform/create-new-branch.png?v=2 "Commit changes to a new branch")](#)Commit changes to a new branch
 
-#### Commit Changes modal[​](#commit-changes-modal "Direct link to Commit Changes modal")
+#### Commit Changes modal
 
 The Commit Changes modal is accessible via the Git Actions button to commit all changes or via the Version Control Options menu to commit individual changes. Once you enter a commit message, you can use the modal to commit and sync the selected changes.
 
 [![The Commit Changes modal is how users commit changes to their branch.](/img/docs/dbt-platform/platform-ide/commit-changes-modal.png?v=2 "The Commit Changes modal is how users commit changes to their branch.")](#)The Commit Changes modal is how users commit changes to their branch.
 
-#### Change Branch modal[​](#change-branch-modal "Direct link to Change Branch modal")
+#### Change Branch modal
 
 The Change Branch modal allows users to switch git branches in the Studio IDE. It can be accessed through the **Change Branch** link or the **Git actions** button under the **Version control** menu.
 
 [![The Commit Changes modal is how users change their branch.](/img/docs/dbt-platform/platform-ide/change-branch-modal.png?v=2 "The Commit Changes modal is how users change their branch.")](#)The Commit Changes modal is how users change their branch.
 
-#### Prune branches modal[​](#prune-branches-modal "Direct link to Prune branches modal")
+#### Prune branches modal
 
 The Prune branches modal allows users to delete local branches that have been deleted from the remote repository, keeping your branch management tidy. This is accessible through the **Git actions** button under the [**Version control** menu](#editing-features). Note that this won't delete the branch you're currently on. Pruning branches isn't available for managed repositories because they don't have a typical remote setup, which prevents remote branch deletion.
 
 [![The Prune branches modal allows users to delete local branches that have already been deleted from the remote repository.](/img/docs/dbt-platform/platform-ide/prune-branch-modal.png?v=2 "The Prune branches modal allows users to delete local branches that have already been deleted from the remote repository.")](#)The Prune branches modal allows users to delete local branches that have already been deleted from the remote repository.
 
-#### Revert Uncommitted Changes modal[​](#revert-uncommitted-changes-modal "Direct link to Revert Uncommitted Changes modal")
+#### Revert Uncommitted Changes modal
 
 The Revert Uncommitted Changes modal is how users revert changes in the IDE. This is accessible via the `Revert File` option above the Version Control Options menu, or via the Git Actions button when there are saved, uncommitted changes in the IDE.
 

@@ -1,6 +1,6 @@
 # Compare changes during development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in v2 | Local development | Login requiredⓘ
+Available in v2 | Local development | Login required
 
 info
 
@@ -21,7 +21,7 @@ Compare changes in development is available for models only. Support for seeds, 
 
 [![Make changes to a model and see the changes in the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Make changes to a model and see the changes in the Compare tab")](#)Make changes to a model and see the changes in the Compare tab
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To use the dbt VS Code extension compare changes feature, you need:
 
@@ -36,7 +36,7 @@ Compare changes is available to all dbt VS Code extension users during the 14-da
 * **If you use dbt platform deferral (recommended):** [Sign in or register](../sign-in-dbt-extension.md) for a free dbt platform account. You'll also need a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file in your local `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux) so the extension can fetch the deferred manifest from your environment.
 * **If you set the baseline manually with a `manifest.json`:** No dbt platform account is required. Point the extension at a local `manifest.json` and compare changes runs against it.
 
-## How it works[​](#how-it-works "Direct link to How it works")
+## How it works
 
 Compare changes in development works by comparing two materialized models in your warehouse. Specifically, it compares the model built in your dev schema (determined by your active profile) against the model referenced in your `manifest.json` (for example, your last production state). Both sides of the comparison are always warehouse tables; it does not compare SQL file contents.
 
@@ -46,7 +46,7 @@ The path you choose determines whether you need a dbt platform account:
 * **Manual `state` directory:** Point the extension at a local `manifest.json` (for example, copied from another environment). No dbt platform account is required; no job run is required.
   <br />
 
-## Use compare changes[​](#use-compare-changes "Direct link to Use compare changes")
+## Use compare changes
 
 To use compare changes in development, follow these steps:
 
@@ -55,8 +55,6 @@ To use compare changes in development, follow these steps:
 2. Make some changes to the model, like adding a new column or modifying an existing one (for example, `left_join_customers` to `right_join_customers`).
 
 3. Run compare changes in the [VS Code interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette):
-
-   <!-- -->
 
    * Command palette: Open the VS Code command palette (Shift + Command + P (Mac) / Ctrl + Shift + P (Windows/Linux)) and search for the [**dbt: Compare changes**](vscode://dbtLabsInc/dbt.compareModel)
    * Bottom panel: Click the **Compare** tab and then click the **Compare** button.
@@ -67,7 +65,7 @@ To use compare changes in development, follow these steps:
 
 5. Once you've compared changes and see the changes in the **Compare** tab, you can then decide to commit your changes or continue editing.
 
-## Compare tab results[​](#compare-tab-results "Direct link to Compare tab results")
+## Compare tab results
 
 The **Compare** tab displays the changes to the data's primary keys, rows, and columns. Clicking the tabs will display more details about the changes, like specific columns that were added or modified.
 
@@ -78,7 +76,7 @@ The **Compare** tab displays the changes to the data's primary keys, rows, and c
 * **Modified rows tab**: Details about the modified rows.
 * **Columns tab**: Details about the changes to the columns.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Are queries run on behalf of the developer?
 
@@ -107,6 +105,6 @@ The dbt VS Code extension's compare changes feature applies only to your self-ho
 | **Data caching**    | Editor-side                                                                   | dbt platform [caches](../deploy/advanced-ci.md#about-the-cached-data) limited samples |
 | **Governance**      | Local development credentials                                                 | Production credentials                                                                                          |
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Advanced CI compare changes](../deploy/advanced-ci.md#compare-changes)

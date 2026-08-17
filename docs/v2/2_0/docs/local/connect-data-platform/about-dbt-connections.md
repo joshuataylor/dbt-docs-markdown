@@ -1,10 +1,12 @@
 # About data platform connections
 
-Local developmentⓘ
+Local development
 
 dbt connects to your data platform to run SQL transformations against your data.
 
-## Supported Fusion data platforms[​](#supported-fusion-data-platforms "Direct link to Supported Fusion data platforms")
+(Applies to dbt v2.0 and later)
+
+## Supported Fusion data platforms
 
 The dbt Fusion engine includes built-in support for:
 
@@ -23,14 +25,12 @@ The dbt Fusion engine includes built-in support for:
 
 Fusion uses [ADBC (Arrow Database Connectivity)](https://arrow.apache.org/adbc/) drivers for high-performance connections to these platforms. No separate adapter installation is required.
 
-## Connection profiles[​](#connection-profiles "Direct link to Connection profiles")
+## Connection profiles
 
 When you run dbt locally, it reads your `dbt_project.yml` file to find the profile name, then looks for a profile with the same name in your `profiles.yml` file. This profile contains the connection details for your data platform.
 
 For detailed configuration options, refer to [Connection profiles](../profiles.yml.md).
 
-<!-- -->
-
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 For step-by-step setup instructions with demo project data, see our [Quickstart guides](../../../guides.md).

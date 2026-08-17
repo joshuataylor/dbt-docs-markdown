@@ -1,39 +1,27 @@
 # Connect Oracle to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Oracle
-* **Authors**:
-  <!-- -->
-  Oracle
+* **Maintained by**: Oracle
+* **Authors**: Oracle
 * **GitHub repo**: [oracle/dbt-oracle](https://github.com/oracle/dbt-oracle) [![](https://img.shields.io/github/stars/oracle/dbt-oracle?style=for-the-badge)](https://github.com/oracle/dbt-oracle)
 * **PyPI package**: `dbt-oracle` [![](https://badge.fury.io/py/dbt-oracle.svg)](https://badge.fury.io/py/dbt-oracle)
 * **Slack channel**: [#db-oracle](https://getdbt.slack.com/archives/C01PWH4TXLY)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.2.1
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Oracle 12c and higher
+* **Supported dbt Core version**: v1.2.1 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: Oracle 12c and higher
 
-## Installing <!-- -->dbt-oracle
+## Installing dbt-oracle
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-oracle`
 
-## Configuring <!-- -->dbt-oracle<!-- -->
+## Configuring dbt-oracle
 
-For <!-- -->Oracle<!-- -->-specific configuration, please refer to [Oracle<!-- --> configs.](../../../reference/resource-configs/oracle-configs.md)
+For Oracle-specific configuration, please refer to [Oracle configs.](../../../reference/resource-configs/oracle-configs.md)
 
-### Configure the Python driver mode[​](#configure-the-python-driver-mode "Direct link to Configure the Python driver mode")
+### Configure the Python driver mode
 
 [python-oracledb](https://oracle.github.io/python-oracledb/) makes it optional to install the Oracle Client libraries. This driver supports 2 modes
 
@@ -47,34 +35,27 @@ You can configure the driver mode using the environment variable `ORA_PYTHON_DRI
 | Thin        | No                                | `ORA_PYTHON_DRIVER_TYPE=thin`  |
 | Thick       | Yes                               | `ORA_PYTHON_DRIVER_TYPE=thick` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The default value of `ORA_PYTHON_DRIVER_TYPE` is `thin`
 
-* Thin
-* Thick
+### Thin
 
 ```bash
 export ORA_PYTHON_DRIVER_TYPE=thin # default
 ```
 
+### Thick
+
 ```bash
 export ORA_PYTHON_DRIVER_TYPE=thick
 ```
 
-### Install Oracle Instant Client libraries[​](#install-oracle-instant-client-libraries "Direct link to Install Oracle Instant Client libraries")
+### Install Oracle Instant Client libraries
 
 In thick mode, you will need the [Oracle Instant Client libraries](https://www.oracle.com/database/technologies/instant-client.html) installed. These provide the necessary network connectivity allowing dbt-oracle to access an Oracle Database instance.
 
 Oracle Client versions 23, 21, 19, 18, 12 and 11.2 are supported. It is recommended to use the latest client possible: Oracle’s standard client-server version interoperability allows connection to both older and newer databases.
 
-* Linux
-* Windows
-* MacOS
+### Linux
 
 1. Download an Oracle 23, 21, 19, 18, 12, or 11.2 “Basic” or “Basic Light” zip file matching your Python 64-bit or 32-bit architecture:
 
@@ -117,6 +98,8 @@ export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
 export TNS_ADMIN=/opt/oracle/your_config_dir
 ```
 
+### Windows
+
 1. Download an Oracle 21, 19, 18, 12, or 11.2 “Basic” or “Basic Light” zip file: [64-bit](https://www.oracle.com/database/technologies/instant-client/winx64-64-downloads.html) or [32-bit](https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html), matching your Python architecture.
 
 Windows 7 users
@@ -139,14 +122,15 @@ Note that Oracle Client versions 21c and 19c are not supported on Windows 7.
    SET PATH=C:\oracle\instantclient_19_9;%PATH%
    ```
 
+### MacOS
+
 Check the python-oracledb documentation for installation instructions on [MacOS ARM64](https://python-oracledb.readthedocs.io/en/latest/user_guide/installation.html#instant-client-scripted-installation-on-macos-arm64) or [MacOS Intel x84-64](https://python-oracledb.readthedocs.io/en/latest/user_guide/installation.html#instant-client-scripted-installation-on-macos-intel-x86-64)
 
-## Configure wallet for Oracle Autonomous Database (ADB-S) in Cloud[​](#configure-wallet-for-oracle-autonomous-database-adb-s-in-cloud "Direct link to Configure wallet for Oracle Autonomous Database (ADB-S) in Cloud")
+## Configure wallet for Oracle Autonomous Database (ADB-S) in Cloud
 
 dbt can connect to Oracle Autonomous Database (ADB-S) in Oracle Cloud using either TLS (Transport Layer Security) or mutual TLS (mTLS). TLS and mTLS provide enhanced security for authentication and encryption. A database username and password is still required for dbt connections which can be configured as explained in the next section [Connecting to Oracle Database](#connecting-to-oracle-database).
 
-* TLS
-* Mutual TLS
+### TLS
 
 With TLS, dbt can connect to Oracle ADB without using a wallet. Both Thin and Thick modes of the python-oracledb driver support TLS.
 
@@ -156,9 +140,11 @@ In Thick mode, dbt can connect through TLS only when using Oracle Client library
 
 Refer to Oracle documentation to [connect to an ADB instance using TLS authentication](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/connecting-nodejs-tls.html#GUID-B3809B88-D2FB-4E08-8F9B-65A550F93A07) and the blog post [Easy wallet-less connections to Oracle Autonomous Databases in Python](https://blogs.oracle.com/opal/post/easy-way-to-connect-python-applications-to-oracle-autonomous-databases) to enable TLS for your Oracle ADB instance.
 
+### Mutual TLS
+
 For mutual TLS connections, a wallet needs to be downloaded from the OCI console and the Python driver needs to be configured to use it.
 
-#### Install the Wallet and Network Configuration Files[​](#install-the-wallet-and-network-configuration-files "Direct link to Install the Wallet and Network Configuration Files")
+#### Install the Wallet and Network Configuration Files
 
 From the Oracle Cloud console for the database, download the wallet zip file using the `DB Connection` button. The zip contains the wallet and network configuration files.
 
@@ -168,8 +154,7 @@ Keep wallet files in a secure location and share them only with authorized users
 
 Unzip the wallet zip file.
 
-* Thin
-* Thick
+### Thin
 
 In Thin mode, only two files from the zip are needed:
 
@@ -186,6 +171,8 @@ export TNS_ADMIN=/path/to/directory_containing_tnsnames.ora
 ```
 
 Optionally, if `ewallet.pem` file is encrypted using a wallet password, specify the password using environment variable **WALLET\_PASSWORD**
+
+### Thick
 
 In Thick mode, the following files from the zip are needed:
 
@@ -208,7 +195,7 @@ WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="/path/to/
 SSL_SERVER_DN_MATCH=yes
 ```
 
-## Connecting to Oracle Database[​](#connecting-to-oracle-database "Direct link to Connecting to Oracle Database")
+## Connecting to Oracle Database
 
 Define the following mandatory parameters as environment variables and refer them in the connection profile using [env\_var](../../../reference/dbt-jinja-functions/env_var.md) Jinja function. Optionally, you can also define these directly in the `profiles.yml` file, but this is not recommended.
 
@@ -227,9 +214,7 @@ SELECT SYS_CONTEXT('userenv', 'DB_NAME') FROM DUAL
 
 An Oracle connection profile for dbt can be set using any one of the following methods
 
-* Using TNS alias
-* Using Connect string
-* Using Database hostname
+### Using TNS alias
 
 The `tnsnames.ora` file is a configuration file that contains network service names mapped to connect descriptors. The directory location of `tnsnames.ora` file can be specified using `TNS_ADMIN` environment variable
 
@@ -268,6 +253,8 @@ dbt_test:
          threads: 4
 ```
 
+### Using Connect string
+
 The connection string identifies which database service to connect to. It can be one of the following
 
 * An [Oracle Easy Connect String](https://docs.oracle.com/en/database/oracle/oracle-database/21/netag/configuring-naming-methods.html#GUID-B0437826-43C1-49EC-A94D-B650B6A4A6EE)
@@ -283,6 +270,8 @@ export DBT_ORACLE_CONNECT_STRING="(description=(retry_count=20)(retry_delay=3)(a
 
 \~/.dbt/profiles.yml
 
+(Applies to dbt v1.11 and later)
+
 ```yaml
 dbt_test:
    target: "{{ env_var('DBT_ENGINE_TARGET', 'dev') }}"
@@ -295,6 +284,8 @@ dbt_test:
          schema: "{{ env_var('DBT_ORACLE_SCHEMA') }}"
          connection_string: "{{ env_var('DBT_ORACLE_CONNECT_STRING') }}"
 ```
+
+### Using Database hostname
 
 To connect using the database hostname or IP address, you need to specify the following
 
@@ -309,6 +300,8 @@ export DBT_ORACLE_SERVICE=example_high.adb.oraclecloud.com
 ```
 
 \~/.dbt/profiles.yml
+
+(Applies to dbt v1.11 and later)
 
 ```yaml
 dbt_test:
@@ -337,7 +330,7 @@ Starting with `dbt-oracle==1.8.0` database key in `profiles.yml` is **still opti
 
 From `dbt-oracle==1.8`, we detect that `database` key is missing from `profiles.yml` and issue a warning to add it for catalog generation. The warning message also shows the database name that dbt-oracle expects. That way users don't have to worry about "what" the database name is and "how" to get it.
 
-### Quoting configuration[​](#quoting-configuration "Direct link to Quoting configuration")
+### Quoting configuration
 
 The default quoting configuration used by dbt-oracle is shown below:
 
@@ -352,7 +345,7 @@ quoting:
 
 This is recommended and works for most cases.
 
-### Approximate relation match error[​](#approximate-relation-match-error "Direct link to Approximate relation match error")
+### Approximate relation match error
 
 Often users have complained about an approximate relation match as shown below:
 
@@ -384,11 +377,11 @@ quoting:
   database: true
 ```
 
-## Python models using Oracle Autonomous Database (ADB-S)[​](#python-models-using-oracle-autonomous-database-adb-s "Direct link to Python models using Oracle Autonomous Database (ADB-S)")
+## Python models using Oracle Autonomous Database (ADB-S)
 
 Oracle's Autonomous Database Serverless (ADB-S) users can run dbt-py models using Oracle Machine Learning (OML4PY) which is available without any extra setup required.
 
-### Features[​](#features "Direct link to Features")
+### Features
 
 * User Defined Python function is run in an ADB-S spawned Python 3.12.1 runtime
 * Access to external Python packages available in the Python runtime. For example, `numpy`, `pandas`, `scikit_learn` etc
@@ -398,14 +391,14 @@ Oracle's Autonomous Database Serverless (ADB-S) users can run dbt-py models usin
 * DataFrame write API to write DataFrames as `TABLES`
 * Supports both table and incremental materialization
 
-### Setup[​](#setup "Direct link to Setup")
+### Setup
 
-#### Required roles[​](#required-roles "Direct link to Required roles")
+#### Required roles
 
 * User must be non-ADMIN to execute the Python function
 * User must be granted the `OML_DEVELOPER` role
 
-#### OML Cloud Service URL[​](#oml-cloud-service-url "Direct link to OML Cloud Service URL")
+#### OML Cloud Service URL
 
 OML Cloud Service URL is of the following format:
 
@@ -438,7 +431,7 @@ dbt_test:
          oml_cloud_service_url: "https://tenant1-dbt.adb.us-sanjose-1.oraclecloudapps.com"
 ```
 
-### Python model configurations[​](#python-model-configurations "Direct link to Python model configurations")
+### Python model configurations
 
 | Configuration                                                                           | Datatype | Examples                                                                                      |
 | --------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------- |
@@ -448,21 +441,15 @@ dbt_test:
 | Timeout in seconds only to be used with ***async*** mode (`min: 1800` and `max: 43200`) | Integer  | `dbt.config(timeout=1800)`                                                                    |
 | Conda environment                                                                       | String   | `dbt.config(conda_env_name="dbt_py_env")`                                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 In async mode, dbt-oracle will schedule a Python job, poll the job's status, and wait for it to complete. Without async mode, dbt-oracle will immediately invoke the Python job in a blocking manner.
 
 Note
 
 Use `dbt.config(async_flag=True)` for long-running Python jobs.
 
-### Python model examples[​](#python-model-examples "Direct link to Python model examples")
+### Python model examples
 
-#### Refer other model[​](#refer-other-model "Direct link to Refer other model")
+#### Refer other model
 
 Use `dbt.ref(model_name)` to refer to either SQL or Python model
 
@@ -475,7 +462,7 @@ def model(dbt, session):
     return s_df
 ```
 
-#### Refer a source[​](#refer-a-source "Direct link to Refer a source")
+#### Refer a source
 
 Use `dbt.source(source_schema, table_name)`
 
@@ -488,7 +475,7 @@ def model(dbt, session):
     return s_df
 ```
 
-#### Incremental materialization[​](#incremental-materialization "Direct link to Incremental materialization")
+#### Incremental materialization
 
 ```python
 def model(dbt, session):
@@ -507,7 +494,7 @@ def model(dbt, session):
     return sales_cost_df
 ```
 
-#### Concatenate a new column in Dataframe[​](#concatenate-a-new-column-in-dataframe "Direct link to Concatenate a new column in Dataframe")
+#### Concatenate a new column in Dataframe
 
 ```python
 
@@ -543,7 +530,7 @@ def model(dbt, session):
     return us_potential_customers
 ```
 
-### Use Custom Conda environment[​](#use-custom-conda-environment "Direct link to Use Custom Conda environment")
+### Use Custom Conda environment
 
 1. As ADMIN user, create a conda environment using [OML4PY Conda Notebook](https://docs.oracle.com/en/database/oracle/machine-learning/oml4py/1/mlpug/administrative-task-create-and-conda-environments.html):
 
@@ -574,7 +561,7 @@ def model(dbt, session):
     return promotion_cost
 ```
 
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
 * Table materialization
 * View materialization
@@ -593,6 +580,6 @@ def model(dbt, session):
 * Integration with Conda to use any Python packages from Anaconda's repository
 * All dbt commands are supported
 
-## Not supported features[​](#not-supported-features "Direct link to Not supported features")
+## Not supported features
 
 * Ephemeral materialization

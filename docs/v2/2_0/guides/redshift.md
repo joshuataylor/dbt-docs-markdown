@@ -14,7 +14,7 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 In this quickstart guide, you'll learn how to use dbt with Redshift. It will show you how to:
 
@@ -30,12 +30,12 @@ Videos for you
 
 Check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have an AWS account with permissions to execute a CloudFormation template to create appropriate roles and a Redshift cluster.
 
-### Related content[​](#related-content "Direct link to Related content")
+### Related content
 
 * Learn more with [dbt Learn courses](https://learn.getdbt.com)
 * [CI jobs](../docs/deploy/continuous-integration.md)
@@ -43,7 +43,7 @@ Check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) 
 * [Job notifications](../docs/deploy/job-notifications.md)
 * [Source freshness](../docs/deploy/source-freshness.md)
 
-## Create a Redshift cluster[​](#create-a-redshift-cluster "Direct link to Create a Redshift cluster")
+## Create a Redshift cluster
 
 1. Sign in to your [AWS account](https://signin.aws.amazon.com/console) as a root user or an IAM user depending on your level of access.
 2. Use a CloudFormation template to quickly set up a Redshift cluster. A CloudFormation template is a configuration file that automatically spins up the necessary resources in AWS. [Start a CloudFormation stack](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=dbt-workshop\&templateURL=https://tpch-sample-data.s3.amazonaws.com/create-dbtworkshop-infr) and you can refer to the [create-dbtworkshop-infr JSON file](https://github.com/aws-samples/aws-modernization-with-dbtlabs/blob/main/resources/cloudformation/create-dbtworkshop-infr) for more template details.
@@ -81,7 +81,7 @@ To avoid connectivity issues with dbt, make sure to allow inbound traffic on por
 
 9. Click **Create connection**.
 
-## Load data[​](#load-data "Direct link to Load data")
+## Load data
 
 Now we are going to load our sample data into the S3 bucket that our Cloudformation template created. S3 buckets are simple and inexpensive way to store data outside of Redshift.
 
@@ -176,7 +176,7 @@ Now we are going to load our sample data into the S3 bucket that our Cloudformat
    select * from stripe.payment;
    ```
 
-## Connect dbt to Redshift[​](#connect-dbt-to-redshift "Direct link to Connect dbt to Redshift")
+## Connect dbt to Redshift
 
 1. Create a new project in [dbt](../docs/platform/about-platform/access-regions-ip-addresses.md). Navigate to **Account settings** (by clicking on your account name in the left side menu), and click **+ New Project**.
 
@@ -224,7 +224,7 @@ Now we are going to load our sample data into the S3 bucket that our Cloudformat
 
 12. If the test succeeded, click **Save** to complete the configuration. If it failed, you might need to check your Redshift settings and credentials.
 
-## Set up a dbt managed repository[​](#set-up-a-dbt-managed-repository "Direct link to Set up a dbt managed repository")
+## Set up a dbt managed repository
 
 When you develop in dbt, you can leverage [Git](../docs/platform/git/git-version-control.md) to version control your code.
 
@@ -237,7 +237,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing[​](#initialize-your-dbt-project-and-start-developing "Direct link to Initialize your dbt project​ and start developing")
+## Initialize your dbt project​ and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -249,11 +249,7 @@ Now that you have a repository configured, you can initialize your project and s
 
 4. You can now directly query data from your warehouse and execute `dbt run`. You can try this out now:
 
-   <!-- -->
-
    * Click **+ Create new file**, add this query to the new file, and click **Save as** to save the new file:
-
-     <!-- -->
 
      ```sql
      select * from jaffle_shop.customers
@@ -261,7 +257,7 @@ Now that you have a repository configured, you can initialize your project and s
 
    * In the command line bar at the bottom, enter `dbt run` and click **Enter**. You should see a `dbt run succeeded` message.
 
-## Build your first model[​](#build-your-first-model "Direct link to Build your first model")
+## Build your first model
 
 You have two options for working with files in the Studio IDE:
 
@@ -336,19 +332,16 @@ select * from final
 
 Later, you can connect your business intelligence (BI) tools to these views and tables so they only read cleaned up data rather than raw data in your BI tool.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How can I see the SQL that dbt is running?
 
 To check out the SQL that dbt is running, you can look in:
 
 * dbt:
-  <!-- -->
   * Within the run output, click on a model name, and then select "Details"
 
 * dbt Core:
-
-  <!-- -->
 
   * The `target/compiled/` directory for compiled `select` statements
   * The `target/run/` directory for compiled `create` statements
@@ -402,7 +395,7 @@ Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
 
-## Change the way your model is materialized[​](#change-the-way-your-model-is-materialized "Direct link to Change the way your model is materialized")
+## Change the way your model is materialized
 
 One of the most powerful features of dbt is that you can change the way a model is materialized in your warehouse, simply by changing a configuration value. You can change things between tables and views by changing a keyword rather than writing the data definition language (DDL) to do this behind the scenes.
 
@@ -464,7 +457,7 @@ By default, everything gets created as a view. You can override that at the dire
 
 5. Enter the `dbt run --full-refresh` command for this to take effect in your warehouse.
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 What materializations are available in dbt?
 
@@ -490,7 +483,7 @@ You can also configure:
 
 Check out the docs on [model configurations](../reference/model-configs.md) to learn more.
 
-## Delete the example models[​](#delete-the-example-models "Direct link to Delete the example models")
+## Delete the example models
 
 You can now delete the files that dbt created when you initialized the project:
 
@@ -520,7 +513,7 @@ You can now delete the files that dbt created when you initialized the project:
 
 3. Save your changes.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How do I remove deleted models from my data warehouse?
 
@@ -536,7 +529,7 @@ You might have forgotten to nest your configurations under your project name, or
 
 Check out this [article](https://discourse.getdbt.com/t/faq-i-got-an-unused-model-configurations-error-message-what-does-this-mean/112) to understand more.
 
-## Build models on top of other models[​](#build-models-on-top-of-other-models "Direct link to Build models on top of other models")
+## Build models on top of other models
 
 As a best practice in SQL, you should separate logic that cleans up your data from logic that transforms your data. You have already started doing this in the existing query by using common table expressions (CTEs).
 
@@ -626,7 +619,7 @@ Now you can experiment by separating the logic out into separate models and usin
 
    This time, when you performed a `dbt run`, separate views/tables were created for `stg_customers`, `stg_orders` and `customers`. dbt inferred the order to run these models. Because `customers` depends on `stg_customers` and `stg_orders`, dbt builds `customers` last. You do not need to explicitly define these dependencies.
 
-#### FAQs[​](#faq-2 "Direct link to FAQs")
+#### FAQs
 
 How do I run one model at a time?
 
@@ -652,7 +645,7 @@ There's no one best way to structure a project! Every organization is unique.
 
 If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
-## Add tests to your models[​](#add-tests-to-your-models "Direct link to Add tests to your models")
+## Add tests to your models
 
 Adding [data tests](../docs/build/data-tests.md) to a project helps validate that your models are working correctly.
 
@@ -706,7 +699,7 @@ To add data tests to your project:
 
 When you run `dbt test`, dbt iterates through your YAML files, and constructs a query for each test. Each query will return the number of records that fail the test. If this number is 0, then the test is successful.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 What tests are available for me to use in dbt? Can I add my own custom tests?
 
@@ -779,7 +772,7 @@ When should I run my data tests?
 
 You should run your data tests whenever you are writing new code (to ensure you haven't broken any existing models by changing SQL), and whenever you run your transformations in production (to ensure that your assumptions about your source data are still valid).
 
-## Document your models[​](#document-your-models "Direct link to Document your models")
+## Document your models
 
 Adding [documentation](../docs/build/documentation.md) to your project allows you to describe your models in rich detail, and share that information with your team. Here, we're going to add some basic documentation to our project.
 
@@ -833,14 +826,11 @@ models:
                 field: customer_id
 ```
 
-* View in Catalog
-* View in Studio IDE
+### View in Catalog
 
 [Catalog](../docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
 
 1. Run one of the following commands:
-
-   <!-- -->
 
    * `dbt docs generate` if you're on dbt Core
    * `dbt build` if you're on the dbt Fusion engine
@@ -859,18 +849,20 @@ models:
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
+### View in Studio IDE
+
 You can view docs directly from the IDE if you're on `Latest` or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
 
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
-   <!-- -->
+
    [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
 [![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How do I write long-form explanations in my descriptions?
 
@@ -910,7 +902,7 @@ Access Catalog in dbt by clicking the **Catalog** link in the navigation. You ca
 
 dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
-## Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
+## Commit your changes
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
@@ -929,11 +921,11 @@ Now that you've built your customer model, you need to commit the changes you ma
 3. Add a commit message, such as "Add customers model, tests, docs."
 4. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-## Deploy dbt[​](#deploy-dbt "Direct link to Deploy dbt")
+## Deploy dbt
 
 Use dbt's Scheduler to deploy your production jobs confidently and build observability into your processes. You'll learn to create a deployment environment and run a job in the following steps.
 
-### Create a deployment environment[​](#create-a-deployment-environment "Direct link to Create a deployment environment")
+### Create a deployment environment
 
 1. From the main menu, go to **Orchestration** > **Environments**.
 2. Click **Create environment**.
@@ -942,7 +934,7 @@ Use dbt's Scheduler to deploy your production jobs confidently and build observa
 5. Under **Deployment connection**, enter the name of the dataset you want to use as the target, such as "Analytics". This will allow dbt to build and work with that dataset. For some data warehouses, the target dataset may be referred to as a "schema".
 6. Click **Save**.
 
-### Create and run a job[​](#create-and-run-a-job "Direct link to Create and run a job")
+### Create and run a job
 
 Jobs are a set of dbt commands that you want to run on a schedule. For example, `dbt build`.
 
@@ -953,7 +945,6 @@ As the `jaffle_shop` business gains more customers, and those customers create m
 3. Provide a job name (for example, "Production run") and select the environment you just created.
 4. Scroll down to the **Execution settings** section.
 5. Under **Commands**, add this command as part of your job if you don't see it:
-   <!-- -->
    * `dbt build`
 6. Select the **Generate docs on run** option to automatically [generate updated project docs](../docs/explore/build-and-view-your-docs.md) each time your job runs.
 7. For this exercise, do *not* set a schedule for your project to run — while your organization's project should run regularly, there's no need to run this example project on a schedule. Scheduling a job is sometimes referred to as *deploying a project*.
@@ -963,7 +954,7 @@ As the `jaffle_shop` business gains more customers, and those customers create m
 
 Congratulations 🎉! You've just deployed your first dbt project!
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 What happens if one of my runs fails?
 

@@ -1,6 +1,6 @@
 # Connect Microsoft Azure Synapse Analytics to dbt Core
 
-Local developmentⓘ
+Local development
 
 info
 
@@ -8,44 +8,30 @@ The following is a guide to using Azure Synapse Analytics dedicated SQL pools (f
 
 For Microsoft Fabric setup with dbt, refer to [Microsoft Fabric Data Warehouse](./fabric-setup.md).
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Microsoft
-* **Authors**:
-  <!-- -->
-  Microsoft (https\://github.com/Microsoft)
+* **Maintained by**: Microsoft
+* **Authors**: Microsoft (https\://github.com/Microsoft)
 * **GitHub repo**: [Microsoft/dbt-synapse](https://github.com/Microsoft/dbt-synapse) [![](https://img.shields.io/github/stars/Microsoft/dbt-synapse?style=for-the-badge)](https://github.com/Microsoft/dbt-synapse)
 * **PyPI package**: `dbt-synapse` [![](https://badge.fury.io/py/dbt-synapse.svg)](https://badge.fury.io/py/dbt-synapse)
 * **Slack channel**: [#db-synapse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.18.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Azure Synapse 10
+* **Supported dbt Core version**: v0.18.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: Azure Synapse 10
 
-## Installing <!-- -->dbt-synapse
+## Installing dbt-synapse
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-synapse`
 
-## Configuring <!-- -->dbt-synapse<!-- -->
+## Configuring dbt-synapse
 
-For <!-- -->Synapse<!-- -->-specific configuration, please refer to [Synapse<!-- --> configs.](../../../reference/resource-configs/azuresynapse-configs.md)
+For Synapse-specific configuration, please refer to [Synapse configs.](../../../reference/resource-configs/azuresynapse-configs.md)
 
 Dedicated SQL only
 
 Azure Synapse Analytics offers both dedicated SQL pools and serverless SQL pools. \*\*Only Dedicated SQL Pools are supported by this adapter.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 On Debian/Ubuntu make sure you have the ODBC header files before installing
 
@@ -59,7 +45,7 @@ Default settings change in dbt-synapse v1.2 / ODBC Driver 18
 
 Microsoft made several changes related to connection encryption. Read more about the changes [here](./mssql-setup.md).
 
-### Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
+### Authentication methods
 
 This adapter is based on the adapter for Microsoft SQL Server. Therefore, the same authentication methods are supported.
 

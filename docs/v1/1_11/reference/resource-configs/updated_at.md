@@ -1,5 +1,7 @@
 # updated\_at
 
+(Applies to dbt v1.9 and later)
+
 snapshots/snapshots.yml
 
 ```yaml
@@ -20,23 +22,27 @@ snapshots:
     +updated_at: column_name
 ```
 
+(Applies to dbt v1.9 and later)
+
 caution
 
 You will get a warning if the data type of the `updated_at` column does not match the adapter-configured default.
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 A column within the results of your snapshot query that represents when the record row was last updated.
 
 This parameter is **required if using the `timestamp` [strategy](./strategy.md)**. The `updated_at` field may support ISO date strings and unix epoch integers, depending on the data platform you use.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 No default is provided.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use a column name `updated_at`[​](#use-a-column-name-updated_at "Direct link to use-a-column-name-updated_at")
+### Use a column name `updated_at`
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot.yml
 
@@ -51,11 +57,13 @@ snapshots:
       updated_at: updated_at
 ```
 
-### Coalesce two columns to create a reliable `updated_at` column[​](#coalesce-two-columns-to-create-a-reliable-updated_at-column "Direct link to coalesce-two-columns-to-create-a-reliable-updated_at-column")
+### Coalesce two columns to create a reliable `updated_at` column
 
 Consider a data source that only has an `updated_at` column filled in when a record is updated (so a `null` value indicates that the record hasn't been updated after it was created).
 
 Since the `updated_at` configuration only takes a column name, rather than an expression, you should update your snapshot query to include the coalesced column.
+
+(Applies to dbt v1.9 and later)
 
 1. Create an staging model to perform the transformation. In your `models/` directory, create a SQL file that configures an staging model to coalesce the `updated_at` and `created_at` columns into a new column `updated_at_for_snapshot`.
 

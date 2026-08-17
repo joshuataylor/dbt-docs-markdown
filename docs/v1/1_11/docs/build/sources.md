@@ -1,13 +1,13 @@
 # Add sources to your DAG
 
-## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
+## Related reference docs
 
 * [Source properties](../../reference/source-properties.md)
 * [Source configurations](../../reference/source-configs.md)
 * [`{{ source() }}` Jinja function](../../reference/dbt-jinja-functions/source.md)
 * [`source freshness` command](../../reference/commands/source.md)
 
-## Using sources[​](#using-sources "Direct link to Using sources")
+## Using sources
 
 Sources make it possible to name and describe the data loaded into your warehouse by your Extract and Load tools. By declaring these tables as sources in dbt, you can then
 
@@ -15,7 +15,7 @@ Sources make it possible to name and describe the data loaded into your warehous
 * test your assumptions about your source data
 * calculate the freshness of your source data
 
-### Declaring a source[​](#declaring-a-source "Direct link to Declaring a source")
+### Declaring a source
 
 Sources are defined in `.yml` files nested under a `sources:` key.
 
@@ -40,7 +40,7 @@ sources:
 
 If you're not already familiar with these files, be sure to check out [the documentation on properties.yml files](../../reference/configs-and-properties.md) before proceeding.
 
-### Selecting from a source[​](#selecting-from-a-source "Direct link to Selecting from a source")
+### Selecting from a source
 
 Once a source has been defined, it can be referenced from a model using the [`{{ source()}}` function](../../reference/dbt-jinja-functions/source.md).
 
@@ -73,7 +73,7 @@ Using the `{{ source () }}` function also creates a dependency between the model
 
 [![The source function tells dbt a model is dependent on a source ](/img/docs/building-a-dbt-project/sources-dag.png?v=2 "The source function tells dbt a model is dependent on a source ")](#)The source function tells dbt a model is dependent on a source
 
-### Testing and documenting sources[​](#testing-and-documenting-sources "Direct link to Testing and documenting sources")
+### Testing and documenting sources
 
 You can also:
 
@@ -110,7 +110,7 @@ sources:
 
 You can find more details on the available properties for sources in the [reference section](../../reference/source-properties.md).
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 What if my source is in a poorly named schema or table?
 
@@ -226,13 +226,11 @@ $ dbt run --select source:jaffle_shop.orders+
 
 Check out the [model selection syntax](../../reference/node-selection/syntax.md) for more examples!
 
-## Source data freshness[​](#source-data-freshness "Direct link to Source data freshness")
+## Source data freshness
 
 With a couple of extra configs, dbt can optionally capture the "freshness" of the data in your source tables. This is useful for understanding if your data pipelines are in a healthy state, and is a critical component of defining Service Level Agreements (SLAs) for your warehouse.
 
-### Fusion and dbt State[​](#fusion-and-dbt-state "Direct link to Fusion and dbt State")
-
-<!-- -->
+### Fusion and dbt State
 
 State-aware orchestration is now dbt State
 
@@ -250,7 +248,7 @@ However, you should still configure source freshness if you want to:
 * Define custom freshness logic using `loaded_at_field` or `loaded_at_query` (for example, for streaming data or partial loads).
 * Track freshness for source views. Fusion treats views as "always fresh" since it can't determine freshness from view metadata.
 
-### Declaring source freshness[​](#declaring-source-freshness "Direct link to Declaring source freshness")
+### Declaring source freshness
 
 To configure source freshness information, add a `freshness` block to your source and `loaded_at_field` to your table declaration:
 
@@ -289,7 +287,7 @@ Additionally, the `loaded_at_field` is required to calculate freshness for a tab
 
 These configs are applied hierarchically, so `freshness` and `loaded_at_field` values specified for a `source` will flow through to all of the `tables` defined in that source. This is useful when all of the tables in a source have the same `loaded_at_field`, as the config can just be specified once in the top-level source definition.
 
-### Checking source freshness[​](#checking-source-freshness "Direct link to Checking source freshness")
+### Checking source freshness
 
 To obtain freshness information for your sources, use the `dbt source freshness` command ([reference docs](../../reference/commands/source.md)):
 
@@ -310,7 +308,7 @@ The results of this query are used to determine whether the source is fresh or n
 
 [![Uh oh! Not everything is as fresh as we'd like!](/img/docs/building-a-dbt-project/snapshot-freshness.png?v=2 "Uh oh! Not everything is as fresh as we'd like!")](#)Uh oh! Not everything is as fresh as we'd like!
 
-### Build models based on source freshness[​](#build-models-based-on-source-freshness "Direct link to Build models based on source freshness")
+### Build models based on source freshness
 
 Our best practice recommendation is to use [data source freshness](./sources.md#declaring-source-freshness). This will allow settings to be transfered into a `.yml` file where source freshness is defined on [model level](../../reference/resource-properties/freshness.md).
 
@@ -323,7 +321,7 @@ Using these commands in order makes sure models update with the latest data. Thi
 
 Set [source freshness checks](../deploy/source-freshness.md#enabling-source-freshness-checks) to 30 minutes, then run a job which rebuilds every hour. This setup retrieves all the models and rebuilds them in one attempt if their source freshness has expired. For more information, refer to [Source freshness check frequency](../deploy/source-freshness.md#source-freshness-check-frequency).
 
-### Filter[​](#filter "Direct link to Filter")
+### Filter
 
 Some databases can have tables where a filter over certain columns are required, in order prevent a full scan of the table, which could be costly. In order to do a freshness check on such tables a `filter` argument can be added to the configuration, for example, `filter: _etl_loaded_at >= date_sub(current_date(), interval 1 day)`. For the example above, the resulting query would look like
 
@@ -335,7 +333,7 @@ from raw.jaffle_shop.orders
 where _etl_loaded_at >= date_sub(current_date(), interval 1 day)
 ```
 
-### FAQs[​](#faqs-1 "Direct link to FAQs")
+### FAQs
 
 How do I exclude a table from a freshness snapshot?
 

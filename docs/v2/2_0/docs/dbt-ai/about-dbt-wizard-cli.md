@@ -1,6 +1,6 @@
 # dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 The dbt Wizard CLI helps teams ship higher-quality dbt changes faster and with less risk. Built for governed data development in dbt, it understands your project, routes to the right dbt tools, validates changes, and shows how logic evolves from your local machine.
 
@@ -8,14 +8,15 @@ You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CL
 
 Install the dbt Wizard CLI by running the following commands:
 
-* macOS/Linux
-* Windows
+### macOS/Linux
 
 Run the following in Terminal:
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
+
+### Windows
 
 Run the following in your Windows command line tool:
 
@@ -40,9 +41,9 @@ Best practices for using dbt Wizard
 
 For recommended workflows on real project tasks, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md).
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -65,7 +66,7 @@ Refer to the following pages for more information:
 
 Looking for the in-platform experience? Visit [About dbt Wizard in the dbt platform](../platform/wizard-platform.md).
 
-## Use dbt Wizard locally[​](#use-dbt-wizard-locally "Direct link to Use dbt Wizard locally")
+## Use dbt Wizard locally
 
 [![](/img/icons/wizard.svg)](./wizard-quickstart.md)
 

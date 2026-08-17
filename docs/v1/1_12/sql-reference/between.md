@@ -4,7 +4,7 @@ The SQL BETWEEN condition allows you to specify a range of numerical, date-type,
 
 In this page, we’ll dive into how to use the SQL BETWEEN condition and elaborate on why it might be useful to you.
 
-## How to use the SQL BETWEEN condition[​](#how-to-use-the-sql-between-condition "Direct link to How to use the SQL BETWEEN condition")
+## How to use the SQL BETWEEN condition
 
 The BETWEEN condition has a simple syntax and should be passed in a WHERE clause:
 
@@ -14,7 +14,7 @@ It’s important to note that the BETWEEN condition is inclusive of `beginning_v
 
 Let’s take a look at a practical example using the BETWEEN condition below.
 
-### SQL BETWEEN example[​](#sql-between-example "Direct link to SQL BETWEEN example")
+### SQL BETWEEN example
 
 ```sql
 select
@@ -36,17 +36,11 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 64               | 5             | 2018-01-05      |
 | 54               | 6             | 2018-01-07      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Alternatively, you could build this same query using >/= operators (`where order_date >= 2018-01-01' and order_date <= '2018-01-31'` or `where order_date >= '2018-01-01' and order_date < '2018-02-01'`).
 
 You may additionally see the NOT clause used in front of BETWEEN to exclude rows that fall between specified ranges.
 
-## BETWEEN syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#between-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to BETWEEN syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## BETWEEN syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Most, if not all, modern data warehouses support the BETWEEN condition; the syntax is also the same across them. If your data warehouse does not support the BETWEEN condition, consider using the >/= operators similar to the example outlined above.
 
@@ -59,13 +53,7 @@ Use the table below to read more on the documentation for the BETWEEN operator i
 | Amazon Redshift    | ✅                   |
 | Google BigQuery    | ✅                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL BETWEEN condition use cases[​](#sql-between-condition-use-cases "Direct link to SQL BETWEEN condition use cases")
+## SQL BETWEEN condition use cases
 
 You’ll most commonly see the BETWEEN condition used in data work to:
 

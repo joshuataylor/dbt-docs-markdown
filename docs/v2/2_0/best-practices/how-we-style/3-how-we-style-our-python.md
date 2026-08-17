@@ -1,6 +1,6 @@
 # How we style our Python
 
-## Python tooling[​](#python-tooling "Direct link to Python tooling")
+## Python tooling
 
 * 🐍 Python has a more mature and robust ecosystem for formatting and linting (helped by the fact that it doesn't have a million distinct dialects). We recommend using those tools to format and lint your code in the style you prefer.
 
@@ -13,7 +13,7 @@
 
   ☁️ dbt comes with the [black formatter built-in](../../docs/platform/studio-ide/lint-format.md) to automatically lint and format their Python. You don't need to download or configure anything, just click `Format` in a Python model and you're good to go!
 
-## Example Python[​](#example-python "Direct link to Example Python")
+## Example Python
 
 ```python
 import pandas as pd

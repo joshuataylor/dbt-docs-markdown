@@ -1,6 +1,8 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect Apache Spark to dbt Core
 
-Local developmentⓘ
+Local development
 
 [Fusion compatible](./spark-setup.md?version=2 "Fusion compatible") connection also available.
 
@@ -14,36 +16,24 @@ If you're using Databricks, the `dbt-databricks` adapter is recommended over `db
 
 For the Databricks version of this page, refer to [Databricks setup](#databricks-setup).
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  core dbt maintainers
+* **Maintained by**: dbt Labs
+* **Authors**: core dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-spark` [![](https://badge.fury.io/py/dbt-spark.svg)](https://badge.fury.io/py/dbt-spark)
 * **Slack channel**: [db-databricks-and-spark](https://getdbt.slack.com/archives/CNGCW8HKL)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.15.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.15.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-spark
+## Installing dbt-spark
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-spark`
 
-## Configuring <!-- -->dbt-spark<!-- -->
+## Configuring dbt-spark
 
-For <!-- -->Spark<!-- -->-specific configuration, please refer to [Spark<!-- --> configs.](../../../reference/resource-configs/spark-configs.md)
+For Spark-specific configuration, please refer to [Spark configs.](../../../reference/resource-configs/spark-configs.md)
 
 If connecting to Databricks via ODBC driver, it requires `pyodbc`. Depending on your system, you can install it separately or via pip. See the [`pyodbc` wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for OS-specific installation details.
 
@@ -62,13 +52,13 @@ $ python -m pip install "dbt-spark[PyHive]"
 $ python -m pip install "dbt-spark[session]"
 ```
 
-## Configuring <!-- -->dbt-spark<!-- -->
+## Configuring dbt-spark
 
-For <!-- -->Spark<!-- -->-specific configuration please refer to [Spark<!-- --> Configuration](../../../reference/resource-configs/spark-configs.md)
+For Spark-specific configuration please refer to [Spark Configuration](../../../reference/resource-configs/spark-configs.md)
 
 For further info, refer to the GitHub repository: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters)
 
-## Connection methods[​](#connection-methods "Direct link to Connection methods")
+## Connection methods
 
 dbt-spark can connect to Spark clusters by four different methods:
 
@@ -84,7 +74,7 @@ Advanced functionality
 
 The `session` connection method is intended for advanced users and experimental dbt development. This connection method is not supported by dbt.
 
-### ODBC[​](#odbc "Direct link to ODBC")
+### ODBC
 
 Use the `odbc` connection method if you are connecting to a Databricks SQL endpoint or interactive cluster via ODBC driver. (Download the latest version of the official driver [here](https://databricks.com/spark/odbc-driver-download).)
 
@@ -114,7 +104,7 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
-### Thrift[​](#thrift "Direct link to Thrift")
+### Thrift
 
 Use the `thrift` connection method if you are connecting to a Thrift server sitting in front of a Spark cluster, for example, a cluster running locally or on Amazon EMR.
 
@@ -140,7 +130,7 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
-### HTTP[​](#http "Direct link to HTTP")
+### HTTP
 
 Use the `http` method if your Spark provider supports generic connections over HTTP (for example, Databricks interactive cluster).
 
@@ -170,7 +160,7 @@ your_profile_name:
 
 Databricks interactive clusters can take several minutes to start up. You may include the optional profile configs `connect_timeout` and `connect_retries`, and dbt will periodically retry the connection.
 
-### Session[​](#session "Direct link to Session")
+### Session
 
 Use the `session` method if you want to run `dbt` against a pySpark session.
 
@@ -189,9 +179,9 @@ your_profile_name:
         "spark.driver.memory": "4g" 
 ```
 
-## Optional configurations[​](#optional-configurations "Direct link to Optional configurations")
+## Optional configurations
 
-### Retries[​](#retries "Direct link to Retries")
+### Retries
 
 Intermittent errors can crop up unexpectedly while running queries against Apache Spark. If `retry_all` is enabled, dbt-spark will naively retry any query that fails, based on the configuration supplied by `connect_timeout` and `connect_retries`. It does not attempt to determine if the query failure was transient or likely to succeed on retry. This configuration is recommended in production environments, where queries ought to be succeeding.
 
@@ -205,19 +195,19 @@ connect_timeout: 5
 connect_retries: 3
 ```
 
-### Server side configuration[​](#server-side-configuration "Direct link to Server side configuration")
+### Server side configuration
 
 Spark can be customized using [Application Properties](https://spark.apache.org/docs/latest/configuration.html). Using these properties the execution can be customized, for example, to allocate more memory to the driver process. Also, the Spark SQL runtime can be set through these properties. For example, this allows the user to [set a Spark catalogs](https://spark.apache.org/docs/latest/configuration.html#spark-sql).
 
-## Caveats[​](#caveats "Direct link to Caveats")
+## Caveats
 
 When facing difficulties, run `poetry run dbt debug --log-level=debug`. The logs are saved at `logs/dbt.log`.
 
-### Usage with EMR[​](#usage-with-emr "Direct link to Usage with EMR")
+### Usage with EMR
 
 To connect to Apache Spark running on an Amazon EMR cluster, you will need to run `sudo /usr/lib/spark/sbin/start-thriftserver.sh` on the master node of the cluster to start the Thrift server (see [the docs](https://aws.amazon.com/premiumsupport/knowledge-center/jdbc-connection-emr/) for more information). You will also need to connect to port 10001, which will connect to the Spark backend Thrift server; port 10000 will instead connect to a Hive backend, which will not work correctly with dbt.
 
-### Supported functionality[​](#supported-functionality "Direct link to Supported functionality")
+### Supported functionality
 
 Most dbt Core functionality is supported, but some features are only available on Delta Lake (Databricks).
 
@@ -227,7 +217,7 @@ Delta-only features:
 2. [Snapshots](../../build/snapshots.md)
 3. [Persisting](../../../reference/resource-configs/persist_docs.md) column-level descriptions as database comments
 
-### Default namespace with Thrift connection method[​](#default-namespace-with-thrift-connection-method "Direct link to Default namespace with Thrift connection method")
+### Default namespace with Thrift connection method
 
 To run metadata queries in dbt, you need to have a namespace named `default` in Spark when connecting with Thrift. You can check available namespaces by using Spark's `pyspark` and running `spark.sql("SHOW NAMESPACES").show()`. If the default namespace doesn't exist, create it by running `spark.sql("CREATE NAMESPACE default").show()`.
 

@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -25,9 +13,7 @@ functions:
       volatility: deterministic | stable | non-deterministic
 ```
 
-## Definition[​](#definition "Direct link to Definition")
-
-<!-- -->
+## Definition
 
 You can optionally use the [`volatility` config](./volatility.md) for SQL, Python, or JavaScript UDFs to describe how predictable the function output is by using `deterministic`, `stable`, or `non-deterministic`. Warehouses use this information to decide if results can be cached, reordered, or inlined. Setting the appropriate volatility helps prevent incorrect results when a function isn’t safe to cache or reorder.
 
@@ -40,8 +26,6 @@ By default, dbt does not specify a volatility value. If you don’t set volatili
 
 In Redshift, dbt sets `non-deterministic` (`VOLATILE`) by default if no volatility is specified, because Redshift requires an explicit volatility and `VOLATILE` is the safest assumption.
 
-<!-- -->
-
  Warehouse-specific volatility keywords
 
 Different warehouses show volatility controls with different keywords and default values:
@@ -53,15 +37,9 @@ Different warehouses show volatility controls with different keywords and defaul
 | [Databricks](https://docs.databricks.com/aws/en/udf/unity-catalog#set-deterministic-if-your-function-produces-consistent-results) | `DETERMINISTIC` | Not supported | Assumed `non-deterministic` unless declared |
 | [Postgres](https://www.postgresql.org/docs/current/xfunc-volatility.html)                                                         | `IMMUTABLE`     | `STABLE`      | `VOLATILE` (default)                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For SQL and Python UDFs, BigQuery does not support explicitly setting volatility and infers it based on the functions and expressions used. For JavaScript UDFs, BigQuery supports `deterministic` and `non-deterministic` only; `stable` is not supported.
 
-## Supported volatility types[​](#supported-volatility-types "Direct link to Supported volatility types")
+## Supported volatility types
 
 In dbt, you can use the following values for the `volatility` config:
 
@@ -71,13 +49,7 @@ In dbt, you can use the following values for the `volatility` config:
 | `stable`            | Returns the same value within a single query execution, but may change across executions. Not supported by all warehouses. For more information, see [Warehouse-specific volatility keywords](./volatility.md#warehouse-specific-volatility-keywords). | `now()` — Returns the current timestamp the moment a query starts; constant within a single query but different across runs.                                                  |
 | `non-deterministic` | May return different results for the same inputs. Warehouses shouldn't cache or reorder assuming stable results.                                                                                                                                                                                        | `first()` — May return different rows depending on query plan or ordering.<br />`random()` — Produces a random number that varies with each call, even with identical inputs. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Example[​](#example "Direct link to Example")
+## Example
 
 In this example, we're using the `deterministic` volatility for the `is_positive_int` function:
 
@@ -96,7 +68,7 @@ functions:
       data_type: boolean
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

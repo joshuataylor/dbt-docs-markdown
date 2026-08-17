@@ -1,5 +1,7 @@
 # Cumulative metrics
 
+(Applies to dbt v1.11 and earlier)
+
 Cumulative metrics aggregate a measure over a given accumulation period. If no window is specified, the period is considered infinite and accumulates values over all time. You will need to create a [time spine model](./metricflow-time-spine.md) before you add cumulative metrics.
 
 Cumulative metrics are useful for calculating things like weekly active users, or month-to-date revenue. The parameters, description, and types for cumulative metrics are:
@@ -8,9 +10,9 @@ tip
 
 Note that we use dot notation (`.`) to indicate whether a parameter is nested within another parameter. For example, `measure.name` means the `name` parameter is nested under `measure`.
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Parameters
 
-<!-- -->
+(Applies to dbt v1.9 to v1.11)
 
 | Parameter                              | Description                                                                                                                                                                                                    | Required | Type    |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -27,12 +29,6 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `cumulative_type_params.window`        | Specifies the accumulation window, such as `1 month`, `7 days`, or `1 year`. Cannot be used with `grain_to_date`.                                                                                              | Optional | String  |
 | `cumulative_type_params.grain_to_date` | Sets the accumulation grain, such as `month`, restarting accumulation at the beginning of each specified grain period. Cannot be used with `window`.                                                           | Optional | String  |
 | `cumulative_type_params.period_agg`    | Defines how to aggregate the cumulative metric when summarizing data to a different granularity: `first`, `last`, or `average`. Defaults to `first` if `window` is not specified.                              | Optional | String  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
  Explanation of type\_params.measure
 
@@ -55,9 +51,11 @@ The `type_params.measure` configuration can be written in different ways:
       join_to_timespine: true
   ```
 
-### Complete specification[​](#complete-specification "Direct link to Complete specification")
+### Complete specification
 
 The following displays the complete specification for cumulative metrics, along with an example:
+
+(Applies to dbt v1.9 to v1.11)
 
 models/marts/sem\_semantic\_model\_name.yml
 
@@ -78,13 +76,13 @@ metrics:
         join_to_timespine: true/false # Boolean that indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. Default `false`. # Optional
 ```
 
-<!-- -->
-
-## Cumulative metrics example[​](#cumulative-metrics-example "Direct link to Cumulative metrics example")
+## Cumulative metrics example
 
 Cumulative metrics measure data over a given window and consider the window infinite when no window parameter is passed, accumulating the data over all time.
 
 The following example shows how to define cumulative metrics in a YAML file:
+
+(Applies to dbt v1.9 to v1.11)
 
 * `cumulative_order_total`: Calculates the cumulative order total over all time. Uses `type params` to specify the measure `order_total` to be aggregated.
 
@@ -92,7 +90,7 @@ The following example shows how to define cumulative metrics in a YAML file:
 
 * `cumulative_order_total_mtd`: Calculates the month-to-date cumulative order total, respectively. Uses `cumulative_type_params` to specify a `grain_to_date` of `month`.
 
-<!-- -->
+(Applies to dbt v1.9 to v1.11)
 
 models/marts/sem\_semantic\_model\_name.yml
 
@@ -127,7 +125,9 @@ metrics:
         grain_to_date: month
 ```
 
-### Granularity options[​](#granularity-options "Direct link to Granularity options")
+### Granularity options
+
+(Applies to dbt v1.9 to v1.11)
 
 Use the `period_agg` parameter with `first()`, `last()`, and `average()` functions to aggregate cumulative metrics over the requested period. This is because granularity options for cumulative metrics are different than the options for other metric types.
 
@@ -153,8 +153,6 @@ models/marts/sem\_semantic\_model\_name.yml
 In this example, `period_agg` is set to `first`, which chooses the first value for the selected granularity window. To query `cumulative_revenue` by week, use the following query syntax:
 
 * `dbt sl query --metrics cumulative_revenue --group-by metric_time__week`
-
-<!-- -->
 
  Expand toggle to view how the SQL compiles
 
@@ -216,11 +214,11 @@ group by
   revenue_all_time
 ```
 
-### Window options[​](#window-options "Direct link to Window options")
+### Window options
 
 This section details examples of when to specify and not to specify window options.
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
 * When a window is specified, MetricFlow applies a sliding window to the underlying measure, such as tracking weekly active users with a 7-day window.
 * Without specifying a window, cumulative metrics accumulate values over all time, useful for running totals like current revenue and active subscriptions.
@@ -305,9 +303,11 @@ metrics:
       measure: subscription_count
 ```
 
-### Grain to date[​](#grain-to-date "Direct link to Grain to date")
+### Grain to date
 
 You can choose to specify a grain to date in your cumulative metric configuration to accumulate a metric from the start of a grain (such as week, month, or year). When using a window, such as a month, MetricFlow will go back one full calendar month. However, grain to date will always start accumulating from the beginning of the grain, regardless of the latest date of data.
+
+(Applies to dbt v1.11 and earlier)
 
 For example, let's consider an underlying measure of `order_total.`
 
@@ -319,12 +319,12 @@ models/marts/sem\_semantic\_model\_name.yml
         agg: sum
 ```
 
-<!-- -->
-
 We can compare the difference between a 1-month window and a monthly grain to date.
 
 * The cumulative metric in a window approach applies a sliding window of 1 month
 * The grain to date by month resets at the beginning of each month.
+
+(Applies to dbt v1.9 to v1.11)
 
 models/marts/sem\_semantic\_model\_name.yml
 
@@ -349,9 +349,9 @@ metrics:
         period_agg: first # Optional. Defaults to first. Accepted values: first|last|average
 ```
 
-<!-- -->
-
 Cumulative metric with grain to date:
+
+(Applies to dbt v1.9 to v1.11)
 
 models/marts/sem\_semantic\_model\_name.yml
 
@@ -364,8 +364,6 @@ models/marts/sem\_semantic\_model\_name.yml
     cumulative_type_params:
       grain_to_date: month
 ```
-
-<!-- -->
 
  Expand toggle to view how the SQL compiles
 
@@ -409,7 +407,7 @@ order by
     1
 ```
 
-## SQL implementation example[​](#sql-implementation-example "Direct link to SQL implementation example")
+## SQL implementation example
 
 To calculate the cumulative value of the metric over a given window we do a time range join to a timespine table using the primary time dimension as the join key. We use the accumulation window in the join to decide whether a record should be included on a particular day. The following SQL code produced from an example cumulative metric is provided for reference:
 
@@ -461,7 +459,7 @@ group by
 limit 100;
 ```
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 If you specify a `window` in your cumulative metric definition, you must include `metric_time` as a dimension in the SQL query. This is because the accumulation window is based on metric time. For example,
 
@@ -477,6 +475,6 @@ group by
   subq_3.metric_time
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

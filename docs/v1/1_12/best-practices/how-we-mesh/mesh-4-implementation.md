@@ -1,6 +1,6 @@
 # Implementing your mesh plan
 
-### Where should your mesh journey start?[​](#where-should-your-mesh-journey-start "Direct link to Where should your mesh journey start?")
+### Where should your mesh journey start?
 
 Moving to a Mesh represents a meaningful change in development and deployment architecture. Before any sufficiently complex software refactor or migration, it's important to ask, 'Why might this not work?' The two most common reasons we've seen stem from
 
@@ -12,8 +12,6 @@ Creating alignment on your architecture and starting point are major steps in en
 How do you find these organizational interfaces? Here are some steps to get you started:
 
 * **Talk to teams** about what sort of separation naturally exists right now.
-
-  <!-- -->
 
   * Are there various domains people are focused on?
   * Are there various sizes, shapes, and sources of data that get handled separately (such as click event data)?
@@ -28,13 +26,11 @@ When attempting to define your project interfaces, you should consider investiga
 
 Let's go through an example process of taking a monolithing project, using groups and access to define the interfaces, and then splitting it into multiple projects.
 
-<!-- -->
-
 tip
 
 To help you get started, check out our [Quickstart with Mesh](../../guides/mesh-qs.md) or our online [Mesh course](https://learn.getdbt.com/courses/dbt-mesh) to learn more!
 
-## Defining project interfaces with groups and access[​](#defining-project-interfaces-with-groups-and-access "Direct link to Defining project interfaces with groups and access")
+## Defining project interfaces with groups and access
 
 Once you have a sense of some initial groupings, you can first implement **group and access permissions** within a single project.
 
@@ -83,10 +79,9 @@ models:
 * **Validate these groups by incrementally migrating your jobs** to execute these groups specifically via selection syntax. We would recommend doing this in parallel to your production jobs until you’re sure about them. This will help you feel out if you’ve drawn the lines in the right place.
 * If you find yourself **consistently making changes across multiple groups** when you update logic, that’s a sign that **you may want to rethink your groups**.
 
-## Split your projects[​](#split-your-projects "Direct link to Split your projects")
+## Split your projects
 
 1. **Move your grouped models into a subfolder**. This will include any model in the selected group, it's associated YAML entry, as well as its parent or child resources as appropriate depending on where this group sits in your DAG.
-   <!-- -->
    1. Note that just like in your dbt project, circular references are not allowed! Project B cannot have parents and children in Project A, for example.
 
 2. **Create a new `dbt_project.yml` file** in the subdirectory.
@@ -96,8 +91,6 @@ models:
 4. **Create a new `packages.yml` file** in your subdirectory with the packages that are used by the resources you moved.
 
 5. **Update `{{ ref }}` functions** — For any model that has a cross-project dependency (this may be in the files you moved, or in the files that remain in your project):
-
-   <!-- -->
 
    1. Update the `{{ ref() }}` function to have two arguments, where the first is the name of the source project and the second is the name of the model: e.g. `{{ ref('jaffle_shop', 'my_upstream_model') }}`
    2. Update the upstream, cross-project parents’ `access` configs to `public` , ensuring any project can safely `{{ ref() }}` those models.
@@ -112,18 +105,16 @@ projects:
   - name: jaffle_shop
 ```
 
-### Best practices[​](#best-practices "Direct link to Best practices")
+### Best practices
 
 * When you’ve **confirmed the right groups**, it's time to split your projects.
-
-  <!-- -->
 
   * **Do *one* group at a time**!
   * **Do *not* refactor as you migrate**, however tempting that may be. Focus on getting 1-to-1 parity and log any issues you find in doing the migration for later. Once you’ve fully migrated the project then you can start optimizing it for its new life as part of your mesh.
 
 * Start by splitting your project within the same repository for full git tracking and easy reversion if you need to start from scratch.
 
-## Connecting existing projects[​](#connecting-existing-projects "Direct link to Connecting existing projects")
+## Connecting existing projects
 
 Some organizations may already be coordinating across multiple dbt projects. Most often this is via:
 
@@ -139,15 +130,10 @@ The migration steps here are much simpler than splitting up a monolith!
 
 1. If using the `package` method:
 
-   <!-- -->
-
    1. In the parent project:
-      <!-- -->
       1. mark all models being referenced downstream as `public` and add a model contract.
 
    2. In the child project:
-
-      <!-- -->
 
       1. Remove the package entry from `packages.yml`
       2. Add the upstream project to your `dependencies.yml`
@@ -155,23 +141,18 @@ The migration steps here are much simpler than splitting up a monolith!
 
 2. If using `source` method:
 
-   <!-- -->
-
    1. In the parent project:
-      <!-- -->
       1. mark all models being imported downstream as `public` and add a model contract.
 
    2. In the child project:
-
-      <!-- -->
 
       1. Add the upstream project to your `dependencies.yml`
       2. Replace the `{{ source() }}` functions with cross project `{{ ref() }}` functions.
       3. Remove the unnecessary `source` definitions.
 
-## Additional Resources[​](#additional-resources "Direct link to Additional Resources")
+## Additional Resources
 
-### Our example projects[​](#our-example-projects "Direct link to Our example projects")
+### Our example projects
 
 We've provided a set of example projects you can use to explore the topics covered here. We've split our [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) project into 3 separate projects in a multi-repo Mesh. Note that you'll need to leverage dbt to use multi-project architecture, as cross-project references are powered via dbt's APIs.
 
@@ -179,6 +160,6 @@ We've provided a set of example projects you can use to explore the topics cover
 * **[Marketing](https://github.com/dbt-labs/jaffle-shop-mesh-marketing)** - containing our marketing marts.
 * **[Finance](https://github.com/dbt-labs/jaffle-shop-mesh-finance)** - containing our finance marts.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstart with Mesh](../../guides/mesh-qs.md)

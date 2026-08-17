@@ -10,40 +10,26 @@ Note: This adapter is not compatible with dbt Core v2.
 
 Refer to [Configuring ibm-dbt-db2](https://github.com/IBM/db2-dbt) to learn more about obtaining and organizing these details.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  IBM
-* **Authors**:
-  <!-- -->
-  Shubham Kapoor, Amit Kumar
+* **Maintained by**: IBM
+* **Authors**: Shubham Kapoor, Amit Kumar
 * **GitHub repo**: [IBM/db2-dbt](https://github.com/IBM/db2-dbt) [![](https://img.shields.io/github/stars/IBM/db2-dbt?style=for-the-badge)](https://github.com/IBM/db2-dbt)
 * **PyPI package**: `ibm-dbt-db2` [![](https://badge.fury.io/py/ibm-dbt-db2.svg)](https://badge.fury.io/py/ibm-dbt-db2)
 * **Slack channel**:[]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.11.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  IBM Db2 LUW 9.7+, z/OS 11+, iSeries
+* **Supported dbt Core version**: v1.11.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: IBM Db2 LUW 9.7+, z/OS 11+, iSeries
 
-## Installing <!-- -->ibm-dbt-db2
+## Installing ibm-dbt-db2
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install ibm-dbt-db2`
 
-## Configuring <!-- -->ibm-dbt-db2<!-- -->
+## Configuring ibm-dbt-db2
 
-For <!-- -->IBM Db2<!-- -->-specific configuration, please refer to [IBM Db2<!-- --> configs.](../../../reference/resource-configs/ibm-db2-config.md)
+For IBM Db2-specific configuration, please refer to [IBM Db2 configs.](../../../reference/resource-configs/ibm-db2-config.md)
 
-## Connecting to IBM Db2[​](#connecting-to-ibm-db2 "Direct link to Connecting to IBM Db2")
+## Connecting to IBM Db2
 
 To connect dbt with IBM Db2, you need to configure a profile in your `profiles.yml` file located in the `.dbt/` directory of your home folder. The following is an example configuration for connecting to IBM Db2 instances:
 
@@ -65,7 +51,7 @@ my_db2_project:
   target: dev
 ```
 
-### Connection with SSL/TLS[​](#connection-with-ssltls "Direct link to Connection with SSL/TLS")
+### Connection with SSL/TLS
 
 For secure connections, you can configure SSL/TLS parameters:
 
@@ -92,7 +78,7 @@ my_db2_project:
   target: prod
 ```
 
-### Connection using DSN[​](#connection-using-dsn "Direct link to Connection using DSN")
+### Connection using DSN
 
 Alternatively, you can use a Data Source Name (DSN) configured in your Db2 client:
 
@@ -110,7 +96,7 @@ my_db2_project:
   target: dev
 ```
 
-## Host parameters[​](#host-parameters "Direct link to Host parameters")
+## Host parameters
 
 Use the following required and optional profile fields to configure IBM Db2 connections.
 
@@ -126,15 +112,9 @@ Use the following required and optional profile fields to configure IBM Db2 conn
 | `threads`  | Optional          | Number of threads for parallel execution.             | `8`          |
 | `dsn`      | Optional          | Data Source Name (alternative to host/port/database). | `MY_DB2_DSN` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 \*Not required if using `dsn`
 
-### Optional SSL/TLS Parameters[​](#optional-ssltls-parameters "Direct link to Optional SSL/TLS Parameters")
+### Optional SSL/TLS Parameters
 
 | Option                           | Required/Optional | Description                                                  | Example                  |
 | -------------------------------- | ----------------- | ------------------------------------------------------------ | ------------------------ |
@@ -145,17 +125,11 @@ Search table...
 | `ssl_client_hostname_validation` | Optional          | Enable hostname verification (true/false).                   | `true`                   |
 | `retries`                        | Optional          | Number of connection retry attempts.                         | `3`                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Schemas and databases[​](#schemas-and-databases "Direct link to Schemas and databases")
+## Schemas and databases
 
 When selecting the database and the schema, make sure you have read and write access to both. This selection does not limit your ability to query the database. Instead, they serve as the default location for where tables and views are materialized.
 
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
 | Feature                     | Supported  | Notes                                           |
 | --------------------------- | ---------- | ----------------------------------------------- |
@@ -172,13 +146,7 @@ When selecting the database and the schema, make sure you have read and write ac
 | Grants                      | ✅ Yes     |                                                 |
 | Constraints                 | ⚠️ Partial | NOT NULL enforced, others not enforced          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Data types[​](#data-types "Direct link to Data types")
+## Data types
 
 The adapter maps dbt data types to Db2 types:
 
@@ -195,13 +163,7 @@ The adapter maps dbt data types to Db2 types:
 | date      | DATE                 |
 | time      | TIME                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 The `ibm-dbt-db2` adapter supports two incremental strategies:
 
@@ -225,14 +187,14 @@ WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
 
-## Case sensitivity[​](#case-sensitivity "Direct link to Case sensitivity")
+## Case sensitivity
 
 Db2 uppercases unquoted identifiers by default. The adapter handles this automatically, but be aware:
 
 * Unquoted table/column names will be uppercased
 * Use quotes in your SQL to preserve case: `"MyTable"` vs `MYTABLE`
 
-## Notes[​](#notes "Direct link to Notes")
+## Notes
 
 * The `ibm-dbt-db2` adapter is built on the `ibm_db` Python driver (version 3.2.8) which is automatically installed with the adapter.
 * **Python Version Requirements**: Requires Python 3.10, 3.11, or 3.12. Python 3.9 is not supported due to dbt Core v1.11+ dependency requirements. Python 3.13+ has not been tested yet.

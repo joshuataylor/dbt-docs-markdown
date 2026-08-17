@@ -1,6 +1,6 @@
 # quote\_columns
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 An optional seed configuration, used to determine whether column names in the seed file should be quoted when the table is created.
 
@@ -8,9 +8,9 @@ An optional seed configuration, used to determine whether column names in the se
 * When `False`, dbt will not quote the column names defined in the seed file.
 * When not set, it will vary by adapter whether or not column names are quoted.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
-### Globally quote all seed columns[​](#globally-quote-all-seed-columns "Direct link to Globally quote all seed columns")
+### Globally quote all seed columns
 
 dbt\_project.yml
 
@@ -19,7 +19,7 @@ seeds:
   +quote_columns: true
 ```
 
-### Only quote seeds in the `seeds/mappings` directory.[​](#only-quote-seeds-in-the-seedsmappings-directory "Direct link to only-quote-seeds-in-the-seedsmappings-directory")
+### Only quote seeds in the `seeds/mappings` directory.
 
 For a project with:
 
@@ -47,7 +47,7 @@ seeds:
       quote_columns: true
 ```
 
-## Recommended configuration[​](#recommended-configuration "Direct link to Recommended configuration")
+## Recommended configuration
 
 * Explicitly set this value if using seed files.
 * Apply the configuration globally rather than to individual projects/seeds.

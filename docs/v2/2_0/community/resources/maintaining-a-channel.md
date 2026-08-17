@@ -1,6 +1,6 @@
 # Maintaining a Slack channel
 
-## TL;DR[​](#tldr "Direct link to TL;DR")
+## TL;DR
 
 There are three things you should do to be a good channel maintainer in the [dbt Slack community](https://community.getdbt.com/):
 
@@ -8,11 +8,11 @@ There are three things you should do to be a good channel maintainer in the [dbt
 * Keep an eye out in #introductions for folks who might benefit from your new channel. For example, if someone works in the space or on the same problems, then direct them to the channel.
 * Make sure folks follow the [Rules of the Road](./community-rules-of-the-road.md) in the channel. If you notice someone is not following one, gently remind them of the rule in thread, and, ideally, provide an example of how they can rephrase their message or where they can redirect it. If you have a question about how to proceed, just post it in #moderation-and-administration with a screenshot or link to the thread and someone will give you advice.
 
-## Scope of the role[​](#scope-of-the-role "Direct link to Scope of the role")
+## Scope of the role
 
 A maintainer can be a dbt Labs employee but does not have to be. *Slack channel maintainer* is philosophically similar to OSS maintainer. At the onset, the channel maintainer will help build up this new space in Slack and stir up conversation during the first few weeks of the channel's existence. They are someone who stays on top of feedback and encourages generative contributions. This is not necessarily someone who is the generator of content and contributions, or answers every question.
 
-## Initial instructions[​](#initial-instructions "Direct link to Initial instructions")
+## Initial instructions
 
 1. Review the [Rules of the Road](./community-rules-of-the-road.md) and [Code of Conduct](./code-of-conduct.md) and please let the folks who created the channel know that you read both documents and you agree to be mindful of them.
 
@@ -30,7 +30,7 @@ A maintainer can be a dbt Labs employee but does not have to be. *Slack channel 
 
 7. Stir up conversation during the first few weeks of the channel's existence. As you get started, answer the questions you can or help find someone with answers, seed discussions about once a week, and making sure folks follow the Rules of the Road.
 
-## Long-term expectations[​](#long-term-expectations "Direct link to Long-term expectations")
+## Long-term expectations
 
 * Maintaining the channel, checking in, and being active on a regular basis by answering folks' questions, and seeding discussions. Want an example? Check out [this poll](https://getdbt.slack.com/archives/C022A67TLFL/p1628279819038800).
 * For guidance on how to answer a question, see [Answering Community Questions](https://www.getdbt.com/community/answering-community-questions). If you are not sure how to answer a lingering or unanswered question, you can post about it in #moderation-and-administration or direct it to another channel, if relevant.

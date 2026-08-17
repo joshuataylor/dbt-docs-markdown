@@ -1,8 +1,6 @@
 # Configuring Snowflake PrivateLink
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,9 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of an AWS-hosted Snowflake PrivateLink endpoint in a dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Snowflake<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
-
-<!-- -->
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Snowflake) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
 Snowflake OAuth with PrivateLink
 
@@ -27,25 +23,25 @@ From the [Snowflake](https://docs.snowflake.com/en/user-guide/admin-security-fed
 
 > Currently, for any given Snowflake account, SSO works with only one account URL at a time: either the public account URL or the URL associated with the private connectivity service
 
-## Configure AWS PrivateLink[​](#configure-aws-privatelink "Direct link to Configure AWS PrivateLink")
+## Configure AWS PrivateLink
 
 This section walks you through the setup of an AWS-hosted Snowflake PrivateLink endpoint in a dbt platform. You can set up in two ways:
 
 * [Self-serve private endpoints](#self-serve-private-endpoints): Self-serve configuration of Snowflake PrivateLink endpoints directly in dbt platform user interface. Currently in beta.
 * [Support-led setup](#support-led-setup): Requires contacting dbt Support to configure Snowflake PrivateLink endpoints. Non-self service configuration of Snowflake PrivateLink endpoints.
 
-### Self-serve private endpoints [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#self-serve-private-endpoints- "Direct link to self-serve-private-endpoints-")
+### Self-serve private endpoints [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 *Self-serve private endpoints are currently in beta for Snowflake on AWS, and available to all eligible customers. This feature isn't available for Azure or GCP. If you don't see **Private endpoints** in your account settings, use the [Support-led setup](#support-led-setup) instead.*
 
 This section walks you through the process of requesting a new Snowflake PrivateLink endpoint in dbt platform.
 
-##### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+##### Prerequisites
 
 * [Account admin](../../../manage-access/enterprise-permissions.md?version=2.0#account-admin) or [Project creator](../../../manage-access/enterprise-permissions.md?version=2.0#project-creator) permission sets in dbt platform. Users with an IT license can also create private endpoints.
 * [Snowflake `ACCOUNTADMIN` permissions](https://docs.snowflake.com/en/user-guide/security-access-control-overview#system-defined-roles).
 
-##### Before you begin[​](#before-you-begin "Direct link to Before you begin")
+##### Before you begin
 
 Before requesting a private endpoint, allowlist dbt Labs' AWS account in Snowflake. This is a one-time setup per Snowflake account and is handled through a Snowflake support case, which can take time — complete it before starting the request flow.
 
@@ -53,14 +49,13 @@ Before requesting a private endpoint, allowlist dbt Labs' AWS account in Snowfla
 
    * Snowflake prefers that the account owner opens the support case directly rather than dbt Labs acting on their behalf. For more information, refer to [Snowflake's knowledge base article](https://community.snowflake.com/s/article/HowtosetupPrivatelinktoSnowflakefromCloudServiceVendors).
    * Provide your dbt account ID along with any other information requested in the article.
-     <!-- -->
      * **AWS account ID**: `346425330055` — *Note: This account ID only applies to AWS dbt multi-tenant environments. For AWS Virtual Private/Single-Tenant account IDs, contact [dbt Support](mailto:support@getdbt.com).*
 
 2. Wait for Snowflake to confirm access has been granted before proceeding.
 
    [![Open snowflake case](/img/docs/dbt-platform/snowflakeprivatelink1.png?v=2 "Open snowflake case")](#)Open snowflake case
 
-#### Request a new private endpoint[​](#request-a-new-private-endpoint "Direct link to Request a new private endpoint")
+#### Request a new private endpoint
 
 After Snowflake confirms they've allowlisted dbt Labs' AWS account in Snowflake, you can request a new private endpoint. Follow these steps to do so:
 
@@ -125,7 +120,7 @@ An endpoint with associated connections can't be deleted. Remove those connectio
 
 [![Private endpoint details page in edit mode with the Delete endpoint button](/img/docs/dbt-platform/private-endpoint-details-delete.png?v=2 "Private endpoint details page in edit mode with the Delete endpoint button")](#)Private endpoint details page in edit mode with the Delete endpoint button
 
-#### Duplicate endpoint requests[​](#duplicate-endpoint-requests "Direct link to Duplicate endpoint requests")
+#### Duplicate endpoint requests
 
 If you submit a request using a VPCE ID that matches an existing endpoint, dbt platform displays an **Endpoint already exists** popup with two options:
 
@@ -136,13 +131,13 @@ Select your preferred option and click **Confirm & Submit**.
 
 [![Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one](/img/docs/dbt-platform/endpoint-exists.png?v=2 "Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one")](#)Endpoint already exists popup with options to create a new interface endpoint or re-use an existing one
 
-#### Troubleshooting and errors[​](#troubleshooting-and-errors "Direct link to Troubleshooting and errors")
+#### Troubleshooting and errors
 
 If an endpoint request fails, dbt platform displays error details that are safe to share externally.
 
 If you see a failure state without clear next steps, collect the request details (endpoint name, creation time, status, and the Snowflake output you provided) and contact [dbt Support](mailto:support@getdbt.com).
 
-### Support-led setup[​](#support-led-setup "Direct link to Support-led setup")
+### Support-led setup
 
 If **Private endpoints** is not available in your account settings, configure Snowflake PrivateLink by following these steps and submitting a request to dbt Support.
 
@@ -150,11 +145,8 @@ To configure Snowflake instances hosted on AWS for [PrivateLink](https://aws.ama
 
 1. Open a support case with Snowflake to allow access from the dbt AWS account.
 
-   <!-- -->
-
    * Snowflake prefers that the account owner opens the support case directly rather than dbt Labs acting on their behalf. For more information, refer to [Snowflake's knowledge base article](https://community.snowflake.com/s/article/HowtosetupPrivatelinktoSnowflakefromCloudServiceVendors).
    * Provide them with your dbt account ID along with any other information requested in the article.
-     <!-- -->
      * **AWS account ID**: `346425330055` — *Note: This account ID only applies to AWS dbt multi-tenant environments. For AWS Virtual Private/Single-Tenant account IDs, contact [dbt Support](mailto:support@getdbt.com).*
    * You need [Snowflake's `ACCOUNTADMIN` permissions](https://docs.snowflake.com/en/user-guide/security-access-control-overview#system-defined-roles).
 
@@ -181,11 +173,9 @@ Subject: New Multi-Tenant (Azure or AWS) PrivateLink Request
 
 *\*\* Internal Stage PrivateLink must be [enabled on the Snowflake account](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws#prerequisites) to use this feature*
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once dbt Support completes the configuration, you can start creating new connections using PrivateLink.
 
@@ -197,7 +187,7 @@ Once dbt Support completes the configuration, you can start creating new connect
 6. Configure the remaining data platform details.
 7. Test your connection and save it.
 
-## Configuring internal stage PrivateLink in dbt[​](#configuring-internal-stage-privatelink-in- "Direct link to configuring-internal-stage-privatelink-in-")
+## Configuring internal stage PrivateLink in dbt
 
 If an Internal Stage PrivateLink endpoint has been provisioned, your dbt environments must be configured to use this endpoint instead of the account default set in Snowflake.
 
@@ -213,7 +203,7 @@ s3_stage_vpce_dns_name: '*.vpce-012345678abcdefgh-4321dcba.s3.us-west-2.vpce.ama
 
 [![Internal Stage DNS](/img/docs/dbt-platform/snowflake-internal-stage-dns.png?v=2 "Internal Stage DNS")](#)Internal Stage DNS
 
-## Configuring network policies[​](#configuring-network-policies "Direct link to Configuring network policies")
+## Configuring network policies
 
 If your organization uses [Snowflake Network Policies](https://docs.snowflake.com/en/user-guide/network-policies) to restrict access to your Snowflake account, you need to add a network rule for dbt. Snowflake supports two network rule types: VPCE ID-based (recommended) and IP/CIDR-based. The following steps use VPCE ID. If your organization requires an IP-based network policy instead, the CIDR range isn't available in the dbt platform UI. Please contact [dbt Support](mailto:support@getdbt.com) to get it.
 
@@ -228,7 +218,7 @@ Network Policy for Snowflake Internal Stage PrivateLink
 
 For guidance on protecting both the Snowflake service and Internal Stage consult the Snowflake [network policies](https://docs.snowflake.com/en/user-guide/network-policies#strategies-for-protecting-both-service-and-internal-stage) and [network rules](https://docs.snowflake.com/en/user-guide/network-rules#incoming-requests) docs.
 
-### Using the UI[​](#using-the-ui "Direct link to Using the UI")
+### Using the UI
 
 Open the Snowflake UI and take the following steps:
 
@@ -249,7 +239,7 @@ Open the Snowflake UI and take the following steps:
 
 [![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")](#)Update Network Policy
 
-### Using SQL[​](#using-sql "Direct link to Using SQL")
+### Using SQL
 
 For quick and automated setup of network rules via SQL in Snowflake, the following commands allow you to create and configure access rules for dbt. These SQL examples demonstrate how to add a network rule and update your network policy accordingly.
 

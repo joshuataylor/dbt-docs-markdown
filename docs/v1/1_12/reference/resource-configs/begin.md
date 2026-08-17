@@ -2,31 +2,19 @@
 
 💡Did you know\...
 
-Available from dbt v
+Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
-<!-- -->
-
-1.9
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
-
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Set the `begin` config to the timestamp value at which your [microbatch incremental model](../../docs/build/incremental-microbatch.md) data should begin — at the point the data becomes relevant for the microbatch model.
 
 You can configure `begin` for a [model](../../docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or SQL file config. The value for `begin` must be a string representing an ISO-formatted date, *or* date and time, *or* [relative dates](#set-begin-to-use-relative-dates). Check out the [examples](#examples) in the next section for more details.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples set `2024-01-01 00:00:00` as the `begin` config for the `user_sessions` model.
 
-#### Example in the `dbt_project.yml` file[​](#example-in-the-dbt_projectyml-file "Direct link to example-in-the-dbt_projectyml-file")
+#### Example in the `dbt_project.yml` file
 
 dbt\_project.yml
 
@@ -37,7 +25,7 @@ models:
       +begin: "2024-01-01 00:00:00"
 ```
 
-#### Example in a property YAML file[​](#example-in-a-property-yaml-file "Direct link to Example in a property YAML file")
+#### Example in a property YAML file
 
 models/properties.yml
 
@@ -48,7 +36,7 @@ models:
       begin: "2024-01-01 00:00:00"
 ```
 
-#### Example in a SQL config block for a model[​](#example-in-a-sql-config-block-for-a-model "Direct link to Example in a SQL config block for a model")
+#### Example in a SQL config block for a model
 
 models/user\_sessions.sql
 
@@ -58,7 +46,7 @@ models/user\_sessions.sql
 ) }}
 ```
 
-#### Set `begin` to use relative dates[​](#set-begin-to-use-relative-dates "Direct link to set-begin-to-use-relative-dates")
+#### Set `begin` to use relative dates
 
 To configure `begin` to use relative dates, you can use modules variables [`modules.datetime`](../dbt-jinja-functions/modules.md#datetime) and [`modules.pytz`](../dbt-jinja-functions/modules.md#pytz) to dynamically specify relative timestamps, such as yesterday's date or the start of the current week.
 

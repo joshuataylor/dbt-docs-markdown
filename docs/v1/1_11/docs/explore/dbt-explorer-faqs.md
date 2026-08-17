@@ -1,10 +1,10 @@
 # dbt Catalog FAQs
 
-dbt platformⓘ
+dbt platform
 
 [Catalog](./explore-projects.md) is dbt’s new knowledge base and lineage visualization experience. It offers an interactive and high-level view of your company’s entire data estate, where you can dive deep into the context you need to understand and improve lineage so your teams can trust the data they’re using to make decisions.
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
  How does dbt Catalog help with data quality?
 
@@ -20,7 +20,7 @@ Catalog can be accessed by users with developer and read-only seats.
 
 Catalog is the default documentation experience for dbt customers. dbt Docs is still available but doesn't offer the same speed, metadata, or visibility as Catalog and will become a legacy feature.
 
-## How dbt Catalog works[​](#how-dbt-catalog-works "Direct link to How dbt Catalog works")
+## How dbt Catalog works
 
  Can I use dbt Catalog on-premises or with my self-hosted dbt Core deployment?
 
@@ -48,7 +48,7 @@ Catalog reflects all the lineage defined within the dbt project. Our vision for 
 
 Catalog automatically deletes stale metadata after 3 months if no jobs were run to refresh it. To avoid this, make sure you schedule jobs to run more frequently than 3 months with the necessary commands.
 
-## Key features[​](#key-features "Direct link to Key features")
+## Key features
 
  Does dbt Catalog support multi-project discovery (dbt Mesh)?
 
@@ -74,7 +74,7 @@ Yes. Today, you can edit descriptions in the Studio IDE or dbt CLI by changing t
 
 Recommendations largely mirror the best practice rules from the `dbt_project_evaluator` package. At this time, recommendations can’t be customized. In the future, Catalog will likely support recommendation customization capabilities (for example, in project code).
 
-## Column-level lineage[​](#column-level-lineage "Direct link to Column-level lineage")
+## Column-level lineage
 
  What are the best use cases for column-level lineage in dbt Catalog?
 
@@ -101,7 +101,7 @@ Yes, a reused column, labeled as passthrough or rename, inherits its description
 
 Not currently, but we plan to incorporate column-level awareness across features in dbt in the future.
 
-## Availability, access, and permissions[​](#availability-access-and-permissions "Direct link to Availability, access, and permissions")
+## Availability, access, and permissions
 
  How can non-developers interact with dbt Catalog?
 

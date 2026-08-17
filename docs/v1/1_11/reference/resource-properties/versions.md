@@ -31,7 +31,7 @@ models:
 
 The standard convention for naming model versions is `<model_name>_v<v>`. This holds for the file where dbt expects to find the model's definition (SQL or Python), and the alias it will use by default when materializing the model in the database.
 
-### `v`[​](#v "Direct link to v")
+### `v`
 
 The version identifier for a version of a model. This value can be numeric (integer or float), or any string.
 
@@ -41,13 +41,13 @@ In general, we recommend that you use a simple "major versioning" scheme for you
 
 To run a model with multiple versions, you can use the [`--select` flag](../node-selection/syntax.md). Refer to [Model versions](../../docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
 
-### `defined_in`[​](#defined_in "Direct link to defined_in")
+### `defined_in`
 
 The name of the model file (excluding the file extension, e.g. `.sql` or `.py`) where the model version is defined.
 
 If `defined_in` is not specified, dbt searches for the definition of a versioned model in a model file named `<model_name>_v<v>`. The **latest** version of a model may also be defined in a file named `<model_name>`, without the version suffix. Model file names must be globally unique, even when defining versioned implementations of a model with a different name.
 
-### `alias`[​](#alias "Direct link to alias")
+### `alias`
 
 The default resolved `alias` for a versioned model is `<model_name>_v<v>`. The logic for this is encoded in the `generate_alias_name` macro.
 
@@ -60,13 +60,11 @@ See ["Custom aliases"](../../docs/build/custom-aliases.md) for more details.
 
 Note that the value of `defined_in` and the `alias` configuration of a model are not coordinated, except by convention. The two are declared and determined independently.
 
-### `include`[​](#include "Direct link to include")
+### `include`
 
 The specification of which columns are defined in a model's top-level `columns` property to include or exclude in a versioned implementation of that model.
 
 * `include` is either:
-
-  <!-- -->
 
   * a list of specific column names to include
   * `'*'` or `'all'`, indicating that **all** columns from the top-level `columns` property should be included in the versioned model
@@ -108,7 +106,7 @@ models:
 
 By default, `include` is "all", and `exclude` is the empty list. This has the effect of including all columns from the base model in the versioned model.
 
-#### Example[​](#example "Direct link to Example")
+#### Example
 
 models/customers.yml
 
@@ -160,34 +158,27 @@ Each other version has declared a modification from the top-level property:
 * `v2` will include all columns *except* `customer_country`.
 * `v1` doesn't include *any* of the top-level `columns`. Instead, it declares only a single integer column named `id`.
 
-### Our recommendations[​](#our-recommendations "Direct link to Our recommendations")
+### Our recommendations
+
+(Applies to dbt v1.11 and earlier)
 
 * Follow a consistent naming convention for model versions and aliases.
 * Use `defined_in` and `alias` only if you have good reason.
 * Create a view that always points to the latest version of your model. You can automate this for all versioned models in your project with an `on-run-end` hook. For more details, read the full docs on ["Model versions"](../../docs/mesh/govern/model-versions.md#configuring-database-location-with-alias)
 
-<!-- -->
-
-### Detecting breaking changes[​](#detecting-breaking-changes "Direct link to Detecting breaking changes")
+### Detecting breaking changes
 
 When you use the `state:modified` selection method in Slim CI, dbt will detect changes to versioned model contracts, and raise an error if any of those changes could be breaking for downstream consumers.
-
-<!-- -->
 
 Breaking changes include:
 
 * Removing an existing column
 * Changing the data\_type of an existing column
 * Removing or modifying one of the `constraints` on an existing column (dbt v1.6 or higher)
-* <!-- -->
-  Changing unversioned, contracted models.
-  <!-- -->
-  * <!-- -->
-    dbt also warns if a model has or had a contract but isn't versioned.
-    <!-- -->
+* Changing unversioned, contracted models.
+  * dbt also warns if a model has or had a contract but isn't versioned.
 
-- Example message for unversioned models
-- Example message for versioned models
+### Example message for unversioned models
 
 ```text
   Breaking Change to Unversioned Contract for contracted_model (models/contracted_models/contracted_model.sql)
@@ -204,6 +195,8 @@ Breaking changes include:
     - Materialization changed with enforced constraints:
       - table -> view
 ```
+
+### Example message for versioned models
 
 ```text
 Breaking Change to Contract Error in model sometable (models/sometable.sql)

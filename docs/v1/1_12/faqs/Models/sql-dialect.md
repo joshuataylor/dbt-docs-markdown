@@ -16,9 +16,7 @@ select 1 as my_column
 
 To replace an existing table, here's an *illustrative* example of the SQL dbt will run on different warehouses (the actual SQL can get much more complicated than this!)
 
-* Redshift
-* BigQuery
-* Snowflake
+### Redshift
 
 ```sql
 -- you can't create or replace on redshift, so use a transaction to do this in an atomic way
@@ -42,6 +40,8 @@ drop table if exists "dbt_alice"."test_model__dbt_backup" cascade;
 commit;
 ```
 
+### BigQuery
+
 ```sql
 
 -- Make an API call to create a dataset (no DDL interface for this)!!;
@@ -50,6 +50,8 @@ create or replace table `dbt-dev-87681`.`dbt_alice`.`test_model` as (
   select 1 as my_column
 );
 ```
+
+### Snowflake
 
 ```sql
 create schema if not exists analytics.dbt_alice;

@@ -12,7 +12,7 @@ Unlike other resource types, tests can also be selected *indirectly* through rel
 
 Test selection is powerful, and we know it can be tricky. To that end, we've included lots of examples below:
 
-### Direct selection[​](#direct-selection "Direct link to Direct selection")
+### Direct selection
 
 Use the `test_type` selector to run a specific category of tests without relying on model selection. This is useful when you want to isolate unit tests from data tests — for example, running only unit tests during development for fast feedback, or running only data tests in production where unit test compute isn't needed. The `test_type` selector works across all engines (dbt Core and Fusion).
 
@@ -44,7 +44,7 @@ dbt test --select "test_type:singular"
 
 In all cases, `test_type` checks a property of the test itself — these are forms of "direct" test selection.
 
-### Indirect selection[​](#indirect-selection "Direct link to Indirect selection")
+### Indirect selection
 
 Indirect selection modes control which tests run based on the models you select and their relationships in your DAG. These modes determine how dbt handles tests that reference your selected models, either directly or through upstream/downstream relationships.
 
@@ -54,7 +54,7 @@ Building subsets of a DAG
 
 The `buildable` and `cautious` modes can be useful when you're only building a subset of your DAG, and you want to avoid test failures in `eager` mode caused by unbuilt resources. You can also achieve this with [deferral](./defer.md).
 
-#### Eager mode (default)[​](#eager-mode "Direct link to Eager mode (default)")
+#### Eager mode (default)
 
 Most inclusive and runs tests if *any* of the parent nodes are selected, regardless of whether all dependencies are met. This includes *any* tests that reference the selected nodes, even if they also reference other unselected nodes.
 
@@ -66,19 +66,19 @@ For example, if you run `dbt test --select model_b`, eager mode will run:
 
 dbt builds models that depend on the selected model. In this mode, any tests depending on unbuilt resources will raise an error.
 
-#### Buildable mode[​](#buildable-mode "Direct link to Buildable mode")
+#### Buildable mode
 
 Buildable mode is a middle ground between `cautious` and `eager`, running only tests that reference selected nodes (or their ancestors). This mode is slightly more inclusive than `cautious` by including tests whose references are each within the selected nodes (or their ancestors). This mode is useful when a test depends on a model *and* a direct ancestor of that model, like confirming an aggregation has the same totals as its input.
 
-#### Cautious mode[​](#cautious-mode "Direct link to Cautious mode")
+#### Cautious mode
 
 Cautious is the most exclusive mode and ensures that tests are executed and models are built only when all necessary dependencies of the selected models are met. Restricts tests to only those that exclusively reference selected nodes. Tests will only be executed if all the nodes they depend on are selected, which prevents tests from running if one or more of its parent nodes are unselected and, consequently, unbuilt.
 
-#### Empty mode[​](#empty-mode "Direct link to Empty mode")
+#### Empty mode
 
 Empty mode runs no tests and restricts the build to the selected node, ignoring all indirect dependencies. It doesn't execute any tests, whether they are directly attached to the selected node or not. The empty mode is automatically used for [interactive compilation](../commands/compile.md#interactive-compile).
 
-### Indirect selection examples[​](#indirect-selection-examples "Direct link to Indirect selection examples")
+### Indirect selection examples
 
 To visualize these methods, suppose you have `model_a`, `model_b`, and `model_c` and associated data tests. The following illustrates which tests will be run when you execute `dbt build` with the various indirect selection modes:
 
@@ -92,10 +92,7 @@ To visualize these methods, suppose you have `model_a`, `model_b`, and `model_c`
 
 [![Empty](/img/docs/reference/indirect-selection-empty.png?v=2 "Empty")](#)Empty
 
-* Eager mode (default)
-* Buildable mode
-* Cautious mode
-* Empty mode
+### Eager mode (default)
 
 In this example, during the build process, any test that depends on the selected "orders" model or its dependent models will be executed, even if it depends other models as well.
 
@@ -104,6 +101,8 @@ dbt test --select "orders"
 dbt build --select "orders"
 ```
 
+### Buildable mode
+
 In this example, dbt executes tests that reference "orders" within the selected nodes (or their ancestors).
 
 ```shell
@@ -111,12 +110,16 @@ dbt test --select "orders" --indirect-selection=buildable
 dbt build --select "orders" --indirect-selection=buildable
 ```
 
+### Cautious mode
+
 In this example, only tests that depend *exclusively* on the "orders" model will be executed:
 
 ```shell
 dbt test --select "orders" --indirect-selection=cautious
 dbt build --select "orders" --indirect-selection=cautious
 ```
+
+### Empty mode
 
 This mode does not execute any tests, whether they are directly attached to the selected node or not.
 
@@ -126,7 +129,7 @@ dbt test --select "orders" --indirect-selection=empty
 dbt build --select "orders" --indirect-selection=empty
 ```
 
-### Test selection syntax examples[​](#test-selection-syntax-examples "Direct link to Test selection syntax examples")
+### Test selection syntax examples
 
 Setting `indirect_selection` can also be specified in a [yaml selector](./yaml-selectors.md#indirect-selection).
 
@@ -180,7 +183,7 @@ dbt test --select "source:jaffle_shop.customers"
 dbt test --exclude "source:*"
 ```
 
-### More complex selection[​](#more-complex-selection "Direct link to More complex selection")
+### More complex selection
 
 Through the combination of direct and indirect selection, there are many ways to accomplish the same outcome. Let's say we have a data test named `assert_total_payment_amount_is_positive` that depends on a model named `payments`. All of the following would manage to select and execute that test specifically:
 
@@ -205,7 +208,7 @@ dbt test --select "config.materialized:snapshot"
 
 Note that this functionality may change in future versions of dbt.
 
-### Run tests on tagged columns[​](#run-tests-on-tagged-columns "Direct link to Run tests on tagged columns")
+### Run tests on tagged columns
 
 Because the column `order_id` is tagged `my_column_tag`, the test itself also receives the tag `my_column_tag`. Because of that, this is an example of direct selection.
 
@@ -229,7 +232,7 @@ dbt test --select "tag:my_column_tag"
 
 Currently, tests "inherit" tags applied to columns, sources, and source tables. They do *not* inherit tags applied to models, seeds, or snapshots. In all likelihood, those tests would still be selected indirectly, because the tag selects its parent. This is a subtle distinction, and it may change in future versions of dbt.
 
-### Run tagged tests only[​](#run-tagged-tests-only "Direct link to Run tagged tests only")
+### Run tagged tests only
 
 This is an even clearer example of direct selection: the test itself is tagged `my_test_tag`, and selected accordingly.
 

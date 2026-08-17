@@ -1,6 +1,6 @@
 # Account-scoped personal access tokens
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 warning
 
@@ -12,7 +12,7 @@ PATs inherit the permissions of the user that created them. For example, if a de
 
 You can't use a PAT to create a [service token](./service-tokens.md). Requests to create a service token authenticated with a PAT return a `400` error — use an existing service token to create new ones instead.
 
-## Create a personal access token[​](#create-a-personal-access-token "Direct link to Create a personal access token")
+## Create a personal access token
 
 Creating an account-scoped PAT requires only a few steps.
 
@@ -26,7 +26,7 @@ Creating an account-scoped PAT requires only a few steps.
 
 To maintain best security practices, it's recommended that you regularly rotate your PATs. To do so, create a new token and delete the old one once it's in place.
 
-## Delete a personal access token[​](#delete-a-personal-access-token "Direct link to Delete a personal access token")
+## Delete a personal access token
 
 To permanently delete a PAT:
 
@@ -34,26 +34,21 @@ To permanently delete a PAT:
 2. Find the token you want to delete and click "X" to the right of the token description fields.
 3. **Confirm delete** and the token will no longer be valid.
 
-## Migrate deprecated user API keys to personal access tokens[​](#migrate-deprecated-user-api-keys-to-personal-access-tokens "Direct link to Migrate deprecated user API keys to personal access tokens")
+## Migrate deprecated user API keys to personal access tokens
 
 The migration to PATs is critical if you are using user API keys today. The current API key is located under **Personal Settings → API Key**.
 
 There are a few things to understand if you are using a user API key today:
 
 * PATs are more secure.
-  <!-- -->
   * To promote the least privilege and high-security assurance for your dbt accounts, we highly recommend moving to the new account-scoped PATs.
 
 * You must create and use unique tokens in each one of your dbt accounts that share the same email address.
-
-  <!-- -->
 
   * For example, if <paul.atreides@example.com> belongs to two dbt accounts: Spice Harvesting Account and Guild Navigator Account. Before this release, the same API key was used to access both of these accounts.
   * After this release, Paul has to individually go into these accounts and create a unique PAT for each account he wants to access the API for. These PATs are account-specific and not user specific.
 
 * Cross-Account API endpoints will change in behavior when using PATs.
-
-  <!-- -->
 
   * These are namely /v2/accounts and /v3/accounts. Since all PATs are now account specific, getting all accounts associated with a username cannot work. /v3/accounts will only return account metadata that’s relevant to the PAT that’s being used.
   * User account metadata will only contain information about the specific account under which the request is being made.
@@ -63,7 +58,7 @@ Undocumented APIs
 
 If you’re using any undocumented and unsupported API endpoints, please note that these can be deprecated without any notice. If you are using any undocumented endpoints and have use-cases that are not satisfied by the current API, please reach out to <support@getdbt.com>.
 
-### Using the personal access tokens[​](#using-the-personal-access-tokens "Direct link to Using the personal access tokens")
+### Using the personal access tokens
 
 Are you using a user API key today to access dbt APIs in any of your workflows? If not, you don’t have any action to take. If you are using a user API key, please follow the instructions below.
 

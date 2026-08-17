@@ -16,7 +16,7 @@ sources:
     schema: ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Override a source defined in an included package. The properties defined in the overriding source will be applied on top of the base properties of the overridden source.
 
@@ -32,9 +32,9 @@ The following source properties can be overridden:
 * [loaded\_at\_field](./freshness.md#loaded_at_field)
 * [tags](../resource-configs/tags.md)
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Supply your database and schema name for a source defined in a package[​](#supply-your-database-and-schema-name-for-a-source-defined-in-a-package "Direct link to Supply your database and schema name for a source defined in a package")
+### Supply your database and schema name for a source defined in a package
 
 This example is based on the [Fivetran GitHub Source package](https://github.com/fivetran/dbt_github_source/blob/830ba43ac2948e4853a3c167ab7ee88b8b425fa0/models/src_github.yml#L3-L29). Here, the database and schema are overridden in the parent dbt project which includes the `github_source` package.
 
@@ -50,7 +50,7 @@ sources:
     schema: github_data
 ```
 
-### Configure your own source freshness for a source table in a package[​](#configure-your-own-source-freshness-for-a-source-table-in-a-package "Direct link to Configure your own source freshness for a source table in a package")
+### Configure your own source freshness for a source table in a package
 
 You can override configurations at both the source and the table level
 

@@ -1,6 +1,6 @@
 # About environment-level permissions
 
-dbt platformⓘ
+dbt platform
 
 Environment-level permissions give dbt admins the ability to grant write permission to groups and service tokens for specific [environment types](../../dbt-platform-environments.md) within a project. Granting access to an environment gives users access to all environment-level write actions and resources associated with their assigned roles. For example, users with a Developer role can create and run jobs within the environment(s) they have access to. For all other environments, those same users will have read-only access.
 
@@ -8,17 +8,16 @@ You can configure multiple rows for the same permission set within a group when 
 
 For configuration instructions, check out the [setup page](./environment-permissions-setup.md).
 
-## Current limitations[​](#current-limitations "Direct link to Current limitations")
+## Current limitations
 
 Environment-level permissions give dbt admins more flexibility to protect their environments, but it's important to understand that there are some limitations to this feature, so those admins can make informed decisions about granting access.
 
 * Environment-level permissions do not allow you to create custom roles and permissions for each resource type in dbt.
 * You can only select environment types, and can’t specify a particular environment within a project.
 * You can't select specific resources within environments. dbt jobs and runs are environment resources.
-  <!-- -->
   * For example, you can't specify that a user only has access to jobs but not runs. Access to a given environment gives the user access to everything within that environment.
 
-## Environments and roles[​](#environments-and-roles "Direct link to Environments and roles")
+## Environments and roles
 
 dbt has four different environment types per project:
 
@@ -27,7 +26,7 @@ dbt has four different environment types per project:
 * **Staging** — Pre-prod environment that sits between development and production. Only one unique Staging env per project.
 * **General** — Mixed use environments. No limit on the number per project.
 
-### Environment write permissions[​](#environment-write-permissions "Direct link to Environment write permissions")
+### Environment write permissions
 
 Environment write permissions grant access to create, edit, and delete runs and jobs within an environment. However, they don't grant users access to create or delete environments themselves. See [Enterprise permissions](./enterprise-permissions.md) for more information about elevated permission sets.
 
@@ -51,11 +50,11 @@ Determine what personas need updated environment access and the roles they shoul
 * **Analyst** — Doesn't need environmental write access but read-only access for discovery and troubleshooting
 * **Other admins** — These admins may need write access to create/run jobs or configure integrations for any number of environments
 
-## Projects and environments[​](#projects-and-environments "Direct link to Projects and environments")
+## Projects and environments
 
 Environment-level permissions can be enforced over one or multiple projects with mixed access to the environments themselves.
 
-### Single project environments[​](#single-project-environments "Direct link to Single project environments")
+### Single project environments
 
 If you’re working with a single project, we recommend restricting access to the Production environment and ensuring groups have access to Development, Staging, or General environments where they can safely create and run jobs. The following is an example of how the personas could be mapped to roles:
 
@@ -65,7 +64,7 @@ If you’re working with a single project, we recommend restricting access to th
 * **Analyst:** Analyst role with no write access and read-only access to environments.
 * **Other Admins:** Depends on the admin needs. For example, if they are managing the production deployment grant access to all environments.
 
-### Multiple projects[​](#multiple-projects "Direct link to Multiple projects")
+### Multiple projects
 
 Let's say Acme corp has 12 projects and 3 of them belong to Finance, 3 belong to Marketing, 4 belong to Manufacturing, and 2 belong to Technology.
 
@@ -79,6 +78,6 @@ With mixed access across projects:
 
 If the user has the same roles across projects, you can apply environment access across all projects.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Environment-level permissions setup](./environment-permissions-setup.md)

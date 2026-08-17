@@ -1,10 +1,10 @@
 # Tableau
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The Tableau integration allows you to use worksheets to query the Semantic Layer directly and produce your dashboards with trusted data. It provides a live connection to the Semantic Layer through Tableau Desktop or Tableau Server.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher.
 * You must have [Tableau Desktop](https://www.tableau.com/en-gb/products/desktop) version 2021.1 and greater, Tableau Server, or [Tableau Cloud](https://www.tableau.com/products/cloud-bi).
@@ -12,15 +12,13 @@ The Tableau integration allows you to use worksheets to query the Semantic Layer
 * You need your [dbt host](../../use-dbt-semantic-layer/setup-sl.md#3-view-connection-detail), [Environment ID](../../use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer), and a [service token](../../dbt-apis/service-tokens.md) or a [personal access token](../../dbt-apis/user-tokens.md) to log in. This account should be set up with the Semantic Layer.
 * You must have a dbt Starter or Enterprise-tier [account](https://www.getdbt.com/pricing). Suitable for both Multi-tenant and Single-tenant deployment.
 
-<!-- -->
-
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
 Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer) to learn how to define and query metrics in your dbt project.
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-## Installing the connector[​](#installing-the-connector "Direct link to Installing the connector")
+## Installing the connector
 
 The Semantic Layer Tableau connector is available to download directly on [Tableau Exchange](https://exchange.tableau.com/products/1020). The connector is supported in Tableau Desktop, Tableau Server, and Tableau Cloud.
 
@@ -34,15 +32,7 @@ Alternatively, you can follow these steps to install the connector. Note that th
 | Mac              | `/Users/[user]/Documents/My Tableau Repository/Connectors`            | Not applicable                        |
 | Linux            | `/opt/tableau/connectors`                                             | `/opt/tableau/connectors`             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 2. Install the [JDBC driver](../../dbt-apis/sl-jdbc.md) to the folder based on your operating system:
-
-   <!-- -->
 
    * Windows: `C:\Program Files\Tableau\Drivers`
    * Mac: `~/Library/Tableau/Drivers` or `/Library/JDBC` or `~/Library/JDBC`
@@ -51,10 +41,9 @@ Search table...
 3. Open Tableau Desktop or Tableau Server and find the **Semantic Layer by dbt Labs** connector on the left-hand side. You may need to restart these applications for the connector to be available.
 
 4. Connect with your Host, Environment ID, and service or personal token information dbt provides during the [Semantic Layer configuration](../../use-dbt-semantic-layer/setup-sl.md).
-   <!-- -->
    * In Tableau Server, the authentication screen may show "User" & "Password" instead, in which case the User is the Environment ID and the password is the Service Token.
 
-## Using the integration[​](#using-the-integration "Direct link to Using the integration")
+## Using the integration
 
 1. **Authentication** — Once you authenticate, the system will direct you to the data source page.
 2. **Access all Semantic Layer Objects** — Use the "ALL" data source to access all the metrics, dimensions, and entities configured in your Semantic Layer. Note that the "METRICS\_AND\_DIMENSIONS" data source has been deprecated and replaced by "ALL". Be sure to use a live connection since extracts are not supported at this time.
@@ -64,13 +53,11 @@ Search table...
 
 Visit the [Tableau documentation](https://help.tableau.com/current/pro/desktop/en-us/gettingstarted_overview.htm) to learn more about how to use Tableau worksheets and dashboards.
 
-### Publish from Tableau Desktop to Tableau Server[​](#publish-from-tableau-desktop-to-tableau-server "Direct link to Publish from Tableau Desktop to Tableau Server")
+### Publish from Tableau Desktop to Tableau Server
 
 * **From Desktop to Server** — Like any Tableau workflow, you can publish your workbook from Tableau Desktop to Tableau Server. For step-by-step instructions, visit Tableau's [publishing guide](https://help.tableau.com/current/pro/desktop/en-us/publish_workbooks_share.htm).
 
-#### Modifying time granularity[​](#modifying-time-granularity "Direct link to Modifying time granularity")
-
-<!-- -->
+#### Modifying time granularity
 
 When you select time dimensions in the **Group By** menu, you'll see a list of available time granularities. The lowest granularity is selected by default. Metric time is the default time dimension for grouping your metrics.
 
@@ -78,7 +65,7 @@ info
 
 Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](../../build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](../../dbt-apis/sl-api-overview.md).
 
-## Things to note[​](#things-to-note "Direct link to Things to note")
+## Things to note
 
 **Aggregation**<br />
 
@@ -95,11 +82,10 @@ Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custo
 * Certain Table calculations like "Totals" and "Percent Of" may not be accurate when using metrics aggregated in a non-additive way (such as count distinct)
 * In any of our Semantic Layer interfaces (not only Tableau), you must include a [time dimension](../../build/cumulative.md#limitations) when working with any cumulative metric that has a time window or granularity.
 * We can support calculated fields for creating parameter filters or dynamically selecting metrics and dimensions. However, other uses of calculated fields are not supported.
-  <!-- -->
   * *Note: For calculated field use cases that are not currently covered, please reach out to [dbt Support](<mailto:support@getdbt.com?subject=dbt Semantic Layer feedback>) and share them so we can further understand.*
 * When using saved queries that include filters, we will automatically apply any filters that the query has.
 
-## Unsupported functionality[​](#unsupported-functionality "Direct link to Unsupported functionality")
+## Unsupported functionality
 
 The following Tableau features aren't supported at this time, however, the Semantic Layer may support some of this functionality in a future release:
 
@@ -115,7 +101,7 @@ The following Tableau features aren't supported at this time, however, the Seman
 * Performing joins between tables that the Semantic Layer creates. It handles joins for you, so there's no need to join components in the Semantic Layer. Note, that you *can* join tables from the Semantic Layer to ones outside your data platform.
 * The Tableau integration doesn't currently display descriptive labels defined in your `metrics` configuration, meaning custom labels won't be visible when those metrics are imported/queried into Tableau.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 I'm receiving an \`Failed ALPN\` error when trying to connect to the dbt Semantic Layer.
 

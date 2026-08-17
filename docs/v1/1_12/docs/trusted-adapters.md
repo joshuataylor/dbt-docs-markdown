@@ -4,15 +4,11 @@ Trusted adapters take part in the Trusted Adapter Program, including a commitmen
 
 Free and open-source tools for the data professional are increasingly abundant. This is by-and-large a *good thing*, however it requires due diligence that wasn't required in a paid-license, closed-source software world. As a user, there are important questions to answer before taking a dependency on an open-source project. The trusted adapter designation is meant to streamline this process for end users.
 
-### Trusted adapter specifications[​](#trusted-adapter-specifications "Direct link to Trusted adapter specifications")
+### Trusted adapter specifications
 
 Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for more information, particularly if you are an adapter maintainer considering having your adapter be added to the trusted list.
 
-### Trusted adapters[​](#trusted-adapters "Direct link to Trusted adapters")
-
-<!-- -->
-
-<!-- -->
+### Trusted adapters
 
 ![](/img/icons/alloydb.svg)
 

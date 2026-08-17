@@ -1,6 +1,6 @@
 # Headless mode [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 dbt Wizard can run without the interactive TUI — useful for scripts, CI pipelines, pre-commit hooks, and any workflow where you want a one-shot result without human-in-the-loop approval.
 
@@ -12,7 +12,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-## `exec` — one-shot prompts[​](#exec--one-shot-prompts "Direct link to exec--one-shot-prompts")
+## `exec` — one-shot prompts
 
 Run a single prompt and exit:
 
@@ -33,7 +33,7 @@ Use `exec` in CI to gate on quality checks:
 wizard exec "are there any models in models/marts/ with no tests?"
 ```
 
-### JSON output[​](#json-output "Direct link to JSON output")
+### JSON output
 
 For downstream processing, emit a structured JSON event stream:
 
@@ -58,7 +58,7 @@ wizard exec \
   "review the changes in this branch for correctness"
 ```
 
-## `review` — automated code review[​](#review--automated-code-review "Direct link to review--automated-code-review")
+## `review` — automated code review
 
 Review uncommitted changes:
 
@@ -78,7 +78,7 @@ Review a specific commit:
 wizard review --commit abc1234
 ```
 
-### Example: GitHub Actions code review[​](#example-github-actions-code-review "Direct link to Example: GitHub Actions code review")
+### Example: GitHub Actions code review
 
 ```yaml
 - name: dbt Wizard review
@@ -89,7 +89,7 @@ wizard review --commit abc1234
     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 ```
 
-## Permissions in headless mode[​](#permissions-in-headless-mode "Direct link to Permissions in headless mode")
+## Permissions in headless mode
 
 In headless `exec` mode, Wizard runs without interactive approval prompts. Pre-grant the sandbox permissions you need:
 
@@ -106,7 +106,7 @@ wizard exec -s workspace-write "compile and validate fct_orders"
 
 For read-only analysis tasks (coverage checks, impact queries, documentation gaps), the default permissions are sufficient. For tasks that write files or run dbt commands, pass the appropriate flags explicitly.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Wizard command reference](./wizard-cli-reference.md)
 * [Use cases and examples](./wizard-use-cases.md)

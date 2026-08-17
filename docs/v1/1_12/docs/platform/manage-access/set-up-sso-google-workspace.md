@@ -1,6 +1,6 @@
 # Set up SSO with Google Workspace
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt Enterprise-tier plans support Single-Sign On (SSO) via Google GSuite. You will need permissions to create and manage a new Google OAuth2 application, as well as access to enable the Google Admin SDK. Gsuite is a component within Google Cloud Platform (GCP), so you will also need access to a login with permissions to manage the GSuite application within a GCP account.
 
@@ -13,11 +13,11 @@ Currently supported features include:
 
 This guide outlines the setup process for authenticating to dbt with Google GSuite.
 
-## Configuration of the GSuite organization within GCP[​](#configuration-of-the-gsuite-organization-within-gcp "Direct link to Configuration of the GSuite organization within GCP")
+## Configuration of the GSuite organization within GCP
 
 dbt uses a Client ID and Client Secret to authenticate users of a GSuite organization. The steps below outline how to create a Client ID and Client Secret for use in dbt.
 
-### Creating credentials[​](#creating-credentials "Direct link to Creating credentials")
+### Creating credentials
 
 1. Navigate to the GCP [API Manager](https://console.developers.google.com/projectselector/apis/credentials)
 2. Select an existing project, or create a new project for your API Credentials
@@ -33,12 +33,6 @@ dbt uses a Client ID and Client Secret to authenticate users of a GSuite organiz
 | **Authorized domains** | `getdbt.com` (US multi-tenant) `getdbt.com` and `dbt.com`(US Cell 1) `dbt.com` (EMEA or AU)                                 | If deploying into a VPC, use the domain for your deployment |
 | **Scopes**             | `email, profile, openid`                                                                                                    | The default scopes are sufficient                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 [![GSuite Consent Screen configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-consent-top.png?v=2 "GSuite Consent Screen configuration")](#)GSuite Consent Screen configuration
 
 6. Save the **Consent screen** settings to navigate back to the **Create OAuth client id** page.
@@ -51,27 +45,21 @@ Search table...
 | **Authorized Javascript origins** | `https://YOUR_ACCESS_URL`               |
 | **Authorized Redirect URIs**      | `https://YOUR_AUTH0_URI/login/callback` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 [![GSuite Credentials configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-credentials.png?v=2 "GSuite Credentials configuration")](#)GSuite Credentials configuration
 
 8. Press "Create" to create your new credentials. A popup will appear with a **Client ID** and **Client Secret**. Write these down as you will need them later!
 
-### Enabling the Admin SDK[​](#enabling-the-admin-sdk "Direct link to Enabling the Admin SDK")
+### Enabling the Admin SDK
 
 dbt requires that the Admin SDK is enabled in this application to request Group Membership information from the GSuite API. To enable the Admin SDK for this project, navigate to the [Admin SDK Settings page](https://console.developers.google.com/apis/api/admin.googleapis.com/overview) and ensure that the API is enabled.
 
 [![The 'Admin SDK' page](/img/docs/dbt-platform/dbt-platform-enterprise/7f36f50-Screen_Shot_2019-12-03_at_10.15.01_AM.png?v=2 "The 'Admin SDK' page")](#)The 'Admin SDK' page
 
-## Configuration in dbt[​](#configuration-in-dbt "Direct link to Configuration in dbt")
+## Configuration in dbt
 
 To complete setup, follow the steps below in the dbt application.
 
-### Supply your OAuth Client ID and Client Secret[​](#supply-your-oauth-client-id-and-client-secret "Direct link to Supply your OAuth Client ID and Client Secret")
+### Supply your OAuth Client ID and Client Secret
 
 1. Navigate to **Account settings** > **SSO & SCIM**.
 
@@ -104,20 +92,20 @@ For SSO through your identity provider, you can also use the following URL forma
 
 Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
-## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
+## Setting up RBAC
 
 Now you have completed setting up SSO with GSuite, the next steps will be to set up [RBAC groups](./about-user-access.md#role-based-access-control-) to complete your access control configuration.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
-### Invalid client error[​](#invalid-client-error "Direct link to Invalid client error")
+### Invalid client error
 
 If you experience an `Error 401: invalid_client` when authorizing with GSuite, double check that:
 
 * The Client ID provided matches the value generated in the GCP API Credentials page.
 * Ensure the Domain Name(s) provided matches the one(s) for your GSuite account.
 
-### OAuth errors[​](#oauth-errors "Direct link to OAuth errors")
+### OAuth errors
 
 If OAuth verification does not complete successfully, double check that:
 
@@ -127,4 +115,4 @@ If OAuth verification does not complete successfully, double check that:
 
 For additional troubleshooting — including email verification issues, MFA double prompts, and SSO enforcement behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
-## Learn more[​](#learn-more "Direct link to Learn more")
+## Learn more

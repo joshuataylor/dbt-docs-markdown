@@ -14,13 +14,11 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Moving from dbt Core to dbt streamlines analytics engineering workflows by allowing teams to develop, test, deploy, and explore data products using a single, fully managed software service. It's not just better tooling — it's about lowering total cost of ownership, powering AI with trusted data, and scaling with governed self-service.
 
 Explore our 3-part-guide series on moving from dbt Core to dbt. The series is ideal for users aiming for streamlined workflows and enhanced analytics:
-
-<!-- -->
 
 | Guide                                                                                                           | Information                                                                                  | Audience                                          |
 | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -28,13 +26,7 @@ Explore our 3-part-guide series on moving from dbt Core to dbt. The series is id
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -61,8 +53,6 @@ It's ideal for teams looking to reduce the burden of maintaining their own infra
 
 * dbt is the fastest and most reliable way to deploy dbt. It enables you to develop, test, deploy, and explore data products using a single, fully managed service. It also supports:
 
-  <!-- -->
-
   * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](../docs/platform/dbt-cli-installation.md))
   * Out-of-the-box [CI/CD workflows](../docs/deploy/ci-jobs.md)
   * The [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) for consistent metrics
@@ -73,7 +63,7 @@ Learn more about [dbt features](../docs/platform/about-platform/dbt-platform-fea
 
 * dbt Core is an open-source tool that enables data teams to define and execute data transformations in a cloud data warehouse following analytics engineering best practices. While this can work well for 'single players' and small technical teams, all development happens on a command-line interface, and production deployments must be self-hosted and maintained. This requires significant, costly work that adds up over time to maintain and scale.
 
-## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
+## What you'll learn
 
 Today thousands of companies, with data teams ranging in size from 2 to 2,000, rely on dbt to accelerate data work, increase collaboration, and win the trust of the business. Understanding what you'll need to do in order to move between dbt and your current Core deployment will help you strategize and plan for your move.
 
@@ -87,7 +77,7 @@ The guide outlines the following steps:
 * [Summary](./core-migration-2.md?step=8): Summarizes key takeaways and what you've learned in this guide.
 * [What's next?](./core-migration-2.md?step=9): Introduces what to expect in the following guides.
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -116,7 +106,7 @@ dbt provides standard mechanisms for tackling these considerations, all of which
 
 If you have rolled out your own dbt Core deployment, you have probably come up with different answers.
 
-## Plan your move[​](#plan-your-move "Direct link to Plan your move")
+## Plan your move
 
 As you plan your move, consider your workflow and team layout to ensure a smooth transition. Here are some key considerations to keep in mind:
 
@@ -149,14 +139,11 @@ Discover how dbt can help simplify development, orchestration, and testing:
 
 * **Orchestration**: Create custom schedules to run your production jobs. Schedule jobs by day of the week, time of day, or a recurring interval.
 
-  <!-- -->
-
   * Set up [a CI job](../docs/deploy/ci-jobs.md) to ensure developer effectiveness, and CD jobs to deploy changes as soon as they're merged.
   * Link deploy jobs together by [triggering a job](../docs/deploy/deploy-jobs.md#trigger-on-job-completion) when another one is completed.
   * For the most flexibility, use the [dbt API](https://docs.getdbt.com/dbt-cloud/api-v2#/) to trigger jobs. This makes sense when you want to integrate dbt execution with other data workflows.
 
 * **Continuous integration (CI)**: Use [CI jobs](../docs/deploy/ci-jobs.md) to run your dbt projects in a temporary schema when new commits are pushed to open pull requests. This build-on-PR functionality is a great way to catch bugs before deploying to production.
-  <!-- -->
   * For many teams, dbt CI represents a major improvement compared to their previous development workflows.
 
 * **How are you defining tests today?**: While testing production data is important, it's not the most efficient way to catch logical errors introduced by developers You can use [unit testing](../docs/build/unit-tests.md) to allow you to validate your SQL modeling logic on a small set of static inputs *before* you materialize your full model in production.
@@ -174,7 +161,7 @@ If you require isolation between production and pre-production data environments
 
 This provides developers with the benefits of an enhanced workflow while ensuring isolation between Staging and Production data, and locking down permissions on Prod.
 
-## Move to dbt[​](#move-to-dbt "Direct link to Move to dbt")
+## Move to dbt
 
 This guide is your roadmap to help you think about migration strategies and what moving from dbt Core to dbt could look like.
 
@@ -184,7 +171,7 @@ After reviewing the considerations and planning your move, you may want to start
 
 For a more detailed comparison of dbt Core and dbt, check out [How dbt compares with dbt Core](https://www.getdbt.com/product/dbt-core-vs-dbt-cloud).
 
-## Test and validate[​](#test-and-validate "Direct link to Test and validate")
+## Test and validate
 
 After [setting the foundations of dbt](./core-migration-1.md?step=1), it's important to validate your migration to ensure seamless functionality and data integrity:
 
@@ -193,7 +180,7 @@ After [setting the foundations of dbt](./core-migration-1.md?step=1), it's impor
 * **Precision testing:** Use [unit testing](../docs/build/unit-tests.md) to allow you to validate your SQL modeling logic on a small set of static inputs *before* you materialize your full model in production.
 * **Access and permissions**: Review and adjust [access controls and permissions](../docs/platform/manage-access/about-user-access.md) within dbt to maintain security protocols and safeguard your data.
 
-## Transition and training[​](#transition-and-training "Direct link to Transition and training")
+## Transition and training
 
 Once you've confirmed that dbt orchestration and CI/CD are working as expected, you should pause your current orchestration tool and stop or update your current CI/CD process. This is not relevant if you're still using an external orchestrator (such as Airflow), and you've swapped out `dbt-core` execution for dbt execution (through the [API](../docs/dbt-apis/overview.md)).
 
@@ -205,7 +192,7 @@ Familiarize your team with dbt's [features](../docs/platform/about-platform/dbt-
 * **Notifications and logs:** Receive immediate [notifications](../docs/deploy/monitor-jobs.md) for job failures, with direct links to the job details. Access comprehensive logs for all job runs to help with troubleshooting.
 * **CI/CD:** Use dbt's [CI/CD](../docs/deploy/ci-jobs.md) feature to run your dbt projects in a temporary schema whenever new commits are pushed to open pull requests. This helps with catching bugs before deploying to production.
 
-### Beyond your move[​](#beyond-your-move "Direct link to Beyond your move")
+### Beyond your move
 
 Now that you've chosen dbt as your platform, you've unlocked the power of streamlining collaboration, enhancing workflow efficiency, and leveraging powerful [features](../docs/platform/about-platform/dbt-platform-features.md) for analytics engineering teams. Here are some additional features you can use to unlock the full potential of dbt:
 
@@ -215,14 +202,14 @@ Now that you've chosen dbt as your platform, you've unlocked the power of stream
 * **dbt Semantic Layer:** The [dbt Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) allows you to define universal metrics on top of your models that can then be queried in your [business intelligence (BI) tool](../docs/platform-integrations/avail-sl-integrations.md). This means no more inconsistent metrics — there's now a centralized way to define these metrics and create visibility in every component of the data flow. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 * **dbt Mesh:** Use [dbt Mesh](../best-practices/how-we-mesh/mesh-1-intro.md) to share data models across organizations, enabling data teams to collaborate on shared data models and leverage the work of other teams. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-### Additional help[​](#additional-help "Direct link to Additional help")
+### Additional help
 
 * **dbt Learn courses**: Access our free [Learn dbt](https://learn.getdbt.com) video courses for on-demand training.
 * **dbt Community:** Join the [dbt Community](https://community.getdbt.com/) to connect with other dbt users, ask questions, and share best practices.
 * **dbt Support team:** Our [dbt Support team](../docs/dbt-support.md) is always available to help you troubleshoot your dbt issues. Create a support ticket in dbt and we'll be happy to help!
 * **Account management** Enterprise accounts have an account management team available to help troubleshoot solutions and account management assistance. [Book a demo](https://www.getdbt.com/contact) to learn more. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-## Summary[​](#summary "Direct link to Summary")
+## Summary
 
 This guide should now have given you some insight and equipped you with a framework for moving from dbt Core to dbt. This guide has covered the following key areas:
 
@@ -236,7 +223,7 @@ This guide should now have given you some insight and equipped you with a framew
 
 * **Transition and training**: Share useful transition, training, and onboarding information for your team. Fully leverage dbt's capabilities, from development tools (dbt CLI and Studio IDE) to advanced features such as Catalog, the Semantic Layer, and Mesh.
 
-## What's next?[​](#whats-next "Direct link to What's next?")
+## What's next?
 
 Congratulations on finishing this guide, we hope it's given you insight into the considerations you need to take to best plan your move to dbt.
 
@@ -248,13 +235,7 @@ For the next steps, you can continue exploring our 3-part-guide series on moving
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -277,7 +258,7 @@ Moving from dbt Core to dbt simplifies workflows by providing a fully managed en
 
 It's ideal for teams looking to reduce the burden of maintaining their own infrastructure while enhancing governance and productivity.
 
-### Related content[​](#related-content "Direct link to Related content")
+### Related content
 
 * [Learn dbt](https://learn.getdbt.com) courses
 * Book [expert-led demos](https://www.getdbt.com/resources/dbt-cloud-demos-with-experts) and insights

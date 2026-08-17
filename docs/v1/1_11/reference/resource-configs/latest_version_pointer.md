@@ -1,24 +1,10 @@
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # latest\_version\_pointer
 
-* Project file
-* Property file
-* SQL config
+### Project file
 
 dbt\_project.yml
 
@@ -29,6 +15,8 @@ models:
       enabled: true | false
       alias: <string>
 ```
+
+### Property file
 
 models/schema.yml
 
@@ -41,6 +29,8 @@ models:
         alias: <string>
 ```
 
+### SQL config
+
 models/\<model\_name>.sql
 
 ```sql
@@ -52,7 +42,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 dbt platform on Fusion
 
@@ -76,20 +66,14 @@ flags:
 | `enabled` | boolean | —               | Enables or disables the pointer view for this model. Overrides the `latest_version_pointer_enabled_by_default` project flag when set; defers to the flag when not set. |
 | `alias`   | string  | Model base name | Custom name for the pointer view. Overrides the default base name. For more information, see [Alias customization](#alias-customization).                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Alias customization[​](#alias-customization "Direct link to Alias customization")
+## Alias customization
 
 By default, the pointer view uses the model's base name (for example, `dim_customers`). You can customize this in two ways:
 
 * **Per model**: Set `latest_version_pointer.alias` in the model config.
 * **Globally**: Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro in your project. This macro follows the same pattern as [`generate_alias_name`](../../docs/build/custom-aliases.md#generate_alias_name).
 
-## Naming collisions[​](#naming-collisions "Direct link to Naming collisions")
+## Naming collisions
 
 To prevent naming collisions, dbt raises a `dbt1005` error if the latest version's alias is the same as the pointer view name. In Fusion, where `latest_version_pointer` is enabled by default, this error can surface on models that have an explicit `alias` matching the model's base name, even if you never configured the pointer yourself.
 
@@ -119,7 +103,7 @@ To fix this, select one of the following options:
 * [Set a unique `alias`](#set-a-unique-alias)
 * [Override the `generate_latest_version_pointer_alias` macro](#override-the-generate_latest_version_pointer_alias-macro)
 
-#### Remove the `alias` (recommended)[​](#remove-the-alias-recommended "Direct link to remove-the-alias-recommended")
+#### Remove the `alias` (recommended)
 
 Remove the `alias` from the latest version and let the automatic pointer handle it:
 
@@ -128,7 +112,7 @@ config:
   alias: dim_customers
 ```
 
-#### Disable the latest version pointer for that model[​](#disable-the-latest-version-pointer-for-that-model "Direct link to Disable the latest version pointer for that model")
+#### Disable the latest version pointer for that model
 
 This approach is immediately backward-compatible for pre-existing `alias` configs:
 
@@ -140,14 +124,14 @@ This approach is immediately backward-compatible for pre-existing `alias` config
         enabled: false
 ```
 
-#### Set a unique `alias`[​](#set-a-unique-alias "Direct link to set-a-unique-alias")
+#### Set a unique `alias`
 
 ```yaml
         config:
           alias: dim_customers_latest
 ```
 
-#### Override the `generate_latest_version_pointer_alias` macro[​](#override-the-generate_latest_version_pointer_alias-macro "Direct link to override-the-generate_latest_version_pointer_alias-macro")
+#### Override the `generate_latest_version_pointer_alias` macro
 
 Override the [`generate_latest_version_pointer_alias`](../../docs/build/custom-aliases.md#generate_latest_version_pointer_alias) macro to use a different naming convention globally:
 
@@ -159,7 +143,7 @@ macros/generate\_latest\_version\_pointer\_alias.sql
 {%- endmacro %}
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Model versions](../../docs/mesh/govern/model-versions.md)
 * [Pointing to the latest version](../../docs/mesh/govern/model-versions.md#pointing-to-the-latest-version)

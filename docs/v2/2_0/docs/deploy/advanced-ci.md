@@ -1,6 +1,6 @@
 # Advanced CI
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 [Continuous integration workflows](./continuous-integration.md) help increase the governance and improve the quality of the data. Additionally for these CI jobs, you can use Advanced CI features, such as [compare changes](#compare-changes), that provide details about the changes between what's currently in your production environment and the pull request's latest commit, giving you observability into how data changes are affected by your code changes.
 
@@ -10,13 +10,13 @@ How to enable this feature
 
 You can opt into Advanced CI in dbt. Please refer to [Account access to Advanced CI features](../platform/account-settings.md#account-access-to-advanced-ci-features) to learn how enable it in your dbt account.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a dbt Enterprise or Enterprise+ account.
 * You have [Advanced CI features](../platform/account-settings.md#account-access-to-advanced-features) enabled.
 * You use a supported data platform: BigQuery, Databricks, Postgres, Redshift, or Snowflake. Support for additional data platforms coming soon.
 
-## Compare changes feature[​](#compare-changes "Direct link to Compare changes feature")
+## Compare changes feature
 
 For [CI jobs](./ci-jobs.md) that have the [**dbt compare** option enabled](./ci-jobs.md#set-up-ci-jobs), dbt compares the changes between the last applied state of the production environment (defaulting to deferral for lower compute costs) and the latest changes from the pull request, whenever a pull request is opened or new commits are pushed.
 
@@ -29,7 +29,7 @@ dbt reports the comparison differences in:
 
 [![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
 
-#### Compare changes in development[​](#compare-changes-in-development "Direct link to Compare changes in development")
+#### Compare changes in development
 
 You can compare changes locally in development to preview data changes caused by your local edits (for example, added/removed rows or joins) directly in your editor, and without waiting on CI. Compare changes in development is available through the dbt VS Code extension, which is powered by the dbt Fusion engine.
 
@@ -46,7 +46,7 @@ For more details on how to use this feature, see [Compare changes in local devel
 | **Data caching**    | Editor-side                                                                   | dbt platform [caches](./advanced-ci.md#about-the-cached-data) limited samples |
 | **Governance**      | Local development credentials                                                 | Production credentials                                                                                          |
 
-### Optimizing comparisons[​](#optimizing-comparisons "Direct link to Optimizing comparisons")
+### Optimizing comparisons
 
 When an [`event_time`](../../reference/resource-configs/event-time.md) column is specified on your model, compare changes can optimize comparisons by using only the overlapping timeframe (meaning the timeframe exists in both the CI and production environment), helping you avoid incorrect row-count changes and return results faster.
 
@@ -57,7 +57,7 @@ This is useful in scenarios like:
 
 [![event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.](/img/docs/deploy/apples_to_apples.png?v=2 "event_time ensures the same time-slice of data is accurately compared between your CI and production environments.")](#)event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.
 
-## About the cached data[​](#about-the-cached-data "Direct link to About the cached data")
+## About the cached data
 
 After [comparing changes](#compare-changes), dbt stores a cache of no more than 100 records for each modified model for preview purposes. By caching this data, you can view the examples of changed data without rerunning the comparison against the data warehouse every time (optimizing for lower compute costs). To display the changes, dbt uses a cached version of a sample of the data records. These data records are queried from the database using the connection configuration (such as user, role, service account, and so on) that's set in the CI job's environment.
 
@@ -72,7 +72,7 @@ If you access a CI job run that's more than 30 days old, you will not be able to
 
 [![Example of message about expired data in the Compare tab](/img/docs/deploy/compare-expired.png?v=2 "Example of message about expired data in the Compare tab")](#)Example of message about expired data in the Compare tab
 
-## Connection permissions[​](#connection-permissions "Direct link to Connection permissions")
+## Connection permissions
 
 The compare changes feature uses the same credentials as the CI job, as defined in the CI job’s environment. The dbt administrator must ensure that client CI credentials are appropriately restricted since all customer's account users will be able to view the comparison results and the cached data.
 
@@ -80,7 +80,7 @@ If using dynamic data masking in the data warehouse, the cached data will no lon
 
 [![Example of credentials in the user settings](/img/docs/deploy/compare-credentials.png?v=2 "Example of credentials in the user settings")](#)Example of credentials in the user settings
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  Compare changes CI models need to be on same database host/connection
 

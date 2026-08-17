@@ -14,7 +14,7 @@ Microbatch
 
 The [`microbatch` incremental strategy](./incremental-microbatch.md) is intended for large time-series datasets. dbt will process the incremental model in multiple queries (or "batches") based on a configured `event_time` column. Depending on the volume and nature of your data, this can be more efficient and resilient than using a single query for adding new data.
 
-### Supported incremental strategies by adapter[​](#supported-incremental-strategies-by-adapter "Direct link to Supported incremental strategies by adapter")
+### Supported incremental strategies by adapter
 
 This table shows the support of each incremental strategy across adapters available on Fusion or dbt's [Latest release track](../dbt-versions/dbt-release-tracks.md). Some strategies may be unavailable if you're not on Latest and the feature hasn't been released to the Compatible track.
 
@@ -36,13 +36,7 @@ Click the name of the adapter in the following table for more information about 
 | [dbt-teradata](../../reference/resource-configs/teradata-configs.md#valid_history-incremental-materialization-strategy) | ✅       | ✅      | ✅              |                    | ✅           |
 | [dbt-duckdb](../../reference/resource-configs/duckdb-configs.md#incremental)                                            | ✅       | ✅      | ✅              |                    | ✅           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Configuring incremental strategy[​](#configuring-incremental-strategy "Direct link to Configuring incremental strategy")
+### Configuring incremental strategy
 
 The `incremental_strategy` config can either be defined in specific models or for all models in your `dbt_project.yml` file:
 
@@ -70,7 +64,7 @@ models/my\_model.sql
 select ...
 ```
 
-### Strategy-specific configs[​](#strategy-specific-configs "Direct link to Strategy-specific configs")
+### Strategy-specific configs
 
 If you use the `merge` strategy and specify a `unique_key`, by default, dbt will entirely overwrite matched rows with new values.
 
@@ -108,9 +102,7 @@ models/my\_model.sql
 select ...
 ```
 
-<!-- -->
-
-### About incremental\_predicates[​](#about-incremental_predicates "Direct link to About incremental_predicates")
+### About incremental\_predicates
 
 `incremental_predicates` is an advanced use of incremental models, where data volume is large enough to justify additional investments in performance. This config accepts a list of any valid SQL expression(s). dbt does not check the syntax of the SQL statements.
 
@@ -189,7 +181,7 @@ The syntax depends on how you configure your `incremental_strategy`:
 * If using the `merge` strategy, you may need to explicitly alias any columns with either `DBT_INTERNAL_DEST` ("old" data) or `DBT_INTERNAL_SOURCE` ("new" data).
 * There's a decent amount of conceptual overlap with the `insert_overwrite` incremental strategy.
 
-### Built-in strategies[​](#built-in-strategies "Direct link to Built-in strategies")
+### Built-in strategies
 
 Before diving into [custom strategies](#custom-strategies), it's important to understand the built-in incremental strategies in dbt and their corresponding macros:
 
@@ -200,12 +192,6 @@ Before diving into [custom strategies](#custom-strategies), it's important to un
 | [`merge`](./incremental-strategy.md#merge)                       | `get_incremental_merge_sql`            |
 | [`insert_overwrite`](./incremental-strategy.md#insert_overwrite) | `get_incremental_insert_overwrite_sql` |
 | [`microbatch`](./incremental-strategy.md#microbatch)             | `get_incremental_microbatch_sql`       |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 For example, a built-in strategy for the `append` can be defined and used with the following files:
 
@@ -243,15 +229,15 @@ Define a model models/my\_model.sql:
 select * from {{ ref("some_model") }}
 ```
 
-#### About built-in incremental strategies[​](#about-built-in-incremental-strategies "Direct link to About built-in incremental strategies")
+#### About built-in incremental strategies
 
-##### `append`[​](#append "Direct link to append")
+##### `append`
 
 The `append` strategy is simple to implement and has low processing costs. It inserts selected records into the destination table without updating or deleting existing data. This strategy doesn’t align directly with type 1 or type 2 [slowly changing dimensions](https://www.thoughtspot.com/data-trends/data-modeling/slowly-changing-dimensions-in-data-warehouse) (SCD). It differs from SCD1, which overwrites existing records, and only loosely resembles SCD2. While it adds new rows (like SCD2), it doesn’t manage versioning or track historical changes explicitly.
 
 Importantly, `append` doesn't check for duplicates or verify whether a record already exists in the destination. If the same record appears multiple times in the source, it will be inserted again, potentially resulting in duplicate rows. This may not be an issue depending on your use case and data quality requirements.
 
-##### `delete+insert`[​](#deleteinsert "Direct link to deleteinsert")
+##### `delete+insert`
 
 The `delete+insert` strategy deletes the data for the `unique_key` from the target table and then inserts the data for those with a `unique_key`, which may be less efficient for larger datasets. It ensures updated records are fully replaced, avoiding partial updates and can be useful when a `unique_key` isn't truly unique or when `merge` is unsupported.
 
@@ -259,7 +245,7 @@ The `delete+insert` strategy deletes the data for the `unique_key` from the targ
 
 For SCD2, use [dbt snapshots](./snapshots.md#what-are-snapshots), not `delete+insert`.
 
-##### `merge`[​](#merge "Direct link to merge")
+##### `merge`
 
 `merge` inserts records with a `unique_key` that don’t exist yet in the destination table and updates records with keys that do exist — mirroring the logic of SCD1, where changes are overwritten rather than historically tracked.
 
@@ -271,7 +257,7 @@ Note, if you use `merge` without specifying a `unique_key`, it behaves like the 
 
 While the `merge` strategy is useful for keeping tables current, it's best suited for smaller tables or incremental datasets. It can be expensive for large tables because it scans the entire destination table to determine what to update or insert.
 
-##### `insert_overwrite`[​](#insert_overwrite "Direct link to insert_overwrite")
+##### `insert_overwrite`
 
 The [`insert_overwrite`](https://downloads.apache.org/spark/docs/3.1.1/sql-ref-syntax-dml-insert-overwrite-table.html) strategy is used to efficiently update partitioned tables by replacing entire partitions with new data, rather than merging or updating individual rows. It overwrites only the affected partitions, not the whole table.
 
@@ -279,13 +265,13 @@ Because it is designed for partitioned data and replaces entire partitions whole
 
 It's ideal for tables partitioned by date or another key and useful for refreshing recent or corrected data without full table rebuilds.
 
-##### `microbatch`[​](#microbatch "Direct link to microbatch")
+##### `microbatch`
 
 [`microbatch`](./incremental-microbatch.md#what-is-microbatch-in-dbt) is an incremental strategy designed for processing large time-series datasets by splitting the data into time-based batches (for example, daily or hourly). It supports [parallel batch execution](./parallel-batch-execution.md#how-parallel-batch-execution-works) for faster runs.
 
 For details on which incremental strategies are supported by each adapter, refer to the section [Supported incremental strategies by adapter](./incremental-strategy.md#supported-incremental-strategies-by-adapter).
 
-### Custom strategies[​](#custom-strategies "Direct link to Custom strategies")
+### Custom strategies
 
 limited support
 
@@ -337,7 +323,7 @@ models/my\_model.sql
 
 If you use a custom microbatch macro, use the [`require_batched_execution_for_custom_microbatch_strategy` behavior flag](../../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md) in your `dbt_project.yml` to control batched execution. Set it to `true` to opt in before the flag matures. After the flag matures (default: `true`), set it to `false` to revert to single-invocation behavior.
 
-### Custom strategies from a package[​](#custom-strategies-from-a-package "Direct link to Custom strategies from a package")
+### Custom strategies from a package
 
 To use the `merge_null_safe` custom incremental strategy from the `example` package:
 

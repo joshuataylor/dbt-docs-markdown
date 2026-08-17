@@ -1,10 +1,10 @@
 # Run visibility
 
-dbt platformⓘ
+dbt platform
 
 You can view the history of your runs and the model timing dashboard to help identify where improvements can be made to jobs.
 
-## Run history[​](#run-history "Direct link to Run history")
+## Run history
 
 The **Run history** dashboard in dbt helps you monitor the health of your dbt project. It provides a detailed overview of all your project's job runs and empowers you with a variety of filters that enable you to focus on specific aspects. You can also use it to review recent runs, find errored runs, and track the progress of runs in progress. You can access it from the top navigation menu by clicking **Deploy** and then **Run history**.
 
@@ -16,7 +16,7 @@ dbt Labs limits self-service retrieval of run history metadata to 365 days to im
 
 [![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")](#)Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
 
-## Job run details[​](#job-run-details "Direct link to Job run details")
+## Job run details
 
 From the **Run history** dashboard, select a run to view complete details about it. The job run details page displays job trigger, commit SHA, time spent in the scheduler queue, all the run steps and their [logs](#access-logs), [model timing](#model-timing), and more.
 
@@ -26,7 +26,7 @@ An example of a completed run with a configuration for a [job completion trigger
 
 [![Example of run details](/img/docs/dbt-platform/deployment/example-job-details.png?v=2 "Example of run details")](#)Example of run details
 
-### Run summary tab[​](#run-summary-tab "Direct link to Run summary tab")
+### Run summary tab
 
 You can view and download in-progress and historical logs for your dbt runs. This makes it easier for you to debug errors more efficiently.
 
@@ -34,6 +34,8 @@ For in-progress steps, dbt platform only displays the tail of the log output —
 
 * When logs are truncated, a notice appears at the top of the log. Because only the tail is displayed, a resource that is still running may not appear in the logs until it completes and its output reaches the tail.
 * When a step is complete, the full log is available.
+
+(Applies to dbt v1.99 and earlier)
 
 When a job on the dbt Core engine finishes, selecting a step opens the **System logs**. At the top, a summary shows how many errors, warnings, deprecations, skips, and successes appear in that step’s output.
 
@@ -45,9 +47,7 @@ Counts displayed in the system logs are produced with regular expression matchin
 
 To verify the actual count, use the up and down buttons on each status to navigate to each matching line.
 
-<!-- -->
-
-#### Downloading logs[​](#access-logs "Direct link to Downloading logs")
+#### Downloading logs
 
 * To download logs for an individual step, select the step in the **Run summary** tab and click **Download** > **Download logs**.
 
@@ -61,7 +61,7 @@ This option only appears when the step emitted an OTel log artifact. Some steps,
 
 [![Download logs](/img/docs/dbt-platform/deployment/download-logs.png?v=2 "Download logs")](#)Download logs
 
-#### Log size limits[​](#log-size-limits "Direct link to Log size limits")
+#### Log size limits
 
 dbt enforces cumulative log size limits on run endpoints. If a single step's logs or the total run logs exceed this limit, dbt omits the logs.
 
@@ -69,13 +69,13 @@ When dbt omits logs due to size, it displays a **Run logs are too large** banner
 
 You can still download omitted logs. If the log file is too large, the download may fail. If that happens, you can [reach out to support](mailto:support@getdbt.com).
 
-### Lineage tab[​](#lineage-tab "Direct link to Lineage tab")
+### Lineage tab
 
 View the lineage graph associated with the job run so you can better understand the dependencies and relationships of the resources in your project. To view a node's metadata directly in [Catalog](../explore/explore-projects.md), select it (double-click) from the graph.
 
 [![Example of accessing dbt Catalog from the Lineage tab](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Example of accessing dbt Catalog from the Lineage tab")](#)Example of accessing dbt Catalog from the Lineage tab
 
-### Model timing tab [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#model-timing-tab- "Direct link to model-timing-tab-")
+### Model timing tab [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 The **Model timing** tab displays the composition, order, and time each model takes in a job run. This helps you identify bottlenecks in your runs so you can investigate them and potentially make changes to improve performance. You can find it on the [job's run details](#job-run-details).
 
@@ -86,7 +86,7 @@ The tab includes the following sections:
 * [Concurrency over time](#concurrency-over-time)
 * [Resource details](#resource-details)
 
-#### Metric tiles[​](#metric-tiles "Direct link to Metric tiles")
+#### Metric tiles
 
 Six metric tiles appear at the top of the tab:
 
@@ -99,13 +99,11 @@ Six metric tiles appear at the top of the tab:
 
 [![Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.](/img/docs/dbt-platform/deployment/model-timing-metric-tiles.png?v=2 "Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.")](#)Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.
 
-#### Execution timeline[​](#execution-timeline "Direct link to Execution timeline")
+#### Execution timeline
 
 A Gantt-style timeline of all resources in the run. Hover over bars to see details. You can customize the view using:
 
 * **Group by**: Controls how resources are grouped in the timeline:
-
-  <!-- -->
 
   * **Resource type**: Groups by node type: Model, Test, Snapshot, or Exposure.
   * **Folder**: Groups by the folder path of the resource in your project.
@@ -115,8 +113,6 @@ A Gantt-style timeline of all resources in the run. Hover over bars to see detai
 
 * **Highlight**: Changes how bars are colored to help you focus on what matters:
 
-  <!-- -->
-
   * **Est. critical path**: Highlights resources on the estimated critical path by graying out all others.
   * **All equal**: Shows all bars in their resource type color with no additional emphasis. The legend shows the color for each type: Model, Test, Snapshot, and Exposure.
   * **By duration**: Grays out shorter-running resources and shows longer-running ones in color.
@@ -125,13 +121,13 @@ A Gantt-style timeline of all resources in the run. Hover over bars to see detai
 
 [![Execution timeline showing a Gantt-style view of all resources in the run](/img/docs/dbt-platform/deployment/model-timing-timeline.png?v=2 "Execution timeline showing a Gantt-style view of all resources in the run")](#)Execution timeline showing a Gantt-style view of all resources in the run
 
-#### Concurrency over time[​](#concurrency-over-time "Direct link to Concurrency over time")
+#### Concurrency over time
 
 A stacked bar chart showing model activity over the run duration. Each bar is split into **Active models** and **Queued / ready**, so you can see how many models were running versus waiting at any point in time. It also displays the peak concurrency reached during the run.
 
 [![Concurrency over time chart showing active models and queued/ready models throughout the run](/img/docs/dbt-platform/deployment/model-timing-concurrency.png?v=2 "Concurrency over time chart showing active models and queued/ready models throughout the run")](#)Concurrency over time chart showing active models and queued/ready models throughout the run
 
-#### Resource details[​](#resource-details "Direct link to Resource details")
+#### Resource details
 
 A paginated, searchable table listing all resources in the run. It includes the following columns:
 
@@ -146,13 +142,13 @@ A paginated, searchable table listing all resources in the run. It includes the 
 
 [![Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder](/img/docs/dbt-platform/deployment/model-timing-resource-details.png?v=2 "Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder")](#)Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder
 
-### Artifacts tab[​](#artifacts-tab "Direct link to Artifacts tab")
+### Artifacts tab
 
 This provides a list of the artifacts generated by the job run. The files are saved and available for download.
 
 [![Example of the Artifacts tab](/img/docs/dbt-platform/example-artifacts-tab.png?v=2 "Example of the Artifacts tab")](#)Example of the Artifacts tab
 
-### Compare tab [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#compare-tab- "Direct link to compare-tab-")
+### Compare tab [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 The **Compare** tab is shown for [CI job runs](./ci-jobs.md) with the **Run compare changes** setting enabled. It displays details about [the changes from the comparison dbt performed](./advanced-ci.md#compare-changes) between what's in your production environment and the pull request. To help you better visualize the differences, dbt highlights changes to your models in red (deletions) and green (inserts).
 

@@ -4,7 +4,7 @@ info
 
 The dbt Fusion engine is a next-generation, Rust-based engine that powers dbt development across the platform and local tooling. See [dbt Fusion engine](../../docs/fusion/about-fusion.md) for more information.
 
-## Best practices[​](#best-practices "Direct link to Best practices")
+## Best practices
 
 Managing Python local environments can be challenging! You can use these best practices to improve the dbt Core installation with `pip`.
 
@@ -17,17 +17,11 @@ Managing Python local environments can be challenging! You can use these best pr
 | [Create a project](../../reference/commands/init.md)                                                                           | Use the `dbt init` command to create and initialize your first project                                                                                                                        | Creates a standard dbt project and verifies your installation                                                                            |
 | Ensure you have the latest versions of `pip`, `wheel`, and `setuptools`                                                                          | Before installing dbt, upgrade your Python packaging tools:<br /><br />`python -m pip install --upgrade pip wheel setuptools`                                                                 | Helps ensure a smoother, more predictable dbt installation                                                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 Note, dbt adapters and dbt Core are versioned independently to make it easier for us to maintain and independently evolve adapters going forward.
 
-### Using virtual environments[​](#using-virtual-environments "Direct link to Using virtual environments")
+### Using virtual environments
 
 We recommend using [virtual environments](https://docs.python-guide.org/dev/virtualenvs/) to namespace `pip` modules. Here's an example setup:
 
@@ -42,7 +36,7 @@ If you install `dbt` in a virtual environment, you need to reactivate that same 
 
 *Tip:* You can create an alias for the `source` command in your `$HOME/.bashrc`, `$HOME/.zshrc`, or whichever rc file your shell draws from. For example, you can add a command like `alias env_dbt='source <PATH_TO_VIRTUAL_ENV_CONFIG>/bin/activate'`, replacing `<PATH_TO_VIRTUAL_ENV_CONFIG>` with the path to your virtual environment configuration.
 
-### Using the latest versions[​](#using-the-latest-versions "Direct link to Using the latest versions")
+### Using the latest versions
 
 dbt installations are tested using the latest versions of `pip` and `setuptools`. Newer versions have improved behavior around dependency resolution, as well as much faster install times by using precompiled "wheels" when available for your operating system.
 

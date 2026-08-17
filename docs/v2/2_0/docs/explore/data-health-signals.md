@@ -1,6 +1,6 @@
 # Data health signals [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Data health signals offer a quick, at-a-glance view of data health when browsing your resources in Catalog. They keep you informed on the status of your resource's health using the indicators **Healthy**, **Caution**, **Degraded**, or **Unknown**.
 
@@ -12,12 +12,11 @@ Note, we don’t calculate data health for non-dbt resources.
 
 [![View data health signals for your models.](/img/docs/collaborate/dbt-explorer/data-health-signal.png?v=2 "View data health signals for your models.")](#)View data health signals for your models.
 
-## Access data health signals[​](#access-data-health-signals "Direct link to Access data health signals")
+## Access data health signals
 
 Access data health signals in the following places:
 
 * In the [search function](./explore-projects.md#search-resources) or under **Models**, **Sources**, or **Exposures** in the **Resource** tab.
-  <!-- -->
   * For sources, the data health signal also indicates the [source freshness](../deploy/source-freshness.md) status.
 * In the **Health** column on [each resource's details page](./explore-projects.md#view-resource-details). Hover over or click the signal to view detailed information.
 * In the **Health** column of public models tables.
@@ -26,13 +25,11 @@ Access data health signals in the following places:
 
 [![Access data health signals in multiple places in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-health-signal.gif?v=2 "Access data health signals in multiple places in dbt Catalog.")](#)Access data health signals in multiple places in dbt Catalog.
 
-## Data health signal criteria[​](#data-health-signal-criteria "Direct link to Data health signal criteria")
+## Data health signal criteria
 
 Each resource has a health state that is determined by specific set of criteria. Select the following tabs to view the criteria for that resource type.
 
-* Models
-* Sources
-* Exposures
+### Models
 
 The health state of a model is determined by the following criteria:
 
@@ -43,11 +40,7 @@ The health state of a model is determined by the following criteria:
 | 🔴 **Degraded**  | One of the following must be true:<br /><br />- Model failed to build<br />- Model has failing tests<br />- One or more upstream sources are stale:<br />    - Freshness check hasn’t run in the past 30 days<br />    - Freshness check returned an error                                                                                                          |
 | ⚪ **Unknown**   | - Unable to determine health of resource; no job runs have processed the resource.                                                                                                                                                                                                                                                                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Sources
 
 The health state of a source is determined by the following criteria:
 
@@ -58,11 +51,7 @@ The health state of a source is determined by the following criteria:
 | 🔴 Degraded      | - Freshness check returned an error                                                                                                                                                                      |
 | ⚪ Unknown       | Unable to determine health of resource; no job runs have processed the resource.                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Exposures
 
 The health state of an exposure is determined by the following criteria:
 
@@ -71,9 +60,3 @@ The health state of an exposure is determined by the following criteria:
 | ✅ Healthy       | All of the following must be true:<br /><br />- Underlying sources are fresh<br />- Underlying models built successfully<br />- Underlying models’ tests passing<br />                                                                      |
 | 🟡 Caution       | One of the following must be true:<br /><br />- At least one underlying source’s freshness checks returned a warning<br />- At least one underlying model was skipped<br />- At least one underlying model’s tests returned a warning<br /> |
 | 🔴 Degraded      | One of the following must be true:<br /><br />- At least one underlying source’s freshness checks returned an error<br />- At least one underlying model did not build successfully<br />- At least one model’s tests returned an error     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

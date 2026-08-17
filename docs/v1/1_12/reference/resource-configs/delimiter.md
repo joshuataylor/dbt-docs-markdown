@@ -2,28 +2,16 @@
 
 💡Did you know\...
 
-Available from dbt v
+Available from dbt v1.7 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
-<!-- -->
-
-1.7
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
-
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can use this optional seed configuration to customize how you separate values in a [seed](../../docs/build/seeds.md) by providing the one-character string.
 
 * The delimiter defaults to a comma when not specified.
 * Explicitly set the `delimiter` configuration value if you want seed files to use a different delimiter, such as "|" or ";".
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 Specify a delimiter in your `dbt_project.yml` file to customize the global separator for all seed values:
 
@@ -49,14 +37,14 @@ seeds:
       delimiter: "|"
 ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 For a project with:
 
 * `name: jaffle_shop` in the `dbt_project.yml` file
 * `seed-paths: ["seeds"]` in the `dbt_project.yml` file
 
-### Use a custom delimiter to override global values[​](#use-a-custom-delimiter-to-override-global-values "Direct link to Use a custom delimiter to override global values")
+### Use a custom delimiter to override global values
 
 You can set a default behavior for all seeds with an exception for one seed, `seed_a`, which uses a comma:
 

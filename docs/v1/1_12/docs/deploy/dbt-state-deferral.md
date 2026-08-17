@@ -1,10 +1,10 @@
 # Configuring deferral in dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 By default, dbt State defers to your production environment. Both sections on this page are optional; configure them if you want to customize the defaults.
 
-## Configure deferral[​](#configure-deferral "Direct link to Configure deferral")
+## Configure deferral
 
 By default, dbt State defers to your production environment. You only need to configure this if you want to change that behavior:
 
@@ -37,7 +37,7 @@ note
 
 If you've overridden `generate_*_name()` macros with runtime values (such as environment variables, file paths, or dates), provide a `manifest.json` file so dbt State can locate objects correctly. Without one, it infers object locations from your macros and profile target, which may be incorrect in these cases. Refer to [Caveats to dbt State without a manifest](../../reference/resource-configs/defer-to-target.md#caveats-to-dbt-state-without-a-manifest).
 
-## Specify your project or org[​](#specify-your-project-or-org "Direct link to Specify your project or org")
+## Specify your project or org
 
 If you have multiple projects or orgs that use dbt State, configure the `dbt-cloud` block in `dbt_project.yml` so dbt State knows which one to use:
 
@@ -59,7 +59,7 @@ If you have multiple projects or orgs that use dbt State, configure the `dbt-clo
     state-org-id: <your-org-id>
   ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

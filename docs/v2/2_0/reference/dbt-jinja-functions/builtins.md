@@ -8,7 +8,7 @@ The `builtins` variable is a dictionary containing the following keys:
 * [source](./source.md)
 * [config](./config.md)
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 important
 

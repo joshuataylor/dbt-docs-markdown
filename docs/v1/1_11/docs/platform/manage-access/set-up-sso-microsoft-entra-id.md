@@ -1,6 +1,6 @@
 # Set up SSO with Microsoft Entra ID
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt Enterprise-tier plans support single-sign on via Microsoft Entra ID (formerly Azure AD).
 
@@ -14,11 +14,11 @@ Currently supported SSO features include:
 * SP-initiated SSO
 * Just-in-time provisioning
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 dbt supports both single tenant and multi-tenant Microsoft Entra ID (formerly Azure AD) SSO Connections. For most Enterprise purposes, you will want to use the single-tenant flow when creating a Microsoft Entra ID Application.
 
-### Creating an application[​](#creating-an-application "Direct link to Creating an application")
+### Creating an application
 
 Log into the Azure portal for your organization. Using the [**Microsoft Entra ID**](https://portal.azure.com/#home) page, you will need to select the appropriate directory and then register a new application.
 
@@ -41,7 +41,7 @@ Log into the Azure portal for your organization. Using the [**Microsoft Entra ID
    * Update the Microsoft Entra ID Domain: In the dbt “Microsoft Entra ID Domain:” field, enter the specific authority string (`organizations`, `common`, or `consumers`) rather than the domain name for your Azure directory. For more details, see the [Supplying credentials](#supplying-credentials)
    * Grant Admin Consent for Each Tenant: Because this is an Entra (formerly Azure AD) requirement, each separate tenant will need its own administrator to grant consent. If users from other tenants attempt to log in before this is done, they will see an “admin approval required” screen. An admin can resolve this by visiting the specific consent URL provided by Microsoft for their tenant (for example,`https://login.microsoftonline.com/{TENANT_ID}/adminconsent?client_id={CLIENT_ID}`)
 
-5. Configure the **Redirect URI**. The table below shows the appropriate Redirect URI values for single-tenant and multi-tenant Entra ID app deployments. For most enterprise use-cases, you will want to use the single-tenant Redirect URI. Replace `YOUR_AUTH0_URI` with the [appropriate Auth0 URI](./sso-overview.md#auth0-uris) for your region and plan.
+5. Configure the **Redirect URI**. Set the type to **Web** and reference the table below for the appropriate Redirect URI values for single-tenant and multi-tenant Entra ID app deployments. For most enterprise use-cases, you will want to use the single-tenant Redirect URI. Replace `YOUR_AUTH0_URI` with the [appropriate Auth0 URI](./sso-overview.md#auth0-uris) for your region and plan.
 
 **Note:** Your dbt platform tenancy has no bearing on this setting. This Entra ID app setting controls app access:
 
@@ -59,15 +59,19 @@ Log into the Azure portal for your organization. Using the [**Microsoft Entra ID
 
 Configuration with the new Microsoft Entra ID interface (optional)
 
-Depending on your Microsoft Entra ID settings, your App Registration page might look different than the screenshots shown earlier. If you are *not* prompted to configure a Redirect URI on the **New Registration** page, then follow steps 6 - 7 below after creating your App Registration. If you were able to set up the Redirect URI in the steps above, then skip ahead to [step 8](#adding-users-to-an-enterprise-application).
+Depending on your Microsoft Entra ID settings, your App Registration page might look different than the screenshots shown earlier. If you are *not* prompted to configure a Redirect URI on the **New Registration** page, then follow steps 7 - 8 below after creating your App Registration. If you were able to set up the Redirect URI in the steps above, then skip ahead to [step 8](#adding-users-to-an-enterprise-application).
 
 7. After registering the new application without specifying a Redirect URI, click on **App registration** and then navigate to the **Authentication** tab for the new application.
 
 8. Click **+ Add platform** and enter a Redirect URI for your application. See step 4 above for more information on the correct Redirect URI value for your dbt application.
 
+   Platform type
+
+   When selecting the platform type, choose **Web**, not **Single-page application (SPA)**. The dbt SSO integration redeems the authorization code from the server using a client secret. So, if you add the **Redirect URI** under **SPA**, Entra ID enforces PKCE and rejects the server-side token exchange, causing sign-in to fail with the error `AADSTS9002325: Proof Key for Code Exchange is required for cross-origin authorization code redemption.`
+
 [![Configuring a Redirect URI](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-redirect-uri.png?v=2 "Configuring a Redirect URI")](#)Configuring a Redirect URI
 
-### Azure <-> dbt User and Group mapping[​](#azure---dbt-user-and-group-mapping "Direct link to Azure <-> dbt User and Group mapping")
+### Azure <-> dbt User and Group mapping
 
 info
 
@@ -77,7 +81,7 @@ The Azure users and groups you will create in the following steps are mapped to 
 
 The dbt platform uses the **User principal name** (UPN) in Microsoft Entra ID to identify and match users logging in to dbt through SSO. The UPN is usually formatted as an email address.
 
-### Adding users to an Enterprise application[​](#adding-users-to-an-enterprise-application "Direct link to Adding users to an Enterprise application")
+### Adding users to an Enterprise application
 
 Once you've registered the application, the next step is to assign users to it. Add the users you want to be viewable to dbt with the following steps:
 
@@ -93,7 +97,7 @@ User assignment required?
 
 Under **Properties** check the toggle setting for **User assignment required?** and confirm it aligns to your requirements. Most customers will want this toggled to **Yes** so that only users/groups explicitly assigned to dbt will be able to sign in. If this setting is toggled to **No** any user will be able to access the application if they have a direct link to the application per [Microsoft Entra ID Documentation](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/assign-user-or-group-access-portal#configure-an-application-to-require-user-assignment)
 
-### Configuring permissions[​](#configuring-permissions "Direct link to Configuring permissions")
+### Configuring permissions
 
 13. Navigate back to [**Default Directory**](https://portal.azure.com/#home) (or **Home**) and then **App registration**.
 14. Select your application and then select **API permissions**.
@@ -115,7 +119,7 @@ If you set up SSO before December 2025, your existing configuration may request 
 
 [![Configuring application permissions](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-permissions-overview.png?v=2 "Configuring application permissions")](#)Configuring application permissions
 
-### Creating a client secret[​](#creating-a-client-secret "Direct link to Creating a client secret")
+### Creating a client secret
 
 17. Under **Manage**, click **Certificates & secrets**.
 18. Click **+New client secret**.
@@ -128,18 +132,18 @@ If you set up SSO before December 2025, your existing configuration may request 
 
 [![Recording the client secret](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-secret-saved.png?v=2 "Recording the client secret")](#)Recording the client secret
 
-### Collect client credentials[​](#collect-client-credentials "Direct link to Collect client credentials")
+### Collect client credentials
 
 23. Navigate to the **Overview** page for the app registration.
 24. Note the **Application (client) ID** and **Directory (tenant) ID** shown in this form and record them along with your client secret. We'll use these keys in the steps below to finish configuring the integration in dbt.
 
 [![Collecting credentials. Store these somewhere safe](/img/docs/dbt-platform/dbt-platform-enterprise/azure/azure-overview.png?v=2 "Collecting credentials. Store these somewhere safe")](#)Collecting credentials. Store these somewhere safe
 
-## Configuring dbt[​](#configuring-dbt "Direct link to Configuring dbt")
+## Configuring dbt
 
 To complete setup, follow the steps below in the dbt application.
 
-### Supplying credentials[​](#supplying-credentials "Direct link to Supplying credentials")
+### Supplying credentials
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -172,7 +176,7 @@ For SSO through your identity provider, you can also use the following URL forma
 
 Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
-### Additional configuration options[​](#additional-configuration-options "Direct link to Additional configuration options")
+### Additional configuration options
 
 The **Single sign-on** section also contains additional configuration options which are located after the credentials fields.
 
@@ -180,7 +184,7 @@ The **Single sign-on** section also contains additional configuration options wh
 
 * **Maximum number of groups to retrieve:** Provides a configurable limit to the number of groups to retrieve for users. By default, this is set to 250 groups, but this number can be increased if users' group memberships exceed that amount.
 
-## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
+## Setting up RBAC
 
 Now you have completed setting up SSO with Entra ID, the next steps will be to set up [RBAC groups](./enterprise-permissions.md) to complete your access control configuration.
 
@@ -188,7 +192,7 @@ Set up SCIM
 
 Now that you've set up SSO with Entra ID, you can [set up SCIM](./scim-entra-id.md) to automate user and group provisioning.
 
-## Troubleshooting tips[​](#troubleshooting-tips "Direct link to Troubleshooting tips")
+## Troubleshooting tips
 
  Receiving a 'AADSTS90094: Admin consent is required' error
 
@@ -202,7 +206,7 @@ Ensure that the domain name under which user accounts exist in Azure matches the
 
 For additional troubleshooting — including "Admin consent required" prompts for new users, "Access Denied" after SAML authentication, and issues with Entity ID or ACS URL changes — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
-## Learn more by video[​](#learn-more-by-video "Direct link to Learn more by video")
+## Learn more by video
 
 The following video explains how to set up SSO with Microsoft Entra ID:
 

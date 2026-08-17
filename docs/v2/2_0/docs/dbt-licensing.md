@@ -1,5 +1,7 @@
 # dbt licensing
 
+(Applies to dbt v2.0 and later)
+
 v2 has the following distributions today, all free to install and run.
 
 | Distribution | Package    | Use it when                                                                          |
@@ -9,7 +11,7 @@ v2 has the following distributions today, all free to install and run.
 
 If you have a older project that isn’t ready to move to v2, continue using `dbt-core` v1.x for compatibility. For new or upgraded projects, we recommend [upgrading to v2](./dbt-versions/upgrade-dbt-platform-version.md?version=2.0#dbt-fusion-engine%20in%20the%20dbt%20platform).
 
-## Which one should I use?[​](#which-one-should-i-use "Direct link to Which one should I use?")
+## Which one should I use?
 
 For most people: Fusion. It has more [capabilities](./fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) out of the box than dbt Core 2.0 — including a built-in high-performance SQL linter — even if you never create a dbt account.
 
@@ -21,7 +23,7 @@ Already running dbt Core v1.x? You don't have to move to v2 — it's still fully
 
 To check which distribution you're using, run `dbt --version` in the command line.
 
-## What changed, and what didn't[​](#what-changed-and-what-didnt "Direct link to What changed, and what didn't")
+## What changed, and what didn't
 
 **Changed:**
 
@@ -35,9 +37,7 @@ To check which distribution you're using, run `dbt --version` in the command lin
 * Fusion is still completely free to use, with some features unlocked by a free login or a paid dbt platform account — not required for any distribution.
 * Contributing to dbt is still open to everyone.
 
-<!-- -->
-
-## Licensing details[​](#licensing-details "Direct link to Licensing details")
+## Licensing details
 
 [dbt Core](https://github.com/dbt-labs/dbt-core) is released under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0). Fusion is proprietary to dbt Labs, made available under the [dbt Product Licensing Agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement).
 

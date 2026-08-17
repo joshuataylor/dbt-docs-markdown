@@ -6,7 +6,7 @@ You can [connect](./connect-adapters.md) to adapters and data platforms natively
 
 You can also further customize how dbt works with your specific data platform via configuration: see [Configuring Postgres](../reference/resource-configs/postgres-configs.md) for an example.
 
-## Types of Adapters[​](#types-of-adapters "Direct link to Types of Adapters")
+## Types of Adapters
 
 There are two types of adapters available today:
 

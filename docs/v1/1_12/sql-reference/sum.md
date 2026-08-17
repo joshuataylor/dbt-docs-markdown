@@ -4,7 +4,7 @@ The SQL SUM function is handy and ever-present in data work. Let’s unpack what
 
 Jumping into it, the SUM aggregate function allows you to calculate the sum of a numeric column or across a set of rows for a column. Ultimately, the SUM function is incredibly useful for calculating meaningful business metrics, such as Lifetime Value (LTV), and creating key numeric fields in [`fct_` and `dim_` models](https://www.getdbt.com/blog/guide-to-dimensional-modeling).
 
-## How to use the SUM function in a query[​](#how-to-use-the-sum-function-in-a-query "Direct link to How to use the SUM function in a query")
+## How to use the SUM function in a query
 
 Use the following syntax in a query to find the sum of a numeric field:
 
@@ -16,7 +16,7 @@ SUM can also be used as a window function to operate across specified or partiti
 
 Let’s take a look at a practical example using the SUM function below.
 
-### SUM example[​](#sum-example "Direct link to SUM example")
+### SUM example
 
 The following example is querying from a sample dataset created by dbt Labs called [jaffle\_shop](https://github.com/dbt-labs/jaffle_shop):
 
@@ -37,17 +37,11 @@ This simple query is returning the summed amount of all orders for a customer in
 | 3            | 65                  |
 | 94           | 24                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL SUM function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-sum-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL SUM function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL SUM function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 All modern data warehouses support the ability to use the SUM function (and follow the same syntax).
 
-## SUM function use cases[​](#sum-function-use-cases "Direct link to SUM function use cases")
+## SUM function use cases
 
 We most commonly see queries using SUM to:
 

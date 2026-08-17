@@ -2,19 +2,11 @@
 
 Tip
 
-Use [dbt Wizard](../platform/wizard-overview.md) to generate
-
-<!-- -->
-
-semantic models
-
-<!-- -->
-
-in the dbt platform or locally in the CLI.
+Use [dbt Wizard](../platform/wizard-overview.md) to generate semantic models in the dbt platform or locally in the CLI.
 
 Semantic models are the foundation for data definition in MetricFlow, which powers the Semantic Layer:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 * Think of semantic models as nodes connected by entities in a semantic graph. You can configure this graph by making metadata annotations on your dbt models to describe their usage in metric calculations.
 * MetricFlow uses YAML configuration files to create this graph for querying metrics.
@@ -22,8 +14,6 @@ Semantic models are the foundation for data definition in MetricFlow, which powe
 * Each dbt model can define one semantic model via a `semantic_model` block. Use the optional `name` field if you need a different display name.
 * Configure semantic models in a YAML file within your dbt project directory, embedded within your model definitions rather than as separate configurations.
 * You can also define semantic models using [Apache Ossie](https://github.com/apache/ossie) documents, an alternative to dbt Core's native YAML configuration. For more information, refer to [Ossie semantic layer documents](./ossie-semantic-models.md).
-
-<!-- -->
 
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
@@ -33,7 +23,7 @@ Additionally, dive into mini-courses for querying the dbt Semantic Layer in your
 
 Here we describe the Semantic model components with examples:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 | Component                                                          | Description                                                                                                                                                                                                                                                                                                                                                                            | Required | Type   |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ |
@@ -47,17 +37,11 @@ Here we describe the Semantic model components with examples:
 | [Label](#label)                                                    | The display name for your semantic model `node`, `dimension`, `entity`, and/or simple metrics.                                                                                                                                                                                                                                                                                         | Optional | String |
 | `config`                                                           | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) configs. | Optional | Dict   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Semantic models components[​](#semantic-models-components "Direct link to Semantic models components")
+## Semantic models components
 
 The complete spec for semantic models is below:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -95,7 +79,7 @@ models:
 
 The following example displays a complete configuration and detailed descriptions of each field:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -166,7 +150,7 @@ models:
           name: first_name
 ```
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Semantic models support [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), and [`enabled`](../../reference/resource-configs/enabled.md) [`config`](../../reference/resource-properties/config.md) property in the schema file:
 
@@ -181,35 +165,33 @@ models:
           some_key: some_value
 ```
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
-### Name[​](#name-1 "Direct link to Name")
+### Name
 
 Define the name of the semantic model. If not provided, this defaults to the value of the model name. Avoid using double underscores (\_\_) in the name as they're not supported.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
-<!-- -->
-
-### Time dimension[​](#time-dimension "Direct link to Time dimension")
+### Time dimension
 
 `agg_time_dimension` represents the default time dimensions for simple metrics. This can be overridden by adding the `agg_time_dimension` key directly to a simple metric - see [Dimensions](./dimensions.md) for examples.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
-### Entities[​](#entities-1 "Direct link to Entities")
+### Entities
 
 To specify the [entities](./entities.md) in your model, add an `entity` block at the column level with `type` set to primary, foreign, unique, or natural. Optionally, provide `name` and `expr` when the join key’s name differs from the column.
 
-### Primary entity[​](#primary-entity "Direct link to Primary entity")
+### Primary entity
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 MetricFlow requires that all dimensions be tied to an entity to guarantee unique dimension names. If your data source doesn't have a primary entity, you need to assign the entity under the column that serves as the key by adding `type: primary`. If no column is marked as primary, set a top-level `primary_entity` to name the model’s primary entity. The primary entity doesn't necessarily have to map to a column in that table and assigning the name doesn't affect query generation.
 
 You can define a primary entity using the following configs:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -239,8 +221,7 @@ models:
         expr: bookings_monthly
 ```
 
-* Entity types
-* Sample config
+### Entity types
 
 Here are the types of keys:
 
@@ -248,6 +229,8 @@ Here are the types of keys:
 * **Unique** — Only one record per row in the table, but it may have a subset of records in the data platform. Null values may also be present.
 * **Foreign** — Can have zero, one, or multiple instances of the same record. Null values may also be present.
 * **Natural** — A column or combination of columns in a table that uniquely identifies a record based on real-world data. For example, the `sales_person_id` can serve as a natural key in a `sales_person_department` dimension table.
+
+### Sample config
 
 This example shows a semantic model with three entities and their entity types: `transaction` (primary), `order` (foreign), and `user` (foreign).
 
@@ -267,11 +250,11 @@ entity:
 
 You can refer to entities (join keys) in a semantic model using the `name` parameter. Entity names must be unique within a semantic model, and identifier names can be non-unique across semantic models since MetricFlow uses them for [joins](./join-logic.md).
 
-### Dimensions[​](#dimensions "Direct link to Dimensions")
+### Dimensions
 
 [Dimensions](./dimensions.md) are different ways to organize or look at data. They are effectively the group by parameters for metrics. For example, you might group data by things like region, country, or job title.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 MetricFlow takes a dynamic approach when making dimensions available for metrics. Instead of trying to figure out all the possible groupings ahead of time, MetricFlow lets you ask for the dimensions you need and constructs any joins necessary to reach the requested dimensions at query time. The advantage of this approach is that you don't need to set up a system that pre-materializes every possible way to group data, which can be time-consuming and prone to errors. Instead, you define dimensions within the semantic model by nesting them under columns, and they will automatically be made available for valid metrics.
 
@@ -285,23 +268,21 @@ For time groups
 
 For semantic models that define metrics, include at least one time dimension column with a `granularity` and set the model’s `agg_time_dimension`. You can override the aggregation time dimension on individual metrics if needed.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
-### `derived_semantics` in dimensions and entities[​](#derived_semantics-in-dimensions-and-entities "Direct link to derived_semantics-in-dimensions-and-entities")
+### `derived_semantics` in dimensions and entities
 
 Use the `derived_semantics` key in the model YAML entry when you want to create dimensions and entities that don’t match a single, physical column. The `expr` field is required when using `derived_semantics`. For more information, see [Dimensions](./dimensions.md#derived_semantics-in-dimensions) and [Entities](./entities.md#derived_semantics-in-entities).
 
-### Simple metrics[​](#simple-metrics "Direct link to Simple metrics")
+### Simple metrics
 
 Simple metrics are direct aggregations over columns in your data warehouse using different aggregation types. They serve as building blocks for more complex metrics and can be filtered by dimensions.
 
 Simple metrics have various parameters which are listed in a table along with their descriptions and types. For more information, see [Simple metrics](./simple.md).
 
-<!-- -->
+## Dependencies
 
-## Dependencies[​](#dependencies "Direct link to Dependencies")
-
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Metric nodes will reflect dependencies on semantic models based on their simple metrics. However, dependencies based on filters should not be reflected in:
 
@@ -317,9 +298,9 @@ For example, when you run the command `dbt list --select my_semantic_model+`, it
 
 But there's a condition: Only the metrics that actually use simple metrics or derived metrics from that semantic model will be included in the list. In other words, if a metric only uses a dimension from the semantic model in its filters, it won't be considered as part of that semantic model.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 * [About MetricFlow](./about-metricflow.md)
 * [Dimensions](./dimensions.md)

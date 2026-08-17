@@ -4,7 +4,7 @@ The staging layer is where our journey begins. This is the foundation of our pro
 
 We'll use an analogy for working with dbt throughout this guide: thinking modularly in terms of atoms, molecules, and more complex outputs like proteins or cells (we apologize in advance to any chemists or biologists for our inevitable overstretching of this metaphor). Within that framework, if our source system data is a soup of raw energy and quarks, then you can think of the staging layer as condensing and refining this material into the individual atoms we’ll later build more intricate and useful structures with.
 
-### Staging: Files and folders[​](#staging-files-and-folders "Direct link to Staging: Files and folders")
+### Staging: Files and folders
 
 Let's zoom into the staging directory from our `models` file tree [in the overview](./1-guide-overview.md) and walk through what's going on here.
 
@@ -27,21 +27,17 @@ models/staging
 
 * **Folders.** Folder structure is extremely important in dbt. Not only do we need a consistent structure to find our way around the codebase, as with any software project, but our folder structure is also one of the key interfaces for understanding the knowledge graph encoded in our project (alongside the DAG and the data output into our warehouse). It should reflect how the data flows, step-by-step, from a wide variety of source-conformed models into fewer, richer business-conformed models. Moreover, we can use our folder structure as a means of selection in dbt [selector syntax](../../reference/node-selection/syntax.md). For example, with the above structure, if we got fresh e-commerce data loaded and wanted to run all the models that build on our staging layer, we can easily run `dbt build --select staging+` and we're all set for building more up-to-date reports.
 
-  <!-- -->
-
   * ✅ **Subdirectories based on the source system**. Our internal transactional database is one system, the data we get from Stripe's API is another, and lastly the events from our Snowplow instrumentation. We've found this to be the best grouping for most companies, as source systems tend to share similar loading methods and properties between tables, and this allows us to operate on those similar sets easily. The Jaffle Shop example project uses a single `ecom` source, so its staging models live in a flat `staging/` folder. As you add more source systems, create a subdirectory per source.
   * ❌ **Subdirectories based on loader.** Some people attempt to group by how the data is loaded (Fivetran, Stitch, custom syncs), but this is too broad to be useful on a project of any real size.
   * ❌ **Subdirectories based on business grouping.** Another approach we recommend against is splitting up by business groupings in the staging layer, and creating subdirectories like 'marketing', 'finance', etc. A key goal of any great dbt project should be establishing a single source of truth. By breaking things up too early, we open ourselves up to creating overlap and conflicting definitions (think marketing and financing having different fundamental tables for orders). We want everybody to be building with the same set of atoms, so in our experience, starting our transformations with our staging structure reflecting the source system structures is the best level of grouping for this step.
 
 * **File names.** Creating a consistent pattern of file naming is [crucial in dbt](https://docs.getdbt.com/blog/on-the-importance-of-naming). File names must be unique and correspond to the name of the model when selected and created in the warehouse. We recommend putting as much clear information into the file name as possible, including a prefix for the layer the model exists in, important grouping information, and specific information about the entity or transformation in the model.
 
-  <!-- -->
-
   * ✅ `stg_[source]__[entity]s.sql` - the double underscore between source system and entity helps visually distinguish the separate parts in the case of a source name having multiple words. For instance, `google_analytics__campaigns` is always understandable, whereas to somebody unfamiliar `google_analytics_campaigns` could be `analytics_campaigns` from the `google` source system as easily as `campaigns` from the `google_analytics` source system. Think of it like an [oxford comma](https://www.youtube.com/watch?v=P_i1xk07o4g), the extra clarity is very much worth the extra punctuation. In a single-source project like Jaffle Shop, `stg_orders.sql` and `stg_customers.sql` are clear enough without the source prefix.
   * ❌ `stg_[entity].sql` - might be specific enough at first for a single-source project, but will break down in time as you add sources. Adding the source system into the file name aids in discoverability, and allows understanding where a component model came from even if you aren't looking at the file tree.
   * ✅ **Plural.** SQL, and particularly SQL in dbt, should read as much like prose as we can achieve. We want to lean into the broad clarity and declarative nature of SQL when possible. As such, unless there’s a single order in your `orders` table, plural is the correct way to describe what is in a table with multiple rows.
 
-### Staging: Models[​](#staging-models "Direct link to Staging: Models")
+### Staging: Models
 
 Now that we’ve got a feel for how the files and folders fit together, let’s look inside one of these files and dig into what makes for a well-structured staging model.
 
@@ -119,7 +115,7 @@ Staging models help us keep our code DRY. dbt's modular, reusable structure mean
 
 This is a welcome change for many of us who have become used to applying the same sets of SQL transformations in many places out of necessity! For us, the earliest point for these 'always-want' transformations is the staging layer, the initial entry point in our transformation process. The DRY principle is ultimately the litmus test for whether transformations should happen in the staging layer. If we'll want them in every downstream model and they help us eliminate repeated code, they're probably okay.
 
-### Staging: Other considerations[​](#staging-other-considerations "Direct link to Staging: Other considerations")
+### Staging: Other considerations
 
 * **Base models when joins are necessary to stage concepts.** Sometimes, in order to maintain a clean and DRY staging layer we do need to implement some joins to create a solid concept for our building blocks. In these cases, we recommend creating a sub-directory in the staging directory for the source system in question and building `base` models. These have all the same properties that would normally be in the staging layer, they will directly source the raw data and do the non-joining transformations, then in the staging models we'll join the requisite base models. Common use cases include joining in separate delete tables or unioning disparate but symmetrical sources. You can dig into [more detail on unioning identical sources here](https://discourse.getdbt.com/t/unioning-identically-structured-data-sources/921). The [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) example project does not use base models.
 

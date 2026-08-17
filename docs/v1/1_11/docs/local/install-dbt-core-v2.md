@@ -1,6 +1,6 @@
 # Install dbt Core 2.0
 
-Local developmentⓘ
+Local development(Applies to dbt v1.99 and earlier)
 
 This page is for installing dbt Core 2.0, the Apache 2.0 open-source distribution of v2. To view the installation instructions, select **v2** from the version picker in the docs navigation. To install dbt Core v1.x, refer to [Install dbt Core v1.x](./install-dbt.md?version=1.12).
 

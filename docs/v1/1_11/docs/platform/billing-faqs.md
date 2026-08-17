@@ -1,6 +1,6 @@
 # Billing FAQs
 
-dbt platformⓘ
+dbt platform
 
 Common questions about dbt plans, billing, and usage. For pricing and plan details, refer to [Billing](./billing.md).
 

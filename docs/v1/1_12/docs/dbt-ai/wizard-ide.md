@@ -1,6 +1,6 @@
 # dbt Wizard in Studio IDE [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Use dbt Wizard in the Studio IDE to ship trusted dbt changes faster. It understands your project, answers context-grounded questions, generates models, tests, docs, and Semantic Layer definitions, and shows file diffs before changes are persisted.
 
@@ -21,14 +21,14 @@ The agent comes with the following out of the box, meaning no configuration need
 * [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills): dbt-recommended guidance and instructions, managed by dbt Labs.
 * [dbt MCP server Product docs toolset](./mcp-available-tools.md#product-docs): Tools for searching and fetching content from dbt's official documentation.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * A Starter, Enterprise, or Enterprise+ plan
 * A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](../platform/manage-access/seats-and-users.md).
 * A [development environment](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
 * [Enabled AI features](../platform/enable-dbt-ai.md#enable-ai-features) for your account.
 
-#### Availability and considerations[​](#availability-and-considerations "Direct link to Availability and considerations")
+#### Availability and considerations
 
 * **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt CLI.
 * **Engines:** Works with dbt Fusion engine and dbt Core.
@@ -38,7 +38,7 @@ The agent comes with the following out of the box, meaning no configuration need
 * **Plan mode:** Not supported yet. The agent doesn't show a separate plan before applying changes, however you can use the **Ask for approval** mode to approve each file.
 * **New chat:** Click **Start new dbt Wizard chat** (top right of the dbt Wizard panel) to begin a new session.
 
-### Using dbt Wizard[​](#using-dbt-wizard "Direct link to Using dbt Wizard")
+### Using dbt Wizard
 
 Use the dbt Wizard panel to generate resources with quick actions, or use the agent to build and refactor models end-to-end with natural language prompts.
 
@@ -47,8 +47,6 @@ To use the dbt Wizard, follow these steps:
 1. Open your dbt project in the [Studio IDE](../platform/studio-ide/develop-in-studio.md), then click **dbt Wizard** in the command palette.
 
 2. Start a prompt in several ways in the [dbt Wizard panel](./wizard-ide.md):
-
-   <!-- -->
 
    * **Quick actions**: Use [quick-action resource generation](./wizard-ide.md#quick-action-resource-generation) at the top of the panel to generate documentation, tests, semantic models, and metrics.
    * **Plain text**: Type directly into the text field to describe what you want to build or change.
@@ -128,11 +126,11 @@ After you run a command, dbt Wizard adds an icon and a tooltip to the Studio IDE
 
 [![Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.](/img/docs/dbt-platform/dev-agent-cmd-icon.png?v=2 "Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.")](#)Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.
 
-### Bringing your own skills[​](#bringing-your-own-skills "Direct link to Bringing your own skills")
+### Bringing your own skills
 
 You can extend dbt Wizard with custom skills to encode your team's SQL conventions, naming rules, and modeling workflows — so you don't repeat them in every prompt. See [Skills](./wizard-platform-skills.md) for the full reference, including how to create, structure, and invoke skills.
 
-### Debug job failures[​](#debug-job-failures "Direct link to Debug job failures")
+### Debug job failures
 
 The dbt Wizard can investigate and troubleshoot dbt job and run failures directly from the Studio IDE. This capability is powered by the `troubleshooting-dbt-job-errors` [dbt Agent Skill](https://github.com/dbt-labs/dbt-agent-skills), which comes pre-configured with the agent — no setup required.
 
@@ -145,7 +143,7 @@ You can ask the agent questions and issue commands like:
 
 The agent notes when your local project state may differ from the job — for example, if you're on a different branch or have uncommitted changes — so you have full context before acting on any suggested fixes.
 
-### Timeout handling[​](#timeout-handling "Direct link to Timeout handling")
+### Timeout handling
 
 When a dbt command run by dbt Wizard runs for more than 5 minutes, the agent automatically attempts to stop the command on the server before returning control to you.
 
@@ -153,9 +151,7 @@ Instead of hanging or showing a generic error, the agent returns a clear message
 
 You can then choose whether to retry the command, narrow the request, or take another action.
 
-### Fusion migration workflow[​](#fusion-migration-workflow "Direct link to Fusion migration workflow")
-
-<!-- -->
+### Fusion migration workflow
 
 If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](./wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
@@ -164,7 +160,6 @@ info
 The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
-   <!-- -->
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.
 
 2. In the **Fusion eligibility unknown for this job** pop-up, click **Debug in Studio with dbt Wizard**.
@@ -172,8 +167,6 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 3. dbt redirects you to the Studio IDE and sets your personal development environment to Fusion.
 
 4. dbt Wizard opens and automatically triggers the Fusion migration skill with this prompt:
-
-   <!-- -->
 
    ```text
    I need help fixing Fusion compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
@@ -191,7 +184,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](../fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-fusion-upgrade.md).
 
-### Writing effective prompts[​](#writing-effective-prompts "Direct link to Writing effective prompts")
+### Writing effective prompts
 
 Good prompts include the *scope* (which models or area of the project), the *intent* (the transformation or business logic you want), and any *constraints* (naming conventions, materialization, tests). Here are a few examples:
 
@@ -207,7 +200,7 @@ Best practices for using dbt Wizard
 
 For recommended workflows on real project tasks — understanding a project, validating changes, building Semantic Layer definitions, and more — refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md). Most of these prompts work the same in Studio IDE.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
 * [Fusion readiness checklist](../fusion/fusion-readiness.md)

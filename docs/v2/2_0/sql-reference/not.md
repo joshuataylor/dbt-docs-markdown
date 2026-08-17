@@ -6,7 +6,7 @@ Ok we had to get that out of the way. The SQL NOT operator allows you to return 
 
 In this page, we’ll dive into how to use the NOT operator, demonstrate an example, and elaborate on potential use cases.
 
-## How to use the SQL NOT operator[​](#how-to-use-the-sql-not-operator "Direct link to How to use the SQL NOT operator")
+## How to use the SQL NOT operator
 
 The NOT boolean is kind of similar to an adjective—it’s often put in front of another operator, such as [BETWEEN](./between.md), [LIKE](./like.md)/[ILIKE](./ilike.md), IS, and [IN](./in.md), to return rows that do not meet the specified criteria. Below is an example of how to use NOT in front of a LIKE operator:
 
@@ -21,7 +21,7 @@ This syntax can be easily modified for other operators:
 
 Let’s dive into a practical example using the NOT operator.
 
-### SQL NOT example[​](#sql-not-example "Direct link to SQL NOT example")
+### SQL NOT example
 
 ```sql
 select
@@ -41,16 +41,10 @@ This simple query using the sample dataset [Jaffle Shop’s](https://github.com/
 | 5               | 5             | bank\_transfer      |
 | 10              | 9             | bank\_transfer      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL NOT syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-not-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL NOT syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL NOT syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 [Snowflake](https://docs.snowflake.com/en/sql-reference/operators-logical.html), [Databricks](https://docs.databricks.com/sql/language-manual/functions/not.html), [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/operators), and [Redshift](https://docs.aws.amazon.com/redshift/latest/dg/r_logical_condition.html) all support the NOT operator, but may not all support secondary operators you would typically use the NOT operator in pair with. For example, `where <field_name> not ilike <pattern>` is valid in Snowflake, Databricks, and Redshift, but the ILIKE operator is not supported in BigQuery, so this example would not be valid across all data warehouses.
 
-## NOT operator example use cases[​](#not-operator-example-use-cases "Direct link to NOT operator example use cases")
+## NOT operator example use cases
 
 There are probably many scenarios where you’d want to use the NOT operators in your WHERE clauses or case statements, but we commonly see NOT operators used to remove nulls or boolean-identifed deleted rows in source data in [staging models](../best-practices/how-we-structure/2-staging.md). This removal of unnecessary rows can potentially help the performance of downstream [intermediate](../best-practices/how-we-structure/3-intermediate.md) and [mart models](../best-practices/how-we-structure/4-marts.md).

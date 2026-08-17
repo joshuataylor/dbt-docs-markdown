@@ -1,39 +1,27 @@
 # Connect Cloudera Hive to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Cloudera
-* **Authors**:
-  <!-- -->
-  Cloudera
+* **Maintained by**: Cloudera
+* **Authors**: Cloudera
 * **GitHub repo**: [cloudera/dbt-hive](https://github.com/cloudera/dbt-hive) [![](https://img.shields.io/github/stars/cloudera/dbt-hive?style=for-the-badge)](https://github.com/cloudera/dbt-hive)
 * **PyPI package**: `dbt-hive` [![](https://badge.fury.io/py/dbt-hive.svg)](https://badge.fury.io/py/dbt-hive)
 * **Slack channel**: [#db-hive](https://getdbt.slack.com/archives/C0401DTNSKW)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.1.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.1.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-hive
+## Installing dbt-hive
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-hive`
 
-## Configuring <!-- -->dbt-hive<!-- -->
+## Configuring dbt-hive
 
-For <!-- -->Hive<!-- -->-specific configuration, please refer to [Hive<!-- --> configs.](../../../reference/resource-configs/hive-configs.md)
+For Hive-specific configuration, please refer to [Hive configs.](../../../reference/resource-configs/hive-configs.md)
 
-## Connection Methods[​](#connection-methods "Direct link to Connection Methods")
+## Connection Methods
 
 dbt-hive can connect to Apache Hive and Cloudera Data Platform clusters. The [Impyla](https://github.com/cloudera/impyla/) library is used to establish connections to Hive.
 
@@ -44,14 +32,14 @@ dbt-hive supports two transport mechanisms:
 
 The default mechanism is `binary`. To use HTTP transport, use the boolean option. For example, `use_http_transport: true`.
 
-## Authentication Methods[​](#authentication-methods "Direct link to Authentication Methods")
+## Authentication Methods
 
 dbt-hive supports two authentication mechanisms:
 
 * [`insecure`](#Insecure) No authentication is used, only recommended for testing.
 * [`ldap`](#ldap) Authentication via LDAP
 
-### Insecure[​](#insecure "Direct link to Insecure")
+### Insecure
 
 This method is only recommended if you have a local install of Hive and want to test out the dbt-hive adapter.
 
@@ -69,7 +57,7 @@ your_profile_name:
       
 ```
 
-### LDAP[​](#ldap "Direct link to LDAP")
+### LDAP
 
 LDAP allows you to authenticate with a username and password when Hive is [configured with LDAP Auth](https://cwiki.apache.org/confluence/display/Hive/Setting+Up+HiveServer2). LDAP is supported over Binary & HTTP connection mechanisms.
 
@@ -96,7 +84,7 @@ your_profile_name:
 
 Note: When creating workload user in CDP, make sure the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If you need the user to execute GRANT statements, you should also configure the appropriate GRANT permissions for them. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option. For more information, see [`grants`](../../../reference/resource-configs/grants.md) and [on-run-start & on-run-end](../../../reference/project-configs/on-run-start-on-run-end.md).
 
-### Kerberos[​](#kerberos "Direct link to Kerberos")
+### Kerberos
 
 The Kerberos authentication mechanism uses GSSAPI to share Kerberos credentials when Hive is [configured with Kerberos Auth](https://ambari.apache.org/1.2.5/installing-hadoop-using-ambari/content/ambari-kerb-2-3-3.html).
 
@@ -126,15 +114,15 @@ Note: A typical setup of Cloudera Private Cloud will involve the following steps
 * The keytab is valid for certain period after which you will need to run kinit again to renew validity of the keytab.
 * User will need CREATE, DROP, INSERT permissions on the schema provided in profiles.yml
 
-### Instrumentation[​](#instrumentation "Direct link to Instrumentation")
+### Instrumentation
 
 By default, the adapter will collect instrumentation events to help improve functionality and understand bugs. If you want to specifically switch this off, for instance, in a production environment, you can explicitly set the flag `usage_tracking: false` in your `profiles.yml` file.
 
-## Installation and Distribution[​](#installation-and-distribution "Direct link to Installation and Distribution")
+## Installation and Distribution
 
 dbt's adapter for Cloudera Hive is managed in its own repository, [dbt-hive](https://github.com/cloudera/dbt-hive). To use it, you must install the `dbt-hive` plugin.
 
-### Using pip[​](#using-pip "Direct link to Using pip")
+### Using pip
 
 The following commands will install the latest version of `dbt-hive` as well as the requisite version of `dbt-core` and `impyla` driver used for connections.
 
@@ -142,7 +130,7 @@ The following commands will install the latest version of `dbt-hive` as well as 
 python -m pip install dbt-hive
 ```
 
-### Supported Functionality[​](#supported-functionality "Direct link to Supported Functionality")
+### Supported Functionality
 
 | Name                                            | Supported |
 | ----------------------------------------------- | --------- |
@@ -158,9 +146,3 @@ python -m pip install dbt-hive
 | Documentation                                   | Yes       |
 | Authentication: LDAP                            | Yes       |
 | Authentication: Kerberos                        | Yes       |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

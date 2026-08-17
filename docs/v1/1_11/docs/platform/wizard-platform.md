@@ -1,6 +1,6 @@
 # About dbt Wizard in the dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 dbt Wizard helps teams ship trusted dbt changes faster and with less risk. It uses native dbt metadata, routes to the right tools, and validates with warehouse awareness so teams can investigate, change, validate, and ship in one place.
 
@@ -12,8 +12,6 @@ dbt Wizard comes with various features like:
 
 * Built-in [agent mode](../dbt-ai/wizard-ide.md#agent-modes) to help you manage agent control:
 
-  <!-- -->
-
   * **Ask for approval** mode allows you to review and approve each file change before dbt Wizard takes action
   * **Edit files automatically** mode allows the agent to automatically make edits without approval.
 
@@ -21,9 +19,9 @@ dbt Wizard comes with various features like:
 
 * Built-in [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills) encode dbt best practices for consistent output.
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -46,7 +44,7 @@ Refer to the following pages for more information:
 
 Looking for the terminal experience? Visit [About dbt Wizard CLI](../dbt-ai/about-dbt-wizard-cli.md).
 
-## What you can do[​](#what-you-can-do "Direct link to What you can do")
+## What you can do
 
 Use dbt Wizard in the dbt platform to:
 
@@ -71,7 +69,7 @@ Always review AI-generated content, as it may be incorrect. For prompt best prac
 
 Please contact dbt Support with any questions
 
-## Get started in the dbt platform[​](#get-started-in-the-dbt-platform "Direct link to Get started in the dbt platform")
+## Get started in the dbt platform
 
 [![](/img/icons/wizard.svg)](./enable-dbt-ai.md)
 

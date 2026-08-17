@@ -1,6 +1,6 @@
 # Explore your data
 
-dbt platformⓘ
+dbt platform
 
 dbt provides a variety of tools for you to explore your data, models, and other resources. Many of the features you'd traditionally use your data warehouse services to explore are at your fingertips in your dbt account.
 
@@ -32,7 +32,7 @@ dbt provides a variety of tools for you to explore your data, models, and other 
 
 Some features are only available on [selected plans](https://www.getdbt.com/pricing/).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt plans and pricing](https://www.getdbt.com/pricing/)
 * [Quickstart guides](../get-started-dbt.md)

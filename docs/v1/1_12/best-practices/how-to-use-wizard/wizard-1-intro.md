@@ -4,13 +4,13 @@ dbt Wizard is an AI agent that works from your project's dbt metadata — models
 
 This guide collects the workflows we recommend once Wizard is running on a real project: mapping an unfamiliar codebase, validating a change before you ship it, adding tests, debugging a failed job, developing against production state, building Semantic Layer definitions, and extending Wizard with plugins and hooks.
 
-## Learning goals[​](#learning-goals "Direct link to Learning goals")
+## Learning goals
 
 * Understand the prompts and context that get reliable results from dbt Wizard on real project tasks.
 * Develop an intuition for when to reach for dbt Wizard versus doing a task by hand.
 * Establish repeatable workflows you and your team can reuse across projects.
 
-## Before you begin[​](#before-you-begin "Direct link to Before you begin")
+## Before you begin
 
 These workflows apply to the dbt Wizard CLI and dbt platform. Each page will reference whether it applies to the CLI or dbt platform.
 

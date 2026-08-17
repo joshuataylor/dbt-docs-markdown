@@ -2,7 +2,7 @@
 
 The configured test(s) will store their failures when `dbt test --store-failures` is invoked. If you set this configuration as `false` but [`store_failures_as`](./store_failures_as.md) is configured, it will be overridden.
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 Optionally set a test to always or never store its failures in the database.
 
@@ -14,10 +14,7 @@ Optionally set a test to always or never store its failures in the database.
 
 This logic is encoded in the [`should_store_failures()`](https://github.com/dbt-labs/dbt-adapters/blob/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/materializations/configs.sql#L15) macro.
 
-* Specific test
-* Singular test
-* Generic test block
-* Project level
+### Specific test
 
 Configure a specific instance of a generic (schema) test:
 
@@ -38,6 +35,8 @@ models:
                 store_failures: false  # never store failures
 ```
 
+### Singular test
+
 Configure a singular (data) test:
 
 tests/\<filename>.sql
@@ -47,6 +46,8 @@ tests/\<filename>.sql
 
 select ...
 ```
+
+### Generic test block
 
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
@@ -62,6 +63,8 @@ select ...
 {% endtest %}
 ```
 
+### Project level
+
 Set the default for all tests in a package or project:
 
 dbt\_project.yml
@@ -74,7 +77,7 @@ data_tests:
     +store_failures: false # tests in <package_name>
 ```
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Receiving a 'permissions denied for schema' error
 

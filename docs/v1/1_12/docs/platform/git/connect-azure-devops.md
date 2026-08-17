@@ -1,6 +1,6 @@
 # Connect to Azure DevOps
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Available for dbt Enterprise and Enterprise+
 
@@ -8,7 +8,7 @@ Connecting an Azure DevOps cloud account is available for organizations using th
 
 dbt's native Azure DevOps integration does not support Azure DevOps Server (on-premise). Instead, you can [import a project by git URL](./import-a-project-by-git-url.md) to connect to an Azure DevOps Server.
 
-## About Azure DevOps and dbt[​](#about-azure-devops-and-dbt "Direct link to About Azure DevOps and dbt")
+## About Azure DevOps and dbt
 
 Connect your Azure DevOps cloud account in dbt to unlock new product experiences:
 

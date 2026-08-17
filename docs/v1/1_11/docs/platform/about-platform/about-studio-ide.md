@@ -1,6 +1,6 @@
 # About Studio IDE
 
-dbt platformⓘ
+dbt platform
 
 The dbt integrated development environment (Studio IDE) is a single interface for building, testing, running, and version-controlling dbt projects from your browser. With the Cloud Studio IDE, you can compile dbt code into SQL and run it against your database directly.
 
@@ -18,8 +18,6 @@ With the Cloud Studio IDE, you can:
 
 * Create and test Python models:
 
-  <!-- -->
-
   * Compile Python models to see the full function that gets executed in your data platform
   * See Python models in DAG in dbt version 1.3 and higher
   * Currently, you can't preview python models
@@ -30,7 +28,7 @@ With the Cloud Studio IDE, you can:
 
 For more information, read the complete [Cloud Studio IDE guide](../studio-ide/develop-in-studio.md).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Studio IDE user interface](../studio-ide/ide-user-interface.md)
 * [Keyboard shortcuts](../studio-ide/keyboard-shortcuts.md)

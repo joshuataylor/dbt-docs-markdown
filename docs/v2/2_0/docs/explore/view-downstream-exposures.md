@@ -1,6 +1,6 @@
 # Visualize downstream exposures
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Downstream exposures integrate natively with Tableau (Power BI coming soon) and auto-generate downstream lineage in Catalog for a richer experience.
 
@@ -10,12 +10,11 @@ As a data team, it’s critical that you have context into the downstream use ca
 * Reduce incidents and optimize workflows by linking upstream models to downstream dependencies.
 * Automate exposure tracking for supported BI tools, ensuring lineage is always up to date.
 * [Orchestrate exposures](../platform-integrations/orchestrate-exposures.md) to refresh the underlying data sources during scheduled dbt jobs, improving timeliness and reducing costs. Orchestrating exposures is essentially a way to ensure that your BI tools are updated regularly by using the [dbt job scheduler](../deploy/deployments.md).
-  <!-- -->
   * For more info on the differences between visualizing and orchestrating exposures, see [Visualize and orchestrate downstream exposures](../platform-integrations/downstream-exposures.md).
 
 To configure downstream exposures automatically from dashboards in Tableau, prerequisites, and more — refer to [Configure downstream exposures](../platform-integrations/downstream-exposures-tableau.md).
 
-### Supported plans[​](#supported-plans "Direct link to Supported plans")
+### Supported plans
 
 Downstream exposures is available on all dbt [Enterprise-tier plans](https://www.getdbt.com/pricing/). Currently, you can only connect to a single Tableau site on the same server.
 
@@ -23,9 +22,7 @@ Tableau Server
 
 If you're using Tableau Server, you need to [allowlist dbt's IP addresses](../platform/about-platform/access-regions-ip-addresses.md) for your dbt region.
 
-<!-- -->
-
-## View downstream exposures[​](#view-downstream-exposures "Direct link to View downstream exposures")
+## View downstream exposures
 
 After setting up downstream exposures in dbt, you can view them in [Catalog](./explore-projects.md) for a richer experience.
 
@@ -35,7 +32,7 @@ Navigate to Catalog by selecting **Catalog** from the top-level navigation. You 
 * [Exposure detail page](#exposure-detail-page)
 * [Project lineage](#project-lineage)
 
-### Exposures menu[​](#exposures-menu "Direct link to Exposures menu")
+### Exposures menu
 
 View all downstream exposures for a project from the Catalog sidebar:
 
@@ -54,7 +51,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 
 [![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")](#)View the Exposures table from the Catalog sidebar.
 
-### Exposure detail page[​](#exposure-detail-page "Direct link to Exposure detail page")
+### Exposure detail page
 
 After you open the **Exposures** table ([previous section](#exposures-menu)), select an exposure name to open its detail page.
 
@@ -62,7 +59,7 @@ On the exposure detail page, you can review metadata, [data health signals](./da
 
 [![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
 
-### Project lineage[​](#project-lineage "Direct link to Project lineage")
+### Project lineage
 
 You can also view exposures from the **Project lineage** view, separate from the **Exposures** table:
 

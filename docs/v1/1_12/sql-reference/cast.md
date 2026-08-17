@@ -6,7 +6,7 @@ Let’s set the scene: You are knee-deep in a new data model and cannot figure o
 
 It *will* happen: You’ll find column types in your source data or upstream models that will likely need to be cast into different data types; perhaps to make joins easier, calculations more intuitive, or data more readable. Regardless of the reason, you’ll find yourself inevitably casting some data as an analytics engineer and using the SQL CAST function to help you out.
 
-## How to use SQL CAST function[​](#how-to-use-sql-cast-function "Direct link to How to use SQL CAST function")
+## How to use SQL CAST function
 
 The syntax for using the CAST function looks like the following:
 
@@ -18,7 +18,7 @@ Executing this function in a SELECT statement will return the column you specifi
 
 Below, we’ll walk through a practical example using the CAST function.
 
-### SQL CAST function example[​](#sql-cast-function-example "Direct link to SQL CAST function example")
+### SQL CAST function example
 
 You can cast the `order_id` and `customer_id` fields of the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` model from number types to strings using the following code:
 
@@ -39,23 +39,17 @@ After running this query, the `orders` table will look a little something like t
 | 2         | 3            | 2018-01-02  | completed |
 | 3         | 94           | 2018-01-04  | completed |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Let’s be clear: the resulting data from this query looks exactly the same as the upstream `orders` model. However, the `order_id` and `customer_id` fields are now strings, meaning you could easily concat different string variables to them.
 
 > Casting columns to their appropriate types typically happens in our dbt project’s [staging models](../best-practices/how-we-structure/2-staging.md). A few reasons for that: data cleanup and standardization, such as aliasing, casting, and lower or upper casing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
 
-## SQL CAST function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-cast-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL CAST function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL CAST function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Google BigQuery, Amazon Redshift, Snowflake, Postgres, and Databricks all support the ability to cast columns and data to different types. In addition, the syntax to cast is the same across all of them using the CAST function.
 
 You may also see the CAST function replaced with a double colon (::), followed by the data type to convert to; `cast(order_id as string)` is the same thing as `order_id::string` in most data warehouses.
 
-## CAST function use cases[​](#cast-function-use-cases "Direct link to CAST function use cases")
+## CAST function use cases
 
 You know at one point you’re going to need to cast a column to a different data type. But what are the scenarios folks run into that call for these conversions? At their core, these conversions need to happen because raw source data doesn’t match the analytics or business use case. This typically happens for a few reasons:
 

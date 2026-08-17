@@ -1,8 +1,6 @@
 # evaluate\_volatile\_sql
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -12,6 +10,8 @@ models:
     +state:
       evaluate_volatile_sql: true | false
 ```
+
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,6 +23,8 @@ models:
         evaluate_volatile_sql: true | false
 ```
 
+### SQL file config
+
 models/\<filename>.sql
 
 ```sql
@@ -33,7 +35,7 @@ models/\<filename>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 dbt State determines whether a node's data has changed based on the freshness of its parents. However, volatile SQL functions like `CURRENT_TIMESTAMP()`, `RANDOM()`, or `UUID_STRING()` can change a node's output from one run to the next even when no upstream data has changed.
 
@@ -46,15 +48,9 @@ When `evaluate_volatile_sql` is set to `true`, dbt State stores the *result* of 
 | `false` (default) | Volatile functions are treated as static code. The node can be reused even if function outputs would differ between runs. |
 | `true`            | dbt State stores and compares the runtime result of volatile functions. The node rebuilds when those results change.      |
 
-Search table...
+## Examples
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Examples[​](#examples "Direct link to Examples")
-
-### Rebuild when the date changes[​](#rebuild-when-the-date-changes "Direct link to Rebuild when the date changes")
+### Rebuild when the date changes
 
 Use `evaluate_volatile_sql: true` for a node whose output is meaningfully affected by the current date:
 
@@ -71,7 +67,7 @@ from {{ ref('dim_customers') }}
 
 With this config enabled, dbt State stores the result of `current_date()` after each build. On the next run after midnight, the stored value no longer matches and the node is rebuilt, even if `dim_customers` hasn't changed.
 
-### Default behavior[​](#default-behavior "Direct link to Default behavior")
+### Default behavior
 
 For nodes where volatile function output doesn't affect business logic, no config is required:
 
@@ -86,7 +82,7 @@ from {{ ref('dim_customers') }}
 
 dbt State treats `getdate()` as static code. The node remains reusable as long as its parents haven't changed.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

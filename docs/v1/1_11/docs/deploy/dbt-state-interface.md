@@ -1,6 +1,6 @@
 # Monitor dbt State activity [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 Learn how to monitor dbt State activity in dbt platform for better visibility into model builds and cost savings.
 
@@ -9,7 +9,7 @@ dbt State monitoring helps you:
 * **Track effectiveness of dbt State** — See how dbt State reduces unnecessary model rebuilds by only building models when there are changes to the data or code. dbt State provides transparency into how the optimization works across your projects.
 * **Analyze build patterns** — Gain insights into your project's build frequency and identify opportunities for further optimization.
 
-## dbt State metrics[​](#dbt-state-metrics "Direct link to dbt State metrics")
+## dbt State metrics
 
 When you go to **Account settings** > **Billing & Usage** > **Usage-based features**, the **State** tab shows how many days remain in your trial period. Once dbt State is enabled, it displays the following for the current month:
 
@@ -22,11 +22,11 @@ The **State** tab also displays the following charts:
 * **DATT** — Shows the target tables processed by dbt State, split into **Billable** and **Free**. Daily active target tables (DATTs) are the [billable units](../platform/billing/dbt-state-usage.md#daily-active-target-tables) for dbt State. During a trial, all DATTs are counted as free.
 * **Asset builds** — Shows all model builds for the month, including models reused and cloned.
 
-## Models built and reused chart[​](#models-built-and-reused-chart "Direct link to Models built and reused chart")
+## Models built and reused chart
 
 When you go to your **Account home**, you'll see a chart showing the number of models built and reused, giving you visibility into how dbt State is optimizing your data builds. You can also view the number of reused models per project on **Account home**.
 
-## Logs view of built models[​](#logs-view-of-built-models "Direct link to Logs view of built models")
+## Logs view of built models
 
 When you run a job, or when you run `dbt run` or `dbt build` locally, a structured logs view shows which models were built, skipped, or reused.
 
@@ -37,7 +37,7 @@ When you run a job, or when you run `dbt run` or `dbt build` locally, a structur
 3. You can use the search bar or filter the logs to show **All**, **Success**, **Warning**, **Failed**, **Running**, **Skipped**, **Reused**, or **Debugged** messages.
 4. Detailed log messages provide context on why models were built, reused, or skipped. These messages are highlighted in the logs.
 
-## Reused tag in the Latest status lens[​](#reused-tag-in-the-latest-status-lens "Direct link to Reused tag in the Latest status lens")
+## Reused tag in the Latest status lens
 
 Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
 
@@ -52,7 +52,7 @@ To view your lineage with the **Latest status** lens:
 3. Go to the **Lineage** tab. You'll see your project's lineage.
 4. In the **Lenses** field, select **Latest status**.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

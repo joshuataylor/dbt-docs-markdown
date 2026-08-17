@@ -10,13 +10,13 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide will teach you how to build and host a basic Python app which will add dbt job events to Datadog. To do this, when a dbt job completes it will create a log entry for each node that was run, containing all information about the node provided by the [Discovery API](../docs/dbt-apis/discovery-schema-job-models.md).
 
 In this example, we will use [fly.io](https://fly.io) for hosting/running the service. fly.io is a platform for running full stack apps without provisioning servers etc. This level of usage should comfortably fit inside of the Free tier. You can also use an alternative tool such as [AWS Lambda](https://ademoverflow.com/en/posts/tutorial-fastapi-aws-lambda-serverless/) or [Google Cloud Run](https://github.com/sekR4/FastAPI-on-Google-Cloud-Run).
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 This guide assumes some familiarity with:
 
@@ -24,11 +24,11 @@ This guide assumes some familiarity with:
 * CLI apps
 * Deploying code to a serverless code runner like fly.io or AWS Lambda
 
-## Clone the `dbt-cloud-webhooks-datadog` repo[​](#clone-the-dbt-cloud-webhooks-datadog-repo "Direct link to clone-the-dbt-cloud-webhooks-datadog-repo")
+## Clone the `dbt-cloud-webhooks-datadog` repo
 
 [This repository](https://github.com/dpguthrie/dbt-cloud-webhooks-datadog) contains the sample code for validating a webhook and creating logs in Datadog.
 
-## Install `flyctl` and sign up for fly.io[​](#install-flyctl-and-sign-up-for-flyio "Direct link to install-flyctl-and-sign-up-for-flyio")
+## Install `flyctl` and sign up for fly.io
 
 Follow the directions for your OS in the [fly.io docs](https://fly.io/docs/hands-on/install-flyctl/), then from your command line, run the following commands:
 
@@ -51,7 +51,7 @@ Your console should show `successfully logged in as YOUR_EMAIL` when you're done
 flyctl auth login
 ```
 
-## Launch your fly.io app[​](#launch-your-flyio-app "Direct link to Launch your fly.io app")
+## Launch your fly.io app
 
 Launching your app publishes it to the web and makes it ready to catch webhook events:
 
@@ -93,11 +93,11 @@ Hostname: demo-dbt-cloud-webhook-datadog.fly.dev
 Wrote config file fly.toml
 ? Would you like to deploy now? Yes`
 
-### 4. Create a Datadog API Key[​](#4-create-a-datadog-api-key "Direct link to 4. Create a Datadog API Key")
+### 4. Create a Datadog API Key
 
 [Create an API Key for your Datadog account](https://docs.datadoghq.com/account_management/api-app-keys/) and make note of it and your Datadog site (e.g. `datadoghq.com`) for later.
 
-## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
+## Configure a new webhook in dbt
 
 1. See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Your event should be **Run completed**.
 2. Set the webhook URL to the host name you created earlier (`APP_NAME.fly.dev`).
@@ -105,7 +105,7 @@ Wrote config file fly.toml
 
 *Do not test the endpoint*; it won't work until you have stored the auth keys (next step)
 
-## Store secrets[​](#store-secrets "Direct link to Store secrets")
+## Store secrets
 
 The application requires four secrets to be set, using these names:
 
@@ -120,6 +120,6 @@ Set these secrets as follows, replacing `abc123` etc with actual values:
 flyctl secrets set DBT_CLOUD_SERVICE_TOKEN=abc123 DBT_CLOUD_AUTH_TOKEN=def456 DD_API_KEY=ghi789 DD_SITE=datadoghq.com
 ```
 
-## Deploy your app[​](#deploy-your-app "Direct link to Deploy your app")
+## Deploy your app
 
 After you set your secrets, fly.io will redeploy your application. When it has completed successfully, go back to the dbt webhook settings and click **Test Endpoint**.

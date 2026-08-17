@@ -1,8 +1,8 @@
 # Print output
 
-### Suppress `print()` messages in stdout[​](#suppress-print-messages-in-stdout "Direct link to suppress-print-messages-in-stdout")
+### Suppress `print()` messages in stdout
 
-By default, dbt includes [`print()`](../dbt-jinja-functions/print.md) messages in standard out (stdout). You can use the `DBT_ENGINE_PRINT` environment variable to prevent these messages from showing up in stdout.
+By default, dbt includes [`print()`](../dbt-jinja-functions/print.md) messages in standard out (stdout). You can use the (Applies to dbt v1.11 and later) `DBT_ENGINE_PRINT` environment variable to prevent these messages from showing up in stdout.
 
 Syntax deprecation
 
@@ -14,7 +14,7 @@ Supply `--no-print` flag to `dbt run` to suppress `print()` messages from showin
 dbt run --no-print
 ```
 
-### Printer width[​](#printer-width "Direct link to Printer width")
+### Printer width
 
 By default, dbt will print out lines padded to 80 characters wide. You can change this setting by adding the following to your `profiles.yml` file:
 
@@ -25,7 +25,7 @@ config:
   printer_width: 120
 ```
 
-### Print color[​](#print-color "Direct link to Print color")
+### Print color
 
 By default, dbt will colorize the output it prints in your terminal. You can turn this off by adding the following to your `profiles.yml` file:
 

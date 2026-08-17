@@ -1,39 +1,27 @@
 # Connect DeltaStream to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  DeltaStream Team
+* **Maintained by**: Community
+* **Authors**: DeltaStream Team
 * **GitHub repo**: [deltastreaminc/dbt-deltastream](https://github.com/deltastreaminc/dbt-deltastream) [![](https://img.shields.io/github/stars/deltastreaminc/dbt-deltastream?style=for-the-badge)](https://github.com/deltastreaminc/dbt-deltastream)
 * **PyPI package**: `dbt-deltastream` [![](https://badge.fury.io/py/dbt-deltastream.svg)](https://badge.fury.io/py/dbt-deltastream)
 * **Slack channel**: [#db-deltastream]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.10.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not supported
-* **Minimum data platform version**:
-  <!-- -->
-  ?
+* **Supported dbt Core version**: v1.10.0 and newer
+* **dbt support**: Not supported
+* **Minimum data platform version**: ?
 
-## Installing <!-- -->dbt-deltastream
+## Installing dbt-deltastream
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-deltastream`
 
-## Configuring <!-- -->dbt-deltastream<!-- -->
+## Configuring dbt-deltastream
 
-For <!-- -->DeltaStream<!-- -->-specific configuration, please refer to [DeltaStream<!-- --> configs.](../../../reference/resource-configs/deltastream-configs.md)
+For DeltaStream-specific configuration, please refer to [DeltaStream configs.](../../../reference/resource-configs/deltastream-configs.md)
 
-## Connecting to DeltaStream with **dbt-deltastream**[​](#connecting-to-deltastream-with-dbt-deltastream "Direct link to connecting-to-deltastream-with-dbt-deltastream")
+## Connecting to DeltaStream with **dbt-deltastream**
 
 To connect to DeltaStream from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A DeltaStream profile conforms to the following syntax:
 
@@ -61,7 +49,7 @@ profiles.yml
       compute_pool: [ <empty string> ] # Compute pool name to be used if any else use the default compute pool
 ```
 
-### Description of DeltaStream profile fields[​](#description-of-deltastream-profile-fields "Direct link to Description of DeltaStream profile fields")
+### Description of DeltaStream profile fields
 
 | Field             | Required | Description                                                                                                                    |
 | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -77,13 +65,7 @@ profiles.yml
 | `store`           | ❌       | Target default store name. Stores represent external system connections (Kafka, PostgreSQL, etc.) in DeltaStream.              |
 | `compute_pool`    | ❌       | Compute pool name to be used for models that require computational resources. If not specified, uses the default compute pool. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Security best practices[​](#security-best-practices "Direct link to Security best practices")
+## Security best practices
 
 When configuring your project for production, it is strongly recommended to use environment variables to store sensitive information such as the authentication token:
 
@@ -101,11 +83,11 @@ your_profile_name:
       organization_id: "{{ env_var('DELTASTREAM_ORG_ID') }}"
 ```
 
-## Troubleshooting connections[​](#troubleshooting-connections "Direct link to Troubleshooting connections")
+## Troubleshooting connections
 
 If you encounter issues connecting to DeltaStream from dbt, verify the following:
 
-### Authentication issues[​](#authentication-issues "Direct link to Authentication issues")
+### Authentication issues
 
 * Ensure your API token is valid and has not expired
 * Verify the token has appropriate permissions for the target organization

@@ -1,56 +1,42 @@
 # Connect Confluent Cloud to dbt Core
 
-Local developmentⓘ
+Local development
 
 Community plugin
 
 Some features may be limited. To contribute, refer to the source repository below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Confluent
-* **Authors**:
-  <!-- -->
-  Confluent
+* **Maintained by**: Confluent
+* **Authors**: Confluent
 * **GitHub repo**: [confluentinc/dbt-confluent](https://github.com/confluentinc/dbt-confluent) [![](https://img.shields.io/github/stars/confluentinc/dbt-confluent?style=for-the-badge)](https://github.com/confluentinc/dbt-confluent)
 * **PyPI package**: `dbt-confluent` [![](https://badge.fury.io/py/dbt-confluent.svg)](https://badge.fury.io/py/dbt-confluent)
 * **Slack channel**: [n/a](https://docs.getdbt.com/n/a)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.11.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.11.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-confluent
+## Installing dbt-confluent
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-confluent`
 
-## Configuring <!-- -->dbt-confluent<!-- -->
+## Configuring dbt-confluent
 
-For <!-- -->Confluent Cloud<!-- -->-specific configuration, please refer to [Confluent Cloud<!-- --> configs.](../../../reference/resource-configs/confluent-configs.md)
+For Confluent Cloud-specific configuration, please refer to [Confluent Cloud configs.](../../../reference/resource-configs/confluent-configs.md)
 
-## Connecting to Confluent Cloud with dbt-confluent[​](#connecting-to-confluent-cloud-with-dbt-confluent "Direct link to Connecting to Confluent Cloud with dbt-confluent")
+## Connecting to Confluent Cloud with dbt-confluent
 
 Use the `dbt-confluent` adapter to connect to [Confluent Cloud for Apache Flink](https://docs.confluent.io/cloud/current/flink/overview.html), a fully managed stream processing service. The adapter [deploys dbt models as Flink SQL statements](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/deploy-flink-dbt.html) that run continuously on Confluent Cloud.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * A [Confluent Cloud](https://confluent.cloud/) account
 * A [Flink compute pool](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/compute-pools.html) in your environment
 * A [Flink API key](https://docs.confluent.io/cloud/current/flink/authenticate/authenticate-api-keys.html) for a service account with appropriate [RBAC permissions](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/flink-rbac.html)
 * Python 3.10 or later
 
-### Installation[​](#installation "Direct link to Installation")
+### Installation
 
 Install `dbt-confluent` from PyPI:
 
@@ -58,7 +44,7 @@ Install `dbt-confluent` from PyPI:
 pip install dbt-confluent
 ```
 
-### Configuring your profile[​](#configuring-your-profile "Direct link to Configuring your profile")
+### Configuring your profile
 
 Add the following configuration to your `profiles.yml` file to define Confluent Cloud targets.
 
@@ -81,7 +67,7 @@ my_confluent_project:
       threads: 1
 ```
 
-#### Description of profile fields[​](#description-of-profile-fields "Direct link to Description of profile fields")
+#### Description of profile fields
 
 | Field                   | Required | Description                                                                                                                       |
 | ----------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -99,13 +85,7 @@ my_confluent_project:
 | `statement_label`       | No       | Applies a label to all Flink statements so you can filter them in the Confluent Cloud Console. Default: `dbt-confluent`.          |
 | `threads`               | No       | Sets how many models dbt runs concurrently. Default: `1`.                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Understanding Confluent Cloud concepts[​](#understanding-confluent-cloud-concepts "Direct link to Understanding Confluent Cloud concepts")
+### Understanding Confluent Cloud concepts
 
 In Confluent Cloud for Apache Flink, dbt concepts map to Flink SQL as follows:
 
@@ -116,13 +96,7 @@ In Confluent Cloud for Apache Flink, dbt concepts map to Flink SQL as follows:
 | `model`                           | Flink SQL statement                             |
 | `table`                           | Kafka topic with a schema                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Environment variables[​](#environment-variables "Direct link to Environment variables")
+### Environment variables
 
 Use environment variables to configure your profile, especially in CI/CD pipelines:
 

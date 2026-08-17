@@ -1,6 +1,6 @@
 # Don't nest your curlies
 
-### Poetry[​](#poetry "Direct link to Poetry")
+### Poetry
 
 **Don't Nest Your Curlies**
 
@@ -14,7 +14,7 @@
 >
 > and check if you're nesting your curlies.
 
-### Jinja[​](#jinja "Direct link to Jinja")
+### Jinja
 
 When writing Jinja code in a dbt project, it may be tempting to nest expressions inside of each other. Take this example:
 
@@ -65,7 +65,7 @@ select * from {{ ref('my_model') }}
 {% set query_sql = "select * from {{ ref('my_model')}}" %}
 ```
 
-### An exception[​](#an-exception "Direct link to An exception")
+### An exception
 
 There is one exception to this rule: curlies inside of curlies are acceptable in hooks (ie. `on-run-start`, `on-run-end`, `pre-hook`, and `post-hook`).
 

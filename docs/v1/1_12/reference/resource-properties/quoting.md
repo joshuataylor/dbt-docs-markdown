@@ -18,7 +18,7 @@ sources:
           identifier: true | false
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally configure whether dbt should quote databases, schemas, and identifiers when resolving a `{{ source() }}` function to a direct relation reference.
 
@@ -28,7 +28,7 @@ BigQuery Terminology
 
 Note that for BigQuery quoting configuration, `database` and `schema` should be used here, though these configs will apply to `project` and `dataset` names respectively
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 The default values vary by database.
 
@@ -40,7 +40,7 @@ On Snowflake, quoting is set to *false* by default.
 
 Creating relations with quoted identifiers also makes those identifiers case sensitive. It's much more difficult to select from them. You can re-enable quoting for relations identifiers that are case sensitive, reserved words, or contain special characters, but we recommend you avoid this as much as possible.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 models/\<filename>.yml
 

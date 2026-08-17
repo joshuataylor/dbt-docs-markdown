@@ -4,18 +4,18 @@ This guide introduces MetricFlow's fundamental ideas for people new to this feat
 
 MetricFlow handles SQL query construction and defines the specification for dbt semantic models and metrics. It allows you to define metrics in your dbt project and query them with [MetricFlow commands](./metricflow-commands.md) whether in dbt or dbt Core.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you start, consider the following guidelines:
+
+(Applies to dbt v1.11 and earlier)
 
 * Define metrics in YAML and query them using these [new metric specifications](https://github.com/dbt-labs/dbt-core/discussions/7456).
 * You must be on [dbt version](../dbt-versions/upgrade-dbt-platform-version.md) 1.6 or higher to use MetricFlow.
 * Use MetricFlow with Snowflake, BigQuery, Databricks, Postgres (dbt Core only), Trino, or Redshift.
 * Discover insights and query your metrics using the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) and its diverse range of [available integrations](../platform-integrations/avail-sl-integrations.md).
 
-<!-- -->
-
-## MetricFlow[​](#metricflow "Direct link to MetricFlow")
+## MetricFlow
 
 MetricFlow is a SQL query generation tool designed to streamline metric creation across different data dimensions for diverse business needs.
 
@@ -37,7 +37,7 @@ MetricFlow abides by these principles:
 * **Simplicity with gradual complexity:** Approach MetricFlow using familiar data modeling concepts.
 * **Performance and efficiency**: Optimize performance while supporting centralized data engineering and distributed logic ownership.
 
-### Semantic graph[​](#semantic-graph "Direct link to Semantic graph")
+### Semantic graph
 
 We're introducing a new concept: a "semantic graph". It's the relationship between semantic models and YAML configurations that creates a data landscape for building metrics. You can think of it like a map, where tables are like locations, and the connections between them (edges) are like roads. Although it's under the hood, the semantic graph is a subset of the DAG, and you can see the semantic models as nodes on the DAG.
 
@@ -45,7 +45,7 @@ The semantic graph helps us decide which information is available to use for con
 
 When MetricFlow generates a metric, it uses its SQL engine to figure out the best path between tables using the framework defined in YAML files for semantic models and metrics. When these models and metrics are correctly defined, they can be used downstream with Semantic Layer's integrations.
 
-### Semantic models[​](#semantic-models "Direct link to Semantic models")
+### Semantic models
 
 Semantic models are the starting points of your data and correspond to models in your dbt project. You can create multiple semantic models from each model. Semantic models have metadata, like a data table, that define important information such as the table name and primary keys for the graph to be navigated correctly.
 
@@ -54,19 +54,23 @@ For a semantic model, there are three main pieces of metadata:
 * [Entities](./entities.md): The join keys of your semantic model (think of these as the traversal paths, or edges between semantic models).
 * [Dimensions](./dimensions.md): These are the ways you want to group or slice/dice your metrics.
 
-- [Measures](./measures.md): The aggregation functions that give you a numeric result and can be used to create your metrics.
+(Applies to dbt v1.11 and earlier)
 
-<!-- -->
+* [Measures](./measures.md): The aggregation functions that give you a numeric result and can be used to create your metrics.
+
+(Applies to dbt v1.11 and earlier)
 
 [![A semantic model is made up of different components: Entities, Measures, and Dimensions.](/img/docs/dbt-platform/semantic-layer/semantic_foundation.jpg?v=2 "A semantic model is made up of different components: Entities, Measures, and Dimensions.")](#)A semantic model is made up of different components: Entities, Measures, and Dimensions.
 
-### Metrics[​](#metrics "Direct link to Metrics")
+### Metrics
+
+(Applies to dbt v1.11 and earlier)
 
 Metrics, which is a key concept, are functions that combine measures, constraints, or other mathematical functions to define new quantitative indicators. MetricFlow uses measures and various aggregation types, such as average, sum, and count distinct, to create metrics. Dimensions add context to metrics and without them, a metric is simply a number for all time. You can define metrics in the same YAML files as your semantic models, or create a new file.
 
-<!-- -->
-
 MetricFlow supports different metric types:
+
+(Applies to dbt v1.11 and earlier)
 
 * [Conversion](./conversion.md): Tracks when a base event and a subsequent conversion event occurs for an entity within a set time period.
 * [Cumulative](./cumulative.md): Aggregates a measure over a given window.
@@ -74,9 +78,7 @@ MetricFlow supports different metric types:
 * [Ratio](./ratio.md): Defines a metric as the ratio of two measures, such as revenue per customer.
 * [Simple](./simple.md): Defines a metric that directly references a single measure.
 
-<!-- -->
-
-## Use case[​](#use-case "Direct link to Use case")
+## Use case
 
 In the upcoming sections, we'll show how data practitioners currently calculate metrics and compare it to how MetricFlow makes defining metrics easier and more flexible.
 
@@ -92,12 +94,11 @@ To make this more concrete, consider the metric `order_total`, which is defined 
 * Time, for example `date_trunc(ordered_at, 'day')`
 * Order Type, using `is_food_order` dimension from the `orders` table
 
-### Calculate metrics[​](#calculate-metrics "Direct link to Calculate metrics")
+### Calculate metrics
 
 Next, we'll compare how data practitioners currently calculate metrics with multiple queries versus how MetricFlow simplifies and streamlines the process.
 
-* Calculate with multiple queries
-* Calculate with MetricFlow
+### Calculate with multiple queries
 
 The following example displays how data practitioners typically would calculate the `order_total` metric aggregated. It's also likely that analysts are asked for more details on a metric, like how much revenue came from new customers.
 
@@ -117,11 +118,13 @@ on
 group by 1, 2
 ```
 
+### Calculate with MetricFlow
+
 In the following three example tabs, use MetricFlow to define a semantic model that uses `order_total` as a metric and a sample schema to create consistent and accurate results — eliminating confusion, code duplication, and streamlining your workflow.
 
-* Revenue example
-* More dimensions example
-* Advanced example
+### Revenue example
+
+(Applies to dbt v1.11 and earlier)
 
 In this example, a measure named `order_total` is defined based on the order\_total column in the `orders` table.
 
@@ -171,7 +174,11 @@ semantic_models:
           time_granularity: day
 ```
 
+### More dimensions example
+
 Similarly, you can add additional dimensions like `is_food_order` to your semantic models to incorporate even more dimensions to slice and dice your revenue `order_total`.
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 semantic_models:
@@ -200,6 +207,8 @@ semantic_models:
         type: categorical
 ```
 
+### Advanced example
+
 Imagine an even more complex metric is needed, such as the amount of money earned each day from food orders from returning customers. Without MetricFlow, the data practitioner's original SQL might look like this:
 
 ```sql
@@ -221,6 +230,8 @@ group by 1
 
 MetricFlow simplifies the SQL process through metric YAML configurations as shown below. You can also commit them to your git repository to ensure everyone on the data and business teams can see and approve them as the true and only source of information.
 
+(Applies to dbt v1.11 and earlier)
+
 ```yaml
 metrics:
   - name: food_order_pct_of_order_total_returning
@@ -234,7 +245,7 @@ metrics:
       {{ Dimension('customer__is_new_customer') }} = false
 ```
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Do my datasets need to be normalized?
 
@@ -247,6 +258,8 @@ If you have not invested in data consistency, that is okay. The Semantic Layer c
  Why is normalized data the ideal input?
 
 MetricFlow is built to do denormalization efficiently. There are better tools to take raw datasets and accomplish the various tasks required to build data consistency and organized data models. On the other end, by putting in denormalized data you are potentially creating redundancy which is technically challenging to manage, and you are reducing the potential granularity that MetricFlow can use to aggregate metrics.
+
+(Applies to dbt v1.11 and earlier)
 
  Why not just make metrics the same as measures?
 
@@ -270,7 +283,7 @@ If it helps you to think of entities as join keys, that is very reasonable. Enti
 
 Yes, but because a dimension is considered an attribute of the primary or unique entity of the table, they are only usable by the metrics that are defined in that table. They cannot be joined to metrics from other tables. This is common in event logs.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Joins](./join-logic.md)
 * [Validations](./validation.md)

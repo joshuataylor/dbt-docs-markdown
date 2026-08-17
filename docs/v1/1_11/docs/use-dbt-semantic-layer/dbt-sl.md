@@ -1,6 +1,6 @@
 # dbt Semantic Layer
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The dbt Semantic Layer eliminates duplicate coding by allowing data teams to define metrics on top of existing models and automatically handling data joins.
 
@@ -12,19 +12,9 @@ Refer to the [Semantic Layer FAQs](./sl-faqs.md) or [Why we need a universal sem
 
 [YouTube video player](https://www.youtube.com/embed/DS7Ub_CmBR0?si=m92hLmxw1VuE6KKO)
 
-## Get started with the dbt Semantic Layer[​](#get-started-with-the-dbt-semantic-layer "Direct link to Get started with the dbt Semantic Layer")
+## Get started with the dbt Semantic Layer
 
-<!-- -->
-
-To define and query metrics with the
-
-<!-- -->
-
-dbt Semantic Layer
-
-<!-- -->
-
-, you must be on a [dbt Starter or Enterprise-tier](https://www.getdbt.com/pricing/) account. [](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses)Suitable for both Multi-tenant and Single-tenant accounts. Note: Single-tenant accounts should contact their account representative for necessary setup and enablement.
+To define and query metrics with the dbt Semantic Layer, you must be on a [dbt Starter or Enterprise-tier](https://www.getdbt.com/pricing/) account. [](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses)Suitable for both Multi-tenant and Single-tenant accounts. Note: Single-tenant accounts should contact their account representative for necessary setup and enablement.
 
 <br />
 
@@ -38,14 +28,14 @@ Refer to the following resources to get started with the Semantic Layer:
 * [Build your metrics](../build/build-metrics-intro.md) — Use MetricFlow in dbt to centrally define your metrics.
 * [Semantic Layer FAQs](./sl-faqs.md) — Discover answers to frequently asked questions about the Semantic Layer, such as availability, integrations, and more.
 
-## Configure the dbt Semantic Layer[​](#configure-the-dbt-semantic-layer "Direct link to Configure the dbt Semantic Layer")
+## Configure the dbt Semantic Layer
 
 The following resources provide information on how to configure the Semantic Layer:
 
 * [Administer the Semantic Layer](./setup-sl.md) — Seamlessly set up the credentials and tokens to start querying the Semantic Layer.
 * [Architecture](./sl-architecture.md) — Explore the powerful components that make up the Semantic Layer.
 
-## Deploy metrics[​](#deploy-metrics "Direct link to Deploy metrics")
+## Deploy metrics
 
 This section provides information on how to deploy the Semantic Layer and materialize your metrics:
 
@@ -53,7 +43,7 @@ This section provides information on how to deploy the Semantic Layer and materi
 * [Write queries with exports](./exports.md) — Use exports to write commonly used queries directly within your data platform, on a schedule.
 * [Cache common queries](./sl-cache.md) — Leverage result caching and declarative caching for common queries to speed up performance and reduce query computation.
 
-## Consume metrics and integrate[​](#consume-metrics-and-integrate "Direct link to Consume metrics and integrate")
+## Consume metrics and integrate
 
 Consume metrics and integrate the Semantic Layer with downstream tools and applications:
 

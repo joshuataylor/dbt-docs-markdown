@@ -1,45 +1,31 @@
 # Connect Infer to dbt Core
 
-Local developmentⓘ
+Local development
 
 Vendor-supported plugin
 
 Certain core functionality may vary. If you would like to report a bug, request a feature, or contribute, you can check out the linked repository and open an issue.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Infer
-* **Authors**:
-  <!-- -->
-  Erik Mathiesen-Dreyfus, Ryan Garland
+* **Maintained by**: Infer
+* **Authors**: Erik Mathiesen-Dreyfus, Ryan Garland
 * **GitHub repo**: [inferlabs/dbt-infer](https://github.com/inferlabs/dbt-infer) [![](https://img.shields.io/github/stars/inferlabs/dbt-infer?style=for-the-badge)](https://github.com/inferlabs/dbt-infer)
 * **PyPI package**: `dbt-infer` [![](https://badge.fury.io/py/dbt-infer.svg)](https://badge.fury.io/py/dbt-infer)
 * **Slack channel**: [n/a]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.2.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.2.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-infer
+## Installing dbt-infer
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-infer`
 
-## Configuring <!-- -->dbt-infer<!-- -->
+## Configuring dbt-infer
 
-For <!-- -->Infer<!-- -->-specific configuration, please refer to [Infer<!-- --> configs.](../../../reference/resource-configs/infer-configs.md)
+For Infer-specific configuration, please refer to [Infer configs.](../../../reference/resource-configs/infer-configs.md)
 
-## Connecting to Infer with **dbt-infer**[​](#connecting-to-infer-with-dbt-infer "Direct link to connecting-to-infer-with-dbt-infer")
+## Connecting to Infer with **dbt-infer**
 
 Infer allows you to perform advanced ML Analytics within SQL as if native to your data warehouse. To do this Infer uses a variant called SQL-inf, which defines as set of primitive ML commands from which you can build advanced analysis for any business use case. Read more about SQL-inf and Infer in the [Infer documentation](https://docs.getinfer.io/).
 
@@ -74,7 +60,7 @@ The profile configuration in `profiles.yml` for `dbt-infer` should look somethin
 
 Note that you need to also have installed the adapter package for your underlying data warehouse. For example, if your data warehouse is BigQuery then you need to also have installed the appropriate `dbt-bigquery` package. The configuration of this goes into the `data_config` field.
 
-### Description of Infer Profile Fields[​](#description-of-infer-profile-fields "Direct link to Description of Infer Profile Fields")
+### Description of Infer Profile Fields
 
 | Field         | Required | Description                                                                                                                                       |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,13 +70,7 @@ Note that you need to also have installed the adapter package for your underlyin
 | `apikey`      | Yes      | Your Infer api key.                                                                                                                               |
 | `data_config` | Yes      | The configuration for your underlying data warehouse. The format of this follows the format of the configuration for your data warehouse adapter. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Example of Infer configuration[​](#example-of-infer-configuration "Direct link to Example of Infer configuration")
+### Example of Infer configuration
 
 To illustrate the above descriptions, here is an example of what a `dbt-infer` configuration might look like. In this case the underlying data warehouse is BigQuery, which we configure the adapter for inside the `data_config` field.
 
@@ -113,7 +93,7 @@ infer_bigquery:
     type: bigquery
 ```
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 You do not need to change anything in your existing dbt models when switching to use SQL-inf – they will all work the same as before – but you now have the ability to use SQL-inf commands as native SQL functions.
 

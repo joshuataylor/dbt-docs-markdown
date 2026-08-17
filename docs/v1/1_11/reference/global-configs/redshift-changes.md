@@ -6,7 +6,7 @@ The following are the current [behavior change flags](./behavior-changes.md#beha
 | ---------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------ | ------ |
 | [`redshift_skip_autocommit_transaction_statements`](#redshift_skip_autocommit_transaction_statements-flag) | 1.12.0                | TBD                      | Active |
 
-## The `redshift_skip_autocommit_transaction_statements` flag[​](#redshift_skip_autocommit_transaction_statements-flag "Direct link to redshift_skip_autocommit_transaction_statements-flag")
+## The `redshift_skip_autocommit_transaction_statements` flag
 
 Available starting `dbt-redshift` 1.12.0.
 
@@ -31,7 +31,7 @@ flags:
   redshift_skip_autocommit_transaction_statements: true
 ```
 
-### How this flag interacts with `autocommit`[​](#how-this-flag-interacts-with-autocommit "Direct link to how-this-flag-interacts-with-autocommit")
+### How this flag interacts with `autocommit`
 
 * If the connection uses `autocommit=False`, dbt’s explicit transaction behavior is unchanged.
 * If the connection uses `autocommit=True` (default) and the flag is `false` (default), dbt still sends `BEGIN`, `COMMIT`, and `ROLLBACK`.

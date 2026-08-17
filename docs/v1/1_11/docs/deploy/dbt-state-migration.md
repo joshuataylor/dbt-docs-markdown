@@ -1,6 +1,6 @@
 # Migrating from state-aware orchestration to dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 dbt State improves upon state-aware orchestration in a few key ways:
 
@@ -12,7 +12,7 @@ If you were using state-aware orchestration prior to June 1, 2026, you can conti
 
 While dbt State is in preview, there is no required migration timeline — dbt Labs will communicate a timeline when dbt State reaches general availability.
 
-## Migrating your configuration[​](#migrating-your-configuration "Direct link to Migrating your configuration")
+## Migrating your configuration
 
 Much of dbt State's configuration will feel familiar if you've used state-aware orchestration, but there is one significant difference: the `build_after` configs have moved out of the `freshness` block and into a new `state` block.
 
@@ -23,12 +23,6 @@ To migrate to dbt State, move your configs from `freshness.build_after` to the n
 | `freshness.build_after.updates_on`                             | [`state.require_fresh_data_from`](../../reference/resource-configs/require-fresh-data-from.md) | Same `any` and `all` options with the same behavior:<br />- `any` (default): rebuilds when *any* direct parent has fresh data<br />- `all`: rebuilds only when *all* direct parents have fresh data |
 | `freshness.build_after.count` + `freshness.build_after.period` | [`state.lag_tolerance`](../../reference/resource-configs/lag-tolerance.md)                     | Combined into a single field with shorthand values (for example, `1800s`, `30m`, `12h`, `1d`, `2w`) or Jinja expressions                                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Backward compatibility in Fusion
 
 In the dbt Fusion engine, you can enable dbt State without updating your project configs first.
@@ -38,7 +32,7 @@ In the dbt Fusion engine, you can enable dbt State without updating your project
 
 dbt Labs will communicate a migration timeline for state-aware orchestration users when dbt State reaches general availability.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 You can set these configs at the project level in `dbt_project.yml` or at the model level in a `.yml` file.
 
@@ -98,7 +92,7 @@ models:
         require_fresh_data_from: any
 ```
 
-## Testing the migration[​](#testing-the-migration "Direct link to Testing the migration")
+## Testing the migration
 
 You can run both configs side by side while validating. State-aware orchestration reads `freshness.build_after` and dbt State reads the `state` block, so they won't interfere with each other. Once you're confident everything looks right, remove the `build_after` configs.
 
@@ -116,7 +110,7 @@ models:
     require_fresh_data_from: any
 ```
 
-## Known differences from state-aware orchestration[​](#known-differences-from-state-aware-orchestration "Direct link to Known differences from state-aware orchestration")
+## Known differences from state-aware orchestration
 
 State-aware orchestration and dbt State differ in a few ways:
 
@@ -137,7 +131,7 @@ State-aware orchestration and dbt State differ in a few ways:
 
 * **Efficient Testing not yet available**: State-aware orchestration offers Efficient Testing (private beta); dbt State doesn't support it yet.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

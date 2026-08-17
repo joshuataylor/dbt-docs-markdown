@@ -54,7 +54,7 @@ Updates available for packages: ['tailsdotcom/dbt_artifacts', 'dbt-labs/snowplow
 Update your versions in packages.yml, then run dbt deps
 ```
 
-## Predictable package installs[​](#predictable-package-installs "Direct link to Predictable package installs")
+## Predictable package installs
 
 dbt generates a `package-lock.yml` file in the root of your project. This file records the exact resolved versions (including commit SHAs) of all packages defined in your `packages.yml` or `dependencies.yml` file. The `package-lock.yml` file ensures consistent and repeatable installs across all environments.
 
@@ -64,13 +64,13 @@ If the `packages.yml` file has changed (for example, a new package is added or a
 
 To maintain consistency, commit the `package-lock.yml` file to version control. This guarantees consistency across all environments and for all developers.
 
-### Managing `package-lock.yml`[​](#managing-package-lockyml "Direct link to managing-package-lockyml")
+### Managing `package-lock.yml`
 
 The `package-lock.yml` file should be committed to Git initially and updated only when you intend to change versions or uninstall a package. For example, run `dbt deps --upgrade` to get updated package versions or `dbt deps --lock` to update the lock file based on changes to the packages config without installing the packages.
 
 To bypass using `package-lock.yml` entirely, you can add it to your project's `.gitignore`. However, this approach sacrifices the predictability of builds. If you choose this route, we strongly recommend adding version pins for third-party packages in your `packages` config.
 
-### Detecting changes in `packages` config[​](#detecting-changes-in-packages-config "Direct link to detecting-changes-in-packages-config")
+### Detecting changes in `packages` config
 
 The `package-lock.yml` file includes a `sha1_hash` of your packages config. If you update `packages.yml`, dbt will detect the change and rerun dependency resolution during the next `dbt deps` command. To update the lock file without installing the new packages, use the `--lock` flag:
 
@@ -78,7 +78,7 @@ The `package-lock.yml` file includes a `sha1_hash` of your packages config. If y
 dbt deps --lock
 ```
 
-### Forcing package updates[​](#forcing-package-updates "Direct link to Forcing package updates")
+### Forcing package updates
 
 To update all packages, even if `packages.yml` hasn't changed, use the `--upgrade` flag:
 
@@ -92,11 +92,11 @@ warning
 
 Forcing package upgrades may introduce build inconsistencies unless carefully managed.
 
-### Adding specific packages[​](#adding-specific-packages "Direct link to Adding specific packages")
+### Adding specific packages
 
 The `dbt deps` command can add or update package configurations directly, saving you from remembering exact syntax.
 
-#### Hub packages (default)[​](#hub-packages-default "Direct link to Hub packages (default)")
+#### Hub packages (default)
 
 Hub packages are the default package types and the easiest to install.
 
@@ -107,7 +107,7 @@ dbt deps --add-package dbt-labs/dbt_utils@1.0.0
 dbt deps --add-package dbt-labs/snowplow@">=0.7.0,<0.8.0"
 ```
 
-#### Non-Hub packages[​](#non-hub-packages "Direct link to Non-Hub packages")
+#### Non-Hub packages
 
 Use the `--source` flag to specify the type of package to be installed:
 

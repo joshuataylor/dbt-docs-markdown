@@ -1,6 +1,6 @@
 # Redshift setup [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in v2 | Local developmentⓘ
+Available in v2 | Local development
 
 You can configure the Redshift adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
@@ -9,7 +9,7 @@ The Redshift adapter for Fusion supports the following [authentication methods](
 * Password
 * IAM profile
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -23,14 +23,13 @@ Alternatively, you can manually create the `profiles.yml` file and configure the
 
 Next, select your authentication method. Follow the on-screen prompts to provide the required information.
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
-* Password
-* IAM profile
+### Password
 
 Use your Redshift user's password to authenticate. You can also manually enter it in plain text into the `profiles.yml` file configuration.
 
-#### Example password configuration[​](#example-password-configuration "Direct link to Example password configuration")
+#### Example password configuration
 
 profiles.yml
 
@@ -51,6 +50,8 @@ default:
       threads: 16
 ```
 
+### IAM profile
+
 Specify the IAM profile to use to connect your Fusion sessions. You will need to provide the following information:
 
 * **IAM Profile:** The profile name
@@ -58,7 +59,7 @@ Specify the IAM profile to use to connect your Fusion sessions. You will need to
 * **Region:** Your AWS region (for example, us-east-1)
 * **Use RA3 node type (y/n):** Use high performance AWS RA3 node
 
-#### Example password configuration[​](#example-password-configuration-1 "Direct link to Example password configuration")
+#### Example password configuration
 
 profiles.yml
 
@@ -81,6 +82,6 @@ default:
       threads: 16
 ```
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Redshift-specific configuration information in the [Redshift adapter reference guide](../../../reference/resource-configs/redshift-configs.md).

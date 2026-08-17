@@ -1,8 +1,6 @@
 # Install the dbt VS Code extension [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
-
-<!-- -->
+Local development
 
 The dbt extension — available for [VS Code and Cursor](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt\&ssr=false#overview), and [Windsurf](https://open-vsx.org/extension/dbtLabsInc/dbt) — uses the dbt Fusion engine to make dbt development smoother and more efficient.
 
@@ -12,7 +10,7 @@ note
 
 This is the only official dbt Labs VS Code extension. Other extensions *can* work alongside the dbt VS Code extension, but they aren't tested or supported by dbt Labs. Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before installing, review the [limitations](./fusion/supported-features.md#limitations) page because some features don't support Fusion yet.
 
@@ -27,7 +25,7 @@ To use the extension, you need the following:
 | **Local configuration** (optional)       | [Configure the extension](./configure-dbt-extension.md) to mirror your dbt environment locally and set any environment variables required by your project.                                                                    |
 | **Project migration support** (optional) | Use the **Migrate dbt Core to Fusion** agent skill or [run dbt-autofix](../guides/prepare-fusion-upgrade.md?step=5#what-the-autofix-tool-handles) to help resolve errors and deprecations before using Fusion.                      |
 
-## Install the extension[​](#install-the-extension "Direct link to Install the extension")
+## Install the extension
 
 1. In your editor, open the **Extensions** tab and search for `dbt`.
 
@@ -165,7 +163,7 @@ After installation, follow the [getting started](#getting-started) workflow. You
 * Running **dbt: Register dbt extension** from the command palette.
 * Selecting **Get started** from the extension menu.
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 After the dbt Fusion engine and dbt VS Code extension are installed, the dbt logo appears in the sidebar. Click it to open the **Get started** panel.
 
@@ -184,7 +182,7 @@ When all setup steps are complete, the panel shows a green **Extension setup com
 
 [![The Get started panel showing Extension setup complete with all four steps checked.](/img/docs/extension/vsce-get-started-complete.png?v=2 "The Get started panel showing Extension setup complete with all four steps checked.")](#)The Get started panel showing Extension setup complete with all four steps checked.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Once you've installed the dbt VS Code extension, go to the next pages to get started:
 

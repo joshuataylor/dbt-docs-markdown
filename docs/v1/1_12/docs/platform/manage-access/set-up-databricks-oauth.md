@@ -1,10 +1,10 @@
 # Set up Databricks OAuth
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt platform accounts on Enterprise and Enterprise+ plans support developer OAuth ([OAuth for partner solutions](https://docs.databricks.com/en/integrations/manage-oauth.html)) with Databricks. When you enable Databricks OAuth for a dbt project, all developers must authenticate with Databricks in order to use the Studio IDE.
 
-### Development and deployment authentication[​](#development-and-deployment-authentication "Direct link to Development and deployment authentication")
+### Development and deployment authentication
 
 Databricks OAuth uses user-to-machine (U2M) authentication for interactive development in the Studio IDE. It applies to development credentials only.
 
@@ -12,7 +12,7 @@ Deployment environments use separate credentials configured at the environment l
 
 For setup steps, refer to [Defining your dbt deployment environment](../../../guides/set-up-your-databricks-dbt-project.md#defining-your-dbt-deployment-environment). For more information on deployment environments, refer to [Deploy environments](../../deploy/deploy-environments.md).
 
-### Configure Databricks OAuth (Databricks admin)[​](#configure-databricks-oauth-databricks-admin "Direct link to Configure Databricks OAuth (Databricks admin)")
+### Configure Databricks OAuth (Databricks admin)
 
 To get started, add dbt as a custom OAuth application in Databricks.
 
@@ -30,8 +30,6 @@ The following steps use the Databricks UI. Alternatively, use the [Databricks CL
 
    * For Access scopes, the APIs the application should have access to:
 
-     <!-- -->
-
      * For BI applications, the SQL scope is required to allow the connected app to access Databricks SQL APIs (this is required for SQL models).
      * For applications that need to access Databricks APIs for purposes other than querying, the ALL APIs scope is required (this is required if running Python models).
 
@@ -41,7 +39,7 @@ The following steps use the Databricks UI. Alternatively, use the [Databricks CL
 
 4. Select **Generate a client secret**. Copy and securely store the client secret. The client secret will not be available later.
 
-#### Redirect URLs by region[​](#redirect-urls-by-region "Direct link to Redirect URLs by region")
+#### Redirect URLs by region
 
 Use the redirect URLs that correspond to your dbt account region when configuring Databricks OAuth.
 
@@ -57,7 +55,7 @@ As part of the account-specific URL migration, some customers should update OAut
 | **APAC**            | <https://au.dbt.com/callback><br /><https://au.dbt.com/complete/databricks>                             |
 | **Single tenant**   | <https://INSTANCE_NAME.getdbt.com/callback><br /><https://INSTANCE_NAME.getdbt.com/complete/databricks> |
 
-### Configure the Connection in dbt (dbt project admin)[​](#configure-the-connection-in-dbt-dbt-project-admin "Direct link to Configure the Connection in dbt (dbt project admin)")
+### Configure the Connection in dbt (dbt project admin)
 
 Now that you have an OAuth app set up in Databricks, you'll need to add the client ID and secret to dbt. To do so:
 
@@ -70,7 +68,7 @@ Now that you have an OAuth app set up in Databricks, you'll need to add the clie
 
 [![Add Databricks OAuth credentials to the connection](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/DBX-auth/dbt-databricks-oauth.png?v=2 "Add Databricks OAuth credentials to the connection")](#)Add Databricks OAuth credentials to the connection
 
-### Authenticating to Databricks (Studio IDE developer)[​](#authenticating-to-databricks-studio-ide-developer "Direct link to Authenticating to Databricks (Studio IDE developer)")
+### Authenticating to Databricks (Studio IDE developer)
 
 Once the Databricks OAuth connection is set up for a dbt project, each dbt user will need to authenticate with Databricks in order to use the Studio IDE. To do so:
 
@@ -84,7 +82,7 @@ Once the Databricks OAuth connection is set up for a dbt project, each dbt user 
 
 You will then be redirected to Databricks and asked to approve the connection. This redirects you back to dbt. You should now be an authenticated Databricks user, ready to use the Studio IDE.
 
-### Studio OAuth flow[​](#studio-oauth-flow "Direct link to Studio OAuth flow")
+### Studio OAuth flow
 
 Once a user has authorized dbt with Databricks, Databricks returns a refresh token to the dbt application.
 

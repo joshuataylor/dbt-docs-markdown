@@ -1,18 +1,18 @@
 # Exposure tile object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 [Exposure health tiles](../explore/data-tile.md) distill data health signals for data consumers and can be embedded in downstream tools. You can query information on these tiles from the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `exposureTile` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `exposureTile`, you can use the following arguments:
 
 # Fetching data...
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 You can specify the `environmentId` and filter by a model's `uniqueId` to understand the data quality and metadata information for the exposure tile associated with the `customers` model in the `marketing` package:
 
@@ -35,7 +35,7 @@ query {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `exposureTile`, you can use the following fields:
 

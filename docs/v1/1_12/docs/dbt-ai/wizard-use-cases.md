@@ -20,7 +20,7 @@ Best practices for using dbt Wizard
 
 Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
 
-## Build a new model[​](#build-a-new-model "Direct link to Build a new model")
+## Build a new model
 
 You have clean source data and want a new mart model without writing all the SQL by hand.
 
@@ -44,7 +44,7 @@ to the primary key and a unique test on the grain.
 * Reference your existing staging models by name so dbt Wizard uses the right columns
 * If your project has a team style guide in `.agents/skills/`, dbt Wizard picks it up automatically and applies naming and materialization conventions
 
-## Refactor to incremental[​](#refactor-to-incremental "Direct link to Refactor to incremental")
+## Refactor to incremental
 
 A full-refresh mart is getting slow. You want to switch it to incremental without breaking existing tests.
 
@@ -67,7 +67,7 @@ and an updated_at filter. Keep all existing tests and don't change the output sc
 * Tell dbt Wizard which column to use as the high-watermark: it can infer a likely candidate from your schema but an explicit instruction is more reliable
 * Ask it to add a `full_refresh` note to the model description so future maintainers understand the intent
 
-## Add tests and docs[​](#add-tests-and-docs "Direct link to Add tests and docs")
+## Add tests and docs
 
 You've inherited a model with no tests or YAML. You want coverage without writing boilerplate.
 
@@ -92,7 +92,7 @@ active, churned, and prospect. Write a column description for each.
 
 For a workflow that finds coverage gaps and checks candidate assertions against warehouse data, refer to [Add data-informed tests with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-4-data-informed-tests.md).
 
-## Debug a job failure[​](#debug-a-job-failure "Direct link to Debug a job failure")
+## Debug a job failure
 
 A dbt platform job failed overnight. You want to understand why without digging through logs manually.
 
@@ -116,7 +116,7 @@ The nightly job failed. What's the root cause and how do I fix it?
 
 For the evidence-gathering, diagnosis, and validation procedure, refer to [Debug a failed dbt job with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-5-debug-failed-job.md).
 
-## Assess source impact[​](#assess-source-impact "Direct link to Assess source impact")
+## Assess source impact
 
 Before modifying a stg model, you want to know what other downstream models might be affected.
 
@@ -139,7 +139,7 @@ payment attempt, which downstream models break?
 * You don't need to be precise about the change: even a "what depends on stg\_payments?" gives you the blast radius
 * Follow up with: "Write a migration plan for making this change safely"
 
-## Rename a column project-wide[​](#rename-a-column-project-wide "Direct link to Rename a column project-wide")
+## Rename a column project-wide
 
 A source column has been renamed. You need to update all references without missing anything.
 
@@ -162,7 +162,7 @@ Update stg_customers and find any downstream models that reference user_id direc
 * Always run `dbt compile` after dbt Wizard's changes to catch any references it might have missed
 * Ask Wizard to "check for user\_id in any raw SQL strings or Jinja macros too" for thorough coverage
 
-## Multi-file changes[​](#multi-file-changes "Direct link to Multi-file changes")
+## Multi-file changes
 
 You need to make a change that touches multiple files at once — a model rename, a contract update, or a schema change — and have all the related files stay in sync.
 
@@ -187,7 +187,7 @@ downstream ref(), the tests, the documentation, and any exposures that point to 
 * Multi-file changes are coordinated as a single diff: review them together rather than file by file
 * For column type or schema changes, name the new type explicitly: "Change `order_amount` in `fct_orders` from `numeric` to `decimal(18,2)` and update downstream models and tests"
 
-## Validate before shipping[​](#validate-before-shipping "Direct link to Validate before shipping")
+## Validate before shipping
 
 For changes where correctness matters more than speed, ask dbt Wizard to assess impact and validate the result against your project.
 
@@ -212,7 +212,7 @@ In dbt Wizard CLI, choose light, medium, heavy, or skipped validation based on t
 
 * State the business behavior that must remain true, not only the commands to run
 
-## Add a semantic model[​](#add-a-semantic-model "Direct link to Add a semantic model")
+## Add a semantic model
 
 You have a mart model and want to expose it via the dbt Semantic Layer.
 
@@ -238,7 +238,7 @@ week, and month granularity.
 
 For version-specific examples and validation steps, refer to [Build Semantic Layer definitions with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-7-semantic-layer.md).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use dbt Wizard locally](./wizard-quickstart.md)
 * [Understand a dbt project](../../best-practices/how-to-use-wizard/wizard-2-understand-project.md)

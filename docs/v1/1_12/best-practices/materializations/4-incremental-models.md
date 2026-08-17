@@ -5,12 +5,9 @@ So far we’ve looked at tables and views, which map to the traditional objects 
 * 📚 **Incremental models generate tables.** They physically persist the data itself to the warehouse, just piece by piece. What’s different is **how we build that table**.
 
 * 💅 **Only apply our transformations to rows of data with new or updated information**, this maximizes efficiency.
-  <!-- -->
   * 🌍  If we have a very large set of data or compute-intensive transformations, or both, it can be very slow and costly to process the entire corpus of source data being input into a model or chain of models. If instead we can identify *only rows that contain new information* (that is, **new or updated records**), we then can process just those rows, building our models *incrementally*.
 
 * 3️⃣  We need **3 key things** in order to accomplish the above:
-
-  <!-- -->
 
   * a **filter** to select just the new or updated records
   * a **conditional block** that wraps our filter and only applies it when we want it
@@ -22,12 +19,6 @@ Let’s dig into how exactly we can do that in dbt. Let’s say we have an `orde
 | --------- | ------------- | ------------ | --------------- | ----------- | ----------- |
 | 123       | shipped       | 7            | 5791            | 2022-01-30  | 2022-01-30  |
 | 234       | confirmed     | 15           | 1643            | 2022-01-31  | 2022-01-31  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 We did our last `dbt build` job on `2022-01-31`, so any new orders since that run won’t appear in our table. When we do our next run (for simplicity let’s say the next day, although for an orders model we’d more realistically run this hourly), we have two options:
 
@@ -42,13 +33,7 @@ We did our last `dbt build` job on `2022-01-31`, so any new orders since that ru
 | 234       | confirmed     | 15           | 1643            | 2022-01-31  | 2022-01-31  |
 | 567       | shipped       | 61           | 28              | 2022-02-01  | 2022-02-01  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Writing incremental logic[​](#writing-incremental-logic "Direct link to Writing incremental logic")
+### Writing incremental logic
 
 Let’s think through the information we’d need to build such a model that only processes new and updated data. We would need:
 
@@ -75,15 +60,13 @@ Let’s break down that `where` clause a bit, because this is where the action i
 
 2. **Filter** the rows we’re selecting to add in this run.
 
-   <!-- -->
-
    1. Use the `updated_at` timestamp from our input, the equivalent column to the one in the warehouse, but in the up-to-the-minute **source data we’re selecting from** and
    2. check if it’s **greater than our cutoff,**
    3. if so it will satisfy our where clause, so we’re **selecting all the rows more recent than our cutoff.**
 
 This logic would let us isolate and apply our transformations to just the records that have come in since our last run, and I’ve got some great news: that magic `{{ this }}` keyword [does in fact exist in dbt](../../reference/dbt-jinja-functions/this.md), so we can write exactly this logic in our models.
 
-### Configuring incremental models[​](#configuring-incremental-models "Direct link to Configuring incremental models")
+### Configuring incremental models
 
 So we’ve found a way to isolate the new rows we need to process. How then do we handle the rest? We still need to:
 
@@ -120,7 +103,7 @@ select ...
 * 🆕 We still need to **build the table from scratch** (via `dbt build` or `run` in a job) when necessary — whether because we’re in a new environment so don’t have an initial table to build on, or our model has drifted from the original over time due to data loading latency.
 * 🔀 We need to wrap our incremental logic, that is our `where` clause with our `updated_at` cutoff, in a **conditional statement that will only apply it when certain conditions are met**. If you’re thinking this is **a case for a Jinja `{% if %}` statement**, you’re absolutely right!
 
-### Incremental conditions[​](#incremental-conditions "Direct link to Incremental conditions")
+### Incremental conditions
 
 So we’re going to use an **if statement** to apply our cutoff filter **only when certain conditions are met**. We want to apply our cutoff filter *if* the **following things are true**:
 
@@ -156,7 +139,7 @@ where
 
 Fantastic! We’ve got a working incremental model. On our first run, when there is no corresponding table in the warehouse, `is_incremental` will evaluate to false and we’ll capture the entire table. On subsequent runs it will evaluate to true and we’ll apply our filter logic, capturing only the newer data.
 
-### Late-arriving facts[​](#late-arriving-facts "Direct link to Late-arriving facts")
+### Late-arriving facts
 
 Our last concern specific to incremental models is what to do when data is inevitably loaded in a less-than-perfect way. Sometimes data loaders will, for a variety of reasons, load data late. Either an entire load comes in late, or some rows come in on a load after those with which they should have. The following is best practice for every incremental model to slow down the drift this can cause.
 
@@ -164,9 +147,7 @@ Our last concern specific to incremental models is what to do when data is inevi
 * 🪟 To mitigate this, we can add a **lookback window** to our **cutoff** point. By **subtracting a few days** from the `max(updated_at)`, we would capture any late data within the window of what we subtracted.
 * 👯 As long as we have a **`unique_key` defined in our config**, we’ll simply update existing rows and avoid duplication. We process more data this way, but in a fixed way, and it keeps our model hewing closer to the source data.
 
-#### Using dbt State with incremental models[​](#using-dbt-state-with-incremental-models "Direct link to Using dbt State with incremental models")
-
-<!-- -->
+#### Using dbt State with incremental models
 
 State-aware orchestration is now dbt State
 
@@ -203,7 +184,7 @@ sources:
 
 For more details, refer to [dbt State configurations](../../reference/resource-configs/dbt-state-configs.md) and [Source freshness](../../reference/resource-properties/freshness.md).
 
-### Long-term considerations[​](#long-term-considerations "Direct link to Long-term considerations")
+### Long-term considerations
 
 Late arriving facts point to the biggest tradeoff with incremental models:
 

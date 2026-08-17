@@ -1,6 +1,8 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect DuckDB to dbt Core
 
-Local developmentⓘ
+Local development
 
 [Fusion compatible](./duckdb-setup.md?version=2 "Fusion compatible") connection also available.
 
@@ -8,38 +10,26 @@ Community plugin
 
 Some functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
 
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  Josh Wills (https\://github.com/jwills)
+* **Maintained by**: Community
+* **Authors**: Josh Wills (https\://github.com/jwills)
 * **GitHub repo**: [duckdb/dbt-duckdb](https://github.com/duckdb/dbt-duckdb) [![](https://img.shields.io/github/stars/duckdb/dbt-duckdb?style=for-the-badge)](https://github.com/duckdb/dbt-duckdb)
 * **PyPI package**: `dbt-duckdb` [![](https://badge.fury.io/py/dbt-duckdb.svg)](https://badge.fury.io/py/dbt-duckdb)
 * **Slack channel**: [#db-duckdb](https://getdbt.slack.com/archives/C039D1J1LA2)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.0.1
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  DuckDB 0.3.2
+* **Supported dbt Core version**: v1.0.1 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: DuckDB 0.3.2
 
-## Installing <!-- -->dbt-duckdb
+## Installing dbt-duckdb
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-duckdb`
 
-## Configuring <!-- -->dbt-duckdb<!-- -->
+## Configuring dbt-duckdb
 
-For <!-- -->Duck DB<!-- -->-specific configuration, please refer to [Duck DB<!-- --> configs.](../../../reference/resource-configs/duckdb-configs.md)
+For Duck DB-specific configuration, please refer to [Duck DB configs.](../../../reference/resource-configs/duckdb-configs.md)
 
-## Connecting to DuckDB[​](#connecting-to-duckdb "Direct link to Connecting to DuckDB")
+## Connecting to DuckDB
 
 [DuckDB](https://duckdb.org) is an embedded database, similar to SQLite, but designed for OLAP-style analytics instead of OLTP. There are several ways to connect dbt to DuckDB depending on where you want your data to live. Configure your `profiles.yml` using the examples in the following sections:
 
@@ -59,15 +49,9 @@ Refer to the following table for the fields to use in your `profiles.yml`. `type
 | `extensions`  | List of [DuckDB extensions](https://duckdb.org/docs/extensions/overview) to load at startup.                   | `httpfs`, `parquet`    |
 | `settings`    | Map of [DuckDB configuration options](https://duckdb.org/docs/sql/configuration) to set at startup.            | `s3_region: us-east-1` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you're using Fusion, loading extensions requires you to install the DuckDB driver with [`dbc`](https://docs.columnar.tech/dbc/#__tabbed_2_4). Refer to [DuckDB driver and extensions](#driver-and-extensions) for details.
 
-### In-memory[​](#in-memory "Direct link to In-memory")
+### In-memory
 
 The simplest configuration requires only `type: duckdb` in your profile. This runs an in-memory database — all data is lost after the run completes. This is useful for testing pipelines and for workflows that operate purely on external CSV, Parquet, or JSON files.
 
@@ -81,7 +65,7 @@ default:
   target: dev
 ```
 
-### Local file[​](#local-file "Direct link to Local file")
+### Local file
 
 To persist data between runs, set `path` to a `.duckdb` file on your local filesystem. DuckDB creates the file automatically if it doesn't exist.
 
@@ -100,7 +84,7 @@ your_profile_name:
 
 You can use a relative path (resolved relative to your `profiles.yml` file) or an absolute path. `dbt-duckdb` automatically sets the `database` property to the basename of the file with the suffix removed (for example, `/tmp/a/dbfile.duckdb` sets `database` to `dbfile`).
 
-### MotherDuck[​](#motherduck "Direct link to MotherDuck")
+### MotherDuck
 
 In `dbt-duckdb 1.5.2` and later, you can connect to a DuckDB instance running on [MotherDuck](https://motherduck.com) by setting `path` to an `md:` connection string:
 
@@ -118,7 +102,7 @@ your_profile_name:
 
 MotherDuck databases generally work the same way as local DuckDB databases, with a few differences described in [MotherDuck's documentation](https://motherduck.com/docs/architecture-and-capabilities#considerations-and-limitations). MotherDuck preloads common DuckDB extensions but does not support loading custom extensions or user-defined functions.
 
-### Attaching additional databases[​](#attaching-additional-databases "Direct link to Attaching additional databases")
+### Attaching additional databases
 
 DuckDB supports [attaching additional databases](https://duckdb.org/docs/sql/statements/attach.html) so you can read and write from multiple databases. Configure additional databases using the `attach` argument in your profile:
 
@@ -147,7 +131,7 @@ You can refer to attached databases by the basename of the file (without its suf
 
 For DuckLake, use `ducklake:` for local databases. For MotherDuck-managed DuckLake, use `md:` with `is_ducklake: true`. Refer to the [DuckLake configuration](../../../reference/resource-configs/duckdb-configs.md#ducklake) section for details.
 
-## Extensions[​](#extensions "Direct link to Extensions")
+## Extensions
 
 You can load any supported [DuckDB extensions](https://duckdb.org/docs/extensions/overview) by listing them in the `extensions` field in your profile. You can also set any additional [DuckDB configuration options](https://duckdb.org/docs/sql/configuration) in the `settings` field.
 
@@ -183,7 +167,7 @@ extensions:
 
 For configuring cloud storage access using DuckDB's Secrets Manager or fsspec filesystems, refer to the [DuckDB configurations](../../../reference/resource-configs/duckdb-configs.md) page.
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find DuckDB-specific configuration information in the [DuckDB adapter reference guide](../../../reference/resource-configs/duckdb-configs.md).
 

@@ -4,16 +4,14 @@ Constraints are a feature of many data platforms. When specified, the platform w
 
 When enforced, a constraint guarantees that you will never see invalid data in the table materialized by your model. Enforcement varies significantly by data platform.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before using constraints, ensure the following requirements are met:
 
 * **You use supported materializations** — Constraints only work on `table` and `incremental` models. Constraints are never applied on `ephemeral` models or those materialized as `view`.
 * **You enforce a contract** — To use constraints, your model must declare and enforce a [contract](../resource-configs/contract.md). This means you need to explicitly define the `data_type` for every column in your model's schema configuration.
 
-### Platform constraint support[​](#platform-constraint-support "Direct link to Platform constraint support")
-
-<!-- -->
+### Platform constraint support
 
 Select the adapter-specific tab for more information on [constraint](./constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
 
@@ -21,13 +19,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 * **Definable and not enforced** — The platform supports specifying the type of constraint, but a model can still build even if building the model violates the constraint. This constraint exists for metadata purposes only. This approach is more typical in cloud data warehouses than in transactional databases, where strict rule enforcement is more common.
 * **Not definable and not enforced** — You can't specify the type of constraint for the platform.
 
-- Redshift
-- Snowflake
-- BigQuery
-- Postgres
-- Spark
-- Databricks
-- Athena
+### Redshift
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -37,11 +29,7 @@ Select the adapter-specific tab for more information on [constraint](./constrain
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Snowflake
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -51,11 +39,7 @@ Search table...
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### BigQuery
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -65,11 +49,7 @@ Search table...
 | unique          | ❌        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Postgres
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -79,11 +59,7 @@ Search table...
 | unique          | ✅        | ✅       |
 | check           | ✅        | ✅       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Spark
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -95,11 +71,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ✅        | ❌       |
 | check           | ✅        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Databricks
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -111,11 +83,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ❌        | ❌       |
 | check           | ✅        | ✅       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Athena
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -125,13 +93,7 @@ Search table...
 | unique          | ❌        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Defining constraints[​](#defining-constraints "Direct link to Defining constraints")
+## Defining constraints
 
 Constraints may be defined for a single column, or at the model level for one or more columns. As a general rule, we recommend defining single-column constraints directly on those columns.
 
@@ -143,6 +105,8 @@ The structure of a constraint is:
 * `expression`: Free text input to qualify the constraint. Required for certain constraint types, and optional for others.
 * `name` (optional): Human-friendly name for this constraint. Supported by some data platforms.
 * `columns` (model-level only): List of column names to apply the constraint over.
+
+(Applies to dbt v1.9 and later)
 
 Foreign key constraints accept two additional inputs:
 
@@ -201,7 +165,7 @@ Supported dbt-adapters use these fields when populated, to render out the foreig
 
 For more information on the adapters which support foreign key constraints, have a look at our guide on [Platform constraint support](../../docs/mesh/govern/model-contracts.md#platform-constraint-support).
 
-## Platform-specific support[​](#platform-specific-support "Direct link to Platform-specific support")
+## Platform-specific support
 
 In transactional databases, it is possible to define "constraints" on the allowed values of certain columns, stricter than just the data type of those values. For example, Postgres supports and enforces all the constraints in the ANSI SQL standard (`not null`, `unique`, `primary key`, `foreign key`), plus a flexible row-level `check` constraint that evaluates to a boolean expression.
 
@@ -212,11 +176,7 @@ To that end, there are two optional fields you can specify on any filter:
 * `warn_unenforced: False` to skip warning on constraints that are supported, but not enforced, by this data platform. The constraint will be included in templated DDL.
 * `warn_unsupported: False` to skip warning on constraints that aren't supported by this data platform, and therefore won't be included in templated DDL.
 
-- Postgres
-- Redshift
-- Snowflake
-- BigQuery
-- Databricks
+### Postgres
 
 * PostgreSQL constraints documentation: [here](https://www.postgresql.org/docs/current/ddl-constraints.html#id-1.5.4.6.6)
 
@@ -282,6 +242,8 @@ select
     cast('2019-01-01' as date) as first_transaction_date
 );
 ```
+
+### Redshift
 
 Redshift currently only enforces `not null` constraints; all other constraints are metadata only. Additionally, Redshift does not allow column checks at the time of table creation. See more in the Redshift documentation [here](https://docs.aws.amazon.com/redshift/latest/dg/t_Defining_constraints.html).
 
@@ -350,6 +312,8 @@ select
     cast('2019-01-01' as date) as first_transaction_date
 ); 
 ```
+
+### Snowflake
 
 * Snowflake constraints documentation: [here](https://docs.snowflake.com/en/sql-reference/constraints-overview.html)
 * Snowflake data types: [here](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types.html)
@@ -420,6 +384,8 @@ select
 );
 ```
 
+### BigQuery
+
 BigQuery allows defining and enforcing `not null` constraints, and defining (but *not* enforcing) `primary key` and `foreign key` constraints (which can be used for query optimization). BigQuery does not support defining or enforcing other constraints. For more information, refer to [Platform constraint support](../../docs/mesh/govern/model-contracts.md#platform-constraint-support)
 
 Documentation: <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language>
@@ -465,7 +431,7 @@ models:
         data_type: date
 ```
 
-### Column-level constraint on nested column:[​](#column-level-constraint-on-nested-column "Direct link to Column-level constraint on nested column:")
+### Column-level constraint on nested column:
 
 models/nested\_column\_constraints\_example.sql
 
@@ -514,7 +480,7 @@ models:
           - type: not_null
 ```
 
-### Expected DDL to enforce constraints:[​](#expected-ddl-to-enforce-constraints "Direct link to Expected DDL to enforce constraints:")
+### Expected DDL to enforce constraints:
 
 target/run/.../constraints\_example.sql
 
@@ -533,6 +499,8 @@ select
   cast('2019-01-01' as date) as first_transaction_date
 );
 ```
+
+### Databricks
 
 Databricks allows you to define:
 
@@ -608,7 +576,7 @@ alter table schema_name.my_model change column id set not null;
 alter table schema_name.my_model add constraint 472394792387497234 check (id > 0);
 ```
 
-## Custom constraints[​](#custom-constraints "Direct link to Custom constraints")
+## Custom constraints
 
 In dbt and dbt Core, you can use custom constraints on models for the advanced configuration of tables. Different data warehouses support different syntax and capabilities.
 

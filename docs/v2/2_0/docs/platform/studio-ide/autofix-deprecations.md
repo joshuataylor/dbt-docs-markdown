@@ -1,6 +1,6 @@
 # Fix deprecation warnings
 
-dbt platformⓘ
+dbt platform
 
 You can address deprecation warnings in the dbt platform by finding and fixing them using the autofix tool in the Studio IDE. You can run the autofix tool on the [Compatible or Latest release track](../../dbt-versions/dbt-release-tracks.md) of dbt Core before you upgrade to Fusion!
 
@@ -32,7 +32,7 @@ To find and fix deprecations:
 
 8. Once complete, a success message appears.
 
-   <!-- -->
+   (Applies to dbt v2.0 and later)
 
    After a successful `dbt parse` command, you'll see a **Compile** button to the right of the **Successfully resolved** result. Use **Compile** to compile your project from the results panel.
 
@@ -44,7 +44,7 @@ To find and fix deprecations:
 
 10. You are now ready to enable Fusion if you [meet the requirements](../../fusion/supported-features.md#requirements)!
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstart guide](../../../guides.md)
 * [About dbt](../about-platform/dbt-platform-features.md)

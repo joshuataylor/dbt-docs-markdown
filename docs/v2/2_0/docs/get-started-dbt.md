@@ -3,11 +3,11 @@
 Begin your dbt journey by choosing how you want to develop:
 
 * [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](./fusion/about-fusion.md) and [dbt Core](./local/install-dbt.md) engines.
-* [**Self-hosted only**](#dbt-local-installations) — Use local tools like the [dbt VS Code extension](./about-dbt-extension.md) or [install dbt](./local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
+* [**Self-hosted only**](#self-hosted-dbt-installations) — Use local tools like the [dbt VS Code extension](./about-dbt-extension.md) or [install dbt](./local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
 * **Local + dbt platform** — Use the VS Code extension or dbt CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
 * [**dbt Wizard**](#dbt-wizard) — The AI agent for analytics engineering, available in the dbt platform and from your terminal. Grounded in your project's lineage, model health, and semantic definitions.
 
-## The dbt platform[​](#the-dbt-platform "Direct link to The dbt platform")
+## The dbt platform
 
 dbt provides a fully managed environment to develop, run, and deploy dbt projects—with CI/CD, documentation hosting, and more. Learn more about [dbt features](./platform/about-platform/dbt-platform-features.md) and [start your free trial](https://www.getdbt.com/signup/) today.
 
@@ -69,7 +69,7 @@ Choose your warehouse to get started with a quickstart:
 
 [Discover and use dbt with Teradata to enhance your data transformation workflows.](https://docs.getdbt.com/guides/teradata)
 
-## Self-hosted dbt installations[​](#self-hosted-dbt-installations "Direct link to Self-hosted dbt installations")
+## Self-hosted dbt installations
 
 When you install dbt into your Windows, macOS, or Linux environment, you get command-line tools and the VS Code extension that enable you to transform data using analytics engineering best practices.
 
@@ -95,7 +95,7 @@ Develop with a self-hosted installation using the dbt Fusion engine or dbt Core 
 
 [Learn how to connect dbt to DuckDB.](../guides/duckdb.md?step=1)
 
-## dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+## dbt Wizard
 
 [dbt Wizard](./platform/wizard-overview.md) is an AI agent purpose-built for analytics engineering. It uses dbt's [native metadata engine](./dbt-ai/about-dbt-ai.md) — a structured index of your project's lineage, model health, tests, and semantic definitions — to build, refactor, validate, and document your project grounded in full project context.
 
@@ -111,7 +111,7 @@ Develop with a self-hosted installation using the dbt Fusion engine or dbt Core 
 
 [Install the dbt Wizard CLI to run the agent locally against any dbt project — with or without a dbt platform account. Requires an OpenAI API key (BYOK).](./dbt-ai/wizard-quickstart.md)
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 Expand your dbt knowledge and expertise with these additional resources:
 

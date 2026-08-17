@@ -4,11 +4,11 @@ dbt has a number of classes it uses to represent objects in a data warehouse, pa
 
 These classes are often useful when building advanced dbt models and macros.
 
-## Relation[​](#relation "Direct link to Relation")
+## Relation
 
 The `Relation` object is used to interpolate schema and table names into SQL code with appropriate quoting. This object should *always* be used instead of interpolating values with `{{ schema }}.{{ table }}` directly. Quoting of the Relation object can be configured using the [`quoting` config](./project-configs/quoting.md).
 
-### Creating relations[​](#creating-relations "Direct link to Creating relations")
+### Creating relations
 
 A `Relation` can be created by calling the `create` class method on the `Relation` class.
 
@@ -26,7 +26,7 @@ class Relation:
   """
 ```
 
-### Using relations[​](#using-relations "Direct link to Using relations")
+### Using relations
 
 In addition to `api.Relation.create`, dbt returns a Relation when you use [`ref`](./dbt-jinja-functions/ref.md), [`source`](./dbt-jinja-functions/source.md) or [`this`](./dbt-jinja-functions/this.md).
 
@@ -57,7 +57,7 @@ relation\_usage.sql
 {{ relation.is_cte }}
 ```
 
-## Column[​](#column "Direct link to Column")
+## Column
 
 The `Column` object is used to encode information about a column in a relation.
 
@@ -85,9 +85,9 @@ col.string_type() # character varying(255)
 col.numeric_type('numeric', 12, 4) # numeric(12,4)
 ```
 
-### Column API[​](#column-api "Direct link to Column API")
+### Column API
 
-### Properties[​](#properties "Direct link to Properties")
+### Properties
 
 * **char\_size**: Returns the maximum size for character varying columns
 * **column**: Returns the name of the column
@@ -98,7 +98,7 @@ col.numeric_type('numeric', 12, 4) # numeric(12,4)
 * **numeric\_scale**: Returns the maximum scale for fixed decimal columns
 * **quoted**: Returns the name of the column wrapped in quotes
 
-### Instance methods[​](#instance-methods "Direct link to Instance methods")
+### Instance methods
 
 * **is\_string()**: Returns True if the column is a String type (eg. text, varchar), else False
 * **is\_numeric()**: Returns True if the column is a fixed-precision Numeric type (eg. `numeric`), else False
@@ -107,12 +107,12 @@ col.numeric_type('numeric', 12, 4) # numeric(12,4)
 * **is\_float()**: Returns True if the column is a float type (eg. `float`, `float64`, or similar), else False
 * **string\_size()**: Returns the width of the column if it is a string type, else, an exception is raised
 
-### Static methods[​](#static-methods "Direct link to Static methods")
+### Static methods
 
 * **string\_type(size)**: Returns a database-useable representation of the string type (eg. `character varying(255)`)
 * **numeric\_type(dtype, precision, scale)**: Returns a database-useable representation of the numeric type (eg. `numeric(12, 4)`)
 
-### Using columns[​](#using-columns "Direct link to Using columns")
+### Using columns
 
 column\_usage.sql
 
@@ -162,16 +162,16 @@ column\_usage.sql
 {{ api.Column.numeric_type('numeric', 12, 4) }}
 ```
 
-## BigQuery columns[​](#bigquery-columns "Direct link to BigQuery columns")
+## BigQuery columns
 
 The `Column` type is overridden as a `BigQueryColumn` in BigQuery dbt projects. This object works the same as the `Column` type described above, with the exception of extra properties and methods:
 
-### Properties[​](#properties-1 "Direct link to Properties")
+### Properties
 
 * **fields**: Returns the list of subfields contained within a field (if the column is a STRUCT)
 * **mode**: Returns the "mode" of the column, eg. `REPEATED`
 
-### Instance methods[​](#instance-methods-1 "Direct link to Instance methods")
+### Instance methods
 
 **flatten()**: Return a flattened list of `BigQueryColumns` in which subfields are expanded into their own columns. For example, this nested field:
 
@@ -185,7 +185,7 @@ will be expanded to:
 [{"hits.pageviews": 1, "hits.bounces": 0}]
 ```
 
-## Result objects[​](#result-objects "Direct link to Result objects")
+## Result objects
 
 The execution of a resource in dbt generates a `Result` object. This object contains information about the executed node, timing, status, and metadata returned by the adapter. At the end of an invocation, dbt records these objects in [`run_results.json`](./artifacts/run-results-json.md).
 
@@ -196,8 +196,5 @@ The execution of a resource in dbt generates a `Result` object. This object cont
 * `timing`: Array that breaks down execution time into steps (often `compile` + `execute`)
 * `message`: How dbt will report this result on the CLI, based on information returned from the database
 
-<!-- -->
-
-* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../docs/build/data-tests.md).
-  <!-- -->
+- `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../docs/build/data-tests.md).
   * `rows_affected` returns the number of rows modified by the last statement executed. In cases where the query's row count can't be determined or isn't applicable (such as when creating a view), a [standard value](https://peps.python.org/pep-0249/#rowcount) of `-1` is returned for `rowcount`.

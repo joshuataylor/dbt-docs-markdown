@@ -8,6 +8,8 @@ In dbt release tracks and dbt Core 1.9 and higher, the [`hard_deletes`](./hard-d
 
 For new snapshots, set the config to `hard_deletes='invalidate'` instead of `invalidate_hard_deletes=true`. For existing snapshots, [arrange an update](../snapshot-configs.md#snapshot-configuration-migration) of pre-existing tables before enabling this setting.
 
+(Applies to dbt v1.9 and later)
+
 snapshots/\<filename>.yml
 
 ```yaml
@@ -28,15 +30,17 @@ snapshots:
     +invalidate_hard_deletes: true
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 Opt-in feature to enable invalidating hard deleted records while snapshotting the query.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default the feature is disabled.
 
-## Example[​](#example "Direct link to Example")
+## Example
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders.yml
 

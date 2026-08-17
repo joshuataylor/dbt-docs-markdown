@@ -12,7 +12,7 @@ Beginner
 
 
 
-## What is Jaffle Shop?[​](#what-is-jaffle-shop "Direct link to What is Jaffle Shop?")
+## What is Jaffle Shop?
 
 [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) is dbt Labs' canonical sample dbt project for a fictional cafe business. This guide shows you how to clone the project using Git from GitHub or GitLab.
 
@@ -20,13 +20,13 @@ Cloning downloads the dbt project files to your machine: models, seeds, tests, a
 
 To run dbt commands like `dbt seed`, `dbt run`, and `dbt test`, you also need dbt installed and a database to connect to. Refer to [Next steps](#next-steps) for links to warehouse quickstarts.
 
-### Related content[​](#related-content "Direct link to Related content")
+### Related content
 
 * [Install dbt Core](../docs/local/install-dbt.md)
 * [About dbt projects](../docs/build/projects.md)
 * [Example dbt projects](../faqs/Project/example-projects.md)
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * [Git](https://git-scm.com/downloads) installed
 * A terminal
@@ -38,11 +38,9 @@ Verify Git is installed:
 git --version
 ```
 
-## Clone the repository[​](#clone-the-repository "Direct link to Clone the repository")
+## Clone the repository
 
-* GitHub
-* GitLab
-* Other platforms
+### GitHub
 
 1. Open your terminal and navigate to where you keep projects:
 
@@ -61,6 +59,8 @@ git --version
    ```bash
    cd jaffle-shop
    ```
+
+### GitLab
 
 If your organization hosts Jaffle Shop on GitLab, or you've forked the repo there, clone from your GitLab URL instead:
 
@@ -82,6 +82,8 @@ If your organization hosts Jaffle Shop on GitLab, or you've forked the repo ther
    cd jaffle-shop
    ```
 
+### Other platforms
+
 If your organization has mirrored or forked Jaffle Shop on Bitbucket, Azure DevOps, or another Git host, use the clone URL from that platform. The `git clone` command works the same way:
 
 1. Open your terminal and navigate to where you keep projects:
@@ -102,7 +104,7 @@ If your organization has mirrored or forked Jaffle Shop on Bitbucket, Azure DevO
    cd jaffle-shop
    ```
 
-## Verify the clone[​](#verify-the-clone "Direct link to Verify the clone")
+## Verify the clone
 
 Confirm the project files are present:
 
@@ -119,7 +121,7 @@ You should see files and folders including:
 
 Cloning is complete! 🎉 You now have the Jaffle Shop project files on your machine.
 
-## Explore the project structure[​](#explore-the-project-structure "Direct link to Explore the project structure")
+## Explore the project structure
 
 Before you install dbt or connect a database, take a quick look at what you cloned. Jaffle Shop is a fictional cafe business. The project contains 13 models that transform cafe data about customers, locations (stores), products, supplies, and orders.
 
@@ -162,7 +164,7 @@ jaffle-shop/
 
 Staging models sit closest to the raw seed data. Marts models join and shape that data into the tables you use for analysis. You don't need to read every file yet. This layout follows a standard [dbt project](../docs/build/projects.md) pattern that appears in many real-world projects.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 To run or develop the project, you need dbt installed and a database connected. These links can help:
 
@@ -172,7 +174,7 @@ To run or develop the project, you need dbt installed and a database connected. 
 * **[About dbt projects](../docs/build/projects.md):** Learn the project structure before editing models.
 * **[dbt Learn](https://learn.getdbt.com/):** Interactive courses for new users.
 
-### Warehouse quickstarts[​](#warehouse-quickstarts "Direct link to Warehouse quickstarts")
+### Warehouse quickstarts
 
 To run the project, you need a database and adapter configured in `profiles.yml`. Choose the quickstart for your warehouse or local setup:
 
@@ -184,7 +186,7 @@ To run the project, you need a database and adapter configured in `profiles.yml`
 
 You can also browse [all guides](../guides.md) or other [example dbt projects](../faqs/Project/example-projects.md).
 
-## Optional cleanup[​](#optional-cleanup "Direct link to Optional cleanup")
+## Optional cleanup
 
 If you cloned the repo only to test these steps and don't need the project anymore, you can remove the folder:
 

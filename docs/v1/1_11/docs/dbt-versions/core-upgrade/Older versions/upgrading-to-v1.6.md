@@ -1,6 +1,6 @@
 # Upgrading to v1.6
 
-Available in v1ⓘ
+Available in v1
 
 dbt Core v1.6 has three significant areas of focus:
 
@@ -8,18 +8,18 @@ dbt Core v1.6 has three significant areas of focus:
 2. Semantic layer re-launch: dbt Core and [MetricFlow](../../../build/about-metricflow.md) integration
 3. Mechanisms to support mature deployment at scale (`dbt clone` and `dbt retry`)
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.6.latest/CHANGELOG.md)
 * [dbt Core installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 * [Release schedule](https://github.com/dbt-labs/dbt-core/issues/7481)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-### Behavior changes[​](#behavior-changes "Direct link to Behavior changes")
+### Behavior changes
 
 Action required if your project defines `metrics`
 
@@ -32,7 +32,7 @@ If your dbt project defines metrics, you must migrate to dbt v1.6 because the YA
 * The manifest schema version is now v10.
 * dbt Labs is ending support for Homebrew installation of dbt Core and adapters. See [the discussion](https://github.com/dbt-labs/dbt-core/discussions/8277) for more details.
 
-### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
+### For consumers of dbt artifacts (metadata)
 
 The [manifest](../../../../reference/artifacts/manifest-json.md) schema version has been updated to `v10`. Specific changes:
 
@@ -42,17 +42,17 @@ The [manifest](../../../../reference/artifacts/manifest-json.md) schema version 
 * Small type changes to `contracts` and `constraints`
 * Manifest `metadata` includes `project_name`
 
-### For maintainers of adapter plugins[​](#for-maintainers-of-adapter-plugins "Direct link to For maintainers of adapter plugins")
+### For maintainers of adapter plugins
 
 For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt Core#7958](https://github.com/dbt-labs/dbt-core/discussions/7958).
 
-## New and changed documentation[​](#new-and-changed-documentation "Direct link to New and changed documentation")
+## New and changed documentation
 
-### MetricFlow[​](#metricflow "Direct link to MetricFlow")
+### MetricFlow
 
 * [**Build your metrics**](../../../build/build-metrics-intro.md) with MetricFlow, a key component of the Semantic Layer. You can define your metrics and build semantic models with MetricFlow, available on the command line (CLI) for dbt Core v1.6 beta or higher.
 
-### Materialized views[​](#materialized-views "Direct link to Materialized views")
+### Materialized views
 
 Supported on:
 
@@ -61,13 +61,13 @@ Supported on:
 * [Snowflake](../../../../reference/resource-configs/snowflake-configs.md#dynamic-tables)
 * [Databricks](../../../../reference/resource-configs/databricks-configs.md#materialized-views-and-streaming-tables)
 
-### New commands for mature deployment[​](#new-commands-for-mature-deployment "Direct link to New commands for mature deployment")
+### New commands for mature deployment
 
 [`dbt retry`](../../../../reference/commands/retry.md) executes the previously run command from the point of failure. Rebuild just the nodes that errored or skipped in a previous run/build/test, rather than starting over from scratch.
 
 [`dbt clone`](../../../../reference/commands/clone.md) leverages each data platform's functionality for creating lightweight copies of dbt models from one environment into another. Useful when quickly spinning up a new development environment, or promoting specific models from a staging environment into production.
 
-### Multi-project collaboration[​](#multi-project-collaboration "Direct link to Multi-project collaboration")
+### Multi-project collaboration
 
 [**Deprecation date**](../../../../reference/resource-properties/deprecation_date.md): Models can declare a deprecation date that will warn model producers and downstream consumers. This enables clear migration windows for versioned models, and provides a mechanism to facilitate removal of immature or little-used models, helping to avoid project bloat.
 
@@ -82,7 +82,7 @@ Closed Beta - dbt Enterprise
 
 [**Project dependencies**](../../../mesh/govern/project-dependencies.md): Introduces `dependencies.yml` and dependent `projects` as a feature of dbt Enterprise. Allows enforcing model access (public vs. protected/private) across project/package boundaries. Enables cross-project `ref` of public models, without requiring the installation of upstream source code.
 
-### Deprecated functionality[​](#deprecated-functionality "Direct link to Deprecated functionality")
+### Deprecated functionality
 
 The ability for installed packages to override built-in materializations without explicit opt-in from the user is being deprecated.
 
@@ -98,7 +98,7 @@ The ability for installed packages to override built-in materializations without
   {% endmaterialization %}
   ```
 
-### Quick hits[​](#quick-hits "Direct link to Quick hits")
+### Quick hits
 
 * [`state:unmodified` and `state:old`](../../../../reference/node-selection/methods.md#state) for [MECE](https://en.wikipedia.org/wiki/MECE_principle) stateful selection
 * [`invocation_args_dict`](../../../../reference/dbt-jinja-functions/flags.md#invocation_args_dict) includes full `invocation_command` as string

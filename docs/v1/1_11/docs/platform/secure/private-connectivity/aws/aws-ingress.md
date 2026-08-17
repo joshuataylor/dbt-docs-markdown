@@ -1,6 +1,6 @@
 # Configuring AWS PrivateLink for single-tenant ingress [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -19,14 +19,14 @@ Ingress PrivateLink is available only for single-tenant deployments; multi-tenan
 
 dbt Labs provisions it for your instance. To scope it and receive your endpoint service name, contact your **dbt Labs account team or Solutions Architect**. If you don't have a single-tenant deployment yet, [contact our sales team](mailto:sales@getdbt.com).
 
-## Roles[​](#roles "Direct link to Roles")
+## Roles
 
 This guide uses two roles, matching the AWS PrivateLink model:
 
 * **Provider**: (dbt) Hosts the VPC endpoint service in front of your single-tenant instance.
 * **Customer**: (You) Creates the interface VPC endpoint in your own AWS account.
 
-## Access URL naming convention[​](#access-url-naming-convention "Direct link to Access URL naming convention")
+## Access URL naming convention
 
 Single-tenant ingress uses the domain convention `<customer_name>.private.dbt.com` for your access URL. When you enable private DNS on the endpoint (see [Step 3](#step-3-select-your-vpc-and-enable-private-dns)), AWS provisions a private hosted zone containing a wildcard record for this domain. The wildcard covers the product subdomains served by your instance, such as the semantic layer and metadata (Discovery) endpoints, so a single endpoint serves all of them.
 
@@ -34,7 +34,7 @@ The provider must verify your custom domain first
 
 Private DNS on the endpoint only works once dbt (the provider) has verified the custom domain on the endpoint service. Confirm with your dbt Labs account team or Solutions Architect that your instance is ready for ingress PrivateLink before you begin.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * A single-tenant dbt platform instance with ingress PrivateLink enabled by dbt.
 * The **VPC endpoint service name** for your instance, provided by dbt (for example, `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxxx`).
@@ -42,9 +42,9 @@ Private DNS on the endpoint only works once dbt (the provider) has verified the 
 * An AWS VPC in the same Region as the endpoint service, with **DNS hostnames** and **DNS resolution** enabled (both are required for the private DNS name feature).
 * Permissions in your AWS account to create interface VPC endpoints and manage the associated security group.
 
-## Create the interface VPC endpoint[​](#create-the-interface-vpc-endpoint "Direct link to Create the interface VPC endpoint")
+## Create the interface VPC endpoint
 
-### Step 1: Start creating the endpoint[​](#step-1-start-creating-the-endpoint "Direct link to Step 1: Start creating the endpoint")
+### Step 1: Start creating the endpoint
 
 1. In the AWS console, go to **VPC → Endpoints** and select **Create endpoint**.
 2. (Optional) Add a **Name tag** to identify the endpoint.
@@ -52,7 +52,7 @@ Private DNS on the endpoint only works once dbt (the provider) has verified the 
 
 [![Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type](/img/docs/dbt-platform/aws-ingress-privatelink/create-endpoint-select-type.png?v=2 "Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type")](#)Create endpoint page with 'Endpoint services that use NLBs and GWLBs' selected as the type
 
-### Step 2: Enter and verify the service name[​](#step-2-enter-and-verify-the-service-name "Direct link to Step 2: Enter and verify the service name")
+### Step 2: Enter and verify the service name
 
 1. In **Service name**, paste the endpoint service name that dbt provided.
 2. Leave **Enable Cross Region endpoint** unchecked — the endpoint is created in the same Region as the service.
@@ -60,7 +60,7 @@ Private DNS on the endpoint only works once dbt (the provider) has verified the 
 
 [![Service name entered and verified, with Cross Region endpoint left disabled](/img/docs/dbt-platform/aws-ingress-privatelink/verify-service-name.png?v=2 "Service name entered and verified, with Cross Region endpoint left disabled")](#)Service name entered and verified, with Cross Region endpoint left disabled
 
-### Step 3: Select your VPC and enable private DNS[​](#step-3-select-your-vpc-and-enable-private-dns "Direct link to Step 3: Select your VPC and enable private DNS")
+### Step 3: Select your VPC and enable private DNS
 
 1. Under **Network settings**, select the **VPC** where your workloads run.
 2. Expand **Additional settings** and select **Enable private DNS name**.
@@ -71,19 +71,19 @@ Always enable private DNS name
 
 Selecting **Enable private DNS name** automatically provisions the private hosted zone and record set for your `<customer_name>.private.dbt.com` access URL. This is the standard, recommended configuration. Configuring hostnames manually instead can lead to TLS errors and other issues, so keep this box checked.
 
-### Step 4: Choose subnets and a security group[​](#step-4-choose-subnets-and-a-security-group "Direct link to Step 4: Choose subnets and a security group")
+### Step 4: Choose subnets and a security group
 
 1. Select the **subnets** for the endpoint. A single subnet is enough for testing; use subnets across multiple Availability Zones for production.
 2. Choose a **security group** that allows inbound traffic on **port 443** from your workloads.
 3. Select **Create endpoint**.
 
-### Step 5: Wait for the endpoint to become available[​](#step-5-wait-for-the-endpoint-to-become-available "Direct link to Step 5: Wait for the endpoint to become available")
+### Step 5: Wait for the endpoint to become available
 
 The endpoint is created in a **Pending** state while dbt accepts the connection, then moves to **Available**. Once available, the **Private DNS names enabled** field shows **Yes** and the **Private DNS names** list includes your `*.<customer_name>.private.dbt.com` record.
 
 [![Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record](/img/docs/dbt-platform/aws-ingress-privatelink/endpoint-available.png?v=2 "Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record")](#)Endpoint details page showing status Available, private DNS names enabled, and the private.dbt.com record
 
-### Step 6: (Optional) Configure DNS for on-premises access[​](#step-6-optional-configure-dns-for-on-premises-access "Direct link to Step 6: (Optional) Configure DNS for on-premises access")
+### Step 6: (Optional) Configure DNS for on-premises access
 
 Workloads inside the associated VPC resolve the access URL automatically. Clients connecting from **on-premises** networks over **AWS VPN** or **AWS Direct Connect** need additional DNS configuration so they resolve the access URL to the endpoint's private IPs.
 
@@ -91,7 +91,7 @@ To forward DNS queries from your on-premises network into the VPC, refer to the 
 
 If all your users access the instance from inside the VPC, you can skip this step.
 
-## Validate connectivity[​](#validate-connectivity "Direct link to Validate connectivity")
+## Validate connectivity
 
 From an instance inside the selected VPC, confirm that:
 

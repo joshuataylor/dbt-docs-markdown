@@ -10,7 +10,7 @@ The following patterns commonly cause unexpected rebuilds:
 * [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
 * [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
 
-## Views with `select *`[​](#views-with-select- "Direct link to views-with-select-")
+## Views with `select *`
 
 dbt State always rebuilds views that use `select *` anywhere in their SQL, including inside CTEs. A common staging pattern like the following triggers this behavior:
 
@@ -44,13 +44,13 @@ from {{ source("my_source", "my_table") }}
 
 If you can't remove `select *`, you can exclude views from running with `--exclude config.materialized:view`.
 
-## Non-deterministic Jinja templating[​](#non-deterministic-jinja-templating "Direct link to Non-deterministic Jinja templating")
+## Non-deterministic Jinja templating
 
 Some macros, such as `dbt_utils.get_relations_by_pattern` (an introspective macro) combined with `dbt_utils.union_relations`, can return relations in a different order on each run. That produces different compiled SQL even when your project logic hasn't changed. dbt State detects a new hash and rebuilds the model.
 
 This pattern can affect any model type, not just views. If a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
 
-## Models with external sources on BigQuery[​](#models-with-external-sources-on-bigquery "Direct link to Models with external sources on BigQuery")
+## Models with external sources on BigQuery
 
 On BigQuery, models that use external sources (such as Google Sheets) always rebuild because BigQuery doesn't expose modification timestamps for external sources, so dbt State can't determine freshness.
 
@@ -58,7 +58,7 @@ tip
 
 To prevent external sources from always being considered stale, configure [`loaded_at_field`](../../reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](../../reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
 
-## How to diagnose[​](#how-to-diagnose "Direct link to How to diagnose")
+## How to diagnose
 
 In dbt Core v1.7–v1.12, run the `dbt-state explain` command to see why dbt State rebuilt or reused a specific model.
 

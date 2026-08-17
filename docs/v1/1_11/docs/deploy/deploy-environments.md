@@ -1,6 +1,6 @@
 # Deployment environments
 
-dbt platformⓘ
+dbt platform
 
 Deployment environments in dbt are crucial for deploying dbt jobs in production and using features or integrations that depend on dbt metadata or results. To execute dbt, environments determine the settings used during job runs, including:
 
@@ -24,29 +24,29 @@ There are three types of deployment environments:
 
 We highly recommend using the `Production` environment type for the final, source of truth deployment data. There can be only one environment marked for final production workflows and we don't recommend using a `General` environment for this purpose.
 
-## Create a deployment environment[​](#create-a-deployment-environment "Direct link to Create a deployment environment")
+## Create a deployment environment
 
 To create a new dbt deployment environment, navigate to **Orchestration** > **Environments** and then click **Create Environment**. Select **Deployment** as the environment type. The option will be greyed out if you already have a development environment.
 
 [![Navigate to Orchestration > Environments to create a deployment environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-deploy-env.png?v=2 "Navigate to Orchestration > Environments to create a deployment environment")](#)Navigate to Orchestration > Environments to create a deployment environment
 
-### Set as production environment[​](#set-as-production-environment "Direct link to Set as production environment")
+### Set as production environment
 
 In dbt, each project can have one designated deployment environment, which serves as its production environment. This production environment is *essential* for using features like Catalog and cross-project references. It acts as the source of truth for the project's production state in dbt.
 
 [![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")](#)Set your production environment as the default environment in your Environment Settings
 
-### Semantic Layer[​](#semantic-layer "Direct link to Semantic Layer")
+### Semantic Layer
 
 For customers using the Semantic Layer, the next section of environment settings is the Semantic Layer configurations. [The Semantic Layer setup guide](../use-dbt-semantic-layer/setup-sl.md) has the most up-to-date setup instructions.
 
 You can also leverage the dbt Job scheduler to [validate your semantic nodes in a CI job](./ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
 
-## Staging environment[​](#staging-environment "Direct link to Staging environment")
+## Staging environment
 
 Use a staging environment to grant developers access to deployment workflows and tools while controlling access to production data. Staging environments enable you to achieve more granular control over permissions, data warehouse connections, and data isolation — within the purview of a single project in dbt.
 
-### Git workflow[​](#git-workflow "Direct link to Git workflow")
+### Git workflow
 
 You can approach this in a couple of ways, but the most straightforward is configuring staging with a long-living branch (for example, `staging`) similar to, but separate from the primary branch (for example, `main`).
 
@@ -54,7 +54,7 @@ In this scenario, the workflows would ideally move upstream from the Development
 
 Some customers prefer to connect Development and Staging to their `main` branch and then cut release branches on a regular cadence (daily or weekly), which feeds into Production.
 
-### Why use a staging environment[​](#why-use-a-staging-environment "Direct link to Why use a staging environment")
+### Why use a staging environment
 
 These are the primary motivations for using a staging environment:
 
@@ -78,13 +78,13 @@ There is exactly one source (`sensitive_source`), and all downstream dbt models 
 
 **Cross-project references in dbt Mesh:** Let's say you have `Project B` downstream of `Project A` with cross-project refs configured in the models. When developers work in the IDE for `Project B`, cross-project refs will resolve to the staging environment of `Project A`, rather than production. You'll get the same results with those refs when jobs are run in the staging environment. Only the production environment will reference the production data, keeping the data and access isolated without needing separate projects.
 
-**Faster development enabled by deferral:** If `Project B` also has a staging deployment, then references to unbuilt upstream models<!-- --> and [user-defined functions (UDFs)](../build/udfs.md) within `Project B` will resolve to that environment using [deferral](../platform/about-defer.md), rather than resolving to the models<!-- --> and functions<!-- --> in production. This saves developers time and warehouse spend, while preserving clear separation of environments.
+**Faster development enabled by deferral:** If `Project B` also has a staging deployment, then references to unbuilt upstream models(Applies to dbt v1.11 and later) and [user-defined functions (UDFs)](../build/udfs.md) within `Project B` will resolve to that environment using [deferral](../platform/about-defer.md), rather than resolving to the models(Applies to dbt v1.11 and later) and functions in production. This saves developers time and warehouse spend, while preserving clear separation of environments.
 
 Finally, the staging environment has its own view in [Catalog](../explore/explore-projects.md), giving you a full view of your prod and pre-prod data.
 
 [![Explore in a staging environment](/img/docs/collaborate/dbt-explorer/explore-staging-env.png?v=2 "Explore in a staging environment")](#)Explore in a staging environment
 
-### Create a Staging environment[​](#create-a-staging-environment "Direct link to Create a Staging environment")
+### Create a Staging environment
 
 [![Create a staging environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/create-staging-environment.png?v=2 "Create a staging environment")](#)Create a staging environment
 
@@ -92,7 +92,7 @@ Follow the steps outlined in [connection profiles](../platform/about-profiles.md
 
 We recommend that the data warehouse credentials be for a dedicated user or service principal.
 
-## Deployment connection[​](#deployment-connection "Direct link to Deployment connection")
+## Deployment connection
 
 Warehouse Connections
 
@@ -104,44 +104,47 @@ This section determines the exact location in your warehouse dbt should target w
 
 For all warehouses, use [extended attributes](../dbt-platform-environments.md#extended-attributes) to override missing or inactive (grayed-out) settings.
 
-* Postgres
-* Redshift
-* Snowflake
-* Bigquery
-* Spark
-* Databricks
+### Postgres
 
 This section will not appear if you are using Postgres, as all values are inferred from the project's connection. Use [extended attributes](../dbt-platform-environments.md#extended-attributes) to override these values.
 
+### Redshift
+
 This section will not appear if you are using Redshift, as all values are inferred from the project's connection. Use [extended attributes](../dbt-platform-environments.md#extended-attributes) to override these values.
+
+### Snowflake
 
 [![Snowflake Deployment Connection Settings](/img/docs/collaborate/snowflake-deploy-env-deploy-connection.png?v=2 "Snowflake Deployment Connection Settings")](#)Snowflake Deployment Connection Settings
 
-#### Editable fields[​](#editable-fields "Direct link to Editable fields")
+#### Editable fields
 
 * **Role**: Snowflake role
 * **Database**: Target database
 * **Warehouse**: Snowflake warehouse
 
+### Bigquery
+
 This section will not appear if you are using Bigquery, as all values are inferred from the project's connection. Use [extended attributes](../dbt-platform-environments.md#extended-attributes) to override these values.
+
+### Spark
 
 This section will not appear if you are using Spark, as all values are inferred from the project's connection. Use [extended attributes](../dbt-platform-environments.md#extended-attributes) to override these values.
 
+### Databricks
+
 [![Databricks Deployment Connection Settings](/img/docs/collaborate/databricks-deploy-env-deploy-connection.png?v=2 "Databricks Deployment Connection Settings")](#)Databricks Deployment Connection Settings
 
-#### Editable fields[​](#editable-fields-1 "Direct link to Editable fields")
+#### Editable fields
 
 * **Catalog** (optional): [Unity Catalog namespace](../local/connect-data-platform/databricks-setup.md)
 
-### Connection profiles[​](#connection-profiles "Direct link to Connection profiles")
+### Connection profiles
 
 Deployment credentials are managed through connection profiles, which are created at the project level and assigned to deployment environments. Profiles define the credentials and attributes dbt uses to connect to your warehouse.
 
 To configure credentials for this environment, refer to [About dbt platform profiles](../platform/about-profiles.md).
 
-## Delete an environment[​](#delete-an-environment "Direct link to Delete an environment")
-
-<!-- -->
+## Delete an environment
 
 Deleting an environment automatically deletes its associated job(s). If you want to keep those jobs, move them to a different environment first.
 
@@ -159,7 +162,7 @@ Follow these steps to delete an environment in dbt:
 
 If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt environment best practices](../../guides/set-up-ci.md)
 * [Deploy jobs](./deploy-jobs.md)

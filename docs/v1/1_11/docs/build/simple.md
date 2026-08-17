@@ -1,5 +1,7 @@
 # Simple metrics
 
+(Applies to dbt v1.11 and earlier)
+
 Simple metrics are metrics that directly reference a single measure, without any additional measures involved. They are aggregations over a column in your data platform and can be filtered by one or multiple dimensions.
 
 The parameters, description, and type for simple metrics are:
@@ -22,15 +24,9 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `measure.fill_nulls_with`   | Set the value in your metric definition instead of null (such as zero).                                                                                                                       | Optional | Integer |
 | `measure.join_to_timespine` | Indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. Default `false`.                                                                       | Optional | Boolean |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-<!-- -->
-
 The following displays the complete specification for simple metrics, along with an example.
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 metrics:
@@ -47,11 +43,11 @@ metrics:
         join_to_timespine: true/false # Boolean that indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. # Optional
 ```
 
-<!-- -->
-
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
-## Simple metrics example[​](#simple-metrics-example "Direct link to Simple metrics example")
+## Simple metrics example
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
   metrics: 
@@ -77,8 +73,6 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
         {{Dimension('customer__order_total_dim')}} >= 20
 ```
 
-<!-- -->
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

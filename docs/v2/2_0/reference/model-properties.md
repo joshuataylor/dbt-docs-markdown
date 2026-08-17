@@ -4,8 +4,6 @@ Models properties can be declared in `.yml` files in your `models/` directory (a
 
 You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `models/` directory.
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -16,7 +14,7 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-## Available top-level model properties[​](#available-top-level-model-properties "Direct link to Available top-level model properties")
+## Available top-level model properties
 
 | Property                                                                                       | Type         | Required | Description                                                                                                                                                                                                                                  |
 | ---------------------------------------------------------------------------------------------- | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,15 +33,9 @@ For more information, refer to [Migrate to the latest YAML spec](../docs/build/l
 | [semantic\_model](./semantic-model-properties.md)              | object       | No       | *Latest YAML spec only.* Enable semantic model configuration for the Semantic Layer with `enabled: true`. For other properties, refer to [Semantic model properties](./semantic-model-properties.md).        |
 | [metrics](./metric-properties.md)                              | array        | No       | *Latest YAML spec only.* Metrics derived from this semantic model; list is alongside (not under) `semantic_model` and `columns`. For other properties, refer to [Metric properties](./metric-properties.md). |
 
-Search table...
+(Applies to dbt v1.12 and later)
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-<!-- -->
-
-### Example file (latest)[​](#example-file-latest "Direct link to Example file (latest)")
+### Example file (latest)
 
 The latest YAML spec includes Semantic Layer properties: `semantic_model:`, top-level `agg_time_dimension` and `primary_entity`, and `metrics:`. Columns can include `entity:` and `dimension:` blocks and `granularity` for time dimensions. See [Semantic model properties](./semantic-model-properties.md) and [Metric properties](./metric-properties.md) for the full structure.
 

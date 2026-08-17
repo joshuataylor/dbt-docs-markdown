@@ -1,8 +1,6 @@
 # pre-hook & post-hook
 
-* Models
-* Seeds
-* Snapshots
+### Models
 
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
@@ -38,6 +36,8 @@ models:
       post_hook: <sql-statement> | [<sql-statement>]
 ```
 
+### Seeds
+
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
 dbt\_project.yml
@@ -59,6 +59,8 @@ seeds:
       pre_hook: <sql-statement> | [<sql-statement>]
       post_hook: <sql-statement> | [<sql-statement>]
 ```
+
+### Snapshots
 
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
@@ -82,19 +84,17 @@ snapshots:
       post_hook: <sql-statement> | [<sql-statement>]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 A SQL statement (or list of SQL statements) to be run before or after a model, seed, or snapshot is built.
 
 Pre- and post-hooks can also call macros that return SQL statements. If your macro depends on values available only at execution time, such as using model configurations or `ref()` calls to other resources as inputs, you will need to [wrap your macro call in an extra set of curly braces](../../best-practices/dont-nest-your-curlies.md#an-exception).
 
-### Why would I use hooks?[​](#why-would-i-use-hooks "Direct link to Why would I use hooks?")
+### Why would I use hooks?
 
 dbt aims to provide all the boilerplate SQL you need (DDL, DML, and DCL) via out-of-the-box functionality, which you can configure quickly and concisely. In some cases, there may be SQL that you want or need to run, specific to functionality in your data platform, which dbt does not (yet) offer as a built-in feature. In those cases, you can write the exact SQL you need, using dbt's compilation context, and pass it into a `pre-` or `post-` hook to run before or after your model, seed, or snapshot.
 
-<!-- -->
-
-#### The render method[​](#the-render-method "Direct link to The render method")
+#### The render method
 
 The `.render()` method is generally used to resolve or evaluate Jinja expressions (such as `{{ source(...) }}`) during runtime.
 
@@ -112,9 +112,9 @@ models.sql
 select ...
 ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### \[Redshift] Unload one model to S3[​](#redshift-unload-one-model-to-s3 "Direct link to \[Redshift] Unload one model to S3")
+### \[Redshift] Unload one model to S3
 
 model.sql
 
@@ -128,7 +128,7 @@ select ...
 
 See: [Redshift docs on `UNLOAD`](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html)
 
-### \[Apache Spark] Analyze tables after creation[​](#apache-spark-analyze-tables-after-creation "Direct link to \[Apache Spark] Analyze tables after creation")
+### \[Apache Spark] Analyze tables after creation
 
 dbt\_project.yml
 
@@ -147,17 +147,17 @@ models:
 
 See: [Apache Spark docs on `ANALYZE TABLE`](https://spark.apache.org/docs/latest/sql-ref-syntax-aux-analyze-table.html)
 
-### Additional examples[​](#additional-examples "Direct link to Additional examples")
+### Additional examples
 
 We've compiled some more in-depth examples [here](../../docs/build/hooks-operations.md#additional-examples).
 
-## Usage notes[​](#usage-notes "Direct link to Usage notes")
+## Usage notes
 
-### Hooks are cumulative[​](#hooks-are-cumulative "Direct link to Hooks are cumulative")
+### Hooks are cumulative
 
 If you define hooks in both your `dbt_project.yml` and in the `config` block of a model, both sets of hooks will be applied to your model.
 
-### Execution ordering[​](#execution-ordering "Direct link to Execution ordering")
+### Execution ordering
 
 If multiple instances of any hooks are defined, dbt will run each hook using the following ordering:
 
@@ -165,7 +165,7 @@ If multiple instances of any hooks are defined, dbt will run each hook using the
 2. Hooks defined within the model itself will be run after hooks defined in `dbt_project.yml`.
 3. Hooks within a given context will be run in the order in which they are defined.
 
-### Transaction behavior[​](#transaction-behavior "Direct link to Transaction behavior")
+### Transaction behavior
 
 If you're using an adapter that uses transactions (namely Postgres or Redshift), it's worth noting that by default hooks are executed inside of the same transaction as your model being created.
 
@@ -178,11 +178,9 @@ To achieve this behavior, you can use one of the following syntaxes:
 
 * Important note: Do not use this syntax if you are using a database where dbt does not support transactions. This includes databases like Snowflake, BigQuery, and Spark or Databricks.
 
-- Use before\_begin and after\_commit
-- Use a dictionary
-- Use dbt\_project.yml
+### Use before\_begin and after\_commit
 
-#### Config block: use the `before_begin` and `after_commit` helper macros[​](#config-block-use-the-before_begin-and-after_commit-helper-macros "Direct link to config-block-use-the-before_begin-and-after_commit-helper-macros")
+#### Config block: use the `before_begin` and `after_commit` helper macros
 
 models/\<modelname>.sql
 
@@ -197,7 +195,9 @@ models/\<modelname>.sql
 select ...
 ```
 
-#### Config block: use a dictionary[​](#config-block-use-a-dictionary "Direct link to Config block: use a dictionary")
+### Use a dictionary
+
+#### Config block: use a dictionary
 
 models/\<modelname>.sql
 
@@ -218,7 +218,9 @@ models/\<modelname>.sql
 select ...
 ```
 
-#### `dbt_project.yml`: Use a dictionary[​](#dbt_projectyml-use-a-dictionary "Direct link to dbt_projectyml-use-a-dictionary")
+### Use dbt\_project.yml
+
+#### `dbt_project.yml`: Use a dictionary
 
 dbt\_project.yml
 

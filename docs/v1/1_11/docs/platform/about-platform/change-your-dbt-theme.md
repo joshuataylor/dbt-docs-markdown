@@ -1,6 +1,6 @@
 # Change your dbt theme
 
-dbt platformⓘ
+dbt platform
 
 dbt supports **Light mode** (default), **Dark mode**, and **System mode** (respects your browser's theme for light or dark mode) under the **Theme** section of your user profile and is available for all [plans](https://www.getdbt.com/pricing).
 
@@ -10,7 +10,7 @@ Your selected theme is stored in your user profile, ensuring a consistent experi
 
 Theme selection applies across all areas of dbt, including the [Studio IDE](../studio-ide/develop-in-studio.md), [Catalog](../../explore/explore-projects.md), [environments](../../environments-in-dbt.md), [jobs](../../deploy/jobs.md), and more. Learn more about customizing themes in [Change themes in dbt](./change-your-dbt-theme.md#change-themes-in-dbt).
 
-## Change themes in dbt[​](#change-themes-in-dbt "Direct link to Change themes in dbt")
+## Change themes in dbt
 
 To switch to dark mode in the dbt UI, follow these steps:
 

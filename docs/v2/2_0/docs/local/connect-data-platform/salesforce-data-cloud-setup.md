@@ -1,12 +1,10 @@
 # Salesforce Data 360 setup [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 This `dbt-salesforce` adapter is available via the dbt Fusion engine CLI. To access the adapter, [install Fusion](../../fusion/about-fusion-install.md). We recommend using the [VS Code Extension](../install-dbt.md?version=2) as the development interface. dbt platform support coming soon.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you can connect dbt to Salesforce Data 360, you need the following:
 
@@ -15,7 +13,7 @@ Before you can connect dbt to Salesforce Data 360, you need the following:
 * An external client app configured for JSON Web Token (JWT) Bearer token flow. For more information, refer to [Setting up the external client app](#setting-up-the-external-client-app).
 * `Data Cloud Architect` and `Data Cloud User` permissions.
 
-### Generating a private key and certificate[​](#generating-a-private-key-and-certificate "Direct link to Generating a private key and certificate")
+### Generating a private key and certificate
 
 Before creating the external client app, generate a private key (`server.key`) and a self-signed certificate (`server.crt`) in Salesforce. Salesforce uses the certificate to verify the JWT Bearer token that dbt sends. Refer to [Create a Private Key and Self-Signed Digital Certificate](https://developer.salesforce.com/docs/atlas.en-us.252.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm) for instructions.
 
@@ -23,7 +21,7 @@ note
 
 It is recommended to generate these credentials under a **service user account** rather than an individual user account to simplify credential management.
 
-### Creating the external client app[​](#creating-the-external-client-app "Direct link to Creating the external client app")
+### Creating the external client app
 
 To authenticate dbt using JWT Bearer token flow, you must create and configure an external client app in Salesforce Data 360.
 
@@ -36,8 +34,6 @@ Then, configure the OAuth settings for the app:
 2. Set the **Callback URL** to `https://login.salesforce.com/services/oauth2/callback`.
 
 3. Under **OAuth Scopes**, add the following to the **Selected OAuth Scopes** list:
-
-   <!-- -->
 
    * `api` - To manage user data via APIs
    * `refresh_token`, `offline_access` - To perform requests at any time, even when the user is offline or tokens have expired
@@ -59,7 +55,7 @@ Then, configure the OAuth settings for the app:
 
 11. Click **Save**.
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 To connect dbt to Salesforce Data 360, set up your `profiles.yml`. Refer to the following configuration:
 
@@ -86,12 +82,6 @@ company-name:
 | `login_url`        | Yes      | Login URL of the Salesforce instance.                          | [https://login.salesforce.com](https://login.salesforce.com/) |
 | `username`         | Yes      | Username on the Data 360 Instance.                             | <dbt_user@dbtlabs.com>                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Salesforce-specific configuration information in the [Salesforce adapter reference guide](../../../reference/resource-configs/data-cloud-configs.md).

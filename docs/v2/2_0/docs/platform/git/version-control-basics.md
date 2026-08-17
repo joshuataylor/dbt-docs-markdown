@@ -1,6 +1,6 @@
 # Version control basics
 
-dbt platformⓘ
+dbt platform
 
 When you develop in the command line interface (CLI) or Cloud integrated development environment (Studio IDE), you can leverage Git directly to version control your code. To use version control, make sure you are connected to a Git repository in the CLI or Studio IDE.
 
@@ -8,7 +8,7 @@ You can create a separate branch to develop and make changes. The changes you ma
 
 You can read more about git terminology below and also check out [GitHub Docs](https://docs.github.com/en) as well.
 
-## Git overview[​](#git-overview "Direct link to Git overview")
+## Git overview
 
 Check out some common git terms below that you might encounter when developing:
 
@@ -24,13 +24,7 @@ Check out some common git terms below that you might encounter when developing:
 | Push               | A `push` updates a remote branch with the commits made to the current branch. You are literally *pushing* your changes into the remote.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Remote             | This is the version of a repository or branch that is hosted on a server. Remote versions can be connected to local clones so that changes can be synced.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## The git button in the Cloud IDE[​](#the-git-button-in-the-cloud-ide "Direct link to The git button in the Cloud IDE")
+## The git button in the Cloud IDE
 
 You can perform git tasks with the git button in the [Studio IDE](../studio-ide/develop-in-studio.md). The following are descriptions of each git button command and what they do:
 
@@ -47,19 +41,13 @@ You can perform git tasks with the git button in the [Studio IDE](../studio-ide/
 | Rollback to remote      | Reset changes to your repository directly from the Studio IDE. You can rollback your repository back to an earlier clone from your remote. To do this, click on the three dot ellipsis in the bottom right-hand side of the Studio IDE and select **Rollback to remote**.                                                                                                                                                                               |
 | Refresh git state       | This enables you to pull new branches from a different remote branch to your local branch with just one command.                                                                                                                                                                                                                                                                                                                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Merge conflicts[​](#merge-conflicts "Direct link to Merge conflicts")
+## Merge conflicts
 
 Merge conflicts often occur when multiple users are concurrently making edits to the same section in the same file. This makes it difficult for Git to determine which change should be kept.
 
 Refer to [merge conflicts](./merge-conflicts.md) to learn how to resolve merge conflicts.
 
-## The .gitignore file[​](#the-gitignore-file "Direct link to The .gitignore file")
+## The .gitignore file
 
 dbt implements a global [`.gitignore file`](https://github.com/dbt-labs/dbt-starter-project/blob/main/.gitignore) that automatically excludes the following sub-folders from your git repository to ensure smooth operation:
 

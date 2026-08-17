@@ -1,10 +1,10 @@
 # dbt Wizard config reference [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 dbt Wizard stores configuration in two TOML files under `~/.dbt/wizard/`, each controlling a different part of the product.
 
-## The two config files[​](#the-two-config-files "Direct link to The two config files")
+## The two config files
 
 See it in action and share your feedback
 
@@ -34,7 +34,7 @@ This config sets the default AI model for all new sessions and applies to all fu
 
 Note that `dbt_project.yml` is separate from both and controls how dbt builds your project.
 
-## Common tasks[​](#common-tasks "Direct link to Common tasks")
+## Common tasks
 
 | Goal                                      | Edit                                                               | Restart needed? |
 | ----------------------------------------- | ------------------------------------------------------------------ | --------------- |
@@ -44,7 +44,7 @@ Note that `dbt_project.yml` is separate from both and controls how dbt builds yo
 | Mark a repo as trusted                    | `config.toml` → `trust_level = "trusted"` under `[projects."..."]` | Yes             |
 | Change approval or sandbox defaults       | `config.toml`                                                      | Yes             |
 
-## Config precedence[​](#config-precedence "Direct link to Config precedence")
+## Config precedence
 
 Settings resolve in this order (highest to lowest):
 
@@ -54,13 +54,13 @@ Settings resolve in this order (highest to lowest):
 4. `~/.dbt/wizard/wizard_config.toml`
 5. Built-in defaults
 
-## config.toml[​](#configtoml "Direct link to config.toml")
+## config.toml
 
 Global agent settings for models, approvals, sandboxing, web search, and MCP servers.
 
 `~/.dbt/wizard/config.toml` controls how the agent session behaves. It's created automatically when dbt Wizard is installed.
 
-### Configuration keys[​](#configuration-keys "Direct link to Configuration keys")
+### Configuration keys
 
 This is the list of configuration keys that can be set in `config.toml`.
 
@@ -71,13 +71,13 @@ This is the list of configuration keys that can be set in `config.toml`.
 
 You can view more by running `wizard config --help`.
 
-#### AI model and API[​](#ai-model-and-api "Direct link to AI model and API")
+#### AI model and API
 
 | Key     | Type   | Default | Description                                                                                                                                 |
 | ------- | ------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `model` | string | —       | Default AI model for new sessions. Refer to [AI model ID format](#ai-model-id-format) below. Change interactively with `/model` in the TUI. |
 
-#### Behavior[​](#behavior "Direct link to Behavior")
+#### Behavior
 
 | Key               | Type   | Default      | Description                                                                                                                                                       |
 | ----------------- | ------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,7 +85,7 @@ You can view more by running `wizard config --help`.
 | `sandbox_mode`    | string | `read-only`  | Shell sandbox policy. Options: `read-only` (default), `workspace-write` (allow writes inside project dir), `danger-full-access` (no restrictions).                |
 | `web_search`      | string | `cached`     | Web search mode. Options: `disabled`, `cached`, or `live`.                                                                                                        |
 
-#### Project trust[​](#project-trust "Direct link to Project trust")
+#### Project trust
 
 Set `trust_level` per-project to allow dbt Wizard to use project-local config:
 
@@ -94,14 +94,14 @@ Set `trust_level` per-project to allow dbt Wizard to use project-local config:
 trust_level = "trusted"
 ```
 
-#### MCP servers[​](#mcp-servers "Direct link to MCP servers")
+#### MCP servers
 
 ```toml
 [mcp_servers.dbt]
 command = "DBT_MCP_ENDPOINT"
 ```
 
-### AI model ID format[​](#ai-model-id-format "Direct link to AI model ID format")
+### AI model ID format
 
 AI model IDs in `config.toml` use the public model ID, such as `claude-sonnet-4-6`.
 
@@ -111,7 +111,7 @@ To list all available AI model IDs:
 wizard debug models
 ```
 
-### Environment variables[​](#environment-variables "Direct link to Environment variables")
+### Environment variables
 
 Any key can be set as an environment variable using the `DBT_WIZARD_` prefix in `SCREAMING_SNAKE_CASE`:
 
@@ -124,11 +124,11 @@ export ANTHROPIC_API_KEY=sk-ant-... # Anthropic (no prefix needed)
 
 `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` are read directly without the `DBT_WIZARD_` prefix, following each provider's convention.
 
-### When it's read[​](#when-its-read "Direct link to When it's read")
+### When it's read
 
 `config.toml` is read at session start when you run `wizard`. Changes take effect only after you exit and restart the CLI. Per-invocation `-c` flags and the in-session `/model` picker override this file for that session only.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 ```toml
 model = "claude-sonnet-4-6"
@@ -140,13 +140,13 @@ trust_level = "trusted"
 command = "DBT_MCP_ENDPOINT"
 ```
 
-## wizard\_config.toml[​](#wizard_configtoml "Direct link to wizard_config.toml")
+## wizard\_config.toml
 
 Per-project settings Wizard writes during onboarding, including dbt path and deferral settings.
 
 `~/.dbt/wizard/wizard_config.toml` stores what dbt Wizard knows about each of your dbt projects. dbt Wizard writes to this file automatically during onboarding and when you change project settings. You can also edit it manually.
 
-### Configuration keys[​](#configuration-keys-1 "Direct link to Configuration keys")
+### Configuration keys
 
 | Key                               | Description                                                                                                                                                                                  |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,7 +193,7 @@ target = "prod"
 favor_state = true
 ```
 
-#### Deferral[​](#deferral "Direct link to Deferral")
+#### Deferral
 
 [Deferral](../../reference/node-selection/defer.md) lets dbt Wizard reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything when you're only working on part of a project, saving you time and warehouse cost.
 
@@ -225,7 +225,7 @@ You can also configure production snapshot and compile behavior with global `pro
 
 For configuration examples and a verification workflow, refer to [Developing with production deferral](../../best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 Here are some common config mistakes and how to fix them:
 
@@ -235,7 +235,7 @@ Here are some common config mistakes and how to fix them:
 | AI model unchanged after editing `config.toml`           | Old session still running                    | Press Ctrl+C, then run `wizard` again               |
 | "Invalid model" error                                    | Wrong AI model ID                            | Run `wizard debug models` to see valid AI model IDs |
 
-### Re-trigger onboarding flows[​](#re-trigger-onboarding-flows "Direct link to Re-trigger onboarding flows")
+### Re-trigger onboarding flows
 
 If you need to re-run part of the setup — for example, after deleting config entries by mistake or switching to a new project — you can reset individual flows by deleting the relevant file. dbt Wizard will re-prompt you the next time it runs.
 
@@ -258,7 +258,7 @@ caution
 
 `config.toml` and `wizard_config.toml` are separate files that control different things. If you want to re-run project setup, edit `wizard_config.toml` — not `config.toml`. Editing the wrong file won't re-run the onboarding flow you expect. Refer to [The two config files](#the-two-config-files) at the top of this page for the difference.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 Links to BYOK setup, approval behavior, and CLI command reference.
 

@@ -2,7 +2,7 @@
 
 Use this table to match dbt Core versions with their compatible Python versions. New [dbt minor versions](../../docs/dbt-versions.md#minor-versions) will add support for new Python3 minor versions when all dependencies can support it. In addition, dbt minor versions will withdraw support for old Python3 minor versions before their [end of life](https://endoflife.date/python).
 
-## Python compatibility matrix[​](#python-compatibility-matrix "Direct link to Python compatibility matrix")
+## Python compatibility matrix
 
 | dbt-core version | v1.12 | v1.11 | v1.10 | v1.9 | v1.8 | v1.7 | v1.6 | v1.5 | v1.4 | v1.3 | v1.2 | v1.1 | v1.0 |
 | ---------------- | ----- | ----- | ----- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -11,12 +11,6 @@ Use this table to match dbt Core versions with their compatible Python versions.
 | Python 3.12      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ❌   | ❌   | ❌   | ❌   | ❌   | ❌   | ❌   |
 | Python 3.11      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ❌   | ❌   | ❌   | ❌   |
 | Python 3.10      | ✅    | ✅    | ✅    | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   | ✅   |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ⚠️ Python 3.13 is supported in dbt Core v1.10 for the Postgres adapter.
 

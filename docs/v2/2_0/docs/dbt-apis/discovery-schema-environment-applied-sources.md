@@ -1,18 +1,18 @@
 # Sources object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 [Sources](../build/sources.md) make it possible to name and describe the data loaded into your warehouse by your extract and load tools. You can query sources through the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `sources` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `sources`, you can use the following arguments:
 
 # Fetching data...
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 You can specify the `environmentId` and filter on the database name, to return the freshness and execution status, for the first 100 sources from the given database:
 
@@ -54,12 +54,12 @@ query {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `sources`, you can use the following fields:
 
 # Fetching data...
 
-### Key fields from nodes[​](#key-fields-from-nodes "Direct link to Key fields from nodes")
+### Key fields from nodes
 
 # Fetching data...

@@ -1,6 +1,6 @@
 # Connect Microsoft Fabric Lakehouse to dbt Core
 
-Local developmentⓘ
+Local development
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
@@ -10,55 +10,38 @@ Below is a guide for use with [Fabric Data Engineering](https://learn.microsoft.
 
 To learn how to set up dbt using Fabric Warehouse, refer to [Microsoft Fabric Data Warehouse](./fabric-setup.md).
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Microsoft
-* **Authors**:
-  <!-- -->
-  Microsoft
+* **Maintained by**: Microsoft
+* **Authors**: Microsoft
 * **GitHub repo**: [microsoft/dbt-fabricspark](https://github.com/microsoft/dbt-fabricspark) [![](https://img.shields.io/github/stars/microsoft/dbt-fabricspark?style=for-the-badge)](https://github.com/microsoft/dbt-fabricspark)
 * **PyPI package**: `dbt-fabricspark` [![](https://badge.fury.io/py/dbt-fabricspark.svg)](https://badge.fury.io/py/dbt-fabricspark)
 * **Slack channel**: [db-fabric-synapse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.7
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.7 and newer
+* **dbt support**: Not supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-fabricspark
+## Installing dbt-fabricspark
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-fabricspark`
 
-## Configuring <!-- -->dbt-fabricspark<!-- -->
+## Configuring dbt-fabricspark
 
-For <!-- -->Microsoft Fabric<!-- -->-specific configuration, please refer to [Microsoft Fabric<!-- --> configs.](../../../reference/resource-configs/fabricspark-configs.md)
+For Microsoft Fabric-specific configuration, please refer to [Microsoft Fabric configs.](../../../reference/resource-configs/fabricspark-configs.md)
 
 For further info, refer to the GitHub repository: [microsoft/dbt-fabricspark](https://github.com/microsoft/dbt-fabricspark)
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
 The Fabric Lakehouse adapter (`dbt-fabricspark`) connects to Fabric Spark through the Livy API. Choose the authentication method that matches where you run dbt Core.
 
-* Azure CLI
-* Service principal
-* Fabric notebook
-* Custom TokenCredential
+### Azure CLI
 
 Use Azure CLI for self-hosted dbt installations. This lets dbt Core use credentials from an active `az login` session. To use this method, set `authentication: CLI` in your `profiles.yml` file and run `az login`.
 
 When you authenticate, Azure CLI may open a browser window or prompt you to complete sign-in on the [Microsoft device login](https://microsoft.com/devicelogin) page and enter a one-time code to complete sign-in. Once authentication is successful, dbt automatically reuses the active Azure CLI session for subsequent commands.
 
-#### Example Azure CLI configuration[​](#example-azure-cli-configuration "Direct link to Example Azure CLI configuration")
+#### Example Azure CLI configuration
 
 profiles.yml
 
@@ -80,6 +63,8 @@ default:
       authentication: CLI
 ```
 
+### Service principal
+
 Use a Microsoft Entra ID service principal for CI/CD and other automated workloads. This method uses app registration credentials, not an active az login session. To use this method, set `authentication: SPN` in your `profiles.yml` file and provide the service principal's client ID, tenant ID, and client secret.
 
 Before you run with service principal authentication, make sure:
@@ -87,7 +72,7 @@ Before you run with service principal authentication, make sure:
 * The service principal has access to the Fabric workspace and lakehouse.
 * Service principals can use Fabric APIs is enabled in the Fabric Admin port.
 
-#### Example service principal configuration[​](#example-service-principal-configuration "Direct link to Example service principal configuration")
+#### Example service principal configuration
 
 profiles.yml
 
@@ -112,11 +97,13 @@ default:
       client_secret: SPN_CLIENT_SECRET
 ```
 
+### Fabric notebook
+
 You can authenticate through the Livy API from a Fabric notebook for production workloads and orchestration use cases within the Microsoft Fabric ecosystem. This method uses [`notebookutils.credentials`](https://learn.microsoft.com/en-us/fabric/data-engineering/notebookutils/notebookutils-credentials?tabs=python).
 
 Use Python notebooks instead of PySpark notebooks to minimize compute costs because the Livy API starts its own Spark sessions.
 
-#### Example Fabric notebook configuration[​](#example-fabric-notebook-configuration "Direct link to Example Fabric notebook configuration")
+#### Example Fabric notebook configuration
 
 profiles.yml
 
@@ -138,9 +125,11 @@ default:
       authentication: fabric_notebook
 ```
 
+### Custom TokenCredential
+
 Use `token_credential` when you need dbt Core to load a custom [`azure.core.credentials.TokenCredential`](https://learn.microsoft.com/en-us/python/api/azure-core/azure.core.credentials.tokencredential) implementation, such as a workload identity federation or token broker flow. To use this method, set `authentication: token_credential` and provide the dotted path to your credential class.
 
-#### Example custom TokenCredential configuration[​](#example-custom-tokencredential-configuration "Direct link to Example custom TokenCredential configuration")
+#### Example custom TokenCredential configuration
 
 profiles.yml
 
@@ -167,7 +156,7 @@ default:
 
 Replace `credential_class` and `credential_kwargs` with the class path and keyword arguments your custom credential implementation expects.
 
-## Connection methods[​](#connection-methods "Direct link to Connection methods")
+## Connection methods
 
 `dbt-fabricspark` can connect to Fabric Spark runtime using Fabric Livy API method. The Fabric Livy API allows submitting jobs in two different modes:
 
@@ -178,7 +167,7 @@ Supported mode
 
 To share the session state among jobs and reduce the overhead of session management, `dbt-fabricspark` adapter supports only `session-jobs` mode.
 
-### session-jobs[​](#session-jobs "Direct link to session-jobs")
+### session-jobs
 
 `session-jobs` is the preferred method when connecting to Fabric Lakehouse.
 
@@ -219,9 +208,9 @@ your_profile_name:
       retry_all: true
 ```
 
-## Optional configurations[​](#optional-configurations "Direct link to Optional configurations")
+## Optional configurations
 
-### Retries[​](#retries "Direct link to Retries")
+### Retries
 
 Intermittent errors can crop up unexpectedly while running queries against Fabric Spark. If `retry_all` is enabled, `dbt-fabricspark` will naively retry any queries that fails, based on the configuration supplied by `connect_timeout` and `connect_retries`. It does not attempt to determine if the query failure was transient or likely to succeed on retry. This configuration is recommended in production environments, where queries ought to be succeeding. The default `connect_retries` configuration is 2.
 
@@ -235,11 +224,11 @@ connect_timeout: 5
 connect_retries: 3
 ```
 
-### Spark configuration[​](#spark-configuration "Direct link to Spark configuration")
+### Spark configuration
 
 Spark can be customized using [Application Properties](https://spark.apache.org/docs/latest/configuration.html). Using these properties the execution can be customized, for example, to allocate more memory to the driver process. Also, the Spark SQL runtime can be set through these properties. For example, this allows the user to [set a Spark catalogs](https://spark.apache.org/docs/latest/configuration.html#spark-sql).
 
-### Supported functionality[​](#supported-functionality "Direct link to Supported functionality")
+### Supported functionality
 
 Most dbt Core functionality is supported, Please refer to [Delta Lake interoporability](https://learn.microsoft.com/en-us/fabric/fundamentals/delta-lake-interoperability).
 
@@ -249,6 +238,6 @@ Delta-only features:
 2. [Snapshots](../../build/snapshots.md)
 3. [Persisting](../../../reference/resource-configs/persist_docs.md) column-level descriptions as database comments
 
-### Limitations[​](#limitations "Direct link to Limitations")
+### Limitations
 
 1. Only Delta, CSV, and Parquet table data formats are supported by Fabric Lakehouse.

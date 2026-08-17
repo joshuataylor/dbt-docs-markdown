@@ -1,7 +1,6 @@
 # freshness
 
-* Project file
-* Model YAML
+### Project file
 
 dbt\_project.yml
 
@@ -13,6 +12,8 @@ sources:
         count: <positive_integer>
         period: minute | hour | day
 ```
+
+### Model YAML
 
 models/\<filename>.yml
 
@@ -55,7 +56,7 @@ sources:
         ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 A freshness block is used to define the acceptable amount of time between the most recent record, and now, for a table to be considered "fresh".
 
@@ -64,15 +65,17 @@ In the `freshness` block, one or both of `warn_after` and `error_after` can be p
 * `warn_after`: Duration (for example, 12 hours) after which dbt raises a warning if the most recent available data is older than this threshold.
 * `error_after`: Duration (for example, 24 hours) after which dbt fails the freshness check if the most recent available data is older than this threshold.
 
-In most cases, the `loaded_at_field` is required. Some adapters support calculating source freshness from the warehouse metadata tables and can exclude the `loaded_at_field`. <!-- -->Alternatively, you can define `loaded_at_query` to use custom SQL expression to calculate the timestamp.
+In most cases, the `loaded_at_field` is required. Some adapters support calculating source freshness from the warehouse metadata tables and can exclude the `loaded_at_field`. (Applies to dbt v1.10 and later) Alternatively, you can define `loaded_at_query` to use custom SQL expression to calculate the timestamp.
 
 If a source has a `freshness:` block, dbt will attempt to calculate freshness for that source:
 
 * If `loaded_at_field` is provided, dbt will calculate freshness via a select query.
 * If `loaded_at_field` is *not* provided, dbt will calculate freshness via warehouse metadata tables when possible.
 
-- If `loaded_at_query` is provided, dbt will calculate freshness via the provided custom SQL query.
-- If `loaded_at_query` is provided, `loaded_at_field` should not be configured.
+(Applies to dbt v1.10 and later)
+
+* If `loaded_at_query` is provided, dbt will calculate freshness via the provided custom SQL query.
+* If `loaded_at_query` is provided, `loaded_at_field` should not be configured.
 
 Currently, calculating freshness from warehouse metadata tables is supported on the following adapters:
 
@@ -80,6 +83,8 @@ Currently, calculating freshness from warehouse metadata tables is supported on 
 * [Redshift](../resource-configs/redshift-configs.md)
 * [BigQuery](../resource-configs/bigquery-configs.md) (Supported in [`dbt-bigquery`](https://github.com/dbt-labs/dbt-bigquery) version 1.7.3 or higher)
 * [Databricks](../resource-configs/databricks-configs.md) (Supported in the dbt Fusion engine)
+
+(Applies to dbt v1.12 and later)
 
 Wildcard table identifiers
 
@@ -98,8 +103,6 @@ This is useful when all of the tables in a source have the same `loaded_at_field
 
 To exclude a source from freshness calculations, explicitly set `freshness: null`.
 
-<!-- -->
-
 State-aware orchestration is now dbt State
 
 [dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
@@ -110,7 +113,7 @@ In state-aware orchestration, dbt uses the warehouse metadata by default to chec
 
 If you're using [dbt State](../../docs/deploy/dbt-state-about.md), `loaded_at_field` and `loaded_at_query` are also used for source freshness detection (for example, to ensure late-arriving records are detected). Refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md) for more details.
 
-## loaded\_at\_field[​](#loaded_at_field "Direct link to loaded_at_field")
+## loaded\_at\_field
 
 Optional on adapters that support pulling freshness from warehouse metadata tables, required otherwise.<br /><br />A column name (or expression) that returns a timestamp indicating freshness.
 
@@ -172,7 +175,9 @@ sources:
       loaded_at_field: "convert_timezone('Australia/Sydney', 'UTC', created_at_local)"
 ```
 
-## loaded\_at\_query[​](#loaded_at_query "Direct link to loaded_at_query")
+(Applies to dbt v1.10 and later)
+
+## loaded\_at\_query
 
 Specify custom SQL to generate the `maxLoadedAt` timestamp on the source (rather than via warehouse metadata or the `loaded_at_field` config). Note that `loaded_at_query` should not be used if `loaded_at_field` is defined.
 
@@ -218,19 +223,19 @@ Should not be configured if `loaded_at_field` is also configured, but if it is, 
 
 [Filter](#filter) won't work for `loaded_at_query`.
 
-## count[​](#count "Direct link to count")
+## count
 
 (Required)
 
 A positive integer for the number of periods where a data source is still considered "fresh".
 
-## period[​](#period "Direct link to period")
+## period
 
 (Required)
 
 The time period used in the freshness calculation. One of `minute`, `hour` or `day`
 
-## filter[​](#filter "Direct link to filter")
+## filter
 
 (optional)
 
@@ -243,9 +248,9 @@ This is particularly useful if:
 * You are using BigQuery and your source tables are [partitioned tables](https://cloud.google.com/bigquery/docs/partitioned-tables)
 * You are using Snowflake, Databricks, or Spark with large tables, and this results in a performance benefit
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Complete example[​](#complete-example "Direct link to Complete example")
+### Complete example
 
 models/\<filename>.yml
 
@@ -282,8 +287,7 @@ sources:
 
 When running `dbt source freshness`, the following query will be run:
 
-* Compiled SQL
-* Jinja SQL
+### Compiled SQL
 
 ```sql
 select
@@ -293,6 +297,8 @@ from raw.jaffle_shop.orders
 
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
+
+### Jinja SQL
 
 ```sql
 select

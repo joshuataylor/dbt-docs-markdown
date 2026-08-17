@@ -16,12 +16,11 @@ dbt run --no-populate-cache
 
 Historically, passing flags (such as "global flags") *before* the subcommand is a legacy functionality that dbt Labs can remove at any time. We do not support using the same flag before and after the subcommand.
 
-## Using boolean and non-boolean flags[​](#using-boolean-and-non-boolean-flags "Direct link to Using boolean and non-boolean flags")
+## Using boolean and non-boolean flags
 
 You can construct your commands with boolean flags to enable or disable or with non-boolean flags that use specific values, such as strings.
 
-* Non-boolean config
-* Boolean config
+### Non-boolean config
 
 Use this non-boolean config structure:
 
@@ -36,7 +35,7 @@ CLI flags
 <SUBCOMMAND> --<THIS-CONFIG>=<SETTING> 
 ```
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 CLI flags
 
@@ -45,6 +44,8 @@ CLI flags
 dbt run --printer-width=80 
 dbt test --indirect-selection=eager
 ```
+
+### Boolean config
 
 To enable or disable boolean configs:
 
@@ -59,7 +60,7 @@ dbt <SUBCOMMAND> --<THIS-CONFIG>
 dbt <SUBCOMMAND> --no-<THIS-CONFIG> 
 ```
 
-### Example[​](#example-1 "Direct link to Example")
+### Example
 
 CLI flags
 
@@ -69,9 +70,7 @@ dbt run --version-check
 dbt run --no-version-check 
 ```
 
-## Config precedence[​](#config-precedence "Direct link to Config precedence")
-
-<!-- -->
+## Config precedence
 
 There are multiple ways of setting flags, which depend on the use case:
 
@@ -91,7 +90,7 @@ flags:
   fail_fast: true
 ```
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 # set this environment variable to 'True' (bash syntax)
@@ -106,5 +105,5 @@ dbt run --no-fail-fast # set to False
 
 There are two categories of exceptions:
 
-1. **Flags setting file paths:** Flags for file paths that are relevant to runtime execution (for example, `--log-path` or `--state`) cannot be set in `dbt_project.yml`. To override defaults, pass CLI options or set environment variables (`DBT_ENGINE_LOG_PATH` and `DBT_ENGINE_STATE`). Flags that tell dbt where to find project resources (for example, `model-paths`) are set in `dbt_project.yml`, but as a top-level key, outside the `flags` dictionary; these configs are expected to be fully static and never vary based on the command or execution environment.
+1. **Flags setting file paths:** Flags for file paths that are relevant to runtime execution (for example, `--log-path` or `--state`) cannot be set in `dbt_project.yml`. To override defaults, pass CLI options or set environment variables ((Applies to dbt v1.11 and later) `DBT_ENGINE_LOG_PATH` and `DBT_ENGINE_STATE`). Flags that tell dbt where to find project resources (for example, `model-paths`) are set in `dbt_project.yml`, but as a top-level key, outside the `flags` dictionary; these configs are expected to be fully static and never vary based on the command or execution environment.
 2. **Opt-in flags:** Flags opting in or out of [behavior changes](./behavior-changes.md) can *only* be defined in `dbt_project.yml`. These are intended to be set in version control and migrated via pull/merge request. Their values should not diverge indefinitely across invocations, environments, or users.

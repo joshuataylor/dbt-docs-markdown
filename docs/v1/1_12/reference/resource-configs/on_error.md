@@ -1,24 +1,10 @@
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # on\_error
 
-* Project file
-* Property file
-* SQL config
+### Project file
 
 dbt\_project.yml
 
@@ -27,6 +13,8 @@ models:
   <resource-path>:
     +on_error: skip_children | continue
 ```
+
+### Property file
 
 models/properties.yml
 
@@ -37,6 +25,8 @@ models:
       on_error: skip_children | continue
 ```
 
+### SQL config
+
 models/\<model\_name>.sql
 
 ```sql
@@ -45,7 +35,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `on_error` config controls what happens to downstream (child) models when a model fails during a run. This config only applies to models; it has no effect on tests. To control whether downstream models run after a test failure, use the [`severity`](./severity.md) config on your tests instead.
 
@@ -54,7 +44,7 @@ The `on_error` config controls what happens to downstream (child) models when a 
 * `skip_children` (default): All downstream models are skipped when the model fails.
 * `continue`: Downstream models continue running when the model fails, instead of being skipped.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Set `on_error: continue` when downstream models can still run meaningfully even if an upstream model fails (for example, when they have fallback logic or independent data sources).
 
@@ -73,7 +63,7 @@ When `on_error` is set to `continue` on a model that fails, dbt runs its downstr
 
 The [`--fail-fast`](../global-configs/failing-fast.md) flag takes precedence over `on_error: continue`. When `--fail-fast` is set, dbt stops at the first failure and skips all remaining models, regardless of their `on_error` configuration.
 
-## Behavior with multiple upstream models[​](#behavior-with-multiple-upstream-models "Direct link to Behavior with multiple upstream models")
+## Behavior with multiple upstream models
 
 When a model has multiple upstream models, `skip_children` takes precedence over `continue`. If any failed upstream model uses `skip_children`, the downstream model is skipped — even if other failed upstream models use `continue`.
 

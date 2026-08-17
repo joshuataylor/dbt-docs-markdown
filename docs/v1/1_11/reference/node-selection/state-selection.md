@@ -20,7 +20,7 @@ dbt can leverage artifacts from a prior invocation as long as their file path is
 
 Together, the [`state`](./methods.md#state) selector and deferral enable ["slim CI"](../../best-practices/best-practice-workflows.md#run-only-modified-models-to-test-changes-slim-ci). We expect to add more features in future releases that can leverage artifacts passed to the `--state` flag.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Configure state selection](./configure-state.md)
 * [State comparison caveats](./state-comparison-caveats.md)

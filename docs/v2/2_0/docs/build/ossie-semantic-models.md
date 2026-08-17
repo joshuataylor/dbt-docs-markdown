@@ -2,28 +2,16 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
 
 dbt Core v1.12 and higher supports the [Apache Ossie](https://github.com/apache/ossie) standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, or configure [`osi-paths`](../../reference/project-configs/osi-paths.md) in `dbt_project.yml` to use one or more custom directories relative to your project root. dbt parses them into the manifest alongside any native dbt semantic models. Ossie-sourced definitions and native dbt semantic models can coexist in the same project.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must be on dbt Core v1.12 or higher.
 * Ossie documents must use version `0.1.0` or `0.1.1`. Any other version string raises a parse error.
 
-## Defining semantic models using Ossie documents[​](#defining-semantic-models-using-ossie-documents "Direct link to Defining semantic models using Ossie documents")
+## Defining semantic models using Ossie documents
 
 To define semantic models with Ossie documents:
 
@@ -58,7 +46,7 @@ To define semantic models with Ossie documents:
 
 The resulting semantic models (and metrics, when defined in your Ossie documents) appear in [dbt artifacts](../../reference/artifacts/dbt-artifacts.md) in your `target/` directory, including [`manifest.json`](../../reference/artifacts/manifest-json.md), [`semantic_manifest.json`](../../reference/artifacts/sl-manifest.md), and [`osi_document.json`](../../reference/artifacts/sl-manifest.md#osi-document).
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 * dbt scans only the root project's Ossie directories (configured through [`osi-paths`](../../reference/project-configs/osi-paths.md), default `osi/`). Ossie files in installed dependency packages are ignored.
 * Each Ossie dataset source must resolve to a dbt model. Ossie documents that reference sources, seeds, snapshots, or external tables are not supported.

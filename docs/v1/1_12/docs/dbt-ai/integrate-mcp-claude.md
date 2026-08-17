@@ -10,22 +10,21 @@ Both interfaces can connect to either:
 * Self-hosted dbt MCP server (runs on your machine, supports CLI commands like `dbt run`)
 * Remote dbt MCP server (HTTP, consumption-focused). OAuth needs no local install. Token-based auth on Claude Desktop uses the `mcp-remote` proxy and requires Node.js.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You use Claude for AI or agentic work
 * For OAuth (self-hosted or remote), use your [access URL with a static subdomain](../platform/about-platform/access-regions-ip-addresses.md).
-  <!-- -->
   * Remote MCP OAuth is available for Starter, Enterprise, and Enterprise+ accounts.
 
 Static subdomains required
 
 Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
-## Claude Desktop[​](#claude-desktop "Direct link to Claude Desktop")
+## Claude Desktop
 
 [Claude Desktop](https://claude.ai/download) reads MCP servers from `claude_desktop_config.json`. Open it from **Settings → Developer → Edit Config**.
 
-### Set up with self-hosted dbt MCP server[​](#desktop-local "Direct link to Set up with self-hosted dbt MCP server")
+### Set up with self-hosted dbt MCP server
 
 For a fast first install, you can download the prebuilt `.mcpb` file; for more control, edit the JSON directly.
 
@@ -33,7 +32,7 @@ tip
 
 You don't need to clone the dbt-mcp repository — for self-hosted setups, install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` (or use the configs later in this page). Only clone the repository if you want to [contribute to dbt MCP](https://github.com/dbt-labs/dbt-mcp/issues).
 
-#### Quick install with the .mcpb file[​](#quick-install-with-the-mcpb-file "Direct link to Quick install with the .mcpb file")
+#### Quick install with the .mcpb file
 
 1. Go to the [latest dbt MCP release](https://github.com/dbt-labs/dbt-mcp/releases/latest) and download the `dbt-mcp.mcpb` file.
 2. Double-click the downloaded file to open it in Claude Desktop.
@@ -41,7 +40,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 4. Enable the server in Claude Desktop.
 5. Ask Claude a data-related question and see dbt MCP in action!
 
-#### Advanced config with Claude Desktop[​](#advanced-config-with-claude-desktop "Direct link to Advanced config with Claude Desktop")
+#### Advanced config with Claude Desktop
 
 Use advanced configuration when you want to define the dbt MCP server yourself in Claude's configuration file — the same JSON where Claude stores every MCP server, under `mcpServers`, with fields like `command`, `args`, and `env`. See the [MCP install pattern](https://modelcontextprotocol.io/quickstart/user#installing-the-filesystem-server) for the underlying convention.
 
@@ -61,8 +60,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
-   * dbt platform only
-   * dbt platform + CLI
+   ### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -83,6 +81,8 @@ To open the configuration file and add or replace the dbt MCP server entry:
    ```
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
+
+   ### dbt platform + CLI
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -181,7 +181,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
 For more configuration options (env vars, service tokens, tool-access controls), refer to [Set up self-hosted MCP](./setup-local-mcp.md).
 
-### Set up with remote dbt MCP server[​](#desktop-remote "Direct link to Set up with remote dbt MCP server")
+### Set up with remote dbt MCP server
 
 The remote dbt MCP server runs in dbt platform. For OAuth, Claude Desktop connects over HTTP with a custom connector. For token-based auth, use the `mcp-remote` proxy described in the token tab (Claude Desktop does not accept `"type": "http"` in `claude_desktop_config.json`).
 
@@ -201,8 +201,7 @@ For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP 
 
 Then follow the tab that matches your auth method:
 
-* OAuth (remote)
-* Token-based
+### OAuth (remote)
 
 *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -220,15 +219,17 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 
 1. In your AI tool, go to its connector settings and choose to add a custom connector (in Claude Desktop, go to **Chat → Customize → Connectors**, then click **Add custom connector**).
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
-   <!-- -->
+
    [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
 3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
-   <!-- -->
+
    [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
-   <!-- -->
+
    [![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")](#)Adding a custom dbt connector in an AI tool's connector settings
 5. That's it 🎉! Ask your tool a data question like *"What is the total revenue for the last 30 days?"* to confirm the connection.
+
+### Token-based
 
 Use token-based auth when your client doesn't yet support OAuth for HTTP MCP servers, or when you need a shared or CI-style setup.
 
@@ -283,11 +284,11 @@ Token-based remote MCP on Claude Desktop requires [Node.js](https://nodejs.org/)
 
 3. Save the file and restart Claude Desktop. In **Settings → Developer**, confirm `dbt-remote` is running. Ask Claude a data question to confirm the server is connected.
 
-## Claude Code[​](#claude-code "Direct link to Claude Code")
+## Claude Code
 
 [Claude Code](https://www.anthropic.com/claude-code) reads MCP servers from `.mcp.json` at the root of your project (the repository root for your workspace). For self-hosted setups, you can reuse the same `command` / `args` / `env` shape you use in other clients. For remote token-based auth, Claude Code supports `"type": "http"` in `.mcp.json`, which Claude Desktop does not.
 
-### Set up with self-hosted dbt MCP server[​](#code-local "Direct link to Set up with self-hosted dbt MCP server")
+### Set up with self-hosted dbt MCP server
 
 tip
 
@@ -307,8 +308,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
-   * dbt platform only
-   * dbt platform + CLI
+   ### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -329,6 +329,8 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
    ```
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
+
+   ### dbt platform + CLI
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -427,7 +429,7 @@ About `claude mcp add`
 
 The Claude Code CLI can register MCP servers with `claude mcp add`, but it typically writes to the user-level config (`~/.claude.json`) rather than the project's `.mcp.json`. For dbt MCP, we recommend committing `.mcp.json` to your repository so the setup is project-scoped and easier to share.
 
-### Set up with remote dbt MCP server[​](#code-remote "Direct link to Set up with remote dbt MCP server")
+### Set up with remote dbt MCP server
 
 Claude Code can connect to the remote dbt MCP server over HTTP using `"type": "http"` in `.mcp.json`. That HTTP config shape is for Claude Code (and similar clients), not for Claude Desktop's `claude_desktop_config.json`.
 
@@ -449,8 +451,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
 3. Add the `dbt` entry to `.mcp.json` using the tab that matches your auth method:
 
-   * OAuth (remote)
-   * Token-based
+   ### OAuth (remote)
 
    *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -482,6 +483,8 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    ```bash
    claude mcp add --transport http dbt https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/
    ```
+
+   ### Token-based
 
    ```json
    {
@@ -515,7 +518,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
 4. Save the file. Claude Code picks up `.mcp.json` on startup — ask it a data question to confirm the connection.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  Claude Desktop errors
 

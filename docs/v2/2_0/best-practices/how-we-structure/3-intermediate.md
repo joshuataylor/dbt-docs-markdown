@@ -6,7 +6,7 @@ The [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) example project uses 
 
 Once we've got our atoms ready to work with, we'll set about bringing them together into more intricate, connected molecular shapes. The intermediate layer is where these molecules live, creating varied forms with specific purposes on the way towards the more complex proteins and cells we'll use to breathe life into our data products.
 
-### Intermediate: Files and folders[​](#intermediate-files-and-folders "Direct link to Intermediate: Files and folders")
+### Intermediate: Files and folders
 
 In a project that uses an intermediate layer, models typically live in an `intermediate/` subdirectory:
 
@@ -26,7 +26,7 @@ Don't over-optimize too early!
 
 The example project is very simple for illustrative purposes. This level of division in our post-staging layers is probably unnecessary when dealing with these few models. Remember, our goal is a *single* *source of truth.* We don't want finance and marketing operating on separate `orders` models, we want to use our dbt project as a means to bring those definitions together! As such, don't split and optimize too early. If you have less than 10 marts models and aren't having problems developing and using them, feel free to forego subdirectories completely (except in the staging layer, where you should always implement them as you add new source systems to your project) until the project has grown to really need them. Using dbt is always about bringing simplicity to complexity.
 
-### Intermediate: Models[​](#intermediate-models "Direct link to Intermediate: Models")
+### Intermediate: Models
 
 Intermediate models serve a clear, single purpose: preparing staging models for marts. Common patterns include grouping and pivoting to a different grain, fanning out rows, or isolating complex logic so marts stay readable.
 

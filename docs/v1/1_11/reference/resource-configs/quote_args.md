@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -26,7 +14,7 @@ functions:
         quote_args: true | false  # optional, default: true
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 When creating JavaScript user-defined functions (UDFs) on Snowflake, `quote_args` controls whether argument names are quoted in the `CREATE FUNCTION` statement. Defaults to `true`.
 
@@ -36,7 +24,7 @@ When `quote_args` is `false`, argument names are not quoted. Snowflake uppercase
 
 This config applies to JavaScript UDFs on Snowflake only. It has no effect on other adapters or languages.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 In this example, `quote_args` is set to `false` so argument names are not quoted in the generated `CREATE FUNCTION` statement:
 
@@ -84,7 +72,7 @@ return /^[0-9]+$/.test(a_string) ? 1 : 0;
 $$;
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

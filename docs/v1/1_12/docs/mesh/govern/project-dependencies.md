@@ -1,6 +1,6 @@
 # Project dependencies
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Available on dbt [Enterprise or Enterprise+](https://www.getdbt.com/pricing) plans.
 
@@ -13,27 +13,22 @@ dbt Labs supports an expanded notion of `dependencies` across multiple dbt proje
 * **Packages** — Familiar and pre-existing type of dependency. You take this dependency by installing the package's full source code (like a software library).
 * **Projects** — The dbt method to take a dependency on another project. Using a metadata service that runs behind the scenes, dbt resolves references on-the-fly to public models defined in other projects. You don't need to parse or run those upstream models yourself. Instead, you treat your dependency on those models as an API that returns a dataset. The maintainer of the public model is responsible for guaranteeing its quality and stability.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * Available in [dbt Enterprise or Enterprise+](https://www.getdbt.com/pricing). To use it, designate a [public model](./model-access.md) and add a [cross-project ref](#how-to-write-cross-project-ref).
 
 * For the upstream ("producer") project setup:
-
-  <!-- -->
 
   * Configure models in upstream project with [`access: public`](../../../reference/resource-configs/access.md) and have at least one successful job run after defining `access`.
   * Define a [Production deployment environment](../../deploy/deploy-environments.md#set-as-production-environment) in the upstream project and make sure at least *one deployment job* has run successfully there. This job should generate a [`manifest.json` file](../../../reference/artifacts/manifest-json.md) — it includes the metadata needed for downstream projects.
   * If the upstream project has a Staging environment, run at least one successful deployment job there to ensure downstream cross-project references resolve correctly.
 
 * Each project `name` must be unique in your dbt account. For example, if you have a dbt project (codebase) for the `jaffle_marketing` team, avoid creating projects for `Jaffle Marketing - Dev` and `Jaffle Marketing - Prod`; use [environment-level isolation](../../dbt-platform-environments.md#types-of-environments) instead.
-  <!-- -->
   * dbt supports [Connections](../../platform/connect-data-platform/about-connections.md#connection-management), available to all dbt users. Connections allows different data platform connections per environment, eliminating the need to duplicate projects. Projects can use multiple connections of the same warehouse type. Connections are reusable across projects and environments.
 
 * The `dbt_project.yml` file is case-sensitive, which means the project name must exactly match the name in your `dependencies.yml`. For example, `jaffle_marketing`, not `JAFFLE_MARKETING`.
 
-<!-- -->
-
-## Use cases[​](#use-cases "Direct link to Use cases")
+## Use cases
 
 The following setup will work for every dbt project:
 
@@ -42,7 +37,7 @@ The following setup will work for every dbt project:
 
 However, you may be able to consolidate both into a single `dependencies.yml` file. Read the following section to learn more.
 
-#### About packages.yml and dependencies.yml[​](#about-packagesyml-and-dependenciesyml "Direct link to About packages.yml and dependencies.yml")
+#### About packages.yml and dependencies.yml
 
 The `dependencies.yml`. file can contain both types of dependencies: "package" and "project" dependencies.
 
@@ -73,7 +68,7 @@ Package dependencies allow you to add source code from someone else's dbt projec
 
 Previously, to use private Git repositories in dbt, you needed to use a workaround that involved embedding a Git token with Jinja. This is not ideal as it requires extra steps like creating a user and sharing a Git token. We’ve introduced support for [native private packages](../../build/packages.md#native-private-packages-) to address this.
 
-## Define project dependencies[​](#define-project-dependencies "Direct link to Define project dependencies")
+## Define project dependencies
 
 If your dbt project relies on models from another project, you can define that relationship using project dependencies. The following steps walk you through specifying project dependencies in dbt:
 
@@ -84,7 +79,7 @@ If your dbt project relies on models from another project, you can define that r
 5. Commit the changes and ensure the dependency is configured in dbt.
 6. dbt will resolve the dependency, ensure upstream projects are built first, and surface cross-project lineage in the lineage and DAG (Directed Acyclic Graph) views.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 As an example, let's say you work on the Marketing team at the Jaffle Shop. The name of your team's project is `jaffle_marketing`:
 
@@ -118,7 +113,7 @@ The `dbt_utils` package — When you run `dbt deps`, dbt will pull down this pac
 
 The `jaffle_finance` projects — This is a new scenario. Unlike installing a package, the models in the `jaffle_finance` project will *not* be pulled down as source code and parsed into your project. Instead, dbt provides a metadata service that resolves references to [**public models**](./model-access.md) defined in the `jaffle_finance` project.
 
-### Advantages[​](#advantages "Direct link to Advantages")
+### Advantages
 
 When you're building on top of another team's work, resolving the references in this way has several advantages:
 
@@ -127,7 +122,7 @@ When you're building on top of another team's work, resolving the references in 
 * You don't need to mirror any conditional configuration of the upstream project such as `vars`, environment variables, or `target.name`. You can reference them directly wherever the Finance team is building their models in production. Even if the Finance team makes changes like renaming the model, changing the name of its schema, or [bumping its version](./model-versions.md), your `ref` would still resolve successfully.
 * You eliminate the risk of accidentally building those models with `dbt run` or `dbt build`. While you can select those models, you can't actually build them. This prevents unexpected warehouse costs and permissions issues. This also ensures proper ownership and cost allocation for each team's models.
 
-### How to write cross-project ref[​](#how-to-write-cross-project-ref "Direct link to How to write cross-project ref")
+### How to write cross-project ref
 
 **Writing `ref`:** Models referenced from a `project`-type dependency must use [two-argument `ref`](../../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models), including the project name:
 
@@ -143,15 +138,15 @@ with monthly_revenue as (
 ...
 ```
 
+(Applies to dbt v1.12 and later)
+
 Cross-project refs unsupported in latest SL YAML spec
 
 When using [dbt Mesh](../../../best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](../../use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](../../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
 
 In the [latest YAML spec](../../build/latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
 
-#### Cycle detection[​](#cycle-detection "Direct link to Cycle detection")
-
-<!-- -->
+#### Cycle detection
 
 You can enable bidirectional dependencies across projects so these relationships can go in either direction, meaning that the `jaffle_finance` project can add a new model that depends on any public models produced by the `jaffle_marketing` project, so long as the new dependency doesn't introduce any node-level cycles. dbt checks for cycles across projects and raises errors if any are detected.
 
@@ -164,7 +159,7 @@ When setting up projects that depend on each other, it's important to do so in a
 
 For more guidance on how to use Mesh, refer to the dedicated [Mesh guide](../../../best-practices/how-we-mesh/mesh-1-intro.md) and also our freely available [Mesh learning course](https://learn.getdbt.com/courses/dbt-mesh).
 
-### Safeguarding production data with staging environments[​](#safeguarding-production-data-with-staging-environments "Direct link to Safeguarding production data with staging environments")
+### Safeguarding production data with staging environments
 
 When working in a Development environment, cross-project `ref`s normally resolve to the Production environment of the project. However, to protect production data, set up a [Staging deployment environment](../../deploy/deploy-environments.md#staging-environment) within your projects.
 
@@ -172,7 +167,7 @@ With a staging environment integrated into the project, Mesh automatically fetch
 
 Read [Why use a staging environment](../../deploy/deploy-environments.md#why-use-a-staging-environment) for more information about the benefits.
 
-#### Staging with downstream dependencies[​](#staging-with-downstream-dependencies "Direct link to Staging with downstream dependencies")
+#### Staging with downstream dependencies
 
 dbt begins using the Staging environment to resolve cross-project references from downstream projects as soon as it exists in a project without "fail-over" to Production. This means that dbt will consistently use metadata from the Staging environment to resolve references in downstream projects, even if there haven't been any successful runs in the configured Staging environment.
 
@@ -183,7 +178,7 @@ To avoid causing downtime for downstream developers, you should define and trigg
 3. Trigger the job to run, and ensure it completes successfully.
 4. Update the environment to mark it as **Staging**.
 
-### Comparison[​](#comparison "Direct link to Comparison")
+### Comparison
 
 If you were to instead install the `jaffle_finance` project as a `package` dependency, you would instead be pulling down its full source code and adding it to your runtime environment. This means:
 
@@ -199,7 +194,7 @@ There are a few cases where installing another internal project as a package can
 
 These are the exceptions, rather than the rule. Installing another team's project as a package adds complexity, latency, and risk of unnecessary costs. By defining clear interface boundaries across teams, by serving one team's public models as "APIs" to another, and by enabling practitioners to develop with a more narrowly defined scope, we can enable more people to contribute, with more confidence, while requiring less context upfront.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Can I define private packages in the dependencies.yml file?
 
@@ -225,7 +220,7 @@ Then:
 
 This behavior makes sure that Catalog only shows the immediate dependencies available to that specific project.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * Refer to the [Mesh](../../../best-practices/how-we-mesh/mesh-1-intro.md) guide for more guidance on how to use Mesh.
 * [Quickstart with Mesh](../../../guides/mesh-qs.md)

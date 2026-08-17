@@ -1,6 +1,6 @@
 # About dbt setup
 
-dbt platformⓘ
+dbt platform
 
 dbt platform is the fastest and most reliable way to deploy your dbt jobs. It contains a myriad of settings that can be configured by admins, from the necessities (data platform integration) to security enhancements (SSO) and quality-of-life features (RBAC).
 
@@ -15,7 +15,7 @@ For steps on installing dbt development tools, refer to the [dbt CLI](./dbt-cli-
 
 These settings are intended for dbt administrators. If you need a more detailed first-time setup guide for specific data platforms, read our [quickstart guides](../../guides.md) or follow the [dbt platform configuration checklist](../configuration-checklist.md). If you want a more in-depth learning experience, we recommend taking the dbt Fundamentals on our [dbt Learn site](https://learn.getdbt.com/).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * To set up dbt, you'll need to have a dbt account with administrator access. If you still need to create a dbt account, [sign up today](https://getdbt.com) on our North American servers or [contact us](https://getdbt.com/contact) for international options.
 * To have the best experience using dbt, we recommend you use modern and up-to-date web browsers like Chrome, Safari, Edge, and Firefox.

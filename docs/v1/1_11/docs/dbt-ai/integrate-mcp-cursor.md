@@ -4,7 +4,7 @@
 
 After setting up your MCP server, you connect it to Cursor. Log in to Cursor and follow the steps that align with your use case.
 
-## Set up with self-hosted dbt MCP server[​](#set-up-with-self-hosted-dbt-mcp-server "Direct link to Set up with self-hosted dbt MCP server")
+## Set up with self-hosted dbt MCP server
 
 Choose your setup based on your workflow:
 
@@ -12,12 +12,11 @@ Choose your setup based on your workflow:
 * CLI only if using dbt Core or the dbt Fusion engine locally.
 * Configure environment variables if you're using them in your dbt platform account.
 
-### OAuth or CLI[​](#oauth-or-cli "Direct link to OAuth or CLI")
+### OAuth or CLI
 
 Click one of the following application links with Cursor open to automatically configure your MCP server:
 
-* CLI only (dbt Core and Fusion)
-* OAuth with dbt platform
+### CLI only (dbt Core and Fusion)
 
 Self-hosted configuration for users who only want to use dbt commands with dbt Core or dbt Fusion engine (no dbt platform features).
 
@@ -25,16 +24,16 @@ Self-hosted configuration for users who only want to use dbt commands with dbt C
 
 After clicking:
 
-1. Update `DBT_ENGINE_PROJECT_DIR` with the full path to your dbt project (the folder containing `dbt_project.yml`).
+1. Update (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` with the full path to your dbt project (the folder containing `dbt_project.yml`).
 
 2. Update `DBT_PATH` with the full path to your dbt executable:
-
-   <!-- -->
 
    * macOS/Linux: Run `which dbt` in Terminal.
    * Windows: Run `where dbt` in Command Prompt or PowerShell.
 
 3. Save the configuration.
+
+### OAuth with dbt platform
 
 *OAuth with the self-hosted dbt MCP server is available for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -48,10 +47,10 @@ Before you begin, make sure your account admin has enabled AI features on your d
 After clicking:
 
 1. Replace `<your-dbt-host-with-custom-subdomain>` with your actual host (for example, `abc123.us1.dbt.com`).
-2. (For dbt platform + CLI) Update `DBT_ENGINE_PROJECT_DIR` and `DBT_PATH` as described above.
+2. (For dbt platform + CLI) Update (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` and `DBT_PATH` as described above.
 3. Save the configuration.
 
-### Custom environment variables[​](#custom-environment-variables "Direct link to Custom environment variables")
+### Custom environment variables
 
 Use this method if you need custom environment variables or prefer to use service tokens. Refer to the [Environment variables reference](./mcp-environment-variables.md) for the complete list of available environment variables for the self-hosted MCP server.
 
@@ -63,7 +62,7 @@ Use this method if you need custom environment variables or prefer to use servic
 
 3. Save the configuration.
 
-#### Using an `.env` file[​](#using-an-env-file "Direct link to using-an-env-file")
+#### Using an `.env` file
 
 If you prefer to manage environment variables in a separate file, put the `.env` file in your *dbt project root* (same folder as `dbt_project.yml`). Click this link:
 
@@ -71,7 +70,7 @@ If you prefer to manage environment variables in a separate file, put the `.env`
 
 Then update `env-file-path` with the absolute path to your `.env` file (for example, `/absolute/path/to/your-dbt-project/.env`).
 
-## Set up with remote dbt MCP server[​](#set-up-with-remote-dbt-mcp-server "Direct link to Set up with remote dbt MCP server")
+## Set up with remote dbt MCP server
 
 Remote MCP supports **OAuth** or **token-based** headers.
 

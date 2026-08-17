@@ -1,8 +1,8 @@
 # YAML Selectors
 
-Write resource selectors in YAML, save them with a human-friendly name, and reference them using the `--selector` flag.
+(Applies to dbt v1.11 and earlier)
 
-<!-- -->
+Write resource selectors in YAML, save them with a human-friendly name, and reference them using the `--selector` flag.
 
 By recording selectors in a top-level `selectors.yml` file:
 
@@ -24,9 +24,7 @@ selectors:
     definition: ...
 ```
 
-<!-- -->
-
-## Definitions[​](#definitions "Direct link to Definitions")
+## Definitions
 
 Each `definition` is comprised of one or more arguments, which can be one of the following:
 
@@ -36,7 +34,7 @@ Each `definition` is comprised of one or more arguments, which can be one of the
 
 Use the `union` and `intersection` operator-equivalent keywords to organize multiple arguments.
 
-### CLI-style[​](#cli-style "Direct link to CLI-style")
+### CLI-style
 
 ```yml
 definition:
@@ -45,7 +43,7 @@ definition:
 
 This simple syntax supports use of the `+`, `@`, and `*` [graph](./graph-operators.md) operators, [set](./set-operators.md) operators, and `exclude`.
 
-### Key-value[​](#key-value "Direct link to Key-value")
+### Key-value
 
 ```yml
 definition:
@@ -54,7 +52,7 @@ definition:
 
 This simple syntax does not support any [graph](./graph-operators.md) or [set](./set-operators.md) operators or `exclude`.
 
-### Full YAML[​](#full-yaml "Direct link to Full YAML")
+### Full YAML
 
 This is the most thorough syntax, which can include the operator-equivalent keywords for [graph](./graph-operators.md) and [set](./set-operators.md) operators.
 
@@ -86,7 +84,7 @@ definition:
   value: "*"
 ```
 
-#### Exclude[​](#exclude "Direct link to Exclude")
+#### Exclude
 
 The `exclude` keyword is only supported by fully-qualified dictionaries. It may be passed as an argument to each dictionary, or as an item in a `union`. The following are equivalent:
 
@@ -110,7 +108,7 @@ Note: The `exclude` argument in YAML selectors is subtly different from the `--e
 
 When more than one "yeslist" (`--select`) is passed, they are treated as a [union](./set-operators.md#unions) rather than an [intersection](./set-operators.md#intersections). Same thing when there is more than one "nolist" (`--exclude`).
 
-#### Indirect selection[​](#indirect-selection "Direct link to Indirect selection")
+#### Indirect selection
 
 As a general rule, dbt will indirectly select *all* tests if they touch *any* resource that you're selecting directly. We call this "eager" indirect selection. You can optionally switch the indirect selection mode to "cautious", "buildable", or "empty" by setting `indirect_selection` for a specific criterion:
 
@@ -132,11 +130,11 @@ As a general rule, dbt will indirectly select *all* tests if they touch *any* re
       indirect_selection: empty  # will include tests for only the selected node and ignore all tests attached to model_d
 ```
 
-If provided, a YAML selector's `indirect_selection` value will take precedence over the CLI flag `--indirect-selection`. Because `indirect_selection` is defined separately for *each* selection criterion, it's possible to mix eager/cautious/buildable/empty modes within the same definition, to achieve the exact behavior that you need. <!-- -->You can always test out your criteria with `dbt ls --selector`.
+If provided, a YAML selector's `indirect_selection` value will take precedence over the CLI flag `--indirect-selection`. Because `indirect_selection` is defined separately for *each* selection criterion, it's possible to mix eager/cautious/buildable/empty modes within the same definition, to achieve the exact behavior that you need. (Applies to dbt v1.11 and earlier) You can always test out your criteria with `dbt ls --selector`.
 
 See [test selection examples](./test-selection-examples.md) for more details about indirect selection.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Here are two ways to represent:
 
@@ -144,8 +142,7 @@ Here are two ways to represent:
 $ dbt run --select @source:snowplow,tag:nightly models/export --exclude package:snowplow,config.materialized:incremental export_performance_timing
 ```
 
-* CLI-style
-* Full YML
+### CLI-style
 
 selectors.yml
 
@@ -168,6 +165,8 @@ selectors:
                 - 'config.materialized:incremental'
             - export_performance_timing
 ```
+
+### Full YML
 
 selectors.yml
 
@@ -198,13 +197,13 @@ selectors:
 
 Then in our job definition:
 
+(Applies to dbt v1.11 and earlier)
+
 ```bash
 dbt run --selector nightly_diet_snowplow
 ```
 
-<!-- -->
-
-## Default[​](#default "Direct link to Default")
+## Default
 
 Selectors may define a boolean `default` property. If a selector has `default: true`, dbt will use this selector's criteria when tasks do not define their own selection criteria.
 
@@ -230,9 +229,9 @@ dbt source freshness
 dbt docs generate
 ```
 
-If I run a command that defines its own selection criteria (through `--select`, `--exclude`, or `--selector`), dbt will ignore the default selector and use the flag criteria instead. It will not try to combine the two.
+(Applies to dbt v1.11 and earlier)
 
-<!-- -->
+If I run a command that defines its own selection criteria (through `--select`, `--exclude`, or `--selector`), dbt will ignore the default selector and use the flag criteria instead. It will not try to combine the two.
 
 Only one selector may set `default: true` for a given invocation; otherwise, dbt will return an error. You may use a Jinja expression to adjust the value of `default` depending on the environment, however:
 
@@ -246,7 +245,7 @@ selectors:
     definition: ...
 ```
 
-### Selector inheritance[​](#selector-inheritance "Direct link to Selector inheritance")
+### Selector inheritance
 
 Selectors can reuse and extend definitions from other selectors, via the `selector` method.
 
@@ -274,9 +273,9 @@ selectors:
 
 The `selector` method returns the complete set of nodes returned by the named selector.
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
-## Difference between `--select` and `--selector`[​](#difference-between---select-and---selector "Direct link to difference-between---select-and---selector")
+## Difference between `--select` and `--selector`
 
 In dbt, [`select`](./syntax.md#how-does-selection-work) and `selector` are related concepts used for choosing specific models, tests, or resources. The following table explains the differences and when to best use them:
 
@@ -287,12 +286,6 @@ In dbt, [`select`](./syntax.md#how-does-selection-work) and `selector` are relat
 | Complexity  | Requires manual entry of selection criteria.                                                               | Can encapsulate complex logic for reuse.                                                                                          |
 | Flexibility | Flexible; less reusable.                                                                                   | Flexible; focuses on reusable and structured logic.                                                                               |
 | Example     | `dbt run --select my_model+`<br />(runs `my_model` and all downstream dependencies with the `+` operator). | `dbt run --selector nightly_diet_snowplow`<br />(runs models defined by the `nightly_diet_snowplow` selector in `selectors.yml`). |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Notes:
 

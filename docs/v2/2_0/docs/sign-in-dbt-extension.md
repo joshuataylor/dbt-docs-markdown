@@ -1,6 +1,6 @@
 # Sign in or register [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 The dbt VS Code extension comes with a suite of features that are available to all users for 14 days. After the 14-day trial, sign in or register for a dbt platform account to keep using all features, including advanced features such as [live preview for models and CTEs](./dbt-extension-features.md#live-preview-for-models-and-ctes), [column-level lineage](./dbt-extension-features.md#rich-lineage-in-context), and more.
 
@@ -8,11 +8,13 @@ Refer to [VS Code extension features](./dbt-extension-features.md#feature-availa
 
 Most features remain available without signing in — only advanced features prompt you to sign in after the trial ends.
 
+(Applies to dbt v1.13 and later)
+
 To continue using all the features, register or log in from the command line using [`dbt login`](../reference/commands/login.md?version=2.0), available with v2 and later. Your login state can be shared across dbt features, including the dbt VS Code extension and, in supported versions, dbt State.
 
 Run [`dbt login status`](../reference/commands/login.md?version=2.0#dbt-login-status) to view your currently authenticated status.
 
-## Key points[​](#key-points "Direct link to Key points")
+## Key points
 
 * The extension is free for organizations for up to 15 users. Refer to the [acceptable use policy](https://www.getdbt.com/dbt-assets/vscode-plugin-aup).
 * Registration links your editor to your registered dbt platform account so you can keep using advanced features after the 14-day trial.
@@ -21,7 +23,7 @@ Run [`dbt login status`](../reference/commands/login.md?version=2.0#dbt-login-st
 
 If you've registered before, you won't need to authenticate again unless your session expired.
 
-## Session expiry and re-authorization[​](#session-expiry-and-re-authorization "Direct link to Session expiry and re-authorization")
+## Session expiry and re-authorization
 
 Your sign-in session stays active across editor restarts. dbt automatically renews your session while you're using the extension or the CLI. You may need to re-authorize in a few specific cases:
 
@@ -31,7 +33,7 @@ Your sign-in session stays active across editor restarts. dbt automatically rene
 
 When re-authorizing, the **Authorize dbt login** consent screen lists the access being requested. Click **Allow access** to continue.
 
-## Choose a sign-in path[​](#choose-a-sign-in-path "Direct link to Choose a sign-in path")
+## Choose a sign-in path
 
 There are a couple of different ways to sign in or register for a dbt platform account. Choose the best path for you:
 
@@ -42,11 +44,7 @@ There are a couple of different ways to sign in or register for a dbt platform a
 | Can't sign in or need to reset access                                 | [Recover your login](./sign-in-dbt-extension.md?registration-path=recover-login#choose-a-sign-in-path) from the dbt VS Code extension.   |
 | Prefer file-based authentication to remove need for re-authenticating | [`dbt_cloud.yml`](./sign-in-dbt-extension.md?registration-path=dbt-cloud-yml#choose-a-sign-in-path) from the dbt VS Code extension.      |
 
-* dbt login
-* First-time registration
-* Existing account sign-in
-* Recover your login
-* dbt\_cloud.yml
+### dbt login
 
 ### dbt login
 
@@ -85,6 +83,8 @@ You've now unlocked the full feature set of the dbt VS Code extension. For detai
 
 ### First-time registration
 
+### First-time registration
+
 Register to unlock the full [feature set](./dbt-extension-features.md) of the dbt VS Code extension. Use this path if you've never registered before. The extension and the CLI open the same browser flow, so you can start from either entry point:
 
 * **From the extension:** Click the registration prompt, or open the command palette (Windows/Linux: Ctrl + Shift + P, macOS: Cmd + Shift + P) and run **dbt: Register dbt extension**.
@@ -112,6 +112,8 @@ Authorizing additional access
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
 For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+
+### Existing account sign-in
 
 ### Existing account sign-in
 
@@ -147,6 +149,8 @@ For more details on when re-authorization is triggered, refer to [Session expiry
 
 ### Recover your login
 
+### Recover your login
+
 Use this path if the login flow says you have an account but you don't remember your password.
 
 1. On the **Sign in to dbt** page, click **Reset password**.
@@ -165,6 +169,8 @@ Authorizing additional access
 When you register in the dbt VS Code extension, you might be prompted to authorize more access than you granted when signing in through the CLI (or the other way around). This is expected — some extension features need broader access than your initial sign-in. You can authorize the request with the same dbt platform account you already use, so a single account covers both the CLI and the dbt VS Code extension.
 
 For more details on when re-authorization is triggered, refer to [Session expiry and re-authorization](./sign-in-dbt-extension.md#session-expiry-and-re-authorization).
+
+### dbt\_cloud.yml
 
 ### Register with `dbt_cloud.yml`
 
@@ -196,7 +202,7 @@ Use this path if your workflow requires a credential file or if you want to remo
 
 If your dbt project uses environment variables, configure them locally so the extension can use the same values as your dbt environment. For more information, refer to [Configure environment variables](./configure-dbt-extension.md).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If you run into any issues, check out the troubleshooting section below.
 
@@ -207,24 +213,23 @@ If you've never had a `.dbt` directory, you should perform the following recomme
 * A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
 * To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
 
-- Create a .dbt directory
-- Move the dbt\_cloud.yml file
+### Create a .dbt directory
 
 1. Clone your dbt project repository locally.
 2. Use the `mkdir` command followed by the name of the folder you want to create.
 
 * If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
 
-  <!-- -->
-
   * macOS: `mkdir ~/.dbt`
   * Windows: `mkdir %USERPROFILE%\.dbt`
+
+### Move the dbt\_cloud.yml file
 
 You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
 
 To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
 
-#### Mac or Linux[​](#mac-or-linux "Direct link to Mac or Linux")
+#### Mac or Linux
 
 In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
 
@@ -232,7 +237,7 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
-#### Windows[​](#windows "Direct link to Windows")
+#### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
 
@@ -284,15 +289,11 @@ If you've confirmed the dbt extension is installed correctly but don't see LSP f
 
 1. Check extension version — Ensure that you're using the latest available version of the dbt extension by:
 
-   <!-- -->
-
    * Opening the **Extensions** page in your editor, or
    * Going to the **Output** tab and looking for the version number, or
    * Running `dbtf --version` in the terminal.
 
 2. Reinstall the LSP — If the version is correct, reinstall the LSP:
-
-   <!-- -->
 
    1. Open the Command Palette: Command + Shift + P (macOS) or Ctrl + Shift + P (Windows/Linux).
    2. Paste `dbt: Reinstall dbt LSP` and enter.
@@ -363,7 +364,7 @@ This situation can be remedied by setting up an internet fallback, which will th
 
 For Azure refer to [Fallback to internet for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-fallback).
 
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](./about-dbt-extension.md)
 * [Supported features matrix](./fusion/supported-features.md)

@@ -24,7 +24,7 @@ No clone required
 
 You don't need to clone the dbt-mcp repository. Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp` — it fetches and runs dbt-mcp for you.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 * A local dbt project (the folder containing your `dbt_project.yml` file)
@@ -32,15 +32,14 @@ You don't need to clone the dbt-mcp repository. Install [uv](https://docs.astral
 
 For the full list of environment variables and how to enable or disable toolsets, see the [Environment variables reference](../docs/dbt-ai/mcp-environment-variables.md).
 
-## Step 1: Find your paths[​](#step-1-find-your-paths "Direct link to Step 1: Find your paths")
+## Step 1: Find your paths
 
 You need two values before configuring your MCP client:
 
 * `DBT_PROJECT_DIR` — the full path to your dbt project folder (where `dbt_project.yml` lives). For example, if your project name is `jaffle_shop`, the path should be `/Users/yourname/dbt-projects/jaffle_shop`.
 * `DBT_PATH` — the full path to your dbt executable.
 
-- macOS/Linux
-- Windows
+### macOS/Linux
 
 ```bash
 # Find DBT_PATH
@@ -51,6 +50,8 @@ which dbt
 pwd
 # Example output: /Users/yourname/projects/my_dbt_project
 ```
+
+### Windows
 
 ```bash
 # Find DBT_PATH
@@ -64,14 +65,11 @@ cd
 
 Note: Use forward slashes in your configuration: `C:/Python39/Scripts/dbt.exe`
 
-## Step 2: Add to your MCP client[​](#step-2-add-to-your-mcp-client "Direct link to Step 2: Add to your MCP client")
+## Step 2: Add to your MCP client
 
 Replace the paths below with the values from Step 1:
 
-* Claude Desktop
-* Claude Code
-* Cursor
-* VS Code
+### Claude Desktop
 
 1. In Claude Desktop, go to **Settings** → **Developer** tab → **Edit Config**.
 2. Paste the following configuration, replacing the paths with your actual values:
@@ -98,6 +96,8 @@ Config file location:
 * macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
+### Claude Code
+
 Run this command, replacing the paths with your actual values:
 
 ```shell
@@ -106,6 +106,8 @@ claude mcp add dbt \
 -e DBT_PATH=/path/to/your/dbt/executable \
 -- uvx dbt-mcp
 ```
+
+### Cursor
 
 Click the link below with Cursor open to auto-configure:
 
@@ -117,9 +119,11 @@ After clicking:
 2. Update `DBT_PATH` with the full path to your dbt executable (from Step 1).
 3. Save the configuration.
 
-1) Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
-2) Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
-3) Add the following configuration to `mcp.json`, replacing the paths with your actual values:
+### VS Code
+
+1. Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
+2. Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
+3. Add the following configuration to `mcp.json`, replacing the paths with your actual values:
 
 VS Code uses `"servers"`, not `"mcpServers"`
 
@@ -140,7 +144,7 @@ VS Code uses `"servers"`, not `"mcpServers"`
 
 4. Save the file.
 
-## Step 3: Test your setup[​](#step-3-test-your-setup "Direct link to Step 3: Test your setup")
+## Step 3: Test your setup
 
 Ask your AI assistant to run a dbt command (for example, *"Run `dbt compile` on my project"* or *"List all models in my project"*). If dbt MCP is working, the assistant will execute the command against your local project.
 
@@ -152,7 +156,7 @@ uvx dbt-mcp
 
 If there are no errors, your configuration is correct. Press `Ctrl+C` to stop the server.
 
-## What's available[​](#whats-available "Direct link to What's available")
+## What's available
 
 With CLI-only setup, your AI assistant can use:
 
@@ -162,7 +166,7 @@ With CLI-only setup, your AI assistant can use:
 
 Platform features like Semantic Layer, Discovery API, and metadata queries require a dbt platform account. To add them, see [Connect to dbt platform](../docs/dbt-ai/mcp-quickstart-oauth.md).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  Can't find the uvx executable
 
@@ -217,7 +221,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 For all troubleshooting topics, see [MCP troubleshooting](../docs/dbt-ai/mcp-troubleshooting.md).
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * Add dbt platform features: see [Connect to dbt platform](../docs/dbt-ai/mcp-quickstart-oauth.md)
 * Configure toolsets or disable specific tools: see the [Environment variables reference](../docs/dbt-ai/mcp-environment-variables.md)

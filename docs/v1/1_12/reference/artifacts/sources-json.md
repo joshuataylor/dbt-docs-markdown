@@ -6,7 +6,7 @@
 
 This file contains information about [sources with freshness checks](../../docs/build/sources.md#checking-source-freshness). Today, dbt uses this file to power its [Source Freshness visualization](../../docs/build/sources.md#source-data-freshness).
 
-### Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
+### Top-level keys
 
 * [`metadata`](./dbt-artifacts.md#common-metadata)
 * `elapsed_time`: Total invocation time in seconds.
@@ -23,8 +23,5 @@ Each entry in `results` is a dictionary with the following keys:
 * `execution_time`: Total time spent checking freshness for this source
 * `timing`: Array that breaks down execution time into steps (`compile` + `execute`)
 
-<!-- -->
-
-* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../../docs/build/data-tests.md).
-  <!-- -->
+- `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../../docs/build/data-tests.md).
   * `rows_affected` returns the number of rows modified by the last statement executed. In cases where the query's row count can't be determined or isn't applicable (such as when creating a view), a [standard value](https://peps.python.org/pep-0249/#rowcount) of `-1` is returned for `rowcount`.

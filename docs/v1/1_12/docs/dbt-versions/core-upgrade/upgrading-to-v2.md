@@ -1,6 +1,6 @@
 # Upgrading to v2
 
-Available in v2ⓘ
+Available in v2
 
 v2 is the current era of dbt, delivered through Fusion. When you install dbt, you get Fusion by default. This guide walks you through upgrading a v1 project to v2.
 
@@ -18,9 +18,7 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 
 Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
 
-<!-- -->
-
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](../../about-dbt-extension.md)
 * [Supported features matrix](../../fusion/supported-features.md)
@@ -29,7 +27,7 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 * [Upgrade guide](./upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
-## Install dbt[​](#install-dbt "Direct link to Install dbt")
+## Install dbt
 
 Upgrading to v2 is an install step. Install dbt using `pip` to get Fusion for v2:
 
@@ -39,7 +37,7 @@ python -m pip install --pre dbt
 
 For full instructions, including Homebrew, winget, and additional options, refer to [Install dbt](../../local/install-dbt.md).
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 This new major version is an opportunity to *strengthen the framework* by removing deprecated functionality, rationalizing confusing behavior, and providing more rigorous validation on erroneous inputs. This means that there is some work involved in preparing an existing dbt project for v2.
 
@@ -49,7 +47,7 @@ Test v2 parser compatibility from dbt Core v1.12
 
 If you're on dbt Core v1.12, you can test the rust parser compatibility before fully migrating by using the opt-in [`--use-v2-parser`](../../../reference/global-configs/parsing.md#opt-in-v2-parser) flag. This delegates parsing to the v2 parser without changing any other behavior, making it a low-risk way to catch compatibility issues early.
 
-#### Upgrade considerations[​](#upgrade-considerations "Direct link to Upgrade considerations")
+#### Upgrade considerations
 
 Keep in mind the following considerations during the upgrade process:
 
@@ -63,7 +61,7 @@ State-aware orchestration is now dbt State
 
 If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Existing state-aware orchestration customers automatically receive a 90-day trial of dbt State. To get started, refer to [Migrate from state-aware orchestration](../../deploy/dbt-state-migration.md).
 
-### Supported adapters[​](#supported-adapters "Direct link to Supported adapters")
+### Supported adapters
 
 The following adapters are supported in v2:
 
@@ -72,7 +70,6 @@ The following adapters are supported in v2:
 * Service Account / User Token
 * Native OAuth
 * External OAuth
-  <!-- -->
   * [Workload Identity Federation](../../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
 * [Required permissions](../../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -98,18 +95,13 @@ The following adapters are supported in v2:
 
 * Thrift
 
-  <!-- -->
-
   * Simple Authentication and Security Layer (SASL) PLAIN
   * No SASL (NOSASL)
 
 * Livy
 
-  <!-- -->
-
   * Basic authentication (username and password)
   * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-    <!-- -->
     * Supports authentication using single sign-on, service accounts, or user tokens
 
  DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
@@ -118,20 +110,20 @@ DuckDB does not require authentication — it runs locally on your machine.
 
 *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-### A clean slate[​](#a-clean-slate "Direct link to A clean slate")
+### A clean slate
 
 v2 will not support any deprecated functionality (see the [Changes overview](../../../reference/changes-overview.md) for details):
 
 * All [deprecation warnings](../../../reference/deprecations.md) must be resolved before upgrading to the new engine. This includes historic deprecations and [new ones as of dbt Core v1.10](./upgrading-to-v1.10.md#deprecation-warnings).
 * Some [behavior change flags](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) will be removed (generally enabled). You can no longer opt out of them using `flags:` in your `dbt_project.yml`.
 
-### Ecosystem packages[​](#ecosystem-packages "Direct link to Ecosystem packages")
+### Ecosystem packages
 
 The most popular `dbt-labs` packages (`dbt_utils`, `audit_helper`, `dbt_external_tables`, `dbt_project_evaluator`) are already compatible with v2. External packages published by organizations outside of dbt may use outdated code or incompatible features that fail to parse in v2. We're working with those package maintainers to make packages available for v2. Packages requiring an upgrade to a new release for v2 compatibility, will be documented in this upgrade guide.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
-### `dbt login`[​](#dbt-login "Direct link to dbt-login")
+### `dbt login`
 
 In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) enables browser-based authentication. It opens a browser window prompting you to sign in to your dbt platform account or create a free account.
 
@@ -139,13 +131,13 @@ Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-lo
 
 `dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](../../about-dbt-extension.md). For details, refer to [`dbt login`](../../../reference/commands/login.md?version=2.0).
 
-### Changed functionality[​](#changed-functionality "Direct link to Changed functionality")
+### Changed functionality
 
 When developing v2, there were opportunities to improve the dbt framework — failing earlier (when possible), fixing bugs, optimizing run order, and deprecating flags that are no longer relevant. The result is a handful of specific and nuanced changes to existing behavior.
 
 When upgrading to v2, you should expect the following changes in functionality:
 
-#### Parse time printing of relations will print out the full qualified name, instead of an empty string[​](#parse-time-printing-of-relations-will-print-out-the-full-qualified-name-instead-of-an-empty-string "Direct link to Parse time printing of relations will print out the full qualified name, instead of an empty string")
+#### Parse time printing of relations will print out the full qualified name, instead of an empty string
 
 In dbt Core v1.x, when printing the result of `get_relation()`, the parse time output for that Jinja would print `None` (the undefined object coerces to the string "None").
 
@@ -185,7 +177,7 @@ relation: my_db.my_schema.my_table
 relation_via_api: my_db.my_schema.my_table
 ```
 
-#### Deprecated flags[​](#deprecated-flags "Direct link to Deprecated flags")
+#### Deprecated flags
 
 Deprecated flags are command-line flags (like `--models`, `--print`) that you pass to dbt commands. These are being removed in v2. This is different from:
 
@@ -225,13 +217,7 @@ Some historic CLI flags from v1 will no longer do anything in v2. If you pass th
 | `--inject-ephemeral-ctes` / `--no-inject-ephemeral-ctes`                                                                                         |                                                                       |
 | [`--partial-parse` / `--no-partial-parse`](../../../reference/parsing.md#partial-parsing)                                         | Refer to [CLI flags that need changes](#cli-flags-that-need-changes). |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-##### CLI flags that need changes[​](#cli-flags-that-need-changes "Direct link to CLI flags that need changes")
+##### CLI flags that need changes
 
 The following deprecated flags require updates in your job definitions or scripts:
 
@@ -241,7 +227,7 @@ The following deprecated flags require updates in your job definitions or script
 
 Fusion job runs no longer support the `--partial-parse` and `--no-partial-parse` CLI flags. If you pass them (for example, from a dbt Core command or script), dbt logs deprecation warning `dbt1700`. Remove these flags from your Fusion job commands. For more information, refer to [Deprecated flags](./upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
 
-#### Conflicting package versions when a local package depends on a hub package which the root package also wants will error[​](#conflicting-package-versions-when-a-local-package-depends-on-a-hub-package-which-the-root-package-also-wants-will-error "Direct link to Conflicting package versions when a local package depends on a hub package which the root package also wants will error")
+#### Conflicting package versions when a local package depends on a hub package which the root package also wants will error
 
 If a local package depends on a hub package that the root package also wants, `dbt deps` doesn't resolve conflicting versions in dbt Core v1; it will install whatever the root project requests.
 
@@ -251,7 +237,7 @@ v2 will present an error:
 error: dbt8999: Cannot combine non-exact versions: =0.8.3 and =1.1.1
 ```
 
-#### Parse will fail on nonexistent macro invocations and adapter methods[​](#parse-will-fail-on-nonexistent-macro-invocations-and-adapter-methods "Direct link to Parse will fail on nonexistent macro invocations and adapter methods")
+#### Parse will fail on nonexistent macro invocations and adapter methods
 
 When you call a nonexistent macro in dbt:
 
@@ -273,7 +259,7 @@ In v1, `dbt parse` passes, but `dbt compile` fails.
 
 In v2, dbt will error out during `parse`.
 
-#### Parse will fail on missing generic test[​](#parse-will-fail-on-missing-generic-test "Direct link to Parse will fail on missing generic test")
+#### Parse will fail on missing generic test
 
 When you have an undefined generic test in your project:
 
@@ -289,7 +275,7 @@ In v1, `dbt parse` passes, but `dbt compile` fails.
 
 In v2, dbt will error out during `parse`.
 
-#### Parse will fail on missing variable[​](#parse-will-fail-on-missing-variable "Direct link to Parse will fail on missing variable")
+#### Parse will fail on missing variable
 
 When you have an undefined variable in your project:
 
@@ -302,7 +288,7 @@ In v1, `dbt parse` passes, but `dbt compile` fails.
 
 In v2, dbt will error out during `parse`.
 
-#### Stricter evaluation of duplicate docs blocks[​](#stricter-evaluation-of-duplicate-docs-blocks "Direct link to Stricter evaluation of duplicate docs blocks")
+#### Stricter evaluation of duplicate docs blocks
 
 In v1, it was possible to create scenarios with duplicate [docs blocks](../../build/documentation.md#using-docs-blocks). For example, you can have two packages with identical docs blocks referenced by an unqualified name in your dbt project. In this case, v1 would use whichever docs block is referenced without any warnings or errors.
 
@@ -314,7 +300,7 @@ dbt found two docs with the same name: 'docs_block_title' in files: 'models/crm/
 
 To resolve this error, rename any duplicate docs blocks.
 
-#### `dbt clean` will not delete any files in configured resource paths or files outside the project directory[​](#dbt-clean-will-not-delete-any-files-in-configured-resource-paths-or-files-outside-the-project-directory "Direct link to dbt-clean-will-not-delete-any-files-in-configured-resource-paths-or-files-outside-the-project-directory")
+#### `dbt clean` will not delete any files in configured resource paths or files outside the project directory
 
 In dbt Core v1.x, `dbt clean` deletes:
 
@@ -323,13 +309,13 @@ In dbt Core v1.x, `dbt clean` deletes:
 
 In v2, `dbt clean` will not delete any files in configured resource paths or files outside the project directory.
 
-#### All unit tests are run first in `dbt build`[​](#all-unit-tests-are-run-first-in-dbt-build "Direct link to all-unit-tests-are-run-first-in-dbt-build")
+#### All unit tests are run first in `dbt build`
 
 In dbt Core v1.x, the direct parents of the model being unit tested needed to exist in the warehouse to retrieve the needed column name and type information. `dbt build` runs the unit tests (and their dependent models) *in lineage order*.
 
 In v2, `dbt build` runs *all* of the unit tests *first*, and then builds the rest of the DAG, due to built-in column name and type awareness.
 
-#### Configuring `--threads`[​](#configuring---threads "Direct link to configuring---threads")
+#### Configuring `--threads`
 
 dbt Core v1 runs with `--threads 1` by default. You can increase this number to run more nodes in parallel on the remote data platform, up to the max parallelism enabled by the DAG.
 
@@ -342,21 +328,15 @@ v2 handles threading differently depending on your data platform:
 | **BigQuery**   | Fusion respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                             |
 | **Redshift**   | Fusion respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For more information, refer to [Using threads](../../running-a-dbt-project/using-threads.md#fusion-engine-thread-optimization).
 
-#### Continue to compile unrelated nodes after hitting a compile error[​](#continue-to-compile-unrelated-nodes-after-hitting-a-compile-error "Direct link to Continue to compile unrelated nodes after hitting a compile error")
+#### Continue to compile unrelated nodes after hitting a compile error
 
 As soon as dbt Core v1 `compile` encounters an error compiling one of your models, dbt stops and doesn't compile anything else.
 
 When v2's `compile` encounters an error, it will skip nodes downstream of the one that failed to compile, but it will keep compiling the rest of the DAG (in parallel, up to the number of configured / optimal threads).
 
-#### Seeds with extra commas don't result in extra columns[​](#seeds-with-extra-commas-dont-result-in-extra-columns "Direct link to Seeds with extra commas don't result in extra columns")
+#### Seeds with extra commas don't result in extra columns
 
 In dbt Core v1.x, if you have an additional comma on your seed, dbt creates a seed with an additional empty column.
 
@@ -377,12 +357,6 @@ Will produce this table when `dbt seed` is executed:
 | cat    |   |
 | bear   |   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 In v2, it will not produce this extra column in the table resulting from `dbt seed`:
 
 | animal |
@@ -391,13 +365,7 @@ In v2, it will not produce this extra column in the table resulting from `dbt se
 | cat    |
 | bear   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Move standalone anchors under `anchors:` key[​](#move-standalone-anchors-under-anchors-key "Direct link to move-standalone-anchors-under-anchors-key")
+#### Move standalone anchors under `anchors:` key
 
 As part of the ongoing process of making the dbt authoring language more precise, unexpected top-level keys in a YAML file will result in errors. A common use case behind these unexpected keys is standalone anchor definitions at the top level of a YAML file. You can use the new top-level `anchors:` key as a container for these reusable configuration blocks.
 
@@ -453,7 +421,7 @@ models:
 
 This move is only necessary for fragments defined outside of the main YAML structure. For more information about this new key, see [anchors](../../../reference/resource-properties/anchors.md).
 
-#### Algebraic operations in Jinja macros[​](#algebraic-operations-in-jinja-macros "Direct link to Algebraic operations in Jinja macros")
+#### Algebraic operations in Jinja macros
 
 In v1, you can set algebraic functions in the return function of a Jinja macro:
 
@@ -483,7 +451,7 @@ return('xyzabc')
 {% endmacro %}
 ```
 
-### Accessing custom configurations in meta[​](#accessing-custom-configurations-in-meta "Direct link to Accessing custom configurations in meta")
+### Accessing custom configurations in meta
 
 `config.get()` and `config.require()` don't return values from the `meta` dictionary. If you try to access a key that only exists in `meta`, dbt emits a warning:
 
@@ -500,12 +468,6 @@ Behavior when a key exists only in meta:
 | `config.get('my_key')`     | Returns the default value and emits a warning. |
 | `config.require('my_key')` | Raises an error and emits a warning.           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 To access custom configurations stored under meta, use the explicit methods:
 
 ```jinja
@@ -515,9 +477,9 @@ To access custom configurations stored under meta, use the explicit methods:
 
 For more information, see [config.meta\_get()](../../../reference/dbt-jinja-functions/config.md#configmeta_get) and [config.meta\_require()](../../../reference/dbt-jinja-functions/config.md#configmeta_require).
 
-### v2 compiler[​](#v2-compiler "Direct link to v2 compiler")
+### v2 compiler
 
-#### Snowflake model functions[​](#snowflake-model-functions "Direct link to Snowflake model functions")
+#### Snowflake model functions
 
 v2 supports [Snowflake ML model functions](https://docs.snowflake.com/en/guides-overview-ml-functions), which allow you to call machine learning models directly in SQL.
 
@@ -534,9 +496,7 @@ select
 from {{ ref('my_table') }}
 ```
 
-### Package support[​](#package-support "Direct link to Package support")
-
-<!-- -->
+### Package support
 
 To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
@@ -551,9 +511,7 @@ Fivetran package considerations:
 * The Fivetran `source` and `transformation` packages have been combined into a single package.
 * If you manually installed source packages like `fivetran/github_source`, you need to ensure `fivetran/github` is installed and deactivate the transformation models.
 
-<!-- -->
-
-#### Package compatibility messages[​](#package-compatibility-messages "Direct link to Package compatibility messages")
+#### Package compatibility messages
 
 Inconsistent Fusion warnings and `dbt-autofix` logs
 
@@ -577,7 +535,7 @@ Here's an example of a Fusion warning in the Studio IDE that says a package is
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
-## Distributions[​](#distributions "Direct link to Distributions")
+## Distributions
 
 v2 is available in two distributions. For more information, refer to [dbt licensing](../../dbt-licensing.md).
 

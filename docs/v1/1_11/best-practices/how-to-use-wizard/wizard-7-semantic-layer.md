@@ -6,7 +6,7 @@ This workflow uses your project files and available dbt metadata to guide the wo
 
 The prompts on this page work the same way in dbt platform.
 
-## Before you begin[​](#before-you-begin "Direct link to Before you begin")
+## Before you begin
 
 Identify the following information before you ask dbt Wizard to edit files:
 
@@ -23,7 +23,7 @@ Find the best models to build on, explain your choices, and propose the Semantic
 Layer definitions before editing files.
 ```
 
-## Ask Wizard to plan the definitions[​](#ask-wizard-to-plan-the-definitions "Direct link to Ask Wizard to plan the definitions")
+## Ask Wizard to plan the definitions
 
 Give dbt Wizard a specific model when you know the starting point:
 
@@ -44,7 +44,7 @@ dbt Wizard should complete these planning steps before editing:
 
 Ask dbt Wizard to sample data only when names, types, and SQL don't establish the meaning of a column. Review and approve the warehouse query before it runs.
 
-## Review the generated YAML[​](#review-the-generated-yaml "Direct link to Review the generated YAML")
+## Review the generated YAML
 
 The correct YAML structure depends on the dbt version in your project. Review the generated file for the version-specific patterns in the following table.
 
@@ -122,7 +122,7 @@ metrics:
 
 Confirm that every generated definition has a clear business meaning. A numeric column isn't automatically a useful metric, and an ID isn't automatically the correct primary entity.
 
-## Validate the definitions[​](#validate-the-definitions "Direct link to Validate the definitions")
+## Validate the definitions
 
 Ask dbt Wizard to validate after you approve the YAML:
 
@@ -143,7 +143,7 @@ At minimum, validation should confirm that:
 
 When a validation command isn't available in the current environment, dbt Wizard should report that limitation instead of treating the work as fully validated. For a broader validation procedure, refer to [Validating dbt changes with dbt Wizard](./wizard-3-validate-changes.md).
 
-## Extend the first definitions[​](#extend-the-first-definitions "Direct link to Extend the first definitions")
+## Extend the first definitions
 
 After the initial definitions validate, continue with focused prompts rather than asking for an entire project conversion at once. For example:
 
@@ -158,7 +158,7 @@ Create a saved query for monthly revenue and order count grouped by customer
 segment. Reuse existing entities and dimensions, and validate every reference.
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Semantic models](../../docs/build/semantic-models.md)
 * [Metrics overview](../../docs/build/metrics-overview.md)

@@ -6,7 +6,7 @@ Heads up
 
 dbt actively builds the `graph` variable during the [parsing phase](./execute.md) of running dbt projects, so some properties of the `graph` context variable will be missing or incorrect during parsing. Please read the information below carefully to understand how to effectively use this variable.
 
-### The graph context variable[​](#the-graph-context-variable "Direct link to The graph context variable")
+### The graph context variable
 
 The `graph` context variable is a dictionary which maps node ids onto dictionary representations of those nodes. A simplified example might look like:
 
@@ -68,7 +68,7 @@ The `graph` context variable is a dictionary which maps node ids onto dictionary
 
 The exact contract for these model and source nodes is not currently documented, but that will change in the future.
 
-### Accessing models[​](#accessing-models "Direct link to Accessing models")
+### Accessing models
 
 The `model` entries in the `graph` dictionary will be incomplete or incorrect during parsing. If accessing the models in your project via the `graph` variable, be sure to use the [execute](./execute.md) flag to ensure that this code only executes at run-time and not at parse-time. Do not use the `graph` variable to build your DAG, as the resulting dbt behavior will be undefined and likely incorrect. Example usage:
 
@@ -107,7 +107,7 @@ model.snowplow.snowplow_sessions, materialized: table
 */
 ```
 
-### Accessing sources[​](#accessing-sources "Direct link to Accessing sources")
+### Accessing sources
 
 To access the sources in your dbt project programmatically, use the `sources` attribute of the `graph` object.
 
@@ -145,7 +145,7 @@ select * from (
 */
 ```
 
-### Accessing exposures[​](#accessing-exposures "Direct link to Accessing exposures")
+### Accessing exposures
 
 To access the exposures in your dbt project programmatically, use the `exposures` attribute of the `graph` object.
 
@@ -181,7 +181,7 @@ models/my\_important\_view\_model.sql
 */
 ```
 
-### Accessing metrics[​](#accessing-metrics "Direct link to Accessing metrics")
+### Accessing metrics
 
 To access the metrics in your dbt project programmatically, use the `metrics` attribute of the `graph` object.
 
@@ -211,7 +211,7 @@ macros/get\_metric.sql
 {% endmacro %}
 ```
 
-### Accessing groups[​](#accessing-groups "Direct link to Accessing groups")
+### Accessing groups
 
 To access the groups in your dbt project programmatically, use the `groups` attribute of the `graph` object.
 

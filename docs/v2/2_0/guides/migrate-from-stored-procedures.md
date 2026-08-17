@@ -12,11 +12,11 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 One of the more common situations that new dbt adopters encounter is a historical codebase of transformations written as a hodgepodge of DDL and DML statements, or stored procedures. Going from DML statements to dbt models is often a challenging hump for new users to get over, because the process involves a significant paradigm shift between a procedural flow of building a dataset (e.g. a series of DDL and DML statements) to a declarative approach to defining a dataset (e.g. how dbt uses SELECT statements to express data models). This guide aims to provide tips, tricks, and common patterns for converting DML statements to dbt models.
 
-### Preparing to migrate[​](#preparing-to-migrate "Direct link to Preparing to migrate")
+### Preparing to migrate
 
 Before getting into the meat of conversion, it’s worth noting that DML statements will not always illustrate a comprehensive set of columns and column types that an original table might contain. Without knowing the DDL to create the table, it’s impossible to know precisely if your conversion effort is apples-to-apples, but you can generally get close.
 
@@ -26,7 +26,7 @@ As for ensuring that you have the right column types, since models materialized 
 
 We also generally recommend that column renaming and type casting happen as close to the source tables as possible, typically in a layer of staging transformations, which helps ensure that future dbt modelers will know where to look for those transformations! See [How we structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md) for more guidance on overall project structure.
 
-### Operations we need to map[​](#operations-we-need-to-map "Direct link to Operations we need to map")
+### Operations we need to map
 
 There are four primary DML statements that you are likely to have to convert to dbt operations while migrating a procedure:
 
@@ -37,7 +37,7 @@ There are four primary DML statements that you are likely to have to convert to 
 
 Each of these can be addressed using various techniques in dbt. Handling `MERGE`s is a bit more involved than the rest, but can be handled effectively via dbt. The first three, however, are fairly simple to convert.
 
-## Map INSERTs[​](#map-inserts "Direct link to Map INSERTs")
+## Map INSERTs
 
 An `INSERT` statement is functionally the same as using dbt to `SELECT` from an existing source or other dbt model. If you are faced with an `INSERT`-`SELECT` statement, the easiest way to convert the statement is to just create a new dbt model, and pull the `SELECT` portion of the `INSERT` statement out of the procedure and into the model. That’s basically it!
 
@@ -64,11 +64,11 @@ WHERE type = 'return'
 
 Functionally, this would create a model (which could be materialized as a table or view depending on needs) called `returned_orders` that contains three columns: `order_id`, `order_date`, `total_return`) predicated on the type column. It achieves the same end as the `INSERT`, just in a declarative fashion, using dbt.
 
-### **A note on `FROM` clauses**[​](#a-note-on-from-clauses "Direct link to a-note-on-from-clauses")
+### **A note on `FROM` clauses**
 
 In dbt, using a hard-coded table or view name in a `FROM` clause is one of the most serious mistakes new users make. dbt uses the ref and source macros to discover the ordering that transformations need to execute in, and if you don’t use them, you’ll be unable to benefit from dbt’s built-in lineage generation and pipeline execution. In the sample code throughout the remainder of this article, we’ll use ref statements in the dbt-converted versions of SQL statements, but it is an exercise for the reader to ensure that those models exist in their dbt projects.
 
-### **Sequential `INSERT`s to an existing table can be `UNION ALL`’ed together**[​](#sequential-inserts-to-an-existing-table-can-be-union-alled-together "Direct link to sequential-inserts-to-an-existing-table-can-be-union-alled-together")
+### **Sequential `INSERT`s to an existing table can be `UNION ALL`’ed together**
 
 Since dbt models effectively perform a single `CREATE TABLE AS SELECT` (or if you break it down into steps, `CREATE`, then an `INSERT`), you may run into complexities if there are multiple `INSERT` statements in your transformation that all insert data into the same table. Fortunately, this is a simple thing to handle in dbt. Effectively, the logic is performing a `UNION ALL` between the `INSERT` queries. If I have a transformation flow that looks something like (ignore the contrived nature of the scenario):
 
@@ -92,7 +92,7 @@ SELECT * FROM {{ ref('eu_customers') }}
 
 The logic is functionally equivalent. So if there’s another statement that `INSERT`s into a model that I’ve already created, I can just add that logic into a second `SELECT` statement that is just `UNION ALL`'ed with the first. Easy!
 
-## Map UPDATEs[​](#map-updates "Direct link to Map UPDATEs")
+## Map UPDATEs
 
 `UPDATE`s start to increase the complexity of your transformations, but fortunately, they’re pretty darn simple to migrate, as well. The thought process that you go through when translating an `UPDATE` is quite similar to how an `INSERT` works, but the logic for the `SELECT` list in the dbt model is primarily sourced from the content in the `SET` section of the `UPDATE` statement. Let’s look at a simple example:
 
@@ -145,7 +145,7 @@ FROM {{ ref('stg_orders') }}
 
 The `dbt_utils.star()` macro will print out the full list of columns in the table, but skip the ones I’ve listed in the except list, which allows me to perform the same logic while writing fewer lines of code. This is a simple example of using dbt macros to simplify and shorten your code, and dbt can get a lot more sophisticated as you learn more techniques. Read more about the [dbt\_utils package](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) and the [star macro](https://github.com/dbt-labs/dbt-utils/tree/0.8.6/#star-source).
 
-## Map DELETEs[​](#map-deletes "Direct link to Map DELETEs")
+## Map DELETEs
 
 One of the biggest differences between a procedural transformation and how dbt models data is that dbt, in general, will never destroy data. While there are ways to execute hard `DELETE`s in dbt that are outside of the scope of this article, the general best practice for handling deleted data is to just use soft deletes, and filter out soft-deleted data in a final transformation.
 
@@ -188,11 +188,11 @@ This approach flags all of the deleted records, and the final `SELECT` filters o
 
 It’s worth calling out that while this doesn’t enable a hard delete, hard deletes can be executed a number of ways, the most common being to execute a dbt [macros](../docs/build/jinja-macros.md) via as a [run-operation](../reference/commands/run-operation.md), or by using a [post-hook](../reference/resource-configs/pre-hook-post-hook.md) to perform a `DELETE` statement after the records to-be-deleted have been marked. These are advanced approaches outside the scope of this guide.
 
-## Map MERGEs[​](#map-merges "Direct link to Map MERGEs")
+## Map MERGEs
 
 dbt has a concept called [materialization](../docs/build/materializations.md), which determines how a model is physically or logically represented in the warehouse. `INSERT`s, `UPDATE`s, and `DELETE`s will typically be accomplished using table or view materializations. For incremental workloads accomplished via commands like `MERGE` or `UPSERT`, dbt has a particular materialization called [incremental](../docs/build/incremental-models.md). The incremental materialization is specifically used to handle incremental loads and updates to a table without recreating the entire table from scratch on every run.
 
-### Step 1: Map the MERGE like an INSERT/UPDATE to start[​](#step-1-map-the-merge-like-an-insertupdate-to-start "Direct link to Step 1: Map the MERGE like an INSERT/UPDATE to start")
+### Step 1: Map the MERGE like an INSERT/UPDATE to start
 
 Before we get into the exact details of how to implement an incremental materialization, let’s talk about logic conversion. Extracting the logic of the `MERGE` and handling it as you would an `INSERT` or an `UPDATE` is the easiest way to get started migrating a `MERGE` command. .
 
@@ -273,7 +273,7 @@ To be clear, this transformation isn’t complete. The logic here is similar to 
 
 One important caveat is that dbt does not natively support `DELETE` as a `MATCH` action. If you have a line in your `MERGE` statement that uses `WHEN MATCHED THEN DELETE`, you’ll want to treat it like an update and add a soft-delete flag, which is then filtered out in a follow-on transformation.
 
-### Step 2: Convert to incremental materialization[​](#step-2-convert-to-incremental-materialization "Direct link to Step 2: Convert to incremental materialization")
+### Step 2: Convert to incremental materialization
 
 As mentioned above, incremental materializations are a little special in that when the target table does not exist, the materialization functions in nearly the same way as a standard table materialization, and executes a `CREATE TABLE AS SELECT` statement. If the target table does exist, however, the materialization instead executes a `MERGE` statement.
 
@@ -370,6 +370,6 @@ There are a couple important concepts to understand here:
 1. The code in the `is_incremental()` conditional block only executes for incremental executions of this model code. If the target table doesn’t exist, or if the `--full-refresh` option is used, that code will not execute.
 2. `{{ this }}` is a special keyword in dbt that when used in a Jinja block, self-refers to the model for which the code is executing. So if you have a model in a file called `my_incremental_model.sql`, `{{ this }}` will refer to `my_incremental_model` (fully qualified with database and schema name if necessary). By using that keyword, we can leverage the current state of the target table to inform the source query.
 
-## Migrate Stores procedures[​](#migrate-stores-procedures "Direct link to Migrate Stores procedures")
+## Migrate Stores procedures
 
 The techniques shared above are useful ways to get started converting the individual DML statements that are often found in stored procedures. Using these types of patterns, legacy procedural code can be rapidly transitioned to dbt models that are much more readable, maintainable, and benefit from software engineering best practices like DRY principles. Additionally, once transformations are rewritten as dbt models, it becomes much easier to test the transformations to ensure that the data being used downstream is high-quality and trustworthy.

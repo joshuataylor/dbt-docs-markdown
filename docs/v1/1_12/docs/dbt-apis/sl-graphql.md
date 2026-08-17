@@ -1,6 +1,6 @@
 # GraphQL
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 [GraphQL](https://graphql.org/) (GQL) is an open-source query language for APIs. It offers a more efficient and flexible approach compared to traditional RESTful APIs.
 
@@ -8,7 +8,7 @@ With GraphQL, users can request specific data using a single query, reducing the
 
 GraphQL has several advantages, such as self-documenting, having a strong typing system, supporting versioning and evolution, enabling rapid development, and having a robust ecosystem. These features make GraphQL a powerful choice for APIs prioritizing flexibility, performance, and developer productivity.
 
-## dbt Semantic Layer GraphQL API[​](#dbt-semantic-layer-graphql-api "Direct link to dbt Semantic Layer GraphQL API")
+## dbt Semantic Layer GraphQL API
 
 The Semantic Layer GraphQL API allows you to explore and query metrics and dimensions. Due to its self-documenting nature, you can explore the calls conveniently through a schema explorer.
 
@@ -22,12 +22,6 @@ The schema explorer URLs vary depending on your [deployment region](../platform/
 | Single tenant              | `https://semantic-layer.YOUR_ACCESS_URL/api/graphql`<br /><br />Replace `YOUR_ACCESS_URL` with your specific account prefix followed by the appropriate Access URL for your region and plan.                          |
 | Multi-cell                 | `https://YOUR_ACCOUNT_PREFIX.semantic-layer.REGION.dbt.com/api/graphql`<br /><br />Replace `YOUR_ACCOUNT_PREFIX` with your specific account identifier and `REGION` with your location, which could be `us1.dbt.com`. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 **Example**
 
 * If your Single tenant access URL is `ABC123.getdbt.com`, your schema explorer URL will be `https://semantic-layer.ABC123.getdbt.com/api/graphql`.
@@ -36,13 +30,13 @@ dbt Partners can use the Semantic Layer GraphQL API to build an integration with
 
 Note that the Semantic Layer GraphQL API doesn't support `ref` to call dbt objects. Instead, use the complete qualified table name. If you're using dbt macros at query time to calculate your metrics, you should move those calculations into your Semantic Layer metric definitions as code.
 
-## Requirements to use the GraphQL API[​](#requirements-to-use-the-graphql-api "Direct link to Requirements to use the GraphQL API")
+## Requirements to use the GraphQL API
 
 * A dbt project on dbt v1.6 or higher
 * Metrics are defined and configured
 * A dbt [service token](./service-tokens.md) with "Semantic Layer Only” and "Metadata Only" permissions or a [personal access token](./user-tokens.md)
 
-## Using the GraphQL API[​](#using-the-graphql-api "Direct link to Using the GraphQL API")
+## Using the GraphQL API
 
 If you're a dbt user or partner with access to dbt and the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), you can [set up](../use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right GQL connection parameters described in this document.
 
@@ -56,9 +50,9 @@ Authentication uses either a dbt [service account token](./service-tokens.md) or
 
 Each GQL request also requires a dbt `environmentId`. The API uses both the service or personal token in the header and `environmentId` for authentication.
 
-### Metadata calls[​](#metadata-calls "Direct link to Metadata calls")
+### Metadata calls
 
-#### Fetch data platform dialect[​](#fetch-data-platform-dialect "Direct link to Fetch data platform dialect")
+#### Fetch data platform dialect
 
 In some cases in your application, it may be useful to know the dialect or data platform that's internally used for the Semantic Layer connection (such as if you are building `where` filters from a user interface rather than user-inputted SQL).
 
@@ -72,7 +66,7 @@ The GraphQL API has an easy way to fetch this with the following query:
 }
 ```
 
-#### Fetch available metrics[​](#fetch-available-metrics "Direct link to Fetch available metrics")
+#### Fetch available metrics
 
 ```graphql
 metricsPaginated(
@@ -90,7 +84,7 @@ metricsPaginated(
 }
 ```
 
-#### Fetch available dimensions for metrics[​](#fetch-available-dimensions-for-metrics "Direct link to Fetch available dimensions for metrics")
+#### Fetch available dimensions for metrics
 
 ```graphql
 dimensionsPaginated(
@@ -108,7 +102,7 @@ dimensionsPaginated(
 }
 ```
 
-#### Fetch available granularities given metrics[​](#fetch-available-granularities-given-metrics "Direct link to Fetch available granularities given metrics")
+#### Fetch available granularities given metrics
 
 Note: This call for `queryableGranularities` returns only queryable granularities for metric time - the primary time dimension across all metrics selected.
 
@@ -148,9 +142,7 @@ You can also optionally access it from the metrics endpoint:
 }
 ```
 
-<!-- -->
-
-#### Fetch entities[​](#fetch-entities "Direct link to Fetch entities")
+#### Fetch entities
 
 ```graphql
 entitiesPaginated(
@@ -168,7 +160,7 @@ entitiesPaginated(
 }
 ```
 
-#### Fetch entities and dimensions to group metrics[​](#fetch-entities-and-dimensions-to-group-metrics "Direct link to Fetch entities and dimensions to group metrics")
+#### Fetch entities and dimensions to group metrics
 
 ```graphql
 groupBysPaginated(
@@ -186,7 +178,7 @@ groupBysPaginated(
 }
 ```
 
-#### Metric types[​](#metric-types "Direct link to Metric types")
+#### Metric types
 
 ```graphql
 Metric {
@@ -204,7 +196,9 @@ Metric {
 MetricType = [SIMPLE, RATIO, CUMULATIVE, DERIVED]
 ```
 
-#### Metric type parameters[​](#metric-type-parameters "Direct link to Metric type parameters")
+#### Metric type parameters
+
+(Applies to dbt v1.12 and later)
 
 ```graphql
 MetricTypeParams {
@@ -217,9 +211,7 @@ MetricTypeParams {
 }
 ```
 
-<!-- -->
-
-#### Dimension types[​](#dimension-types "Direct link to Dimension types")
+#### Dimension types
 
 ```graphql
 Dimension {
@@ -237,7 +229,7 @@ Dimension {
 DimensionType = [CATEGORICAL, TIME]
 ```
 
-#### List saved queries[​](#list-saved-queries "Direct link to List saved queries")
+#### List saved queries
 
 List all saved queries for the specified environment:
 
@@ -256,7 +248,7 @@ savedQueriesPaginated(
 }
 ```
 
-#### List a saved query[​](#list-a-saved-query "Direct link to List a saved query")
+#### List a saved query
 
 List a single saved query using environment ID and query name:
 
@@ -284,14 +276,14 @@ savedQuery(environmentId: "123", savedQueryName: "query_name") {
 }
 ```
 
-### Querying[​](#querying "Direct link to Querying")
+### Querying
 
 When querying for data, *either* a `groupBy` *or* a `metrics` selection is required. The following section provides examples of how to query metrics:
 
 * [Create query](#create-metric-query)
 * [Fetch query result](#fetch-query-result)
 
-#### Create query[​](#create-query "Direct link to Create query")
+#### Create query
 
 ```graphql
 createQuery(
@@ -326,7 +318,7 @@ OrderByinput { # -- pass one and only one of metric or groupBy
 }
 ```
 
-#### Fetch query result[​](#fetch-query-result "Direct link to Fetch query result")
+#### Fetch query result
 
 ```graphql
 query(
@@ -368,9 +360,9 @@ mutation {
 
 3. Keep querying 2. at an appropriate interval until status is `FAILED` or `SUCCESSFUL`
 
-### Output format and pagination[​](#output-format-and-pagination "Direct link to Output format and pagination")
+### Output format and pagination
 
-#### Output format[​](#output-format "Direct link to Output format")
+#### Output format
 
 By default, the output is in Arrow format. You can switch to JSON format using the following parameter. However, due to performance limitations, we recommend using the JSON parameter for testing and validation. The JSON received is a base64 encoded string. To access it, you can decode it using a base64 decoder. The JSON is created from pandas, which means you can change it back to a dataframe using `pandas.read_json(json, orient="table")`. Or you can work with the data directly using `json["data"]`, and find the table schema using `json["schema"]["fields"]`. Alternatively, you can pass `encoded:false` to the jsonResult field to get a raw JSON string directly.
 
@@ -389,11 +381,11 @@ By default, the output is in Arrow format. You can switch to JSON format using t
 
 The results default to the table but you can change it to any [pandas](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html) supported value.
 
-#### Pagination[​](#pagination "Direct link to Pagination")
+#### Pagination
 
 By default, we return 1024 rows per page. If your result set exceeds this, you need to increase the page number using the `pageNum` option.
 
-### Run a Python query[​](#run-a-python-query "Direct link to Run a Python query")
+### Run a Python query
 
 The `arrowResult` in the GraphQL query response is a byte dump, which isn't visually useful. You can convert this byte data into an Arrow table using any Arrow-supported language. Refer to the following Python example explaining how to query and decode the arrow result:
 
@@ -458,7 +450,7 @@ order_total  ordered_at
 """
 ```
 
-### Additional create query examples[​](#additional-create-query-examples "Direct link to Additional create query examples")
+### Additional create query examples
 
 The following section provides query examples for the GraphQL API, such as how to query metrics, dimensions, where filters, and more:
 
@@ -473,7 +465,7 @@ The following section provides query examples for the GraphQL API, such as how t
 * [Query with just compiling SQL](#query-with-just-compiling-sql) — Query using a compile keyword using the `compileSql` mutation.
 * [Query records](#query-records) — View all the queries made in your project.
 
-#### Query metric alias[​](#query-metric-alias "Direct link to Query metric alias")
+#### Query metric alias
 
 ```graphql
 mutation {
@@ -486,7 +478,7 @@ mutation {
 }
 ```
 
-#### Query with a time grain[​](#query-with-a-time-grain "Direct link to Query with a time grain")
+#### Query with a time grain
 
 ```graphql
 mutation {
@@ -502,7 +494,7 @@ mutation {
 
 Note that when using granularity in the query, the output of a time dimension with a time grain applied to it always takes the form of a dimension name appended with a double underscore and the granularity level - `{time_dimension_name}__{DAY|WEEK|MONTH|QUARTER|YEAR}`. Even if no granularity is specified, it will also always have a granularity appended to it and will default to the lowest available (usually daily for most data sources). It is encouraged to specify a granularity when using time dimensions so that there won't be any unexpected results with the output data.
 
-#### Query multiple metrics and multiple dimensions[​](#query-multiple-metrics-and-multiple-dimensions "Direct link to Query multiple metrics and multiple dimensions")
+#### Query multiple metrics and multiple dimensions
 
 ```graphql
 mutation {
@@ -516,7 +508,7 @@ mutation {
 }
 ```
 
-#### Query a categorical dimension on its own[​](#query-a-categorical-dimension-on-its-own "Direct link to Query a categorical dimension on its own")
+#### Query a categorical dimension on its own
 
 ```graphql
 mutation {
@@ -529,7 +521,7 @@ mutation {
 }
 ```
 
-#### Query with a where filter[​](#query-with-a-where-filter "Direct link to Query with a where filter")
+#### Query with a where filter
 
 The `where` filter takes a list argument (or a string for a single input). Depending on the object you are filtering, there are a couple of parameters:
 
@@ -552,13 +544,11 @@ mutation {
 }
 ```
 
-#### Multi-hop joins[​](#multi-hop-joins "Direct link to Multi-hop joins")
+#### Multi-hop joins
 
 In cases where you need to query across multiple related tables (multi-hop joins), use the `entity_path` argument to specify the path between related entities. The following are examples of how you can define these joins:
 
 * In this example, you're querying the `location_name` dimension but specifying that it should be joined using the `order_id` field.
-
-  <!-- -->
 
   ```sql
   {{Dimension('location__location_name', entity_path=['order_id'])}}
@@ -566,13 +556,11 @@ In cases where you need to query across multiple related tables (multi-hop joins
 
 * In this example, the `salesforce_account_owner` dimension is joined to the `region` field, with the path going through `salesforce_account`.
 
-  <!-- -->
-
   ```sql
   {{ Dimension('salesforce_account_owner__region',['salesforce_account']) }}
   ```
 
-#### Query with order[​](#query-with-order "Direct link to Query with order")
+#### Query with order
 
 ```graphql
 mutation {
@@ -587,7 +575,7 @@ mutation {
 }
 ```
 
-#### Query with limit[​](#query-with-limit "Direct link to Query with limit")
+#### Query with limit
 
 ```graphql
 mutation {
@@ -602,7 +590,7 @@ mutation {
 }
 ```
 
-#### Query saved queries[​](#query-saved-queries "Direct link to Query saved queries")
+#### Query saved queries
 
 This takes the same inputs as the `createQuery` mutation, but includes the field `savedQuery`. You can use this for frequently used queries.
 
@@ -621,7 +609,7 @@ A note on querying saved queries
 
 When querying [saved queries](../build/saved-queries.md),you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
 
-#### Query with just compiling SQL[​](#query-with-just-compiling-sql "Direct link to Query with just compiling SQL")
+#### Query with just compiling SQL
 
 This takes the same inputs as the `createQuery` mutation.
 
@@ -637,7 +625,7 @@ mutation {
 }
 ```
 
-#### Query records[​](#query-records "Direct link to Query records")
+#### Query records
 
 Use this endpoint to view all the queries made in your project. This covers both Insights and Semantic Layer queries.
 

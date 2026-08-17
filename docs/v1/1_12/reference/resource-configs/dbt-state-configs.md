@@ -8,9 +8,7 @@ When you run a dbt command with [dbt State](../../docs/deploy/dbt-state-about.md
 
 Use the following configs to control how dbt State makes these decisions.
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -23,6 +21,8 @@ models:
     pre_clone: never | if_missing | always
     execute_hooks_on_any_reuse: true | false
 ```
+
+### Properties YAML file
 
 models/schema.yml
 
@@ -37,6 +37,8 @@ models:
         pre_clone: never | if_missing | always
         execute_hooks_on_any_reuse: true | false
 ```
+
+### SQL file config
 
 models/\<filename>.sql
 
@@ -62,13 +64,7 @@ models/\<filename>.sql
 | [`defer_to_target`](./defer-to-target.md)                       | `prod`              | Profile                                         | (Self-managed only) Which profile target dbt State defers to.                                                                                                                                                                                                                      |
 | [`metadata_warehouse`](./metadata-warehouse.md)                 | Profile `warehouse` | Profile                                         | (Snowflake only) A separate warehouse for dbt State metadata lookups.                                                                                                                                                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

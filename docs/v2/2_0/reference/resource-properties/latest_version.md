@@ -11,7 +11,7 @@ models:
       - v: 1
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The latest version of this model. The "latest" version is relevant for:
 
@@ -22,7 +22,7 @@ This value can be a string or a numeric (integer or float) value. It must be one
 
 To run the latest version of a model, you can use the [`--select` flag](../node-selection/syntax.md). Refer to [Model versions](../../docs/mesh/govern/model-versions.md#run-a-model-with-multiple-versions) for more information and syntax.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 If not specified for a versioned model, `latest_version` defaults to the largest [version identifier](./versions.md#v): numerically greatest (if all version identifiers are numeric), otherwise the alphabetically last (if they are strings).
 
@@ -30,7 +30,7 @@ For a non-versioned model (no `versions` list), `latest_version` has no value.
 
 If `latest_version` is not specified for a versioned model, `latest_version` defaults to the largest.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 models/\<schema>.yml
 

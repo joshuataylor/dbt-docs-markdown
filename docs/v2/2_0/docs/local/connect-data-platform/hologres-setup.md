@@ -1,37 +1,27 @@
 # Connect Hologres to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Alibaba Cloud Hologres Team
-* **Authors**:
-  <!-- -->
-  Alibaba Cloud Hologres Team
+* **Maintained by**: Alibaba Cloud Hologres Team
+* **Authors**: Alibaba Cloud Hologres Team
 * **GitHub repo**: [aliyun/dbt-hologres](https://github.com/aliyun/dbt-hologres) [![](https://img.shields.io/github/stars/aliyun/dbt-hologres?style=for-the-badge)](https://github.com/aliyun/dbt-hologres)
 * **PyPI package**: `dbt-alibaba-cloud-hologres` [![](https://badge.fury.io/py/dbt-alibaba-cloud-hologres.svg)](https://badge.fury.io/py/dbt-alibaba-cloud-hologres)
 * **Slack channel**:[]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
+* **Supported dbt Core version**: v1.8.0 and newer
+* **dbt support**: Not Supported
 * **Minimum data platform version**:
 
-## Installing <!-- -->dbt-alibaba-cloud-hologres
+## Installing dbt-alibaba-cloud-hologres
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-alibaba-cloud-hologres`
 
-## Configuring <!-- -->dbt-alibaba-cloud-hologres<!-- -->
+## Configuring dbt-alibaba-cloud-hologres
 
-For <!-- -->Hologres<!-- -->-specific configuration, please refer to [Hologres<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For Hologres-specific configuration, please refer to [Hologres configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to Hologres with **dbt-alibaba-cloud-hologres**[​](#connecting-to-hologres-with-dbt-alibaba-cloud-hologres "Direct link to connecting-to-hologres-with-dbt-alibaba-cloud-hologres")
+## Connecting to Hologres with **dbt-alibaba-cloud-hologres**
 
 `dbt-alibaba-cloud-hologres` enables dbt to work with Alibaba Cloud Hologres, a real-time data warehouse compatible with PostgreSQL.
 
@@ -54,7 +44,7 @@ dbt-alibaba-cloud-hologres: # this needs to match the profile in your dbt_projec
       threads: 4
 ```
 
-### Connection parameters[​](#connection-parameters "Direct link to Connection parameters")
+### Connection parameters
 
 Currently it supports the following parameters:
 
@@ -73,17 +63,11 @@ Currently it supports the following parameters:
 | `application_name` | Application identifier for connection tracking.                                                | Optional  | `dbt_hologres_{version}` | `my_dbt_app`                      |
 | `retries`          | Number of connection retries.                                                                  | Optional  | `1`                      | `3`                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Authentication configuration[​](#authentication-configuration "Direct link to Authentication configuration")
+## Authentication configuration
 
 `dbt-alibaba-cloud-hologres` uses the standard PostgreSQL-compatible authentication mechanism with username and password (Access Key). Hologres supports using Alibaba Cloud AccessKey or RAM user credentials for authentication.
 
-### Access key[​](#access-key "Direct link to Access key")
+### Access key
 
 You can authenticate using your Alibaba Cloud account credentials. For security reasons, it is recommended to create a RAM sub-account with appropriate permissions rather than using the primary account AccessKey.
 
@@ -104,7 +88,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       sslmode: disable
 ```
 
-### Important notes[​](#important-notes "Direct link to Important notes")
+### Important notes
 
 1. **Case sensitivity**: Hologres usernames and passwords are case-sensitive. Make sure to enter them exactly as configured.
 
@@ -112,7 +96,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
 
 3. **SSL mode**: SSL is disabled by default for Hologres connections. You can enable it by setting `sslmode` to an appropriate value if required.
 
-## Testing your connection[​](#testing-your-connection "Direct link to Testing your connection")
+## Testing your connection
 
 After configuring your `profiles.yml`, you can verify your connection by running:
 
@@ -122,9 +106,9 @@ dbt debug
 
 This [command](../../../reference/commands/debug.md) will test the connection to your Hologres instance and report any configuration issues.
 
-## Hologres-specific features[​](#hologres-specific-features "Direct link to Hologres-specific features")
+## Hologres-specific features
 
-### Dynamic tables in Hologres[​](#dynamic-tables-in-hologres "Direct link to Dynamic tables in Hologres")
+### Dynamic tables in Hologres
 
 Dynamic tables are Hologres's implementation of materialized views with automatic refresh. When refreshing data, multiple modes are supported, including "full" (full mode) and "incremental" (incremental mode). For more information, please refer to the [reference manual](https://www.alibabacloud.com/help/en/hologres/user-guide/introduction-to-dynamic-table). You can configure them in your dbt models:
 
@@ -145,13 +129,7 @@ Supported configurations for Dynamic tables:
 | `auto_refresh_mode`  | Refresh mode for the dynamic table.       | `auto`, `incremental`, `full`         |
 | `computing_resource` | Computing resource to use for refreshing. | `serverless`, `local`, warehouse name |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Incremental models with dbt[​](#incremental-models-with-dbt "Direct link to Incremental models with dbt")
+### Incremental models with dbt
 
 `dbt-alibaba-cloud-hologres` supports multiple incremental strategies:
 
@@ -160,14 +138,14 @@ Search table...
 * `merge`: Use MERGE statement for upsert operations
 * `microbatch`: Process data in small batches
 
-### Constraints[​](#constraints "Direct link to Constraints")
+### Constraints
 
 Full support for database constraints including:
 
 * Primary keys
 * Not null constraints
 
-### Table properties[​](#table-properties "Direct link to Table properties")
+### Table properties
 
 Hologres supports the following table properties. For full details, see the [developer reference documentation](https://www.alibabacloud.com/help/en/hologres/developer-reference/create-tables).
 
@@ -180,13 +158,7 @@ Hologres supports the following table properties. For full details, see the [dev
 | `bitmap_columns`              | Use for equality filters                                                     |
 | `dictionary_encoding_columns` | Use for low-cardinality string columns                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## References[​](#references "Direct link to References")
+## References
 
 * [dbt-alibaba-cloud-hologres GitHub repository](https://github.com/aliyun/dbt-hologres)
 * [Hologres documentation](https://www.alibabacloud.com/help/en/hologres/)

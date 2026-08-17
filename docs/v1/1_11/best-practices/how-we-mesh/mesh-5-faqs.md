@@ -2,7 +2,7 @@
 
 Mesh is a new architecture enabled by dbt. It allows you to better manage complexity by deploying multiple interconnected dbt projects instead of a single large, monolithic project. It’s designed to accelerate development, without compromising governance.
 
-## Overview of Mesh[​](#overview-of-mesh "Direct link to Overview of Mesh")
+## Overview of Mesh
 
  What are the main benefits of implementing dbt Mesh?
 
@@ -55,7 +55,7 @@ In data mesh, each business domain is responsible for its data as a product. Thi
 
 dbt Mesh also enhances the interoperability and reusability of data across different domains, a key aspect of the data mesh philosophy. By allowing cross-project references and shared governance through model contracts and access controls, dbt Mesh ensures that while data ownership is decentralized, there is still a governed structure to the overall data architecture.
 
-## How dbt Mesh works[​](#how-dbt-mesh-works "Direct link to How dbt Mesh works")
+## How dbt Mesh works
 
  Can dbt Mesh handle cyclic dependencies between projects?
 
@@ -150,7 +150,7 @@ You can reference models in other accounts within the same data platform by leve
 
 For example, [Snowflake cross-account data shares](https://docs.snowflake.com/en/user-guide/data-sharing-intro), [Databricks Unity Catalog across workspaces](https://docs.databricks.com/en/data-governance/unity-catalog/index.html), or multiple BigQuery projects.
 
-## Permissions and access[​](#permissions-and-access "Direct link to Permissions and access")
+## Permissions and access
 
  How do user access permissions work in dbt Mesh?
 
@@ -198,7 +198,7 @@ The short answer is "no." Cross-project references require that each project `na
 
 Historical limitations required customers to "duplicate" projects so that one actual dbt project (codebase) would map to more than one dbt project. To that end, we are working to remove the historical limitations that required customers to "duplicate" projects in dbt — Staging environments for data isolation, environment-level permissions, and environment-level data warehouse connections (coming soon). Once those pieces are in place, it should no longer be necessary to define separate dbt projects to isolate data environments or permissions.
 
-## Compatibility with other features[​](#compatibility-with-other-features "Direct link to Compatibility with other features")
+## Compatibility with other features
 
  How does the dbt Semantic Layer relate to and work with dbt Mesh?
 
@@ -214,9 +214,7 @@ When using the dbt Semantic Layer in a [dbt Mesh](./mesh-1-intro.md) setting, we
 * Then as you build your Semantic Layer, you can [cross-reference dbt models](../../docs/mesh/govern/project-dependencies.md) across your various projects or packages to create your semantic models using the [two-argument `ref` function](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) (`ref('project_name', 'model_name')`).
 * Your dbt Semantic Layer project serves as a global source of truth across the rest of your projects.
 
-<!-- -->
-
-#### Usage example[​](#usage-example "Direct link to Usage example")
+#### Usage example
 
 For example, let's say you have a public model (`fct_orders`) that lives in the `jaffle_finance` project. As you build your semantic model, use the following syntax to ref the model:
 
@@ -267,7 +265,7 @@ Feature optimization
 
 While basic Mesh functionality works in hybrid setups, some advanced platform features (like full Catalog lineage visibility across projects) work best when all projects use the same engine.
 
-## Availability[​](#availability "Direct link to Availability")
+## Availability
 
  Does dbt Mesh require me to be on a specific version of dbt?
 
@@ -287,7 +285,7 @@ The major distinction comes with dbt's metadata service, which is unique to the 
 
 Yes, a [dbt Enterprise-tier](https://www.getdbt.com/pricing) plan is required to set up multiple projects and reference models across them. Refer to [model governance](../../docs/mesh/govern/about-model-governance.md) for more information on the features available across dbt plans.
 
-## Tips on implementing dbt Mesh[​](#tips-on-implementing-dbt-mesh "Direct link to Tips on implementing dbt Mesh")
+## Tips on implementing dbt Mesh
 
  Is there a recommended migration or implementation process?
 

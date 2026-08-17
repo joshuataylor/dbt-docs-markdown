@@ -12,7 +12,7 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 In this quickstart guide, you'll learn how to use dbt Core with DuckDB, enabling you to get set up quickly and efficiently. [DuckDB](https://duckdb.org/) is an open-source database management system which is designed for analytical workloads. It is designed to provide fast and easy access to large datasets, making it well-suited for data analytics tasks.
 
@@ -28,20 +28,20 @@ This guide will demonstrate how to:
 
 You can learn more through high-quality [dbt Learn courses and workshops](https://learn.getdbt.com).
 
-### Related content[​](#related-content "Direct link to Related content")
+### Related content
 
 * [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md)
 * [Create a GitHub repository](./manual-install.md?step=2)
 * [Build your first models](./manual-install.md?step=3)
 * [Test and document your project](./manual-install.md?step=4)
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * When using DuckDB with dbt Core, you'll need to use the CLI. Currently, DuckDB is not supported in dbt platform.
 * It's important that you know some basics of the terminal. In particular, you should understand `cd`, `ls` , and `pwd` to navigate through the directory structure of your computer easily.
 * You have a [GitHub account](https://github.com/join).
 
-## Set up DuckDB for dbt Core[​](#set-up-duckdb-for-dbt-core "Direct link to Set up DuckDB for dbt Core")
+## Set up DuckDB for dbt Core
 
 This section will provide a step-by-step guide for setting up DuckDB for use in local (Mac and Windows) environments and web browsers.
 
@@ -62,8 +62,7 @@ Below is an example of the `requirements.txt` file alongside other key files lik
 
 For more information, refer to the [DuckDB setup](../docs/local/connect-data-platform/duckdb-setup.md).
 
-* Local
-* Web browser
+### Local
 
 1. First, [clone](https://git-scm.com/docs/git-clone) the Jaffle Shop git repository by running the following command in your terminal:
 
@@ -154,14 +153,13 @@ To query data, some useful commands you can run from the command line:
 
 * `dbt show --select "raw_orders"` — run a query against the data warehouse and preview the results in the terminal.
 * [`dbt source`](../reference/commands/source.md) — provides subcommands such as [`dbt source freshness`](../reference/commands/source.md#dbt-source-freshness) that are useful when working with source data.
-  <!-- -->
   * `dbt source freshness` — checks the freshness (how up to date) a specific source table is.
 
 note
 
 The steps will fail if you decide to run this project in your data warehouse (outside of this DuckDB demo). You will need to reconfigure the project files for your warehouse. Definitely consider this if you are using a community-contributed adapter.
 
-### Troubleshoot[​](#troubleshoot "Direct link to Troubleshoot")
+### Troubleshoot
 
  Could not set lock on file error
 
@@ -173,6 +171,8 @@ IO Error: Could not set lock on file "jaffle_shop.duckdb": Resource temporarily 
 This is a known issue in DuckDB. Try disconnecting from any sessions that are locking the database. If you are using DBeaver, this means shutting down DBeaver (disconnecting doesn't always work).
 
 As a last resort, deleting the database file will get you back in action (*but* you will lose all your data).
+
+### Web browser
 
 1. Go to the `jaffle-shop-template` [repository](https://github.com/dbt-labs/jaffle_shop_duckdb) after you log in to your GitHub account.
 
@@ -203,7 +203,7 @@ As a last resort, deleting the database file will get you back in action (*but* 
    * [dbt test](../reference/commands/test.md) — compiles and tests your project
    * [dbt build](../reference/commands/build.md) — compiles, runs, and tests your project
 
-## Local storage[​](#local-storage "Direct link to Local storage")
+## Local storage
 
 DuckDB stores your data in a local `.duckdb` file on your machine. The location of this file is defined by the `path` field in your [`profiles.yml`](../docs/local/profiles.yml.md).
 
@@ -227,7 +227,7 @@ note
 
 If you use a relative path (such as `./local.duckdb`), the file is created relative to your `profiles.yml` file.
 
-## Generate a larger data set[​](#generate-a-larger-data-set "Direct link to Generate a larger data set")
+## Generate a larger data set
 
 If you'd like to work with a larger selection of Jaffle Shop data, you can generate an arbitrary number of years of fictitious data from within your codespace.
 
@@ -247,7 +247,7 @@ If you'd like to work with a larger selection of Jaffle Shop data, you can gener
 
 As you increase the number of years, it takes exponentially more time to generate the data because the Jaffle Shop stores grow in size and number. For a good balance of data size and time to build, dbt Labs suggests a maximum of 6 years.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Now that you have dbt Core, DuckDB, and the Jaffle Shop data up and running, you can explore dbt's capabilities. Refer to these materials to get a better understanding of dbt projects and commands:
 
@@ -259,7 +259,7 @@ Now that you have dbt Core, DuckDB, and the Jaffle Shop data up and running, you
 
 Additionally, with your new understanding of the basics of using DuckDB, consider optimizing your setup by [documenting your project](./duckdb.md#document-your-project), [commit your changes](./duckdb.md#commit-your-changes) and, [schedule a job](./duckdb.md#schedule-a-job).
 
-### Document your project[​](#document-your-project "Direct link to Document your project")
+### Document your project
 
 To document your dbt projects with DuckDB, follow the steps:
 
@@ -267,7 +267,7 @@ To document your dbt projects with DuckDB, follow the steps:
 * Run the [`dbt docs serve`](../reference/commands/cmd-docs.md#dbt-docs-serve) command to create a local website using the generated `.json` files. This allows you to view your project's documentation in a web browser.
 * Enhance your documentation by adding [descriptions](../reference/resource-properties/description.md) to models, columns, and sources using the `description` key in your YAML files.
 
-### Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
+### Commit your changes
 
 Commit your changes to ensure the repository is up to date with the latest code.
 
@@ -281,7 +281,7 @@ git push
 
 2. Go back to your GitHub repository to verify your new files have been added.
 
-### Schedule a job[​](#schedule-a-job "Direct link to Schedule a job")
+### Schedule a job
 
 1. Ensure dbt Core is installed and configured to connect to your DuckDB instance.
 2. Create a dbt project and define your [`models`](../docs/build/models.md), [`seeds`](../reference/seed-properties.md), and [`tests`](../reference/commands/test.md).

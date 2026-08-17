@@ -1,45 +1,31 @@
 # Connect Rockset to dbt Core
 
-Local developmentⓘ
+Local development
 
 Vendor-supported plugin
 
 Certain core functionality may vary. If you would like to report a bug, request a feature, or contribute, you can check out the linked repository and open an issue.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Rockset, Inc.
-* **Authors**:
-  <!-- -->
-  Rockset, Inc.
+* **Maintained by**: Rockset, Inc.
+* **Authors**: Rockset, Inc.
 * **GitHub repo**: [rockset/dbt-rockset](https://github.com/rockset/dbt-rockset) [![](https://img.shields.io/github/stars/rockset/dbt-rockset?style=for-the-badge)](https://github.com/rockset/dbt-rockset)
 * **PyPI package**: `dbt-rockset` [![](https://badge.fury.io/py/dbt-rockset.svg)](https://badge.fury.io/py/dbt-rockset)
 * **Slack channel**: [#dbt-rockset](https://getdbt.slack.com/archives/C02J7AZUAMN)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.19.2
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  ?
+* **Supported dbt Core version**: v0.19.2 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: ?
 
-## Installing <!-- -->dbt-rockset
+## Installing dbt-rockset
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-rockset`
 
-## Configuring <!-- -->dbt-rockset<!-- -->
+## Configuring dbt-rockset
 
-For <!-- -->Rockset<!-- -->-specific configuration, please refer to [Rockset<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For Rockset-specific configuration, please refer to [Rockset configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to Rockset with **dbt-rockset**[​](#connecting-to-rockset-with-dbt-rockset "Direct link to connecting-to-rockset-with-dbt-rockset")
+## Connecting to Rockset with **dbt-rockset**
 
 The dbt profile for Rockset is very simple and contains the following fields:
 
@@ -56,7 +42,7 @@ rockset:
       api_server: [api_server] # (Default is api.rs2.usw2.rockset.com)
 ```
 
-### Materializations[​](#materializations "Direct link to Materializations")
+### Materializations
 
 | Type        | Supported? | Details                                                                                                                                |
 | ----------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,13 +51,7 @@ rockset:
 | ephemeral   | YES        | Executes queries using CTEs.                                                                                                           |
 | incremental | YES        | Creates a [collection](https://rockset.com/docs/collections/#gatsby-focus-wrapper) if it doesn't exist, and then writes results to it. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Caveats[​](#caveats "Direct link to Caveats")
+## Caveats
 
 1. `unique_key` is not supported with incremental, unless it is set to [\_id](https://rockset.com/docs/special-fields/#the-_id-field), which acts as a natural `unique_key` in Rockset anyway.
 2. The `table` materialization is slower in Rockset than most due to Rockset's architecture as a low-latency, real-time database. Creating new collections requires provisioning hot storage to index and serve fresh data, which takes about a minute.

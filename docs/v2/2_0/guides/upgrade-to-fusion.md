@@ -16,7 +16,7 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 The dbt Fusion engine represents the next evolution of data transformation. dbt has been rebuilt from the ground up but at its most basic, Fusion is a new version, and moving to it is the same as upgrading between dbt Core versions in the dbt platform. Once your project is Fusion ready, it's only a matter of pulling a few levers to make the move, but you have some flexibility in how you do so, especially in your development environments.
 
@@ -27,7 +27,7 @@ Once you complete the Fusion migration, your team will benefit from:
 * 🔍 Enhanced SQL validation and error messages
 * 🛠️ Modern development tools
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before upgrading your development environment, confirm:
 
@@ -35,14 +35,11 @@ Before upgrading your development environment, confirm:
 
 * Your project must be using a supported adapter and auth method.
 
-  <!-- -->
-
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
   * External OAuth
-    <!-- -->
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -70,7 +67,7 @@ Before upgrading your development environment, confirm:
 
 * You have appropriate permissions to modify environments (see [Assign upgrade access](https://docs.getdbt.com/guides/upgrade-to-fusion?step=3#assign-upgrade-access-optional) if restricted)
 
-## Upgrade your development environment[​](#upgrade-your-development-environment "Direct link to Upgrade your development environment")
+## Upgrade your development environment
 
 With your project prepared and tested on the **Latest** release track, you're ready to upgrade your development environment to Fusion. The dbt platform provides a guided upgrade assistant that walks you through the process and helps validate your project is Fusion ready.
 
@@ -78,11 +75,11 @@ Start with development
 
 Always upgrade your development environment first before moving to production. This lets you and your team test Fusion in a safe environment and address any issues before they affect production workflows.
 
-### Assign upgrade access (optional)[​](#assign-upgrade-access-optional "Direct link to Assign upgrade access (optional)")
+### Assign upgrade access (optional)
 
 The Fusion upgrade assistant is controlled by two account-level settings. An [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) must first enable the readiness experience, and can optionally restrict which users can execute the upgrade.
 
-#### Enable the Fusion readiness experience[​](#enable-the-fusion-readiness-experience "Direct link to Enable the Fusion readiness experience")
+#### Enable the Fusion readiness experience
 
 The upgrade assistant and readiness panel only appear after an account admin enables this setting:
 
@@ -93,7 +90,7 @@ The upgrade assistant and readiness panel only appear after an account admin ena
 
 Once enabled, all users can see the readiness panel and the **Start Fusion upgrade** assistant (subject to their existing permissions).
 
-#### Restrict who can execute upgrades (optional, Enterprise only)[​](#restrict-who-can-execute-upgrades-optional-enterprise-only "Direct link to Restrict who can execute upgrades (optional, Enterprise only)")
+#### Restrict who can execute upgrades (optional, Enterprise only)
 
 By default, any user who can see the upgrade assistant can use it. To restrict upgrade execution to designated users:
 
@@ -113,7 +110,7 @@ When this is enabled, only users with the **Fusion admin** [permission set](../d
 
 For more details on access control, see [Assign access to upgrade](../docs/dbt-versions/upgrade-dbt-platform-version.md#assign-access-to-upgrade).
 
-### Step 1: Start the upgrade assistant[​](#step-1-start-the-upgrade-assistant "Direct link to Step 1: Start the upgrade assistant")
+### Step 1: Start the upgrade assistant
 
 Launch the Fusion upgrade workflow from your project:
 
@@ -124,7 +121,7 @@ Launch the Fusion upgrade workflow from your project:
 
 You'll be redirected to the Studio IDE with the upgrade assistant visible at the top.
 
-### Step 2: Check for deprecation warnings[​](#step-2-check-for-deprecation-warnings "Direct link to Step 2: Check for deprecation warnings")
+### Step 2: Check for deprecation warnings
 
 Even if you resolved deprecations in Part 1, run a final check to ensure nothing was missed:
 
@@ -136,8 +133,6 @@ Even if you resolved deprecations in Part 1, run a final check to ensure nothing
 
 3. Review the results:
 
-   <!-- -->
-
    * **No warnings found**: Skip to Step 4 to continue upgrading.
    * **Warnings found**: Continue to Step 3 to resolve them.
 
@@ -145,7 +140,7 @@ Inconsistent Fusion warnings and `dbt-autofix` logs
 
 You may see Fusion deprecation warnings about packages not being compatible with Fusion, while `dbt autofix` indicates they are compatible. Use `dbt autofix` as the source of truth because it has additional context that Fusion warnings don't have yet. This conflict is temporary and will be resolved as soon as we implement and roll out `dbt-autofix`'s enhanced compatibility detection to Fusion warnings.
 
-### Step 3: Resolve remaining deprecations[​](#step-3-resolve-remaining-deprecations "Direct link to Step 3: Resolve remaining deprecations")
+### Step 3: Resolve remaining deprecations
 
 If you find deprecation warnings, use the autofix tool to resolve them:
 
@@ -164,7 +159,7 @@ Manual fixes required?
 
 If the autofix tool can't resolve all deprecations automatically, you'll need to fix them manually. Review the warning messages for specific guidance, make the necessary changes in your code, then run **Check deprecation warnings** again.
 
-### Step 4: Enable Fusion[​](#step-4-enable-fusion "Direct link to Step 4: Enable Fusion")
+### Step 4: Enable Fusion
 
 After you resolve all deprecations, upgrade your development environment:
 
@@ -174,14 +169,14 @@ After you resolve all deprecations, upgrade your development environment:
 
 Your development environment is now running on Fusion!
 
-### Step 5: Restart the IDE[​](#step-5-restart-the-ide "Direct link to Step 5: Restart the IDE")
+### Step 5: Restart the IDE
 
 After upgrading, all users need to restart their IDE to connect to the new Fusion-powered environment:
 
 1. If you're currently in the Studio IDE, refresh your browser window.
 2. Notify your team members that they also need to restart their IDEs.
 
-### Step 6: Verify the upgrade[​](#step-6-verify-the-upgrade "Direct link to Step 6: Verify the upgrade")
+### Step 6: Verify the upgrade
 
 Confirm your development environment is running Fusion:
 
@@ -189,15 +184,11 @@ Confirm your development environment is running Fusion:
 
 2. Look for Fusion-powered [features](../docs/fusion/supported-features.md#features-and-capabilities):
 
-   <!-- -->
-
    * Faster parsing and compilation times
    * Enhanced SQL validation and error messages
    * Improved autocomplete functionality
 
 3. Run a simple command to test functionality:
-
-   <!-- -->
 
    ```bash
    dbt compile
@@ -205,7 +196,7 @@ Confirm your development environment is running Fusion:
 
 4. Check the command output for significantly faster performance.
 
-### Step 7: Test your workflows[​](#step-7-test-your-workflows "Direct link to Step 7: Test your workflows")
+### Step 7: Test your workflows
 
 Before declaring victory, test your typical development workflows:
 
@@ -219,7 +210,7 @@ Share feedback
 
 If you encounter any unexpected behavior or have feedback about the Fusion experience, share it with your account team or [dbt Support](../docs/dbt-support.md).
 
-### What about production?[​](#what-about-production "Direct link to What about production?")
+### What about production?
 
 Your development environment is now on Fusion, but your production environment and deployment jobs are still running on dbt Core. This is intentional as it gives you and your team time to:
 
@@ -230,7 +221,7 @@ Your development environment is now on Fusion, but your production environment a
 
 When you're ready to upgrade production, you'll update your deployment environments and jobs to use the `Fusion Stable` release track. We'll cover that in the next section.
 
-## Upgrade staging and intermediate environments[​](#upgrade-staging-and-intermediate-environments "Direct link to Upgrade staging and intermediate environments")
+## Upgrade staging and intermediate environments
 
 After successfully upgrading and testing your development environment, the next step is upgrading your staging or other intermediate deployment environments. These environments serve as a critical validation layer before promoting Fusion to production, allowing you to test with production-like data and workflows while limiting risk.
 
@@ -243,13 +234,13 @@ Staging environments provide:
 * An opportunity to verify integrations and downstream dependencies
 * A safe environment to identify performance characteristics before production
 
-### What is a staging environment?[​](#what-is-a-staging-environment "Direct link to What is a staging environment?")
+### What is a staging environment?
 
 A [staging environment](../docs/deploy/deploy-environments.md#staging-environment) is a deployment environment that mirrors your production setup but uses non-production data or limited access credentials. It enables your team to test deployment workflows, scheduled jobs, and data transformations without affecting production systems.
 
 If you don't have a staging environment yet, consider creating one before upgrading production to Fusion. It provides an invaluable testing ground.
 
-### Step 1: Navigate to environment settings[​](#step-1-navigate-to-environment-settings "Direct link to Step 1: Navigate to environment settings")
+### Step 1: Navigate to environment settings
 
 Access the settings for your staging or intermediate environment:
 
@@ -261,7 +252,7 @@ Access the settings for your staging or intermediate environment:
 
 [![Navigate to environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Navigate to environment settings")](#)Navigate to environment settings
 
-### Step 2: Update the dbt version[​](#step-2-update-the-dbt-version "Direct link to Step 2: Update the dbt version")
+### Step 2: Update the dbt version
 
 Change your staging environment to use the Fusion release track:
 
@@ -274,7 +265,7 @@ Change your staging environment to use the Fusion release track:
 
 Your staging environment is now configured to use Fusion! Any jobs associated with this environment will use Fusion on their next run.
 
-### Step 3: Run a test job[​](#step-3-run-a-test-job "Direct link to Step 3: Run a test job")
+### Step 3: Run a test job
 
 Validate that Fusion works correctly in your staging environment by running a job:
 
@@ -283,7 +274,7 @@ Validate that Fusion works correctly in your staging environment by running a jo
 3. Click **Run now** to execute the job immediately.
 4. Monitor the job run in real-time by clicking into the run details.
 
-### Step 4: Monitor scheduled jobs[​](#step-4-monitor-scheduled-jobs "Direct link to Step 4: Monitor scheduled jobs")
+### Step 4: Monitor scheduled jobs
 
 If you have scheduled jobs in your staging environment, monitor their next scheduled runs:
 
@@ -292,7 +283,7 @@ If you have scheduled jobs in your staging environment, monitor their next sched
 3. Review job run history for any unexpected failures or warnings.
 4. Compare run times to previous dbt Core runs. You should see significant improvements.
 
-### Step 5: Validate integrations and dependencies[​](#step-5-validate-integrations-and-dependencies "Direct link to Step 5: Validate integrations and dependencies")
+### Step 5: Validate integrations and dependencies
 
 Test any integrations or dependencies that rely on your staging environment:
 
@@ -314,7 +305,7 @@ If you encounter problems in staging:
 
 You can revert the staging environment to **Latest** release track while investigating.
 
-### How long should I test in staging?[​](#how-long-should-i-test-in-staging "Direct link to How long should I test in staging?")
+### How long should I test in staging?
 
 The recommended testing period depends on your organization:
 
@@ -326,7 +317,7 @@ Don't rush this phase. Thorough testing in staging prevents production disruptio
 
 ***
 
-## Upgrade your production environment[​](#upgrade-your-production-environment "Direct link to Upgrade your production environment")
+## Upgrade your production environment
 
 Congratulations! You've successfully upgraded development and staging environments and you're now ready for the final step: upgrading your production environment to the dbt Fusion engine.
 
@@ -339,7 +330,7 @@ Upgrading production is a critical operation. While Fusion is production ready a
 * Have a rollback plan ready (reverting to **Latest** release track).
 * Monitor closely for the first few job runs after upgrading.
 
-### Step 1: Plan your maintenance window[​](#step-1-plan-your-maintenance-window "Direct link to Step 1: Plan your maintenance window")
+### Step 1: Plan your maintenance window
 
 Choose an optimal time to upgrade production:
 
@@ -348,7 +339,7 @@ Choose an optimal time to upgrade production:
 * **Notify stakeholders:** Inform BI tool users, data consumers, and team members.
 * **Document the plan:** Note which jobs to monitor and success criteria.
 
-### Step 2: Navigate to production environment settings[​](#step-2-navigate-to-production-environment-settings "Direct link to Step 2: Navigate to production environment settings")
+### Step 2: Navigate to production environment settings
 
 Access your production environment configuration:
 
@@ -360,7 +351,7 @@ Access your production environment configuration:
 
 [![Access production environment settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Access production environment settings")](#)Access production environment settings
 
-### Step 3: Upgrade to Fusion Stable[​](#step-3-upgrade-to-fusion-stable "Direct link to Step 3: Upgrade to Fusion Stable")
+### Step 3: Upgrade to Fusion Stable
 
 Update your production environment to use Fusion:
 
@@ -374,7 +365,7 @@ Update your production environment to use Fusion:
 
 Your production environment is now running on Fusion!
 
-### Step 4: Run an immediate test job[​](#step-4-run-an-immediate-test-job "Direct link to Step 4: Run an immediate test job")
+### Step 4: Run an immediate test job
 
 Validate the upgrade by running a job:
 
@@ -386,8 +377,6 @@ Validate the upgrade by running a job:
 
 4. Monitor the job run closely:
 
-   <!-- -->
-
    * Check the **parse** and **compile** steps.
    * Verify all models build successfully.
    * Confirm tests pass as expected.
@@ -395,15 +384,13 @@ Validate the upgrade by running a job:
 
 If the job succeeds, your production upgrade is successful!
 
-<!-- -->
-
 Enable the Fusion readiness panel
 
 The Fusion readiness panel shows each project's eligibility status and blockers in the dbt platform. It's rolling out in phases — if it's not enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can turn it on in **Account settings** → **Account**. Refer to [Enable Fusion readiness features](./prepare-fusion-upgrade.md?step=2) for setup steps.
 
 If you have access to dbt Wizard, use the [dbt Wizard's Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) to help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed!
 
-### Step 5: Enable dbt State (optional but recommended) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#step-5-enable-dbt-state-optional-but-recommended- "Direct link to step-5-enable-dbt-state-optional-but-recommended-")
+### Step 5: Enable dbt State (optional but recommended) [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 [dbt State](../docs/deploy/dbt-state-about.md) automatically determines which models need rebuilding based on code or data changes, which can reduce warehouse costs by 30% or more. dbt State is in preview. To get started, see [Set up dbt State](../docs/deploy/dbt-state-setup.md).
 
@@ -413,7 +400,7 @@ State-aware orchestration is now dbt State
 
 If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
-### Step 6: Monitor production jobs[​](#step-6-monitor-production-jobs "Direct link to Step 6: Monitor production jobs")
+### Step 6: Monitor production jobs
 
 Watch your production jobs closely for the first 24-48 hours:
 
@@ -422,7 +409,7 @@ Watch your production jobs closely for the first 24-48 hours:
 * **Review cost savings**: If you enabled dbt State, check [Cost Insights](../docs/explore/cost-insights.md) to see savings in action.
 * **Watch for warnings**: Review logs for any unexpected messages.
 
-### Step 7: Validate downstream integrations[​](#step-7-validate-downstream-integrations "Direct link to Step 7: Validate downstream integrations")
+### Step 7: Validate downstream integrations
 
 Ensure all systems dependent on your production data still function correctly:
 
@@ -432,7 +419,7 @@ Ensure all systems dependent on your production data still function correctly:
 4. **Semantic Layer:** If using the [dbt Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), verify metrics queries work.
 5. **Alerts and monitoring**: Check that data quality alerts and monitors function correctly.
 
-### Step 8: Update any remaining jobs with version overrides[​](#step-8-update-any-remaining-jobs-with-version-overrides "Direct link to Step 8: Update any remaining jobs with version overrides")
+### Step 8: Update any remaining jobs with version overrides
 
 Some jobs might have [version overrides](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version) set from earlier testing. Now that production is on Fusion, remove these overrides:
 
@@ -442,7 +429,7 @@ Some jobs might have [version overrides](../docs/dbt-versions/upgrade-dbt-platfo
 4. Remove the override to let the job inherit the environment's Fusion setting.
 5. Click **Save**.
 
-### Rollback procedure[​](#rollback-procedure "Direct link to Rollback procedure")
+### Rollback procedure
 
 If you encounter critical issues in production, you can revert your dbt version:
 
@@ -456,11 +443,11 @@ Rollback impact
 
 Rolling back to **Latest** will disable Fusion-specific features. Only rollback if you're experiencing production-critical issues.
 
-## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#dbt-lint- "Direct link to dbt-lint-")
+## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Now that your project is running on Fusion, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into Fusion. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments.
 
-### Basic usage[​](#basic-usage "Direct link to Basic usage")
+### Basic usage
 
 ```bash
 # Lint all SQL files in the project
@@ -478,7 +465,7 @@ dbt lint --changed
 
 See the [`dbt lint` reference](../reference/commands/lint.md?version=2.0) for the full list of flags, supported dialects, and suppression syntax.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 🎉 Congratulations!
 

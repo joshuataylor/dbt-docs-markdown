@@ -1,16 +1,14 @@
 # Connect Redshift Fusion compatible
 
-dbt platformⓘ
+dbt platform
 
 dbt platform supports connecting to Redshift.
 
-## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")
-
-<!-- -->
+## Warehouse permissions for Fusion
 
 The Redshift database user that dbt Fusion engine uses must be able to run dbt workloads and read catalog metadata used for introspection.
 
-### Required Redshift objects[​](#required-redshift-objects "Direct link to Required Redshift objects")
+### Required Redshift objects
 
 Before connecting, these objects must exist or be accessible:
 
@@ -22,13 +20,7 @@ Before connecting, these objects must exist or be accessible:
 | **User**                                                | Database user for authentication  |
 | **IAM role or profile** (optional)                      | For IAM-based authentication      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Core permissions[​](#core-permissions "Direct link to Core permissions")
+### Core permissions
 
 The following permissions are required for fundamental dbt features:
 
@@ -43,13 +35,7 @@ The following permissions are required for fundamental dbt features:
 | `DROP`     | Tables or views | Drop or replace objects               |
 | `TRUNCATE` | Tables          | Truncate tables                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
+### Metadata operations
 
 Fusion queries these Redshift system relations:
 
@@ -62,13 +48,7 @@ Fusion queries these Redshift system relations:
 | `svv_table_info`   | List materialized views when the project includes them | SELECT on the system view |
 | `svv_mv_info`      | List materialized views when the project includes them | SELECT on the system view |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Schema management[​](#schema-management "Direct link to Schema management")
+### Schema management
 
 Conditional permissions for schema management
 
@@ -76,15 +56,9 @@ Conditional permissions for schema management
 | --------------- | -------- | ------------------- |
 | `CREATE SCHEMA` | Database | Auto-create schemas |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For example SQL grants in Redshift, refer to [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md).
 
-## Connection fields[​](#connection-fields "Direct link to Connection fields")
+## Connection fields
 
 The following fields are required when creating a connection:
 
@@ -94,17 +68,11 @@ The following fields are required when creating a connection:
 | Port      | Usually 5439 (Redshift)                                                                                                                                                                                                                       | `5439`                                             |
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                                                   | `analytics`                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 **Note**: When you set up a Redshift connection in dbt, SSL-related parameters aren't available as inputs.
 
 [![Configuring a Redshift connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Redshift connection")](#)Configuring a Redshift connection
 
-### Authentication Parameters[​](#authentication-parameters "Direct link to Authentication Parameters")
+### Authentication Parameters
 
 See the following supported authentication methods for Redshift:
 
@@ -130,15 +98,9 @@ You will need to create an IAM User, generate an [access key](https://docs.aws.a
 | `access_key_id`     | ACCESS\_KEY\_ID     | IAM user [access key id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) |
 | `secret_access_key` | SECRET\_ACCESS\_KEY | IAM user secret access key                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example Extended Attributes for IAM User on Redshift Serverless[​](#example-extended-attributes-for-iam-user-on-redshift-serverless "Direct link to Example Extended Attributes for IAM User on Redshift Serverless")
+#### Example Extended Attributes for IAM User on Redshift Serverless
 
 To avoid pasting secrets in extended attributes, leverage [environment variables](../../build/environment-variables.md#handling-secrets):
 
@@ -154,11 +116,9 @@ secret_access_key: '{{ env_var(''DBT_ENV_SECRET_ACCESS_KEY'') }}'
 
 Both `DBT_ENV_ACCESS_KEY_ID` and `DBT_ENV_SECRET_ACCESS_KEY` will need [to be assigned](../../build/environment-variables.md) for every environment leveraging extended attributes as such.
 
-### Connecting using an SSH Tunnel[​](#connecting-using-an-ssh-tunnel "Direct link to Connecting using an SSH Tunnel")
+### Connecting using an SSH Tunnel
 
-<!-- -->
-
-Use an SSH tunnel when your <!-- -->Redshift<!-- --> instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
+Use an SSH tunnel when your Redshift instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
 
 To configure a connection using an SSH tunnel:
 
@@ -177,7 +137,7 @@ To configure a connection using an SSH tunnel:
 
    Each time you create and save a new SSH tunnel connection, dbt platform generates a unique SSH key pair, even when the connection details are identical to an existing connection.
 
-#### About the Bastion server in AWS[​](#about-the-bastion-server-in-aws "Direct link to About the Bastion server in AWS")
+#### About the Bastion server in AWS
 
 What is a bastion server?
 
@@ -187,9 +147,9 @@ A bastion server in [Amazon Web Services (AWS)](https://aws.amazon.com/blogs/sec
 
 dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.<br /><br />
 
-Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the <!-- -->Redshift<!-- --> instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
+Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the Redshift instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
 
-#### Configuring the Bastion Server in AWS[​](#configuring-the-bastion-server-in-aws "Direct link to Configuring the Bastion Server in AWS")
+#### Configuring the Bastion Server in AWS
 
 To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of your bastion server, username, and port, of your choosing, that dbt will connect to. Review the following steps:
 
@@ -209,15 +169,15 @@ To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of yo
 
 3. Copy and paste the dbt generated public key, into the authorized\_keys file.
 
-The bastion server should now be ready for dbt to use as a tunnel into the <!-- -->Redshift<!-- --> environment.
+The bastion server should now be ready for dbt to use as a tunnel into the Redshift environment.
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To optimize performance with data platform-specific configurations in dbt, refer to [Redshift-specific configuration](../../../reference/resource-configs/redshift-configs.md).
 
 To grant users or roles database permissions (access rights and privileges), refer to the [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md) page.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Database Error - could not connect to server: Connection timed out
 

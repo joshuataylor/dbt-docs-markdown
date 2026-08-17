@@ -2,8 +2,7 @@
 
 unique\_key identifies records for incremental models or snapshots, ensuring changes are captured or updated correctly.
 
-* Models
-* Snapshots
+### Models
 
 Configure the `unique_key` in the `config` block of your [incremental model's](../../docs/build/incremental-models.md) SQL file, in your `models/properties.yml` file, or in your `dbt_project.yml` file.
 
@@ -40,6 +39,10 @@ models:
       +unique_key: id
 ```
 
+### Snapshots
+
+(Applies to dbt v1.9 and later)
+
 For [snapshots](../../docs/build/snapshots.md), configure the `unique_key` in the your `snapshot/filename.yml` file or in your `dbt_project.yml` file.
 
 snapshots/\<filename>.yml
@@ -60,7 +63,7 @@ snapshots:
     +unique_key: column_name_or_expression
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 A column name or expression that uniquely identifies each record in the inputs of a snapshot or incremental model. dbt uses this key to match incoming records to existing records in the target table (either a snapshot or an incremental model) so that changes can be captured or updated correctly:
 
@@ -73,7 +76,7 @@ caution
 
 Providing a non-unique key will result in unexpected snapshot results. dbt **will not** test the uniqueness of this key, consider [testing](https://docs.getdbt.com/blog/primary-key-testing#how-to-test-primary-keys-with-dbt) the source data to ensure that this key is indeed unique.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 This parameter is optional. If you don't provide a `unique_key`, your adapter will default to using `incremental_strategy: append`.
 
@@ -84,12 +87,11 @@ This is different for BigQuery:
 * For `incremental_strategy = merge`, you must provide a `unique_key`; leaving it out leads to ambiguous or failing behavior.
 * For `insert_overwrite` or `microbatch`, `unique_key` is not required because they work by partition replacement rather than row-level upserts.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use an `id` column as a unique key[​](#use-an-id-column-as-a-unique-key "Direct link to use-an-id-column-as-a-unique-key")
+### Use an `id` column as a unique key
 
-* Models
-* Snapshots
+### Models
 
 In this example, the `id` column is the unique key for an incremental model.
 
@@ -106,7 +108,11 @@ models/my\_incremental\_model.sql
 select * from ..
 ```
 
+### Snapshots
+
 In this example, the `id` column is used as a unique key for a snapshot.
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot.yml
 
@@ -131,10 +137,11 @@ snapshots:
     +unique_key: id
 ```
 
-### Use multiple unique keys[​](#use-multiple-unique-keys "Direct link to Use multiple unique keys")
+(Applies to dbt v1.9 and later)
 
-* Models
-* Snapshots
+### Use multiple unique keys
+
+### Models
 
 Configure multiple unique keys for an incremental model as a string representing a single column or a list of single-quoted column names that can be used together, for example, `['col1', 'col2', …]`.
 
@@ -150,6 +157,8 @@ models/my\_incremental\_model.sql
 
 with...
 ```
+
+### Snapshots
 
 You can configure snapshots to use multiple unique keys for `primary_key` columns.
 

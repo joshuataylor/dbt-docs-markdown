@@ -1,14 +1,10 @@
 # tags
 
-* Models
-* Seeds
-* Snapshots
-* Saved queries
-* Sources
-* Exposures
-* Tests
+### Models
 
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 models:
@@ -43,7 +39,11 @@ models/\<modelname>.sql
 select ...
 ```
 
+### Seeds
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 seeds:
@@ -68,13 +68,19 @@ seeds:
                 tags: <string> | [<string>]
 ```
 
+### Snapshots
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 snapshots:
   <resource-path>:
     +tags: <string> | [<string>]
 ```
+
+(Applies to dbt v1.9 and later)
 
 snapshots/properties.yml
 
@@ -99,7 +105,11 @@ select ...
 {% endsnapshot %}
 ```
 
+### Saved queries
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 saved-queries:
@@ -116,7 +126,11 @@ saved_queries:
       tags: <string> | [<string>]
 ```
 
+### Sources
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 sources:
@@ -147,7 +161,11 @@ sources:
 
 Note that for backwards compatibility, `tags` is supported as a top-level key for sources, but without the capabilities of config inheritance.
 
+### Exposures
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 exposures:
@@ -166,7 +184,11 @@ exposures:
 
 Note that for backwards compatibility, `tags` is supported as a top-level key for exposures, but without the capabilities of config inheritance.
 
+### Tests
+
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yml
 data_tests:
@@ -201,7 +223,7 @@ select ...
 {% endtest %}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Apply a tag (or list of tags) to a resource.
 
@@ -213,7 +235,11 @@ These tags can be used as part of the [resource selection syntax](../node-select
 * `dbt snapshot --select tag:my_tag` — Snapshot all resources tagged with a specific tag.
 * `dbt test --select tag:my_tag` — Indirectly runs all tests associated with the models that are tagged.
 
-#### Using tags with the `+` operator[​](#using-tags-with-the--operator "Direct link to using-tags-with-the--operator")
+Effect on state comparison
+
+Changes to `tags`, including at the column level, don't trigger [`state:modified`](../node-selection/methods.md#state). dbt treats `tags` (and `meta`) as metadata only, since they don't affect how a resource is materialized. Refer to [caveats to state comparison](../node-selection/state-comparison-caveats.md#tags-and-meta) for more detail.
+
+#### Using tags with the `+` operator
 
 You can use the [`+` operator](../node-selection/graph-operators.md#the-plus-operator) to include upstream or downstream dependencies in your `tag` selection:
 
@@ -232,11 +258,11 @@ When using tags, consider the following:
 
 Refer to [usage notes](#usage-notes) for more information.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples show how to apply tags to resources in your project. You can configure tags in the `dbt_project.yml`, property files, or SQL files.
 
-### Use tags to run parts of your project[​](#use-tags-to-run-parts-of-your-project "Direct link to Use tags to run parts of your project")
+### Use tags to run parts of your project
 
 Apply tags in your `dbt_project.yml` as a single value or a string. In the following example, one of the models, the `jaffle_shop` model, is tagged with `contains_pii`.
 
@@ -262,7 +288,7 @@ models:
         - "published"
 ```
 
-### Apply tags to models[​](#apply-tags-to-models "Direct link to Apply tags to models")
+### Apply tags to models
 
 This section demonstrates applying tags to models in the `dbt_project.yml`, `schema.yml`, and SQL files.
 
@@ -316,7 +342,7 @@ Run resources with specific tags (or exclude resources with specific tags) using
   dbt run --select tag:daily --exclude tag:hourly
 ```
 
-### Apply tags to seeds[​](#apply-tags-to-seeds "Direct link to Apply tags to seeds")
+### Apply tags to seeds
 
 dbt\_project.yml
 
@@ -338,7 +364,7 @@ seeds:
         - hourly
 ```
 
-### Apply tags to saved queries[​](#apply-tags-to-saved-queries "Direct link to Apply tags to saved queries")
+### Apply tags to saved queries
 
 This following example shows how to apply a tag to a saved query in the `dbt_project.yml` file. The saved query is then tagged with `order_metrics`.
 
@@ -380,9 +406,9 @@ Run resources with multiple tags using the following commands:
   dbt build --select tag:order_metrics tag:hourly
 ```
 
-## Usage notes[​](#usage-notes "Direct link to Usage notes")
+## Usage notes
 
-### Tags must be strings[​](#tags-must-be-strings "Direct link to Tags must be strings")
+### Tags must be strings
 
 Each individual tag must be a string value (for example, `marketing` or `daily`).
 
@@ -409,7 +435,7 @@ A warning is raised when the `tags` value is not a string. For example:
 Field config.tags: {'my_tag': 'my_value'} is not valid for source (ecom)
 ```
 
-### Tags are additive[​](#tags-are-additive "Direct link to Tags are additive")
+### Tags are additive
 
 Tags accumulate hierarchically. The [earlier example](./tags.md#use-tags-to-run-parts-of-your-project) would result in:
 
@@ -420,13 +446,7 @@ Tags accumulate hierarchically. The [earlier example](./tags.md#use-tags-to-run-
 | models/marts/dim\_customers.sql   | `contains_pii`, `hourly`, `published` |
 | models/metrics/daily\_metrics.sql | `contains_pii`, `daily`, `published`  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Applying tags to specific columns and tests[​](#applying-tags-to-specific-columns-and-tests "Direct link to Applying tags to specific columns and tests")
+### Applying tags to specific columns and tests
 
 You can also apply tags to specific columns in a resource, and to tests.
 
@@ -452,7 +472,7 @@ dbt test --select tag:column_level
 dbt test --select tag:test_level
 ```
 
-### Backwards compatibility for sources and exposures[​](#backwards-compatibility-for-sources-and-exposures "Direct link to Backwards compatibility for sources and exposures")
+### Backwards compatibility for sources and exposures
 
 For backwards compatibility, `tags` is supported as a top-level key for sources and exposures (prior to dbt v1.10), but without the capabilities of config inheritance.
 

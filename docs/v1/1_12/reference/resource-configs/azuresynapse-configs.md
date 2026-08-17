@@ -4,12 +4,11 @@ All [configuration options for the Microsoft SQL Server adapter](./mssql-configs
 
 Additionally, the configuration options below are available.
 
-### Indices and distributions[​](#indices-and-distributions "Direct link to Indices and distributions")
+### Indices and distributions
 
 The main index and the distribution type can be set for models that are materialized to tables.
 
-* Model config
-* Project config
+### Model config
 
 models/example.sql
 
@@ -24,6 +23,8 @@ models/example.sql
 select *
 from ...
 ```
+
+### Project config
 
 dbt\_project.yml
 

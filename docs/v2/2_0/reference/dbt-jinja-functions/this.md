@@ -11,9 +11,9 @@
 
 `this` can be thought of as equivalent to `ref('<the_current_model>')`, and is a neat way to avoid circular dependencies.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Configuring incremental models[​](#configuring-incremental-models "Direct link to Configuring incremental models")
+### Configuring incremental models
 
 models/stg\_events.sql
 

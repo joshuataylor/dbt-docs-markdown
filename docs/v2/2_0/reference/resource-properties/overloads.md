@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -40,13 +28,13 @@ functions:
       - defined_in: ...            # declare additional overloads
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `overloads` property lets you define multiple argument signatures for the same [user-defined function UDF](../../docs/build/udfs.md). This lets you call the same function name with different input types, without creating separate UDFs for each variant. The warehouse calls the right version based on the argument types. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
 Each overload references a separate file that contains its function body, with optional `arguments` and `returns`. All overloads are grouped into one DAG node (the root function), so they're built and selected together. On retry, dbt skips overloads that succeeded and reruns only those that failed.
 
-## Behavior[​](#behavior "Direct link to Behavior")
+## Behavior
 
 dbt runs all overloads regardless of individual failures, so you get a complete picture of which overloads succeeded and which failed. The following behaviors apply:
 
@@ -54,11 +42,11 @@ dbt runs all overloads regardless of individual failures, so you get a complete 
 * [`dbt retry`](../commands/retry.md) skips overloads that already succeeded and only re-runs the previously failed ones.
 * [`state:modified`](../node-selection/methods.md#the-state-method) detects changes to any overload's function body, arguments, or return type and marks the root function node as modified.
 
-## Properties[​](#properties "Direct link to Properties")
+## Properties
 
 Each entry in the `overloads` list supports the following properties.
 
-### defined\_in[​](#defined_in "Direct link to defined_in")
+### defined\_in
 
 The name of the file (without extension) that contains the overload's function body. The file must exist in the `functions/` directory. For example, `defined_in: null_if_empty_numeric` references `functions/null_if_empty_numeric.sql` for SQL UDFs, `functions/null_if_empty_numeric.py` for Python UDFs, or `functions/null_if_empty_numeric.js` for JavaScript UDFs.
 
@@ -70,19 +58,17 @@ dbt raises a parsing error if:
 * Two overloads reference the same file.
 * The referenced file doesn't exist in the `functions/` directory.
 
-### arguments[​](#arguments "Direct link to arguments")
+### arguments
 
 The argument list for the overload. Follows the same structure as [function arguments](./function-arguments.md).
 
-### returns[​](#returns "Direct link to returns")
+### returns
 
 The return type for the overload. Follows the same structure as [returns](./returns.md). If omitted, the overload inherits the return type of the root function.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-* SQL
-* Python
-* JavaScript
+### SQL
 
 functions/null\_if\_empty.yml
 
@@ -125,6 +111,8 @@ CASE WHEN val = 0 THEN NULL ELSE val END
 SELECT CASE WHEN val = 0 THEN NULL ELSE val END
 ```
 
+### Python
+
 functions/null\_if\_empty.yml
 
 ```yml
@@ -163,6 +151,8 @@ def main(val):
     return None if val == 0 else val
 ```
 
+### JavaScript
+
 functions/null\_if\_empty.yml
 
 ```yml
@@ -198,7 +188,7 @@ if (val === 0) return null;
 return val;
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

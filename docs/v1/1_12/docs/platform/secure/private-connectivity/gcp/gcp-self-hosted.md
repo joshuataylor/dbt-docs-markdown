@@ -1,8 +1,6 @@
 # Configuring GCP Private Service Connect for a self-hosted service
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 GCP Private Service Connect (PSC) enables secure, private connectivity between dbt and your self-hosted services. These services may include version control systems (VCS), data warehouses, or any other applications you manage. With PSC, you do not need to expose your service to the public internet. All communication occurs over a private network, significantly enhancing security. For more details, refer to the GCP [Private Service Connect documentation](https://cloud.google.com/private-service-connect).
 
-## What this guide covers[​](#what-this-guide-covers "Direct link to What this guide covers")
+## What this guide covers
 
 The focus of this guide is not on any particular service or [Backend](#terminology) architecture, but on the [Service Attachment](#terminology) that interconnects dbt with your self-hosted service. This attachment process should be standard across most use cases.
 
@@ -25,11 +23,11 @@ Out of scope
 
 This guide does not cover the configuration or troubleshooting of your self-hosted service, load balancer, or backend health, due to the virtually limitless ways these environments can be configured. While dbt Support may assist with such issues on a best-effort basis, we recommend engaging [Google Cloud Support](https://cloud.google.com/support) to expedite resolution.
 
-## Audience[​](#audience "Direct link to Audience")
+## Audience
 
 This guide is intended for cloud network administrators or engineers responsible for configuring and maintaining secure network communications within your organization's Google Cloud Platform (GCP) environment.
 
-## Terminology[​](#terminology "Direct link to Terminology")
+## Terminology
 
 This guide uses several important terms related to Private Service Connect. Understanding these definitions helps ensure successful implementation. For a more detailed explanation of these concepts, refer to the [GCP Private Service Connect documentation](https://cloud.google.com/vpc/docs/private-service-connect#managed-services).
 
@@ -38,7 +36,7 @@ This guide uses several important terms related to Private Service Connect. Unde
 * **Service Attachment:** Refers to the resource that is shared with consumer(s) of your Published Service, so that they can establish endpoints to it.
 * **Backend:** Can also be referred to as Network Endpoint Groups (NEGs). This is the particular architecture that your service is running on. For example, this may be VMs, GKE Instance Groups, or even on-prem IPs.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin, make sure to review the following requirements:
 
@@ -60,12 +58,12 @@ Before you begin, make sure to review the following requirements:
 
    * Contact [dbt Support](mailto:support@getdbt.com) to obtain the dbt GCP project ID. You will need this in order to share your service attachment with the dbt platform.
 
-## Instructions[​](#instructions "Direct link to Instructions")
+## Instructions
 
 1. Log in to the Google Cloud Platform [console](https://console.cloud.google.com)
 2. Navigate to the GCP Organization and Project that your self-hosted service is in.
 
-### Create a dedicated service attachment subnet[​](#create-a-dedicated-service-attachment-subnet "Direct link to Create a dedicated service attachment subnet")
+### Create a dedicated service attachment subnet
 
 3. In the search field at the top-middle of the console, search for **VPC networks** and navigate to its product page.
 
@@ -87,7 +85,7 @@ Before you begin, make sure to review the following requirements:
 
 [![Screenshot of step 6: Subnet creation for PSC Service Attachment](/img/docs/dbt-platform/gcp-self-hosted-psc/service-attach-subnet-creation.png?v=2 "Screenshot of step 6: Subnet creation for PSC Service Attachment")](#)Screenshot of step 6: Subnet creation for PSC Service Attachment
 
-### Create a service attachment[​](#create-a-service-attachment "Direct link to Create a service attachment")
+### Create a service attachment
 
 7. After the subnet creation for the service attachment has completed, in the search field at the top-middle of the console, search for **Private Service Connect**, and click on its product page.
 
@@ -128,7 +126,7 @@ Before you begin, make sure to review the following requirements:
 
 [![Screenshot of step 11: Copy the Service attachment URI](/img/docs/dbt-platform/gcp-self-hosted-psc/service-attach-details.png?v=2 "Screenshot of step 11: Copy the Service attachment URI")](#)Screenshot of step 11: Copy the Service attachment URI
 
-### Providing dbt Support with connection details[​](#providing-dbt-support-with-connection-details "Direct link to Providing dbt Support with connection details")
+### Providing dbt Support with connection details
 
 12. Add the required information to the template below, and submit your request to [dbt Support](mailto:support@getdbt.com):
 
@@ -147,15 +145,13 @@ Subject: New GCP Self-hosted Private Service Connect Request
 - dbt GCP environment (US):
 ```
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If the Private Service Connect endpoint has been provisioned and configured in dbt but connectivity is still failing, check the following in your networking setup to ensure requests and responses can be successfully routed between dbt and your service.
 
-### Configuration checklist[​](#configuration-checklist "Direct link to Configuration checklist")
+### Configuration checklist
 
 1. **Service Attachment status**
 
@@ -181,18 +177,18 @@ If the Private Service Connect endpoint has been provisioned and configured in d
 
    For more details, see [Firewall rules for health checks](https://cloud.google.com/load-balancing/docs/health-check-concepts#ip-ranges).
 
-### Monitoring[​](#monitoring "Direct link to Monitoring")
+### Monitoring
 
 To help isolate connection issues, use Google Cloud's monitoring tools:
 
-#### Service Attachment metrics[​](#service-attachment-metrics "Direct link to Service Attachment metrics")
+#### Service Attachment metrics
 
 In the Google Cloud Console, navigate to **Monitoring** → **Metrics Explorer**. Search for Private Service Connect metrics:
 
 * `compute.googleapis.com/nat/nat_connections` — Tracks active NAT connections
 * `compute.googleapis.com/nat/sent_bytes_count` — Confirms traffic is flowing
 
-#### Load Balancer logs[​](#load-balancer-logs "Direct link to Load Balancer logs")
+#### Load Balancer logs
 
 Enable logging on your load balancer's backend service to capture request details. Navigate to your backend service, click **Edit**, and enable **Logging** with a sample rate of 1.0 for troubleshooting.
 

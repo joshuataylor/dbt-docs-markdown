@@ -1,6 +1,6 @@
 # Preview new and experimental features in the dbt platform
 
-dbt platformⓘ
+dbt platform
 
 dbt Labs often tests experimental features before deciding to continue on the [Product lifecycle](./product-lifecycles.md).
 
@@ -18,6 +18,6 @@ To enable or disable experimental features:
 2. Under **User profile**, find **Experimental features**.
 3. Click **Beta** to toggle the features on or off as shown in the following image. ![Experimental features](/assets/images/experimental-feats-a099dce8fc8f8ac6081f85df4b0aa379.png)
 
-## Beta terms and conditions[​](#beta-terms-and-conditions "Direct link to Beta terms and conditions")
+## Beta terms and conditions
 
 By using or enabling features that are not yet in general release ("Beta Features"), you agree to the [Beta Features Terms and Conditions](https://docs.getdbt.com/assets/files/beta-tc-740ff696113c89c38a96bb70b968775e.pdf).

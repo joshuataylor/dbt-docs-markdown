@@ -2,7 +2,7 @@
 
 The LIKE operator helps you easily match, find, and filter out string values of a specified pattern by using SQL wildcards. Important to note that the pattern passed into the LIKE operator is case-sensitive, unlike its case-insensitive cousin, [ILIKE](./ilike.md).
 
-## How to use the SQL LIKE operator[​](#how-to-use-the-sql-like-operator "Direct link to How to use the SQL LIKE operator")
+## How to use the SQL LIKE operator
 
 The LIKE operator has a simple syntax, with the ability to have it utilized in [WHERE clauses](./where.md) or case statements:
 
@@ -11,8 +11,6 @@ The LIKE operator has a simple syntax, with the ability to have it utilized in [
 Some notes on this operator’s syntax and functionality:
 
 * The `<pattern>` can use two SQL wildcards (`%` and `_`); the underscore will match any *single character* and the % matches zero or more characters
-
-  <!-- -->
 
   * Ex. '%J' = any string that ends with a capital J
   * Ex. 'J%' = any string that starts with a capital J
@@ -27,7 +25,7 @@ Some notes on this operator’s syntax and functionality:
 
 Let’s dive into a practical example using the LIKE operator now.
 
-### SQL LIKE example[​](#sql-like-example "Direct link to SQL LIKE example")
+### SQL LIKE example
 
 ```sql
 select
@@ -45,15 +43,9 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 1                | Julia           |
 | 4                | Jeremy          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Because LIKE is case-sensitive, it would not return results in this query for customers with lowercase J-names. If you have a mix of uppercase and lowercase strings in your data, consider standardizing casing for strings using the [UPPER](./upper.md) and [LOWER](./lower.md) functions or use the more flexible [ILIKE operator](./ilike.md).
 
-## LIKE syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#like-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to LIKE syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## LIKE syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Most, if not all, modern data warehouses support the LIKE operator and the syntax is also the same across them. Some data warehouses, such as Snowflake and Databricks, additionally support similar or more flexible operators such as ILIKE, the case-insensitive version of LIKE, or LIKE ANY, which allows you to pass in multiple pattern options to scan for.
 
@@ -66,13 +58,7 @@ Use the table below to read more on the documentation for the LIKE operator in y
 | Amazon Redshift    | ✅                |
 | Google BigQuery    | ✅                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## LIKE operator example use cases[​](#like-operator-example-use-cases "Direct link to LIKE operator example use cases")
+## LIKE operator example use cases
 
 You may see the LIKE operator used in analytics engineering work to:
 

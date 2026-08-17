@@ -1,8 +1,6 @@
 # Configuring Azure Private Link for a self-hosted service
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 Azure Private Link enables secure, private connectivity between dbt and your self-hosted services. These services may include version control systems (VCS), data warehouses, or any other applications you manage. With Private Link, you do not need to expose your service to the public internet. All communication occurs over a private network, significantly enhancing security. For more details, refer to the Azure [Private Link documentation](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview).
 
-## What this guide covers[​](#what-this-guide-covers "Direct link to What this guide covers")
+## What this guide covers
 
 The focus of this guide is not on any particular service or backend architecture, but on the [Private Link Service](#terminology) that interconnects dbt with your self-hosted service. This process should be standard across most use cases.
 
@@ -25,11 +23,11 @@ Out of scope
 
 This guide does not cover the configuration or troubleshooting of your self-hosted service, load balancer, or backend pool health, due to the virtually limitless ways these environments can be configured. While dbt Support may assist with such issues on a best-effort basis, we recommend engaging [Azure Support](https://azure.microsoft.com/en-us/support/) to expedite resolution.
 
-## Audience[​](#audience "Direct link to Audience")
+## Audience
 
 This guide is intended for cloud network administrators or engineers responsible for configuring and maintaining secure network communications within your organization's Microsoft Azure environment.
 
-## Terminology[​](#terminology "Direct link to Terminology")
+## Terminology
 
 This guide uses several important terms related to Azure Private Link. Understanding these definitions will help ensure successful implementation. For a more detailed explanation of these concepts, refer to the [Azure Private Link Service documentation](https://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview).
 
@@ -40,7 +38,7 @@ This guide uses several important terms related to Azure Private Link. Understan
 * **Standard Load Balancer:** The required load balancer type that sits in front of your service. Your application must run behind a Standard Load Balancer to use Private Link Service.
 * **NAT subnet:** A dedicated subnet in your VNet used for Source Network Address Translation (SNAT) IP addresses for the Private Link Service. Consumer traffic appears to originate from this pool of private IP addresses.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin, make sure to review the following requirements:
 
@@ -60,12 +58,12 @@ Before you begin, make sure to review the following requirements:
 
    * Contact [dbt Support](mailto:support@getdbt.com) to obtain the dbt Azure subscription ID. You will need this in order to allow dbt to connect to your Private Link Service.
 
-## Instructions[​](#instructions "Direct link to Instructions")
+## Instructions
 
 1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the Azure Subscription and Resource Group where your self-hosted service is located.
 
-### Create a NAT subnet for the Private Link service[​](#create-a-nat-subnet-for-the-private-link-service "Direct link to Create a NAT subnet for the Private Link service")
+### Create a NAT subnet for the Private Link service
 
 3. Under the **Resources** section, search for **Virtual network** and go into the VNet where your self-hosted service is running.
 
@@ -97,7 +95,7 @@ Before you begin, make sure to review the following requirements:
 
 [![Screenshot of steps 4-5: NAT Subnet creation for Private Link Service](/img/docs/dbt-platform/az-self-hosted-privatelink/nat-subnet-creation.png?v=2 "Screenshot of steps 4-5: NAT Subnet creation for Private Link Service")](#)Screenshot of steps 4-5: NAT Subnet creation for Private Link Service
 
-### Create a Private Link service[​](#create-a-private-link-service "Direct link to Create a Private Link service")
+### Create a Private Link service
 
 6. After the subnet creation has completed, in the search field at the top-middle of the portal, search for **Private link services**, and click on its page.
 
@@ -142,7 +140,7 @@ Before you begin, make sure to review the following requirements:
 
 [![Screenshot of step 10: Copy the Private Link Service Alias](/img/docs/dbt-platform/az-self-hosted-privatelink/alias-info.png?v=2 "Screenshot of step 10: Copy the Private Link Service Alias")](#)Screenshot of step 10: Copy the Private Link Service Alias
 
-### Providing dbt Support with connection details[​](#providing-dbt-support-with-connection-details "Direct link to Providing dbt Support with connection details")
+### Providing dbt Support with connection details
 
 11. Add the required information to the template below, and submit your request to [dbt Support](mailto:support@getdbt.com):
 
@@ -161,15 +159,13 @@ Subject: New Azure Self-hosted Private Link Request
 - dbt Azure environment (EMEA):
 ```
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If the Private Link endpoint has been provisioned and configured in dbt but connectivity is still failing, check the following in your networking setup to ensure requests and responses can be successfully routed between dbt and your service.
 
-### Configuration checklist[​](#configuration-checklist "Direct link to Configuration checklist")
+### Configuration checklist
 
 1. **Private Link Service status**
 
@@ -190,18 +186,18 @@ If the Private Link endpoint has been provisioned and configured in dbt but conn
    * NAT subnet: Recommended to leave NSG as **None** (as noted in the setup instructions)
    * Backend subnet: Must allow traffic from the load balancer's frontend IP
 
-### Monitoring[​](#monitoring "Direct link to Monitoring")
+### Monitoring
 
 To help isolate connection issues, use Azure's monitoring tools:
 
-#### Private Link Service metrics[​](#private-link-service-metrics "Direct link to Private Link Service metrics")
+#### Private Link Service metrics
 
 In the Azure Portal, navigate to your Private Link Service and click **Metrics**. Monitor:
 
 * **Bytes In/Out** — Confirms traffic is flowing through the service
 * **NAT Port Usage** — High usage may indicate the NAT subnet needs more IPs
 
-#### Load Balancer metrics[​](#load-balancer-metrics "Direct link to Load Balancer metrics")
+#### Load Balancer metrics
 
 Navigate to your Standard Load Balancer and click **Metrics**. Monitor:
 

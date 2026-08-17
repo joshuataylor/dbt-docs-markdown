@@ -1,6 +1,6 @@
 # anchors
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Anchors are a [YAML feature](https://yaml.org/spec/1.2.2/#692-node-anchors) that let you reuse configuration blocks inside a single YAML file. In dbt Core v1.10, the `anchors:` key was introduced to enclose configuration fragments that aren't valid on their own or that only exist as template data. Using the `anchors:` key ensures these fragments won't be rejected during file validation.
 
@@ -10,9 +10,9 @@ note
 
 You can define anchors in dbt Core v1.9 and earlier, but there is no dedicated location for anchors in these versions. If you need to define a standalone anchor, you can put it at the top level of your YAML file.
 
-## YAML anchor syntax[​](#yaml-anchor-syntax "Direct link to YAML anchor syntax")
+## YAML anchor syntax
 
-### Anchors and aliases[​](#anchors-and-aliases "Direct link to Anchors and aliases")
+### Anchors and aliases
 
 To define a YAML anchor, add an `anchors:` block in your YAML file and use the `&` symbol in front of the anchor's name (for example, `&id_column_alias`). This creates an alias which you can reference elsewhere by prefixing the alias with a `*` character.
 
@@ -49,7 +49,7 @@ models:
 
 [![Behind the scenes, the alias is replaced with the object defined by the anchor.](/img/reference/resource-properties/anchor_example_expansion.png?v=2 "Behind the scenes, the alias is replaced with the object defined by the anchor.")](#)Behind the scenes, the alias is replaced with the object defined by the anchor.
 
-### Merge syntax[​](#merge-syntax "Direct link to Merge syntax")
+### Merge syntax
 
 Sometimes, an anchor is mostly the same but one part needs to be overridden. When the anchor refers to a dictionary/mapping (not a list or a scalar value), you can use the `<<:` merge syntax to override an already-defined key, or add extra keys to the dictionary. For example:
 
@@ -106,7 +106,7 @@ sources:
       - name: contacts
 ```
 
-## Usage notes[​](#usage-notes "Direct link to Usage notes")
+## Usage notes
 
 * Old versions of dbt Core (v1.9 and earlier) do not have a dedicated `anchors:` key. If you need to define a standalone anchor, you can leave it at the top level of your file.
 

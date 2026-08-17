@@ -6,7 +6,7 @@ To informally formalize it, case statements are the SQL equivalent of an if-then
 
 In this page, we’ll break down how to use SQL case statements and demonstrate why they’re valuable to modern data teams.
 
-## How to use the SQL case statements[​](#how-to-use-the-sql-case-statements "Direct link to How to use the SQL case statements")
+## How to use the SQL case statements
 
 Case when statements are created in [SELECT statements](./select.md) along with other fields you choose to select. The general syntax for SQL case when statements is as follows:
 
@@ -29,7 +29,7 @@ Some notes on case statement functionality:
 
 Below, let’s take a look at a practical example using a case statement.
 
-### SQL CASE WHEN example[​](#sql-case-when-example "Direct link to SQL CASE WHEN example")
+### SQL CASE WHEN example
 
 ```sql
 select
@@ -52,17 +52,11 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 4             | 25         | high                     |
 | 5             | 17         | medium                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL CASE WHEN syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-case-when-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL CASE WHEN syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL CASE WHEN syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Since it’s a fundamental of SQL, most, if not all, modern data warehouses support the ability to add case when statements to their queries. Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support case statements and have the same syntax for them.
 
-## CASE WHEN use cases[​](#case-when-use-cases "Direct link to CASE WHEN use cases")
+## CASE WHEN use cases
 
 The use cases for case statements in dbt models and ad hoc queries is almost endless; as a result, we won’t (be able to) create an exhaustive list of where you might see case statements in the wild.
 

@@ -1,6 +1,6 @@
 # Connect Starburst or Trino
 
-dbt platformⓘ
+dbt platform
 
 The following are the required fields for setting up a connection with a [Starburst Enterprise](https://docs.starburst.io/starburst-enterprise/index.html), [Starburst Galaxy](https://docs.starburst.io/starburst-galaxy/index.html), or [Trino](https://trino.io/) cluster. Unless specified, "cluster" means any of these products' clusters.
 
@@ -13,20 +13,14 @@ The following are the required fields for setting up a connection with a [Starbu
 | **Database** | The name of a catalog in your cluster.                                                                                                                                                | `example_catalog`                                                                                                                                                 |
 | **Schema**   | The name of a schema that exists within the specified catalog.                                                                                                                        | `example_schema`                                                                                                                                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Roles in Starburst Enterprise[​](#roles-in-starburst-enterprise "Direct link to Roles in Starburst Enterprise")
+## Roles in Starburst Enterprise
 
 If connecting to a Starburst Enterprise cluster with built-in access controls enabled, you must specify a role using the format detailed in [Additional parameters](#additional-parameters). If a role is not specified, the default role for the provided username is used.
 
-## Catalogs and schemas[​](#catalogs-and-schemas "Direct link to Catalogs and schemas")
+## Catalogs and schemas
 
 When selecting the catalog and the schema, make sure the user has read and write access to both. This selection does not limit your ability to query the catalog. Instead, they serve as the default location for where tables and views are materialized. In addition, the Trino connector used in the catalog must support creating tables. This *default* can be changed later from within your dbt project.
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Starburst/Trino-specific configuration](../../../reference/resource-configs/trino-configs.md).

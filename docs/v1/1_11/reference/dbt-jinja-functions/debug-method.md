@@ -11,15 +11,15 @@ If developing in dbt platform or using Fusion, you can instead use:
 * [`{{ print() }}`](./print.md) - Print messages to both the log file and standard output (`stdout`).
 * [`{{ log() }}`](./log.md) - Structured logging that prints messages during Jinja rendering.
 
-The `{{ debug() }}` macro will open an iPython debugger in the context of a compiled dbt macro. The `DBT_ENGINE_MACRO_DEBUGGING` environment variable must be set to use the debugger.
+The `{{ debug() }}` macro will open an iPython debugger in the context of a compiled dbt macro. The (Applies to dbt v1.11 and later) `DBT_ENGINE_MACRO_DEBUGGING` environment variable must be set to use the debugger.
 
 This function requires:
 
 * Interactive terminal access with iPython debugger (`ipdb`) installed. Fusion doesn't provide a iPython (ipdb) debugger since its built on Rust. It instead outputs a non-interactive snapshot of the MiniJinja render context in the compiled code.
 * Development environment running the self-hosted dbt Core CLI
-* `DBT_ENGINE_MACRO_DEBUGGING` environment variable set
+* (Applies to dbt v1.11 and later) `DBT_ENGINE_MACRO_DEBUGGING` environment variable set
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 my\_macro.sql
 
@@ -36,7 +36,7 @@ my\_macro.sql
 
 When dbt hits the `debug()` line, you'll see something like:
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```shell
 $ DBT_ENGINE_MACRO_DEBUGGING=write dbt compile

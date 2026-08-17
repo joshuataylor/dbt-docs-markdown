@@ -1,12 +1,10 @@
 # Starrocks configurations
 
-## Model Configuration[​](#model-configuration "Direct link to Model Configuration")
+## Model Configuration
 
 A dbt model can be configured using the following syntax:
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -23,6 +21,8 @@ models:
     properties: [{"replication_num":"1", "in_memory": "true"}]
     refresh_method: 'async' // only for materialized view default manual
 ```
+
+### Properties YAML file
 
 models/properties.yml
 
@@ -41,6 +41,8 @@ models:
       refresh_method: 'async' // only for materialized view default manual
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
 
 ```jinja
@@ -55,7 +57,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-### Configuration Description[​](#configuration-description "Direct link to Configuration Description")
+### Configuration Description
 
 | Option              | Description                                                                                                                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -69,13 +71,7 @@ models/\<model\_name>.sql
 | `properties`        | The table properties configuration of Starrocks. ([Starrocks table properties](https://docs.starrocks.io/en-us/latest/sql-reference/sql-statements/data-definition/CREATE_TABLE#properties)) |
 | `refresh_method`    | How to refresh materialized views.                                                                                                                                                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Read From Catalog[​](#read-from-catalog "Direct link to Read From Catalog")
+## Read From Catalog
 
 First you need to add this catalog to starrocks. The following is an example of hive.
 

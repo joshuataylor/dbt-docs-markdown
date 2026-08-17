@@ -6,7 +6,7 @@ After you load seeds, you can reference the resulting tables in downstream model
 
 Seeds are configured in the `dbt_project.yml` file, where you can define options like seed file directories and column interpretation. The `dbt seed` command then loads those CSVs into your warehouse so you can reference them in downstream models.
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 This section covers common `dbt seed` results (artifacts and CLI output) and options you might use when running seeds.
 
@@ -24,7 +24,7 @@ Use global flags when you want to control command behavior, logging, and runtime
 
 * Flags: `dbt seed` supports dbt global flags. For the full list, refer to [Command line options](../global-configs/command-line-options.md) and [Available flags](../global-configs/about-global-configs.md#available-flags).
 
-## Selecting seeds[​](#selecting-seeds "Direct link to Selecting seeds")
+## Selecting seeds
 
 You can run specific seeds using the `--select` flag when executing the `dbt seed` command. For example:
 
@@ -53,7 +53,7 @@ dbt seed --select "country_codes"
 dbt seed --select "country_codes state_codes" --full-refresh
 ```
 
-## The --full-refresh flag[​](#the---full-refresh-flag "Direct link to The --full-refresh flag")
+## The --full-refresh flag
 
 Use `--full-refresh` to force a full reload of seed data (rather than an incremental update) when you need to rebuild seed tables from scratch. This is useful when:
 
@@ -77,9 +77,7 @@ Use `--full-refresh` to force a full reload of seed data (rather than an increme
 
 For information about configuring seeds (for example, column types and quoting behavior), refer to [Seed configurations](../seed-configs.md).
 
-<!-- -->
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Seed configurations](../seed-configs.md)
 * [Add Seeds to your DAG](../../docs/build/seeds.md)

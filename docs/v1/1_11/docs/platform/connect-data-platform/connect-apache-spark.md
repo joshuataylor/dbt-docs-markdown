@@ -1,6 +1,6 @@
 # Connect Apache Spark
 
-dbt platformⓘ
+dbt platform
 
 If you're using Databricks, use `dbt-databricks`
 
@@ -29,11 +29,5 @@ The following fields are available when creating an Apache Spark connection usin
 | User                  | Optional                                                        | dbt\_cloud\_user        |
 | Auth                  | Optional, supply if using Kerberos                              | `KERBEROS`              |
 | Kerberos Service Name | Optional, supply if using Kerberos                              | `hive`                  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 [![Configuring a Spark connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/spark-connection.png?v=2 "Configuring a Spark connection")](#)Configuring a Spark connection

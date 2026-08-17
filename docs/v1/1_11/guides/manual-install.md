@@ -12,24 +12,24 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 When you use dbt Core to work with dbt, you will be editing files locally using a code editor, and running projects using a command line interface (CLI).
 
 If you want to edit files and run projects using the web-based dbt Integrated Development Environment (Studio IDE), refer to the [dbt quickstarts](../guides.md). You can also develop and run dbt commands using the [dbt CLI](../docs/platform/dbt-cli-installation.md) — a dbt powered command line.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * To use dbt Core, it's important that you know some basics of the Terminal. In particular, you should understand `cd`, `ls` and `pwd` to navigate through the directory structure of your computer easily.
 * Install dbt Core using the [installation instructions](../docs/local/install-dbt.md) for your operating system.
 * Complete appropriate Setting up and Loading data steps in the Quickstart for dbt series. For example, for BigQuery, complete [Setting up (in BigQuery)](./bigquery.md?step=2) and [Loading data (BigQuery)](./bigquery.md?step=3).
 * [Create a GitHub account](https://github.com/join) if you don't already have one.
 
-### Create a starter project[​](#create-a-starter-project "Direct link to Create a starter project")
+### Create a starter project
 
 After setting up BigQuery to work with dbt, you are ready to create a starter project with example models, before building your own models.
 
-## Create a repository[​](#create-a-repository "Direct link to Create a repository")
+## Create a repository
 
 The following steps use [GitHub](https://github.com/) as the Git provider for this guide, but you can use any Git provider. You should have already [created a GitHub account](https://github.com/join).
 
@@ -46,7 +46,7 @@ The following steps use [GitHub](https://github.com/) as the Git provider for th
 
 5. Save the commands from "…or create a new repository on the command line" to use later in [Commit your changes](./manual-install.md?step=6).
 
-## Create a project[​](#create-a-project "Direct link to Create a project")
+## Create a project
 
 Learn how to use a series of commands using the command line of the Terminal to create your project. dbt Core includes an `init` command that helps scaffold a dbt project.
 
@@ -99,7 +99,7 @@ models:
     ...
 ```
 
-## Connect to BigQuery[​](#connect-to-bigquery "Direct link to Connect to BigQuery")
+## Connect to BigQuery
 
 When developing locally, dbt connects to your data warehouse using a [profile](../docs/local/profiles.yml.md), which is a YAML file with all the connection details to your warehouse.
 
@@ -134,7 +134,7 @@ $ dbt debug
 
 [![A successful dbt debug command](/img/successful-dbt-debug.png?v=2 "A successful dbt debug command")](#)A successful dbt debug command
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 My data team uses a different data warehouse. What should my profiles.yml file look like for my warehouse?
 
@@ -156,7 +156,7 @@ Can I use environment variables in my profile?
 
 Yes! Check out the docs on [environment variables](../reference/dbt-jinja-functions/env_var.md) for more information.
 
-## Perform your first dbt run[​](#perform-your-first-dbt-run "Direct link to Perform your first dbt run")
+## Perform your first dbt run
 
 Our sample project has some example models in it. We're going to check that we can run them to confirm everything is in order.
 
@@ -170,7 +170,7 @@ You should have an output that looks like this:
 
 [![A successful dbt run command](/img/successful-dbt-run.png?v=2 "A successful dbt run command")](#)A successful dbt run command
 
-## Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
+## Commit your changes
 
 Commit your changes so that the repository contains the latest code.
 
@@ -187,11 +187,11 @@ git push -u origin main
 
 2. Return to your GitHub repository to verify your new files have been added.
 
-### Build your first models[​](#build-your-first-models "Direct link to Build your first models")
+### Build your first models
 
 Now that you set up your sample project, you can get to the fun part — [building models](../docs/build/sql-models.md)! In the next steps, you will take a sample query and turn it into a model in your dbt project.
 
-## Checkout a new git branch[​](#checkout-a-new-git-branch "Direct link to Checkout a new git branch")
+## Checkout a new git branch
 
 Check out a new git branch to work on new code:
 
@@ -202,16 +202,13 @@ $ git checkout -b add-customers-model
 >  Switched to a new branch `add-customer-model`
 ```
 
-## Build your first model[​](#build-your-first-model "Direct link to Build your first model")
+## Build your first model
 
 1. Open your project in your favorite code editor.
 2. Create a new SQL file in the `models` directory, named `models/customers.sql`.
 3. Paste the following query into the `models/customers.sql` file.
 
-* BigQuery
-* Databricks
-* Redshift
-* Snowflake
+### BigQuery
 
 ```sql
 with customers as (
@@ -271,6 +268,8 @@ final as (
 select * from final
 ```
 
+### Databricks
+
 ```sql
 with customers as (
 
@@ -329,6 +328,8 @@ final as (
 select * from final
 ```
 
+### Redshift
+
 ```sql
 with customers as (
 
@@ -386,6 +387,8 @@ final as (
 
 select * from final
 ```
+
+### Snowflake
 
 ```sql
 with customers as (
@@ -451,19 +454,16 @@ select * from final
 
 When you return to the BigQuery console, you can `select` from this model.
 
-### FAQs[​](#faqs-1 "Direct link to FAQs")
+### FAQs
 
 How can I see the SQL that dbt is running?
 
 To check out the SQL that dbt is running, you can look in:
 
 * dbt:
-  <!-- -->
   * Within the run output, click on a model name, and then select "Details"
 
 * dbt Core:
-
-  <!-- -->
 
   * The `target/compiled/` directory for compiled `select` statements
   * The `target/run/` directory for compiled `create` statements
@@ -517,7 +517,7 @@ Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 
 Any models downstream of this model will also be skipped. Use the error message and the [compiled SQL](../faqs/Runs/checking-logs.md) to debug any errors.
 
-## Change the way your model is materialized[​](#change-the-way-your-model-is-materialized "Direct link to Change the way your model is materialized")
+## Change the way your model is materialized
 
 One of the most powerful features of dbt is that you can change the way a model is materialized in your warehouse, simply by changing a configuration value. You can change things between tables and views by changing a keyword rather than writing the data definition language (DDL) to do this behind the scenes.
 
@@ -579,7 +579,7 @@ By default, everything gets created as a view. You can override that at the dire
 
 5. Enter the `dbt run --full-refresh` command for this to take effect in your warehouse.
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 What materializations are available in dbt?
 
@@ -605,7 +605,7 @@ You can also configure:
 
 Check out the docs on [model configurations](../reference/model-configs.md) to learn more.
 
-## Delete the example models[​](#delete-the-example-models "Direct link to Delete the example models")
+## Delete the example models
 
 You can now delete the files that dbt created when you initialized the project:
 
@@ -635,7 +635,7 @@ You can now delete the files that dbt created when you initialized the project:
 
 3. Save your changes.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How do I remove deleted models from my data warehouse?
 
@@ -651,7 +651,7 @@ You might have forgotten to nest your configurations under your project name, or
 
 Check out this [article](https://discourse.getdbt.com/t/faq-i-got-an-unused-model-configurations-error-message-what-does-this-mean/112) to understand more.
 
-## Build models on top of other models[​](#build-models-on-top-of-other-models "Direct link to Build models on top of other models")
+## Build models on top of other models
 
 As a best practice in SQL, you should separate logic that cleans up your data from logic that transforms your data. You have already started doing this in the existing query by using common table expressions (CTEs).
 
@@ -662,10 +662,7 @@ Now you can experiment by separating the logic out into separate models and usin
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 2. Create a second new SQL file, `models/stg_orders.sql`, with the SQL from the `orders` CTE in our original query.
 
-* BigQuery
-* Databricks
-* Redshift
-* Snowflake
+### BigQuery
 
 models/stg\_customers.sql
 
@@ -690,6 +687,8 @@ select
 from `dbt-tutorial`.jaffle_shop.orders
 ```
 
+### Databricks
+
 models/stg\_customers.sql
 
 ```sql
@@ -713,6 +712,8 @@ select
 from jaffle_shop_orders
 ```
 
+### Redshift
+
 models/stg\_customers.sql
 
 ```sql
@@ -735,6 +736,8 @@ select
 
 from jaffle_shop.orders
 ```
+
+### Snowflake
 
 models/stg\_customers.sql
 
@@ -814,7 +817,7 @@ select * from final
 
 This time, when you performed a `dbt run`, separate views/tables were created for `stg_customers`, `stg_orders` and `customers`. dbt inferred the order to run these models. Because `customers` depends on `stg_customers` and `stg_orders`, dbt builds `customers` last. You do not need to explicitly define these dependencies.
 
-### FAQs[​](#faq-2 "Direct link to FAQs")
+### FAQs
 
 How do I run one model at a time?
 
@@ -840,7 +843,7 @@ There's no one best way to structure a project! Every organization is unique.
 
 If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
-### Next steps[​](#next-steps "Direct link to Next steps")
+### Next steps
 
 Before moving on from building your first models, make a change and see how it affects your results:
 
@@ -850,8 +853,6 @@ Before moving on from building your first models, make a change and see how it a
 
 * Group your models with a `stg_` prefix into a `staging` subdirectory. For example, `models/staging/stg_customers.sql`.
 
-  <!-- -->
-
   * Configure your `staging` models to be views.
   * Run only the `staging` models.
 
@@ -860,7 +861,7 @@ You can also explore:
 * The `target` directory to see all of the compiled SQL. The `run` directory shows the create or replace table statements that are running, which are the select statements wrapped in the correct DDL.
 * The `logs` file to see how dbt Core logs all of the action happening within your project. It shows the select statements that are running and the python logging happening when dbt runs.
 
-## Add tests to your models[​](#add-tests-to-your-models "Direct link to Add tests to your models")
+## Add tests to your models
 
 Adding [data tests](../docs/build/data-tests.md) to a project helps validate that your models are working correctly.
 
@@ -914,7 +915,7 @@ To add data tests to your project:
 
 When you run `dbt test`, dbt iterates through your YAML files, and constructs a query for each test. Each query will return the number of records that fail the test. If this number is 0, then the test is successful.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 What tests are available for me to use in dbt? Can I add my own custom tests?
 
@@ -987,7 +988,7 @@ When should I run my data tests?
 
 You should run your data tests whenever you are writing new code (to ensure you haven't broken any existing models by changing SQL), and whenever you run your transformations in production (to ensure that your assumptions about your source data are still valid).
 
-## Document your models[​](#document-your-models "Direct link to Document your models")
+## Document your models
 
 Adding [documentation](../docs/build/documentation.md) to your project allows you to describe your models in rich detail, and share that information with your team. Here, we're going to add some basic documentation to our project.
 
@@ -1041,14 +1042,11 @@ models:
                 field: customer_id
 ```
 
-* View in Catalog
-* View in Studio IDE
+### View in Catalog
 
 [Catalog](../docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
 
 1. Run one of the following commands:
-
-   <!-- -->
 
    * `dbt docs generate` if you're on dbt Core
    * `dbt build` if you're on the dbt Fusion engine
@@ -1067,11 +1065,13 @@ models:
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
+### View in Studio IDE
+
 You can view docs directly from the IDE if you're on `Latest` or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
 
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
-   <!-- -->
+
    [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
@@ -1080,7 +1080,7 @@ You can view docs directly from the IDE if you're on `Latest` or another version
 
 3. Run `dbt docs serve` command to launch the documentation in a local website.
 
-#### FAQs[​](#faqs-2 "Direct link to FAQs")
+#### FAQs
 
 How do I write long-form explanations in my descriptions?
 
@@ -1120,7 +1120,7 @@ Access Catalog in dbt by clicking the **Catalog** link in the navigation. You ca
 
 dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
-#### Next steps[​](#next-steps-1 "Direct link to Next steps")
+#### Next steps
 
 Before moving on from testing, make a change and see how it affects your results:
 
@@ -1128,7 +1128,7 @@ Before moving on from testing, make a change and see how it affects your results
 * Run the tests for one model only. If you grouped your `stg_` models into a directory, try running the tests for all the models in that directory.
 * Use a [docs block](../docs/build/documentation.md#using-docs-blocks) to add a Markdown description to a model.
 
-## Commit updated changes[​](#commit-updated-changes "Direct link to Commit updated changes")
+## Commit updated changes
 
 You need to commit the changes you made to the project so that the repository has your latest code.
 
@@ -1137,7 +1137,7 @@ You need to commit the changes you made to the project so that the repository ha
 3. Push your changes to your repository: `git push -u origin add-customers-model`
 4. Navigate to your repository, and open a pull request to merge the code into your master branch.
 
-## Schedule a job[​](#schedule-a-job "Direct link to Schedule a job")
+## Schedule a job
 
 We recommend using dbt as the easiest and most reliable way to [deploy jobs](../docs/deploy/deployments.md) and automate your dbt project in production.
 

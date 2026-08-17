@@ -1,6 +1,6 @@
 # Continuous deployment in dbt
 
-dbt platformⓘ
+dbt platform
 
 To help you improve data transformations and ship data products faster, you can run [merge jobs](./merge-jobs.md) to implement a continuous deployment (CD) workflow in dbt. Merge jobs can automatically build modified models whenever a pull request (PR) merges, making sure the latest code changes are in production. You don't have to wait for the next scheduled job to run to get the latest updates.
 
@@ -8,7 +8,7 @@ To help you improve data transformations and ship data products faster, you can 
 
 You can also implement continuous integration (CI) in dbt, which can further reduce the time it takes to push changes to production and improve code quality. To learn more, refer to [Continuous integration in dbt](./continuous-integration.md).
 
-## Trigger jobs with automation or APIs[​](#trigger-jobs-with-automation-or-apis "Direct link to Trigger jobs with automation or APIs")
+## Trigger jobs with automation or APIs
 
 [Merge jobs](./merge-jobs.md) and [deploy jobs](./deploy-jobs.md) start from your [Git provider](../platform/git/configure-git.md) or from other triggers you configure inside dbt. Merge jobs that react to merges use the webhook flow summarized in [How merge jobs work](#how-merge-jobs-work) below and detailed under [Set up job trigger on Git merge](./merge-jobs.md#set-up-merge-jobs).
 
@@ -17,7 +17,7 @@ To start the same merge or deployment job from your own tooling, use the [Admini
 * **CI triggered through Administrative API payloads** behaves differently than rerunning deployment or merge jobs. Follow [Trigger a CI job with the API](./ci-jobs.md#trigger-a-ci-job-with-the-api) on the [CI jobs](./ci-jobs.md) page.
 * **Integrations** with schedulers and platforms (for example [Airflow and dbt](../../guides/airflow-and-dbt-cloud.md), Prefect, Databricks) are collected on [Deployment tools](./deployment-tools.md).
 
-## How merge jobs work[​](#how-merge-jobs-work "Direct link to How merge jobs work")
+## How merge jobs work
 
 When you set up merge jobs, dbt listens for notifications from your [Git provider](../platform/git/configure-git.md) indicating that a PR has been merged. When dbt receives one of these notifications, it enqueues a new run of the merge job.
 
@@ -27,9 +27,3 @@ You can set up merge jobs to perform one of the following when a PR merges:
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `dbt build --select state:modified+` | (Default) Build the modified data with every merge.<br /><br />dbt builds only the changed data models and anything downstream of it, similar to CI jobs. This helps reduce computing costs and ensures that the latest code changes are always pushed to production.                                                          |
 | `dbt compile`                        | Refresh the applied state for performant (the slimmest) CI job runs.<br /><br />dbt generates the executable SQL (from the source model, test, and analysis files) but does not run it. This ensures the changes are reflected in the manifest for the next time a CI job is run and keeps track of only the relevant changes. |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

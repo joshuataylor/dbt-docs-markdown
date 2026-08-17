@@ -1,6 +1,6 @@
 # Use subagents with dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 Subagents let dbt Wizard spin up focused, parallel agents to handle parts of a larger task — one to explore your project, one to make changes, one to review them. dbt Wizard orchestrates them and consolidates the results back into your session.
 
@@ -18,7 +18,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-## Locations and precedence[​](#locations-and-precedence "Direct link to Locations and precedence")
+## Locations and precedence
 
 You can define custom agent roles by adding standalone TOML files at the project level or user level. Use project-level agents for roles that should travel with a repo, and user-level agents for roles you want across all local projects.
 
@@ -33,13 +33,13 @@ The following table summarizes where dbt Wizard looks for custom agents. Use the
 
 If two custom agents use the same name, dbt Wizard uses the higher-precedence location and fills in any missing fields from lower-precedence locations when possible. Avoid duplicate names unless you intentionally want to override an existing role.
 
-## Where you can use subagents[​](#where-you-can-use-subagents "Direct link to Where you can use subagents")
+## Where you can use subagents
 
 Subagents work in the [dbt Wizard CLI](./about-dbt-wizard-cli.md).
 
 You can define custom agent roles, set display nicknames, and configure global limits through the `config.toml` file.
 
-## How subagents work[​](#how-subagents-work "Direct link to How subagents work")
+## How subagents work
 
 An agent is a role that describes a type of work, like `explorer`, `worker`, or `test_writer`.
 
@@ -54,15 +54,9 @@ You can use subagents in the following ways:
 | You ask to split up the work.                                                                        | `Review PR #123. Use one agent to map what changed, one to check tests and downstream impact, and one to look up the relevant dbt docs.` |
 | dbt Wizard automatically uses a configured agent because your task matches that agent's description. | `Add tests for stg_customers and check whether similar staging models are missing tests.`                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 dbt Wizard then spawns the agents, lets them work in parallel, and brings their findings back into one response.
 
-## Built-in agents[​](#built-in-agents "Direct link to Built-in agents")
+## Built-in agents
 
 dbt Wizard ships with built-in agents that it can spawn without any configuration. Several are purpose-built for dbt work:
 
@@ -80,15 +74,9 @@ You don't need to declare these — dbt Wizard routes to them automatically when
 | Ask naturally             | Add useful tests for stg\_customers.             |
 | Ask for the agent by name | Use test\_writer to add tests to stg\_customers. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 To add your own roles, refer to [Custom agents](#custom-agents-cli).
 
-## Manage subagents[​](#manage-subagents "Direct link to Manage subagents")
+## Manage subagents
 
 Use slash commands inside an interactive session to inspect and steer agent threads:
 
@@ -101,13 +89,13 @@ You can also tell dbt Wizard in plain language to steer, stop, or close an agent
 
 For the full list of session commands, refer to the [slash command reference](./wizard-slash-commands.md).
 
-## Approvals and sandbox[​](#approvals-and-sandbox "Direct link to Approvals and sandbox")
+## Approvals and sandbox
 
 Subagents inherit the parent session's [approval and sandbox policy](./wizard-how-it-works.md#approval-and-sandboxing). Any runtime overrides you set for a turn (permissions, sandbox mode) apply to the subagents it spawns. When a subagent requests approval, your session shows the request with its source so you know which agent is asking.
 
 A custom agent can override sandbox settings for itself — useful when, for example, an exploration agent should stay read-only while a build agent needs workspace write access.
 
-## Custom agents[​](#custom-agents "Direct link to Custom agents")
+## Custom agents
 
 A custom agent role is a reusable role for a particular type of work you want dbt Wizard to perform, such as writing UDFs, exploring a project, or debugging an issue. You can create any role name that fits your workflow; it does not have to be one of the built-in roles.
 
@@ -131,7 +119,7 @@ Every custom agent file must define:
 
 You can also include other supported [`config.toml`](./wizard-config.md#configtoml) keys in a custom agent file. Any setting you don't define in the custom agent file inherits from the parent session.
 
-### Example custom agent[​](#example-custom-agent "Direct link to Example custom agent")
+### Example custom agent
 
 Create a standalone custom agent file. The file name and `name` value must match:
 
@@ -172,13 +160,13 @@ You can also let dbt Wizard choose the agent automatically by describing the tas
 Create a dbt UDF that checks whether customer IDs are positive integers, then add a small model that uses it.
 ```
 
-### Display nicknames[​](#display-nicknames "Direct link to Display nicknames")
+### Display nicknames
 
 When several instances of the same agent run at once, use `nickname_candidates` to give each instance a readable label in the UI. For example, two spawned `udf_helper` agents might appear as `UDF helper` and `UDF queen`.
 
 Nicknames are display-only. dbt Wizard identifies the agent by its `name` field, not by the nickname shown in the UI.
 
-### Example with an MCP server[​](#example-with-an-mcp-server "Direct link to Example with an MCP server")
+### Example with an MCP server
 
 Custom agent files can include MCP server configuration when the agent needs additional tools or context.
 
@@ -209,7 +197,7 @@ This setup works well for prompts like:
 Have udf_helper design the UDF change and dbt_docs_helper verify the dbt function configuration.
 ```
 
-### Global settings[​](#global-settings "Direct link to Global settings")
+### Global settings
 
 Global subagent settings live under the `[agents]` section in `~/.dbt/wizard/config.toml`:
 
@@ -228,9 +216,9 @@ interrupt_message = true
 | `job_max_runtime_seconds` | Default maximum runtime, in seconds, for agent job workers.                                      |
 | `interrupt_message`       | Whether to record a model-visible message when an agent turn is interrupted. Defaults to `true`. |
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### UDF implementation[​](#udf-implementation "Direct link to UDF implementation")
+### UDF implementation
 
 Define a custom agent that specializes in dbt UDF work. Each custom agent is a standalone TOML file under `~/.dbt/wizard/agents/`.
 
@@ -276,7 +264,7 @@ Use udf_helper to create a UDF that checks whether customer IDs are positive int
 
 dbt Wizard starts the requested agent, lets it work on the UDF implementation, and consolidates the result into your session.
 
-### Debug a failed job run (home app)[​](#debug-a-failed-job-run-home-app "Direct link to Debug a failed job run (home app)")
+### Debug a failed job run (home app)
 
 In the dbt platform home app, ask dbt Wizard to investigate a failed job by delegating to focused agents:
 
@@ -288,7 +276,7 @@ one to propose a fix. Summarize what each found.
 
 dbt Wizard spawns the agents, each one works on its part of your connected project, and dbt Wizard consolidates the diagnosis and proposed fix into one response.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md) to give agents more tools and context
 * [Use skills](./wizard-skills.md) for reusable, project-specific instructions

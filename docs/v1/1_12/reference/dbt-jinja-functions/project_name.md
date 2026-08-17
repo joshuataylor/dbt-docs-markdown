@@ -2,7 +2,7 @@
 
 The `project_name` context variable returns the `name` for the root-level project which is being run by dbt. This variable can be used to defer execution to a root-level project macro if one exists.
 
-### Example Usage[​](#example-usage "Direct link to Example Usage")
+### Example Usage
 
 redshift/macros/helper.sql
 

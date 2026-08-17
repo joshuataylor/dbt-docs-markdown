@@ -1,41 +1,31 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect BigQuery to dbt Core
 
-Local developmentⓘ
+Local development
 
 [Fusion compatible](./bigquery-setup.md?version=2 "Fusion compatible") connection also available.
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  dbt maintainers
+* **Maintained by**: dbt Labs
+* **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-bigquery` [![](https://badge.fury.io/py/dbt-bigquery.svg)](https://badge.fury.io/py/dbt-bigquery)
 * **Slack channel**: [#db-bigquery](https://getdbt.slack.com/archives/C99SNSRTK)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.10.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.10.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-bigquery
+## Installing dbt-bigquery
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-bigquery`
 
-## Configuring <!-- -->dbt-bigquery<!-- -->
+## Configuring dbt-bigquery
 
-For <!-- -->BigQuery<!-- -->-specific configuration, please refer to [BigQuery<!-- --> configs.](../../../reference/resource-configs/bigquery-configs.md)
+For BigQuery-specific configuration, please refer to [BigQuery configs.](../../../reference/resource-configs/bigquery-configs.md)
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * Install [Git](https://git-scm.com/install/)
 * Install [Google Cloud SDK](https://docs.cloud.google.com/sdk/docs/install-sdk)
@@ -43,7 +33,7 @@ For <!-- -->BigQuery<!-- -->-specific configuration, please refer to [BigQuery<!
 * Access to a GCP account BigQuery project
 * Access to a Git platform repository (like GitHub, AzureDevOps, GitLab, and so on)
 
-## Required permissions[​](#required-permissions "Direct link to Required permissions")
+## Required permissions
 
 dbt user accounts need the following permissions to read from and create tables and views in a BigQuery project:
 
@@ -66,7 +56,7 @@ For BigQuery DataFrames, users need these additional permissions:
 * Code Creator
 * colabEnterpriseUser
 
-## Authentication Methods[​](#authentication-methods "Direct link to Authentication Methods")
+## Authentication Methods
 
 BigQuery targets can be specified using one of four methods:
 
@@ -83,7 +73,7 @@ WIF authentication (`external-oauth-wif`) is available in [Fusion](./bigquery-se
 
 BigQuery targets should be set up using the following configuration in your `profiles.yml` file. There are a number of [optional configurations](#optional-configurations) you may specify as well.
 
-### OAuth via gcloud[​](#oauth-via-gcloud "Direct link to OAuth via gcloud")
+### OAuth via gcloud
 
 This connection method requires [local OAuth via `gcloud`](#local-oauth-gcloud-setup).
 
@@ -108,11 +98,11 @@ my-bigquery-db:
 
 If you do not specify a `project`/`database` and are using the `oauth` method, dbt will use the default `project` associated with your user, as defined by `gcloud config set`.
 
-### OAuth Token-Based[​](#oauth-token-based "Direct link to OAuth Token-Based")
+### OAuth Token-Based
 
 See [docs](https://developers.google.com/identity/protocols/oauth2) on using OAuth 2.0 to access Google APIs.
 
-#### Refresh token[​](#refresh-token "Direct link to Refresh token")
+#### Refresh token
 
 Using the refresh token and client information, dbt will mint new access tokens as necessary.
 
@@ -135,7 +125,7 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-#### Temporary token[​](#temporary-token "Direct link to Temporary token")
+#### Temporary token
 
 dbt will use the one-time access token, no questions asked. This approach makes sense if you have an external deployment process that can mint new access tokens and update the profile file accordingly.
 
@@ -155,7 +145,7 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-### Service Account File[​](#service-account-file "Direct link to Service Account File")
+### Service Account File
 
 \~/.dbt/profiles.yml
 
@@ -173,7 +163,7 @@ my-bigquery-db:
       OPTIONAL_CONFIG: VALUE
 ```
 
-### Service Account JSON[​](#service-account-json "Direct link to Service Account JSON")
+### Service Account JSON
 
 Note
 
@@ -207,9 +197,9 @@ my-bigquery-db:
         client_x509_cert_url: xxx
 ```
 
-## Optional configurations[​](#optional-configurations "Direct link to Optional configurations")
+## Optional configurations
 
-### Priority[​](#priority "Direct link to Priority")
+### Priority
 
 The `priority` for the BigQuery jobs that dbt executes can be configured with the `priority` configuration in your BigQuery profile. The `priority` field can be set to one of `batch` or `interactive`. For more information on query priority, consult the [BigQuery documentation](https://cloud.google.com/bigquery/docs/running-queries).
 
@@ -225,7 +215,7 @@ my-profile:
       priority: interactive
 ```
 
-### Timeouts and Retries[​](#timeouts-and-retries "Direct link to Timeouts and Retries")
+### Timeouts and Retries
 
 The `dbt-bigquery` plugin uses the BigQuery Python client library to submit queries. Each query requires two steps:
 
@@ -234,11 +224,13 @@ The `dbt-bigquery` plugin uses the BigQuery Python client library to submit quer
 
 Some queries inevitably fail, at different points in process. To handle these cases, dbt supports fine-grained configuration for query timeouts and retries.
 
-#### job\_execution\_timeout\_seconds[​](#job_execution_timeout_seconds "Direct link to job_execution_timeout_seconds")
+#### job\_execution\_timeout\_seconds
 
 In older versions of `dbt-bigquery`, this same config was called `timeout_seconds`.
 
 Use the `job_execution_timeout_seconds` configuration to set the number of seconds dbt should wait for queries to complete after successfully submitting them. Of the four configurations that control timeout and retries, this one is the most common to use.
+
+(Applies to dbt v1.12 and later)
 
 You can set the `job_execution_timeout_seconds` config in your BigQuery profile. The value set at the profile level becomes the default and applies to all runs. To override this default value, you can set the config individually per model, snapshot, seed, or test.
 
@@ -258,10 +250,7 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
 
 * Resource-level configuration:
 
-  * Models
-  * Seeds
-  * Snapshots
-  * Tests
+  ### Models
 
   my\_model.sql
 
@@ -279,6 +268,8 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
         job_execution_timeout_seconds: 600
   ```
 
+  ### Seeds
+
   ```yaml
   seeds:
     - name: my_seed
@@ -288,12 +279,16 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
 
   For seeds, the timeout applies to the SQL that runs after the CSV is uploaded. The upload step uses the profile-level timeout.
 
+  ### Snapshots
+
   ```yaml
   snapshots:
     - name: my_snapshot
       config:
         job_execution_timeout_seconds: 600
   ```
+
+  ### Tests
 
   ```yaml
   models:
@@ -318,7 +313,7 @@ The `job_execution_timeout_seconds` represents the number of seconds to wait for
 
 From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
-#### job\_creation\_timeout\_seconds[​](#job_creation_timeout_seconds "Direct link to job_creation_timeout_seconds")
+#### job\_creation\_timeout\_seconds
 
 It is also possible for a query job to fail to submit in the first place. You can configure the maximum timeout for the job creation step by configuring `job_creation_timeout_seconds`. No timeout is set by default.
 
@@ -326,7 +321,7 @@ In the job creation step, dbt is simply submitting a query job to BigQuery's `Jo
 
 From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
-#### job\_retries[​](#job_retries "Direct link to job_retries")
+#### job\_retries
 
 Google's BigQuery Python client has native support for retrying query jobs that time out, or queries that run into transient errors and are likely to succeed if run again. You can configure the maximum number of retries by configuring `job_retries`.
 
@@ -336,7 +331,7 @@ In older versions of `dbt-bigquery`, the `job_retries` config was just called `r
 
 The default value is 1, meaning that dbt will retry failing queries exactly once. You can set the configuration to 0 to disable retries entirely.
 
-#### job\_retry\_deadline\_seconds[​](#job_retry_deadline_seconds "Direct link to job_retry_deadline_seconds")
+#### job\_retry\_deadline\_seconds
 
 After a query job times out, or encounters a transient error, dbt will wait one second before retrying the same query. In cases where queries are repeatedly timing out, this can add up to a long wait. You can set the `job_retry_deadline_seconds` configuration to set the total number of seconds you're willing to wait ("deadline") while retrying the same query. If dbt hits the deadline, it will give up and return an error.
 
@@ -359,7 +354,9 @@ my-profile:
       job_retry_deadline_seconds: 1200
 ```
 
-#### job\_link\_info\_level\_log[​](#job_link_info_level_log "Direct link to job_link_info_level_log")
+(Applies to dbt v1.12 and later)
+
+#### job\_link\_info\_level\_log
 
 By default, `dbt-bigquery` logs BigQuery job links at the debug level, so they only appear when you run dbt with the `--debug` flag. This can make it harder to find the corresponding job in the BigQuery console.
 
@@ -383,7 +380,7 @@ my-profile:
       job_link_info_level_log: true
 ```
 
-### Dataset locations[​](#dataset-locations "Direct link to Dataset locations")
+### Dataset locations
 
 The location of BigQuery datasets can be configured using the `location` configuration in a BigQuery profile. `location` may be either a multi-regional location (for example, `EU`, `US`), or a regional location (for example, `us-west2` ) as per [the BigQuery documentation](https://cloud.google.com/bigquery/docs/locations) describes. Example:
 
@@ -399,7 +396,7 @@ my-profile:
       location: US # Optional, one of US or EU, or a regional location
 ```
 
-### Maximum Bytes Billed[​](#maximum-bytes-billed "Direct link to Maximum Bytes Billed")
+### Maximum Bytes Billed
 
 When a `maximum_bytes_billed` value is configured for a BigQuery profile, queries executed by dbt will fail if they exceed the configured maximum bytes threshhold. This configuration should be supplied as an integer number of bytes.
 
@@ -425,7 +422,7 @@ Database Error in model debug_table (models/debug_table.sql)
   compiled SQL at target/run/bq_project/models/debug_table.sql
 ```
 
-### OAuth 2.0 Scopes for Google APIs[​](#oauth-20-scopes-for-google-apis "Direct link to OAuth 2.0 Scopes for Google APIs")
+### OAuth 2.0 Scopes for Google APIs
 
 By default, the BigQuery connector requests three OAuth scopes, namely `https://www.googleapis.com/auth/bigquery`, `https://www.googleapis.com/auth/cloud-platform`, and `https://www.googleapis.com/auth/drive`. These scopes were originally added to provide access for the models that are reading from Google Sheets. However, in some cases, a user may need to customize the default scopes (for example, to reduce them down to the minimal set needed). By using the `scopes` profile configuration you are able to set up your own OAuth scopes for dbt. Example:
 
@@ -442,7 +439,7 @@ my-profile:
         - https://www.googleapis.com/auth/bigquery
 ```
 
-### Service Account Impersonation[​](#service-account-impersonation "Direct link to Service Account Impersonation")
+### Service Account Impersonation
 
 This feature allows users authenticating via local OAuth to access BigQuery resources based on the permissions of a service account.
 
@@ -472,7 +469,7 @@ To use this functionality, first create the service account you want to imperson
 
 Once you've granted the appropriate permissions, you'll need to enable the [IAM Service Account Credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com). Enabling the API and granting the role are eventually consistent operations, taking up to 7 minutes to fully complete, but usually fully propagating within 60 seconds. Give it a few minutes, then add the `impersonate_service_account` option to your BigQuery profile configuration.
 
-### Execution project[​](#execution-project "Direct link to Execution project")
+### Execution project
 
 By default, dbt will use the specified `project`/`database` as both:
 
@@ -493,7 +490,7 @@ my-profile:
       execution_project: buck-stops-here-456
 ```
 
-### Quota project[​](#quota-project "Direct link to Quota project")
+### Quota project
 
 By default, dbt will use the `quota_project_id` set within the credentials of the account you are using to authenticate to BigQuery.
 
@@ -515,7 +512,7 @@ my-profile:
       quota_project: my-bq-quota-project
 ```
 
-### Running Python models on BigQuery DataFrames[​](#running-python-models-on-bigquery-dataframes "Direct link to Running Python models on BigQuery DataFrames")
+### Running Python models on BigQuery DataFrames
 
 To run dbt Python models on GCP, dbt uses BigQuery DataFrames running directly with BigQuery compute, leveraging the scale and performance of BigQuery.
 
@@ -537,7 +534,7 @@ my-profile:
       type: bigquery
 ```
 
-### Running Python models on Dataproc[​](#running-python-models-on-dataproc "Direct link to Running Python models on Dataproc")
+### Running Python models on Dataproc
 
 To run dbt Python models on GCP, dbt uses companion services, Dataproc and Cloud Storage, that offer tight integrations with BigQuery. You may use an existing Dataproc cluster and Cloud Storage bucket, or create new ones:
 
@@ -552,13 +549,7 @@ The `submission_method` profile field controls how dbt submits Python model jobs
 | `cluster`              | Runs jobs on an existing [Dataproc cluster](./bigquery-setup.md#dataproc-cluster)                               |
 | `bigframes`            | Runs jobs using [BigQuery DataFrames](./bigquery-setup.md#bigframes). No Spark setup required                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Dataproc cluster[​](#dataproc-cluster "Direct link to Dataproc cluster")
+#### Dataproc cluster
 
 Add the bucket name, cluster name, and cluster region to your connection profile:
 
@@ -579,7 +570,7 @@ my-profile:
       dataproc_region: us-central1
 ```
 
-#### Dataproc Serverless[​](#dataproc-serverless "Direct link to Dataproc Serverless")
+#### Dataproc Serverless
 
 Dataproc Serverless is the default `submission_method`. It requires no cluster management and supports optional batch configuration:
 
@@ -614,7 +605,7 @@ my-profile:
 
 For a full list of possible configuration fields that can be passed in `dataproc_batch`, refer to the [Dataproc Serverless Batch](https://cloud.google.com/dataproc-serverless/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.Batch) documentation.
 
-#### BigFrames[​](#bigframes "Direct link to BigFrames")
+#### BigFrames
 
 [BigQuery DataFrames](https://cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) lets you run Python models using APIs directly in BigQuery without setting up Spark. Refer to the [dbt Python models with BigFrames](../../../guides/dbt-python-bigframes.md) guide for full setup instructions.
 
@@ -634,7 +625,7 @@ my-profile:
       dataproc_region: us-central1
 ```
 
-### Reservation[​](#reservation "Direct link to Reservation")
+### Reservation
 
 If your organization has set up BigQuery Reservations, you may specify `reservation` for dbt to use for query execution.
 
@@ -652,7 +643,7 @@ my-profile:
       reservation: projects/abc-admin/locations/US/reservations/my-reservation
 ```
 
-## Local OAuth gcloud setup[​](#local-oauth-gcloud-setup-1 "Direct link to Local OAuth gcloud setup")
+## Local OAuth gcloud setup
 
 To connect to BigQuery using the `oauth` method, follow these steps:
 

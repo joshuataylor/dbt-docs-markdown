@@ -2,7 +2,7 @@
 
 dbt can extend functionality across [Supported Data Platforms](../../docs/supported-data-platforms.md) through a system of [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch). Because SQL syntax, data types, and DDL/DML support vary across adapters, dbt can define and call generic functional macros, and then "dispatch" that macro to the appropriate implementation for the current adapter.
 
-## Syntax[​](#syntax "Direct link to Syntax")
+## Syntax
 
 **Args**:
 
@@ -35,9 +35,9 @@ If dbt does not find an adapter-specific implementation, it will dispatch to the
 
 **Namespace:** Generally, dbt will search for implementations in the root project and internal projects (e.g. `dbt`, `dbt_postgres`). If the `macro_namespace` argument is provided, it instead searches the specified namespace (package) for viable implementations. It is also possible to dynamically route namespace searching by defining a [`dispatch` project config](../project-configs/dispatch-config.md); see the examples below for details.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### A simple example[​](#a-simple-example "Direct link to A simple example")
+### A simple example
 
 Let's say I want to define a macro, `concat`, that compiles to the SQL function `concat()` as its default behavior. On Redshift and Snowflake, however, I want to use the `||` operator instead.
 
@@ -68,7 +68,7 @@ The top `concat` macro follows a special, rigid formula: It is named with the ma
 
 Below that macro, I've defined three possible implementations of the `concat` macro: one for Redshift, one for Snowflake, and one for use by default on all other adapters. Depending on the adapter I'm running against, one of these macros will be selected, it will be passed the specified arguments as inputs, it will operate on those arguments, and it will pass back the result to the original dispatching macro.
 
-### A more complex example[​](#a-more-complex-example "Direct link to A more complex example")
+### A more complex example
 
 I found an existing implementation of the `concat` macro in the dbt-utils package. However, I want to override its implementation of the `concat` macro on Redshift in particular. In all other cases—including the default implementation—I'm perfectly happy falling back to the implementations defined in `dbt_utils.concat`.
 
@@ -92,7 +92,7 @@ macros/concat.sql
 
 If I'm running on Redshift, dbt will use my version; if I'm running on any other database, the `concat()` macro will shell out to the version defined in `dbt_utils`.
 
-## For package maintainers[​](#for-package-maintainers "Direct link to For package maintainers")
+## For package maintainers
 
 Dispatched macros from [packages](../../docs/build/packages.md) *must* provide the `macro_namespace` argument, as this declares the namespace (package) where it plans to search for candidates. Most often, this is the same as the name of your package, e.g. `dbt_utils`. (It is possible, if rarely desirable, to define a dispatched macro *not* in the `dbt_utils` package, and dispatch it into the `dbt_utils` namespace.)
 
@@ -104,7 +104,7 @@ Here we have the definition of the `dbt_utils.concat` macro, which specifies bot
 {%- endmacro %}
 ```
 
-### Overriding package macros[​](#overriding-package-macros "Direct link to Overriding package macros")
+### Overriding package macros
 
 Following the second example above: Whenever I call my version of the `concat` macro in my own project, it will use my special null-handling version on Redshift. But the version of the `concat` macro *within* the dbt-utils package will not use my version.
 
@@ -133,7 +133,7 @@ As someone installing a package, this functionality makes it possible for me to 
 
 As a package maintainer, this functionality enables users of my package to extend, reimplement, or override default behavior, without needing to fork the package's source code.
 
-### Overriding global macros[​](#overriding-global-macros "Direct link to Overriding global macros")
+### Overriding global macros
 
 tip
 
@@ -153,7 +153,7 @@ dispatch:
     search_order: ['my_project', 'my_org_dbt_helpers', 'dbt']
 ```
 
-### Managing different global overrides across packages[​](#managing-different-global-overrides-across-packages "Direct link to Managing different global overrides across packages")
+### Managing different global overrides across packages
 
 You can override global behaviors in different ways for each project that is installed as a package. This holds true for all global macros: `generate_schema_name`, `create_table_as`, etc. When parsing or running a resource defined in a package, the definition of the global macro within that package takes precedence over the definition in the root project because it's more specific to those resources.
 
@@ -171,7 +171,7 @@ By combining package-level overrides and `dispatch`, it is possible to achieve t
 
    * *Mechanism:* Create a standalone package of candidate macros only, for example, `default__generate_schema_name` or `default__create_table_as`. Add a [project-level `dispatch` configuration](../project-configs/dispatch-config.md) in every project's `dbt_project.yml`.
 
-## For adapter plugin maintainers[​](#for-adapter-plugin-maintainers "Direct link to For adapter plugin maintainers")
+## For adapter plugin maintainers
 
 Most packages were initially designed to work on the four original dbt adapters. By using the `dispatch` macro and project config, it is possible to "shim" existing packages to work on other adapters, by way of third-party compatibility packages.
 
@@ -210,7 +210,7 @@ As a compatibility package maintainer, I only need to reimplement the foundation
 
 As a `dbt-spark` user, by installing `dbt_utils` and `spark_utils` together, I don't just get access to higher-level utility macros. I may even be able to install and use packages with no Spark-specific logic, and which have never been tested against Spark, so long as they rely on `dbt_utils` macros for cross-adapter compatibility.
 
-### Adapter inheritance[​](#adapter-inheritance "Direct link to Adapter inheritance")
+### Adapter inheritance
 
 Some adapters "inherit" from other adapters (e.g. `dbt-postgres` → `dbt-redshift`, and `dbt-spark` → `dbt-databricks`). If using a child adapter, dbt will include any parent adapter implementations in its search order, too. Instead of just looking for `redshift__` and falling back to `default__`, dbt will look for `redshift__`, `postgres__`, and `default__`, in that order.
 
@@ -246,7 +246,7 @@ In rare cases, the child adapter may prefer the default implementation to its pa
 {% endmacro %}
 ```
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 \[Error] Could not find my\_project package
 

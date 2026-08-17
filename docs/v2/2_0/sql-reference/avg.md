@@ -2,11 +2,11 @@
 
 You’re a data person, so we assume you’re going to be calculating averages of some metrics \**waves hands airily*\* at some point in your career. And the way to calculate averages of a numeric column in SQL is by using the AVG function.
 
-## How to use the AVG function[​](#how-to-use-the-avg-function "Direct link to How to use the AVG function")
+## How to use the AVG function
 
 The AVG function is a part of the group of mathematical or aggregate functions (ex. MIN, MAX, SUM) that are often used in SQL to summarize datasets. You’ll most likely see the AVG function used to straightforwardly calculate the average of a numeric column, but you may also see it used in a window function to calculate rolling averages.
 
-### AVG function example[​](#avg-function-example "Direct link to AVG function example")
+### AVG function example
 
 The following example is querying from a sample dataset created by dbt Labs called [jaffle\_shop](https://github.com/dbt-labs/jaffle_shop):
 
@@ -28,19 +28,13 @@ This query using the Jaffle Shop’s `orders` table will return the rounded orde
 | 2018-03-01   | 18                 |
 | 2018-04-01   | 17                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The AVG function, like many other mathematical functions, is an aggregate function. Aggregate functions operate across all rows, or a group of rows, to return a singular value. When calculating the average of a column across a dimension (or group of dimensions)—in our example above, `order_month`—you need a GROUP BY statement; the query above would not successfully run without it.
 
-## SQL AVG function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-avg-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL AVG function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL AVG function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the ability to take the average of a column value and the syntax for the AVG functions is the same across all of those data platforms.
 
-## AVG function use cases[​](#avg-function-use-cases "Direct link to AVG function use cases")
+## AVG function use cases
 
 We most commonly see the AVG function used in data work to calculate:
 

@@ -8,8 +8,6 @@ Measures are aggregations performed on columns in your model. They can be used a
 
 Measures have several inputs, which are described in the following table along with their field types.
 
-<!-- -->
-
 | Parameter                                                                                          | Description                                                                                                                                                                                                                                                | Required | Type    |
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | [`name`](./measures.md#name)                                      | Provide a name for the measure, which must be unique and can't be repeated across all semantic models in your dbt project.                                                                                                                                 | Required | String  |
@@ -23,13 +21,7 @@ Measures have several inputs, which are described in the following table along w
 | `create_metric`                                                                                    | Create a `simple` metric from a measure by setting `create_metric: True`. The `label` and `description` attributes will be automatically propagated to the created metric. Available in dbt version 1.7 or higher.                                         | Optional | Boolean |
 | `config`                                                                                           | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports the [`meta`](../../reference/resource-configs/meta.md) property, nested under `config`. | Optional |         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Measure spec[​](#measure-spec "Direct link to Measure spec")
+## Measure spec
 
 An example of the complete YAML measures spec is below. The actual configuration of your measures will depend on the aggregation you're using.
 
@@ -49,17 +41,17 @@ semantic_models:
           meta:  {<dictionary>} Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes. ## Optional
 ```
 
-### Name[​](#name "Direct link to Name")
+### Name
 
 When you create a measure, you can either give it a custom name or use the `name` of the data platform column directly. If the measure's `name` differs from the column name, you need to add an `expr` to specify the column name. The `name` of the measure is used when creating a metric.
 
 Measure names must be unique across all semantic models in a project and can not be the same as an existing `entity` or `dimension` within that same model.
 
-### Description[​](#description "Direct link to Description")
+### Description
 
 The description describes the calculated measure. It's strongly recommended you create verbose and human-readable descriptions in this field.
 
-### Aggregation[​](#aggregation "Direct link to Aggregation")
+### Aggregation
 
 The aggregation determines how the field will be aggregated. For example, a `sum` aggregation type over a granularity of `day` would sum the values across a given day.
 
@@ -76,13 +68,7 @@ Supported aggregations include:
 | median            | Median (p50) calculation across the values |
 | percentile        | Percentile calculation across the values.  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Percentile aggregation example[​](#percentile-aggregation-example "Direct link to Percentile aggregation example")
+#### Percentile aggregation example
 
 If you're using the `percentile` aggregation, you must use the `agg_params` field to specify details for the percentile aggregation (such as what percentile to calculate and whether to use discrete or continuous calculations).
 
@@ -96,7 +82,7 @@ agg_params:
   use_discrete_percentile: False  # False calculates the continuous percentile, True calculates the discrete percentile.
 ```
 
-#### Percentile across supported engine types[​](#percentile-across-supported-engine-types "Direct link to Percentile across supported engine types")
+#### Percentile across supported engine types
 
 The following table lists which SQL engine supports continuous, discrete, approximate, continuous, and approximate discrete percentiles.
 
@@ -109,13 +95,7 @@ The following table lists which SQL engine supports continuous, discrete, approx
 | [Postgres](https://www.postgresql.org/docs/9.4/functions-aggregate.html) | Yes                                                                                   | Yes                                                                                  | No                                                                                                            | No                                                                                       |
 | [DuckDB](https://duckdb.org/docs/sql/aggregates.html)                    | Yes                                                                                   | Yes                                                                                  | Yes (t-digest)                                                                                                | No                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Expr[​](#expr "Direct link to Expr")
+### Expr
 
 If the `name` you specified for a measure doesn't match a column name in your model, you can use the `expr` parameter instead. This allows you to use any valid SQL to manipulate an underlying column name into a specific output. The `name` parameter then serves as an alias for your measure.
 
@@ -127,7 +107,7 @@ For Snowflake users, if you use a week-level function in the `expr` parameter, i
 
 If you use the `dayofweek` function in the `expr` parameter with the legacy Snowflake default of `WEEK_START = 0`, it will now return ISO-standard values of 1 (Monday) through 7 (Sunday) instead of Snowflake's legacy default values of 0 (Monday) through 6 (Sunday).
 
-### Model with different aggregations[​](#model-with-different-aggregations "Direct link to Model with different aggregations")
+### Model with different aggregations
 
 ```yaml
 semantic_models:
@@ -213,7 +193,7 @@ semantic_models:
         expr: case when quantity > 10 then true else false end
 ```
 
-### Non-additive dimensions[​](#non-additive-dimensions "Direct link to Non-additive dimensions")
+### Non-additive dimensions
 
 Some measures cannot be aggregated over certain dimensions, like time, because it could result in incorrect outcomes. Examples include bank account balances where it does not make sense to carry over balances month-to-month, and monthly recurring revenue where daily recurring revenue cannot be summed up to achieve monthly recurring revenue. You can specify non-additive dimensions to handle this, where certain dimensions are excluded from aggregation.
 
@@ -231,12 +211,6 @@ Parameters under the `non_additive_dimension` will specify dimensions that the m
 | `name`             | This will be the name of the time dimension (that has already been defined in the data source) that the measure should not be aggregated over. | Required   |
 | `window_choice`    | Choose either `min` or `max`, where `min` reflects the beginning of the time period and `max` reflects the end of the time period.             | Required   |
 | `window_groupings` | Provide the entities that you would like to group by.                                                                                          | Optional   |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ```yaml
 semantic_models:
@@ -306,9 +280,9 @@ mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_dat
 mf query --metrics mrr_by_end_of_month --group-by subscription__subscription_date__week --order subscription__subscription_date__week 
 ```
 
-<!-- -->
+## Dependencies
 
-## Dependencies[​](#dependencies "Direct link to Dependencies")
+(Applies to dbt v1.11 and earlier)
 
 Metric nodes will reflect dependencies on semantic models based on their *measures*. However, dependencies based on filters should not be reflected in:
 

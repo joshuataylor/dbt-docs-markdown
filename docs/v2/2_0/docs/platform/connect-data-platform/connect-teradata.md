@@ -1,6 +1,6 @@
 # Connect Teradata [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platformⓘ
+dbt platform
 
 Your environment(s) must be on a supported [release track](../../dbt-versions/dbt-release-tracks.md) to use the Teradata connection.
 
@@ -11,26 +11,14 @@ Your environment(s) must be on a supported [release track](../../dbt-versions/db
 | Retries         | Number of times to retry to connect to database upon error.                                      | Integer        | optional  | 10                                    |
 | Request timeout | The waiting period between connections attempts in seconds. Default is "1" second.               | Quoted integer | Optional  | 3                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 [![Example of the Teradata connection fields.](/img/docs/dbt-platform/teradata-connection.png?v=2 "Example of the Teradata connection fields.")](#)Example of the Teradata connection fields.
 
-### Development and deployment credentials[​](#development-and-deployment-credentials "Direct link to Development and deployment credentials")
+### Development and deployment credentials
 
 | Field    | Description                                                                                  | Type   | Required? | Example             |
 | -------- | -------------------------------------------------------------------------------------------- | ------ | --------- | ------------------- |
 | Username | The database username. Equivalent to the Teradata JDBC Driver USER connection parameter.     | String | Required  | database\_username  |
 | Password | The database password. Equivalent to the Teradata JDBC Driver PASSWORD connection parameter. | String | Required  | DatabasePassword123 |
 | Schema   | Specifies the initial database to use after login, rather than the user's default database.  | String | Required  | dbtlabsdocstest     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 [![Example of the user credential fields.](/img/docs/dbt-platform/teradata-deployment.png?v=2 "Example of the user credential fields.")](#)Example of the user credential fields.

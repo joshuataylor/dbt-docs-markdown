@@ -8,7 +8,7 @@ This system is separate from the anonymous usage statistics that dbt sends to db
 
 This uses the same integration that dbt platform relies on for orchestration and monitoring, providing proven and production-ready features that work at scale.
 
-## Available output formats[​](#available-output-formats "Direct link to Available output formats")
+## Available output formats
 
 Fusion telemetry supports three output formats, which you can enable independently:
 
@@ -18,13 +18,7 @@ Fusion telemetry supports three output formats, which you can enable independent
 | **Parquet** | Post-run analysis, querying, and long-term storage.                   | Written when runs complete. |
 | **OTLP**    | Integration with observability platforms (Datadog, Jaeger, and more). | Streamed in real-time.      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Enabling telemetry output[​](#enabling-telemetry-output "Direct link to Enabling telemetry output")
+### Enabling telemetry output
 
 The following are some examples of options for enabling telemetry output (You can combine multiple outputs in a single run):
 
@@ -58,18 +52,49 @@ Export to an OpenTelemetry collector:
 OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318" dbtf build --export-to-otlp
 ```
 
-### Download telemetry from platform job runs[​](#download-telemetry-from-platform-job-runs "Direct link to Download telemetry from platform job runs")
+### Download telemetry from platform job runs
 
 On the dbt platform, Fusion job runs store OTel telemetry as Parquet artifacts for dbt command steps. From a completed run, open the **Run summary** tab, select a step, and click **Download** > **Download OTel log**. The option appears only for Fusion runs where the step produced an OTel file. For step-by-step instructions, refer to [Downloading logs](../docs/deploy/run-visibility.md#access-logs).
 
-## Telemetry data[​](#telemetry-data "Direct link to Telemetry data")
+#### Retrieve telemetry using the API
+
+You can also retrieve the OTel Parquet artifact for a run step through the [dbt Administrative API v2](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retrieve%20Run%20Artifact), which lets you download artifacts after a job completes. Use this to automate ingestion of node outcomes and test outcomes into a downstream system, such as a data quality framework in your warehouse.
+
+Each Fusion command step that produces telemetry writes a `telemetry-STEP_NUMBER-otel.parquet` artifact. Some steps like `dbt deps` don't produce a Parquet artifact.
+
+You can use the Retrieve Run Artifact endpoint to fetch this artifact:
+
+```bash
+GET https://YOUR_ACCESS_URL/api/v2/accounts/ACCOUNT_ID/runs/RUN_ID/artifacts/metadata/telemetry-STEP_NUMBER-otel.parquet?step=STEP_NUMBER
+```
+
+Replace `YOUR_ACCESS_URL` with the [Access URL](../docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan, and `ACCOUNT_ID`, `RUN_ID`, `STEP_NUMBER` with your values. Authenticate with a [service account token](../docs/dbt-apis/service-tokens.md) or [personal access token](../docs/dbt-apis/user-tokens.md).
+
+For example, you can do this with `curl`:
+
+```bash
+curl --request GET \
+  --url 'https://YOUR_ACCESS_URL/api/v2/accounts/12345/runs/67890/artifacts/metadata/telemetry-4-otel.parquet?step=4' \
+  --header 'Authorization: Token YOUR_TOKEN' \
+  --output telemetry-4-otel.parquet
+```
+
+To find which step produced the telemetry artifact you want, list the run's steps by including `run_steps` in the run details request:
+
+```bash
+GET https://YOUR_ACCESS_URL/api/v2/accounts/ACCOUNT_ID/runs/RUN_ID/?include_related=["run_steps"]
+```
+
+You can only retrieve this artifact for Fusion steps that emitted an OTel log.
+
+## Telemetry data
 
 Fusion telemetry contains two types of records:
 
 * **Spans** — Operations with a start and end time (like compiling a model or running a test).
 * **Log records** — Point-in-time events within a span.
 
-### Telemetry hierarchy[​](#telemetry-hierarchy "Direct link to Telemetry hierarchy")
+### Telemetry hierarchy
 
 Every dbt command creates a hierarchy of spans:
 
@@ -86,7 +111,7 @@ Invocation (dbtf build)
 
 The `trace_id` (also known as `invocation_id`) remains consistent across all telemetry records for a single dbt command, making it easy to correlate events.
 
-## Node outcome[​](#node-outcome "Direct link to Node outcome")
+## Node outcome
 
 Every node produces a result for each phase it participates in. Some phases, such as `parse`, don't involve node-level execution, so they don't produce node spans or node outcomes.
 
@@ -99,13 +124,7 @@ The `node_outcome` field indicates whether or not Fusion executed the node's ope
 | `skipped`  | The node was not evaluated (see [skip reasons](#skip-reasons)).   |
 | `canceled` | The node was interrupted (for example, user pressed Ctrl+C).      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Skip reasons[​](#skip-reasons "Direct link to Skip reasons")
+### Skip reasons
 
 When Fusion skips a node, the telemetry includes a reason:
 
@@ -116,13 +135,7 @@ When Fusion skips a node, the telemetry includes a reason:
 | `phase_disabled` | The phase was disabled (for example, `--static-analysis off`).                                                                  |
 | `noop`           | Node doesn't perform work in this phase (for example, ephemeral models).                                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Test outcomes[​](#test-outcomes "Direct link to Test outcomes")
+### Test outcomes
 
 When a test executes successfully (`node_outcome: success`), it reports the test result:
 
@@ -132,21 +145,15 @@ When a test executes successfully (`node_outcome: success`), it reports the test
 | `warned`     | Failures detected, but configured as warnings. |
 | `failed`     | Failures detected (data quality issue).        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Test outcomes
 
 A test with `node_outcome: success` and `test_outcome: failed` means Fusion successfully ran the test, and the test reported data quality issues. This differs from `node_outcome: error`, which means the test itself couldn't run (for example, invalid SQL).
 
-## Querying telemetry data[​](#querying-telemetry-data "Direct link to Querying telemetry data")
+## Querying telemetry data
 
 Query the telemetry data to gain deeper insights into your dbt runs.
 
-### JSONL examples[​](#jsonl-examples "Direct link to JSONL examples")
+### JSONL examples
 
 The following are some examples of querying the JSONL telemetry data.
 
@@ -162,11 +169,11 @@ List skipped nodes, reasons, and upstream details:
 cat telemetry.jsonl | jq 'select(.attributes.node_outcome == "NODE_OUTCOME_SKIPPED") | {node: .attributes.unique_id, reason: .attributes.node_skip_reason, upstream: .attributes.node_skip_upstream_detail.upstream_unique_id }'
 ```
 
-### Downloading telemetry from the dbt platform[​](#downloading-telemetry-from-the-dbt-platform "Direct link to Downloading telemetry from the dbt platform")
+### Downloading telemetry from the dbt platform
 
 If you ran a job in the dbt platform, you can download the OpenTelemetry (OTEL) Parquet artifact from the run page using the **Download** dropdown. The download includes the `telemetry-<step>-otel.parquet` file for each step in the run.
 
-### Parquet analysis with DuckDB[​](#parquet-analysis-with-duckdb "Direct link to Parquet analysis with DuckDB")
+### Parquet analysis with DuckDB
 
 Leverage DuckDB to better understand your telemetry data stored in Parquet files.
 
@@ -198,11 +205,11 @@ duckdb.sql("""
 """).show()
 ```
 
-### Web-based Parquet viewers[​](#web-based-parquet-viewers "Direct link to Web-based Parquet viewers")
+### Web-based Parquet viewers
 
 For ad hoc exploration without a local install, web-based Parquet viewers (such as [PondPilot](https://app.pondpilot.io/)) let you upload a Parquet file and run SQL queries in the browser. Some viewers support LLM-assisted query generation to help you explore an unfamiliar schema.
 
-## OpenTelemetry integration[​](#opentelemetry-integration "Direct link to OpenTelemetry integration")
+## OpenTelemetry integration
 
 Fusion's native OTLP support lets you send telemetry directly to any OpenTelemetry-compatible receiver, including Datadog, Jaeger, Google Cloud Trace, Grafana Tempo, and Honeycomb.
 
@@ -213,7 +220,7 @@ This enables:
 * Correlate across systems that links dbt traces with downstream services.
 * Centralized monitoring to view dbt alongside your other infrastructure.
 
-### Setting up OTLP export[​](#setting-up-otlp-export "Direct link to Setting up OTLP export")
+### Setting up OTLP export
 
 The following example configures the OTLP export:
 
@@ -222,7 +229,7 @@ export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
 dbtf build --export-to-otlp
 ```
 
-## Mapping to dbt Core concepts[​](#mapping-to-dbt-core-concepts "Direct link to Mapping to dbt Core concepts")
+## Mapping to dbt Core concepts
 
 If you're familiar with dbt Core's structured logging, here's how Fusion telemetry maps:
 
@@ -233,13 +240,7 @@ If you're familiar with dbt Core's structured logging, here's how Fusion telemet
 | Event `code` (for example, `Q001`) | `event_type`                                     |
 | `--log-format json`                | `--log-format otel` or `--otel-file-name`        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Node status mapping[​](#node-status-mapping "Direct link to Node status mapping")
+### Node status mapping
 
 | dbt Core status | Fusion outcome                                   |
 | --------------- | ------------------------------------------------ |
@@ -249,12 +250,6 @@ Search table...
 | `pass` (tests)  | `node_outcome: success`, `test_outcome: passed`  |
 | `warn` (tests)  | `node_outcome: success`, `test_outcome: warned`  |
 | `fail` (tests)  | `node_outcome: success`, `test_outcome: failed`  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Note that dbt Core's `fail` status maps to Fusion's `node_outcome: success` because Fusion distinguishes between "the test ran successfully and found data issues" versus "the test couldn't run." This separation enables more precise alerting and retry logic.
 
@@ -266,7 +261,7 @@ State-aware orchestration is now dbt State
 
 If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../docs/deploy/dbt-state-migration.md).
 
-## Record structure[​](#record-structure "Direct link to Record structure")
+## Record structure
 
 Each telemetry record contains envelope fields plus event-specific `attributes`:
 
@@ -297,13 +292,7 @@ Each telemetry record contains envelope fields plus event-specific `attributes`:
 | `event_type`                 | Type identifier for filtering and parsing.                                                                                        |
 | `attributes`                 | Event-specific data (schema varies by event type, but unlike OTEL conventions, it's strictly backed by a stable protobuf schema). |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Schema stability[​](#schema-stability "Direct link to Schema stability")
+## Schema stability
 
 Unlike dbt Core's structured logging, Fusion telemetry is backed by a public protobuf schema with strict compatibility guarantees:
 
@@ -312,7 +301,7 @@ Unlike dbt Core's structured logging, Fusion telemetry is backed by a public pro
 
 This makes Fusion telemetry a reliable foundation for production integrations, orchestrators, and long-term analytics pipelines.
 
-## Official client library[​](#official-client-library "Direct link to Official client library")
+## Official client library
 
 dbt Labs provides an official open-source client library. Built in Rust for performance, it is available as:
 

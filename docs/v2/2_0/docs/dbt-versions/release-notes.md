@@ -1,6 +1,6 @@
 # dbt release notes
 
-dbt platformⓘ
+dbt platform
 
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
@@ -13,15 +13,17 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
-## August 2026[​](#august-2026 "Direct link to August 2026")
+## August 2026
 
+* **New:** The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now generally available (GA) for Enterprise plans. Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources, and read-only users can connect to analysis features such as the [dbt MCP server](../dbt-ai/about-mcp.md).
 * **Enhancement:** [Cost Insights](../explore/cost-insights.md) now supports cost attribution for [Snowflake Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive). For setup details, refer to [Assign required permissions](../explore/set-up-cost-insights.md#assign-required-permissions).
 * **New:** The [Model timing tab](../deploy/run-visibility.md#model-timing-tab) in job run details has been redesigned with a richer, scalable view that includes metric tiles, an execution timeline with grouping and highlight controls, a concurrency-over-time chart, and a searchable resource details table.
 * **New:** Semantic Layer development connections to Redshift now support external OAuth using Okta or Microsoft Entra with AWS IAM Identity Center.
 * **Enhancement:** System for Cross-domain Identity Management (SCIM) API errors for seat or licensing failures now include email addresses so you can identify which users are blocking provisioning.
 * **Behavior change:** Semantic Layer GraphQL queries that exceed the complexity limit of 200,000 now return an error instead of completing with a warning. If you hit this error, request fewer fields, use pagination, narrow your filters, or split the query into smaller ones.
+* **Enhancement:** The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set now includes read access to **Connections** (account and project), **Projects**, Git repository settings, Semantic Layer configuration, **Environments**, custom environment variables, and Catalog metadata. Analysts can view that configuration without assigning additional permission sets, once added to a group with Analyst read.
 
-## July 2026[​](#july-2026 "Direct link to July 2026")
+## July 2026
 
 * **Enhancement:** The [dbt State usage page](../deploy/dbt-state-interface.md) now shows daily active target tables (DATTs) split into **Billable** and **Free**. During a trial, all DATTs are counted as free.
 
@@ -69,7 +71,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 * **New:** Redshift development connections now support [external OAuth](../platform/manage-access/redshift-external-oauth.md) (Okta or Entra ID) through AWS IAM Identity Center.
 
-#### Docs changes[​](#docs-changes "Direct link to Docs changes")
+#### Docs changes
 
 To simplify the docs experience, clarify availability, and make it easier to find what applies to you, we made the following changes to the docs site:
 
@@ -84,8 +86,9 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 * **Enhancement:** Simplified and clarified the [Fusion feature tables](../fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
 * **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
 
-## June 2026[​](#june-2026 "Direct link to June 2026")
+## June 2026
 
+* **Enhancement:** [Column-level tags](../../reference/resource-configs/tags.md) defined in your dbt project now appear on the **Columns** tab of resource details pages in Catalog. You can click any tag badge to filter the lineage view, or search for columns directly by tag name. Refer to [View resource details](../explore/explore-projects.md#view-resource-details).
 * **Enhancement:** You can now enable [dbt State](../deploy/dbt-state-about.md) on continuous integration and merge job types, in addition to deploy jobs. For more information, refer to [Enabling dbt State on individual jobs](../deploy/dbt-state-enable-jobs.md).
 * **Enhancement**: The [Cost Insights](../explore/cost-insights.md) table view now includes **All** and **Jobs** buttons to switch between an aggregated cost view and a per-job cost breakdown. Available in the project dashboard and the **Model performance** section in Catalog. When **Jobs** is selected, the CSV export includes job-level data. For more information, refer to [Explore cost data](../explore/explore-cost-data.md).
 * **Enhancement:** [dbt Wizard](../platform/wizard-platform.md) tool calls for dbt command invocations now stream their output live in chat, in both the Studio IDE and [Wizard home](../platform/wizard-home.md).
@@ -98,12 +101,11 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 * **Behavior change:** On September 1, 2026, several behavior change flags on the dbt platform **Latest** release track will reach maturity (enabled by default). Refer to [Flags reaching maturity](../../reference/global-configs/behavior-changes.md#flags-reaching-maturity) to see which flags may affect your project and how to opt out before then.
 * **Beta:** The dbt Fusion engine now supports the Salesforce Data 360 connection in the dbt platform. For more information, refer to [Connect Salesforce Data 360](../platform/connect-data-platform/connect-salesforce.md).
 * **Private beta**: The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is available for Enterprise plans.
-  <!-- -->
-  * *New*: Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources. The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../dbt-ai/about-mcp.md)) is available to use, while the Analyst read permission set and read-only permission changes are in private beta. To enable them, contact your account manager.
+  * Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources. The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../dbt-ai/about-mcp.md)) is available to use, while the Analyst read permission set and read-only permission changes are in private beta. To enable them, contact your account manager.
 * **Beta**: Workspace-level Private Link for Microsoft Fabric is now available in beta. Configure a private connection between the dbt platform and your Fabric workspace so SQL traffic stays on Azure's private network. For more information, refer to [Configuring Private Link for Microsoft Fabric](../platform/secure/private-connectivity/azure/azure-fabric.md).
 * **Beta**: [Cost Insights](../explore/cost-insights.md) now supports Amazon Redshift Serverless and provisioned clusters. Configure your platform metadata credentials with the `sys:monitor` role or `SYSLOG ACCESS UNRESTRICTED` permission to allow dbt to read cross-user query history, then set your pricing in Cost Insights settings. For more information, refer to [Set up Cost Insights](../explore/set-up-cost-insights.md).
 
-### Snowflake Summit 2026 announcements[​](#snowflake-summit-2026-announcements "Direct link to Snowflake Summit 2026 announcements")
+### Snowflake Summit 2026 announcements
 
 The following features are new or enhanced as part of dbt Labs announcements at [Snowflake Summit 2026](https://www.getdbt.com/events/snowflake-summit-2026) in San Francisco from June 1–4, 2026:
 
@@ -140,24 +142,18 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **New:** The dbt CLI Python client's `create_invocation()` method now supports a `workspace` parameter, so you can run invocations against persisted workspace files on workers.
 
-## May 2026[​](#may-2026 "Direct link to May 2026")
+## May 2026
 
 * **Enhancement:** Repository clone failures now surface a more actionable diagnostic message to help you resolve common issues faster. For guidance, refer to [Troubleshooting clone errors](../platform/git/import-a-project-by-git-url.md#troubleshooting-clone-errors).
 * **Fix:** The connection test failure message now prompts you to verify your connection details and confirm that your credentials have access to the data warehouse, rather than showing a generic failure message.
 * **Enhancement:** Users granted `user_credential_write` can access **Your profile** > **Credentials** without `develop_access` (including read-only users). Environment variable overrides and dbt version overrides still require `develop_access`. Refer to [Enterprise permissions](../platform/manage-access/enterprise-permissions.md) for more information.
 * **New:** The [Job creator permission set](../platform/manage-access/enterprise-permissions.md#job-creator) is now available for Enterprise accounts. Assign it to users who need to create, edit, and run jobs within assigned projects and environments without access to edit environments or environment variables.
-* **Enhancement:** The admin API toolset (job management and run operations) is now always available in the dbt
-  <!-- -->
-  [](../dbt-ai/wizard-ide.md)and no longer requires a feature flag. You no longer need to contact your account manager to enable these tools.
+* **Enhancement:** The admin API toolset (job management and run operations) is now always available in the dbt [](../dbt-ai/wizard-ide.md)and no longer requires a feature flag. You no longer need to contact your account manager to enable these tools.
 * **Fix:** When a job cannot clone its repository because no remote URL is configured, the error message now explains the most likely causes (an invalid Git remote URL, a Git provider outage, or a deprecated HTTPS connection) and directs you to verify the URL, confirm your provider is operational, and ensure the repository uses SSH with deploy keys before retrying.
 * **New:** The **Notification Manager** [permission set](../platform/manage-access/enterprise-permissions.md) is now available for Enterprise accounts. Assign it to users who need to manage Slack, Microsoft Teams, and email job notifications across all projects without requiring full Account Admin access.
 * **Beta**: [Cost Insights](../explore/cost-insights.md), available in public beta, shows estimated warehouse compute costs and run times for dbt projects and models in dbt platform, highlighting efficiency gains from [state-aware orchestration](../deploy/state-aware-about.md). Refer to [Set up Cost Insights](../explore/set-up-cost-insights.md) and [Explore cost data](../explore/explore-cost-data.md) to learn more.
 * **New:** Fusion release tracks are now being rolled out across accounts in phases. Refer to [Fusion release tracks](./dbt-release-tracks.md?version=2.0#fusion-release-tracks) for more information.
-* **Enhancement:** Commands run by
-  <!-- -->
-  and the [](../dbt-ai/wizard-ide.md)now appear in the Studio IDE **Commands** tab with a
-  <!-- -->
-  icon and **Run by Copilot** tooltip, so you can tell agent-run commands apart from manually run ones.
+* **Enhancement:** Commands run by and the [](../dbt-ai/wizard-ide.md)now appear in the Studio IDE **Commands** tab with a icon and **Run by Copilot** tooltip, so you can tell agent-run commands apart from manually run ones.
 * **Fix:** [`state:modified`](../../reference/node-selection/methods.md#state) now detects changes to [UDF](../build/udfs.md) properties (such as `arguments` and `returns`) defined in `.yml` files. Previously, only changes to the SQL or Python function body were detected.
 * **New:** [Native private packages](../build/packages.md#native-private-packages) are now generally available (GA).
 * **Preview**: The [Developer agent](../dbt-ai/wizard-ide.md) is now in preview. Use natural language prompts to build or refactor models, and generate SQL, tests, documentation, and semantic models from scratch. For more information, refer to the [Developer agent](../dbt-ai/wizard-ide.md).
@@ -170,7 +166,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Enhancement:** The [](../dbt-ai/wizard-ide.md)input bar now supports arrow key history navigation. Press the up arrow at the start of the input to cycle through previous inputs, and the down arrow at the end to return to more recent ones. dbt stores up to 5 previous inputs per session.
 * **Enhancement:** Tool approval and file edit dialogs in the [](../dbt-ai/wizard-ide.md)now support number key shortcuts (1, 2, 3) to select options. The first option is auto-focused when a dialog appears, so you can act immediately without clicking.
 
-## April 2026[​](#april-2026 "Direct link to April 2026")
+## April 2026
 
 * **Enhancement:** When a dbt command run by the [](../dbt-ai/wizard-ide.md)times out, the agent now automatically attempts to cancel the stuck invocation on the server and returns a retry-friendly message, letting you decide whether to retry. Previously, timeouts resulted in an unhandled error. This applies to both model invocations and autofix runs.
 * **Enhancement:** In dbt platform run logs, `dbt ls` and `dbt list` now display node results as **No-op** instead of **Unknown** when using dbt Fusion engine. Refer to [dbt ls (list)](../../reference/commands/list.md) for more information.
@@ -192,7 +188,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Enhancement:** In Snowflake **Private endpoints**, output validation errors now display inline beneath the text area (instead of as a page-level banner). The **Submit request** button is also disabled when the output is invalid (for example, empty, malformed JSON, or missing required fields).
 * **Enhancement:** The Studio IDE now supports deep links to a specific console tab using the `?consoleTab=` query parameter. For example, append `?consoleTab=problems` to open Studio with the **Problems** tab pre-selected. The `problems` tab applies only when it is available for the current session.
 
-## March 2026[​](#march-2026 "Direct link to March 2026")
+## March 2026
 
 * **Enhancement:** The environment [Connection profiles](../platform/about-profiles.md#environment-profiles-table) page has been updated. The profile name is now a clickable button that opens the view/edit drawer, the Connection column links to the connection details page in a new tab, and in edit mode a **swap icon** button lets you change the assigned profile. The previous ellipsis menu has been removed. For details, refer to [About profiles](../platform/about-profiles.md).
 * **Beta:** Apache Spark is now supported in the dbt Fusion engine CLI, enabling faster compilation and execution for Spark-based dbt projects. Fusion currently supports only Apache Spark 3.0. For more information, refer to [Connect Apache Spark to Fusion](../local/connect-data-platform/spark-setup.md).
@@ -206,7 +202,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **New**: The new Semantic Layer YAML specification is now available on the dbt platform **Latest** release track. For an overview of the changes and steps how to migrate to the latest YAML spec, refer to [Migrate to the latest YAML spec](../build/latest-metrics-spec.md).
 * **Behavior change:** New projects in trial, starter, or Enterprise accounts now default to **Fusion Stable** for all new environments with a supported adapter (Redshift, Snowflake, BigQuery, and Databricks). You can revert to another version by changing the dbt version in your [environment settings](../dbt-platform-environments.md#change-environment-settings).
 
-## February 2026[​](#february-2026 "Direct link to February 2026")
+## February 2026
 
 * **New**: Advanced CI (dbt compare in orchestration) is now supported in the dbt Fusion engine. For more information, review [Advanced CI](../deploy/advanced-ci.md).
 
@@ -234,14 +230,12 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **Fix**: The user invite details now show more information in invite status, giving admins visibility into users who accepted an invite to an SSO-protected account but haven't yet logged in via SSO. Previously, these invites were hidden, making it appear as if the user hadn't been invited. The Invites endpoints of the dbt platform Admin v2 API now include these additional statuses:
 
-  <!-- -->
-
   * `4` (PENDINGEMAIL\_VERIFICATION)
   * `5` (EMAIL\_VERIFIED\_SSO).
 
 * **Enhancement**: Improved performance on Runs endpoint for Admin V2 API and run details in dbt platform when connecting with GCP.
 
-## January 2026[​](#january-2026 "Direct link to January 2026")
+## January 2026
 
 * **Enhancement:** The `defer-env-id` setting for choosing which deployment environment to defer to is [now available](../platform/about-defer.md#configure-deferral-environment-id) in the Studio IDE. Previously, this configuration only worked for the dbt CLI
 

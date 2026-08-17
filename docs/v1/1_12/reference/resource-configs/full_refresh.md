@@ -2,8 +2,7 @@
 
 The `full_refresh` config allows you to control whether a resource will always or never perform a full-refresh. This config overrides the `--full-refresh` command-line flag.
 
-* Models
-* Seeds
+### Models
 
 dbt\_project.yml
 
@@ -24,6 +23,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+### Seeds
+
 dbt\_project.yml
 
 ```yml
@@ -32,7 +33,7 @@ seeds:
     +full_refresh: false | true
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 The `full_refresh` config allows you to optionally configure whether a resource will always or never perform a full-refresh. This config is an override for the `--full-refresh` command line flag used when running dbt commands.
 
@@ -44,32 +45,25 @@ You can set the `full_refresh` config in the `dbt_project.yml` file or in a reso
 | If set to `false`           | The resource *never* performs a full refresh, regardless of whether you pass the `--full-refresh` flag in the dbt command.                             |
 | If set to `none` or omitted | The resource follows the behavior of the `--full-refresh` flag. If the flag is used, the resource will perform a full refresh; otherwise, it will not. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Note[​](#note "Direct link to Note")
+#### Note
 
 * The `--full-refresh` flag also supports a short name, `-f`.
 * The [`should_full_refresh()`](https://github.com/dbt-labs/dbt-adapters/blob/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/materializations/configs.sql) macro has logic encoded.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
-### Incremental models[​](#incremental-models "Direct link to Incremental models")
+### Incremental models
 
 * [How do I rebuild an incremental model?](../../docs/build/incremental-models.md#how-do-i-rebuild-an-incremental-model)
 * [What if the columns of my incremental model change?](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change)
 
-### Seeds[​](#seeds "Direct link to Seeds")
+### Seeds
 
 The columns of my seed changed, and now I get an error when running the \`seed\` command, what should I do?
 
 If you changed the columns of your seed, you may get a `Database Error`:
 
-* Snowflake
-* Redshift
+### Snowflake
 
 ```shell
 $ dbt seed
@@ -91,6 +85,8 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
+
+### Redshift
 
 ```shell
 $ dbt seed
@@ -126,7 +122,7 @@ However, when column names are changed, or new columns are added, these statemen
 
 The `--full-refresh` flag will force dbt to `drop cascade` the existing table before rebuilding it.
 
-## Recommendation[​](#recommendation "Direct link to Recommendation")
+## Recommendation
 
 * Set `full_refresh: false` for models of especially large datasets, which you would *never* want dbt to fully drop and recreate.
 
@@ -141,6 +137,6 @@ The `--full-refresh` flag will force dbt to `drop cascade` the existing table be
 
   Then override the `full_refresh` config to `true` using the [`--vars` flag](../../docs/build/project-variables.md#defining-variables-on-the-command-line): `dbt run --vars '{"force_full_refresh": true}'`.
 
-## Reference docs[​](#reference-docs "Direct link to Reference docs")
+## Reference docs
 
 * [on\_configuration\_change](./on_configuration_change.md)

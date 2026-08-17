@@ -4,7 +4,7 @@ UPPER is the counterpart to [LOWER](./lower.md) (who would have guessed?)—and 
 
 Using the UPPER function on a string value will return the input as an all-uppercase string. It’s an effective way to create expected capitalization for certain string values across your data.
 
-## How to use the SQL UPPER function[​](#how-to-use-the-sql-upper-function "Direct link to How to use the SQL UPPER function")
+## How to use the SQL UPPER function
 
 The syntax for using the UPPER function looks like the following:
 
@@ -16,7 +16,7 @@ Executing this command in a SELECT statement will return the uppercase version o
 
 Below, we’ll walk through a practical example using the UPPER function.
 
-### SQL UPPER function example[​](#sql-upper-function-example "Direct link to SQL UPPER function example")
+### SQL UPPER function example
 
 You can uppercase the first name of the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `customers` model using the following code:
 
@@ -36,21 +36,15 @@ After running this query, the `customers` table will look a little something lik
 | 2            | SHAWN       | M.         |
 | 3            | KATHLEEN    | P.         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Now, all characters in the `first_name` are uppercase (and `last_name` are unchanged).
 
 > Changing string columns to uppercase to create uniformity across data sources typically happens in our [dbtodels](../best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lower or upper casing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
 
-## SQL UPPER function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-upper-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL UPPER function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL UPPER function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Google BigQuery, Amazon Redshift, Snowflake, Postgres, and Databricks all support the UPPER function. In addition, the syntax to use the UPPER function is the same across all of them.
 
-## UPPER function use cases[​](#upper-function-use-cases "Direct link to UPPER function use cases")
+## UPPER function use cases
 
 By creating a consistent capitalization format (upper or lowercase) for all string values in your data models, you therefore create some expectations for business users in your BI tool.
 

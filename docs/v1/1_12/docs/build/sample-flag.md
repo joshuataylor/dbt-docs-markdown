@@ -12,15 +12,13 @@ Sample mode takes the [`--empty` flag's](./empty-flag.md) validation of semantic
 
 The `--sample` flag will become more robust over time, but it only supports time-based sampling for now.
 
-## Using the `--sample` flag[​](#using-the---sample-flag "Direct link to using-the---sample-flag")
+## Using the `--sample` flag
 
 The `--sample` flag is available for the [`run`](../../reference/commands/run.md) and [`build`](../../reference/commands/build.md) commands. When used, sample mode generates filtered refs and sources. Since it's using time-based sampling, if you have refs like `{{ ref('some_model') }}` being sampled, you need to set [`event_time`](../../reference/resource-configs/event-time.md) for `some_model` to the field that will be used as the timestamp.
 
 There are two time-based sample specifications supported for sample mode:
 
 * **Relative time specs:** Filters sampled data from the time the command is run back to a specified integer and granularity. Supported granularities are:
-
-  <!-- -->
 
   * Hours
   * Days
@@ -29,7 +27,7 @@ There are two time-based sample specifications supported for sample mode:
 
 * **Static time specs:** Filters your data between a defined start and end period using date and/or timestamp.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 Let's say you want to run your `stg_customers` model and build the table in your development schema with a relative time spec sample size of three days. Your command in the IDE would look something like this:
 

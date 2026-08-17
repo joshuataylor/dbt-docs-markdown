@@ -2,7 +2,7 @@
 
 Both user-defined functions (UDFs) and macros let you reuse logic across your dbt project, but they work in fundamentally different ways. Here's when to use each:
 
-#### Use UDFs when:[​](#use-udfs-when "Direct link to Use UDFs when:")
+#### Use UDFs when:
 
  You need logic accessible outside dbt
 
@@ -22,20 +22,16 @@ You can use Jinja (loops, conditionals, macros, `ref`, `source`, `var`) inside a
 
 Jinja influences the function when it’s created, whereas arguments influence it when it runs in the warehouse:
 
-* ✅
-  <!-- -->
-  **Allowed:** Jinja that depends on project or build-time state — for example, `var(“can_do_things”)`, static `ref(‘orders’)`, or environment-specific logic. These are all evaluated once at creation time.
-* ❌
-  <!-- -->
-  **Not allowed:** Jinja that depends on **function arguments** passed at runtime. The compiler can’t see those, so dynamic `ref(ref_name)` or conditional Jinja based on argument values won’t work.
+* ✅ **Allowed:** Jinja that depends on project or build-time state — for example, `var(“can_do_things”)`, static `ref(‘orders’)`, or environment-specific logic. These are all evaluated once at creation time.
+* ❌ **Not allowed:** Jinja that depends on **function arguments** passed at runtime. The compiler can’t see those, so dynamic `ref(ref_name)` or conditional Jinja based on argument values won’t work.
 
  You need Python logic that runs in your warehouse
 
-A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br /><!-- -->This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
+A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br />This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
 
 Python UDFs support conditionals and looping within the function logic itself (using Python syntax), and execute at runtime, not at compile time like macros. Python UDFs are currently supported in Snowflake and BigQuery.
 
-#### Use macros when:[​](#use-macros-when "Direct link to Use macros when:")
+#### Use macros when:
 
  You need to generate SQL at compile time
 
@@ -75,7 +71,7 @@ However, the difference between the two is *when* the logic runs:
 
 Macros don't create anything in your warehouse; they just generate SQL at compile time. UDFs create actual function objects in your warehouse that need to be managed.
 
-#### Can I use both together?[​](#can-i-use-both-together "Direct link to Can I use both together?")
+#### Can I use both together?
 
 Yes! You can use a macro to call a UDF or call a macro from within a UDF, combining the benefits of both. So the following example shows how to use a macro to define default values for arguments alongside your logic, for your UDF
 
@@ -85,7 +81,7 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 {% endmacro %}
 ```
 
-#### Related documentation[​](#related-documentation "Direct link to Related documentation")
+#### Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Jinja macros](../../docs/build/jinja-macros.md)

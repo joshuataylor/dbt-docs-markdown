@@ -2,8 +2,6 @@
 
 Dimensions are non-aggregatable expressions that define how metrics can be grouped or sliced. They are always defined within a [semantic model](./semantic-model-properties.md). See [Dimensions](../docs/build/dimensions.md) for concepts and examples.
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -14,13 +12,13 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
-## Legacy spec (standalone semantic model)[​](#legacy-spec-standalone-semantic-model "Direct link to Legacy spec (standalone semantic model)")
+## Legacy spec (standalone semantic model)
 
 Dimensions are defined in a top-level `dimensions:` list on the semantic model.
 
-### Available dimension properties (legacy spec)[​](#available-dimension-properties-legacy-spec "Direct link to Available dimension properties (legacy spec)")
+### Available dimension properties (legacy spec)
 
 | Property      | Type    | Required        | Description                                                                                                                    |
 | ------------- | ------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -33,13 +31,7 @@ Dimensions are defined in a top-level `dimensions:` list on the semantic model.
 | label         | string  | No              | Display value in downstream tools.                                                                                             |
 | meta          | object  | No              | Metadata key-value pairs.                                                                                                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Full structure (standalone semantic model, legacy spec)[​](#full-structure-standalone-semantic-model-legacy-spec "Direct link to Full structure (standalone semantic model, legacy spec)")
+### Full structure (standalone semantic model, legacy spec)
 
 ```yaml
 dimensions:

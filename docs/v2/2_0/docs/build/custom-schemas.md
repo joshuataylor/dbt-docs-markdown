@@ -18,13 +18,7 @@ To do this, specify a custom schema. dbt generates the schema name for a model b
 | alice\_dev               | marketing     | alice\_dev\_marketing               |
 | dbt\_cloud\_pr\_123\_456 | marketing     | dbt\_cloud\_pr\_123\_456\_marketing |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## How do I use custom schemas?[​](#how-do-i-use-custom-schemas "Direct link to How do I use custom schemas?")
+## How do I use custom schemas?
 
 To specify a custom schema for a model, use the `schema` configuration key. As with any configuration, you can do one of the following:
 
@@ -49,7 +43,7 @@ models:
       +schema: marketing
 ```
 
-## Understanding custom schemas[​](#understanding-custom-schemas "Direct link to Understanding custom schemas")
+## Understanding custom schemas
 
 When first using custom schemas, it's a common misunderstanding to assume that a model *only* uses the new `schema` configuration; for example, a model that has the configuration `schema: marketing` would be built in the `marketing` schema. However, dbt puts it in a schema like `<target_schema>_marketing`.
 
@@ -59,7 +53,7 @@ By combining the target schema and the custom schema, dbt ensures that objects i
 
 If you prefer to use different logic for generating a schema name, you can change the way dbt generates a schema name (see below).
 
-### How does dbt generate a model's schema name?[​](#how-does-dbt-generate-a-models-schema-name "Direct link to How does dbt generate a model's schema name?")
+### How does dbt generate a model's schema name?
 
 dbt uses a default macro called `generate_schema_name` to determine the name of the schema that a model should be built in.
 
@@ -84,15 +78,13 @@ The following code represents the default macro's logic:
 
 <br />
 
-<!-- -->
-
 💡 Use Jinja's whitespace control to tidy your macros!
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
 You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
-## Changing the way dbt generates a schema name[​](#changing-the-way-dbt-generates-a-schema-name "Direct link to Changing the way dbt generates a schema name")
+## Changing the way dbt generates a schema name
 
 If your dbt project has a custom macro called `generate_schema_name`, dbt will use it instead of the default macro. This allows you to customize the name generation according to your needs.
 
@@ -125,20 +117,14 @@ If you remove `{{ default_schema }}`, it causes developers to override each othe
 {%- endmacro %}
 ```
 
-### generate\_schema\_name arguments[​](#generate_schema_name-arguments "Direct link to generate_schema_name arguments")
+### generate\_schema\_name arguments
 
 | Argument             | Description                                                                                  | Example                                              |
 | -------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
 | custom\_schema\_name | The configured value of `schema` in the specified node, or `none` if a value is not supplied | `marketing`                                          |
 | node                 | The `node` that is currently being processed by dbt                                          | `{"name": "my_model", "resource_type": "model",...}` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Jinja context available in generate\_schema\_name[​](#jinja-context-available-in-generate_schema_name "Direct link to Jinja context available in generate_schema_name")
+### Jinja context available in generate\_schema\_name
 
 If you choose to write custom logic to generate a schema name, it's worth noting that not all variables and methods are available to you when defining this logic. In other words: the `generate_schema_name` macro is compiled with a limited Jinja context.
 
@@ -154,21 +140,15 @@ The following context methods *are* available in the `generate_schema_name` macr
 | Other macros in your project                                                      | Macro    | ✅                 |
 | Other macros in your packages                                                     | Macro    | ✅                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Which vars are available in generate\_schema\_name?[​](#which-vars-are-available-in-generate_schema_name "Direct link to Which vars are available in generate_schema_name?")
+### Which vars are available in generate\_schema\_name?
 
 Globally-scoped variables and variables defined on the command line with [--vars](./project-variables.md) are accessible in the `generate_schema_name` context.
 
-### Managing different behaviors across packages[​](#managing-different-behaviors-across-packages "Direct link to Managing different behaviors across packages")
+### Managing different behaviors across packages
 
 See docs on macro `dispatch`: ["Managing different global overrides across packages"](../../reference/dbt-jinja-functions/dispatch.md)
 
-## A built-in alternative pattern for generating schema names[​](#a-built-in-alternative-pattern-for-generating-schema-names "Direct link to A built-in alternative pattern for generating schema names")
+## A built-in alternative pattern for generating schema names
 
 A common customization is to use the custom schema in production when provided, with the target schema serving only as a fallback if no custom schema is specified. In other environments, such as development and CI, custom schema configurations are ignored, defaulting to the target schema instead.
 
@@ -179,12 +159,6 @@ Production Environment (`target.name == 'prod'`)
 | analytics\_prod | None          | analytics\_prod  |
 | analytics\_prod | marketing     | marketing        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Development/CI Environment (`target.name != 'prod'`)
 
 | Target schema            | Custom schema | Resulting schema         |
@@ -193,12 +167,6 @@ Development/CI Environment (`target.name != 'prod'`)
 | alice\_dev               | marketing     | alice\_dev               |
 | dbt\_cloud\_pr\_123\_456 | None          | dbt\_cloud\_pr\_123\_456 |
 | dbt\_cloud\_pr\_123\_456 | marketing     | dbt\_cloud\_pr\_123\_456 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Similar to the regular macro, this approach guarantees that schemas from different environments will not collide.
 
@@ -216,7 +184,7 @@ macros/generate\_schema\_name.sql
 
 When using this macro, you'll need to set the target name in your production job to `prod`.
 
-## Managing environments[​](#managing-environments "Direct link to Managing environments")
+## Managing environments
 
 In the `generate_schema_name` macro examples shown in the [built-in alternative pattern](#a-built-in-alternative-pattern-for-generating-schema-names) section, the `target.name` context variable is used to change the schema name that dbt generates for models. If the `generate_schema_name` macro in your project uses the `target.name` context variable, you must ensure that your different dbt environments are configured accordingly. While you can use any naming scheme you'd like, we typically recommend:
 
@@ -228,7 +196,7 @@ If your schema names are being generated incorrectly, double-check your target n
 
 For more information, consult the [managing environments in dbt Core](../local/dbt-core-environments.md) guide.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Customize dbt models database, schema, and alias](../../guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
 * [Custom database](./custom-databases.md) to learn how to customize dbt model database

@@ -2,7 +2,7 @@
 
 Use the following tables to see where Fusion is available for your adapter. You can get started with many dbt features right away, and some more are available when you sign in with any dbt platform account, free or paid.
 
-## Adapter lifecycle[​](#adapter-lifecycle "Direct link to Adapter lifecycle")
+## Adapter lifecycle
 
 Fusion is available across adapters (data warehouse connectors). Track status by adapter using the following table:
 
@@ -17,7 +17,7 @@ Fusion is available across adapters (data warehouse connectors). Track status by
 
 *Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-## What you get with Fusion[​](#what-you-get-with-fusion "Direct link to What you get with Fusion")
+## What you get with Fusion
 
 Feature availability
 
@@ -43,17 +43,11 @@ Creating an account also unlocks additional free-tier access to dbt services.
 | Precise column-level lineage                          | -                        | ✅                                                            |
 | dbt docs v2 (full), including column-level lineage    | -                        | ✅                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For the best v2 experience, use the dbt VS Code extension. You can get started for free, and when you create a free dbt platform account, you’ll unlock additional access to advanced dbt features in your editor and beyond, including those shown in the table above.
 
 To learn more about VS Code-specific capabilities, refer to [dbt VS Code extension features](../dbt-extension-features.md).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Install dbt](../local/install-dbt.md) locally
 * Install the [dbt VS Code extension](../about-dbt-extension.md)

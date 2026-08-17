@@ -1,6 +1,6 @@
 # dbt platform compatible track - changelog
 
-dbt platform | Freeⓘ
+dbt platform | Free
 
 Select the **Compatible** and **Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
 
@@ -8,17 +8,17 @@ Each monthly **Compatible** release includes functionality matching up-to-date o
 
 For more information, see [release tracks](./dbt-release-tracks.md).
 
-## July 2026[​](#july-2026 "Direct link to July 2026")
+## July 2026
 
 Release date: July 21, 2026
 
-### dbt platform[​](#dbt-platform "Direct link to dbt platform")
+### dbt platform
 
-### Fixes[​](#fixes "Direct link to Fixes")
+### Fixes
 
 * Prune stale cross-project dependencies from injected external nodes before linking. A publication can list a transitive public ancestor that has since been deleted upstream; injecting it as a dangling `depends_on` edge previously failed compile with `GraphDependencyNotFoundError`. The dead edge is now dropped with a warning and restored once the producing project's publication is regenerated.
 
-### Dependencies[​](#dependencies "Direct link to Dependencies")
+### Dependencies
 
 * Pin `pyathena` to v3.35 and older
 
@@ -65,11 +65,11 @@ Changelogs:
 * [dbt-teradata 1.10.3](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.3)
 * [dbt-trino 1.10.2](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md)
 
-## June 2026[​](#june-2026 "Direct link to June 2026")
+## June 2026
 
 Release date: June 15, 2026
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
 This compatible release includes functionality from the following versions of dbt Core OSS:
 
@@ -114,17 +114,17 @@ Changelogs:
 * [dbt-teradata 1.10.2](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.2)
 * [dbt-trino 1.10.2](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md)
 
-## May 2026[​](#may-2026 "Direct link to May 2026")
+## May 2026
 
 The compatible release scheduled for May 2026 will be skipped in order to stabilize `dbt-core 1.12.0` release across the dbt platform.
 
 Compatible releases will resume in June 2026.
 
-## April 2026[​](#april-2026 "Direct link to April 2026")
+## April 2026
 
 Release date: April 21, 2026
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-1 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
 This compatible release includes functionality from the following versions of dbt Core OSS:
 
@@ -169,23 +169,23 @@ Changelogs:
 * [dbt-teradata 1.10.2](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.2)
 * [dbt-trino 1.10.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md)
 
-## March 2026[​](#march-2026 "Direct link to March 2026")
+## March 2026
 
 The compatible release scheduled for March 2026 will be skipped in order to further stabilize the minor upgrade of `dbt-core==1.11.6` across the dbt platform.
 
 Compatible releases will resume in April 2026.
 
-## February 2026[​](#february-2026 "Direct link to February 2026")
+## February 2026
 
 Release date: February 27, 2026
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-2 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
-### Features[​](#features "Direct link to Features")
+### Features
 
 * Support partial success result status for Advanced CI
 
-### Dependencies[​](#dependencies-1 "Direct link to Dependencies")
+### Dependencies
 
 * Update dbt-databricks upper bound to 1.12
 
@@ -232,13 +232,13 @@ Changelogs:
 * [dbt-teradata 1.10.1](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.1)
 * [dbt-trino 1.10.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-1101---january-16-2026)
 
-## January 2026[​](#january-2026 "Direct link to January 2026")
+## January 2026
 
 Release date: January 22, 2026
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-3 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
-### Under the Hood[​](#under-the-hood "Direct link to Under the Hood")
+### Under the Hood
 
 * Add debug log for local md5 hash for fusion conformance
 * Resolve Click CLI UserWarning regarding --target and --profile usage in Advanced CI
@@ -286,11 +286,11 @@ Changelogs:
 * [dbt-teradata 1.10.1](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.1)
 * [dbt-trino 1.10.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-1101---january-16-2026)
 
-## December 2025[​](#december-2025 "Direct link to December 2025")
+## December 2025
 
 Release date: December 9, 2025
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-4 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
 This compatible release includes functionality from the following versions of dbt Core OSS:
 
@@ -335,13 +335,13 @@ Changelogs:
 * [dbt-teradata 1.10.0](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.0)
 * [dbt-trino 1.9.3](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-193---july-22-2025)
 
-## November 2025[​](#november-2025 "Direct link to November 2025")
+## November 2025
 
 Release date: November 11, 2025
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-5 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
-### Under the Hood[​](#under-the-hood-1 "Direct link to Under the Hood")
+### Under the Hood
 
 * Record source column schemas when `DBT_RECORDER_MODE` is set
 * Issue additional column schema retrieval for hardcoded relation references in SQL
@@ -391,13 +391,13 @@ Changelogs:
 * [dbt-teradata 1.10.0](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.0)
 * [dbt-trino 1.9.3](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-193---july-22-2025)
 
-## October 2025[​](#october-2025 "Direct link to October 2025")
+## October 2025
 
 Release date: October 23, 2025
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-6 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
-### Under the Hood[​](#under-the-hood-2 "Direct link to Under the Hood")
+### Under the Hood
 
 * Add instrumentation to adapter methods for reliable debugging traces at the adapter boundary
 
@@ -444,7 +444,7 @@ Changelogs:
 * [dbt-teradata 1.10.0](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.0)
 * [dbt-trino 1.9.3](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-193---july-22-2025)
 
-## September 2025[​](#september-2025 "Direct link to September 2025")
+## September 2025
 
 Release date: September 10, 2025
 
@@ -492,20 +492,20 @@ Changelogs:
 * [dbt-teradata 1.10.0](https://github.com/Teradata/dbt-teradata/releases/tag/v1.10.0)
 * [dbt-trino 1.9.3](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-193---july-22-2025)
 
-## August 2025[​](#august-2025 "Direct link to August 2025")
+## August 2025
 
 Release date: August 12, 2025
 
-### Notable dbt Core OSS changes[​](#notable-dbt-core-oss-changes "Direct link to Notable dbt Core OSS changes")
+### Notable dbt Core OSS changes
 
 This compatible upgrade brings in a minor update to `dbt-core`, from `dbt-core==1.9.8` to `dbt-core==1.10.8`. Some noteworthy changes from this minor version include:
 
 * Introduction of several new [deprecations](../../reference/deprecations.md) that warn about project incompatibilities between dbt Core and Fusion engines.
 * Support for defining `meta` and `tags` within `config` of columns and exposures, as well as defining `freshness` within `config` of sources. These changes lead to manifest.json minor schema evolutions which may cause an intermittent increase in false positives during `state:modified` comparisons.
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-7 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
-### Fixes[​](#fixes-1 "Direct link to Fixes")
+### Fixes
 
 * Update generate publications script to add project and env id in generated publication file
 * Use JSON stream for publication artifact generation script
@@ -513,7 +513,7 @@ This compatible upgrade brings in a minor update to `dbt-core`, from `dbt-core==
 * Adding `--resource-type` and `--exclude-resource-type` flags to Semantic Layer commands
 * Azure DevOps Private Packages are now properly matched with Private Package Definition in packages.yml
 
-### Under the Hood[​](#under-the-hood-3 "Direct link to Under the Hood")
+### Under the Hood
 
 * Prepare support for Private Package's URLs with multiple levels
 * Disable telemetry client logger
@@ -562,13 +562,13 @@ Changelogs:
 * [dbt-teradata 1.9.3](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.3)
 * [dbt-trino 1.9.3](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-193---july-22-2025)
 
-## July 2025[​](#july-2025 "Direct link to July 2025")
+## July 2025
 
 The compatible release slated for July 2025 will be skipped in order to further stabilize the minor upgrade of `dbt-core==1.10.0` ([released June 16, 2025](https://pypi.org/project/dbt-core/1.10.0/)) across the dbt platform.
 
 Compatible releases will resume in August 2025.
 
-## June 2025[​](#june-2025 "Direct link to June 2025")
+## June 2025
 
 Release date: June 12, 2025
 
@@ -617,19 +617,19 @@ Changelogs:
 * [dbt-teradata 1.9.2](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.2)
 * [dbt-trino 1.9.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-192---june-03-2025)
 
-## May 2025[​](#may-2025 "Direct link to May 2025")
+## May 2025
 
 Release date: May 19, 2025
 
-### dbt cloud-based platform[​](#dbt-cloud-based-platform-8 "Direct link to dbt cloud-based platform")
+### dbt cloud-based platform
 
 These changes reflect capabilities that are only available in the dbt platform.
 
-### Fixes[​](#fixes-2 "Direct link to Fixes")
+### Fixes
 
 * Get environment variables correctly from the environment for publication artifacts
 
-### Under the hood[​](#under-the-hood-4 "Direct link to Under the hood")
+### Under the hood
 
 * Create JSON schemas for PublicationArtifact and ResolvedProjectsArtifact
 
@@ -674,15 +674,15 @@ Changelogs:
 * [dbt-teradata 1.9.2](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.2)
 * [dbt-trino 1.9.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-191---march-26-2025)
 
-## April 2025[​](#april-2025 "Direct link to April 2025")
+## April 2025
 
 Release date: April 9, 2025
 
-### dbt Cloud[​](#dbt-cloud "Direct link to dbt Cloud")
+### dbt Cloud
 
 These changes reflect capabilities that are only available in dbt Cloud.
 
-### Under the Hood[​](#under-the-hood-5 "Direct link to Under the Hood")
+### Under the Hood
 
 * Add secondary profiles to profile.py
 
@@ -727,7 +727,7 @@ Changelogs:
 * [dbt-teradata 1.9.2](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.2)
 * [dbt-trino 1.9.1](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-191---march-26-2025)
 
-## March 2025[​](#march-2025 "Direct link to March 2025")
+## March 2025
 
 Release date: March 11, 2025
 
@@ -771,20 +771,20 @@ Changelogs:
 * [dbt-teradata 1.9.1](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.1)
 * [dbt-trino 1.9.0](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-190---december-20-2024)
 
-## February 2025[​](#february-2025 "Direct link to February 2025")
+## February 2025
 
 Release date: February 12, 2025
 
-### dbt Cloud[​](#dbt-cloud-1 "Direct link to dbt Cloud")
+### dbt Cloud
 
 These changes reflect capabilities that are only available in dbt.
 
-### Features[​](#features-1 "Direct link to Features")
+### Features
 
 * Add [`event_time`](../../reference/resource-configs/event-time.md) to cross-project ref artifact.
 * Include debug exception message in ObservabilityMetric.
 
-### Fixes[​](#fixes-3 "Direct link to Fixes")
+### Fixes
 
 * Adding support for deferral against the new time spine definition.
 * Fix error messages for SL query.
@@ -830,19 +830,19 @@ Changelogs:
 * [dbt-teradata 1.9.1](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.1)
 * [dbt-trino 1.9.0](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-190---december-20-2024)
 
-## January 2025[​](#january-2025 "Direct link to January 2025")
+## January 2025
 
 Release date: January 14, 2025
 
-### dbt Cloud[​](#dbt-cloud-2 "Direct link to dbt Cloud")
+### dbt Cloud
 
 These changes reflect capabilities that are only available in dbt.
 
-### Features[​](#features-2 "Direct link to Features")
+### Features
 
 * Filter out external exposures in dbt compare.
 
-### Fixes[​](#fixes-4 "Direct link to Fixes")
+### Fixes
 
 * Use `meta.dbt_cloud_id` to `build unique_id` for manually defined exposure for merging against a duplicated exposure.
 
@@ -886,7 +886,7 @@ Changelogs:
 * [dbt-teradata 1.9.0](https://github.com/Teradata/dbt-teradata/releases/tag/v1.9.0)
 * [dbt-trino 1.9.0](https://github.com/starburstdata/dbt-trino/blob/master/CHANGELOG.md#dbt-trino-190---december-20-2024)
 
-## December 2024[​](#december-2024 "Direct link to December 2024")
+## December 2024
 
 Release date: December 12, 2024
 

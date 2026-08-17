@@ -1,3 +1,3 @@
-## [Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake](../guides/dbt-python-snowpark.md)
+## [Get hands-on with Apache Iceberg and local compute](../guides/iceberg.md)
 
-Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python with Snowflake
+Run dbt transformations across Snowflake and DuckDB against one shared set of Apache Iceberg tables, warehouse-free and with no data copies.

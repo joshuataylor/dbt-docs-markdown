@@ -1,10 +1,10 @@
 # Starburst/Trino configurations
 
-## Cluster requirements[​](#cluster-requirements "Direct link to Cluster requirements")
+## Cluster requirements
 
 The designated cluster must have an attached catalog where objects such as tables and views can be created, renamed, altered, and dropped. Any user connecting to the cluster with dbt must also have these same permissions for the target catalog.
 
-## Session properties[​](#session-properties "Direct link to Session properties")
+## Session properties
 
 With a Starburst Enterprise, Starburst Galaxy, or Trino cluster, you can [set session properties](https://trino.io/docs/current/sql/set-session.html) to modify the current configuration for your user session.
 
@@ -20,13 +20,13 @@ However, to temporaily adjust these session properties for a specific dbt model 
 }}
 ```
 
-## Connector properties[​](#connector-properties "Direct link to Connector properties")
+## Connector properties
 
 You can use Starburst/Trino table properties to configure how you want your data to be represented.
 
 For details on what's supported for each supported data source, refer to either the [Trino Connectors](https://trino.io/docs/current/connector.html) or [Starburst Catalog](https://docs.starburst.io/starburst-galaxy/catalogs/).
 
-### Hive catalogs[​](#hive-catalogs "Direct link to Hive catalogs")
+### Hive catalogs
 
 At target catalog that uses the Hive connector and a metastore service (HMS) is typical when working with Starburst and dbt. The following settings are recommended for working with dbt. The intent is to ensure that dbt can perform the frequently executed `DROP` and `RENAME` statements.
 
@@ -35,7 +35,7 @@ hive.metastore-cache-ttl=0s
 hive.metastore-refresh-interval=5s
 ```
 
-## File format configuration[​](#file-format-configuration "Direct link to File format configuration")
+## File format configuration
 
 When using file-based connectors such as Hive, a user can customize aspects of the connector such as the format that is used as well the type of materialization
 
@@ -53,7 +53,7 @@ The below configures the table to be materializes as a set of partitioned [Parqu
 }}
 ```
 
-## Seeds and prepared statements[​](#seeds-and-prepared-statements "Direct link to Seeds and prepared statements")
+## Seeds and prepared statements
 
 The [dbt seed](../../docs/build/seeds.md) command makes use of prepared statements in [Starburst](https://docs.starburst.io/latest/sql/prepare.html)/[Trino](https://trino.io/docs/current/sql/prepare.html).
 
@@ -61,7 +61,7 @@ Prepared statements are templated SQL statements that you can execute repeatedly
 
 Most seed files have more than one row, and often thousands of rows. This makes the size of the client request as large as there are parameters.
 
-### Header line length limit in Python HTTP client[​](#header-line-length-limit-in-python-http-client "Direct link to Header line length limit in Python HTTP client")
+### Header line length limit in Python HTTP client
 
 You might run into an error message about header line limit if your prepared statements have too many parameters. This is because the header line limit in Python's HTTP client is `65536` bytes.
 
@@ -83,9 +83,9 @@ macros/YOUR\_MACRO\_NAME.sql
 
 Another way to avoid the header line length limit is to set `prepared_statements_enabled` to `true` in your dbt profile; however, this is considered legacy behavior and can be removed in a future release.
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
-### Table[​](#table "Direct link to Table")
+### Table
 
 The `dbt-trino` adapter supports these modes in `table` materialization (and [full-refresh runs](../commands/run.md#refresh-incremental-models) in `incremental` materialization), which you can configure with `on_table_exists`:
 
@@ -127,7 +127,7 @@ If you use `table` materialization and `on_table_exists = 'rename'` with AWS Glu
 TrinoUserError(type=USER_ERROR, name=NOT_SUPPORTED, message="Table rename is not yet supported by Glue service")
 ```
 
-### View[​](#view "Direct link to View")
+### View
 
 The `dbt-trino` adapter supports these security modes in `view` materialization, which you can configure with `view_security`:
 
@@ -163,7 +163,7 @@ models:
     +view_security: invoker
 ```
 
-### Incremental[​](#incremental "Direct link to Incremental")
+### Incremental
 
 Using an incremental model limits the amount of data that needs to be transformed, which greatly reduces the runtime of your transformations. This improves performance and reduces compute costs.
 
@@ -186,7 +186,7 @@ If your connector doesn't support views, set the `+views_enabled` property to `f
 
 You can decide how model should be rebuilt in a `full-refresh` run by specifying `on_table_exists` config. Options are the same as described in [table materialization section](./trino-configs.md#table)
 
-#### append strategy[​](#append-strategy "Direct link to append strategy")
+#### append strategy
 
 The default incremental strategy is `append`. `append` only adds new records based on the condition specified in the `is_incremental()` conditional block.
 
@@ -201,7 +201,7 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-#### delete+insert strategy[​](#deleteinsert-strategy "Direct link to delete+insert strategy")
+#### delete+insert strategy
 
 With the `delete+insert` incremental strategy, you can instruct dbt to use a two-step incremental approach. First, it deletes the records detected through the configured `is_incremental()` block, then re-inserts them.
 
@@ -219,7 +219,7 @@ select * from {{ ref('users') }}
 {% endif %}
 ```
 
-#### merge strategy[​](#merge-strategy "Direct link to merge strategy")
+#### merge strategy
 
 With the `merge` incremental strategy, dbt-trino constructs a [Trino MERGE statement](https://trino.io/docs/current/sql/merge.html) to `insert` new records and `update` existing records, based on the `unique_key` property.
 
@@ -241,7 +241,7 @@ select * from {{ ref('users') }}
 
 Be aware that there are some Trino connectors that don't support `MERGE` or have limited support.
 
-#### Incremental overwrite on Hive models[​](#incremental-overwrite-on-hive-models "Direct link to Incremental overwrite on Hive models")
+#### Incremental overwrite on Hive models
 
 If there's a [Hive connector](https://trino.io/docs/current/connector/hive.html) accessing your target incremental model, you can simulate an `INSERT OVERWRITE` statement by using the `insert-existing-partitions-behavior` setting on the Hive connector configuration in Trino:
 
@@ -284,7 +284,7 @@ trino-incremental-hive:
 }}
 ```
 
-### Materialized view[​](#materialized-view "Direct link to Materialized view")
+### Materialized view
 
 The `dbt-trino` adapter supports [materialized views](https://trino.io/docs/current/sql/create-materialized-view.html) and refreshes them for every subsequent `dbt run` that you execute. For more information, see [REFRESH MATERIALIZED VIEW](https://trino.io/docs/current/sql/refresh-materialized-view.html) in the Trino docs.
 
@@ -322,7 +322,7 @@ models:
       format: "'PARQUET'"
 ```
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 [Snapshots in dbt](../../docs/build/snapshots.md) depend on the `current_timestamp` macro, which returns a timestamp with millisecond precision (3 digits) by default. There are some connectors for Trino that don't support this timestamp precision (`TIMESTAMP(3) WITH TIME ZONE`), like Iceberg.
 
@@ -336,7 +336,7 @@ macros/YOUR\_MACRO\_NAME.sql
 {% endmacro %}
 ```
 
-## Grants[​](#grants "Direct link to Grants")
+## Grants
 
 Use [grants](./grants.md) to manage access to the datasets you're producing with dbt. You can use grants with [Starburst Enterprise](https://docs.starburst.io/latest/security/biac-overview.html), [Starburst Galaxy](https://docs.starburst.io/starburst-galaxy/security/access-control.html), and Hive ([sql-standard](https://trino.io/docs/current/connector/hive-security.html)).
 
@@ -352,6 +352,6 @@ models:
         select: ['reporter', 'bi']
 ```
 
-## Model contracts[​](#model-contracts "Direct link to Model contracts")
+## Model contracts
 
 The `dbt-trino` adapter supports [model contracts](../../docs/mesh/govern/model-contracts.md). Currently, only [constraints](../resource-properties/constraints.md) with `type` as `not_null` are supported. Before using `not_null` constraints in your model, make sure the underlying connector supports `not null`, to avoid running into errors.

@@ -4,7 +4,7 @@ The not-as-favorite child: the right join. Unlike [left joins](./left-join.md) t
 
 What you really need to know: You can accomplish anything a right join does with a left join and left joins typically are more readable and intuitive. However, we’ll still walk you through how to use right joins and elaborate on why we think left joins are superior 😉
 
-## How to create a right join[​](#how-to-create-a-right-join "Direct link to How to create a right join")
+## How to create a right join
 
 Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a right join:
 
@@ -18,7 +18,7 @@ on t1.id = t2.id
 
 In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also right (or any join really) as many joins as you’d like in an individual query or CTE.
 
-### SQL right join example[​](#sql-right-join-example "Direct link to SQL right join example")
+### SQL right join example
 
 Table A `car_type`
 
@@ -28,12 +28,6 @@ Table A `car_type`
 | 2            | sedan         |
 | 3            | truck         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Table B `car_color`
 
 | **user\_id** | **car\_color** |
@@ -41,12 +35,6 @@ Table B `car_color`
 | 1            | red            |
 | 3            | green          |
 | 4            | yellow         |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ```sql
 select
@@ -66,15 +54,9 @@ This simple query will return *all* rows from Table B and adds the `color` colum
 | 3            | truck    | green     |
 | 4            | null     | yellow    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Because there’s no `user_id` = 4 in Table A, there is no `type` available, thus a null result `type` column for `user_id` 4. Since no `user_id` = 2 exists in Table B, and that id is not in the right join database object, no rows with a `user_id` of 2 will be returned.
 
-## SQL right join use cases[​](#sql-right-join-use-cases "Direct link to SQL right join use cases")
+## SQL right join use cases
 
 Compared to left joins, you likely won’t see right joins as often (or ever) in data modeling and analytics engineering work. But why not?
 

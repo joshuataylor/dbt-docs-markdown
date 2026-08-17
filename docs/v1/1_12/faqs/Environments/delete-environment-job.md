@@ -2,9 +2,7 @@
 
 To delete an environment or job in dbt, you must have a `developer` [license](../../docs/platform/manage-access/seats-and-users.md) and have the necessary [access permissions](../../docs/platform/manage-access/about-user-access.md).
 
-### Delete a job[​](#delete-a-job "Direct link to Delete a job")
-
-<!-- -->
+### Delete a job
 
 To delete a job or multiple jobs in dbt:
 
@@ -21,9 +19,7 @@ To delete a job or multiple jobs in dbt:
 
 If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
 
-### Delete an environment[​](#delete-an-environment "Direct link to Delete an environment")
-
-<!-- -->
+### Delete an environment
 
 Deleting an environment automatically deletes its associated job(s). If you want to keep those jobs, move them to a different environment first.
 

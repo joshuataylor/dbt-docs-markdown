@@ -1,6 +1,6 @@
 # How we style our YAML
 
-## YAML Style Guide[​](#yaml-style-guide "Direct link to YAML Style Guide")
+## YAML Style Guide
 
 * 2️⃣ Indents should be two spaces
 * ➡️ List items should be indented
@@ -15,7 +15,7 @@ info
 
 ☁️ As with Python and SQL, the Studio IDE comes with built-in formatting for YAML files (Markdown and JSON too!), via Prettier. Just click the `Format` button and you're in perfect style. As with the other tools, you can [also customize the formatting rules](../../docs/platform/studio-ide/lint-format.md#format-yaml-markdown-json) to your liking to fit your company's style guide.
 
-### Example YAML[​](#example-yaml "Direct link to Example YAML")
+### Example YAML
 
 ```yaml
 

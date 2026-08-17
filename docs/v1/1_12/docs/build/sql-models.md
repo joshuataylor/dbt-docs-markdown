@@ -1,13 +1,13 @@
 # SQL models
 
-## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
+## Related reference docs
 
 * [Model configurations](../../reference/model-configs.md)
 * [Model properties](../../reference/model-properties.md)
 * [`run` command](../../reference/commands/run.md)
 * [`ref` function](../../reference/dbt-jinja-functions/ref.md)
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 Building your first models
 
@@ -95,19 +95,16 @@ Why a *view* named `dbt_alice.customers`? By default dbt will:
 
 You can use *configurations* to change any of these behaviors — more on that later.
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 How can I see the SQL that dbt is running?
 
 To check out the SQL that dbt is running, you can look in:
 
 * dbt:
-  <!-- -->
   * Within the run output, click on a model name, and then select "Details"
 
 * dbt Core:
-
-  <!-- -->
 
   * The `target/compiled/` directory for compiled `select` statements
   * The `target/run/` directory for compiled `create` statements
@@ -168,9 +165,7 @@ select 1 as my_column
 
 To replace an existing table, here's an *illustrative* example of the SQL dbt will run on different warehouses (the actual SQL can get much more complicated than this!)
 
-* Redshift
-* BigQuery
-* Snowflake
+### Redshift
 
 ```sql
 -- you can't create or replace on redshift, so use a transaction to do this in an atomic way
@@ -194,6 +189,8 @@ drop table if exists "dbt_alice"."test_model__dbt_backup" cascade;
 commit;
 ```
 
+### BigQuery
+
 ```sql
 
 -- Make an API call to create a dataset (no DDL interface for this)!!;
@@ -203,6 +200,8 @@ create or replace table `dbt-dev-87681`.`dbt_alice`.`test_model` as (
 );
 ```
 
+### Snowflake
+
 ```sql
 create schema if not exists analytics.dbt_alice;
 
@@ -211,7 +210,7 @@ create or replace table analytics.dbt_alice.test_model as (
 );
 ```
 
-## Configuring models[​](#configuring-models "Direct link to Configuring models")
+## Configuring models
 
 Configurations are "model settings" that you can set in your `dbt_project.yml` file, *and* in your model file using a `config` block. Some example configurations include:
 
@@ -262,7 +261,7 @@ It is important to note that configurations are applied hierarchically — a con
 
 You can learn more about configurations in the [reference docs](../../reference/model-configs.md).
 
-### FAQs[​](#faqs-1 "Direct link to FAQs")
+### FAQs
 
 What materializations are available in dbt?
 
@@ -282,13 +281,11 @@ You can also configure:
 
 Check out the docs on [model configurations](../../reference/model-configs.md) to learn more.
 
-## Building dependencies between models[​](#building-dependencies-between-models "Direct link to Building dependencies between models")
+## Building dependencies between models
 
 You can build dependencies between models by using the [`ref` function](../../reference/dbt-jinja-functions/ref.md) in place of table names in a query. Use the name of another model as the argument for `ref`.
 
-* Model
-* Compiled code in dev
-* Compiled code in prod
+### Model
 
 models/customers.sql
 
@@ -307,6 +304,8 @@ orders as (
 
 ...
 ```
+
+### Compiled code in dev
 
 ```sql
 create view dbt_alice.customers as (
@@ -327,6 +326,8 @@ create view dbt_alice.customers as (
 
 ...
 ```
+
+### Compiled code in prod
 
 ```sql
 create view analytics.customers as (
@@ -358,11 +359,11 @@ dbt uses the `ref` function to:
 
 Additionally, the `ref` function encourages you to write modular transformations, so that you can re-use models, and reduce repeated code.
 
-## Testing and documenting models[​](#testing-and-documenting-models "Direct link to Testing and documenting models")
+## Testing and documenting models
 
 You can also document and test models — skip ahead to the section on [testing](./data-tests.md) and [documentation](./documentation.md) for more information.
 
-## Additional FAQs[​](#additional-faqs "Direct link to Additional FAQs")
+## Additional FAQs
 
 Are there any example dbt models?
 
@@ -446,11 +447,11 @@ For those coming from an ETL (Extract Transform Load) paradigm, there's often a 
 
 Why can't I just write DML in my transformations?
 
-#### `select` statements make transformations accessible[​](#select-statements-make-transformations-accessible "Direct link to select-statements-make-transformations-accessible")
+#### `select` statements make transformations accessible
 
 More people know how to write `select` statements, than DML, making the transformation layer accessible to more people!
 
-#### Writing good DML is hard[​](#writing-good-dml-is-hard "Direct link to Writing good DML is hard")
+#### Writing good DML is hard
 
 If you write the DDL / DML yourself you can end up getting yourself tangled in problems like:
 
@@ -462,11 +463,11 @@ If you write the DDL / DML yourself you can end up getting yourself tangled in p
 
 Each of these problems *can* be solved, but they are unlikely to be the best use of your time.
 
-#### dbt does more than generate SQL[​](#dbt-does-more-than-generate-sql "Direct link to dbt does more than generate SQL")
+#### dbt does more than generate SQL
 
 You can test your models, generate documentation, create snapshots, and more!
 
-#### You reduce your vendor lock in[​](#you-reduce-your-vendor-lock-in "Direct link to You reduce your vendor lock in")
+#### You reduce your vendor lock in
 
 SQL dialects tend to diverge the most in DML and DDL (rather than in `select` statements) — check out the example [here](../../faqs/Models/sql-dialect.md). By writing less SQL, it can make a migration to a new database technology easier.
 

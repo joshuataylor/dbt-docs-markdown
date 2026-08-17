@@ -1,34 +1,31 @@
+(Applies to dbt v2.0 and later)
+
 # Connect Apache Spark to Fusion [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 The dbt Fusion engine supports Apache Spark, enabling faster compilation and execution for your Spark-based dbt projects. Currently, Fusion only supports Apache Spark 3.0.
 
-## Fusion and Spark[​](#fusion-and-spark "Direct link to Fusion and Spark")
+## Fusion and Spark
 
 Fusion uses the Databricks SQL dialect for [static analysis](../../build/about-static-analysis.md#principles-of-static-analysis) when working with Spark. Databricks SQL is a superset of Spark SQL, so your SQL is validated with Databricks semantics. This provides comprehensive error checking and SQL comprehension features. A dedicated Spark SQL dialect for static analysis is planned for a future release.
 
-## Authentication[​](#authentication "Direct link to Authentication")
+## Authentication
 
 The Spark adapter in Fusion supports:
 
 * Thrift
-
-  <!-- -->
 
   * Simple Authentication and Security Layer (SASL) PLAIN
   * No SASL (NOSASL)
 
 * Livy
 
-  <!-- -->
-
   * Basic authentication (username and password)
   * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-    <!-- -->
     * Supports authentication using single sign-on, service accounts, or user tokens
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Configure your Spark connection in `profiles.yml`:
 
@@ -60,18 +57,9 @@ your_profile_name:
 | `platform_hint`          | No       | Hints to Fusion which Spark platform you use. Fusion uses this to validate required `server_side_parameters`. Accepted values: `aws_emr_serverless`, `aws_emr_eks`. If omitted, Fusion assumes a generic Spark cluster.                                                                                                                                                                               | `aws_emr_serverless`                            |
 | `server_side_parameters` | No       | Spark session parameters passed to the cluster.<br /><br />Required keys when using `platform_hint`:<br />- For `aws_emr_serverless`, use `emr-serverless.session.executionRoleArn`.<br />- For `aws_emr_eks`, use `spark.kubernetes.namespace`.<br /><br />When using `method: livy`, you can set `livy.server.session.ttl` to configure how long a session can remain idle before it is terminated. | Refer to [example profiles](#example-profiles). |
 
-Search table...
+### Example profiles
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Example profiles[​](#example-profiles "Direct link to Example profiles")
-
-* Thrift (binary)
-* Thrift (HTTP)
-* AWS EMR Serverless
-* AWS EMR on EKS
+### Thrift (binary)
 
 \~/.dbt/profiles.yml
 
@@ -88,6 +76,8 @@ spark-local-thrift-binary:
       schema: my_schema
 ```
 
+### Thrift (HTTP)
+
 \~/.dbt/profiles.yml
 
 ```yaml
@@ -103,6 +93,8 @@ spark-local-thrift-http:
       host: localhost
       schema: my_schema
 ```
+
+### AWS EMR Serverless
 
 \~/.dbt/profiles.yml
 
@@ -126,6 +118,8 @@ spark-emr-serverless:
         # Required by EMR Serverless when using platform_hint: aws_emr_serverless
         "emr-serverless.session.executionRoleArn": "arn:aws:iam::YOUR_AWS_ACCOUNT:role/YOUR_ROLE"
 ```
+
+### AWS EMR on EKS
 
 \~/.dbt/profiles.yml
 

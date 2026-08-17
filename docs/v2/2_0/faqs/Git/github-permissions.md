@@ -4,7 +4,7 @@ If you see the error `This account needs to accept the latest permissions for th
 
 To solve this issue, you'll need to update the permissions for the dbt GitHub App in your GitHub account. This FAQ shares a couple of ways you can do it.
 
-## Update permissions[​](#update-permissions "Direct link to Update permissions")
+## Update permissions
 
 A GitHub organization admin will need to update the permissions in GitHub for the dbt GitHub App. If you're not the admin, reach out to your organization admin to request this.
 
@@ -22,7 +22,7 @@ For more info on GitHub permissions, refer to [access permissions](https://docs.
 
 Alternatively, try [disconnecting your GitHub account](#disconnect-github) in dbt, detailed in the following section.
 
-## Disconnect GitHub[​](#disconnect-github "Direct link to Disconnect GitHub")
+## Disconnect GitHub
 
 Disconnect the GitHub and dbt integration in dbt.
 
@@ -31,12 +31,12 @@ Disconnect the GitHub and dbt integration in dbt.
 3. Click the repository link under **Repository**.
 4. In the **Repository details** page, click **Edit**.
 5. Click **Disconnect** to remove the GitHub integration.
-   <!-- -->
+
    [![Disconnect and reconnect your git repository in your dbt Account settings pages.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your git repository in your dbt Account settings pages.")](#)Disconnect and reconnect your git repository in your dbt Account settings pages.
 6. Click **Confirm Disconnect**.
 7. Return to your **Project details** page and reconnect your repository by clicking the **Configure Repository** link.
 8. Click **GitHub** and select your repository.
 
-## Support[​](#support "Direct link to Support")
+## Support
 
 If you've tried these workarounds and are still experiencing this behavior — reach out to the [dbt Support](mailto:support@getdbt.com) team and we'll be happy to help!

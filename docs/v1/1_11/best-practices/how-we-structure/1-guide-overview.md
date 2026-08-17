@@ -1,6 +1,6 @@
 # How we structure our dbt projects
 
-## Why does structure matter?[​](#why-does-structure-matter "Direct link to Why does structure matter?")
+## Why does structure matter?
 
 Analytics engineering, at its core, is about helping groups of human beings collaborate on better decisions at scale. We have [limited bandwidth for making decisions](https://en.wikipedia.org/wiki/Decision_fatigue). We also, as a cooperative social species, rely on [systems and patterns to optimize collaboration](https://en.wikipedia.org/wiki/Pattern_language) with others. This combination of traits means that for collaborative projects it's crucial to establish consistent and comprehensible norms such that your team’s limited bandwidth for decision making can be spent on unique and difficult problems, not deciding where folders should go or how to name files.
 
@@ -12,7 +12,7 @@ This guide is just a starting point. You may decide that you prefer Birkenstocks
 
 One foundational principle that applies to all dbt projects though, is the need to establish a cohesive arc moving data from *source-conformed* to *business-conformed*. Source-conformed data is shaped by external systems out of our control, while business-conformed data is shaped by the needs, concepts, and definitions we create. No matter what patterns or conventions you define within your project, this process remains the essential purpose of the transformation layer, and dbt as your tool within it. This guide is an update to a seminal analytics engineering [post of the same name](https://discourse.getdbt.com/t/how-we-structure-our-dbt-projects/355) by the great Claire Carroll, and while some of the details have changed over time (as anticipated in that post) this fundamental trajectory holds true. Moving forward, this guide will be iteratively updated as new tools expand our viewpoints, new experiences sharpen our vision, and new voices strengthen our perspectives, but always in service of that aim.
 
-### Learning goals[​](#learning-goals "Direct link to Learning goals")
+### Learning goals
 
 This guide has three main goals:
 
@@ -32,13 +32,11 @@ This guide walks through our recommendations using a very simple dbt project —
 
 We'll get a deeper sense of our project as we move through the guide, but for now we just need to know that the Jaffle Shop is a restaurant selling jaffles. Its data comes from a single `ecom` source in the `raw` schema, with tables like `raw_customers`, `raw_orders`, `raw_items`, `raw_products`, `raw_stores`, and `raw_supplies`. When `load_source_data` is enabled, seeds in `seeds/jaffle-data/` can populate the `raw` schema for local development.
 
-### Guide structure overview[​](#guide-structure-overview "Direct link to Guide structure overview")
+### Guide structure overview
 
 We'll walk through our topics in the same order that our data would move through transformation:
 
 1. Dig into how we structure the files, folders, and models for our three primary layers in the `models` directory, which build on each other:
-
-   <!-- -->
 
    1. **Staging** — creating our atoms, our initial modular building blocks, from source data
    2. **Intermediate** — stacking layers of logic with clear and specific purposes to prepare our staging models to join into the entities we want

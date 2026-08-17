@@ -1,6 +1,6 @@
 # Deploy jobs
 
-dbt platformⓘ
+dbt platform
 
 You can use deploy jobs to build production data assets. Deploy jobs make it easy to run dbt commands against a project in your cloud data platform, triggered either by schedule or events. Each job run in dbt will have an entry in the job's run history and a detailed run overview, which provides you with:
 
@@ -13,16 +13,15 @@ You can use deploy jobs to build production data assets. Deploy jobs make it eas
 
 You can create a deploy job and configure it to run on [scheduled days and times](#schedule-days), enter a [custom cron schedule](#cron-schedule), or [trigger the job after another job completes](#trigger-on-job-completion).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must have a [dbt account](https://www.getdbt.com/signup/) and [Developer seat license](../platform/manage-access/seats-and-users.md).
-  <!-- -->
   * For the [Trigger on job completion](#trigger-on-job-completion) feature, your dbt account must be on the [Starter or an Enterprise-tier](https://www.getdbt.com/pricing/) plan.
 * You must have a dbt project connected to a [data platform](../platform/connect-data-platform/about-connections.md).
 * You must have [access permission](../platform/manage-access/about-user-access.md) to view, create, modify, or run jobs.
 * You must set up a [deployment environment](./deploy-environments.md).
 
-## Create and schedule jobs[​](#create-and-schedule-jobs "Direct link to Create and schedule jobs")
+## Create and schedule jobs
 
 info
 
@@ -51,14 +50,14 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
 
    * **Run on schedule** — Run the deploy job on a set schedule.
 
-     <!-- -->
-
      * **Timing** — Specify whether to [schedule](#schedule-days) the deploy job using **Intervals** that run the job every specified number of hours, **Specific hours** that run the job at specific times of day, or **Cron schedule** that run the job specified using [cron syntax](#cron-schedule).
      * **Days of the week** — By default, it’s set to every day when **Intervals** or **Specific hours** is chosen for **Timing**.
 
-   * **Run when another job finishes** — Run the deploy job when another *upstream* deploy [job completes](#trigger-on-job-completion).
+     Using `state:modified` on a scheduled job
 
-     <!-- -->
+     Using a [`state:modified`](../../reference/node-selection/methods.md#state) selector on a scheduled job can result in the job completing successfully with zero models built when no changes are detected since the last deferred run. Refer to [Scheduled jobs and state:modified](#scheduled-jobs-and-statemodified) for details and recommendations.
+
+   * **Run when another job finishes** — Run the deploy job when another *upstream* deploy [job completes](#trigger-on-job-completion).
 
      * **Project** — Specify the parent project that has that upstream deploy job.
      * **Job** — Specify the upstream deploy job.
@@ -80,7 +79,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
 
    [![Example of Advanced Settings on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/deploy-job-adv-settings.png?v=2 "Example of Advanced Settings on the Deploy Job page")](#)Example of Advanced Settings on the Deploy Job page
 
-### Schedule days[​](#schedule-days "Direct link to Schedule days")
+### Schedule days
 
 To set your job's schedule, use the **Run on schedule** option to choose specific days of the week, and select customized hours or intervals.
 
@@ -90,7 +89,7 @@ Under **Timing**, you can either use regular intervals for jobs that need to run
 
 * **Specific hours** — Use this option to set specific times when your job should run. You can enter a comma-separated list of hours (in UTC) when you want the job to run. For example, if you set it to `0,12,23,` the job will run at midnight, noon, and 11 PM UTC. Job runs will always be consistent between both hours and days, so if your job runs at 00:05, 12:05, and 23:05 UTC, it will run at these same hours each day. This option is useful if you want your jobs to run at specific times of day and don't need them to run more frequently than once a day.
 
-### Cron schedule[​](#cron-schedule "Direct link to Cron schedule")
+### Cron schedule
 
 To fully customize the scheduling of your job, choose the **Cron schedule** option and use cron syntax. With this syntax, you can specify the minute, hour, day of the month, month, and day of the week, allowing you to set up complex schedules like running a job on the first Monday of each month.
 
@@ -124,14 +123,19 @@ Examples of cron job schedules:
 * `30 14 L * *`: At 02:30 PM, on the last day of the month.
 * `0 4 * * MON#1`: At 4:00 AM on the first Monday of every month.
 
-### Trigger on job completion [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#trigger-on-job-completion-- "Direct link to trigger-on-job-completion--")
+### Scheduled jobs and `state:modified`
+
+[`state:modified`](../../reference/node-selection/methods.md#state) and `state:modified+` only detect changes to your project's code, configuration, or manifest-relevant metadata — not changes to the data itself, like new rows landing in a source table. When dbt detects no code or configuration changes since the deferred manifest was last produced, the job succeeds without building any models. This is expected behavior.
+
+If your job needs to build models on every scheduled run regardless of code changes, remove the `state:modified` selector from that job. Reserve it for [CI](./ci-jobs.md) or [merge jobs](./merge-jobs.md), where the intent is to build only what changed in a given pull request or merge.
+
+### Trigger on job completion [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 To *chain* deploy jobs together:
 
 1. In the **Triggers** section, enable the **Run when another job finishes** option.
 2. Select the project that has the deploy job you want to run after completion.
 3. Specify the upstream (parent) job that, when completed, will trigger your job.
-   <!-- -->
    * You can also use the [Create Job API](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) to do this.
 4. In the **Completes on** option, select the job run status(es) that will [enqueue](./job-scheduler.md#scheduler-queue) the deploy job.
 
@@ -141,9 +145,7 @@ To *chain* deploy jobs together:
 
 If another job triggers your job to run, you can find a link to the upstream job in the [run details section](./run-visibility.md#job-run-details).
 
-## Delete a job[​](#delete-a-job "Direct link to Delete a job")
-
-<!-- -->
+## Delete a job
 
 To delete a job or multiple jobs in dbt:
 
@@ -160,9 +162,7 @@ To delete a job or multiple jobs in dbt:
 
 If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
 
-<!-- -->
-
-## Job monitoring[​](#job-monitoring "Direct link to Job monitoring")
+## Job monitoring
 
 On the **Environments** page, there are two sections that provide an overview of the jobs for that environment:
 
@@ -171,7 +171,7 @@ On the **Environments** page, there are two sections that provide an overview of
 
 [![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")](#)In progress jobs and Top jobs by models built
 
-## Job settings history[​](#job-settings-history "Direct link to Job settings history")
+## Job settings history
 
 You can view historical job settings changes over the last 90 days.
 
@@ -184,7 +184,7 @@ To view the change history:
 
 [![Example of the job settings history.](/img/docs/deploy/job-history.png?v=2 "Example of the job settings history.")](#)Example of the job settings history.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Run visibility](./run-visibility.md)
 * [Artifacts](./artifacts.md)

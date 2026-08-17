@@ -1,6 +1,6 @@
 # About billing
 
-dbt platformⓘ
+dbt platform
 
 dbt offers a variety of [plans and pricing](https://www.getdbt.com/pricing/) to fit your organization’s needs. With flexible billing options that appeal to large enterprises and small businesses and [server availability](./about-platform/access-regions-ip-addresses.md) worldwide, dbt platform is the fastest and easiest way to begin transforming your data.
 

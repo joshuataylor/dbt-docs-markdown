@@ -1,6 +1,6 @@
 # Project recommendations
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Catalog provides recommendations about your project from the `dbt_project_evaluator` [package](https://hub.getdbt.com/dbt-labs/dbt_project_evaluator/latest/) using metadata from the [Discovery API](../dbt-apis/discovery-api.md).
 
@@ -8,13 +8,11 @@ Catalog provides recommendations about your project from the `dbt_project_evalua
 * These recommendations provide insight into how you can create a better-documented, better-tested, and better-built dbt project, creating more trust and less confusion.
 * For a seamless and consistent experience, recommendations use `dbt_project_evaluator`'s pre-defined settings and don't import customizations applied to your package or project.
 
-<!-- -->
-
 On-demand learning
 
 If you enjoy video courses, check out our [dbt Catalog on-demand course](https://learn.getdbt.com/courses/dbt-catalog) and learn how to best explore your dbt project(s)!
 
-## Recommendations page[​](#recommendations-page "Direct link to Recommendations page")
+## Recommendations page
 
 The Recommendations overview page includes two top-level metrics measuring the test and documentation coverage of the models in your project.
 
@@ -23,7 +21,7 @@ The Recommendations overview page includes two top-level metrics measuring the t
 
 [![Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project](/img/docs/collaborate/dbt-explorer/example-recommendations-overview.png?v=2 "Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project")](#)Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project
 
-## List of rules[​](#list-of-rules "Direct link to List of rules")
+## List of rules
 
 The following table lists the rules currently defined in the `dbt_project_evaluator` [package](https://hub.getdbt.com/dbt-labs/dbt_project_evaluator/latest/).
 
@@ -42,13 +40,7 @@ The following table lists the rules currently defined in the `dbt_project_evalua
 | Documentation | Undocumented Source Tables    | Source tables without descriptions                                                                             | [GitHub](https://dbt-labs.github.io/dbt-project-evaluator/0.8/rules/documentation/#undocumented-source-tables)      |
 | Governance    | Public Model Missing Contract | Models with public access that do not have a model contract to ensure the data types                           | [GitHub](https://dbt-labs.github.io/dbt-project-evaluator/0.8/rules/governance/#public-models-without-contracts)    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## The Recommendations tab[​](#the-recommendations-tab "Direct link to The Recommendations tab")
+## The Recommendations tab
 
 Models, sources, and exposures each also have a **Recommendations** tab on their resource details page, with the specific recommendations that correspond to that resource:
 

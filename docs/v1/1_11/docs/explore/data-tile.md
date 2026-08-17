@@ -1,6 +1,6 @@
 # Data health tile
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 With data health tiles, stakeholders will get an at-a-glance confirmation on whether the data they’re looking at is stale or degraded. It allows teams to immediately go back into Catalog to see more details and investigate issues.
 
@@ -20,7 +20,7 @@ Data health tiles rely on [exposures](../build/exposures.md) to surface data hea
 
 [![Embed data health tiles in your dashboards to distill data health signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tiles.png?v=2 "Embed data health tiles in your dashboards to distill data health signals for data consumers.")](#)Embed data health tiles in your dashboards to distill data health signals for data consumers.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must have a dbt account on an [Enterprise-tier plan](https://www.getdbt.com/pricing/).
 
@@ -30,8 +30,6 @@ Data health tiles rely on [exposures](../build/exposures.md) to surface data hea
 
 * You have [exposures](../build/exposures.md) defined in your project:
 
-  <!-- -->
-
   * If using manual exposures, they must be explicitly defined in your YAML files.
   * If using automatic downstream exposures, ensure your BI tool is [configured](../platform-integrations/downstream-exposures-tableau.md) with dbt.
 
@@ -39,7 +37,7 @@ Data health tiles rely on [exposures](../build/exposures.md) to surface data hea
 
 * The exposure used for the data health tile must have the [`type` property](../build/exposures.md#available-properties) set to `dashboard`. Otherwise, you won't be able to view the **Embed data health tile in your dashboard** dropdown in Catalog.
 
-## View exposure in dbt Catalog[​](#view-exposure-in-dbt-catalog "Direct link to View exposure in dbt Catalog")
+## View exposure in dbt Catalog
 
 First, be sure to enable [source freshness](../deploy/source-freshness.md) in the job that generates this exposure.
 
@@ -53,8 +51,6 @@ First, be sure to enable [source freshness](../deploy/source-freshness.md) in 
 
 5. In this tab, you’ll see:
 
-   <!-- -->
-
    * The exposure name at the top of the page.
    * The resource type (for example, **Exposure**) and an **Updated at** timestamp.
    * A **Data health** section that shows when the **Last check completed** (relative time since the check ran).
@@ -65,7 +61,7 @@ First, be sure to enable [source freshness](../deploy/source-freshness.md) in 
 
 [![View an exposure in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-tile-exposures.png?v=2 "View an exposure in dbt Catalog.")](#)View an exposure in dbt Catalog.
 
-## Embed in your dashboard[​](#embed-in-your-dashboard "Direct link to Embed in your dashboard")
+## Embed in your dashboard
 
 Once you’ve navigated to the exposure in Catalog, you’ll need to set up your data health tile and [service token](../dbt-apis/service-tokens.md). You can embed data health tile to any analytics tool that supports URL or iFrame embedding.
 
@@ -96,14 +92,11 @@ Follow these steps to set up your data health tile:
 
 If your analytics tool supports iFrames, you can embed the dashboard tile within it.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples show how to embed the data health tile in Omni, PowerBI, Tableau, and Sigma.
 
-* Omni example
-* PowerBI example
-* Tableau example
-* Sigma example
+### Omni example
 
 Follow these steps to embed the data health tile in [Omni](https://omni.co/):
 
@@ -120,6 +113,8 @@ Follow these steps to embed the data health tile in [Omni](https://omni.co/):
    ```
 
 4. Save the tile and your Omni dashboard should now have a dbt platform hosted data health tile that is automatically updated based on the state of your dbt environment.
+
+### PowerBI example
 
 You can embed the data health tile iFrame in PowerBI using PowerBI Pro Online, Fabric PowerBI, or PowerBI Desktop.
 
@@ -158,6 +153,8 @@ Follow these steps to embed the data health tile in PowerBI:
 
 *Refer to [this tutorial](https://www.youtube.com/watch?v=SUm9Hnq8Th8) for additional information on embedding a website into your Power BI report.*
 
+### Tableau example
+
 Follow these steps to embed the data health tile in Tableau:
 
 [![Embed data health tile iFrame in Tableau](/img/docs/collaborate/dbt-explorer/tableau-example.png?v=2 "Embed data health tile iFrame in Tableau")](#)Embed data health tile iFrame in Tableau
@@ -178,6 +175,8 @@ Follow these steps to embed the data health tile in Tableau:
 
 5. You should now see the data health tile embedded in your Tableau dashboard.
 
+### Sigma example
+
 Follow these steps to embed the data health tile in Sigma:
 
 [![Embed data health tile in Sigma](/img/docs/collaborate/dbt-explorer/sigma-example.jpg?v=2 "Embed data health tile in Sigma")](#)Embed data health tile in Sigma
@@ -196,7 +195,7 @@ Follow these steps to embed the data health tile in Sigma:
 
 4. You should now see the data health tile embedded in your Sigma dashboard.
 
-## Job-based data health Legacy[​](#job-based-data-health- "Direct link to job-based-data-health-")
+## Job-based data health Legacy
 
 The default experience is the [environment-based data health tile](#view-exposure-in-dbt-explorer) with Catalog.
 
@@ -206,7 +205,7 @@ This section is for legacy job-based data health tiles. If you're using the reva
 
 In dbt, the [Discovery API](../dbt-apis/discovery-api.md) can power dashboard status tiles, which are job-based. A dashboard status tile is placed on a dashboard (specifically: anywhere you can embed an iFrame) to give insight into the quality and freshness of the data feeding into that dashboard. This is done in dbt [exposures](../build/exposures.md).
 
-#### Functionality[​](#functionality "Direct link to Functionality")
+#### Functionality
 
 The dashboard status tile looks like this:
 
@@ -218,7 +217,7 @@ The data freshness check fails if any sources feeding into the exposure are stal
 
 Clicking into **see details** from the Dashboard Status Tile takes you to a landing page where you can learn more about the specific sources, models, and tests feeding into this exposure.
 
-#### Setup[​](#setup "Direct link to Setup")
+#### Setup
 
 First, be sure to enable [source freshness](../deploy/source-freshness.md) in the job that generates this exposure.
 
@@ -244,22 +243,21 @@ dbt is hosted in multiple regions in the world and each region has a different a
 <iframe src='https://metadata.emea.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>' title='Exposure Status Tile'></iframe>
 ```
 
-#### Embedding with BI tools[​](#embedding-with-bi-tools "Direct link to Embedding with BI tools")
+#### Embedding with BI tools
 
 The dashboard status tile should work anywhere you can embed an iFrame. But below are some tactical tips on how to integrate with common BI tools.
 
-* Mode
-* Looker
-* Tableau
-* Sigma
+### Mode
 
-#### Mode[​](#mode "Direct link to Mode")
+#### Mode
 
 Mode allows you to directly [edit the HTML](https://mode.com/help/articles/report-layout-and-presentation/#html-editor) of any given report, where you can embed the iFrame.
 
 Note that Mode has also built its own [integration](https://mode.com/get-dbt/) with the dbt Discovery API!
 
-#### Looker[​](#looker "Direct link to Looker")
+### Looker
+
+#### Looker
 
 Looker does not allow you to directly embed HTML and instead requires creating a [custom visualization](https://docs.looker.com/admin-options/platform/visualizations). One way to do this for admins is to:
 
@@ -271,7 +269,9 @@ Looker does not allow you to directly embed HTML and instead requires creating a
 
 [![](</img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/custom-looker.jpeg ?v=2>)](#)
 
-#### Tableau[​](#tableau "Direct link to Tableau")
+### Tableau
+
+#### Tableau
 
 Tableau does not require you to embed an iFrame. You only need to use a Web Page object on your Tableau Dashboard and a URL in the following format:
 
@@ -289,7 +289,9 @@ https://metadata.cloud.getdbt.com/exposure-tile?name=<exposure_name>&jobId=<job_
 
 [![Configure Tableau by using a Web page object.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/tableau-object.png?v=2 "Configure Tableau by using a Web page object.")](#)Configure Tableau by using a Web page object.
 
-#### Sigma[​](#sigma "Direct link to Sigma")
+### Sigma
+
+#### Sigma
 
 Sigma does not require you to embed an iFrame. Add a new embedded UI element in your Sigma Workbook in the following format:
 

@@ -1,6 +1,6 @@
 # Install dbt CLI
 
-dbt platformⓘ
+dbt platform
 
 The dbt platform natively supports developing using a command line interface (CLI), empowering team members to contribute with enhanced flexibility and collaboration. The dbt CLI allows you to run dbt commands against your dbt platform development environment from your local command line.
 
@@ -17,7 +17,7 @@ dbt commands run against the platform's infrastructure and benefit from:
 
 [![Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.](/img/docs/dbt-platform/dbt-cli-overview.png?v=2 "Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.")](#)Diagram of how the dbt CLI works with dbt's infrastructure to run dbt commands from your local command line.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 The dbt CLI is available in all [deployment regions](./about-platform/access-regions-ip-addresses.md) and for both multi-tenant and single-tenant accounts.
 
@@ -30,14 +30,11 @@ Using the dbt platform CLI for hybrid development with Fusion?
 
 See the [Hybrid development with dbt platform and Fusion](../../guides/fusion-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
 
-## Install dbt CLI[​](#install-dbt-cli "Direct link to Install dbt CLI")
+## Install dbt CLI
 
 You can install the dbt CLI via the command line by using one of the following methods:
 
-* macOS (brew)
-* Windows (native executable)
-* Linux (native executable)
-* Existing dbt Core users (pip)
+### macOS (brew)
 
 Before you begin, make sure you have [Homebrew installed](http://brew.sh/) in your code editor or command line terminal. Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -61,22 +58,16 @@ pip uninstall dbt
 
    * First, remove the `dbt-labs` tap, the separate repository for packages, from Homebrew. This prevents Homebrew from installing packages from that repository:
 
-     <!-- -->
-
      ```bash
      brew untap dbt-labs/dbt
      ```
 
    * Then, add and install the dbt CLI as a package:
 
-     <!-- -->
-
      ```bash
      brew tap dbt-labs/dbt-cli
      brew install dbt
      ```
-
-     <!-- -->
 
      If you have multiple taps, use `brew install dbt-labs/dbt-cli/dbt`.
 
@@ -93,6 +84,8 @@ pip uninstall dbt
 4. Clone your repository to your local computer using `git clone`. For example, to clone a GitHub repo using HTTPS format, run `git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY`.
 
 5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
+
+### Windows (native executable)
 
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
@@ -124,6 +117,8 @@ Note that if you're using VS Code, you must restart it to pick up modified envir
 
 6. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
+### Linux (native executable)
+
 Refer to the [FAQs](#faqs) if your operating system runs into path conflicts.
 
 1. Download the latest Linux release for your platform from [GitHub](https://github.com/dbt-labs/dbt-cli/releases). (Pick the file based on your CPU architecture)
@@ -153,6 +148,8 @@ Advanced users can configure multiple projects to use the same dbt CLI executabl
 
 5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
+### Existing dbt Core users (pip)
+
 If you already have dbt Core installed, the dbt CLI may conflict. Here are some considerations:
 
 * **Prevent conflicts**
@@ -179,13 +176,9 @@ If you already have dbt Core installed, the dbt CLI may conflict. Here are some 
 
   * Reinstall dbt Core using the following command, replacing "adapter\_name" with the appropriate adapter name:
 
-    <!-- -->
-
     ```shell
     python -m pip install dbt-adapter_name --force-reinstall
     ```
-
-    <!-- -->
 
     For example, if you use Snowflake as an adapter, run: `python -m pip install dbt-snowflake --force-reinstall`
 
@@ -193,7 +186,7 @@ If you already have dbt Core installed, the dbt CLI may conflict. Here are some 
 
 Before installing the dbt CLI, make sure you have Python installed and your virtual environment (venv or pyenv) configured. If you already have a Python environment configured, you can skip to the [pip installation step](#install-dbt-cloud-cli-in-pip).
 
-### Install a virtual environment[​](#install-a-virtual-environment "Direct link to Install a virtual environment")
+### Install a virtual environment
 
 We recommend using virtual environments (venv) to isolate the `dbt-cli` environment.
 
@@ -215,7 +208,7 @@ We recommend using virtual environments (venv) to isolate the `dbt-cli` environm
    alias env_dbt='source <PATH_TO_VIRTUAL_ENV_CONFIG>/bin/activate'
    ```
 
-### Install dbt CLI in pip[​](#install-dbt-cli-in-pip "Direct link to Install dbt CLI in pip")
+### Install dbt CLI in pip
 
 1. (Optional) If you already have dbt Core installed, this installation will override that package. Check your dbt Core version in case you need to reinstall it later by running the following command:
 
@@ -246,29 +239,30 @@ pip install dbt-adapter_name --force-reinstall
 
 5. After cloning your repo, [configure](./configure-dbt-cli.md) the dbt CLI for your dbt project. This lets you run dbt commands like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You can also add, edit, and synchronize files with your repo.
 
-## Update dbt CLI[​](#update-dbt-cli "Direct link to Update dbt CLI")
+## Update dbt CLI
 
 The following instructions explain how to update the dbt CLI to the latest version depending on your operating system.
 
-* macOS (brew)
-* Windows (executable)
-* Linux (executable)
-* Existing dbt Core users (pip)
+### macOS (brew)
 
 To update the dbt CLI, run `brew update` and then `brew upgrade dbt`.
 
+### Windows (executable)
+
 To update, follow the [Windows installation instructions](./dbt-cli-installation.md?install=windows#install-dbt-cloud-cli) and replace the existing `dbt.exe` executable with the new one.
 
+### Linux (executable)
+
 To update, follow the [Linux installation instructions](./dbt-cli-installation.md?install=linux#install-dbt-cloud-cli) and replace the existing `dbt` executable with the new one.
+
+### Existing dbt Core users (pip)
 
 To update:
 
 * Make sure you're in your virtual environment
 * Run `python -m pip install --upgrade dbt`.
 
-## Considerations[​](#considerations "Direct link to Considerations")
-
-<!-- -->
+## Considerations
 
 The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
 
@@ -288,7 +282,7 @@ In this example, `../shared_macros` is a relative path that tells dbt to look fo
 
 To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
 
-## dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+## dbt Wizard
 
 [dbt Wizard](../dbt-ai/wizard-quickstart.md) is an AI agent purpose-built for analytics engineering. It's grounded in your dbt project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured context index of your project's lineage, model health, test coverage, and semantic definitions. Before the agent writes a single line, it knows which models are healthy, what depends on what, and where gaps in tests or documentation exist.
 
@@ -298,7 +292,7 @@ To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-stu
 
 For data practitioners working with a self-hosted installation, this means AI assistance grounded in your actual project state ‐ not a generic code assistant. Bring your own key to experience the full agentic analytics engineering loop. Refer to the [dbt Wizard quickstart](../dbt-ai/wizard-quickstart.md) to get started.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  What's the difference between the dbt CLI and dbt Core?
 

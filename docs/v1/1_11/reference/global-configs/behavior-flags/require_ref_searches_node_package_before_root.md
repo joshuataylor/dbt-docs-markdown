@@ -6,12 +6,6 @@
 | Matured (default → `true`)                          | —              | —        |
 | Removed                                             | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The `require_ref_searches_node_package_before_root` flag controls the search order when dbt resolves `ref()` calls defined within a package.
 
 The flag is set to `false` by default in **Latest** and dbt Core v1.11. When dbt resolves a `ref()` in a package model, it searches for the referenced model in the root project *first*, then in the package where the model is defined.

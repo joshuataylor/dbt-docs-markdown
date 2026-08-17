@@ -10,7 +10,7 @@ The word "version" appears in multiple places in docs site and with different me
 
 dbt projects have two distinct types of `version` tags. This field has a different meaning depending on its location.
 
-## `dbt_project.yml` versions[​](#dbt_projectyml-versions "Direct link to dbt_projectyml-versions")
+## `dbt_project.yml` versions
 
 The version tag in a `dbt_project` file represents the version of your dbt project.
 
@@ -24,7 +24,7 @@ dbt\_project.yml
 version: version
 ```
 
-## `.yml` property file versions[​](#yml-property-file-versions "Direct link to yml-property-file-versions")
+## `.yml` property file versions
 
 A version tag in a `.yml` property file provides the control tag, which informs how dbt processes property files.
 
@@ -32,8 +32,7 @@ Starting from version 1.5, dbt will no longer require this configuration in your
 
 For more on property files, see their general [documentation](../define-properties.md) on the same page.
 
-* Resource property file with version specified
-* Resource property file without version specified
+### Resource property file with version specified
 
 \<any valid filename>.yml
 
@@ -44,6 +43,8 @@ models:
     ...
 ```
 
+### Resource property file without version specified
+
 \<any valid filename>.yml
 
 ```yml
@@ -52,7 +53,7 @@ models:
     ...
 ```
 
-## FAQS[​](#faqs "Direct link to FAQS")
+## FAQS
 
 Why do model and source YAML files always start with \`version: 2\`?
 

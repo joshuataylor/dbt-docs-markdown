@@ -1,23 +1,23 @@
 # Model configurations
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Models](../docs/build/models.md)
 * [`run` command](./commands/run.md)
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
+## Available configurations
 
-### Model-specific configurations[​](#model-specific-configurations "Direct link to Model-specific configurations")
+### Model-specific configurations
 
 Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
 
-The following resource-specific configurations are only available to <!-- -->Models:
+The following resource-specific configurations are only available to Models:
 
-* Project file
-* Property file
-* SQL file config
+### Project file
 
 dbt\_project.yml
+
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -30,6 +30,10 @@ models:
     +on_error: skip_children | continue
     +latest_version_pointer: <dict>
 ```
+
+### Property file
+
+(Applies to dbt v1.12 and later)
 
 Note, most model configurations are defined under `config`, while `build_after` is set under `freshness`.
 
@@ -51,7 +55,11 @@ models:
       latest_version_pointer: <dict>
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
+
+(Applies to dbt v1.12 and later)
 
 ```sql
 
@@ -66,15 +74,15 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-* Project file
-* Property file
-* SQL file config
+### Project file
 
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 models:
@@ -94,7 +102,11 @@ models:
     +event_time: my_time_field
 ```
 
+### Property file
+
 models/properties.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 
@@ -116,7 +128,11 @@ models:
       event_time: my_time_field
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
+
+(Applies to dbt v1.9 and later)
 
 ```sql
 
@@ -137,7 +153,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-### Warehouse-specific configurations[​](#warehouse-specific-configurations "Direct link to Warehouse-specific configurations")
+### Warehouse-specific configurations
 
 * [BigQuery configurations](./resource-configs/bigquery-configs.md)
 * [Redshift configurations](./resource-configs/redshift-configs.md)
@@ -145,7 +161,7 @@ models/\<model\_name>.sql
 * [Databricks configurations](./resource-configs/databricks-configs.md)
 * [Spark configurations](./resource-configs/spark-configs.md)
 
-## Configuring models[​](#configuring-models "Direct link to Configuring models")
+## Configuring models
 
 Model configurations are applied hierarchically. You can configure models from within an installed package and also from within your dbt project in the following ways, listed in order of precedence:
 
@@ -157,9 +173,9 @@ The most specific configuration always takes precedence. In the project YAML fil
 
 Model configurations in your root dbt project have *higher* precedence than configurations in installed packages. This enables you to override the configurations of installed packages, providing more control over your dbt runs.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-### Configuring directories of models in `dbt_project.yml`[​](#configuring-directories-of-models-in-dbt_projectyml "Direct link to configuring-directories-of-models-in-dbt_projectyml")
+### Configuring directories of models in `dbt_project.yml`
 
 To configure models in your `dbt_project.yml` file, use the `models:` configuration option. Be sure to namespace your configurations to your project (shown below):
 
@@ -187,7 +203,7 @@ models:
       ...
 ```
 
-### Apply configurations to one model only[​](#apply-configurations-to-one-model-only "Direct link to Apply configurations to one model only")
+### Apply configurations to one model only
 
 Some types of configurations are specific to a particular model. In these cases, placing configurations in the `dbt_project.yml` file can be unwieldy. Instead, you can specify these configurations at the top of a model `.sql` file, or in its individual YAML properties.
 
@@ -222,7 +238,9 @@ models:
         description: "Type of event recorded (click, purchase, etc.)"
 ```
 
-### Configuring source freshness[​](#configuring-source-freshness "Direct link to Configuring source freshness")
+(Applies to dbt v1.10 and later)
+
+### Configuring source freshness
 
 The model `freshness` config rebuilds models only when new source or upstream data is available. This is useful for models that depend on other models but only need to be updated periodically. For more information, see [freshness](./resource-configs/freshness.md).
 

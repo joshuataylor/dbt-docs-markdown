@@ -8,7 +8,7 @@ Generally, dbt's database user owns the tables created in the database. The serv
 
 If you set `meta.owner`, that field appears under **meta** (pulled from dbt), but still not under the top-level `owner` field.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 The following example shows a model with `meta.owner` so it appears under **meta** in the docs. Replace `DATA_TEAM_EMAIL` with your own values.
 

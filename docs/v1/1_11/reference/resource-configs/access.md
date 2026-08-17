@@ -67,7 +67,7 @@ There are multiple approaches to configuring access:
 
 After you define `access`, rerun a production job to apply the change.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The access level of the model you are declaring properties for.
 
@@ -79,12 +79,6 @@ Some models (not all) are designed to be referenced through the [ref](../dbt-jin
 | protected | Same project/package                                                                      |
 | public    | Any group, package, or project. When defined, rerun a production job to apply the change. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you try to reference a model outside of its supported access, you will see an error:
 
 ```shell
@@ -95,13 +89,11 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   which is not allowed because the referenced node is private to the finance group.
 ```
 
-<!-- -->
-
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, all models are "protected." This means that other models in the same project can reference them.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Model Access](../../docs/mesh/govern/model-access.md#groups)
 * [Group configuration](./group.md)

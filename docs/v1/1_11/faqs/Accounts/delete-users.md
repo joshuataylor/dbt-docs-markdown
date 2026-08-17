@@ -12,8 +12,6 @@ To delete a user in dbt, you must be an account owner or have admin privileges. 
 
 [![Deleting a user](/img/docs/dbt-platform/delete_user.png?v=2 "Deleting a user")](#)Deleting a user
 
-<!-- -->
-
 If you are on a **Starter** plan and you're deleting users to reduce the number of billable seats, follow these steps to lower the license count to avoid being overcharged:
 
 1. In **Account Settings**, select **Billing**.
@@ -22,6 +20,6 @@ If you are on a **Starter** plan and you're deleting users to reduce the number 
 
 [![Navigate to Account settings -> Users to modify dbt users](/img/docs/dbt-platform/faq-account-settings-billing.png?v=2 "Navigate to Account settings -> Users to modify dbt users")](#)Navigate to Account settings -> Users to modify dbt users
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt licenses](../../docs/platform/manage-access/seats-and-users.md#licenses)

@@ -10,7 +10,7 @@ We encourage you to:
 * Share your thoughts and ideas on [next steps for Python models](https://github.com/dbt-labs/dbt-core/discussions/5742).
 * Join the **#dbt Core-python-models** channel in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community/).
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 dbt Python (`dbt-py`) models can help you solve use cases that can't be solved with SQL. You can perform analyses using tools available in the open-source Python ecosystem, including state-of-the-art packages for data science and statistics. Before, you would have needed separate infrastructure and orchestration to run Python transformations in production. Python transformations defined in dbt are models in your project with all the same capabilities around testing, documentation, and lineage.
 
@@ -61,7 +61,7 @@ The prerequisites for dbt Python models include using an adapter for a data plat
 
 We've written this guide assuming that you have some familiarity with dbt. If you've never before written a dbt model, we encourage you to start by first reading [dbt Models](./models.md). Throughout, we'll be drawing connections between Python models and SQL models, as well as making clear their differences.
 
-### What is a Python model?[​](#what-is-a-python-model "Direct link to What is a Python model?")
+### What is a Python model?
 
 A dbt Python model is a function that reads in dbt sources or other models, applies a series of transformations, and returns a transformed dataset. DataFrame operations define the starting points, the end state, and each step along the way.
 
@@ -71,7 +71,7 @@ Instead of a final `select` statement, each Python model returns a final DataFra
 
 dbt Python models have access to almost all of the same configuration options as SQL models. You can test and document them, add `tags` and `meta` properties, and grant access to their results to other users. You can select them by their name, file path, configurations, whether they are upstream or downstream of another model, or if they have been modified compared to a previous project state.
 
-### Defining a Python model[​](#defining-a-python-model "Direct link to Defining a Python model")
+### Defining a Python model
 
 Each Python model lives in a `.py` file in your `models/` folder. It defines a function named **`model()`**, which takes two parameters:
 
@@ -92,7 +92,7 @@ def model(dbt, session):
     return final_df
 ```
 
-### Referencing other models[​](#referencing-other-models "Direct link to Referencing other models")
+### Referencing other models
 
 Python models participate fully in dbt's directed acyclic graph (DAG) of transformations. Use the `dbt.ref()` method within a Python model to read data from other models (SQL or Python). If you want to read directly from a raw source table, use `dbt.source()`. These methods return DataFrames pointing to the upstream source, model, seed, or snapshot.
 
@@ -143,7 +143,7 @@ print(f"{dbt.config.get('my_var')}")  # Output after change: 5
 
 This also means you can use `dbt.config.get()` within Python models to ensure that configuration values are effectively retrievable and usable within Python f-strings.
 
-## Configuring Python models[​](#configuring-python-models "Direct link to Configuring Python models")
+## Configuring Python models
 
 Just like SQL models, there are three ways to configure Python models:
 
@@ -164,7 +164,7 @@ def model(dbt, session):
 
 There's a limit to how complex you can get with the `dbt.config()` method. It accepts *only* literal values (strings, booleans, and numeric types) and dynamic configuration. Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the [`config` property](../../reference/resource-properties/config.md) in a properties YAML file.
 
-#### Accessing project context[​](#accessing-project-context "Direct link to Accessing project context")
+#### Accessing project context
 
 dbt Python models don't use Jinja to render compiled code. Python models have limited access to global project contexts compared to SQL models. That context is made available from the `dbt` class, passed in as an argument to the `model()` function.
 
@@ -207,7 +207,7 @@ def model(dbt, session):
         orders_df = orders_df.limit(500)
 ```
 
-#### Accessing custom meta values[​](#accessing-custom-meta-values "Direct link to Accessing custom meta values")
+#### Accessing custom meta values
 
 To store custom values, use the [`meta` config](../../reference/resource-configs/meta.md). For example, if you have a model named `my_python_model` and you want to store custom values, you can do the following:
 
@@ -246,7 +246,7 @@ You can also retrieve meta values using `dbt.config.get("meta")`, which returns 
 custom_value = dbt.config.get("meta", {}).get("custom_value")
 ```
 
-#### Dynamic configurations[​](#dynamic-configurations "Direct link to Dynamic configurations")
+#### Dynamic configurations
 
 In addition to the existing methods of configuring Python models, you also have dynamic access to configuration values set with `dbt.config()` within Python models using f-strings. This increases the possibilities for custom logic and configuration management.
 
@@ -262,7 +262,7 @@ def model(dbt, session):
     print(f"Dynamic config value: {dbt.config.get('my_var')}")
 ```
 
-### Materializations[​](#materializations "Direct link to Materializations")
+### Materializations
 
 Python models support these materializations:
 
@@ -275,9 +275,7 @@ Python models can't be materialized as `view` or `ephemeral`. Python isn't suppo
 
 For incremental models, like SQL models, you need to filter incoming tables to only new rows of data:
 
-* Snowpark
-* BigQuery DataFrames
-* PySpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -302,6 +300,8 @@ def model(dbt, session):
     return df
 ```
 
+### BigQuery DataFrames
+
 models/my\_python\_model.py
 
 ```python
@@ -324,6 +324,8 @@ def model(dbt, session):
 
   return bdf
 ```
+
+### PySpark
 
 models/my\_python\_model.py
 
@@ -348,9 +350,9 @@ def model(dbt, session):
     return df
 ```
 
-## Python-specific functionality[​](#python-specific-functionality "Direct link to Python-specific functionality")
+## Python-specific functionality
 
-### Defining functions[​](#defining-functions "Direct link to Defining functions")
+### Defining functions
 
 In addition to defining a `model` function, the Python model can import other functions or define its own. Here's an example on Snowpark, defining a custom `add_one` function:
 
@@ -371,15 +373,13 @@ def model(dbt, session):
 
 Currently, Python functions defined in one dbt model can't be imported and reused in other models. Refer to [Code reuse](#code-reuse) for the potential patterns being considered.
 
-### Using PyPI packages[​](#using-pypi-packages "Direct link to Using PyPI packages")
+### Using PyPI packages
 
 You can also define functions that depend on third-party packages so long as those packages are installed and available to the Python runtime on your data platform.
 
 In this example, we use the `holidays` package to determine if a given date is a holiday in France. The code below uses the pandas API for simplicity and consistency across platforms. The exact syntax, and the need to refactor for multi-node processing, still vary.
 
-* Snowpark
-* BigQuery DataFrames
-* PySpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -411,6 +411,8 @@ def model(dbt, session):
     return df
 ```
 
+### BigQuery DataFrames
+
 models/my\_python\_model.py
 
 ```python
@@ -432,6 +434,8 @@ def model(dbt, session):
 
     return bdf[bdf['birthday'].isin(us_holidays)]
 ```
+
+### PySpark
 
 models/my\_python\_model.py
 
@@ -466,7 +470,7 @@ def model(dbt, session):
     return df
 ```
 
-#### Configuring packages[​](#configuring-packages "Direct link to Configuring packages")
+#### Configuring packages
 
 We encourage you to configure required packages and versions so dbt can track them in project metadata. This configuration is required for the implementation on some platforms. If you need specific versions of packages, specify them.
 
@@ -491,7 +495,7 @@ models:
         - scikit-learn
 ```
 
-#### User-defined functions (UDFs)[​](#user-defined-functions-udfs "Direct link to User-defined functions (UDFs)")
+#### User-defined functions (UDFs)
 
 You can use the `@udf` decorator or `udf` function to define an "anonymous" function and call it within your `model` function's DataFrame transformation. This is a typical pattern for applying more complex functions as DataFrame operations, especially if those functions require inputs from third-party packages.
 
@@ -503,9 +507,7 @@ tip
 
 You can also define [SQL or Python UDFs](./udfs.md) as first-class resources under `/functions` with a matching `YAML` file. dbt builds them as part of the DAG, and you reference them from SQL using `{{ function('my_udf') }}`. These UDFs are reusable across tools (BI, notebooks, SQL clients) because they live in your warehouse.
 
-* Snowpark
-* BigQuery DataFrames
-* PySpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -544,6 +546,8 @@ def model(dbt, session):
 * Writing [`create function`](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-batch.html) inside a SQL macro, to run as a hook or run-operation
 * [Registering from a staged file](https://docs.snowflake.com/en/developer-guide/snowpark/python/creating-udfs#creating-a-udf-from-a-python-source-file) within your Python model code
 
+### BigQuery DataFrames
+
 models/my\_python\_model.py
 
 ```python
@@ -561,6 +565,8 @@ def model(dbt, session):
 
     return bdf
 ```
+
+### PySpark
 
 models/my\_python\_model.py
 
@@ -588,7 +594,7 @@ def model(dbt, session):
     return df
 ```
 
-#### Code reuse[​](#code-reuse "Direct link to Code reuse")
+#### Code reuse
 
 To re-use a Python function across multiple dbt models, you can define [Python UDFs](./udfs.md) under `/functions` with a matching YAML file. These UDFs live in your warehouse and can be reused across tools (BI, notebooks, SQL clients).
 
@@ -601,7 +607,7 @@ In the future, we're considering also adding support for Private Python packages
 
 💬 Discussion: ["Python models: package, artifact/object storage, and UDF management in dbt"](https://github.com/dbt-labs/dbt-core/discussions/5741)
 
-### DataFrame API and syntax[​](#dataframe-api-and-syntax "Direct link to DataFrame API and syntax")
+### DataFrame API and syntax
 
 Over the past decade, most people writing [data transformations](https://www.getdbt.com/analytics-engineering/transformation/) in Python have adopted DataFrame as their common abstraction. dbt follows this convention by returning `ref()` and `source()` as DataFrames, and it expects all Python models to return a DataFrame.
 
@@ -623,7 +629,7 @@ When developing a Python model, you will find yourself asking these questions:
 
 💬 Discussion: ["Python models: the pandas problem (and a possible solution)"](https://github.com/dbt-labs/dbt-core/discussions/5738)
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 Python models have capabilities that SQL models do not. They also have some drawbacks compared to SQL models:
 

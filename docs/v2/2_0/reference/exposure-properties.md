@@ -1,15 +1,13 @@
 # Exposure properties
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Using exposures](../docs/build/exposures.md)
 * [Declaring resource properties](./configs-and-properties.md)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
-<!-- -->
-
-Exposures are defined in `properties.yml` files nested under an `exposures:` key. You may define `exposures` in YAML files that also define `sources` or `models`. Exposure properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
+Exposures are defined in `properties.yml` files nested under an `exposures:` key. You may define `exposures` in YAML files that also define `sources` or `models`. Exposure properties are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.<br />
 
 Note that while most exposure properties must be configured directly in these YAML files, you can set the [`enabled`](./resource-configs/enabled.md) config at the [project level](#project-level-configs) in the`dbt_project.yml` file.
 
@@ -47,7 +45,7 @@ exposures:
   - name: ... # declare properties of additional exposures
 ```
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 models/jaffle/exposures.yml
 
@@ -97,7 +95,7 @@ exposures:
     owner: { email: summer-intern@jaffleshop.com }
 ```
 
-#### Project-level configs[​](#project-level-configs "Direct link to Project-level configs")
+#### Project-level configs
 
 You can define project-level configs for exposures in the `dbt_project.yml` file under the `exposures:` key using the `+` prefix. Currently, only the [`enabled` config](./resource-configs/enabled.md) is supported:
 

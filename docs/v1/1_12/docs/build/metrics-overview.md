@@ -2,7 +2,7 @@
 
 After building [semantic models](./semantic-models.md), it's time to start adding metrics. This page explains the different supported metric types you can add to your dbt project.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 You can define metrics in two locations within your `models` YAML files:
 
@@ -11,11 +11,11 @@ You can define metrics in two locations within your `models` YAML files:
 
 Define metrics in YAML files within your dbt project, and not in a `config` block on a model.
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Parameters
 
 The keys for metrics parameters are:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 | Parameter     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Required | Type   |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ |
@@ -26,13 +26,7 @@ The keys for metrics parameters are:
 | `config`      | Use the [`config`](../../reference/resource-properties/config.md) property to specify configurations for your metric. Supports [`meta`](../../reference/resource-configs/meta.md), [`group`](../../reference/resource-configs/group.md), [`tags`](../../reference/resource-configs/tags.md), and [`enabled`](../../reference/resource-configs/enabled.md) configurations. | Optional | Dict   |
 | `filter`      | You can optionally add a [filter](#filters) string to any metric type, applying filters to dimensions, entities, time dimensions, or other metrics during metric computation. Consider it as your WHERE clause.                                                                                                                                                                                                                                                     | Optional | String |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Type-specific parameters[​](#type-specific-parameters "Direct link to Type-specific parameters")
+### Type-specific parameters
 
 Each metric type has additional specific parameters:
 
@@ -44,11 +38,11 @@ Each metric type has additional specific parameters:
 
 Refer to the following sections about each metric type for detailed information on type-specific parameters.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 Here's a complete example of the metrics spec configuration:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/file\_name.yml
 
@@ -87,17 +81,15 @@ metrics:
       alias: my_metric_name_a_week_ago_in_another_semantic_model
 ```
 
-<!-- -->
-
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
 Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer) to learn how to define and query metrics in your dbt project.
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-## Default granularity for metrics[​](#default-granularity-for-metrics "Direct link to Default granularity for metrics")
+## Default granularity for metrics
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Set the native grain on the time dimension column and choose the rollup grain at query time.
 
@@ -105,7 +97,7 @@ Set the native grain on the time dimension column and choose the rollup grain at
 * Metrics inherit the model’s default aggregation time dimension (set at the model level), and you can optionally override it per metric with `agg_time_dimension`.
 * When querying, pick the rollup grain (day/week/month/year) in your BI tool or with the [Semantic Layer API](../dbt-apis/sl-api-overview.md). You can only roll up to grains coarser than or equal to the column’s native grain.
 
-### Example[​](#example-2 "Direct link to Example")
+### Example
 
 * `order_time` is stored at hourly grain.
 * The `orders` metric uses that time dimension; you roll it up to month at query time (not in the metric spec).
@@ -147,11 +139,11 @@ models:
         agg_time_dimension: created_at  # Use an alternate time dimension for this metric
 ```
 
-## Conversion metrics[​](#conversion-metrics "Direct link to Conversion metrics")
+## Conversion metrics
 
 [Conversion metrics](./conversion.md) help you track when a base event and a subsequent conversion event occur for an entity within a set time period.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/file\_name.yml
 
@@ -198,9 +190,9 @@ metrics:
         conversion_property: another_semantic_model_categorical_dimension
 ```
 
-## Cumulative metrics[​](#cumulative-metrics "Direct link to Cumulative metrics")
+## Cumulative metrics
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 [Cumulative metrics](./cumulative.md) aggregate a simple metric over a given period. If no period is specified, the window will accumulate the simple metric over all of the recorded time period. Note that you will need to create the [time spine model](./metricflow-time-spine.md) before you add cumulative metrics.
 
@@ -243,11 +235,11 @@ metrics:
     # period_agg: first  # Optional: first | last | average
 ```
 
-## Derived metrics[​](#derived-metrics "Direct link to Derived metrics")
+## Derived metrics
 
 [Derived metrics](./derived.md) allow you to perform calculations using other metrics. For example, you can calculate `gross_profit` by subtracting a `cost` metric from a `revenue` metric, or calculate growth by comparing a metric to its value from a previous time period.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/file\_name.yml
 
@@ -297,11 +289,11 @@ metrics:
         offset_to_grain: month  # Only allowed for derived metrics
 ```
 
-## Ratio metrics[​](#ratio-metrics "Direct link to Ratio metrics")
+## Ratio metrics
 
 [Ratio metrics](./ratio.md) involve a numerator metric and a denominator metric. A `filter` string can be applied to both the numerator and denominator or separately to the numerator or denominator.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/file\_name.yml
 
@@ -357,9 +349,9 @@ metrics:
       filter: "{{ Dimension('entity__dimension') }} < 100"
 ```
 
-## Simple metrics[​](#simple-metrics "Direct link to Simple metrics")
+## Simple metrics
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 [Simple metrics](./simple.md) point directly to a single column expression within a semantic model. You can think of a simple metric as the foundational building block for other metrics. It performs an aggregation (like `sum`, `count`, or `average`, and so on) on a single field in your model.
 
@@ -418,7 +410,7 @@ models:
             team: "Revenue analytics"
 ```
 
-## Filters[​](#filters "Direct link to Filters")
+## Filters
 
 Configure a filter using Jinja templating and the following syntax to reference entities, dimensions, time dimensions, or metrics in filters.
 
@@ -447,7 +439,7 @@ filter: |
   {{ TimeDimension('order_date', 'month') }}
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Semantic models](./semantic-models.md)
 * [Fill null values for metrics](./fill-nulls-advanced.md)

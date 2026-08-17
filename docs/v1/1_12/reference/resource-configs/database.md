@@ -1,9 +1,6 @@
 # database
 
-* Model
-* Seeds
-* Snapshots
-* Tests
+### Model
 
 Specify a custom database for a model in your `dbt_project.yml` file.
 
@@ -20,6 +17,8 @@ models:
 
 This would result in the generated relation being located in the `reporting` database, so the full relation name would be `reporting.finance.sales_metrics` instead of the default target database.
 
+### Seeds
+
 Configure a database in your `dbt_project.yml` file.
 
 For example, to load a seed into a database called `staging` instead of the target database, you can configure it like this:
@@ -34,6 +33,10 @@ seeds:
 ```
 
 This would result in the generated relation being located in the `staging` database, so the full relation name would be `staging.finance.product_categories`.
+
+### Snapshots
+
+(Applies to dbt v1.9 and later)
 
 Specify a custom database for a snapshot in your `dbt_project.yml`, snapshot.yml file, or config file.
 
@@ -62,6 +65,8 @@ snapshots:
 
 This results in the generated relation being located in the `snapshots` database so the full relation name would be `snapshots.finance.your_snapshot` instead of the default target database.
 
+### Tests
+
 Customize the database for storing test results in your `dbt_project.yml` file.
 
 For example, to save test results in a specific database, you can configure it like this:
@@ -76,7 +81,7 @@ data_tests:
 
 This would result in the test results being stored in the `test_results` database.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally specify a custom database for a [model](../../docs/build/sql-models.md), [seed](../../docs/build/seeds.md), [snapshot](../../docs/build/snapshots.md), or [data test](../../docs/build/data-tests.md).
 
@@ -89,7 +94,7 @@ The standard behavior of dbt is:
 
 To learn more about changing the way that dbt generates a relation's `database`, read [Using Custom Databases](../../docs/build/custom-databases.md)
 
-## Warehouse specific information[​](#warehouse-specific-information "Direct link to Warehouse specific information")
+## Warehouse specific information
 
 * BigQuery: `project` and `database` are interchangeable
 * Databricks: `catalog` and `database` are interchangable

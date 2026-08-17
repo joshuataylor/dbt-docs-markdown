@@ -1,6 +1,6 @@
 # Model notifications
 
-dbt platformⓘ
+dbt platform
 
 Set up dbt to notify model owners through email about issues in your deployment environments.
 
@@ -20,12 +20,12 @@ To be timely and keep the number of notifications to a reasonable amount when mu
 
 Create configuration YAML files in your project for dbt to send notifications about the status of your models and tests in your deployment environments.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * Your dbt administrator has [enabled the appropriate account setting](#enable-access-to-model-notifications) for you.
 * Your deployment environment(s) must be on a [release track](../dbt-versions/dbt-release-tracks.md) instead of a legacy dbt Core version.
 
-## Configure groups[​](#configure-groups "Direct link to Configure groups")
+## Configure groups
 
 Define your [groups](../build/groups.md) in any `.yml` file in your [models directory](../../reference/project-configs/model-paths.md). Each group's owner can now specify one or multiple email addresses to receive model-level notifications.
 
@@ -73,7 +73,7 @@ Additional arbitrary fields (such as `favorite_food`) are deprecated and will no
 
 To store additional metadata (like Slack channels, team info, or custom attributes), use `config.meta` instead.
 
-## Attach groups to models[​](#attach-groups-to-models "Direct link to Attach groups to models")
+## Attach groups to models
 
 Attach groups to models as you would any other config, in either the `dbt_project.yml` or `whatever.yml` files. For example:
 
@@ -119,7 +119,7 @@ models:
 
 Attaching a group to a model also encompasses its tests, so you will also receive notifications for a model's test failures.
 
-## Enable access to model notifications[​](#enable-access-to-model-notifications "Direct link to Enable access to model notifications")
+## Enable access to model notifications
 
 Provide dbt account members the ability to configure and receive alerts about issues with models or tests that are encountered during job runs.
 

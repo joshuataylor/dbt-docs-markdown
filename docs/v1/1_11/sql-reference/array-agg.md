@@ -4,7 +4,7 @@ In any typical programming language such as Python or Javascript, arrays are typ
 
 To create an array of multiple data values in SQL, you’ll likely leverage the ARRAY\_AGG function (short for *array aggregation*), which puts your input column values into an array.
 
-## How to use SQL ARRAY\_AGG[​](#how-to-use-sql-array_agg "Direct link to How to use SQL ARRAY_AGG")
+## How to use SQL ARRAY\_AGG
 
 The ARRAY\_AGG function has the following syntax:
 
@@ -20,7 +20,7 @@ A few notes on the functionality of this function:
 
 Let’s dive into a practical example using the ARRAY\_AGG function.
 
-### SQL ARRAY\_AGG example[​](#sql-array_agg-example "Direct link to SQL ARRAY_AGG example")
+### SQL ARRAY\_AGG example
 
 ```sql
 select
@@ -40,19 +40,13 @@ This simple query using the sample dataset [Jaffle Shop’s](https://github.com/
 | 2018-03-01   | \[ "completed", "shipped", "placed" ]           |
 | 2018-04-01   | \[ "placed" ]                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Looking at the query results—this makes sense! We’d expect newer orders to likely not have any returns, and older orders to have completed returns.
 
-## SQL ARRAY\_AGG syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-array_agg-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL ARRAY_AGG syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL ARRAY\_AGG syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 [Snowflake](https://docs.snowflake.com/en/sql-reference/functions/array_agg.html), [Databricks](https://docs.databricks.com/sql/language-manual/functions/array_agg.html), and [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions#array_agg) all support the ARRAY\_AGG function. Redshift, however, supports an out-of-the-box [LISTAGG function](https://docs.aws.amazon.com/redshift/latest/dg/r_LISTAGG.html) that can perform similar functionality to ARRAY\_AGG. The primary difference is that LISTAGG allows you to explicitly choose a delimiter to separate a list whereas arrays are naturally delimited by commas.
 
-## ARRAY\_AGG use cases[​](#array_agg-use-cases "Direct link to ARRAY_AGG use cases")
+## ARRAY\_AGG use cases
 
 There are definitely too many use cases to list out for using the ARRAY\_AGG function in your dbt models, but it’s very likely that ARRAY\_AGG is used pretty downstream in your DAG since you likely don’t want your data so bundled up earlier in your DAG to improve modularity and dryness. A few downstream use cases for ARRAY\_AGG:
 

@@ -8,35 +8,21 @@ This page will provide you with a brief overview of incremental models, their im
 
 [![A visual representation of how incremental models work. Source: Materialization best practices guide (/best-practices/materializations/1-guide-overview)](/img/docs/building-a-dbt-project/incremental-diagram.jpg?v=2 "A visual representation of how incremental models work. Source: Materialization best practices guide (/best-practices/materializations/1-guide-overview)")](#)A visual representation of how incremental models work. Source: Materialization best practices guide (/best-practices/materializations/1-guide-overview)
 
-<!-- -->
-
 Learn by video!
 
-For video tutorials on
-
-<!-- -->
-
-Incremental models
-
-<!-- -->
-
-, go to dbt Learn and check out the [Incremental models](https://learn.getdbt.com/courses/incremental-models)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/incremental-models).
+For video tutorials on Incremental models, go to dbt Learn and check out the [Incremental models course](https://learn.getdbt.com/courses/incremental-models).
 
 Build idempotent incremental models
 
 Incremental models are stateful, so they're the easiest place to accidentally break [idempotence](../../best-practices/idempotence.md) — the expectation that re-running a model produces the same result. Before you configure one, review [Idempotence in dbt](../../best-practices/idempotence.md#idempotence-and-incremental-models).
 
-## Understand incremental models[​](#understand-incremental-models "Direct link to Understand incremental models")
+## Understand incremental models
 
 Incremental models enable you to significantly reduce the build time by just transforming new records. This is particularly useful for large datasets, where the cost of processing the entire dataset is high.
 
 Incremental models [require extra configuration](./incremental-models.md) and are an advanced usage of dbt. We recommend using them when your dbt runs are becoming too slow.
 
-### When to use an incremental model[​](#when-to-use-an-incremental-model "Direct link to When to use an incremental model")
+### When to use an incremental model
 
 Building models as tables in your data warehouse is often preferred for better query performance. However, using `table` materialization can be computationally intensive, especially when:
 
@@ -47,7 +33,7 @@ Incremental models offer a balance between complexity and improved performance c
 
 In addition to these considerations for incremental models, it's important to understand their limitations and challenges, particularly with large datasets. For more insights into efficient strategies, performance considerations, and the handling of late-arriving data in incremental models, refer to the [On the Limits of Incrementality](https://discourse.getdbt.com/t/on-the-limits-of-incrementality/303) discourse discussion or to our [Materialization best practices](../../best-practices/materializations/2-available-materializations.md) page.
 
-### How incremental models work in dbt[​](#how-incremental-models-work-in-dbt "Direct link to How incremental models work in dbt")
+### How incremental models work in dbt
 
 dbt's [incremental materialization strategy](./incremental-strategy.md) works differently on different databases. Where supported, a `merge` statement is used to insert new records and update existing records.
 
@@ -55,7 +41,7 @@ On warehouses that do not support `merge` statements, a merge is implemented by 
 
 Transaction management, a process used in certain data platforms, ensures that a set of actions is treated as a single unit of work (or task). If any part of the unit of work fails, dbt will roll back open transactions and restore the database to a good state.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Incremental models](./incremental-models.md) to learn how to configure incremental models in dbt.
 * [Incremental strategies](./incremental-strategy.md) to understand how dbt implements incremental models on different databases.

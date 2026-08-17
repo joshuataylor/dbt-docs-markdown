@@ -6,13 +6,13 @@ Different warehouses have different names for *logical databases*. The informati
 
 The values `project` and `database` are interchangeable in BigQuery project configurations.
 
-## Configuring custom databases[​](#configuring-custom-databases "Direct link to Configuring custom databases")
+## Configuring custom databases
 
 The logical database that dbt models are built into can be configured using the `database` model configuration. If this configuration is not supplied to a model, then dbt will use the database configured in the active target from your `profiles.yml` file. If the `database` configuration *is* supplied for a model, then dbt will build the model into the configured database.
 
 The `database` configuration can be supplied for groups of models in the `dbt_project.yml` file, or for individual models in model SQL files.
 
-### Configuring database overrides in `dbt_project.yml`:[​](#configuring-database-overrides-in-dbt_projectyml "Direct link to configuring-database-overrides-in-dbt_projectyml")
+### Configuring database overrides in `dbt_project.yml`:
 
 This config changes all models in the `jaffle_shop` project to be built into a database called `jaffle_shop`.
 
@@ -29,7 +29,7 @@ models:
     # project: jaffle_shop
 ```
 
-### Configuring database overrides in a model file[​](#configuring-database-overrides-in-a-model-file "Direct link to Configuring database overrides in a model file")
+### Configuring database overrides in a model file
 
 This config changes a specific model to be built into a database called `jaffle_shop`.
 
@@ -42,7 +42,7 @@ models/my\_model.sql
 select * from ...
 ```
 
-### generate\_database\_name[​](#generate_database_name "Direct link to generate_database_name")
+### generate\_database\_name
 
 The database name generated for a model is controlled by a macro called `generate_database_name`. This macro can be overridden in a dbt project to change how dbt generates model database names. This macro works similarly to the [generate\_schema\_name](./custom-schemas.md#advanced-custom-schema-configuration) macro.
 
@@ -72,25 +72,23 @@ get\_custom\_database.sql
 {%- endmacro %}
 ```
 
-<!-- -->
-
 💡 Use Jinja's whitespace control to tidy your macros!
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
 You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
-### Managing different behaviors across packages[​](#managing-different-behaviors-across-packages "Direct link to Managing different behaviors across packages")
+### Managing different behaviors across packages
 
 See docs on macro `dispatch`: ["Managing different global overrides across packages"](../../reference/dbt-jinja-functions/dispatch.md)
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
-### BigQuery[​](#bigquery "Direct link to BigQuery")
+### BigQuery
 
 When dbt opens a BigQuery connection, it will do so using the `project_id` defined in your active `profiles.yml` target. This `project_id` will be billed for the queries that are executed in the dbt run, even if some models are configured to be built in other projects.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Customize dbt models database, schema, and alias](../../guides/customize-schema-alias.md?step=1) to learn how to customize dbt models database, schema, and alias
 * [Custom schema](./custom-schemas.md) to learn how to customize dbt model schema

@@ -1,17 +1,19 @@
 # About data platform connections
 
-dbt platformⓘ
+dbt platform
 
 The dbt platform can connect with a variety of data platform providers.
 
-For most supported data platforms, we recommend the v2 experience. v2 supports the following data platforms:
+(Applies to dbt v2.0 and later)
 
-| Connection                                                                                         | Available on v2 |
-| -------------------------------------------------------------------------------------------------- | --------------- |
-| [Snowflake](./connect-snowflake.md)      | ✅              |
-| [Amazon Redshift](./connect-redshift.md) | Preview         |
-| [Databricks](./connect-databricks.md)    | Preview         |
-| [Google BigQuery](./connect-bigquery.md) | Preview         |
+For most supported data platforms, we recommend the v2 experience with Fusion, which supports the following data platforms:
+
+| Connection                                                                                         | Available on v2 with Fusion |
+| -------------------------------------------------------------------------------------------------- | --------------------------- |
+| [Snowflake](./connect-snowflake.md)      | ✅                          |
+| [Amazon Redshift](./connect-redshift.md) | Preview                     |
+| [Databricks](./connect-databricks.md)    | Preview                     |
+| [Google BigQuery](./connect-bigquery.md) | Preview                     |
 
 *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
@@ -21,9 +23,7 @@ For most supported data platforms, we recommend the v2 experience. v2 supports t
 
 If your data platform isn’t listed yet, support for more data platforms will roll out over time. You can continue using v1 for that project in the meantime.
 
-<!-- -->
-
-## Connect your data platform in dbt[​](#connect-your-data-platform-in-dbt "Direct link to Connect your data platform in dbt")
+## Connect your data platform in dbt
 
 To connect to your database in dbt:
 
@@ -34,9 +34,11 @@ To connect to your database in dbt:
 
 These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](../../../guides.md).
 
-### Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
+### Supported authentication methods
 
 The following tables show which authentication types are supported for each connection available on the dbt platform:
+
+(Applies to dbt v2.0 and later)
 
 | Integration | User credentials/token | Service account credentials | Warehouse OAuth for users | External OAuth for users | Service-to-service OAuth | Key/Pair | MFA | SSH | Private connectivity support\*\* |
 | ----------- | ---------------------- | --------------------------- | ------------------------- | ------------------------ | ------------------------ | -------- | --- | --- | -------------------------------- |
@@ -45,17 +47,9 @@ The following tables show which authentication types are supported for each conn
 | Databricks  | ✅                     | ✅                          | ✅                        | ❌                       | ❌                       | ❌       | ❌  | ❌  | ✅                               |
 | Redshift    | ✅                     | ❌                          | ❌                        | ❌                       | ❌                       | ❌       | ❌  | ❌  | ✅                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 \*\* Private connectivity is only supported for certain cloud providers and deployment types. See [Private connectivity documentation](../secure/private-connectivity/private-connectivity.md) for details.
 
-<!-- -->
-
-## Connection management[​](#connection-management "Direct link to Connection management")
+## Connection management
 
 Warehouse connections are an account-level resource. You can find them under **Accounts settings** > **Connections**.
 
@@ -65,7 +59,7 @@ Warehouse connections can be re-used across projects. If multiple projects all c
 
 As shown in the image, a project with 2 environments can target between 1 and 2 different connections. If you want to separate your production environment from your non-production environment, assign multiple connections to a single project.
 
-### Migration from project-level connections to account-level connections[​](#migration-from-project-level-connections-to-account-level-connections "Direct link to Migration from project-level connections to account-level connections")
+### Migration from project-level connections to account-level connections
 
 Rolling out account-level connections will not require any interruption of service in your current usage (Studio IDE, CLI, jobs, and so on.).
 
@@ -81,16 +75,12 @@ Please consider the following actions, as the steps you take will depend on the 
 
 * The initial clean-up of your connection list
 
-  <!-- -->
-
   * Delete unused connections with 0 environments.
   * Rename connections with a temporary, descriptive naming scheme to better understand where each is used
 
 [![Post initial clean-up](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-2.png?v=2 "Post initial clean-up")](#)Post initial clean-up
 
 * Get granular with your connections
-
-  <!-- -->
 
   * Define an intent for each connection, usually a combination of warehouse/database instance, intended use (dev, prod, etc), and administrative surface (which teams/projects will need to collaborate on the connection)
   * Aim to minimize the need for local overrides (like extended attributes)
@@ -99,8 +89,6 @@ Please consider the following actions, as the steps you take will depend on the 
 [![Granularity determined](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-3.png?v=2 "Granularity determined")](#)Granularity determined
 
 * Deduplication (connection list + environment details — not touching extended attributes for now)
-
-  <!-- -->
 
   * Based of the granularity of your connection details, determine which connections should remain among groups of duplicates, and update every relevant environment to leverage that connection
   * Delete unused connections with 0 environments as you go
@@ -111,15 +99,13 @@ Please consider the following actions, as the steps you take will depend on the 
 
 * Normalization
 
-  <!-- -->
-
   * Understand how new connections should be created to avoid local overrides. If you currently use extended attributes to override the warehouse instance in your production environment - you should instead create a new connection for that instance, and wire your production environment to it, removing the need for the local overrides
   * Create new connections, update relevant environments to target these connections, removing now unecessary local overrides (which may not be all of them!)
   * Test the new wiring by triggering jobs or starting Studio IDE sessions
 
 [![Connections normalized](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-5.png?v=2 "Connections normalized")](#)Connections normalized
 
-## IP Restrictions[​](#ip-restrictions "Direct link to IP Restrictions")
+## IP Restrictions
 
 dbt will always connect to your data platform from the IP addresses specified in the [Regions & IP addresses](../about-platform/access-regions-ip-addresses.md) page.
 

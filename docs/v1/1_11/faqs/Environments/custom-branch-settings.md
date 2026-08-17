@@ -8,7 +8,7 @@ To specify a custom branch:
 2. Select **Only run on a custom branch** under General Settings
 3. Specify the **branch name or tag**
 
-## Development[​](#development "Direct link to Development")
+## Development
 
 In a development environment, the primary branch (usually named `main`) is protected in your connected repositories. You can directly edit, format, or lint files and execute dbt commands in your protected default git branch. Since the Studio IDE prevents commits to the protected branch, you can commit those changes to a new branch when you're ready.
 
@@ -25,6 +25,6 @@ For example, if you want to use the `develop` branch of a connected repository:
 
 [![Configuring a custom base repository branch](/img/docs/dbt-platform/platform-configuring-dbt-platform/dev-environment-custom-branch.png?v=2 "Configuring a custom base repository branch")](#)Configuring a custom base repository branch
 
-## Deployment[​](#deployment "Direct link to Deployment")
+## Deployment
 
 When running jobs in a deployment environment, dbt will clone your project from your connected repository before executing your models. By default, dbt uses the default branch of your repository (commonly the `main` branch). To specify a different version of your project for dbt to execute during job runs in a particular environment, you can edit the Custom Branch setting as shown in the previous steps.

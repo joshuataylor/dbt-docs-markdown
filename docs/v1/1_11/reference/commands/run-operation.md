@@ -1,12 +1,10 @@
 # About dbt run-operation command
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 The `dbt run-operation` command is used to invoke a macro or execute a SQL or Jinja string directly against the target database. For usage information on macro-based operations, refer to [operations](../../docs/build/hooks-operations.md#about-operations).
 
-<!-- -->
-
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 ```text
 $ dbt run-operation [macro] --args '{args}'
@@ -27,7 +25,7 @@ $ dbt run-operation --sql '{sql}'
                         Available in dbt Core v1.12+.
 ```
 
-## Using the `--sql` flag[​](#using-the---sql-flag "Direct link to using-the---sql-flag")
+## Using the `--sql` flag
 
 Starting dbt Core v1.12, you can use the `--sql` flag to execute ad hoc database statements directly against your warehouse, without defining a macro. This flag is useful for one-off operations like dropping or altering a table, applying grants, or running a data fix. The statement runs through the full Jinja compilation pipeline, so you have access to `ref()`, `source()`, `var()`, `target`, and all other context variables. When your SQL contains no Jinja, dbt skips manifest compilation entirely, making execution faster.
 
@@ -52,13 +50,13 @@ The operation is named `inline_query` in logs. If the operation fails, the statu
 
 Note that you cannot combine the `--sql` flag with a macro name or `--args`.
 
-### When to use `--sql` instead of a macro[​](#when-to-use---sql-instead-of-a-macro "Direct link to when-to-use---sql-instead-of-a-macro")
+### When to use `--sql` instead of a macro
 
 `--sql` is useful for quick, one-off operations that don't warrant a macro file (for example, granting permissions, dropping a table, or running a data fix).
 
 If you need to reuse the operation across environments or share it with your team, write a [macro](../../docs/build/jinja-macros.md) instead so it's version-controlled and testable.
 
-## Command line examples[​](#command-line-examples "Direct link to Command line examples")
+## Command line examples
 
 * Invoke a macro:
 

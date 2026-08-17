@@ -9,9 +9,7 @@ This is to ensure that the people querying your model downstream—both inside a
 
 Contracts give you control over how schemas are enforced, whether that’s on a single model or consistently across many models in a project.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 **These places support model contracts:**
 
@@ -22,8 +20,6 @@ Contracts give you control over how schemas are enforced, whether that’s on a 
 * SQL models
 
 * Models materialized as one of the following:
-
-  <!-- -->
 
   * `table`
   * `view` — views offer limited support for column names and data types, but not `constraints`
@@ -41,7 +37,7 @@ Contracts give you control over how schemas are enforced, whether that’s on a 
 
 Refer to the [Examples](./contract.md#examples) to see how to apply contracts in your project.
 
-## Data type aliasing[​](#data-type-aliasing "Direct link to Data type aliasing")
+## Data type aliasing
 
 dbt uses built-in type aliasing for the `data_type` defined in your YAML. For example, you can specify `string` in your contract, and on Postgres/Redshift, dbt will convert it to `text`. If dbt doesn't recognize the `data_type` name among its known aliases, it will pass it through as-is. This is enabled by default, but you can opt-out by setting `alias_types` to `false`.
 
@@ -59,13 +55,13 @@ models:
         alias_types: false  # true by default
 ```
 
-## Size, precision, and scale[​](#size-precision-and-scale "Direct link to Size, precision, and scale")
+## Size, precision, and scale
 
 When dbt compares data types, it will not compare granular details such as size, precision, or scale. We don't think you should sweat the difference between `varchar(256)` and `varchar(257)`, because it doesn't really affect the experience of downstream queriers. You can accomplish a more-precise assertion by [writing or using a custom test](../../best-practices/writing-custom-generic-tests.md).
 
 Note that you need to specify a varchar size or numeric scale, otherwise dbt relies on default values. For example, if a `numeric` type defaults to a precision of 38 and a scale of 0, then the numeric column stores 0 digits to the right of the decimal (it only stores whole numbers), which might cause it to fail contract enforcement. To avoid this implicit coercion, specify your `data_type` with a nonzero scale, like `numeric(38, 6)`. dbt Core 1.7 and higher provides a warning if you don't specify precision and scale when providing a numeric data type.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 models/dim\_customers.yml
 
@@ -112,9 +108,7 @@ When you `dbt run` your model, *before* dbt has materialized it as a table in th
 20:53:45    > in macro assert_columns_equivalent (macros/materializations/models/table/columns_spec_ddl.sql)
 ```
 
-* Project YAML
-* Properties YAML
-* SQL file config
+### Project YAML
 
 Use a contract enforcement in your `dbt_project.yml` to enforce contracts consistently across multiple models:
 
@@ -125,6 +119,8 @@ models:
     +contract:
       enforced: true
 ```
+
+### Properties YAML
 
 Define a model’s contract in a `properties.yml` by specifying the expected columns and data types:
 
@@ -144,6 +140,8 @@ models:
         data_type: string
 ```
 
+### SQL file config
+
 Enforce a contract in a model SQL file when you want to apply it to a single model and maintain fine-grained control:
 
 ```sql
@@ -161,7 +159,7 @@ from {{ source('property_management', 'rental_applications') }}  -- replace with
 
 Refer to [General configurations](../model-configs.md#general-configurations) for more information on the supported configs available for model SQL files, `dbt_project.yml` and `properties.yml`.
 
-### Incremental models and `on_schema_change`[​](#incremental-models-and-on_schema_change "Direct link to incremental-models-and-on_schema_change")
+### Incremental models and `on_schema_change`
 
 Why require that incremental models also set [`on_schema_change`](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change), and why to `append_new_columns` or `fail`?
 
@@ -174,7 +172,7 @@ Imagine:
 
 Why `append_new_columns` (or `fail`) rather than `sync_all_columns`? Because removing existing columns is a breaking change for contracted models! `sync_all_columns` works like `append_new_columns` but also removes deleted columns, which you're not supposed to do with contracted models unless you upgrade the version.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  I’m getting a contract mismatch error
 
@@ -200,7 +198,7 @@ Why `append_new_columns` (or `fail`) rather than `sync_all_columns`? Because rem
 
 **Solution:** If you want to avoid aliasing, set `alias_types: false`. To avoid implicit numeric coercion, specify a `data_type` with a nonzero scale (for example, `numeric(38, 6)`). For details, refer to the [contract docs](./contract.md).
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [What is a model contract?](../../docs/mesh/govern/model-contracts.md)
 * [Defining `columns`](../resource-properties/columns.md)

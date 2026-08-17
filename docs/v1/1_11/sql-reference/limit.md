@@ -4,7 +4,7 @@ When you’re developing data models or drafting up a query, do you usually need
 
 Adding the LIMIT clause to a query will limit the number of rows returned. It’s useful for when you’re developing data models, ensuring SQL in a query is functioning as expected, and wanting to save some money during development periods.
 
-## How to use the LIMIT clause in a query[​](#how-to-use-the-limit-clause-in-a-query "Direct link to How to use the LIMIT clause in a query")
+## How to use the LIMIT clause in a query
 
 To limit the number of rows returned from a query, you would pass the LIMIT in the last line of the query with the number of rows you want returned:
 
@@ -17,7 +17,7 @@ limit <integer>
 
 Let’s take a look at a practical example using LIMIT below.
 
-### LIMIT example[​](#limit-example "Direct link to LIMIT example")
+### LIMIT example
 
 ```sql
 select
@@ -39,19 +39,13 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 4         | 2018-01-05  | 4          |
 | 5         | 2018-01-05  | 4          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 After ensuring that this is the result you want from this query, you can omit the LIMIT in your final data model.
 
 Save money and time by limiting data in development
 
 You could limit your data used for development by manually adding a LIMIT statement, a WHERE clause to your query, or by using a [dbt macro to automatically limit data based](../best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) on your development environment to help reduce your warehouse usage during dev periods.
 
-## LIMIT syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#limit-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to LIMIT syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## LIMIT syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 All modern data warehouses support the ability to LIMIT a query and the syntax is also the same across them. Use the table below to read more on the documentation for limiting query results in your data warehouse.
 
@@ -62,13 +56,7 @@ All modern data warehouses support the ability to LIMIT a query and the syntax i
 | Amazon Redshift | ✅             |
 | Google BigQuery | ✅             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## LIMIT use cases[​](#limit-use-cases "Direct link to LIMIT use cases")
+## LIMIT use cases
 
 We most commonly see queries limited in data work to:
 

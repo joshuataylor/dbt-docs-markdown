@@ -6,7 +6,7 @@ The ROW\_NUMBER window function is an effective way to create a ranked column or
 
 Unlike the [RANK](./rank.md) and DENSE\_RANK functions, ROW\_NUMBER is non-deterministic, meaning that a *unique* number is assigned arbitrarily for rows with duplicate values.
 
-## How to use the ROW\_NUMBER function[​](#how-to-use-the-row_number-function "Direct link to How to use the ROW_NUMBER function")
+## How to use the ROW\_NUMBER function
 
 The ROW\_NUMBER function has a pretty simple syntax, with an optional partition field and support for ordering customization:
 
@@ -19,7 +19,7 @@ Some notes on this function’s syntax:
 
 Let’s take a look at a practical example using the ROW\_NUMBER function below.
 
-### ROW\_NUMBER function example[​](#row_number-function-example "Direct link to ROW_NUMBER function example")
+### ROW\_NUMBER function example
 
 ```sql
 select
@@ -42,15 +42,9 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 3            | 24        | 2018-01-27  | 2      |
 | 3            | 69        | 2018-03-11  | 3      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Because ROW\_NUMBER is non-deterministic, orders per customer that have the same `order_date` would have unique `row_n` values (unlike if you used the RANK or DENSE\_RANK functions).
 
-## ROW\_NUMBER syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#row_number-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to ROW_NUMBER syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## ROW\_NUMBER syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Most, if not all, modern data warehouses support ROW\_NUMBER and other similar ranking functions; the syntax is also the same across them. Use the table below to read more on the documentation for the ROW\_NUMBER function in your data warehouse.
 
@@ -61,13 +55,7 @@ Most, if not all, modern data warehouses support ROW\_NUMBER and other similar r
 | [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/r_WF_ROW_NUMBER.html)                          | ✅                   |
 | [Google BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/numbering_functions#row_number) | ✅                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## ROW\_NUMBER function use cases[​](#row_number-function-use-cases "Direct link to ROW_NUMBER function use cases")
+## ROW\_NUMBER function use cases
 
 We most commonly see the ROW\_NUMBER function used in data work to:
 

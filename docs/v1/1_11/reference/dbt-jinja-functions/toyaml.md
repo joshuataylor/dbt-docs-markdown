@@ -7,7 +7,7 @@ The `toyaml` context method can be used to serialize a Python object primitive, 
 * `value`: The value to serialize to YAML (required)
 * `default`: A default value to return if the `value` argument cannot be serialized (optional)
 
-### Usage:[​](#usage "Direct link to Usage:")
+### Usage:
 
 ```text
 {% set my_dict = {"abc": 123} %}

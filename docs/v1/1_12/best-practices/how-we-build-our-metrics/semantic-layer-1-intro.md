@@ -8,14 +8,14 @@ To read more about the new spec, see [Creating metrics](../../docs/build/metrics
 
 Flying cars, hoverboards, and true self-service analytics: this is the future we were promised. The first two might still be a few years out, but real self-service analytics is here today. With dbt's Semantic Layer, you can resolve the tension between accuracy and flexibility that has hampered analytics tools for years, empowering everybody in your organization to explore a shared reality of metrics. Best of all for analytics engineers, building with these new tools will significantly [DRY](https://docs.getdbt.com/terms/dry) up and simplify your codebase. As you'll see, the deep interaction between your dbt models and the Semantic Layer make your dbt project the ideal place to craft your metrics.
 
-## Learning goals[​](#learning-goals "Direct link to Learning goals")
+## Learning goals
 
 * ❓ Understand the **purpose and capabilities** of the **Semantic Layer**, particularly MetricFlow as the engine that powers it.
 * 🧱 Familiarity with the core components of MetricFlow — **semantic models and metrics** — and how they work together.
 * 🔁 Know how to **refactor** dbt models for the Semantic Layer.
 * 🏅 Aware of **best practices** to take maximum advantage of the Semantic Layer.
 
-## Guide structure overview[​](#guide-structure-overview "Direct link to Guide structure overview")
+## Guide structure overview
 
 1. Getting **setup** in your dbt project.
 2. Building a **semantic model** and its fundamental parts: **entities, dimensions, and measures**.

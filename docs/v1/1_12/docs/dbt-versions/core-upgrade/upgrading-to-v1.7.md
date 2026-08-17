@@ -1,19 +1,17 @@
 # Upgrading to v1.7
 
-Available in v1ⓘ
+Available in v1
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.7.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
 * [Release schedule](https://github.com/dbt-labs/dbt-core/issues/8260)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
-
-<!-- -->
 
 Snowflake column size change
 
@@ -42,7 +40,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
-### Behavior changes[​](#behavior-changes "Direct link to Behavior changes")
+### Behavior changes
 
 dbt Core v1.7 expands the amount of sources you can configure freshness for. Previously, freshness was limited to sources with a `loaded_at_field`; now, freshness can be generated from warehouse metadata tables when available.
 
@@ -60,12 +58,12 @@ To retain the behavior prior to v1.7, there are two main options:
 1. Use `dbt deps --upgrade` everywhere `dbt deps` was used previously.
 2. Add `package-lock.yml` to your `.gitignore` file.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
 * [`dbt docs generate`](../../../reference/commands/cmd-docs.md) now supports `--select` to generate [catalog metadata](../../../reference/artifacts/catalog-json.md) for a subset of your project.
 * [Source freshness](../../deploy/source-freshness.md) can now be generated from warehouse metadata tables.
 
-### MetricFlow enhancements[​](#metricflow-enhancements "Direct link to MetricFlow enhancements")
+### MetricFlow enhancements
 
 * Automatically create metrics on measures with [`create_metric: true`](../../build/semantic-models.md).
 * Optional [`label`](../../build/semantic-models.md) in semantic\_models, measures, dimensions, and entities.
@@ -73,7 +71,7 @@ To retain the behavior prior to v1.7, there are two main options:
 * Support `fill_nulls_with` and `join_to_timespine` for metric nodes.
 * `saved_queries` extends governance beyond the semantic objects to their consumption.
 
-### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
+### For consumers of dbt artifacts (metadata)
 
 * The [manifest](../../../reference/artifacts/manifest-json.md) schema version has been updated to v11.
 
@@ -81,12 +79,10 @@ To retain the behavior prior to v1.7, there are two main options:
 
 * There are a few specific changes to the [catalog.json](../../../reference/artifacts/catalog-json.md):
 
-  <!-- -->
-
   * Added [node attributes](../../../reference/artifacts/run-results-json.md) related to compilation (`compiled`, `compiled_code`, `relation_name`) to the `catalog.json`.
   * The nodes dictionary in the `catalog.json` can now be "partial" if `dbt docs generate` is run with a selector.
 
-### Model governance[​](#model-governance "Direct link to Model governance")
+### Model governance
 
 dbt Core v1.5 introduced model governance which we're continuing to refine. v1.7 includes these additional features and functionality:
 
@@ -95,7 +91,7 @@ dbt Core v1.5 introduced model governance which we're continuing to refine. v1.7
 * **[Type aliasing for model contracts](../../../reference/resource-configs/contract.md):** dbt will use each adapter's built-in type aliasing for user-provided data types—meaning you can now write `string` always, and dbt will translate to `text` on Postgres/Redshift. This is "on" by default, but you can opt-out.
 * **[Raise warning for numeric types](../../../reference/resource-configs/contract.md):** Because of issues when putting `numeric` in model contracts without considering that default values such as `numeric(38,0)` might round decimals accordingly. dbt will now warn you if it finds a numeric type without specified precision/scale.
 
-### dbt clean[​](#dbt-clean "Direct link to dbt clean")
+### dbt clean
 
 [dbt clean](../../../reference/commands/clean.md) only cleans paths within the current working directory. The `--no-clean-project-files-only` flag will delete all paths specified in the `clean-targets` section of `dbt_project.yml`, even if they're outside the dbt project.
 
@@ -104,7 +100,7 @@ Supported flags:
 * `--clean-project-files-only` (default)
 * `--no-clean-project-files-only`
 
-### Additional attributes in run\_results.json[​](#additional-attributes-in-run_resultsjson "Direct link to Additional attributes in run_results.json")
+### Additional attributes in run\_results.json
 
 The run\_results.json now includes three attributes related to the `applied` state that complement `unique_id`:
 
@@ -112,7 +108,7 @@ The run\_results.json now includes three attributes related to the `applied` sta
 * `compiled_code`: Rendered string of the code that was compiled (empty after parsing, but full string after compiling).
 * `relation_name`: The fully-qualified name of the object that was (or will be) created/updated within the database.
 
-### Deprecated functionality[​](#deprecated-functionality "Direct link to Deprecated functionality")
+### Deprecated functionality
 
 The ability for installed packages to override built-in materializations without explicit opt-in from the user is being deprecated.
 
@@ -128,7 +124,7 @@ The ability for installed packages to override built-in materializations without
   {% endmaterialization %}
   ```
 
-### Quick hits[​](#quick-hits "Direct link to Quick hits")
+### Quick hits
 
 With these quick hits, you can now:
 

@@ -6,14 +6,13 @@ MetricFlow allows you to define and query metrics in your dbt project in [dbt pl
 
 MetricFlow is compatible with Python versions 3.8, 3.9, 3.10, 3.11, and 3.12.
 
-## MetricFlow[​](#metricflow "Direct link to MetricFlow")
+## MetricFlow
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 MetricFlow is a Python library that allows you to define and query metrics in your dbt project. You can use MetricFlow to query metrics in your dbt project in the dbt platform or dbt Core (open source), using either the dbt Fusion engine or dbt Core engine.
 
-* MetricFlow in Fusion or dbt platform
-* MetricFlow with dbt Core
+### MetricFlow in Fusion or dbt platform
 
 This section applies to dbt platform users running the dbt Fusion engine, where commands and validations execute remotely in dbt platform.
 
@@ -21,6 +20,8 @@ This section applies to dbt platform users running the dbt Fusion engine, where 
 * For CLI or VS Code/Cursor users, MetricFlow commands are embedded, which means you can immediately run them once you install the [dbt CLI](../platform/dbt-cli-installation.md) or [VS Code extension](../install-dbt-extension.md) and don't need to install MetricFlow separately.
 * Using MetricFlow with dbt platform doesn't require you to manage versioning — your dbt account will automatically manage the versioning.
 * dbt jobs support the `dbt sl validate` command to [automatically test your semantic nodes](../deploy/ci-jobs.md#semantic-validations-in-ci). You can also add MetricFlow validations with your Git provider (such as GitHub Actions) by installing MetricFlow (`python -m pip install metricflow`). This allows you to run MetricFlow commands as part of your continuous integration checks on PRs.
+
+### MetricFlow with dbt Core
 
 This section applies to dbt Core users running the dbt Core engine or users running [source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement) Fusion locally and aren't on dbt platform.
 
@@ -35,7 +36,7 @@ You can install [MetricFlow](https://github.com/dbt-labs/metricflow#getting-star
 
 Something to note, MetricFlow `mf` commands return an error if you have a Metafont latex package installed. To run `mf` commands, uninstall the package.
 
-## MetricFlow commands[​](#metricflow-commands "Direct link to MetricFlow commands")
+## MetricFlow commands
 
 Use MetricFlow commands to retrieve metadata and query metrics. The following table lists the compatibility matrix for MetricFlow commands and where you can run them.
 
@@ -44,25 +45,16 @@ Use MetricFlow commands to retrieve metadata and query metrics. The following ta
 | Studio IDE/dbt CLI or VS Code extension Fusion only | dbt Fusion engine or dbt Core engine              | dbt platform  | `dbt sl` | Remote execution; Platform manages versions.<br />VS Code extension users must have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform |
 | Open-source<br />(no dbt platform project)          | Fusion (source available) or<br />dbt Core engine | Local machine | `mf`     | Install and manage MetricFlow locally.                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 * If you’re using Fusion with dbt platform and have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform, run MetricFlow commands using the `dbt sl` prefix.
-  <!-- -->
   * This allows you to interact with metrics that are executed remotely on dbt platform (for example, from the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt CLI](../platform/dbt-cli-installation.md)).
 * If you’re using [Fusion CLI](../local/install-dbt.md?version=2) ([source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement)) and aren't connected to dbt platform, install MetricFlow separately and use the `mf` prefix to run commands locally.
 * If you’re using dbt Core locally without Fusion, run MetricFlow commands using the `mf` prefix.
 
-- Commands for dbt platform
-- Commands for dbt Core
+### Commands for dbt platform
 
 This section applies to dbt platform users running the dbt Fusion engine or dbt Core engine where commands and validations execute remotely in dbt platform.
 
 * Use the `dbt sl` prefix before the command name to execute them in the dbt platform (Studio IDE, VS Code/Cursor, dbt CLI) (like `dbt sl list metrics` to list all metrics).
-  <!-- -->
   * For dbt platform users developing with a CLI or an editor (like VS Code), run the `dbt sl --help` command in the terminal to view a complete list of the MetricFlow commands and flags.
 * The following table lists the commands compatible with dbt platform (Studio IDE, VS Code/Cursor, dbt CLI) powered by the dbt Fusion engine or dbt Core engine:
 
@@ -78,19 +70,15 @@ This section applies to dbt platform users running the dbt Fusion engine or dbt 
 | [`export`](#export)                               | Runs exports for a singular saved query for testing and generating exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query.                                                        | ❌         | ✅      | ✅             |
 | [`export-all`](#export-all)                       | Runs exports for multiple saved queries at once, saving time and effort.                                                                                                                                                                                  | ❌         | ✅      | ✅             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Run dbt parse to reflect metric changes
 
-When you make changes to metrics, make sure to run `dbt parse` at a minimum to update the Semantic Layer. This updates the `semantic_manifest.json` file<!-- --> and `osi_document.json`, reflecting your changes when querying metrics. By running `dbt parse`, you won't need to rebuild all the models.
+When you make changes to metrics, make sure to run `dbt parse` at a minimum to update the Semantic Layer. This updates the `semantic_manifest.json` file(Applies to dbt v1.12 and later) and `osi_document.json`, reflecting your changes when querying metrics. By running `dbt parse`, you won't need to rebuild all the models.
 
  How can I query or preview metrics with the dbt platform CLI?
 
 Check out the following video for a short video demo of how to query or preview metrics with the dbt CLI:
+
+### Commands for dbt Core
 
 This section applies to dbt Core users running the dbt Core engine or users running [source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement) Fusion locally and not a dbt platform user. Commands and validations execute locally and use the `mf` prefix before the command name to execute them. For example, to list all metrics, run `mf list metrics`.
 
@@ -103,7 +91,7 @@ This section applies to dbt Core users running the dbt Core engine or users runn
 * [`tutorial`](#tutorial) — Dedicated MetricFlow tutorial to help get you started.
 * [`query`](#query) — Query metrics and dimensions you want to see in the command line interface. Refer to [query examples](#query-examples) to help you get started.
 
-## List metrics[​](#list-metrics "Direct link to List metrics")
+## List metrics
 
 This command lists the metrics with their available dimensions:
 
@@ -118,7 +106,7 @@ Options:
   --help                 Show this message and exit.
 ```
 
-## List dimensions[​](#list-dimensions "Direct link to List dimensions")
+## List dimensions
 
 This command lists all unique dimensions for a metric or multiple metrics. It displays only common dimensions when querying multiple metrics:
 
@@ -133,7 +121,7 @@ Options:
   --help              Show this message and exit.
 ```
 
-## List dimension-values[​](#list-dimension-values "Direct link to List dimension-values")
+## List dimension-values
 
 This command lists all dimension values with the corresponding metric:
 
@@ -156,7 +144,7 @@ Options:
   --help              Show this message and exit.
 ```
 
-## List entities[​](#list-entities "Direct link to List entities")
+## List entities
 
 This command lists all unique entities:
 
@@ -171,7 +159,7 @@ Options:
   --help              Show this message and exit.
 ```
 
-## List saved queries[​](#list-saved-queries "Direct link to List saved queries")
+## List saved queries
 
 This command lists all available saved queries:
 
@@ -198,7 +186,7 @@ The list of available saved queries:
        - Export(new_customer_orders, alias=orders, schemas=customer_schema, exportAs=TABLE)
 ```
 
-## Validate[​](#validate "Direct link to Validate")
+## Validate
 
 The following command performs validations against the defined semantic model configurations.
 
@@ -233,7 +221,7 @@ Options:
   --help                          Show this message and exit.
 ```
 
-## Health checks[​](#health-checks "Direct link to Health checks")
+## Health checks
 
 The following command performs a health check against the data platform you provided in the configs.
 
@@ -243,7 +231,7 @@ Note, in dbt, the `health-checks` command isn't required since it uses dbt's cre
 mf health-checks # For open-source users (Core or Fusion source available)
 ```
 
-## Tutorial[​](#tutorial "Direct link to Tutorial")
+## Tutorial
 
 Follow the dedicated MetricFlow tutorial to help you get started:
 
@@ -251,7 +239,7 @@ Follow the dedicated MetricFlow tutorial to help you get started:
 mf tutorial # For open-source users (Core or Fusion source available)
 ```
 
-## Query[​](#query "Direct link to Query")
+## Query
 
 Create a new query with MetricFlow and execute it against your data platform. The query returns the following result:
 
@@ -317,7 +305,7 @@ Options:
   --help                   Show this message and exit.
 ```
 
-## Query examples[​](#query-examples "Direct link to Query examples")
+## Query examples
 
 This section shares various types of query examples that you can use to query metrics and dimensions. The query examples listed are:
 
@@ -328,7 +316,7 @@ This section shares various types of query examples that you can use to query me
 * [Filter by time](#filter-by-time)
 * [Query saved queries](#query-saved-queries)
 
-### Query metrics[​](#query-metrics "Direct link to Query metrics")
+### Query metrics
 
 Use the example to query multiple metrics by dimension and return the `order_total` and `users_active` metrics by `metric_time.`
 
@@ -354,7 +342,7 @@ mf query --metrics order_total,users_active --group-by metric_time # For open-so
 | 2017-06-21    |         541.65 |
 ```
 
-### Query dimensions[​](#query-dimensions "Direct link to Query dimensions")
+### Query dimensions
 
 You can include multiple dimensions in a query. For example, you can group by the `is_food_order` dimension to confirm if orders were for food or not. Note that when you query a dimension, you need to specify the primary entity for that dimension. In the following example, the primary entity is `order_id`.
 
@@ -382,7 +370,7 @@ mf query --metrics order_total --group-by order_id__is_food_order # For open-sou
 | 2017-06-19    | True            |         448.11 |
 ```
 
-### Add order/limit[​](#add-orderlimit "Direct link to Add order/limit")
+### Add order/limit
 
 You can add order and limit functions to filter and present the data in a readable format. The following query limits the data set to 10 records and orders them by `metric_time`, descending. Note that using the `-` prefix will sort the query in descending order. Without the `-` prefix sorts the query in ascending order.
 
@@ -414,7 +402,7 @@ mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --o
 | 2017-08-28    | False           |         334.73 |
 ```
 
-### Add where clause[​](#add-where-clause "Direct link to Add where clause")
+### Add where clause
 
 You can further filter the data set by adding a `where` clause to your query. The following example shows you how to query the `order_total` metric, grouped by `is_food_order` with multiple `where` statements (orders that are food orders and orders from the week starting on or after Feb 1st, 2024).
 
@@ -452,7 +440,7 @@ Notes:
 | 2017-08-22    | True            |         401.91 |
 ```
 
-### Filter by time[​](#filter-by-time "Direct link to Filter by time")
+### Filter by time
 
 To filter by time, there are dedicated start and end time options. Using these options to filter by time allows MetricFlow to further optimize query performance by pushing down the where filter when appropriate.
 
@@ -480,7 +468,7 @@ mf query --metrics order_total --group-by order_id__is_food_order --limit 10 --o
 | 2017-08-22    | True            |         401.91 |
 ```
 
-### Query saved queries[​](#query-saved-queries "Direct link to Query saved queries")
+### Query saved queries
 
 You can use this for frequently used queries. Replace `<name>` with the name of your [saved query](./saved-queries.md).
 
@@ -498,12 +486,11 @@ A note on querying saved queries
 
 When querying [saved queries](./saved-queries.md), you can use parameters such as `where`, `limit`, `order`, `compile`, and so on. However, keep in mind that you can't access `metric` or `group_by` parameters in this context. This is because they are predetermined and fixed parameters for saved queries, and you can't change them at query time. If you would like to query more metrics or dimensions, you can build the query using the standard format.
 
-## Additional query examples[​](#additional-query-examples "Direct link to Additional query examples")
+## Additional query examples
 
 The following tabs present additional query examples, like exporting to a CSV. Select the tab that best suits your needs:
 
-* \--compile/--explain flag
-* Export to CSV
+### --compile/--explain flag
 
 Add `--compile` (or `--explain` for dbt Core users) to your query to view the SQL generated by MetricFlow.
 
@@ -543,6 +530,8 @@ order by metric_time desc
 limit 10
 ```
 
+### Export to CSV
+
 Add the `--csv file_name.csv` flag to export the results of your query to a CSV. The `--csv` flag is available in dbt Core only and not supported in dbt.
 
 **Query**
@@ -561,7 +550,7 @@ mf query --metrics order_total --group-by metric_time,is_food_order --limit 10 -
 🖨 Successfully written query output to query_example.csv
 ```
 
-## Time granularity[​](#time-granularity "Direct link to Time granularity")
+## Time granularity
 
 Optionally, you can specify the time granularity you want your data to be aggregated at by appending two underscores and the unit of granularity you want to `metric_time`, the global time dimension. You can group the granularity by: `day`, `week`, `month`, `quarter`, and `year`.
 
@@ -573,7 +562,7 @@ dbt sl query --metrics revenue --group-by metric_time__month # For dbt platform 
 mf query --metrics revenue --group-by metric_time__month # For open-source users (Core or Fusion source available)
 ```
 
-## Export[​](#export "Direct link to Export")
+## Export
 
 Run [exports for a specific saved query](../use-dbt-semantic-layer/exports.md#exports-for-single-saved-query). Use this command to test and generate exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
 
@@ -583,7 +572,7 @@ Export is available in dbt.
 dbt sl export # For dbt platform users (Core or Fusion engine)
 ```
 
-## Export-all[​](#export-all "Direct link to Export-all")
+## Export-all
 
 Run [exports for multiple saved queries](../use-dbt-semantic-layer/exports.md#exports-for-multiple-saved-queries) at once. This command provides a convenient way to manage and execute exports for several queries simultaneously, saving time and effort. Refer to [exports in development](../use-dbt-semantic-layer/exports.md#exports-in-development) for more info.
 
@@ -593,7 +582,7 @@ Export is available in dbt.
 dbt sl export-all # For dbt platform users (Core or Fusion engine)
 ```
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  How can I add a dimension filter to a where filter?
 
@@ -648,13 +637,10 @@ To query multiple metrics, group bys, or where statements in your command, follo
 
 * To query multiple metrics and group bys, use the `--metrics` or `--group-by` syntax followed by the metric or dimension/entity names, separated by commas without spaces:
 
-  <!-- -->
-
   * Multiple metrics example: `dbt sl query --metrics accounts_active,users_active`
   * Multiple dimension/entity example: `dbt sl query --metrics accounts_active,users_active --group-by metric_time__week,accounts__plan_tier`
 
 * To query multiple where statements, use the `--where` syntax and wrap the statement in quotes:
-  <!-- -->
   * Multiple where statement example: `dbt sl query --metrics accounts_active,users_active --group-by metric_time__week,accounts__plan_tier --where "metric_time__week >= '2024-02-01'" --where "accounts__plan_tier = 'coco'"`
 
  How can I sort my query in ascending or descending order?

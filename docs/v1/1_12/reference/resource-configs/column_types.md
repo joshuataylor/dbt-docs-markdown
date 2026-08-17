@@ -1,12 +1,12 @@
 # column\_types
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 Optionally specify the database type of columns in a [seed](../../docs/build/seeds.md), by providing a dictionary where the keys are the column names, and the values are a valid datatype (this varies across databases).
 
 Without specifying this, dbt will infer the datatype based on the column values in your seed file.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 Specify column types in your `dbt_project.yml` file:
 
@@ -50,9 +50,9 @@ seeds:
           ...
 ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use a varchar column type to preserve leading zeros in a zipcode[​](#use-a-varchar-column-type-to-preserve-leading-zeros-in-a-zipcode "Direct link to Use a varchar column type to preserve leading zeros in a zipcode")
+### Use a varchar column type to preserve leading zeros in a zipcode
 
 dbt\_project.yml
 
@@ -64,10 +64,10 @@ seeds:
         zipcode: varchar(5)
 ```
 
-## Recommendation[​](#recommendation "Direct link to Recommendation")
+## Recommendation
 
 Use this configuration only when required, i.e. when the type inference is not working as expected. Otherwise you can omit this configuration.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 Note: The `column_types` configuration is case-sensitive, regardless of quoting configuration. If you specify a column as `Country_Name` in your Seed, you should reference it as `Country_Name`, and not `country_name`.

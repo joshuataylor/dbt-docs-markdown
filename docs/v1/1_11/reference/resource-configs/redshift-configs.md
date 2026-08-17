@@ -1,6 +1,6 @@
 # Redshift configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+## Incremental materialization strategies
 
 In dbt-redshift, the following incremental materialization strategies are supported:
 
@@ -11,9 +11,9 @@ In dbt-redshift, the following incremental materialization strategies are suppor
 
 All of these strategies are inherited from dbt-postgres.
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
+## Performance optimizations
 
-### Using sortkey and distkey[​](#using-sortkey-and-distkey "Direct link to Using sortkey and distkey")
+### Using sortkey and distkey
 
 Tables in Amazon Redshift have two powerful optimizations to improve query performance: distkeys and sortkeys. Supplying these values as model-level configurations apply the corresponding settings in the generated `CREATE TABLE` DDL. Note that these settings will have no effect on models set to `view` or `ephemeral` models.
 
@@ -55,9 +55,7 @@ For more information on distkeys and sortkeys, view Amazon's docs:
 * [AWS Documentation » Amazon Redshift » Database Developer Guide » Designing Tables » Choosing a Data Distribution Style](https://docs.aws.amazon.com/redshift/latest/dg/t_Distributing_data.html)
 * [AWS Documentation » Amazon Redshift » Database Developer Guide » Designing Tables » Choosing Sort Keys](https://docs.aws.amazon.com/redshift/latest/dg/t_Sorting_data.html)
 
-<!-- -->
-
-## Datasharing [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#datasharing- "Direct link to datasharing-")
+## Datasharing [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Previously, the Redshift adapter used PostgreSQL-compatible catalog tables (for example, `pg_*`, `information_schema`) for metadata operations such as listing relations, schemas, and columns. These tables only surface objects within the currently connected database, which prevents cross-database operations needed for [Redshift Datasharing](https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html).
 
@@ -97,12 +95,6 @@ The following macros switch to `SHOW` commands when `datasharing: true`:
 | `get_relation_last_modified`          | `information_schema.tables`         | `SHOW TABLES FROM SCHEMA`                          |
 | Grants                                | `pg_user`, `has_table_privilege()`  | `SHOW GRANTS ON TABLE`                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 `ra3_node: true` also enables this behavior and is supported for backward compatibility. For new projects, use `datasharing: true` instead.
 
 note
@@ -120,7 +112,7 @@ The following limitations apply when using `datasharing`:
 
 For setup instructions, see [Redshift setup](../../docs/local/connect-data-platform/redshift-setup.md).
 
-## Late binding views[​](#late-binding-views "Direct link to Late binding views")
+## Late binding views
 
 Redshift supports views unbound from their dependencies, or [late binding views](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_VIEW.html#late-binding-views). This DDL option "unbinds" a view from the data it selects from. In practice, this means that if upstream views or tables are dropped with a cascade qualifier, the late-binding view does not get dropped as well.
 
@@ -148,7 +140,7 @@ models:
     ....
 ```
 
-## Materialized views[​](#materialized-views "Direct link to Materialized views")
+## Materialized views
 
 The Redshift adapter supports [materialized views](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html) with the following configuration parameters:
 
@@ -161,15 +153,7 @@ The Redshift adapter supports [materialized views](https://docs.aws.amazon.com/r
 | [`auto_refresh`](#auto-refresh)                                                                            | `<boolean>`  | no       | `false`                                       | alter                     |
 | [`backup`](#backup)                                                                                        | `<string>`   | no       | `true`                                        | n/a                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -184,6 +168,8 @@ models:
     +auto_refresh: true | false
     +backup: true | false
 ```
+
+### Properties YAML file
 
 models/properties.yml
 
@@ -200,6 +186,8 @@ models:
       auto_refresh: true | false
       backup: true | false
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -219,39 +207,27 @@ Many of these parameters correspond to their table counterparts and have been li
 
 Learn more about these parameters in Redshift's [docs](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-create-sql-command.html).
 
-#### Auto-refresh[​](#auto-refresh "Direct link to Auto-refresh")
+#### Auto-refresh
 
 | Parameter      | Type        | Required | Default | Change Monitoring Support |
 | -------------- | ----------- | -------- | ------- | ------------------------- |
 | `auto_refresh` | `<boolean>` | no       | `false` | alter                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Redshift supports [automatic refresh](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-refresh.html#materialized-view-auto-refresh) configuration for materialized views. By default, a materialized view does not automatically refresh. dbt monitors this parameter for changes and applies them using an `ALTER` statement.
 
 Learn more information about the [parameters](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-create-sql-command.html#mv_CREATE_MATERIALIZED_VIEW-parameters) in the Redshift docs.
 
-#### Backup[​](#backup "Direct link to Backup")
+#### Backup
 
 | Parameter | Type        | Required | Default | Change Monitoring Support |
 | --------- | ----------- | -------- | ------- | ------------------------- |
 | `backup`  | `<boolean>` | no       | `true`  | n/a                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Redshift supports [backup](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html) configuration of clusters at the object level. This parameter identifies if the materialized view should be backed up as part of the cluster snapshot. By default, a materialized view will be backed up during a cluster snapshot. dbt cannot monitor this parameter as it is not queryable within Redshift. If the value changes, the materialized view will need to go through a `--full-refresh` to set it.
 
 Learn more about these parameters in Redshift's [docs](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-create-sql-command.html#mv_CREATE_MATERIALIZED_VIEW-parameters).
 
-### Limitations[​](#limitations "Direct link to Limitations")
+### Limitations
 
 As with most data platforms, there are limitations associated with materialized views. Some worth noting include:
 
@@ -260,7 +236,7 @@ As with most data platforms, there are limitations associated with materialized 
 
 Find more information about materialized view limitations in Redshift's [docs](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-create-sql-command.html#mv_CREATE_MATERIALIZED_VIEW-limitations).
 
-## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
+## Unit test limitations
 
 * Redshift doesn't support [unit tests](../../docs/build/unit-tests.md) when the SQL in the common table expression (CTE) contains functions such as `LISTAGG`, `MEDIAN`, `PERCENTILE_CONT`, and so on. These functions must be executed against a user-created table. dbt combines given rows to be part of the CTE, which Redshift does not support.
 

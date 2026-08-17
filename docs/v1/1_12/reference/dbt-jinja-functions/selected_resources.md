@@ -8,9 +8,9 @@ Warning!
 
 dbt actively builds the graph during the [parsing phase](./execute.md) of running dbt projects, so the `selected_resources` context variable will be empty during parsing. Please read the information on this page to effectively use this variable.
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
-The `selected_resources` context variable is a list of all the resources selected by the current dbt command selector. Its value depends on the usage of parameters like `--select` and `--exclude`.
+The `selected_resources` context variable is a list of all the resources selected by the current dbt command selector. Its value depends on the usage of parameters like (Applies to dbt v1.12 and later) `--select` and `--exclude`.
 
 For a given run it will look like:
 

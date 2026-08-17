@@ -1,6 +1,6 @@
 # Configure your local environment
 
-Local developmentⓘ
+Local development
 
 Whether you currently use dbt platform or self-host with Fusion, or you're a dbt Core user upgrading to Fusion, follow the instructions on this page to:
 
@@ -15,14 +15,14 @@ The steps differ slightly depending on whether you use dbt platform or self host
 * dbt platform — You'll mirror your dbt platform environment locally to unlock Fusion-powered features like Mesh, deferral, and so on. If your project has environment variables, you'll also set them locally to leverage the VS Code extension's features.
 * Self-hosted — When you self-host with Fusion or are upgrading from dbt Core to Fusion, you'll most likely already have a local setup and environment variables. Use this page to confirm that your existing local setup and environment variables work seamlessly with the dbt Fusion engine and VS Code extension.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * dbt Fusion engine installed
 * Downloaded and installed the dbt VS Code extension
 * Basic understanding of [Git workflows](./platform/git/version-control-basics.md) and [dbt project structure](../best-practices/how-we-structure/1-guide-overview.md)
 * [Developer or analyst license](https://www.getdbt.com/pricing)\* if you're using dbt platform. Note, the [Analyst license type](./platform/manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
-## Prepare your local setup[​](#prepare-your-local-setup "Direct link to Prepare your local setup")
+## Prepare your local setup
 
 In this section, we'll walk you through the steps to prepare your local setup for the dbt VS Code extension. If you're a dbt platform user that installed the VS Code extension, follow these steps. If you're a self-hosted user, you most likely already have a local setup and environment variables but can confirm using these steps.
 
@@ -34,28 +34,22 @@ In this section, we'll walk you through the steps to prepare your local setup fo
 
 4. Add a `dbt_cloud.yml` file from the dbt platform Account settings:
 
-   <!-- -->
-
    * Navigate to **Your profile** -> **VS Code Extension** -> **Download credentials**.
    * Place the downloaded file in your `~/.dbt/` directory. This registers and connects the extension to dbt platform and enables platform features such as Mesh and deferral. Refer to [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) for the file's structure and required fields.
    * Check the `project-id` in your [`dbt_project.yml` `dbt-cloud` block](../reference/dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml) matches the project you're working on.
 
 5. Confirm connection from your workstation (like running `dbt debug` in the terminal). Your local computer connects directly to your data warehouse and Git.
 
-   <!-- -->
-
    * dbt platform users: Ensure your laptop/VPN is allowed; dbt platform IPs no longer apply. Check with your admin if you have any issues.
    * dbt Core users: This has likely already been configured.
 
 6. (Optional) If your project uses environment variables, [find them](./build/environment-variables.md#setting-and-overriding-environment-variables) in the dbt platform and [set them](#set-environment-variables-locally) in VS Code or Cursor.
 
-   <!-- -->
-
    * dbt platform users: Copy any environment variables from **Deploy → Environments → Environment variables** tab in dbt platform. Masked secrets are hidden. Work with your admin to get those values.
 
    [![Environment variables tab](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/navigate-to-env-vars.png?v=2> "Environment variables tab")](#)Environment variables tab
 
-## Set environment variables locally[​](#set-environment-variables-locally "Direct link to Set environment variables locally")
+## Set environment variables locally
 
 Environment variables are used for authentication and configuration.
 
@@ -69,26 +63,17 @@ The following table shows the different options and when to use them:
 | [**VS Code/Cursor settings**](#configure-in-the-vs-code-extension-settings) | Extension menus + LSP | ✅ Per VS Code/Cursor profile | Editor-only workflows using the extension menu actions.                  |
 | [**Terminal session**](#configure-in-the-terminal-session)                  | Current terminal only | ❌ Temporary                  | One off testing.                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 tip
 
 If you want to use both the VS Code extension menus and terminal to run dbt commands, define your variables in the `shell` profile and VS Code/Cursor settings so they remain active in the terminal globally and in VS Code/Cursor.
 
-### Configure at the OS or shell level[​](#configure-at-the-os-or-shell-level "Direct link to Configure at the OS or shell level")
+### Configure at the OS or shell level
 
 Define variables once at the OS or shell level to ensure they're available to all terminal sessions. Even if you close a terminal window, the variables will remain available to you.
 
-* Mac / Linux
-* Windows
+### Mac / Linux
 
 1. Open your shell configuration file in a text editor using the following commands (If the file does not exist, create it using a text editor using `vi ~/.zshrc` or `vi ~/.bashrc`):
-
-   <!-- -->
 
    ```bash
    open -e ~/.zshrc ## for zsh (macOS)
@@ -97,11 +82,7 @@ Define variables once at the OS or shell level to ensure they're available to al
 
 2. A file will open up and you can add your environment variables to the file. For example:
 
-   <!-- -->
-
    * For zsh (macOS):
-
-     <!-- -->
 
      ```bash
          ## ~/.zshrc 
@@ -110,8 +91,6 @@ Define variables once at the OS or shell level to ensure they're available to al
      ```
 
    * For bash (Linux or older macOS):
-
-     <!-- -->
 
      ```bash
          ## ~/.bashrc or ~/.bash_profile
@@ -130,6 +109,8 @@ If you see the value printed back in the terminal, you're all set! These variabl
 
 * In all future terminal sessions
 * For all dbt commands run in the terminal
+
+### Windows
 
 There are two ways to create persistent environment variables on Windows: through PowerShell or the System Properties.
 
@@ -158,8 +139,6 @@ The following steps will explain how to configure environment variables using Po
 
 4. Add the variables and values. For example:
 
-   <!-- -->
-
    * Variable name: `DBT_ENV_VAR1`
    * Variable value: `my_value`
 
@@ -169,18 +148,18 @@ The following steps will explain how to configure environment variables using Po
 
 7. Verify the changes by running `echo $DBT_ENV_VAR1` and `echo $DBT_ENV_VAR2` in the terminal.
 
-#### About `.env` file support[​](#about-env-file-support "Direct link to about-env-file-support")
+#### About `.env` file support
 
 [dbt](./local/install-dbt.md) and the dbt VS Code extension can automatically read environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal), if one exists. The environment variables you define in the `.env` file are available when running dbt commands in the terminal and when using the extension's menu actions.
 
 Here are some considerations when defining environment variables in the `.env` file:
 
 * The `.env` file provides a convenient way to set environment variables that work across both the CLI and the VS Code extension.
-* We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
+* We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
 * Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to your repository.
 * Environment variables set directly in your shell (such as `export DBT_ENV_VAR=value`) take precedence over values defined in the `.env` file.
 
-### Configure in the VS Code extension settings[​](#configure-in-the-vs-code-extension-settings "Direct link to Configure in the VS Code extension settings")
+### Configure in the VS Code extension settings
 
 To use the dbt extension menu actions/buttons, you can configure environment variables directly in the [VS Code User Settings](vscode://settings/dbt.environmentVariables) interface or in a `.env` file in your current working directory. This includes both your custom variables and any automatic [dbt platform variables](./build/environment-variables.md) (like `DBT_CLOUD_ENVIRONMENT_NAME`) that your project depends on.
 
@@ -190,36 +169,33 @@ To use the dbt extension menu actions/buttons, you can configure environment var
 
 To configure environment variables in VS Code/Cursor:
 
-* Open User Settings
-* Open .env file
+### Open User Settings
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/configure/settings#_user-settings) (Cmd + Shift + P for Mac, Ctrl + Shift + P for Windows/Linux).
 2. Then select either **Preferences: Open User Settings** in the dropdown menu.
 3. Open the [VS Code user settings page](vscode://settings/dbt.environmentVariables).
 4. Search for `dbt.environmentVariables`.
-5. In the **dbt<!-- -->:Environment<!-- --> Variables** section, add your item and value for the environment variables.
+5. In the **dbt:Environment Variables** section, add your item and value for the environment variables.
 6. Click **Ok** to save the changes.
 7. Reload the VS Code extension to apply the changes. Open the Command Palette and select **Developer: Reload Window**.
 8. Verify the changes by running a dbt command and checking the output.
 
-1) Create a `.env` file in your current working directory (typically at the root level of your dbt project, same level as your `dbt_project.yml` file).
+### Open .env file
 
-2) Add your environment variables to the file. For example:
+1. Create a `.env` file in your current working directory (typically at the root level of your dbt project, same level as your `dbt_project.yml` file).
 
-   <!-- -->
+2. Add your environment variables to the file. For example:
 
    ```env
    DBT_ENV_VAR1=my_value
    DBT_ENV_VAR2=another_value
    ```
 
-3) Save the file.
+3. Save the file.
 
-4) Reload the VS Code extension to apply the changes.
+4. Reload the VS Code extension to apply the changes.
 
-5) Verify the changes by running a dbt command using the extension menu button on the top right corner and checking the output. For example, running `dbtf debug` will show your connection using the values from `.env`:
-
-   <!-- -->
+5. Verify the changes by running a dbt command using the extension menu button on the top right corner and checking the output. For example, running `dbtf debug` will show your connection using the values from `.env`:
 
    ```shell
    dbtf debug
@@ -232,7 +208,7 @@ To configure environment variables in VS Code/Cursor:
    "schema": "my_schema",            # Loaded from DBT_MY_SCHEMA in .env
    ```
 
-### Configure in the terminal session[​](#configure-in-the-terminal-session "Direct link to Configure in the terminal session")
+### Configure in the terminal session
 
 Configure environment variables in the terminal session using the `export` command. Something to keep in mind:
 
@@ -244,19 +220,21 @@ To configure environment variables in the terminal session:
 
 1. Run the following command in the terminal, replacing `DBT_ENV_VAR1` and `test1` with your own variable and value.
 
-   * Mac / Linux
-   * Windows Cmd
-   * Windows PowerShell
+   ### Mac / Linux
 
    ```bash
    export DBT_ENV_VAR1=test1
    ```
+
+   ### Windows Cmd
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1) for more information on the `set` command.
 
    ```bash
    set DBT_ENV_VAR1=test1 
    ```
+
+   ### Windows PowerShell
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.5#use-the-variable-syntax) for more information on the `$env:` syntax.
 
@@ -266,7 +244,7 @@ To configure environment variables in the terminal session:
 
 2. Verify the changes by running a dbt command and checking the output.
 
-## dbt extension settings[​](#dbt-extension-settings "Direct link to dbt extension settings")
+## dbt extension settings
 
 After installing the dbt extension and configuring your local setup, you may want to configure it to better fit your development workflow:
 
@@ -283,17 +261,11 @@ The following settings are the most relevant when you install or manage the dbt 
 | `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](./dbt-versions/fusion-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                                 |
 | `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Upgrading from a separate language server binary
 
 Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one Fusion binary. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](./dbt-versions/fusion-version-compatibility.md) for details.
 
-## File associations and other extensions[​](#file-associations-and-other-extensions "Direct link to File associations and other extensions")
+## File associations and other extensions
 
 The dbt extension doesn't depend on your `.sql` [file associations](https://code.visualstudio.com/docs/languages/identifiers). It activates on your `dbt_project.yml`, so LSP features — like autocomplete, go-to-definition, and database-aware IntelliSense — work whether your files are set to `sql` or `jinja-sql`. The only difference between those two is syntax highlighting and the file icon.
 
@@ -314,7 +286,7 @@ Autocomplete not working?
 
 If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](./build/about-static-analysis.md?version=2.0#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Now that you've configured your local environment, you can start using the dbt extension to streamline your dbt development workflows. Check out the following resources to get started:
 

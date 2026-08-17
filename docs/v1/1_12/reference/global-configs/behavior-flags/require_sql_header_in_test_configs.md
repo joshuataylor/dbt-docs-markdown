@@ -6,12 +6,6 @@
 | Matured (default → `true`)              | —              | —        |
 | Removed                                 | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Set the `require_sql_header_in_test_configs` flag to `true` to enable support for the [`sql_header`](../../resource-configs/sql_header.md) config for generic data tests. When enabled, you can set `sql_header` in the `config` of a generic data test at the model or column level in your `properties.yml` file. You can use `sql_header` to define SQL that should run before the test executes (for example, to create temporary functions, to set session parameters, or to declare variables required by the test query). dbt runs this SQL before executing the test.
 
 For example:

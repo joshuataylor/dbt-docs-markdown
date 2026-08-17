@@ -1,8 +1,8 @@
 # Materialize configurations
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
+## Performance optimizations
 
-### Clusters[​](#clusters "Direct link to Clusters")
+### Clusters
 
 Enable the configuration of [clusters](https://github.com/MaterializeInc/materialize/blob/main/misc/dbt-materialize/CHANGELOG.md#120---2022-08-31).
 
@@ -25,11 +25,11 @@ models:
     +cluster: not_default
 ```
 
-### Incremental models: Materialized Views[​](#incremental-models-materialized-views "Direct link to Incremental models: Materialized Views")
+### Incremental models: Materialized Views
 
 Materialize, at its core, is a real-time database that delivers incremental view updates without ever compromising on latency or correctness. Use [materialized views](https://materialize.com/docs/overview/key-concepts/#materialized-views) to compute and incrementally update the results of your query.
 
-### Indexes[​](#indexes "Direct link to Indexes")
+### Indexes
 
 Enable additional configuration for [indexes](https://github.com/MaterializeInc/materialize/blob/main/misc/dbt-materialize/CHANGELOG.md#120---2022-08-31).
 
@@ -61,7 +61,7 @@ my\_view\_default\_index.sql
 select ...
 ```
 
-### Data tests[​](#data-tests "Direct link to Data tests")
+### Data tests
 
 If you set the optional `--store-failures` flag or [`store_failures` config](./store_failures.md), dbt will create a materialized view for each configured test that can keep track of failures over time. By default, test views are created in a schema suffixed with `dbt_test__audit`. To specify a custom suffix, use the `schema` config.
 

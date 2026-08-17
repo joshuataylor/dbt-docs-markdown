@@ -10,7 +10,7 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide will show you how to set up an integration between dbt jobs and Slack using [dbt webhooks](../docs/deploy/webhooks.md) and Zapier. It builds on the native [native Slack integration](../docs/deploy/job-notifications.md#slack-notifications) by attaching error message details of models and tests in a thread.
 
@@ -25,21 +25,21 @@ When a dbt job finishes running, the integration will:
 
 ![Screenshot of a message in Slack showing a summary of a  run which failed](/assets/images/slack-thread-example-f5cdad43397338d5be7a32eb4117228a.png)
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 In order to set up the integration, you should have familiarity with:
 
 * [dbt webhooks](../docs/deploy/webhooks.md)
 * Zapier
 
-## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
+## Create a new Zap in Zapier
 
 1. Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
 2. Click **Continue**, then copy the webhook URL.
 
 ![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
 
-## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
+## Configure a new webhook in dbt
 
 See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Choose **Run completed** as the Event. You can alternatively choose **Run errored**, but you will need to account for the fact that the necessary metadata [might not be available immediately](../docs/deploy/webhooks.md#completed-errored-event-difference).
 
@@ -49,7 +49,7 @@ Once you've tested the endpoint in dbt, go back to Zapier and click **Test Trigg
 
 The sample body's values are hardcoded and not reflective of your project, but they give Zapier a correctly-shaped object during development.
 
-## Store secrets[​](#store-secrets "Direct link to Store secrets")
+## Store secrets
 
 In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md).
 
@@ -59,11 +59,11 @@ This guide assumes the names for the secret keys are: `DBT_CLOUD_SERVICE_TOKEN` 
 
 This guide uses a short-lived code action to store the secrets, but you can also use a tool like Postman to interact with the [REST API](https://store.zapier.com/) or create a separate Zap and call the [Set Value Action](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps#3-set-a-value-in-your-store-0-3).
 
-#### a. Create a Storage by Zapier connection[​](#a-create-a-storage-by-zapier-connection "Direct link to a. Create a Storage by Zapier connection")
+#### a. Create a Storage by Zapier connection
 
 If you haven't already got one, go to <https://zapier.com/app/connections/storage> and create a new connection. Remember the UUID secret you generate for later.
 
-#### b. Add a temporary code step[​](#b-add-a-temporary-code-step "Direct link to b. Add a temporary code step")
+#### b. Add a temporary code step
 
 Choose **Run Python** as the Event. Run the following code:
 
@@ -75,7 +75,7 @@ store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your dbt API token
 
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
-## Add a code action[​](#add-a-code-action "Direct link to Add a code action")
+## Add a code action
 
 Select **Code by Zapier** as the App, and **Run Python** as the Event.
 
@@ -181,7 +181,7 @@ send_error_thread = len(threaded_errors_post) > 0
 output = {'step_summary_post': step_summary_post, 'send_error_thread': send_error_thread, 'threaded_errors_post': threaded_errors_post}
 ````
 
-## Add Slack actions in Zapier[​](#add-slack-actions-in-zapier "Direct link to Add Slack actions in Zapier")
+## Add Slack actions in Zapier
 
 Select **Slack** as the App, and **Send Channel Message** as the Action.
 
@@ -199,15 +199,15 @@ Add another **Send Channel Message in Slack** action. In the **Action** section,
 
 ![Screenshot of the Zapier UI, showing the mappings of prior steps to a Slack message](/assets/images/thread-slack-config-9ebe2df87964d97e82c18d80d9ff9ac2.png)
 
-## Test and deploy[​](#test-and-deploy "Direct link to Test and deploy")
+## Test and deploy
 
 When you're done testing your Zap, make sure that your `run_id` and `account_id` are no longer hardcoded in the Code step, then publish your Zap.
 
-## Alternately, use a dbt app Slack message to trigger Zapier[​](#alternately-use-a-dbt-app-slack-message-to-trigger-zapier "Direct link to Alternately, use a dbt app Slack message to trigger Zapier")
+## Alternately, use a dbt app Slack message to trigger Zapier
 
 Instead of using a webhook as your trigger, you can keep the existing dbt app installed in your Slack workspace and use its messages being posted to your channel as the trigger. In this case, you can skip validating the webhook and only need to load the context from the thread.
 
-### 1. Create a new Zap in Zapier[​](#1-create-a-new-zap-in-zapier "Direct link to 1. Create a new Zap in Zapier")
+### 1. Create a new Zap in Zapier
 
 Use **Slack** as the initiating app, and **New Message Posted to Channel** as the Trigger. In the **Trigger** section, select the channel where your Slack alerts are being posted, and set **Trigger for Bot Messages?** to **Yes**.
 
@@ -215,7 +215,7 @@ Use **Slack** as the initiating app, and **New Message Posted to Channel** as th
 
 Test your Zap to find an example record. You might need to load additional samples until you get one that relates to a failed job, depending on whether you post all job events to Slack or not.
 
-### 2. Add a Filter step[​](#2-add-a-filter-step "Direct link to 2. Add a Filter step")
+### 2. Add a Filter step
 
 Add a **Filter** step with the following conditions:
 
@@ -225,7 +225,7 @@ Add a **Filter** step with the following conditions:
 
 ![Screenshot of the Zapier UI, showing the correctly configured Filter step](/assets/images/message-trigger-filter-57c4f8c530e21a72704481619b040a51.png)
 
-### 3. Extract the run ID[​](#3-extract-the-run-id "Direct link to 3. Extract the run ID")
+### 3. Extract the run ID
 
 Add a **Format** step with the **Event** of **Text**, and the Action **Extract Number**. For the **Input**, select **1. Text**.
 
@@ -233,13 +233,13 @@ Add a **Format** step with the **Event** of **Text**, and the Action **Extract N
 
 Test your step and validate that the run ID has been correctly extracted.
 
-### 4. Add a Delay[​](#4-add-a-delay "Direct link to 4. Add a Delay")
+### 4. Add a Delay
 
 Sometimes dbt posts the message about the run failing before the run's artifacts are available through the API. For this reason, it's recommended to add a brief delay to increase the likelihood that the data is available. On certain plans, Zapier will automatically retry a job that fails from to a 404 error, but its standdown period is longer than is normally necessary so the context will be missing from your thread for longer.
 
 A one-minute delay is generally sufficient.
 
-### 5. Store secrets[​](#5-store-secrets "Direct link to 5. Store secrets")
+### 5. Store secrets
 
 In the next step, you will need either a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md).
 
@@ -249,11 +249,11 @@ This guide assumes the name for the secret key is `DBT_CLOUD_SERVICE_TOKEN`. If 
 
 This guide uses a short-lived code action to store the secrets, but you can also use a tool like Postman to interact with the [REST API](https://store.zapier.com/) or create a separate Zap and call the [Set Value Action](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps#3-set-a-value-in-your-store-0-3).
 
-#### a. Create a Storage by Zapier connection[​](#a-create-a-storage-by-zapier-connection "Direct link to a. Create a Storage by Zapier connection")
+#### a. Create a Storage by Zapier connection
 
 If you haven't already got one, go to <https://zapier.com/app/connections/storage> and create a new connection. Remember the UUID secret you generate for later.
 
-#### b. Add a temporary code step[​](#b-add-a-temporary-code-step "Direct link to b. Add a temporary code step")
+#### b. Add a temporary code step
 
 Choose **Run Python** as the Event. Run the following code:
 
@@ -264,7 +264,7 @@ store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your <Constant name
 
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
-### 6. Add a Code action[​](#6-add-a-code-action "Direct link to 6. Add a Code action")
+### 6. Add a Code action
 
 Select **Code by Zapier** as the App, and **Run Python** as the Event.
 
@@ -330,7 +330,7 @@ for step in results['run_steps']:
 output = {'threaded_errors_post': threaded_errors_post}
 ````
 
-### 7. Add Slack action in Zapier[​](#7-add-slack-action-in-zapier "Direct link to 7. Add Slack action in Zapier")
+### 7. Add Slack action in Zapier
 
 Add a **Send Channel Message in Slack** action. In the **Action** section, set the channel to **1. Channel Id**, which is the channel that the triggering message was posted in.
 
@@ -338,6 +338,6 @@ Set the **Message Text** to **5. Threaded Errors Post** from the Run Python step
 
 ![Screenshot of the Zapier UI, showing the mappings of prior steps to a Slack message](/assets/images/thread-slack-config-alternate-36df7dedc6e8e5688edd5bfe1439ef2c.png)
 
-### 8. Test and deploy[​](#8-test-and-deploy "Direct link to 8. Test and deploy")
+### 8. Test and deploy
 
 When you're done testing your Zap, publish it.

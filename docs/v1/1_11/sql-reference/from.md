@@ -6,7 +6,7 @@ The first thing someone learns in SQL: how to build a query using [SELECT](./sel
 
 In a dbt project, a SQL dbt model is technically a singular SELECT statement (often built leveraging CTEs or subqueries) using a [reference](../reference/dbt-jinja-functions/ref.md) to an upstream data model or table in a FROM statement.
 
-## How to use SQL FROM statements[​](#how-to-use-sql-from-statements "Direct link to How to use SQL FROM statements")
+## How to use SQL FROM statements
 
 Any query begins with a simple SELECT statement and wrapped up with a FROM statement:
 
@@ -31,16 +31,10 @@ This basic query is selecting three columns from the [Jaffle Shop’s](https://g
 | 2             | 3                | 2018-01-02      |
 | 3             | 95               | 2018-01-04      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 In the query above, dbt automatically compiles the `from {{ ref('orders') }}` to `from analytics.jaffle_shop.orders` when the query is sent down to the data warehouse and run in the production environment.
 
 If you’re selecting from multiple tables or models, that’s where you’d rely on unions or joins to bring multiple tables together in a way that makes sense to your data.
 
-## FROM statement syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#from-statement-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to FROM statement syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## FROM statement syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Just as the humble SELECT statement is a SQL fundamental that goes untampered by the data warehouses, FROM syntax does not vary within them. As a result, writing the actual `select…from` statement across Snowflake, Databricks, Google BigQuery, and Amazon Redshift would look the same.

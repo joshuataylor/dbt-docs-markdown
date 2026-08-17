@@ -1,6 +1,6 @@
 # Firebolt configurations
 
-## Setting `quote_columns`[​](#setting-quote_columns "Direct link to setting-quote_columns")
+## Setting `quote_columns`
 
 To prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](./quote_columns.md) for more information.
 
@@ -9,13 +9,11 @@ seeds:
   +quote_columns: false  #or `true` if you have CSV column headers with spaces
 ```
 
-## Model configuration for fact tables[​](#model-configuration-for-fact-tables "Direct link to Model configuration for fact tables")
+## Model configuration for fact tables
 
 A dbt model can be created as a Firebolt fact table and configured using the following syntax:
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -32,6 +30,8 @@ models:
       ...
 ```
 
+### Properties YAML file
+
 models/properties.yml
 
 ```yaml
@@ -47,6 +47,8 @@ models:
           aggregation: [ <agg-sql>, ... ]
         ...
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -66,7 +68,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Fact table configurations[​](#fact-table-configurations "Direct link to Fact table configurations")
+#### Fact table configurations
 
 | Configuration   | Description                                                                                                                                                                          |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -78,13 +80,7 @@ models/\<model\_name>.sql
 | `key_columns`   | Sets the grouping of the aggregating index using the inputted list of column names from the model.                                                                                   |
 | `aggregation`   | Sets the aggregations on the aggregating index using the inputted list of SQL agg expressions.                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Example of a fact table with an aggregating index[​](#example-of-a-fact-table-with-an-aggregating-index "Direct link to Example of a fact table with an aggregating index")
+#### Example of a fact table with an aggregating index
 
 ```text
 {{ config(
@@ -101,13 +97,11 @@ Search table...
 ) }}
 ```
 
-## Model configuration for dimension tables[​](#model-configuration-for-dimension-tables "Direct link to Model configuration for dimension tables")
+## Model configuration for dimension tables
 
 A dbt model can be materialized as a Firebolt dimension table and configured using the following syntax:
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -119,6 +113,8 @@ models:
     ...
 ```
 
+### Properties YAML file
+
 models/properties.yml
 
 ```yaml
@@ -129,6 +125,8 @@ models:
       table_type: dimension
     ...
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -142,20 +140,14 @@ models/\<model\_name>.sql
 
 Dimension tables do not support aggregation indexes.
 
-#### Dimension table configurations[​](#dimension-table-configurations "Direct link to Dimension table configurations")
+#### Dimension table configurations
 
 | Configuration  | Description                                                                                                                                                                          |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `materialized` | How the model will be materialized into Firebolt. Must be `table` to create a dimension table.                                                                                       |
 | `table_type`   | Whether the materialized table will be a [fact or dimension](https://docs.firebolt.io/godocs/Overview/working-with-tables/working-with-tables.html#fact-and-dimension-tables) table. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## How aggregating indexes are named[​](#how-aggregating-indexes-are-named "Direct link to How aggregating indexes are named")
+## How aggregating indexes are named
 
 In dbt-firebolt, you do not provide names for aggregating indexes; they are named programmatically. dbt will generate index names using the following convention:
 
@@ -165,13 +157,13 @@ In dbt-firebolt, you do not provide names for aggregating indexes; they are name
 
 For example, a join index could be named `my_users__id__join_1633504263` and an aggregating index could be named `my_orders__order_date__aggregating_1633504263`.
 
-## Managing ingestion via external tables[​](#managing-ingestion-via-external-tables "Direct link to Managing ingestion via external tables")
+## Managing ingestion via external tables
 
 `dbt-firebolt` supports dbt's [external tables feature](../resource-properties/external.md), which allows dbt to manage the table ingestion process from S3 into Firebolt. This is an optional feature but can be highly convenient depending on your use case.
 
 More information on using external tables including properly configuring IAM can be found in the Firebolt [documentation](https://docs.firebolt.io/godocs/Guides/loading-data/working-with-external-tables.html).
 
-#### Installation of external tables package[​](#installation-of-external-tables-package "Direct link to Installation of external tables package")
+#### Installation of external tables package
 
 To install and use `dbt-external-tables` with Firebolt, you must:
 
@@ -193,13 +185,13 @@ To install and use `dbt-external-tables` with Firebolt, you must:
 
 3. Pull in the `packages.yml` dependencies by calling `dbt deps`.
 
-#### Using external tables[​](#using-external-tables "Direct link to Using external tables")
+#### Using external tables
 
 To use external tables, you must define a table as `external` in your `dbt_project.yml` file. Every external table must contain the fields `url`, `type`, and `object_pattern`. Note that the Firebolt external table specification requires fewer fields than what is specified in the dbt documentation.
 
 In addition to specifying the columns, an external table may specify partitions. Partitions are not columns and they cannot have the same name as columns. To avoid YAML parsing errors, remember to encase string literals (such as the `url` and `object_pattern` values) in single quotation marks.
 
-#### dbt\_project.yml syntax for an external table[​](#dbt_projectyml-syntax-for-an-external-table "Direct link to dbt_project.yml syntax for an external table")
+#### dbt\_project.yml syntax for an external table
 
 ```yml
 sources:
@@ -229,7 +221,7 @@ sources:
 
 `aws_key_id` and `aws_secret_key` are the credentails that allow Firebolt access to your S3 bucket. Learn how to set them up by following this [guide](https://docs.firebolt.io/godocs/Guides/loading-data/creating-access-keys-aws.html). If your bucket is public these parameters are not necessary.
 
-#### Running external tables[​](#running-external-tables "Direct link to Running external tables")
+#### Running external tables
 
 The `stage_external_sources` macro is inherited from the [dbt-external-tables package](https://github.com/dbt-labs/dbt-external-tables#syntax) and is the primary point of entry when using thes package. It has two operational modes: standard and "full refresh."
 
@@ -241,7 +233,7 @@ $ dbt run-operation stage_external_sources
 $ dbt run-operation stage_external_sources --vars "ext_full_refresh: true"
 ```
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 The [`incremental_strategy` configuration](../../docs/build/incremental-strategy.md) controls how dbt builds incremental models. Firebolt currently supports `append`, `insert_overwrite` and `delete+insert` configuration. You can specify `incremental_strategy` in `dbt_project.yml` or within a model file's `config()` block. The `append` configuration is the default. Specifying this configuration is optional.
 
@@ -276,10 +268,10 @@ SELECT ([columns])
 FROM orders__dbt_tmp;
 ```
 
-## Seeds behavior[​](#seeds-behavior "Direct link to Seeds behavior")
+## Seeds behavior
 
 When running the `dbt seed` command we perform a `DROP CASCADE` operation instead of `TRUNCATE`.
 
-## Practice[​](#practice "Direct link to Practice")
+## Practice
 
 You can look at our modified version of the jaffle\_shop, [jaffle\_shop\_firebolt](https://github.com/firebolt-db/jaffle_shop_firebolt), to see how indexes, as well as external tables, can be set or clone and execute the commands listed in the README.md

@@ -6,11 +6,11 @@ For example, you can track how often a user (entity) who visits your site (base 
 
 Conversion metrics are different from [ratio metrics](./ratio.md) because you need to include an entity in the pre-aggregated join.
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Parameters
 
 The specification for conversion metrics is as follows:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 | Parameter                                 | Description                                                                                                                             | Required | Type           |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------- |
@@ -37,17 +37,11 @@ The specification for conversion metrics is as follows:
 | `constant_properties.base_property`       | The dimension or entity of the semantic model linked to the `base_metric`.                                                              | Required | String         |
 | `constant_properties.conversion_property` | The dimension or entity of the semantic model linked to the `conversion_metric`.                                                        | Required | String         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Refer to [additional settings](#additional-settings) to learn how to customize conversion metrics with settings for null values, calculation type, and constant properties.
 
 The following code example displays the complete specification for conversion metrics and details how they're applied:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/file\_name.yml
 
@@ -72,7 +66,7 @@ models:
             conversion_property: my_dimension_or_entity
 ```
 
-## Conversion metric example[​](#conversion-metric-example "Direct link to Conversion metric example")
+## Conversion metric example
 
 The following example will measure conversions from website visits (`VISITS` table) to order completions (`BUYS` table) and calculate a conversion metric for this scenario step by step.
 
@@ -91,12 +85,6 @@ The underlying tables look like the following:
 | 2020-01-04 | bob      | google       |
 | 2020-01-07 | bob      | amazon       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 `BUYS`<br />Records completed orders with `USER_ID` and `REFERRER_ID`.
 
 | DS         | USER\_ID | REFERRER\_ID |
@@ -104,15 +92,9 @@ Search table...
 | 2020-01-02 | bob      | facebook     |
 | 2020-01-07 | bob      | amazon       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Next, define a conversion metric as follows:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -136,7 +118,7 @@ models:
 
 To calculate the conversion, link the `BUYS` event to the nearest `VISITS` event (or closest base event). The following steps explain this process in more detail:
 
-### Step 1: Join `VISITS` and `BUYS`[​](#step-1-join-visits-and-buys "Direct link to step-1-join-visits-and-buys")
+### Step 1: Join `VISITS` and `BUYS`
 
 This step joins the `BUYS` table to the `VISITS` table and gets all combinations of visits-buys events that match the join condition where buys occur within 7 days of the visit (any rows that have the same user and a buy happened at most 7 days after the visit).
 
@@ -167,13 +149,7 @@ The dataset returns the following (note that there are two potential conversion 
 | 2020-01-04 | bob        | google         | 2020-01-07 | uuid2 | 1    |
 | 2020-01-07 | bob        | amazon         | 2020-01-07 | uuid2 | 1    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Step 2: Refine with window function[​](#step-2-refine-with-window-function "Direct link to Step 2: Refine with window function")
+### Step 2: Refine with window function
 
 Instead of returning the raw visit values, use window functions to link conversions to the closest base event. You can partition by the conversion source and get the `first_value` ordered by `visit ds`, descending to get the closest base event from the conversion event:
 
@@ -202,17 +178,11 @@ The dataset returns the following:
 | 2020-01-07 | bob        | amazon         | 2020-01-07 | uuid2 | 1    |
 | 2020-01-07 | bob        | amazon         | 2020-01-07 | uuid2 | 1    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 This workflow links the two conversions to the correct visit events. Due to the join, you end up with multiple combinations, leading to fanout results. After applying the window function, duplicates appear.
 
 To resolve this and eliminate duplicates, use a distinct select. The UUID also helps identify which conversion is unique. The next steps provide more detail on how to do this.
 
-### Step 3: Remove duplicates[​](#step-3-remove-duplicates "Direct link to Step 3: Remove duplicates")
+### Step 3: Remove duplicates
 
 Instead of regular select used in the [Step 2](#step-2-refine-with-window-function), use a distinct select to remove the duplicates:
 
@@ -239,21 +209,15 @@ The dataset returns the following:
 | 2020-01-01 | bob        | facebook       | 2020-01-02 | uuid1 | 1    |
 | 2020-01-07 | bob        | amazon         | 2020-01-07 | uuid2 | 1    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 You now have a dataset where every conversion is connected to a visit event. To proceed:
 
 1. Sum up the total conversions in the "conversions" table.
 2. Combine this table with the "opportunities" table, matching them based on group keys.
 3. Calculate the conversion rate.
 
-### Step 4: Aggregate and calculate[​](#step-4-aggregate-and-calculate "Direct link to Step 4: Aggregate and calculate")
+### Step 4: Aggregate and calculate
 
-Now that you’ve tied each conversion event to a visit, you can calculate the aggregated conversions and opportunities <!-- -->simple metric<!-- -->. Then, you can join them to calculate the actual conversion rate. The SQL to calculate the conversion rate is as follows:
+Now that you’ve tied each conversion event to a visit, you can calculate the aggregated conversions and opportunities (Applies to dbt v1.12 and later) simple metric. Then, you can join them to calculate the actual conversion rate. The SQL to calculate the conversion rate is as follows:
 
 ```sql
 select
@@ -290,7 +254,7 @@ group by
   metric_time__day
 ```
 
-### Additional settings[​](#additional-settings "Direct link to Additional settings")
+### Additional settings
 
 Use the following additional settings to customize your conversion metrics:
 
@@ -298,11 +262,11 @@ Use the following additional settings to customize your conversion metrics:
 * **Calculation type:** Choose between showing raw conversions or conversion rate.
 * **Constant property:** Add conditions for specific scenarios to join conversions on constant properties.
 
-- Set null conversion events to zero
-- Set calculation type parameter
-- Set constant property
+### Set null conversion events to zero
 
 To return zero in the final data set, you can set the value of a null conversion event to zero instead of null. You can add the `fill_nulls_with` parameter to your conversion metric definition like this:
+
+(Applies to dbt v1.12 and later)
 
 ```yaml
 metrics:
@@ -335,9 +299,13 @@ This will return the following results:
 
 Refer to [Fill null values for metrics](./fill-nulls-advanced.md) for more info.
 
+### Set calculation type parameter
+
 Use the conversion calculation parameter to either show the raw number of conversions or the conversion rate. The default value is the conversion rate.
 
 You can change the default to display the number of conversions by setting the `calculation: conversion` parameter:
+
+(Applies to dbt v1.12 and later)
 
 ```yaml
 metrics:
@@ -353,6 +321,8 @@ metrics:
     fill_nulls_with: 0
 ```
 
+### Set constant property
+
 *Refer to [Amplitude's blog posts on constant properties](https://amplitude.com/blog/holding-constant) to learn about this concept.*
 
 You can add a constant property to a conversion metric to count only those conversions where a specific dimension or entity matches in both the base and conversion events.
@@ -366,6 +336,8 @@ For example, if you're at an e-commerce company and want to answer the following
 Back to the initial questions, you want to see how many customers viewed an item detail page and then completed a purchase for the *same* product.
 
 In this case, you want to set `product_id` as the constant property. You can specify this in the configs as follows:
+
+(Applies to dbt v1.12 and later)
 
 ```yaml
 metrics:
@@ -404,6 +376,6 @@ on
   and buy_source.product_id = v.product_id --Joining on the constant property product_id
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for metrics](./fill-nulls-advanced.md)

@@ -1,6 +1,6 @@
 # Use MCP servers with the dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 The Model Context Protocol (MCP) connects dbt Wizard to external tools and context. Add an MCP server and dbt Wizard can call its tools mid-session — query the dbt MCP server for governed project metadata, open a pull request through the GitHub MCP server, or pull in any other MCP-compatible service.
 
@@ -14,7 +14,7 @@ Thanks so much for your help in improving dbt Wizard and dbt data development!
 
 For background on MCP itself, refer to the [Model Context Protocol introduction](https://modelcontextprotocol.io/introduction). For the dbt-maintained server specifically, refer to the [dbt MCP server](./about-mcp.md).
 
-## Locations and precedence[​](#locations-and-precedence "Direct link to Locations and precedence")
+## Locations and precedence
 
 MCP servers are configured under `[mcp_servers.NAME]` in `config.toml`. Use user-level config for servers you want in every local project, and project-level config for servers that should travel with a trusted repo.
 
@@ -30,7 +30,7 @@ The following table summarizes where dbt Wizard looks for MCP server configurati
 
 Avoid defining the same MCP server name in more than one location unless you intentionally want the higher-precedence location to override it. If a compatibility `.mcp.json` file and `config.toml` in the same directory define the same server name, remove the duplicate and keep the intended `config.toml` entry.
 
-## Why use an MCP server[​](#why-use-an-mcp-server "Direct link to Why use an MCP server")
+## Why use an MCP server
 
 dbt Wizard natively understands your dbt project. An MCP server extends that reach to the other tools and systems your work depends on, so you can do more without leaving your [session](./wizard-how-it-works.md#sessions). Each server you add gives dbt Wizard a new set of tools it can call on your behalf. For example:
 
@@ -44,7 +44,7 @@ MCP servers are a CLI feature
 
 You can configure MCP servers only in the dbt Wizard CLI. You can't add your own MCP servers in the dbt platform (Studio IDE and the home app), but dbt Wizard includes built-in dbt tools, such as [dbt Agent skills](https://github.com/dbt-labs/dbt-agent-skills) and product documentation fetching through the dbt MCP server.
 
-## Supported MCP server types[​](#supported-mcp-server-types "Direct link to Supported MCP server types")
+## Supported MCP server types
 
 dbt Wizard supports two transports:
 
@@ -57,13 +57,11 @@ Server instructions
 
 For either transport, dbt Wizard reads the `instructions` field the server returns during initialization and uses it as cross-tool guidance.
 
-## Add an MCP server[​](#add-an-mcp-server "Direct link to Add an MCP server")
+## Add an MCP server
 
 Use the `wizard mcp add` command, or edit `~/.dbt/wizard/config.toml` directly. Either one writes user-level `[mcp_servers.NAME]` configuration.
 
-* Add a STDIO server
-* Add a streamable HTTP server
-* Edit config.toml directly
+### Add a STDIO server
 
 ```bash
 wizard mcp add SERVER_NAME --env VAR1=value1 -- COMMAND ARGS
@@ -83,11 +81,15 @@ wizard mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /Use
 
 To connect the [dbt MCP server](./about-mcp.md), use the streamable HTTP form below — refer to [dbt MCP server](#dbt-mcp-server) under Examples.
 
+### Add a streamable HTTP server
+
 ```bash
 wizard mcp add SERVER_NAME --url https://example.com/mcp --bearer-token-env-var MY_TOKEN
 ```
 
 To see all MCP subcommands, run `wizard mcp --help`. For the full list of flags, refer to the [CLI command reference](./wizard-cli-reference.md).
+
+### Edit config.toml directly
 
 Instead of the `wizard mcp add` command, you can edit `config.toml` yourself. dbt Wizard stores user-level MCP configuration in `~/.dbt/wizard/config.toml` alongside its other settings:
 
@@ -108,7 +110,7 @@ http_headers = { "X-Region" = "us-east-1" }
 
 Restart `wizard` after editing `config.toml` — MCP servers are loaded at session start. For how settings resolve, refer to [Config precedence](./wizard-config.md#config-precedence).
 
-## Configuration keys[​](#configuration-keys "Direct link to Configuration keys")
+## Configuration keys
 
 These keys can be set under an `[mcp_servers.NAME]` block in `config.toml`.
 
@@ -140,7 +142,7 @@ Set per-tool approvals with a `[mcp_servers.NAME.tools.TOOL_NAME]` block and an 
 approval_mode = "approve"
 ```
 
-## Authenticate a server[​](#authenticate-a-server "Direct link to Authenticate a server")
+## Authenticate a server
 
 If a streamable HTTP server uses OAuth, you must authenticate from the CLI before dbt Wizard can use it. Run:
 
@@ -157,7 +159,7 @@ wizard mcp login SERVER_NAME --scopes read,write
 
 For servers that use a static token, set `bearer_token_env_var` to the name of an environment variable holding the token, and export that variable before starting `wizard`.
 
-## Manage MCP servers (CLI)[​](#manage-mcp-servers-cli "Direct link to Manage MCP servers (CLI)")
+## Manage MCP servers (CLI)
 
 Manage your configured servers through the dbt Wizard CLI, or by editing `config.toml` directly. The CLI provides these commands:
 
@@ -170,20 +172,19 @@ Manage your configured servers through the dbt Wizard CLI, or by editing `config
 | `wizard mcp login NAME`   | Authenticate with an OAuth server.                                     |
 | `wizard mcp logout NAME`  | Sign out of an OAuth server.                                           |
 
-## Approvals and tool permissions[​](#approvals-and-tool-permissions "Direct link to Approvals and tool permissions")
+## Approvals and tool permissions
 
 MCP tool calls follow the same [approval and sandboxing](./wizard-how-it-works.md#approval-and-sandboxing) rules as the rest of dbt Wizard. Set `enabled_tools` and `disabled_tools` in `config.toml` to control which tools a server exposes (there's no dedicated CLI flag). That way, dbt Wizard calls only the tools you intend.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples show common scenarios for adding an MCP server and how to configure them.
 
-### dbt MCP server[​](#dbt-mcp-server "Direct link to dbt MCP server")
+### dbt MCP server
 
 The [dbt MCP server](./about-mcp.md) gives dbt Wizard governed access to your project's models, metrics, lineage, freshness, and platform APIs. You can connect it two ways:
 
-* Self-hosted (no account required)
-* Remote (dbt platform account)
+### Self-hosted (no account required)
 
 Runs on your machine through `uvx` and works with or without a dbt platform account — the best fit for development:
 
@@ -192,6 +193,8 @@ wizard mcp add dbt -- uvx dbt-mcp
 ```
 
 The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](./mcp-quickstart-cli.md) and [Set up self-hosted MCP](./setup-local-mcp.md).
+
+### Remote (dbt platform account)
 
 Hosted on the dbt platform. Build the URL from your platform host (`https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`, for example `https://cloud.getdbt.com/api/ai/v1/mcp/`), then authenticate:
 
@@ -209,7 +212,7 @@ Use the dbt MCP server to find the most recent failed run for the
 nightly job and summarize the error.
 ```
 
-### GitHub MCP server for pull request review[​](#github-mcp-server-for-pull-request-review "Direct link to GitHub MCP server for pull request review")
+### GitHub MCP server for pull request review
 
 Connect a GitHub MCP server so dbt Wizard can read a pull request and post review comments:
 
@@ -236,7 +239,7 @@ Review the dbt model changes in PR #482 — check for missing tests on
 new columns and confirm downstream refs still resolve.
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt MCP server](./about-mcp.md): The dbt-maintained server and its available tools
 * [Use subagents with dbt Wizard](./wizard-subagents.md): Delegate work to specialized agents

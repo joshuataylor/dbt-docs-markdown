@@ -1,6 +1,6 @@
 # Monitor jobs and alerts
 
-dbt platformⓘ
+dbt platform
 
 Monitor your dbt jobs to help identify improvement and set up alerts to proactively alert the right people or team.
 

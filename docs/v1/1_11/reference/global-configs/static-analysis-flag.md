@@ -22,6 +22,8 @@ dbt run --static-analysis baseline
 dbt run --static-analysis off
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
-Also check out the model-level [`static_analysis` (resource config)](../resource-configs/static-analysis.md) and [About flags](./about-global-configs.md) pages for more details.
+* [`static_analysis` (resource config)](../resource-configs/static-analysis.md)
+* [About flags](./about-global-configs.md)
+* [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md)

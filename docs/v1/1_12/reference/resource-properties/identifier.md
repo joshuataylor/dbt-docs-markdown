@@ -12,19 +12,19 @@ sources:
         identifier: <table_identifier>
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The table name as stored in the database.
 
 This parameter is useful if you want to use a source table name that differs from the table name in the database.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt will use the table's `name` parameter as the identifier.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use a simpler name for a source table than the one in your database[​](#use-a-simpler-name-for-a-source-table-than-the-one-in-your-database "Direct link to Use a simpler name for a source table than the one in your database")
+### Use a simpler name for a source table than the one in your database
 
 models/\<filename>.yml
 
@@ -49,7 +49,7 @@ Will get compiled to:
 select * from jaffle_shop.api_orders
 ```
 
-### Reference sharded tables as a source in BigQuery[​](#reference-sharded-tables-as-a-source-in-bigquery "Direct link to Reference sharded tables as a source in BigQuery")
+### Reference sharded tables as a source in BigQuery
 
 models/\<filename>.yml
 

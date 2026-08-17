@@ -1,6 +1,6 @@
 # dbt Copilot
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 dbt Copilot helps you generate SQL, documentation, tests, and semantic models in the dbt platform.
 
@@ -12,7 +12,7 @@ dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experi
 
 Refer to [dbt AI FAQs](./dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../platform/billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
-## Where to access dbt Copilot[​](#where-to-access-dbt-copilot "Direct link to Where to access dbt Copilot")
+## Where to access dbt Copilot
 
 dbt Copilot is available across the following experiences in the dbt platform. Refer to the links for more info on how to use each experience.
 
@@ -20,7 +20,7 @@ dbt Copilot is available across the following experiences in the dbt platform. R
 * [dbt Copilot in Canvas](../platform/build-canvas-copilot.md): Build visual models using natural language prompts in Canvas
 * [dbt Copilot in Insights](./analyst-agent.md): Chat with your data and get answers powered by the dbt Semantic Layer in Insights
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 * dbt Copilot is a separate experience from dbt Wizard. For agentic, full-lifecycle AI development, use [dbt Wizard](../platform/wizard-overview.md).
 * dbt Copilot requires AI features to be [enabled](../platform/enable-dbt-ai.md) for your account.

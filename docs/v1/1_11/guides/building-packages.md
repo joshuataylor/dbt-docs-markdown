@@ -10,11 +10,11 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Creating packages is an **advanced use of dbt**. If you're new to the tool, we recommend that you first use the product for your own analytics before attempting to create a package for others.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 A strong understanding of:
 
@@ -22,7 +22,7 @@ A strong understanding of:
 * administering a repository on GitHub
 * [semantic versioning](https://semver.org/)
 
-### Assess whether a package is the right solution[​](#assess-whether-a-package-is-the-right-solution "Direct link to Assess whether a package is the right solution")
+### Assess whether a package is the right solution
 
 Packages typically contain either:
 
@@ -33,7 +33,7 @@ We also recommend ensuring your package is compatible with [Fusion](../docs/fusi
 
 Packages are *not* a good fit for sharing models that contain business-specific logic, for example, writing code for marketing attribution, or monthly recurring revenue. Instead, consider sharing a blog post and a link to a sample repo, rather than bundling this code as a package (here's our blog post on [marketing attribution](https://blog.getdbt.com/modeling-marketing-attribution/) as an example).
 
-## Create your new project[​](#create-your-new-project "Direct link to Create your new project")
+## Create your new project
 
 Using the command line for package development
 
@@ -51,19 +51,19 @@ $ dbt init [package_name]
 
 ¹Currently, our package registry only supports packages that are hosted in GitHub.
 
-## Develop your package[​](#develop-your-package "Direct link to Develop your package")
+## Develop your package
 
 We recommend that first-time package authors first develop macros and models for use in their own dbt project. Once your new package is created, you can get to work on moving them across, implementing some additional package-specific design patterns along the way.
 
 When working on your package, we often find it useful to install a local copy of the package in another dbt project — this workflow is described [here](https://discourse.getdbt.com/t/contributing-to-an-external-dbt-package/657).
 
-### Ensure Fusion compatibility[​](#ensure-fusion-compatibility "Direct link to Ensure Fusion compatibility")
+### Ensure Fusion compatibility
 
 If you're building a package, we recommend you ensure it's compatible with [Fusion](../docs/fusion/about-fusion.md) and [dbt Core](../docs/local/install-dbt.md). To ensure Fusion compatibility, you can follow the steps in the [Fusion package upgrade guide](./fusion-package-compat.md).
 
 Doing so will ensure your package is compatible with dbt Fusion engine (and dbt Core), but will be displayed with a Fusion-compatible badge in dbt package hub.
 
-### Follow best practices[​](#follow-best-practices "Direct link to Follow best practices")
+### Follow best practices
 
 *Modeling packages only*
 
@@ -71,7 +71,7 @@ Use our [dbt coding conventions](https://github.com/dbt-labs/corp/blob/main/dbt_
 
 This is where it comes in especially handy to have worked on your own dbt project previously.
 
-### Make the location of raw data configurable[​](#make-the-location-of-raw-data-configurable "Direct link to Make the location of raw data configurable")
+### Make the location of raw data configurable
 
 *Modeling packages only*
 
@@ -79,7 +79,7 @@ Not every user of your package is going to store their Mailchimp data in a schem
 
 We recommend using [sources](../docs/build/sources.md) and [variables](../docs/build/project-variables.md) to achieve this. Check out [this package](https://github.com/fivetran/dbt_facebook_ads_source/blob/main/models/src_facebook_ads.yml#L5-L6) for an example — notably, the README [includes instructions](https://github.com/fivetran/dbt_facebook_ads_source#configuration) on how to override the default schema from a `dbt_project.yml` file.
 
-### Install upstream packages from hub.getdbt.com[​](#install-upstream-packages-from-hubgetdbtcom "Direct link to Install upstream packages from hub.getdbt.com")
+### Install upstream packages from hub.getdbt.com
 
 If your package relies on another package (for example, you use some of the cross-database macros from [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/)), we recommend you install the package from [hub.getdbt.com](https://hub.getdbt.com), specifying a version range like so:
 
@@ -93,7 +93,7 @@ packages:
 
 When packages are installed from hub.getdbt.com, dbt is able to handle duplicate dependencies.
 
-### Implement cross-database compatibility[​](#implement-cross-database-compatibility "Direct link to Implement cross-database compatibility")
+### Implement cross-database compatibility
 
 Many SQL functions are specific to a particular database. For example, the function name and order of arguments to calculate the difference between two dates varies between Redshift, Snowflake and BigQuery, and no similar function exists on Postgres!
 
@@ -105,13 +105,13 @@ If you wish to support multiple warehouses, we have a number of tricks up our sl
 
 If your package has only been written to work for one data warehouse, make sure you document this in your package README.
 
-### Use specific model names[​](#use-specific-model-names "Direct link to Use specific model names")
+### Use specific model names
 
 *Modeling packages only*
 
 Many datasets have a concept of a "user" or "account" or "session". To make sure things are unambiguous in dbt, prefix all of your models with `[package_name]_`. For example, `mailchimp_campaigns.sql` is a good name for a model, whereas `campaigns.sql` is not.
 
-### Default to views[​](#default-to-views "Direct link to Default to views")
+### Default to views
 
 *Modeling packages only*
 
@@ -119,19 +119,17 @@ dbt makes it possible for users of your package to override your model materiali
 
 The major exception to this is when working with data sources that benefit from incremental modeling (for example, web page views). Implementing incremental logic on behalf of your end users is likely to be helpful in this case.
 
-### Test and document your package[​](#test-and-document-your-package "Direct link to Test and document your package")
+### Test and document your package
 
 It's critical that you [test](../docs/build/data-tests.md) your models and sources. This will give your end users confidence that your package is actually working on top of their dataset as intended.
 
 Further, adding [documentation](../docs/build/documentation.md) via descriptions will help communicate your package to end users, and benefit their stakeholders that use the outputs of this package.
 
-### Include useful GitHub artifacts[​](#include-useful-github-artifacts "Direct link to Include useful GitHub artifacts")
+### Include useful GitHub artifacts
 
 Over time, we've developed a set of useful GitHub artifacts that make administering our packages easier for us. In particular, we ensure that we include:
 
 * A useful README, that has:
-
-  <!-- -->
 
   * installation instructions that refer to the latest version of the package on hub.getdbt.com, and includes any configurations requires ([example](https://github.com/dbt-labs/segment))
   * Usage examples for any macros ([example](https://github.com/dbt-labs/dbt-audit-helper#macros))
@@ -139,7 +137,7 @@ Over time, we've developed a set of useful GitHub artifacts that make administer
 
 * GitHub templates, including PR templates and issue templates ([example](https://github.com/dbt-labs/dbt-audit-helper/tree/master/.github))
 
-## Add integration tests[​](#add-integration-tests "Direct link to Add integration tests")
+## Add integration tests
 
 *Optional*
 
@@ -169,7 +167,7 @@ packages:
 
 6. (Optional) Use a CI tool, like CircleCI or GitHub Actions, to automate running your dbt project when you open a new Pull Request. For inspiration, check out one of our [CircleCI configs](https://github.com/dbt-labs/snowplow/blob/main/.circleci/config.yml), which runs tests against our four main warehouses. Note: this is an advanced step — if you are going down this path, you may find it useful to say hi on [dbt Slack](https://community.getdbt.com/).
 
-## Deploy the docs for your package[​](#deploy-the-docs-for-your-package "Direct link to Deploy the docs for your package")
+## Deploy the docs for your package
 
 *Optional*
 
@@ -183,7 +181,7 @@ The easiest way we've found to do this is to use [GitHub Pages](https://pages.gi
 4. Enable GitHub pages on the repo in the settings tab, and point it to the “docs” subdirectory
 5. GitHub should then deploy the docs at `<org-name>.github.io/<repo-name>`, like so: [fivetran.github.io/dbt\_ad\_reporting](https://fivetran.github.io/dbt_ad_reporting/)
 
-## Release your package[​](#release-your-package "Direct link to Release your package")
+## Release your package
 
 Create a new [release](https://docs.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) once you are ready for others to use your work! Be sure to use [semantic versioning](https://semver.org/) when naming your release.
 
@@ -191,6 +189,6 @@ In particular, if new changes will cause errors for users of earlier versions of
 
 The release notes should contain an overview of the changes introduced in the new version. Be sure to call out any changes that break the existing interface!
 
-## Add the package to hub.getdbt.com[​](#add-the-package-to-hubgetdbtcom "Direct link to Add the package to hub.getdbt.com")
+## Add the package to hub.getdbt.com
 
 Our package registry, [hub.getdbt.com](https://hub.getdbt.com/), gets updated by the [hubcap script](https://github.com/dbt-labs/hubcap). To add your package to hub.getdbt.com, create a PR on the [hubcap repository](https://github.com/dbt-labs/hubcap) to include it in the `hub.json` file.

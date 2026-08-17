@@ -1,10 +1,10 @@
 # Artifacts
 
-dbt platformⓘ
+dbt platform
 
 When running dbt jobs, dbt generates and saves *artifacts*. You can use these artifacts, like `manifest.json`, `catalog.json`, and `sources.json` to power different aspects of the dbt platform, namely: [Catalog](../explore/explore-projects.md), [dbt Docs](../explore/build-and-view-your-docs.md#dbt-docs), and [source freshness reporting](../build/sources.md#source-data-freshness).
 
-## Create dbt Artifacts[​](#create-dbt-artifacts "Direct link to Create dbt Artifacts")
+## Create dbt Artifacts
 
 [Catalog](../explore/explore-projects.md#generate-metadata) uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display the details about [the state of your project](../dbt-apis/project-state.md). It uses metadata from your staging and production [deployment environments](./deploy-environments.md).
 
@@ -30,7 +30,7 @@ If you don't see your job listed, you might need to edit the job and select **Ru
 
 When you add a production job to a project, dbt updates the content and provides links to the production documentation and source freshness artifacts it generated for that project. You can see these links by clicking **Deploy** in the upper left, selecting **Jobs**, and then selecting the production job. From the job page, you can select a specific run to see how artifacts were updated for that run only.
 
-### Documentation[​](#documentation "Direct link to Documentation")
+### Documentation
 
 Navigate to [Catalog](../explore/explore-projects.md) through the **Explore** link to view your project's resources and lineage to gain a better understanding of its latest production state.
 
@@ -42,7 +42,7 @@ Both the job's commands and the docs generate step (triggered by the **Generate 
 
 When set up, dbt updates the Documentation link in the header tab so it links to documentation for this job. This link always directs you to the latest version of the documentation for your project.
 
-### Source Freshness[​](#source-freshness "Direct link to Source Freshness")
+### Source Freshness
 
 To view the latest source freshness result, refer to [generate metadata](../explore/explore-projects.md#generate-metadata) for more detail. Then navigate to Catalog through the **Explore** link.
 

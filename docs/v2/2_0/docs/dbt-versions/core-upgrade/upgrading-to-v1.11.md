@@ -1,24 +1,24 @@
 # Upgrading to v1.11
 
-Available in v1ⓘ
+Available in v1
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [dbt Core v1.11 changelog](https://github.com/dbt-labs/dbt-core/blob/1.11.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#fusion-release-tracks)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
 Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality included in the latest dbt Core version! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.11 final release.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
 New features and functionality available in dbt Core v1.11
 
-### User-defined functions (UDFs)[​](#user-defined-functions-udfs "Direct link to User-defined functions (UDFs)")
+### User-defined functions (UDFs)
 
 dbt Core v1.11 introduces support for user-defined functions (UDFs), which enable you to define and register custom functions in your warehouse. Like macros, UDFs promote code reuse, but they are objects in the warehouse so you can reuse the same logic in tools outside dbt.
 
@@ -32,11 +32,11 @@ Key features include:
 
 Read more about UDFs, including prerequisites and how to define and use them in the [UDF documentation](../../build/udfs.md).
 
-### `DBT_ENGINE_` prefix for environment variables[​](#dbt_engine_-prefix-for-environment-variables "Direct link to dbt_engine_-prefix-for-environment-variables")
+### `DBT_ENGINE_` prefix for environment variables
 
 Engine configuration environment variables use the `DBT_ENGINE_` prefix. For example, `DBT_STATE` becomes `DBT_ENGINE_STATE`, `DBT_PROJECT_DIR` becomes `DBT_ENGINE_PROJECT_DIR`, and so on. Refer to [About flags (global configs)](../../../reference/global-configs/about-global-configs.md) for the full mapping.
 
-### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
+### Managing changes to legacy behaviors
 
 dbt Core v1.11 introduces new flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
@@ -46,7 +46,7 @@ You can read more about each of these behavior changes in the following links:
 
 * (Introduced, disabled by default) [`require_ref_searches_node_package_before_root`](../../../reference/global-configs/behavior-flags/require_ref_searches_node_package_before_root.md). This flag is set to `false` by default. With this setting, when dbt resolves a `ref()` in a package model, it searches for the referenced model in the root project *first*, then in the package where the model is defined. When set to `true`, dbt searches the package where the model is defined *before* searching the root project.
 
-### Deprecation warnings enabled by default[​](#deprecation-warnings-enabled-by-default "Direct link to Deprecation warnings enabled by default")
+### Deprecation warnings enabled by default
 
 Deprecation warnings from JSON schema validation are now enabled by default when validating your YAML configuration files (such as `schema.yml` and `dbt_project.yml`) for projects running using the Snowflake, Databricks, BigQuery, and Redshift adapters.
 
@@ -100,9 +100,9 @@ Similarly, all deprecation warnings can be silenced via the `--warn-error-option
 dbt parse --warn-error-options '{"silence": ["Deprecations"]}'
 ```
 
-## Adapter-specific features and functionalities[​](#adapter-specific-features-and-functionalities "Direct link to Adapter-specific features and functionalities")
+## Adapter-specific features and functionalities
 
-### Snowflake[​](#snowflake "Direct link to Snowflake")
+### Snowflake
 
 * The Snowflake adapter supports basic table materialization on Iceberg tables registered in a Glue catalog through a [catalog-linked database](https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database#label-catalog-linked-db-create). For more information, see [Glue Data Catalog](../../build/iceberg/adapters/snowflake-iceberg-support.md#external-catalogs).
 * The `cluster_by` configuration is supported in dynamic tables. For more information, see [Dynamic table clustering](../../../reference/resource-configs/snowflake-configs.md#dynamic-table-clustering).
@@ -110,26 +110,24 @@ dbt parse --warn-error-options '{"silence": ["Deprecations"]}'
 * You can set [`copy_grants: true`](../../../reference/resource-configs/snowflake-configs.md#copy-grants-dynamic-tables) on a dynamic table to preserve existing object-level privileges when the table is recreated during a `--full-refresh`. When set to `false` (default), all previously granted permissions are dropped on recreation, requiring manual re-grants.
 * Set the [`refresh_warehouse`](../../../reference/resource-configs/snowflake-configs.md#refresh-warehouse) parameter to choose which Snowflake warehouse runs a dynamic table's automatic refreshes. This is separate from `snowflake_warehouse`, which is used for DDL execution. For example, you might use a smaller warehouse for refreshes and a larger one for DDL. If `refresh_warehouse` is not set, `snowflake_warehouse` is used for both DDL execution and automatic refreshes.
 
-### BigQuery[​](#bigquery "Direct link to BigQuery")
+### BigQuery
 
 * To improve performance, dbt can issue a single batch query when calculating source freshness through metadata, instead of executing one query per source. To enable this feature, set [bigquery\_use\_batch\_source\_freshness](../../../reference/global-configs/bigquery-changes.md#the-bigquery_use_batch_source_freshness-flag) to `true`.
 
-### Redshift[​](#redshift "Direct link to Redshift")
+### Redshift
 
 * The new `datasharing` profile credential enables `dbt-redshift` to use Redshift-native metadata commands (`SHOW` commands such as `SHOW TABLES` and `SHOW COLUMNS`) instead of PostgreSQL catalog tables such as `pg_*` and `information_schema`. This supports cross-database and cross-cluster access with [Redshift Datasharing](https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html). For configuration details, refer to [Redshift setup](../../local/connect-data-platform/redshift-setup.md#datasharing).[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 * The `drop_without_cascade` profile credential emits `DROP TABLE/VIEW/MATERIALIZED VIEW` statements without `CASCADE`. Redshift resolves the `CASCADE` dependency graph on every `DROP`, which adds overhead on large clusters. If your project has no downstream dependents (for example, it uses only unbound views) you can set `drop_without_cascade: true` to skip that cost. When enabled and a dependent object exists, Redshift raises an error. For configuration details, refer to [Redshift setup](../../local/connect-data-platform/redshift-setup.md).
 
-### Spark[​](#spark "Direct link to Spark")
+### Spark
 
 * New profile configurations have been added to enhance [retry handling for PyHive connections](../../../reference/resource-configs/spark-configs.md#retry-handling-for-pyhive-connections):
-
-  <!-- -->
 
   * `poll_interval`: Controls how frequently the adapter polls the Thrift server to check if an async query has completed.
   * `query_timeout`: Adds an overall timeout (in seconds) for query execution. If a query exceeds the set duration during polling, it raises a `DbtRuntimeError`. This helps prevent indefinitely hanging queries.
   * `query_retries`: Handles connection loss during query polling by automatically retrying.
 
-## Quick hits[​](#quick-hits "Direct link to Quick hits")
+## Quick hits
 
 You will find these quick hits in dbt Core v1.11:
 

@@ -22,9 +22,9 @@ logs/dbt.log
 21:21:16.207330 [info ] [MainThread]: Found 2 models, 0 tests, 0 snapshots, 1 analysis, 535 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
 ```
 
-## Structured logging[​](#structured-logging "Direct link to Structured logging")
+## Structured logging
 
-<!-- -->
+(Applies to dbt v1.99 and earlier)
 
 *For more details about how the eventing system has been implemented in dbt-core, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md).*
 
@@ -35,7 +35,7 @@ Every event has the same two top-level keys:
 * `info`: Information common to all events. See the table below for the breakdown.
 * `data`: Additional structured data specific to this event. If this event relates to a specific node within your dbt project, it will contain a `node_info` dictionary with common attributes.
 
-### `info` fields[​](#info-fields "Direct link to info-fields")
+### `info` fields
 
 | Field                                                                                     | Description                                                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,13 +51,7 @@ Every event has the same two top-level keys:
 | `thread_name`                                                                             | The thread in which the log message was produced, helpful for tracking queries when dbt is run with multiple threads                                                                          |
 | `ts`                                                                                      | When the log line was printed                                                                                                                                                                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### `node_info` fields[​](#node_info-fields "Direct link to node_info-fields")
+### `node_info` fields
 
 Many events are fired while compiling or running a specific DAG node (model, seed, test, etc). When it's available, the `node_info` object will include:
 
@@ -74,13 +68,7 @@ Many events are fired while compiling or running a specific DAG node (model, see
 | `resource_type`    | `model`, `test`, `seed`, `snapshot`, etc.                                                                                                                                                                                                                   |
 | `unique_id`        | The unique identifier for this resource, which can be used to look up more contextual information in the [manifest](./artifacts/manifest-json.md)                                                                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Example[​](#example "Direct link to Example")
+### Example
 
 ```json
 {
@@ -126,9 +114,9 @@ Search table...
 }
 ```
 
-## Python interface[​](#python-interface "Direct link to Python interface")
+## Python interface
 
-<!-- -->
+(Applies to dbt v1.99 and earlier)
 
 Older versions of `dbt-core` made available a full history of events fired during an invocation, in the form of an `EVENT_HISTORY` object.
 

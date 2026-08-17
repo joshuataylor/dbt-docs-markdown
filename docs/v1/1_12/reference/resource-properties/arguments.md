@@ -13,15 +13,15 @@ macros:
         description: <markdown_string>
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `arguments` property is used to define the parameters that a resource can accept. Each argument can have a `name`, a `type` field, and an optional `description`.
 
 For **macros**, you can add `arguments` to a [macro property](../macro-properties.md), which helps in documenting the macro and understanding what inputs it requires.
 
-## type[​](#type "Direct link to type")
+## type
 
-<!-- -->
+(Applies to dbt v1.10 and later)
 
 The data type of your argument. Setting [`validate_macro_args`](../global-configs/behavior-flags/validate_macro_args.md) to `true` ensures that documented macro argument names match those in the macro definition and validates their types against the [supported types](#supported-types). When set to `false`, `type` is only used for documentation purposes and there are no restrictions on the values you can specify.
 
@@ -46,7 +46,7 @@ macros:
         type: <string>
 ```
 
-### Supported types[​](#supported-types "Direct link to Supported types")
+### Supported types
 
 From dbt Core v1.10, when you use the [`validate_macro_args`](../global-configs/behavior-flags/validate_macro_args.md) flag, dbt supports the following types for macro arguments:
 
@@ -63,7 +63,7 @@ From dbt Core v1.10, when you use the [`validate_macro_args`](../global-configs/
 
 Note that the types follow a Python-like style but are used for documentation and validation only. They are not Python types.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 macros/cents\_to\_dollars.sql
 
@@ -88,7 +88,7 @@ macros:
         description: "The number of decimal places to round to. Default is 2."
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Macro properties](../macro-properties.md)
 * [Arguments (for functions)](./function-arguments.md)

@@ -3,21 +3,18 @@
 First, let’s consider some properties of various levels of our dbt project and materializations.
 
 * 🔍 **Views** return the freshest, real-time state of their input data when they’re queried, this makes them ideal as **building blocks** for larger models.
-  <!-- -->
   * 🧶  When we’re building a model that stitches lots of other models together, we don’t want to worry about all those models having different states of freshness because they were built into tables at different times. We want all those inputs to give us all the underlying source data available.
 
 * 🤏 **Views** are also great for **small datasets** with minimally intensive logic that we want **near realtime** access to.
 
 * 🛠️ **Tables** are the **most performant** materialization, as they just return the transformed data when they’re queried, with no need to reprocess it.
 
-  <!-- -->
-
   * 📊  This makes tables great for **things end users touch**, like a mart that services a popular dashboard.
   * 💪 Tables are also ideal for **frequently used, compute intensive** transformations. Making a table allows us to ‘freeze’ those transformations in place.
 
 * 📚  **Incremental models** are useful for the **same purposes as tables**, they just enable us to build them on larger datasets, so they can be **built** *and* **accessed** in a **performant** way.
 
-### Project-level configuration[​](#project-level-configuration "Direct link to Project-level configuration")
+### Project-level configuration
 
 Keeping these principles in mind, we can applying these materializations to a project. Earlier we looked at how to configure an individual model's materializations. In practice though, we'll want to set materializations at the folder level, and use individual model configs to override those as needed. This will keep our code DRY and avoid repeating the same config blocks in every model.
 
@@ -37,7 +34,7 @@ models:
           +materialized: table
 ```
 
-### Staging views[​](#staging-views "Direct link to Staging views")
+### Staging views
 
 We’ll start off simple with staging models. Lets consider some aspects of staging models to determine the ideal materialization strategy:
 
@@ -54,7 +51,7 @@ models:
       +materialized: view
 ```
 
-### Intermediate models in larger projects[​](#intermediate-models-in-larger-projects "Direct link to Intermediate models in larger projects")
+### Intermediate models in larger projects
 
 The [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) example project uses a staging → marts flow and does not include an `intermediate/` folder. In larger projects, intermediate models often sit between staging and marts, breaking up complex transformations into manageable pieces:
 
@@ -81,7 +78,7 @@ Ephemeral models can make troubleshooting more difficult since they don't exist 
 
 For more details on intermediate model patterns, refer to [How we structure our dbt projects: Intermediate](../how-we-structure/3-intermediate.md).
 
-### Table and incremental marts[​](#table-and-incremental-marts "Direct link to Table and incremental marts")
+### Table and incremental marts
 
 As we’ve learned, views store only the logic of the transformation in the warehouse, so our runs take only a couple seconds per model (or less). What happens when we go to query the data though?
 

@@ -6,12 +6,6 @@
 | Matured (default → `true`)           | —              | —        |
 | Removed                              | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The `enable_truthy_nulls_equals_macro` flag is `false` by default. Setting it to `true` in your `dbt_project.yml` enables null-safe equality in the dbt [equals](../../dbt-jinja-functions/cross-database-macros.md#equals) macro, which is used in incremental and snapshot materializations.
 
 By default, the `equals()` macro follows SQL's [three-valued logic (3VL)](https://modern-sql.com/concept/three-valued-logic), so `NULL = NULL` evaluates to `UNKNOWN` rather than `TRUE`.

@@ -1,6 +1,6 @@
 # AWS private connectivity
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +15,7 @@ AWS PrivateLink enables secure, private connectivity between dbt and your AWS-ho
 
 For more details, refer to the [AWS PrivateLink documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/).
 
-## AWS private connectivity matrix[​](#aws-private-connectivity-matrix "Direct link to AWS private connectivity matrix")
+## AWS private connectivity matrix
 
 The following charts outline private connectivity options for AWS deployments of dbt ([multi-tenant and single-tenant](../../../about-platform/tenancy.md)).
 
@@ -32,7 +32,7 @@ These tables indicate whether private connectivity can be established to specifi
 
 ***
 
-### Connecting to the dbt platform (Ingress) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#connecting-to-the-dbt-platform-ingress- "Direct link to connecting-to-the-dbt-platform-ingress-")
+### Connecting to the dbt platform (Ingress) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Your services can connect to dbt over private connectivity using the dbt-provisioned model. In this case, dbt is the service producer and you are the consumer.
 
@@ -41,15 +41,9 @@ Your services can connect to dbt over private connectivity using the dbt-provisi
 | Private dbt access             | ❌ | ✅ | [View](./aws-ingress.md) |
 | Dual access (public + private) | ❌ | ✅ | [View](./aws-ingress.md) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 ***
 
-### Connecting the dbt platform to managed services (Egress)[​](#connecting-the-dbt-platform-to-managed-services-egress "Direct link to Connecting the dbt platform to managed services (Egress)")
+### Connecting the dbt platform to managed services (Egress)
 
 dbt can establish private connections to managed data platforms and cloud-native services.
 
@@ -64,15 +58,9 @@ dbt can establish private connections to managed data platforms and cloud-native
 | AWS CodeCommit             | ❌ | ✅ |                                                                                                 |
 | Teradata VantageCloud      | ✅ | ✅ | [View](./aws-teradata.md)   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 ***
 
-### Connecting the dbt platform to self-hosted services (Egress)[​](#connecting-the-dbt-platform-to-self-hosted-services-egress "Direct link to Connecting the dbt platform to self-hosted services (Egress)")
+### Connecting the dbt platform to self-hosted services (Egress)
 
 All of the services below share a common PrivateLink setup guide — backend configuration varies by service. Self-hosted connections use the customer-provisioned model — you are the service producer and dbt is the consumer.
 
@@ -89,14 +77,8 @@ All of the services below share a common PrivateLink setup guide — backend con
 | Starburst / Trino        | ✅ | ✅ |
 | Teradata (self-hosted)   | ✅ | ✅ |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you have questions about whether your specific architecture is supported, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support).
 
-## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
+## Cross-region private connections
 
 dbt Labs has globally connected private networks specifically used to host private endpoints, which are connected to dbt instance environments. This connectivity allows dbt environments to connect to any supported region from any dbt instance within the same cloud provider network. To ensure security, access to these endpoints is protected by security groups, network policies, and application connection safeguards, in addition to the authentication and authorization mechanisms provided by each of the connected platforms.

@@ -4,7 +4,7 @@
 select * from {{ ref("node_name") }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 This function:
 
@@ -32,9 +32,9 @@ from {{ref('model_a')}}
 
 The `{{ ref }}` function returns a `Relation` object that has the same `table`, `schema`, and `name` attributes as the [{{ this }} variable](./this.md).
 
-## Advanced ref usage[​](#advanced-ref-usage "Direct link to Advanced ref usage")
+## Advanced ref usage
 
-### Versioned ref[​](#versioned-ref "Direct link to Versioned ref")
+### Versioned ref
 
 The `ref` function supports an optional keyword argument - `version` (or `v`). When a version argument is provided to the `ref` function, dbt returns to the `Relation` object corresponding to the specified version of the referenced model.
 
@@ -42,7 +42,7 @@ This functionality is useful when referencing versioned models that make breakin
 
 If the `version` argument is not supplied to a `ref` of a versioned model, the latest version is. This has the benefit of automatically incorporating the latest changes of a referenced model, but there is a risk of incorporating breaking changes.
 
-#### Example[​](#example "Direct link to Example")
+#### Example
 
 models/\<schema>.yml
 
@@ -66,7 +66,7 @@ select * from {{ ref('model_name', version=1) }}
 select * from {{ ref('model_name') }}
 ```
 
-### Ref project-specific models[​](#ref-project-specific-models "Direct link to Ref project-specific models")
+### Ref project-specific models
 
 You can also reference models from different projects using the two-argument variant of the `ref` function. By specifying both a namespace (which could be a project or package) and a model name, you ensure clarity and avoid any ambiguity in the `ref`. This is also useful when dealing with models across various projects or packages.
 
@@ -82,11 +82,9 @@ We recommend using two-argument `ref` any time you are referencing a model defin
 
 We especially recommend using two-argument `ref` to avoid ambiguity, in cases where a model name is duplicated across multiple projects or installed packages. If you use one-argument `ref` (just the `model_name`), dbt will look for a model by that name in the same namespace (package or project); if it finds none, it will raise an error.
 
-<!-- -->
-
 **Note:** The `project_or_package` should match the `name` of the project/package, as defined in its `dbt_project.yml`. This might be different from the name of the repository. It never includes the repository's organization name. For example, if you use the [`fivetran/stripe`](https://hub.getdbt.com/fivetran/stripe/latest/) package, the package name is `stripe`, not `fivetran/stripe`.
 
-### Forcing dependencies[​](#forcing-dependencies "Direct link to Forcing dependencies")
+### Forcing dependencies
 
 In normal usage, dbt knows the proper order to run all models based on the use of the `ref` function, because it discovers them all during its parse phase. dbt will throw an error if it discovers an "unexpected" `ref` at run time (meaning it was hidden during the parsing phase). The most common cause for this is that the `ref` is inside a branch of an `if` statement that wasn't evaluated during parsing.
 

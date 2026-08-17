@@ -1,6 +1,6 @@
 # Snowflake adapter behavior changes
 
-## The `snowflake_default_transient_dynamic_tables` flag[​](#the-snowflake_default_transient_dynamic_tables-flag "Direct link to the-snowflake_default_transient_dynamic_tables-flag")
+## The `snowflake_default_transient_dynamic_tables` flag
 
 Available starting `dbt-snowflake` v1.12. The `snowflake_default_transient_dynamic_tables` flag controls whether Snowflake dynamic tables are created as transient when the model config does not explicitly set the [`transient`](../resource-configs/snowflake-configs.md#transient-dynamic-tables) config.
 

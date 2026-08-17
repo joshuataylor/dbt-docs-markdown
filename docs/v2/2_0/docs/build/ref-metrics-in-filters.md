@@ -6,7 +6,7 @@ To make informed business decisions, some metrics need the value of another metr
 
 This document explains how you can use metrics as dimensions with metric filters, enabling you to create more complex metrics and gain more insights.
 
-## Reference a metric in a filter[​](#reference-a-metric-in-a-filter "Direct link to Reference a metric in a filter")
+## Reference a metric in a filter
 
 Use the `Metric()` object syntax to reference a metric in the `where` filter for another metric. The function for referencing a metric accepts a metric name and exactly one entity:
 
@@ -14,7 +14,7 @@ Use the `Metric()` object syntax to reference a metric in the `where` filter for
 {{ Metric('metric_name', group_by=['entity_name']) }}
 ```
 
-### Usage example[​](#usage-example "Direct link to Usage example")
+### Usage example
 
 As an example, a Software as a service (SaaS) company wants to count activated accounts. In this case, the definition of an activated account is an account with more than five data model runs.
 
@@ -57,11 +57,11 @@ from
 
 This SQL query calculates the number of `activated_accounts` by using the `data_model_runs` metric as a dimension for the user entity. It filters based on the metric value scoped to the account entity. You can express this logic at the query level or in the metric's YAML configuration.
 
-#### YAML configuration[​](#yaml-configuration "Direct link to YAML configuration")
+#### YAML configuration
 
 Using the same `activated_accounts` example mentioned in [the usage example](#usage-example), the following YAML example explains how a company can create [semantic models](./semantic-models.md) and [metrics](./metrics-overview.md), and use the `Metric()` object to reference the `data_model_runs` metric in the `activated_accounts` metric filter:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 * Create two semantic models: `model_runs` and `accounts`.
 * Create metrics to count data model runs and users.
@@ -158,25 +158,13 @@ Let’s break down the SQL the system generates based on the metric definition w
   | 3       | 9                |
   | 4       | 1                |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   MetricFlow then filters this table to accounts with more than 5 data model runs and counts the number of accounts that meet this criteria:
 
   | activated\_accounts |
   | ------------------- |
   | 2                   |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
-#### Query filter[​](#query-filter "Direct link to Query filter")
+#### Query filter
 
 You can also use metrics in filters at the query level. Run this command in the command line interface (CLI) to generate the same SQL query referenced earlier:
 
@@ -184,11 +172,9 @@ You can also use metrics in filters at the query level. Run this command in the 
 
 The resulting SQL and data will be the same, except with the `accounts` metric name instead of `activated_accounts`.
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 * When using a metric filter, ensure the sub-query can join to the outer query without fanning out the result (unexpectedly increasing the number of rows).
-
-  <!-- -->
 
   * The example that filters accounts using `{{ Metric('data_model_runs', group_by=['account']) }}` is valid because it aggregates the model runs to the account level.
   * However, filtering 'accounts' by `{{ Metric('data_model_runs', group_by=['model']) }}` isn't valid due to a one-to-many relationship between accounts and model runs, leading to duplicate data.
@@ -196,8 +182,6 @@ The resulting SQL and data will be the same, except with the `accounts` metric n
 * You can only group a metric by one entity. The ability to support grouping by multiple entities and dimensions is pending.
 
 * In the future, you can use metrics as dimensions for some of the following example use cases:
-
-  <!-- -->
 
   * User segments: Segment users by using the number of orders placed by a user in the last 7 days as a dimension.
   * Churn prediction: Use the number of support tickets an account submitted in the first 30 days to predict potential churn.

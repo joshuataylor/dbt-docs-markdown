@@ -1,6 +1,6 @@
 # Configure BYOK for dbt Wizard [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 You can use the dbt Wizard CLI with bring-your-own-key (BYOK), which means you supply your own credentials from a supported AI provider instead of using dbt Labs' infrastructure.
 
@@ -19,9 +19,9 @@ The "key" in BYOK is whatever credential your chosen provider uses to authentica
 * Usage costs appear on your provider account, not your dbt Labs account.
 * Token costs are billed by whichever provider you choose.
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -42,7 +42,7 @@ Refer to the following pages for more information:
 * [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
-## Configure a provider[​](#configure-a-provider "Direct link to Configure a provider")
+## Configure a provider
 
 You can configure a provider in one of the following ways:
 
@@ -50,7 +50,7 @@ You can configure a provider in one of the following ways:
 * [**Interactive session**:](#configure-in-the-tui) Best for most users working in the dbt Wizard text based user interface (TUI). Use the `/providers` slash command.
 * [**Environment variables**:](#set-your-api-key) Best for headless runs, such as `wizard exec`, automation, or temporary local sessions.
 
-### Configure in the terminal[​](#configure-in-the-terminal "Direct link to Configure in the terminal")
+### Configure in the terminal
 
 In the terminal, use the `providers` subcommand to list, configure, and enable providers:
 
@@ -94,7 +94,7 @@ printf '%s' 'sk-...' | wizard providers set-key PROVIDER_NAME
 
 Credentials are stored in `~/.dbt/wizard/provider-auth.json`. Provider settings are stored in `~/.dbt/wizard/providers.json`.
 
-### Configure in the TUI[​](#configure-in-the-tui "Direct link to Configure in the TUI")
+### Configure in the TUI
 
 You can configure providers from an active CLI TUI session with the `/providers` slash command:
 
@@ -127,10 +127,9 @@ Example provider menu:
   8. gemini               disabled; 3/3 models selected; missing credentials; needs setup
 ```
 
-## Set your API key[​](#set-your-api-key "Direct link to Set your API key")
+## Set your API key
 
-* Interactive session
-* Environment variable
+### Interactive session
 
 The first time you start dbt Wizard in a project, onboarding prompts you to choose a provider.
 
@@ -142,6 +141,8 @@ To add or switch providers later from an active session, type `/providers` in th
 
 When you configure a provider through dbt Wizard, credentials are stored in `~/.dbt/wizard/provider-auth.json`.
 
+### Environment variable
+
 Set the key as an environment variable if you want to:
 
 * Run dbt Wizard in headless mode, such as with `wizard exec`.
@@ -149,37 +150,43 @@ Set the key as an environment variable if you want to:
 * Reuse the same key across different terminal sessions.
 * Avoid storing credentials in the dbt Wizard config directory.
 
-- OpenAI
-- Anthropic
-- Amazon Bedrock
-- Azure AI Foundry
-- Google Gemini
-- Snowflake Cortex
-- Databricks
+### OpenAI
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 ```
 
+### Anthropic
+
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
+
+### Amazon Bedrock
 
 ```bash
 export AWS_BEARER_TOKEN_BEDROCK="ABSK..."
 ```
 
+### Azure AI Foundry
+
 ```bash
 export AZURE_API_KEY="..."
 ```
+
+### Google Gemini
 
 ```bash
 export GOOGLE_API_KEY="..."
 ```
 
+### Snowflake Cortex
+
 ```bash
 export SNOWFLAKE_API_KEY="..."
 ```
+
+### Databricks
 
 ```bash
 export DATABRICKS_API_KEY="dapi..."
@@ -196,7 +203,7 @@ To persist provider credentials, use one of the following options:
 * `wizard providers set-key PROVIDER_NAME`
 * The provider's environment variable
 
-## Choose an AI model[​](#choose-an-ai-model "Direct link to Choose an AI model")
+## Choose an AI model
 
 You can change the AI model in the following ways:
 
@@ -208,11 +215,11 @@ You can change the AI model in the following ways:
 
 Restart the dbt Wizard CLI after changing the model.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples use the same provider configuration flow described earlier, with provider-specific credential requirements.
 
-### AWS Bedrock[​](#aws-bedrock "Direct link to AWS Bedrock")
+### AWS Bedrock
 
 AWS Bedrock is supported in the CLI only. dbt Wizard currently supports Bedrock through an Amazon Bedrock API key, not the full AWS credential chain. Ensure your AWS account has access to the Bedrock models you plan to use and that your Bedrock API key has permission to invoke them.
 
@@ -230,7 +237,7 @@ To set a default Bedrock model, add the model ID to `~/.dbt/wizard/config.toml`:
 model = "BEDROCK_MODEL_ID"
 ```
 
-### Snowflake Cortex [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#snowflake-cortex- "Direct link to snowflake-cortex-")
+### Snowflake Cortex [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Snowflake Cortex BYOK support in the CLI is in preview. Availability and setup steps may change. Ensure your Snowflake account has the privileges required for Cortex large language model (LLM) functions. Refer to the [Snowflake Cortex documentation](https://docs.snowflake.com/en/user-guide/snowflake-cortex/overview).
 
@@ -260,7 +267,7 @@ Paste API key/token, or press enter to configure it later:
 | **Snowflake API base override (optional)** | Leave blank — this is only needed for custom or private Snowflake endpoints                                |
 | **Paste API key/token**                    | Your authentication token — refer to [Authentication options](#authentication-options) in the next section |
 
-#### Authentication options[​](#authentication-options "Direct link to Authentication options")
+#### Authentication options
 
 The key/token field accepts a regular API token or a Programmatic Access Token (PAT), depending on how your Snowflake account is configured. Both are entered in the same place — the **Paste API key/token** prompt in the terminal, or **Set key/token** (option 3) in the TUI.
 
@@ -274,7 +281,7 @@ To set a default Snowflake Cortex model, add the model ID to `~/.dbt/wizard/conf
 model = "SNOWFLAKE_CORTEX_MODEL_ID"
 ```
 
-### Databricks Unity AI Gateway [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#databricks-unity-ai-gateway- "Direct link to databricks-unity-ai-gateway-")
+### Databricks Unity AI Gateway [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 dbt Wizard connects to Databricks through the [Unity Catalog AI Gateway](https://docs.databricks.com/aws/en/ai-gateway/), so you bring your own models served from your Databricks workspace. Make sure the [serving endpoints](https://docs.databricks.com/en/machine-learning/model-serving/index.html) you plan to use are deployed and that your Databricks token has permission to query them.
 
@@ -319,7 +326,7 @@ To set a default Databricks model, add the model ID to `~/.dbt/wizard/config.tom
 model = "databricks/claude-sonnet-4-6"
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Install dbt Wizard](./wizard-cli.md)
 * [Configuration reference](./wizard-config.md)

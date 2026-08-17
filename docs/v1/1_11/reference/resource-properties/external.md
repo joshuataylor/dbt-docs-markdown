@@ -23,7 +23,7 @@ sources:
           <additional_property>: <additional_value>
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 An extensible dictionary of metadata properties specific to sources that point to external tables. There are optional built-in properties, with simple type validation, that roughly correspond to the Hive external table spec. You may define and use as many additional properties as you'd like.
 

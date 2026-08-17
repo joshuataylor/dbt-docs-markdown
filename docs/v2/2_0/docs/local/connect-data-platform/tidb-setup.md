@@ -1,51 +1,37 @@
 # Connect TiDB to dbt Core
 
-Local developmentⓘ
+Local development
 
 Vendor-supported plugin
 
 Some [core functionality](https://github.com/pingcap/dbt-tidb/blob/main/README.md#supported-features) may be limited. If you're interested in contributing, check out the source code repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  PingCAP
-* **Authors**:
-  <!-- -->
-  Xiang Zhang, Qiang Wu, Yuhang Shi
+* **Maintained by**: PingCAP
+* **Authors**: Xiang Zhang, Qiang Wu, Yuhang Shi
 * **GitHub repo**: [pingcap/dbt-tidb](https://github.com/pingcap/dbt-tidb) [![](https://img.shields.io/github/stars/pingcap/dbt-tidb?style=for-the-badge)](https://github.com/pingcap/dbt-tidb)
 * **PyPI package**: `dbt-tidb` [![](https://badge.fury.io/py/dbt-tidb.svg)](https://badge.fury.io/py/dbt-tidb)
 * **Slack channel**: [#db-tidb](https://getdbt.slack.com/archives/C03CC86R1NY)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.0.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.0.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-tidb
+## Installing dbt-tidb
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-tidb`
 
-## Configuring <!-- -->dbt-tidb<!-- -->
+## Configuring dbt-tidb
 
-For <!-- -->TiDB<!-- -->-specific configuration, please refer to [TiDB<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For TiDB-specific configuration, please refer to [TiDB configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to TiDB with **dbt-tidb**[​](#connecting-to-tidb-with-dbt-tidb "Direct link to connecting-to-tidb-with-dbt-tidb")
+## Connecting to TiDB with **dbt-tidb**
 
-### User / Password Authentication[​](#user--password-authentication "Direct link to User / Password Authentication")
+### User / Password Authentication
 
 Configure your dbt profile for using TiDB:
 
-#### TiDB connection profile[​](#tidb-connection-profile "Direct link to TiDB connection profile")
+#### TiDB connection profile
 
 profiles.yml
 
@@ -65,7 +51,7 @@ dbt-tidb:
       retries: 3 # default 1
 ```
 
-#### Description of Profile Fields[​](#description-of-profile-fields "Direct link to Description of Profile Fields")
+#### Description of Profile Fields
 
 | Option   | Description                                          | Required? | Example            |
 | -------- | ---------------------------------------------------- | --------- | ------------------ |
@@ -77,13 +63,7 @@ dbt-tidb:
 | password | The password to use for authenticating to the server | Required  | `awesome_password` |
 | retries  | The retry times after an unsuccessful connection     | Optional  | `default 1`        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Database User Privileges[​](#database-user-privileges "Direct link to Database User Privileges")
+## Database User Privileges
 
 Your database user would be able to have some abilities to read or write, such as `SELECT`, `CREATE`, and so on. You can find some help [here](https://docs.pingcap.com/tidb/v4.0/privilege-management) with TiDB privileges management.
 
@@ -99,13 +79,7 @@ Your database user would be able to have some abilities to read or write, such a
 | SHOW VIEW              |
 | SUPER                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
 | TiDB 4.X | TiDB 5.0 \~ 5.2 | TiDB >= 5.3 | Feature                     |
 | -------- | --------------- | ----------- | --------------------------- |
@@ -120,12 +94,6 @@ Search table...
 | ❌       | ❌              | ✅          | Snapshots                   |
 | ✅       | ✅              | ✅          | Grant                       |
 | ✅       | ✅              | ✅          | Connection retry            |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 **Note:**
 

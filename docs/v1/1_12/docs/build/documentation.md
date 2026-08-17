@@ -4,28 +4,20 @@ Good documentation for your dbt models will help downstream consumers discover a
 
 Tip
 
-Use [dbt Wizard](../platform/wizard-overview.md) to generate
+Use [dbt Wizard](../platform/wizard-overview.md) to generate documentation in the dbt platform or locally in the CLI.
 
-<!-- -->
-
-documentation
-
-<!-- -->
-
-in the dbt platform or locally in the CLI.
-
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Declaring properties](../../reference/configs-and-properties.md)
 * [`dbt docs` command](../../reference/commands/cmd-docs.md)
 * [`doc` Jinja function](../../reference/dbt-jinja-functions/doc.md)
 * If you're new to dbt, we recommend that you check out our [quickstart guide](../../guides.md) to build your first dbt project, complete with documentation.
 
-## Assumed knowledge[​](#assumed-knowledge "Direct link to Assumed knowledge")
+## Assumed knowledge
 
 * [Data tests](./data-tests.md)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 dbt provides a scalable way to [generate](#generating-documentation) documentation for your dbt project using descriptions and commands. The documentation for your project includes:
 
@@ -35,7 +27,7 @@ dbt provides a scalable way to [generate](#generating-documentation) documentati
 
 The following sections describe how to [add descriptions](#adding-descriptions-to-your-project) to your project, [generate documentation](#generating-documentation), how to use [docs blocks](#using-docs-blocks), and set a [custom overview](#setting-a-custom-overview) for your documentation.
 
-## Adding descriptions to your project[​](#adding-descriptions-to-your-project "Direct link to Adding descriptions to your project")
+## Adding descriptions to your project
 
 Before generating documentation, add [descriptions](../../reference/resource-properties/description.md) to your project resources. Add the `description:` key to the same YAML files where you declare [data tests](./data-tests.md). For example:
 
@@ -61,7 +53,7 @@ models:
           - not_null
 ```
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 Are there any example dbt documentation sites?
 
@@ -124,15 +116,15 @@ Can I document things other than models, like sources, seeds, and snapshots?
 
 Yes! You can document almost everything in your project using the `description:` key. Check out the reference docs on [descriptions](../../reference/resource-properties/description.md) for more info!
 
-## Generating documentation[​](#generating-documentation "Direct link to Generating documentation")
+## Generating documentation
+
+(Applies to dbt v1.99 and earlier)
 
 Generate documentation for your project by following these steps:
 
 1. Run the `dbt docs generate` [command](../../reference/commands/cmd-docs.md#dbt-docs-generate) to compile relevant information about your dbt project and warehouse into `manifest.json` and `catalog.json` files, respectively. Before generating docs, save your YAML description updates for models, sources, and columns. Use the same project context you use for development, including any selectors or exclusions, so `manifest.json` and `catalog.json` match the resources dbt parses for that run.
 2. Ensure you've created the models with `dbt run` or `dbt build` to view the documentation for all columns, not just those described in your project.
 3. Run the `dbt docs serve` [command](../../reference/commands/cmd-docs.md#dbt-docs-serve) if you're developing locally to use these `.json` files to populate a local website.
-
-<!-- -->
 
 dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
 
@@ -142,11 +134,11 @@ dbt provides three complementary ways to [view documentation](./view-documentati
 
 Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.
 
-## Using docs blocks[​](#using-docs-blocks "Direct link to Using docs blocks")
+## Using docs blocks
 
 Docs blocks provide a robust method for documenting models and other resources using Jinja and markdown. Docs block files can contain arbitrary markdown, but they must be uniquely named.
 
-### Syntax[​](#syntax "Direct link to Syntax")
+### Syntax
 
 To declare a docs block, use the Jinja `docs` tag. The name of a docs block can't start with a digit and may contain:
 
@@ -172,15 +164,15 @@ The events in this table are recorded by Snowplow and piped into the warehouse o
 
 In this example, a docs block named `table_events` is defined with some descriptive markdown contents. There is nothing significant about the name `table_events` — docs blocks can be named however you like, as long as the name only contains alphanumeric and underscore characters and doesn't start with a numeric character.
 
-### Placement[​](#placement "Direct link to Placement")
+### Placement
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Place docs blocks in `.md` files. You can also use Jinja-style extensions (`.md.j2`, `.md.jinja`, `.md.jinja2`), however these require setting [`allow_jinja_file_extensions: true`](../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md) in your `dbt_project.yml`. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
 
 By default, dbt searches in all resource paths for docs blocks (for example, the combined list of [model-paths](../../reference/project-configs/model-paths.md), [seed-paths](../../reference/project-configs/seed-paths.md), [analysis-paths](../../reference/project-configs/analysis-paths.md), [test-paths](../../reference/project-configs/test-paths.md), [macro-paths](../../reference/project-configs/macro-paths.md), and [snapshot-paths](../../reference/project-configs/snapshot-paths.md)). You can adjust this behavior using the [docs-paths](../../reference/project-configs/docs-paths.md) config.
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
 To use a docs block, reference it from your `schema.yml` file with the [doc()](../../reference/dbt-jinja-functions/doc.md) function in place of a markdown string. Using the examples above, the `table_events` docs can be included in the `schema.yml` file as shown here:
 
@@ -202,7 +194,7 @@ models:
 
 In the resulting documentation, `'{{ doc("table_events") }}'` will be expanded to the markdown defined in the `table_events` docs block.
 
-## Setting a custom overview[​](#setting-a-custom-overview "Direct link to Setting a custom overview")
+## Setting a custom overview
 
 Availability
 
@@ -227,7 +219,7 @@ as well as the repo for this project [here](https://github.com/dbt-labs/mrr-play
 {% enddocs %}
 ```
 
-### Custom project-level overviews[​](#custom-project-level-overviews "Direct link to Custom project-level overviews")
+### Custom project-level overviews
 
 You can set different overviews for each dbt project/package included in your documentation site by creating a docs block named `__[project_name]__`.
 

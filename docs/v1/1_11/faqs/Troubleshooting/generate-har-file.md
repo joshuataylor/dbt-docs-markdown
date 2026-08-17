@@ -8,7 +8,7 @@ info
 
 Remove or hide any confidential or personally identifying information before you send the HAR file to dbt Labs. You can edit the file using a text editor.
 
-### Google Chrome[​](#google-chrome "Direct link to Google Chrome")
+### Google Chrome
 
 1. Open Google Chrome.
 2. Click on **View** --> **Developer Tools**.
@@ -21,7 +21,7 @@ Remove or hide any confidential or personally identifying information before you
 9. Save the HAR file.
 10. Upload the HAR file to the dbt Support ticket thread.
 
-### Mozilla Firefox[​](#mozilla-firefox "Direct link to Mozilla Firefox")
+### Mozilla Firefox
 
 1. Open Firefox.
 2. Click the application menu and then **More tools** --> **Web Developer Tools**.
@@ -32,7 +32,7 @@ Remove or hide any confidential or personally identifying information before you
 7. Save the HAR file.
 8. Upload the HAR file to the dbt Support ticket thread.
 
-### Apple Safari[​](#apple-safari "Direct link to Apple Safari")
+### Apple Safari
 
 1. Open Safari.
 2. In case the **Develop** menu doesn't appear in the menu bar, go to **Safari** and then **Settings**.
@@ -45,7 +45,7 @@ Remove or hide any confidential or personally identifying information before you
 9. Save the file.
 10. Upload the HAR file to the dbt Support ticket thread.
 
-### Microsoft Edge[​](#microsoft-edge "Direct link to Microsoft Edge")
+### Microsoft Edge
 
 1. Open Microsoft Edge.
 2. Click the **Settings and more** menu (...) to the right of the toolbar and then select **More tools** --> **Developer tools**.
@@ -57,6 +57,6 @@ Remove or hide any confidential or personally identifying information before you
 8. Save the HAR file.
 9. Upload the HAR file to the dbt Support ticket thread.
 
-### Additional resources[​](#additional-resources "Direct link to Additional resources")
+### Additional resources
 
 Check out the [How to generate a HAR file in Chrome](https://www.loom.com/share/cabdb7be338243f188eb619b4d1d79ca) video for a visual guide on how to generate HAR files in Chrome.

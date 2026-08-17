@@ -4,7 +4,7 @@ Caution
 
 These variables are only available in the context for `on-run-end` hooks. They will evaluate to `none` if used outside of an `on-run-end` hook!
 
-## schemas[​](#schemas "Direct link to schemas")
+## schemas
 
 The `schemas` context variable can be used to reference the schemas that dbt has built models into during a run of dbt. This variable can be used to grant usage on these schemas to certain users at the end of a dbt run.
 
@@ -39,7 +39,7 @@ on-run-end:
  - "{{ grant_usage_to_schemas(schemas, 'user') }}"
 ```
 
-## database\_schemas[​](#database_schemas "Direct link to database_schemas")
+## database\_schemas
 
 The `database_schemas` context variable can be used to reference the databases *and* schemas that dbt has built models into during a run of dbt. This variable is similar to the `schemas` variable, and should be used if a dbt run builds resources into multiple different databases.
 
@@ -64,7 +64,7 @@ on-run-end:
  - "{{ grant_usage_to_schemas(database_schemas, user) }}"
 ```
 
-## Results[​](#results "Direct link to Results")
+## Results
 
 The `results` variable contains a list of [Result objects](../dbt-classes.md#result-objects) with one element per resource that executed in the dbt job. The Result object provides access within the Jinja on-run-end context to the information that will populate the [run results JSON artifact](../artifacts/run-results-json.md).
 

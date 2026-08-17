@@ -11,28 +11,28 @@ Use `dbt show` to:
 
 * Preview the results in the terminal
 
-## How it works[​](#how-it-works "Direct link to How it works")
+## How it works
 
 By default, `dbt show` will display the first 5 rows from the query result. This can be customized by passing the `limit` or the `inline` flags , where `n` is the number of rows to display.
 
 If previewing a model, dbt will always compile and run the compiled query from source. It will not select from the already-materialized database relation, even if you've just run the model. (We may support that in the future; if you're interested, upvote or comment on [dbt-core#7391](https://github.com/dbt-labs/dbt-core/issues/7391).)
 
-#### `limit` flag[​](#limit-flag "Direct link to limit-flag")
+#### `limit` flag
 
 * The `--limit` flag modifies the underlying SQL and not just the number of rows displayed. By using the `--limit n` flag, it means `n` is the number of rows to display and retrieved from the data warehouse.
 * This means dbt wraps your model's query in a subquery or CTE and applies a SQL `limit n` clause so that your data warehouse only processes and returns that number of rows, making it significantly faster for large datasets.
 
-#### `inline` flag[​](#inline-flag "Direct link to inline-flag")
+#### `inline` flag
 
 * The results of the preview query are only included in dbt's logs and displayed in the terminal and aren't materialized in the data warehouse or stored in any dbt file, except if you use `dbt show --inline`.
 * The `--inline` flags enables you to run ad-hoc SQL, which means dbt can't ensure the query doesn't modify the data warehouse. To ensure no changes are made, use a profile or role with read-only permissions, which are managed directly in your data warehouse. For example: `dbt show --inline "select * from my_table" --profile my-read-only-profile`.
 
-### `--output json` flag[​](#--output-json-flag "Direct link to --output-json-flag")
+### `--output json` flag
 
 * The `--output json` flag returns `dbt show` results in JSON format instead of the default human-readable output, which is helpful for scripting and automation.
 * If you want the full terminal output (including logs) to be machine-readable JSON, you can also set `--log-format json`.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 ```text
 dbt show --select "model_name.sql"

@@ -6,7 +6,7 @@ Treat near real-time as a premium service
 
 Near real-time service level agreements (SLAs) require premium resources and add significant operational overhead. Pressure-test whether the business really needs minute-level freshness before committing.
 
-## Over-scheduled jobs and queue management[​](#over-scheduled-jobs-and-queue-management "Direct link to Over-scheduled jobs and queue management")
+## Over-scheduled jobs and queue management
 
 If a job's run duration is longer than its schedule frequency, the job becomes over-scheduled. The queue grows faster than the scheduler can process runs, and dbt platform will start cancelling queued runs to avoid an ever-expanding backlog.
 
@@ -21,12 +21,12 @@ This is easy to hit with near real-time patterns if your incremental build time 
 
 When this happens, remediation is non-trivial. You need to either refactor the job to run faster (prune model selection, adjust threads, optimize SQL) or relax the schedule and accept a looser freshness SLA.
 
-#### Related scheduler constraints[​](#related-scheduler-constraints "Direct link to Related scheduler constraints")
+#### Related scheduler constraints
 
 * Run slots limit how many jobs can run concurrently. Frequent near real-time jobs can starve other deployment jobs if slot usage isn't planned.
 * The scheduler runs distinct executions of the same job serially. If one run is still in progress when the next cron fires, the second run must wait (or be cancelled in an over-scheduled scenario).
 
-## Warehouse cost and utilization[​](#warehouse-cost-and-utilization "Direct link to Warehouse cost and utilization")
+## Warehouse cost and utilization
 
 As the gap between job runtime and schedule interval shrinks, your warehouse is effectively running continuously to keep up with back-to-back transformation windows.
 
@@ -42,7 +42,7 @@ Warehouse-managed options for freshness (for example, dynamic tables and materia
 
 The net effect: you should treat near real-time SLAs as a premium service and pressure-test whether the business really needs minute-level freshness on each workload.
 
-## Lambda view DAG complexity and correctness[​](#lambda-view-dag-complexity-and-correctness "Direct link to Lambda view DAG complexity and correctness")
+## Lambda view DAG complexity and correctness
 
 If you're using the [lambda views pattern](./4-lambda-views.md), you face additional complexity:
 
@@ -55,7 +55,7 @@ On top of that, community experience has surfaced timing gaps between HIST and N
 * Views (NRT) often update much faster than incremental tables. During a run, the NRT side may start filtering on the new `max(event_ts)` before the incremental table has finished loading, producing temporary holes in the unioned lambda view where recent data disappears briefly.
 * One way to mitigate is to introduce an explicit dependency from NRT to the incremental model (for example, a manual dependency on `{{ ref('fct_events') }}` comment), but this is somewhat brittle and increases coupling.
 
-## Job reliability and resource limits[​](#job-reliability-and-resource-limits "Direct link to Job reliability and resource limits")
+## Job reliability and resource limits
 
 High-frequency jobs are more likely to surface job-level failures:
 
@@ -74,7 +74,7 @@ High-frequency jobs are more likely to surface job-level failures:
   * A flaky model, test, or small regression can quickly generate many failed runs.
   * This creates noisy alerts and can hit the auto-deactivation threshold faster.
 
-## Ingestion architecture dependencies[​](#ingestion-architecture-dependencies "Direct link to Ingestion architecture dependencies")
+## Ingestion architecture dependencies
 
 Lambda views and NRT dbt jobs sit on top of your ingestion architecture:
 
@@ -89,6 +89,6 @@ Lambda views and NRT dbt jobs sit on top of your ingestion architecture:
   * Lambda overlap windows and incremental look-backs
   * Which sources really need to participate in the NRT path
 
-## Conclusion[​](#conclusion "Direct link to Conclusion")
+## Conclusion
 
 These challenges are why we position lambda views and ultra-frequent dbt schedules as special-case patterns. They're powerful when you truly need them, but they require deliberate design around scheduler behavior, cost, DAG structure, and ingestion architecture. In many cases, they're better replaced by [dynamic tables](./3-warehouse-native-features.md#dynamic-tables), [materialized views](./3-warehouse-native-features.md#materialized-views), or a dedicated streaming stack.

@@ -1,6 +1,6 @@
 # Cloudera Impala configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
+## Configuring tables
 
 When materializing a model as `table`, you may include several optional configs that are specific to the dbt-impala plugin, in addition to the standard [model configs](../model-configs.md).
 
@@ -20,15 +20,9 @@ When materializing a model as `table`, you may include several optional configs 
 | external            | is this an external table - true / false                              | No        | external=true                                            |
 | table\_type         | indicates the type of the table - iceberg / kudu                      | No        | table\_type="iceberg"                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For Cloudera specific options for above parameters see documentation of CREATE TABLE (<https://docs.cloudera.com/documentation/enterprise/6/6.3/topics/impala_create_table.html>)
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 Supported modes for incremental model:
 
@@ -40,7 +34,7 @@ Unsupported modes:
 * **`unique_key`** This is not suppored option for incremental models in dbt-impala
 * **`merge`**: Merge is not supported by the underlying warehouse, and hence not supported by dbt-impala
 
-## Example: Using partition\_by config option[​](#example-using-partition_by-config-option "Direct link to Example: Using partition_by config option")
+## Example: Using partition\_by config option
 
 impala\_partition\_by.sql
 

@@ -6,13 +6,13 @@ dbt\_project.yml
 name: string
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 **Required configuration**
 
 The name of a dbt project. Must be letters, digits and underscores only, and cannot start with a digit.
 
-## Recommendation[​](#recommendation "Direct link to Recommendation")
+## Recommendation
 
 Often an organization has one dbt project, so it is sensible to name a project with your organization's name, in `snake_case`. For example:
 
@@ -20,9 +20,9 @@ Often an organization has one dbt project, so it is sensible to name a project w
 * `name: jaffle_shop`
 * `name: evilcorp`
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
-### Invalid project name[​](#invalid-project-name "Direct link to Invalid project name")
+### Invalid project name
 
 ```text
 Encountered an error while reading the project:

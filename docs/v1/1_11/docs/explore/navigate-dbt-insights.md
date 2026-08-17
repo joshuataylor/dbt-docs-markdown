@@ -1,12 +1,12 @@
 # Navigate the dbt Insights interface
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Learn how to navigate Insights interface and use the main components.
 
 Insights provides an interactive interface for writing, running, and analyzing SQL queries. This section highlights the main components of Insights.
 
-## Query console[​](#query-console "Direct link to Query console")
+## Query console
 
 The query console is the main component of Insights. It allows you to write, run, and analyze SQL queries. The Query console supports:
 
@@ -24,13 +24,11 @@ The query console is the main component of Insights. It allows you to write, run
 
 [![dbt Insights main interface with blank query editor](/img/docs/dbt-insights/insights-main.png?v=2 "dbt Insights main interface with blank query editor")](#)dbt Insights main interface with blank query editor
 
-### Query console menu[​](#query-console-menu "Direct link to Query console menu")
+### Query console menu
 
 The Query console menu is located at the top right of the Query editor. It contains the **Bookmark**, **Develop**, and **Run** buttons:
 
 * **Bookmark** button — Save your frequently used SQL queries as favorites for easier access.
-
-  <!-- -->
 
   * When you click **Bookmark**, a **Bookmark Query Details** modal (pop up box) will appear where you can add a **Title** and **Description**.
   * Let dbt Copilot do the writing for you — use the AI assistant to automatically generate a helpful description for your bookmark.
@@ -40,7 +38,7 @@ The Query console menu is located at the top right of the Query editor. It conta
 
 * **Run** button — Run your SQL query and view the results in the **Data** tab.
 
-## Semantic Layer querying[​](#semantic-layer-querying "Direct link to Semantic Layer querying")
+## Semantic Layer querying
 
 The Semantic Layer querying in dbt Insights lets you build queries against the Semantic Layer without writing SQL code. It guides you in creating queries based on available metrics, dimensions, and entities. With this feature, you can:
 
@@ -72,7 +70,7 @@ To build a query in dbt Insights:
 
    [![The generated SQL code in the Details tab](/img/docs/dbt-insights/insights-query-builder-sql.png?v=2 "The generated SQL code in the Details tab")](#)The generated SQL code in the Details tab
 
-## Query output panel[​](#query-output-panel "Direct link to Query output panel")
+## Query output panel
 
 The Query output panel is below the query editor and displays the results of a query. It displays the following tabs to analyze query execution and visualize results:
 
@@ -80,15 +78,11 @@ The Query output panel is below the query editor and displays the results of a q
 
 * **Details** tab — Generates succinct details of executed SQL query:
 
-  <!-- -->
-
   * Query metadata — dbt Copilot's AI-generated title and description. Along with the supplied SQL and compiled SQL.
   * Connection details — Relevant data platform connection information.
   * Query details — Query duration, status, column count, row count.
 
 * **Chart** tab — Visualizes query results with built-in charts.
-
-  <!-- -->
 
   * Use the chart icon to select the type of chart you want to visualize your results. Available chart types are **line chart, bar chart, or scatterplot**.
   * Use the **Chart settings** to customize the chart type and the columns you want to visualize.
@@ -102,17 +96,17 @@ The Query output panel is below the query editor and displays the results of a q
 
 [![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")](#)dbt Insights Details tab
 
-## Query console sidebar menu[​](#query-console-sidebar-menu "Direct link to Query console sidebar menu")
+## Query console sidebar menu
 
 The Query console sidebar menu and icons contains the following options:
 
-### dbt Catalog[​](#dbt-catalog "Direct link to dbt Catalog")
+### dbt Catalog
 
 **Catalog icon** — View your project's models, columns, metrics, and more using the integrated Catalog view.
 
 [![dbt Insights dbt Catalog icon](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights dbt Catalog icon")](#)dbt Insights dbt Catalog icon
 
-### Bookmark[​](#bookmark "Direct link to Bookmark")
+### Bookmark
 
 Save and access your frequently used queries from the query console sidebar.
 
@@ -130,15 +124,13 @@ For sharing saved Insights and version history, check out [Save your Insights](.
 
 [![List view of saved Insights](/img/docs/dbt-insights/view-saved-insights.png?v=2 "List view of saved Insights")](#)List view of saved Insights
 
-### Query history[​](#query-history "Direct link to Query history")
+### Query history
 
 View past queries, their statuses (All, Success, Error, or Pending), start time, and duration. Search for past queries and filter by status. You can also re-run a query from the Query history.
 
 [![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")](#)dbt Insights Query history icon
 
-### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
-
-<!-- -->
+### dbt Copilot
 
 info
 
@@ -178,7 +170,7 @@ Use dbt Copilot in Insights in two ways:
 
 [![dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-tabs.png?v=2 "dbt Copilot in Insights")](#)dbt Copilot in Insights
 
-## LSP features[​](#lsp-features "Direct link to LSP features")
+## LSP features
 
 The following Language Server Protocol (LSP) features are available for projects upgraded to Fusion:
 

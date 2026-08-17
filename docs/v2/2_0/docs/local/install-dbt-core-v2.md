@@ -1,6 +1,6 @@
 # Install dbt Core 2.0
 
-Local developmentⓘ
+Local development (Applies to dbt v2.0 and later)
 
 dbt Core 2.0 is in alpha
 
@@ -8,7 +8,7 @@ dbt Core 2.0 is under active development and not recommended for production use.
 
 dbt Core 2.0 is the open-source foundation behind Fusion, licensed under Apache 2.0. Most users don't need this page — [install dbt normally](./install-dbt.md) with the standard instructions. This page is for organizations that require the Apache 2.0 codebase specifically.
 
-## Install[​](#install "Direct link to Install")
+## Install
 
 Install the dbt Core 2.0 prerelease with `pip`:
 
@@ -30,13 +30,13 @@ Explicit pin:
 
 For adapter install details, refer to the [`dbt-core` repository](https://github.com/dbt-labs/dbt-core).
 
-## What's included[​](#whats-included "Direct link to What's included")
+## What's included
 
 * The open-source, Rust-based dbt runtime.
 * The dbt project language and DAG semantics.
 * The standard dbt command set (`run`, `build`, `test`, `compile`, `parse`, and more).
 
-## What's not included[​](#whats-not-included "Direct link to What's not included")
+## What's not included
 
 The [standard dbt install](./install-dbt.md) gives you Fusion, which adds the following to dbt Core 2.0:
 
@@ -47,15 +47,15 @@ The [standard dbt install](./install-dbt.md) gives you Fusion, which adds the fo
 
 For the full picture of what you get with dbt, refer to [Fusion availability](../fusion/fusion-availability.md).
 
-## Contributing[​](#contributing "Direct link to Contributing")
+## Contributing
 
 dbt Core 2.0 is developed in the open. To contribute, refer to the [`dbt-core` repository](https://github.com/dbt-labs/dbt-core) and its [CONTRIBUTING guide](https://github.com/dbt-labs/dbt-core/blob/HEAD/CONTRIBUTING.md), or ask in the [dbt Community](../../community/resources/getting-help.md).
 
-## License[​](#license "Direct link to License")
+## License
 
-dbt Core 2.0 is licensed under Apache 2.0. Refer to the [LICENSE file](https://github.com/dbt-labs/dbt-core/blob/HEAD/License.md) in the repository. Refer to [dbt licensing](../dbt-licensing.md?version=2.0) for more info.
+dbt Core 2.0 is licensed under Apache 2.0. Refer to the [LICENSE file](https://github.com/dbt-labs/dbt-core/blob/HEAD/LICENSE) in the repository. Refer to [dbt licensing](../dbt-licensing.md?version=2.0) for more info.
 
-## Related[​](#related "Direct link to Related")
+## Related
 
 * [Install dbt](./install-dbt.md) (standard install)
 * [Upgrade to v2](../dbt-versions/core-upgrade/upgrading-to-v2.md)

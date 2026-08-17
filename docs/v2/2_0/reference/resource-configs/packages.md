@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -25,7 +13,7 @@ functions:
       packages: [<string>] # optional, Python UDFs only
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 When creating Python UDFs, you can use the optional `packages` config to specify public third-party PyPI packages. You can list package names (for example, `numpy` and `pandas`) and pin versions (for example, `pandas==1.5.0`). The warehouse installs these packages when it creates the UDF, so your UDF can use functionality from external Python libraries.
 
@@ -33,8 +21,7 @@ On Snowflake, some packages are installed from the Anaconda repository, and you 
 
 Python UDFs are currently supported in Snowflake and BigQuery. Each warehouse uses a different mechanism to specify packages. For example:
 
-* Snowflake
-* BigQuery
+### Snowflake
 
 functions/schema.yml
 
@@ -69,6 +56,8 @@ def main(a_string):
     ...
 $$
 ```
+
+### BigQuery
 
 functions/schema.yml
 
@@ -106,7 +95,7 @@ def main(a_string):
 '''
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

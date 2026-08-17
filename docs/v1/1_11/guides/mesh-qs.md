@@ -12,7 +12,7 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Mesh is a framework that helps organizations scale their teams and data assets effectively. It promotes governance best practices and breaks large projects into manageable sections — for faster data development. Mesh is available for [dbt Enterprise](https://www.getdbt.com/) accounts.
 
@@ -31,14 +31,14 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 
 You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.com/watch?v=kbCkwhySV_I\&list=PL0QYlrC86xQm7CoOH6RS7hcgLnd3OQioG).
 
-### Related content:[​](#related-content "Direct link to Related content:")
+### Related content:
 
 * [Data mesh concepts: What it is and how to get started](https://www.getdbt.com/blog/data-mesh-concepts-what-it-is-and-how-to-get-started)
 * [Deciding how to structure your Mesh](../best-practices/how-we-mesh/mesh-3-structures.md)
 * [Mesh best practices guide](../best-practices/how-we-mesh/mesh-4-implementation.md)
 * [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md)
 
-## Prerequisites​[​](#prerequisites "Direct link to Prerequisites​")
+## Prerequisites​
 
 To leverage Mesh, you need the following:
 
@@ -47,8 +47,6 @@ To leverage Mesh, you need the following:
 * You have access to a cloud data platform, permissions to load the sample data tables, and dbt permissions to create new projects.
 
 * This guide uses the Jaffle Shop sample data, including `customers`, `orders`, and `payments` tables. Follow the provided instructions to load this data into your respective data platform:
-
-  <!-- -->
 
   * [Snowflake](./snowflake.md?step=3)
   * [Databricks](./databricks.md?step=3)
@@ -59,7 +57,7 @@ To leverage Mesh, you need the following:
 
 This guide assumes you have experience with or fundamental knowledge of dbt. Take the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course first if you are brand new to dbt.
 
-## Create and configure two projects[​](#create-and-configure-two-projects "Direct link to Create and configure two projects")
+## Create and configure two projects
 
 In this section, you'll create two new, empty projects in dbt to serve as your foundational and downstream projects:
 
@@ -74,8 +72,6 @@ To [create](../docs/platform/about-platform-setup.md) a new project in dbt:
 
 2. Enter a project name and click **Continue**.
 
-   <!-- -->
-
    * Use "Jaffle | Data Analytics" for one project
    * Use "Jaffle | Finance" for the other project
 
@@ -87,18 +83,12 @@ To [create](../docs/platform/about-platform-setup.md) a new project in dbt:
 
 6. Click **Next** if the test succeeded. If it fails, you might need to go back and double-check your settings.
 
-   <!-- -->
-
    * For this guide, make sure you create a single [development](../docs/dbt-platform-environments.md#create-a-development-environment) and [Deployment](../docs/deploy/deploy-environments.md) per project.
-
-     <!-- -->
 
      * For "Jaffle | Data Analytics", set the default database to `jaffle_da`.
      * For "Jaffle | Finance", set the default database to `jaffle_finance`.
 
 7. Continue the prompts to complete the project setup. Once configured, each project should have:
-
-   <!-- -->
 
    * A data platform connection
    * New git repo
@@ -114,7 +104,7 @@ To [create](../docs/platform/about-platform-setup.md) a new project in dbt:
 
 [![Select the relevant connection for your projects.](/img/guides/dbt-mesh/select_a_connection.png?v=2 "Select the relevant connection for your projects.")](#)Select the relevant connection for your projects.
 
-### Create a production environment[​](#create-a-production-environment "Direct link to Create a production environment")
+### Create a production environment
 
 In dbt, each project can have one deployment environment designated as "Production.". You must set up a ["Production" or "Staging" deployment environment](../docs/deploy/deploy-environments.md) for each project you want to "mesh" together. This enables you to leverage Catalog in the [later steps](./mesh-qs.md?step=5#create-and-run-a-dbt-cloud-job) of this guide.
 
@@ -130,7 +120,7 @@ To set a production environment:
 
 [![Set your production environment as the default environment in your Environment Settings](/img/docs/dbt-platform/using-dbt-platform/prod-settings-1.png?v=2 "Set your production environment as the default environment in your Environment Settings")](#)Set your production environment as the default environment in your Environment Settings
 
-## Set up a foundational project[​](#set-up-a-foundational-project "Direct link to Set up a foundational project")
+## Set up a foundational project
 
 This upstream project is where you build your core data assets. This project will contain the raw data sources, staging models, and core business logic.
 
@@ -146,7 +136,7 @@ In this section of the guide, you will set the "Jaffle | Data Analytics" project
 6. In the **File Catalog**, hover over the project directory and click the **...**, then select **Create file**.
 7. Create two new folders: `models/staging` and `models/core`.
 
-### Staging layer[​](#staging-layer "Direct link to Staging layer")
+### Staging layer
 
 Now that you've set up the foundational project, let's start building the data assets. Set up the staging layer as follows:
 
@@ -244,10 +234,9 @@ Before a downstream team can leverage assets from this foundational project, you
 
 * [Create and define](../docs/mesh/govern/model-access.md) at least one model as “public”
 * Run a [deployment job](../docs/deploy/deploy-jobs.md) successfully
-  <!-- -->
   * Note, Enable [**Generate docs on run**](../docs/deploy/deploy-jobs.md) for this job to update assets in Catalog. Once run, you can click **Catalog** from the main navigation and select your project to see its lineage, tests, and documentation coming through successfully.
 
-## Define a public model and run first job[​](#define-a-public-model-and-run-first-job "Direct link to Define a public model and run first job")
+## Define a public model and run first job
 
 In the previous section, you've arranged your basic building blocks, now let's integrate Mesh.
 
@@ -309,7 +298,7 @@ Note: By default, model access is set to "protected", which means they can only 
 3. Go to **Version control** and click the **Commit and Sync** button to commit your changes.
 4. Merge your changes to the main or production branch.
 
-### Create and run a dbt job[​](#create-and-run-a-dbt-job "Direct link to Create and run a dbt job")
+### Create and run a dbt job
 
 Before a downstream team can leverage assets from this foundational project, you need to [create a production environment](./mesh-qs.md?step=3#create-a-production-environment) and run a [deployment job](../docs/deploy/deploy-jobs.md) successfully.
 
@@ -327,7 +316,7 @@ To run your first deployment dbt job, you will need to create a new dbt job.
 
 For details on how dbt uses metadata from the Staging environment to resolve references in downstream projects, check out the section on [Staging with downstream dependencies](../docs/mesh/govern/project-dependencies.md#staging-with-downstream-dependencies).
 
-## Reference a public model in your downstream project[​](#reference-a-public-model-in-your-downstream-project "Direct link to Reference a public model in your downstream project")
+## Reference a public model in your downstream project
 
 In this section, you will set up the downstream project, "Jaffle | Finance", and [cross-project reference](../docs/mesh/govern/project-dependencies.md) the `fct_orders` model from the foundational project. Navigate to the **Develop** page to set up our project:
 
@@ -351,7 +340,7 @@ projects:
   - name: analytics
 ```
 
-### Staging layer[​](#staging-layer-1 "Direct link to Staging layer")
+### Staging layer
 
 Now that you've set up the foundational project, let's start building the data assets. Set up the staging layer as follows:
 
@@ -392,7 +381,7 @@ Now that you've set up the foundational project, let's start building the data a
    select * from final
    ```
 
-### Reference the public model[​](#reference-the-public-model "Direct link to Reference the public model")
+### Reference the public model
 
 You're now set to add a model that explores how payment types vary throughout a customer's journey. This helps determine whether coupon gift cards decrease with repeat purchases, as our marketing team anticipates, or remain consistent.
 
@@ -443,14 +432,14 @@ You're now set to add a model that explores how payment types vary throughout a 
 
 [![Cross-project ref lineage](/img/guides/dbt-mesh/cross_proj_ref_lineage.png?v=2 "Cross-project ref lineage")](#)Cross-project ref lineage
 
-## Add model versions and contracts[​](#add-model-versions-and-contracts "Direct link to Add model versions and contracts")
+## Add model versions and contracts
 
 How can you enhance resilience and add guardrails to this type of multi-project relationship? You can adopt best practices from software engineering by:
 
 1. Defining model contracts — Set up [model contracts](../docs/mesh/govern/model-contracts.md) in dbt to define a set of upfront "guarantees" that define the shape of your model. While building your model, dbt will verify that your model's transformation will produce a dataset matching up with its contract; if not, the build fails.
 2. Defining model versions — Use [model versions](../docs/mesh/govern/model-versions.md) to manage updates and handle breaking changes systematically.
 
-### Set up model contracts[​](#set-up-model-contracts "Direct link to Set up model contracts")
+### Set up model contracts
 
 As part of the Data Analytics team, you may want to ensure the `fct_orders` model is reliable for downstream users, like the Finance team.
 
@@ -471,13 +460,11 @@ models:
 
 2. Test what would happen if this contract were violated. In `models/core/fct_orders.sql`, comment out the `orders.status` column and click **Build** to try building the model.
 
-   <!-- -->
-
    * If the contract is breached, the build fails, as seen in the command bar history.
 
    [![The data contract was breached and the dbt build run failed.](/img/guides/dbt-mesh/break_contract.png?v=2 "The data contract was breached and the dbt build run failed.")](#)The data contract was breached and the dbt build run failed.
 
-### Set up model versions[​](#set-up-model-versions "Direct link to Set up model versions")
+### Set up model versions
 
 In this section, you will set up model versions by the Data Analytics team as they upgrade the `fct_orders` model while offering backward compatibility and a migration notice to the downstream Finance team.
 
@@ -572,7 +559,7 @@ select * from {{ ref('fct_orders', v=2) }}
 select * from {{ ref('fct_orders') }}
 ```
 
-## Add a dbt job in the downstream project[​](#add-a-dbt-job-in-the-downstream-project "Direct link to Add a dbt job in the downstream project")
+## Add a dbt job in the downstream project
 
 Before proceeding, make sure you commit and merge your changes in both the “Jaffle | Data Analytics” and “Jaffle | Finance” projects.
 
@@ -591,7 +578,7 @@ A member of the Finance team would like to schedule a dbt job for their customer
 
 This simplifies the process of staying in sync with the upstream tables and removes the need for more sophisticated orchestration skills, such as coordinating jobs across projects via an external orchestrator.
 
-## View deprecation warning[​](#view-deprecation-warning "Direct link to View deprecation warning")
+## View deprecation warning
 
 To find out how long the Finance team has to migrate from `fct_orders_v1` to `fct_orders_v2`, follow these steps:
 
@@ -637,13 +624,13 @@ select * from final
 
 [![The model will display a deprecation date warning.](/img/guides/dbt-mesh/deprecation_date_warning.png?v=2 "The model will display a deprecation date warning.")](#)The model will display a deprecation date warning.
 
-## View lineage with dbt Catalog[​](#view-lineage-with-dbt-catalog "Direct link to View lineage with dbt Catalog")
+## View lineage with dbt Catalog
 
 Use [Catalog](../docs/explore/explore-projects.md) to view the lineage across projects in dbt. Navigate to the **Explore** page for each of your projects — you should now view the [lineage seamlessly across projects](../docs/explore/explore-multiple-projects.md).
 
 [![View 'Jaffle | Data Analytics' lineage with dbt Catalog ](/img/guides/dbt-mesh/jaffle_da_final_lineage.png?v=2 "View 'Jaffle | Data Analytics' lineage with dbt Catalog ")](#)View 'Jaffle | Data Analytics' lineage with dbt Catalog
 
-## What's next[​](#whats-next "Direct link to What's next")
+## What's next
 
 Congratulations 🎉! You're ready to bring the benefits of Mesh to your organization. You've learned:
 

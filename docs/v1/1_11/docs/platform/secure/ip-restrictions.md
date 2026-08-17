@@ -1,8 +1,6 @@
 # Configuring public IP restrictions
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 IP restrictions help control which IP addresses can connect to dbt. They allow dbt customers to meet security and compliance controls by only allowing approved IPs to connect to their dbt environment. This feature is supported in all regions across NA, Europe, and Asia-Pacific, but contact us if you have questions about availability.
 
-## Configuring IP restrictions[​](#configuring-ip-restrictions "Direct link to Configuring IP restrictions")
+## Configuring IP restrictions
 
 To configure IP restrictions, go to **Account Settings** → **IP Restrictions**. IP restrictions provide two methods for determining which IPs can access dbt: an allowlist and a blocklist. IPs in the allowlist can access dbt, and IPs in the blocklist are blocked from accessing dbt. You can use IP restrictions for a range of use cases, including:
 
@@ -27,7 +25,7 @@ IP restrictions block all service tokens, user requests made through the API (us
 
 For any version control system integrations (GitHub, GitLab, ADO, and others) inbound into dbt, ensure you add their IP addresses to the allowed list.
 
-### Allowing IPs[​](#allowing-ips "Direct link to Allowing IPs")
+### Allowing IPs
 
 To add an IP to the allowlist, from the **IP Restrictions** page:
 
@@ -36,14 +34,11 @@ To add an IP to the allowlist, from the **IP Restrictions** page:
 2. Click **Add Rule**.
 
 3. Add a name and description for the rule.
-   <!-- -->
    * For example, Corporate VPN CIDR Range
 
 4. Select **Allow**.
 
 5. Add the ranges in CIDR notation.
-
-   <!-- -->
 
    * For example, 1.1.1.1/8
    * You can add multiple ranges in the same rule.
@@ -56,14 +51,13 @@ Simply adding the IP ranges does not enforce IP restrictions. For more informati
 
 If you only want to allow the IP ranges added to this list and deny all other requests, you don't need to add a blocklist. By default, if you only add an allowlist, dbt only allows IPs in the allowable range and denies all other IPs. However, you can add a blocklist if you want to deny specific IP addresses within your allowlist CIDR range.
 
-### Blocking IPs (deny)[​](#blocking-ips-deny "Direct link to Blocking IPs (deny)")
+### Blocking IPs (deny)
 
 If you have IPs defined in the allowlist that need to be denied, you can add those IP ranges to the blocklist:
 
 1. Click **Edit**.
 2. Click **Add Rule**.
 3. Add a name and description for the rule.
-   <!-- -->
    * For example, "Corporate VPN Deny Range"
 4. Select **Deny**.
 5. Add the ranges or individual IP addresses in CIDR notation.
@@ -78,7 +72,7 @@ You can put an IP range on one list and then a sub-range or IP address that is p
 * USA is on blocklist and NY is on allowlist — Traffic from the USA is blocked, but IPs from NY are allowed.
 * USA is on the allowlist and NY is on the blocklist — USA traffic is allowed, but IPs from NY are blocked.
 
-## Enabling restrictions[​](#enabling-restrictions "Direct link to Enabling restrictions")
+## Enabling restrictions
 
 Once you finish adding all your ranges, you can enable IP restrictions by selecting **Enable IP restrictions** and clicking **Save**. If your IP address is in any of the blocklist ranges, you can't save or enable IP restrictions — this prevents accidental account lockouts. If you get locked out due to IP changes on your end, reach out to <support@getdbt.com>.
 

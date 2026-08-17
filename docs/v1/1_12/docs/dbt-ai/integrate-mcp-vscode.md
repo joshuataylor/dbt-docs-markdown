@@ -8,7 +8,7 @@ VS Code can connect to either the **self-hosted** dbt MCP server (runs on your m
 * For self-hosted MCP: completed the [self-hosted MCP setup](./setup-local-mcp.md) and configured your dbt project paths.
 * For remote MCP: your **MCP URL** from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform.
 
-## Set up with self-hosted dbt MCP server[​](#set-up-with-self-hosted-dbt-mcp-server "Direct link to Set up with self-hosted dbt MCP server")
+## Set up with self-hosted dbt MCP server
 
 To get started, in VS Code:
 
@@ -46,8 +46,7 @@ To get started, in VS Code:
 
    Choose your configuration based on your use case:
 
-   * dbt platform only
-   * dbt platform + CLI
+   ### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -68,6 +67,8 @@ To get started, in VS Code:
    ```
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
+
+   ### dbt platform + CLI
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -95,6 +96,8 @@ To get started, in VS Code:
 
    For users who only want to use dbt commands with dbt Core or Fusion
 
+   (Applies to dbt v1.11 and later)
+
    ```json
    {
      "servers": {
@@ -112,16 +115,12 @@ To get started, in VS Code:
 
    **Finding your paths:**
 
-   * **DBT\_ENGINE\_PROJECT\_DIR**: Full path to the folder containing your `dbt_project.yml` file
-
-     <!-- -->
+   * (Applies to dbt v1.11 and later) **DBT\_ENGINE\_PROJECT\_DIR**: Full path to the folder containing your `dbt_project.yml` file
 
      * macOS/Linux: Run `pwd` from your project folder.
      * Windows: Run `cd` from your project folder in Command Prompt.
 
    * **DBT\_PATH**: Path to dbt executable
-
-     <!-- -->
 
      * macOS/Linux: Run `which dbt`.
      * Windows: Run `where dbt`.
@@ -135,6 +134,8 @@ To get started, in VS Code:
    IDs are integers, not URLs
 
    `DBT_PROD_ENV_ID`, `DBT_DEV_ENV_ID`, and `DBT_USER_ID` must be numeric IDs (for example, `54321`), not full URLs copied from your browser. `DBT_HOST` accepts both `cloud.getdbt.com` and `https://cloud.getdbt.com`.
+
+   (Applies to dbt v1.11 and later)
 
    ```json
    {
@@ -180,7 +181,7 @@ To get started, in VS Code:
 
 Now, you can access the dbt MCP server in VS Code through interfaces like GitHub Copilot.
 
-## Set up with remote dbt MCP server[​](#set-up-with-remote-dbt-mcp-server "Direct link to Set up with remote dbt MCP server")
+## Set up with remote dbt MCP server
 
 The remote dbt MCP server runs in dbt platform — no `uvx` or self-hosted install needed. VS Code connects to it over HTTP from the same `mcp.json` you use for self-hosted servers.
 
@@ -205,8 +206,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
 3. Add a `dbt` entry under the top-level `servers` key. (VS Code uses `servers`, not `mcpServers`.) Pick the tab that matches your auth method:
 
-   * OAuth (remote)
-   * Token-based
+   ### OAuth (remote)
 
    *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -232,6 +232,8 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    ```
 
    Replace `YOUR_DBT_HOST_URL` with your hostname (for example, `abc123.us1.dbt.com`). You can find the URL in dbt platform under **Account settings** → **Access URLs** → **MCP Endpoint URL**.
+
+   ### Token-based
 
    Use token-based auth when your client doesn't yet support OAuth for HTTP MCP servers, or when you need a shared/CI setup.
 
@@ -267,7 +269,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
 4. Save the file. Use **MCP: List Servers** from the command palette to start the server, then ask Copilot Chat a data-related question to confirm the connection.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 This section contains troubleshooting steps for errors you might encounter when integrating VS Code with MCP.
 
@@ -312,10 +314,10 @@ Check the MCP server status:
 
 Common issues:
 
-* Missing or incorrect paths for `DBT_ENGINE_PROJECT_DIR` or `DBT_PATH`
+* Missing or incorrect paths for (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` or `DBT_PATH`
 * Invalid authentication tokens
 * Missing required environment variables
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [Microsoft VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)

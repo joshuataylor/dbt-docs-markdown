@@ -1,6 +1,6 @@
 # Single sign-on (SSO) overview
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 This overview explains how users are provisioned in dbt using single sign-on (SSO). dbt supports JIT (Just-in-Time) provisioning and IdP-initiated login.
 
@@ -14,11 +14,11 @@ In the dbt platform, dbt assigns an SSO slug (an identifier used in your SSO log
 
 To further automate your workflow, you can use [System for Cross-Domain Identity Management (SCIM)](./scim.md) to provision users, manage group memberships, and automate license assignments directly from your identity provider (IdP) (Okta or Microsoft Entra ID).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a dbt Enterprise or Enterprise+ plan. [Contact us](mailto:sales@getdbt.com) to learn more, book a demo, or enroll. For plan details, refer to [Pricing](https://www.getdbt.com/pricing/).
 
-## Auth0 URIs[​](#auth0-uris "Direct link to Auth0 URIs")
+## Auth0 URIs
 
 The URI used for SSO connections will vary based on your dbt hosted region. To find the Auth0 URI (also called the **Single sign-on URL**, **Authorization URL**, or **Callback URI**) for your environment:
 
@@ -37,12 +37,6 @@ The URI used for SSO connections will vary based on your dbt hosted region. To f
    | Google Workspace   | **Authorized Redirect URI** | `https://YOUR_AUTH0_URI/login/callback`                         |
    | Microsoft Entra ID | **Callback URI**            | `https://YOUR_AUTH0_URI/login/callback`                         |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
    *Replace `YOUR_AUTH0_URI` and `ACCOUNT_NAME` with your account values.*
 
 [![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")](#)Example of the identity provider values for a SAML 2.0 provider
@@ -51,13 +45,13 @@ Auth0 URI
 
 The Auth0 URI always contains YOUR\_AUTH0\_URI (for example, auth.cloud.getdbt.com), not your account-specific prefix URL (such as ks123.us1.dbt.com). This is because dbt uses Auth0 as a centralized authentication service across all regions and accounts. You don't need to replace this value with your cell-specific URL.
 
-## SSO process[​](#sso-process "Direct link to SSO process")
+## SSO process
 
 The diagram below explains the basic process by which users are provisioned in dbt upon logging in with SSO.
 
 [![SSO diagram](/img/sso_overview.png?v=2 "SSO diagram")](#)SSO diagram
 
-#### Diagram Explanation[​](#diagram-explanation "Direct link to Diagram Explanation")
+#### Diagram Explanation
 
 * **Login Page**: The user accesses the dbt login experience (for example, <https://login.dbt.com>), their account **Access URL**, or their **dbt Enterprise Login URL**, and initiates the SSO flow.
 
@@ -67,14 +61,10 @@ The diagram below explains the basic process by which users are provisioned in d
 
 * **Login?**: The user can choose to continue or to abort the login process.
 
-  <!-- -->
-
   * **Yes**: The user logs in, grants the dbt application, and continues.
   * **No**: The user does not log in. They return to the IdP login page.
 
 * **User Exists?**: This step checks if the user already exists in dbt's user database.
-
-  <!-- -->
 
   * **Yes**: If so, skip the user creation process
   * **No**: If so, create a new entry in the dbt database for the new user.
@@ -85,8 +75,6 @@ The diagram below explains the basic process by which users are provisioned in d
 
 * **Attach Matching Permissions (Groups)**: dbt iterates through the groups on the matching accounts and finds all that fit one of the following categories:
 
-  <!-- -->
-
   * Have an SSO mapping group that is assigned to the user
   * Have the **Assign by Default** option selected. Then, assign all of these (and only these) to the user license. This step also removes any permissions that the user should not have based on the current SSO group mappings.
 
@@ -96,16 +84,16 @@ License and permission mappings use IdP groups
 
 License type mappings and SSO group mappings are based on **IdP group** membership (groups in your identity provider), not dbt platform group names. When configuring [license mappings](./seats-and-users.md#mapped-configuration) or group assignments, use the group names and memberships from your IdP.
 
-## SSO enforcement[​](#sso-enforcement "Direct link to SSO enforcement")
+## SSO enforcement
 
 * **SSO Enforcement:** If SSO is turned on in your organization, dbt will enforce SSO-only logins for all non-admin users. By default, if an Account Admin or Security Admin already has a password, they can continue logging in with a password. To restrict admins from using passwords, turn off **Allow password logins for account administrators** in the **SSO & SCIM** section of your organization's **Account settings**.
 * **SSO Re-Authentication:** dbt will prompt you to re-authenticate using your SSO provider every 24 hours to ensure high security.
 
-### How should non-admin users log in?[​](#how-should-non-admin-users-log-in "Direct link to How should non-admin users log in?")
+### How should non-admin users log in?
 
 Non-admin users that currently login with a password can no longer do so. They must sign in using <https://login.dbt.com>, the dbt Enterprise Login URL for your account, or an identity provider (IdP), for example, Okta or Microsoft Entra ID.
 
-### Security best practices[​](#security-best-practices "Direct link to Security best practices")
+### Security best practices
 
 There are a few scenarios that might require you to login with a password. We recommend these security best-practices for the two most common scenarios:
 
@@ -113,7 +101,7 @@ There are a few scenarios that might require you to login with a password. We re
 * **Identity Provider is down** — Account admins will continue to be able to log in with a password which would allow them to work with your Identity Provider to troubleshoot the problem.
 * **Offboarding admins** — When offboarding admins, revoke access to dbt by deleting the user from your environment; otherwise, they can continue to use username/password credentials to log in.
 
-### Next steps for non-admin users currently logging in with passwords[​](#next-steps-for-non-admin-users-currently-logging-in-with-passwords "Direct link to Next steps for non-admin users currently logging in with passwords")
+### Next steps for non-admin users currently logging in with passwords
 
 If you have any non-admin users logging into dbt with a password today:
 
@@ -121,6 +109,6 @@ If you have any non-admin users logging into dbt with a password today:
 2. Alert all dbt users that they won’t be able to use a password for logging in anymore unless they are already an Admin with a password.
 3. We **DO NOT** recommend promoting any users to Admins just to preserve password-based logins because you will reduce security of your dbt environment.
 
-## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
+## FAQ and troubleshooting
 
 For common questions and troubleshooting guidance, refer to [SSO FAQs and troubleshooting](./sso-faq.md).

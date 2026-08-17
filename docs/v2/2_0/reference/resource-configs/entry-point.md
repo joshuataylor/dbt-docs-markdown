@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -25,7 +13,7 @@ functions:
       entry_point: <string> # required for Snowflake and BigQuery; optional and ignored on Databricks
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 When creating Python UDFs, specify the Python function to be called in `entry_point`.
 
@@ -37,13 +25,7 @@ Python UDFs are currently supported in Snowflake, BigQuery, and Databricks. Each
 | BigQuery   | Becomes the `entry_point` in `OPTIONS(...)`                                                                                                                      |
 | Databricks | Accepted for compatibility but has no effect. The function body is used directly, so dbt displays a warning if you set it. Available in `dbt-databricks` v1.12+. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Example[​](#example "Direct link to Example")
+## Example
 
 For example, if you have a Python UDF in `functions/my_function.py` with the following code which uses the function `main` as the entry point:
 
@@ -85,7 +67,7 @@ functions:
       data_type: integer
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

@@ -4,7 +4,7 @@ If you’re reading this, that probably means you’re a data person. And as a d
 
 To round numeric fields or values in SQL, you’re going to use the handy ROUND function.
 
-## How to use the SQL ROUND function[​](#how-to-use-the-sql-round-function "Direct link to How to use the SQL ROUND function")
+## How to use the SQL ROUND function
 
 The syntax for using ROUND function looks like the following:
 
@@ -14,7 +14,7 @@ round(<numeric column or data>, [optional] <number of decimal places>)
 
 In this function, you’ll need to input the *numeric* field or data you want rounded and pass in an optional number to round your field by. For most data warehouses, the number of decimal places is defaulted to 0 or 1, meaning if you rounded 20.00 using `round(20.00)`, it would return 20 or 20.0 (depending on your data warehouse).
 
-### SQL ROUND function example[​](#sql-round-function-example "Direct link to SQL ROUND function example")
+### SQL ROUND function example
 
 You can round some of the numeric fields of the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `orders` model using the following code:
 
@@ -35,21 +35,15 @@ After running this query, the resulting `orders` table will look a little someth
 | 2         | 2018-01-02  | 20.000000 | 20.0            |
 | 3         | 2018-01-04  | 1.000000  | 1.0             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The new `rounded_amount` column is the `amount` fielded rounded to 1 decimal place.
 
 For most data warehouses, the returned data from the ROUND function should be the same as the input data. If you input a float type into the ROUND function, the returned rounded number should also be a float.
 
-## SQL ROUND function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-round-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL ROUND function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL ROUND function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Google BigQuery, Amazon Redshift, Snowflake, and Databricks all support the ability to round numeric columns and data. In addition, the syntax to round is the same across all of them using the ROUND function.
 
-## ROUND function use cases[​](#round-function-use-cases "Direct link to ROUND function use cases")
+## ROUND function use cases
 
 If you find yourself rounding numeric data, either in data models or ad-hoc analyses, you’re probably rounding to improve the readability and usability of your data using downstream [intermediate](../best-practices/how-we-structure/3-intermediate.md) or [mart models](../best-practices/how-we-structure/4-marts.md). Specifically, you’ll likely use the ROUND function to:
 

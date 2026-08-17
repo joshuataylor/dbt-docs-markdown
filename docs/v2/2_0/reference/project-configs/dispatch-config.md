@@ -10,11 +10,11 @@ dispatch:
     search_order: [packagename]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally override the [dispatch](../dbt-jinja-functions/dispatch.md) search locations for macros in certain namespaces. If not specified, `dispatch` will look in your root project *first*, by default, and then look for implementations in the package named by `macro_namespace`.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 I want to "shim" the `dbt_utils` package with the `spark_utils` compatibility package.
 

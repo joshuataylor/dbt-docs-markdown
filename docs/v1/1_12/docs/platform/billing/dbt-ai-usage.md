@@ -1,6 +1,6 @@
 # dbt AI: Usage metering and limiting
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 dbt AI usage is measured based on the number of completed AI requests, known as dbt Copilot actions. Usage limits are enforced to ensure fair access and system performance.
 
@@ -10,7 +10,7 @@ As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt 
 
 After the temporary bridge ends, dbt Wizard usage will be metered separately. Pricing and usage are subject to change.
 
-### Usage and metering information[​](#usage-and-metering-information "Direct link to Usage and metering information")
+### Usage and metering information
 
  Temporary dbt Copilot Actions bridge (through July 13, 2026)
 
@@ -58,7 +58,7 @@ Once usage limits are reached, attempts to perform an action in dbt Copilot trig
 
 Under Bring Your Own Key (BYOK), usage is not tracked by dbt AI and is subject to your OpenAI limits.
 
-### Viewing usage in the product[​](#viewing-usage-in-the-product "Direct link to Viewing usage in the product")
+### Viewing usage in the product
 
 To view the usage in your account:
 

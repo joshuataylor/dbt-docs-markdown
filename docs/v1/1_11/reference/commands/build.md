@@ -10,7 +10,7 @@ The `dbt build` command will:
 
 In DAG order, for selected resources or an entire project.
 
-## Details[​](#details "Direct link to Details")
+## Details
 
 **Artifacts:** The `build` task will write a single [manifest](../artifacts/manifest-json.md) and a single [run results artifact](../artifacts/run-results-json.md). The run results will include information about all models, tests, seeds, and snapshots that were selected to build, combined into one file.
 
@@ -20,23 +20,19 @@ In DAG order, for selected resources or an entire project.
 * In the case of a test with multiple parents, where one parent depends on the other (e.g. a `relationships` test between `model_a` + `model_b`), that test will block-and-skip children of the most-downstream parent only (`model_b`).
 * If you have a test with multiple parents that are independent of each other, dbt [skips](https://github.com/dbt-labs/dbt-core/blob/d5071fa13502be273596a0b7c8b13d14b6c68655/core/dbt/compilation.py#L224-L257) the downstream node only if that node depends on all of those parents.
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
 **Selecting resources:** The `build` task supports standard selection syntax (`--select`, `--exclude`, `--selector`), as well as a `--resource-type` flag that offers a final filter (just like `list`). Whichever resources are selected, those are the ones that `build` will run/test/snapshot/seed.
-
-<!-- -->
 
 * Remember that tests support indirect selection, so `dbt build -s model_a` will both run *and* test `model_a`. What does that mean? Any tests that directly depend on `model_a` will be included, so long as those tests don't also depend on other unselected parents. See [test selection](../node-selection/test-selection-examples.md) for details and examples.
 
 **Flags:** The `build` task supports all the same flags as `run`, `test`, `snapshot`, and `seed`. For flags that are shared between multiple tasks (e.g. `--full-refresh`), `build` will use the same value for all selected resource types (e.g. both models and seeds will be full refreshed).
 
-### The `--empty` flag[​](#the---empty-flag "Direct link to the---empty-flag")
+### The `--empty` flag
 
 The `build` command supports the `--empty` flag for building schema-only dry runs. The `--empty` flag limits the refs and sources to zero rows. dbt will still execute the model SQL against the target data warehouse but will avoid expensive reads of input data. This validates dependencies and ensures your models will build properly.
 
-<!-- -->
-
-#### The render method[​](#the-render-method "Direct link to The render method")
+#### The render method
 
 The `.render()` method is generally used to resolve or evaluate Jinja expressions (such as `{{ source(...) }}`) during runtime.
 
@@ -54,7 +50,7 @@ models.sql
 select ...
 ```
 
-## Tests[​](#tests "Direct link to Tests")
+## Tests
 
 When `dbt build` is executed with unit tests applied, the models will be processed according to their lineage and dependencies. The tests will be executed as follows:
 
@@ -66,7 +62,7 @@ This saves on warehouse spend as the model will only be materialized if the unit
 
 Unit tests and data tests can be selected using `--select test_type:unit` or `--select test_type:data` for `dbt build` (same for the `--exclude` flag).
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 ```text
 $ dbt build
@@ -97,7 +93,7 @@ Completed successfully
 Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7
 ```
 
-## Functions[​](#functions "Direct link to Functions")
+## Functions
 
 *Available from dbt Core v1.11 and in the dbt Fusion engine*
 

@@ -6,7 +6,7 @@ Define snapshots in YAML with a strategy and `unique_key`; refer to [Snapshot co
 
 dbt looks for snapshots in the directories listed in `snapshot-paths` in your `dbt_project.yml` file. By default, dbt uses the `snapshots/` directory. You can specify multiple paths if you organize snapshots in more than one folder.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 To view the full list of supported options in your terminal, run:
 
@@ -21,8 +21,6 @@ Use `--vars` when your snapshot SQL references values with the `var()` function.
 ```shell
 dbt snapshot --select my_snapshot --vars '{"cutoff_date": "2026-01-01"}'
 ```
-
-<!-- -->
 
 Compiled SQL for snapshots
 

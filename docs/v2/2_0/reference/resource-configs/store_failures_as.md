@@ -10,9 +10,9 @@ The three supported values are:
 
 You can configure it in all the same places as `store_failures`, including singular tests (.sql files), generic tests (.yml files), and dbt\_project.yml.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
-#### Singular test[​](#singular-test "Direct link to Singular test")
+#### Singular test
 
 [Singular test](../../docs/build/data-tests.md#singular-data-tests) in `tests/singular/check_something.sql` file
 
@@ -24,7 +24,7 @@ select 1 as id
 where 1=0
 ```
 
-#### Generic test[​](#generic-test "Direct link to Generic test")
+#### Generic test
 
 [Generic tests](../../docs/build/data-tests.md#generic-data-tests) in `models/_models.yml` file
 
@@ -42,7 +42,7 @@ models:
                 store_failures_as: ephemeral
 ```
 
-#### Project level[​](#project-level "Direct link to Project level")
+#### Project level
 
 Config in `dbt_project.yml`
 
@@ -61,7 +61,7 @@ data_tests:
       +store_failures_as: ephemeral
 ```
 
-### "Clobbering" configs[​](#clobbering-configs "Direct link to \"Clobbering\" configs")
+### "Clobbering" configs
 
 As with most other configurations, `store_failures_as` is "clobbered" when applied hierarchically. Whenever a more specific value is available, it will completely replace the less specific value.
 

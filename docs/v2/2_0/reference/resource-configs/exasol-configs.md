@@ -1,6 +1,6 @@
 # Exasol configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+## Incremental materialization strategies
 
 In dbt-exasol, the following incremental materialization strategies are supported:
 
@@ -11,9 +11,9 @@ In dbt-exasol, the following incremental materialization strategies are supporte
 
 All of these strategies are inherited from dbt-core. For more information on incremental strategies, refer to the [incremental strategy documentation](../../docs/build/incremental-strategy.md).
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
+## Performance optimizations
 
-### Table distribution and partitioning[​](#table-distribution-and-partitioning "Direct link to Table distribution and partitioning")
+### Table distribution and partitioning
 
 Starting from dbt-exasol 1.8.1, you can configure table distribution and partitioning strategies to optimize query performance in Exasol. These configurations are available for models materialized as `table` or `incremental`.
 
@@ -25,15 +25,7 @@ Exasol supports the following performance optimization configurations:
 | `distribute_by_config` | `<string>`                 | no       | Distributes data across cluster nodes by specified column                  |
 | `primary_key_config`   | `[<string>]`               | no       | Defines primary key constraint(s)                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -45,6 +37,8 @@ models:
     +distribute_by_config: <column-name>
     +primary_key_config: [<column-name>]
 ```
+
+### Properties YAML file
 
 models/properties.yml
 
@@ -58,6 +52,8 @@ models:
       primary_key_config: [<column-name>]
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
 
 ```jinja
@@ -69,7 +65,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Single column example[​](#single-column-example "Direct link to Single column example")
+#### Single column example
 
 The following example creates a table partitioned by `order_date`, distributed by `customer_id`, with a primary key on `customer_id`:
 
@@ -93,7 +89,7 @@ select
 from {{ source('sales', 'orders') }}
 ```
 
-#### Multiple columns example[​](#multiple-columns-example "Direct link to Multiple columns example")
+#### Multiple columns example
 
 When configuring multiple columns for `primary_key_config`, provide them as a list:
 
@@ -125,7 +121,7 @@ When configuring multiple columns for `primary_key_config`, always provide them 
 
 For more information about Exasol's table distribution and partitioning, refer to the [Exasol documentation](https://docs.exasol.com/db/latest/sql/create_table.htm).
 
-## Model contracts[​](#model-contracts "Direct link to Model contracts")
+## Model contracts
 
 Exasol supports [model contracts](../../docs/mesh/govern/model-contracts.md) with the following database constraints:
 
@@ -137,13 +133,7 @@ Exasol supports [model contracts](../../docs/mesh/govern/model-contracts.md) wit
 | `check`         | ❌ Not supported | Custom validation expressions not supported |
 | `unique`        | ❌ Not supported | Unique constraints not supported            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Example with enforced constraints[​](#example-with-enforced-constraints "Direct link to Example with enforced constraints")
+### Example with enforced constraints
 
 models/customers.yml
 
@@ -172,7 +162,7 @@ models:
 
 For more information on model contracts, refer to the [model contracts documentation](../../docs/mesh/govern/model-contracts.md).
 
-## Timestamp format[​](#timestamp-format "Direct link to Timestamp format")
+## Timestamp format
 
 Starting from dbt-exasol 1.2.2, the default timestamp format is `YYYY-MM-DDTHH:MI:SS.FF6`.
 
@@ -188,7 +178,7 @@ outputs:
     # ... other settings
 ```
 
-### Microbatch strategy considerations[​](#microbatch-strategy-considerations "Direct link to Microbatch strategy considerations")
+### Microbatch strategy considerations
 
 When using the [`microbatch`](../../docs/build/incremental-microbatch.md) incremental strategy, Exasol requires timestamps without timezone suffix in model definitions:
 
@@ -204,24 +194,24 @@ The dbt-exasol adapter automatically handles timestamp formatting for microbatch
 
 For more information about the microbatch strategy, refer to the [microbatch documentation](../../docs/build/incremental-microbatch.md).
 
-## Materialized views[​](#materialized-views "Direct link to Materialized views")
+## Materialized views
 
 Exasol does not support materialized views. If you attempt to use `materialized='materialized_view'`, the operation will fail with an error.
 
-### Workarounds[​](#workarounds "Direct link to Workarounds")
+### Workarounds
 
 * Use `materialized='table'` with appropriate refresh logic
 * Use `materialized='incremental'` with suitable [incremental strategies](../../docs/build/incremental-strategy.md)
 
-## Clone operations[​](#clone-operations "Direct link to Clone operations")
+## Clone operations
 
 Exasol does not support table cloning operations. This affects dbt features that rely on `CLONE` functionality.
 
-## Unit test limitations[​](#unit-test-limitations "Direct link to Unit test limitations")
+## Unit test limitations
 
 Exasol has specific limitations with [unit tests](../../docs/build/unit-tests.md):
 
-### Empty string handling[​](#empty-string-handling "Direct link to Empty string handling")
+### Empty string handling
 
 In Exasol, empty strings are treated as `NULL`. This affects test fixtures that use empty string literals to simulate empty values. When writing unit tests with seed data, be aware that:
 
@@ -235,11 +225,11 @@ id,name,value
 1,test,NULL  # NULL value in Exasol
 ```
 
-### Cross-database testing[​](#cross-database-testing "Direct link to Cross-database testing")
+### Cross-database testing
 
 Unit tests that rely on sources in a database different from the models are not supported. All test fixtures and models must exist in the same database.
 
-### Aggregate functions in CTEs[​](#aggregate-functions-in-ctes "Direct link to Aggregate functions in CTEs")
+### Aggregate functions in CTEs
 
 Exasol does not support certain aggregate functions (`LISTAGG`, `MEDIAN`, `PERCENTILE_CONT`) when used within common table expressions (CTEs) created from dbt's unit test fixtures. These functions require user-created tables.
 
@@ -247,6 +237,6 @@ Exasol does not support certain aggregate functions (`LISTAGG`, `MEDIAN`, `PERCE
 
 If you are interested in supporting materialized test fixtures, we encourage you to participate in this issue in GitHub: [dbt-labs/dbt-core#8499](https://github.com/dbt-labs/dbt-core/issues/8499)
 
-## Connection configuration[​](#connection-configuration "Direct link to Connection configuration")
+## Connection configuration
 
 For information about connection parameters such as encryption, SSL/TLS validation, OpenID authentication, and other profile settings, refer to the [Exasol setup documentation](../../docs/local/connect-data-platform/exasol-setup.md).

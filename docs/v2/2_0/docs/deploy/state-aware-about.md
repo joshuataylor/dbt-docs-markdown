@@ -1,10 +1,8 @@
 # About state-aware orchestration [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Every time a job runs, state-aware orchestration automatically determines which models to build by detecting changes in code or data.
-
-<!-- -->
 
 State-aware orchestration is now dbt State
 
@@ -39,7 +37,7 @@ note
 
 State-aware orchestration does not depend on [static analysis](../build/about-static-analysis.md#principles-of-static-analysis) and works even when `static_analysis` is disabled.
 
-## Optimizing builds with state-aware orchestration[​](#optimizing-builds-with-state-aware-orchestration "Direct link to Optimizing builds with state-aware orchestration")
+## Optimizing builds with state-aware orchestration
 
 State-aware orchestration uses shared state tracking to determine which models need to be built by detecting changes in code or data every time a job runs. It also supports custom refresh intervals and custom source freshness configurations, so dbt only rebuilds models when they're actually needed.
 
@@ -49,7 +47,7 @@ Without configuring anything, dbt's state-aware orchestration automatically know
 
 **Note:** When a model fails a [data test](../build/data-tests.md), state-aware orchestration rebuilds it on subsequent runs instead of reusing it from prior state. This ensures dbt reevaluates models with unresolved data quality issues.
 
-### Handling concurrent jobs[​](#handling-concurrent-jobs "Direct link to Handling concurrent jobs")
+### Handling concurrent jobs
 
 If two separate jobs both depend on the same downstream model (for example, `model_ab`) and both detect upstream changes (`updates_on = any`), `model_ab` could run twice — once for each job. However, if `model_ab` was already built and nothing has changed since that build, neither job will rebuild it. Instead, both jobs will reuse the existing version instead of rebuilding.
 
@@ -62,7 +60,7 @@ What happens when jobs overlap:
 
 To prevent a job from being built too frequently even when the code or data state has changed, you can reduce build frequency by using the `build_after` config. For information on how to use `build_after`, refer to [Model freshness](../../reference/resource-configs/freshness.md) and [Advanced configurations](./state-aware-setup.md#advanced-configurations).
 
-### Handling deleted tables[​](#handling-deleted-tables "Direct link to Handling deleted tables")
+### Handling deleted tables
 
 State-aware orchestration detects and rebuilds models when their tables are deleted in the warehouse, even if there are no code or data changes.
 
@@ -73,7 +71,7 @@ When a table is deleted in the warehouse:
 
 This behavior ensures consistency between the dbt state and the actual warehouse state. It also reduces the need to manually clear cache or disable state-aware orchestration when models are modified outside of dbt.
 
-## Efficient testing in state-aware orchestration [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#efficient-testing-in-state-aware-orchestration- "Direct link to efficient-testing-in-state-aware-orchestration-")
+## Efficient testing in state-aware orchestration [Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Private beta feature
 
@@ -95,7 +93,7 @@ Efficient testing in state-aware orchestration reduces warehouse costs by avoidi
 
 Currently, Efficient testing is only available in deploy jobs, not in continuous integration (CI) or merge jobs.
 
-### Supported data tests[​](#supported-data-tests "Direct link to Supported data tests")
+### Supported data tests
 
 The following tests can be reused when Efficient testing is enabled:
 
@@ -103,7 +101,7 @@ The following tests can be reused when Efficient testing is enabled:
 * [`not_null`](../../reference/resource-properties/data-tests.md#not_null)
 * [`accepted_values`](../../reference/resource-properties/data-tests.md#accepted_values)
 
-### Enabling Efficient testing[​](#enabling-efficient-testing "Direct link to Enabling Efficient testing")
+### Enabling Efficient testing
 
 Before enabling Efficient testing, make sure you have configured [`static_analysis`](../build/about-static-analysis.md#configuring-static_analysis).
 
@@ -115,7 +113,7 @@ To enable Efficient testing:
 4. Select **Efficient testing**. This feature is disabled by default.
 5. Click **Save**.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 In the following query, you’re joining an `orders` and a `customers` table:
 
@@ -152,7 +150,7 @@ select * from joined
 
 * `unique` test: If `orders.order_id` and `customers.customer_id` are unique upstream, uniqueness of `order_id` is preserved and the upstream result can be reused.
 
-### Limitations[​](#limitations "Direct link to Limitations")
+### Limitations
 
 The following section lists some considerations when using Efficient testing in state-aware-orchestration:
 
@@ -171,7 +169,7 @@ The following section lists some considerations when using Efficient testing in 
 
 * **Efficient testing is available only in deploy jobs**. CI and merge jobs currently do not have the option to enable this feature.
 
-## Related FAQs[​](#related-faqs "Direct link to Related FAQs")
+## Related FAQs
 
 What happened to state-aware orchestration?
 
@@ -191,7 +189,7 @@ To get started, refer to [Migrate from state-aware orchestration](./dbt-state-mi
 
 # How is state-aware orchestration different from using selectors in dbt Core?
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 In dbt Core, running with the selectors `state:modified+` and `source_status:fresher+` builds models that either:
 
@@ -206,7 +204,7 @@ Instead of relying only on these selectors and prior-run artifacts, state-aware 
 
 While dbt Core uses selectors like `state:modified+` and `source_status:fresher+` to decide what to build *only for a single run in a single job*, state-aware orchestration with Fusion maintains a *shared, real-time model state across every job in the environment* and uses that state to determine whether a model’s code or upstream data have actually changed before rebuilding. This ensures dbt only rebuilds models when something has changed, no matter which job runs them.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [State-aware orchestration configuration](./state-aware-setup.md)
 * [Artifacts](./artifacts.md)

@@ -12,13 +12,13 @@ sources:
       - ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Describe the tool that loads this source into your warehouse. Note that this property is for documentation purposes only — dbt does not meaningfully use this.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Indicate which EL tool loaded data[​](#indicate-which-el-tool-loaded-data "Direct link to Indicate which EL tool loaded data")
+### Indicate which EL tool loaded data
 
 models/\<filename>.yml
 

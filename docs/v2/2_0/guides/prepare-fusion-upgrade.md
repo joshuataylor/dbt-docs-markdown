@@ -16,13 +16,13 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 The dbt Fusion engine represents the next evolution of data transformation. dbt has been rebuilt from the ground up but at its most basic, Fusion is a new version, and like any new version you should take steps to prepare to upgrade. This guide will take you through those preparations.
 
 If Fusion is brand new to you, take a look at our [comprehensive documentation](../docs/fusion/about-fusion.md) on what it is, how it behaves, and what's different from dbt Core before getting started with this guide. Once you're caught up, it's time to begin preparing your projects for the speed and power that Fusion has to offer.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 This guide will cover the preparations for upgrading to the dbt Fusion engine and is intended for customers already using the dbt platform with a version of dbt Core. If you're brand new to dbt, check out our [quickstart guides](../guides.md).
 
@@ -41,7 +41,6 @@ To follow the steps in this guide, you must meet the following prerequisites:
   * Service Account / User Token
   * Native OAuth
   * External OAuth
-    <!-- -->
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -67,11 +66,11 @@ Upgrading your first project
 
 Start with smaller, newer, or more familiar projects first. This makes it easier to identify and troubleshoot any issues before upgrading larger, more complex projects.
 
-## Enable Fusion readiness features[​](#enable-fusion-readiness-features "Direct link to Enable Fusion readiness features")
+## Enable Fusion readiness features
 
 The Fusion readiness panel in the dbt platform and shows each project's eligibility status and blockers, is being rolled out in phases. If it hasn't been automatically enabled for your account yet, an [account admin](../docs/platform/manage-access/enterprise-permissions.md#account-admin) can manually enable it. This lets admins and developers see which projects and jobs are eligible for Fusion, identify blockers, and initiate the upgrade once preparation is complete.
 
-### Step 1: Enable the readiness toggle[​](#step-1-enable-the-readiness-toggle "Direct link to Step 1: Enable the readiness toggle")
+### Step 1: Enable the readiness toggle
 
 This step requires account admin access in dbt platform:
 
@@ -85,7 +84,7 @@ Once enabled:
 * All admins and developers can see each project's Fusion readiness status, including which jobs are eligible or ineligible for Fusion and why.
 * Admins can initiate the Fusion upgrade from development environments, environment settings, and job settings (subject to existing permissions).
 
-### Step 2: Restrict upgrade access (optional)[​](#step-2-restrict-upgrade-access-optional "Direct link to Step 2: Restrict upgrade access (optional)")
+### Step 2: Restrict upgrade access (optional)
 
 By default, any user who can see the upgrade assistant can use it to initiate an upgrade. To limit upgrade execution to designated users, you can enable an additional access control toggle.
 
@@ -98,7 +97,7 @@ The **Enable restricted Fusion upgrade permissions** toggle is only available to
 
 When enabled, only users assigned the [`Fusion admin`](../docs/platform/manage-access/enterprise-permissions.md#fusion-admin) permission set (scoped to specific projects) can execute the upgrade. For instructions on assigning this permission, refer to [Assign upgrade access](./upgrade-to-fusion.md?step=3#assign-upgrade-access-optional) in Part 2 of this guide.
 
-### The Fusion readiness panel[​](#the-fusion-readiness-panel "Direct link to The Fusion readiness panel")
+### The Fusion readiness panel
 
 With the readiness experience enabled, you can monitor your project's eligibility as you work through the preparation steps below. The panel shows which jobs are eligible or ineligible for Fusion and why.
 
@@ -113,7 +112,7 @@ Common ineligibility reasons include:
 
 As you complete the steps in this guide, check the readiness panel to see your eligibility improve.
 
-## Upgrade to the latest dbt Core version[​](#upgrade-to-the-latest-dbt-core-version "Direct link to Upgrade to the latest dbt Core version")
+## Upgrade to the latest dbt Core version
 
 Before upgrading to Fusion, you need to move your environments to the **Latest** [dbt Core release track](../docs/dbt-versions/dbt-release-tracks.md). The **Latest** track includes all the features and tooling to help you prepare for Fusion. It ensures the smoothest upgrade experience by validating that your project doesn't rely on deprecated behaviors.
 
@@ -121,7 +120,7 @@ Test before you deploy
 
 Always test version upgrades in development first. Use the [Override dbt version](#step-1-test-in-development-using-override) feature to safely try the **Latest** release track without affecting your team or production runs.
 
-### Step 1: Test in development (using override)[​](#step-1-test-in-development-using-override "Direct link to Step 1: Test in development (using override)")
+### Step 1: Test in development (using override)
 
 Test the **Latest** release track for your individual account without changing the environment for your entire team:
 
@@ -137,7 +136,7 @@ Test the **Latest** release track for your individual account without changing t
 
 If everything works as expected, proceed to the next step to start upgrading your environments. If you encounter deprecation warnings, don't fear! We'll address those [later in this guide](./prepare-fusion-upgrade.md?step=4). If you encounter errors, revert to your previous version and refer to the [version upgrade guides](../docs/dbt-versions/core-upgrade.md) to resolve any differences between your current version and the latest available dbt Core version.
 
-### Step 2: Upgrade your development environment[​](#step-2-upgrade-your-development-environment "Direct link to Step 2: Upgrade your development environment")
+### Step 2: Upgrade your development environment
 
 After successfully testing your individual development environment with the override, upgrade the development environment for the entire project (be sure to give your team notice!):
 
@@ -152,7 +151,7 @@ Remove your override
 
 Once your development environment is upgraded, you can remove your personal override by returning to your account credentials and selecting the same version as your environment.
 
-### Step 3: Upgrade staging and pre-production[​](#step-3-upgrade-staging-and-pre-production "Direct link to Step 3: Upgrade staging and pre-production")
+### Step 3: Upgrade staging and pre-production
 
 If your organization has staging or pre-production environments, upgrade these before production:
 
@@ -163,7 +162,7 @@ If your organization has staging or pre-production environments, upgrade these b
 
 This provides a final validation layer before upgrading production environments.
 
-### Step 4: Upgrade your production environment[​](#step-4-upgrade-your-production-environment "Direct link to Step 4: Upgrade your production environment")
+### Step 4: Upgrade your production environment
 
 After validating in staging (or development if you don't have staging), upgrade your production environment:
 
@@ -172,11 +171,11 @@ After validating in staging (or development if you don't have staging), upgrade 
 3. Click **Save** to apply the changes.
 4. Monitor your first few production runs to ensure everything executes successfully.
 
-### Step 5: Update jobs[​](#step-5-update-jobs "Direct link to Step 5: Update jobs")
+### Step 5: Update jobs
 
 While environments control the dbt version for most scenarios, some older job configurations may have version overrides. Review your jobs and [update any that specify a dbt version](../docs/dbt-versions/upgrade-dbt-platform-version.md#jobs) to ensure they use the environment's Latest release track.
 
-## Resolve all deprecation warnings[​](#resolve-all-deprecation-warnings "Direct link to Resolve all deprecation warnings")
+## Resolve all deprecation warnings
 
 Fusion enforces strict validation and won't accept deprecated code that currently generates warnings in dbt Core. You must resolve all deprecation warnings before upgrading to Fusion. Fortunately, the autofix tool in the Studio IDE can automatically resolve most common deprecations for you.
 
@@ -184,7 +183,7 @@ VS Code extension
 
 This guide provides steps to resolve deprecation warnings without leaving dbt platform. If you prefer to work in the VS Code or Cursor editors locally, you can run the autofix in our dbt VS Code extension. Check out the [installation guide](../docs/install-dbt-extension.md) for more information about those workflows.
 
-### What the autofix tool handles[​](#what-the-autofix-tool-handles "Direct link to What the autofix tool handles")
+### What the autofix tool handles
 
 The autofix tool can resolve many deprecations automatically, including:
 
@@ -199,7 +198,7 @@ Fusion package compatibility
 
 In addition to deprecations, the autofix tool attempts to upgrade packages to the lowest supported Fusion-compatible version. Check out [package support](../docs/fusion/supported-features.md#package-support) for more information about Fusion compatibility.
 
-### Step 1: Create a new branch[​](#step-1-create-a-new-branch "Direct link to Step 1: Create a new branch")
+### Step 1: Create a new branch
 
 Before running the autofix tool, create a new branch to isolate your changes:
 
@@ -212,7 +211,7 @@ Save before autofixing
 
 The autofix tool will modify files in your project. Make sure to commit or stash any unsaved work to avoid losing changes.
 
-### Step 2: Run the autofix tool[​](#step-2-run-the-autofix-tool "Direct link to Step 2: Run the autofix tool")
+### Step 2: Run the autofix tool
 
 Now you're ready to scan for and automatically fix deprecation warnings:
 
@@ -227,7 +226,7 @@ The tool runs `dbt parse --show-all-deprecations --no-partial-parse` to identify
 
 [![View command history and deprecation results](/img/docs/dbt-platform/platform-ide/command-history.png?v=2 "View command history and deprecation results")](#)View command history and deprecation results
 
-### Step 3: Review and apply autofixes[​](#step-3-review-and-apply-autofixes "Direct link to Step 3: Review and apply autofixes")
+### Step 3: Review and apply autofixes
 
 After the deprecation scan completes, review the findings and apply automatic fixes:
 
@@ -246,7 +245,7 @@ The tool automatically modifies your project files to resolve fixable deprecatio
 
 [![Autofix complete](/img/docs/dbt-platform/platform-ide/autofix-success.png?v=2 "Autofix complete")](#)Autofix complete
 
-### Step 4: Verify the changes[​](#step-4-verify-the-changes "Direct link to Step 4: Verify the changes")
+### Step 4: Verify the changes
 
 Review the changes made by the autofix tool to ensure they're correct:
 
@@ -255,22 +254,20 @@ Review the changes made by the autofix tool to ensure they're correct:
 3. Look for files with moved configurations, corrected properties, or updated syntax.
 4. If needed, make any additional manual adjustments.
 
-### Step 5: Commit your changes[​](#step-5-commit-your-changes "Direct link to Step 5: Commit your changes")
+### Step 5: Commit your changes
 
 Once you're satisfied with the autofix changes, commit them to your branch:
 
 1. In the **Version control** panel, add a descriptive commit message like "Fix deprecation warnings for Fusion upgrade".
 2. Click **Commit and sync** to save your changes.
 
-### Step 6: Address remaining deprecations[​](#step-6-address-remaining-deprecations "Direct link to Step 6: Address remaining deprecations")
+### Step 6: Address remaining deprecations
 
 If the autofix tool reports remaining deprecation warnings that couldn't be automatically fixed:
 
 1. Review the warning messages in the **Command history** panel. Each warning includes the file path and line number.
 
 2. Manually update the code based on the deprecation guidance:
-
-   <!-- -->
 
    * Custom inputs should be moved to the `meta` config.
    * Deprecated properties should be updated to their new equivalents.
@@ -280,7 +277,7 @@ If the autofix tool reports remaining deprecation warnings that couldn't be auto
 
 4. Commit your changes.
 
-### Step 7: Merge to your main branch[​](#step-7-merge-to-your-main-branch "Direct link to Step 7: Merge to your main branch")
+### Step 7: Merge to your main branch
 
 Once all deprecations are resolved:
 
@@ -289,7 +286,7 @@ Once all deprecations are resolved:
 3. Merge the PR to your main development branch.
 4. Ensure these changes are deployed to your environments before proceeding with the Fusion upgrade.
 
-## Validate and upgrade your dbt packages[​](#validate-and-upgrade-your-dbt-packages "Direct link to Validate and upgrade your dbt packages")
+## Validate and upgrade your dbt packages
 
 Run autofix first
 
@@ -308,7 +305,7 @@ If a critical package isn't yet compatible with Fusion:
 * Consider contributing the compatibility updates yourself.
 * Try it out anyway! The incompatible portion of the package might not impact your project.
 
-#### Package compatibility messages[​](#package-compatibility-messages "Direct link to Package compatibility messages")
+#### Package compatibility messages
 
 Inconsistent Fusion warnings and `dbt-autofix` logs
 
@@ -332,7 +329,7 @@ Here's an example of a Fusion warning in the Studio IDE that says a package is
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
-### Step 1: Review your current packages[​](#step-1-review-your-current-packages "Direct link to Step 1: Review your current packages")
+### Step 1: Review your current packages
 
 Identify which packages your project uses:
 
@@ -350,7 +347,7 @@ packages:
     version: 0.9.0
 ```
 
-### Step 2: Check compatibility and find the latest package versions[​](#step-2-check-compatibility-and-find-the-latest-package-versions "Direct link to Step 2: Check compatibility and find the latest package versions")
+### Step 2: Check compatibility and find the latest package versions
 
 Review [the dbt package hub](https://hub.getdbt.com) to see verified Fusion-compatible packages by checking that the `require-dbt-version` configuration includes `2.0.0` or higher. Refer to [package support](../docs/fusion/supported-features.md#package-support) for more information.
 
@@ -374,7 +371,7 @@ packages:
     version: [">=1.0.0", "<3.0.0"]  # Gets latest 1.x or 2.x version
 ```
 
-### Step 3: Update your package versions[​](#step-3-update-your-package-versions "Direct link to Step 3: Update your package versions")
+### Step 3: Update your package versions
 
 Update your `packages.yml` or `dependencies.yml` file with the latest compatible versions:
 
@@ -404,13 +401,11 @@ Update your `packages.yml` or `dependencies.yml` file with the latest compatible
       version: [">=0.12.0", "<1.0.0"]
    ```
 
-### Step 4: Install updated packages[​](#step-4-install-updated-packages "Direct link to Step 4: Install updated packages")
+### Step 4: Install updated packages
 
 After updating your package versions, install them:
 
 1. In the Studio IDE command line, run:
-
-   <!-- -->
 
    ```bash
    dbt deps --upgrade
@@ -425,7 +420,7 @@ About package-lock.yml
 
 The `package-lock.yml` file pins your packages to specific versions for reproducible builds. We recommend committing this file to version control so your entire team uses the same package versions.
 
-### Step 5: Test your project with updated packages[​](#step-5-test-your-project-with-updated-packages "Direct link to Step 5: Test your project with updated packages")
+### Step 5: Test your project with updated packages
 
 After upgrading packages, test your project to ensure everything works:
 
@@ -447,7 +442,7 @@ After upgrading packages, test your project to ensure everything works:
    * Adjust your code to match new package behavior
    * If problems persist, temporarily pin to an older compatible version (if possible)
 
-### Step 6: Commit package updates[​](#step-6-commit-package-updates "Direct link to Step 6: Commit package updates")
+### Step 6: Commit package updates
 
 Once you've verified the updated packages work correctly:
 
@@ -460,13 +455,13 @@ Once you've verified the updated packages work correctly:
 
 3. Click **Commit and sync**.
 
-## Update your jobs[​](#update-your-jobs "Direct link to Update your jobs")
+## Update your jobs
 
 Use the Fusion readiness panel to validate your jobs against the dbt Fusion engine and fix any issues you find.
 
 For jobs that are eligible for Fusion in the readiness experience, **Run once on Fusion** is replaced by a **Debug on Fusion** dropdown in the eligibility banner or modal. Use a debug option when you want to inspect or fix issues interactively in Studio IDE. Use **Run once on Fusion** when you want to validate execution behavior in a deployment context.
 
-### Review your jobs[​](#review-your-jobs "Direct link to Review your jobs")
+### Review your jobs
 
 The readiness panel shows how many jobs are ineligible for Fusion or have an unknown eligibility status. If you don't see eligibility messaging, ask an account admin to enable **Fusion readiness & upgrade features** in [Account settings](../docs/platform/account-settings.md). For setup steps, refer to [Enable Fusion readiness features](./prepare-fusion-upgrade.md?step=3).
 
@@ -476,26 +471,22 @@ If a job has not run in the last 7 days, you must run it once for the debugging 
 
 1. Open the jobs list using either path:
 
-   <!-- -->
-
    * From the main menu, go to **Orchestration** → **Jobs**.
    * From the readiness panel, click **Review jobs**.
 
    [![Shortcut to review your jobs from the readiness panel](/img/fusion/review-jobs.png?v=2 "Shortcut to review your jobs from the readiness panel")](#)Shortcut to review your jobs from the readiness panel
 
 2. Find the Fusion eligibility icon to the right of your jobs. Click **Review job** for any job that is ineligible or has an unknown eligibility status.
-   <!-- -->
+
    [![Take action on your jobs to make them Fusion eligible.](/img/fusion/job-eligibility.png?v=2 "Take action on your jobs to make them Fusion eligible.")](#)Take action on your jobs to make them Fusion eligible.
 
 3. Click **Debug on Fusion** and choose one of the following:
-
-   <!-- -->
 
    * [Debug in Studio](#debug-in-studio)
    * [Debug in Studio with dbt Wizard](#debug-in-studio-with-dbt-wizard)
    * [Run once on Fusion](#run-once-on-fusion)
 
-#### Debug in Studio[​](#debug-in-studio "Direct link to Debug in Studio")
+#### Debug in Studio
 
 In the Studio IDE, run Fusion in your development environment to review project warnings and errors:
 
@@ -510,7 +501,7 @@ In the Studio IDE, run Fusion in your development environment to review project 
 
 To revert the `latest-fusion` override, use the dbt version control in Studio IDE or update the **dbt version** under **User development settings** in [Account settings](../docs/platform/account-settings.md) → **Credentials**. For more details, refer to [Override dbt version](../docs/dbt-versions/upgrade-dbt-platform-version.md#override-dbt-version).
 
-#### Debug in Studio with dbt Wizard [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#debug-in-studio-with-dbt-wizard- "Direct link to debug-in-studio-with-dbt-wizard-")
+#### Debug in Studio with dbt Wizard [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 If you have access to [dbt Wizard](../docs/dbt-ai/wizard-ide.md) with [AI features](../docs/platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
@@ -519,7 +510,6 @@ info
 The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
-   <!-- -->
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.
 
 2. In the **Fusion eligibility unknown for this job** pop-up, click **Debug in Studio with dbt Wizard**.
@@ -527,8 +517,6 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 3. dbt redirects you to the Studio IDE and sets your personal development environment to Fusion.
 
 4. dbt Wizard opens and automatically triggers the Fusion migration skill with this prompt:
-
-   <!-- -->
 
    ```text
    I need help fixing Fusion compatibility issues in this project. Please investigate and resolve any deprecation warnings or incompatibilities. Please use the migrating-dbt-core-to-fusion skill to guide this.
@@ -544,21 +532,21 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 [![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")](#)The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
-#### Run once on Fusion[​](#run-once-on-fusion "Direct link to Run once on Fusion")
+#### Run once on Fusion
 
 When you are confident a job is ready for Fusion, you can run it once on the engine without changing environment-wide settings. **Run once on Fusion** can be temporarily unavailable while a Fusion run request is already pending.
 
 1. Click **Run once on Fusion**.
 2. The job window opens and dbt runs the job on Fusion without changing other jobs or environment settings.
 3. When the job succeeds, click **Override eligibility status** to update the eligibility status.
-   <!-- -->
+
    [![Override the eligibility status of a successful job.](/img/fusion/eligibility-status.png?v=2 "Override the eligibility status of a successful job.")](#)Override the eligibility status of a successful job.
 
 Congratulations! You have validated Fusion eligibility for your jobs.
 
 [![Your job is now ready for Fusion!](/img/fusion/fusion-eligible.png?v=2 "Your job is now ready for Fusion!")](#)Your job is now ready for Fusion!
 
-## What's next?[​](#whats-next "Direct link to What's next?")
+## What's next?
 
 With limitations identified and addressed, you've completed all the preparation steps. Your project is now ready to upgrade to Fusion!
 

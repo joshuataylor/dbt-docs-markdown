@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.9
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 snapshots/schema.yml
 
@@ -59,11 +47,11 @@ snapshots:
       dbt_is_deleted: <string>
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 In order to align with an organization's naming conventions, the `snapshot_meta_column_names` config can be used to customize the names of the [metadata columns](../../docs/build/snapshots.md#snapshot-meta-fields) within each snapshot.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt snapshots use the following column names to track change history using [Type 2 slowly changing dimension](https://en.wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row) records:
 
@@ -75,19 +63,13 @@ By default, dbt snapshots use the following column names to track change history
 | `dbt_updated_at` | The `updated_at` timestamp of the source record when this snapshot row was inserted.                   | This is used internally by dbt.                                                                            | `snapshot_meta_column_names: {dbt_updated_at: modified_date}` |
 | `dbt_is_deleted` | A string value indicating if the record has been deleted. (`True` if deleted, `False` if not deleted). | Added when `hard_deletes='new_record'` is configured.                                                      | `snapshot_meta_column_names: {dbt_is_deleted: is_deleted}`    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 All of these column names can be customized using the `snapshot_meta_column_names` config. Refer to the [Example](#example) for more details.
 
 warning
 
 To avoid any unintentional data modification, dbt will **not** automatically apply any column renames. So if a user applies `snapshot_meta_column_names` config for a snapshot without updating the pre-existing table, they will get an error. We recommend either only using these settings for net-new snapshots, or arranging an update of pre-existing tables prior to committing a column name change.
 
-## How [`dbt_scd_id`](./snapshot_meta_column_names.md#default) is calculated[​](#how-dbt_scd_id-is-calculated "Direct link to how-dbt_scd_id-is-calculated")
+## How [`dbt_scd_id`](./snapshot_meta_column_names.md#default) is calculated
 
 `dbt_scd_id` is a unique identifier generated for each row in a snapshot. dbt uses this identifier to detect changes in source records and manage versioning in slowly changing dimension (SCD) snapshots.
 
@@ -112,7 +94,7 @@ The exact fields included in the hash depend on the snapshot strategy:
 
 If you don’t want to use `md5`, you can customize the [dispatched macro](https://github.com/dbt-labs/dbt-adapters/blob/4b3966efc50b1d013907a88bee4ab8ebd022d17a/dbt-adapters/src/dbt/include/global_project/macros/materializations/snapshots/strategies.sql#L42-L47).
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 snapshots/schema.yml
 
@@ -140,9 +122,3 @@ The resulting snapshot table contains the configured meta column names:
 | 1  | 60a1f1dbdf899a4dd... | 2024-10-02 ... | 2024-10-02 ... | 2024-10-03 ... | False       |
 | 1  | 60a1f1dbdf899a4dd... | 2024-10-03 ... | 2024-10-03 ... |                | True        |
 | 2  | b1885d098f8bcff51... | 2024-10-02 ... | 2024-10-02 ... |                | False       |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

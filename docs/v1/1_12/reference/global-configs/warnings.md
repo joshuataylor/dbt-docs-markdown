@@ -2,7 +2,7 @@
 
 Use the --warn-error flag to promote all warnings to errors or --warn-error-options for granular control through options.
 
-## Use `--warn-error` to promote all warnings to errors[​](#use---warn-error-to-promote-all-warnings-to-errors "Direct link to use---warn-error-to-promote-all-warnings-to-errors")
+## Use `--warn-error` to promote all warnings to errors
 
 Enabling `WARN_ERROR` config or setting the `--warn-error` flag will convert *all* dbt warnings into errors. Any time dbt would normally warn, it will instead raise an error. Examples include `--select` criteria that selects no resources, deprecations, configurations with no associated models, invalid test configurations, or tests and freshness checks that are configured to return warnings.
 
@@ -18,7 +18,7 @@ Using the `--warn-error` flag or `--warn-error-options '{"error": "all"}'` will 
 
 This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
-## Use `--warn-error-options` for targeted warnings[​](#use---warn-error-options-for-targeted-warnings "Direct link to use---warn-error-options-for-targeted-warnings")
+## Use `--warn-error-options` for targeted warnings
 
 In some cases, you may want to convert *all* warnings to errors. However, when you want *some* warnings to stay as warnings and only promote or silence specific warnings you can instead use `--warn-error-options`. The `WARN_ERROR_OPTIONS` config or `--warn-error-options` flag gives you more granular control over *exactly which types of warnings* are treated as errors.
 
@@ -31,9 +31,9 @@ Warnings that should be treated as errors can be specified through the `error` p
 * [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
-Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
+(Applies to dbt v1.12 and later)
 
-<!-- -->
+Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
 
 The `error` parameter can be set to `"all"` or `"*"` to treat all warnings as errors (this behavior is the same as using the `--warn-error` flag), or to a list of specific warning names to treat as exceptions.
 
@@ -47,7 +47,7 @@ Here's how you can use the [`--warn-error-options`](#use---warn-error-options-fo
 * No nodes selected with `--warn-error-options '{"error": ["NoNodesForSelectionCriteria"]}'`.
 * Deprecation warnings with `--warn-error-options '{"error": ["Deprecations"]}'` (new in v1.10).
 
-### Configuration[​](#configuration "Direct link to Configuration")
+### Configuration
 
 You can configure warnings as errors or which warnings to silence, by warn error options through command flag, environment variable, or `dbt_project.yml`.
 
@@ -71,11 +71,11 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 Here are some examples that show you how to configure `warn_error_options` using flags or file-based configuration.
 
-#### Target specific warnings[​](#target-specific-warnings "Direct link to Target specific warnings")
+#### Target specific warnings
 
 Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warning that occurs when your `--select` flag doesn't match any nodes/resources in your dbt project:
 
@@ -99,7 +99,7 @@ Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warn
 
 * This promotes only `NoNodesForSelectionCriteria` as an error, using an environment variable:
 
-  <!-- -->
+  (Applies to dbt v1.11 and later)
 
   ```text
   DBT_ENGINE_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}' dbt run
@@ -122,11 +122,11 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
-#### Promote all warnings to errors[​](#promote-all-warnings-to-errors "Direct link to Promote all warnings to errors")
+#### Promote all warnings to errors
 
 Some examples of how to promote all warnings to errors:
 
-##### using dbt command flags[​](#using-dbt-command-flags "Direct link to using dbt command flags")
+##### using dbt command flags
 
 ```bash
 dbt run --warn-error
@@ -134,9 +134,9 @@ dbt run --warn-error-options '{"error": "all"}'
 dbt run --warn-error-options '{"error": "*"}'
 ```
 
-##### using environment variables[​](#using-environment-variables "Direct link to using environment variables")
+##### using environment variables
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 WARN_ERROR=true dbt run 

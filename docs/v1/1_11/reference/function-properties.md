@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../docs/dbt-versions/dbt-release-tracks.md).
 
 Function properties can be declared in `.yml` files under a `functions` key.
 
@@ -62,7 +50,7 @@ functions:
   - name: ... # declare properties of additional functions
 ```
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 functions/schema.yml
 

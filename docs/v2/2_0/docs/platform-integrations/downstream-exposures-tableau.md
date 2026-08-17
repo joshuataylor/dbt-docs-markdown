@@ -1,6 +1,6 @@
 # Set up automatic exposures in Tableau
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Set up and automatically populate downstream exposures for supported BI tool integrations, like Tableau. Visualize and orchestrate them through [dbt Catalog](https://docs.getdbt.com/docs/explore/explore-projects) and the [dbt job scheduler](../deploy/job-scheduler.md) for a richer experience.
 
@@ -20,7 +20,7 @@ Tableau Server
 
 If you're using Tableau Server, you need to add the [dbt IP addresses for your region](../platform/about-platform/access-regions-ip-addresses.md) to your allowlist.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To configure automatic downstream exposures, you should meet the following:
 
@@ -31,9 +31,7 @@ To configure automatic downstream exposures, you should meet the following:
 5. Use Tableau as your BI tool and enable metadata permissions or work with an admin to do so. Compatible with Tableau Cloud or Tableau Server with the Metadata API enabled.
 6. You have configured a [Tableau personal access token (PAT)](https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm) whose creator has permission to view data sources. The PAT inherits the permissions of its creator, so ensure the Tableau user who created the token has [Connect permissions](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_permissions.htm).
 
-### Considerations[​](#considerations "Direct link to Considerations")
-
-<!-- -->
+### Considerations
 
 Configuring automatic downstream exposures with Tableau have the following considerations:
 
@@ -53,12 +51,6 @@ Configuring automatic downstream exposures with Tableau have the following consi
   | ---------------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
   | `analytics.dbt_data_team.my_model` | `analytics.dbt_data_team.my_model`      | ✅ Matches and dependencies will display as expected.            |
   | `analytics.dbt_data_team.my_model` | `prod_analytics.dbt_data_team.my_model` | ❌ Doesn't match and not all expected dependencies will display. |
-
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
 
   To troubleshoot this:
 
@@ -97,11 +89,11 @@ Configuring automatic downstream exposures with Tableau have the following consi
   4. If the FQNs don't match, update your Tableau FQNs to match the dbt FQNs.
   5. If you're still experiencing issues, please contact [dbt Support](mailto:support@getdbt.com) and share the results with them.
 
-## Set up downstream exposures[​](#set-up-downstream-exposures "Direct link to Set up downstream exposures")
+## Set up downstream exposures
 
 Set up downstream exposures in [Tableau](#set-up-in-tableau) and [dbt](#set-up-in-dbt-cloud) to ensure that your BI tool's extracts are updated automatically.
 
-### Set up in Tableau[​](#set-up-in-tableau "Direct link to Set up in Tableau")
+### Set up in Tableau
 
 This section explains the steps to configure the integration in Tableau. A Tableau site admin must complete these steps.
 
@@ -135,7 +127,7 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
    * Token name
    * Secret
 
-### Set up in dbt[​](#set-up-in-dbt "Direct link to Set up in dbt")
+### Set up in dbt
 
 1. In dbt, navigate to the **Dashboard** of the project you want to add the downstream exposure to and then select **Settings**.
 
@@ -161,9 +153,7 @@ Once configured in both Tableau and [dbt](#set-up-in-dbt-cloud), you can [view d
 
    [![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
-<!-- -->
-
-## View downstream exposures[​](#view-downstream-exposures "Direct link to View downstream exposures")
+## View downstream exposures
 
 After setting up downstream exposures in dbt, you can view them in [Catalog](../explore/explore-projects.md) for a richer experience.
 
@@ -173,7 +163,7 @@ Navigate to Catalog by selecting **Catalog** from the top-level navigation. You 
 * [Exposure detail page](#exposure-detail-page)
 * [Project lineage](#project-lineage)
 
-### Exposures menu[​](#exposures-menu "Direct link to Exposures menu")
+### Exposures menu
 
 View all downstream exposures for a project from the Catalog sidebar:
 
@@ -192,7 +182,7 @@ The **Exposures** table lists every exposure in the project so you can quickly a
 
 [![View the Exposures table from the Catalog sidebar.](/img/docs/platform-integrations/auto-exposures/explorer-view-resources.png?v=2 "View the Exposures table from the Catalog sidebar.")](#)View the Exposures table from the Catalog sidebar.
 
-### Exposure detail page[​](#exposure-detail-page "Direct link to Exposure detail page")
+### Exposure detail page
 
 After you open the **Exposures** table ([previous section](#exposures-menu)), select an exposure name to open its detail page.
 
@@ -200,7 +190,7 @@ On the exposure detail page, you can review metadata, [data health signals](../e
 
 [![View an exposure detail page in Catalog.](/img/docs/platform-integrations/auto-exposures/explorer-view-exposure-detail.png?v=2 "View an exposure detail page in Catalog.")](#)View an exposure detail page in Catalog.
 
-### Project lineage[​](#project-lineage "Direct link to Project lineage")
+### Project lineage
 
 You can also view exposures from the **Project lineage** view, separate from the **Exposures** table:
 
@@ -214,7 +204,7 @@ This view visualizes the dependencies and relationships in your project. For Tab
 
 [![View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.](/img/docs/platform-integrations/auto-exposures/explorer-lineage.png?v=2 "View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.")](#)View from the dbt Catalog in your Project lineage view, displayed with the Tableau icon.
 
-## Orchestrate exposures [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#orchestrate-exposures- "Direct link to orchestrate-exposures-")
+## Orchestrate exposures [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 [Orchestrate exposures](./orchestrate-exposures.md) using the dbt [Cloud job scheduler](../deploy/job-scheduler.md) to proactively refresh the underlying data sources (extracts) that power your Tableau Workbooks.
 

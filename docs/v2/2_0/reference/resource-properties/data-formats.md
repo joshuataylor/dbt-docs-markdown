@@ -6,7 +6,7 @@ Currently, mock data for unit testing in dbt supports three formats:
 * `csv`: Inline CSV values or a CSV file.
 * `sql`: Inline SQL query or a SQL file. Note: For this format you must supply mock data for *all columns*.
 
-## dict[​](#dict "Direct link to dict")
+## dict
 
 The `dict` data format is the default if no `format` is defined.
 
@@ -27,7 +27,7 @@ unit_tests:
           - {id: 2, name: michelle}    
 ```
 
-## CSV[​](#csv "Direct link to CSV")
+## CSV
 
 When using the `csv` format, you can use either an inline CSV string for `rows`:
 
@@ -62,7 +62,7 @@ unit_tests:
         fixture: my_model_a_fixture
 ```
 
-## sql[​](#sql "Direct link to sql")
+## sql
 
 Using this format:
 

@@ -1,6 +1,6 @@
 # Doris/SelectDB configurations
 
-## Models[​](#models "Direct link to Models")
+## Models
 
 | Type                        | Supported? | Details                                                                                                                                             |
 | --------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -8,18 +8,11 @@
 | table materialization       | YES        | Creates a [table](https://doris.apache.org/docs/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE/).                          |
 | incremental materialization | YES        | Creates a table if it doesn't exist, and then item table model must be '[unique](https://doris.apache.org/docs/data-table/data-model#uniq-model/)'. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### View Materialization[​](#view-materialization "Direct link to View Materialization")
+### View Materialization
 
 A dbt model can be created as a Doris view and configured using the following syntax:
 
-* Project YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -29,18 +22,19 @@ models:
     +materialized: view
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
 
 ```jinja
 {{ config(materialized = "view") }}
 ```
 
-### Table Materialization[​](#table-materialization "Direct link to Table Materialization")
+### Table Materialization
 
 A dbt model can be created as a [Doris table](https://doris.apache.org/docs/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE/) and configured using the following syntax:
 
-* Project YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -56,6 +50,8 @@ models:
     +buckets: int,
     +properties: {<key>:<value>,...}
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -74,7 +70,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Table Configuration[​](#table-configuration "Direct link to Table Configuration")
+#### Table Configuration
 
 | Option              | Description                                                                                                                                                                           | Required?                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
@@ -87,18 +83,11 @@ models/\<model\_name>.sql
 | `buckets`           | The bucket number in one Doris partition.                                                                                                                                             | Required                    |
 | `properties`        | The other configuration of Doris. ([Doris properties](https://doris.apache.org/docs/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE/?&_highlight=properties)) | Required                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Incremental Materialization[​](#incremental-materialization "Direct link to Incremental Materialization")
+### Incremental Materialization
 
 An incremental Doris table, item table model must be 'unique' and is configured using the following syntax:
 
-* Project YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -114,6 +103,8 @@ models:
     +buckets: int,
     +properties: {<key>:<value>,...}
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -132,7 +123,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Incremental Table Configuration[​](#incremental-table-configuration "Direct link to Incremental Table Configuration")
+#### Incremental Table Configuration
 
 | Option              | Description                                                                                                                                                                           | Required?                   |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
@@ -144,9 +135,3 @@ models/\<model\_name>.sql
 | `distributed_by`    | The bucket key list of Doris. ([Doris distribute](https://doris.apache.org/docs/data-table/data-partition#partitioning-and-bucket))                                                   | Required                    |
 | `buckets`           | The bucket number in one Doris partition.                                                                                                                                             | Required                    |
 | `properties`        | The other configuration of Doris. ([Doris properties](https://doris.apache.org/docs/sql-manual/sql-reference/Data-Definition-Statements/Create/CREATE-TABLE/?&_highlight=properties)) | Required                    |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

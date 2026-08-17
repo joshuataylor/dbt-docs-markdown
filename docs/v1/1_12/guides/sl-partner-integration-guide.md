@@ -12,7 +12,7 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 To fit your tool within the world of the Semantic Layer, dbt Labs offers some best practice recommendations for how to expose metrics and allow users to interact with them seamlessly.
 
@@ -24,7 +24,7 @@ Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/cours
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 To build a Semantic Layer integration:
 
@@ -35,13 +35,13 @@ To build a Semantic Layer integration:
   * [Semantic models](../docs/build/semantic-models.md) — Nodes in your semantic graph, connected via entities as edges. MetricFlow takes semantic models defined in YAML configuration files as inputs and creates a semantic graph that you can use to query metrics.
   * [Metrics](../docs/build/metrics-overview.md) — Can be defined in the same YAML files as your semantic models, or split into separate YAML files into any other subdirectories (provided that these subdirectories are also within the same dbt project repo).
 
-### Connection parameters[​](#connection-parameters "Direct link to Connection parameters")
+### Connection parameters
 
 The dbt Semantic Layer APIs authenticate with `environmentId`, `SERVICE_TOKEN`, and `host`.
 
 We recommend you provide users with separate input fields with these components for authentication (dbt will surface these parameters for the user).
 
-### Exposing metadata to dbt Labs[​](#exposing-metadata-to-dbt-labs "Direct link to Exposing metadata to dbt Labs")
+### Exposing metadata to dbt Labs
 
 When building an integration, we recommend you expose certain metadata in the request for analytics and troubleshooting purpose.
 
@@ -51,7 +51,7 @@ Please send us the following header with every query:
 
 Additionally, it would be helpful if you also included the email and username of the person generating the query from your application.
 
-## Use best practices when exposing metrics[​](#use-best-practices-when-exposing-metrics "Direct link to Use best practices when exposing metrics")
+## Use best practices when exposing metrics
 
 Best practices for exposing metrics are summarized into five themes:
 
@@ -61,7 +61,7 @@ Best practices for exposing metrics are summarized into five themes:
 * [Query flexibility](#query-flexibility) — Allow users to query either one metric alone without dimensions or multiple metrics with dimensions.
 * [Context and interpretation](#context-and-interpretation) — Contextualize metrics for better analysis; expose definitions, metadata, lineage, and freshness.
 
-### Governance and traceability[​](#governance-and-traceability "Direct link to Governance and traceability")
+### Governance and traceability
 
 When working with more governed data, it's essential to establish clear guardrails. Here are some recommendations:
 
@@ -73,7 +73,7 @@ When working with more governed data, it's essential to establish clear guardrai
 
 * **Traceability of metric and dimension changes** — When users change names of metrics and dimensions for reports, it's crucial to have a traceability mechanism in place to link back to the original source metric name.
 
-### Discoverability[​](#discoverability "Direct link to Discoverability")
+### Discoverability
 
 * Consider treating [metrics](../docs/build/metrics-overview.md) as first-class objects rather than measures. Metrics offer a higher-level and more contextual way to interact with data, reducing the burden on end-users to manually aggregate data.
 
@@ -88,7 +88,7 @@ When working with more governed data, it's essential to establish clear guardrai
 
 By implementing these recommendations, the data interaction process becomes more user-friendly, empowering users to gain valuable insights without the need for extensive data manipulation.
 
-### Organization[​](#organization "Direct link to Organization")
+### Organization
 
 We recommend organizing metrics and dimensions in ways that a non-technical user can understand the data model, without needing much context:
 
@@ -98,7 +98,7 @@ We recommend organizing metrics and dimensions in ways that a non-technical user
 
 * **Using saved queries** — The Semantic Layer has a concept of [saved queries](../docs/build/saved-queries.md) which allows users to pre-build slices of metrics, dimensions, filters to be easily accessed. You should surface these as first class objects in your integration. Refer to the [JDBC](../docs/dbt-apis/sl-jdbc.md) and [GraphQL](../docs/dbt-apis/sl-graphql.md) APIs for syntax.
 
-### Query flexibility[​](#query-flexibility "Direct link to Query flexibility")
+### Query flexibility
 
 Allow users to query either one metric alone without dimensions or multiple metrics with dimensions.
 
@@ -120,7 +120,7 @@ Allow users to query either one metric alone without dimensions or multiple metr
 
   * For example, last 30 days, last week, and so on.
 
-### Context and interpretation[​](#context-and-interpretation "Direct link to Context and interpretation")
+### Context and interpretation
 
 For better analysis, it's best to have the context of the metrics close to where the analysis is happening. We recommend the following:
 
@@ -135,15 +135,15 @@ For better analysis, it's best to have the context of the metrics close to where
 
 * Allow for creating other metadata that’s useful for the metric. We can provide some of this information in our configuration (Display name, Default Granularity for View, Default Time range), but there may be other metadata that your tool wants to provide to make the metric richer.
 
-### Transparency and using compile[​](#transparency-and-using-compile "Direct link to Transparency and using compile")
+### Transparency and using compile
 
 For transparency and additional context, we recommend you have an easy way for the user to obtain the SQL that MetricFlow generates. Depending on what API you are using, you can do this by using our `compile` parameter. This is incredibly powerful and emphasizes transparency and openness, particularly for technically inclined users.
 
-### Where filters and optimization[​](#where-filters-and-optimization "Direct link to Where filters and optimization")
+### Where filters and optimization
 
 In the cases where our APIs support either a string or a filter list for the `where` clause, we always recommend that your application utilizes the filter list in order to gain maximum pushdown benefits. The `where` string may be more intuitive for users writing queries during testing, but it will not have the performance benefits of the filter list in a production environment.
 
-## Understand stages of an integration[​](#understand-stages-of-an-integration "Direct link to Understand stages of an integration")
+## Understand stages of an integration
 
 These are recommendations on how to evolve a Semantic Layer integration and not a strict runbook.
 
@@ -163,8 +163,6 @@ These are recommendations on how to evolve a Semantic Layer integration and not 
 
 * More advanced filtering
 
-  <!-- -->
-
   * Time filters with good presets/calendar UX
   * Filtering metrics on a pre-populated set of dimension values
 
@@ -180,7 +178,7 @@ These are recommendations on how to evolve a Semantic Layer integration and not 
 * Querying dimensions without metrics and other more advanced querying functionality
 * Suggest metrics to users based on teams/identity, and so on.
 
-### Related docs[​](#related-docs "Direct link to Related docs")
+### Related docs
 
 * [Semantic Layer FAQs](../docs/use-dbt-semantic-layer/sl-faqs.md)
 * [Use the Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) to learn about the product.

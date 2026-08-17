@@ -1,45 +1,31 @@
 # Connect SingleStore to dbt Core
 
-Local developmentⓘ
+Local development
 
 Vendor-supported plugin
 
 Certain core functionality may vary. If you would like to report a bug, request a feature, or contribute, you can check out the linked repository and open an issue.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  SingleStore, Inc.
-* **Authors**:
-  <!-- -->
-  SingleStore, Inc.
+* **Maintained by**: SingleStore, Inc.
+* **Authors**: SingleStore, Inc.
 * **GitHub repo**: [memsql/dbt-singlestore](https://github.com/memsql/dbt-singlestore) [![](https://img.shields.io/github/stars/memsql/dbt-singlestore?style=for-the-badge)](https://github.com/memsql/dbt-singlestore)
 * **PyPI package**: `dbt-singlestore` [![](https://badge.fury.io/py/dbt-singlestore.svg)](https://badge.fury.io/py/dbt-singlestore)
 * **Slack channel**: [db-singlestore](https://getdbt.slack.com/archives/C02V2QHFF7U)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.0.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not supported
-* **Minimum data platform version**:
-  <!-- -->
-  v7.5
+* **Supported dbt Core version**: v1.0.0 and newer
+* **dbt support**: Not supported
+* **Minimum data platform version**: v7.5
 
-## Installing <!-- -->dbt-singlestore
+## Installing dbt-singlestore
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-singlestore`
 
-## Configuring <!-- -->dbt-singlestore<!-- -->
+## Configuring dbt-singlestore
 
-For <!-- -->SingleStore<!-- -->-specific configuration, please refer to [SingleStore<!-- --> configs.](../../../reference/resource-configs/singlestore-configs.md)
+For SingleStore-specific configuration, please refer to [SingleStore configs.](../../../reference/resource-configs/singlestore-configs.md)
 
-### Set up a SingleStore Target[​](#set-up-a-singlestore-target "Direct link to Set up a SingleStore Target")
+### Set up a SingleStore Target
 
 SingleStore targets should be set up using the following configuration in your `profiles.yml` file. If you are using SingleStore Managed Service, required connection details can be found on your Cluster Page under "Connect" -> "SQL IDE" tab.
 
@@ -62,7 +48,7 @@ singlestore:
 
 It is recommended to set optional parameters as well.
 
-### Description of SingleStore Profile Fields[​](#description-of-singlestore-profile-fields "Direct link to Description of SingleStore Profile Fields")
+### Description of SingleStore Profile Fields
 
 | Field      | Required | Description                                                                                                                                                                                                                              |
 | ---------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -74,13 +60,7 @@ It is recommended to set optional parameters as well.
 | `schema`   | Yes      | The string to prefix the names of generated tables if `generate_alias_name` macro is added (see below). If you are using a custom schema name in your model config, it will be concatenated with the one specified in profile using `_`. |
 | `threads`  | No       | The number of threads available to dbt.                                                                                                                                                                                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Schema and Concurrent Development[​](#schema-and-concurrent-development "Direct link to Schema and Concurrent Development")
+## Schema and Concurrent Development
 
 SingleStore doesn't have a concept of `schema` that corresponds to one used in `dbt` (namespace within a database). `schema` in your profile is required for `dbt` to work correctly with your project metadata. For example, you will see it on "dbt docs" page, even though it's not present in the database.
 

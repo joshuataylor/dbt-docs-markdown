@@ -1,6 +1,6 @@
 # Set up self-hosted MCP
 
-Local developmentⓘ
+Local development
 
 [The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt CLI. You can use it with or without a dbt platform account.
 
@@ -10,7 +10,7 @@ You don't need to clone the dbt-mcp repository to use self-hosted MCP. [Install 
 
 If you'd like to contribute to dbt MCP, clone the [dbt-mcp repo](https://github.com/dbt-labs/dbt-mcp) and contribute away!
 
-## Tool requirements at a glance[​](#tool-requirements-at-a-glance "Direct link to Tool requirements at a glance")
+## Tool requirements at a glance
 
 Use this table to understand what each toolset needs and whether it works with or without a dbt platform account:
 
@@ -24,23 +24,17 @@ Use this table to understand what each toolset needs and whether it works with o
 | Codegen                       | `DBT_PROJECT_DIR`, `DBT_PATH`, and `DISABLE_DBT_CODEGEN=false` | Yes                     | Yes                        |
 | LSP / Fusion                  | `DBT_PROJECT_DIR`, `DBT_PATH`, and the dbt VS Code extension   | Yes                     | Yes                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Toolsets auto-disable when required variables are missing
 
 If a required variable is not set, dbt-mcp will automatically disable that toolset rather than error. For example, if `DBT_HOST` is not configured, the Semantic Layer, Discovery, and Admin API toolsets won't be available. To confirm which toolsets are active, set `DBT_MCP_LOG_LEVEL=DEBUG` in your environment and check the [server logs](#debug-configurations).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/) to be able to run `dbt-mcp` and [related dependencies](https://github.com/dbt-labs/dbt-mcp/blob/main/pyproject.toml) into an isolated virtual environment.
 * Have a local dbt project (if you want to use dbt CLI commands).
 * If you're using [OAuth with dbt platform](#oauth-authentication-with-dbt-platform), your account admin has to enable AI features on your dbt platform account. Refer to [Enable dbt AI](../platform/enable-dbt-ai.md) for more info.
 
-## Choose your auth method[​](#choose-your-auth-method "Direct link to Choose your auth method")
+## Choose your auth method
 
 If you're connecting to dbt platform features (Semantic Layer, Discovery API, Admin API, or SQL execution), you need to authenticate. Use this table to choose the right method:
 
@@ -51,21 +45,15 @@ If you're connecting to dbt platform features (Semantic Layer, Discovery API, Ad
 | Shared or team setup     | **Service token**                                                               |
 | CI or automation         | **Service token**                                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 `execute_sql` requires a PAT
 
 The `execute_sql` tool does *not* work with service tokens. You must use a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md) for `DBT_TOKEN` when using this tool.
 
-## Setup options[​](#setup-options "Direct link to Setup options")
+## Setup options
 
 Choose the setup method that best fits your workflow:
 
-### OAuth authentication with dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#oauth-authentication-with-dbt-platform- "Direct link to oauth-authentication-with-dbt-platform-")
+### OAuth authentication with dbt platform [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 This method uses OAuth to authenticate with your dbt platform account. It's the simplest setup and doesn't require managing tokens or environment variables manually.
 
@@ -73,10 +61,9 @@ Static subdomains required
 
 Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
-#### Configuration options[​](#configuration-options "Direct link to Configuration options")
+#### Configuration options
 
-* dbt platform only
-* dbt platform + CLI
+### dbt platform only
 
 This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -97,6 +84,8 @@ When you use only the dbt platform, the CLI tools are automatically disabled. Yo
 ```
 
 **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
+
+### dbt platform + CLI
 
 This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -126,7 +115,7 @@ Once configured, your session connects to the dbt platform account, starts the O
 
 After completing OAuth setup, skip to [Test your configuration](#optional-test-your-configuration).
 
-### CLI only (no dbt platform)[​](#cli-only "Direct link to CLI only (no dbt platform)")
+### CLI only (no dbt platform)
 
 This option runs the MCP server locally and connects it to your local dbt project using `DBT_PROJECT_DIR` and `DBT_PATH`.
 
@@ -149,7 +138,7 @@ Add this configuration to your MCP client (refer to the specific [integration gu
 }
 ```
 
-#### Locating your paths[​](#locating-your-paths "Direct link to Locating your paths")
+#### Locating your paths
 
 Follow the appropriate instructions for your OS to locate your path:
 
@@ -188,7 +177,7 @@ Follow the appropriate instructions for your OS to locate your path:
 
 After completing this setup, skip to [Test your configuration](#optional-test-your-configuration).
 
-### Environment variable configuration[​](#environment-variable-configuration "Direct link to Environment variable configuration")
+### Environment variable configuration
 
 If you need to configure multiple environment variables or prefer to manage them separately, you can use an `.env` file or pass them inline. You only need to supply the variables relevant to your setup — dbt CLI variables for CLI-only use, or dbt platform variables for platform features. For the complete list of variables, enabling or disabling toolsets, and logging options, see the [Environment variables reference](./mcp-environment-variables.md).
 
@@ -198,10 +187,7 @@ Create the `.env` file in your *dbt project root* (the same folder as `dbt_proje
 
 Pick the `.env` example that matches your setup. Only include the variables you need:
 
-* CLI only
-* dbt platform only
-* CLI and dbt platform (most common)
-* All variables
+### CLI only
 
 Use this if you're running dbt commands locally and don't need dbt platform features (Discovery API, Semantic Layer, etc.):
 
@@ -210,6 +196,8 @@ DBT_PROJECT_DIR=/path/to/your/dbt/project
 DBT_PATH=/path/to/your/dbt/executable
 ```
 
+### dbt platform only
+
 Use this if you only need dbt platform features and won't run dbt commands:
 
 ```code
@@ -217,6 +205,8 @@ DBT_HOST=cloud.getdbt.com
 DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
+
+### CLI and dbt platform (most common)
 
 Use this if you want both dbt CLI commands and dbt platform features:
 
@@ -227,6 +217,8 @@ DBT_HOST=cloud.getdbt.com
 DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
+
+### All variables
 
 A complete reference of all available variables. Most setups only need a subset of these — refer to the [API and SQL tool settings](#api-and-sql-tool-settings) and [dbt CLI settings](#dbt-cli-settings) tables for details on each variable.
 
@@ -241,13 +233,11 @@ DBT_PROJECT_DIR=/path/to/your/dbt/project
 DBT_PATH=/path/to/your/dbt/executable
 ```
 
-#### How to pass environment variables to dbt-mcp[​](#how-to-pass-environment-variables-to-dbt-mcp "Direct link to How to pass environment variables to dbt-mcp")
+#### How to pass environment variables to dbt-mcp
 
 Here are some of the ways to pass environment variables. We recommend using an `.env` file with `--env-file` for most setups:
 
-* .env file with \`--env-file\`
-* Inline in the MCP client config
-* Shell environment variables
+### .env file with \`--env-file\`
 
 **1. `.env` file with `--env-file` (recommended)** (make sure to use an absolute path in `args`):
 
@@ -269,6 +259,8 @@ Reference the file using an absolute path in your MCP client config:
 ```
 
 Replace `/absolute/path/to/your-dbt-project` with the full path to the folder containing your `dbt_project.yml`.
+
+### Inline in the MCP client config
 
 **2. Inline in the MCP client config**:
 
@@ -292,6 +284,8 @@ Pass variables directly in the `env` field, replacing the values with your actua
 }
 ```
 
+### Shell environment variables
+
 **3. Shell environment variables**
 
 Export variables in your terminal before starting the MCP client, replacing the values with your actual ones:
@@ -303,7 +297,7 @@ export DBT_PROJECT_DIR=/path/to/project
 uvx dbt-mcp
 ```
 
-## API and SQL tool settings[​](#api-and-sql-tool-settings "Direct link to API and SQL tool settings")
+## API and SQL tool settings
 
 | Environment variable | Required                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | -------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -313,12 +307,6 @@ uvx dbt-mcp
 | `DBT_PROD_ENV_ID`    | Required                                                 | Your dbt platform production environment ID                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `DBT_DEV_ENV_ID`     | Optional                                                 | Your dbt platform development environment ID                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `DBT_USER_ID`        | Optional                                                 | Your dbt platform user ID ([docs](../../faqs/Accounts/find-user-id.md))                                                                                                                                                                                                                                                                                                                                                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Use values only, not full URLs
 
@@ -346,7 +334,7 @@ DBT_ACCOUNT_ID=12345          # Required when using PAT-based auth
 
 You don't need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`.
 
-## Environment variables[​](#environment-variables "Direct link to Environment variables")
+## Environment variables
 
 The self-hosted dbt-mcp supports all flavors of dbt, including dbt Core and dbt Fusion engine.
 
@@ -356,13 +344,7 @@ The self-hosted dbt-mcp supports all flavors of dbt, including dbt Core and dbt 
 | `DBT_PATH`           | Required | The full path to your dbt executable (dbt Core/Fusion/dbt CLI). See the next section for how to find this.                              | macOS/Linux: `/opt/homebrew/bin/dbt`<br />Windows: `C:/Python39/Scripts/dbt.exe` |
 | `DBT_CLI_TIMEOUT`    | Optional | Configure the number of seconds before your agent will timeout dbt commands.                                                            | Defaults to 60 seconds.                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Locating your `DBT_PATH`[​](#locating-your-dbt_path "Direct link to locating-your-dbt_path")
+### Locating your `DBT_PATH`
 
 Follow the instructions for your OS to locate your `DBT_PATH`:
 
@@ -394,7 +376,7 @@ Example output: `C:\Python39\Scripts\dbt.exe`
 * dbt MCP respects the standard environment variables and flags for usage tracking mentioned [here](../../reference/global-configs/usage-stats.md).
 * `DBT_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}'` is automatically set so that the MCP server knows if no node is selected when running a dbt command. You can overwrite it if needed, but it provides a better experience when calling dbt from the MCP server, ensuring the tool selects valid nodes.
 
-## Controlling tool access[​](#controlling-tool-access "Direct link to Controlling tool access")
+## Controlling tool access
 
 dbt-mcp has two modes for controlling which tools are available. Pick one approach:
 
@@ -408,7 +390,7 @@ Which mode should I use?
 
 **Do not mix both modes** for the same toolset. For example, don't set both `DISABLE_SEMANTIC_LAYER=true` and `DBT_MCP_ENABLE_SEMANTIC_LAYER=true` together — the behavior may be unpredictable.
 
-### Disable mode (default)[​](#disable-mode "Direct link to Disable mode (default)")
+### Disable mode (default)
 
 All tools are available by default. Set any of these to `true` to turn off a toolset:
 
@@ -424,13 +406,7 @@ All tools are available by default. Set any of these to `true` to turn off a too
 | `DISABLE_MCP_SERVER_METADATA` | `true`  | MCP server metadata tools (like `get_mcp_server_version`) are disabled by default. Set to `false` to enable.                                                                        |
 | `DISABLE_TOOLS`               | `""`    | A comma-separated list of specific tool names to disable.                                                                                                                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Enable mode[​](#enable-mode "Direct link to Enable mode")
+### Enable mode
 
 Use `DBT_MCP_ENABLE_*` variables when you want to explicitly allowlist which toolsets are available. When an enable variable is set, only the enabled toolsets will be active:
 
@@ -445,13 +421,7 @@ Use `DBT_MCP_ENABLE_*` variables when you want to explicitly allowlist which too
 | `DBT_MCP_ENABLE_LSP`            | Not set | Set to `true` to enable LSP/Fusion tools.                |
 | `DBT_MCP_ENABLE_TOOLS`          | Not set | A comma-separated list of specific tool names to enable. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Precedence[​](#precedence "Direct link to Precedence")
+### Precedence
 
 When multiple variables are set, they are evaluated in this order (highest priority first):
 
@@ -461,7 +431,7 @@ When multiple variables are set, they are evaluated in this order (highest prior
 4. Toolset disable (`DISABLE_*=true`)
 5. Default behavior
 
-## (Optional) Test your configuration[​](#optional-test-your-configuration "Direct link to (Optional) Test your configuration")
+## (Optional) Test your configuration
 
 In your command line tool, run the following to test your setup:
 
@@ -481,7 +451,7 @@ uvx --env-file /absolute/path/to/your-dbt-project/.env dbt-mcp
 
 If there are no errors, your configuration is correct.
 
-## Set up your MCP client[​](#set-up-your-mcp-client "Direct link to Set up your MCP client")
+## Set up your MCP client
 
 After completing your configuration, follow the specific integration guide for your chosen tool:
 
@@ -489,7 +459,7 @@ After completing your configuration, follow the specific integration guide for y
 * [Cursor](./integrate-mcp-cursor.md)
 * [VS Code](./integrate-mcp-vscode.md)
 
-## Debug configurations[​](#debug-configurations "Direct link to Debug configurations")
+## Debug configurations
 
 These settings allow you to customize the MCP server’s logging level to help with diagnosing and troubleshooting.
 
@@ -497,15 +467,9 @@ These settings allow you to customize the MCP server’s logging level to help w
 | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `DBT_MCP_LOG_LEVEL` | `INFO`  | Environment variable to override the MCP server log level. Options are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 To see more detail about what’s happening inside the MCP server and help debug issues, you can temporarily set the log level to `DEBUG`. We recommend setting it temporarily to avoid filling up disk space with logs.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  Can't find the uvx executable
 
@@ -553,8 +517,6 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 1. Close your MCP client (Claude Desktop, Cursor, VS Code, etc.).
 
 2. Delete the self-hosted dbt MCP config files:
-
-   <!-- -->
 
    * macOS/Linux: `rm -f ~/.dbt/mcp.yml ~/.dbt/mcp.lock`
    * Windows: `Remove-Item -Force $env:USERPROFILE\.dbt\mcp.yml, $env:USERPROFILE\.dbt\mcp.lock`

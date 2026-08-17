@@ -8,7 +8,7 @@ The majority of joins you see in analytics work and dbt projects will probably b
 
 It’s ok if none of that made sense—jump into this page to better understand how and where you might use a self join in your analytics engineering work.
 
-## How to create a self join[​](#how-to-create-a-self-join "Direct link to How to create a self join")
+## How to create a self join
 
 No funny venn diagrams here—there’s actually even no special syntax for self joins. To create a self join, you’ll use a regular join syntax, the only differences is the join objects are *the same*:
 
@@ -22,7 +22,7 @@ on t1.id = t2.id
 
 Since you can choose the dialect of join for a self join, you can specify if you want to do a [left](./left-join.md), [outer](./outer-join.md), [inner](./inner-join.md), [cross](./cross-join.md), or [right join](./right-join.md) in the join statement.
 
-### SQL self join example[​](#sql-self-join-example "Direct link to SQL self join example")
+### SQL self join example
 
 Given a `products` table that looks likes this, where there exists both a primary key (`sku_id`) and foreign key (`parent_id`) to that primary key:
 
@@ -32,12 +32,6 @@ Given a `products` table that looks likes this, where there exists both a primar
 | 2           | Holloway Desk | 3              |
 | 3           | Basic Desk    | null           |
 | 4           | Basic Bed     | null           |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 And this query utilizing a self join to join `parent_name` onto skus:
 
@@ -61,13 +55,7 @@ This query utilizing a self join adds the `parent_name` of skus that have non-nu
 | 3       | Basic Desk    | null       | null         |
 | 4       | Basic Bed     | null       | null         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL self join use cases[​](#sql-self-join-use-cases "Direct link to SQL self join use cases")
+## SQL self join use cases
 
 Again, self joins are probably rare in your dbt project and will most often be utilized in tables that contain a hierarchical structure, such as consisting of a column which is a foreign key to the primary key of the same table. If you do have use cases for self joins, such as in the example above, you’ll typically want to perform that self join early upstream in your DAG, such as in a [staging](../best-practices/how-we-structure/2-staging.md) or [intermediate](../best-practices/how-we-structure/3-intermediate.md) model; if your raw, unjoined table is going to need to be accessed further downstream sans self join, that self join should happen in a modular intermediate model.
 

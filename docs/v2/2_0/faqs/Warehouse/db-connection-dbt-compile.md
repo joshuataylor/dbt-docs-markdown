@@ -2,7 +2,7 @@
 
 `dbt compile` needs a data platform connection in order to gather the info it needs (including from introspective queries) to prepare the SQL for every model in your project.
 
-### dbt compile[​](#dbt-compile "Direct link to dbt compile")
+### dbt compile
 
 The [`dbt compile` command](../../reference/commands/compile.md) generates executable SQL from `source`, `model`, `test`, and `analysis` files. `dbt compile` is similar to `dbt run` except that it doesn't materialize the model's compiled SQL into an existing table. So, up until the point of materialization, `dbt compile` and `dbt run` are similar because they both require a data platform connection, run queries, and have an [`execute` variable](../../reference/dbt-jinja-functions/execute.md) set to `True`.
 
@@ -11,7 +11,7 @@ However, here are some things to consider:
 * You don't need to execute `dbt compile` before `dbt run`
 * In dbt, `compile` doesn't mean `parse`. This is because `parse` validates your written `YAML`, configured tags, and so on.
 
-### Introspective queries[​](#introspective-queries "Direct link to Introspective queries")
+### Introspective queries
 
 To generate the compiled SQL for many models, dbt needs to run introspective queries, (which is when dbt needs to run SQL in order to pull data back and do something with it) against the data platform.
 

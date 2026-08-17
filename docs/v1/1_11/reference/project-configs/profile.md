@@ -6,18 +6,18 @@ dbt\_project.yml
 profile: string
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The profile your dbt project should use to connect to your data warehouse.
 
 * If you are developing in dbt: This configuration is not applicable
 * If you are developing locally: This configuration is required, unless a command-line option like [`--profile`](../../docs/local/profiles.yml.md#overriding-profiles-and-targets) is supplied. The `--profile` flag overrides the profile set in `dbt_project.yml`.
 
-## Related guides[​](#related-guides "Direct link to Related guides")
+## Related guides
 
 * [Connecting to your warehouse using the command line](../../docs/local/profiles.yml.md#connecting-to-your-warehouse-using-the-command-line)
 
-## Recommendation[​](#recommendation "Direct link to Recommendation")
+## Recommendation
 
 Often an organization has only one data warehouse, so it is sensible to use your organization's name as a profile name, in `snake_case`. For example:
 

@@ -12,8 +12,6 @@ To change the license type for a user from `developer` to `read-only` or `IT` in
 
 [![Change user's license type](/img/docs/dbt-platform/change_user_to_read_only_20221023.gif?v=2 "Change user's license type")](#)Change user's license type
 
-<!-- -->
-
 License types override group permissions
 
 **User license types always override their assigned group permission sets.** For example, a user with a Read-Only license cannot perform administrative actions, even if they belong to an Account Admin group.

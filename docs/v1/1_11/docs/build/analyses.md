@@ -1,6 +1,6 @@
 # Analyses
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 dbt's notion of `models` makes it easy for data teams to version control and collaborate on data transformations. Sometimes though, a certain SQL statement doesn't quite fit into the mold of a dbt model. These more "analytical" SQL files can be versioned inside of your dbt project using the `analysis` functionality of dbt.
 
@@ -59,9 +59,7 @@ analyses:
 
 For more information, refer to [Analysis properties](../../reference/analysis-properties.md).
 
-<!-- -->
-
-## Compiling analyses[​](#compiling-analyses "Direct link to Compiling analyses")
+## Compiling analyses
 
 To compile this analysis into runnable sql, run:
 

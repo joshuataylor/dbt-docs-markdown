@@ -1,37 +1,25 @@
 # Connect IBM watsonx.data Spark to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  IBM
-* **Authors**:
-  <!-- -->
-  Bayan Albunayan, Reema Alzaid, Manjot Sidhu
+* **Maintained by**: IBM
+* **Authors**: Bayan Albunayan, Reema Alzaid, Manjot Sidhu
 * **GitHub repo**: [IBM/dbt-watsonx-spark](https://github.com/IBM/dbt-watsonx-spark) [![](https://img.shields.io/github/stars/IBM/dbt-watsonx-spark?style=for-the-badge)](https://github.com/IBM/dbt-watsonx-spark)
 * **PyPI package**: `dbt-watsonx-spark` [![](https://badge.fury.io/py/dbt-watsonx-spark.svg)](https://badge.fury.io/py/dbt-watsonx-spark)
 * **Slack channel**:[]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.0.8
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.0.8 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-watsonx-spark
+## Installing dbt-watsonx-spark
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-watsonx-spark`
 
-## Configuring <!-- -->dbt-watsonx-spark<!-- -->
+## Configuring dbt-watsonx-spark
 
-For <!-- -->IBM watsonx.data<!-- -->-specific configuration, please refer to [IBM watsonx.data<!-- --> configs.](https://docs.getdbt.com/reference/resource-configs/watsonx-Spark-config)
+For IBM watsonx.data-specific configuration, please refer to [IBM watsonx.data configs.](https://docs.getdbt.com/reference/resource-configs/watsonx-Spark-config)
 
 The `dbt-watsonx-spark` adapter allows you to use dbt to transform and manage data on IBM watsonx.data Spark, leveraging its distributed SQL query engine capabilities.
 
@@ -46,7 +34,7 @@ Read the official documentation for using **watsonx.data** with `dbt-watsonx-spa
 * [Documentation for IBM Cloud and SaaS offerings](https://cloud.ibm.com/docs/watsonxdata?topic=watsonxdata-dbt_watsonx_spark_inst)
 * [Documentation for IBM watsonx.data software](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=integration-data-build-tool-adapter-spark)
 
-## Installing dbt-watsonx-spark[​](#installing-dbt-watsonx-spark "Direct link to Installing dbt-watsonx-spark")
+## Installing dbt-watsonx-spark
 
 Note: Installing an adapter doesn't install 'dbt Core' automatically. This is because adapters and dbt Core versions are decoupled to avoid overwriting dbt Core installations. Use the following command for installation:
 
@@ -54,11 +42,11 @@ Note: Installing an adapter doesn't install 'dbt Core' automatically. This is be
 python -m pip install <Constant name="core" /> dbt-watsonx-spark
 ```
 
-## Configuring `dbt-watsonx-spark`[​](#configuring-dbt-watsonx-spark "Direct link to configuring-dbt-watsonx-spark")
+## Configuring `dbt-watsonx-spark`
 
 For IBM watsonx.data-specific configuration, refer to [IBM watsonx.data configs.](../../../reference/resource-configs/watsonx-spark-config.md)
 
-## Connecting to IBM watsonx.data Spark[​](#connecting-to-ibm-watsonxdata-spark "Direct link to Connecting to IBM watsonx.data Spark")
+## Connecting to IBM watsonx.data Spark
 
 To connect dbt with watsonx.data Spark, configure a profile in your `profiles.yml` file located in the `.dbt/` directory of your home folder. The following is an example configuration for connecting to IBM watsonx.data SaaS and Software instances:
 
@@ -82,7 +70,7 @@ project_name:
         apikey: [apikey]
 ```
 
-## Host parameters[​](#host-parameters "Direct link to Host parameters")
+## Host parameters
 
 The following profile fields are required to configure watsonx.data Spark connections. For IBM watsonx.data SaaS or Software instances, To get the 'profile' details, click 'View connect details' when the 'query server' is in RUNNING status in watsonx.data (In watsonx.data (both SaaS or Software). The Connection details page opens with the profile configuration. Copy and paste the connection details in the profiles.yml file that is located in .dbt of your home directory
 
@@ -100,22 +88,16 @@ The following profile fields are required to configure watsonx.data Spark connec
 | `user`     | Required                      | Username for the watsonx.data instance. for \[Saas] use email as username                                                                                                                                                                                | `username` or `user@example.com`                                                       |
 | `apikey`   | Required                      | Your API key. For more info on [SaaS](https://www.ibm.com/docs/en/software-hub/5.1.x?topic=started-generating-api-keys), For [Software](https://cloud.ibm.com/docs/account?topic=account-userapikey\&interface=ui#manage-user-keys)                      | `API key`                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Schemas and catalogs[​](#schemas-and-catalogs "Direct link to Schemas and catalogs")
+### Schemas and catalogs
 
 When selecting the catalog, ensure the user has read and write access. This selection does not limit your ability to query into the schema spcified/created but also serves as the default location for materialized `tables`, `views`, and `incremental`.
 
-### SSL verification[​](#ssl-verification "Direct link to SSL verification")
+### SSL verification
 
 * If the Spark instance uses an unsecured HTTP connection, set `use_ssl` to `false`.
 * If the instance uses `HTTPS`, set it `true`.
 
-## Additional parameters[​](#additional-parameters "Direct link to Additional parameters")
+## Additional parameters
 
 The following profile fields are optional. You can configure the instance session and dbt for the connection.
 
@@ -126,13 +108,7 @@ The following profile fields are optional. You can configure the instance sessio
 | `connect_timeout` | Timeout for establishing a connection (in seconds).          | `5`     |
 | `connect_retries` | Number of retry attempts for connection failures.            | `3`     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Limitations and considerations[​](#limitations-and-considerations "Direct link to Limitations and considerations")
+## Limitations and considerations
 
 * **Supports only HTTP**: No support for ODBC, Thrift, or session-based connections.
 * **Limited dbt Support**: Not fully compatible with dbt.

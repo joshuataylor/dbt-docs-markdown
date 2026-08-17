@@ -1,6 +1,6 @@
 # Set up SSO with Okta
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt Enterprise-tier plans support single-sign on via Okta (using SAML).
 
@@ -16,9 +16,9 @@ Currently supported SSO features include:
 
 This guide outlines the setup process for authenticating to dbt with Okta.
 
-## Configuration in Okta[​](#configuration-in-okta "Direct link to Configuration in Okta")
+## Configuration in Okta
 
-### Create a new application[​](#create-a-new-application "Direct link to Create a new application")
+### Create a new application
 
 Note: You'll need administrator access to your Okta organization to follow this guide.
 
@@ -35,7 +35,7 @@ Click **Create** to continue the setup process.
 
 [![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")](#)Configure a new app
 
-### Configure the Okta application[​](#configure-the-okta-application "Direct link to Configure the Okta application")
+### Configure the Okta application
 
 On the **General Settings** page, enter the following details::
 
@@ -46,11 +46,9 @@ Click **Next** to continue.
 
 [![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")](#)Configure the app's General Settings
 
-### Configure SAML Settings[​](#configure-saml-settings "Direct link to Configure SAML Settings")
+### Configure SAML Settings
 
 The SAML Settings page configures how Okta and dbt communicate. You will want to use an [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
-
-<!-- -->
 
 To complete this section, you will need your login URL slug. This slug controls the URL where users on your account can log into your application. dbt automatically generates login URL slugs, which can't be altered. It will contain only letters, numbers, and dashes. For example, the login URL slug for dbt Labs would look something like `dbt-labs-afk123`. Login URL slugs are unique across all dbt accounts.
 
@@ -84,23 +82,11 @@ Expected **User Attribute Statements**:
 | `first_name` | Unspecified | `user.firstName` | *The user's first name*    |
 | `last_name`  | Unspecified | `user.lastName`  | *The user's last name*     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Expected **Group Attribute Statements**:
 
 | Name     | Name format | Filter        | Value | Description                           |
 | -------- | ----------- | ------------- | ----- | ------------------------------------- |
 | `groups` | Unspecified | Matches regex | `.*`  | *The groups that the user belongs to* |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 **Note:** You may use a more restrictive Group Attribute Statement than the example shown above. For example, if all of your dbt groups start with `DBT_CLOUD_`, you may use a filter like `Starts With: DBT_CLOUD_`. **Okta only returns 100 groups for each user, so if your users belong to more than 100 IdP groups, you will need to use a more restrictive filter**. Please contact support if you have any questions.
 
@@ -108,13 +94,13 @@ Search table...
 
 Click **Next** to continue.
 
-### Finish Okta setup[​](#finish-okta-setup "Direct link to Finish Okta setup")
+### Finish Okta setup
 
 Select *I'm an Okta customer adding an internal app*, and select *This is an internal app that we have created*. Click **Finish** to finish setting up the app.
 
 [![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")](#)Finishing setup in Okta
 
-### View setup instructions[​](#view-setup-instructions "Direct link to View setup instructions")
+### View setup instructions
 
 On the next page, click **View Setup Instructions**. In the steps below, you'll supply these values in your dbt Account Settings to complete the integration between Okta and dbt.
 
@@ -122,11 +108,11 @@ On the next page, click **View Setup Instructions**. In the steps below, you'll 
 
 [![Application setup instructions](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-instructions.png?v=2 "Application setup instructions")](#)Application setup instructions
 
-## Configuration in dbt[​](#configuration-in-dbt "Direct link to Configuration in dbt")
+## Configuration in dbt
 
 To complete setup, follow the steps below in dbt.
 
-### Supplying credentials[​](#supplying-credentials "Direct link to Supplying credentials")
+### Supplying credentials
 
 1. Navigate to **Account settings** > **SSO & SCIM**.
 2. Click **Get started** if SSO has not been configured, or **Edit** if it has already been set up.
@@ -138,12 +124,6 @@ To complete setup, follow the steps below in dbt.
 | **Identity Provider SSO Url** | Paste the **Identity Provider Single Sign-On URL** shown in the Okta setup instructions                                                                                                                                      |
 | **Identity Provider Issuer**  | Paste the **Identity Provider Issuer** shown in the Okta setup instructions                                                                                                                                                  |
 | **X.509 Certificate**         | Paste the **X.509 Certificate** shown in the Okta setup instructions;<br />**Note:** When the certificate expires, an Okta admin will have to generate a new one to be pasted into dbt for uninterrupted application access. |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 [![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")](#)Configuring the application in dbt
 
@@ -159,7 +139,7 @@ For SSO through your identity provider, you can also use the following URL forma
 
 Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
-## Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
+## Setting up RBAC
 
 Now you have completed setting up SSO with Okta, the next steps will be to set up [RBAC groups](./about-user-access.md#role-based-access-control-) to complete your access control configuration.
 
@@ -167,8 +147,8 @@ Set up SCIM
 
 Now that you've set up SSO with Okta, you can [set up SCIM](./scim-okta.md) to automate user and group provisioning (and license assignment for Okta).
 
-## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
+## FAQ and troubleshooting
 
 For common questions and troubleshooting guidance — including issues with email verification, MFA prompts, and SSO group mapping behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
-## Learn more[​](#learn-more "Direct link to Learn more")
+## Learn more

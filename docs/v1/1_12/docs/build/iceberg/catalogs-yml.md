@@ -2,7 +2,7 @@
 
 Now that you understand [what an Iceberg catalog is](./about-catalogs.md), let's talk about how to use them within dbt.
 
-## Getting started: Managed catalogs[​](#getting-started-managed-catalogs "Direct link to Getting started: Managed catalogs")
+## Getting started: Managed catalogs
 
 Several data platforms offer their own "managed" catalogs that support the Iceberg table format out-of-the-box. These include Snowflake Horizon, Databricks Unity, AWS Glue (for Athena + Redshift), and BigLake (for BigQuery).
 
@@ -25,7 +25,7 @@ note
 
 Most open source query engines, including DuckDB and Apache Spark, can operate well with external catalogs, but they don't come with a "managed" catalog. Instead, their default behavior for materializing Iceberg tables is to write Parquet files and Iceberg metadata to the local filesystem (wherever the query engine is running).
 
-## Next step: Using catalogs[​](#next-step-using-catalogs "Direct link to Next step: Using catalogs")
+## Next step: Using catalogs
 
 You should start using `catalogs` when:
 
@@ -35,7 +35,7 @@ You should start using `catalogs` when:
 
 dbt defines `catalogs` in a single top-level file, `catalogs.yml`, that lives in the root of your project directory. We first introduced `catalogs.yml` in dbt Core v1.10; starting in dbt Core v1.12, we've introduced a new simpler spec (recommended) behind an opt-in behavior flag.
 
-### New spec (recommended)[​](#new-spec-recommended "Direct link to New spec (recommended)")
+### New spec (recommended) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 *Available in dbt Core v1.12+ (including dbt Core v2 and Fusion). See GitHub discussion [dbt-core#12723](https://github.com/dbt-labs/dbt-core/discussions/12723) for an explanation of the motivations behind the new spec, and an overview of what's changed.*
 
@@ -54,6 +54,8 @@ For this reason, each catalog's adapter-specific configuration is nested under `
 
 That said, one "catalog" **must** always point to the same actual data (Iceberg tables in object storage), regardless of whether that catalog is external to or managed by the current active adapter.
 
+(Applies to dbt v1.12 and later)
+
 catalogs.yml
 
 ```yml
@@ -67,7 +69,7 @@ catalogs:
         # See available configs for each adapter + catalog combination.
 ```
 
-#### Catalog types[​](#catalog-types "Direct link to Catalog types")
+#### Catalog types
 
 | catalog `type`     | default for | supported by                  | Notes                                                                                         |
 | ------------------ | ----------- | ----------------------------- | --------------------------------------------------------------------------------------------- |
@@ -80,13 +82,7 @@ catalogs:
 | local\_filesystem  |             | duckdb                        |                                                                                               |
 | iceberg\_rest      |             | snowflake, duckdb             | In theory, this option can support any catalog that implements an Iceberg-compatible REST API |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Config inheritance[​](#config-inheritance "Direct link to Config inheritance")
+#### Config inheritance
 
 Configurations defined in `catalogs.yml` are lowest in the [model-config precedence](../../../reference/model-configs.md). This means that if you set a more-specific config for one model (within its `.sql` or `.py` file), or set a project-level config, those take precedence.
 
@@ -117,7 +113,7 @@ models/finance/my\_special\_model.sql
 
 Some Iceberg-related configurations are only available at the model configuration level, so they can't be set in `catalogs.yml`. For example, the related config `base_location_subpath` determines the exact write path for a single Iceberg table, so it only makes sense to configure per-model, rather than setting a default for all models in the catalog.
 
-#### The `catalog_database` config[​](#the-catalog_database-config "Direct link to the-catalog_database-config")
+#### The `catalog_database` config
 
 There is a dedicated configuration for the name of the database mapped to this catalog in each adapter. Unlike other catalog-level configurations, the `catalog_database` applies to *all* models configured with this `catalog_name`, it can't be changed for specific models, and it doesn't follow the usual rules about the `database` config or the `generate_database_name` macro.
 
@@ -127,7 +123,7 @@ Why? We strongly recommend a 1:1 mapping between each Iceberg catalog and the to
 
 If you don't specify a `catalog_database`, then dbt materializes models based on their `database` config. In this case, the catalog serves as a collection of shared Iceberg configs, but it doesn't map to a consistent namespace containing all its Iceberg tables.
 
-### Old spec[​](#old-spec "Direct link to Old spec")
+### Old spec
 
 *Available in dbt Core v1.10+*
 

@@ -1,18 +1,16 @@
 # Salesforce Data 360 setup [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in v2 | Local developmentⓘ
+Available in v2 | Local development
 
 This `dbt-salesforce` adapter is available through the dbt Fusion engine CLI. To access the adapter, [install dbt Fusion](../about-fusion-install.md). We recommend using the [VS Code Extension](../../local/install-dbt.md?version=2) as the development interface. dbt platform support is coming soon.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you can connect dbt to the Salesforce Data 360, you need the following:
 
 * A Data 360 instance
 
 * [An external client app that dbt connects to for the Data 360 instance](https://help.salesforce.com/s/articleView?id=xcloud.create_a_local_external_client_app.htm\&type=5), with [OAuth configured](https://help.salesforce.com/s/articleView?id=xcloud.configure_external_client_app_oauth_settings.htm\&type=5). OAuth scopes must include:
-
-  <!-- -->
 
   * `api` - To manage user data via APIs.
   * `refresh_token`, `offline_access` - To perform requests at any time, even when the user is offline or tokens have expired.
@@ -22,7 +20,7 @@ Before you can connect dbt to the Salesforce Data 360, you need the following:
 
 * User with `Data Cloud Architect` permission
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 To connect dbt to Salesforce Data 360, set up your `profiles.yml`. Refer to the following configuration:
 
@@ -49,12 +47,6 @@ company-name:
 | `login_url`        | Yes      | Login URL of the Salesforce instance.                          | [https://login.salesforce.com](https://login.salesforce.com/) |
 | `username`         | Yes      | Username on the Data 360 Instance.                             | <dbt_user@dbtlabs.com>                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Salesforce-specific configuration information in the [Salesforce adapter reference guide](../../../reference/resource-configs/data-cloud-configs.md).

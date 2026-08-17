@@ -56,7 +56,7 @@ order by 1
 {% endif %}
 ```
 
-## Parsing vs execution[​](#parsing-vs-execution "Direct link to Parsing vs execution")
+## Parsing vs execution
 
 Parsing in Jinja is when dbt:
 
@@ -81,7 +81,7 @@ During execution, dbt:
 
 This is because in the initial parse of the project, dbt identifies every use of `ref()` and `source()` to build the DAG, but doesn’t resolve them to actual database identifiers. Instead, it replaces each with a placeholder value to ensure the SQL compiles cleanly during parsing.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 Macros like [`log()`](./log.md) and [`exceptions.warn()`](./exceptions.md#warn) are still evaluated at parse time, during dbt's "first-pass" Jinja render to extract `ref`, `source` and `config`. As a result, dbt will also run any logging or warning messages during this process.
 
@@ -100,7 +100,7 @@ $ dbt run
 15:42:02  1 of 1 OK created table model analytics.my_model ............................. [OK in 0.36s]
 ```
 
-### Logging fully-qualified relation names[​](#logging-fully-qualified-relation-names "Direct link to Logging fully-qualified relation names")
+### Logging fully-qualified relation names
 
 Let's assume you have a relation named `relation` obtained using something like `{% set relation = ref('my_model') %}` or `{% set relation = source('source_name', 'table_name') %}` — this will lead to unexpected or confusing behavior during parsing:
 

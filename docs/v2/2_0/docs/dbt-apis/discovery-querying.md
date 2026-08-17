@@ -1,6 +1,6 @@
 # Query the Discovery API
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The Discovery API supports ad-hoc queries and integrations. If you are new to the API, refer to [About the Discovery API](./discovery-api.md) for an introduction.
 
@@ -10,19 +10,19 @@ Use the Discovery API to evaluate data pipeline health and project state across 
 
 Since GraphQL describes the data in the API, the schema displayed in the GraphQL explorer accurately represents the graph and fields available to query.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must have a dbt [multi-tenant](../platform/about-platform/tenancy.md#multi-tenant) or [single tenant](../platform/about-platform/tenancy.md#single-tenant) account.
 * You must be on a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
 * Your projects must be on a dbt [release tracks](../dbt-versions/dbt-release-tracks.md) or dbt version 1.0 or later. Refer to [Upgrade dbt version in Cloud](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
-## Authorization[​](#authorization "Direct link to Authorization")
+## Authorization
 
 Currently, authorization of requests takes place [using a service token](./service-tokens.md). dbt admin users can generate a Metadata Only service token that is authorized to execute a specific query against the Discovery API.
 
 Once you've created a token, you can use it in the Authorization header of requests to the dbt Discovery API. Be sure to include the Token prefix in the Authorization header, or the request will fail with a `401 Unauthorized` error. Note that `Bearer` can be used instead of `Token` in the Authorization header. Both syntaxes are equivalent.
 
-## Access the Discovery API[​](#access-the-discovery-api "Direct link to Access the Discovery API")
+## Access the Discovery API
 
 1. Create a [service account token](./service-tokens.md) to authorize requests. dbt Admin users can generate a *Metadata Only* service token, which can be used to execute a specific query against the Discovery API to authorize requests.
 
@@ -30,7 +30,7 @@ Once you've created a token, you can use it in the Authorization header of reque
 
 3. For specific query points, refer to the [schema documentation](./discovery-schema-job.md).
 
-## Run queries using HTTP requests[​](#run-queries-using-http-requests "Direct link to Run queries using HTTP requests")
+## Run queries using HTTP requests
 
 You can run queries by sending a `POST` request to the Discovery API, making sure to replace:
 
@@ -68,7 +68,7 @@ Every query will require an environment ID or job ID. You can get the ID from a 
 
 There are several illustrative example queries on this page. For more examples, refer to [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md).
 
-## Discovery API endpoints[​](#discovery-api-endpoints "Direct link to Discovery API endpoints")
+## Discovery API endpoints
 
 Find your Discovery API endpoint in **Account settings** under **Access URLs** in dbt platform. The format depends on your deployment type and region:
 
@@ -79,24 +79,22 @@ Find your Discovery API endpoint in **Account settings** under **Access URLs** i
 
 * Replace the following placeholders with your actual values. Refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md) for more information on the regions and subdomains:
 
-  <!-- -->
-
   * `ACCOUNT_PREFIX` with your account identifier (found in **Account settings** under **Access URLs**)
   * `REGION` with your deployment region (for example, `us1` for North America AWS, `eu1` for EMEA, `jp1` for Japan, `au1` for APAC, and so on)
   * `ROUTING_SUBDOMAIN` with your single-tenant routing subdomain (typically your company name. Please contact your account team if unsure)
   * For example, if you're on North America AWS with account prefix `abc123`, your Discovery API URL is `https://abc123.metadata.us1.dbt.com/graphql`.
 
-## Reasonable use[​](#reasonable-use "Direct link to Reasonable use")
+## Reasonable use
 
 Discovery (GraphQL) API usage is subject to request rate and response size limits to maintain the performance and stability of the metadata platform and prevent abuse.
 
 Job-level endpoints are subject to query complexity limits. Nested nodes (like parents), code (like rawCode), and catalog columns are considered as most complex. Overly complex queries should be broken up into separate queries with only necessary fields included. dbt Labs recommends using the environment endpoint instead for most use cases to get the latest descriptive and result metadata for a dbt project.
 
-## Retention limits[​](#retention-limits "Direct link to Retention limits")
+## Retention limits
 
 You can use the Discovery API to query data from the previous two months. For example, if today was April 1st, you could query data back to February 1st.
 
-## Run queries with the GraphQL explorer[​](#run-queries-with-the-graphql-explorer "Direct link to Run queries with the GraphQL explorer")
+## Run queries with the GraphQL explorer
 
 You can run ad-hoc queries directly in the [GraphQL API explorer](https://metadata.cloud.getdbt.com/graphql) and use the document explorer on the left-hand side to see all possible nodes and fields.
 
@@ -118,7 +116,7 @@ Refer to the [Apollo explorer documentation](https://www.apollographql.com/docs/
 
 [![Run queries using the Apollo Server GraphQL explorer](/img/docs/dbt-platform/discovery-api/graphql.jpg?v=2 "Run queries using the Apollo Server GraphQL explorer")](#)Run queries using the Apollo Server GraphQL explorer
 
-### Fragments[​](#fragments "Direct link to Fragments")
+### Fragments
 
 Use the [`... on`](https://www.apollographql.com/docs/react/data/fragments/) notation to query across lineage and retrieve results from specific node types.
 
@@ -170,7 +168,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### Pagination[​](#pagination "Direct link to Pagination")
+### Pagination
 
 Querying large datasets can impact performance on multiple functions in the API pipeline. Pagination eases the burden by returning smaller data sets one page at a time. This is useful for returning a particular portion of the dataset or the entire dataset piece-by-piece to enhance performance. dbt utilizes cursor-based pagination, which makes it easy to return pages of constantly changing data.
 
@@ -202,7 +200,7 @@ totalCount # Total number of records across all pages
 
 The previously described `PageInfo` and `totalCount` pattern applies to the `environment` endpoints, which return results as a connection of `edges` and `nodes`.
 
-#### Job-based endpoint pagination[​](#job-based-endpoint-pagination "Direct link to Job-based endpoint pagination")
+#### Job-based endpoint pagination
 
 Job-based list endpoints also support cursor-based pagination. Use this pattern when you query resources under the [`job`](./discovery-schema-job.md) object. These endpoints return a flat list rather than an `edges`/`nodes` connection, so they do not expose a `PageInfo` object.
 
@@ -264,7 +262,7 @@ For the next page, set `after` to the `paginationCursor` from the *last* row of 
 }
 ```
 
-### Filters[​](#filters "Direct link to Filters")
+### Filters
 
 Filtering helps to narrow down the results of an API query. If you want to query and return only models and tests that are failing or find models that are taking too long to run, you can fetch execution details such as [`executionTime`](./discovery-schema-job-models.md#fields), [`runElapsedTime`](./discovery-schema-job-models.md#fields), or [`status`](./discovery-schema-job-models.md#fields). This helps data teams monitor the performance of their models, identify bottlenecks, and optimize the overall data pipeline.
 
@@ -303,7 +301,7 @@ query ModelsAndTests($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Related content[​](#related-content "Direct link to Related content")
+## Related content
 
 * [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md)
 * [Schema](./discovery-schema-job.md)

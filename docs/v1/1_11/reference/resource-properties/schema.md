@@ -13,7 +13,7 @@ sources:
       - ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The schema name as stored in the database.
 
@@ -23,13 +23,13 @@ BigQuery terminology
 
 If you're using BigQuery, use the *dataset* name as the `schema` property.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt will use the source's `name` parameter as the schema name.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use a simpler name for a source schema than the one in your database[​](#use-a-simpler-name-for-a-source-schema-than-the-one-in-your-database "Direct link to Use a simpler name for a source schema than the one in your database")
+### Use a simpler name for a source schema than the one in your database
 
 models/\<filename>.yml
 

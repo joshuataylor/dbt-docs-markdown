@@ -4,7 +4,7 @@ GROUP BY…it’s a little hard to explicitly define in a way *that actually mak
 
 To put it in the simplest terms, the GROUP BY statement allows you to group query results by specified columns and is used in pair with aggregate functions such as [AVG](./avg.md) and [SUM](./sum.md) to calculate those values across specific rows.
 
-## How to use the SQL GROUP BY statement[​](#how-to-use-the-sql-group-by-statement "Direct link to How to use the SQL GROUP BY statement")
+## How to use the SQL GROUP BY statement
 
 The GROUP BY statement appears at the end of a query, after any joins and [WHERE](./where.md) filters have been applied:
 
@@ -28,7 +28,7 @@ Readability over DRYness?
 
 Grouping by explicit column name (versus column number in query) can be two folded: on one hand, it’s potentially more readable by end business users; on the other hand, if a grouped column name changes, that name change needs to be reflected in the group by statement. Use a grouping convention that works for you and your data, but try to keep to one standard style.
 
-### SQL GROUP BY example[​](#sql-group-by-example "Direct link to SQL GROUP BY example")
+### SQL GROUP BY example
 
 ```sql
 select
@@ -50,19 +50,13 @@ This simple query using the sample dataset [Jaffle Shop’s](https://github.com/
 | 6            | 1           |
 | 7            | 1           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Note that the `order by` and `limit` statements are after the `group by` in the query.
 
-## SQL GROUP BY syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-group-by-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL GROUP BY syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL GROUP BY syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Snowflake, Databricks, BigQuery, and Redshift all support the ability to group by columns and follow the same syntax.
 
-## GROUP BY use cases[​](#group-by-use-cases "Direct link to GROUP BY use cases")
+## GROUP BY use cases
 
 Aggregates, aggregates, and did we mention, aggregates? GROUP BY statements are needed when you’re calculating aggregates (averages, sum, counts, etc.) by specific columns; your query will not run successfully without them if you’re attempting to use aggregate functions in your query. You may also see GROUP BY statements used to deduplicate rows or join aggregates onto other tables with CTEs; [this article provides a great writeup](https://www.getdbt.com/blog/write-better-sql-a-defense-of-group-by-1/) on specific areas you might see GROUP BYs used in your dbt projects and data modeling work.
 

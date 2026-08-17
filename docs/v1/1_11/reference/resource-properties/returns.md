@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -28,13 +16,13 @@ functions:
       description: <markdown_string> # optional
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `returns` property defines the output of a user-defined function (UDF). This is a required property for all functions and specifies what data type the function will return when executed.
 
-## Properties[​](#properties "Direct link to Properties")
+## Properties
 
-### data\_type (required)[​](#data_type-required "Direct link to data_type (required)")
+### data\_type (required)
 
 The `data_type` field specifies the data type that the function returns. This is a required field and must match the data types supported by your specific data platform.
 
@@ -49,13 +37,13 @@ The `data_type` values are warehouse-specific. Use the data type syntax that you
 
 Refer to your warehouse documentation for the complete list of supported data types and their syntax.
 
-### description[​](#description "Direct link to description")
+### description
 
 An optional markdown string describing what the function returns. This is helpful for documentation purposes.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Simple scalar function[​](#simple-scalar-function "Direct link to Simple scalar function")
+### Simple scalar function
 
 functions/schema.yml
 
@@ -73,7 +61,7 @@ functions:
       description: Returns true if the string is a valid email format, false otherwise
 ```
 
-### Function with complex return type[​](#function-with-complex-return-type "Direct link to Function with complex return type")
+### Function with complex return type
 
 functions/schema.yml
 
@@ -92,7 +80,7 @@ functions:
       description: The calculated profit margin as a percentage
 ```
 
-### BigQuery function with ARRAY return type[​](#bigquery-function-with-array-return-type "Direct link to BigQuery function with ARRAY return type")
+### BigQuery function with ARRAY return type
 
 functions/schema.yml
 
@@ -109,7 +97,7 @@ functions:
       description: An array of individual tag strings
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

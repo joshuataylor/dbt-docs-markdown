@@ -1,6 +1,6 @@
 # Joins
 
-Joins are a powerful part of MetricFlow and simplify the process of making all valid dimensions available for your metrics at query time, regardless of where they are defined in different semantic models. With Joins, you can also create metrics using <!-- -->simple metrics<!-- --> from different semantic models.
+Joins are a powerful part of MetricFlow and simplify the process of making all valid dimensions available for your metrics at query time, regardless of where they are defined in different semantic models. With Joins, you can also create metrics using (Applies to dbt v1.12 and later) simple metrics from different semantic models.
 
 Joins use `entities` defined in your semantic model configs as the join keys between tables. Assuming entities are defined in the semantic model, MetricFlow creates a graph using the semantic models as nodes and the join paths as edges to perform joins automatically. MetricFlow chooses the appropriate join type and avoids fan-out or chasm joins with other tables based on the entity types.
 
@@ -9,7 +9,7 @@ Joins use `entities` defined in your semantic model configs as the join keys bet
 * Fan-out joins are when one row in a table is joined to multiple rows in another table, resulting in more output rows than input rows.
 * Chasm joins are when two tables have a many-to-many relationship through an intermediate table, and the join results in duplicate or missing data.
 
-## Types of joins[​](#types-of-joins "Direct link to Types of joins")
+## Types of joins
 
 Joins are auto-generated
 
@@ -39,13 +39,7 @@ The following table identifies which joins are allowed based on specific entity 
 | Foreign               | Unique                | ✅ Left                  |
 | Foreign               | Foreign               | ❌ Fan-out (Not allowed) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Semantic validation[​](#semantic-validation "Direct link to Semantic validation")
+### Semantic validation
 
 MetricFlow performs semantic validation by executing `explain` queries in the data platform to ensure that the generated SQL gets executed without errors. This validation includes:
 
@@ -55,11 +49,11 @@ MetricFlow performs semantic validation by executing `explain` queries in the da
 
 If validation fails, MetricFlow surfaces errors for users to address before executing the query.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 The following example uses two semantic models with a common entity and shows a MetricFlow query that requires a join between the two semantic models: `transactions` and `user_signup`.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/model.yml
 
@@ -99,7 +93,6 @@ models:
 ```
 
 * MetricFlow uses `user_id` as the join key to link two semantic models, `transactions` and `user_signup`. This allows you to query the `average_purchase_price` metric in the `transactions` semantic model, grouped by the `type` dimension in the `user_signup` semantic model.
-  <!-- -->
   * Note that the `average_purchase_price` simple metric is defined in `transactions`, where `user_id` is a foreign entity. However, `user_signup` has `user_id` as a primary entity.
 * Since `user_id` is a foreign key in `transactions` and a primary key in `user_signup`, MetricFlow performs a left join where `transactions` joins `user_signup` to access the `average_purchase_price` simple metric defined in `transactions`.
 * To query dimensions from different semantic models, add a double underscore (or dunder) to the dimension name after joining the entity in your editing tool. The following query, `user_id__type` is included as a dimension using the `--group-by` flag (`type` is the dimension).
@@ -112,12 +105,11 @@ dbt sl query --metrics average_purchase_price --group-by metric_time,user_id__ty
 mf query --metrics average_purchase_price --group-by metric_time,user_id__type # In dbt Core
 ```
 
-#### SQL examples[​](#sql-examples "Direct link to SQL examples")
+#### SQL examples
 
 These SQL examples show how MetricFlow handles both left join and full outer join scenarios in practice:
 
-* SQL example for left join
-* SQL example for outer joins
+### SQL example for left join
 
 Using the previous example for `transactions` and `user_signup` semantic models, this shows a left join between those two semantic models.
 
@@ -135,6 +127,8 @@ group by
   user_signup.type;
 ```
 
+### SQL example for outer joins
+
 If you have multiple `fct` models, let's say `sales` and `returns`, MetricFlow uses full outer joins to ensure all data points are captured.
 
 This example shows a full outer join between the `sales` and `returns` semantic models.
@@ -150,9 +144,9 @@ full outer join returns
 where sales.user_id is not null or returns.user_id is not null;
 ```
 
-## Multi-hop joins[​](#multi-hop-joins "Direct link to Multi-hop joins")
+## Multi-hop joins
 
-MetricFlow allows users to join <!-- -->simple metrics<!-- --> and dimensions across a graph of entities by moving from one table to another within a graph. This is referred to as "multi-hop join".
+MetricFlow allows users to join (Applies to dbt v1.12 and later) simple metrics and dimensions across a graph of entities by moving from one table to another within a graph. This is referred to as "multi-hop join".
 
 MetricFlow can join up to three tables, supporting multi-hop joins with a limit of two hops. This does the following:
 
@@ -165,7 +159,7 @@ For example, if you have two models, `country` and `region`, where customers are
 
 ![Multi-Hop-Join](/assets/images/multihop-diagram-03171b81496cb0fd452d2c2f0b5e0ed3.png "Example schema for reference")
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Notice how the schema can be translated into the following three MetricFlow semantic models to create the metric 'Average purchase price by country' using the `purchase_price` simple metric from the sales table and the `country_name` dimension from the `country_dim` table.
 
@@ -242,7 +236,7 @@ models:
           type: categorical
 ```
 
-### Query multi-hop joins[​](#query-multi-hop-joins "Direct link to Query multi-hop joins")
+### Query multi-hop joins
 
 To query dimensions *without* a multi-hop join involved, you can use the fully qualified dimension name with the syntax entity double underscore (dunder) dimension, like `entity__dimension`.
 

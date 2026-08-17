@@ -1,43 +1,29 @@
 # Connect ClickHouse to dbt Core
 
-Local developmentⓘ
+Local development
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  Geoff Genz & Bentsi Leviav
+* **Maintained by**: Community
+* **Authors**: Geoff Genz & Bentsi Leviav
 * **GitHub repo**: [ClickHouse/dbt-clickhouse](https://github.com/ClickHouse/dbt-clickhouse) [![](https://img.shields.io/github/stars/ClickHouse/dbt-clickhouse?style=for-the-badge)](https://github.com/ClickHouse/dbt-clickhouse)
 * **PyPI package**: `dbt-clickhouse` [![](https://badge.fury.io/py/dbt-clickhouse.svg)](https://badge.fury.io/py/dbt-clickhouse)
 * **Slack channel**: [#db-clickhouse](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.19.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.19.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-clickhouse
+## Installing dbt-clickhouse
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-clickhouse`
 
-## Configuring <!-- -->dbt-clickhouse<!-- -->
+## Configuring dbt-clickhouse
 
-For <!-- -->Clickhouse<!-- -->-specific configuration, please refer to [Clickhouse<!-- --> configs.](../../../reference/resource-configs/clickhouse-configs.md)
+For Clickhouse-specific configuration, please refer to [Clickhouse configs.](../../../reference/resource-configs/clickhouse-configs.md)
 
-## Connecting to ClickHouse[​](#connecting-to-clickhouse "Direct link to Connecting to ClickHouse")
+## Connecting to ClickHouse
 
 To connect to ClickHouse from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` configuration file. Follow the reference configuration below to set up a ClickHouse profile:
 
@@ -61,7 +47,7 @@ clickhouse-service:
 
 For a complete list of configuration options, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
-### Create a dbt project[​](#create-a-dbt-project "Direct link to Create a dbt project")
+### Create a dbt project
 
 You can now use this profile in one of your existing projects or create a new one using:
 
@@ -75,13 +61,13 @@ Navigate to the `project_name` directory and update your `dbt_project.yml` file 
 profile: 'clickhouse-service'
 ```
 
-### Test connection[​](#test-connection "Direct link to Test connection")
+### Test connection
 
 Execute `dbt debug` with the CLI tool to confirm whether dbt is able to connect to ClickHouse. Confirm the response includes `Connection test: [OK connection ok]`, indicating a successful connection.
 
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
-### dbt features[​](#dbt-features "Direct link to dbt features")
+### dbt features
 
 | Type                  | Supported? | Details                    |
 | --------------------- | ---------- | -------------------------- |
@@ -93,13 +79,7 @@ Execute `dbt debug` with the CLI tool to confirm whether dbt is able to connect 
 | Snapshots             | YES        |                            |
 | Tests                 | YES        |                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Materializations[​](#materializations "Direct link to Materializations")
+### Materializations
 
 | Type                                    | Supported?        | Details                                                                                                                                                                                                                                         |
 | --------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -113,19 +93,13 @@ Search table...
 | Distributed incremental materialization | YES, Experimental | Incremental model based on the same idea as distributed table. Note that not all strategies are supported, visit [this](https://github.com/ClickHouse/dbt-clickhouse?tab=readme-ov-file#distributed-incremental-materialization) for more info. |
 | Dictionary materialization              | YES, Experimental | Creates a [dictionary](https://clickhouse.com/docs/en/engines/table-engines/special/dictionary).                                                                                                                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 **Note**: Community-developed features are labeled as experimental. Despite this designation, many of these features, like materialized views, are widely adopted and successfully used in production environments.
 
-## Documentation[​](#documentation "Direct link to Documentation")
+## Documentation
 
 See the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt) for more details on using the `dbt-clickhouse` adapter to manage your data model.
 
-## Contributing[​](#contributing "Direct link to Contributing")
+## Contributing
 
 We welcome contributions from the community to help improve the `dbt-ClickHouse` adapter. Whether you're fixing a bug, adding a new feature, or enhancing the documentation, your efforts are greatly appreciated!
 

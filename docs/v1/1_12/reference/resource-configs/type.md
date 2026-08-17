@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -27,11 +15,11 @@ functions:
 
 In the future, we're considering adding support for `table` type. Refer to [this issue](https://github.com/dbt-labs/dbt-core/issues/11917) to track the progress and provide any feedback.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `type` config specifies the type of user-defined function (UDF) you're creating. This config is optional and defaults to `scalar` if not specified.
 
-## Supported function types[​](#supported-function-types "Direct link to Supported function types")
+## Supported function types
 
 The following function types are supported:
 
@@ -48,13 +36,7 @@ Support for `type` differs based on the warehouse and language (SQL or Python) y
 | dbt-postgres   | ✅         | ❌            | ❌            | ❌               |
 | dbt-redshift   | ✅         | ❌            | ❌            | ❌               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### scalar (default)[​](#scalar-default "Direct link to scalar (default)")
+### scalar (default)
 
 A scalar function returns a single value for each row of input. This is the most common type of UDF.
 
@@ -79,7 +61,7 @@ functions:
       data_type: BOOLEAN
 ```
 
-### aggregate[​](#aggregate "Direct link to aggregate")
+### aggregate
 
 Aggregate functions operate on multiple rows and return a single value — for example, they sum values or calculate an average for a group. Queries use these functions in `GROUP BY` operations.
 
@@ -109,7 +91,7 @@ functions:
       data_type: FLOAT
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

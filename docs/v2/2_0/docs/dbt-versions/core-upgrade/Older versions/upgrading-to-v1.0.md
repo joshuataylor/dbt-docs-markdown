@@ -1,19 +1,19 @@
 # Upgrading to v1.0
 
-Available in v1ⓘ
+Available in v1
 
-### Resources[​](#resources "Direct link to Resources")
+### Resources
 
 * [Discourse](https://discourse.getdbt.com/t/3180)
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.0.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Core major version 1.0 includes a number of breaking changes! Wherever possible, we have offered backwards compatibility for old behavior, and (where necessary) made migration simple.
 
-### Renamed fields in `dbt_project.yml`[​](#renamed-fields-in-dbt_projectyml "Direct link to renamed-fields-in-dbt_projectyml")
+### Renamed fields in `dbt_project.yml`
 
 **These affect everyone:**
 
@@ -27,28 +27,28 @@ dbt Core major version 1.0 includes a number of breaking changes! Wherever possi
 * The default value of [test-paths](../../../../reference/project-configs/test-paths.md) has been updated to be the plural `tests`.
 * The default value of [analysis-paths](../../../../reference/project-configs/analysis-paths.md) has been updated to be the plural `analyses`.
 
-### Tests[​](#tests "Direct link to Tests")
+### Tests
 
 The two **test types** are now "singular" and "generic" (instead of "data" and "schema", respectively). The `test_type:` selection method accepts `test_type:singular` and `test_type:generic`. (It will also accept `test_type:schema` and `test_type:data` for backwards compatibility.) **Not backwards compatible:** The `--data` and `--schema` flags to dbt test are no longer supported, and tests no longer have the tags `'data'` and `'schema'` automatically applied. Updated docs: [data tests](../../../build/data-tests.md), [test selection](../../../../reference/node-selection/test-selection-examples.md), [selection methods](../../../../reference/node-selection/methods.md).
 
 The `greedy` flag/property has been renamed to **`indirect_selection`**, which is now eager by default. **Note:** This reverts test selection to its pre-v0.20 behavior by default. `dbt test -s my_model` *will* select multi-parent tests, such as `relationships`, that depend on unselected resources. To achieve the behavior change in v0.20 + v0.21, set `--indirect-selection=cautious` on the CLI or `indirect_selection: cautious` in YAML selectors. Updated docs: [test selection examples](../../../../reference/node-selection/test-selection-examples.md), [yaml selectors](../../../../reference/node-selection/yaml-selectors.md).
 
-### Global macros[​](#global-macros "Direct link to Global macros")
+### Global macros
 
 Global project macros have been reorganized, and some old unused macros have been removed: `column_list`, `column_list_for_create_table`, `incremental_upsert`. This is unlikely to affect your project.
 
-### Installation[​](#installation "Direct link to Installation")
+### Installation
 
 * [Installation docs](../../../supported-data-platforms.md) reflects adapter-specific installations
 * `python -m pip install dbt` is no longer supported, and will raise an explicit error. Install the specific adapter plugin you need as `python -m pip install dbt-<adapter>`.
 * `brew install dbt` is no longer supported. Install the specific adapter plugin you need (among Postgres, Redshift, Snowflake, or BigQuery) as `brew install dbt-<adapter>`.
 * Removed official support for python 3.6, which is reaching end of life on December 23, 2021
 
-### For users of adapter plugins[​](#for-users-of-adapter-plugins "Direct link to For users of adapter plugins")
+### For users of adapter plugins
 
 * **BigQuery:** Support for ingestion-time-partitioned tables has been officially deprecated in favor of modern approaches. Use `partition_by` and incremental modeling strategies instead. For more information, refer to [Incremental models](../../../build/incremental-models.md).
 
-### For maintainers of plugins + other integrations[​](#for-maintainers-of-plugins--other-integrations "Direct link to For maintainers of plugins + other integrations")
+### For maintainers of plugins + other integrations
 
 We've introduced a new [**structured event interface**](../../../../reference/events-logging.md), and we've transitioned all dbt logging to use this new system. **This includes a breaking change for adapter plugins**, requiring a very simple migration. For more details, see the [`events` module README](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/events/README.md#adapter-maintainers). If you maintain a different kind of plugin that *needs* legacy logging, for the time being, you can re-enable it with an env var (`DBT_ENABLE_LEGACY_LOGGER=True`); be advised that we will remove this capability in a future version of dbt Core.
 
@@ -56,7 +56,7 @@ The [**dbt RPC Server**](../../../../reference/commands/rpc.md) has been split o
 
 **Artifacts:** New schemas (manifest v4, run results v4, sources v3). Notable changes: add `metrics` nodes; schema test + data test nodes are renamed to generic test + singular test nodes; freshness threshold default values look slightly different.
 
-### Deprecations from long ago[​](#deprecations-from-long-ago "Direct link to Deprecations from long ago")
+### Deprecations from long ago
 
 Several under-the-hood changes from past minor versions, tagged with deprecation warnings, have now been fully deprecated.
 
@@ -64,7 +64,7 @@ Several under-the-hood changes from past minor versions, tagged with deprecation
 * The "adapter\_macro" macro has been deprecated. Instead, use the [dispatch](../../../../reference/dbt-jinja-functions/dispatch.md) method to find a macro and call the result.
 * The `release` arg has been removed from the `execute_macro` method.
 
-## New features and changed documentation[​](#new-features-and-changed-documentation "Direct link to New features and changed documentation")
+## New features and changed documentation
 
 * Add [metrics](../../../build/build-metrics-intro.md), a new node type
 * [Generic tests](../../../../best-practices/writing-custom-generic-tests.md) can be defined in `tests/generic` (new), in addition to `macros/` (as before)

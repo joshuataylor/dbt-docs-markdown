@@ -2,10 +2,7 @@
 
 Specify a custom alias for a model, data test, snapshot, or seed and give it a more user-friendly name in the database.
 
-* Models
-* Seeds
-* Snapshots
-* Tests
+### Models
 
 Specify a custom alias for a model in your project YAML file (`dbt_project.yml`), properties YAML file (for example, `models/properties.yml`) config, or in a SQl file config block.
 
@@ -46,6 +43,8 @@ models/sales\_total.sql
 
 This would return `analytics.finance.sales_dashboard` in the database, instead of the default `analytics.finance.sales_total`.
 
+### Seeds
+
 Configure a seed's alias in your project file (`dbt_project.yml`) or a properties file config (for example, `seeds/properties.yml`). The following examples demonstrate how to `alias` a seed named `product_categories` to `categories_data`.
 
 In the `dbt_project.yml` file at the project level:
@@ -83,6 +82,8 @@ seeds:
     country_codes:
       +alias: country_mappings
 ```
+
+### Snapshots
 
 Configure a snapshots's alias in your project YAML file (`dbt_project.yml` ), properties YAML file (for example, `snapshots/snapshot_name.yml`), or in a SQL file config block for the model.
 
@@ -122,6 +123,8 @@ snapshots/your\_snapshot.sql
 ```
 
 This would build your snapshot to `analytics.finance.the_best_snapshot` in the database.
+
+### Tests
 
 Configure a data test's alias in your project YAML file (`dbt_project.yml` ), properties YAML file (for example, `models/properties.yml`) file, or in a SQL file config block for the model.
 
@@ -165,7 +168,7 @@ tests/unique\_order\_id\_test.sql
 
 When using [`store_failures_as`](./store_failures_as.md), this would return the name `analytics.dbt_test__audit.orders_order_id_unique_order_id_test` in the database.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally specify a custom alias for a [model](../../docs/build/models.md), [data test](../../docs/build/data-tests.md), [snapshot](../../docs/build/snapshots.md), or [seed](../../docs/build/seeds.md).
 

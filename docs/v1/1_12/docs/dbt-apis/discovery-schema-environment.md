@@ -1,18 +1,18 @@
 # Environment object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 You can use the environment object to query and compare definition (intended) and applied (actual) states for nodes (models, seeds, snapshots, models, and more) in your dbt project. For example, you specify an `environmentId` to learn more about a particular model (or other node type) in that environment.
 
 The [Example queries](#example-queries) illustrate a few fields you can query with this `environment` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `environment`, you can use the following arguments.
 
 # Fetching data...
 
-### Example queries[​](#example-queries "Direct link to Example queries")
+### Example queries
 
 You can use your production environment's `id`:
 
@@ -78,7 +78,7 @@ query ($environmentId: BigInt!, $uniqueId: String) {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying an `environment`, you can use the following fields.
 

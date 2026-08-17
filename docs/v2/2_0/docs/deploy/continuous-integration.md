@@ -1,6 +1,6 @@
 # Continuous integration in dbt
 
-dbt platformⓘ
+dbt platform
 
 To implement a continuous integration (CI) workflow in dbt, you can set up automation that tests code changes by running [CI jobs](./ci-jobs.md) before merging to production. dbt tracks the state of what’s running in your production environment. When you run a CI job, only the modified data assets in your pull request (PR) and their downstream dependencies are built and tested in a staging schema.
 
@@ -16,7 +16,7 @@ Using CI helps:
 * Reduce the time it takes to push code changes to production, through build and test automation, leading to better business outcomes.
 * Allow organizations to make code changes in a standardized and governed way that ensures code quality without sacrificing speed.
 
-## How CI works[​](#how-ci-works "Direct link to How CI works")
+## How CI works
 
 When you [set up CI jobs](./ci-jobs.md#set-up-ci-jobs), dbt listens for a notification from your Git provider indicating that a new PR has been opened or updated with new commits. When dbt receives one of these notifications, it enqueues a new run of the CI job.
 
@@ -28,9 +28,7 @@ When the CI run completes, you can view the run status directly from within the 
 
 dbt deletes the temporary schema from your data warehouse when you close or merge the pull request. If your project has schema customization using the [generate\_schema\_name](../build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name) macro, dbt might not drop the temporary schema from your data warehouse. For more information, refer to [Troubleshooting](./ci-jobs.md#troubleshooting).
 
-<!-- -->
-
-## Availability of features by Git provider[​](#availability-of-features-by-git-provider "Direct link to Availability of features by Git provider")
+## Availability of features by Git provider
 
 * If your git provider has a [native dbt integration](../platform/git/configure-git.md), you can seamlessly set up [continuous integration (CI)](./ci-jobs.md) jobs directly within dbt.
 
@@ -45,13 +43,7 @@ The following table outlines the available integration options and their corresp
 | [GitLab](../platform/git/connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
 | All other git providers using [Git clone](../platform/git/import-a-project-by-git-url.md) ([BitBucket](../platform/git/import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](../platform/git/import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](../../guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Differences between CI jobs and other deployment jobs[​](#differences-between-ci-jobs-and-other-deployment-jobs "Direct link to Differences between CI jobs and other deployment jobs")
+## Differences between CI jobs and other deployment jobs
 
 The [dbt scheduler](./job-scheduler.md) executes CI jobs differently from other deployment jobs in these important ways:
 
@@ -60,7 +52,7 @@ The [dbt scheduler](./job-scheduler.md) executes CI jobs differently from other 
 * [**Run slot treatment**](#run-slot-treatment) — CI runs don't consume a run slot.
 * [**SQL linting**](#sql-linting) — When enabled, linting runs on all SQL files in your project as a step before your CI job builds.
 
-### Concurrent CI checks [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#concurrent-ci-checks- "Direct link to concurrent-ci-checks-")
+### Concurrent CI checks [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 When you collaborate on a dbt project with your team and open pull requests in the same dbt repository, the same CI job can run for each qualifying event.
 
@@ -74,17 +66,17 @@ The following describes the conditions when CI checks are run concurrently and w
 * CI runs with the *same* PR number and *different* commit SHAs execute serially because they’re building into the same schema. dbt will run the latest commit and cancel any older, stale commits. For details, refer to [Smart cancellation of stale builds](#smart-cancellation).
 * CI runs with the same PR number and same commit SHA can still execute concurrently when they come from different dbt projects. This can happen when two CI jobs are set up in different dbt projects that share the same dbt repository.
 
-### Smart cancellation of stale builds [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#smart-cancellation-of-stale-builds- "Direct link to smart-cancellation-of-stale-builds-")
+### Smart cancellation of stale builds [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 When you push a new commit to a PR, dbt enqueues a new CI run for the latest commit and cancels any CI run that is (now) stale and still in flight. This can happen when you’re pushing new commits while a CI build is still in process and not yet done. By canceling runs in a safe and deliberate way, dbt helps improve productivity and reduce data platform spend on wasteful CI runs.
 
 [![Example of an automatically canceled run](/img/docs/dbt-platform/using-dbt-platform/example-smart-cancel-job.png?v=2 "Example of an automatically canceled run")](#)Example of an automatically canceled run
 
-### Run slot treatment [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#run-slot-treatment- "Direct link to run-slot-treatment-")
+### Run slot treatment [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 CI runs don't consume run slots. This guarantees a CI check will never block a production run.
 
-### SQL linting [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#sql-linting- "Direct link to sql-linting-")
+### SQL linting [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Available on [dbt release tracks](../dbt-versions/dbt-release-tracks.md) and dbt Starter or Enterprise-tier accounts.
 
@@ -102,15 +94,13 @@ To prevent SQLFluff from linting snapshot files, add the snapshots directory to 
 
 If the linter runs into errors, you can specify whether dbt should stop running the job on error or continue running it on error. When failing jobs, it helps reduce compute costs by avoiding builds for pull requests that don't meet your SQL code quality CI check.
 
-#### To configure SQLFluff linting[​](#to-configure-sqlfluff-linting "Direct link to To configure SQLFluff linting")
+#### To configure SQLFluff linting
 
 You can optionally configure SQLFluff linting rules to override default linting behavior.
 
 * Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
 
 * Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt will use them when linting.
-
-  <!-- -->
 
   * When configuring, you can use `dbt` as the templater (for example, `templater = dbt`)
   * If you’re using the Studio IDE, dbt CLI, or any other editor, refer to [Customize linting](../platform/studio-ide/lint-format.md#customize-linting) for guidance on how to add the dbt-specific (or dbtonic) linting rules we use for our own project.

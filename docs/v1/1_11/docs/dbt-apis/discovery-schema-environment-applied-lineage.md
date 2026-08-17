@@ -1,18 +1,18 @@
 # Lineage object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The lineage object allows you to query lineage across your resources.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `lineage` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `lineage`, you can use the following arguments:
 
 # Fetching data...
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 You can specify the `environmentId` and filter by "Model" as the resource type to see lineage information for all models in this environment, including their dependencies, materialization type, and metadata:
 
@@ -37,7 +37,7 @@ query {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `lineage`, you can use the following fields:
 

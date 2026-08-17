@@ -22,7 +22,7 @@ snapshots/\<filename>.sql
 ) }}
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 The database that dbt should build a [snapshot](../../docs/build/snapshots.md) table into.
 
@@ -38,13 +38,13 @@ Runtime Error
   Cross-db references not allowed in redshift (raw vs analytics)
 ```
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt will use the [target](../dbt-jinja-functions/target.md) database associated with your profile/connection.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Build all snapshots in a database named `snapshots`[​](#build-all-snapshots-in-a-database-named-snapshots "Direct link to build-all-snapshots-in-a-database-named-snapshots")
+### Build all snapshots in a database named `snapshots`
 
 dbt\_project.yml
 
@@ -53,7 +53,7 @@ snapshots:
   +target_database: snapshots
 ```
 
-### Use a target-aware database[​](#use-a-target-aware-database "Direct link to Use a target-aware database")
+### Use a target-aware database
 
 Use the [`{{ target }}` variable](../dbt-jinja-functions/target.md) to change which database a snapshot table is built in.
 
@@ -66,7 +66,7 @@ snapshots:
   +target_database: "{% if target.name == 'dev' %}dev{% else %}{{ target.database }}{% endif %}"
 ```
 
-### Use the same database-naming behavior as models[​](#use-the-same-database-naming-behavior-as-models "Direct link to Use the same database-naming behavior as models")
+### Use the same database-naming behavior as models
 
 Leverage the [`generate_database_name` macro](../../docs/build/custom-databases.md) to build snapshots in databases that follow the same naming behavior as your models.
 

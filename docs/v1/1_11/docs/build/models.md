@@ -6,7 +6,7 @@ Models are where your developers spend most of their time within a dbt environme
 
 SQL is the language most dbt users will utilize, but it is not the only one for building models. Starting in version 1.3, dbt Core and dbt support Python models. Python models are useful for training or deploying data science models, complex transformations, or where a specific Python package meets a need — such as using the `dateutil` library to parse dates.
 
-### Models and modern workflows[​](#models-and-modern-workflows "Direct link to Models and modern workflows")
+### Models and modern workflows
 
 The top level of a dbt workflow is the project. A project is a directory of a `.yml` file (the project configuration) and either `.sql` or `.py` files (the models). The project file tells dbt the project context, and the models let dbt know how to build a specific data set. For more details on projects, refer to [About dbt projects](./projects.md).
 

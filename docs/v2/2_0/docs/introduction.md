@@ -19,9 +19,7 @@ Backed by a 100,000+ member [community](../community/join.md), dbt helps teams b
 
 Read more about why we want to enable analysts to work more like software engineers in [The dbt Viewpoint](../community/resources/viewpoint.md). Learn how other data practitioners around the world are using dbt by [joining the dbt Community](https://www.getdbt.com/community/join-the-community).
 
-## dbt framework[​](#dbt-framework "Direct link to dbt framework")
-
-<!-- -->
+## dbt framework
 
 Use the dbt framework to quickly and collaboratively transform data and deploy analytics code following software engineering best practices like version control, modularity, portability, CI/CD, and documentation. This means anyone on the data team familiar with SQL can safely contribute to production-grade data pipelines.
 
@@ -31,7 +29,7 @@ The dbt framework is composed of a *language* and an *engine*:
 
 * The *dbt engine* compiles your project, executes your transformation graph, and produces metadata. Today, the current Rust-based version generation is v2. By default, installing dbt gives you SQL comprehension, editor features, and richer development workflows.
 
-### dbt versions[​](#dbt-versions "Direct link to dbt versions")
+### dbt versions
 
 dbt has two major versions: v1 and v2.
 
@@ -44,14 +42,14 @@ dbt has two major versions: v1 and v2.
 
 Refer to the [Licensing FAQs](https://www.getdbt.com/licenses-faq) for more info.
 
-## How to use dbt[​](#how-to-use-dbt "Direct link to How to use dbt")
+## How to use dbt
 
 You can use dbt in different ways depending on your needs:
 
 * [With the dbt platform](#dbt-platform) (recommended for most users)
 * [Locally from your command line or code editor](#dbt-local-development)
 
-### dbt platform[​](#dbt-platform "Direct link to dbt platform")
+### dbt platform
 
 The dbt platform is the fastest way to run dbt: scheduling, CI/CD, documentation hosting, monitoring, and alerting, all in one place. It works with both v1 and v2, on every plan from Developer (free) through Enterprise+.
 
@@ -59,7 +57,7 @@ Develop directly in the platform with the [Studio IDE](./platform/studio-ide/dev
 
 Learn more about [dbt platform features](./platform/about-platform/dbt-platform-features.md), explore [plans and pricing](https://www.getdbt.com/pricing/), or try a [quickstart](../guides.md).
 
-### dbt local development[​](#dbt-local-development "Direct link to dbt local development")
+### dbt local development
 
 [Install dbt](./local/install-dbt.md) to run v2 locally from the command line, powered by an open-source runtime.
 
@@ -70,7 +68,7 @@ Other ways to run self-hosted dbt:
 * [dbt Core v1.x](./local/install-dbt.md?version=1.0): The original Python-based CLI.
 * [dbt Core v2.x](./local/install-dbt-core-v2.md): dbt Core 2.0, the free, fully open-source (Apache 2.0) distribution of the new Rust-based dbt engine. Typically for organizations with a strict requirement to use this OSS runtime.
 
-## Why use dbt[​](#why-use-dbt "Direct link to Why use dbt")
+## Why use dbt
 
 As a dbt user, your main focus will be on writing models (select queries) that reflect core business logic – there's no need to write boilerplate code to create tables and views, or to define the order of execution of your models. Instead, dbt handles turning these models into objects in your warehouse for you.
 
@@ -81,7 +79,7 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 * **Software engineering workflows**: Version control, branching, pull requests, CI/CD, and [package management](./build/packages.md) for your data pipelines. Write DRYer code with [macros](./build/jinja-macros.md) and [hooks](./build/hooks-operations.md).
 * **AI-powered development**: Use [dbt Wizard](./platform/wizard-overview.md) to investigate, build, validate, and ship from natural language. dbt Wizard is grounded in your project's full context, validates its own work against lineage and tests, and includes governance and audit trails by default.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstarts for dbt](../guides.md)
 * [Best practice guides](../best-practices.md)

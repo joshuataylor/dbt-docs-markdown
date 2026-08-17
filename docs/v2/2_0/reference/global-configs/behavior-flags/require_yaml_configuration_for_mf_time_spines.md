@@ -10,12 +10,6 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | Matured (default → `true`)                          | Sep 1, 2026    | 1.12.0   |
 | Removed                                             | —              | v2.0     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
@@ -24,7 +18,7 @@ Starting in dbt Core v1.12, this flag defaults to `true`. When enabled, dbt supp
 
 The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for more details.
 
-## Impact[​](#impact "Direct link to Impact")
+## Impact
 
 This flag has no functional impact; the legacy time-spine model continues to work in both cases. The only visible changes are:
 

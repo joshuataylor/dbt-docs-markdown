@@ -15,26 +15,24 @@ You should define grants as resource configs whenever possible, but you might oc
 
 For more information on hooks, see [Hooks & operations](../../docs/build/hooks-operations.md).
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can use the `grants` field to set permissions or grants for a resource. When you `run` a model, `seed` data, or `snapshot` a dataset, dbt will run `grant` and/or `revoke` statements to ensure that the permissions on the database object match the `grants` you have configured on the resource.
 
 Like all configurations, `grants` will be included in dbt project metadata, including [the manifest artifact](../artifacts/manifest-json.md).
 
-### Common syntax[​](#common-syntax "Direct link to Common syntax")
+### Common syntax
 
 Grants have two key components:
 
 * **Privilege:** A right to perform a specific action or set of actions on an object in the database, such as selecting data from a table.
 * **Grantees:** One or more recipients of granted privileges. Some platforms also call these "principals." For example, a grantee could be a user, a group of users, a role held by one or more users (Snowflake), or a service account (BigQuery/GCP).
 
-## Configuring grants[​](#configuring-grants "Direct link to Configuring grants")
+## Configuring grants
 
 You can configure `grants` in `dbt_project.yml` to apply grants to many resources at once—all models in your project, a package, or a subfolder—and you can also configure `grants` one-by-one for specific resources, in YAML `config:` blocks or right within their `.sql` files.
 
-* Models
-* Seeds
-* Snapshots
+### Models
 
 models/schema.yml
 
@@ -53,6 +51,8 @@ The `grants` config can also be defined:
 
 See [configs and properties](../configs-and-properties.md) for details.
 
+### Seeds
+
 seeds/schema.yml
 
 ```yml
@@ -64,6 +64,8 @@ seeds:
 ```
 
 The `grants` config can also be defined under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
+
+### Snapshots
 
 snapshots/schema.yml
 
@@ -83,7 +85,7 @@ The `grants` config can be defined:
 
 See [configs and properties](../configs-and-properties.md) for details.
 
-### Grant config inheritance[​](#grant-config-inheritance "Direct link to Grant config inheritance")
+### Grant config inheritance
 
 When you set `grants` for the same model in multiple places, such as in `dbt_project.yml` and in a more-specific `.sql` or `.yml` file, dbt's default behavior replaces the less-specific set of grantees with the more-specific set of grantees. This "merge and clobber" behavior updates each privilege when dbt parses your project.
 
@@ -121,7 +123,7 @@ Now, the model will grant select to `user_a`, `user_b`, AND `user_c`!
 * This use of `+`, controlling clobber vs. add merge behavior, is distinct from the use of `+` in `dbt_project.yml` (shown in the example above) for defining configs with dictionary values. For more information, see [the plus prefix](./plus-prefix.md).
 * `grants` is the first config to support a `+` prefix for controlling config merge behavior. Currently, it's the only one. If it proves useful, we may extend this capability to new and existing configs in the future.
 
-### Conditional grants[​](#conditional-grants "Direct link to Conditional grants")
+### Conditional grants
 
 Like any other config, you can use Jinja to vary the grants in different contexts. For example, you might grant different permissions in prod than dev:
 
@@ -133,7 +135,7 @@ models:
     select: "{{ ['user_a', 'user_b'] if target.name == 'prod' else ['user_c'] }}"
 ```
 
-## Revoking grants[​](#revoking-grants "Direct link to Revoking grants")
+## Revoking grants
 
 dbt only modifies grants on a node (including revocation) when a `grants` configuration is attached to that node. For example, imagine you had originally specified the following grants in `dbt_project.yml`:
 
@@ -147,9 +149,7 @@ models:
 
 If you delete the entire `+grants` section, dbt assumes you no longer want it to manage grants and doesn't change anything. To have dbt revoke all existing grants from a node, provide an empty list of grantees.
 
-* Revoke from one user
-* Revoke from all users
-* Stop dbt from managing grants
+### Revoke from one user
 
 dbt\_project.yml
 
@@ -159,6 +159,8 @@ models:
     select: ['user_b']
 ```
 
+### Revoke from all users
+
 dbt\_project.yml
 
 ```yml
@@ -166,6 +168,8 @@ models:
   +grants:
     select: []
 ```
+
+### Stop dbt from managing grants
 
 dbt\_project.yml
 
@@ -175,7 +179,7 @@ models:
   # this section intentionally left blank
 ```
 
-## General examples[​](#general-examples "Direct link to General examples")
+## General examples
 
 You can grant each permission to a single grantee, or a set of multiple grantees. In this example, we're granting `select` on this model to just `bi_user`, so that it can be queried in our Business Intelligence (BI) tool.
 
@@ -211,16 +215,13 @@ grant select on schema_name.incremental_model to bi_user, reporter;
 
 In subsequent runs, dbt will use database-specific SQL to show the grants already on `incremental_model`, and then determine if any `revoke` or `grant` statements are needed.
 
-## Database-specific requirements and notes[​](#database-specific-requirements-and-notes "Direct link to Database-specific requirements and notes")
+## Database-specific requirements and notes
 
 While we try to standardize the terms we use to describe different features, you will always find nuances in different databases. This section outlines some of those database-specific requirements and notes.
 
 In our examples above and below, you will find us referring to a privilege named `select`, and a grantee named `another_user`. Many databases use these or similar terms. Be aware that your database may require different syntax for privileges and grantees; you must configure `grants` in dbt with the appropriate names for both.
 
-* BigQuery
-* Databricks
-* Redshift
-* Snowflake
+### BigQuery
 
 On BigQuery, "privileges" are called "roles," and they take the form `roles/service.roleName`. For instance, instead of granting `select` on a model, you would grant `roles/bigquery.dataViewer`.
 
@@ -240,7 +241,7 @@ The `grants` config and the `grant_access_to` config are distinct.
 
 You can use the two features together: "authorize" a view model with the `grants_access_to` configuration, and then add `grants` to that view model to share its query results (and *only* its query results) with other users, groups, or service accounts.
 
-### BigQuery examples[​](#bigquery-examples "Direct link to BigQuery examples")
+### BigQuery examples
 
 Granting permission using SQL and BigQuery:
 
@@ -260,24 +261,28 @@ models:
         roles/bigquery.dataViewer: ['user:someone@yourcompany.com']
 ```
 
+### Databricks
+
 * OSS Apache Spark / Delta Lake do not support `grants`.
 
 * Databricks automatically enables `grants` on SQL endpoints. For interactive clusters, admins should enable grant functionality using these two setup steps in the Databricks documentation:
-
-  <!-- -->
 
   * [Enable table access control for your workspace](https://docs.databricks.com/administration-guide/access-control/table-acl.html)
   * [Enable table access control for a cluster](https://docs.databricks.com/security/access-control/table-acls/table-acl.html)
 
 * In order to grant `READ_METADATA` or `USAGE`, use [post-hooks](./pre-hook-post-hook.md)
 
-- Redshift supports granting to users, [groups](https://docs.aws.amazon.com/redshift/latest/dg/r_Groups.html), and [roles](https://docs.aws.amazon.com/redshift/latest/dg/r_roles-managing.html). Use the `group:` or `role:` prefix in grantee names to grant to groups or roles. Unprefixed names are treated as users.
+### Redshift
+
+* Redshift supports granting to users, [groups](https://docs.aws.amazon.com/redshift/latest/dg/r_Groups.html), and [roles](https://docs.aws.amazon.com/redshift/latest/dg/r_roles-managing.html). Use the `group:` or `role:` prefix in grantee names to grant to groups or roles. Unprefixed names are treated as users.
 
 ```yaml
 models:
   +grants:
     select: ["user1", "user:user2", "group:analysts", "role:reporter"]
 ```
+
+### Snowflake
 
 * dbt accounts for the [`copy_grants` configuration](./snowflake-configs.md#copying-grants) when calculating which grants need to be added or removed.
 * Granting to / revoking from is only fully supported for Snowflake roles (not [database roles](https://docs.snowflake.com/user-guide/security-access-control-overview#types-of-roles)).

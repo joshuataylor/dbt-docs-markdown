@@ -1,6 +1,6 @@
 # Connect IBM watsonx.data Presto to dbt Core
 
-Local developmentⓘ
+Local development
 
 The dbt-watsonx-presto adapter allows you to use dbt to transform and manage data on IBM watsonx.data Presto(Java), leveraging its distributed SQL query engine capabilities. Before proceeding, ensure you have the following:
 
@@ -10,40 +10,26 @@ The dbt-watsonx-presto adapter allows you to use dbt to transform and manage dat
 
 Refer to [Configuring dbt-watsonx-presto](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=presto-configuration-setting-up-your-profile) for guidance on obtaining and organizing these details.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  IBM
-* **Authors**:
-  <!-- -->
-  Karnati Naga Vivek, Hariharan Ashokan, Biju Palliyath, Gopikrishnan Varadarajulu, Rohan Pednekar
+* **Maintained by**: IBM
+* **Authors**: Karnati Naga Vivek, Hariharan Ashokan, Biju Palliyath, Gopikrishnan Varadarajulu, Rohan Pednekar
 * **GitHub repo**: [IBM/dbt-watsonx-presto](https://github.com/IBM/dbt-watsonx-presto) [![](https://img.shields.io/github/stars/IBM/dbt-watsonx-presto?style=for-the-badge)](https://github.com/IBM/dbt-watsonx-presto)
 * **PyPI package**: `dbt-watsonx-presto` [![](https://badge.fury.io/py/dbt-watsonx-presto.svg)](https://badge.fury.io/py/dbt-watsonx-presto)
 * **Slack channel**: [#db-watsonx-presto](https://getdbt.slack.com/archives/C08C7D53R40)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.8.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-watsonx-presto
+## Installing dbt-watsonx-presto
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-watsonx-presto`
 
-## Configuring <!-- -->dbt-watsonx-presto<!-- -->
+## Configuring dbt-watsonx-presto
 
-For <!-- -->IBM watsonx.data<!-- -->-specific configuration, please refer to [IBM watsonx.data<!-- --> configs.](../../../reference/resource-configs/watsonx-presto-config.md)
+For IBM watsonx.data-specific configuration, please refer to [IBM watsonx.data configs.](../../../reference/resource-configs/watsonx-presto-config.md)
 
-## Connecting to IBM watsonx.data presto[​](#connecting-to-ibm-watsonxdata-presto "Direct link to Connecting to IBM watsonx.data presto")
+## Connecting to IBM watsonx.data presto
 
 To connect dbt with watsonx.data Presto(java), you need to configure a profile in your `profiles.yml` file located in the `.dbt/` directory of your home folder. The following is an example configuration for connecting to IBM watsonx.data SaaS and Software instances:
 
@@ -78,7 +64,7 @@ my_project:
   target: software
 ```
 
-## Host parameters[​](#host-parameters "Direct link to Host parameters")
+## Host parameters
 
 The following profile fields are required to configure watsonx.data Presto(java) connections. For IBM watsonx.data SaaS or Software instances, you can get the `hostname` and `port` details by clicking **View connect details** on the Presto(java) engine details page.
 
@@ -93,22 +79,16 @@ The following profile fields are required to configure watsonx.data Presto(java)
 | `port`       | Required                     | The port for connecting to Presto.                                                                                                                    | `443`                           |
 | `ssl_verify` | Optional (default: **true**) | Specifies the path to the SSL certificate or a boolean value. The SSL certificate path is required if the watsonx.data instance is not secure (HTTP). | `path/to/certificate` or `true` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Schemas and databases[​](#schemas-and-databases "Direct link to Schemas and databases")
+### Schemas and databases
 
 When selecting the catalog and the schema, make sure the user has read and write access to both. This selection does not limit your ability to query the catalog. Instead, they serve as the default location for where tables and views are materialized. In addition, the Presto connector used in the catalog must support creating tables. This default can be changed later from within your dbt project.
 
-### SSL verification[​](#ssl-verification "Direct link to SSL verification")
+### SSL verification
 
 * If the Presto instance uses an unsecured HTTP connection, you must set `ssl_verify` to the path of the SSL certificate file.
 * If the instance uses `HTTPS`, this parameter is not required and can be omitted.
 
-## Additional parameters[​](#additional-parameters "Direct link to Additional parameters")
+## Additional parameters
 
 The following profile fields are optional to set up. They let you configure your instance session and dbt for your connection.
 
@@ -117,9 +97,3 @@ The following profile fields are optional to set up. They let you configure your
 | `threads`      | How many threads dbt should use (default is `1`)                                                            | `8`                                   |
 | `http_headers` | HTTP headers to send alongside requests to Presto, specified as a yaml dictionary of (header, value) pairs. | `X-Presto-Routing-Group: my-instance` |
 | `http_scheme`  | The HTTP scheme to use for requests to (default: `http`, or `https` if `BasicAuth`)                         | `https` or `http`                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

@@ -8,13 +8,13 @@ We highly recommend that you define properties in dedicated paths alongside the 
 
 info
 
-#### schema.yml files[​](#schemayml-files "Direct link to schema.yml files")
+#### schema.yml files
 
 Previous versions of the docs referred to these as `schema.yml` files — we've moved away from that terminology since the word `schema` is used to mean other things when talking about databases, and people often thought that you *had* to name these files `schema.yml`.
 
 Instead, we now refer to these files as `properties.yml` files. (Of course, you're still free to name your files `schema.yml`)
 
-### Which properties are *not* also configs?[​](#which-properties-are-not-also-configs "Direct link to which-properties-are-not-also-configs")
+### Which properties are *not* also configs?
 
 In dbt, you can define node configs in `properties.yml` files, in addition to `config()` blocks and `dbt_project.yml`. However, some special properties can only be defined in the `.yml` file and you cannot configure them using `config()` blocks or the `dbt_project.yml` file:
 
@@ -33,15 +33,12 @@ These properties are:
 * [`quote`](./resource-properties/columns.md#quote)
 * [`source` properties](./source-properties.md) (for example, `loaded_at_field`)
 * [`exposure` properties](./exposure-properties.md) (for example, `type`, `maturity`)
-  <!-- -->
   * Note that while most exposure properties must be configured directly in `properties.yml` files, you can set the [`enabled`](./resource-configs/enabled.md) config at the [project level](./exposure-properties.md#project-level-configs) in the`dbt_project.yml` file.
 * [`macro` properties](./macro-properties.md) (for example, `arguments`)
 * [`tests`](./resource-properties/data-tests.md)
 * [`versions`](./resource-properties/versions.md)
 
-<!-- -->
-
-## Example[​](#example "Direct link to Example")
+## Example
 
 Here's an example that defines both `sources` and `models` for a project:
 
@@ -107,7 +104,7 @@ models:
                 severity: warn
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 You can find an exhaustive list of each supported property and config, broken down by resource type:
 
@@ -119,7 +116,7 @@ You can find an exhaustive list of each supported property and config, broken do
 * Macro [properties](./macro-properties.md)
 * Exposure [properties](./exposure-properties.md)
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Does my \`.yml\` file containing tests and descriptions need to be named \`schema.yml\`?
 
@@ -187,7 +184,7 @@ Can I use a YAML file extension?
 
 No. At present, dbt will only search for files with a `.yml` file extension. In a future release of dbt, dbt will also search for files with a `.yaml` file extension.
 
-## Troubleshooting common errors[​](#troubleshooting-common-errors "Direct link to Troubleshooting common errors")
+## Troubleshooting common errors
 
  Invalid test config given in \[model name]
 

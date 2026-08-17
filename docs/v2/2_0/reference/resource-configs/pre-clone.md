@@ -1,8 +1,6 @@
 # pre\_clone
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -12,6 +10,8 @@ models:
     +state:
       pre_clone: never | if_missing | always
 ```
+
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,6 +23,8 @@ models:
         pre_clone: never | if_missing | always
 ```
 
+### SQL file config
+
 models/\<filename>.sql
 
 ```sql
@@ -33,7 +35,7 @@ models/\<filename>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 `pre_clone` controls whether and when dbt State pre-populates incremental models and snapshots in your development environment by cloning their production counterparts before a run.
 
@@ -43,19 +45,13 @@ models/\<filename>.sql
 | `if_missing` (default) | Clone only if the target table does not yet exist in development. After the first clone, subsequent runs build incrementally on top of the cloned data.            |
 | `always`               | Clone before every run, regardless of whether the development table already exists. Guarantees development incremental state matches production on every run.      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 note
 
 Non-incremental materializations are never pre-cloned. This setting has no effect on them.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Always sync development with production[​](#always-sync-development-with-production "Direct link to Always sync development with production")
+### Always sync development with production
 
 Use `always` when you want development to reflect the current production state before every run:
 
@@ -69,7 +65,7 @@ models:
         pre_clone: always
 ```
 
-### Isolate dev state from production[​](#isolate-dev-state-from-production "Direct link to Isolate dev state from production")
+### Isolate dev state from production
 
 Use `never` when you want development to be fully independent from production:
 
@@ -81,7 +77,7 @@ models:
     pre_clone: never
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

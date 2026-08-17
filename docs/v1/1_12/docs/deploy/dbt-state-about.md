@@ -1,6 +1,6 @@
 # About dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 dbt State makes dbt smarter about what to build. Instead of rebuilding every node on every run, dbt reuses nodes by cloning from another location or skipping a rebuild when the logic and data haven't changed.
 
@@ -10,7 +10,7 @@ dbt State can reuse all node types that create relations in the database (such a
 
 dbt State works with dbt Core, the dbt platform, and dbt Fusion engine, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication either through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). For pricing details, refer to [dbt State usage and pricing](../platform/billing/dbt-state-usage.md).
 
-## Benefits[​](#benefits "Direct link to Benefits")
+## Benefits
 
 dbt State delivers efficiency gains across both production and development environments:
 
@@ -19,7 +19,7 @@ dbt State delivers efficiency gains across both production and development envir
 * **Smarter than standard deferral**: Unlike standard deferral, which always builds selected nodes and only defers unselected upstream references, dbt State decides whether transformations need to run at all, or whether an existing table can simply be cloned.
 * **Model-level freshness threshold**: The [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) config sets how much time must pass since the last upstream data change before dbt triggers a rebuild. It decouples downstream models from high-frequency upstream changes, and prevents costly rebuilds on stagnant data when an upstream dependency misses its freshness [Service Level Agreement (SLA)](https://www.getdbt.com/blog/data-slas-best-practices).
 
-## How dbt State works[​](#how-dbt-state-works "Direct link to How dbt State works")
+## How dbt State works
 
 When you run a command like `dbt build --select +my_model`, dbt State evaluates each selected node and applies the most efficient approach it can:
 
@@ -39,7 +39,7 @@ The following decision tree shows how dbt State chooses the most efficient valid
 
 The key idea is that dbt State only skips work when it can prove the existing object is sufficiently equivalent for the current run. If the SQL logic, relevant config, schema, or upstream freshness means the result might be different, dbt rebuilds instead.
 
-## Signing up for dbt State[​](#signing-up-for-dbt-state "Direct link to Signing up for dbt State")
+## Signing up for dbt State
 
 When you sign up for dbt State, you'll choose one of two paths:
 
@@ -52,7 +52,7 @@ A standalone account makes sense if you:
 * Don't have admin permissions to enable dbt State in your dbt platform account
 * Want to test dbt State without connecting it to your dbt platform account yet
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 What happened to state-aware orchestration?
 
@@ -119,7 +119,7 @@ The following patterns commonly cause unexpected rebuilds:
 * [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
 * [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
 
-## Views with `select *`[​](#views-with-select- "Direct link to views-with-select-")
+## Views with `select *`
 
 dbt State always rebuilds views that use `select *` anywhere in their SQL, including inside CTEs. A common staging pattern like the following triggers this behavior:
 
@@ -153,13 +153,13 @@ from {{ source("my_source", "my_table") }}
 
 If you can't remove `select *`, you can exclude views from running with `--exclude config.materialized:view`.
 
-## Non-deterministic Jinja templating[​](#non-deterministic-jinja-templating "Direct link to Non-deterministic Jinja templating")
+## Non-deterministic Jinja templating
 
 Some macros, such as `dbt_utils.get_relations_by_pattern` (an introspective macro) combined with `dbt_utils.union_relations`, can return relations in a different order on each run. That produces different compiled SQL even when your project logic hasn't changed. dbt State detects a new hash and rebuilds the model.
 
 This pattern can affect any model type, not just views. If a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
 
-## Models with external sources on BigQuery[​](#models-with-external-sources-on-bigquery "Direct link to Models with external sources on BigQuery")
+## Models with external sources on BigQuery
 
 On BigQuery, models that use external sources (such as Google Sheets) always rebuild because BigQuery doesn't expose modification timestamps for external sources, so dbt State can't determine freshness.
 
@@ -167,7 +167,7 @@ tip
 
 To prevent external sources from always being considered stale, configure [`loaded_at_field`](../../reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](../../reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
 
-## How to diagnose[​](#how-to-diagnose "Direct link to How to diagnose")
+## How to diagnose
 
 In dbt Core v1.7–v1.12, run the `dbt-state explain` command to see why dbt State rebuilt or reused a specific model.
 
@@ -202,7 +202,7 @@ my_project:
 
 `defer_to_target` only applies to self-managed deployments. If you're using the dbt platform, deferral is configured through your environment settings in the UI. For more details, refer to [Configuring deferral](./dbt-state-deferral.md).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Set up dbt State](./dbt-state-setup.md)
 * [Non-interactive environment setup](./dbt-state-cicd.md)

@@ -1,8 +1,6 @@
 # Deploy your metrics
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Starter, Enterprise, Enterprise+
 
 This section explains how you can perform a job run in your deployment environment in dbt to materialize and deploy your metrics. Currently, the deployment environment is only supported.
 
@@ -18,7 +16,7 @@ This section explains how you can perform a job run in your deployment environme
 
 5. [Create a new deploy job](../deploy/deploy-jobs.md#create-and-schedule-jobs) that runs in the environment you just created. Go back to the **Orchestration** menu, select **Jobs**, select **Create job**, and click **Deploy job**.
 
-6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](../../reference/artifacts/sl-manifest.md) file<!-- -->. Although running `dbt build` isn't required, you can choose to do so if needed.
+6. Set the job to run a `dbt parse` job to parse your projects and generate a [`semantic_manifest.json` artifact](../../reference/artifacts/sl-manifest.md) file. Although running `dbt build` isn't required, you can choose to do so if needed.
 
    note
 
@@ -36,7 +34,7 @@ What’s happening internally?
   <br />
 * The Semantic Layer APIs pull in the most recent manifest and enables your integration to extract metadata from it.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 After you've executed a job and deployed your Semantic Layer:
 
@@ -44,7 +42,7 @@ After you've executed a job and deployed your Semantic Layer:
 * Discover the [available integrations](../platform-integrations/avail-sl-integrations.md), such as Tableau, Google Sheets, Microsoft Excel, and more.
 * Start querying your metrics with the [API query syntax](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Optimize querying performance](./sl-cache.md) using declarative caching.
 * [Validate semantic nodes in CI](../deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.

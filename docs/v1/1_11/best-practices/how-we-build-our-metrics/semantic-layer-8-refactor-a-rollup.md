@@ -1,6 +1,6 @@
 # Refactor an existing rollup
 
-## A new approach[​](#a-new-approach "Direct link to A new approach")
+## A new approach
 
 Now that we've set the stage, it's time to dig in to the fun and messy part: how do we refactor an existing rollup in dbt into semantic models and metrics?
 
@@ -12,7 +12,7 @@ Let's look at the differences we can observe in how we might approach this with 
 * ∞ Another way to think about this is that instead of moving down a list of requested priorities trying to pre-make as many combinations of our marts as possible — increasing lines of code and complexity — we can **let MetricFlow present every combination possible without specifically coding it**.
 * 🏗️ To resolve these approaches optimally, we'll need to shift some **fundamental aspects of our modeling strategy**.
 
-## Refactor steps outlined[​](#refactor-steps-outlined "Direct link to Refactor steps outlined")
+## Refactor steps outlined
 
 We recommend an incremental implementation process that looks something like this:
 
@@ -27,7 +27,7 @@ We recommend an incremental implementation process that looks something like thi
 
 You would then **continue this process** on other outputs and marts moving down a list of **priorities**. Each model as you go along will be faster and easier as you'll **reuse many of the same components** that will already have been semantically modeled.
 
-## Let's make a `revenue` metric[​](#lets-make-a-revenue-metric "Direct link to lets-make-a-revenue-metric")
+## Let's make a `revenue` metric
 
 So far we've been working in new pointing at a staging model to simplify things as we build new mental models for MetricFlow. In reality, unless you're implementing MetricFlow in a green-field dbt project, you probably are going to have some refactoring to do. So let's get into that in detail.
 
@@ -36,8 +36,6 @@ So far we've been working in new pointing at a staging model to simplify things 
 2. 🗺️ We'll next make semantic models for all of these. Let's walk through a straightforward conversion first with `locations`.
 
 3. ⛓️ We'll want to first decide if we need to do any joining to get this into the shape we want for our semantic model. The biggest determinants of this are two factors:
-
-   <!-- -->
 
    * 📏 Does this semantic model **contain measures**?
    * 🕥 Does this semantic model have a **primary timestamp**?
@@ -76,7 +74,7 @@ semantic_models:
         agg: average
 ```
 
-## Semantic and logical interaction[​](#semantic-and-logical-interaction "Direct link to Semantic and logical interaction")
+## Semantic and logical interaction
 
 Now, let's tackle a thornier situation. Products and supplies both have dimensions and measures but no time dimension. Products has a one-to-one relationship with `order_items`, enriching that table, which is itself just a mapping table of products to orders. Additionally, products have a one-to-many relationship with supplies. The high-level ERD looks like the diagram below.
 
@@ -222,19 +220,19 @@ metrics:
       measure: revenue
 ```
 
-## Checking our work[​](#checking-our-work "Direct link to Checking our work")
+## Checking our work
 
 * 🔍 We always start our **auditing** with a `dbt parse` to **ensure our code works** before we examine its output.
 * 👯 If we're working there, we'll move to trying out an `dbt sl query` that **replicates the logic of the output** we're trying to refactor.
 * 💸 For our example we want to **audit monthly revenue**, to do that we'd run the query below.
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 ```text
 dbt sl query --metrics revenue --group-by metric_time__month
 ```
 
-### Example query results[​](#example-query-results "Direct link to Example query results")
+### Example query results
 
 ```shell
 ✔ Success 🦄 - query completed after 1.02 seconds

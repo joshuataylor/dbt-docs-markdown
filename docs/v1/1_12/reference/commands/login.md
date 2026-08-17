@@ -1,6 +1,6 @@
 # About dbt login
 
-Available in v2ⓘ
+Available in v2
 
 Use dbt login to authenticate once and unlock advanced features across dbt tools.
 
@@ -12,7 +12,7 @@ Run `dbt login` from the command line to unlock advanced dbt features. It'll ope
 
 Run [`dbt login status`](#dbt-login-status) to view your current authentication status.
 
-## When to use dbt login[​](#when-to-use-dbt-login "Direct link to When to use dbt login")
+## When to use dbt login
 
 `dbt login` is an interactive, browser-based sign-in flow for development on macOS, Linux, and Windows. Use `dbt login` to unlock advanced features including:
 
@@ -24,7 +24,7 @@ Refer to [VS Code extension features](../../docs/dbt-extension-features.md#featu
 
 `dbt login` doesn't support non-interactive authentication. For [non-interactive](#non-interactive-environments) environments, such as CI/CD jobs, scheduled jobs, or external orchestrators, use a service token instead.
 
-## Before you log in[​](#before-you-log-in "Direct link to Before you log in")
+## Before you log in
 
 Downloading the dbt VS Code extension gives you 14 days to try [advanced features](../../docs/dbt-extension-features.md#feature-availability) — no account needed. After the trial ends, sign in to or create a free dbt platform account to keep using them. The vast majority of features keep working either way.
 
@@ -38,15 +38,13 @@ Note that this is separate from [dbt platform user license types](../../docs/pla
 
 Refer to [VS Code extension features](../../docs/dbt-extension-features.md#feature-availability) for the full list of features and their availability.
 
-<!-- -->
-
-## Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
+## Authentication methods
 
 `dbt login` is interactive only. It opens a browser-based sign-in flow and stores your session locally.
 
 You can log into dbt either using [interactive](#interactive-authentication) or [non-interactive](#non-interactive-environments) methods.
 
-### Interactive authentication[​](#interactive-authentication "Direct link to Interactive authentication")
+### Interactive authentication
 
 Use `dbt login` when you're developing locally in a terminal or IDE and can complete sign-in in a browser.
 
@@ -65,13 +63,13 @@ dbt login status
 
 Complete the browser prompts to sign in or register for a dbt platform account.
 
-### Non-interactive environments[​](#non-interactive-environments "Direct link to Non-interactive environments")
+### Non-interactive environments
 
 Non-interactive means dbt runs without a person at a keyboard to open a browser — for example, a GitHub Actions workflow, a cron job, or a scheduled dbt platform job. There is no separate "non-interactive login" command. You do not run `dbt login` in these environments.
 
 If you are new to dbt, start with [interactive authentication](#interactive-authentication). You only need the guidance in this section when you automate dbt runs.
 
-#### Authenticate with a service token[​](#authenticate-with-a-service-token "Direct link to Authenticate with a service token")
+#### Authenticate with a service token
 
 In non-interactive environments (such as CI/CD jobs, scheduled jobs, or external orchestrators like Airflow), use a [service token](../../docs/dbt-apis/service-tokens.md) instead of `dbt login`. The service token does two jobs:
 
@@ -96,9 +94,7 @@ export DBT_CLOUD_TOKEN=dbtc_xxxxxxxx
 export DBT_CLOUD_PROJECT_ID=67890
 ```
 
-<!-- -->
-
-## How shared login works across dbt tools[​](#how-shared-login-works-across-dbt-tools "Direct link to How shared login works across dbt tools")
+## How shared login works across dbt tools
 
 * Use `dbt login` to authenticate with [dbt State](../../docs/deploy/dbt-state-about.md). You can start the sign-in flow from the [dbt VS Code extension](../../docs/about-dbt-extension.md):
 * If you run `dbt login` from the CLI, the dbt VS Code extension uses that login in your next extension session.
@@ -108,7 +104,7 @@ When you run a command or use a feature that requires authentication, dbt checks
 
 For the VS Code extension registration flow, refer to [Sign in or register](../../docs/sign-in-dbt-extension.md).
 
-## Staying signed in[​](#staying-signed-in "Direct link to Staying signed in")
+## Staying signed in
 
 Once you log in, dbt keeps you signed in automatically — you usually won't notice it at all.
 
@@ -121,9 +117,7 @@ If your access expires, run `dbt login` to sign back in.
 
 If you're not sure where you stand, run [`dbt license info`](#troubleshooting) to check your status.
 
-<!-- -->
-
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 This page lists the commands and output you can use with `dbt login`:
 
@@ -132,7 +126,7 @@ This page lists the commands and output you can use with `dbt login`:
 * [`dbt login status`](#dbt-login-status)
 * [`dbt license info`](#dbt-license-info)
 
-### dbt login[​](#dbt-login "Direct link to dbt login")
+### dbt login
 
 Run `dbt login` from your terminal to open browser-based authentication:
 
@@ -175,7 +169,7 @@ dbt State and dbt login
 
 If you have a dbt platform account, you can use the same account to authenticate with dbt State — no separate sign-in required. For full dbt State setup, refer to [Setting up dbt State](../../docs/deploy/dbt-state-setup.md).
 
-### dbt login --help[​](#dbt-login---help "Direct link to dbt login --help")
+### dbt login --help
 
 ```text
 Usage: dbt login [OPTIONS] <COMMAND>
@@ -184,7 +178,7 @@ Commands:
   status          Show dbt authentication status
 ```
 
-### dbt login status[​](#dbt-login-status "Direct link to dbt login status")
+### dbt login status
 
 Run `dbt login status` to show whether dbt is authenticated:
 
@@ -204,7 +198,7 @@ If dbt is not authenticated, the CLI shows:
 Status: unauthenticated
 ```
 
-### dbt license info[​](#dbt-license-info "Direct link to dbt license info")
+### dbt license info
 
 dbt uses local licenses to cache your logged-in state and give you access to advanced features. Run `dbt license info` as an additional check to verify the status of the license used by Fusion. This is useful when an advanced feature isn't working and `dbt login status` tells you you're authenticated:
 
@@ -233,7 +227,7 @@ dbt license info --json
 
 For how to interpret each status, refer to [Troubleshooting](#troubleshooting).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If an advanced feature isn't working, or you're not sure whether you're still signed in, run `dbt license info` to check your access:
 
@@ -258,12 +252,6 @@ The output shows your current status. Use the following table to interpret it:
 | `invalid`         | Your access failed validation.                     | Run `dbt login` to refresh it.                                                                                |
 | `transient_error` | A temporary network or server issue.               | Retry — your cached access stays active in the meantime.                                                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you just registered a new account
 
 If you created a new dbt platform account but haven't verified your email yet, dbt warns you on each run during a short grace period.
@@ -272,7 +260,7 @@ After the grace period ends, advanced features stop working until you verify. Yo
 
 Check your inbox for the verification email, or [contact dbt Support](../../docs/dbt-support.md) if you need it resent.
 
-## Related commands[​](#related-commands "Direct link to Related commands")
+## Related commands
 
 * [`dbt login status`](#dbt-login-status) — Shows your current dbt authentication status.
 * [`dbt license info`](#dbt-license-info) — Shows your current access status and helps diagnose feature availability.

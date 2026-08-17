@@ -1,6 +1,6 @@
 # dbt Semantic Layer architecture
 
-dbt platformⓘ
+dbt platform
 
 The Semantic Layer allows you to define metrics and use various interfaces to query them. The Semantic Layer does the heavy lifting to find where the queried data exists in your data platform and generates the SQL to make the request (including performing joins).
 
@@ -8,7 +8,7 @@ The Semantic Layer allows you to define metrics and use various interfaces to qu
 
 [![The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.")](#)The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.
 
-## Components[​](#components "Direct link to Components")
+## Components
 
 The Semantic Layer includes the following components:
 
@@ -19,13 +19,7 @@ The Semantic Layer includes the following components:
 | **Service layer**                                                                   | Coordinates query requests and dispatching the relevant metric query to the target query engine. This is provided through dbt and is available to all users on dbt version 1.6 or later. The service layer includes a Gateway service for executing SQL against the data platform. | ❌             | ❌              | ✅            | ✅                    | Proprietary, Cloud (Starter, Enterprise, Enterprise+)                                       |
 | **[Semantic Layer APIs](../dbt-apis/sl-api-overview.md)** | The interfaces allow users to submit metric queries using GraphQL and JDBC APIs. They also serve as the foundation for building first-class integrations with various tools.                                                                                                       | ❌             | ❌              | ✅            | ✅                    | Proprietary, Cloud (Starter, Enterprise, Enterprise+)                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Feature comparison[​](#feature-comparison "Direct link to Feature comparison")
+## Feature comparison
 
 The following table compares the features available in dbt and source available in dbt Core:
 
@@ -39,12 +33,6 @@ The following table compares the features available in dbt and source available 
 | Connect to downstream integrations (Tableau, Hex, Dot, Mode, Google Sheets, and so on) | ❌                          | ✅                      |
 | Create and run Exports to save metrics queries as tables in your data platform         | ❌                          | ✅                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Semantic Layer FAQs](./sl-faqs.md)

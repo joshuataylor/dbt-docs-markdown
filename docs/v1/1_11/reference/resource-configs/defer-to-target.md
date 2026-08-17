@@ -27,19 +27,19 @@ my_project:
   target: prod
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 `defer_to_target` specifies which target environment dbt State should defer to when resolving unselected upstream nodes and evaluating whether models need to be rebuilt.
 
 In self-managed deployments with multiple environments, you can configure each target to defer to a different upstream environment. For example, a `uat` environment can defer to `staging`, while `prod` manages its own state independently.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 `prod`. When omitted, all targets defer to the target named `prod`. Use this config if you want to defer to a different target (for example, `staging`), or if your production target is named something other than `prod` (for example, `production`).
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-### Multi-environment deferral chain[​](#multi-environment-deferral-chain "Direct link to Multi-environment deferral chain")
+### Multi-environment deferral chain
 
 Configure a pipeline where `uat` defers to `staging`:
 
@@ -72,7 +72,7 @@ my_project:
   target: prod
 ```
 
-## Caveats to dbt State without a manifest[​](#caveats-to-dbt-state-without-a-manifest "Direct link to Caveats to dbt State without a manifest")
+## Caveats to dbt State without a manifest
 
 When dbt State tries to guess where the production version of a relation was built, it re-renders the database and schema names using the configured target from `defer_to_target`.
 
@@ -83,7 +83,7 @@ If either of the generated names depend on dynamic data that has changed since t
 
 The following examples show scenarios that will cause issues with an `orders` node. Assume the dev profile sets `schema: dbt_developer` and the prod profile sets `schema: analytics`.
 
-### Environment variables and CLI vars[​](#environment-variables-and-cli-vars "Direct link to Environment variables and CLI vars")
+### Environment variables and CLI vars
 
 If your schema name depends on an environment variable or a CLI var, dbt State may guess the wrong location because those values differ between production and local runs.
 
@@ -109,7 +109,7 @@ The same issue occurs with CLI vars:
 * When a developer runs `dbt run` with no `--vars`, `var('environment')` falls back to its default (`dev`), so dbt State guesses `analytics_dev.orders`.
 * That relation does not exist in production. Vars passed at the original prod invocation are not stored anywhere dbt State can recover them.
 
-### Path-derived names when files move[​](#path-derived-names-when-files-move "Direct link to Path-derived names when files move")
+### Path-derived names when files move
 
 A common pattern is to use a node's directory as its schema:
 
@@ -123,7 +123,7 @@ A common pattern is to use a node's directory as its schema:
 * If a developer reorganizes the project and renames the directory to `models/accounting/`, then runs `dbt run -s orders`, their local manifest records the node's parent directory as `accounting`. dbt State then guesses `analytics_accounting.orders`.
 * Production is still at `analytics_finance.orders`, the clone misses, and the node rebuilds from scratch.
 
-### Target-specific `generate_alias_name` logic[​](#target-specific-generate_alias_name-logic "Direct link to target-specific-generate_alias_name-logic")
+### Target-specific `generate_alias_name` logic
 
 Unlike database and schema, dbt State currently does not re-render aliases. An override on `generate_alias_name` that varies by target or environment breaks the guess.
 
@@ -144,7 +144,7 @@ caution
 
 This scenario is the most likely to cause data corruption. If you have custom `generate_alias_name` logic, provide a `manifest.json` to guarantee accurate results.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

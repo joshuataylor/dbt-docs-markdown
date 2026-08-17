@@ -1,8 +1,8 @@
 # About dbt artifacts
 
-With every invocation, dbt generates and saves one or more *artifacts*. Several of these are JSON files (`semantic_manifest.json`, `manifest.json`, `catalog.json`, `run_results.json`, and `sources.json`) that are used to power:
+(Applies to dbt v1.11 and earlier)
 
-<!-- -->
+With every invocation, dbt generates and saves one or more *artifacts*. Several of these are JSON files (`semantic_manifest.json`, `manifest.json`, `catalog.json`, `run_results.json`, and `sources.json`) that are used to power:
 
 * [documentation](../../docs/explore/build-and-view-your-docs.md)
 * [state](../node-selection/syntax.md#about-node-selection)
@@ -16,26 +16,24 @@ They could also be used to:
 * identify historical changes in table structure
 * do much, much more
 
-### When are artifacts produced? [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#when-are-artifacts-produced- "Direct link to when-are-artifacts-produced-")
+### When are artifacts produced? [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Most dbt commands (and corresponding RPC methods) produce artifacts:
 
 * [semantic manifest](./sl-manifest.md): produced whenever your dbt project is parsed
 
-<!-- -->
-
-* [manifest](./manifest-json.md): produced by commands that read and understand your project
-* [run results](./run-results-json.md): produced by commands that run, compile, or catalog nodes in your DAG
-* [catalog](./catalog-json.md): produced by `docs generate`
-* [sources](./sources-json.md): produced by `source freshness`
+- [manifest](./manifest-json.md): produced by commands that read and understand your project
+- [run results](./run-results-json.md): produced by commands that run, compile, or catalog nodes in your DAG
+- [catalog](./catalog-json.md): produced by `docs generate`
+- [sources](./sources-json.md): produced by `source freshness`
 
 When running commands from the [dbt CLI](../../docs/platform/dbt-cli-installation.md), all artifacts are downloaded by default. If you want to change this behavior, refer to [How to skip artifacts from being downloaded](../../docs/platform/configure-dbt-cli.md#how-to-skip-artifacts-from-being-downloaded).
 
-## Where are artifacts produced?[​](#where-are-artifacts-produced "Direct link to Where are artifacts produced?")
+## Where are artifacts produced?
 
 By default, artifacts are written to the `/target` directory of your dbt project. You can configure the location using the [`target-path` flag](../global-configs/json-artifacts.md).
 
-## Common metadata[​](#common-metadata "Direct link to Common metadata")
+## Common metadata
 
 All artifacts produced by dbt include a `metadata` dictionary with these properties:
 
@@ -53,11 +51,11 @@ In the manifest, the `metadata` may also include:
 * `project_id`: Project identifier, hashed from `project_name`, sent with anonymous usage stats if enabled.
 * `user_id`: User identifier, stored by default in `~/dbt/.user.yml`, sent with anonymous usage stats if enabled.
 
-#### Notes:[​](#notes "Direct link to Notes:")
+#### Notes:
 
 * The structure of dbt artifacts is canonized by [JSON schemas](https://json-schema.org/), which are hosted at [schemas.getdbt.com](https://schemas.getdbt.com/).
 * Artifact versions may change in any minor version of dbt (`v1.x.0`). Each artifact is versioned independently.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Other artifacts](./other-artifacts.md) files such as `index.html` or `graph_summary.json`.

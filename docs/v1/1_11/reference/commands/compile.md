@@ -2,12 +2,12 @@
 
 `dbt compile` generates executable SQL from source files for:
 
+(Applies to dbt v1.11 and earlier)
+
 * [Models](../../docs/build/models.md)
 * [Data tests](../../docs/build/data-tests.md)
 * [Analyses](../../docs/build/analyses.md)
 * [Functions](../../docs/build/udfs.md)
-
-<!-- -->
 
 You can find these compiled SQL files in the `target/` directory of your dbt project.
 
@@ -22,7 +22,7 @@ Some common misconceptions:
 * `dbt compile` is *not* a pre-requisite of `dbt run`, or other building commands. Those commands will handle compilation themselves.
 * If you just want dbt to read and validate your project code, without connecting to the data warehouse, use `dbt parse` instead.
 
-### Interactive compile[​](#interactive-compile "Direct link to Interactive compile")
+### Interactive compile
 
 Starting in dbt v1.5, `compile` can be "interactive" in the CLI, by displaying the compiled code of a node or arbitrary dbt-SQL query:
 
@@ -92,7 +92,7 @@ Resources that use introspective queries
 
 Compiled SQL for resources that use introspective queries may depend on metadata from your warehouse. Compilation may be incomplete or may differ depending on the state of that metadata.
 
-### Compiling tests with `--select`[​](#compiling-tests-with---select "Direct link to compiling-tests-with---select")
+### Compiling tests with `--select`
 
 You can use `dbt compile` to compile tests, as long as your selector matches a test node in the project.
 
@@ -140,13 +140,13 @@ FULL_TEST_NODE_NAME
 
 For more selector patterns, refer to [Test selection examples](../node-selection/test-selection-examples.md).
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 Why dbt compile needs a data platform connection
 
 `dbt compile` needs a data platform connection in order to gather the info it needs (including from introspective queries) to prepare the SQL for every model in your project.
 
-### dbt compile[​](#dbt-compile "Direct link to dbt compile")
+### dbt compile
 
 The [`dbt compile` command](./compile.md) generates executable SQL from `source`, `model`, `test`, and `analysis` files. `dbt compile` is similar to `dbt run` except that it doesn't materialize the model's compiled SQL into an existing table. So, up until the point of materialization, `dbt compile` and `dbt run` are similar because they both require a data platform connection, run queries, and have an [`execute` variable](../dbt-jinja-functions/execute.md) set to `True`.
 
@@ -155,7 +155,7 @@ However, here are some things to consider:
 * You don't need to execute `dbt compile` before `dbt run`
 * In dbt, `compile` doesn't mean `parse`. This is because `parse` validates your written `YAML`, configured tags, and so on.
 
-### Introspective queries[​](#introspective-queries "Direct link to Introspective queries")
+### Introspective queries
 
 To generate the compiled SQL for many models, dbt needs to run introspective queries, (which is when dbt needs to run SQL in order to pull data back and do something with it) against the data platform.
 

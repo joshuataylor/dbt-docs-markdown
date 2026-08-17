@@ -4,13 +4,11 @@ A group is a collection of nodes within a dbt DAG. Groups are named, and every g
 
 Group members may include models, tests, seeds, snapshots, analyses, and metrics. (Not included: sources and exposures.) Each node may belong to only one group.
 
-### Declaring a group[​](#declaring-a-group "Direct link to Declaring a group")
-
-<!-- -->
+### Declaring a group
 
 Groups are defined in `.yml` files, nested under a `groups:` key. In version 1.10 and higher, you can add a `description` and a `meta` config to add more information about the group.
 
-<!-- -->
+(Applies to dbt v1.10 and later)
 
 models/marts/finance/finance.yml
 
@@ -28,7 +26,7 @@ groups:
         data_classification: sensitive
 ```
 
-#### Centrally defining a group[​](#centrally-defining-a-group "Direct link to Centrally defining a group")
+#### Centrally defining a group
 
 To centrally define a group in your project, there are two options:
 
@@ -40,7 +38,7 @@ To centrally define a group in your project, there are two options:
   model-paths: ["models", "groups"]
   ```
 
-### Group properties[​](#group-properties "Direct link to Group properties")
+### Group properties
 
 The following properties are available when defining a group:
 
@@ -50,12 +48,6 @@ The following properties are available when defining a group:
 | `owner`       | Required | Identifies who is responsible for the group. Must include either `name:` or `email:`.                                                                                                              |
 | `description` | Optional | A human readable description of the group's purpose. Supports markdown and the [`doc` Jinja function](../../reference/dbt-jinja-functions/doc.md). Supported in v1.10 and later. |
 | `config.meta` | Optional | A dictionary of arbitrary key/value metadata about the group. Useful for storing information such as cost centers, data classifications, or team contact details.                                  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 models/marts/finance/finance.yml
 
@@ -72,13 +64,11 @@ groups:
         data_classification: sensitive
 ```
 
-### Adding a model to a group[​](#adding-a-model-to-a-group "Direct link to Adding a model to a group")
+### Adding a model to a group
 
 Use the `group` configuration to add one or more models to a group.
 
-* Project-level
-* Model-level
-* In-file
+### Project-level
 
 dbt\_project.yml
 
@@ -89,6 +79,8 @@ models:
       +group: finance
 ```
 
+### Model-level
+
 models/schema.yml
 
 ```yml
@@ -98,6 +90,8 @@ models:
       group: finance
 ```
 
+### In-file
+
 models/model\_name.sql
 
 ```sql
@@ -106,7 +100,7 @@ models/model\_name.sql
 select ...
 ```
 
-### Referencing a model in a group[​](#referencing-a-model-in-a-group "Direct link to Referencing a model in a group")
+### Referencing a model in a group
 
 By default, all models within a group have the `protected` [access modifier](../../reference/resource-configs/access.md). This means they can be referenced by downstream resources in *any* group in the same project, using the [`ref`](../../reference/dbt-jinja-functions/ref.md) function. If a grouped model's `access` property is set to `private`, only resources within its group can reference it.
 
@@ -139,7 +133,7 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   which is not allowed because the referenced node is private to the finance group.
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Model Access](../mesh/govern/model-access.md#groups)
 * [Group configuration](../../reference/resource-configs/group.md)

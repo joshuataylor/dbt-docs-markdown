@@ -1,8 +1,6 @@
 # Configuring Snowflake Private Service Connect
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,13 +13,13 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of a GCP Snowflake Private Service Connect (PSC) endpoint in a dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Snowflake<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Snowflake) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
 warning
 
 GCP Internal Stage PSC connections are not currently supported.
 
-## Configure GCP Private Service Connect[​](#configure-gcp-private-service-connect "Direct link to Configure GCP Private Service Connect")
+## Configure GCP Private Service Connect
 
 The dbt Labs GCP project has been pre-authorized for connections to Snowflake accounts.
 
@@ -45,11 +43,9 @@ Subject: New Multi-Tenant GCP PSC Request
 
 *\*By default, dbt will be configured to use `privatelink-account-url` from the provided [SYSTEM$GET\_PRIVATELINK\_CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config.html) as the PrivateLink endpoint. Upon request, `regionless-privatelink-account-url` can be used instead.*
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once dbt Support completes the configuration, you can start creating new connections using PrivateLink.
 
@@ -61,13 +57,13 @@ Once dbt Support completes the configuration, you can start creating new connect
 6. Configure the remaining data platform details.
 7. Test your connection and save it.
 
-## Configuring network policies[​](#configuring-network-policies "Direct link to Configuring network policies")
+## Configuring network policies
 
 If your organization uses [Snowflake Network Policies](https://docs.snowflake.com/en/user-guide/network-policies) to restrict access to your Snowflake account, you need to add a network rule for dbt.
 
 Request the **PSC connection ID** from [dbt Support](mailto:support@getdbt.com) to use in a network rule. Snowflake supports [`GCPPSCID` as a network rule identifier type](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule), and this is the recommended approach. A PSC connection ID uniquely identifies your organization's connection endpoint, whereas IP-based rules rely on CIDR ranges that may be shared across multiple dbt customers.
 
-### Using the UI[​](#using-the-ui "Direct link to Using the UI")
+### Using the UI
 
 Open the Snowflake UI and take the following steps:
 
@@ -82,7 +78,7 @@ Open the Snowflake UI and take the following steps:
 9. In the **Network Policy** tab, edit the policy you want to add the rule to. This could be your account-level policy or a policy specific to the users connecting from dbt.
 10. Add the new rule to the allowed list and click **Update Network Policy**.
 
-### Using SQL[​](#using-sql "Direct link to Using SQL")
+### Using SQL
 
 For quick and automated setup of network rules via SQL in Snowflake, the following commands allow you to create and configure access rules for dbt. These SQL examples demonstrate how to add a network rule and update your network policy accordingly.
 

@@ -1,20 +1,18 @@
 # Model contracts
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [`contract`](../../../reference/resource-configs/contract.md)
 * [`columns`](../../../reference/resource-properties/columns.md)
 * [`constraints`](../../../reference/resource-properties/constraints.md)
 
-## Why define a contract?[​](#why-define-a-contract "Direct link to Why define a contract?")
+## Why define a contract?
 
 Defining a dbt model is as easy as writing a SQL `select` statement. Your query naturally produces a dataset with columns of names and types based on the columns you select and the transformations you apply.
 
 While this is ideal for quick and iterative development, for some models, constantly changing the shape of its returned dataset poses a risk when other people and processes are querying that model. It's better to define a set of upfront "guarantees" that define the shape of your model. We call this set of guarantees a "contract." While building your model, dbt will verify that your model's transformation will produce a dataset matching up with its contract, or it will fail to build.
 
-<!-- -->
-
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 There are some considerations to keep in mind when using model governance features:
 
@@ -22,9 +20,7 @@ There are some considerations to keep in mind when using model governance featur
 
 * Governance features are model-specific. They don't apply to other resource types, including snapshots, seeds, or sources. This is because these objects can change structure over time (for example, snapshots capture evolving historical data) and aren't suited to guarantees like contracts, access, or versioning.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 **These places support model contracts:**
 
@@ -35,8 +31,6 @@ There are some considerations to keep in mind when using model governance featur
 * SQL models
 
 * Models materialized as one of the following:
-
-  <!-- -->
 
   * `table`
   * `view` — views offer limited support for column names and data types, but not `constraints`
@@ -52,7 +46,7 @@ There are some considerations to keep in mind when using model governance featur
 * Models with recursive CTE's in BigQuery
 * Other resource types, such as `sources`, `seeds`, `snapshots`, and so on
 
-## Define a contract[​](#define-a-contract "Direct link to Define a contract")
+## Define a contract
 
 Let's say you have a model with a query like:
 
@@ -103,9 +97,7 @@ When building a model with a defined contract, dbt will do two things differentl
 1. dbt will run a "preflight" check to ensure that the model's query will return a set of columns with names and data types matching the ones you have defined. This check is agnostic to the order of columns specified in your model (SQL) or YAML spec.
 2. dbt will include the column names, data types, and constraints in the DDL statements it submits to the data platform, which will be enforced while building or updating the model's table, and order the columns per the contract instead of your dbt model.
 
-## Platform constraint support[​](#platform-constraint-support "Direct link to Platform constraint support")
-
-<!-- -->
+## Platform constraint support
 
 Select the adapter-specific tab for more information on [constraint](../../../reference/resource-properties/constraints.md) support across platforms. Constraints fall into three categories based on definability and platform enforcement:
 
@@ -113,13 +105,7 @@ Select the adapter-specific tab for more information on [constraint](../../../re
 * **Definable and not enforced** — The platform supports specifying the type of constraint, but a model can still build even if building the model violates the constraint. This constraint exists for metadata purposes only. This approach is more typical in cloud data warehouses than in transactional databases, where strict rule enforcement is more common.
 * **Not definable and not enforced** — You can't specify the type of constraint for the platform.
 
-- Redshift
-- Snowflake
-- BigQuery
-- Postgres
-- Spark
-- Databricks
-- Athena
+### Redshift
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -129,11 +115,7 @@ Select the adapter-specific tab for more information on [constraint](../../../re
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Snowflake
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -143,11 +125,7 @@ Search table...
 | unique          | ✅        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### BigQuery
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -157,11 +135,7 @@ Search table...
 | unique          | ❌        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Postgres
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -171,11 +145,7 @@ Search table...
 | unique          | ✅        | ✅       |
 | check           | ✅        | ✅       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Spark
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -187,11 +157,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ✅        | ❌       |
 | check           | ✅        | ❌       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Databricks
 
 Currently, `not_null` and `check` constraints are enforced only after a model is built. Because of this platform limitation, dbt considers these constraints definable but not enforced, which means they're not part of the *model contract* since they can't be enforced at build time. This table will change as the features evolve.
 
@@ -203,11 +169,7 @@ Currently, `not_null` and `check` constraints are enforced only after a model is
 | unique          | ❌        | ❌       |
 | check           | ✅        | ✅       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+### Athena
 
 | Constraint type | Definable | Enforced |
 | --------------- | --------- | -------- |
@@ -217,22 +179,16 @@ Search table...
 | unique          | ❌        | ❌       |
 | check           | ❌        | ❌       |
 
-Search table...
+## FAQs
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## FAQs[​](#faqs "Direct link to FAQs")
-
-### Which models should have contracts?[​](#which-models-should-have-contracts "Direct link to Which models should have contracts?")
+### Which models should have contracts?
 
 Any model meeting the criteria described above *can* define a contract. We recommend defining contracts for ["public" models](./model-access.md) that are being relied on downstream.
 
 * Inside of dbt: Shared with other groups, other teams, and [other dbt projects](../../../best-practices/how-we-mesh/mesh-1-intro.md).
 * Outside of dbt: Reports, dashboards, or other systems & processes that expect this model to have a predictable structure. You might reflect these downstream uses with [exposures](../../build/exposures.md).
 
-### How are contracts different from tests?[​](#how-are-contracts-different-from-tests "Direct link to How are contracts different from tests?")
+### How are contracts different from tests?
 
 A model's contract defines the **shape** of the returned dataset. If the model's logic or input data doesn't conform to that shape, the model does not build.
 
@@ -246,28 +202,22 @@ In some cases, you can replace a data test with its equivalent constraint. This 
 
 **Why aren't tests part of the contract?** In a parallel for software APIs, the structure of the API response is the contract. Quality and reliability ("uptime") are also very important attributes of an API's quality, but they are not part of the contract per se. When the contract changes in a backwards-incompatible way, it is a breaking change that requires a bump in major version.
 
-### Do I need to define every column for a contract?[​](#do-i-need-to-define-every-column-for-a-contract "Direct link to Do I need to define every column for a contract?")
+### Do I need to define every column for a contract?
 
 Yes. dbt contracts apply to *all* columns defined in a model, and they require declaring explicit expectations about *all* of those columns. The explicit declaration of a contract is not an accident — it's very much the intent of this feature.
 
 At the same time, for models with many columns, we understand that this can mean a *lot* of YAML. See [dbt-core#11764](https://github.com/dbt-labs/dbt-core/issues/11764) for discussion of potential approaches to generate and update model contract definitions.
 
-### How are breaking changes handled?[​](#how-are-breaking-changes-handled "Direct link to How are breaking changes handled?")
+### How are breaking changes handled?
 
 When comparing to a previous project state, dbt will look for breaking changes that could impact downstream consumers. If breaking changes are detected, dbt will present a contract error.
-
-<!-- -->
 
 Breaking changes include:
 
 * Removing an existing column
 * Changing the data\_type of an existing column
 * Removing or modifying one of the `constraints` on an existing column (dbt v1.6 or higher)
-* <!-- -->
-  Removing a contracted model by deleting, renaming, or disabling it (dbt v1.9 or higher).
-  <!-- -->
-  * <!-- -->
-    versioned models will raise an error. unversioned models will raise a warning.
-    <!-- -->
+* Removing a contracted model by deleting, renaming, or disabling it (dbt v1.9 or higher).
+  * versioned models will raise an error. unversioned models will raise a warning.
 
 More details are available in the [contract reference](../../../reference/resource-configs/contract.md#incremental-models-and-on_schema_change).

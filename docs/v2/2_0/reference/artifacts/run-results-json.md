@@ -10,7 +10,7 @@ Note that only executed nodes appear in the run results. If you have multiple ru
 
 Note: `dbt source freshness` produces a different artifact, [`sources.json`](./sources-json.md), with similar attributes.
 
-### Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
+### Top-level keys
 
 * [`metadata`](./dbt-artifacts.md#common-metadata)
 * `args`: Dictionary of arguments passed to the CLI command or RPC method that produced this artifact. Most useful is `which` (command) or `rpc_method`. This dict excludes null values, and includes default values if they are not null. Equivalent to [`invocation_args_dict`](../dbt-jinja-functions/flags.md#invocation_args_dict) in the dbt-Jinja context.
@@ -26,10 +26,7 @@ Each entry in `results` is a [`Result` object](../dbt-classes.md#result-objects)
 * `timing`: Array that breaks down execution time into steps (often `compile` + `execute`)
 * `message`: How dbt will report this result on the CLI, based on information returned from the database
 
-<!-- -->
-
-* `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../../docs/build/data-tests.md).
-  <!-- -->
+- `adapter_response`: Dictionary of metadata returned from the database, which varies by adapter. For example, success `code`, number of `rows_affected`, total `bytes_processed`, and so on. Not applicable for [data tests](../../docs/build/data-tests.md).
   * `rows_affected` returns the number of rows modified by the last statement executed. In cases where the query's row count can't be determined or isn't applicable (such as when creating a view), a [standard value](https://peps.python.org/pep-0249/#rowcount) of `-1` is returned for `rowcount`.
 
 The run\_results.json includes three attributes related to the `applied` state that complement `unique_id`:
@@ -40,11 +37,11 @@ The run\_results.json includes three attributes related to the `applied` state t
 
 Continue to look up additional information about the `logical` state of nodes using the full node object in manifest.json via the `unique_id`.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 Here are a few examples and the resulting output to the `run_results.json` file.
 
-### Compile model results[​](#compile-model-results "Direct link to Compile model results")
+### Compile model results
 
 Let's say that you have a model that looks like this:
 
@@ -89,7 +86,7 @@ Here's a printed snippet from the `run_results.json`:
     }
 ```
 
-### Run generic data tests[​](#run-generic-data-tests "Direct link to Run generic data tests")
+### Run generic data tests
 
 Use the [`store_failures_as`](../resource-configs/store_failures_as.md) config to store failures for only one data test in the database:
 

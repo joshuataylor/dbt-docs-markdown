@@ -1,10 +1,10 @@
 # dbt Wizard CLI data use and telemetry
 
-Local developmentⓘ
+Local development
 
 dbt Wizard CLI collects anonymous product telemetry to improve the AI agent experience, understand usage patterns, optimize performance, and attribute compute costs without capturing your code, queries, prompts, responses, or file contents.
 
-## Opt out of client telemetry[​](#opt-out-of-client-telemetry "Direct link to Opt out of client telemetry")
+## Opt out of client telemetry
 
 dbt Wizard CLI respects the following opt-out mechanisms, checked in order:
 
@@ -14,7 +14,7 @@ dbt Wizard CLI respects the following opt-out mechanisms, checked in order:
 
 Setting any of these disables telemetry from the dbt Wizard CLI client.
 
-## What dbt Wizard does not collect[​](#what-dbt-wizard-does-not-collect "Direct link to What dbt Wizard does not collect")
+## What dbt Wizard does not collect
 
 dbt Wizard CLI does not collect:
 
@@ -24,7 +24,7 @@ dbt Wizard CLI does not collect:
 * Raw API keys or tokens. Identifiers are hashed before transmission.
 * Error messages that contain user content. Errors are limited to class or code.
 
-## Events collected[​](#events-collected "Direct link to Events collected")
+## Events collected
 
 | Event                           | When it is collected                                 | Why it is collected                                                                                                                                                                |
 | ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -36,7 +36,7 @@ dbt Wizard CLI does not collect:
 
 Tool telemetry records the tool type, tool name, whether the call failed, and execution time. Tool arguments and outputs are not collected.
 
-## Data handling[​](#data-handling "Direct link to Data handling")
+## Data handling
 
 * Telemetry is transmitted over HTTPS to dbt Labs ingestion infrastructure.
 * Events are stored in an internal dbt Labs data warehouse.
@@ -44,7 +44,7 @@ Tool telemetry records the tool type, tool name, whether the call failed, and ex
 * API keys and tokens are not transmitted in raw form.
 * Local development users who opt out with the supported environment variables generate no dbt Wizard CLI client telemetry events.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Install dbt Wizard CLI](./wizard-cli.md)
 * [Configure BYOK for dbt Wizard](./wizard-byok.md)

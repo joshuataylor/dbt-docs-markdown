@@ -2,7 +2,7 @@
 
 A technical data catalog is a metadata management layer that enables users and tools to programmatically discover, understand, and govern data assets that are available across multiple data platforms and query engines.
 
-## Background[​](#background "Direct link to Background")
+## Background
 
 In the early 2010s, with the introduction of [Hadoop](https://hadoop.apache.org/) and data lakes, [Hive Metastore](https://hive.apache.org/) became the standard for managing schema metadata in Hadoop ecosystems. While effective in supporting early distributed query engines (separated compute and storage), such as Apache Spark and Trino, the Hive Metastore is limited in the kinds of structural metadata it can support, and it's generally slower and costlier than modern technical catalogs.
 
@@ -14,7 +14,7 @@ It's important to note that **technical data catalogs** serve a different purpos
 
 * **Business data catalogs:** Serve broader organizational users (such as BI analysts and product managers). They enrich technical metadata with business context in the form of metrics, business definitions, data quality indicators, usage patterns, and ownership.
 
-## Why data catalogs are important to dbt[​](#why-data-catalogs-are-important-to-dbt "Direct link to Why data catalogs are important to dbt")
+## Why data catalogs are important to dbt
 
 For dbt users working in a lakehouse or multi-engine architecture, data catalogs can serve two purposes:
 
@@ -26,7 +26,7 @@ Without a catalog, each Iceberg table's metadata needs to be registered with the
 
 Over the past year, data platform vendors have been adding support for catalog "linking" or "federation," which is when the data platform manages the synchronization of metadata between external data catalogs and its managed data catalog. This means that an Iceberg table written by one query engine into one catalog is automatically available for reading by another query engine. See: [Snowflake catalog-linked databases](https://docs.snowflake.com/en/sql-reference/sql/create-database-catalog-linked), [Databricks catalog federation](https://docs.databricks.com/aws/en/query-federation/catalog-federation), [AWS Glue catalog federation](https://docs.aws.amazon.com/lake-formation/latest/dg/federated-catalog-data-connection.html), [BigQuery catalog federation](https://docs.cloud.google.com/lakehouse/docs/use-catalog-federation).
 
-## How dbt works with Iceberg catalogs[​](#how-dbt-works-with-iceberg-catalogs "Direct link to How dbt works with Iceberg catalogs")
+## How dbt works with Iceberg catalogs
 
 dbt uses [Iceberg catalogs defined in `catalogs.yml`](./catalogs-yml.md) in order to:
 
@@ -34,7 +34,7 @@ dbt uses [Iceberg catalogs defined in `catalogs.yml`](./catalogs-yml.md) in orde
 
 * **Resolve references:** When dbt reads a model materialized to a catalog, it uses the "physical" location defined by the active adapter (new spec) or write integration (old spec). This enables referencing (reading) a model (Iceberg table) in one query engine that was originally materialized (written) by another one, so long as both engines are integrated to the same catalog.
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 Many data platforms, query engines, and data catalogs have added substantially more support for Iceberg standards over the past few years — but it's still not a guarantee that any given data warehouse can interoperate with any given data catalog.
 

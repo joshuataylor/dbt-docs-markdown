@@ -1,10 +1,10 @@
 # SSO FAQs and troubleshooting
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Find answers to common questions about configuring and using single sign-on (SSO) in dbt platform, plus guidance for resolving common issues.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Do SSO group mappings apply to SCIM-managed users?
 
@@ -40,7 +40,7 @@ If your organization uses separate IdPs for authentication and directory managem
 
 ***
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  User is stuck on the email verification screen — no verification email received
 

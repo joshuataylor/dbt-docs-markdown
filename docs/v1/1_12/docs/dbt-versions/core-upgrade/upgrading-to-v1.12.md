@@ -1,22 +1,22 @@
 # Upgrading to v1.12
 
-Available in v1ⓘ
+Available in v1
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [dbt Core v1.12 changelog](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#fusion-release-tracks)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
 dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality included in the latest dbt Core version! If you have selected the **Compatible** release track, you will have access to the next monthly **Compatible** release after the dbt Core v1.12 final release.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
-### Opt-in v2 parser[​](#opt-in-v2-parser "Direct link to Opt-in v2 parser")
+### Opt-in v2 parser
 
 dbt Core v1.12 introduces the `--use-v2-parser` flag that delegates parsing to the new v2 Rust parser instead of the v1 Python parser. The Rust parser is significantly faster than the Python parser — especially on larger projects, where it can be 5–10× quicker. If you're looking to speed up your development workflow or cut down on job startup times. Using the Rust parser is a natural first step toward v2 compatibility, so you can catch and fix any project issues gradually rather than all at once.
 
@@ -28,13 +28,13 @@ The Rust parser is beta. Its output manifest may differ from the Python parser's
 
 For more information on how to enable the flag, related behaviors, and parser error types, refer to [Opt-in v2 parser](../../../reference/global-configs/parsing.md#opt-in-v2-parser).
 
-### New Iceberg `catalogs` spec[​](#new-iceberg-catalogs-spec "Direct link to new-iceberg-catalogs-spec")
+### New Iceberg `catalogs` spec
 
 We reworked the [`catalogs.yml` spec](../../build/iceberg/catalogs-yml.md) to make it simpler to use, and to bring it up to speed with latest developments in Iceberg support among ecosystem vendors.
 
 The new spec can also power [cross-platform dbt Mesh](../../mesh/cross-platform-mesh.md).
 
-### Native private packages[​](#native-private-packages "Direct link to Native private packages")
+### Native private packages
 
 dbt Core now supports [native private packages](../../build/packages.md#native-private-packages) in `packages.yml` and `dependencies.yml`. You can install packages from private GitHub, GitLab, or Azure DevOps repos using the `private` key without configuring a token or full Git URL. dbt uses your system's SSH configuration for authentication. Use the [`provider` key](../../build/packages.md#using-the-provider-key) to specify your Git provider and tell dbt which SSH URL format to construct. For example:
 
@@ -44,7 +44,7 @@ packages:
     provider: "github"  # Supported values: "github", "gitlab", "ado"
 ```
 
-### Extensions to UDFs[​](#extensions-to-udfs "Direct link to Extensions to UDFs")
+### Extensions to UDFs
 
 * dbt Core v1.12 adds support for JavaScript user-defined functions (UDFs) on Snowflake and BigQuery. Define a JavaScript UDF by creating a `.js` file in your `functions/` directory and a corresponding YAML file with the function's arguments and return type. For more information, refer to [User-defined functions](../../build/udfs.md).
 
@@ -54,28 +54,28 @@ packages:
 
 * Python UDFs are now supported in Databricks, in addition to Snowflake and BigQuery. For Databricks, Python UDFs require [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/), and the `runtime_version` and `entry_point` configs are ignored. For more information, refer to [User-defined functions](../../build/udfs.md).
 
-### `latest_version_pointer` for versioned models[​](#latest_version_pointer-for-versioned-models "Direct link to latest_version_pointer-for-versioned-models")
+### `latest_version_pointer` for versioned models
 
 For versioned models, you can configure dbt to automatically create a pointer view named after a model's base name (for example, `dim_customers`) once the latest version materializes successfully. This lets you query the current version without maintaining a view manually.
 
 Enable this feature in your project with the [`latest_version_pointer_enabled_by_default: true`](../../../reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag in `dbt_project.yml`, or per model using the [`latest_version_pointer.enabled`](../../../reference/resource-configs/latest_version_pointer.md) config. You can customize the pointer name per model with `latest_version_pointer.alias`, or globally by overriding the [`generate_latest_version_pointer_alias`](../../build/custom-aliases.md#generate_latest_version_pointer_alias) macro. For more information, refer to [Model versions](../../mesh/govern/model-versions.md#pointing-to-the-latest-version).
 
-### `--sql` flag for `dbt run-operation`[​](#--sql-flag-for-dbt-run-operation "Direct link to --sql-flag-for-dbt-run-operation")
+### `--sql` flag for `dbt run-operation`
 
 You can now use the `--sql` flag with `dbt run-operation` to execute ad hoc database statements directly against your warehouse, without defining a macro. This is useful for one-off operations like dropping or altering a table, applying grants, or running a data fix. The statement runs through dbt's full Jinja compilation pipeline, so you have access to `ref()`, `source()`, `var()`, `target`, and all other context variables. For more information, refer to [About dbt run-operation](../../../reference/commands/run-operation.md).
 
-### `on_error` model config[​](#on_error-model-config "Direct link to on_error-model-config")
+### `on_error` model config
 
 You can configure whether downstream models run when an upstream model fails using the [`on_error`](../../../reference/resource-configs/on_error.md) config. Set `on_error: continue` on a model to allow its downstream models to still attempt to run even when it fails. By default (`skip_children`), dbt skips all downstream models on failure. Note that [`--fail-fast`](../../../reference/global-configs/failing-fast.md) takes precedence — runs with `--fail-fast` stop at the first failure, even if a model is configured with `on_error: continue`.
 
-### Apache Ossie semantic layer support[​](#apache-ossie-semantic-layer-support "Direct link to Apache Ossie semantic layer support")
+### Apache Ossie semantic layer support
 
 * dbt Core v1.12 supports the [Apache Ossie](https://github.com/apache/ossie) standard for defining semantic models and metrics. You can place Ossie-format `.json` files in an `osi/` directory at the root of your project, and dbt parses them into the manifest alongside any native dbt semantic models. To use a different directory, configure [`osi-paths`](../../../reference/project-configs/osi-paths.md) in `dbt_project.yml`. Ossie versions `0.1.0` and `0.1.1` are supported; any other version raises a parse error. For more information, refer to [Ossie semantic layer documents](../../build/ossie-semantic-models.md).
 * dbt writes an `osi_document.json` file to your `target/` directory alongside `semantic_manifest.json` at parse time. This artifact provides an Ossie representation of your project's Semantic Layer. For more information, refer to [Semantic manifest](../../../reference/artifacts/sl-manifest.md#apache-ossie-document).
 
 This is separate from the new Semantic Layer YAML spec below, which changes how you define semantic models and metrics in native dbt YAML.
 
-### New Semantic Layer YAML spec[​](#new-semantic-layer-yaml-spec "Direct link to New Semantic Layer YAML spec")
+### New Semantic Layer YAML spec
 
 dbt Core v1.12 adds support for the latest Semantic Layer YAML specification, which simplifies how you define metrics and dimensions by embedding semantic annotations directly alongside each model.
 
@@ -88,17 +88,17 @@ Key changes in the new spec:
 
 For migration guidance and a comparison between the latest spec and the legacy spec, refer to [Migrate to the latest YAML spec](../../build/latest-metrics-spec.md). For the semantic model reference, refer to [Semantic models](../../build/semantic-models.md).
 
-### `selector` method for named YAML selectors[​](#selector-method-for-named-yaml-selectors "Direct link to selector-method-for-named-yaml-selectors")
+### `selector` method for named YAML selectors
 
 You can reference a named selector from `selectors.yml` inside `--select` or `--exclude` using the [`selector` method](../../../reference/node-selection/methods.md#selector) (for example, `selector:my_selector`). This makes it easier to compose reusable YAML selectors with other [selection methods](../../../reference/node-selection/methods.md), [graph operators](../../../reference/node-selection/graph-operators.md), and [set operators](../../../reference/node-selection/set-operators.md) on the command line without duplicating logic.
 
 When you use the legacy `--selector` flag together with `--select` or `--exclude`, dbt only uses `--selector` for node selection and ignores `--select` and `--exclude`. Starting in dbt Core v1.12, dbt also raises a warning when these flags are combined. If you want to combine a selector with `--select` or `--exclude`, use the new `selector:` method instead.
 
-### Support for `vars.yml`[​](#support-for-varsyml "Direct link to support-for-varsyml")
+### Support for `vars.yml`
 
 You can use the [`vars.yml`](../../build/project-variables.md#defining-variables-in-varsyml) file, located at the project root, to define project variables. This keeps variable definitions in one place and helps simplify `dbt_project.yml`. Variables defined in `vars.yml` are parsed *before* `dbt_project.yml`, so you can reference them in `dbt_project.yml` using `{{ var('...') }}`. You can continue to define variables in `dbt_project.yml` as before, but you cannot define variables in both files. For details and precedence, refer to [Project variables](../../build/project-variables.md).
 
-### Improved exception handling and error messages[​](#improved-exception-handling-and-error-messages "Direct link to Improved exception handling and error messages")
+### Improved exception handling and error messages
 
 dbt Core v1.12 improves exception handling so error messages are clearer and stack traces are easier to interpret.
 
@@ -121,7 +121,7 @@ Key improvements:
 * When `sources`, `tables`, `exposure` tags, or `packages` are set to `null`, dbt treats them as an empty list instead of raising a `TypeError`.
 * When a model with custom contract constraints is evaluated during `state:modified` selection, dbt returns `None` for unknown constraint types instead of raising a `KeyError`.
 
-### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
+### Managing changes to legacy behaviors
 
 dbt Core v1.12 introduces new flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
@@ -141,9 +141,9 @@ You can read more about each of these behavior changes in the following links:
 * (Introduced, disabled by default) [`allow_jinja_file_extensions`](../../../reference/global-configs/behavior-flags/allow_jinja_file_extensions.md). When set to `True`, dbt recognizes Jinja-style extension suffixes (`.j2`, `.jinja`, `.jinja2`) on `.sql` and `.md` files. This enables Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.
 * (Introduced, disabled by default) [`latest_version_pointer_enabled_by_default`](../../../reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md). When set to `true`, dbt automatically creates a latest version pointer view for every versioned model in your project, without requiring per-model configuration.
 
-## Adapter-specific features and functionalities[​](#adapter-specific-features-and-functionalities "Direct link to Adapter-specific features and functionalities")
+## Adapter-specific features and functionalities
 
-### Snowflake[​](#snowflake "Direct link to Snowflake")
+### Snowflake
 
 * You can use the [`snowflake.quote_args`](../../../reference/resource-configs/quote_args.md) config on JavaScript UDFs to control whether argument names are quoted in the generated `CREATE FUNCTION` statement. When `true` (default), Snowflake quotes argument names, preserving their exact casing, so you reference arguments using the same case as defined in the YAML inside the function body. When `false`, argument names are unquoted and Snowflake uppercases them, so you must reference them in uppercase inside the function body.
 
@@ -159,7 +159,7 @@ You can read more about each of these behavior changes in the following links:
 
   When `transient` is not set on a model, the [`snowflake_default_transient_dynamic_tables`](../../../reference/global-configs/snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag) flag controls the default. Set this flag to `true` to make all dynamic tables transient by default.
 
-### BigQuery[​](#bigquery "Direct link to BigQuery")
+### BigQuery
 
 * BigQuery now supports [parallel microbatch execution](../../build/parallel-batch-execution.md), in addition to Snowflake.
 * Added the [`bigquery_use_standard_sql_for_partitions`](../../../reference/global-configs/bigquery-changes.md#the-bigquery_use_standard_sql_for_partitions-flag) flag, which controls whether `get_partitions_metadata()` uses standard SQL (`INFORMATION_SCHEMA.PARTITIONS`) or legacy SQL (`$__PARTITIONS_SUMMARY__`). The flag defaulted to `false` when first introduced in this release, but has been flipped to `true` by default ahead of BigQuery's [legacy SQL deprecation on June 1, 2026](https://docs.cloud.google.com/bigquery/docs/release-notes#February_25_2026). To revert to legacy SQL, set the flag to `false` in `dbt_project.yml`.
@@ -167,23 +167,21 @@ You can read more about each of these behavior changes in the following links:
 * You can configure BigQuery job link logging with `job_link_info_level_log`. By default, dbt logs job links at the debug level. To log job links at the info level, set `job_link_info_level_log: true` in your BigQuery profile. This makes job links visible in dbt logs for easier access to the BigQuery console. For more information, see [BigQuery setup](../../local/connect-data-platform/bigquery-setup.md#job_link_info_level_log).
 * You can set `job_execution_timeout_seconds` per model, snapshot, seed, or test, in addition to the profile-level configuration. The per-resource value takes precedence over the default value set in the profile level. For more information, refer to [BigQuery setup](../../local/connect-data-platform/bigquery-setup.md#job_execution_timeout_seconds).
 
-### Redshift[​](#redshift "Direct link to Redshift")
+### Redshift
 
 * The [`redshift_skip_autocommit_transaction_statements`](../../../reference/global-configs/redshift-changes.md#redshift_skip_autocommit_transaction_statements-flag) flag defaults to `false`, preserving legacy behavior of sending `BEGIN`/`COMMIT`/`ROLLBACK` statements even when autocommit is enabled. To skip unnecessary transaction statements and improve performance, set the flag to `true`.
 * Added support for the `query_group` session parameter, allowing dbt to tag queries for Redshift Workload Manager routing and query logging. When configured in a profile, dbt sets `query_group` when opening a connection and the value applies for the duration of that session. You can also configure `query_group` at the model level to temporarily override the default value for a specific model, and dbt reverts the value at the end of model materialization. For more information, see [Redshift configurations](../../../reference/resource-configs/redshift-configs.md#session-configuration).
 
-### Databricks[​](#databricks "Direct link to Databricks")
+### Databricks
 
 * You can use the [`row_filter`](../../../reference/resource-configs/databricks-configs.md#setting-row-filters) config to apply a [Unity Catalog row filter](https://docs.databricks.com/aws/en/tables/row-and-column-filters) to a model, restricting which rows a query returns based on a SQL UDF. Row filters are supported on `table`, `incremental`, `materialized_view`, and `streaming_table` materializations. They are not supported on regular views or Hive Metastore relations.
 
 * [`databricks_tags`](../../../reference/resource-configs/databricks-configs.md#databricks_tags) has two updates in v1.12:
 
-  <!-- -->
-
   * You can now set a tag's value to `''` or `None` to apply a key-only tag with no value.
   * Configs now merge additively across hierarchy levels (for example, project-level and model-level) instead of lower-level configs completely replacing higher-level ones. When the same tag key is defined at multiple levels, the lower-level value takes precedence.
 
-## Quick hits[​](#quick-hits "Direct link to Quick hits")
+## Quick hits
 
 * dbt now surfaces occasional, non-blocking hints that suggest ways to optimize your project. Hints are enabled by default. Disable them with the [`hints_enabled` flag](../../../reference/global-configs/about-global-configs.md).
 * dbt Core v1.12 now tolerates Fusion-specific names in [`warn_error_options`](../../../reference/global-configs/warnings.md) instead of raising an error. If your config includes a Fusion-specific name (for example, `StaticAnalysis`, `PackageParsingCompatibility`), dbt Core ignores it and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion.

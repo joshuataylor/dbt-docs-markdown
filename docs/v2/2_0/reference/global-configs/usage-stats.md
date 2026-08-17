@@ -11,9 +11,9 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 * An anonymized hash key representing the raw model content.
 * Number of nodes that were run.
 
-<!-- -->
+(Applies to dbt v2.0 and later)
 
-## dbt Fusion engine telemetry[​](#dbt-fusion-engine-telemetry "Direct link to dbt Fusion engine telemetry")
+## dbt Fusion engine telemetry
 
 Fusion has telemetry enabled by default. For full transparency, you can see the event definitions in [`event_functions.rs`](https://github.com/dbt-labs/dbt-core/blob/main/crates/vortex-events/src/event_functions.rs).
 

@@ -4,15 +4,15 @@ The features in dbt are tailored to each organization's unique configuration, in
 
 This document provides a comprehensive overview of account-specific features in dbt according to plan type.
 
-## Copilot[​](#copilot "Direct link to Copilot")
+## Copilot
 
 [dbt Wizard](../../docs/platform/wizard-platform.md) is an AI-powered assistant designed to accelerate your development workflow and help you focus on delivering high-quality data.
 
 dbt Wizard is available to all users in dbt but limits are imposed according to plan type. Have a look at [dbt's pricing](https://www.getdbt.com/pricing) for more information.
 
-## Copilot features[​](#copilot-features "Direct link to Copilot features")
+## Copilot features
 
-### Codegen [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#codegen- "Direct link to codegen-")
+### Codegen [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 dbt Wizard codegen refers to the code generation capabilities provided by dbt Wizard, an AI-powered assistant integrated into dbt. This feature allows users to generate SQL code, documentation, tests, and semantic models directly from natural language prompts, helping automate and accelerate common analytics engineering workflows.⁠⁠⁠⁠
 
@@ -27,7 +27,7 @@ The code dbt Wizard generates may include:
 
 dbt Wizard codegen is available in the Studio IDE, Canvas, and (soon) Insights, making it possible to generate and edit code directly within these interfaces.⁠
 
-### Bring your own key (BYOK) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#bring-your-own-key-byok- "Direct link to bring-your-own-key-byok-")
+### Bring your own key (BYOK) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 BYOK allows users to provide and manage their own encryption or API keys, rather than relying on keys managed by a vendor or third party. This gives organizations greater control over data security, compliance, and contracts.
 
@@ -60,7 +60,7 @@ Some of the reasons organizations require BYOK include:
 
 Note that BYOK is different from bring your own cloud (BYOC). BYOK refers to key or credential management, whereas BYOC refers to running software workloads in your own cloud environment.
 
-### Natural language in Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#natural-language-in-canvas- "Direct link to natural-language-in-canvas-")
+### Natural language in Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Natural language in Canvas refers to the ability to build data models visually in Canvas using plain language prompts, powered by GenAI (dbt Wizard). You can describe what you want to build or transform, and the tool generates the underlying SQL and transformation steps for you. No SQL expertise is required. It's aimed at making data modeling more accessible to less-technical users or anyone who prefers a drag-and-drop or conversational interface over hand-coding SQL.⁠⁠
 
@@ -70,11 +70,11 @@ The natural language capability is fully integrated into the Canvas workspace. Y
 
 This approach is especially valuable for analysts and business users, allowing broader participation in data transformation tasks without losing dbt's governance, reproducibility, and code review processes.
 
-## Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#canvas- "Direct link to canvas-")
+## Canvas [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Canvas enables efficient data access and transformation through a visual interface, combining the benefits of code-driven development with AI-assisted code generation for a seamless, flexible experience.
 
-## dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#dbt-insights- "Direct link to dbt-insights-")
+## dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Insights is an interactive feature in dbt designed for writing, running, and analyzing SQL queries within an intuitive interface. It brings together SQL query execution, results visualization, and integration with dbt metadata and documentation — all in one place.⁠⁠
 
@@ -88,40 +88,40 @@ The interface supports syntax highlighting, code completion, asset linking (to e
 
 While Insights supports some light visualizations and query sharing, it is not intended to replace BI tools for reporting or dashboarding. Instead, it's focused on fast ad hoc analysis and insight generation. Integrations allow users to "jump off" into downstream BI tools with their queries if needed.⁠
 
-## dbt Mesh cross platform [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#dbt-mesh-cross-platform- "Direct link to dbt-mesh-cross-platform-")
+## dbt Mesh cross platform [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 dbt Mesh cross-platform (sometimes called "cross-platform Mesh" or "cross-platform dbt Mesh") is a capability in dbt Mesh that allows for referencing models and sharing lineage across multiple dbt projects, even when those projects use different data warehouse platforms.
 
-## SCIM [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#scim- "Direct link to scim-")
+## SCIM [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 SCIM (System for Cross-Domain Identity Management) automates user identities and groups, enhancing security and simplifying admin tasks. It allows for real-time user provisioning, deprovisioning, and profile updates in dbt, primarily using Okta as the identity provider.
 
-## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#hybrid-projects- "Direct link to hybrid-projects-")
+## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Hybrid projects refer to a setup where both dbt Core and dbt are utilized within the same organization, often working on the same codebase or data platform. This approach enables different teams or contributors to work in the environment that aligns best with their preferences or workflows, while still benefiting from shared assets and centralized metadata.
 
-## Enterprise security [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#enterprise-security- "Direct link to enterprise-security-")
+## Enterprise security [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Enterprise security includes robust capabilities for managing network access and user permissions, designed to safeguard sensitive data. Two widely used features that support these efforts are PrivateLink and IP allowlisting.
 
-### PrivateLink[​](#privatelink "Direct link to PrivateLink")
+### PrivateLink
 
 PrivateLink provides a secure and private connection between your organization's environments, such as databases, version control systems, or data warehouses and dbt. This setup ensures that traffic remains within the AWS network, avoiding exposure to the public internet.
 
-### IP allowlist[​](#ip-allowlist "Direct link to IP allowlist")
+### IP allowlist
 
 IP restrictions (IP allowlist/blocklist) let organizations control which IPs can access their dbt account.
 
-## Projects and run slots[​](#projects-and-run-slots "Direct link to Projects and run slots")
+## Projects and run slots
 
 The number of projects and run slots available to your organization varies based on your selected plan tier. For detailed information, please refer to our [pricing page](https://www.getdbt.com/pricing).
 
-## Upgrade plan[​](#upgrade-plan "Direct link to Upgrade plan")
+## Upgrade plan
 
 dbt offers a range of plans with varying features to suit different organizational needs.
 
 For information on the different plan types and upgrading your plan, refer to our document on [How to upgrade a dbt Cloud account](./platform-upgrade-instructions.md).
 
-## Related content[​](#related-content "Direct link to Related content")
+## Related content
 
 * [Billing](../../docs/platform/billing.md)

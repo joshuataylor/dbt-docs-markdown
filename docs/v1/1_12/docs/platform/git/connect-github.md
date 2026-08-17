@@ -1,6 +1,6 @@
 # Connect to GitHub
 
-dbt platformⓘ
+dbt platform
 
 Connecting your GitHub account to dbt provides convenience and another layer of security to dbt:
 
@@ -16,10 +16,9 @@ To connect a ghe.com-hosted repository, use [importing a project by git URL](./i
 
 Some native integration features are unavailable when using the git URL method. For additional help with your specific setup, contact [dbt Support](mailto:support@getdbt.com) or your dbt account team.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * For On-Premises GitHub deployment, reference [importing a project by git URL](./import-a-project-by-git-url.md) to set up your connection instead. Some git features are [limited](./import-a-project-by-git-url.md#limited-integration) with this setup.
-  <!-- -->
   * **Note** — [Single tenant](../about-platform/tenancy.md#single-tenant) accounts offer enhanced connection options for integrating with an On-Premises GitHub deployment setup using the native integration. This integration allows you to use all the features of the integration, such as triggering CI builds. The dbt Labs infrastructure team will coordinate with you to ensure any additional networking configuration requirements are met and completed. To discuss details, contact dbt Labs support or your dbt account team.
 * You *must* be a **GitHub organization owner** in order to [install the dbt application](./connect-github.md#installing-dbt-in-your-github-account) in your GitHub organization. To learn about GitHub organization roles, see the [GitHub documentation](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 * The GitHub organization owner requires [*Owner*](../manage-access/self-service-permissions.md) or [*Account Admin*](../manage-access/enterprise-permissions.md) permissions when they log into dbt to integrate with a GitHub environment using organizations.
@@ -29,7 +28,7 @@ Case-sensitive repository names
 
 When specifying a GitHub repository in the dbt platform using the UI, API, or Terraform provider, the repository name must exactly match the case used in the GitHub URL to avoid cloning errors or job failures. For example, if the URL of your repository is `github.com/my-org/MyRepo`, enter the name as `MyRepo`, not `myrepo`.
 
-## Installing dbt in your GitHub account[​](#installing-dbt-in-your-github-account "Direct link to Installing dbt in your GitHub account")
+## Installing dbt in your GitHub account
 
 You can connect your dbt account to GitHub by installing the dbt application in your GitHub organization and providing access to the appropriate repositories. To connect your dbt account to your GitHub account:
 
@@ -61,13 +60,13 @@ You can connect your dbt account to GitHub by installing the dbt application in 
 
 8. Ask your team members to individually authenticate by connecting their [personal GitHub profiles](#authenticate-your-personal-github-account).
 
-## Limiting repository access in GitHub[​](#limiting-repository-access-in-github "Direct link to Limiting repository access in GitHub")
+## Limiting repository access in GitHub
 
 If you are your GitHub organization owner, you can also configure the dbt GitHub application to have access to only select repositories. This configuration must be done in GitHub, but we provide an easy link in dbt to start this process.
 
 [![Configuring the dbt app](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/configure-github.png?v=2 "Configuring the dbt app")](#)Configuring the dbt app
 
-## Authenticate your personal GitHub account[​](#authenticate-your-personal-github-account "Direct link to Authenticate your personal GitHub account")
+## Authenticate your personal GitHub account
 
 After the dbt administrator [sets up a connection](./connect-github.md#installing-dbt-in-your-github-account) to your organization's GitHub account, you need to authenticate using your personal account. You must connect your personal GitHub profile to dbt to use the [Studio IDE](../studio-ide/develop-in-studio.md) and [CLI](../dbt-cli-installation.md) and verify your read and write access to the repository.
 
@@ -93,7 +92,7 @@ To connect a personal GitHub account:
 
 You can now use the Studio IDE or dbt CLI.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 How can I fix my .gitignore file?
 
@@ -157,8 +156,7 @@ Sometimes it's necessary to use the git providers web interface to fix a broken 
 
 There are two options for this approach: editing the main branch directly if allowed, or creating a pull request to implement the changes if required:
 
-* Edit in main branch
-* Unable to edit main branch
+### Edit in main branch
 
 When permissions allow it, it's possible to edit the `.gitignore` directly on the main branch of your repo. Here are the following steps:
 
@@ -177,16 +175,16 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
 9. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
-   <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 11. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.
 12. Great job 🎉! You've configured the `.gitignore` correctly and can continue with your development!
+
+### Unable to edit main branch
 
 If you can't edit the `.gitignore` directly on the main branch of your repo, follow these steps:
 
@@ -205,14 +203,12 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deleted folders.
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
 11. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
-    <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 13. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.

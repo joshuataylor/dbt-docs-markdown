@@ -1,6 +1,6 @@
 # IBM watsonx.data Spark configurations
 
-## Instance requirements[​](#instance-requirements "Direct link to Instance requirements")
+## Instance requirements
 
 To use IBM watsonx.data Spark with `dbt-watsonx-spark` adapter, ensure the instance has an attached catalog that supports creating, renaming, altering, and dropping objects such as tables and views. The user connecting to the instance via the `dbt-watsonx-spark` adapter must have the necessary permissions for the target catalog.
 
@@ -9,7 +9,7 @@ For detailed setup instructions, including setting up watsonx.data, adding the S
 * watsonx.data Software Documentation: [IBM watsonx.data Software Guide](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x)
 * watsonx.data SaaS Documentation: [IBM watsonx.data SaaS Guide](https://cloud.ibm.com/docs/watsonxdata?topic=watsonxdata-getting-started)
 
-## Session properties[​](#session-properties "Direct link to Session properties")
+## Session properties
 
 With IBM watsonx.data SaaS/Software instance, you can [set session properties](https://sparkdb.io/docs/current/sql/set-session.html) to modify the current configuration for your user session.
 
@@ -23,7 +23,7 @@ To temporarily adjust session properties for a specific dbt model or a group of 
 }}
 ```
 
-## Connector properties[​](#connector-properties "Direct link to Connector properties")
+## Connector properties
 
 IBM watsonx.data SaaS/Software supports various Spark-specific connector properties to control data representation, execution performance, and storage format.
 
@@ -32,7 +32,7 @@ For more details on supported configurations for each data source, refer to:
 * [watsonx.data SaaS Catalog](https://cloud.ibm.com/docs/watsonxdata?topic=watsonxdata-reg_database)
 * [watsonx.data Software Catalog](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=components-adding-data-source)
 
-### Additional configuration[​](#additional-configuration "Direct link to Additional configuration")
+### Additional configuration
 
 The `dbt-watsonx-spark` adapter allows additional configurations to be set in the catalog profile:
 
@@ -61,7 +61,7 @@ project_name:
 
 ***
 
-### File format configuration[​](#file-format-configuration "Direct link to File format configuration")
+### File format configuration
 
 The supported file formats depend on the catalog type:
 
@@ -85,34 +85,34 @@ By specifying file format dbt models. For example:
 
 **For more details**, refer to the [documentation.](https://spark.apache.org/docs/3.5.3/sql-ref-syntax.html#sql-syntax)
 
-## Seeds and prepared statements[​](#seeds-and-prepared-statements "Direct link to Seeds and prepared statements")
+## Seeds and prepared statements
 
 You can configure column data types either in the dbt\_project.yml file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](../seed-configs.md).
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
 The `dbt-watsonx-spark` adapter supports table materializations, allowing you to manage how your data is stored and queried in watsonx.data Spark.
 
 For further information on configuring materializations, refer to the [dbt materializations documentation](./materialized.md).
 
-### Table[​](#table "Direct link to Table")
+### Table
 
 The `dbt-watsonx-spark` adapter enables you to create and update tables through table materialization, making it easier to work with data in watsonx.data Spark.
 
-### View[​](#view "Direct link to View")
+### View
 
 The adapter automatically creates views by default if no materialization is explicitly specified.
 
-### Incremental[​](#incremental "Direct link to Incremental")
+### Incremental
 
 Incremental materialization is supported but requires additional configuration for partitioning and performance tuning.
 
-#### Recommendations[​](#recommendations "Direct link to Recommendations")
+#### Recommendations
 
 * **Check Permissions:** Ensure that the necessary permissions for table creation are enabled in the catalog or schema.
 * **Check Connector Documentation:** Review watsonx.data Spark [data ingestion in watsonx.data](https://www.ibm.com/docs/en/watsonx/watsonxdata/2.1.x?topic=data-overview-ingestion) to ensure it supports table creation and modification.
 
-## Unsupported features[​](#unsupported-features "Direct link to Unsupported features")
+## Unsupported features
 
 Despite its extensive capabilities, the `dbt-watsonx-spark` adapter has some limitations:
 
@@ -123,8 +123,6 @@ Despite its extensive capabilities, the `dbt-watsonx-spark` adapter has some lim
 * **Snapshots**: Not supported due to Spark’s lack of built-in snapshot functionality.
 
 * **Performance Considerations**:
-
-  <!-- -->
 
   * Large datasets may require tuning of Spark configurations such as shuffle partitions and memory allocation.
   * Some transformations may be expensive due to Spark’s in-memory processing model.

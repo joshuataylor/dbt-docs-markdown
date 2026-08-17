@@ -1,6 +1,6 @@
 # dbt Wizard in the dbt platform privacy and data [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 dbt Labs is committed to protecting your privacy and data. This page explains how dbt Wizard in the dbt platform handles your data.
 
@@ -26,7 +26,7 @@ dbt Labs only shares client personal information as needed to perform the servic
 
 Yes. dbt Wizard conversation history is retained for 90 days by default, feedback you submit on a dbt Wizard conversation is retained for 400 days, and you can delete this information in the product at any time. To the extent a client identifies personal or sensitive information uploaded to dbt Labs systems, that data can be deleted within 30 days of written request.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
 * [dbt Wizard in Studio IDE](./wizard-ide.md)

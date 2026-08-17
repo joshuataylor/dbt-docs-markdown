@@ -1,5 +1,7 @@
 # check\_cols
 
+(Applies to dbt v1.9 and later)
+
 snapshots/\<filename>.yml
 
 ```yml
@@ -23,7 +25,7 @@ snapshots:
     +check_cols: [column_name] | all
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 A list of columns within the results of your snapshot query to check for changes.
 
@@ -31,13 +33,15 @@ Alternatively, use all columns using the `all` value (however this may be less p
 
 This parameter is **required if using the `check` [strategy](./strategy.md)**.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 No default is provided.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Check a list of columns for changes[​](#check-a-list-of-columns-for-changes "Direct link to Check a list of columns for changes")
+### Check a list of columns for changes
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot\_check.yml
 
@@ -56,7 +60,9 @@ snapshots:
 
 To select from this snapshot in a downstream model: `select * from {{ ref('orders_snapshot_check') }}`
 
-### Check all columns for changes[​](#check-all-columns-for-changes "Direct link to Check all columns for changes")
+### Check all columns for changes
+
+(Applies to dbt v1.9 and later)
 
 orders\_snapshot\_check.yml
 

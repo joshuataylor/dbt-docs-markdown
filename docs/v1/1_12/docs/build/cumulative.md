@@ -1,5 +1,7 @@
 # Cumulative metrics
 
+(Applies to dbt v1.12 and later)
+
 Cumulative metrics aggregate values from other metrics across a defined accumulation period. If you don’t specify a period, the metric accumulates values over the entire available time range.
 
 Use cumulative metrics when you want to calculate rolling or period-to-date values, such as weekly active users or month-to-date revenue.
@@ -7,9 +9,9 @@ Use cumulative metrics when you want to calculate rolling or period-to-date valu
 * You must create a [time spine model](./metricflow-time-spine.md) before you define cumulative metrics so that MetricFlow can join time-based aggregations to the time spine.
 * If a cumulative metric depends on metrics or dimensions defined in a different semantic model, set cumulative metrics under the top level `metrics` key.
 
-<!-- -->
+## Parameters
 
-## Parameters[​](#parameters "Direct link to Parameters")
+(Applies to dbt v1.12 and later)
 
 | Parameter             | Description                                                                                                                                                                                                                                                                      | Required | Type    |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
@@ -26,19 +28,11 @@ Use cumulative metrics when you want to calculate rolling or period-to-date valu
 | `grain_to_date`       | Sets the accumulation grain, such as `hour`, `day`, `week`, `month`, `year`, restarting accumulation at the beginning of each specified grain period. For example, selecting `month` will aggregate the `month to date` aggregation of the metric. Cannot be used with `window`. | Optional | String  |
 | `period_agg`          | Defines how to re-aggregate the cumulative metric when querying with a non-default granularity: `first`, `last`, or `average`. Defaults to `first` if `period_agg` isn't specified.                                                                                              | Optional | String  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-<!-- -->
-
-### Complete specification[​](#complete-specification "Direct link to Complete specification")
+### Complete specification
 
 The following displays the complete specification for cumulative metrics, along with an example:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 metrics:
@@ -55,13 +49,13 @@ metrics:
       alias: my_metric_name_a_week_ago_in_another_semantic_model
 ```
 
-## Cumulative metrics example[​](#cumulative-metrics-example "Direct link to Cumulative metrics example")
+## Cumulative metrics example
 
 Cumulative metrics measure data over a given window and consider the window infinite when no window parameter is passed, accumulating the data over all time.
 
 The following example shows how to define cumulative metrics in a YAML file:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 * `cumulative_order_total`: Calculates the cumulative order total over all time. Uses `input_metric` to specify the simple metric `order_total` to be aggregated.
 
@@ -94,11 +88,9 @@ metrics:
     input_metric: order_total
 ```
 
-<!-- -->
+### Granularity options
 
-### Granularity options[​](#granularity-options "Direct link to Granularity options")
-
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Use the `period_agg` parameter with `first`, `last`, and `average` functions to aggregate cumulative metrics over the requested period. This is because granularity options for cumulative metrics are different than the options for other metric types.
 
@@ -184,9 +176,11 @@ group by
   revenue_all_time
 ```
 
-### Window options[​](#window-options "Direct link to Window options")
+### Window options
 
 This section details examples of when to specify and not to specify window options.
+
+(Applies to dbt v1.12 and later)
 
 * When a period is specified, MetricFlow applies a sliding window to the underlying simple metric, such as tracking weekly active users with a 7-day window.
 * Without specifying a period, cumulative metrics accumulate values over all time, useful for running totals like current revenue and active subscriptions.
@@ -271,13 +265,11 @@ metrics:
     input_metric: subscription_count
 ```
 
-<!-- -->
-
-### Grain to date[​](#grain-to-date "Direct link to Grain to date")
+### Grain to date
 
 You can choose to specify a grain to date in your cumulative metric configuration to accumulate a metric from the start of a grain (such as week, month, or year). When using a window, such as a month, MetricFlow will go back one full calendar month. However, grain to date will always start accumulating from the beginning of the grain, regardless of the latest date of data.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 For example, let's consider an underlying simple metric `order_total` defined within a semantic model:
 
@@ -301,7 +293,7 @@ We can compare the difference between a 1-month window and a monthly grain to da
 * The cumulative metric in a window approach applies a sliding window of 1 month
 * The grain to date by month resets at the beginning of each month.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/marts/fct\_orders.yml
 
@@ -318,7 +310,7 @@ metrics:
 
 Cumulative metric with grain to date:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 models/marts/fct\_orders.yml
 
@@ -375,7 +367,7 @@ order by
     1
 ```
 
-## SQL implementation example[​](#sql-implementation-example "Direct link to SQL implementation example")
+## SQL implementation example
 
 To calculate the cumulative value of the metric over a given window we do a time range join to a timespine table using the primary time dimension as the join key. We use the accumulation window in the join to decide whether a record should be included on a particular day. The following SQL code produced from an example cumulative metric is provided for reference:
 
@@ -427,7 +419,7 @@ group by
 limit 100;
 ```
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 If you specify a `window` in your cumulative metric definition, you must include `metric_time` as a dimension in the SQL query. This is because the accumulation window is based on metric time. For example,
 
@@ -443,6 +435,6 @@ group by
   subq_3.metric_time
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

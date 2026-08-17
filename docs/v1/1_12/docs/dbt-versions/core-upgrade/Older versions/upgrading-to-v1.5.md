@@ -1,24 +1,24 @@
 # Upgrading to v1.5
 
-Available in v1ⓘ
+Available in v1
 
 dbt Core v1.5 is a feature release, with two significant additions:
 
 1. [**Model governance**](../../../mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)
 2. A Python entry point for [**programmatic invocations**](../../../../reference/programmatic-invocations.md), at parity with the CLI
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.5.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 * [Release schedule](https://github.com/dbt-labs/dbt-core/issues/6715)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x, with the exception of any changes explicitly mentioned below. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-### Behavior changes[​](#behavior-changes "Direct link to Behavior changes")
+### Behavior changes
 
 Why changes to previous behavior?
 
@@ -107,7 +107,7 @@ Finally: The [built-in `generate_alias_name` macro](https://github.com/dbt-labs/
 
 Likewise, if your project has reimplemented the `ref` macro with custom logic, you will need to update the logic in your macro as described [here](../../../../reference/dbt-jinja-functions/builtins.md).
 
-### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
+### For consumers of dbt artifacts (metadata)
 
 The [manifest](../../../../reference/artifacts/manifest-json.md) schema version will be updated to `v9`. Specific changes:
 
@@ -117,17 +117,17 @@ The [manifest](../../../../reference/artifacts/manifest-json.md) schema version 
 * Addition of `group` and `contract` as node configs
 * To support model versions, the type of `refs` has changed from `List[List[str]]` to `List[RefArgs]`, with nested keys `name: str`, `package: Optional[str] = None`, and `version: Union[str, float, NoneType] = None)`.
 
-### For maintainers of adapter plugins[​](#for-maintainers-of-adapter-plugins "Direct link to For maintainers of adapter plugins")
+### For maintainers of adapter plugins
 
 For more detailed information and to ask questions, please read and comment on the GH discussion: [dbt-labs/dbt-core#7213](https://github.com/dbt-labs/dbt-core/discussions/7213).
 
-## New and changed documentation[​](#new-and-changed-documentation "Direct link to New and changed documentation")
+## New and changed documentation
 
-### Model governance[​](#model-governance "Direct link to Model governance")
+### Model governance
 
 The first phase of supporting dbt deployments at scale, across multiple projects with clearly defined ownership and interface boundaries. [Read about model governance](../../../mesh/govern/about-model-governance.md), all of which is new in v1.5.
 
-### Revamped CLI[​](#revamped-cli "Direct link to Revamped CLI")
+### Revamped CLI
 
 Compile and preview dbt models and `--inline` dbt-SQL queries on the CLI using:
 
@@ -144,7 +144,7 @@ And (!): a first-ever entry point for [programmatic invocations](../../../../ref
 
 Run `dbt --help` to see new & improved help documentation :)
 
-### Quick hits[​](#quick-hits "Direct link to Quick hits")
+### Quick hits
 
 * The [`version: 2` top-level key](../../../../reference/project-configs/version.md) is now **optional** in all YAML files. Also, the [`config-version: 2`](../../../../reference/project-configs/config-version.md) and `version:` top-level keys are now optional in `dbt_project.yml` files.
 * [Events and logging](../../../../reference/events-logging.md): Added `node_relation` (`database`, `schema`, `identifier`) to the `node_info` dictionary, available on node-specific events

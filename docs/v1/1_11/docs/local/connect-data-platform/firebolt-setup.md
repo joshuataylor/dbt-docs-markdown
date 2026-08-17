@@ -1,45 +1,31 @@
 # Connect Firebolt to dbt Core
 
-Local developmentⓘ
+Local development
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code for the repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Firebolt
-* **Authors**:
-  <!-- -->
-  Firebolt
+* **Maintained by**: Firebolt
+* **Authors**: Firebolt
 * **GitHub repo**: [firebolt-db/dbt-firebolt](https://github.com/firebolt-db/dbt-firebolt) [![](https://img.shields.io/github/stars/firebolt-db/dbt-firebolt?style=for-the-badge)](https://github.com/firebolt-db/dbt-firebolt)
 * **PyPI package**: `dbt-firebolt` [![](https://badge.fury.io/py/dbt-firebolt.svg)](https://badge.fury.io/py/dbt-firebolt)
 * **Slack channel**: [#db-firebolt](https://getdbt.slack.com/archives/C03K2PTHHTP)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.1.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.1.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-firebolt
+## Installing dbt-firebolt
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-firebolt`
 
-## Configuring <!-- -->dbt-firebolt<!-- -->
+## Configuring dbt-firebolt
 
-For <!-- -->Firebolt<!-- -->-specific configuration, please refer to [Firebolt<!-- --> configs.](../../../reference/resource-configs/firebolt-configs.md)
+For Firebolt-specific configuration, please refer to [Firebolt configs.](../../../reference/resource-configs/firebolt-configs.md)
 
 For other information including Firebolt feature support, see the [GitHub README](https://github.com/firebolt-db/dbt-firebolt/blob/main/README.md) and the [changelog](https://github.com/firebolt-db/dbt-firebolt/blob/main/CHANGELOG.md).
 
-## Connecting to Firebolt[​](#connecting-to-firebolt "Direct link to Connecting to Firebolt")
+## Connecting to Firebolt
 
 To connect to Firebolt from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A Firebolt profile conforms to the following syntax:
 
@@ -62,7 +48,7 @@ profiles.yml
       host: "<hostname>"
 ```
 
-#### Description of Firebolt Profile Fields[​](#description-of-firebolt-profile-fields "Direct link to Description of Firebolt Profile Fields")
+#### Description of Firebolt Profile Fields
 
 To specify values as environment variables, use the format `{{ env_var('<variable_name>' }}`. For example, `{{ env_var('DATABASE_NAME' }}`.
 
@@ -78,13 +64,7 @@ To specify values as environment variables, use the format `{{ env_var('<variabl
 | `threads`       | Required. Set to higher number to improve performance.                                                                                                                                                                                                                |
 | `host`          | Optional. The host name of the connection. For all customers it is `api.app.firebolt.io`, which will be used if omitted.                                                                                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Troubleshooting Connections[​](#troubleshooting-connections "Direct link to Troubleshooting Connections")
+#### Troubleshooting Connections
 
 If you encounter issues connecting to Firebolt from dbt, make sure the following criteria are met:
 
@@ -92,7 +72,7 @@ If you encounter issues connecting to Firebolt from dbt, make sure the following
 * Your service account must be attached to a user.
 * The engine must be running.
 
-## Supporting Concurrent Development[​](#supporting-concurrent-development "Direct link to Supporting Concurrent Development")
+## Supporting Concurrent Development
 
 In dbt, database schemas are used to compartmentalize developer environments so that concurrent development does not cause table name collisions. Firebolt, however, does not currently support database schemas (it is on the roadmap). To work around this, we recommend that you add the following macro to your project. This macro will take the `schema` field of your `profiles.yml` file and use it as a table name prefix.
 

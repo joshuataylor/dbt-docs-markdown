@@ -1,6 +1,6 @@
 # Job object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The job object allows you to query information about a particular model based on `jobId` and, optionally, a `runId`.
 
@@ -8,13 +8,13 @@ If you don't provide a `runId`, the API returns information on the latest runId 
 
 The [example query](#example-query) illustrates a few fields you can query in this `job` object. Refer to [Fields](#fields) to see the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `job`, you can use the following arguments.
 
 # Fetching data...
 
-### Example Query[​](#example-query "Direct link to Example Query")
+### Example Query
 
 You can use your production job's `id`.
 
@@ -52,7 +52,7 @@ query JobQueryExample {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying an `job`, you can use the following fields.
 

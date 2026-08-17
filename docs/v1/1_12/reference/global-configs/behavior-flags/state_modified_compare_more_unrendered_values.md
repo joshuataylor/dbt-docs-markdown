@@ -4,19 +4,11 @@ Removed in dbt Core 2.0
 
 This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always enabled. If you're upgrading, remove this flag from your `dbt_project.yml`.
 
-<!-- -->
-
 | state\_modified\_compare\_more\_unrendered\_values | dbt **Latest** | dbt Core |
 | -------------------------------------------------- | -------------- | -------- |
 | Introduced                                         | 2024.10        | 1.9.0    |
 | Matured (default → `true`)                         | Sep 1, 2026    | 1.12.0   |
 | Removed                                            | —              | v2.0     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 info
 
@@ -32,7 +24,7 @@ note
 
 This flag requires rebuilding the state directory (manifest) to take effect.
 
-## Impact[​](#impact "Direct link to Impact")
+## Impact
 
 Setting the default to `true` silently changes the `state:modified` selection set that most CI, Slim CI, and `dbt build --defer` workflows rely on. There are two ways this surfaces:
 

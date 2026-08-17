@@ -4,11 +4,11 @@ There is no better or simpler way to join multiple string values in a query than
 
 It’s a straightforward function with pretty straightforward use cases. Use this page to understand how to use the CONCAT function in your data warehouse and why analytics engineers use it throughout their dbt models.
 
-## How to use the CONCAT function[​](#how-to-use-the-concat-function "Direct link to How to use the CONCAT function")
+## How to use the CONCAT function
 
 Using the CONCAT function is pretty straightforward: you’ll pass in the strings or binary values you want to join together in the correct order into the CONCAT function. You can pass in as many expressions into the CONCAT function as you would like.
 
-### CONCAT function example[​](#concat-function-example "Direct link to CONCAT function example")
+### CONCAT function example
 
 ```sql
 select
@@ -28,17 +28,11 @@ This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) 
 | 2        | Shawn       | M.         | Shawn M.    |
 | 3        | Kathleen    | P.         | Kathleen P. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## CONCAT function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#concat-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to CONCAT function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## CONCAT function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the CONCAT function with the syntax looking the same in each platform. You may additionally see the CONCAT function represented by the `||` operator (ex. `select first_name || last_name AS full_name from {{ ref('customers') }}`) which has the same functionality as the CONCAT function in these data platforms.
 
-## CONCAT use cases[​](#concat-use-cases "Direct link to CONCAT use cases")
+## CONCAT use cases
 
 We most commonly see concatenation in SQL for strings to:
 

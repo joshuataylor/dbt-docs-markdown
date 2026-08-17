@@ -1,17 +1,17 @@
 # Git commit signing
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 To prevent impersonation and enhance security, you can sign your Git commits before pushing them to your repository. Using your signature, a Git provider can cryptographically verify a commit and mark it as "verified", providing increased confidence about its origin.
 
 You can configure dbt to sign your Git commits when using the Studio IDE for development. To set up, enable the feature in dbt, follow the flow to generate a keypair, and upload the public key to your Git provider to use for signature verification.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * GitHub or GitLab is your Git provider. Currently, Azure DevOps is not supported.
 * You have a dbt account on the [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing/).
 
-## Generate GPG keypair in dbt[​](#generate-gpg-keypair-in-dbt "Direct link to Generate GPG keypair in dbt")
+## Generate GPG keypair in dbt
 
 To generate a GPG keypair in dbt, follow these steps:
 
@@ -22,7 +22,7 @@ To generate a GPG keypair in dbt, follow these steps:
 
 [![Example of profile setting Signed commits](/img/docs/dbt-platform/example-git-signed-commits-setting.png?v=2 "Example of profile setting Signed commits")](#)Example of profile setting Signed commits
 
-## Upload public key to Git provider[​](#upload-public-key-to-git-provider "Direct link to Upload public key to Git provider")
+## Upload public key to Git provider
 
 To upload the public key to your Git provider, follow the detailed documentation provided by the supported Git provider:
 
@@ -33,7 +33,7 @@ Once you have uploaded the public key to your Git provider, your Git commits wil
 
 [![Example of a verified Git commit in a Git provider.](/img/docs/dbt-platform/git-sign-verified.png?v=2 "Example of a verified Git commit in a Git provider.")](#)Example of a verified Git commit in a Git provider.
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 * The GPG keypair is tied to the user, not a specific account. There is a 1:1 relationship between the user and keypair. The same key will be used for signing commits on any accounts the user is a member of.
 
@@ -43,12 +43,10 @@ Once you have uploaded the public key to your Git provider, your Git commits wil
 
 * Keep your dbt email and Git provider's verified email in sync to avoid verification issues. If you change your dbt email address:
 
-  <!-- -->
-
   * Generate a new GPG keypair with the updated email, following the [steps mentioned earlier](./git-commit-signing.md#generate-gpg-keypair-in-dbt-cloud).
   * Add and verify the new email in your Git provider.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  What happens if I delete my GPG keypair in dbt?
 

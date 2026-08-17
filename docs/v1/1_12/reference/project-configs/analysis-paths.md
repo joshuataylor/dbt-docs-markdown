@@ -6,25 +6,21 @@ dbt\_project.yml
 analysis-paths: [directorypath]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Specify a custom list of directories where [analyses](../../docs/build/analyses.md) are located.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 Without specifying this config, dbt will not compile any `.sql` files as analyses.
 
 However, the [`dbt init` command](../commands/init.md) populates this value as `analyses` ([source](https://github.com/dbt-labs/dbt-starter-project/blob/HEAD/dbt_project.yml#L15)).
-
-<!-- -->
 
 Paths specified in `analysis-paths` must be relative to the location of your `dbt_project.yml` file. Avoid using absolute paths like `/Users/username/project/analyses`, as it will lead to unexpected behavior and outcomes.
 
 * ✅ **Do**
 
   * Use relative path:
-
-    <!-- -->
 
     ```yml
     analysis-paths: ["analyses"]
@@ -34,15 +30,13 @@ Paths specified in `analysis-paths` must be relative to the location of your `db
 
   * Avoid absolute paths:
 
-    <!-- -->
-
     ```yml
     analysis-paths: ["/Users/username/project/analyses"]
     ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use a subdirectory named `analyses`[​](#use-a-subdirectory-named-analyses "Direct link to use-a-subdirectory-named-analyses")
+### Use a subdirectory named `analyses`
 
 This is the value populated by the [`dbt init` command](../commands/init.md).
 
@@ -52,7 +46,7 @@ dbt\_project.yml
 analysis-paths: ["analyses"]
 ```
 
-### Use a subdirectory named `custom_analyses`[​](#use-a-subdirectory-named-custom_analyses "Direct link to use-a-subdirectory-named-custom_analyses")
+### Use a subdirectory named `custom_analyses`
 
 dbt\_project.yml
 

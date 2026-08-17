@@ -1,8 +1,6 @@
 # Configuring AWS PrivateLink for Teradata VantageCloud
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,9 +13,9 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of a Teradata VantageCloud AWS PrivateLink endpoint in a dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Teradata VantageCloud<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Teradata VantageCloud) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
-## Configure AWS PrivateLink[​](#configure-aws-privatelink "Direct link to Configure AWS PrivateLink")
+## Configure AWS PrivateLink
 
 1. Contact your Teradata account team or Teradata Support to obtain:
 
@@ -54,7 +52,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
 3. Once dbt Support confirms the endpoint has been provisioned and the connection has been tested, they will reply with the hostname to use when configuring your project.
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once you've completed the setup with dbt Support, you can configure a private endpoint in dbt:
 

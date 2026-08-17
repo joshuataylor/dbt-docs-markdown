@@ -22,7 +22,7 @@ When would you want to use the SQL-based syntax and YAML-based syntax?
   * Ideal for new snapshots or existing snapshots that need to be [migrated](../snapshot-configs.md#snapshot-configuration-migration).
   * Create transformations separate from the snapshot file by creating an ephemeral model and referencing it in the snapshot using the `relation` field.
 
-## Snapshot configurations[​](#snapshot-configurations "Direct link to Snapshot configurations")
+## Snapshot configurations
 
 Although you can use the more performant YAML-based configuration, you might still want to use the legacy configuration to define your snapshots if it suits your needs.
 
@@ -35,7 +35,7 @@ These configurations allow you to control how dbt detects changes in your data a
 
 One of the most important configs you can decide is [strategies](#snapshot-strategies), which tells dbt how to detect modified rows.
 
-### Snapshot specific configurations[​](#snapshot-specific-configurations "Direct link to Snapshot specific configurations")
+### Snapshot specific configurations
 
 Snapshot-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings within the resource’s file using the `{{ config() }}` macro (as well as in the project file (`dbt_project.yml`) or a property file (`models/properties.yml` for models, similarly for other resources)).
 
@@ -60,7 +60,7 @@ select * from {{ source('jaffle_shop', 'orders') }}
 {% endsnapshot %}
 ```
 
-### General configuration[​](#general-configuration "Direct link to General configuration")
+### General configuration
 
 Use general configurations for broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project YAML file, properties YAML files, or within resource-specific files using a config block.
 
@@ -78,19 +78,18 @@ snapshots/snapshot.sql
 ) }}
 ```
 
-### Snapshot strategies[​](#snapshot-strategies "Direct link to Snapshot strategies")
+### Snapshot strategies
 
 Snapshot "strategies" define how dbt knows if a row has changed. There are two strategies built-in to dbt that require the `strategy` parameter:
 
 * [Timestamp](./snapshots-jinja-legacy.md?strategy=timestamp#snapshot-strategies) — Uses an `updated_at` column to determine if a row has changed.
 * [Check](./snapshots-jinja-legacy.md?strategy=check#snapshot-strategies) — Compares a list of columns between their current and historical values to determine if a row has changed. Uses the `check_cols` parameter.
 
-- Timestamp
-- Check
+### Timestamp
 
 The timestamp strategy uses an `updated_at` field to determine if a row has changed. If the configured `updated_at` column for a row is more recent than the last time the snapshot ran, then dbt will invalidate the old record and record the new one. If the timestamps are unchanged, then dbt will not take any action.
 
-#### Example[​](#example "Direct link to Example")
+#### Example
 
 snapshots/timestamp\_example.sql
 
@@ -111,9 +110,11 @@ snapshots/timestamp\_example.sql
 {% endsnapshot %}
 ```
 
+### Check
+
 The check strategy is useful for tables which do not have a reliable `updated_at` column. It requires the `check_cols` parameter, which is a list of columns within the results of your snapshot query to check for changes. Alternatively, use all columns using the all value (however this may be less performant).
 
-#### Example[​](#example-1 "Direct link to Example")
+#### Example
 
 snapshots/check\_example.sql
 
@@ -133,7 +134,7 @@ snapshots/check\_example.sql
 {% endsnapshot %}
 ```
 
-#### Examples[​](#examples "Direct link to Examples")
+#### Examples
 
  Check a list of columns for changes
 
@@ -175,11 +176,13 @@ snapshots/check\_example.sql
 {% endsnapshot %}
 ```
 
-## Configuration reference[​](#configuration-reference "Direct link to Configuration reference")
+## Configuration reference
 
 Configure your snapshot to tell dbt how to detect record changes. Snapshots are `select` statements, defined within a snapshot block in a `.sql` file (typically in your `snapshots` directory or any other directory).
 
 The following table outlines the configurations available for snapshots:
+
+(Applies to dbt v1.9 and later)
 
 | Config                                                                                                     | Description                                                                                  | Required?                              | Example     |
 | ---------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------- | ----------- |
@@ -191,18 +194,12 @@ The following table outlines the configurations available for snapshots:
 | [updated\_at](./updated_at.md)                            | If using the `timestamp` strategy, the timestamp column to compare                           | Only if using the `timestamp` strategy | updated\_at |
 | [invalidate\_hard\_deletes](./invalidate_hard_deletes.md) | Find hard deleted records in source, and set `dbt_valid_to` current time if no longer exists | No                                     | True        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 * A number of other configurations are also supported (like, `tags` and `post-hook`), check out the full list [here](../snapshot-configs.md).
 * Snapshots can be configured from both your `dbt_project.yml` file and a `config` block, check out the [configuration docs](../snapshot-configs.md) for more information.
 * Note: BigQuery users can use `target_project` and `target_dataset` as aliases for `target_database` and `target_schema`, respectively.
 * Before v1.9, `target_schema` (required) and `target_database` (optional) set a fixed schema or database for snapshots, making it hard to separate dev and prod environments. In v1.9, `target_schema` became optional, allowing environment-aware snapshots. By default, snapshots now use `generate_schema_name` or `generate_database_name`, but developers can still specify a custom location using [schema](./schema.md) and [database](./database.md), consistent with other resource types.
 
-## Add snapshot to a project[​](#add-snapshot-to-a-project "Direct link to Add snapshot to a project")
+## Add snapshot to a project
 
 To add a snapshot to your project:
 
@@ -232,6 +229,8 @@ select * from {{ source('jaffle_shop', 'orders') }}
 4. Check whether the result set of your query includes a reliable timestamp column that indicates when a record was last updated. For our example, the `updated_at` column reliably indicates record changes, so we can use the `timestamp` strategy. If your query result set does not have a reliable timestamp, you'll need to instead use the `check` strategy — more details on this in the next step.
 
 5. Add configurations to your snapshot using a `config` block. You can also [configure your snapshot from your `dbt_project.yml` file](../snapshot-configs.md).
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot.sql
 
@@ -285,7 +284,7 @@ select * from {{ ref('orders_snapshot') }}
 
 10. Snapshots are only useful if you run them frequently — schedule the `snapshot` command to run regularly.
 
-## Examples[​](#examples-1 "Direct link to Examples")
+## Examples
 
 This section outlines some examples of how to apply configurations to snapshots using the legacy method.
 
@@ -322,9 +321,11 @@ snapshots/orders.sql
 ) }}
 ```
 
-#### Examples[​](#examples-2 "Direct link to Examples")
+#### Examples
 
-* #### Using a column name `updated_at`:[​](#using-a-column-name-updated_at "Direct link to using-a-column-name-updated_at")
+* #### Using a column name `updated_at`:
+
+  (Applies to dbt v1.9 and later)
 
   snapshots/orders.sql
 
@@ -346,11 +347,13 @@ snapshots/orders.sql
   {% endsnapshot %}
   ```
 
-* #### Coalescing two columns to create a reliable `updated_at` column:[​](#coalescing-two-columns-to-create-a-reliable-updated_at-column "Direct link to coalescing-two-columns-to-create-a-reliable-updated_at-column")
+* #### Coalescing two columns to create a reliable `updated_at` column:
 
   Consider a data source that only has an `updated_at` column filled in when a record is updated (so a `null` value indicates that the record hasn't been updated after it was created).
 
   Since the `updated_at` configuration only takes a column name, rather than an expression, you should update your snapshot query to include the coalesced column.
+
+  (Applies to dbt v1.9 and later)
 
   snapshots/orders.sql
 
@@ -388,7 +391,7 @@ snapshots/orders.sql
 ) }}
 ```
 
-#### Examples[​](#examples-3 "Direct link to Examples")
+#### Examples
 
 * Using an `id` column as a unique key
 
@@ -404,7 +407,7 @@ snapshots/orders.sql
 
   You can also write this in YAML. This might be a good idea if multiple snapshots share the same `unique_key` (though we prefer to apply this configuration in a config block, as above).
 
-* #### Using a combination of two columns as a unique key[​](#using-a-combination-of-two-columns-as-a-unique-key "Direct link to Using a combination of two columns as a unique key")
+* #### Using a combination of two columns as a unique key
 
   This configuration accepts a valid column expression. As such, you can concatenate two columns together as a unique key if required. It's a good idea to use a separator (like, '-') to ensure uniqueness.
 

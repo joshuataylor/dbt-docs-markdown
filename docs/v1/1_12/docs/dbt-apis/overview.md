@@ -1,6 +1,6 @@
 # APIs overview
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Accounts on the Starter, Enterprise, and Enterprise+ plans can query the dbt APIs.
 
@@ -14,6 +14,6 @@ If you want to learn more about webhooks, refer to [Webhooks for your jobs](../d
 
 For request quotas and throttling behavior, refer to [API rate limits](./rate-limits.md).
 
-## How to Access the APIs[​](#how-to-access-the-apis "Direct link to How to Access the APIs")
+## How to Access the APIs
 
 dbt supports two types of API Tokens: [personal access tokens](./user-tokens.md) and [service account tokens](./service-tokens.md). Requests to the dbt APIs can be authorized using these tokens.

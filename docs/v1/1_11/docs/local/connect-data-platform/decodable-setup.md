@@ -1,53 +1,39 @@
 # Connect Decodable to dbt Core
 
-Local developmentⓘ
+Local development
 
 Community plugin
 
 Some core functionality may be limited. If you're interested in contributing, see the source code for the repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Decodable
-* **Authors**:
-  <!-- -->
-  Decodable Team
+* **Maintained by**: Decodable
+* **Authors**: Decodable Team
 * **GitHub repo**: [decodableco/dbt-decodable](https://github.com/decodableco/dbt-decodable) [![](https://img.shields.io/github/stars/decodableco/dbt-decodable?style=for-the-badge)](https://github.com/decodableco/dbt-decodable)
 * **PyPI package**: `dbt-decodable` [![](https://badge.fury.io/py/dbt-decodable.svg)](https://badge.fury.io/py/dbt-decodable)
 * **Slack channel**: [#general](https://decodablecommunity.slack.com)
-* **Supported dbt Core version**:
-  <!-- -->
-  1.3.1
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: 1.3.1 and newer
+* **dbt support**: Not supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-decodable
+## Installing dbt-decodable
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-decodable`
 
-## Configuring <!-- -->dbt-decodable<!-- -->
+## Configuring dbt-decodable
 
-For <!-- -->Decodable<!-- -->-specific configuration, please refer to [Decodable<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For Decodable-specific configuration, please refer to [Decodable configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to Decodable with **dbt-decodable**[​](#connecting-to-decodable-with-dbt-decodable "Direct link to connecting-to-decodable-with-dbt-decodable")
+## Connecting to Decodable with **dbt-decodable**
 
 Do the following steps to connect to Decodable with dbt.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 In order to properly connect to Decodable, you must have the Decodable CLI installed and have used it to login to Decodable at least once. See [Install the Decodable CLI](https://docs.decodable.co/docs/setup#install-the-cli-command-line-interface) for more information.
 
-### Steps[​](#steps "Direct link to Steps")
+### Steps
 
 To connect to Decodable with dbt, you'll need to add a Decodable profile to your `profiles.yml` file. A Decodable profile has the following fields.
 
@@ -69,7 +55,7 @@ dbt-decodable:
       local_namespace: [namespace prefix]   
 ```
 
-#### Description of Profile Fields[​](#description-of-profile-fields "Direct link to Description of Profile Fields")
+#### Description of Profile Fields
 
 | Option             | Description                                                                                                                                                                                                                                   | Required? | Example                        |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------ |
@@ -83,13 +69,7 @@ dbt-decodable:
 | preview\_start     | Specify where preview should start reading data from. If set to `earliest`, then preview will start reading from the earliest record possible. If set to `latest`, preview will start reading from the latest record. Defaults to `earliest`. | Optional  | `latest`                       |
 | local\_namespace   | Specify a prefix to add to all entities created on Decodable. Defaults to `none`, meaning that no prefix is added.                                                                                                                            | Optional  | `none`                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
 | Name                        | Supported | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,13 +83,7 @@ Search table...
 | Docs generate               | No        | For details about your models, check your Decodable account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Snapshots                   | No        | Snapshots and the `dbt snapshot` command are not supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Additional operations[​](#additional-operations "Direct link to Additional operations")
+## Additional operations
 
 `dbt-decodable` provides a set of commands for managing the project’s resources on Decodable. Those commands can be run using `dbt run-operation {name} --args {args}`.
 

@@ -4,7 +4,7 @@ COUNT is a SQL function you need to know how to use. Whether it’s in an ad hoc
 
 To formalize it, COUNT is an aggregate function that is used to return the count of rows of a specified field (`count(<field_name>)`) or all rows in a dataset (`count(*)`). It is commonly used to get baseline statistical information of a dataset, help ensure primary keys are unique, and calculate business metrics.
 
-## How to use SQL COUNT in a query[​](#how-to-use-sql-count-in-a-query "Direct link to How to use SQL COUNT in a query")
+## How to use SQL COUNT in a query
 
 Use the following syntax to generate the aggregate count of a field:
 
@@ -14,7 +14,7 @@ Since COUNT is an aggregate function, you’ll need a GROUP BY statement in your
 
 Let’s take a look at a practical example using COUNT, DISTINCT, and GROUP BY below.
 
-### COUNT example[​](#count-example "Direct link to COUNT example")
+### COUNT example
 
 The following example is querying from a sample dataset created by dbt Labs called [jaffle\_shop](https://github.com/dbt-labs/jaffle_shop):
 
@@ -36,21 +36,15 @@ This simple query is something you may do while doing initial exploration of you
 | 3            | 35                 | 31                         |
 | 4            | 8                  | 8                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 An analyst or analytics engineer may want to perform a query like this to understand the ratio of orders to customers and see how it changes seasonally.
 
-## SQL COUNT syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-count-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL COUNT syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL COUNT syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 All modern data warehouses support the ability to use the COUNT function (and follow the same syntax!).
 
 Some data warehouses, such as Snowflake and Google BigQuery, additionally support a COUNT\_IF/COUNTIF function that allows you to pass in a boolean expression to determine whether to count a row or not.
 
-## COUNT use cases[​](#count-use-cases "Direct link to COUNT use cases")
+## COUNT use cases
 
 We most commonly see queries using COUNT to:
 

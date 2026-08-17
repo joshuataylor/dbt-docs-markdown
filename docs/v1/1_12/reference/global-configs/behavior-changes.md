@@ -16,11 +16,11 @@ The following are *not* behavior changes:
 * dbt begins raising a *warning* that it didn't previously.
 * dbt updates the language of human-friendly messages in log events.
 
-## Behavior change flags[​](#behavior-change-flags "Direct link to Behavior change flags")
+## Behavior change flags
 
 These flags *must* be set in the `flags` dictionary in `dbt_project.yml`. They configure behaviors closely tied to project code, which means they should be defined in version control and modified through pull or merge requests, with the same testing and peer review.
 
-### Flag lifecycle[​](#flag-lifecycle "Direct link to Flag lifecycle")
+### Flag lifecycle
 
 Behavior change flags go through three phases of development:
 
@@ -28,7 +28,7 @@ Behavior change flags go through three phases of development:
 2. **Mature (enabled by default):** The default value of the flag is switched to the new behavior by default. You can still preserve the old behavior, but you may see deprecation warnings.
 3. **Removed (generally enabled):** The old behavior is removed from the dbt codebase(s). Most flags are supported indefinitely, but there is no committement to supporting them forever. If a flag is removed, there will be significant advanced warning.
 
-### Introduced in dbt Core v1.x[​](#introduced-in-dbt-core-v1x "Direct link to Introduced in dbt Core v1.x")
+### Introduced in dbt Core v1.x
 
 This table outlines which month of the **Latest** release track in dbt and which version of dbt Core contains the behavior change's introduction (disabled by default) or maturity (enabled by default).
 
@@ -55,13 +55,7 @@ This table outlines which month of the **Latest** release track in dbt and which
 | [allow\_jinja\_file\_extensions](./behavior-flags/allow_jinja_file_extensions.md)                                                                            | 2026.5                | -                        | 1.12.0          | -                  | -                 |
 | [latest\_version\_pointer\_enabled\_by\_default](./behavior-flags/latest_version_pointer_enabled_by_default.md)                                              | 2026.5                | -                        | 1.12.0          | -                  | -                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Flags reaching maturity[​](#flags-reaching-maturity "Direct link to Flags reaching maturity")
+### Flags reaching maturity
 
 Several behavior change flags on the dbt platform `Latest` release track are planned to reach maturity on September 1, 2026, switching their default values from `false` to `true`. The September 1 date applies only to the dbt platform release tracks. The flags have reached maturity in dbt Core v1.12. For intro dates, refer to the dbt Core behavior changes table.
 
@@ -75,28 +69,17 @@ Several behavior change flags on the dbt platform `Latest` release track are pla
 | [require\_yaml\_configuration\_for\_mf\_time\_spines](./behavior-flags/require_yaml_configuration_for_mf_time_spines.md)                       | Suppresses a deprecation warning (no functional change)                |
 | [validate\_macro\_args](./behavior-flags/validate_macro_args.md)                                                                               | New warning for mismatched macro arguments; errors with `--warn-error` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Introduced in Fusion and Core v2[​](#introduced-in-fusion-and-core-v2 "Direct link to Introduced in Fusion and Core v2")
+### Introduced in Fusion and Core v2
 
 The following flags are specific to Fusion and have no equivalent in dbt Core. They are configured the same way — in the `flags:` block of `dbt_project.yml`.
 
-| Flag                                     | Adapter  | Default | Introduced                         | Becomes default |
-| ---------------------------------------- | -------- | ------- | ---------------------------------- | --------------- |
-| use\_catalogs\_v2                        | All      | `false` | Fusion preview\.174 (Apr 22, 2026) | Not yet set     |
-| bigquery\_noop\_alter\_relation\_comment | BigQuery | `false` | Fusion preview\.124 (Feb 19, 2026) | Not yet set     |
+| Flag                                                                                                                                                             | Adapter  | Default | Introduced         | Becomes default |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- | ------------------ | --------------- |
+| [require\_resource\_names\_without\_plus\_prefix](./behavior-flags/require_resource_names_without_plus_prefix.md) | All      | `false` | 2.0.0-preview\.208 | Not yet set     |
+| use\_catalogs\_v2                                                                                                                                                | All      | `false` | 2.0.0-preview\.174 | Not yet set     |
+| bigquery\_noop\_alter\_relation\_comment                                                                                                                         | BigQuery | `false` | 2.0.0-preview\.124 | Not yet set     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Adapter-specific behavior change flags[​](#adapter-specific-behavior-change-flags "Direct link to Adapter-specific behavior change flags")
+### Adapter-specific behavior change flags
 
 This table outlines which version of the dbt adapter contains the behavior change's introduction (disabled by default) or maturity (enabled by default).
 
@@ -114,13 +97,7 @@ This table outlines which version of the dbt adapter contains the behavior chang
 | [bigquery\_use\_standard\_sql\_for\_partitions](./bigquery-changes.md#the-bigquery_use_standard_sql_for_partitions-flag)                     | BigQuery 1.12.0    | 1.12.0                | -                 |
 | [snowflake\_default\_transient\_dynamic\_tables](./snowflake-changes.md#the-snowflake_default_transient_dynamic_tables-flag)                 | Snowflake 1.12.0   | -                     | -                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  How do I implement behavior change flags in my project?
 

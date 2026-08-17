@@ -2,7 +2,7 @@
 
 The SQL MAX aggregate function allows you to compute the maximum value from a column. This kind of measure is useful for understanding the distribution of column values, determining the most recent timestamps of key events, and creating booleans from CASE WHEN statements to flatten semi-structured data.
 
-## How to use the SQL MAX function in a query[​](#how-to-use-the-sql-max-function-in-a-query "Direct link to How to use the SQL MAX function in a query")
+## How to use the SQL MAX function in a query
 
 Use the following syntax to find the maximum value of a field:
 
@@ -14,7 +14,7 @@ MAX can also be used as a window function to operate across specified or partiti
 
 Let’s take a look at a practical example using MAX and GROUP BY below.
 
-### MAX example[​](#max-example "Direct link to MAX example")
+### MAX example
 
 The following example is querying from a sample dataset created by dbt Labs called [jaffle\_shop](https://github.com/dbt-labs/jaffle_shop):
 
@@ -35,17 +35,11 @@ This simple query is something you may do while doing initial exploration of you
 | 3            | 56          |
 | 4            | 26          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL MAX function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-max-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL MAX function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL MAX function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 All modern data warehouses support the ability to use the MAX function (and follow the same syntax!).
 
-## MAX function use cases[​](#max-function-use-cases "Direct link to MAX function use cases")
+## MAX function use cases
 
 We most commonly see queries using MAX to:
 

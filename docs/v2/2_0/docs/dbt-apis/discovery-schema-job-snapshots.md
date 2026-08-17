@@ -1,10 +1,10 @@
 # Snapshots object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The snapshots object allows you to query information about all snapshots in a given job.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `snapshots`, the following arguments are available.
 
@@ -12,14 +12,14 @@ When querying for `snapshots`, the following arguments are available.
 
 Below we show some illustrative example queries and outline the schema of the snapshots object.
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 The database, schema, and identifier arguments are optional. This means that with this endpoint you can:
 
 * Find a specific snapshot by providing `<database>.<schema>.<identifier>`
 * Find all of the snapshots in a database and/or schema by providing `<database>` and/or `<schema>`
 
-#### Find snapshots information for a job[​](#find-snapshots-information-for-a-job "Direct link to Find snapshots information for a job")
+#### Find snapshots information for a job
 
 The example query returns information about all snapshots in this job.
 
@@ -39,7 +39,7 @@ The example query returns information about all snapshots in this job.
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `snapshots`, the following fields are available:
 

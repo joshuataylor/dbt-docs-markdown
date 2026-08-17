@@ -1,21 +1,21 @@
 # Defer
 
-Defer is a powerful feature that makes it possible to run a subset of <!-- -->models, tests, or functions<!-- --> in a [sandbox environment](../../docs/environments-in-dbt.md) without having to first build their upstream parents. This can save time and computational resources when you want to test a small number of models in a large project.
+Defer is a powerful feature that makes it possible to run a subset of (Applies to dbt v1.11 and later) models, tests, or functions in a [sandbox environment](../../docs/environments-in-dbt.md) without having to first build their upstream parents. This can save time and computational resources when you want to test a small number of models in a large project.
 
 [![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")](#)Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
 
-Defer requires a manifest from a previous dbt invocation. Provide the path using the `--state flag` or by setting the `DBT_ENGINE_STATE` environment variable. Together with the `state:` selection method, these features enable "Slim CI". Read more about [state](./state-selection.md).
+Defer requires a manifest from a previous dbt invocation. Provide the path using the `--state flag` or by setting the (Applies to dbt v1.11 and later) `DBT_ENGINE_STATE` environment variable. Together with the `state:` selection method, these features enable "Slim CI". Read more about [state](./state-selection.md).
 
 For some use cases, you can use `dbt clone` to achieve similar functionality. For more details, refer to [clone](../commands/clone.md#when-to-use-dbt-clone-instead-of-deferral).
 
-It is possible to use separate state for `state:modified` and `--defer`, by passing paths to different manifests to each of the `--state`/`DBT_ENGINE_STATE` and `--defer-state`/`DBT_ENGINE_DEFER_STATE`. This enables more granular control in cases where you want to:
+It is possible to use separate state for `state:modified` and `--defer`, by passing paths to different manifests to each of the `--state`/(Applies to dbt v1.11 and later) `DBT_ENGINE_STATE` and `--defer-state`/(Applies to dbt v1.11 and later) `DBT_ENGINE_DEFER_STATE`. This enables more granular control in cases where you want to:
 
 * Compare against logical state from one environment or past point in time
 * Defer to applied state from a different environment or point in time
 
 If `--defer-state` is not specified, deferral will use the manifest supplied to `--state`. In most cases, you will want to use the same state for both; compare logical changes against production, and also "fail over" to the production environment for unbuilt upstream resources.
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
 ```shell
 dbt run --select [...] --defer --state path/to/artifacts
@@ -24,12 +24,14 @@ dbt test --select [...] --defer --state path/to/artifacts
 
 By default, dbt uses the [`target`](../dbt-jinja-functions/target.md) namespace to resolve `ref` calls.
 
-When `--defer` is enabled, dbt resolves `ref` and `function` calls using the state manifest instead, but only if:
+When `--defer` is enabled, dbt resolves `ref`(Applies to dbt v1.11 and later) and `function` calls using the state manifest instead, but only if:
 
 1. The node isn’t among the selected nodes, *and*
 2. It doesn’t exist in the database (or `--favor-state` is used).
 
 Ephemeral models are never deferred, since they serve as "passthroughs" for other `ref` calls.
+
+(Applies to dbt v1.11 and later)
 
 [User-defined functions (UDFs)](../../docs/build/udfs.md) referenced using `{{ function('...') }}` are deferred under the same conditions. When deferred, `function()` resolves to the function definition in the state manifest if the UDF is not selected or not built in the current target.
 
@@ -40,19 +42,19 @@ When using defer, you may be selecting from production datasets, development dat
 * If you apply environment-specific limits in development but not in production, you may select more data than expected.
 * Tests that depend on multiple parents (for example, `relationships`), may run across environments.
 
-Deferral requires both `--defer` and `--state` to be set, either by passing flags explicitly or by setting environment variables (`DBT_ENGINE_DEFER` and `DBT_ENGINE_STATE`). Refer to [Continuous integration](../../docs/deploy/continuous-integration.md) for more information.
+Deferral requires both `--defer` and `--state` to be set, either by passing flags explicitly or by setting environment variables ((Applies to dbt v1.11 and later) `DBT_ENGINE_DEFER` and `DBT_ENGINE_STATE`). Refer to [Continuous integration](../../docs/deploy/continuous-integration.md) for more information.
 
-#### Favor state[​](#favor-state "Direct link to Favor state")
+#### Favor state
 
 When `--favor-state` is passed, dbt prioritizes node definitions from the `--state` directory. However, this doesn’t apply if the node is also part of the selected nodes.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
 In my local development environment, I create all models in my target schema, `dev_alice`. In production, the same models are created in a schema named `prod`.
 
 I access the dbt-generated [artifacts](../../docs/deploy/artifacts.md) (namely `manifest.json`) from a production run, and copy them into a local directory called `prod-run-artifacts`.
 
-### run[​](#run "Direct link to run")
+### run
 
 I've been working on `model_b`:
 
@@ -70,8 +72,7 @@ group by 1
 
 I want to test my changes. Nothing exists in my development schema, `dev_alice`.
 
-* Standard run
-* Deferred run
+### Standard run
 
 ```shell
 dbt run --select "model_b"
@@ -95,6 +96,8 @@ create or replace view dev_me.model_b as (
 
 Unless I had previously run `model_a` into this development environment, `dev_alice.model_a` will not exist, thereby causing a database error.
 
+### Deferred run
+
 ```shell
 dbt run --select "model_b" --defer --state prod-run-artifacts
 ```
@@ -117,7 +120,7 @@ create or replace view dev_me.model_b as (
 
 Because `model_a` is unselected, dbt will check to see if `dev_alice.model_a` exists. If it doesn't exist, dbt will resolve all instances of `{{ ref('model_a') }}` to `prod.model_a` instead.
 
-### test[​](#test "Direct link to test")
+### test
 
 I also have a `relationships` test that establishes referential integrity between `model_a` and `model_b`:
 
@@ -138,8 +141,7 @@ models:
 
 (This is a simplified example, since all the data in `model_b` already comes from `model_a`)
 
-* Without defer
-* With defer
+### Without defer
 
 ```shell
 dbt test --select "model_b"
@@ -161,6 +163,8 @@ where child.id is not null
 
 The `relationships` test requires both `model_a` and `model_b`. Because I did not build `model_a` in my previous `dbt run`, `dev_alice.model_a` does not exist and this test query fails.
 
+### With defer
+
 ```shell
 dbt test --select "model_b" --defer --state prod-run-artifacts
 ```
@@ -181,7 +185,7 @@ where child.id is not null
 
 dbt will check to see if `dev_alice.model_a` exists. If it doesn't exist, dbt will resolve all instances of `{{ ref('model_a') }}`, including those in schema tests, to use `prod.model_a` instead. The query succeeds. Whether I really want to test for referential integrity across environments is a different question.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Using defer in dbt](../../docs/platform/about-defer.md)
 * [on\_configuration\_change](../resource-configs/on_configuration_change.md)

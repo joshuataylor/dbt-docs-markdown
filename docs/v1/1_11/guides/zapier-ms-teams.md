@@ -10,7 +10,7 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide will show you how to set up an integration between dbt jobs and Microsoft Teams using [dbt Webhooks](../docs/deploy/webhooks.md) and Zapier, similar to the [native Slack integration](../docs/deploy/job-notifications.md#slack-notifications).
 
@@ -28,20 +28,20 @@ When a dbt job finishes running, the integration will:
 
 ![Screenshot of a message in MS Teams showing a summary of a  run which failed](/assets/images/ms-teams-ui-ab48d824ddaa34c88daeeddbf0291616.png)
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 In order to set up the integration, you should have familiarity with:
 
 * [dbt Webhooks](../docs/deploy/webhooks.md)
 * Zapier
 
-## Set up the connection between Zapier and Microsoft Teams[​](#set-up-the-connection-between-zapier-and-microsoft-teams "Direct link to Set up the connection between Zapier and Microsoft Teams")
+## Set up the connection between Zapier and Microsoft Teams
 
 * Install the [Zapier app in Microsoft Teams](https://appsource.microsoft.com/en-us/product/office/WA200002044) and [grant Zapier access to your account](https://zapier.com/blog/how-to-automate-microsoft-teams/).
 
 **Note**: To receive the message, add the Zapier app to the team's channel during installation.
 
-## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
+## Create a new Zap in Zapier
 
 Use **Webhooks by Zapier** as the Trigger, and **Catch Raw Hook** as the Event. If you don't intend to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook) (not recommended!) then you can choose **Catch Hook** instead.
 
@@ -49,7 +49,7 @@ Press **Continue**, then copy the webhook URL.
 
 ![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
 
-### 3. Configure a new webhook in dbt[​](#3-configure-a-new-webhook-in-dbt "Direct link to 3. Configure a new webhook in dbt")
+### 3. Configure a new webhook in dbt
 
 See [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription) for full instructions. Choose either **Run completed** or **Run errored**, but not both, or you'll get double messages when a run fails.
 
@@ -59,7 +59,7 @@ Once you've tested the endpoint in dbt, go back to Zapier and click **Test Trigg
 
 The sample body's values are hard-coded and not reflective of your project, but they give Zapier a correctly-shaped object during development.
 
-## Store secrets[​](#store-secrets "Direct link to Store secrets")
+## Store secrets
 
 In the next step, you will need the Webhook Secret Key from the prior step, and a dbt [personal access token](../docs/dbt-apis/user-tokens.md) or [service account token](../docs/dbt-apis/service-tokens.md).
 
@@ -69,11 +69,11 @@ This guide assumes the names for the secret keys are: `DBT_CLOUD_SERVICE_TOKEN` 
 
 This guide uses a short-lived code action to store the secrets, but you can also use a tool like Postman to interact with the [REST API](https://store.zapier.com/) or create a separate Zap and call the [Set Value Action](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps#3-set-a-value-in-your-store-0-3).
 
-#### a. Create a Storage by Zapier connection[​](#a-create-a-storage-by-zapier-connection "Direct link to a. Create a Storage by Zapier connection")
+#### a. Create a Storage by Zapier connection
 
 If you haven't already got one, go to <https://zapier.com/app/connections/storage> and create a new connection. Remember the UUID secret you generate for later.
 
-#### b. Add a temporary code step[​](#b-add-a-temporary-code-step "Direct link to b. Add a temporary code step")
+#### b. Add a temporary code step
 
 Choose **Run Python** as the Event. Run the following code:
 
@@ -85,7 +85,7 @@ store.set('DBT_CLOUD_SERVICE_TOKEN', 'abc123') #replace with your dbt API token
 
 Test the step. You can delete this Action when the test succeeds. The key will remain stored as long as it is accessed at least once every three months.
 
-## Add a code action[​](#add-a-code-action "Direct link to Add a code action")
+## Add a code action
 
 Select **Code by Zapier** as the App, and **Run Python** as the Event.
 
@@ -178,7 +178,7 @@ for step in run_data_results['run_steps']:
 output = {'outcome_message': outcome_message}
 ````
 
-## Add the Microsoft Teams action[​](#add-the-microsoft-teams-action "Direct link to Add the Microsoft Teams action")
+## Add the Microsoft Teams action
 
 Select **Microsoft Teams** as the App, and **Send Channel Message** as the Action.
 
@@ -186,13 +186,13 @@ In the **Set up action** area, choose the team and channel. Set the **Message Te
 
 ![Screenshot of the Zapier UI, showing the mappings of prior steps to an MS Teams message](/assets/images/ms-teams-zap-config-998b96ebd7b3535473f5641dac7b4243.png)
 
-## Test and deploy[​](#test-and-deploy "Direct link to Test and deploy")
+## Test and deploy
 
 As you have gone through each step, you should have tested the outputs, so you can now try posting a message into your Teams channel.
 
 When you're happy with it, remember to ensure that your `run_id` and `account_id` are no longer hardcoded, then publish your Zap.
 
-### Other notes[​](#other-notes "Direct link to Other notes")
+### Other notes
 
 * If you post to a chat instead of a team channel, you don't need to add the Zapier app to Microsoft Teams.
 * If you post to a chat instead of a team channel, note that markdown is not supported and you will need to remove the markdown formatting.

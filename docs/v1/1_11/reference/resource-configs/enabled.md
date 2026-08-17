@@ -1,16 +1,6 @@
 # enabled
 
-* Models
-* Seeds
-* Snapshots
-* Tests
-* Unit tests
-* Sources
-* Analyses
-* Metrics
-* Exposures
-* Semantic models
-* Saved queries
+### Models
 
 dbt\_project.yml
 
@@ -31,6 +21,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+### Seeds
+
 dbt\_project.yml
 
 ```yml
@@ -39,6 +31,8 @@ seeds:
     +enabled: true | false
 ```
 
+### Snapshots
+
 dbt\_project.yml
 
 ```yml
@@ -46,6 +40,8 @@ snapshots:
   <resource-path>:
     +enabled: true | false
 ```
+
+(Applies to dbt v1.9 and later)
 
 snapshots/snapshot\_name.yml
 
@@ -72,6 +68,8 @@ select ...
 
 {% endsnapshot %}
 ```
+
+### Tests
 
 dbt\_project.yml
 
@@ -103,21 +101,11 @@ tests/\<filename>.sql
 ) }}
 ```
 
+### Unit tests
+
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.8
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -135,6 +123,8 @@ unit_tests:
     config:
       enabled: true | false
 ```
+
+### Sources
 
 dbt\_project.yml
 
@@ -158,6 +148,8 @@ sources:
           enabled: true | false
 ```
 
+### Analyses
+
 analyses/\<filename>.yml
 
 ```yaml
@@ -179,6 +171,8 @@ analyses:
   +enabled: true | false
 ```
 
+### Metrics
+
 dbt\_project.yml
 
 ```yaml
@@ -196,6 +190,8 @@ metrics:
     config:
       enabled: true | false
 ```
+
+### Exposures
 
 dbt\_project.yml
 
@@ -215,6 +211,8 @@ exposures:
       enabled: true | false
 ```
 
+### Semantic models
+
 dbt\_project.yml
 
 ```yaml
@@ -222,6 +220,8 @@ semantic-models:
   <resource-path>:
     +enabled: true | false
 ```
+
+(Applies to dbt v1.11 and earlier)
 
 models/semantic\_models.yml
 
@@ -231,6 +231,8 @@ semantic_models:
     config:
       enabled: true | false
 ```
+
+### Saved queries
 
 dbt\_project.yml
 
@@ -249,7 +251,7 @@ saved_queries:
       enabled: true | false
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 An optional configuration for enabling or disabling a resource.
 
@@ -261,9 +263,9 @@ If you instead want to exclude a model from a particular run, consider using the
 
 If you are disabling models because they are no longer being used, but you want to version control their SQL, consider making them an [analysis](../../docs/build/analyses.md) instead.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Disable a model in a package in order to use your own version of the model.[​](#disable-a-model-in-a-package-in-order-to-use-your-own-version-of-the-model "Direct link to Disable a model in a package in order to use your own version of the model.")
+### Disable a model in a package in order to use your own version of the model.
 
 This could be useful if you want to change the logic of a model in a package. For example, if you need to change the logic in the `segment_web_page_views` from the `segment` package ([original model](https://github.com/dbt-labs/segment/blob/a8ff2f892b009a69ec36c3061a87e437f0b0ea93/models/base/segment_web_page_views.sql)):
 

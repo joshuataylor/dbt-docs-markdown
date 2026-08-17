@@ -2,7 +2,7 @@
 
 To document macros, use a [properties file](../../reference/macro-properties.md) and nest the configurations under a `macros:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 macros/properties.yml
 
@@ -29,7 +29,7 @@ From dbt Core v1.10, you can opt into validating the arguments you define in mac
 
 Learn more about [macro argument validation](../../reference/global-configs/behavior-flags/validate_macro_args.md).
 
-## Document a custom materialization[​](#document-a-custom-materialization "Direct link to Document a custom materialization")
+## Document a custom materialization
 
 When you create a [custom materialization](../../guides/create-new-materializations.md), dbt creates an associated macro with the following format:
 

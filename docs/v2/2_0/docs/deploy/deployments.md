@@ -1,6 +1,6 @@
 # Deploy dbt
 
-dbt platformⓘ
+dbt platform
 
 Use the dbt platform's capabilities to seamlessly run a dbt job in production or staging environments. Rather than run dbt commands manually from the command line, you can leverage the [dbt platform's in-app scheduling](./job-scheduler.md) to automate how and when you execute dbt.
 
@@ -20,7 +20,7 @@ Before continuing, make sure you understand dbt's approach to [deployment enviro
 
 Learn how to use dbt's features to help your team ship timely and quality production data more easily.
 
-## Deploy with dbt[​](#deploy-with-dbt "Direct link to Deploy with dbt")
+## Deploy with dbt
 
 [![](/img/icons/dbt-bit.svg)](./job-scheduler.md)
 
@@ -66,7 +66,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 <br />
 
-## Monitor jobs and alerts[​](#monitor-jobs-and-alerts "Direct link to Monitor jobs and alerts")
+## Monitor jobs and alerts
 
 [![](/img/icons/dbt-bit.svg)](./orchestrate-exposures.md)
 
@@ -118,7 +118,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 <br />
 
-## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#hybrid-projects-- "Direct link to hybrid-projects--")
+## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 [![](/img/icons/dbt-bit.svg)](./hybrid-projects.md)
 
@@ -128,7 +128,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 <br />
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use exports to materialize saved queries](../use-dbt-semantic-layer/exports.md)
 * [Integrate with other orchestration tools](./deployment-tools.md)

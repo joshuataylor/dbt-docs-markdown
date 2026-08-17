@@ -1,6 +1,6 @@
 # dbt Wizard home tab [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The dbt Wizard home tab is an agent-native development experience in the dbt platform. It centers your workflow around collaborating with the agent itself — iterating through natural language, reviewing generated changes, and validating outcomes — without the overhead of a traditional IDE environment.
 
@@ -18,7 +18,7 @@ Thanks so much for your help in improving dbt Wizard and dbt data development!
 
 The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio IDE](../dbt-ai/wizard-ide.md). Where the Studio IDE supports users working directly within a traditional IDE environment, the home tab is purpose-built for agent-native development — it reduces overhead and keeps you focused on supervising and validating agent-generated work.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * A Starter, Enterprise, or Enterprise+ plan
 * A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](./manage-access/seats-and-users.md).
@@ -26,7 +26,7 @@ The dbt Wizard home tab is complementary to the [dbt Wizard experience in Studio
 * [Enabled AI features](./enable-dbt-ai.md#enable-ai-features) for your account.
 * If you're using dbt Wizard in the home tab, you need to [enable experimental features](../dbt-versions/experimental-features.md) for your account.
 
-## What you can do[​](#what-you-can-do "Direct link to What you can do")
+## What you can do
 
 Use dbt Wizard in the home tab to:
 
@@ -45,7 +45,7 @@ tip
 
 Always review AI-generated content before applying it. For prompt best practices, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md).
 
-## Inline preview mode[​](#inline-preview-mode "Direct link to Inline preview mode")
+## Inline preview mode
 
 A core part of the home tab experience is **inline preview mode**, which gives you multiple ways to review and validate agent-generated changes directly in the workflow without switching to a separate tool.
 
@@ -56,7 +56,7 @@ The preview experience includes:
 * **Execution-aware validation feedback**: See results from compile and build checks inline, so you can assess both the proposed implementation and how the transformation behaves in practice.
 * **Jump to related surfaces**: From the preview, open a model directly in Catalog to explore metadata and lineage, or open the file in Studio IDE to iterate manually when needed.
 
-## Wizard home tab vs Studio IDE[​](#wizard-home-tab-vs-studio-ide "Direct link to Wizard home tab vs Studio IDE")
+## Wizard home tab vs Studio IDE
 
 The home tab and Studio IDE support different parts of the development workflow:
 
@@ -69,7 +69,7 @@ The home tab and Studio IDE support different parts of the development workflow:
 
 For most development workflows, you can move between the two surfaces freely. Use the home tab to investigate and generate, and drop into Studio IDE when you need direct control.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md)
 * [About dbt Wizard in the dbt platform](./wizard-platform.md)

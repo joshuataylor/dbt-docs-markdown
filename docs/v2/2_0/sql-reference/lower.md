@@ -12,7 +12,7 @@ So how do you create uniformity for string values that you collect across all yo
 
 Using the LOWER function on a string value will return the input as an all-lowercase string. It’s an effective way to create consistent capitalization for string values across your data.
 
-## How to use the SQL LOWER function[​](#how-to-use-the-sql-lower-function "Direct link to How to use the SQL LOWER function")
+## How to use the SQL LOWER function
 
 The syntax for using the LOWER function looks like the following:
 
@@ -24,7 +24,7 @@ Executing this command in a SELECT statement will return the lowercase version o
 
 Let’s take a look at a practical example using the LOWER function.
 
-### SQL LOWER function example[​](#sql-lower-function-example "Direct link to SQL LOWER function example")
+### SQL LOWER function example
 
 You can lower the first name and last name of the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) `customers` model using the following code:
 
@@ -44,21 +44,15 @@ After running this query, the `customers` table will look a little something lik
 | 2            | shawn       | m.         |
 | 3            | kathleen    | p.         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Now, all characters in the `first_name` and `last_name` columns are lowercase.
 
 > Changing all string columns to lowercase to create uniformity across data sources typically happens in our [dbt project’s staging models](../best-practices/how-we-structure/2-staging.md). There are a few reasons for that: data cleanup and standardization, such as aliasing, casting, and lowercasing, should ideally happen in staging models to create downstream uniformity and improve downstream performance.
 
-## SQL LOWER function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-lower-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL LOWER function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL LOWER function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Google BigQuery, Amazon Redshift, Snowflake, Postgres, and Databricks all support the LOWER function. In addition, the syntax to use LOWER is the same across all of them.
 
-## LOWER function use cases[​](#lower-function-use-cases "Direct link to LOWER function use cases")
+## LOWER function use cases
 
 Let’s go back to our chaotic trio of users A, B, and C who all used different capitalizations to type in their names. If you don’t create consistent capitalization for string values, how would a business user know what to filter for in their BI tool? A business user could filter a name field on “John Blust” since that’s what they would expect it to look like, only to get zero results back. By creating a consistent capitalization format (upper or lowercase) for all string values in your data models, you therefore create some expectations for business users in your BI tool.
 

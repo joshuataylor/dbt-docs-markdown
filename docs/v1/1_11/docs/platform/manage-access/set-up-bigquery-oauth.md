@@ -1,6 +1,6 @@
 # Set up BigQuery OAuth
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Enterprise-tier feature
 
@@ -8,7 +8,7 @@ This guide describes a feature available in the dbt platform Enterprise and Ente
 
 The dbt platform supports [OAuth](https://cloud.google.com/bigquery/docs/authentication) with BigQuery, providing an additional layer of security for dbt enterprise users.
 
-## Set up BigQuery native OAuth[​](#set-up-bigquery-native-oauth "Direct link to Set up BigQuery native OAuth")
+## Set up BigQuery native OAuth
 
 When BigQuery OAuth is enabled for a dbt platform project, all dbt platform developers must authenticate with BigQuery to access development tools, such as the Studio IDE.
 
@@ -22,7 +22,7 @@ To use BigQuery in the Studio IDE, all developers must:
 
 1. [Authenticate to BigQuery](#authenticating-to-bigquery) in their profile credentials.
 
-### Locate the redirect URI value[​](#locate-the-redirect-uri-value "Direct link to Locate the redirect URI value")
+### Locate the redirect URI value
 
 To get started, locate the connection's redirect URI for configuring BigQuery OAuth. To do so:
 
@@ -34,7 +34,7 @@ To get started, locate the connection's redirect URI for configuring BigQuery OA
 
 [![Accessing the BigQuery OAuth configuration in dbt](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/BQ-auth/dbt-cloud-bq-id-secret-02.png?v=2 "Accessing the BigQuery OAuth configuration in dbt")](#)Accessing the BigQuery OAuth configuration in dbt
 
-### Creating a BigQuery OAuth 2.0 client ID and secret[​](#creating-a-bigquery-oauth-20-client-id-and-secret "Direct link to Creating a BigQuery OAuth 2.0 client ID and secret")
+### Creating a BigQuery OAuth 2.0 client ID and secret
 
 note
 
@@ -62,19 +62,13 @@ On the **Credentials** page, you can see your existing keys, client IDs, and ser
 | **Name**                     | dbt platform    |
 | **Authorized redirect URIs** | `REDIRECT_URI`  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 6. Click **Create** to create the BigQuery OAuth app and see the app client ID and secret values. These values are available even if you close the app screen, so this isn't the only chance you have to save them.
 
 [![Create an OAuth app in BigQuery](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/BQ-auth/bq-oauth-app-02.png?v=2 "Create an OAuth app in BigQuery")](#)Create an OAuth app in BigQuery
 
-### Configure the Connection in dbt[​](#configure-the-connection-in-dbt "Direct link to Configure the Connection in dbt")
+### Configure the Connection in dbt
 
 Now that you have an OAuth app set up in BigQuery, you'll need to add the client ID and secret to the dbt platform. To do so:
 
@@ -82,7 +76,7 @@ Now that you have an OAuth app set up in BigQuery, you'll need to add the client
 2. Add the client ID and secret from the BigQuery OAuth app under the **OAuth 2.0 Settings** section.
 3. Enter the BigQuery token URI. The default value is `https://oauth2.googleapis.com/token`.
 
-### Authenticating to BigQuery[​](#authenticating-to-bigquery "Direct link to Authenticating to BigQuery")
+### Authenticating to BigQuery
 
 Once the BigQuery OAuth app is set up for a dbt platform project, each dbt platform user will need to authenticate with BigQuery in order to use the Studio IDE. To do so:
 
@@ -103,11 +97,11 @@ You will then be redirected to BigQuery and asked to approve the drive, cloud pl
 
 Select **Allow**. This redirects you back to the dbt platform. You are now an authenticated BigQuery user and can begin accessing dbt development tools.
 
-## Set up BigQuery Workload Identity Federation [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#set-up-bigquery-workload-identity-federation- "Direct link to set-up-bigquery-workload-identity-federation-")
+## Set up BigQuery Workload Identity Federation [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Workload Identity Federation (WIF) allows application workloads, running outside the dbt platform, to act as a service account without the need to manage service accounts or other keys for deployment environments. The following instructions will enable you to authenticate your BigQuery connection in the dbt platform using WIF. Currently, Microsoft Entra ID is the only supported identity provider (IdP). If you need additional IdP support, please contact your account team.
 
-### 1. Set up Entra ID[​](#1-set-up-entra-id "Direct link to 1. Set up Entra ID")
+### 1. Set up Entra ID
 
 Create an app in Entra where dbt will request access tokens when authenticating to BigQuery via the workload identity pool:
 
@@ -125,7 +119,7 @@ Create an app in Entra where dbt will request access tokens when authenticating 
 
 7. Click **Save**.
 
-8. (Optional) To include the `sub` claim in tokens issued by this application, configure [optional claims in Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/optional-claims?tabs=appui).<br /><!-- -->The `sub` (subject) claim uniquely identifies the user or service principal for whom the token is issued.<br /><!-- -->When you configure service account impersonation in GCP, the Workload Identity Federation mapping uses this `sub` value to verify the identity of the calling Entra application.
+8. (Optional) To include the `sub` claim in tokens issued by this application, configure [optional claims in Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/optional-claims?tabs=appui).<br />The `sub` (subject) claim uniquely identifies the user or service principal for whom the token is issued.<br />When you configure service account impersonation in GCP, the Workload Identity Federation mapping uses this `sub` value to verify the identity of the calling Entra application.
 
 9. (Optional but recommended) Test your Entra ID configuration by requesting a token:
 
@@ -146,7 +140,7 @@ Workload Identity Federation utilizes a machine-to-machine OAuth flow that is un
 
 * **Related documentation:** [GCP — Prepare your external identity provider](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds#create)
 
-### 2. Create a Workpool and Workpool Provider in GCP[​](#2-create-a-workpool-and-workpool-provider-in-gcp "Direct link to 2. Create a Workpool and Workpool Provider in GCP")
+### 2. Create a Workpool and Workpool Provider in GCP
 
 1. In your GCP account's main menu, navigate to **IAM & Admin** and click the **Workload Identity Federation** option (not to be confused with the **Work\_force\_ Identity Federation** option directly adjacent).
 
@@ -156,15 +150,11 @@ Workload Identity Federation utilizes a machine-to-machine OAuth flow that is un
 
 4. When creating your provider:
 
-   <!-- -->
-
    * Set the type of the provider to **OpenID Connect (OIDC)**.
 
    * Name the provider something identifiable, like `Entra ID`.
 
    * Set the URL to <https://sts.windows.net/YOUR_TENANT_ID/>. This can be found in the token itself, if you decode it via jwt.io. You can also see a reference to the expected issuer URL for Entra in the [GCP documentation for WIF](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds#create_the_workload_identity_pool_and_provider).
-
-     <!-- -->
 
      * Replace `YOUR_TENANT_ID` with your tenant ID.
      * The tenant (provider) ID can be found in the app registration created in [section 1 of these instructions](#1-set-up-entra-id); it's called **Directory (tenant) ID** and can be found in the overview section for the application.
@@ -177,7 +167,7 @@ Workload Identity Federation utilizes a machine-to-machine OAuth flow that is un
 
 7. Click **Save**.
 
-### 3. Service Account Impersonation[​](#3-service-account-impersonation "Direct link to 3. Service Account Impersonation")
+### 3. Service Account Impersonation
 
 A workpool either uses a service account or is granted direct resource access to determine which resources a caller can access. The [GCP documentation](https://cloud.google.com/iam/docs/workload-identity-federation-with-other-clouds#access) provides more detailed information on configuring both for your workpool. We chose the service account approach in our implementation because it offered greater flexibility.
 
@@ -215,7 +205,7 @@ Once you've created the service account, navigate back to the workpool you creat
 
    The response will include an `access_token`. You can decode this token using [jwt.io](https://jwt.io) to view the `sub` claim value.
 
-### 4. Set up dbt[​](#4-set-up-dbt "Direct link to 4. Set up dbt")
+### 4. Set up dbt
 
 To configure a BigQuery connection to use WIF authentication in the dbt platform, you must set up a custom OAuth integration configured with details from the Entra application used as your workpool provider in GCP. dbt platform:
 
@@ -225,12 +215,10 @@ To configure a BigQuery connection to use WIF authentication in the dbt platform
 
 3. Fill out all fields with the appropriate information from your IdP environment.
 
-   <!-- -->
-
    * The Application ID URI should be set to the expected audience claim on tokens issued from the Entra application. It will be the same URI your workpool provider has been configured to expect.
    * You do not have to add the Redirect URI to your Entra application.
 
-### 5. Create connections in dbt[​](#5-create-connections-in-dbt "Direct link to 5. Create connections in dbt")
+### 5. Create connections in dbt
 
 To get started, create a new connection in the dbt platform:
 
@@ -246,16 +234,12 @@ To get started, create a new connection in the dbt platform:
 
 6. Configure your development connection:
 
-   <!-- -->
-
    * [BigQuery OAuth](../connect-data-platform/connect-bigquery.md#bigquery-oauth) (recommended).
-     <!-- -->
      * Set this up in the same connection as the one you're using for WIF under **`OAuth2.0 settings`**
    * Service JSON.
-     <!-- -->
      * You must create a separate connection with the Service JSON configuration.
 
-### 6. Set up project[​](#6-set-up-project "Direct link to 6. Set up project")
+### 6. Set up project
 
 To connect a new project to your WIF configuration:
 
@@ -265,7 +249,7 @@ To connect a new project to your WIF configuration:
 4. Select the **Connection** with the WIF configuration.
 5. Configure the remainder of the project with the appropriate fields.
 
-### 7. Set up deployment environment[​](#7-set-up-deployment-environment "Direct link to 7. Set up deployment environment")
+### 7. Set up deployment environment
 
 Create a new or updated environment to use the WIF connection.
 
@@ -286,24 +270,22 @@ To avoid errors from incorrect casing or typos, we recommend retrieving these va
 
 4. Open the downloaded JSON file and copy the following values:
 
-   <!-- -->
-
    * The `audience` field — paste into the **Workload pool provider path** field in dbt.
    * The `service_account_impersonation_url` field — paste into the **Service account impersonation URL** field in dbt.
 
 If you don't already have a job based on the deployment environment with a connection set up for WIF, you should create one now. Once you've configured it with the preferred settings, run the job.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Why does the BigQuery OAuth application require scopes to Google Drive?
 
 BigQuery supports external tables over both personal Google Drive files and shared files. For more information, refer to [Create Google Drive external tables](https://cloud.google.com/bigquery/docs/external-data-drive).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 The following section provides troubleshooting steps for common issues with BigQuery OAuth connections.
 
-#### Connection fails after granting Google permissions[​](#connection-fails-after-granting-google-permissions "Direct link to Connection fails after granting Google permissions")
+#### Connection fails after granting Google permissions
 
 When connecting a BigQuery account, you may successfully sign in to Google and approve the requested permissions, but then see an error page (like `403 Account restricted`) instead of returning to the dbt platform. This typically appears as a server error message rather than the credentials page you started from.
 

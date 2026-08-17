@@ -14,24 +14,24 @@ Each pattern includes practical code examples, use cases, and tradeoffs to help 
 
 Anyone can use this guide, but it's primarily for data engineers and architects who want to achieve near real-time data freshness with dbt.
 
-## Where does dbt fit?[​](#where-does-dbt-fit "Direct link to Where does dbt fit?")
+## Where does dbt fit?
 
 There are two main ways to use dbt to get near real-time data:
 
 * For near real-time (5 - 15 minutes) — dbt excels at this and is well-suited for most operational dashboards.
 * For true real-time (sub-second) — This requires dedicated streaming databases (ClickHouse, Materialize, Rockset, and so on) in front of or alongside dbt; dbt still owns “analytic” tables and history but not the ultra‑low‑latency read path.
 
-## How dbt achieves near real-time data[​](#how-dbt-achieves-near-real-time-data "Direct link to How dbt achieves near real-time data")
+## How dbt achieves near real-time data
 
 To achieve real-time data with dbt, we recommend using a two-layer architecture:
 
-#### Ingestion layer[​](#ingestion-layer "Direct link to Ingestion layer")
+#### Ingestion layer
 
 Continuous data landing using your data warehouse's streaming ingestion features.
 
 Streaming ingestion features such as [streaming tables](https://docs.databricks.com/en/sql/load-data-streaming-table.html), [Snowpipe](https://docs.snowflake.com/en/user-guide/snowpipe-streaming/data-load-snowpipe-streaming-overview), or [Storage Write API](https://docs.cloud.google.com/bigquery/docs/write-api-streaming) work well for this. To find streaming ingestion features for your warehouse, refer to the [additional resources](./3-warehouse-native-features.md#resources-by-warehouse) section.
 
-#### dbt transformation layer[​](#dbt-transformation-layer "Direct link to dbt transformation layer")
+#### dbt transformation layer
 
 Run dbt every few minutes to transform the data, and use materialized views or dynamic tables for the lowest-latency reporting.
 
@@ -42,7 +42,7 @@ Specific transformation approaches include:
 * Jobs scheduled very frequently (like every 5 minutes)
 * [Dynamic tables](../../reference/resource-configs/snowflake-configs.md#dynamic-tables) or [materialized views](../../docs/build/materializations.md#materialized-view) with short refresh intervals
 
-## Key recommendations[​](#key-recommendations "Direct link to Key recommendations")
+## Key recommendations
 
 The following are some key recommendations to help you achieve near real-time data freshness with dbt:
 

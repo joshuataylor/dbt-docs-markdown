@@ -11,7 +11,7 @@ quoting:
                                        # Ignored by dbt Core and other adapters.
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can optionally enable quoting in a dbt project to control whether dbt wraps database, schema, or identifier names in quotes when generating SQL. dbt uses this configuration when:
 
@@ -22,12 +22,11 @@ BigQuery terminology
 
 Note that for BigQuery quoting configuration, `database` and `schema` should be used here, though these configs will apply to `project` and `dataset` names respectively
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 The default values vary by database.
 
-* Default
-* Snowflake
+### Default
 
 For most adapters, quoting is set to `true` by default.
 
@@ -41,6 +40,8 @@ quoting:
   schema: true
   identifier: true
 ```
+
+### Snowflake
 
 For Snowflake, quoting is set to `false` by default.
 
@@ -57,7 +58,7 @@ quoting:
                                 # Ignored by dbt Core and other adapters.
 ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 Set quoting to `false` for a project:
 
@@ -78,9 +79,9 @@ dbt will then create relations without quotes:
 create table analytics.dbt_alice.dim_customers
 ```
 
-## Recommendations[​](#recommendations "Direct link to Recommendations")
+## Recommendations
 
-### Snowflake[​](#snowflake "Direct link to Snowflake")
+### Snowflake
 
 If you're using Snowflake, we recommend:
 
@@ -105,7 +106,7 @@ Quoting a source
 
 If a Snowflake source table uses a quoted database, schema, or table identifier, you can configure this in the source.yml file. Refer to [configuring quoting](../resource-properties/quoting.md) for more information.
 
-#### Explanation[​](#explanation "Direct link to Explanation")
+#### Explanation
 
 dbt skips quoting on Snowflake so lowercase model names work seamlessly in downstream queries and BI tools without worrying about case or quotes.
 
@@ -156,6 +157,6 @@ select * from "analytics"."orders";
 select * from analytics.orders;
 ```
 
-### Other warehouses[​](#other-warehouses "Direct link to Other warehouses")
+### Other warehouses
 
 Leave the default values for your warehouse.

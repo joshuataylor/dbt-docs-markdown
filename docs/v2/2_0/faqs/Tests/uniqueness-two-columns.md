@@ -13,15 +13,9 @@ Consider an orders table that contains records from multiple countries, and the 
 | 2         | US            |
 | ...       | ...           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Here are some approaches:
 
-#### 1. Create a unique key in the model and test that[​](#1-create-a-unique-key-in-the-model-and-test-that "Direct link to 1. Create a unique key in the model and test that")
+#### 1. Create a unique key in the model and test that
 
 models/orders.sql
 
@@ -43,7 +37,7 @@ models:
           - unique
 ```
 
-#### 2. Test an expression[​](#2-test-an-expression "Direct link to 2. Test an expression")
+#### 2. Test an expression
 
 models/orders.yml
 
@@ -56,7 +50,7 @@ models:
             column_name: "(country_code || '-' || order_id)"
 ```
 
-#### 3. Use the `dbt_utils.unique_combination_of_columns` test[​](#3-use-the-dbt_utilsunique_combination_of_columns-test "Direct link to 3-use-the-dbt_utilsunique_combination_of_columns-test")
+#### 3. Use the `dbt_utils.unique_combination_of_columns` test
 
 This is especially useful for large datasets since it is more performant. Check out the docs on [packages](../../docs/build/packages.md) for more information.
 

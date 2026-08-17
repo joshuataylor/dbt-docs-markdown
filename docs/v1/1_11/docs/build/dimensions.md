@@ -1,10 +1,12 @@
 # Dimensions
 
+(Applies to dbt v1.11 and earlier)
+
 Dimensions represent the non-aggregatable columns in your data set, which are the attributes, features, or characteristics that describe or categorize data. In the context of the Semantic Layer, dimensions are part of a larger structure called a semantic model. They are created along with other elements like [entities](./entities.md) and [measures](./measures.md) and used to add more details to your data. In SQL, dimensions are typically included in the `group by` clause of your SQL query.
 
-<!-- -->
-
 All dimensions require a `name`, `type`, and can optionally include an `expr` parameter. The `name` for your Dimension must be unique within the same semantic model.
+
+(Applies to dbt v1.11 and earlier)
 
 | Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required | Type       |
 | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ---------- |
@@ -15,12 +17,6 @@ All dimensions require a `name`, `type`, and can optionally include an `expr` pa
 | `expr`                                                               | Defines the underlying column or SQL query for a dimension. If no `expr` is specified, MetricFlow will use the column with the same name as the group. You can use the column name itself to input a SQL expression.                                                                                                                                                                                                                                   | Optional | String     |
 | `label`                                                              | Defines the display value in downstream tools. Accepts plain text, spaces, and quotes (such as `orders_total` or `"orders_total"`).                                                                                                                                                                                                                                                                                                                    | Optional | String     |
 | [`meta`](../../reference/resource-configs/meta.md) | Set metadata for a resource and organize resources. Accepts plain text, spaces, and quotes.                                                                                                                                                                                                                                                                                                                                                            | Optional | Dictionary |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Refer to the following for the complete specification for dimensions:
 
@@ -34,9 +30,9 @@ dimensions:
     expr: The column name or expression. If not provided the default is the dimension name # Optional
 ```
 
-<!-- -->
-
 Refer to the following example to see how dimensions are used in a semantic model:
+
+(Applies to dbt v1.9 to v1.11)
 
 ```yaml
 semantic_models:
@@ -71,7 +67,7 @@ semantic_models:
       type: categorical
 ```
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
 Dimensions are bound to the primary entity of the semantic model they are defined in. For example the dimension `type` is defined in a model that has `transaction` as a primary entity. `type` is scoped to the `transaction` entity, and to reference this dimension you would use the fully qualified dimension name i.e `transaction__type`.
 
@@ -91,9 +87,7 @@ semantic_model:
   primary_entity: booking_id
 ```
 
-<!-- -->
-
-## Dimensions types[​](#dimensions-types "Direct link to Dimensions types")
+## Dimensions types
 
 This section further explains the dimension definitions, along with examples. Dimensions have the following types:
 
@@ -112,9 +106,11 @@ This section further explains the dimension definitions, along with examples. Di
     * [Implementation](#implementation)
     * [SCD examples](#scd-examples)
 
-## Categorical[​](#categorical "Direct link to Categorical")
+## Categorical
 
 Categorical dimensions are used to group metrics by different attributes, features, or characteristics such as product type. They can refer to existing columns in your dbt model or be calculated using a SQL expression with the `expr` parameter. An example of a categorical dimension is `is_bulk_transaction`, which is a group created by applying a case statement to the underlying column `quantity`. This allows users to group or filter the data based on bulk transactions.
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 dimensions: 
@@ -126,11 +122,11 @@ dimensions:
         usage: "Filter to identify bulk transactions, like where quantity > 10."
 ```
 
-## Time[​](#time "Direct link to Time")
+## Time
+
+(Applies to dbt v1.11 and earlier)
 
 Time has additional parameters specified under the `type_params` section. When you query one or more metrics, the default time dimension for each metric is the aggregation time dimension, which you can refer to as `metric_time` or use the dimension's name.
-
-<!-- -->
 
 ```bash
 # dbt users
@@ -140,12 +136,13 @@ dbt sl query --metrics users_created,users_deleted --group-by metric_time__year 
 mf query --metrics users_created,users_deleted --group-by metric_time__year --order-by metric_time__year
 ```
 
-You can set `is_partition` for time to define specific time spans. <!-- -->Additionally, use the `type_params` section to set `time_granularity` to adjust aggregation details (daily, weekly, and so on).
+You can set `is_partition` for time to define specific time spans. (Applies to dbt v1.11 and earlier) Additionally, use the `type_params` section to set `time_granularity` to adjust aggregation details (daily, weekly, and so on).
 
-* is\_partition
-* time\_granularity
+### is\_partition
 
 Use `is_partition: True` to show that a dimension exists over a specific time window. For example, a date-partitioned dimensional table. When you query metrics from different tables, the Semantic Layer uses this parameter to ensure that the correct dimensional values are joined to measures.
+
+(Applies to dbt v1.9 to v1.11)
 
 ```yaml
 dimensions: 
@@ -176,6 +173,10 @@ measures:
     expr: 1
     agg: sum
 ```
+
+### time\_granularity
+
+(Applies to dbt v1.9 to v1.11)
 
 `time_granularity` specifies the grain of a time dimension. MetricFlow will transform the underlying column to the specified granularity. For example, if you add hourly granularity to a time dimension column, MetricFlow will run a `date_trunc` function to convert the timestamp to hourly. You can easily change the time grain at query time and aggregate it to a coarser grain, for example, from hourly to monthly. However, you can't go from a coarser grain to a finer grain (monthly to hourly).
 
@@ -222,19 +223,19 @@ measures:
     agg: sum
 ```
 
-### SCD Type II[​](#scd-type-ii "Direct link to SCD Type II")
+### SCD Type II
+
+(Applies to dbt v1.11 and earlier)
 
 caution
 
 Currently, semantic models with SCD Type II dimensions cannot contain measures.
 
-<!-- -->
-
 MetricFlow supports joins against dimensions values in a semantic model built on top of a slowly changing dimension (SCD) Type II table. This is useful when you need a particular metric sliced by a group that changes over time, such as the historical trends of sales by a customer's country.
 
-#### Basic structure[​](#basic-structure "Direct link to Basic structure")
+#### Basic structure
 
-SCD Type II are groups that change values at a coarser time granularity. SCD Type II tables typically have two time columns that indicate the validity period of a dimension: `valid_from` (or `tier_start`) and `valid_to` (or `tier_end`). This creates a range of valid rows with different dimension values for a metric<!-- --> or measure<!-- -->.
+SCD Type II are groups that change values at a coarser time granularity. SCD Type II tables typically have two time columns that indicate the validity period of a dimension: `valid_from` (or `tier_start`) and `valid_to` (or `tier_end`). This creates a range of valid rows with different dimension values for a metric(Applies to dbt v1.11 and earlier) or measure.
 
 MetricFlow associates the metric with the earliest available dimension value within a coarser time window, such as a month. By default, it uses the group valid at the start of this time granularity.
 
@@ -245,28 +246,22 @@ MetricFlow supports the following basic structure of an SCD Type II data platfor
 | 123         | value\_a      | value\_x      | ... | value\_n      | 2024-01-01  | 2024-06-30 |
 | 123         | value\_b      | value\_y      | ... | value\_m      | 2024-07-01  | 2024-12-31 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 * `entity_key` (required): A unique identifier for each row in the table, such as a primary key or another unique identifier specific to the entity.
 * `valid_from` (required): Start date timestamp for when the dimension is valid. Use `validity_params: is_start: True` in the semantic model to specify this.
 * `valid_to` (required): End date timestamp for when the dimension is valid. Use `validity_params: is_end: True` in the semantic model to specify this.
 
-#### Semantic model parameters and keys[​](#semantic-model-parameters-and-keys "Direct link to Semantic model parameters and keys")
+#### Semantic model parameters and keys
 
 When configuring an SCD Type II table in a semantic model, use `validity_params` to specify the start (`valid_from`) and end (`valid_to`) of the validity window for each dimension.
 
 * `validity_params`: Parameters that define the validity window.
 
-  <!-- -->
-
   * `is_start: True`: Indicates the start of the validity period. Displayed as `valid_from` in the SCD table.
   * `is_end: True`: Indicates the end of the validity period. Displayed as `valid_to` in the SCD table.
 
 Here’s an example configuration:
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 - name: tier_start #  The name of the dimension.
@@ -287,15 +282,13 @@ Here’s an example configuration:
       is_end: True # Indicates the end of the validity period.
 ```
 
-<!-- -->
-
 SCD Type II tables have a specific dimension with a start and end date. To join tables:
 
 * Set the additional [entity `type`](./entities.md#entity-types) parameter to the `natural` key.
 * Use a `natural` key as an [entity `type`](./entities.md#entity-types), which means you don't need a `primary` key.
 * In most instances, SCD tables don't have a logically usable `primary` key because `natural` keys map to multiple rows.
 
-#### Implementation[​](#implementation "Direct link to Implementation")
+#### Implementation
 
 Here are some guidelines to follow when implementing SCD Type II tables:
 
@@ -318,7 +311,7 @@ on
 group by 1, 2
 ```
 
-#### SCD examples[​](#scd-examples "Direct link to SCD examples")
+#### SCD examples
 
 The following are examples of how to use SCD Type II tables in a semantic model:
 
@@ -334,18 +327,14 @@ This example shows how to create slowly changing dimensions (SCD) using a semant
 | 333               | 2    | 2020-08-19  | 2021-10-22 |
 | 333               | 3    | 2021-10-22  | 2048-01-01 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 As mentioned earlier, the `validity_params` include two important arguments that specify the columns in the SCD table that mark the start and end dates (or timestamps) for each tier or dimension:
 
 * `is_start`
 * `is_end`
 
 Additionally, the entity is tagged as `natural` to differentiate it from a `primary` entity. In a `primary` entity, each entity value has one row. In contrast, a `natural` entity has one row for each combination of entity value and its validity period.
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 semantic_models:
@@ -384,6 +373,8 @@ semantic_models:
 ```
 
 The following code represents a separate semantic model that holds a fact table for `transactions`:
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 semantic_models: 
@@ -447,12 +438,6 @@ This example shows how to create slowly changing dimensions (SCD) using a semant
 | 222               | 2    | 2020-03-05  | 2048-01-01 |
 | 333               | 2    | 2020-08-19  | 2021-10-22 |
 | 333               | 3    | 2021-10-22  | 2048-01-01 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 In the sales tier example, if sales\_person\_id 456 is Tier 2 from 2022-03-08 onwards, but there is no associated tier level dimension for this person from 2022-03-01 to 2022-03-08, then all transactions associated with sales\_person\_id 456 for the month of March will be grouped under 'NA' since no tier is present prior to Tier 2.
 

@@ -1,6 +1,6 @@
 # Release tracks in dbt platform
 
-dbt platformⓘ
+dbt platform
 
 Since May 2024, new capabilities in the dbt framework are delivered continuously to dbt. Your projects and environments are upgraded automatically on a cadence that you choose, depending on your dbt plan.
 
@@ -10,9 +10,9 @@ This will require you to make one final update to your current jobs and environm
 
 By moving your environments and jobs to release tracks you can get all the functionality in dbt as soon as it's ready. On the **Latest** release track, this includes access to features *before* they're available in final releases of dbt Core OSS.
 
-## Which release tracks are available?[​](#which-release-tracks-are-available "Direct link to Which release tracks are available?")
+## Which release tracks are available?
 
-### Fusion release tracks[​](#fusion-release-tracks "Direct link to Fusion release tracks")
+### Fusion release tracks
 
 The dbt platform has four Fusion release tracks available to give you control over stability vs. velocity.
 
@@ -25,13 +25,7 @@ The dbt platform has four Fusion release tracks available to give you control ov
 | **Fusion Extended**         | Monthly | The previous month's final Fusion Stable release. Designed for those who want maximum stability and additional testing time. | Enterprise, Enterprise+                             | `fusion-extended` |
 | **Fusion Fallback**         | Monthly | The previous month's Fusion Extended release. Emergency rollback option for account admins.                                  | Enterprise+                                         | `fusion-fallback` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### dbt Core release tracks[​](#dbt-core-release-tracks "Direct link to dbt Core release tracks")
+### dbt Core release tracks
 
 | Release track  | Description                                                                                                                                                                                                                                                                                                     | Plan availability                | API value    |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ------------ |
@@ -39,12 +33,6 @@ Search table...
 | **Compatible** | Provides a monthly release aligned with the most recent open source versions of dbt Core and adapters, plus functionality exclusively available in the dbt platform.<br /><br />See [Compatible track changelog](./compatible-track-changelog.md) for more information. | Starter, Enterprise, Enterprise+ | `compatible` |
 | **Extended**   | The previous month's **Compatible** release.                                                                                                                                                                                                                                                                    | Enterprise, Enterprise+          | `extended`   |
 | **Fallback**   | The previous month's **Extended** release.                                                                                                                                                                                                                                                                      | Enterprise+                      | `fallback`   |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest) to use a release track, set `dbt_version` to the release track name:
 
@@ -56,9 +44,9 @@ To configure an environment in the [dbt Admin API](../dbt-apis/admin-api.md) or 
 * `compatible`
 * `extended`
 
-## Which release track should I choose?[​](#which-release-track-should-i-choose "Direct link to Which release track should I choose?")
+## Which release track should I choose?
 
-### Fusion release tracks[​](#fusion-release-tracks-1 "Direct link to Fusion release tracks")
+### Fusion release tracks
 
 Choose **Fusion Stable** (the default for new projects) for a weekly release cadence that balances stability and feature access. This is the recommended starting point for most customers migrating to dbt Fusion engine.
 
@@ -70,13 +58,13 @@ Choose **Fusion Fallback** as an emergency measure only. This is a temporary rol
 
 Account admins can set the org-wide default release track for new projects via a toggle in **Account Settings**. Individual project owners can then override that default per environment.
 
-### dbt release tracks[​](#dbt-release-tracks "Direct link to dbt release tracks")
+### dbt release tracks
 
 Choose the **Latest** release track to continuously receive new features, fixes, performance improvements — latest & greatest dbt. This is the default for all customers on dbt.
 
 Choose the **Compatible** and **Extended** release tracks if you need a less-frequent release cadence, the ability to test new dbt releases before they go live in production, and/or ongoing compatibility with the latest open source releases of dbt Core.
 
-### Using the Fallback release track[​](#using-the-fallback-release-track "Direct link to Using the Fallback release track")
+### Using the Fallback release track
 
 The **Fallback** release track provides an emergency rollback option for account admins if you suspect a regression in the "Extended" track. This is available only for dbt Fusion engine in Enterprise+ accounts.
 
@@ -90,9 +78,9 @@ Switching to **Fallback** alerts the dbt Support team, who may reach out to help
 
 [![Fallback release track popup in dbt platform](/img/docs/dbt-versions/rollback-popup.png?v=2 "Fallback release track popup in dbt platform")](#)Fallback release track popup in dbt platform
 
-### Common architectures[​](#common-architectures "Direct link to Common architectures")
+### Common architectures
 
-#### Fusion release tracks[​](#fusion-release-tracks-2 "Direct link to Fusion release tracks")
+#### Fusion release tracks
 
 **Default** — All plans
 
@@ -110,7 +98,7 @@ Switching to **Fallback** alerts the dbt Support team, who may reach out to help
 * Configure production environments to use **Fusion Extended** (one month behind Stable)
 * Configure development environments to use **Fusion Stable** so developers get access to upcoming changes before they reach production
 
-#### dbt release tracks[​](#dbt-release-tracks-1 "Direct link to dbt release tracks")
+#### dbt release tracks
 
 **Default** — Majority of customers on all plans
 
@@ -134,9 +122,9 @@ Switching to **Fallback** alerts the dbt Support team, who may reach out to help
 
 * Changes to all release tracks roll out as part of dbt instance upgrades once per week
 
-## Upgrading from older versions[​](#upgrading-from-older-versions "Direct link to Upgrading from older versions")
+## Upgrading from older versions
 
-### How to upgrade[​](#upgrade-tips "Direct link to How to upgrade")
+### How to upgrade
 
 If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt Core, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt CLI and do your development work as usual. Everything should work as you expect.
 
@@ -146,7 +134,7 @@ Next, we recommend that you try upgrading your project’s [deployment environme
 
 If your organization has multiple dbt projects, we recommend starting your upgrade with projects that are smaller, newer, or more familiar for your team. That way, if you do encounter any issues, it'll be easier and faster to troubleshoot those before proceeding to upgrade larger or more complex projects.
 
-### Considerations[​](#considerations "Direct link to Considerations")
+### Considerations
 
 To learn more about how dbt Labs deploys stable dbt upgrades in a safe manner to dbt, we recommend that you read our blog post: [How we're making sure you can confidently switch to the "Latest" release track in dbt](https://docs.getdbt.com/blog/latest-dbt-stability).
 

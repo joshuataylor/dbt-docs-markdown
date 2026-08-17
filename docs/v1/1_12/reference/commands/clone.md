@@ -28,7 +28,7 @@ dbt clone --state path/to/artifacts --full-refresh
 dbt clone --state path/to/artifacts --threads 50
 ```
 
-### When to use `dbt clone` instead of [deferral](../node-selection/defer.md)?[​](#when-to-use-dbt-clone-instead-of-deferral "Direct link to when-to-use-dbt-clone-instead-of-deferral")
+### When to use `dbt clone` instead of [deferral](../node-selection/defer.md)?
 
 Unlike deferral, `dbt clone` requires some compute and creation of additional objects in your data warehouse. In many cases, deferral is a cheaper and simpler alternative to `dbt clone`. However, `dbt clone` covers additional use cases where deferral may not be possible.
 
@@ -36,7 +36,7 @@ For example, by creating actual data warehouse objects, `dbt clone` allows you t
 
 As another example, you could `clone` your modified incremental models as the first step of your dbt CI job to prevent costly `full-refresh` builds for warehouses that support zero-copy cloning.
 
-## Cloning in dbt[​](#cloning-in-dbt "Direct link to Cloning in dbt")
+## Cloning in dbt
 
 You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) and the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and relies on the [`--defer`](../node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](../../docs/platform/about-defer.md).
 

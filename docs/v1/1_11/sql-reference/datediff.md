@@ -10,7 +10,7 @@ DATEDIFF is a little bit like your favorite pair of socks; you’ll usually find
 
 This page will go over how to use the DATEDIFF function across different data warehouses and how to write more standardized DATEDIFF functions using a dbt macro (or successfully find your socks as a pair in one go).
 
-## How to use the DATEDIFF function​[​](#how-to-use-the-datediff-function "Direct link to How to use the DATEDIFF function​")
+## How to use the DATEDIFF function​
 
 For the DATEDIFF function, there are three elements, or arguments, passed in:
 
@@ -24,7 +24,7 @@ Most, if not all, modern cloud data warehouses support some type of the DATEDIFF
 
 Below, we’ll outline some of the slight differences in the implementation between some data warehouses.
 
-## SQL DATEDIFF function syntax in Snowflake, Databricks, and Redshift[​](#sql-datediff-function-syntax-in-snowflake-databricks-and-redshift "Direct link to SQL DATEDIFF function syntax in Snowflake, Databricks, and Redshift")
+## SQL DATEDIFF function syntax in Snowflake, Databricks, and Redshift
 
 The syntax for using the DATEDIFF function in Snowflake and Amazon Redshift, and Databricks looks like the following:
 
@@ -34,7 +34,7 @@ datediff(<date part>, <start date/time>, <end date/time>)
 
 A note on Databricks: Databricks additionally supports a separate [DATEDIFF function](https://docs.databricks.com/sql/language-manual/functions/datediff.html) that takes only two arguments: a start date and an end date. The function will always return the difference between two dates in days.
 
-### DATEDIFF in Google BigQuery​[​](#datediff-in-google-bigquery "Direct link to DATEDIFF in Google BigQuery​")
+### DATEDIFF in Google BigQuery​
 
 The syntax for using the DATEDIFF function in [Google BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/datetime_functions#datetime_diff) looks like the following:
 
@@ -42,7 +42,7 @@ The syntax for using the DATEDIFF function in [Google BigQuery](https://cloud.go
 * Google BigQuery also calls the function DATETIME\_DIFF with an additional underscore separating the function name. This is on par with [Google BigQuery’s preference to have underscores in function names](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions).
 * The DATETIME\_DIFF arguments are datetimes, not dates; Snowflake, Redshift, and Databricks’ DATEDIFF functions support multiple [date types](./data-types.md#date-data-types) such as dates and timestamps. BigQuery also supports a separate [DATE\_DIFF function](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_diff) that will return the difference between two date types, unlike the DATETIME\_DIFF that only supports the datetime type.
 
-## A hero in the shadows: The DATEDIFF dbt macro!​[​](#a-hero-in-the-shadows-the-datediff-dbt-macro "Direct link to A hero in the shadows: The DATEDIFF dbt macro!​")
+## A hero in the shadows: The DATEDIFF dbt macro!​
 
 You may be able to memorize the syntax for the DATEDIFF function for the primary data warehouse you use. What happens when you switch to a different one for a new job or a new data stack? Remembering if there’s an underscore in the function name or which argument the `<date part>` is passed in as is… no fun and leads to the inevitable, countless “datediff in bigquery” Google searches.
 

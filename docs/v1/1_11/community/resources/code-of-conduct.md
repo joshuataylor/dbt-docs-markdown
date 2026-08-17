@@ -11,9 +11,9 @@ We appreciate your support in continuing to build a community we’re all proud 
 
 — The dbt Community Admin Team.
 
-## dbt Community Values[​](#dbt-community-values "Direct link to dbt Community Values")
+## dbt Community Values
 
-### Create more value than you capture.[​](#create-more-value-than-you-capture "Direct link to Create more value than you capture.")
+### Create more value than you capture.
 
 Each community member should strive to create more value in the community than they capture. This is foundational to being a community.
 
@@ -24,7 +24,7 @@ Ways to demonstrate this value:
 * [Join in online](../contributing/contributing-online-community.md): Ask and answer questions on the Discourse forum, kick off a lively discussion in Slack, or even maintain a Slack channel of your own.
 * [Participate in events](../contributing/contributing-realtime-events.md): Organise a community Meetup, speak at an event, or provide office space/sponsorship for an existing event.
 
-### Be you.[​](#be-you "Direct link to Be you.")
+### Be you.
 
 Some developer communities allow and even encourage anonymity — we prefer it when people identify themselves clearly. It helps to build empathy, and form relationships.
 
@@ -34,7 +34,7 @@ Ways to demonstrate this value:
 * Join your `#local-` channel in Slack, or if it doesn't exist then propose a new one.
 * Write in your own voice, and offer your own advice, rather than speaking in your company’s marketing or support voice.
 
-### Encourage diversity and participation.[​](#encourage-diversity-and-participation "Direct link to Encourage diversity and participation.")
+### Encourage diversity and participation.
 
 People with different mindsets and experiences, working together, create better outcomes. This includes diversity of race and gender, as well as the diversity of academic and career backgrounds, socio-economic backgrounds, geographic backgrounds, ideologies, and interests.
 
@@ -44,7 +44,7 @@ Ways to demonstrate this value:
 * Demonstrate empathy for a community member’s experience — not everyone comes from the same career background, so adjust answers accordingly.
 * If you are sourcing speakers for events, put in additional effort to find speakers from underrepresented groups.
 
-### Be curious.[​](#be-curious "Direct link to Be curious.")
+### Be curious.
 
 Always ask yourself "why?" and strive to be continually learning.
 
@@ -54,7 +54,7 @@ Ways to demonstrate this value:
 * When asking questions, explain the "why" behind your decisions, e.g. "I’m trying to solve X problem, by writing Y code. I’m getting Z problem"
 * When helping someone else, explain why you chose that solution, or if no solution exists, elaborate on the reason for that, e.g. "That’s not possible in dbt today — but here’s a workaround / check out this GitHub issue for a relevant discussion"
 
-## Anti-harassment policy[​](#anti-harassment-policy "Direct link to Anti-harassment policy")
+## Anti-harassment policy
 
 We are dedicated to providing a harassment-free experience for everyone. We do not tolerate harassment of participants in any form.
 
@@ -86,19 +86,19 @@ The dbt Community prioritizes marginalized people’s safety over privileged peo
 * Communicating in a ‘tone’ you don’t find congenial
 * Criticizing racist, sexist, cissexist, or otherwise oppressive behavior or assumptions
 
-### Reporting harassment[​](#reporting-harassment "Direct link to Reporting harassment")
+### Reporting harassment
 
 If you are being harassed by a member of the dbt Community, notice that someone else is being harassed, or have any other concerns, please contact us at <community@dbtlabs.com> or use the workflows in [#moderation-and-administration](https://getdbt.slack.com/archives/C02JJ8N822H) on Slack.
 
 We will respect confidentiality requests for the purpose of protecting victims of abuse. At our discretion, we may publicly name a person about whom we’ve received harassment complaints, or privately warn third parties about them, if we believe that doing so will increase the safety of dbt community members or the general public. We will not name harassment victims without their affirmative consent.
 
-### Consequences[​](#consequences "Direct link to Consequences")
+### Consequences
 
 Participants asked to stop any harassing behavior are expected to comply immediately.
 
 If a participant engages in harassing behavior, the dbt Community Admin team may take any action they deem appropriate, up to and including expulsion from all dbt Community spaces and identification of the participant as a harasser to other dbt Community members or the general public.
 
-## dbt Summit and other events[​](#dbt-summit-and-other-events "Direct link to dbt Summit and other events")
+## dbt Summit and other events
 
 We reserve the right to prohibit certain directly competitive companies from attending and / or sponsoring dbt Summit and other dbt Labs-hosted events.
 
@@ -108,6 +108,6 @@ Any event declines will be handled directly with the individuals / companies in 
 
 Events that are hosted by other members of the dbt community, such as most dbt Community Meetups, are free to make their own guidelines about attendance.
 
-## Credits[​](#credits "Direct link to Credits")
+## Credits
 
 Credit to [01.org](https://01.org/community/participation-guidelines), [Tizen.org](https://www.tizen.org/community/guidelines), and [Geek Feminism](https://geekfeminism.wikia.org/wiki/Community_anti-harassment/Policy) for some of the wording used in this Code of Conduct.

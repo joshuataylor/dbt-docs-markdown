@@ -2,7 +2,7 @@
 
 Use the --warn-error flag to promote all warnings to errors or --warn-error-options for granular control through options.
 
-## Use `--warn-error` to promote all warnings to errors[​](#use---warn-error-to-promote-all-warnings-to-errors "Direct link to use---warn-error-to-promote-all-warnings-to-errors")
+## Use `--warn-error` to promote all warnings to errors
 
 Enabling `WARN_ERROR` config or setting the `--warn-error` flag will convert *all* dbt warnings into errors. Any time dbt would normally warn, it will instead raise an error. Examples include `--select` criteria that selects no resources, deprecations, configurations with no associated models, invalid test configurations, or tests and freshness checks that are configured to return warnings.
 
@@ -18,7 +18,7 @@ Using the `--warn-error` flag or `--warn-error-options '{"error": "all"}'` will 
 
 This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
-## Use `--warn-error-options` for targeted warnings[​](#use---warn-error-options-for-targeted-warnings "Direct link to use---warn-error-options-for-targeted-warnings")
+## Use `--warn-error-options` for targeted warnings
 
 In some cases, you may want to convert *all* warnings to errors. However, when you want *some* warnings to stay as warnings and only promote or silence specific warnings you can instead use `--warn-error-options`. The `WARN_ERROR_OPTIONS` config or `--warn-error-options` flag gives you more granular control over *exactly which types of warnings* are treated as errors.
 
@@ -31,7 +31,11 @@ Warnings that should be treated as errors can be specified through the `error` p
 * [dbt-core's types.py file](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/events/types.py), where each class name that inherits from `WarnLevel` corresponds to a warning name (e.g. `AdapterDeprecationWarning`, `NoNodesForSelectionCriteria`).
 * Using the `--log-format json` flag.
 
+(Applies to dbt v1.12 and later)
+
 Starting in v1.12, dbt Core ignores [Fusion-specific names](https://github.com/dbt-labs/dbt-core/blob/1.12.latest/core/dbt/events/fusion_warn_error_options.py) in `warn_error_options` (for example, `StaticAnalysis` and `PackageParsingCompatibility`) instead of raising an error, and emits a note: `<name> is not being used because it's specific to the dbt Fusion engine.` This lets you share `warn_error_options` configs across dbt Core and Fusion. Genuine typos still raise an error.
+
+(Applies to dbt v2.0 and later)
 
 In the dbt Fusion engine, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`).
 
@@ -51,7 +55,7 @@ Here's how you can use the [`--warn-error-options`](#use---warn-error-options-fo
 * No nodes selected with `--warn-error-options '{"error": ["NoNodesForSelectionCriteria"]}'`.
 * Deprecation warnings with `--warn-error-options '{"error": ["Deprecations"]}'` (new in v1.10).
 
-### Configuration[​](#configuration "Direct link to Configuration")
+### Configuration
 
 You can configure warnings as errors or which warnings to silence, by warn error options through command flag, environment variable, or `dbt_project.yml`.
 
@@ -75,11 +79,11 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 Here are some examples that show you how to configure `warn_error_options` using flags or file-based configuration.
 
-#### Target specific warnings[​](#target-specific-warnings "Direct link to Target specific warnings")
+#### Target specific warnings
 
 Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warning that occurs when your `--select` flag doesn't match any nodes/resources in your dbt project:
 
@@ -103,7 +107,7 @@ Some of the examples use `NoNodesForSelectionCriteria`, which is a specific warn
 
 * This promotes only `NoNodesForSelectionCriteria` as an error, using an environment variable:
 
-  <!-- -->
+  (Applies to dbt v1.11 and later)
 
   ```text
   DBT_ENGINE_WARN_ERROR_OPTIONS='{"error": ["NoNodesForSelectionCriteria"]}' dbt run
@@ -126,11 +130,11 @@ flags:
       - NoNodesForSelectionCriteria
 ```
 
-#### Promote all warnings to errors[​](#promote-all-warnings-to-errors "Direct link to Promote all warnings to errors")
+#### Promote all warnings to errors
 
 Some examples of how to promote all warnings to errors:
 
-##### using dbt command flags[​](#using-dbt-command-flags "Direct link to using dbt command flags")
+##### using dbt command flags
 
 ```bash
 dbt run --warn-error
@@ -138,9 +142,9 @@ dbt run --warn-error-options '{"error": "all"}'
 dbt run --warn-error-options '{"error": "*"}'
 ```
 
-##### using environment variables[​](#using-environment-variables "Direct link to using environment variables")
+##### using environment variables
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 WARN_ERROR=true dbt run 
@@ -154,7 +158,9 @@ Note, using `warn_error_options: error: "all"` will treat all current and future
 
 This means that if a new warning is introduced in a future version of dbt Core, your production job may start failing unexpectedly. We recommend proceeding with caution when doing this in production environments, and explicitly listing only the warnings you want to treat as errors in production.
 
-## Fusion behavior and warning codes[​](#fusion-behavior-and-warning-codes "Direct link to Fusion behavior and warning codes")
+(Applies to dbt v2.0 and later)
+
+## Fusion behavior and warning codes
 
 The dbt Fusion engine fully supports `warn_error_options`. This section describes important differences from dbt Core behavior.
 
@@ -164,7 +170,7 @@ Existing dbt-core event names fall into three categories:
 * **Won't be supported:** Those that we deliberately decided to not ever support.
 * **Not supported yet:** Parsed, but do nothing yet.
 
-### Warning codes in Fusion[​](#warning-codes-in-fusion "Direct link to Warning codes in Fusion")
+### Warning codes in Fusion
 
 In Fusion, every warning has both a numeric code (for example, `1092`) and an event name (for example, `NoNodesForSelectionCriteria`). Warning messages at runtime show both, but `warn_error_options` only accepts the *name*, never the code:
 
@@ -179,7 +185,9 @@ flags:
 
 Any value that isn't a supported legacy event name, Fusion-native name, or supported group (`all`, `*`) causes Fusion to exit with an error at startup, including numeric codes. For example, `{error: [1092]}` fails, but `{error: [NoNodesForSelectionCriteria]}` works.
 
-### Supported legacy dbt-core event name aliases[​](#supported-legacy-dbt-core-event-name-aliases "Direct link to Supported legacy dbt-core event name aliases")
+Not every valid name appears in the tables on this page. Fusion also emits its own warnings (for example, `SemanticModelDeprecated`, code `dbt1157`) that aren't listed here. Use the name shown in the runtime message.
+
+### Supported legacy dbt-core event name aliases
 
 When you see a warning code in your logs, use the following table to find the matching event name to put in `warn_error_options`. The code column is only for looking up warnings you see at runtime — you can't use the code itself in your config:
 
@@ -213,13 +221,7 @@ When you see a warning code in your logs, use the following table to find the ma
 | *no code*                  | `RunResultWarning`                       | A model or test run completed with `warn` status                                                  |
 | *no code*                  | `RunResultWarningMessage`                | The message accompanying a `warn`-status run result                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Unsupported Core event names[​](#unsupported-core-event-names "Direct link to Unsupported Core event names")
+### Unsupported Core event names
 
 Only the legacy names in [Supported legacy dbt-Core event name aliases](#supported-legacy-dbt-core-event-name-aliases) are valid string aliases in Fusion. There are many other dbt Core warning event names; if you put one of those in `warn_error_options`, Fusion will throw a warning at startup.
 
@@ -251,13 +253,7 @@ The table below is not a complete list of unsupported names. It only includes db
 | `WrongResourceSchemaFile`                        | Fusion reports this case under `NoNodeForYamlKey` instead.                                                                            |
 | `PackageNodeDependsOnRootProjectNode`            | Fusion only supports the newer behavior-change flag `require_ref_searches_node_package_before_root`, where this case is a hard error. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Warnings that are hard errors in Fusion[​](#warnings-that-are-hard-errors-in-fusion "Direct link to Warnings that are hard errors in Fusion")
+### Warnings that are hard errors in Fusion
 
 Some dbt Core warning names correspond to behaviors that Fusion enforces unconditionally as parse errors. If you reference these names in `warn_error_options`, Fusion emits a startup warning explaining that the entry has no effect. You can carry over your `warn_error_options` config from dbt Core without breaking, but these configs do nothing (They will throw a warning as `unsupported` and should be removed from the config):
 
@@ -271,17 +267,11 @@ Some dbt Core warning names correspond to behaviors that Fusion enforces uncondi
 | `GenericJSONSchemaValidationDeprecation`    | JSON schema validation failures are hard parse errors                      | `SerializationError`        |
 | `DuplicateNameDistinctNodeTypesDeprecation` | Caught as a hard error during node resolution                              | `SchemaError`               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Enabling `--warn-error` with static analysis in `baseline` mode[​](#enabling---warn-error-with-static-analysis-in-baseline-mode "Direct link to enabling---warn-error-with-static-analysis-in-baseline-mode")
+### Enabling `--warn-error` with static analysis in `baseline` mode
 
 If your project emits static analysis warnings and you use `--warn-error` (which promotes all warnings to errors), your project may fail unexpectedly. We recommend explicitly listing the warning categories you want to enforce rather than using `error: all` when `baseline` mode is active.
 
-### Deprecated `include` and `exclude` keys[​](#deprecated-include-and-exclude-keys "Direct link to deprecated-include-and-exclude-keys")
+### Deprecated `include` and `exclude` keys
 
 The legacy `include` and `exclude` fields for `warn_error_options` were deprecated in dbt Core v1.8 but are still supported in Fusion. If you use them, Fusion emits a `WEOIncludeExcludeDeprecation` warning (code 1086) and ignores the deprecated keys. Migrate to `error`, `warn`, and `silence` instead:
 

@@ -8,7 +8,7 @@ CLI workflow
 
 The validation levels on this page are available in dbt Wizard CLI. Validation controls in the dbt platform can differ. Refer to [dbt Wizard in the dbt platform](../../docs/platform/wizard-platform.md) for platform behavior.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin:
 
@@ -20,7 +20,7 @@ Before you begin:
 
 Warehouse validation can consume compute. dbt Wizard shows commands for approval according to your session policy before it runs them.
 
-## Review the change and its impact[​](#review-the-change-and-its-impact "Direct link to Review the change and its impact")
+## Review the change and its impact
 
 Start by asking dbt Wizard to establish the scope before it runs commands or edits files:
 
@@ -39,7 +39,7 @@ must still compile. Show me the validation plan before running it.
 
 dbt Wizard uses the project graph and changed files to identify affected models, tests, and downstream resources. Review this scope carefully. Add any business invariant that cannot be inferred from SQL or metadata.
 
-## Choose a validation level[​](#choose-a-validation-level "Direct link to Choose a validation level")
+## Choose a validation level
 
 When dbt Wizard asks how thoroughly to validate a change, choose the level that matches its risk and cost.
 
@@ -52,7 +52,7 @@ When dbt Wizard asks how thoroughly to validate a change, choose the level that 
 
 The exact commands depend on your dbt engine, project, adapter, and selected resources. dbt Wizard can use commands such as `dbt compile`, `dbt lint`, `dbt test`, `dbt run`, and `dbt build`. Linting isn't available in every dbt CLI environment.
 
-## Approve and monitor commands[​](#approve-and-monitor-commands "Direct link to Approve and monitor commands")
+## Approve and monitor commands
 
 Before approving a command, check:
 
@@ -69,7 +69,7 @@ Do not build every downstream model. Build fct_orders and its first-degree
 children, then compile the rest of the downstream graph.
 ```
 
-## Review the validation result[​](#review-the-validation-result "Direct link to Review the validation result")
+## Review the validation result
 
 A useful validation summary should distinguish evidence from unresolved risk. Check that it includes:
 
@@ -87,7 +87,7 @@ Explain whether this failure is caused by my code, existing warehouse data,
 or the validation environment. Do not weaken or remove the test.
 ```
 
-## Understand the limits[​](#understand-the-limits "Direct link to Understand the limits")
+## Understand the limits
 
 Validation is evidence, not a guarantee that a change is correct. Keep these limits in mind:
 
@@ -98,7 +98,7 @@ Validation is evidence, not a guarantee that a change is correct. Keep these lim
 * External consumers aren't included unless they are represented in dbt metadata or another connected tool.
 * A skipped check should remain visible in your review and pull request notes.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Understanding a dbt project with dbt Wizard](./wizard-2-understand-project.md)
 * [How dbt Wizard works](../../docs/dbt-ai/wizard-how-it-works.md)

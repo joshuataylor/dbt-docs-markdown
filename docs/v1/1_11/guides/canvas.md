@@ -16,7 +16,7 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Canvas offers a quick and straightforward way for anyone to build analytics models, no background in analytics engineering is required! In this guide, you will learn about:
 
@@ -26,7 +26,7 @@ Canvas offers a quick and straightforward way for anyone to build analytics mode
 * Committing your changes to Git
 * Locating your Canvas model and data
 
-## Canvas prerequisites[​](#canvas-prerequisites "Direct link to Canvas prerequisites")
+## Canvas prerequisites
 
 Before using Canvas, you should:
 
@@ -36,8 +36,6 @@ Before using Canvas, you should:
 
 * Be using one of the following adapters:
 
-  <!-- -->
-
   * Bigquery
   * Databricks
   * Redshift
@@ -46,8 +44,6 @@ Before using Canvas, you should:
   * You can access the Canvas with adapters not listed, but some features may be missing at this time.
 
 * Use [GitHub](../docs/platform/git/connect-github.md), [GitLab](../docs/platform/git/connect-gitlab.md), or [Azure DevOps](../docs/platform/git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
-
-  <!-- -->
 
   * SSH connections aren't supported at this time.
   * Self-hosted or on-premises deployments of any Git provider aren't supported for Canvas at this time.
@@ -62,7 +58,7 @@ Prerequisite for using the Jaffle Shop
 
 The examples in this guide use the [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) GitHub repo sample project. You can use your own data, but the Jaffle Shop offers a full-featured project useful for testing dbt features. Ask your dbt administrator about importing it to a project in your environment. They must also execute `dbt run` on the Jaffle Shop project in your `Production` environment before you begin, or you will be unable to reference the source models.
 
-## Access Canvas[​](#access-canvas "Direct link to Access Canvas")
+## Access Canvas
 
 To access Canvas:
 
@@ -71,7 +67,7 @@ To access Canvas:
 
 [![Create a new model from the Canvas landing page.](/img/docs/dbt-platform/canvas/canvas-create-new-model.png?v=2 "Create a new model from the Canvas landing page.")](#)Create a new model from the Canvas landing page.
 
-## Navigating the interface[​](#navigating-the-interface "Direct link to Navigating the interface")
+## Navigating the interface
 
 Canvas comprises a series of menus activated by clicking icons surrounding the border of the canvas workspace area. With none of the menu items activated, the workspace looks like this:
 
@@ -103,15 +99,13 @@ Click on an icon to expand its section or execute an action depending on its pur
 
 12. The navigation tab that has icons for (from top to bottom):
 
-    <!-- -->
-
     * Zoom in
     * Zoom out
     * Center the model to fit the screen
     * Zoom to selection (the operator selected on or off screen will be zoomed and centered)
     * Auto-layout option for the individual operator tiles
 
-## Create a model[​](#create-a-model "Direct link to Create a model")
+## Create a model
 
 This section will walk you through creating a model with operators using sample data from the [Jaffle Shop](https://github.com/dbt-labs/jaffle-shop) project. With this guide, you will create a basic model that transforms two datasets to build a view of repeat customer purchases while you consider a loyalty program for your shop.
 
@@ -144,7 +138,7 @@ tip
 
 Make operator tile titles unique compared to your column names to avoid confusion, and the same applies to any aliases you create.
 
-### Create your model from pre-existing models[​](#create-your-model-from-pre-existing-models "Direct link to Create your model from pre-existing models")
+### Create your model from pre-existing models
 
 To get started:
 
@@ -166,7 +160,7 @@ tip
 
 Don't see a pre-existing model you're looking for? Ask your dbt admins to ensure it's been run in your Production environment recently and hasn't gone stale.
 
-### Create a join[​](#create-a-join "Direct link to Create a join")
+### Create a join
 
 1. From the **Operators** menu, click **Transform** and drag the **Join** operator onto the canvas to the right of the source models.
 
@@ -196,11 +190,11 @@ tip
 
 Your work in the Canvas is automatically saved as you progress, so if you need a break, you can always come back to a session later. Just be sure to give it a unique title!
 
-## Enhance your model[​](#enhance-your-model "Direct link to Enhance your model")
+## Enhance your model
 
 You've got the basics going with your Canvas model! It has successfully joined two pre-existing input models, but you want to transform the data further to get what you need: a list of customers who buy repeat items as you consider a loyalty club rewards program.
 
-### Aggregate data[​](#aggregate-data "Direct link to Aggregate data")
+### Aggregate data
 
 Multiple options for transforming your data include custom formulas, filters, and unions. Keep it simple and add an aggregation operator to tell you which customers buy the most repeat products.
 
@@ -226,7 +220,7 @@ tip
 
 As your model grows, you can zoom in and out to view your needs. Click and hold in empty canvas space to drag your setup across the screen. Click the **Fit view** icon to see your entire model on the screen. Click the **Auto layout** icon to auto-arrange the tiles efficiently.
 
-### Add some order[​](#add-some-order "Direct link to Add some order")
+### Add some order
 
 There's a lot of data there. Dozens of customers are buying hundreds of products. You will sort it so that the customers are listed ascending by their CUSTOMER\_ID number, with the most purchased products listed in descending order.
 
@@ -246,7 +240,7 @@ tip
 
 Want to practice on your own? Try adding a **Filter** operator that removes items with less than 10 sales for any customer ID. Be sure to run the preview and verify the data is correct.
 
-## Configure your output model[​](#configure-your-output-model "Direct link to Configure your output model")
+## Configure your output model
 
 Now that you've built your model, you need to customize the output name and location:
 
@@ -255,8 +249,6 @@ Now that you've built your model, you need to customize the output name and loca
 2. Connect the **Order** and **Output Model** operators.
 
 3. The **Output Model** configuration will default to the name of your Canvas project and the default models directory. Click the **pencil edit icon** to configure the optional fields:
-
-   <!-- -->
 
    * Edit the **Model name** field if you want the name to be different than that of your project.
    * Edit the **File path** if you have a custom directory for your Canvas models.
@@ -270,7 +262,7 @@ Model locations
 
 You can customize the location for Canvas models to keep them separate from other dbt models. Check with your dbt admins for best practices and ideas for Canvas model locations and naming conventions.
 
-## Run and share your model[​](#run-and-share-your-model "Direct link to Run and share your model")
+## Run and share your model
 
 Now that you've built a model that results in the data you want, it's time to run it and push it to your Git repo. Before you run your model, keep a few items in mind:
 
@@ -278,7 +270,7 @@ Now that you've built a model that results in the data you want, it's time to ru
 * When you're ready to use this model in a downstream tool, you can run it to materialize it in your data warehouse development schema.
 * Once your model is ready for production and ready to be used by others or orchestrated, commit it and open a pull request.
 
-### Run[​](#run "Direct link to Run")
+### Run
 
 To run your model, you only need to click the big **Run** button. With the Canvas, there is no command line and no need to memorize a list of commands; there is only **Run**. Click it to see the results populate in the **Runs and previews** pane.
 
@@ -292,7 +284,7 @@ tip
 
 Have dbt [dbt Wizard](../docs/platform/wizard-platform.md) enabled for your dbt Enterprise account? Clear the board and try using natural language to build the model in this guide without manually configuring any operators.
 
-### Git commit[​](#git-commit "Direct link to Git commit")
+### Git commit
 
 The models built in the Canvas are a part of your larger dbt project. They are stored in the `visual_editor` folder of your `/models` directory. This is all done automatically; you don't have to configure any paths or directories.
 
@@ -301,7 +293,6 @@ The models built in the Canvas are a part of your larger dbt project. They are s
 However, it won't be created in your Git repo until you commit your first model. So, back in the model's view:
 
 1. Click **Commit** in the top right.
-   <!-- -->
    * If you've already created a commit and wish to make more, click the arrow next to **Create a pull request** to see the **Commit** option.
 2. Fill out the **Description** field with information about your model. If it's long, part of it will be included in the pull request title, and the rest will be in the body. That's okay! You can correct it during the PR creation process.
 3. Click **Commit**.

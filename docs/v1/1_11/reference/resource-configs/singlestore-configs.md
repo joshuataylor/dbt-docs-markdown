@@ -1,16 +1,16 @@
 # SingleStore configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+## Incremental materialization strategies
 
 The [`incremental_strategy` config](../../docs/build/incremental-models.md#about-incremental_strategy) controls how dbt builds incremental models. Currently, SingleStoreDB supports `delete+insert`, `append`, and `microbatch` configurations.
 
 The `delete+insert` incremental strategy directs dbt to follow a two-step incremental approach. Initially, it identifies and removes the records flagged by the configured `is_incremental()` block. Subsequently, it re-inserts these records.
 
-## Performance Optimizations[​](#performance-optimizations "Direct link to Performance Optimizations")
+## Performance Optimizations
 
 [SingleStore Physical Database Schema Design documentation](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/concepts-of-physical-database-schema-design.html) is helpful if you want to use specific options (that are described below) in your dbt project.
 
-### Storage type[​](#storage-type "Direct link to Storage type")
+### Storage type
 
 SingleStore supports two storage types: **In-Memory Rowstore** and **Disk-based Columnstore** (the latter is default). See [the docs](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/concepts-of-physical-database-schema-design/choosing-a-table-storage-type.html) for details. The dbt-singlestore adapter allows you to specify which storage type your table materialization would rely on using `storage_type` config parameter.
 
@@ -22,7 +22,7 @@ rowstore\_model.sql
 select ...
 ```
 
-### Reference tables[​](#reference-tables "Direct link to Reference tables")
+### Reference tables
 
 SingleStore supports **REFERENCE** tables (available starting from \[dbt-singlestore 1.10.0] (<https://pypi.org/project/dbt-singlestore/1.10.0/>)), which are replicated across the cluster and are useful for small/dimension tables that are frequently joined.
 
@@ -41,7 +41,7 @@ select ...
 
 When `reference=true` (default `false`), the adapter generates `CREATE REFERENCE TABLE ...` rather than a regular `CREATE TABLE ...`
 
-### Rowstore reference tables[​](#rowstore-reference-tables "Direct link to Rowstore reference tables")
+### Rowstore reference tables
 
 If you want a rowstore reference table, set `storage_type='rowstore'`:
 
@@ -59,7 +59,7 @@ select ...
 
 This maps to `CREATE ROWSTORE REFERENCE TABLE ...`
 
-#### Restrictions / validation[​](#restrictions--validation "Direct link to Restrictions / validation")
+#### Restrictions / validation
 
 To match SingleStore semantics, dbt-singlestore enforces:
 
@@ -67,7 +67,7 @@ To match SingleStore semantics, dbt-singlestore enforces:
 
 * SingleStore doesn’t support temporary reference tables. dbt-singlestore fails compilation if `reference=true` would result in a temporary table being created (for example, when `temporary=true` is set, or when a materialization strategy uses temporary tables internally).
 
-### Keys[​](#keys "Direct link to Keys")
+### Keys
 
 SingleStore tables are [sharded](https://docs.singlestore.com/managed-service/en/getting-started-with-managed-service/about-managed-service/sharding.html) and can be created with various column definitions. The following options are supported by the dbt-singlestore adapter, each of them accepts `column_list` (a list of column names) as an option value. Please refer to [Creating a Columnstore Table](https://docs.singlestore.com/managed-service/en/create-a-database/physical-database-schema-design/procedures-for-physical-database-schema-design/creating-a-columnstore-table.html) for more informartion on various key types in SingleStore.
 
@@ -103,7 +103,7 @@ unique\_and\_sort\_model.sql
 select ...
 ```
 
-### Indexes[​](#indexes "Direct link to Indexes")
+### Indexes
 
 Similarly to the Postgres adapter, table models, incremental models, seeds, and snapshots may have a list of `indexes` defined. Each index can have the following components:
 
@@ -127,7 +127,7 @@ indexes\_model.sql
 select ...
 ```
 
-### Other options[​](#other-options "Direct link to Other options")
+### Other options
 
 You can specify the character set and collation for the table using `charset` and/or `collation` options. Supported values for `charset` are `binary`, `utf8`, and `utf8mb4`. Supported values for `collation` can be viewed as the output of `SHOW COLLATION` SQL query. Default collations for the corresponding charcter sets are `binary`, `utf8_general_ci`, and `utf8mb4_general_ci`.
 
@@ -144,7 +144,7 @@ utf8mb4\_model.sql
 select ...
 ```
 
-## Model contracts[​](#model-contracts "Direct link to Model contracts")
+## Model contracts
 
 Starting from 1.5, the `dbt-singlestore` adapter supports model contracts.
 
@@ -156,24 +156,18 @@ Starting from 1.5, the `dbt-singlestore` adapter supports model contracts.
 | unique          | ✅ Supported     | ❌ Not enforced      |
 | check           | ❌ Not supported | ❌ Not enforced      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Consider the following restrictions while using contracts with the `dbt-singlestore` adapter:
 
-### Model and Column Definitions:[​](#model-and-column-definitions "Direct link to Model and Column Definitions:")
+### Model and Column Definitions:
 
 * The `unique` constraint can only be set at the model level. Hence, do not set it at the column level.
 * Repeating constraints will return an error. For example, setting `primary_key` in both column and model settings returns an error.
 
-### Overwriting Settings:[​](#overwriting-settings "Direct link to Overwriting Settings:")
+### Overwriting Settings:
 
 The contract setting overrides the configuration setting. For example, if you define a `primary_key` or `unique_table_key` in the config and then also set it in the contract, the contract setting replaces the configuration setting.
 
-### Working with constants:[​](#working-with-constants "Direct link to Working with constants:")
+### Working with constants:
 
 dim\_customers.yml
 
@@ -213,7 +207,7 @@ select
   ('My Best Customer' :> text) as customer_name
 ```
 
-### Misleading datatypes[​](#misleading-datatypes "Direct link to Misleading datatypes")
+### Misleading datatypes
 
 Using `model contracts` ensures that you don't accidentally add the wrong type of data into a column. For instance, if you expect a number in a column, but accidentally specify text to be added, the model contract catches it and returns an error.
 
@@ -247,11 +241,5 @@ It's important to note that certain data type mappings might show up differently
 | TINYTEXT   | TINYBLOB                                        |
 | MEDIUMTEXT | MEDIUMBLOB                                      |
 | LONGTEXT   | LONGBLOB                                        |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Just keep these points in mind when setting up and using your `dbt-singlestore` adapter, and you'll avoid common pitfalls!

@@ -1,6 +1,8 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect Snowflake to dbt Core
 
-Local developmentⓘ
+Local development
 
 Snowflake enforcing strong authentication
 
@@ -8,36 +10,24 @@ Starting August 31, 2026, password authentication will no longer be supported. P
 
 [Fusion compatible](./snowflake-setup.md?version=2 "Fusion compatible") connection also available.
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  dbt maintainers
+* **Maintained by**: dbt Labs
+* **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-snowflake` [![](https://badge.fury.io/py/dbt-snowflake.svg)](https://badge.fury.io/py/dbt-snowflake)
 * **Slack channel**: [#db-snowflake](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.8.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-snowflake
+## Installing dbt-snowflake
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-snowflake`
 
-## Configuring <!-- -->dbt-snowflake<!-- -->
+## Configuring dbt-snowflake
 
-For <!-- -->Snowflake<!-- -->-specific configuration, please refer to [Snowflake<!-- --> configs.](../../../reference/resource-configs/snowflake-configs.md)
+For Snowflake-specific configuration, please refer to [Snowflake configs.](../../../reference/resource-configs/snowflake-configs.md)
 
 Snowflake column size change
 
@@ -66,11 +56,13 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
-## Authentication Methods[​](#authentication-methods "Direct link to Authentication Methods")
+## Authentication Methods
 
-### User / Password authentication[​](#user--password-authentication "Direct link to User / Password authentication")
+### User / Password authentication
 
 Snowflake can be configured using basic user/password authentication as shown below.
+
+(Applies to dbt v1.9 and later)
 
 \~/.dbt/profiles.yml
 
@@ -102,7 +94,7 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
-### User / Password + DUO MFA authentication[​](#user--password--duo-mfa-authentication "Direct link to User / Password + DUO MFA authentication")
+### User / Password + DUO MFA authentication
 
 Snowflake integrates the DUO Mobile app to add 2-Factor authentication to basic user/password as seen below.
 
@@ -137,11 +129,13 @@ my-snowflake-db:
 
 **Note:** To avoid receiving Duo push notifications for every model build, enable [MFA token caching](https://docs.snowflake.com/en/user-guide/security-mfa#label-mfa-token-caching) in your Snowflake warehouse by running `alter account set allow_client_mfa_caching = true;` with the ACCOUNTADMIN role.
 
-### Key pair authentication[​](#key-pair-authentication "Direct link to Key pair authentication")
+### Key pair authentication
 
 To use key pair authentication, specify the `private_key_path` in your configuration, avoiding the use of a `password`. If needed, you can add a `private_key_passphrase`. **Note**: Unencrypted private keys are accepted, so add a passphrase only if necessary. However, for dbt Core versions 1.5 and 1.6, configurations using a private key in PEM format (for example, keys enclosed with BEGIN and END tags) are not supported. In these versions, you must use the `private_key_path` to reference the location of your private key file.
 
 dbt can specify a `private_key` directly as a string instead of a `private_key_path`. This `private_key` string can be in either Base64-encoded DER format, representing the key bytes, or in plain-text PEM format. Refer to [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth) for more info on how they generate the key.
+
+(Applies to dbt v1.9 and later)
 
 \~/.dbt/profiles.yml
 
@@ -176,7 +170,7 @@ my-snowflake-db:
       reuse_connections: True # default: True if client_session_keep_alive is False, otherwise None
 ```
 
-#### dbt Fusion engine key formats[​](#dbt-fusion-engine-key-formats "Direct link to dbt Fusion engine key formats")
+#### dbt Fusion engine key formats
 
 Fusion requires modern key formats and doesn't support legacy 3DES encryption or headerless keys. We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with Fusion. Using older key formats may cause authentication failures.
 
@@ -197,7 +191,7 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   -----END ENCRYPTED PRIVATE KEY-----
   ```
 
-### SSO authentication[​](#sso-authentication "Direct link to SSO authentication")
+### SSO authentication
 
 To use SSO authentication for Snowflake, omit a `password` and instead supply an `authenticator` config set to 'externalbrowser' to your target.
 
@@ -235,7 +229,7 @@ my-snowflake-db:
 
 **Note**: To avoid authentication prompts for every dbt connection (which can result in dozens of SSO tabs opening), enable [connection caching](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use#using-connection-caching-to-minimize-the-number-of-prompts-for-authentication-optional) in your Snowflake warehouse by running `alter account set allow_id_token = true;` with the ACCOUNTADMIN role.
 
-### OAuth authorization[​](#oauth-authorization "Direct link to OAuth authorization")
+### OAuth authorization
 
 To learn how to configure OAuth in Snowflake, refer to their [documentation](https://docs.snowflake.com/en/user-guide/oauth-snowflake-overview). Your Snowflake admin needs to generate an [OAuth token](https://community.snowflake.com/s/article/HOW-TO-OAUTH-TOKEN-GENERATION-USING-SNOWFLAKE-CUSTOM-OAUTH) for your configuration to work.
 
@@ -259,11 +253,11 @@ my-snowflake-db:
       token: [OAuth refresh token]
 ```
 
-## Configurations[​](#configurations "Direct link to Configurations")
+## Configurations
 
 The "base" configs for Snowflake targets are shown below. Note that you should also specify auth-related configs specific to the authentication method you are using as described above.
 
-### All configurations[​](#all-configurations "Direct link to All configurations")
+### All configurations
 
 | Config                                | Required?            | Description                                                                                                                                                                                                                                                                  |
 | ------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -283,13 +277,7 @@ The "base" configs for Snowflake targets are shown below. Note that you should a
 | reuse\_connections                    | No                   | A boolean flag indicating whether to reuse idle connections to help reduce total connections opened. Default is `True` when `client_session_keep_alive` is `False` or unset; otherwise `None` (must be explicitly set).                                                      |
 | platform\_detection\_timeout\_seconds | No                   | Timeout (in seconds) for platform detection. Defaults to `0.0`. Set to a positive value if using Workload Identity Federation (WIF) authentication.                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### account[​](#account "Direct link to account")
+### account
 
 For AWS accounts in the US West default region, you can use `abc123` (without any other segments). For some AWS accounts you will have to append the region and/or cloud platform. For example, `abc123.eu-west-1` or `abc123.eu-west-2.aws`.
 
@@ -297,26 +285,26 @@ For GCP and Azure-based accounts, you have to append the region and may have to 
 
 Please also note that the Snowflake account name should only be the `account_name` without the prefixed `organization_name`. To determine if the region and/or cloud platform needs to be appended to the account locator in the legacy format, see Snowflake's documentation on "[Non-VPS account locator formats by cloud platform and region](https://docs.snowflake.com/en/user-guide/admin-account-identifier#non-vps-account-locator-formats-by-cloud-platform-and-region)".
 
-### client\_session\_keep\_alive[​](#client_session_keep_alive "Direct link to client_session_keep_alive")
+### client\_session\_keep\_alive
 
 The `client_session_keep_alive` feature is intended to keep Snowflake sessions alive beyond the typical 4 hour timeout limit. The snowflake-connector-python implementation of this feature can prevent processes that use it (read: dbt) from exiting in specific scenarios. If you encounter this in your deployment of dbt, please let us know in [the GitHub issue](https://github.com/dbt-labs/dbt-core/issues/1271), and work around it by disabling the keepalive.
 
-### platform\_detection\_timeout\_seconds[​](#platform_detection_timeout_seconds "Direct link to platform_detection_timeout_seconds")
+### platform\_detection\_timeout\_seconds
 
 The Snowflake connector uses the `platform_detection_timeout_seconds` parameter to determine how long it waits to detect the cloud platform for a connection. This parameter is available starting in dbt Core v1.10.
 
 * Set to `0.0` (default) to disable cloud platform detection for faster connections.
 * Set to a positive value only if you're using WIF authentication, which requires the connector to detect the cloud environment.
 
-### query\_tag[​](#query_tag "Direct link to query_tag")
+### query\_tag
 
 [Query tags](https://docs.snowflake.com/en/sql-reference/parameters.html#query-tag) are a Snowflake parameter that can be quite useful later on when searching in the [QUERY\_HISTORY view](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html).
 
-### reuse\_connections[​](#reuse_connections "Direct link to reuse_connections")
+### reuse\_connections
 
 During node execution (such as model and test), dbt opens connections against a Snowflake warehouse. Setting this configuration to `True` reduces execution time by verifying credentials only once for each thread.
 
-### retry\_on\_database\_errors[​](#retry_on_database_errors "Direct link to retry_on_database_errors")
+### retry\_on\_database\_errors
 
 The `retry_on_database_errors` flag along with the `connect_retries` count specification is intended to make retries configurable after the snowflake connector encounters errors of type snowflake.connector.errors.DatabaseError. These retries can be helpful for handling errors of type "JWT token is invalid" when using key pair authentication.
 
@@ -324,6 +312,6 @@ By default, `retry_on_database_errors` is set to `False` when using dbt Core (fo
 
 However, in the dbt platform, this setting is automatically set to `True`, unless the user explicitly configures it.
 
-### retry\_all[​](#retry_all "Direct link to retry_all")
+### retry\_all
 
 The `retry_all` flag along with the `connect_retries` count specification is intended to make retries configurable after the snowflake connector encounters any error.

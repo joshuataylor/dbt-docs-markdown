@@ -1,31 +1,19 @@
 # Connect Upsolver to dbt Core
 
-Local developmentⓘ
+Local development
 
-## Overview of <!-- -->dbt-upsolver<!-- -->
+## Overview of dbt-upsolver
 
-* **Maintained by**:
-  <!-- -->
-  Upsolver Team
-* **Authors**:
-  <!-- -->
-  Upsolver Team
+* **Maintained by**: Upsolver Team
+* **Authors**: Upsolver Team
 * **GitHub repo**: [Upsolver/dbt-upsolver](https://github.com/Upsolver/dbt-upsolver)[![](https://img.shields.io/github/stars/Upsolver/dbt-upsolver?style=for-the-badge)](https://github.com/Upsolver/dbt-upsolver)
 * **PyPI package**: `dbt-upsolver` [![](https://badge.fury.io/py/dbt-upsolver.svg)](https://badge.fury.io/py/dbt-upsolver)
 * **Slack channel**: [Upsolver Community](https://join.slack.com/t/upsolvercommunity/shared_invite/zt-1zo1dbyys-hj28WfaZvMh4Z4Id3OkkhA)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.5.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.5.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-upsolver<!-- -->
+## Installing dbt-upsolver
 
 pip is the easiest way to install the adapter:
 
@@ -33,15 +21,15 @@ pip is the easiest way to install the adapter:
 
 Installing `dbt-upsolver` will also install `dbt-core` and any other dependencies.
 
-## Configuring <!-- -->dbt-upsolver<!-- -->
+## Configuring dbt-upsolver
 
-For <!-- -->Upsolver<!-- -->-specifc configuration please refer to [Upsolver<!-- --> Configuration](../../../reference/resource-configs/upsolver-configs.md)
+For Upsolver-specifc configuration please refer to [Upsolver Configuration](../../../reference/resource-configs/upsolver-configs.md)
 
 For further info, refer to the GitHub repository: [Upsolver/dbt-upsolver](https://github.com/Upsolver/dbt-upsolver)
 
-## Authentication Methods[​](#authentication-methods "Direct link to Authentication Methods")
+## Authentication Methods
 
-### User / Token authentication[​](#user--token-authentication "Direct link to User / Token authentication")
+### User / Token authentication
 
 Upsolver can be configured using basic user/token authentication as shown below.
 
@@ -63,11 +51,11 @@ my-upsolver-db:
       threads: [1 or more]
 ```
 
-## Configurations[​](#configurations "Direct link to Configurations")
+## Configurations
 
 The configs for Upsolver targets are shown below.
 
-### All configurations[​](#all-configurations "Direct link to All configurations")
+### All configurations
 
 | Config   | Required? | Description                                                                                                |
 | -------- | --------- | ---------------------------------------------------------------------------------------------------------- |
@@ -76,9 +64,3 @@ The configs for Upsolver targets are shown below.
 | database | Yes       | The database that dbt should create models in                                                              |
 | schema   | Yes       | The schema to build models into by default                                                                 |
 | api\_url | Yes       | The API url to connect. Common value `https://mt-api-prod.upsolver.com`                                    |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

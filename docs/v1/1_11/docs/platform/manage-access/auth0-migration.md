@@ -1,12 +1,12 @@
 # Migrating to Auth0 for SSO
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt Labs is partnering with Auth0 to bring enhanced features to dbt's single sign-on (SSO) capabilities. Auth0 is an identity and access management (IAM) platform with advanced security features, and it will be leveraged by dbt. These changes will require some action from customers with SSO configured in dbt today, and this guide will outline the necessary changes for each environment.
 
 If you have not yet configured SSO in dbt, refer instead to our setup guides for [SAML](./set-up-sso-saml-2.0.md), [Okta](./set-up-sso-okta.md), [Google Workspace](./set-up-sso-google-workspace.md), or [Microsoft Entra ID (formerly Azure AD)](./set-up-sso-microsoft-entra-id.md) single sign-on services.
 
-## Start the migration[​](#start-the-migration "Direct link to Start the migration")
+## Start the migration
 
 The Auth0 migration feature is being rolled out incrementally to customers who have SSO features already enabled. When the migration option has been enabled on your account, you will see **SSO Update Required** on the right side of the menu bar, near the settings icon.
 
@@ -23,11 +23,11 @@ There are two fields in the SSO settings that you need for the migration:
 
 Once you have opted to begin the migration process, the following steps will vary depending on the configured identity provider. You can just skip to the section that's right for your environment. These steps only apply to customers going through the migration; new setups will use the existing [setup instructions](./sso-overview.md).
 
-## SAML 2.0[​](#saml-20 "Direct link to SAML 2.0")
+## SAML 2.0
 
 SAML 2.0 users must update a few fields in the SSO app configuration to match the new Auth0 URL and URI. You can approach this by editing the existing SSO app settings or creating a new one to accommodate the Auth0 settings. One approach isn't inherently better, so you can choose whichever works best for your organization.
 
-### SAML 2.0 and Okta[​](#saml-20-and-okta "Direct link to SAML 2.0 and Okta")
+### SAML 2.0 and Okta
 
 The Okta fields that will be updated are:
 
@@ -50,7 +50,7 @@ Here is an example of an updated SAML 2.0 setup in Okta.
 
 4. Save the settings and test the new configuration using the SSO login URL provided on the settings page.
 
-### SAML 2.0 and Entra ID[​](#saml-20-and-entra-id "Direct link to SAML 2.0 and Entra ID")
+### SAML 2.0 and Entra ID
 
 The Entra ID fields that will be updated are:
 
@@ -78,7 +78,7 @@ The new values for these fields can be found in dbt by navigating to **Account s
 
 6. Save the settings and test the new configuration using the SSO login URL provided on the settings page.
 
-## Microsoft Entra ID[​](#microsoft-entra-id "Direct link to Microsoft Entra ID")
+## Microsoft Entra ID
 
 Microsoft Entra ID admins using OpenID Connect (ODIC) will need to make a slight adjustment to the existing authentication app in the Azure portal. This migration does not require that the entire app be deleted or recreated; you can edit the existing app. Start by opening the Azure portal and navigating to the Microsoft Entra ID overview.
 
@@ -102,7 +102,7 @@ Domain authorization
 
 You must complete the domain authorization before you toggle `Enable New SSO Authentication`, or the migration will not complete successfully.
 
-## Google Workspace[​](#google-workspace "Direct link to Google Workspace")
+## Google Workspace
 
 Google Workspace admins updating their SSO APIs with the Auth0 URL won't have to do much if it is an existing setup. This can be done as a new project or by editing an existing SSO setup. No additional scopes are needed since this is migrating from an existing setup. All scopes were defined during the initial configuration.
 

@@ -2,8 +2,6 @@
 
 Selector methods return all resources that share a common property, using the syntax `method:value`. While it is recommended to explicitly denote the method, you can omit it (the default value will be one of `path`, `file` or `fqn`).
 
-<!-- -->
-
 tip
 
 You can combine multiple selector methods in one `--select` command by separating them with commas (`,`) without whitespace (for example, `dbt run --select "marts.finance,tag:nightly"`). This only selects resources that satisfy *all* arguments. In this example, the command runs models that are in the `marts/finance` subdirectory and tagged `nightly`. For more information, see [Set operators](./set-operators.md).
@@ -17,12 +15,6 @@ Many of the methods below support Unix-style wildcards:
 | \[abc]   | matches one character given in the bracket                |
 | \[a-z]   | matches one character from the range given in the bracket |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For example:
 
 ```bash
@@ -30,7 +22,7 @@ dbt list --select "*.folder_name.*"
 dbt list --select "package:*_source"
 ```
 
-### access[​](#access "Direct link to access")
+### access
 
 The `access` method selects models based on their [access](../resource-configs/access.md) property.
 
@@ -40,7 +32,7 @@ dbt list --select "access:private"       # list all private models
 dbt list --select "access:protected"       # list all protected models
 ```
 
-### config[​](#config "Direct link to config")
+### config
 
 The `config` method is used to select models that match a specified [node config](../configs-and-properties.md).
 
@@ -76,7 +68,7 @@ dbt ls -s config.meta.contains_pii:true
 dbt ls -s config.transient:true
 ```
 
-### exposure[​](#exposure "Direct link to exposure")
+### exposure
 
 The `exposure` method is used to select parent resources of a specified [exposure](../../docs/build/exposures.md). Use in conjunction with the `+` operator.
 
@@ -86,9 +78,9 @@ dbt test --select "+exposure:*"                         # test all resources ups
 dbt ls --select "+exposure:*" --resource-type source    # list all source tables upstream of all exposures
 ```
 
-### file[​](#file "Direct link to file")
+### file
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 The `file` method can be used to select a model or a function by its filename, including the file extension (`.sql`).
 
@@ -107,7 +99,7 @@ dbt build --select "my_function"
 dbt build --select "my_function+"
 ```
 
-### fqn[​](#fqn "Direct link to fqn")
+### fqn
 
 The `fqn` method is used to select nodes based off their "fully qualified names" (FQN) within the dbt graph. The default output of [`dbt list`](../commands/list.md) is a listing of FQN. The default FQN format is composed of the project name, subdirectories within the path, and the file name (without extension) separated by periods.
 
@@ -119,7 +111,7 @@ dbt run --select "fqn:some_path.some_model"
 dbt run --select "fqn:your_project.some_path.some_model"
 ```
 
-### group[​](#group "Direct link to group")
+### group
 
 The `group` method is used to select models defined within a [group](../resource-configs/group.md).
 
@@ -127,7 +119,7 @@ The `group` method is used to select models defined within a [group](../resource
 dbt run --select "group:finance" # run all models that belong to the finance group.
 ```
 
-### metric[​](#metric "Direct link to metric")
+### metric
 
 The `metric` method is used to select parent resources of a specified [metric](../../docs/build/build-metrics-intro.md). Use in conjunction with the `+` operator.
 
@@ -136,7 +128,7 @@ dbt build --select "+metric:weekly_active_users"       # build all resources ups
 dbt ls    --select "+metric:*" --resource-type source  # list all source tables upstream of all metrics
 ```
 
-### package[​](#package "Direct link to package")
+### package
 
 The `package` method is used to select models defined within the root project or an installed dbt package. While the `package:` prefix is not explicitly required, it may be used to make selectors unambiguous.
 
@@ -151,9 +143,9 @@ Use the `this` package to select nodes from the current project. From the exampl
 
 Since `this` always refers to the current project, using `package:this` ensures that you're only selecting models from the project you're working in.
 
-### path[​](#path "Direct link to path")
+### path
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 The `path` method is used to select models, sources, or functions defined at or under a specific path. Model definitions are in SQL/Python files (not YAML), and source definitions are in YAML files. Functions are defined in SQL files. While the `path` prefix is not explicitly required, it may be used to make selectors unambiguous.
 
@@ -171,9 +163,9 @@ dbt build --select "path:functions/my_function.sql"
 dbt build --select "functions/my_function.sql"
 ```
 
-### resource\_type[​](#resource_type "Direct link to resource_type")
+### resource\_type
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 Use the `resource_type` method to select nodes of a particular type (`model`, `test`, `exposure`, `function`, and so on). This is similar to the `--resource-type` flag used by the `dbt build`, `dbt test`, `dbt clone`, and `dbt list` [commands](../dbt-commands.md#available-commands).
 
@@ -184,7 +176,7 @@ dbt list --select "resource_type:test"         # list all tests in your project
 dbt list --select "resource_type:source"       # list all sources in your project
 ```
 
-### result[​](#result "Direct link to result")
+### result
 
 The `result` method is related to the [`state` method](./methods.md#state) and can be used to select resources based on their result status from a prior run. Note that one of the dbt commands \[`run`, `test`, `build`, `seed`] must have been performed in order to create the result on which a result selector operates.
 
@@ -210,8 +202,6 @@ dbt seed --select "result:error" --state path/to/artifacts
 
 * As an example, to re-run upstream and downstream resources associated with failed tests, you can use one of the following selectors:
 
-  <!-- -->
-
   ```bash
   # reruns all the models associated with failed tests from the prior invocation of dbt build
   dbt build --select "1+result:fail" --state path/to/artifacts
@@ -220,7 +210,7 @@ dbt seed --select "result:error" --state path/to/artifacts
   dbt build --select "1+result:fail+" --state path/to/artifacts
   ```
 
-### saved\_query[​](#saved_query "Direct link to saved_query")
+### saved\_query
 
 The `saved_query` method selects [saved queries](../../docs/build/saved-queries.md).
 
@@ -229,9 +219,7 @@ dbt list --select "saved_query:*"                    # list all saved queries
 dbt list --select "+saved_query:orders_saved_query"  # list your saved query named "orders_saved_query" and all upstream resources
 ```
 
-<!-- -->
-
-### semantic\_model[​](#semantic_model "Direct link to semantic_model")
+### semantic\_model
 
 The `semantic_model` method selects [semantic models](../../docs/build/semantic-models.md).
 
@@ -240,7 +228,7 @@ dbt list --select "semantic_model:*"        # list all semantic models
 dbt list --select "+semantic_model:orders"  # list your semantic model named "orders" and all upstream resources
 ```
 
-### source[​](#source "Direct link to source")
+### source
 
 The `source` method is used to select models that select from a specified [source](../../docs/build/sources.md#using-sources). Use in conjunction with the `+` operator.
 
@@ -251,7 +239,7 @@ dbt run --select "source:snowplow.events+"    # run all models downstream of the
 
 Refer to [source FAQs](../../docs/build/sources.md#faqs) for more info.
 
-### source\_status[​](#source_status "Direct link to source_status")
+### source\_status
 
 Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](../artifacts/sources-json.md) page.
 
@@ -261,7 +249,7 @@ The following dbt commands produce `sources.json` artifacts whose results can be
 
 After issuing one of the above commands, you can reference the source freshness results by adding a selector to a subsequent command as follows:
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 # You can also set the DBT_ENGINE_STATE environment variable instead of the --state flag.
@@ -269,11 +257,11 @@ dbt source freshness # must be run again to compare current to previous state
 dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 ```
 
-### state[​](#state "Direct link to state")
+### state
 
 **N.B.** [State-based selection](./state-selection.md) is a powerful, complex feature. Read about [known caveats and limitations](./state-comparison-caveats.md) to state comparison.
 
-The `state` method is used to select nodes by comparing them against a previous version of the same project, which is represented by a [manifest](../artifacts/manifest-json.md). The file path of the comparison manifest *must* be specified via the `--state` flag or `DBT_ENGINE_STATE` environment variable.
+The `state` method is used to select nodes by comparing them against a previous version of the same project, which is represented by a [manifest](../artifacts/manifest-json.md). The file path of the comparison manifest *must* be specified via the `--state` flag or (Applies to dbt v1.11 and later) `DBT_ENGINE_STATE` environment variable.
 
 `state:new`: There is no node with the same `unique_id` in the comparison manifest
 
@@ -288,13 +276,17 @@ dbt ls --select "state:modified" --state path/to/artifacts   # list all modified
 Because state comparison is complex, and everyone's project is different, dbt supports subselectors that include a subset of the full `modified` criteria:
 
 * `state:modified.body`: Changes to node body (e.g. model SQL, seed values)
-* `state:modified.configs`: Changes to any node configs, excluding `database`/`schema`/`alias`/`tags`
+* `state:modified.configs`: Changes to any node configs, excluding `database`/`schema`/`alias`/`tags`/`meta`
 * `state:modified.relation`: Changes to `database`/`schema`/`alias` (the database representation of this node), irrespective of `target` values or `generate_x_name` macros
 * `state:modified.persisted_descriptions`: Changes to relation- or column-level `description`, *if and only if* `persist_docs` is enabled at each level
 * `state:modified.macros`: Changes to upstream macros (whether called directly or indirectly by another macro)
 * `state:modified.contract`: Changes to a model's [contract](../resource-configs/contract.md), which currently include the `name` and `data_type` of `columns`. Removing or changing the type of an existing column is considered a breaking change, and will raise an error.
 
 Remember that `state:modified` includes *all* of the criteria above, as well as some extra resource-specific criteria, such as modifying a source's `freshness` or `quoting` rules or an exposure's `maturity` property. (View the source code for the full set of checks used when comparing [sources](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L660-L681), [exposures](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L768-L783), and [executable nodes](https://github.com/dbt-labs/dbt-core/blob/9e796671dd55d4781284d36c035d1db19641cd80/core/dbt/contracts/graph/parsed.py#L319-L330).)
+
+dbt treats `tags` and `meta` as metadata-only fields, not modifications, at both the resource and column level. Changing a tags or meta value (including on individual columns in a YAML file) doesn't trigger `state:modified`, because these fields don't affect how dbt materializes the resource.
+
+This is different from `description` (for example), which *does* count as a modification when `persist_docs` is enabled. dbt treats any other config change as a modification, since that config could affect materialization.
 
 There are two additional `state` selectors that complement `state:new` and `state:modified` by representing the inverse of those functions:
 
@@ -303,7 +295,7 @@ There are two additional `state` selectors that complement `state:new` and `stat
 
 These selectors can help you shorten run times by excluding unchanged nodes. Currently, no subselectors are available at this time, but that might change as use cases evolve.
 
-#### `state:modified` node and reference impacts[​](#statemodified-node-and-reference-impacts "Direct link to statemodified-node-and-reference-impacts")
+#### `state:modified` node and reference impacts
 
 `state:modified` identifies any new nodes added, changes to existing nodes, and any changes made to:
 
@@ -327,7 +319,6 @@ Certain factors can affect how references are used or resolved later on, includi
 * Modifying access: if permissions or access rules change, some references might stop working.
 * Modifying `deprecation_date`: if a reference or model version is marked deprecated, new warnings might appear that affect how references are processed.
 * Modifying `latest_version`: if there's no tie to a specific version, the reference or model will point to the latest version.
-  <!-- -->
   * If a newer version is released, the reference will automatically resolve to the new version, potentially changing the behavior or output of the system that relies on it.
 
 dbt handles state comparison for seed files differently depending on their size:
@@ -335,9 +326,7 @@ dbt handles state comparison for seed files differently depending on their size:
 * **Seed files smaller than 1 MiB** — Included in the `state:modified` selector only when the contents change.
 * **Seed files 1 MiB or larger** — Included in the `state:modified` selector only when the seed file path changes.
 
-#### Overwrites the `manifest.json`[​](#overwrites-the-manifestjson "Direct link to overwrites-the-manifestjson")
-
-<!-- -->
+#### Overwrites the `manifest.json`
 
 dbt overwrites the `manifest.json` file during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.
 
@@ -347,9 +336,7 @@ During the next job run, dbt follows a sequence of steps that lead to the issue.
 
 Avoid setting `--state` and `--target-path` to the same path with state-dependent features like `--defer` and `state:modified` as it can lead to non-idempotent behavior and won't work as expected.
 
-#### Recommendation[​](#recommendation "Direct link to Recommendation")
-
-<!-- -->
+#### Recommendation
 
 To prevent the `manifest.json` from being overwritten before dbt reads it for change detection, update your workflow using one of these methods:
 
@@ -359,7 +346,7 @@ To prevent the `manifest.json` from being overwritten before dbt reads it for ch
 
 * Pass the `--no-write-json` flag: `dbt ls --no-write-json --select state:modified --state target`: during the reproduction stage.
 
-### tag[​](#tag "Direct link to tag")
+### tag
 
 The `tag:` method is used to select models that match a specified [tag](../resource-configs/tags.md).
 
@@ -367,7 +354,7 @@ The `tag:` method is used to select models that match a specified [tag](../resou
 dbt run --select "tag:nightly"    # run all models with the `nightly` tag
 ```
 
-### test\_name[​](#test_name "Direct link to test_name")
+### test\_name
 
 The `test_name` method is used to select tests based on the name of the generic test that defines it. For more information about how generic tests are defined, read about [data tests](../../docs/build/data-tests.md).
 
@@ -377,15 +364,13 @@ dbt test --select "test_name:equality"          # run all instances of the `dbt_
 dbt test --select "test_name:range_min_max"     # run all instances of a custom schema test defined in the local project, `range_min_max`
 ```
 
-### The test\_type[​](#the-test_type "Direct link to The test_type")
+### The test\_type
 
 The `test_type` method is used to select tests based on their type:
 
 * [Unit tests](../../docs/build/unit-tests.md)
 
 * [Data tests](../../docs/build/data-tests.md):
-
-  <!-- -->
 
   * [Singular](../../docs/build/data-tests.md#singular-data-tests)
   * [Generic](../../docs/build/data-tests.md#generic-data-tests)
@@ -397,7 +382,7 @@ dbt test --select "test_type:generic"        # run all generic data tests
 dbt test --select "test_type:singular"       # run all singular data tests
 ```
 
-### unit\_test[​](#unit_test "Direct link to unit_test")
+### unit\_test
 
 The `unit_test` method selects [unit tests](../../docs/build/unit-tests.md).
 
@@ -406,7 +391,7 @@ dbt list --select "unit_test:*"                        # list all unit tests
 dbt list --select "+unit_test:orders_with_zero_items"  # list your unit test named "orders_with_zero_items" and all upstream resources
 ```
 
-### version[​](#version "Direct link to version")
+### version
 
 The `version` method selects [versioned models](../../docs/mesh/govern/model-versions.md) based on their [version identifier](../resource-properties/versions.md) and [latest version](../resource-properties/latest_version.md).
 

@@ -1,6 +1,6 @@
 # Authentication tokens
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 [![](/img/icons/dbt-bit.svg)](./user-tokens.md)
 
@@ -14,13 +14,13 @@ dbt platform | Starter, Enterprise, Enterprise+ⓘ
 
 [Learn how to use service account tokens to securely authenticate with dbt APIs for system-level integrations.](./service-tokens.md)
 
-## Types of API access tokens[​](#types-of-api-access-tokens "Direct link to Types of API access tokens")
+## Types of API access tokens
 
 **Personal access tokens:** Preferred and secure way of accessing dbt APIs on behalf of a user. PATs are scoped to an account and can be enhanced with more granularity and control.
 
 **Service tokens:** Service tokens are similar to service accounts and are the preferred method to enable access on behalf of the dbt account.
 
-### Which token type should you use[​](#which-token-type-should-you-use "Direct link to Which token type should you use")
+### Which token type should you use
 
 You should use service tokens broadly for any production workflow where you need a service account. You should use PATs only for developmental workflows *or* dbt client workflows that require user context. The following examples show you when to use a personal access token (PAT) or a service token:
 

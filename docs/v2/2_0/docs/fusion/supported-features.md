@@ -2,26 +2,19 @@
 
 Learn about the features supported by Fusion, including requirements and limitations.
 
-<!-- -->
-
-<!-- -->
-
 When you install dbt, you get Fusion by default. There's no separate feature set to choose between — Fusion is just dbt, running faster, with more capability built in.
 
-## Requirements[​](#requirements "Direct link to Requirements")
+## Requirements
 
 To use Fusion in your project you must:
 
 * Use a supported adapter and authentication method:
-
-  <!-- -->
 
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
   * External OAuth
-    <!-- -->
     * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -47,18 +40,13 @@ To use Fusion in your project you must:
 
   * Thrift
 
-    <!-- -->
-
     * Simple Authentication and Security Layer (SASL) PLAIN
     * No SASL (NOSASL)
 
   * Livy
 
-    <!-- -->
-
     * Basic authentication (username and password)
     * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-      <!-- -->
       * Supports authentication using single sign-on, service accounts, or user tokens
 
    DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
@@ -71,13 +59,13 @@ To use Fusion in your project you must:
 
 * Migrate your Semantic Layer configurations to the [latest YAML spec](../build/latest-metrics-spec.md).
 
-## Parity with dbt Core v1.x[​](#parity-with-dbt-core-v1x "Direct link to Parity with dbt Core v1.x")
+## Parity with dbt Core v1.x
 
 Fusion supports nearly all of dbt Core v1.x's capabilities today. Refer to [Limitations](#limitations) below for the small number of gaps that remain.
 
 Fusion has also removed some deprecated features and introduced more rigorous validation of erroneous project code compared to dbt Core v1.x. Refer to the [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md) for details.
 
-## Features and capabilities[​](#features-and-capabilities "Direct link to Features and capabilities")
+## Features and capabilities
 
 Fusion gives your team faster development workflows with semantic and syntax error detection, a faster linter, column-level lineage, language server and VS Code integration, docs v2 (full), and data diff. The dbt VS Code extension adds editor features like IntelliSense, hover info, and inline errors on top, powered by the LSP.
 
@@ -87,7 +75,7 @@ tip
 
 dbt platform [features](../platform/about-platform/dbt-platform-features.md) (like [Advanced CI](../deploy/advanced-ci.md), [dbt Mesh](../mesh/about-mesh.md), and more) are the enterprise layer on top of Fusion — available no matter how you run dbt, depending on your [dbt plan](https://www.getdbt.com/pricing).
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 If your project uses any of the following, you can still use Fusion, but full migration may not be possible yet:
 
@@ -100,22 +88,12 @@ note
 
 We have been moving quickly to implement many of these features ahead of General Availability. Read more about [the path to GA](https://docs.getdbt.com/blog/dbt-fusion-engine-path-to-ga), and track our progress in the [`dbt-fusion` milestones](https://github.com/dbt-labs/dbt-fusion/milestones).
 
-<!-- -->
-
 | Feature                                                                                                               | This will affect you if...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | GitHub issue                                                      |
 | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | [Programmatic invocations](../../reference/programmatic-invocations.md)                             | You use dbt Core’s Python API for triggering invocations and registering callbacks on events/logs. Note that Fusion’s logging system is a work in progress.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [dbt-fusion#10](https://github.com/dbt-labs/dbt-fusion/issues/10) |
 | [Linting using SQLFluff](../deploy/continuous-integration.md#to-configure-sqlfluff-linting) | You use SQLFluff for linting in CI or local development. SQLFluff is not natively compatible with the dbt Fusion engine but we provide a [SQLFluff compatible high performance alternative](../../reference/commands/lint.md?version=2.0) with Fusion. Support varies by where you run it:<br /><br />**dbt platform CI jobs**: SQLFluff linting is not available when running on Fusion.<br />**Studio IDE**: SQLFluff linting works, but uses the dbt Core engine templater rather than Fusion.<br />**Local development**: You can run SQLFluff locally using the standalone dbt Core engine templater as a workaround. A native Fusion linter is available with [`dbt lint` command](../../reference/commands/lint.md?version=2.0) | [dbt-fusion#11](https://github.com/dbt-labs/dbt-fusion/issues/11) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Package support[​](#package-support "Direct link to Package support")
-
-<!-- -->
+## Package support
 
 To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
@@ -130,9 +108,7 @@ Fivetran package considerations:
 * The Fivetran `source` and `transformation` packages have been combined into a single package.
 * If you manually installed source packages like `fivetran/github_source`, you need to ensure `fivetran/github` is installed and deactivate the transformation models.
 
-<!-- -->
-
-#### Package compatibility messages[​](#package-compatibility-messages "Direct link to Package compatibility messages")
+#### Package compatibility messages
 
 Inconsistent Fusion warnings and `dbt-autofix` logs
 
@@ -156,9 +132,7 @@ Here's an example of a Fusion warning in the Studio IDE that says a package is
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
-<!-- -->
-
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](./supported-features.md)

@@ -1,11 +1,11 @@
 # Best practices
 
-## Putting it all together[​](#putting-it-all-together "Direct link to Putting it all together")
+## Putting it all together
 
 * 📊 We've walked through **creating semantic models and metrics** for basic coverage of a key business area.
 * 🔁 In doing so we've looked at how to **refactor a frozen rollup** into a dynamic, flexible new life in the Semantic Layer.
 
-## Best practices[​](#best-practices "Direct link to Best practices")
+## Best practices
 
 * ✅ **Prefer normalization** when possible to allow MetricFlow to denormalize dynamically for end users.
 * ✅ Use **marts to denormalize** when needed, for instance grouping tables together into richer components, or getting measures on dimensional tables attached to a table with a time spine.
@@ -13,13 +13,13 @@
 * ✅ **Prefer** computing values in **measures and metrics** when possible as opposed to in frozen rollups.
 * ❌ **Don't directly refactor the code you have in production**, build in parallel so you can audit the Semantic Layer output and deprecate old marts gracefully.
 
-## Key commands[​](#key-commands "Direct link to Key commands")
+## Key commands
 
 * 🔑 Use `dbt parse` to generate a fresh semantic manifest.
 * 🔑 Use `dbt sl list dimensions --metrics [metric name]` to check that you're increasing dimensionality as you progress.
 * 🔑 Use `dbt sl query [query options]` to preview the output from your metrics as you develop.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * 🗺️ Use these best practices to map out your team's plan to **incrementally adopt the Semantic Layer**.
 * 🤗 Get involved in the community and ask questions, **help craft best practices**, and share your progress in building a Semantic Layer.

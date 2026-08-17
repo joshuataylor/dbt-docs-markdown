@@ -1,39 +1,27 @@
 # Connect Cloudera Impala to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Cloudera
-* **Authors**:
-  <!-- -->
-  Cloudera
+* **Maintained by**: Cloudera
+* **Authors**: Cloudera
 * **GitHub repo**: [cloudera/dbt-impala](https://github.com/cloudera/dbt-impala) [![](https://img.shields.io/github/stars/cloudera/dbt-impala?style=for-the-badge)](https://github.com/cloudera/dbt-impala)
 * **PyPI package**: `dbt-impala` [![](https://badge.fury.io/py/dbt-impala.svg)](https://badge.fury.io/py/dbt-impala)
 * **Slack channel**: [#db-impala](https://getdbt.slack.com/archives/C01PWAH41A5)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.1.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.1.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-impala
+## Installing dbt-impala
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-impala`
 
-## Configuring <!-- -->dbt-impala<!-- -->
+## Configuring dbt-impala
 
-For <!-- -->Impala<!-- -->-specific configuration, please refer to [Impala<!-- --> configs.](../../../reference/resource-configs/impala-configs.md)
+For Impala-specific configuration, please refer to [Impala configs.](../../../reference/resource-configs/impala-configs.md)
 
-## Connection Methods[​](#connection-methods "Direct link to Connection Methods")
+## Connection Methods
 
 dbt-impala can connect to Apache Impala and Cloudera Data Platform clusters.
 
@@ -46,7 +34,7 @@ Two transport mechanisms are supported:
 
 The default mechanism is `binary`. To use HTTP transport, use the boolean option `use_http_transport: [true / false]`.
 
-## Authentication Methods[​](#authentication-methods "Direct link to Authentication Methods")
+## Authentication Methods
 
 dbt-impala supports three authentication mechanisms:
 
@@ -54,7 +42,7 @@ dbt-impala supports three authentication mechanisms:
 * [`ldap`](#ldap) Authentication via LDAP
 * [`kerbros`](#kerbros) Authentication via Kerberos (GSSAPI)
 
-### Insecure[​](#insecure "Direct link to Insecure")
+### Insecure
 
 This method is only recommended if you have a local install of Impala and want to test out the dbt-impala adapter.
 
@@ -73,7 +61,7 @@ your_profile_name:
       
 ```
 
-### LDAP[​](#ldap "Direct link to LDAP")
+### LDAP
 
 LDAP allows you to authenticate with a username & password when Impala is [configured with LDAP Auth](https://impala.apache.org/docs/build/html/topics/impala_ldap.html). LDAP is supported over Binary & HTTP connection mechanisms.
 
@@ -103,7 +91,7 @@ your_profile_name:
 
 Note: When creating workload user in CDP ensure that the user has CREATE, SELECT, ALTER, INSERT, UPDATE, DROP, INDEX, READ, and WRITE permissions. If the user is required to execute GRANT statements, see for instance (/reference/resource-configs/grants) or (/reference/project-configs/on-run-start-on-run-end) appropriate GRANT permissions should be configured. When using Apache Ranger, permissions for allowing GRANT are typically set using "Delegate Admin" option.
 
-### Kerberos[​](#kerberos "Direct link to Kerberos")
+### Kerberos
 
 The Kerberos authentication mechanism uses GSSAPI to share Kerberos credentials when Impala is [configured with Kerberos Auth](https://impala.apache.org/docs/build/html/topics/impala_kerberos.html).
 
@@ -135,13 +123,13 @@ Note: A typical setup of Cloudera EDH will involve the following steps to setup 
 * Obtain keytab using kinit (kinit <username@YOUR_REALM.YOUR_DOMAIN>)
 * The keytab is valid for certain period after which you will need to run kinit again to renew validity of the keytab.
 
-### Instrumentation[​](#instrumentation "Direct link to Instrumentation")
+### Instrumentation
 
 By default, the adapter will send instrumentation events to Cloudera to help improve functionality and understand bugs. If you want to specifically switch this off, for instance, in a production environment, you can explicitly set the flag `usage_tracking: false` in your `profiles.yml` file.
 
 To turn off dbt Labs anonymous usage tracking, refer to [Anonymous usage stats](../../../reference/global-configs/usage-stats.md) for more details.
 
-### Supported Functionality[​](#supported-functionality "Direct link to Supported Functionality")
+### Supported Functionality
 
 | Name                                            | Supported |
 | ----------------------------------------------- | --------- |
@@ -157,9 +145,3 @@ To turn off dbt Labs anonymous usage tracking, refer to [Anonymous usage stats](
 | Documentation                                   | Yes       |
 | Authentication: LDAP                            | Yes       |
 | Authentication: Kerberos                        | Yes       |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

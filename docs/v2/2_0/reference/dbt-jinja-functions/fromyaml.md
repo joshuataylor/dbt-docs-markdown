@@ -7,7 +7,7 @@ The `fromyaml` context method can be used to deserialize a YAML string into a Py
 * `string`: The YAML string to deserialize (required)
 * `default`: A default value to return if the `string` argument cannot be deserialized (optional)
 
-### Usage:[​](#usage "Direct link to Usage:")
+### Usage:
 
 ```text
 {% set my_yml_str -%}

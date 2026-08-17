@@ -1,18 +1,18 @@
 # Hooks and operations
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [pre-hook & post-hook](../../reference/resource-configs/pre-hook-post-hook.md)
 * [on-run-start & on-run-end](../../reference/project-configs/on-run-start-on-run-end.md)
 * [`run-operation` command](../../reference/commands/run-operation.md)
 
-### Assumed knowledge[​](#assumed-knowledge "Direct link to Assumed knowledge")
+### Assumed knowledge
 
 * [Project configurations](../../reference/dbt_project.yml.md)
 * [Model configurations](../../reference/model-configs.md)
 * [Macros](./jinja-macros.md#macros)
 
-## Getting started with hooks and operations[​](#getting-started-with-hooks-and-operations "Direct link to Getting started with hooks and operations")
+## Getting started with hooks and operations
 
 Effective database administration sometimes requires additional SQL statements to be run, for example:
 
@@ -27,7 +27,7 @@ Effective database administration sometimes requires additional SQL statements t
 
 dbt provides hooks and operations so you can version control and execute these statements as part of your dbt project.
 
-## About hooks[​](#about-hooks "Direct link to About hooks")
+## About hooks
 
 Hooks are snippets of SQL that are executed at different times:
 
@@ -50,7 +50,7 @@ If (and only if) you can't leverage the [`grants` resource-config](../../referen
 * Need to apply `grants` in a more complex way, which the dbt Core `grants` config doesn't (yet) support.
 * Need to perform post-processing that dbt does not support out-of-the-box. For example, `analyze table`, `alter table set property`, `alter table ... add row access policy`, etc.
 
-### Examples using hooks[​](#examples-using-hooks "Direct link to Examples using hooks")
+### Examples using hooks
 
 You can use hooks to trigger actions at certain times when running an operation or building a model, seed, or snapshot.
 
@@ -68,7 +68,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-### Calling a macro in a hook[​](#calling-a-macro-in-a-hook "Direct link to Calling a macro in a hook")
+### Calling a macro in a hook
 
 You can also use a [macro](./jinja-macros.md#macros) to bundle up hook logic. Check out some of the examples in the reference sections for [on-run-start and on-run-end hooks](../../reference/project-configs/on-run-start-on-run-end.md) and [pre- and post-hooks](../../reference/resource-configs/pre-hook-post-hook.md).
 
@@ -101,7 +101,7 @@ models:
       - "{{ some_macro() }}"
 ```
 
-## About operations[​](#about-operations "Direct link to About operations")
+## About operations
 
 Operations are [macros](./jinja-macros.md#macros) that you can run using the [`run-operation`](../../reference/commands/run-operation.md) command. As such, operations aren't actually a separate resource in your dbt project — they are just a convenient way to invoke a macro without needing to run a model.
 
@@ -136,7 +136,7 @@ Privileges granted
 
 Full usage docs for the `run-operation` command can be found [here](../../reference/commands/run-operation.md).
 
-## Additional examples[​](#additional-examples "Direct link to Additional examples")
+## Additional examples
 
 These examples from the community highlight some of the use-cases for hooks and operations!
 

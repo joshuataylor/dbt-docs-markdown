@@ -1,6 +1,6 @@
 # dbt VS Code extension features [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 The dbt VS Code extension requires the dbt Fusion engine and uses a dynamic Language Server Protocol (LSP) to provide a fast, intelligent, and cost-efficient dbt development experience with enhanced workflows and easy navigation.
 
@@ -10,11 +10,11 @@ All dbt VS Code extension features are available to all users for 14 days. After
 
 See the [feature availability](#feature-availability) table for the full list of features and what each needs.
 
+(Applies to dbt v1.13 and later)
+
 In dbt v2.0 and later, authentication for registration and features that require sign-in is handled by [`dbt login`](../reference/commands/login.md?version=2.0), so your login state is shared across dbt tools like the dbt VS Code extension and, in supported versions, dbt State.
 
-<!-- -->
-
-## Feature availability[​](#feature-availability "Direct link to Feature availability")
+## Feature availability
 
 The dbt VS Code extension is free to install. All features work for 14 days with no login; after that, the vast majority keep working, and a few advanced features need a free dbt platform account (sign in or register with your email, or run `dbt login`).
 
@@ -37,13 +37,7 @@ The dbt VS Code extension is free to install. All features work for 14 days with
 | SQL LSP go-to column and CTE                               | -                                | ✅                                                            |
 | SQL LSP hover to see the schema for `select *`             | -                                | ✅                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Lightning-fast parse times[​](#lightning-fast-parse-times "Direct link to Lightning-fast parse times")
+## Lightning-fast parse times
 
 Parse even the largest projects up to 30x faster than with dbt Core.
 
@@ -51,7 +45,7 @@ Parse even the largest projects up to 30x faster than with dbt Core.
 
 [](/img/docs/extension/zoomzoom.mp4)
 
-## View compiled code[​](#view-compiled-code "Direct link to View compiled code")
+## View compiled code
 
 Get a live view of the SQL code your models will build — right alongside your dbt code.
 
@@ -64,7 +58,7 @@ Usage:
 
 [](/img/docs/extension/compiled-code.mp4)
 
-## Build flexibly[​](#build-flexibly "Direct link to Build flexibly")
+## Build flexibly
 
 Use the command palette to quickly build models using complex selectors.
 
@@ -75,7 +69,7 @@ Usage:
 
 [](/img/docs/extension/build-flexibly.mp4)
 
-## Live error detection[​](#live-error-detection "Direct link to Live error detection")
+## Live error detection
 
 Automatically validate your SQL code to detect errors and surface warnings without hitting the warehouse.
 
@@ -98,7 +92,7 @@ L2 Fusion SQL comprehension diagnostics (depends on strict static analysis):
 
 [](/img/docs/extension/live-error-detection.mp4)
 
-## Powerful IntelliSense[​](#powerful-intellisense "Direct link to Powerful IntelliSense")
+## Powerful IntelliSense
 
 Autocomplete SQL functions, model names, macros, and more.
 
@@ -109,7 +103,7 @@ Autocomplete SQL functions, model names, macros, and more.
 
 [![Example of the VS Code extension IntelliSense](/img/docs/extension/vsce-intellisense.gif?v=2 "Example of the VS Code extension IntelliSense")](#)Example of the VS Code extension IntelliSense
 
-## Instant refactoring[​](#instant-refactoring "Direct link to Instant refactoring")
+## Instant refactoring
 
 Rename models or columns and see references update project-wide.
 
@@ -119,7 +113,6 @@ Renaming models:
 
 * Right-click on a file in the file tree and select **Rename**.
 * After renaming the file, you'll get a prompt asking if you want to make refactoring changes.
-  <!-- -->
   * Select **OK** to apply the changes, or **Show Preview** to display a preview of refactorings.
 * After applying your changes, `ref`s should be updated to use the updated model name.
 
@@ -131,7 +124,6 @@ Column renaming depends on strict static analysis, which validates column refere
 
 * Right-click on a column alias and select **Rename Symbol**.
 * After renaming the column, you'll get a prompt asking if you want to make refactoring changes.
-  <!-- -->
   * Select **OK** to apply the changes, or **Show Preview** to show a preview of refactorings.
 * After applying your changes, downstream references to the column should be updated to use the new column name.
 
@@ -139,7 +131,7 @@ Note: Renaming models and columns is not yet supported for snapshots, or any res
 
 [](/img/docs/extension/refactor.mp4)
 
-## Go-to-definition and reference[​](#go-to-definition-and-reference "Direct link to Go-to-definition and reference")
+## Go-to-definition and reference
 
 Jump to the definition of any `ref`, macro, model, or column with a single click. Particularly useful in large projects with many models and macros. Excludes definitions from installed packages.
 
@@ -158,7 +150,7 @@ Column and CTE go-to-definition (depends on `strict` static analysis):
 
 [](/img/docs/extension/go-to-definition.mp4)
 
-## Rich lineage in context[​](#rich-lineage-in-context "Direct link to Rich lineage in context")
+## Rich lineage in context
 
 See lineage at the column or table level as you develop — no context switching or breaking flow.
 
@@ -191,7 +183,7 @@ View column lineage:
 
 [](/img/docs/extension/lineage.mp4)
 
-## Hover insights[​](#hover-insights "Direct link to Hover insights")
+## Hover insights
 
 See context on tables, columns, and functions without leaving your code. Simply hover over any SQL element to see details like column names and data types.
 
@@ -206,7 +198,7 @@ Usage:
 
 [](/img/docs/extension/hover-insights.mp4)
 
-## Live preview for models and CTEs[​](#live-preview-for-models-and-ctes "Direct link to Live preview for models and CTEs")
+## Live preview for models and CTEs
 
 Preview query output directly from inside your editor for faster validation and debugging.
 
@@ -224,7 +216,7 @@ CTE preview:
 
 [](/img/docs/extension/preview-cte.mp4)
 
-## Explore your catalog [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#explore-your-catalog- "Direct link to explore-your-catalog-")
+## Explore your catalog [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 **Requires registration:**
 
@@ -241,7 +233,7 @@ The **Catalog** tab is an advanced feature. Before your 14-day trial expires, [r
 
 [![Example of the Catalog tab in the dbt VS Code extension](/img/docs/extension/vsce-catalog-tab.png?v=2 "Example of the Catalog tab in the dbt VS Code extension")](#)Example of the Catalog tab in the dbt VS Code extension
 
-## Generate a system report[​](#generate-a-system-report "Direct link to Generate a system report")
+## Generate a system report
 
 Generate a system report to collect your VS Code extension logs and system information into a zip file. This is useful when troubleshooting issues with the dbt VS Code extension. You can share the zip file with dbt Labs support to help diagnose problems.
 
@@ -252,15 +244,15 @@ To generate and download a system report:
 3. Choose a location to save the .zip file when prompted.
 4. A notification will confirm where the file was saved.
 
-<!-- -->
-
-## Compare changes in development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#compare-changes-in-development- "Direct link to compare-changes-in-development-")
+## Compare changes in development [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Requires registration
 
 Advanced capabilities are available to all users for 14 days. After the 14-day trial, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features. Existing registered dbt VS Code extension users keep access automatically.
 
-Authentication is handled by [`dbt login`](../reference/commands/login.md?version=2.0), so your login state is shared across the CLI, dbt VS Code extension, and <!-- -->.
+(Applies to dbt v2.0 and later)
+
+Authentication is handled by [`dbt login`](../reference/commands/login.md?version=2.0), so your login state is shared across the CLI, dbt VS Code extension, and .
 
 You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 

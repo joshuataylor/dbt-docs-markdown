@@ -1,13 +1,12 @@
 # About the Studio IDE
 
-dbt platformⓘ
+dbt platform
 
 The dbt integrated development environment (Studio IDE) is a single web-based interface for building, testing, running, and version-controlling dbt projects. It compiles dbt code into SQL and executes it directly on your database.
 
 The Studio IDE offers several [keyboard shortcuts](./keyboard-shortcuts.md) and [editing features](./ide-user-interface.md#editing-features) for faster and efficient development and governance:
 
 * Agentic development: [dbt Wizard](../../dbt-ai/wizard-ide.md) is the new and recommended AI agent for governed data development in dbt. It uses your project context to help you develop governed dbt changes faster.
-  <!-- -->
   * [dbt Copilot](./develop-studio-ai.md#dbt-copilot-in-studio-ide) is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 * Auto-completion: Suggests tables, arguments, and columns as you type.
 * Code [formatting and linting](./lint-format.md): Standardizes and fixes SQL code.
@@ -27,7 +26,7 @@ Disable ad blockers
 
 To improve your experience using dbt, we suggest that you turn off ad blockers. This is because some project file names, such as `google_adwords.sql`, might resemble ad traffic and trigger ad blockers.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](../manage-access/seats-and-users.md)
 * A git repository set up and git provider must have `write` access enabled. See [Connecting your GitHub Account](../git/connect-github.md) or [Importing a project by git URL](../git/import-a-project-by-git-url.md) for detailed setup instructions
@@ -35,7 +34,7 @@ To improve your experience using dbt, we suggest that you turn off ad blockers. 
 * A [development environment and user credentials](#get-started-with-the-studio-ide) set up
 * The environment must be on dbt version 1.0 or higher
 
-## Studio IDE features[​](#studio-ide-features "Direct link to Studio IDE features")
+## Studio IDE features
 
 The Studio IDE comes with features that make it easier for you to develop, build, compile, run, and test data models.
 
@@ -59,23 +58,17 @@ To understand how to navigate the Studio IDE and its user interface elements, re
 | **Status bar**                                                                                     | This area provides you with useful information about your Studio IDE and project status. You also have additional options like enabling light or dark mode, restarting the Studio IDE, or [recloning your repo](../git/version-control-basics.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | **Dark mode**                                                                                      | From the status bar in the Studio IDE, enable dark mode for a great viewing experience in low-light environments.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Code generation[​](#code-generation "Direct link to Code generation")
+### Code generation
 
 The Studio IDE comes with **CodeGenCodeLens**, a powerful feature that simplifies creating models from your sources with a click of a button. To use this feature, click on the **Generate model** action next to each table in the source YAML file(s). It automatically creates a basic starting staging model for you to expand on. This feature helps streamline your workflow by automating the first steps of model generation.
 
-### dbt YAML validation[​](#dbt-yaml-validation "Direct link to dbt YAML validation")
+### dbt YAML validation
 
 The Studio IDE uses JSON Schema from the open source [dbt-jsonschema](https://github.com/dbt-labs/dbt-jsonschema) project to power YAML completion, structure checks, and inline diagnostics. These schemas are aligned with the dbt Fusion engine specification and apply across [dbt platform release tracks](../../dbt-versions/dbt-release-tracks.md), even when your development environment is running dbt Core.
 
 If a warning looks wrong but dbt commands succeed, trust your project commands and report the discrepancy so the schema can be improved. For background on the latest Semantic Layer YAML shape, see [Migrate to the latest YAML spec](../../build/latest-metrics-spec.md).
 
-### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+### dbt Wizard
 
 [dbt Wizard](../../dbt-ai/wizard-ide.md) helps you develop trusted dbt projects faster in the Studio IDE. It understands more than the file you’re editing. It uses dbt's native metadata engine to understand your project’s lineage, model health, test coverage, and semantic definitions, so it can provide answers and suggestions based on your *full* project context.
 
@@ -90,8 +83,6 @@ For data practitioners, this means less time context-switching between files, le
 
 To get started, refer to [dbt Wizard in the Studio IDE](../../dbt-ai/wizard-ide.md).
 
-<!-- -->
-
 info
 
 dbt Wizard is the new and recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
@@ -100,7 +91,7 @@ dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experi
 
 Refer to [dbt AI FAQs](../../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
-## Get started with the Studio IDE[​](#get-started-with-the-studio-ide "Direct link to Get started with the Studio IDE")
+## Get started with the Studio IDE
 
 In order to start experiencing the great features of the Studio IDE, you need to first set up a [dbt development environment](../../dbt-platform-environments.md). In the following steps, we outline how to set up user credentials and access the Studio IDE. If you're creating a new project, you will automatically configure this during the project setup.
 
@@ -121,7 +112,7 @@ Set up your user credentials:
 
 Nice job, you're ready to start developing and building models 🎉!
 
-### Considerations[​](#considerations "Direct link to Considerations")
+### Considerations
 
 * To improve your experience using dbt, we suggest that you turn off ad blockers. This is because some project file names, such as `google_adwords.sql`, might resemble ad traffic and trigger ad blockers.
 
@@ -133,7 +124,7 @@ Nice job, you're ready to start developing and building models 🎉!
 
   The following sections describe the start-up process and work retention in the Studio IDE.
 
-  * #### Start-up process[​](#start-up-process "Direct link to Start-up process")
+  * #### Start-up process
 
     There are three start-up states when using or launching the Studio IDE:
 
@@ -143,7 +134,7 @@ Nice job, you're ready to start developing and building models 🎉!
       <br />
       <br />
 
-  * #### Work retention[​](#work-retention "Direct link to Work retention")
+  * #### Work retention
 
     The Studio IDE needs explicit action to save your changes. There are three ways your work is stored:
 
@@ -154,7 +145,7 @@ Nice job, you're ready to start developing and building models 🎉!
     * **Saved but uncommitted code —** When you save a file, the data gets stored in durable, long-term storage, but isn't synced back to git. To switch branches using the **Change branch** option, you must "Commit and sync" or "Revert" changes. Changing branches isn't available for saved-but-uncommitted code. This is to ensure your uncommitted changes don't get lost.
     * **Committed code —** This is stored in the branch with your git provider and you can check out other (remote) branches.
 
-## Build and document your projects[​](#build-and-document-your-projects "Direct link to Build and document your projects")
+## Build and document your projects
 
 * **Build, compile, and run projects** — You can *build*, *compile*, *run*, and *test* dbt projects using the command bar or **Build** button. Use the **Build** button to quickly build, run, or test the model you're working on. The Studio IDE will update in real time when you run models, tests, seeds, and operations.
 
@@ -169,14 +160,14 @@ Nice job, you're ready to start developing and building models 🎉!
 
 * **Build and view your project's docs** — The Studio IDE makes it possible to [build and view](../../explore/build-and-view-your-docs.md) documentation for your dbt project while your code is still in development. With this workflow, you can inspect and verify what your project's generated documentation will look like before your changes are released to production.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [How we style our dbt projects](../../../best-practices/how-we-style/0-how-we-style-our-dbt-projects.md)
 * [User interface](./ide-user-interface.md)
 * [Version control basics](../git/version-control-basics.md)
 * [dbt commands](../../../reference/dbt-commands.md)
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Is there a cost to using the Studio IDE?
 

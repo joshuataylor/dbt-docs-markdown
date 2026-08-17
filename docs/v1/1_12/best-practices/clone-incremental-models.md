@@ -22,7 +22,7 @@ When you open a pull request (PR) that modifies `dim_wizards`, your CI job will 
 
 This build mimics the behavior of what will happen once the PR is merged into the main branch. It ensures you're not introducing breaking changes, without needing to build your entire dbt project.
 
-## What happens when one of the modified models (or one of their downstream dependencies) is an incremental model?[​](#what-happens-when-one-of-the-modified-models-or-one-of-their-downstream-dependencies-is-an-incremental-model "Direct link to What happens when one of the modified models (or one of their downstream dependencies) is an incremental model?")
+## What happens when one of the modified models (or one of their downstream dependencies) is an incremental model?
 
 Because your CI job is building modified models into a PR-specific schema, on the first execution of `dbt build --select state:modified+`, the modified incremental model will be built in its entirety *because it does not yet exist in the PR-specific schema* and [is\_incremental will be false](../docs/build/incremental-models.md#understand-the-is_incremental-macro). You're running in `full-refresh` mode.
 
@@ -53,7 +53,7 @@ Because of your first clone step, the incremental models selected in your `dbt b
 
 Your CI jobs will run faster, and you're more accurately mimicking the behavior of what will happen once the PR has been merged into main.
 
-### Expansion on "think schema drift" where [on\_schema\_change](../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`" from above[​](#expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above "Direct link to expansion-on-think-schema-drift-where-on_schema_change-config-is-set-to-fail-from-above")
+### Expansion on "think schema drift" where [on\_schema\_change](../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change) config is set to `fail`" from above
 
 Imagine you have an incremental model `my_incremental_model` with the following config:
 
@@ -80,6 +80,6 @@ If you have a daily production job that just executes `dbt build` without a `--f
 
 There’s probably no perfect solution here; it’s all just tradeoffs! Our preference would be to have the failing CI job and have to manually override the blocking branch protection rule so that there are no surprises and we can proactively run the appropriate command in production once the PR is merged.
 
-### Expansion on "why `state:old`"[​](#expansion-on-why-stateold "Direct link to expansion-on-why-stateold")
+### Expansion on "why `state:old`"
 
 For brand new incremental models, you want them to run in `full-refresh` mode in CI, because they will run in `full-refresh` mode in production when the PR is merged into `main`. They also don't exist yet in the production environment... they're brand new! If you don't specify this, you won't get an error just a “No relation found in state manifest for…”. So, it technically works without specifying `state:old` but adding `state:old` is more explicit and means it won't even try to clone the brand new incremental models.

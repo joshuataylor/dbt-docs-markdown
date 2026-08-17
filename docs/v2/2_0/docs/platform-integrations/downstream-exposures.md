@@ -1,10 +1,8 @@
 # Visualize and orchestrate downstream exposures
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Visualize and orchestrate downstream exposures in dbt to automatically generate exposures from dashboards and proactively refresh the underlying data sources (like Tableau extracts) during scheduled dbt jobs.
-
-<!-- -->
 
 The following table summarizes the differences between visualizing and orchestrating downstream exposures:
 
@@ -15,12 +13,6 @@ The following table summarizes the differences between visualizing and orchestra
 | Location          | Exposed in dbt [Catalog](../explore/explore-projects.md) | Exposed in [dbt scheduler](../deploy/deployments.md)                                                                                             |
 | Supported BI tool | Tableau                                                                            | Tableau                                                                                                                                                                    |
 | Use case          | Helps users understand how models are used and reduces incidents.                  | Optimizes timeliness and reduces costs by running models when needed.                                                                                                      |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Check out the following sections for more information on visualizing and orchestrating downstream exposures:
 

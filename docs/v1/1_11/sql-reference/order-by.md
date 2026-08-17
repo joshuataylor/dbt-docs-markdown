@@ -2,7 +2,7 @@
 
 The ORDER BY clause allows you to specify the resulting row order for a query. In practice, you use the ORDER BY clause to indicate which field(s) you want to order by and in what type of order you want (ascending or descending). It’s useful to leverage during ad hoc analyses and for creating appropriate column values for partitioned rows in window functions.
 
-## How to use the SQL ORDER BY clause[​](#how-to-use-the-sql-order-by-clause "Direct link to How to use the SQL ORDER BY clause")
+## How to use the SQL ORDER BY clause
 
 ORDER BY clauses have multiple use cases in analytics work, but we see it most commonly utilized to:
 
@@ -23,7 +23,7 @@ You can order a query result by multiple columns, represented by their column na
 
 Let’s take a look at a practical example using ORDER BY.
 
-### ORDER BY example[​](#order-by-example "Direct link to ORDER BY example")
+### ORDER BY example
 
 ```sql
 select
@@ -43,17 +43,11 @@ This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) 
 | 2018-02-01   | 15                 |
 | 2018-01-01   | 17                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL ORDER BY syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-order-by-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL ORDER BY syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL ORDER BY syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Since the ORDER BY clause is a SQL fundamental, data warehouses, including Snowflake, Databricks, Google BigQuery, and Amazon Redshift, all support the ability to add ORDER BY clauses in queries and window functions.
 
-## ORDER BY use cases[​](#order-by-use-cases "Direct link to ORDER BY use cases")
+## ORDER BY use cases
 
 We most commonly see the ORDER BY clause used in data work to:
 

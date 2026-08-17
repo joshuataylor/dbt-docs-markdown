@@ -6,12 +6,6 @@
 | Matured (default → `true`)                       | Sep 1, 2026    | 1.12.0   |
 | Removed                                          | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 Starting in dbt Core v1.12, the `require_all_warnings_handled_by_warn_error` flag defaults to `true`.
@@ -44,7 +38,7 @@ We recommend the following rollout plan when setting the `require_all_warnings_h
 
 5. Enable the flag in your production environment.
 
-## Impact[​](#impact "Direct link to Impact")
+## Impact
 
 This only affects projects that use `warn_error: true` or `--warn-error` — common in CI or in dbt platform production jobs configured for strict mode. Projects without `--warn-error` are not affected.
 

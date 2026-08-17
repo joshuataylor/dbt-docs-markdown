@@ -1,25 +1,24 @@
 # Retry your dbt jobs
 
-dbt platformⓘ
+dbt platform
 
 If your dbt job run completed with a status of **Error**, you can rerun it from start or from the point of failure in dbt.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup).
 * You must be using [dbt version](../dbt-versions/upgrade-dbt-platform-version.md) 1.6 or newer.
 * dbt can successfully parse the project and generate a [manifest](../../reference/artifacts/manifest-json.md)
 * The most recent run of the job hasn't completed successfully. The latest status of the run is **Error**.
-  <!-- -->
   * The job command that failed in the run must be one that supports the [retry command](../../reference/commands/retry.md).
 
-## Rerun an errored job[​](#rerun-an-errored-job "Direct link to Rerun an errored job")
+## Rerun an errored job
 
 1. Select **Deploy** from the top navigation bar and choose **Run History.**
 
 2. Choose the job run that has errored.
 
-3. In the **Run Summary** tab on the job’s **Run** page, expand the run step that failed. An <!-- -->❌<!-- --> denotes the failed step.
+3. In the **Run Summary** tab on the job’s **Run** page, expand the run step that failed. An ❌ denotes the failed step.
 
 4. Examine the error message and determine how to fix it. After you have made your changes, save and commit them to your [Git repo](../platform/git/git-version-control.md).
 
@@ -29,7 +28,7 @@ If your dbt job run completed with a status of **Error**, you can rerun it from 
 
 [![Example of the Rerun options in dbt](/img/docs/deploy/native-retry.gif?v=2 "Example of the Rerun options in dbt")](#)Example of the Rerun options in dbt
 
-## Related content[​](#related-content "Direct link to Related content")
+## Related content
 
 * [Retry a failed run for a job](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Retry%20Failed%20Job) API endpoint
 * [Run visibility](./run-visibility.md)

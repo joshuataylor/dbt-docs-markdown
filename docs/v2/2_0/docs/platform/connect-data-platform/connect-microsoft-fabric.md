@@ -1,8 +1,8 @@
 # Connect Microsoft Fabric
 
-dbt platformⓘ
+dbt platform
 
-## Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
+## Supported authentication methods
 
 The supported authentication methods are:
 
@@ -11,7 +11,7 @@ The supported authentication methods are:
 
 SQL password (LDAP) is not supported in Microsoft Fabric Data Warehouse so you must use Microsoft Entra ID. This means that to use [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) in dbt, you will need at least one Microsoft Entra service principal to connect dbt to Fabric, ideally one service principal for each user.
 
-### Microsoft Entra service principal[​](#microsoft-entra-service-principal "Direct link to Microsoft Entra service principal")
+### Microsoft Entra service principal
 
 The following are the required fields for setting up a connection with a Microsoft Fabric using Microsoft Entra service principal authentication.
 
@@ -25,13 +25,7 @@ The following are the required fields for setting up a connection with a Microso
 | **Client ID**      | The service principal's **application (client) ID id**.                                                                  |
 | **Client secret**  | The service principal's **client secret** (not the **client secret id**).                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Microsoft Entra password[​](#microsoft-entra-password "Direct link to Microsoft Entra password")
+### Microsoft Entra password
 
 The following are the required fields for setting up a connection with a Microsoft Fabric using Microsoft Entra password authentication.
 
@@ -44,12 +38,6 @@ The following are the required fields for setting up a connection with a Microso
 | **User**           | The Microsoft Entra username.                                                                    |
 | **Password**       | The Microsoft Entra password.                                                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Fabric Data Warehouse configurations](../../../reference/resource-configs/fabric-configs.md).

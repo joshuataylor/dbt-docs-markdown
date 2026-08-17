@@ -1,16 +1,16 @@
 # Integrate Snowflake Cortex agents with dbt MCP
 
-dbt platformⓘ
+dbt platform
 
 [Snowflake Cortex agents](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents) can call external [MCP servers](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp-connectors) as tools. This guide walks you through connecting a Cortex agent to the remote dbt MCP server so it can query your Semantic Layer metrics and dimensions in plain English from Snowflake Intelligence.
 
 The connection uses OAuth: Snowflake registers itself with dbt platform through Dynamic Client Registration (DCR) with PKCE, so you don't store a client secret in Snowflake. Each user completes their own OAuth consent the first time they use the agent, which means the agent respects each user's existing dbt permissions and project access.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before connecting a Cortex agent to the remote dbt MCP server, make sure you have the following in place.
 
-#### In dbt platform[​](#in- "Direct link to in-")
+#### In dbt platform
 
 Make sure the following are set up before connecting from Snowflake:
 
@@ -36,11 +36,9 @@ Make sure the following are set up before connecting from Snowflake:
 
   For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
-  <!-- -->
-
   Use the host portion of this URL in the Snowflake SQL, for example `abc123.us1.dbt.com`.
 
-#### In Snowflake[​](#in-snowflake "Direct link to In Snowflake")
+#### In Snowflake
 
 * Snowflake Intelligence and Cortex agents enabled in your account and region.
 * External MCP connectors available for your account. Confirm availability with your Snowflake account team.
@@ -51,7 +49,7 @@ Optional: native SQL execution
 
 Cortex agents can compile and execute Semantic Layer queries without extra setup. To also allow ad hoc SQL against Snowflake, configure project read credentials in **Settings → Credentials** in dbt platform. Without those credentials, the agent can still compile Semantic Layer SQL and execute it natively on Snowflake.
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Parameters
 
 The SQL on this page uses placeholders. Replace each one with your own value before running:
 
@@ -65,11 +63,11 @@ The SQL on this page uses placeholders. Replace each one with your own value bef
 | `AGENT_NAME`                    | A name for the Cortex agent.                                                   |
 | `CORTEX_MODEL`                  | The orchestration model for the agent (for example, `claude-4-sonnet`).        |
 
-## Set up the connection[​](#set-up-the-connection "Direct link to Set up the connection")
+## Set up the connection
 
 The following steps register the remote dbt MCP server with Snowflake and connect it to a Cortex agent. Steps 1–3 run as Snowflake SQL. Step 4 starts in Snowflake Intelligence and redirects each user to dbt platform to complete OAuth authorization.
 
-### Step 1: Create the API integration[​](#step-1-create-the-api-integration "Direct link to Step 1: Create the API integration")
+### Step 1: Create the API integration
 
 In Snowflake, run this as `ACCOUNTADMIN`. The integration tells Snowflake how to reach the remote dbt MCP endpoint and how to complete OAuth using Dynamic Client Registration with PKCE (no client secret).
 
@@ -92,7 +90,7 @@ CREATE API INTEGRATION IF NOT EXISTS INTEGRATION_NAME
 
 The `OAUTH_TOKEN_ENDPOINT` and `OAUTH_AUTHORIZATION_ENDPOINT` use the same host as your MCP URL. The `user_access` and `offline_access` scopes let the agent act on your behalf and refresh its session without you re-authenticating each time.
 
-### Step 2: Create the external MCP server[​](#step-2-create-the-external-mcp-server "Direct link to Step 2: Create the external MCP server")
+### Step 2: Create the external MCP server
 
 In Snowflake, grant your role the ability to create an external MCP server, then create one that references the integration from Step 1.
 
@@ -106,7 +104,7 @@ CREATE EXTERNAL MCP SERVER IF NOT EXISTS TARGET_DATABASE.TARGET_SCHEMA.MCP_SERVE
   API_INTEGRATION = INTEGRATION_NAME;
 ```
 
-### Step 3: Create the Cortex agent[​](#step-3-create-the-cortex-agent "Direct link to Step 3: Create the Cortex agent")
+### Step 3: Create the Cortex agent
 
 In Snowflake, grant your role the privileges to create an agent and to use the MCP server and its integration, then create the agent.
 
@@ -141,7 +139,7 @@ CREATE AGENT IF NOT EXISTS TARGET_DATABASE.TARGET_SCHEMA.AGENT_NAME
 
 Update the `instructions` and `sample_questions` to match the metrics and dimensions in your own Semantic Layer. The `orchestration` instruction steers the agent toward the dbt Semantic Layer tools (like `list_metrics`, `get_dimensions`, and `query_metrics`) instead of writing raw SQL.
 
-### Step 4: Complete the OAuth flow[​](#step-4-complete-the-oauth-flow "Direct link to Step 4: Complete the OAuth flow")
+### Step 4: Complete the OAuth flow
 
 The agent can't query dbt until each user authorizes it. Complete the OAuth flow once per user:
 
@@ -154,7 +152,7 @@ Snowflake self-registers with dbt platform through Dynamic Client Registration o
 
 In dbt platform, admins can review and audit the connected client, and manage sessions and scopes, in **Account settings → Integrations → App integrations**. For the full registration, consent, and session model, see [Connect apps with OAuth](../platform/manage-access/connect-apps-oauth.md).
 
-## Verify the connection[​](#verify-the-connection "Direct link to Verify the connection")
+## Verify the connection
 
 Open your agent in Snowflake Intelligence and ask one of its sample questions, such as *"What are the top 10 products by revenue this quarter?"* If the connection is working, the agent calls the dbt Semantic Layer tools and returns an answer grounded in your metrics.
 
@@ -166,7 +164,7 @@ When your account runs out of dbt Copilot actions, the remote MCP server blocks 
 
 If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable until the limit resets. If you need help, contact your account manager.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  The connector won't authorize or the OAuth flow fails
 
@@ -184,7 +182,7 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 `CREATE API INTEGRATION` and `CREATE EXTERNAL MCP SERVER` require `ACCOUNTADMIN` (or a role with account-level `CREATE INTEGRATION`). Run Steps 1–2 as `ACCOUNTADMIN`, then grant `USAGE` on the MCP server and integration to the role that runs the agent (Step 3).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Set up the remote MCP server](./setup-remote-mcp.md)
 * [Available MCP tools](./mcp-available-tools.md)

@@ -4,8 +4,6 @@ The latest Semantic Layer specification creates an open standard for defining me
 
 With the new spec, you get simpler configuration without losing flexibility, faster onboarding for new contributors, and a clearer path to consistent, governed metrics across your organization.
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -14,7 +12,7 @@ The latest YAML spec is supported in the following environments:
 * **dbt Fusion engine**
 * **dbt Core v1.12**
 
-## Changes in the latest spec[​](#changes-in-the-latest-spec "Direct link to Changes in the latest spec")
+## Changes in the latest spec
 
 This section highlights the key updates in the latest metrics spec and compares them to the legacy spec.
 
@@ -25,7 +23,7 @@ This section highlights the key updates in the latest metrics spec and compares 
 * [Advanced metrics](#advanced-metrics): These are metrics that combine or build upon other metrics, such as ratios, conversions, or derived calculations. In the new spec, define simple metrics inside the model, and create cross‑model metrics under a top‑level `metrics` block. Top-level key is required for any metric that depends on metrics or dimensions defined in a different semantic model.
 * [`type_params`](#type_params): This is a wrapper key in the legacy spec that contains metric-specific configurations (for example, `expr`, `join_to_timespine`). `type_params` is deprecated in the new spec and these parameters are promoted to top-level keys within each metric definition.
 
-### Semantic models[​](#semantic-models "Direct link to Semantic models")
+### Semantic models
 
 The `semantic_model` key is embedded under `models`.
 
@@ -47,15 +45,13 @@ semantic_models:
      model: ref('orders')
 ```
 
-<!-- -->
-
 Cross-project refs unsupported in latest SL YAML spec
 
 When using [dbt Mesh](../../best-practices/how-we-mesh/mesh-1-intro.md) with the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), [referencing models from different projects](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) is only supported in the legacy YAML spec, where semantic models are defined as top-level resources and can reference models across projects.
 
 In the [latest YAML spec](./latest-metrics-spec.md), semantic models are defined within model YAML files, and cross-project references are not yet supported. Support for this capability in the latest spec is planned for a future release.
 
-### Entities and dimensions[​](#entities-and-dimensions "Direct link to Entities and dimensions")
+### Entities and dimensions
 
 Entities and dimensions are defined directly under columns, creating a 1:1 relationship between the physical columns and their semantic definitions.
 
@@ -113,7 +109,7 @@ semantic_models:
         expr: order_status
 ```
 
-### Time dimension[​](#time-dimension "Direct link to Time dimension")
+### Time dimension
 
 * `agg_time_dimension`: Set once at the model level as the default time dimension for all metrics in that semantic model. You can still override it per metric with `agg_time_dimension`.
 * `time granularity`: Deprecated in the new spec. Define the native grain on the time dimension column with `granularity` (for example, `hour`, `day`).
@@ -184,7 +180,7 @@ metrics:
       measure: active_subscriptions
 ```
 
-### Simple metrics[​](#simple-metrics "Direct link to Simple metrics")
+### Simple metrics
 
 Measures are deprecated in the new spec and are replaced with simple metrics.
 
@@ -238,7 +234,7 @@ metrics:
       measure: lifetime_spend_pretax
 ```
 
-### Advanced metrics[​](#advanced-metrics "Direct link to Advanced metrics")
+### Advanced metrics
 
 Define simple metrics inside the model, and create cross‑model metrics under a top‑level `metrics` block. Top-level key is required for any metric that depends on metrics or dimensions defined in a different semantic model.
 
@@ -297,7 +293,7 @@ metrics:
       denominator: { measure: sessions }
 ```
 
-### `type_params`[​](#type_params "Direct link to type_params")
+### `type_params`
 
 The `type_params` key is deprecated. The following are direct keys on the metric:
 
@@ -465,7 +461,7 @@ metrics:
           plan: pro
 ```
 
-## Migrating to the latest spec[​](#migrating-to-the-latest-spec "Direct link to Migrating to the latest spec")
+## Migrating to the latest spec
 
 Studio IDE YAML validation
 
@@ -475,13 +471,11 @@ If the Studio IDE flags your YAML as invalid but dbt commands succeed, trust you
 
 Migrate your legacy metrics to the latest YAML spec using the dbt-autofix tool in your CLI, the [dbt VS Code extension](../about-dbt-extension.md), or dbt platform's Studio IDE.
 
-<!-- -->
-
 note
 
 dbt Copilot doesn't yet support generating semantic models with the latest YAML spec.
 
-### Package compatibility[​](#package-compatibility "Direct link to Package compatibility")
+### Package compatibility
 
 If your project uses dbt packages (listed in `packages.yml`) that define metrics or semantic models, the package maintainer must update those packages to use the latest YAML spec.
 
@@ -516,7 +510,7 @@ After a compatible version is released, update your project to [install the new 
 * [Using the CLI or VS Code extension](#using-the-cli-or-vs-code-extension)
 * [Using the Studio IDE](#using-the-studio-ide)
 
-### Using the CLI or VS Code extension[​](#using-the-cli-or-vs-code-extension "Direct link to Using the CLI or VS Code extension")
+### Using the CLI or VS Code extension
 
 The [dbt-autofix tool](https://github.com/dbt-labs/dbt-autofix) rewrites legacy metrics YAML into the latest format and produces a clear, reviewable diff in version control. Make sure you have installed the latest version of the autofix tool before migrating to the new spec using the CLI or the dbt VS Code extension.
 
@@ -535,7 +529,7 @@ The [dbt-autofix tool](https://github.com/dbt-labs/dbt-autofix) rewrites legacy 
    mf validate-configs
    ```
 
-### Using the Studio IDE[​](#using-the-studio-ide "Direct link to Using the Studio IDE")
+### Using the Studio IDE
 
 Convert your metrics in the Studio IDE in the dbt platform without having to install the `dbt-autofix` tool.
 

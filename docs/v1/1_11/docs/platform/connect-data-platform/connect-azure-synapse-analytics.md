@@ -1,8 +1,8 @@
 # Connect Azure Synapse Analytics
 
-dbt platformⓘ
+dbt platform
 
-## Supported authentication methods[​](#supported-authentication-methods "Direct link to Supported authentication methods")
+## Supported authentication methods
 
 The supported authentication methods are:
 
@@ -10,7 +10,7 @@ The supported authentication methods are:
 * Active Directory password
 * SQL server authentication
 
-### Microsoft Entra ID service principal[​](#microsoft-entra-id-service-principal "Direct link to Microsoft Entra ID service principal")
+### Microsoft Entra ID service principal
 
 The following are the required fields for setting up a connection with Azure Synapse Analytics using Microsoft Entra ID service principal authentication.
 
@@ -24,13 +24,7 @@ The following are the required fields for setting up a connection with Azure Syn
 | **Client ID**      | The service principal's **application (client) ID id**.                                                                         |
 | **Client secret**  | The service principal's **client secret** (not the **client secret id**).                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Active Directory password[​](#active-directory-password "Direct link to Active Directory password")
+### Active Directory password
 
 The following are the required fields for setting up a connection with Azure Synapse Analytics using Active Directory password authentication.
 
@@ -43,13 +37,7 @@ The following are the required fields for setting up a connection with Azure Syn
 | **User**           | The AD username.                                                                                 |
 | **Password**       | The AD username's password.                                                                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### SQL server authentication[​](#sql-server-authentication "Direct link to SQL server authentication")
+### SQL server authentication
 
 The following are the required fields for setting up a connection with Azure Synapse Analytics using SQL server authentication.
 
@@ -62,12 +50,6 @@ The following are the required fields for setting up a connection with Azure Syn
 | **User**           | The username.                                                                                    |
 | **Password**       | The username's password.                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Microsoft Azure Synapse DWH configurations](../../../reference/resource-configs/azuresynapse-configs.md).

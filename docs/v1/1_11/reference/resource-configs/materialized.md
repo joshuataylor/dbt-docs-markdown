@@ -1,8 +1,6 @@
 # materialized
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -14,6 +12,8 @@ models:
     +materialized: <materialization_name>
 ```
 
+### Properties YAML file
+
 models/properties.yml
 
 ```yaml
@@ -23,6 +23,8 @@ models:
     config:
       materialized: <materialization_name>
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -34,7 +36,7 @@ models/\<model\_name>.sql
 select ...
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 [Materializations](../../docs/build/materializations.md#materializations) are strategies for persisting dbt models in a warehouse. These are the materialization types built into dbt:
 
@@ -46,16 +48,13 @@ select ...
 
 You can also configure [custom materializations](../../guides/create-new-materializations.md?step=1) in dbt. Custom materializations are a powerful way to extend dbt's functionality to meet your specific needs.
 
-<!-- -->
-
-## Creation precedence[​](#creation-precedence "Direct link to Creation precedence")
+## Creation precedence
 
 Materializations are implemented following this "drop through" life cycle:
 
 1. If a model does not exist with the provided path, create the new model.
 2. If a model exists, but has a different type, drop the existing model and create the new model.
 3. If [`--full-refresh`](./full_refresh.md) is supplied, replace the existing model regardless of configuration changes and the [`on_configuration_change`](./on_configuration_change.md) setting.
-   <!-- -->
    * BigQuery users may need to run `dbt run --full-refresh` (instead of `dbt run`) after changing a model’s materialization (for example, from `table` to `view`) to ensure dbt fully replaces the existing relation and the change is fully applied.
 4. If there are no configuration changes, perform the default action for that type (e.g. apply refresh for a materialized view).
 5. Determine whether to apply the configuration changes according to the `on_configuration_change` setting.

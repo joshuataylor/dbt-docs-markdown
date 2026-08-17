@@ -1,6 +1,6 @@
 # Use subagents with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Subagents let dbt Wizard spin up focused agents to handle parts of a larger task, such as exploring your project, making changes, or reviewing results. dbt Wizard orchestrates them and consolidates the results back into your session.
 
@@ -18,7 +18,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-## How subagents work[​](#how-subagents-work "Direct link to How subagents work")
+## How subagents work
 
 An agent is a role that describes a type of work, like `explorer`, `worker`, or `test_writer`.
 
@@ -33,7 +33,7 @@ You can use subagents in the following ways:
 | You ask to split up the work.                                                                        | `Review PR #123. Use one agent to map what changed, one to check tests and downstream impact, and one to look up the relevant dbt docs.` |
 | dbt Wizard automatically uses a configured agent because your task matches that agent's description. | `Add tests for stg_customers and check whether similar staging models are missing tests.`                                                |
 
-## Built-in agents[​](#built-in-agents "Direct link to Built-in agents")
+## Built-in agents
 
 dbt Wizard ships with built-in agents that it can spawn without any configuration. Several are purpose-built for dbt work:
 
@@ -46,7 +46,7 @@ dbt Wizard ships with built-in agents that it can spawn without any configuratio
 
 You don't need to declare these — dbt Wizard routes to them automatically when a task fits, or you can ask for one by name.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
 * [dbt Wizard in Studio IDE](./wizard-ide.md)

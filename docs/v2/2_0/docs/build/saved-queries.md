@@ -4,13 +4,15 @@ Saved queries are a way to save commonly used queries in MetricFlow. You can gro
 
 Saved queries serve as the foundational building block, allowing you to [configure exports](#configure-exports) in your saved query configuration. Exports takes this functionality a step further by enabling you to [schedule and write saved queries](../use-dbt-semantic-layer/exports.md) directly within your data platform using [dbt's job scheduler](../deploy/job-scheduler.md).
 
-## Parameters[​](#parameters "Direct link to Parameters")
+## Parameters
 
 To create a saved query, refer to the following table parameters.
 
 tip
 
 Note that we use dot notation (`.`) to indicate whether a parameter is nested within another parameter. For example, `query_params.metrics` means the `metrics` parameter is nested under `query_params`.
+
+(Applies to dbt v1.9 and later)
 
 | Parameter                  | Type              | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------- | ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -32,15 +34,9 @@ Note that we use dot notation (`.`) to indicate whether a parameter is nested wi
 | `exports.config.schema`    | String            | Optional | The [schema](../../reference/resource-configs/schema.md) for creating the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `exports.config.alias`     | String            | Optional | The table [alias](../../reference/resource-configs/alias.md) used to write to the table or view. This option cannot be used for caching.                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you use multiple metrics in a saved query, then you will only be able to reference the common dimensions these metrics share in the `group_by` or `where` clauses. Use the entity name prefix with the Dimension object, like `Dimension('user__ds')`.
 
-## Configure saved query[​](#configure-saved-query "Direct link to Configure saved query")
+## Configure saved query
 
 Use saved queries to define and manage common Semantic Layer queries in YAML, including metrics and dimensions. Saved queries enable you to organize and reuse common MetricFlow queries within dbt projects. For example, you can group related metrics together for better organization, and include commonly used dimensions and filters.
 
@@ -49,6 +45,8 @@ In your saved query config, you can also leverage [caching](../use-dbt-semantic-
 In the following example, you can set the saved query in the `semantic_model.yml` file:
 
 semantic\_model.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 saved_queries:
@@ -77,7 +75,7 @@ saved_queries:
 
 Note that you can set `export_as` to both the saved query and the exports [config](../../reference/resource-properties/config.md), with the exports config value taking precedence. If a key isn't set in the exports config, it will inherit the saved query config value.
 
-#### Where clause[​](#where-clause "Direct link to Where clause")
+#### Where clause
 
 Use the following syntax to reference entities, dimensions, time dimensions, or metrics in filters and refer to [Metrics as dimensions](./ref-metrics-in-filters.md) for details on how to use metrics as dimensions with metric filters:
 
@@ -95,7 +93,7 @@ filter: |
   {{ Metric('metric_name', group_by=['entity_name']) }}
 ```
 
-#### Project-level saved queries[​](#project-level-saved-queries "Direct link to Project-level saved queries")
+#### Project-level saved queries
 
 To enable saved queries at the project level, you can set the `saved-queries` configuration in the [`dbt_project.yml` file](../../reference/dbt_project.yml.md). This saves you time in configuring saved queries in each file:
 
@@ -115,7 +113,7 @@ To build `saved_queries`:
 * Make sure you set the right [environment variable](../use-dbt-semantic-layer/exports.md#set-environment-variable) in your environment.
 * Run the command `dbt build --resource-type saved_query` using the [`--resource-type` flag](../../reference/global-configs/resource-type.md).
 
-## Configure exports[​](#configure-exports "Direct link to Configure exports")
+## Configure exports
 
 Exports are an additional configuration added to a saved query. They define *how* to write a saved query, along with the schema and table name.
 
@@ -124,6 +122,8 @@ Once you've configured your saved query and set the foundation block, you can no
 The following is an example of a saved query with an export:
 
 semantic\_model.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 saved_queries:
@@ -154,13 +154,13 @@ saved_queries:
           schema: my_export_schema_name # Optional - defaults to deployment schema           
 ```
 
-## Run exports[​](#run-exports "Direct link to Run exports")
+## Run exports
 
 Once you've configured exports, you can now take things a step further by running exports to automatically write saved queries within your data platform using [dbt's job scheduler](../deploy/job-scheduler.md). This feature is only available with the [dbt's Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md).
 
 For more information on how to run exports, refer to the [Exports](../use-dbt-semantic-layer/exports.md) documentation.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Can I have multiple exports in a single saved query?
 
@@ -170,7 +170,7 @@ Yes, this is possible. However, the difference would be the name, schema, and ma
 
 To include all saved queries in the dbt build run, use the [`--resource-type` flag](../../reference/global-configs/resource-type.md) and run the command `dbt build --resource-type saved_query`.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Validate semantic nodes in a CI job](../deploy/ci-jobs.md#semantic-validations-in-ci)
 * Configure [caching](../use-dbt-semantic-layer/sl-cache.md)

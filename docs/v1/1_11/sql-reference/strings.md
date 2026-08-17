@@ -6,7 +6,7 @@ Strings are everywhere in data—they allow folks to have descriptive text field
 
 Below, we’ll unpack the different string formats you might see in a modern cloud data warehouse and common use cases for strings.
 
-## Using SQL strings[​](#using-sql-strings "Direct link to Using SQL strings")
+## Using SQL strings
 
 Strings are inherent in your data—they’re the name fields that someone inputs when they sign up for an account, they represent the item someone bought from your ecommerce store, they describe the customer address, and so on.
 
@@ -24,7 +24,7 @@ Most often, when you’re working with strings in a dbt model or query, you’re
 
 This is not an exhaustive list of string functionality or use cases, but contains some common scenarios analytics engineers face day-to-day.
 
-### Strings in an example query[​](#strings-in-an-example-query "Direct link to Strings in an example query")
+### Strings in an example query
 
 ```sql
 select
@@ -44,13 +44,7 @@ This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) 
 | 2018-03-01   | 18                 |
 | 2018-04-01   | 17                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## String support in Snowflake, Databricks, BigQuery, and Redshift[​](#string-support-in-snowflake-databricks-bigquery-and-redshift "Direct link to String support in Snowflake, Databricks, BigQuery, and Redshift")
+## String support in Snowflake, Databricks, BigQuery, and Redshift
 
 Snowflake, Databricks, Google BigQuery, and Amazon Redshift all support the string [data type](./data-types.md#string-data-types). They may have slightly varying sub-types for strings; some data warehouses such as Snowflake and Redshift support text, char, and character string types which typically differ in byte length in comparison to the generic string type.
 

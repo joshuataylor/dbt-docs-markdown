@@ -21,7 +21,9 @@ profile:
 
 If the `DBT_USER` and `DBT_ENV_SECRET_PASSWORD` environment variables are present when dbt is invoked, dbt will use these variables in your connection configuration — for example, in `profiles.yml` when running locally, or in [connection profiles](../../docs/platform/about-profiles.md) if you have a dbt platform project. If your project references environment variables that aren't set, dbt will raise a compilation error.
 
-### Using the `.env` file[​](#using-the-env-file "Direct link to using-the-env-file")
+(Applies to dbt v1.12 and later)
+
+### Using the `.env` file
 
 When running dbt locally (the [dbt CLI](../../docs/local/install-dbt.md), dbt VS Code extension, and dbt Core v1.12), dbt automatically loads environment variables from a `.env` file in your current working directory (where you run the dbt command). Shell environment variables take precedence over values in `.env` and will not be overridden by the file.
 
@@ -56,11 +58,11 @@ my_profile:
 Here are some considerations when defining environment variables in the `.env` file:
 
 * The `.env` file provides a convenient way to set environment variables that work across both the CLI and the VS Code extension.
-* We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
+* We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
 * Add `.env` to your `.gitignore` file to prevent sensitive credentials from being committed to your repository.
 * Environment variables set directly in your shell (such as `export DBT_ENV_VAR=value`) take precedence over values defined in the `.env` file.
 
-### Converting env\_vars[​](#converting-env_vars "Direct link to Converting env_vars")
+### Converting env\_vars
 
 Environment variables are always strings. When using them for configurations that expect integers or booleans, you must explicitly convert the value to the correct type.
 
@@ -86,7 +88,7 @@ Quoting, curly brackets, & you
 
 Be sure to quote the entire Jinja string. Otherwise, the YAML parser will be confused by the Jinja curly brackets.
 
-### Default values[​](#default-values "Direct link to Default values")
+### Default values
 
 You can also provide a default value as a second argument:
 
@@ -101,7 +103,7 @@ models:
 
 This can be useful to avoid compilation errors when the environment variable isn't available.
 
-### Secrets[​](#secrets "Direct link to Secrets")
+### Secrets
 
 For certain configurations, you can use "secret" env vars. Any env var named with the prefix `DBT_ENV_SECRET` will be:
 
@@ -121,7 +123,7 @@ host: "{{ env_var('DBT_ENV_SECRET_HOST') }}"
 host: "www.{{ env_var('DBT_ENV_SECRET_HOST_DOMAIN') }}.com/{{ env_var('DBT_ENV_SECRET_HOST_PATH') }}"
 ```
 
-### Custom metadata[​](#custom-metadata "Direct link to Custom metadata")
+### Custom metadata
 
 Any env var named with the prefix `DBT_ENV_CUSTOM_ENV_` will be included in two places, with its prefix-stripped name as the key:
 
@@ -148,7 +150,7 @@ Compiles to:
 select 1 as id
 ```
 
-### dbt platform usage[​](#dbt-platform-usage "Direct link to dbt platform usage")
+### dbt platform usage
 
 If you're using dbt platform, environment variables must be:
 

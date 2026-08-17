@@ -2,38 +2,26 @@
 
 Learn about using snapshot configurations in dbt, including snapshot-specific configurations and general configurations.
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Snapshots](../docs/build/snapshots.md)
 * The `dbt snapshot` [command](./commands/snapshot.md)
 
 Learn by video!
 
-For video tutorials on
+For video tutorials on Snapshots, go to dbt Learn and check out the [Snapshots course](https://learn.getdbt.com/courses/snapshots).
 
-<!-- -->
+## Available configurations
 
-Snapshots
-
-<!-- -->
-
-, go to dbt Learn and check out the [Snapshots](https://learn.getdbt.com/courses/snapshots)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/snapshots).
-
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
-
-### Snapshot-specific configurations[​](#snapshot-specific-configurations "Direct link to Snapshot-specific configurations")
+### Snapshot-specific configurations
 
 Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
 
-The following resource-specific configurations are only available to <!-- -->Snapshots:
+The following resource-specific configurations are only available to Snapshots:
 
-* Project file
-* Property file
-* SQL file config
+### Project file
+
+(Applies to dbt v1.9 and later)
 
 dbt\_project.yml
 
@@ -51,6 +39,10 @@ snapshots:
     +dbt_valid_to_current: <string> 
     +hard_deletes: string
 ```
+
+### Property file
+
+(Applies to dbt v1.9 and later)
 
 Refer to [configuring snapshots](../docs/build/snapshots.md#configuring-snapshots) for the available configurations.
 
@@ -72,11 +64,13 @@ snapshots:
       dbt_valid_to_current: <string>
 ```
 
+### SQL file config
+
 info
 
 Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
-### Snapshot configuration migration[​](#snapshot-configuration-migration "Direct link to Snapshot configuration migration")
+### Snapshot configuration migration
 
 The latest snapshot configurations introduced in dbt Core v1.9 (such as [`snapshot_meta_column_names`](./resource-configs/snapshot_meta_column_names.md), [`dbt_valid_to_current`](./resource-configs/dbt_valid_to_current.md), and `hard_deletes`) are best suited for new snapshots, but you can also adopt them in existing snapshots by migrating your table schema and configs carefully to avoid any inconsistencies in your snapshots.
 
@@ -125,27 +119,21 @@ Here's how you can do it:
    | 2    | 2024-10-03 08:00:00 | 9999-12-31 00:00:00 | 2024-10-03 08:00:00 |
    | 3    | 2024-10-02 11:15:00 | 9999-12-31 00:00:00 | 2024-10-02 11:15:00 |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
 Note: The `end_date` column (defined by `snapshot_meta_column_names`) uses the configured value from `dbt_valid_to_current` (9999-12-31) for newly inserted records, instead of the default `NULL`. Existing records will have `NULL` for `end_date`.
 
 warning
 
 If you use one of the latest configs, such as `dbt_valid_to_current`, without migrating your data, you may have mixed old and new data, leading to an incorrect downstream result.
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-* Project file
-* Property file
-* SQL file config
+### Project file
 
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 snapshots:
@@ -159,6 +147,10 @@ snapshots:
     +grants: {<dict>}
     +event_time: my_time_field
 ```
+
+### Property file
+
+(Applies to dbt v1.9 and later)
 
 snapshots/properties.yml
 
@@ -178,24 +170,30 @@ snapshots:
       event_time: my_time_field
 ```
 
+### SQL file config
+
 info
 
 Starting from [the dbt **Latest** release track](../docs/dbt-versions/dbt-release-tracks.md) and dbt Core v1.9, defining snapshots in a `.sql` file using a config block is a legacy method. You can define snapshots in properties YAML files using the latest [snapshot-specific configurations](../docs/build/snapshots.md#configuring-snapshots). For new snapshots, we recommend using these latest configs. If applying them to existing snapshots, you'll need to [migrate](#snapshot-configuration-migration) over.
 
-## Configuring snapshots[​](#configuring-snapshots "Direct link to Configuring snapshots")
+## Configuring snapshots
 
 Snapshots can be configured in multiple ways:
+
+(Applies to dbt v1.9 and later)
 
 1. Defined in YAML files using the `config` [resource property](./model-properties.md), typically in your [snapshots directory](./project-configs/snapshot-paths.md) or whichever folder you prefer. Available in [the dbt release track](../docs/dbt-versions/dbt-release-tracks.md), dbt v1.9 and higher.
 2. From the `dbt_project.yml` file, under the `snapshots:` key. To apply a configuration to a snapshot, or directory of snapshots, define the resource path as nested dictionary keys.
 
 Snapshot configurations are applied hierarchically in the order above with higher taking precedence. You can also apply [data tests](./snapshot-properties.md) to snapshots using the [`tests` property](./resource-properties/data-tests.md).
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
+
+(Applies to dbt v1.9 and later)
 
 The following examples demonstrate how to configure snapshots using the `dbt_project.yml` file and a `.yml` file.
 
-* #### Apply configurations to all snapshots[​](#apply-configurations-to-all-snapshots "Direct link to Apply configurations to all snapshots")
+* #### Apply configurations to all snapshots
 
   To apply a configuration to all snapshots, including those in any installed [packages](../docs/build/packages.md), nest the configuration directly under the `snapshots` key:
 
@@ -206,7 +204,7 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
     +unique_key: id
   ```
 
-* #### Apply configurations to all snapshots in your project[​](#apply-configurations-to-all-snapshots-in-your-project "Direct link to Apply configurations to all snapshots in your project")
+* #### Apply configurations to all snapshots in your project
 
   To apply a configuration to all snapshots in your project only (for example, *excluding* any snapshots in installed packages), provide your project name as part of the resource path.
 
@@ -222,7 +220,9 @@ The following examples demonstrate how to configure snapshots using the `dbt_pro
 
   Similarly, you can use the name of an installed package to configure snapshots in that package.
 
-* #### Apply configurations to one snapshot only[​](#apply-configurations-to-one-snapshot-only "Direct link to Apply configurations to one snapshot only")
+* #### Apply configurations to one snapshot only
+
+  (Applies to dbt v1.9 and later)
 
   snapshots/postgres\_app/order\_snapshot.yml
 

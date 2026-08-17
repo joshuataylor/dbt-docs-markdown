@@ -14,13 +14,13 @@ dbt Core v1.x
 
 This guide is for creating adapters for the Python-based dbt Core v1. For adapter creation on the Rust-based dbt Core v2.0, check out our [new guide](./adapter-creation-v2.md?step=1)
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Adapters are an essential component of dbt. At their most basic level, they are how dbt connects with the various supported data platforms. At a higher-level, dbt Core v1.x adapters strive to give analytics engineers more transferrable skills as well as standardize how analytics projects are structured. Gone are the days where you have to learn a new language or flavor of SQL when you move to a new job that has a different data platform. That is the power of adapters in dbt Core v1.x.
 
 Navigating and developing around the nuances of different databases can be daunting, but you are not alone. Visit [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM) Slack channel for additional help beyond the documentation.
 
-### All databases are not the same[​](#all-databases-are-not-the-same "Direct link to All databases are not the same")
+### All databases are not the same
 
 There's a tremendous amount of work that goes into creating a database. Here is a high-level list of typical database layers (from the outermost layer moving inwards):
 
@@ -42,7 +42,7 @@ dbt allows for further abstraction and standardization of the outermost layers o
 
 This is where dbt adapters become critical.
 
-### What needs to be adapted?[​](#what-needs-to-be-adapted "Direct link to What needs to be adapted?")
+### What needs to be adapted?
 
 dbt adapters are responsible for *adapting* dbt's standard functionality to a particular database. Our prototypical database and adapter are PostgreSQL and dbt-postgres, and most of our adapters are somewhat based on the functionality described in dbt-postgres.
 
@@ -50,7 +50,7 @@ Connecting dbt to a new database will require a new adapter to be built or an ex
 
 The outermost layers of a database map roughly to the areas in which the dbt adapter framework encapsulates inter-database differences.
 
-### SQL API[​](#sql-api "Direct link to SQL API")
+### SQL API
 
 Even amongst ANSI-compliant databases, there are differences in the SQL grammar. Here are some categories and examples of SQL statements that can be constructed differently:
 
@@ -61,13 +61,7 @@ Even amongst ANSI-compliant databases, there are differences in the SQL grammar.
 | Relation and column attributes/configuration | Database-specific materialization configs                                                        | * `DIST = ROUND_ROBIN` (Synapse)* `DIST = EVEN` (Redshift)                                                                                                  |
 | Permissioning                                | Grant statements that can only take one grantee at a time vs those that accept lists of grantees | * `grant SELECT on table dinner.corn to corn_kid, everyone`* `grant SELECT on table dinner.corn to corn_kid; grant SELECT on table dinner.corn to everyone` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Python Client Library & Connection Manager[​](#python-client-library--connection-manager "Direct link to Python Client Library & Connection Manager")
+### Python Client Library & Connection Manager
 
 The other big category of inter-database differences comes with how the client connects to the database and executes queries against the connection. To integrate with dbt, a data platform must have a pre-existing python client library or support ODBC, using a generic python library like pyodbc.
 
@@ -77,13 +71,7 @@ The other big category of inter-database differences comes with how the client c
 | Connection opening/closing   | Create a new connection to db             | * `psycopg2.connect(connection_string)`* `google.cloud.bigquery.Client(...)`                                                                  |
 | Inserting local data         | Load seed .`csv` files into Python memory | * `google.cloud.bigquery.Client.load_table_from_file(...)` (BigQuery)* `INSERT ... INTO VALUES ...` prepared statement (most other databases) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### How dbt encapsulates and abstracts these differences[​](#how-dbt-encapsulates-and-abstracts-these-differences "Direct link to How dbt encapsulates and abstracts these differences")
+### How dbt encapsulates and abstracts these differences
 
 Differences between databases are encoded into discrete areas:
 
@@ -93,13 +81,7 @@ Differences between databases are encoded into discrete areas:
 | Macros           | `include/<adapter_name>/macros/adapters/`         | SQL API & statement syntax (for example, how to create schema or how to get table info) |
 | Materializations | `include/<adapter_name>/macros/materializations/` | Table/view/snapshot/ workflow definitions                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Python classes[​](#python-classes "Direct link to Python classes")
+#### Python classes
 
 These classes implement all the methods responsible for:
 
@@ -114,49 +96,43 @@ These classes implement all the methods responsible for:
 | AdapterRelation          | How relation names should be rendered, printed, and quoted. Do relation names use all three parts? `catalog.model_name` (two-part name) or `database.schema.model_name` (three-part name) |
 | AdapterColumn            | How names should be rendered, and database-specific properties                                                                                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Macros[​](#macros "Direct link to Macros")
+#### Macros
 
 A set of *macros* responsible for generating SQL that is compliant with the target database.
 
-#### Materializations[​](#materializations "Direct link to Materializations")
+#### Materializations
 
 A set of *materializations* and their corresponding helper macros defined in dbt using Jinja and SQL. They codify for dbt how model files should be persisted into the database.
 
-### Adapter Architecture[​](#adapter-architecture "Direct link to Adapter Architecture")
+### Adapter Architecture
 
 Below is a flow diagram illustrating how a `dbt run` command works with the `dbt-postgres` adapter. It shows the relationship between `dbt-core`, `dbt-adapters`, and individual adapters.
 
 [![Diagram of adapter architecture](/img/adapter-guide/adapter-architecture-diagram.png?v=2 "Diagram of adapter architecture")](#)Diagram of adapter architecture
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 It is very important that you have the right skills, and understand the level of difficulty required to make an adapter for your data platform.
 
 The more you can answer Yes to the below questions, the easier your adapter development (and user-) experience will be. See the [New Adapter Information Sheet wiki](https://github.com/dbt-labs/dbt-core/wiki/New-Adapter-Information-Sheet) for even more specific questions.
 
-### Training[​](#training "Direct link to Training")
+### Training
 
 * The developer (and any product managers) ideally will have substantial experience as an end-user of dbt. If not, it is highly advised that you at least take the [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) and [Advanced Materializations](https://learn.getdbt.com/courses/advanced-materializations) course.
 
-### Database[​](#database "Direct link to Database")
+### Database
 
 * Does the database complete transactions fast enough for interactive development?
 * Can you execute SQL against the data platform?
 * Is there a concept of schemas?
 * Does the data platform support ANSI SQL, or at least a subset?
 
-### Driver / Connection Library[​](#driver--connection-library "Direct link to Driver / Connection Library")
+### Driver / Connection Library
 
 * Is there a Python-based driver for interacting with the database that is db API 2.0 compliant (e.g. Psycopg2 for Postgres, pyodbc for SQL Server)
 * Does it support: prepared statements, multiple statements, or single sign on token authorization to the data platform?
 
-### Open source software[​](#open-source-software "Direct link to Open source software")
+### Open source software
 
 * Does your organization have an established process for publishing open source software?
 
@@ -166,11 +142,11 @@ It is easiest to build an adapter for dbt when the following the data warehouse/
 * a mature connection library/SDK that uses ODBC or Python DB 2 API, and
 * a way to enable developers to iterate rapidly with both quick reads and writes
 
-### Maintaining your new adapter[​](#maintaining-your-new-adapter "Direct link to Maintaining your new adapter")
+### Maintaining your new adapter
 
 When your adapter becomes more popular, and people start using it, you may quickly become the maintainer of an increasingly popular open source project. With this new role, comes some unexpected responsibilities that not only include code maintenance, but also working with a community of users and contributors. To help people understand what to expect of your project, you should communicate your intentions early and often in your adapter documentation or README. Answer questions like, Is this experimental work that people should use at their own risk? Or is this production-grade code that you're committed to maintaining into the future?
 
-#### Keeping the code compatible with dbt Core v1.x[​](#keeping-the-code-compatible-with- "Direct link to keeping-the-code-compatible-with-")
+#### Keeping the code compatible with dbt Core v1.x
 
 An adapter is compatible with dbt Core v1.x if it has correctly implemented the interface defined in [dbt-adapters](https://github.com/dbt-labs/dbt-adapters/) and is tested by [dbt-tests-adapters](https://github.com/dbt-labs/dbt-adapters/tree/main/dbt-tests-adapter). Prior to dbt Core v1.x version 1.8, this interface was contained in `dbt-core`.
 
@@ -178,7 +154,7 @@ New minor version releases of `dbt-adapters` may include changes to the Python i
 
 Patch releases of `dbt-adapters` will *not* include breaking changes or new features to adapter-facing code.
 
-#### Versioning and releasing your adapter[​](#versioning-and-releasing-your-adapter "Direct link to Versioning and releasing your adapter")
+#### Versioning and releasing your adapter
 
 dbt Labs strongly recommends you to adopt the following approach when versioning and releasing your plugin.
 
@@ -192,7 +168,7 @@ note
 
 Prior to dbt Core v1.x version 1.8, we recommended that the minor version of your plugin should match the minor version in `dbt-core` (for example, 1.1.x).
 
-## Build a new adapter[​](#build-a-new-adapter "Direct link to Build a new adapter")
+## Build a new adapter
 
 This step will walk you through the first creating the necessary adapter classes and macros, and provide some resources to help you validate that your new adapter is working correctly. Make sure you've familiarized yourself with the previous steps in this guide.
 
@@ -200,7 +176,7 @@ Once the adapter is passing most of the functional tests in the previous "Testin
 
 For any questions you may have, don't hesitate to ask in the [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM) Slack channel. The community is very helpful and likely has experienced a similar issue as you.
 
-### Scaffolding a new adapter[​](#scaffolding-a-new-adapter "Direct link to Scaffolding a new adapter")
+### Scaffolding a new adapter
 
 To create a new adapter plugin from scratch, you can use the [dbt-database-adapter-scaffold](https://github.com/dbt-labs/dbt-database-adapter-scaffold) to trigger an interactive session which will generate a scaffolding for you to build upon.
 
@@ -218,7 +194,7 @@ One of the most important choices you will make during the cookiecutter generati
 * Most adapters do fall under SQL adapters which is why we chose it as the default `True` value.
 * It is very possible to build out a fully functional `BaseAdapter`. This will require a little more ground work as it doesn't come with some prebuilt methods the `SQLAdapter` class provides. See `dbt-bigquery` as a good guide.
 
-### Implementation details[​](#implementation-details "Direct link to Implementation details")
+### Implementation details
 
 Regardless if you decide to use the cookiecutter template or manually create the plugin, this section will go over each method that is required to be implemented. The following table provides a high-level overview of the classes, methods, and macros you may have to define for your data platform.
 
@@ -233,23 +209,17 @@ Regardless if you decide to use the cookiecutter template or manually create the
 | `myadapter/dbt/adapters/myadapter/impl.py`        | `MyAdapterAdapter`                                                  | for changing *how* dbt performs operations like macros and other needed Python functionality                                                                                           |
 | `myadapter/dbt/adapters/myadapter/column.py`      | `MyAdapterColumn`                                                   | for defining database-specific column such as datatype mappings                                                                                                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Editing `setup.py`[​](#editing-setuppy "Direct link to editing-setuppy")
+### Editing `setup.py`
 
 Edit the file at `myadapter/setup.py` and fill in the missing information.
 
 You can skip this step if you passed the arguments for `email`, `url`, `author`, and `dependencies` to the cookiecutter template script. If you plan on having nested macro folder structures, you may need to add entries to `package_data` so your macro source files get installed.
 
-### Editing the connection manager[​](#editing-the-connection-manager "Direct link to Editing the connection manager")
+### Editing the connection manager
 
 Edit the connection manager at `myadapter/dbt/adapters/myadapter/connections.py`. This file is defined in the sections below.
 
-#### The Credentials class[​](#the-credentials-class "Direct link to The Credentials class")
+#### The Credentials class
 
 The credentials class defines all of the database-specific credentials (e.g. `username` and `password`) that users will need in the [connection profile](../docs/supported-data-platforms.md) for your new adapter. Each credentials contract should subclass dbt.adapters.base.Credentials, and be implemented as a python dataclass.
 
@@ -316,7 +286,7 @@ class MyAdapterCredentials(Credentials):
 
 Then users can use `collection` OR `database` in their `profiles.yml`, `dbt_project.yml`, or `config()` calls to set the database.
 
-#### `ConnectionManager` class methods[​](#connectionmanager-class-methods "Direct link to connectionmanager-class-methods")
+#### `ConnectionManager` class methods
 
 Once credentials are configured, you'll need to implement some connection-oriented methods. They are enumerated in the SQLConnectionManager docstring, but an overview will also be provided here.
 
@@ -328,32 +298,24 @@ Once credentials are configured, you'll need to implement some connection-orient
 * `exception_handler`
 * `standardize_grants_dict`
 
-##### `open(cls, connection)`[​](#opencls-connection "Direct link to opencls-connection")
+##### `open(cls, connection)`
 
 `open()` is a classmethod that gets a connection object (which could be in any state, but will have a `Credentials` object with the attributes you defined above) and moves it to the 'open' state.
 
 Generally this means doing the following:
 
 * if the connection is open already, log and return it.
-  <!-- -->
   * If a database needed changes to the underlying connection before re-use, that would happen here
 
 * create a connection handle using the underlying database library using the credentials
 
-  <!-- -->
-
   * on success:
-
-    <!-- -->
 
     * set connection.state to `'open'`
     * set connection.handle to the handle object
-      <!-- -->
       * this is what must have a `cursor()` method that returns a cursor!
 
   * on error:
-
-    <!-- -->
 
     * set connection.state to `'fail'`
     * set connection.handle to `None`
@@ -385,7 +347,7 @@ connections.py
         return connection
 ```
 
-##### `get_response(cls, cursor)`[​](#get_responsecls-cursor "Direct link to get_responsecls-cursor")
+##### `get_response(cls, cursor)`
 
 `get_response` is a classmethod that gets a cursor object and returns adapter-specific information about the last executed command. The return value should be an `AdapterResponse` object that includes items such as `code`, `rows_affected`, `bytes_processed`, and a summary `_message` for logging to stdout.
 
@@ -404,7 +366,7 @@ connections.py
         )
 ```
 
-##### `cancel(self, connection)`[​](#cancelself-connection "Direct link to cancelself-connection")
+##### `cancel(self, connection)`
 
 `cancel` is an instance method that gets a connection object and attempts to cancel any ongoing queries, which is database dependent. Some databases don't support the concept of cancellation, they can simply implement it via 'pass' and their adapter classes should implement an `is_cancelable` that returns False - On ctrl+c connections may remain running. This method must be implemented carefully, as the affected connection will likely be in use in a different thread.
 
@@ -420,7 +382,7 @@ connections.py
         logger.debug("Canceled query '{}': {}".format(connection_name, res))
 ```
 
-##### `exception_handler(self, sql, connection_name='master')`[​](#exception_handlerself-sql-connection_namemaster "Direct link to exception_handlerself-sql-connection_namemaster")
+##### `exception_handler(self, sql, connection_name='master')`
 
 `exception_handler` is an instance method that returns a context manager that will handle exceptions raised by running queries, catch them, log appropriately, and then raise exceptions dbt knows how to handle.
 
@@ -445,7 +407,7 @@ connections.py
             raise dbt.exceptions.RuntimeException(str(exc))
 ```
 
-##### `standardize_grants_dict(self, grants_table: agate.Table) -> dict`[​](#standardize_grants_dictself-grants_table-agatetable---dict "Direct link to standardize_grants_dictself-grants_table-agatetable---dict")
+##### `standardize_grants_dict(self, grants_table: agate.Table) -> dict`
 
 `standardize_grants_dict` is an method that returns the dbt-standardized grants dictionary that matches how users configure grants now in dbt. The input is the result of `SHOW GRANTS ON {{model}}` call loaded into an agate table.
 
@@ -473,13 +435,13 @@ impl.py
         return grants_dict
 ```
 
-### Editing the adapter implementation[​](#editing-the-adapter-implementation "Direct link to Editing the adapter implementation")
+### Editing the adapter implementation
 
 Edit the connection manager at `myadapter/dbt/adapters/myadapter/impl.py`
 
 Very little is required to implement the adapter itself. On some adapters, you will not need to override anything. On others, you'll likely need to override some of the `convert_*` classmethods, or override the `is_cancelable` classmethod on others to return `False`.
 
-#### `datenow()`[​](#datenow "Direct link to datenow")
+#### `datenow()`
 
 This classmethod provides the adapter's canonical date function. This is not used but is required– anyway on all adapters.
 
@@ -491,11 +453,11 @@ impl.py
         return 'datenow()'
 ```
 
-### Editing SQL logic[​](#editing-sql-logic "Direct link to Editing SQL logic")
+### Editing SQL logic
 
 dbt implements specific SQL operations using Jinja macros. While reasonable defaults are provided for many such operations (like `create_schema`, `drop_schema`, `create_table`, etc), you may need to override one or more of macros when building a new adapter.
 
-#### Required macros[​](#required-macros "Direct link to Required macros")
+#### Required macros
 
 The following macros must be implemented, but you can override their behavior for your adapter using the "dispatch" pattern described below. Macros marked (required) do not have a valid default implementation, and are required for dbt to operate.
 
@@ -512,7 +474,7 @@ The following macros must be implemented, but you can override their behavior fo
 * `current_timestamp` ([source](https://github.com/dbt-labs/dbt-core/blob/f988f76fccc1878aaf8d8631c05be3e9104b3b9a/core/dbt/include/global_project/macros/adapters/freshness.sql#L1-L8)) (required)
 * `copy_grants`
 
-#### Adapter dispatch[​](#adapter-dispatch "Direct link to Adapter dispatch")
+#### Adapter dispatch
 
 Most modern databases support a majority of the standard SQL spec. There are some databases that *do not* support critical aspects of the SQL spec however, or they provide their own nonstandard mechanisms for implementing the same functionality. To account for these variations in SQL support, dbt provides a mechanism called [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch) for macros. With this feature, macros can be overridden for specific adapters. This makes it possible to implement high-level methods (like "create table") in a database-specific way.
 
@@ -556,7 +518,7 @@ The `adapter.dispatch()` macro takes a second argument, `packages`, which repres
 * "Shim" package examples: [`spark-utils`](https://github.com/dbt-labs/spark-utils), [`tsql-utils`](https://github.com/dbt-msft/tsql-utils)
 * [`adapter.dispatch` docs](../reference/dbt-jinja-functions/dispatch.md)
 
-#### Overriding adapter methods[​](#overriding-adapter-methods "Direct link to Overriding adapter methods")
+#### Overriding adapter methods
 
 While much of dbt's adapter-specific functionality can be modified in adapter macros, it can also make sense to override adapter methods directly. In this example, assume that a database does not support a `cascade` parameter to `drop schema`. Instead, we can implement an approximation where we drop each relation and then drop the schema.
 
@@ -573,11 +535,11 @@ impl.py
         super().drop_schema(relation)
 ```
 
-#### Grants Macros[​](#grants-macros "Direct link to Grants Macros")
+#### Grants Macros
 
 See [this GitHub discussion](https://github.com/dbt-labs/dbt-core/discussions/5468) for information on the macros required for `GRANT` statements:
 
-### Behavior change flags[​](#behavior-change-flags "Direct link to Behavior change flags")
+### Behavior change flags
 
 Starting in `dbt-adapters==1.5.0` and `dbt-core==1.8.7`, adapter maintainers can implement their own behavior change flags. Refer to [Behavior changes](../reference/global-configs/behavior-changes.md) for more information.
 
@@ -668,9 +630,9 @@ It's best practice to evaluate a behavior flag as few times as possible. This wi
 
 As a result, evaluating the flag earlier in the logic flow is easier. Then, take either the old or the new path. While this may create some duplication in code, using behavior flags in this way provides a safer way to implement a change, which we are already admitting is risky or even breaking in nature.
 
-### Other files[​](#other-files "Direct link to Other files")
+### Other files
 
-#### `profile_template.yml`[​](#profile_templateyml "Direct link to profile_templateyml")
+#### `profile_template.yml`
 
 In order to enable the [`dbt init` command](../reference/commands/init.md) to prompt users when setting up a new project and connection profile, you should include a **profile template**. The filepath needs to be `dbt/include/<adapter_name>/profile_template.yml`. It's possible to provide hints, default values, and conditional prompts based on connection methods that require different supporting attributes. Users will also be able to include custom versions of this file in their own projects, with fixed values specific to their organization, to support their colleagues when using your dbt adapter for the first time.
 
@@ -681,25 +643,25 @@ See examples:
 * [dbt-snowflake](https://github.com/dbt-labs/dbt-snowflake/blob/main/dbt/include/snowflake/profile_template.yml)
 * [dbt-bigquery](https://github.com/dbt-labs/dbt-bigquery/blob/main/dbt/include/bigquery/profile_template.yml)
 
-#### `__version__.py`[​](#__version__py "Direct link to __version__py")
+#### `__version__.py`
 
 To assure that `dbt --version` provides the latest dbt core version the adapter supports, be sure include a `__version__.py` file. The filepath will be `dbt/adapters/<adapter_name>/__version__.py`. We recommend using the latest dbt core version and as the adapter is made compatible with later versions, this file will need to be updated. For a sample file, check out this [example](https://github.com/dbt-labs/dbt-snowflake/blob/main/dbt/adapters/snowflake/__version__.py).
 
 It should be noted that both of these files are included in the bootstrapped output of the `dbt-database-adapter-scaffold` so when using the scaffolding, these files will be included.
 
-## Test your adapter[​](#test-your-adapter "Direct link to Test your adapter")
+## Test your adapter
 
 This document has two sections:
 
 1. Refer to "About the testing framework" for a description of the standard framework that we maintain for using pytest together with dbt. It includes an example that shows the anatomy of a simple test case.
 2. Refer to "Testing your adapter" for a step-by-step guide for using our out-of-the-box suite of "basic" tests, which will validate that your adapter meets a baseline of dbt functionality.
 
-### Testing prerequisites[​](#testing-prerequisites "Direct link to Testing prerequisites")
+### Testing prerequisites
 
 * Your adapter must be compatible with dbt Core v1.x **v1.1** or newer
 * You should be familiar with **pytest**: <https://docs.pytest.org>
 
-### About the testing framework[​](#about-the-testing-framework "Direct link to About the testing framework")
+### About the testing framework
 
 [dbt-adapters-tests](https://github.com/dbt-labs/dbt-adapters/tree/main/dbt-tests-adapter) offers a standard framework for running prebuilt functional tests, and for defining your own tests. The core testing framework is built using `pytest`, a mature and standard library for testing Python projects.
 
@@ -713,7 +675,7 @@ Those utilities allow you to do three basic things:
 
 You can see the full suite of utilities, with arguments and annotations, in [`util.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tests/util.py). You'll also see them crop up across a number of test cases. While all utilities are intended to be reusable, you won't need all of them for every test. In the example below, we'll show a simple test case that uses only a few utilities.
 
-#### Example: a simple test case[​](#example-a-simple-test-case "Direct link to Example: a simple test case")
+#### Example: a simple test case
 
 This example will show you the anatomy of a test case using dbt + pytest. We will create reusable components, combine them to form a dbt "project", and define a sequence of dbt commands. Then, we'll use Python `assert` statements to ensure those commands succeed (or fail) as we expect.
 
@@ -858,9 +820,9 @@ tests/functional/test_example.py .X                                  [100%]
 
 You can find more ways to run tests, along with a full command reference, in the [pytest usage docs](https://docs.pytest.org/how-to/usage.html).
 
-We've found the `-s` flag (or `--capture=no`) helpful to print logs from the underlying dbt invocations, and to step into an interactive debugger if you've added one. You can also use environment variables to set [global dbt configs](../reference/global-configs/about-global-configs.md), such as `DBT_ENGINE_DEBUG` (to show debug-level logs).
+We've found the `-s` flag (or `--capture=no`) helpful to print logs from the underlying dbt invocations, and to step into an interactive debugger if you've added one. You can also use environment variables to set [global dbt configs](../reference/global-configs/about-global-configs.md), such as (Applies to dbt v1.11 and later) `DBT_ENGINE_DEBUG` (to show debug-level logs).
 
-### Testing this adapter[​](#testing-this-adapter "Direct link to Testing this adapter")
+### Testing this adapter
 
 Anyone who installs `dbt-core`, and wishes to define their own test cases, can use the framework presented in the first section. The framework is especially useful for testing standard dbt behavior across different databases.
 
@@ -868,7 +830,7 @@ To that end, we have built and made available a [package of reusable adapter tes
 
 For the time being, this package is also located within the `dbt-core` repository, but separate from the `dbt-core` Python package.
 
-### Categories of tests[​](#categories-of-tests "Direct link to Categories of tests")
+### Categories of tests
 
 In the course of creating and maintaining your adapter, it's likely that you will end up implementing tests that fall into three broad categories:
 
@@ -880,7 +842,7 @@ In the course of creating and maintaining your adapter, it's likely that you wil
 
 If you run into an issue with the core framework, or the basic/optional test cases—or if you've written a custom test that you believe would be relevant and useful for other adapter plugin developers—please open an issue or PR in the `dbt-core` repository on GitHub.
 
-### Getting started running basic tests[​](#getting-started-running-basic-tests "Direct link to Getting started running basic tests")
+### Getting started running basic tests
 
 In this section, we'll walk through the three steps to start running our basic test cases on your adapter plugin:
 
@@ -888,7 +850,7 @@ In this section, we'll walk through the three steps to start running our basic t
 2. Set up and configure pytest
 3. Define test cases
 
-### Install dependencies[​](#install-dependencies "Direct link to Install dependencies")
+### Install dependencies
 
 You should already have a virtual environment with `dbt-core` and your adapter plugin installed. You'll also need to install:
 
@@ -910,7 +872,7 @@ dbt-tests-adapter
 python -m pip install -r dev_requirements.txt
 ```
 
-### Set up and configure pytest[​](#set-up-and-configure-pytest "Direct link to Set up and configure pytest")
+### Set up and configure pytest
 
 First, set yourself up to run `pytest` by creating a file named `pytest.ini` at the root of your repository:
 
@@ -955,7 +917,7 @@ def dbt_profile_target():
     }
 ```
 
-### Define test cases[​](#define-test-cases "Direct link to Define test cases")
+### Define test cases
 
 As in the example above, each test case is defined as a class, and has its own "project" setup. To get started, you can import all basic test cases and try running them without changes.
 
@@ -1021,7 +983,7 @@ Finally, run pytest:
 python3 -m pytest tests/functional
 ```
 
-### Modifying test cases[​](#modifying-test-cases "Direct link to Modifying test cases")
+### Modifying test cases
 
 You may need to make slight modifications in a specific test case to get it passing on your adapter. The mechanism to do this is simple: rather than simply inheriting the "base" test with `pass`, you can redefine any of its fixtures or test methods.
 
@@ -1078,7 +1040,7 @@ It's always worth asking whether the required modifications represent gaps in pe
 
 If, on the other hand, they represent poor assumptions in the "basic" test cases, which fail to account for a common pattern in other types of databases-—please open an issue or PR in the `dbt-core` repository on GitHub.
 
-### Running with multiple profiles[​](#running-with-multiple-profiles "Direct link to Running with multiple profiles")
+### Running with multiple profiles
 
 Some databases support multiple connection methods, which map to actually different functionality behind the scenes. For instance, the `dbt-spark` adapter supports connections to Apache Spark clusters *and* Databricks runtimes, which supports additional functionality out of the box, enabled by the Delta file format.
 
@@ -1159,11 +1121,11 @@ python3 -m pytest tests/functional --profile apache_spark
 python3 -m pytest tests/functional --profile databricks_sql_endpoint
 ```
 
-## Document a new adapter[​](#document-a-new-adapter "Direct link to Document a new adapter")
+## Document a new adapter
 
 If you've already built, and tested your adapter, it's time to document it so the dbt community will know that it exists and how to use it.
 
-### Making your adapter available[​](#making-your-adapter-available "Direct link to Making your adapter available")
+### Making your adapter available
 
 Many community members maintain their adapter plugins under open source licenses. If you're interested in doing this, we recommend:
 
@@ -1171,11 +1133,11 @@ Many community members maintain their adapter plugins under open source licenses
 * Publishing to [PyPI](https://pypi.org/)
 * Adding to the list of ["Supported Data Platforms"](../docs/supported-data-platforms.md#community-supported) (more info below)
 
-### General Guidelines[​](#general-guidelines "Direct link to General Guidelines")
+### General Guidelines
 
 To best inform the dbt community of the new adapter, you should contribute to the dbt's open-source documentation site, which uses the [Docusaurus project](https://docusaurus.io/). This is the site you're currently on!
 
-### Conventions[​](#conventions "Direct link to Conventions")
+### Conventions
 
 Each `.md` file you create needs a header as shown below. The document id will also need to be added to the config file: `website/sidebars.js`.
 
@@ -1186,15 +1148,15 @@ id: "documenting-a-new-adapter"
 ---
 ```
 
-### Single Source of Truth[​](#single-source-of-truth "Direct link to Single Source of Truth")
+### Single Source of Truth
 
 We ask our adapter maintainers to use the [docs.getdbt.com repo](https://github.com/dbt-labs/docs.getdbt.com) (i.e. this site) as the single-source-of-truth for documentation rather than having to maintain the same set of information in three different places. The adapter repo's `README.md` and the data platform's documentation pages should simply link to the corresponding page on this docs site. Keep reading for more information on what should and shouldn't be included on the dbt docs site.
 
-### Assumed Knowledge[​](#assumed-knowledge "Direct link to Assumed Knowledge")
+### Assumed Knowledge
 
 To simplify things, assume the reader of this documentation already knows how both dbt and your data platform works. There's already great material for how to learn dbt and the data platform out there. The documentation we're asking you to add should be what a user who is already profiecient in both dbt and your data platform would need to know in order to use both. Effectively that boils down to two things: how to connect, and how to configure.
 
-### Topics and Pages to Cover[​](#topics-and-pages-to-cover "Direct link to Topics and Pages to Cover")
+### Topics and Pages to Cover
 
 The following subjects need to be addressed across three pages of this docs site to have your data platform be listed on our documentation. After the corresponding pull request is merged, we ask that you link to these pages from your adapter repo's `README` as well as from your product documentation.
 
@@ -1207,15 +1169,9 @@ To contribute, all you will have to do make the changes listed in the table belo
 | Discover and Install | `docs/supported-data-platforms.md`                              | Modify | Is it a vendor- or community- supported adapter? How to install Python adapter package? Ideally with pip and PyPI hosted package, but can also use `git+` link to GitHub Repo                         |
 | Add link to sidebar  | `website/sidebars.js`                                           | Modify | Add the document id to the correct location in the sidebar menu                                                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For example say I want to document my new adapter: `dbt-ders`. For the "Connect" page, I will make a new Markdown file, `ders-setup.md` and add it to the `/website/docs/local/connect-data-platform/` directory.
 
-### Example PRs to add new adapter documentation[​](#example-prs-to-add-new-adapter-documentation "Direct link to Example PRs to add new adapter documentation")
+### Example PRs to add new adapter documentation
 
 Below are some recent pull requests made by partners to document their data platform's adapter:
 
@@ -1231,7 +1187,7 @@ import SetUpPages from '/snippets/_setup-pages-intro.md';
 <SetUpPages meta={frontMatter.meta} />
 ```
 
-## Promote a new adapter[​](#promote-a-new-adapter "Direct link to Promote a new adapter")
+## Promote a new adapter
 
 The most important thing here is recognizing that people are successful in the community when they join, first and foremost, to engage authentically.
 
@@ -1243,7 +1199,7 @@ Contributors to the community should think of contribution *as the end itself,* 
 * Imagine you didn’t work at the org you do — can you imagine yourself still writing this?
 * Is it written in formal / marketing language, or does it sound like you, the human?
 
-### Who should join the dbt community slack?[​](#who-should-join-the-dbt-community-slack "Direct link to Who should join the dbt community slack?")
+### Who should join the dbt community slack?
 
 * People who have insight into what it means to do hands-on [analytics engineering](https://www.getdbt.com/analytics-engineering/) work The dbt Community Slack workspace is fundamentally a place for analytics practitioners to interact with each other — the closer the users are in the community to actual data/analytics engineering work, the more natural their engagement will be (leading to better outcomes for partners and the community).
 
@@ -1253,13 +1209,13 @@ Contributors to the community should think of contribution *as the end itself,* 
 
 * Software Engineers at partner products that are building and supporting integrations with either dbt Core v1.x or the dbt platform This is successful when the engineers are familiar with dbt as a product or at least have taken our training course. The Slack is often a place where end-user questions and feedback is initially shared, so it is recommended that someone technical from the team be present. There are also a handful of channels aimed at those building integrations, which tend to be a font of knowledge.
 
-### Who might struggle in the dbt community[​](#who-might-struggle-in-the-dbt-community "Direct link to Who might struggle in the dbt community")
+### Who might struggle in the dbt community
 
 * People in marketing roles dbt Slack is not a marketing channel. Attempts to use it as such invariably fall flat and can even lead to people having a negative view of a product. This doesn’t mean that dbt can’t serve marketing objectives, but a long-term commitment to engagement is the only proven method to do this sustainably.
 
 * People in product roles The dbt Community can be an invaluable source of feedback on a product. There are two primary ways this can happen — organically (community members proactively suggesting a new feature) and via direct calls for feedback and user research. Immediate calls for engagement must be done in your dedicated #tools channel. Direct calls should be used sparingly, as they can overwhelm more organic discussions and feedback.
 
-### Who is the audience for an adapter release?[​](#who-is-the-audience-for-an-adapter-release "Direct link to Who is the audience for an adapter release?")
+### Who is the audience for an adapter release?
 
 A new adapter is likely to drive huge community interest from several groups of people:
 
@@ -1271,7 +1227,7 @@ The database users will be your primary audience and the most helpful in achievi
 
 The final group is where non-slack community engagement becomes important. Twitter and LinkedIn are both great places to interact with a broad audience. A well-orchestrated adapter release can generate impactful and authentic engagement.
 
-### How to message the initial rollout and follow-up content[​](#how-to-message-the-initial-rollout-and-follow-up-content "Direct link to How to message the initial rollout and follow-up content")
+### How to message the initial rollout and follow-up content
 
 Tell a story that engages dbt users and the community. Highlight new use cases and functionality unlocked by the adapter in a way that will resonate with each segment.
 
@@ -1286,7 +1242,7 @@ Tell a story that engages dbt users and the community. Highlight new use cases a
   * Contribute to the dbt Community and ensure that dbt users on your adapter are well supported (tutorial content, packages, documentation, etc).
   * Example of a rollout that is compelling for those familiar with dbt: [Firebolt](https://www.linkedin.com/feed/update/urn:li:activity:6879090752459182080/)
 
-### Tactically manage distribution of content about new or existing adapters[​](#tactically-manage-distribution-of-content-about-new-or-existing-adapters "Direct link to Tactically manage distribution of content about new or existing adapters")
+### Tactically manage distribution of content about new or existing adapters
 
 There are tactical pieces on how and where to share that help ensure success.
 
@@ -1305,16 +1261,14 @@ There are tactical pieces on how and where to share that help ensure success.
 
   * Ask your partner representative about:
 
-    <!-- -->
-
     * Retweets and shares from the official dbt Labs accounts.
     * Flagging posts internally at dbt Labs to get individual employees to share.
 
-#### Measuring engagement[​](#measuring-engagement "Direct link to Measuring engagement")
+#### Measuring engagement
 
 You don’t need 1000 people in a channel to succeed, but you need at least a few active participants who can make it feel lived in. If you’re comfortable working in public, this could be members of your team, or it can be a few people who you know that are highly engaged and would be interested in participating. Having even 2 or 3 regulars hanging out in a channel is all that’s needed for a successful start and is, in fact, much more impactful than 250 people that never post.
 
-### How to announce a new adapter[​](#how-to-announce-a-new-adapter "Direct link to How to announce a new adapter")
+### How to announce a new adapter
 
 We’d recommend *against* boilerplate announcements and encourage finding a unique voice. That being said, there are a couple of things that we’d want to include:
 
@@ -1323,8 +1277,6 @@ We’d recommend *against* boilerplate announcements and encourage finding a uni
 * The personas that might be interested in this news.
 
 * A description of what the adapter *is*. For example:
-
-  <!-- -->
 
   > With the release of our new dbt adapter, you’ll be able to to use dbt to model and transform your data in \[name-of-your-org]
 
@@ -1336,7 +1288,7 @@ We’d recommend *against* boilerplate announcements and encourage finding a uni
 
 * An announcement blog.
 
-#### Announcing new release versions of existing adapters[​](#announcing-new-release-versions-of-existing-adapters "Direct link to Announcing new release versions of existing adapters")
+#### Announcing new release versions of existing adapters
 
 This can vary substantially depending on the nature of the release but a good baseline is the types of release messages that [we put out in the #dbt-releases](https://getdbt.slack.com/archives/C37J8BQEL/p1651242161526509) channel.
 
@@ -1345,22 +1297,22 @@ This can vary substantially depending on the nature of the release but a good ba
 Breaking this down:
 
 * Visually distinctive announcement - make it clear this is a release
-  <!-- -->
+
   [![title](/img/adapter-guide/1-announcement.png?v=2 "title")](#)title
 * Short written description of what is in the release
-  <!-- -->
+
   [![description](/img/adapter-guide/2-short-description.png?v=2 "description")](#)description
 * Links to additional resources
-  <!-- -->
+
   [![more resources](/img/adapter-guide/3-additional-resources.png?v=2 "more resources")](#)more resources
 * Implementation instructions:
-  <!-- -->
+
   [![more installation](/img/adapter-guide/4-installation.png?v=2 "more installation")](#)more installation
 * Contributor recognition (if applicable)
-  <!-- -->
+
   [![thank yous](/img/adapter-guide/6-thank-contribs.png?v=2 "thank yous")](#)thank yous
 
-## Build a trusted adapter[​](#build-a-trusted-adapter "Direct link to Build a trusted adapter")
+## Build a trusted adapter
 
 The Trusted Adapter Program exists to allow adapter maintainers to demonstrate to the dbt community that your adapter is trusted to be used in production.
 
@@ -1384,11 +1336,11 @@ These are valid, important questions to answer—especially given that `dbt-core
 
 There has been a tendency to trust the dbt Labs-maintained adapters over community- and vendor-supported adapters, but repo ownership is only one among many indicators of software quality. We aim to help our users feel well-informed as to the caliber of an adapter with a new program.
 
-### What it means to be trusted[​](#what-it-means-to-be-trusted "Direct link to What it means to be trusted")
+### What it means to be trusted
 
 By opting into the below, you agree to this, and we take you at your word. dbt Labs reserves the right to remove an adapter from the trusted adapter list at any time, should any of the below guidelines not be met.
 
-### Feature Completeness[​](#feature-completeness "Direct link to Feature Completeness")
+### Feature Completeness
 
 To be considered for the Trusted Adapter Program, the adapter must cover the essential functionality of dbt Core v1.x given below, with best effort given to support the entire feature set.
 
@@ -1401,13 +1353,13 @@ The adapter should have the required documentation for connecting and configurin
 
 Proceed to the "Document a new adapter" step for more information.
 
-### Release cadence[​](#release-cadence "Direct link to Release cadence")
+### Release cadence
 
 Keeping an adapter up-to-date with the latest features of dbt, as defined in [dbt-adapters](https://github.com/dbt-labs/dbt-adapters), is an integral part of being a trusted adapter. We encourage adapter maintainers to keep track of new dbt-adapter releases and support new features relevant to their platform, ensuring users have the best version of dbt.
 
 Before [dbt Core v1.x version 1.8](../docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#new-dbt-core-adapter-installation-procedure), adapter versions needed to match the semantic versioning of dbt Core v1.x. After v1.8, this is no longer required. This means users can use an adapter on v1.8+ with a different version of dbt Core v1.x v1.8+. For example, a user could use dbt-core v1.9 with dbt-postgres v1.8.
 
-### Community responsiveness[​](#community-responsiveness "Direct link to Community responsiveness")
+### Community responsiveness
 
 On a best effort basis, active participation and engagement with the dbt Community across the following forums:
 
@@ -1415,7 +1367,7 @@ On a best effort basis, active participation and engagement with the dbt Communi
 * Responding with comments to issues raised in public dbt adapter code repository
 * Merging in code contributions from community members as deemed appropriate
 
-### Security Practices[​](#security-practices "Direct link to Security Practices")
+### Security Practices
 
 Trusted adapters will not do any of the following:
 
@@ -1430,7 +1382,7 @@ Additionally, to avoid supply-chain attacks:
 * Restrict admin access to both the respective code (GitHub) and package (PyPI) repositories
 * Identify and mitigate security vulnerabilities by use of a static code analyzing tool (such as Snyk) as part of a CI/CD process
 
-### Other considerations[​](#other-considerations "Direct link to Other considerations")
+### Other considerations
 
 The adapter repository is:
 
@@ -1438,7 +1390,7 @@ The adapter repository is:
 * published to PyPI, and
 * automatically tests the codebase against dbt Lab's provided adapter test suite
 
-### How to get an adapter on the trusted list[​](#how-to-get-an-adapter-on-the-trusted-list "Direct link to How to get an adapter on the trusted list")
+### How to get an adapter on the trusted list
 
 Open an issue on the [docs.getdbt.com GitHub repository](https://github.com/dbt-labs/docs.getdbt.com) using the "Add adapter to Trusted list" template. In addition to contact information, it will ask confirm that you agree to the following.
 
@@ -1452,6 +1404,6 @@ The approval workflow is as follows:
 2. dbt Labs will respond as quickly as possible (maximally four weeks, though likely faster)
 3. If approved, dbt Labs will create and merge a Pull request to formally add the adapter to the list.
 
-### Getting help for my trusted adapter[​](#getting-help-for-my-trusted-adapter "Direct link to Getting help for my trusted adapter")
+### Getting help for my trusted adapter
 
 Ask your question in #adapter-ecosystem channel of the dbt community Slack.

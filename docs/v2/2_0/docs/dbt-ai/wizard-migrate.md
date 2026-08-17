@@ -1,12 +1,12 @@
 # Migrate to dbt Wizard
 
-Local developmentⓘ
+Local development
 
 Move from Claude Code to dbt Wizard while keeping your project conventions.
 
 dbt Wizard automatically imports Claude Code instructions, skills, and settings from your repo. Use this page if you already use Claude Code on dbt projects and want to bring over project context, skills, or model settings. If you're new to AI agents, start with [Use dbt Wizard locally](./wizard-quickstart.md).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 You'll need:
 
@@ -14,7 +14,7 @@ You'll need:
 * [BYOK](./wizard-byok.md) configured for a supported CLI provider (OpenAI, Anthropic, AWS Bedrock, or Snowflake Cortex in preview)
 * Any existing Claude Code files you want to migrate, such as `CLAUDE.md`, `.claude/CLAUDE.md`, or `.claude/skills/`
 
-## Review project context and skills[​](#review-project-context-and-skills "Direct link to Review project context and skills")
+## Review project context and skills
 
 dbt Wizard automatically reads common agent instruction files and skills from your repo. You usually don't need to move existing project context before using dbt Wizard.
 
@@ -31,7 +31,7 @@ dbt Wizard also walks the directory tree from your project root to your current 
 
 For the full skill format, refer to [Skills](./wizard-skills.md).
 
-### Convert reusable prompts to skills[​](#convert-reusable-prompts-to-skills "Direct link to Convert reusable prompts to skills")
+### Convert reusable prompts to skills
 
 Use skills for reusable workflows or specialized instructions, not for general project context that already lives in `AGENTS.md` or `CLAUDE.md`. Each repo-level skill lives in `.agents/skills/SKILL_NAME/SKILL.md`.
 
@@ -55,7 +55,7 @@ description: Apply team-specific dbt modeling conventions when creating, editing
 
 Write a specific `description:` because dbt Wizard uses it to decide when to load the skill.
 
-## Configure model settings[​](#configure-model-settings "Direct link to Configure model settings")
+## Configure model settings
 
 Set provider credentials in [Configure BYOK](./wizard-byok.md).
 
@@ -67,7 +67,7 @@ model = "claude-sonnet-4-6"   # use a model ID from `wizard debug models`
 
 You can also pick a model in the TUI with `/model` without editing config or the `--config` flag. Run `wizard --help` to see all available flags.
 
-## Verify the migration[​](#verify-the-migration "Direct link to Verify the migration")
+## Verify the migration
 
 From your dbt project root, start a new session:
 
@@ -88,7 +88,7 @@ And if your conventions aren't applied, check:
 * The skill has a clear `description:`
 * You started a new session after adding the skill
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use dbt Wizard locally](./wizard-quickstart.md)
 * [Skills](./wizard-skills.md)

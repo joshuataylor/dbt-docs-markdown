@@ -4,7 +4,7 @@ The SQL ANY and ALL operators are useful for evaluating conditions to limit quer
 
 Use this page to better understand how to use ANY and ALL operators, use cases for these operators, and which data warehouses support them.
 
-## How to use the SQL ANY and ALL operators[​](#how-to-use-the-sql-any-and-all-operators "Direct link to How to use the SQL ANY and ALL operators")
+## How to use the SQL ANY and ALL operators
 
 The ANY and ALL operators have very simple syntax and are often passed in the LIKE/ILIKE operator or subquery:
 
@@ -19,7 +19,7 @@ Some notes on this operator’s syntax and functionality:
 
 Let’s dive into a practical example using the ANY operator now.
 
-### SQL ANY example[​](#sql-any-example "Direct link to SQL ANY example")
+### SQL ANY example
 
 ```sql
 select
@@ -37,15 +37,9 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 23        | return\_pending |
 | 74        | shipped         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Because LIKE is case-sensitive, it would not return results in this query for orders whose status were say `RETURNED` or `SHIPPED`. If you have a mix of uppercase and lowercase strings in your data, consider standardizing casing for strings using the [UPPER](./upper.md) and [LOWER](./lower.md) functions or use the more flexible ILIKE operator.
 
-## ANY and ALL syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#any-and-all-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to ANY and ALL syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## ANY and ALL syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Snowflake and Databricks support the ability to use ANY in a LIKE operator. Amazon Redshift and Google BigQuery, however, do not support the use of ANY in a LIKE or ILIKE operator. Use the table below to read more on the documentation for the ANY operator in your data warehouse.
 
@@ -55,9 +49,3 @@ Snowflake and Databricks support the ability to use ANY in a LIKE operator. Amaz
 | [Databricks](https://docs.databricks.com/sql/language-manual/functions/like.html) | ✅                                                                                                                                                                          | ✅                                                                                                       |
 | Amazon Redshift                                                                   | ❌Not supported; consider utilizing multiple OR clauses or [IN operators](./in.md).                                                     | ❌Not supported; consider utilizing multiple [AND clauses](./and.md) |
 | Google BigQuery                                                                   | ❌Not supported; consider utilizing [multiple OR clauses](https://stackoverflow.com/questions/54645666/how-to-implement-like-any-in-bigquery-standard-sql) or IN operators. | ❌Not supported; consider utilizing multiple AND clauses                                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.11
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.11 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 functions/\<filename>.yml
 
@@ -25,17 +13,17 @@ functions:
       runtime_version: <string> # required for Snowflake and BigQuery; optional and ignored on Databricks
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 When creating Python UDFs, specify the Python version to run in `runtime_version`.
 
-## Supported values[​](#supported-values "Direct link to Supported values")
+## Supported values
 
 * [Snowflake](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction): `3.10`, `3.11`, `3.12`, and `3.13`
 * [BigQuery](https://cloud.google.com/bigquery/docs/user-defined-functions-python): `3.11`
 * Databricks: Accepted for compatibility but has no effect. Databricks manages the Python runtime internally, so dbt displays a warning if you set it. Available in `dbt-databricks` v1.12+.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 In this example, we're using the Python version `3.11` for the UDF.
 
@@ -48,7 +36,7 @@ functions:
       runtime_version: "3.11"
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [User-defined functions](../../docs/build/udfs.md)
 * [Function properties](../function-properties.md)

@@ -4,7 +4,7 @@ Configure production deferral in dbt Wizard CLI so local development can reuse u
 
 This workflow applies to the dbt Wizard CLI. The dbt platform manages credentials and deferral for its own dbt Wizard surfaces.
 
-## Choose who manages deferral[​](#choose-who-manages-deferral "Direct link to Choose who manages deferral")
+## Choose who manages deferral
 
 dbt Wizard stores per-project deferral settings in `~/.dbt/wizard/wizard_config.toml`. Choose the mode that matches how you already manage state.
 
@@ -19,7 +19,7 @@ dbt Wizard stores per-project deferral settings in `~/.dbt/wizard/wizard_config.
 
 The configuration values use underscores. For example, use `dbt_state`, not `dbt-state`.
 
-## Let Wizard manage production state[​](#let-wizard-manage-production-state "Direct link to Let Wizard manage production state")
+## Let Wizard manage production state
 
 Use `mode = "wizard"` when your `profiles.yml` contains a target that represents the environment you want to defer to.
 
@@ -55,7 +55,7 @@ prod_state_dir = "/Users/you/.cache/dbt/prod-state"
 
 If you set `global.prod_parse_args` explicitly, those arguments take precedence over the per-project `deferral.target` value.
 
-## Use an existing state directory[​](#use-an-existing-state-directory "Direct link to Use an existing state directory")
+## Use an existing state directory
 
 Use `mode = "manual"` when another process downloads or creates the production artifacts:
 
@@ -70,7 +70,7 @@ favor_state = true
 
 The `state` directory must contain a compatible production `manifest.json`. Keep the artifacts current enough for the code and packages in your working branch.
 
-## Decide whether to favor deferred state[​](#decide-whether-to-favor-deferred-state "Direct link to Decide whether to favor deferred state")
+## Decide whether to favor deferred state
 
 `favor_state` defaults to `true`.
 
@@ -81,7 +81,7 @@ Set this value deliberately. Favoring state is useful when you need a stable pro
 
 For the underlying dbt behavior, refer to [`--favor-state`](../../reference/node-selection/defer.md#favor-state).
 
-## Start a session and confirm the plan[​](#start-a-session-and-confirm-the-plan "Direct link to Start a session and confirm the plan")
+## Start a session and confirm the plan
 
 Restart `wizard` after editing `wizard_config.toml`, then use a prompt that makes the intended environment explicit:
 
@@ -100,7 +100,7 @@ Before approving a command, verify that:
 
 Deferral changes where dbt resolves unbuilt relations. It doesn't make production a safe write target. Review the target and command before approving any build, test, or query.
 
-## Troubleshoot deferral[​](#troubleshoot-deferral "Direct link to Troubleshoot deferral")
+## Troubleshoot deferral
 
 | Symptom                                              | Check                                                                                                                                         |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -111,7 +111,7 @@ Deferral changes where dbt resolves unbuilt relations. It doesn't make productio
 | Compilation needs project-specific flags             | Set `compile_extra_args` under the project entry. Project values override global compile arguments.                                           |
 | dbt Wizard uses the wrong profile                    | Configure `profile_override.path`, `profile_override.profile`, and `profile_override.target` for the project.                                 |
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About deferral](../../reference/node-selection/defer.md)
 * [About dbt State](../../docs/deploy/dbt-state-about.md)

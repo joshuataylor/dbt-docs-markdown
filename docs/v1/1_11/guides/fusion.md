@@ -14,7 +14,7 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 important
 
@@ -36,7 +36,7 @@ This quickstart guide will get you from zero to running your first dbt project w
 * The dbt VS Code extension installed and connected
 * The ability to preview, compile, and run dbt commands directly from your IDE
 
-### About the dbt Fusion engine[​](#about-the-dbt-fusion-engine "Direct link to About the dbt Fusion engine")
+### About the dbt Fusion engine
 
 Fusion and the features it provides are available in multiple environments:
 
@@ -46,15 +46,9 @@ Fusion and the features it provides are available in multiple environments:
 | **Local CLI**            | [Install dbt Fusion engine](../docs/local/install-dbt.md?version=2) locally following this guide.                                            |
 | **VS Code / Cursor IDE** | [Install the dbt extension](../docs/install-dbt-extension.md) to unlock Fusion's interactive power in your editor.                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 To learn more about which tool is best for you, see the [Fusion availability](../docs/fusion/fusion-availability.md) page. To learn about the dbt Fusion engine and how it works, read more [about the dbt Fusion engine](../docs/fusion/about-fusion.md).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To take full advantage of this guide, you'll need to meet the following prerequisites:
 
@@ -62,14 +56,11 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 
 * Make sure you're using a supported adapter and authentication method:
 
-  <!-- -->
-
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
   * External OAuth
-    <!-- -->
     * [Workload Identity Federation](../docs/platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../docs/local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -95,18 +86,13 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 
   * Thrift
 
-    <!-- -->
-
     * Simple Authentication and Security Layer (SASL) PLAIN
     * No SASL (NOSASL)
 
   * Livy
 
-    <!-- -->
-
     * Basic authentication (username and password)
     * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-      <!-- -->
       * Supports authentication using single sign-on, service accounts, or user tokens
 
    DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
@@ -121,7 +107,7 @@ To take full advantage of this guide, you'll need to meet the following prerequi
 
 * You need admin or install privileges on your machine.
 
-### What you’ll learn[​](#what-youll-learn "Direct link to What you’ll learn")
+### What you’ll learn
 
 By following this guide, you will:
 
@@ -132,7 +118,7 @@ By following this guide, you will:
 
 You can learn more through high-quality [dbt Learn courses and workshops](https://learn.getdbt.com/).
 
-## Installation[​](#installation "Direct link to Installation")
+## Installation
 
 It's easy to think of the dbt Fusion engine and the dbt extension as two different products, but they're a powerful combo that works together to unlock the full potential of dbt. Think of the dbt Fusion engine as exactly that — an engine. The dbt extension and VS Code are the chassis, and together they form a powerful vehicle for transforming your data.
 
@@ -146,17 +132,13 @@ The following are the essential steps from the [dbt Fusion engine](../docs/local
 
 1. Run the following commands to install the dbt Fusion engine CLI:
 
-   <!-- -->
-
    ```shell
    python -m pip install --pre dbt
    ```
 
-### Verify the dbt Fusion engine installation[​](#verify-the--installation "Direct link to verify-the--installation")
+### Verify the dbt Fusion engine installation
 
 1. After installation, open a new command-line window to confirm that Fusion installed correctly by checking the version.
-
-   <!-- -->
 
    ```bash
    dbt --version
@@ -164,27 +146,25 @@ The following are the essential steps from the [dbt Fusion engine](../docs/local
 
 2. You should see output similar to the following:
 
-   <!-- -->
-
    ```bash
    dbt 2.0.0-preview.178
    ```
 
-### Install the dbt VS Code extension[​](#install-the-dbt-vs-code-extension "Direct link to Install the dbt VS Code extension")
+### Install the dbt VS Code extension
 
 The dbt VS Code extension is available in the [Visual Studio extension marketplace](https://marketplace.visualstudio.com/items?itemName=dbtLabsInc.dbt). Download it directly from your VS Code editor:
 
 1. Navigate to the **Extensions** tab of VS Code (or Cursor).
 2. Search for `dbt` and choose the one from the publisher `dbt Labs, LLC`.
-   <!-- -->
+
    [![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")](#)Search for the extension
 3. Click **Install**.
 4. When the prompt appears, you can register the extension or skip it. Check out the [registration](../docs/sign-in-dbt-extension.md) or [installation](../docs/install-dbt-extension.md) instructions to come back to it later.
 5. Confirm you've installed the extension by looking for the **dbt Extension** label in the status bar. If you see it, the extension was installed successfully!
-   <!-- -->
+
    [![Verify installation in the status bar.](/img/docs/extension/extension-lsp-download.png?v=2 "Verify installation in the status bar.")](#)Verify installation in the status bar.
 
-## Initialize the Jaffle Shop project[​](#initialize-the-jaffle-shop-project "Direct link to Initialize the Jaffle Shop project")
+## Initialize the Jaffle Shop project
 
 Now let's create your first dbt project powered by Fusion!
 
@@ -212,7 +192,7 @@ Now let's create your first dbt project powered by Fusion!
    dbt build
    ```
 
-   #### Viewing metadata in Catalog[​](#viewing-metadata-in-catalog "Direct link to Viewing metadata in Catalog")
+   #### Viewing metadata in Catalog
 
    Run `dbt build --write-catalog` locally to generate docs metadata (`dbt build` alone does not generate docs metadata). To view that metadata in Catalog, run a job in dbt platform so the metadata is uploaded. For details, refer to [Platform behavior](../reference/commands/cmd-docs.md?version=2.0#platform-behavior).
 
@@ -222,7 +202,7 @@ Now let's create your first dbt project powered by Fusion!
    * Create, build, and test models
    * Verify your dbt environment is fully operational
 
-## Explore with the dbt VS Code extension[​](#explore-with-the-dbt-vs-code-extension "Direct link to Explore with the dbt VS Code extension")
+## Explore with the dbt VS Code extension
 
 The dbt VS Code extension (available for VS Code and Cursor) compiles and builds your project with the dbt Fusion engine, a powerful and blazing fast rebuild of dbt from the ground up.
 
@@ -240,14 +220,12 @@ Now that your project works, open it in VS Code or Cursor and see Fusion in acti
 
 4. Open a model file to see the definition for the `orders` model. This is the model we'll use in all of the examples below.
 
-   <!-- -->
-
    ```bash
        models/marts/orders.sql
    ```
 
 5. Locate **Lineage** and **Query Results** in the lower panel, and the **dbt icon** in the upper right corner next to your editor groups. If you see all of these, the extension is installed correctly and running!
-   <!-- -->
+
    [![The VS Code UI with the extension running.](/img/docs/extension/extension-running.png?v=2 "The VS Code UI with the extension running.")](#)The VS Code UI with the extension running.
 
 Now you're ready to see some of these awesome features in action!
@@ -257,64 +235,62 @@ Now you're ready to see some of these awesome features in action!
 * [Use the power of SQL understanding](#use-the-power-of-sql-understanding)
 * [Speed up common dbt commands](#speed-up-common-dbt-commands)
 
-#### Preview data and code[​](#preview-data-and-code "Direct link to Preview data and code")
+#### Preview data and code
 
 Gain valuable insights into your data transformation during each step of your development process. You can quickly access model results and underlying data structures directly from your code. These previews help validate your code step-by-step.
 
 1. Locate the **table icon** for **Preview File** in the upper right corner. Click it to preview results in the **Query Results** tab.
-   <!-- -->
+
    [![Preview model query results.](/img/docs/extension/preview-query-results.png?v=2 "Preview model query results.")](#)Preview model query results.
 
 2. Click **Preview CTE** above `orders as (` to preview results in the **Query Results** tab.
-   <!-- -->
+
    [![Preview CTE query results.](/img/docs/extension/preview-cte-query-results-3.png?v=2 "Preview CTE query results.")](#)Preview CTE query results.
 
 3. Locate the code icon for **Compile File** in between the dbt and the table icons. Clicking this icon opens a window with the compiled version of the model.
-
-   <!-- -->
 
    [![Compile File icon.](/img/docs/extension/compile-file-icon.png?v=2 "Compile File icon.")](#)Compile File icon.
 
    [![Compile File results.](/img/docs/extension/compile-file.png?v=2 "Compile File results.")](#)Compile File results.
 
-#### Navigate your project with lineage tools[​](#navigate-your-project-with-lineage-tools "Direct link to Navigate your project with lineage tools")
+#### Navigate your project with lineage tools
 
 Almost as important as where your data is going is where it's been. The lineage tools in the extension let you visualize the lineage of the resources in your models as well as the column-level lineage. These capabilities deepen your understanding of model relationships and dependencies.
 
 1. Open the **Lineage** tab to visualize the model-level lineage of this model.
-   <!-- -->
+
    [![Visualizing model-level lineage.](/img/docs/extension/extension-pane.png?v=2 "Visualizing model-level lineage.")](#)Visualizing model-level lineage.
 2. Open the **View** menu, click **Command Palette** and enter `dbt: Show Column Lineage` to visualize the column-level lineage in the **Lineage** tab.
-   <!-- -->
+
    [![Show column-level lineage.](/img/docs/extension/show-cll.png?v=2 "Show column-level lineage.")](#)Show column-level lineage.
 
-#### Use the power of SQL understanding[​](#use-the-power-of-sql-understanding "Direct link to Use the power of SQL understanding")
+#### Use the power of SQL understanding
 
 Code smarter, not harder. The autocomplete and context clues help avoid mistakes and enable you to write fast and accurate SQL. Catch issues before you commit them!
 
 1. To see **Autocomplete** in action, delete `ref('stg_orders')`, and begin typing `ref(stg_` to see the subset of matching model names. Use up and down arrows to select `stg_orders`.
-   <!-- -->
+
    [![Autocomplete for a model name.](/img/docs/extension/autocomplete.png?v=2 "Autocomplete for a model name.")](#)Autocomplete for a model name.
 2. Hover over any `*` to see the list of column names and data types being selected.
-   <!-- -->
+
    [![Hovering over \* to see column names and data types.](/img/docs/extension/hover-star.png?v=2 "Hovering over * to see column names and data types.")](#)Hovering over \* to see column names and data types.
 
-#### Speed up common dbt commands[​](#speed-up-common-dbt-commands "Direct link to Speed up common dbt commands")
+#### Speed up common dbt commands
 
 Testing, testing... is this mic on? It is and it's ready to execute your commands with blazing fast speeds! When you want to test your code against various dbt commands:
 
 1. The dbt icon in the top right opens a list of extension-specific commands:
-   <!-- -->
+
    [![Select a command via the dbt icon.](/img/docs/extension/run-command.png?v=2 "Select a command via the dbt icon.")](#)Select a command via the dbt icon.
 2. Opening the **View** menu, clicking the **Command Palette**, and entering `>dbt:` in the command bar shows all the new commands that are available.
-   <!-- -->
+
    [![dbt commands in the command bar.](/img/docs/extension/extension-commands-all.png?v=2 "dbt commands in the command bar.")](#)dbt commands in the command bar.
 
 Try choosing some of them and see what they do 😎
 
 This is just the start. There is so much more available and so much more coming. Be sure to check out our resources for all the information about the dbt Fusion engine and the dbt VS Code extension!
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If you run into any issues, check out the troubleshooting section below.
 
@@ -325,24 +301,23 @@ If you've never had a `.dbt` directory, you should perform the following recomme
 * A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
 * To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
 
-- Create a .dbt directory
-- Move the dbt\_cloud.yml file
+### Create a .dbt directory
 
 1. Clone your dbt project repository locally.
 2. Use the `mkdir` command followed by the name of the folder you want to create.
 
 * If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
 
-  <!-- -->
-
   * macOS: `mkdir ~/.dbt`
   * Windows: `mkdir %USERPROFILE%\.dbt`
+
+### Move the dbt\_cloud.yml file
 
 You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
 
 To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
 
-#### Mac or Linux[​](#mac-or-linux "Direct link to Mac or Linux")
+#### Mac or Linux
 
 In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
 
@@ -350,7 +325,7 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
-#### Windows[​](#windows "Direct link to Windows")
+#### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
 
@@ -402,15 +377,11 @@ If you've confirmed the dbt extension is installed correctly but don't see LSP f
 
 1. Check extension version — Ensure that you're using the latest available version of the dbt extension by:
 
-   <!-- -->
-
    * Opening the **Extensions** page in your editor, or
    * Going to the **Output** tab and looking for the version number, or
    * Running `dbtf --version` in the terminal.
 
 2. Reinstall the LSP — If the version is correct, reinstall the LSP:
-
-   <!-- -->
 
    1. Open the Command Palette: Command + Shift + P (macOS) or Ctrl + Shift + P (Windows/Linux).
    2. Paste `dbt: Reinstall dbt LSP` and enter.
@@ -481,7 +452,7 @@ This situation can be remedied by setting up an internet fallback, which will th
 
 For Azure refer to [Fallback to internet for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-fallback).
 
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](../docs/about-dbt-extension.md)
 * [Supported features matrix](../docs/fusion/supported-features.md)

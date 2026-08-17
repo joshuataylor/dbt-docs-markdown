@@ -1,43 +1,31 @@
 # Connect RisingWave to dbt Core
 
-Local developmentⓘ
+Local development
 
 Vendor-supported plugin
 
 Certain core functionality may vary. If you would like to report a bug, request a feature, or contribute, you can check out the linked repository and open an issue.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  RisingWave
-* **Authors**:
-  <!-- -->
-  Dylan Chen
+* **Maintained by**: RisingWave
+* **Authors**: Dylan Chen
 * **GitHub repo**: [risingwavelabs/dbt-risingwave](https://github.com/risingwavelabs/dbt-risingwave) [![](https://img.shields.io/github/stars/risingwavelabs/dbt-risingwave?style=for-the-badge)](https://github.com/risingwavelabs/dbt-risingwave)
 * **PyPI package**: `dbt-risingwave` [![](https://badge.fury.io/py/dbt-risingwave.svg)](https://badge.fury.io/py/dbt-risingwave)
 * **Slack channel**: [N/A](https://www.risingwave.com/slack)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.6.1
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
+* **Supported dbt Core version**: v1.6.1 and newer
+* **dbt support**: Not Supported
 * **Minimum data platform version**:
 
-## Installing <!-- -->dbt-risingwave
+## Installing dbt-risingwave
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-risingwave`
 
-## Configuring <!-- -->dbt-risingwave<!-- -->
+## Configuring dbt-risingwave
 
-For <!-- -->RisingWave<!-- -->-specific configuration, please refer to [RisingWave<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For RisingWave-specific configuration, please refer to [RisingWave configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to RisingWave with dbt-risingwave[​](#connecting-to-risingwave-with-dbt-risingwave "Direct link to Connecting to RisingWave with dbt-risingwave")
+## Connecting to RisingWave with dbt-risingwave
 
 Before connecting to RisingWave, ensure that RisingWave is installed and running. For more information about how to get RisingWave up and running, see the [RisingWave quick start guide](https://docs.risingwave.com/get-started/quickstart).
 
@@ -68,19 +56,13 @@ default:
 | `port`   | The port number that RisingWave listens on             |
 | `schema` | The schema of the RisingWave database                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 To test the connection to RisingWave, run:
 
 ```bash
 dbt debug
 ```
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
 The dbt models for managing data transformations in RisingWave are similar to typical dbt SQL models. In the `dbt-risingwave` adapter, we have customized some of the materializations to align with the streaming data processing model of RisingWave.
 
@@ -96,13 +78,7 @@ The dbt models for managing data transformations in RisingWave are similar to ty
 | `table_with_connector` | Yes               | Creates a table with connector settings. In RisingWave, a table with connector settings is similar to a source. The difference is that a table object with connector settings persists raw streaming data in the source, while a source object does not. To use this materialization, add `{{ config(materialized='table_with_connector') }}` to your model SQL files. You need to provide your create table with connector statement as a whole in this model (see [Example model files](https://docs.risingwave.com/integrations/other/dbt#example-model-files) for details). Because dbt tables have their own semantics, RisingWave use `table_with_connector` to distinguish itself from a dbt table. |
 | `sink`                 | Yes               | Creates a [sink](https://docs.risingwave.com/sql/commands/sql-create-sink). To use this materialization, add `{{ config(materialized='sink') }}` to your SQL files. You need to provide your create sink statement as a whole in this model. See [Example model files](https://docs.risingwave.com/integrations/other/dbt#example-model-files) for details.                                                                                                                                                                                                                                                                                                                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [RisingWave's guide about using dbt for data transformations](https://docs.risingwave.com/integrations/other/dbt)
 * [A demo project using dbt to manage Nexmark benchmark queries in RisingWave](https://github.com/risingwavelabs/dbt_rw_nexmark)

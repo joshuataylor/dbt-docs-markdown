@@ -6,27 +6,27 @@ For the first time, [dbt utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest
 
 Just like the switch to dbt Core 1.0 last year, there are some breaking changes as we standardized and prepared for the future. Most changes can be handled with find-and-replace. If you need help, post on the [Community Forum](https://discourse.getdbt.com) or in [#package-ecosystem](https://getdbt.slack.com/archives/CU4MRJ7QB) channel on Slack.
 
-## New features[​](#new-features "Direct link to New features")
+## New features
 
 * `get_single_value()` — An easy way to pull a single value from a SQL query, instead of having to access the `[0][0]`th element of a `run_query` result.
 * `safe_divide()` — Returns null when the denominator is 0, instead of throwing a divide-by-zero error.
 * New `not_empty_string` test — An easier wrapper than using `expression_is_true` to check the length of a column.
 
-## Enhancements[​](#enhancements "Direct link to Enhancements")
+## Enhancements
 
 * Many tests are more meaningful when you run them against subgroups of a table. For example, you may need to validate that recent data exists for every turnstile instead of a single data source being sufficient. Add the new `group_by_columns` argument to your tests to do so. Review [this article](https://www.emilyriederer.com/post/grouping-data-quality/) by the test's author for more information.
 * With the addition of an on-by-default `quote_identifiers` argument in the `star()` macro, you can now disable quoting if necessary.
 * The `recency` test now has an optional `ignore_time_component` argument which can be used when testing against a date column. This prevents the time of day the test runs from causing false negatives/positives.
 
-## Fixes[​](#fixes "Direct link to Fixes")
+## Fixes
 
 * `union()` now includes/excludes columns case-insensitively
 * `slugify()` prefixes an underscore when the first char is a digit
 * The `expression_is_true` test doesn’t output `*` unless storing failures, a cost improvement for BigQuery.
 
-## Breaking Changes[​](#breaking-changes "Direct link to Breaking Changes")
+## Breaking Changes
 
-### Changes to `surrogate_key()`:[​](#changes-to-surrogate_key "Direct link to changes-to-surrogate_key")
+### Changes to `surrogate_key()`:
 
 * `surrogate_key()` has been replaced by `generate_surrogate_key()`. The original treated null values and blank strings the same, which could lead to duplicate keys being created. `generate_surrogate_key()` does not have this flaw. Compare the [surrogate keys calculated for these columns](https://docs.google.com/spreadsheets/d/1qWfdbieUOSgkzdY0kmJ9iCgdqyWccA0R-6EW0EgaMQc/edit#gid=0):
 
@@ -51,7 +51,7 @@ Warning to package maintainers
 
 You can not assume one behavior or the other, as each project can customize its behavior.
 
-### Functionality now native to dbt Core:[​](#functionality-now-native-to-dbt-core "Direct link to Functionality now native to dbt Core:")
+### Functionality now native to dbt Core:
 
 * The `expression_is_true` test no longer has a dedicated `condition` argument. Instead, use `where` which is [now available natively to all tests](../../../../reference/resource-configs/where.md):
 
@@ -77,13 +77,11 @@ models:
 
 * The deprecated `unique_where` and `not_null_where` tests have been removed, because [where is now available natively to all tests](../../../../reference/resource-configs/where.md). To migrate, find and replace `dbt_utils.unique_where` with `unique` and `dbt_utils.not_null_where` with `not_null`.
 * `dbt_utils.current_timestamp()` is replaced by `dbt.current_timestamp()`.
-  <!-- -->
   * Note that Postgres and Snowflake’s implementation of `dbt.current_timestamp()` differs from the old `dbt_utils` one ([full details here](https://github.com/dbt-labs/dbt-utils/pull/597#issuecomment-1231074577)). If you use Postgres or Snowflake and need identical backwards-compatible behavior, use `dbt.current_timestamp_backcompat()`. This discrepancy will hopefully be reconciled in a future version of dbt Core.
 * All other cross-db macros have moved to the dbt namespace, with no changes necessary other than replacing `dbt_utils.` with `dbt.`. Review the [cross database macros documentation](../../../../reference/dbt-jinja-functions/cross-database-macros.md) for the full list.
-  <!-- -->
   * In your code editor, you can do a global find and replace with regex: `\{\{\s*dbt_utils\.(any_value|bool_or|cast_bool_to_text|concat|dateadd|datediff|date_trunc|escape_single_quotes|except|hash|intersect|last_day|length|listagg|position|replace|right|safe_cast|split_part|string_literal|type_bigint|type_float|type_int|type_numeric|type_string|type_timestamp|type_bigint|type_float|type_int|type_numeric|type_string|type_timestamp|except|intersect|concat|hash|length|position|replace|right|split_part|escape_single_quotes|string_literal|any_value|bool_or|listagg|cast_bool_to_text|safe_cast|dateadd|datediff|date_trunc|last_day)` → `{{ dbt.$1`
 
-### Removal of `insert_by_period` materialization[​](#removal-of-insert_by_period-materialization "Direct link to removal-of-insert_by_period-materialization")
+### Removal of `insert_by_period` materialization
 
 * The `insert_by_period` materialization has been moved to the [experimental-features repo](https://github.com/dbt-labs/dbt-labs-experimental-features/tree/main/insert_by_period). To continue to use it, add the below to your packages.yml file:
 
@@ -94,13 +92,11 @@ packages:
     revision: XXXX #optional but highly recommended. Provide a full git sha hash, e.g. 1c0bfacc49551b2e67d8579cf8ed459d68546e00. If not provided, uses the current HEAD.
 ```
 
-### Removal of deprecated legacy behavior:[​](#removal-of-deprecated-legacy-behavior "Direct link to Removal of deprecated legacy behavior:")
+### Removal of deprecated legacy behavior:
 
 * `safe_add()` only works with a list of arguments; use `{{ dbt_utils.safe_add(['column_1', 'column_2']) }}` instead of varargs `{{ dbt_utils.safe_add('column_1', 'column_2') }}`.
 
 * Several long-promised deprecations to `deduplicate()` have been applied:
-
-  <!-- -->
 
   * The `group_by` argument is replaced by `partition_by`.
   * `relation_alias` is removed. If you need an alias, you can pass it directly to the `relation` argument.
@@ -108,7 +104,7 @@ packages:
 
 * The deprecated `table` argument has been removed from `unpivot()`. Use `relation` instead.
 
-## Resolving error messages[​](#resolving-error-messages "Direct link to Resolving error messages")
+## Resolving error messages
 
 After upgrading, these are common error messages you may encounter, along with their resolutions.
 

@@ -1,6 +1,6 @@
 # Yellowbrick configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+## Incremental materialization strategies
 
 The dbt-yellowbrick adapter supports the following incremental materialization strategies:
 
@@ -9,7 +9,7 @@ The dbt-yellowbrick adapter supports the following incremental materialization s
 
 All of these strategies are inherited from the dbt-postgres adapter.
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
+## Performance optimizations
 
 To improve query performance, tables in Yellowbrick Data support several optimizations that can be defined as model-level configurations in dbt. These will be applied to `CREATE TABLE` DDL statements generated at compile or run time. Note that these settings will have no effect on models set to `view` or `ephemeral`.
 
@@ -21,7 +21,7 @@ dbt-yellowbrick supports the following Yellowbrick-specific features when defini
 
 A table that has sorted or clustered columns facilitates the skipping of blocks when tables are scanned with restrictions applied in the query. Further details can be found in the [Yellowbrick Data Warehouse](https://docs.yellowbrick.com/latest/ybd_sqlref/clustered_tables.html#clustered-tables) documentation.
 
-### Some example model configurations[​](#some-example-model-configurations "Direct link to Some example model configurations")
+### Some example model configurations
 
 * `DISTRIBUTE REPLICATE` with a `SORT` column...
 
@@ -137,10 +137,10 @@ distribute on (match_key)
 cluster on (season_key, match_date_key, home_team_key, away_team_key);
 ```
 
-## Cross-database materializations[​](#cross-database-materializations "Direct link to Cross-database materializations")
+## Cross-database materializations
 
 Yellowbrick supports cross-database queries and the dbt-yellowbrick adapter will permit cross-database reads into a specific target on the same appliance instance.
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 This initial implementation of the dbt adapter for Yellowbrick Data Warehouse may not support some use cases. We strongly advise validating all records or transformations resulting from the adapter output.

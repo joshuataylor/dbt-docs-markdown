@@ -1,10 +1,10 @@
 # Microsoft Excel
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The Semantic Layer offers a seamless integration with Excel Online and Desktop through a custom menu. This add-on allows you to build Semantic Layer queries and return data on your metrics directly within Excel.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher.
 * You need a Microsoft Excel account with access to install add-ons.
@@ -16,7 +16,7 @@ tip
 
 📹 For on-demand video learning, explore the [Querying the Semantic Layer with Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel) course to learn how to query metrics with Excel.
 
-## Installing the add-on[​](#installing-the-add-on "Direct link to Installing the add-on")
+## Installing the add-on
 
 The Semantic Layer Microsoft Excel integration is available to download directly on [Microsoft AppSource](https://appsource.microsoft.com/en-us/product/office/WA200007100?tab=Overview). You can choose to download this add-on in for both [Excel Desktop](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationId=4132ecd1-425d-982d-efb4-de94ebc83f26) and [Excel Online](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationid=4132ecd1-425d-982d-efb4-de94ebc83f26\&isWac=True)
 
@@ -28,18 +28,16 @@ The Semantic Layer Microsoft Excel integration is available to download directly
 
 2. Start querying your metrics using the **Query Builder**. For more info on the menu functions, refer to [Query Builder functions](#query-builder-functions). To cancel a query while running, press the **Cancel** button.
 
-<!-- -->
-
-When querying your data with <!-- -->Microsoft Excel<!-- -->:
+When querying your data with Microsoft Excel:
 
 * It returns the data to the cell you clicked on.
 * Results that take longer than one minute to load into Excel will fail. This limit only applies to the loading process, not the time it takes for the data platform to run the query.
 * If you're using this extension, make sure you're signed into Microsoft with the same Excel profile you used to set up the Add-In. Log in with one profile at a time as using multiple profiles at once might cause issues.
 * Note that only standard granularities are currently available, custom time granularities aren't currently supported for this integration.
 
-## Query Builder functions[​](#query-builder-functions "Direct link to Query Builder functions")
+## Query Builder functions
 
-The <!-- -->Microsoft Excel<!-- --> **Query Builder** custom menu has the following capabilities:
+The Microsoft Excel **Query Builder** custom menu has the following capabilities:
 
 | Menu items | Description                                                                                                                                                                              |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -52,9 +50,7 @@ The <!-- -->Microsoft Excel<!-- --> **Query Builder** custom menu has the follow
 
 Note: Click the **info** button next to any metric or dimension to see its defined description from your dbt project.
 
-#### Modifying time granularity[​](#modifying-time-granularity "Direct link to Modifying time granularity")
-
-<!-- -->
+#### Modifying time granularity
 
 When you select time dimensions in the **Group By** menu, you'll see a list of available time granularities. The lowest granularity is selected by default. Metric time is the default time dimension for grouping your metrics.
 
@@ -62,7 +58,7 @@ info
 
 Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](../../build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](../../dbt-apis/sl-api-overview.md).
 
-#### Filtering data[​](#filtering-data "Direct link to Filtering data")
+#### Filtering data
 
 To use the filter functionality, choose the [dimension](../../build/dimensions.md) you want to filter by and select the operation you want to filter on.
 
@@ -71,7 +67,7 @@ To use the filter functionality, choose the [dimension](../../build/dimensions.m
 * Continue adding additional filters as needed with AND and OR.
 * For time dimensions, you can use the time range selector to filter on presets or custom options. The time range selector applies only to the primary time dimension (`metric_time`). For all other time dimensions that aren't `metric_time`, you can use the "Where" option to apply filters.
 
-#### Other settings[​](#other-settings "Direct link to Other settings")
+#### Other settings
 
 If you would like to just query the data values without the headers, you can optionally select the **Exclude column names** box.
 
@@ -79,15 +75,15 @@ To return your results and keep any previously selected data below it intact, un
 
 [![Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.](/img/docs/dbt-platform/semantic-layer/query-builder.png?v=2 "Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.")](#)Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.
 
-## Using saved selections[​](#using-saved-selections "Direct link to Using saved selections")
+## Using saved selections
 
-Saved selections allow you to save the inputs you've created in the <!-- -->Microsoft Excel<!-- --> **Query Builder** and easily access them again so you don't have to continuously build common queries from scratch. To create a saved selection:
+Saved selections allow you to save the inputs you've created in the Microsoft Excel **Query Builder** and easily access them again so you don't have to continuously build common queries from scratch. To create a saved selection:
 
 1. Run a query in the **Query Builder**.
 2. Save the selection by selecting the arrow next to the **Query** button and then select **Query & Save Selection**.
 3. The application saves these selections, allowing you to view and edit them from the hamburger menu under **Saved Selections**.
 
-### Refreshing selections[​](#refreshing-selections "Direct link to Refreshing selections")
+### Refreshing selections
 
 Set your saved selections to automatically refresh every time you load the addon. You can do this by selecting **Refresh on Load** when creating the saved selection. When you access the addon and have saved selections that should refresh, you'll see "Loading..." in the cells that are refreshing.
 
@@ -98,24 +94,16 @@ What's the difference between saved selections and saved queries?
 * Saved selections are saved components that you can create only when using the application.
 * Saved queries, explained in the next section, are code-defined sections of data you create in your dbt project that you can easily access and use for building selections. You can also use the results from a saved query to create a saved selection.
 
-## Using saved queries[​](#using-saved-queries "Direct link to Using saved queries")
+## Using saved queries
 
-Access [saved queries](../../build/saved-queries.md), powered by MetricFlow, in <!-- -->Microsoft Excel<!-- --> to quickly get results from pre-defined sets of data. To access the saved queries in <!-- -->Microsoft Excel<!-- -->:
+Access [saved queries](../../build/saved-queries.md), powered by MetricFlow, in Microsoft Excel to quickly get results from pre-defined sets of data. To access the saved queries in Microsoft Excel:
 
-1. Open the hamburger menu in
-   <!-- -->
-   Microsoft Excel
-   <!-- -->
-   .
+1. Open the hamburger menu in Microsoft Excel.
 2. Navigate to **Saved Queries** to access the ones available to you.
 3. You can also select **Build Selection**, which allows you to explore the existing query. This won't change the original query defined in the code.
-   * If you use a `WHERE` filter in a saved query,
-     <!-- -->
-     Microsoft Excel
-     <!-- -->
-     displays the advanced syntax for this filter.
+   * If you use a `WHERE` filter in a saved query, Microsoft Excel displays the advanced syntax for this filter.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 I'm receiving an \`Failed ALPN\` error when trying to connect to the dbt Semantic Layer.
 

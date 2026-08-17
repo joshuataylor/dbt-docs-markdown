@@ -1,39 +1,29 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect Databricks to dbt Core
 
-Local developmentⓘ
+Local development
 
 [Fusion compatible](./databricks-setup.md?version=2 "Fusion compatible") connection also available.
 
-* **Maintained by**:
-  <!-- -->
-  Databricks
-* **Authors**:
-  <!-- -->
-  dbt loving Bricksters
+* **Maintained by**: Databricks
+* **Authors**: dbt loving Bricksters
 * **GitHub repo**: [databricks/dbt-databricks](https://github.com/databricks/dbt-databricks) [![](https://img.shields.io/github/stars/databricks/dbt-databricks?style=for-the-badge)](https://github.com/databricks/dbt-databricks)
 * **PyPI package**: `dbt-databricks` [![](https://badge.fury.io/py/dbt-databricks.svg)](https://badge.fury.io/py/dbt-databricks)
 * **Slack channel**: [#db-databricks-and-spark](https://getdbt.slack.com/archives/CNGCW8HKL)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.18.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Databricks SQL or DBR 12+
+* **Supported dbt Core version**: v0.18.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: Databricks SQL or DBR 12+
 
-## Installing <!-- -->dbt-databricks
+## Installing dbt-databricks
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-databricks`
 
-## Configuring <!-- -->dbt-databricks<!-- -->
+## Configuring dbt-databricks
 
-For <!-- -->Databricks<!-- -->-specific configuration, please refer to [Databricks<!-- --> configs.](../../../reference/resource-configs/databricks-configs.md)
+For Databricks-specific configuration, please refer to [Databricks configs.](../../../reference/resource-configs/databricks-configs.md)
 
 `dbt-databricks` is the recommended adapter for Databricks. It includes features not available in `dbt-spark`, such as:
 
@@ -42,7 +32,7 @@ For <!-- -->Databricks<!-- -->-specific configuration, please refer to [Databric
 * Use of Delta Lake for all models out of the box
 * SQL macros that are optimized to run with [Photon](https://docs.databricks.com/runtime/photon.html)
 
-## Connecting to Databricks[​](#connecting-to-databricks "Direct link to Connecting to Databricks")
+## Connecting to Databricks
 
 To connect to a data platform with dbt Core, create the appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Databricks SQL Warehouse/cluster. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more info, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
 
@@ -50,15 +40,13 @@ To connect to a data platform with dbt Core, create the appropriate *profile* an
 
 Refer to the [Databricks docs](https://docs.databricks.com/dev-tools/dbt.html#) for more info on how to obtain the credentials for configuring your profile.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 You can use either token-based authentication or OAuth client-based authentication to connect to Databricks. Refer to the following examples for more on how to configure your profile for each type of authentication.
 
 The default OAuth app for dbt-databricks is auto-enabled in every account with expected settings. You can find the adapter app in [Account Console](https://accounts.cloud.databricks.com) > [Settings](https://accounts.cloud.databricks.com/settings) > [App Connections](https://accounts.cloud.databricks.com/settings/app-integrations) > dbt adapter for Databricks. If you cannot find the adapter app, dbt may be disabled in your account, please refer to this [guide](https://docs.databricks.com/en/integrations/enable-disable-oauth.html) to re-enable dbt-databricks as an OAuth app.
 
-* Token-based authentication
-* OAuth client-based authentication (M2M)
-* OAuth client-based authentication (U2M)
+### Token-based authentication
 
 \~/.dbt/profiles.yml
 
@@ -75,6 +63,8 @@ your_profile_name:
       token: dapiXXXXXXXXXXXXXXXXXXXXXXX # Required Personal Access Token (PAT) if using token-based authentication
       threads: 1_OR_MORE  # Optional, default 1
 ```
+
+### OAuth client-based authentication (M2M)
 
 \~/.dbt/profiles.yml
 
@@ -94,6 +84,8 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
+### OAuth client-based authentication (U2M)
+
 \~/.dbt/profiles.yml
 
 ```yaml
@@ -110,7 +102,7 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
-## Host parameters[​](#host-parameters "Direct link to Host parameters")
+## Host parameters
 
 The following profile fields are always required.
 
@@ -120,13 +112,7 @@ The following profile fields are always required.
 | `http_path` | The http path to your SQL Warehouse or all-purpose cluster.                                                                                           | `/SQL/YOUR/HTTP/PATH`        |
 | `schema`    | The name of a schema within your cluster's catalog.<br /><br />It's *not recommended* to use schema names that have upper case or mixed case letters. | `MY_SCHEMA`                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Authentication parameters[​](#authentication-parameters "Direct link to Authentication parameters")
+## Authentication parameters
 
 The `dbt-databricks` adapter supports both [token-based authentication](./databricks-setup.md?tokenoauth=token#examples) and [OAuth client-based authentication](./databricks-setup.md?tokenoauth=oauth#examples).
 
@@ -141,13 +127,7 @@ Refer to the following **required** parameters to configure your profile for eac
 | `azure_client_secret` | OAuth-based (Azure)   | The client secret for your Azure Databricks OAuth application.   | `XXXXXXXXXXXXX`<br />`XXXXXXXXXXXXXX` |
 | `auth_type`           | OAuth-based           | The type of authorization needed to connect to Databricks.<br /> | `oauth`                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Additional parameters[​](#additional-parameters "Direct link to Additional parameters")
+## Additional parameters
 
 The following profile fields are optional to set up. They help you configure how your cluster's session and dbt work for your connection.
 
@@ -159,15 +139,9 @@ The following profile fields are optional to set up. They help you configure how
 | `session_properties` | This sets the Databricks session properties used in the connection. Execute `SET -v` to see available options                                                                                                | `ansi_mode: true`         |
 | `query_tags`         | JSON string of key-value pairs to attach as [query tags](../../../reference/resource-configs/databricks-configs.md#query-tags) for tracking and auditing. (Available in dbt-databricks 1.11+) | `'{"team": "analytics"}'` |
 
-Search table...
+## Supported Functionality
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Supported Functionality[​](#supported-functionality "Direct link to Supported Functionality")
-
-### Delta Lake[​](#delta-lake "Direct link to Delta Lake")
+### Delta Lake
 
 Most dbt Core functionality is supported, but some features are only available on Delta Lake.
 
@@ -176,6 +150,6 @@ Delta-only features:
 1. Incremental model updates by `unique_key` instead of `partition_by` (see [`merge` strategy](../../../reference/resource-configs/databricks-configs.md#the-merge-strategy))
 2. [Snapshots](../../build/snapshots.md)
 
-### Unity Catalog[​](#unity-catalog "Direct link to Unity Catalog")
+### Unity Catalog
 
 The adapter `dbt-databricks>=1.1.1` supports the 3-level namespace of Unity Catalog (catalog / schema / relations) so you can organize and secure your data the way you like.

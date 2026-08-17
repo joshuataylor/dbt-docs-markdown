@@ -1,45 +1,31 @@
 # Connect Postgres to dbt Core
 
-Local developmentⓘ
+Local development
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
 If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  core dbt maintainers
+* **Maintained by**: dbt Labs
+* **Authors**: core dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-postgres` [![](https://badge.fury.io/py/dbt-postgres.svg)](https://badge.fury.io/py/dbt-postgres)
 * **Slack channel**: [#db-postgres](https://getdbt.slack.com/archives/C0172G2E273)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.4.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.4.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-postgres
+## Installing dbt-postgres
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-postgres`
 
-## Configuring <!-- -->dbt-postgres<!-- -->
+## Configuring dbt-postgres
 
-For <!-- -->Postgres<!-- -->-specific configuration, please refer to [Postgres<!-- --> configs.](../../../reference/resource-configs/postgres-configs.md)
+For Postgres-specific configuration, please refer to [Postgres configs.](../../../reference/resource-configs/postgres-configs.md)
 
-## Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
+## Profile Configuration
 
 Postgres targets should be set up using the following configuration in your `profiles.yml` file.
 
@@ -70,43 +56,43 @@ company-name:
   
 ```
 
-### Configurations[​](#configurations "Direct link to Configurations")
+### Configurations
 
-#### search\_path[​](#search_path "Direct link to search_path")
+#### search\_path
 
 The `search_path` config controls the Postgres "search path" that dbt configures when opening new connections to the database. By default, the Postgres search path is `"$user, public"`, meaning that unqualified table names will be searched for in the `public` schema, or a schema with the same name as the logged-in user. **Note:** Setting the `search_path` to a custom value is not necessary or recommended for typical usage of dbt.
 
-#### role[​](#role "Direct link to role")
+#### role
 
 The `role` config controls the Postgres role that dbt assumes when opening new connections to the database.
 
-#### sslmode[​](#sslmode "Direct link to sslmode")
+#### sslmode
 
 The `sslmode` config controls how dbt connects to Postgres databases using SSL. See [the Postgres docs](https://www.postgresql.org/docs/9.1/libpq-ssl.html) on `sslmode` for usage information. When unset, dbt will connect to databases using the Postgres default, `prefer`, as the `sslmode`.
 
-#### sslcert[​](#sslcert "Direct link to sslcert")
+#### sslcert
 
 The `sslcert` config controls the location of the certificate file used to connect to Postgres when using client SSL connections. To use a certificate file that is not in the default location, set that file path using this value. Without this config set, dbt uses the Postgres default locations. See [Client Certificates](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-CLIENTCERT) in the Postgres SSL docs for the default paths.
 
-#### sslkey[​](#sslkey "Direct link to sslkey")
+#### sslkey
 
 The `sslkey` config controls the location of the private key for connecting to Postgres using client SSL connections. If this config is omitted, dbt uses the default key location for Postgres. See [Client Certificates](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-CLIENTCERT) in the Postgres SSL docs for the default locations.
 
-#### sslrootcert[​](#sslrootcert "Direct link to sslrootcert")
+#### sslrootcert
 
 When connecting to a Postgres server using a client SSL connection, dbt verifies that the server provides an SSL certificate signed by a trusted root certificate. These root certificates are in the `~/.postgresql/root.crt` file by default. To customize the location of this file, set the `sslrootcert` config value to a new file path.
 
-### `keepalives_idle`[​](#keepalives_idle "Direct link to keepalives_idle")
+### `keepalives_idle`
 
 If the database closes its connection while dbt is waiting for data, you may see the error `SSL SYSCALL error: EOF detected`. Lowering the [`keepalives_idle` value](https://www.postgresql.org/docs/9.3/libpq-connect.html) may prevent this, because the server will send a ping to keep the connection active more frequently.
 
 [dbt's default setting](https://github.com/dbt-labs/dbt-adapters/blob/main/dbt-postgres/src/dbt/adapters/postgres/connections.py#L32) is 0 (the server's default value), but can be configured lower (perhaps 120 or 60 seconds), at the cost of a chattier network connection.
 
-#### retries[​](#retries "Direct link to retries")
+#### retries
 
 If `dbt-postgres` encounters an operational error or timeout when opening a new connection, it will retry up to the number of times configured by `retries`. The default value is 1 retry. If set to 2+ retries, dbt will wait 1 second before retrying. If set to 0, dbt will not retry at all.
 
-### `psycopg2` vs `psycopg2-binary`[​](#psycopg2-vs-psycopg2-binary "Direct link to psycopg2-vs-psycopg2-binary")
+### `psycopg2` vs `psycopg2-binary`
 
 `psycopg2-binary` is installed by default when installing `dbt-postgres`. Installing `psycopg2-binary` uses a pre-built version of `psycopg2` which may not be optimized for your particular machine. This is ideal for development and testing workflows where performance is less of a concern and speed and ease of install is more important. However, production environments will benefit from a version of `psycopg2` which is built from source for your particular operating system, and architecture. In this scenario, speed and ease of install is less important as the on-going usage is the focus.
 

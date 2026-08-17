@@ -1,4 +1,4 @@
-## A[​](#A "Direct link to A")
+## A
 
 * [Adapter creation2](./tags/adapter-creation.md)
 * [Agents2](./tags/agents.md)

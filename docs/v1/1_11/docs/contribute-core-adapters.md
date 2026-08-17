@@ -4,20 +4,22 @@ The dbt Community helps analytics practitioners share their knowledge, help othe
 
 This section explains how you can contribute to existing adapters or create a new adapter.
 
-### Contribute to a pre-existing adapter[​](#contribute-to-a-pre-existing-adapter "Direct link to Contribute to a pre-existing adapter")
+### Contribute to a pre-existing adapter
 
 Community-supported plugins are works in progress, and you can contribute by testing and writing code. If you're interested in contributing:
 
 * Join both the dedicated channel, [#adapter-ecosystem](https://getdbt.slack.com/archives/C030A0UF5LM), in [dbt Slack](https://community.getdbt.com/) and the channel for your adapter's data store. See the **Slack Channel** link in the [dbt Core v1.x platform](./local/profiles.yml.md) pages.
 * Review open issues in the plugin's source repository. Use the relevant **GitHub repo** link in the [dbt Core v1.x platform](./local/profiles.yml.md) pages.
 
-### Create a new dbt Core v1.x adapter[​](#create-a-new-dbt-core-v1x-adapter "Direct link to Create a new dbt Core v1.x adapter")
+(Applies to dbt v1.99 and earlier)
+
+### Create a new dbt Core v1.x adapter
 
 If you see something missing from the lists above and you're interested in developing an integration, read more about adapters and how they're developed in [Build, test, document, and promote adapters](../guides/adapter-creation.md).
 
 If you have a new adapter, add it to this list using a pull request. See [Build, test, document, and promote adapters](../guides/adapter-creation.md) for more information on documenting your adapter.
 
-### Create a new dbt Core v2.0 adapter[​](#create-a-new-dbt-core-v20-adapter "Direct link to Create a new dbt Core v2.0 adapter")
+### Create a new dbt Core v2.0 adapter
 
 v2 is a Rust-based rewrite of the dbt engine built around a single monorepo. Instead of maintaining a separate Python package per warehouse, all adapters live together, organized by feature area rather than warehouse, inside `dbt-labs/dbt-core`. A bug fix in authentication or relation logic benefits every adapter at once, and your contribution makes the entire ecosystem stronger.
 

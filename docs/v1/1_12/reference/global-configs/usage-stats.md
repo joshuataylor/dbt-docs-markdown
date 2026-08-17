@@ -11,7 +11,9 @@ Usage statistics are fired when dbt is invoked and when models are run. These ev
 * An anonymized hash key representing the raw model content.
 * Number of nodes that were run.
 
-## dbt Core telemetry[​](#dbt-core-telemetry "Direct link to dbt Core telemetry")
+(Applies to dbt v1.99 and earlier)
+
+## dbt Core telemetry
 
 dbt Core has telemetry enabled by default. For full transparency, you can see all the event definitions in [`tracking.py`](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/tracking.py).
 
@@ -26,4 +28,4 @@ flags:
 
 You can also set the `DO_NOT_TRACK` environment variable. For more information, refer to [Environment variables](../../docs/build/environment-variables.md).
 
-`DO_NOT_TRACK=1` is equivalent to `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.
+`DO_NOT_TRACK=1` is equivalent to (Applies to dbt v1.11 and later) `DBT_ENGINE_SEND_ANONYMOUS_USAGE_STATS=False`.

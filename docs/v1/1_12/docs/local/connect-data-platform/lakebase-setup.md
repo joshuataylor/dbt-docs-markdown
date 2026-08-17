@@ -1,39 +1,27 @@
 # Connect Databricks Lakebase to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  dbt Labs
+* **Maintained by**: dbt Labs
+* **Authors**: dbt Labs
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-postgres` [![](https://badge.fury.io/py/dbt-postgres.svg)](https://badge.fury.io/py/dbt-postgres)
 * **Slack channel**: [#db-postgres](https://getdbt.slack.com/archives/C0172G2E273)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.0.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  ?
+* **Supported dbt Core version**: v1.0.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: ?
 
-## Installing <!-- -->dbt-postgres
+## Installing dbt-postgres
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-postgres`
 
-## Configuring <!-- -->dbt-postgres<!-- -->
+## Configuring dbt-postgres
 
-For <!-- -->Lakebase<!-- -->-specific configuration, please refer to [Lakebase<!-- --> configs.](../../../reference/resource-configs/postgres-configs.md)
+For Lakebase-specific configuration, please refer to [Lakebase configs.](../../../reference/resource-configs/postgres-configs.md)
 
-## Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
+## Profile Configuration
 
 Databricks Lakebase targets are configured exactly the same as [Postgres targets](./postgres-setup.md#profile-configuration).
 

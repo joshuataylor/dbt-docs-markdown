@@ -1,15 +1,6 @@
 # About config property
 
-* Models
-* Seeds
-* Snapshots
-* Tests
-* Unit tests
-* Sources
-* Metrics
-* Exposures
-* Semantic models
-* Saved queries
+### Models
 
 models/\<filename>.yml
 
@@ -22,6 +13,8 @@ models:
       ...
 ```
 
+### Seeds
+
 seeds/\<filename>.yml
 
 ```yml
@@ -33,6 +26,8 @@ seeds:
       ...
 ```
 
+### Snapshots
+
 snapshots/\<filename>.yml
 
 ```yml
@@ -43,6 +38,8 @@ snapshots:
       <snapshot_config>: <config_value>
       ...
 ```
+
+### Tests
 
 \<resource\_path>/\<filename>.yml
 
@@ -70,21 +67,11 @@ snapshots:
                 ...
 ```
 
+### Unit tests
+
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.8
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 models/\<filename>.yml
 
@@ -96,6 +83,8 @@ unit_tests:
       meta: {dictionary}
       tags: <string>
 ```
+
+### Sources
 
 models/\<filename>.yml
 
@@ -111,6 +100,8 @@ sources:
           <source_config>: <config_value>
 ```
 
+### Metrics
+
 models/\<filename>.yml
 
 ```yml
@@ -123,6 +114,8 @@ metrics:
       meta: {dictionary}
 ```
 
+### Exposures
+
 models/\<filename>.yml
 
 ```yml
@@ -133,6 +126,10 @@ exposures:
       enabled: true | false
       meta: {dictionary}
 ```
+
+### Semantic models
+
+(Applies to dbt v1.11 and earlier)
 
 models/\<filename>.yml
 
@@ -145,6 +142,8 @@ semantic_models:
       group: <string>
       meta: {dictionary}
 ```
+
+### Saved queries
 
 models/\<filename>.yml
 
@@ -167,6 +166,6 @@ saved-queries:
           schema: <string>
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `config` property allows you to configure resources at the same time you're defining properties in YAML files.

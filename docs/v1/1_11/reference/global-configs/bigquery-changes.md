@@ -1,6 +1,6 @@
 # BigQuery adapter behavior changes
 
-## The `bigquery_use_batch_source_freshness` flag[​](#the-bigquery_use_batch_source_freshness-flag "Direct link to the-bigquery_use_batch_source_freshness-flag")
+## The `bigquery_use_batch_source_freshness` flag
 
 The `bigquery_use_batch_source_freshness` flag is `false` by default. Setting it to `true` in your `dbt_project.yml` file enables dbt to compute `source freshness` results with a single batched query to BigQuery's [`INFORMATION_SCHEMA.TABLE_STORAGE`](https://cloud.google.com/bigquery/docs/information-schema-table-storage) view as opposed to sending a metadata request for each source.
 

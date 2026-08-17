@@ -1,10 +1,8 @@
 # Explore multiple projects
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 View all the projects and public models in your account (where public models are defined) and gain a better understanding of your cross-project resources and how they're used.
-
-<!-- -->
 
 On-demand learning
 
@@ -17,7 +15,6 @@ From a project's **Overview** page, click **View lineage** in the upper right co
 * View an upstream (parent) project to see the downstream (child) projects that depend on it.
 * Select a model to reveal its dependent projects in the lineage.
 * Click on an upstream (parent) project to view the other projects that reference it in the **Relationships** tab, showing the number of downstream (child) projects that depend on them.
-  <!-- -->
   * This includes all projects listing the upstream one as a dependency in its `dependencies.yml` file, even without a direct `{{ ref() }}`.
 * Select a project node from a public model to open its detailed lineage graph if you have the [permissions](../platform/manage-access/enterprise-permissions.md) to do so.
 
@@ -35,13 +32,13 @@ When viewing a downstream (child) project that imports and refs public models fr
 
 [![View a downstream (child) project that imports and refs public models from the upstream (parent) project.](/img/docs/collaborate/dbt-explorer/cross-project-child.png?v=2 "View a downstream (child) project that imports and refs public models from the upstream (parent) project.")](#)View a downstream (child) project that imports and refs public models from the upstream (parent) project.
 
-## Explore the project-level lineage graph[​](#explore-the-project-level-lineage-graph "Direct link to Explore the project-level lineage graph")
+## Explore the project-level lineage graph
 
 For cross-project collaboration, you can interact with the DAG in all the same ways as described in [Explore your project's lineage](./explore-projects.md#project-lineage). You can also interact with it at the project level and view the details.
 
 If you have permissions for a project in the account, you can view all public models used across the entire account. However, you can only view full public model details and private models if you have permissions for the specific project where those models are defined.
 
-### View account-level lineage[​](#view-account-level-lineage "Direct link to View account-level lineage")
+### View account-level lineage
 
 To view all projects in your account as a lineage graph or list:
 
@@ -57,7 +54,7 @@ From the account-level lineage graph, you can also:
 * Click **List view** to switch to a table of projects and public models.
 * Double-click a project node to open that project's resource-level lineage graph.
 
-### Explore a project's resource-level lineage[​](#explore-a-projects-resource-level-lineage "Direct link to Explore a project's resource-level lineage")
+### Explore a project's resource-level lineage
 
 From a project's **Overview** page, click **View lineage** to open the resource-level lineage graph for that project. In this view, you can see:
 

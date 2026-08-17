@@ -2,7 +2,7 @@
 
 Entities are real-world concepts in a business, such as customers, transactions, and ad campaigns. We often focus our analyses on specific entities, such as customer churn or annual recurring revenue modeling. In our Semantic Layer models, these entities serve as a join key across semantic models.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Within a semantic graph, the required parameters for an entity are `name` and `type`. The `name` refers to either the key column name from the underlying data table, or it may serve as an alias with the column name referenced in the `expr` parameter. The `name` for your entity must be unique to the semantic model and can not be the same as an existing simple metric or `dimension` within that same model.
 
@@ -19,11 +19,11 @@ Use entities as dimensions
 
 You can also use entities as dimensions, which allows you to aggregate a metric to the granularity of that entity.
 
-## Entity types[​](#entity-types "Direct link to Entity types")
+## Entity types
 
 MetricFlow's join logic depends on the entity `type` you use and determines how to join semantic models. Refer to [Joins](./join-logic.md) for more info on how to construct joins.
 
-### Primary[​](#primary "Direct link to Primary")
+### Primary
 
 A primary key has *only one* record for each row in the table and includes every record in the data platform. It must contain unique values and can't contain null values. Use the primary key to ensure that each record in the table is distinct and identifiable.
 
@@ -39,7 +39,7 @@ last_name
 
 In this case, `employee_id` is the primary key. Each `employee_id` is unique and represents one specific employee. There can be no duplicate `employee_id` and can't be null.
 
-### Unique[​](#unique "Direct link to Unique")
+### Unique
 
 A unique key contains *only one* record per row in the table but may have a subset of records in the data warehouse. However, unlike the primary key, a unique key allows for null values. The unique key ensures that the column's values are distinct, except for null values.
 
@@ -56,7 +56,7 @@ last_name
 
 In this example, `email` is defined as a unique key. Each email address must be unique; however, multiple students can have null email addresses. This is because the unique key constraint allows for one or more null values, but non-null values must be unique. This then creates a set of records with unique emails (non-null) that could be a subset of the entire table, which includes all students.
 
-### Foreign[​](#foreign "Direct link to Foreign")
+### Foreign
 
 A foreign key is a field (or a set of fields) in one table that uniquely identifies a row in another table. The foreign key establishes a link between the data in two tables. It can include zero, one, or multiple instances of the same record. It can also contain null values.
 
@@ -81,15 +81,15 @@ customer_id (foreign key)
 
 In this example, the `customer_id` in the `orders` table is a foreign key that references the `customer_id` in the `customers` table. This link means each order is associated with a specific customer. However, not every order must have a customer; the `customer_id` in the orders table can be null or have the same `customer_id` for multiple orders.
 
-### Natural[​](#natural "Direct link to Natural")
+### Natural
 
 Natural keys are columns or combinations of columns in a table that uniquely identify a record based on real-world data. For instance, if you have a `sales_person_department` dimension table, the `sales_person_id` can serve as a natural key. You can only use natural keys for [SCD type II dimensions](./dimensions.md#scd-type-ii).
 
-## Entities configuration[​](#entities-configuration "Direct link to Entities configuration")
+## Entities configuration
 
 The following is the complete spec for entities:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -114,7 +114,7 @@ models:
 
 Here's an example of how to define entities in a semantic model:
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -134,7 +134,7 @@ models:
           name: order
 ```
 
-## `derived_semantics` in `entities`[​](#derived_semantics-in-entities "Direct link to derived_semantics-in-entities")
+## `derived_semantics` in `entities`
 
 Use `derived_semantics` when you need an entity that is not a direct 1:1 mapping to a single physical column. The `expr` field is required when using `derived_semantics`.
 
@@ -149,11 +149,11 @@ derived_semantics:
       expr: "substring(id_order from 2)" # Required
 ```
 
-## Combine columns with a key[​](#combine-columns-with-a-key "Direct link to Combine columns with a key")
+## Combine columns with a key
 
 If a table doesn't have any key (like a primary key), use *surrogate combination* to form a key that will help you identify a record by combining two columns. This applies to any [entity type](./entities.md#entity-types). For example, you can combine `date_key` and `brand_code` from the `raw_brand_target_weekly` table to form a *surrogate key*. The following example creates a surrogate key by joining `date_key` and `brand_code` using a pipe (`|`) as a separator.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
 models:
@@ -168,7 +168,7 @@ models:
           expr: "date_key || '|' || brand_code"
 ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 As mentioned, entities serve as our join keys, using the unique entity name. Therefore, we can join a single `unique` key to multiple `foreign` keys.
 
@@ -191,7 +191,7 @@ order_total
 
 How might we define our Semantic Layer YAML so that we can query `order_total` by `ordered_at` `fiscal_year_name`, and `delivered_at` `fiscal_year_name`?
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 First, we need to define two `unique` entities in the `date_categories` with the expression set to `date_day`:
 
@@ -231,7 +231,7 @@ models:
           expr: date_day
 ```
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Then, we need to add these same entities as `foreign` keys to our `orders` model, with the expression set to `ordered_at` and `delivered_at`:
 

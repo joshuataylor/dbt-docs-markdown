@@ -6,13 +6,13 @@ Every [dbt project](../docs/build/projects.md) needs a `dbt_project.yml` file �
 
 * dbt uses [YAML](https://yaml.org/) in a few different places. If you're new to YAML, it would be worth learning how arrays, dictionaries, and strings are represented.
 
-* By default, dbt looks for the `dbt_project.yml` in your current working directory and its parents, but you can set a different directory using the `--project-dir` flag or the `DBT_ENGINE_PROJECT_DIR` environment variable.
+* By default, dbt looks for the `dbt_project.yml` in your current working directory and its parents, but you can set a different directory using the `--project-dir` flag or the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` environment variable.
 
 * Specify your dbt project ID in the `dbt_project.yml` file using `project-id` under the [`dbt-cloud` config](./dbt_cloud.yml.md#the-dbt-cloud-block-in-dbt_projectyml). Find your project ID in your dbt project URL: For example, in `https://YOUR_ACCESS_URL/develop/projects/123456`, the project ID is `123456`.
 
 * Note, you can't set up a "property" in the `dbt_project.yml` file if it's not a config (an example is [macros](./macro-properties.md)). This applies to all types of resources. Refer to [Configs and properties](./configs-and-properties.md) for more detail.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 The following example is a list of all available configurations in the `dbt_project.yml` file:
 
@@ -51,6 +51,7 @@ flags:
 dbt-cloud:
   project-id: project_id # Required
   defer-env-id: environment_id # Optional
+  account_id: account_id # Optional, Fusion only; note the underscore, unlike the other dbt-cloud fields
   account-host: account-host # Defaults to 'cloud.getdbt.com'; Required if use a different Access URL
 
 analyses: # Requires the require_corrected_analysis_fqns flag; available starting v1.12
@@ -105,9 +106,7 @@ functions:
   <function-configs>
 ```
 
-## The `+` prefix[​](#the--prefix "Direct link to the--prefix")
-
-<!-- -->
+## The `+` prefix
 
 dbt demarcates between a folder name and a configuration by using a `+` prefix before the configuration name. The `+` prefix is used for configs *only* and applies to `dbt_project.yml` under the corresponding resource key. It doesn't apply to:
 
@@ -116,7 +115,7 @@ dbt demarcates between a folder name and a configuration by using a `+` prefix b
 
 For more info, see the [Using the `+` prefix](./resource-configs/plus-prefix.md).
 
-## Naming convention[​](#naming-convention "Direct link to Naming convention")
+## Naming convention
 
 It's important to follow the correct YAML naming conventions for the configs in your `dbt_project.yml` file to ensure dbt can process them properly. This is especially true for resource types with more than one word.
 

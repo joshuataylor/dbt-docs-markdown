@@ -2,7 +2,7 @@
 
 dbt offers [several plans](https://www.getdbt.com/pricing/) with different features that meet your needs. This document is for dbt admins and explains how to select a plan in order to continue using dbt.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin:
 
@@ -10,7 +10,7 @@ Before you begin:
 * All amounts shown in dbt are in U.S. Dollars (USD)
 * When your trial expires, your account's default plan enrollment will be a Starter plan.
 
-## Select a plan[​](#select-a-plan "Direct link to Select a plan")
+## Select a plan
 
 When your [14 day trial](https://www.getdbt.com/signup/) ends or if your subscription payment is past due , you'll need to select a plan in order to continue using your account:
 
@@ -20,7 +20,7 @@ When your [14 day trial](https://www.getdbt.com/signup/) ends or if your subscri
 
 To unlock your account and select a plan, review the following guidance per plan type:
 
-### Developer plan[​](#developer-plan "Direct link to Developer plan")
+### Developer plan
 
 1. To select a Developer plan, click Select plan on the right.
 2. Confirm your plan selection on the pop up message.
@@ -28,11 +28,11 @@ To unlock your account and select a plan, review the following guidance per plan
 
 [![](/img/docs/dbt-platform/downgrade-dev-flow.gif?v=2)](#)
 
-#### Plan allocation[​](#plan-allocation "Direct link to Plan allocation")
+#### Plan allocation
 
 If you select a plan but have too many seats or projects for that plan (for example, if you select the Developer plan but have more than one developer seat), you'll be directed to the users & projects pages to make edits.
 
-### Starter plan[​](#starter-plan "Direct link to Starter plan")
+### Starter plan
 
 1. When your trial expires, your account's default plan enrollment will be a Starter plan.
 2. To unlock your account and continue using the Starter plan, click on **Select plan** under the Starter column.
@@ -43,7 +43,7 @@ If you select a plan but have too many seats or projects for that plan (for exam
 
 [![](/img/docs/dbt-platform/trial-team-payments-flow.png?v=2)](#)
 
-### Enterprise plan[​](#enterprise-plan "Direct link to Enterprise plan")
+### Enterprise plan
 
 1. If you're interested in one of our Enterprise-tier plans, select the Enterprise tab under **Billing**.
 2. Click **Contact Sales** on the right. This opens a chat window for you to contact the dbt Support team, who will connect you to our Sales team.
@@ -53,7 +53,7 @@ If you select a plan but have too many seats or projects for that plan (for exam
 
 4. Alternatively, you can [contact](https://www.getdbt.com/contact/) our Sales team directly to chat about how dbt can help you and your team.
 
-## Related questions[​](#related-questions "Direct link to Related questions")
+## Related questions
 
 For commonly asked billings questions, refer to the dbt [pricing page](https://www.getdbt.com/pricing/).
 

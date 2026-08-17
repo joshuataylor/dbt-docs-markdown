@@ -1,10 +1,10 @@
 # About statement blocks
 
+(Applies to dbt v1.99 and earlier)
+
 Recommendation
 
 We recommend using the [`run_query` macro](./run_query.md) instead of `statement` blocks. The `run_query` macro provides a more convenient way to run queries and fetch their results by wrapping `statement` blocks. You can use this macro to write more concise code that is easier to maintain.
-
-<!-- -->
 
 `statement`s are SQL queries that hit the database and return results to your Jinja context. Here’s an example of a `statement` which gets all of the states from a users table.
 

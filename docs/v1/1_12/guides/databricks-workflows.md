@@ -16,7 +16,7 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Using Databricks workflows to call the dbt job API can be useful for several reasons:
 
@@ -25,7 +25,7 @@ Using Databricks workflows to call the dbt job API can be useful for several rea
 3. [**Separation of concerns —**](https://en.wikipedia.org/wiki/Separation_of_concerns) Detailed logs for dbt jobs in the dbt environment can lead to more modularity and efficient debugging. By doing so, it becomes easier to isolate bugs quickly while still being able to see the overall status in Databricks.
 4. **Custom job triggering —** Use a Databricks workflow to trigger dbt jobs based on custom conditions or logic that aren't natively supported by dbt's scheduling feature. This can give you more flexibility in terms of when and how your dbt jobs run.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * Active [Enterprise or Enterprise+ dbt account](https://www.getdbt.com/pricing/)
 * You must have a configured and existing [dbt deploy job](../docs/deploy/deploy-jobs.md)
@@ -33,7 +33,7 @@ Using Databricks workflows to call the dbt job API can be useful for several rea
 * [Databricks CLI](https://docs.databricks.com/dev-tools/cli/index.html)
   * **Note**: You only need to set up your authentication. Once you have set up your Host and Token and are able to run `databricks workspace ls /Users/<someone@example.com>`, you can proceed with the rest of this guide.
 
-## Set up a Databricks secret scope[​](#set-up-a-databricks-secret-scope "Direct link to Set up a Databricks secret scope")
+## Set up a Databricks secret scope
 
 1. Retrieve \*\*[personal access token](../docs/dbt-apis/user-tokens.md) \*\*or \*\*[Service account token](../docs/dbt-apis/service-tokens.md#generating-service-account-tokens) \*\*from dbt
 
@@ -51,7 +51,7 @@ databricks secrets put --scope  <YOUR_SECRET_SCOPE> --key  <YOUR_SECRET_KEY> --s
 
 5. Replace **`<YOUR_DBT_CLOUD_API_KEY>`** with the actual API key value that you copied from dbt in step 1.
 
-## Create a Databricks Python notebook[​](#create-a-databricks-python-notebook "Direct link to Create a Databricks Python notebook")
+## Create a Databricks Python notebook
 
 1. [Create a **Databricks Python notebook**](https://docs.databricks.com/notebooks/notebooks-manage.html), which executes a Python script that calls the dbt job API.
 
@@ -161,12 +161,11 @@ DbtJobRunStatus.SUCCESS
 
 You can cancel the job from dbt if necessary.
 
-## Configure the workflows to run the dbt jobs[​](#configure-the-workflows-to-run-the-dbt-jobs "Direct link to Configure the workflows to run the dbt jobs")
+## Configure the workflows to run the dbt jobs
 
 You can set up workflows directly from the notebook OR by adding this notebook to one of your existing workflows:
 
-* Create a workflow from existing Notebook
-* Add the Notebook to existing workflow
+### Create a workflow from existing Notebook
 
 1. Click **Schedule** on the upper right side of the page
 2. Click **Add a schedule**
@@ -175,10 +174,12 @@ You can set up workflows directly from the notebook OR by adding this notebook t
 5. Click **Create**
 6. Click **Run Now** to test the job
 
-1) Open Existing **Workflow**
-2) Click **Tasks**
-3) Press **“+” icon** to add a new task
-4) Enter the **following**:
+### Add the Notebook to existing workflow
+
+1. Open Existing **Workflow**
+2. Click **Tasks**
+3. Press **“+” icon** to add a new task
+4. Enter the **following**:
 
 | Field      | Value                         |
 | ---------- | ----------------------------- |
@@ -188,12 +189,6 @@ You can set up workflows directly from the notebook OR by adding this notebook t
 | Path       | `</path/to/notebook>`         |
 | Cluster    | `<your_compute_cluster>`      |
 | Parameters | `job_id`: `<your_dbt_job_id>` |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 5. Select **Save Task**
 6. Click **Run Now** to test the workflow

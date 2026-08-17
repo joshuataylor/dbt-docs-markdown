@@ -1,18 +1,14 @@
 # Setting up state-aware orchestration [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Set up state-aware orchestration to automatically determine which models to build by detecting changes in code or data and only building the changed models each time a job is run.
-
-<!-- -->
 
 State-aware orchestration is now dbt State
 
 [dbt State](./dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
 If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
-
-<!-- -->
 
 important
 
@@ -26,7 +22,7 @@ Join the conversation in our Community Slack channel [`#dbt-fusion-engine`](http
 
 Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categories/announcements?discussions_q=is:open+diaries+category:Announcements) for the latest updates.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To use state-aware orchestration, make sure you meet these prerequisites:
 
@@ -43,11 +39,11 @@ info
 
 State-aware orchestration is available for SQL models only. Python models are not supported.
 
-## Default settings[​](#default-settings "Direct link to Default settings")
+## Default settings
 
 Once your account has access to state-aware orchestration, any new deploy job you create in a Fusion environment is automatically state-aware. Without additional configuration, the job only builds models when code has changed or new data exists in a source.
 
-## Create a job[​](#create-a-job "Direct link to Create a job")
+## Create a job
 
 New jobs are state-aware by default
 
@@ -59,8 +55,6 @@ To create a state-aware job:
 
 2. Options in the **Job settings** section:
 
-   <!-- -->
-
    * **Job name**: Specify the name, for example, `Daily build`.
    * (Optional) **Description**: Provide a description of what the job does (for example, what the job consumes and what the job produces).
    * **Environment**: By default, it’s set to the deployment environment you created the state-aware job from.
@@ -71,26 +65,18 @@ To create a state-aware job:
 
 * **Execution settings** section:
 
-  <!-- -->
-
   * **Commands**: By default, it includes the `dbt build` command. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when the job runs.
   * **Generate docs on run**: Enable this option if you want to [generate project docs](../build/documentation.md) when this deploy job runs.
   * **Enable Fusion cost optimization features**: Select this option to enable **State-aware orchestration**. **Efficient testing** is disabled by default. You can expand **More options** to enable or disable individual settings.
 
 * **Triggers** section:
 
-  <!-- -->
-
   * **Run on schedule**: Run the deploy job on a set schedule.
-
-    <!-- -->
 
     * **Timing**: Specify whether to [schedule](#schedule-days) the deploy job using **Intervals** that run the job every specified number of hours, **Specific hours** that run the job at specific times of day, or **Cron schedule** that run the job specified using [cron syntax](#cron-schedule).
     * **Days of the week**: By default, it’s set to every day when **Intervals** or **Specific hours** is chosen for **Timing**.
 
   * **Run when another job finishes**: Run the deploy job when another *upstream* deploy [job completes](#trigger-on-job-completion).
-
-    <!-- -->
 
     * **Project**: Specify the parent project that has that upstream deploy job.
     * **Job**: Specify the upstream deploy job.
@@ -109,9 +95,7 @@ You can see which models dbt builds in the run summary logs. Models that weren't
 
 [![Example logs for state-aware orchestration](/img/docs/dbt-platform/using-dbt-platform/SAO_logs_view.png?v=2 "Example logs for state-aware orchestration")](#)Example logs for state-aware orchestration
 
-## Delete a job[​](#delete-a-job "Direct link to Delete a job")
-
-<!-- -->
+## Delete a job
 
 To delete a job or multiple jobs in dbt:
 
@@ -128,7 +112,7 @@ To delete a job or multiple jobs in dbt:
 
 If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
 
-## Advanced configurations[​](#advanced-configurations "Direct link to Advanced configurations")
+## Advanced configurations
 
 By default, we use the warehouse metadata to check if sources (or upstream models in the case of Mesh) are fresh. For more advanced use cases, dbt provides other options that enable you to specify what gets run by state-aware orchestration.
 
@@ -142,19 +126,11 @@ You can use the following optional parameters to customize your state-aware orch
 | `build_after.period`     | The time unit for the count to define the build interval.                                                                                     | `minute`, `hour`, `day`, or a Jinja expression (for example, `"{{ var('build_after_period', 'day') }}"`).                                                                                                                                                                                                                                                                                | ✅             |
 | `build_after.updates_on` | Determines whether a model rebuild is triggered when any upstream dependency has fresh data or only when all upstream dependencies are fresh. | * `any` (default) — Use this value when you want a downstream model to rebuild if *any* of its upstream dependencies receives fresh data, even if others haven’t.* `all` — Use this value when you want to trigger a rebuild only when *all* upstream dependencies are fresh — minimizing unnecessary builds and reducing compute cost. Recommended to use in state-aware orchestration. | ❌             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Some notes when using `loaded_at_field` or `loaded_at_query`:
 
 * You can either define `loaded_at_field` or `loaded_at_query` but not both.
 
 * To use a multi-line SQL query for a `loaded_at_query` configuration, include your query as a YAML block so dbt can execute it as the custom freshness query. For example:
-
-  <!-- -->
 
   ```yaml
   loaded_at_query: |
@@ -167,7 +143,7 @@ Some notes when using `loaded_at_field` or `loaded_at_query`:
 
 To learn more about model freshness and `build_after`, refer to [model `freshness` config](../../reference/resource-configs/freshness.md). To learn more about source and upstream model freshness configs, refer to [resource `freshness` config](../../reference/resource-properties/freshness.md).
 
-### Customizing behavior[​](#customizing-behavior "Direct link to Customizing behavior")
+### Customizing behavior
 
 You can optionally configure state-aware orchestration when you want to fine-tune orchestration behavior for these reasons:
 
@@ -190,8 +166,7 @@ You can optionally configure state-aware orchestration when you want to fine-tun
 
   The following examples show how to configure a source so that state-aware orchestration detects new upstream data only when your custom condition is met.
 
-  * loaded\_at\_field
-  * loaded\_at\_query
+  ### loaded\_at\_field
 
   State-aware orchestration treats the source as fresh when the maximum value of the `loaded_at_field` column changes since the previous run:
 
@@ -206,6 +181,8 @@ You can optionally configure state-aware orchestration when you want to fine-tun
           error_after: {count: 24, period: hour}
         loaded_at_field: _etl_loaded_at
   ```
+
+  ### loaded\_at\_query
 
   To define freshness with custom SQL, use `loaded_at_query`. State-aware orchestration runs the query to get a single timestamp. When that value changes compared to the previous run, the source is considered fresh.
 
@@ -244,7 +221,7 @@ You can optionally configure state-aware orchestration when you want to fine-tun
   * `model/properties.yml` at the model level in YAML
   * `model/model.sql` at the model level in SQL These configurations are powerful because you can define a sensible default at the project level or for specific model folders, and override it for individual models or model groups that require more frequent updates.
 
-### Handling late-arriving data[​](#handling-late-arriving-data "Direct link to Handling late-arriving data")
+### Handling late-arriving data
 
 If your incremental models use a lookback window to capture [late-arriving data](../../best-practices/materializations/4-incremental-models.md#late-arriving-facts), make sure your freshness logic aligns with that window.
 
@@ -252,8 +229,7 @@ When you use a `loaded_at_field` or `loaded_at_query`, state-aware orchestration
 
 To ensure late-arriving data is detected by state-aware orchestration, use `loaded_at_query` and make sure it aligns with the same lookback window used in your incremental filter. See the following samples of a lookback window and its corresponding `loaded_at_query` value:
 
-* Lookback window
-* loaded\_at\_query
+### Lookback window
 
 ```sql
 {{
@@ -273,6 +249,8 @@ where
 {% endif %}
 ```
 
+### loaded\_at\_query
+
 ```yaml
 loaded_at_query: |
   select max(ingested_at)
@@ -280,7 +258,7 @@ loaded_at_query: |
   where ingested_at >= current_timestamp - interval '3 days'
 ```
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Let's use an example to illustrate how to customize our project so a model and its parent model are rebuilt only if they haven't been refreshed in the past 4 hours — even if a job runs more frequently than that.
 
@@ -292,9 +270,7 @@ Note that for every `freshness` config, you're required to set values for both `
 
 Refer to the following examples for using the `freshness` config in the model file, in the project YAML file, and in the config block of the `model.sql` file:
 
-* Model YAML
-* Project YAML file
-* SQL file config
+### Model YAML
 
 models/model.yml
 
@@ -316,6 +292,8 @@ models:
           updates_on: all
 ```
 
+### Project YAML file
+
 dbt\_project.yml
 
 ```yaml
@@ -327,6 +305,8 @@ models:
         period: hour
         updates_on: all 
 ```
+
+### SQL file config
 
 models/\<filename>.sql
 
@@ -387,7 +367,7 @@ models:
 
 If you want to exclude a model from the freshness rule set at a higher level, set `freshness: null` for that model. With freshness disabled, state-aware orchestration falls back to its default behavior and builds the model whenever there’s an upstream code or data change.
 
-### Differences between `all` and `any`[​](#differences-between-all-and-any "Direct link to differences-between-all-and-any")
+### Differences between `all` and `any`
 
 * Since Maggie configured `updates_on: all`, this means *both* models must have new upstream data to trigger a rebuild. If only one model has fresh data and the other doesn't, nothing is built -- which will massively reduce unnecessary compute costs and save time.
 
@@ -405,7 +385,7 @@ models/model.yml
 
 This way, if either `dim_wizards` or `dim_worlds` has fresh upstream data and enough time passed, dbt rebuilds the models. This method helps when the need for fresher data outweighs the costs.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [State-aware orchestration configuration](./state-aware-about.md)
 * [Artifacts](./artifacts.md)

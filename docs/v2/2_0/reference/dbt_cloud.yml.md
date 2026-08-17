@@ -1,6 +1,6 @@
 # dbt\_cloud.yml file
 
-dbt platformⓘ
+dbt platform
 
 The `dbt_cloud.yml` file stores the credentials that dbt tools — like the [dbt CLI](../docs/platform/dbt-cli-installation.md), the [dbt VS Code extension](../docs/about-dbt-extension.md), and more — use to authenticate with dbt platform. You can download it from dbt platform and save it locally to your `.dbt` directory.
 
@@ -15,9 +15,7 @@ Keep this file safe
 
 The `dbt_cloud.yml` file contains API keys. Store it securely and make sure you *do not* commit it to version control.
 
-## Download dbt\_cloud.yml[​](#download-dbt_cloudyml "Direct link to Download dbt_cloud.yml")
-
-<!-- -->
+## Download dbt\_cloud.yml
 
 How you download the file depends on whether you're configuring the [dbt CLI](../docs/platform/dbt-cli-installation.md) or the [dbt VS Code extension](../docs/about-dbt-extension.md). The downloaded `dbt_cloud.yml` includes your [personal access token (PAT)](../docs/dbt-apis/user-tokens.md).
 
@@ -29,12 +27,13 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
 
 3. Move the file to your `.dbt` directory. If you don't have one yet, try one of these quick setup (one command) options:
 
-   * Mac / Linux
-   * Windows
+   ### Mac / Linux
 
    ```bash
    mkdir -p ~/.dbt && mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
    ```
+
+   ### Windows
 
    ```powershell
    mkdir %USERPROFILE%\.dbt 2>nul & move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
@@ -47,24 +46,23 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
    * A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
    * To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
 
-   - Create a .dbt directory
-   - Move the dbt\_cloud.yml file
+   ### Create a .dbt directory
 
    1. Clone your dbt project repository locally.
    2. Use the `mkdir` command followed by the name of the folder you want to create.
 
    * If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
 
-     <!-- -->
-
      * macOS: `mkdir ~/.dbt`
      * Windows: `mkdir %USERPROFILE%\.dbt`
+
+   ### Move the dbt\_cloud.yml file
 
    You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
 
    To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
 
-   #### Mac or Linux[​](#mac-or-linux "Direct link to Mac or Linux")
+   #### Mac or Linux
 
    In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
 
@@ -72,7 +70,7 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
    mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
    ```
 
-   #### Windows[​](#windows "Direct link to Windows")
+   #### Windows
 
    In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
 
@@ -84,7 +82,7 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
 
 4. Confirm that the `project-id` in your [`dbt_project.yml` `dbt-cloud` block](#the-dbt-cloud-block-in-dbt_projectyml) matches the project you're working on. This registers and connects your tool to dbt platform and enables platform features such as Mesh and deferral.
 
-## Update or switch projects[​](#update-or-switch-projects "Direct link to Update or switch projects")
+## Update or switch projects
 
 The `dbt_cloud.yml` file is local to your machine and doesn't update automatically. Make sure to re-download it when:
 
@@ -97,7 +95,7 @@ The file can include multiple projects from the same dbt platform account. To sw
 
 If you work in multiple dbt platform accounts, keep a separate `dbt_cloud.yml` file for each account and move the file you want to use into your `.dbt` directory.
 
-## File structure[​](#file-structure "Direct link to File structure")
+## File structure
 
 Your `dbt_cloud.yml` file has the following structure:
 
@@ -159,7 +157,7 @@ projects:
     token-value: "dbtu_token_value"
 ```
 
-### Field reference[​](#field-reference "Direct link to Field reference")
+### Field reference
 
 | Field                    | Required | Description                                                                                                                                                                                                                                               |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -175,7 +173,7 @@ projects:
 | `projects.token-name`    | Yes      | A name for the [Personal access token (PAT)](../docs/dbt-apis/user-tokens.md).                                                                                                                                                       |
 | `projects.token-value`   | Yes      | The PAT value. Treat this as a secret.                                                                                                                                                                                                                    |
 
-## The dbt-cloud block in dbt\_project.yml[​](#the-dbt-cloud-block-in-dbt_projectyml "Direct link to The dbt-cloud block in dbt_project.yml")
+## The dbt-cloud block in dbt\_project.yml
 
 The `dbt-cloud` block is a companion config that lives in your project's `dbt_project.yml` file (not in `dbt_cloud.yml`). It tells the dbt CLI, the Studio IDE, and Fusion which dbt platform project your local project corresponds to.
 
@@ -195,8 +193,9 @@ dbt-cloud:
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `project-id`   | Yes      | The dbt platform project ID this local project maps to. Find it in the URL when viewing your project (for example, `https://YOUR_ACCESS_URL/develop/26228/projects/123456` → `123456`). |
 | `defer-env-id` | No       | The environment ID to defer to for build artifacts. Used for Fusion [auto-deferral](../docs/platform/about-defer.md) and dbt CLI deferral overrides.               |
+| `account_id`   | No       | Fusion only. The dbt platform account ID this local project belongs to. Note the underscore — unlike the other fields in this block, this one isn't hyphenated.                         |
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt CLI](../docs/platform/dbt-cli-installation.md)
 * [dbt VS Code extension](../docs/about-dbt-extension.md)

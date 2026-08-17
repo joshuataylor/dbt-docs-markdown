@@ -10,12 +10,6 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | Matured (default → `true`)                                     | Sep 1, 2026    | 1.12.0   |
 | Removed                                                        | —              | v2.0     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 The `require_batched_execution_for_custom_microbatch_strategy` flag is only relevant if you already have a custom `get_incremental_microbatch_sql` macro in your project. If you don't have a custom microbatch macro, you don't need to set this flag — dbt handles microbatching automatically for any model using the [microbatch strategy](../../../docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).
@@ -24,7 +18,7 @@ Starting in dbt Core v1.12, this flag defaults to `true`, meaning dbt executes c
 
 Previously, users needed to set the `DBT_EXPERIMENTAL_MICROBATCH` environment variable to `true` to prevent unintended interactions with existing custom incremental strategies. Setting `DBT_EXPERIMENTAL_MICROBATCH` no longer has any effect on runtime functionality.
 
-## Impact[​](#impact "Direct link to Impact")
+## Impact
 
 This flag is only relevant if your project has a custom `get_incremental_microbatch_sql` macro. Projects without a custom microbatch macro are unaffected — the built-in macro already runs in batches.
 

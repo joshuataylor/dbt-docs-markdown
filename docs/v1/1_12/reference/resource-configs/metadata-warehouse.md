@@ -17,7 +17,7 @@ my_project:
   target: prod
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 dbt State performs metadata introspection queries to determine whether models need to be rebuilt. On Snowflake, these queries run against your configured `warehouse` by default, which can cause queuing when your primary warehouse is under heavy load.
 
@@ -29,15 +29,15 @@ You can also use `metadata_warehouse` on the dbt platform by adding it as an [ex
 
 note
 
-This configuration currently applies only to dbt State metadata queries.
+This configuration currently applies only to dbt State metadata queries. It might be used more broadly in the future. See [dbt-core#12122](https://github.com/dbt-labs/dbt-core/issues/12122) for the feature request.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 Falls back to the `warehouse` setting in `profiles.yml`.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
-### Separate metadata and execution warehouses[​](#separate-metadata-and-execution-warehouses "Direct link to Separate metadata and execution warehouses")
+### Separate metadata and execution warehouses
 
 profiles.yml
 
@@ -54,7 +54,7 @@ my_project:
   target: prod
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Snowflake configuration](./snowflake-configs.md)

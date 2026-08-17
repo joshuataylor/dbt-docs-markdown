@@ -2,23 +2,9 @@
 
 What *really* happens when you type `dbt build`? Contrary to popular belief, a crack team of microscopic data elves do *not* construct your data row by row, although the truth feels equally magical. This guide explores the real answer to that question, with an introductory look at the objects that get built into your warehouse, why they matter, and how dbt knows what to build.
 
-<!-- -->
-
 Learn by video!
 
-For video tutorials on
-
-<!-- -->
-
-Snapshots
-
-<!-- -->
-
-, go to dbt Learn and check out the [Snapshots](https://learn.getdbt.com/courses/snapshots)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/snapshots).
+For video tutorials on Snapshots, go to dbt Learn and check out the [Snapshots course](https://learn.getdbt.com/courses/snapshots).
 
 The configurations that tell dbt how to construct these objects are called *materializations,* and knowing how to use them is a crucial skill for effective analytics engineering. When you’ve completed this guide, you will have that ability to use the three core materializations that cover most common analytics engineering situations.
 
@@ -26,7 +12,7 @@ info
 
 😌 **Materializations abstract away DDL and DML**. Typically in raw SQL- or python-based [data transformation](https://www.getdbt.com/analytics-engineering/transformation/), you have to write specific imperative instructions on how to build or modify your data objects. dbt’s materializations make this declarative, we tell dbt how we want things to be constructed and it figures out how to do that given the unique conditions and qualities of our warehouse.
 
-### Learning goals[​](#learning-goals "Direct link to Learning goals")
+### Learning goals
 
 By the end of this guide you should have a solid understanding of:
 
@@ -35,13 +21,13 @@ By the end of this guide you should have a solid understanding of:
 * 🗺️ **when** and **where** to use specific materializations to optimize your development and production builds
 * ⚙️ how to **configure materializations** at various scopes, from an individual model to entire folder
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * 📒 You’ll want to have worked through the [quickstart guide](../../guides.md) and have a project setup to work through these concepts.
 * 🏃🏻‍♀️ Concepts like dbt runs, `ref()` statements, and models should be familiar to you.
 * 🔧 \[**Optional**] Reading through the [How we structure our dbt projects](../how-we-structure/1-guide-overview.md) Guide will be beneficial for the last section of this guide, when we review best practices for materializations using the dbt project approach of staging models and marts.
 
-### Guiding principle[​](#guiding-principle "Direct link to Guiding principle")
+### Guiding principle
 
 We’ll explore this in-depth throughout, but the basic guideline is **start as simple as possible**. We’ll follow a tiered approached, only moving up a tier when it’s necessary.
 

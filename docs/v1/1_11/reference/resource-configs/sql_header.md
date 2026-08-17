@@ -10,10 +10,7 @@ The primary function of `set_sql_header` is fairly limited. It's intended to:
 * [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery)
 * [Set temporary session parameters](./sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
 
-- Models
-- Seeds
-- Snapshots
-- Property file
+### Models
 
 models/\<modelname>.sql
 
@@ -35,7 +32,11 @@ models:
     +sql_header: <sql-statement>
 ```
 
+### Seeds
+
 This config is not implemented for seeds
+
+### Snapshots
 
 snapshots/\<filename>.sql
 
@@ -58,6 +59,8 @@ snapshots:
   <resource-path>:
     +sql_header: <sql-statement>
 ```
+
+### Property file
 
 Setting `sql_header` in the `config` of a [generic data test](../../docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](../global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
 
@@ -93,23 +96,21 @@ models:
                 sql_header: "-- SQL_HEADER_TEST_MARKER"
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 An optional configuration to inject SQL above the `create table as` and `create view as` statements that dbt executes when building models and snapshots.
 
 `sql_header`s can be set using the config, or by `call`-ing the `set_sql_header` macro (example below).
 
-<!-- -->
-
-## Comparison to pre-hooks[​](#comparison-to-pre-hooks "Direct link to Comparison to pre-hooks")
+## Comparison to pre-hooks
 
 [Pre-hooks](./pre-hook-post-hook.md) also provide an opportunity to execute SQL before model creation, as a *preceding* query. In comparison, SQL in a `sql_header` is run in the same *query* as the `create table|view as` statement.
 
 As a result, this makes it more useful for [Snowflake session parameters](https://docs.snowflake.com/en/sql-reference/parameters.html) and [BigQuery Temporary UDFs](https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions#sql-udf-examples).
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Set Snowflake session parameters for a particular model[​](#set-snowflake-session-parameters-for-a-particular-model "Direct link to Set Snowflake session parameters for a particular model")
+### Set Snowflake session parameters for a particular model
 
 This uses the config block syntax:
 
@@ -123,7 +124,7 @@ models/my\_model.sql
 select * from {{ ref('other_model') }}
 ```
 
-### Set Snowflake session parameters for all models[​](#set-snowflake-session-parameters-for-all-models "Direct link to Set Snowflake session parameters for all models")
+### Set Snowflake session parameters for all models
 
 dbt\_project.yml
 
@@ -134,7 +135,7 @@ models:
   +sql_header: "alter session set timezone = 'Australia/Sydney';"
 ```
 
-### Create a BigQuery Temporary UDF[​](#create-a-bigquery-temporary-udf "Direct link to Create a BigQuery Temporary UDF")
+### Create a BigQuery Temporary UDF
 
 This example calls the `set_sql_header` macro. This macro is a convenience wrapper which you may choose to use if you have a multi-line SQL statement to inject. You do not need to use the `sql_header` configuration key in this case.
 

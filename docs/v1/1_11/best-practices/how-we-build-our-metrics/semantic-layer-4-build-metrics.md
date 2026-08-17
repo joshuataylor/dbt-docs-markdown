@@ -6,16 +6,14 @@ Note that this best practices guide doesn't yet use the [new YAML specification]
 
 To read more about the new spec, see [Creating metrics](../../docs/build/metrics-overview.md).
 
-## How to build metrics[​](#how-to-build-metrics "Direct link to How to build metrics")
+## How to build metrics
 
 * 💹 We'll start with one of the most important metrics for any business: **revenue**.
 * 📖 For now, our metric for revenue will be **defined as the sum of order totals excluding tax**.
 
-## Defining revenue[​](#defining-revenue "Direct link to Defining revenue")
+## Defining revenue
 
 * 🔢 Metrics have four basic properties:
-
-  <!-- -->
 
   * `name:` We'll use 'revenue' to reference this metric.
   * `description:` For documentation.
@@ -42,7 +40,7 @@ metrics:
       measure: order_total
 ```
 
-## Query your metric[​](#query-your-metric "Direct link to Query your metric")
+## Query your metric
 
 You can use the dbt CLI for metric validation or queries during development, via the `dbt sl` set of subcommands. Here are some useful examples:
 

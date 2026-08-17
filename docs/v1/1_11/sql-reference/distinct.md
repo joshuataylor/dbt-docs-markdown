@@ -4,7 +4,7 @@ Let’s just put it out there: at one point in your data work, you’ll encounte
 
 Using DISTINCT in a SELECT statement will force a query to only return non-duplicate rows. You may commonly see a DISTINCT clause in COUNT functions to get counts of distinct rows.
 
-## How to use SQL DISTINCT in a query[​](#how-to-use-sql-distinct-in-a-query "Direct link to How to use SQL DISTINCT in a query")
+## How to use SQL DISTINCT in a query
 
 To remove duplicate rows from a query, you add DISTINCT immediately after SELECT followed by the rows you want to be selected:
 
@@ -18,7 +18,7 @@ from my_data_source
 
 Let’s take a look at a practical example using DISTINCT below.
 
-### SQL DISTINCT example[​](#sql-distinct-example "Direct link to SQL DISTINCT example")
+### SQL DISTINCT example
 
 ```sql
 select
@@ -33,19 +33,13 @@ This simple query is something you may do while doing initial exploration of you
 | ---------------- | ------------------------ |
 | 99               | 62                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 As you can see from the query results, there are 99 orders placed by customers, but only 62 distinct customers in the table.
 
-## DISTINCT syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#distinct-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to DISTINCT syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## DISTINCT syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Since it’s a pillar of SQL, all modern data warehouses support the ability to use DISTINCT in a SELECT statement 😀
 
-## DISTINCT use cases[​](#distinct-use-cases "Direct link to DISTINCT use cases")
+## DISTINCT use cases
 
 You’ll most commonly see queries using a DISTINCT statement to:
 

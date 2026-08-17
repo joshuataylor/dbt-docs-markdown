@@ -8,20 +8,21 @@ dbt creates, updates, and renames UDFs as part of DAG execution. The UDF is buil
 
 Refer to [Function properties](../../reference/function-properties.md) or [Function configurations](../../reference/function-configs.md) for more information on the configs/properties for UDFs.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * Make sure you're using dbt platform's **Fusion Stable** or **Latest** [release track](../dbt-versions/dbt-release-tracks.md) or dbt Core v1.11+.
 
 * Use one of the following adapters:
 
-  * dbt Core
-  * dbt Fusion engine
+  ### dbt Core
 
-  - BigQuery
-  - Snowflake
-  - Redshift
-  - Postgres
-  - Databricks
+  * BigQuery
+  * Snowflake
+  * Redshift
+  * Postgres
+  * Databricks
+
+  ### dbt Fusion engine
 
   * BigQuery
   * Snowflake
@@ -36,7 +37,7 @@ Additional languages (for example, Java, Scala) aren't currently supported for U
 
 See the [Limitations](#limitations) section below for the full list of currently supported UDF capabilities.
 
-## Defining UDFs in dbt[​](#defining-udfs-in-dbt "Direct link to Defining UDFs in dbt")
+## Defining UDFs in dbt
 
 You can define SQL, Python, and JavaScript (available in dbt Core v1.12+) UDFs in dbt. Python UDFs are supported in Snowflake, BigQuery, and Databricks ([Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/) required). JavaScript UDFs are supported in Snowflake and BigQuery.
 
@@ -44,9 +45,7 @@ Follow these steps to define UDFs in dbt:
 
 1. Create a SQL, Python, or JavaScript file under the `functions` directory. For example, this UDF checks if a string represents a positive integer:
 
-   * SQL
-   * Python
-   * JavaScript
+   ### SQL
 
    Define a SQL UDF in a SQL file.
 
@@ -59,6 +58,8 @@ Follow these steps to define UDFs in dbt:
    # syntax for Redshift and Postgres
    SELECT REGEXP_INSTR(a_string, '^[0-9]+$')
    ```
+
+   ### Python
 
    Define a Python UDF in a Python file.
 
@@ -86,6 +87,8 @@ Follow these steps to define UDFs in dbt:
 
    **Note:** Python UDFs on Databricks require [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/).
 
+   ### JavaScript
+
    Define a JavaScript UDF in a JavaScript file.
 
    functions/is\_positive\_int.js
@@ -98,9 +101,7 @@ Follow these steps to define UDFs in dbt:
 
 2. Specify the function name and define the config, properties, return type, and optional arguments in a corresponding properties YAML file.
 
-   * SQL
-   * Python
-   * JavaScript
+   ### SQL
 
    functions/is\_positive\_int.yml
 
@@ -121,11 +122,11 @@ Follow these steps to define UDFs in dbt:
          data_type: integer        # required
    ```
 
+   ### Python
+
    The following configs are required when defining a Python UDF on Snowflake and BigQuery:
 
    * [`runtime_version`](../../reference/resource-configs/runtime-version.md) — Specify the Python version to run. Supported values are:
-
-     <!-- -->
 
      * [Snowflake](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction): `3.10`, `3.11`, `3.12`, and `3.13`
      * [BigQuery](https://cloud.google.com/bigquery/docs/user-defined-functions-python): `3.11`
@@ -163,6 +164,8 @@ Follow these steps to define UDFs in dbt:
          returns:                     # required
            data_type: integer         # required
    ```
+
+   ### JavaScript
 
    You can optionally set [`snowflake.quote_args`](../../reference/resource-configs/quote_args.md) to control whether argument names are quoted when creating a JavaScript UDF on Snowflake.
 
@@ -205,15 +208,9 @@ Follow these steps to define UDFs in dbt:
 
    The rendered `CREATE FUNCTION` statement depends on which adapter you're using. For example:
 
-   * SQL
-   * Python
-   * JavaScript
+   ### SQL
 
-   - Snowflake
-   - Redshift
-   - BigQuery
-   - Databricks
-   - Postgres
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING DEFAULT '1')
@@ -225,6 +222,8 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
+   ### Redshift
+
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string VARCHAR)
    RETURNS INTEGER
@@ -234,6 +233,8 @@ Follow these steps to define UDFs in dbt:
    $$ LANGUAGE SQL;
    ```
 
+   ### BigQuery
+
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
    RETURNS INT64
@@ -242,12 +243,16 @@ Follow these steps to define UDFs in dbt:
    );
    ```
 
+   ### Databricks
+
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
    RETURNS INT
    DETERMINISTIC
    RETURN REGEXP_INSTR(a_string, '^[0-9]+$');
    ```
+
+   ### Postgres
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_schema.is_positive_int(a_string text DEFAULT '1')
@@ -259,9 +264,9 @@ Follow these steps to define UDFs in dbt:
    $$;
    ```
 
-   * Snowflake
-   * BigQuery
-   * Databricks
+   ### Python
+
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING DEFAULT '1')
@@ -276,6 +281,8 @@ Follow these steps to define UDFs in dbt:
      return 1 if re.search(r'^[0-9]+$', a_string or '') else 0
    $$;
    ```
+
+   ### BigQuery
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -293,6 +300,8 @@ Follow these steps to define UDFs in dbt:
    ''';
    ```
 
+   ### Databricks
+
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
    RETURNS INT
@@ -307,8 +316,9 @@ Follow these steps to define UDFs in dbt:
 
    Databricks omits the `RUNTIME_VERSION` and `HANDLER` clauses. The runtime is managed internally, and the contents of your `.py` file become the function body verbatim — including the trailing `return main(a_string)` that produces the result.
 
-   * Snowflake
-   * BigQuery
+   ### JavaScript
+
+   ### Snowflake
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int("a_string" STRING)
@@ -318,6 +328,8 @@ Follow these steps to define UDFs in dbt:
    return /^[0-9]+$/.test(a_string) ? 1 : 0;
    $$;
    ```
+
+   ### BigQuery
 
    ```sql
    CREATE OR REPLACE FUNCTION udf_db.udf_schema.is_positive_int(a_string STRING)
@@ -364,7 +376,7 @@ After defining a UDF, your changes are applied to the UDF in the warehouse the n
 
 dbt detects all of these changes when using [`state:modified`](../../reference/node-selection/methods.md#state).
 
-### Defining overloaded UDFs[​](#defining-overloaded-udfs "Direct link to Defining overloaded UDFs")
+### Defining overloaded UDFs
 
 Use the [`overloads`](../../reference/resource-properties/overloads.md) property (available in dbt Core v1.12+) to define multiple argument signatures for the same function. This lets you call the same function name with different input types, without creating separate UDFs for each variant. `overloads` is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
@@ -415,7 +427,7 @@ All overloads are grouped into one DAG node (the root function), so they're buil
 
 For more information, refer to [`overloads`](../../reference/resource-properties/overloads.md).
 
-## Using UDFs in unit tests[​](#using-udfs-in-unit-tests "Direct link to Using UDFs in unit tests")
+## Using UDFs in unit tests
 
 You can use [unit tests](./unit-tests.md) to validate models that reference UDFs. Before running unit tests, make sure the function exists in your warehouse. To ensure that the function exists for a unit test, run:
 
@@ -447,7 +459,7 @@ unit_tests:
         - { maybe_positive_int_column: 1.0, is_positive: true }
 ```
 
-## Listing and building UDFs[​](#listing-and-building-udfs "Direct link to Listing and building UDFs")
+## Listing and building UDFs
 
 Use the [`list` command](../../reference/commands/list.md#listing-functions) to list UDFs in your project: `dbt list --select "resource_type:function"` or `dbt list --resource-type function`.
 
@@ -455,7 +467,7 @@ Use the [`build` command](../../reference/commands/build.md#functions) to select
 
 For more information about selecting UDFs, see the examples in [Node selector methods](../../reference/node-selection/methods.md#file).
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 * UDFs in other languages (for example, Java or Scala) are not yet supported.
 * JavaScript UDFs are supported in Snowflake and BigQuery only. Using JavaScript UDFs on an unsupported adapter raises a parsing error.
@@ -463,13 +475,13 @@ For more information about selecting UDFs, see the examples in [Node selector me
 * Only scalar and aggregate functions are currently supported. For more information, see [Supported function types](../../reference/resource-configs/type.md#supported-function-types).
 * The `overloads` property is supported for SQL UDFs in Snowflake and Postgres, and Python and JavaScript UDFs in Snowflake.
 
-## Related FAQs[​](#related-faqs "Direct link to Related FAQs")
+## Related FAQs
 
 When should I use a UDF instead of a macro?
 
 Both user-defined functions (UDFs) and macros let you reuse logic across your dbt project, but they work in fundamentally different ways. Here's when to use each:
 
-#### Use UDFs when:[​](#use-udfs-when "Direct link to Use UDFs when:")
+#### Use UDFs when:
 
  You need logic accessible outside dbt
 
@@ -489,20 +501,16 @@ You can use Jinja (loops, conditionals, macros, `ref`, `source`, `var`) inside a
 
 Jinja influences the function when it’s created, whereas arguments influence it when it runs in the warehouse:
 
-* ✅
-  <!-- -->
-  **Allowed:** Jinja that depends on project or build-time state — for example, `var(“can_do_things”)`, static `ref(‘orders’)`, or environment-specific logic. These are all evaluated once at creation time.
-* ❌
-  <!-- -->
-  **Not allowed:** Jinja that depends on **function arguments** passed at runtime. The compiler can’t see those, so dynamic `ref(ref_name)` or conditional Jinja based on argument values won’t work.
+* ✅ **Allowed:** Jinja that depends on project or build-time state — for example, `var(“can_do_things”)`, static `ref(‘orders’)`, or environment-specific logic. These are all evaluated once at creation time.
+* ❌ **Not allowed:** Jinja that depends on **function arguments** passed at runtime. The compiler can’t see those, so dynamic `ref(ref_name)` or conditional Jinja based on argument values won’t work.
 
  You need Python logic that runs in your warehouse
 
-A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br /><!-- -->This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
+A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br />This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
 
 Python UDFs support conditionals and looping within the function logic itself (using Python syntax), and execute at runtime, not at compile time like macros. Python UDFs are currently supported in Snowflake and BigQuery.
 
-#### Use macros when:[​](#use-macros-when "Direct link to Use macros when:")
+#### Use macros when:
 
  You need to generate SQL at compile time
 
@@ -542,7 +550,7 @@ However, the difference between the two is *when* the logic runs:
 
 Macros don't create anything in your warehouse; they just generate SQL at compile time. UDFs create actual function objects in your warehouse that need to be managed.
 
-#### Can I use both together?[​](#can-i-use-both-together "Direct link to Can I use both together?")
+#### Can I use both together?
 
 Yes! You can use a macro to call a UDF or call a macro from within a UDF, combining the benefits of both. So the following example shows how to use a macro to define default values for arguments alongside your logic, for your UDF
 
@@ -552,7 +560,7 @@ Yes! You can use a macro to call a UDF or call a macro from within a UDF, combin
 {% endmacro %}
 ```
 
-#### Related documentation[​](#related-documentation "Direct link to Related documentation")
+#### Related documentation
 
 * [User-defined functions](./udfs.md)
 * [Jinja macros](./jinja-macros.md)

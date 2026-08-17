@@ -1,10 +1,10 @@
 # Managing usage
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 From dbt, click on your account name in the left side menu and select **Account settings**. The **Billing** option will be on the left side menu under the **Settings** heading. Here, you can view individual available plans and the features provided for each.
 
-### Usage notifications[​](#usage-notifications "Direct link to Usage notifications")
+### Usage notifications
 
 Every plan automatically sends email alerts when 75%, 90%, and 100% of usage estimates have been reached.
 
@@ -13,7 +13,7 @@ Every plan automatically sends email alerts when 75%, 90%, and 100% of usage est
 
 Users cannot opt out of these emails. To have additional users to receive these alert emails, assign them the applicable permissions mentioned earlier. Note that your usage may already be higher than the percentage indicated in the alert due to your usage pattern and minor latency times.
 
-### How do I stop usage from accruing?[​](#how-do-i-stop-usage-from-accruing "Direct link to How do I stop usage from accruing?")
+### How do I stop usage from accruing?
 
 There are 2 options to disable models from being built and charged:
 

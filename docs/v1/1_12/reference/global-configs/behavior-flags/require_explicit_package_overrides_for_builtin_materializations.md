@@ -10,12 +10,6 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | Matured (default → `true`)                                            | 2024.06        | 1.8.0          |
 | Removed                                                               | —              | v2.0           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Installed packages can no longer override built-in materializations without your explicit opt-in. A materialization defined in a package that matches the name of a built-in materialization is no longer included in the search and resolution order. Unlike macros, materializations don't use the `search_order` defined in the project `dispatch` config.
 
 The built-in materializations are `'view'`, `'table'`, `'incremental'`, `'materialized_view'` for models, as well as `'test'`, `'unit'`, `'snapshot'`, `'seed'`, and `'clone'`.

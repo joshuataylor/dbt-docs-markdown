@@ -17,7 +17,7 @@ DBT_PROD_ENV_ID=https://cloud.getdbt.com/deploy/12345/projects/67890/environment
 DBT_USER_ID=https://cloud.getdbt.com/settings/profile
 ```
 
-## DBT\_HOST (account hostname)[​](#dbt-host "Direct link to DBT_HOST (account hostname)")
+## DBT\_HOST (account hostname)
 
 Your hostname is the domain you use to access dbt platform. Both `cloud.getdbt.com` and `https://cloud.getdbt.com` are accepted.
 
@@ -31,15 +31,9 @@ Your hostname is the domain you use to access dbt platform. Both `cloud.getdbt.c
 | Accounts with a subdomain prefix | `abc123.us1.dbt.com`      | `abc123.us1.dbt.com`      |
 | Single-tenant                    | `your-company.getdbt.com` | `your-company.getdbt.com` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For more information on regions and hosting, refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
-## DBT\_ACCOUNT\_ID (account ID)[​](#dbt-account-id "Direct link to DBT_ACCOUNT_ID (account ID)")
+## DBT\_ACCOUNT\_ID (account ID)
 
 1. Log in to your dbt platform account.
 2. Go to **Account settings**.
@@ -47,7 +41,7 @@ For more information on regions and hosting, refer to [Access, Regions, & IP add
 
 Alternatively, see [Finding your user and account IDs](../../faqs/Accounts/find-user-id.md) for additional methods.
 
-## DBT\_PROD\_ENV\_ID (production environment ID)[​](#dbt-prod-env-id "Direct link to DBT_PROD_ENV_ID (production environment ID)")
+## DBT\_PROD\_ENV\_ID (production environment ID)
 
 1. Log in to your dbt platform account.
 2. Go to **Deploy** → **Environments**.
@@ -56,13 +50,13 @@ Alternatively, see [Finding your user and account IDs](../../faqs/Accounts/find-
 
 Copy only the number at the end — for example, `54321`.
 
-## DBT\_DEV\_ENV\_ID (development environment ID)[​](#dbt-dev-env-id "Direct link to DBT_DEV_ENV_ID (development environment ID)")
+## DBT\_DEV\_ENV\_ID (development environment ID)
 
 Follow the same steps as for `DBT_PROD_ENV_ID`, but click on your development environment instead of production.
 
 This variable is required for `execute_sql`. If you don't have a dedicated development environment, you can use your production environment ID here, though a separate development environment is recommended.
 
-## DBT\_USER\_ID (user ID)[​](#dbt-user-id "Direct link to DBT_USER_ID (user ID)")
+## DBT\_USER\_ID (user ID)
 
 1. Log in to your dbt platform account.
 2. Go to **Account settings** → **Profile** (or click your profile/avatar).
@@ -72,11 +66,11 @@ Copy only the number.
 
 Alternatively, see [Finding your user and account IDs](../../faqs/Accounts/find-user-id.md).
 
-## DBT\_TOKEN (access token)[​](#dbt-token "Direct link to DBT_TOKEN (access token)")
+## DBT\_TOKEN (access token)
 
 The following sections explain how to find your Personal Access Token (PAT) and Service token.
 
-### Personal Access Token (PAT)[​](#pat "Direct link to Personal Access Token (PAT)")
+### Personal Access Token (PAT)
 
 Required for `execute_sql`. Tied to your personal account.
 
@@ -84,7 +78,7 @@ Required for `execute_sql`. Tied to your personal account.
 2. Click **+ New token**, give it a name, and copy the token value.
 3. Store it somewhere safe — you can't view it again after closing the dialog.
 
-### Service token[​](#service-token "Direct link to Service token")
+### Service token
 
 Used for shared or team setups. Better for CI/automation.
 

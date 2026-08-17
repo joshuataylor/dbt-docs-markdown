@@ -1,6 +1,6 @@
 # \_wizard-cli-full-generated
 
-## How to read this reference[​](#how-to-read-this-reference "Direct link to How to read this reference")
+## How to read this reference
 
 * **Flag** — the full flag as typed. Short flags (e.g. `-m`) are listed in the Short column.
 * **Type** — `boolean` (presence/absence), `string`, `path`, or an enumeration of allowed values.
@@ -15,7 +15,7 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-## Global flags[​](#global-flags "Direct link to Global flags")
+## Global flags
 
 These flags work on the base interactive `wizard` command.
 
@@ -42,13 +42,7 @@ These flags work on the base interactive `wizard` command.
 | `--search`                                   | —     | boolean | Enable live web search. When enabled, the native Responses `web_search` tool is available to the model (no per‑call approval)                                                                                                                                          |
 | `--no-alt-screen`                            | —     | boolean | Disable alternate screen mode                                                                                                                                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Commands[​](#commands "Direct link to Commands")
+## Commands
 
 | Command                             | Aliases | Description                                                                                       |
 | ----------------------------------- | ------- | ------------------------------------------------------------------------------------------------- |
@@ -74,13 +68,7 @@ Search table...
 | [`exec-server`](#exec-server)       | —       | \[EXPERIMENTAL] Run the standalone exec-server service                                            |
 | [`features`](#features)             | —       | Inspect feature flags                                                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## exec[​](#exec "Direct link to exec")
+## exec
 
 Run wizard non-interactively
 
@@ -93,12 +81,6 @@ wizard exec [OPTIONS] <COMMAND> [ARGS]
 | Argument   | Description                                                                                                                                                                                                             |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[PROMPT]` | Initial instructions for the agent. If not provided as an argument (or if `-` is used), instructions are read from stdin. If stdin is piped and a prompt is also provided, stdin is appended as a `&lt;stdin&gt;` block |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 | Flag                                         | Short | Type    | Description                                                                                                                                                                                                                                                            |
 | -------------------------------------------- | ----- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -128,13 +110,7 @@ Search table...
 | `--no-validation`                            | —     | boolean | When set, the validation gate always responds with "declined" so the validation sub-agent is never spawned. Useful for benchmarking runs where sub-agent overhead is not desired                                                                                       |
 | `-o, --output-last-message <FILE>`           | `-o`  | path    | Specifies file where the last message from the agent should be written                                                                                                                                                                                                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## review[​](#review "Direct link to review")
+## review
 
 Run a code review non-interactively
 
@@ -143,12 +119,6 @@ Run a code review non-interactively
 | Argument   | Description                                                 |
 | ---------- | ----------------------------------------------------------- |
 | `[PROMPT]` | Custom review instructions. If `-` is used, read from stdin |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 | Flag                       | Short | Type    | Description                                                                                                                                                                                                                                                            |
 | -------------------------- | ----- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -161,13 +131,7 @@ Search table...
 | `--commit <SHA>`           | —     | string  | Review the changes introduced by a commit                                                                                                                                                                                                                              |
 | `--title <TITLE>`          | —     | string  | Optional commit title to display in the review summary                                                                                                                                                                                                                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## login[​](#login "Direct link to login")
+## login
 
 Manage login
 
@@ -177,13 +141,7 @@ Manage login
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## logout[​](#logout "Direct link to logout")
+## logout
 
 Remove stored authentication credentials
 
@@ -193,13 +151,7 @@ Remove stored authentication credentials
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## mcp[​](#mcp "Direct link to mcp")
+## mcp
 
 Manage external MCP servers for dbt Wizard
 
@@ -209,13 +161,7 @@ Manage external MCP servers for dbt Wizard
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## plugin[​](#plugin "Direct link to plugin")
+## plugin
 
 Manage dbt Wizard plugins
 
@@ -225,13 +171,7 @@ Manage dbt Wizard plugins
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## providers[​](#providers "Direct link to providers")
+## providers
 
 Manage model providers
 
@@ -241,13 +181,7 @@ Manage model providers
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## mcp-server[​](#mcp-server "Direct link to mcp-server")
+## mcp-server
 
 Start dbt Wizard as an MCP server (stdio)
 
@@ -258,13 +192,7 @@ Start dbt Wizard as an MCP server (stdio)
 | `--enable <FEATURE>`       | —     | string  | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string  | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## app-server[​](#app-server "Direct link to app-server")
+## app-server
 
 \[experimental] Run the app server or related tooling
 
@@ -284,13 +212,7 @@ Search table...
 | `--ws-audience <AUDIENCE>`              | —     | string  | Expected audience for signed JWT bearer tokens                                                                                                                                                                                                                         |
 | `--ws-max-clock-skew-seconds <SECONDS>` | —     | string  | Maximum clock skew when validating signed JWT bearer tokens                                                                                                                                                                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## remote-control[​](#remote-control "Direct link to remote-control")
+## remote-control
 
 \[experimental] Manage the app-server daemon with remote control enabled
 
@@ -301,13 +223,7 @@ Search table...
 | `--enable <FEATURE>`       | —     | string  | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string  | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## completion[​](#completion "Direct link to completion")
+## completion
 
 Generate shell completion scripts
 
@@ -317,25 +233,13 @@ Generate shell completion scripts
 | --------- | --------------------------------- |
 | `[SHELL]` | Shell to generate completions for |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 | Flag                       | Short | Type   | Description                                                                                                                                                                                                                                                            |
 | -------------------------- | ----- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-c, --config <key=value>` | `-c`  | string | Override a configuration value that would otherwise be loaded from `~/.dbt/wizard/config.toml`. Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed as TOML. If it fails to parse as TOML, the raw string is used as a literal. |
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## update[​](#update "Direct link to update")
+## update
 
 Update dbt Wizard to the latest version
 
@@ -345,13 +249,7 @@ Update dbt Wizard to the latest version
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## doctor[​](#doctor "Direct link to doctor")
+## doctor
 
 Diagnose local dbt Wizard installation, config, auth, and runtime health
 
@@ -366,13 +264,7 @@ Diagnose local dbt Wizard installation, config, auth, and runtime health
 | `--no-color`               | —     | boolean | Disable ANSI color in human output                                                                                                                                                                                                                                     |
 | `--ascii`                  | —     | boolean | Use ASCII status labels and separators in human output                                                                                                                                                                                                                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## sandbox[​](#sandbox "Direct link to sandbox")
+## sandbox
 
 Run commands within a dbt Wizard-provided sandbox
 
@@ -382,13 +274,7 @@ Run commands within a dbt Wizard-provided sandbox
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## debug[​](#debug "Direct link to debug")
+## debug
 
 Debugging tools
 
@@ -398,13 +284,7 @@ Debugging tools
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## apply[​](#apply "Direct link to apply")
+## apply
 
 Apply the latest diff produced by dbt Wizard agent as a `git apply` to your local working tree
 
@@ -414,25 +294,13 @@ Apply the latest diff produced by dbt Wizard agent as a `git apply` to your loca
 | ----------- | ----------- |
 | `<TASK_ID>` |             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 | Flag                       | Short | Type   | Description                                                                                                                                                                                                                                                            |
 | -------------------------- | ----- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `-c, --config <key=value>` | `-c`  | string | Override a configuration value that would otherwise be loaded from `~/.dbt/wizard/config.toml`. Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed as TOML. If it fails to parse as TOML, the raw string is used as a literal. |
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## resume[​](#resume "Direct link to resume")
+## resume
 
 Resume a previous interactive session (picker by default; use --last to continue the most recent)
 
@@ -442,12 +310,6 @@ Resume a previous interactive session (picker by default; use --last to continue
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[SESSION_ID]` | Conversation/session id (UUID) or thread name. UUIDs take precedence if it parses. If omitted, use --last to pick the most recent recorded session |
 | `[PROMPT]`     | Optional user prompt to start the session                                                                                                          |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 | Flag                                         | Short | Type    | Description                                                                                                                                                                                                                                                            |
 | -------------------------------------------- | ----- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -475,13 +337,7 @@ Search table...
 | `--search`                                   | —     | boolean | Enable live web search. When enabled, the native Responses `web_search` tool is available to the model (no per‑call approval)                                                                                                                                          |
 | `--no-alt-screen`                            | —     | boolean | Disable alternate screen mode                                                                                                                                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## fork[​](#fork "Direct link to fork")
+## fork
 
 Fork a previous interactive session (picker by default; use --last to fork the most recent)
 
@@ -491,12 +347,6 @@ Fork a previous interactive session (picker by default; use --last to fork the m
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `[SESSION_ID]` | Conversation/session id (UUID). When provided, forks this session. If omitted, use --last to pick the most recent recorded session |
 | `[PROMPT]`     | Optional user prompt to start the session                                                                                          |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 | Flag                                         | Short | Type    | Description                                                                                                                                                                                                                                                            |
 | -------------------------------------------- | ----- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -523,13 +373,7 @@ Search table...
 | `--search`                                   | —     | boolean | Enable live web search. When enabled, the native Responses `web_search` tool is available to the model (no per‑call approval)                                                                                                                                          |
 | `--no-alt-screen`                            | —     | boolean | Disable alternate screen mode                                                                                                                                                                                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## cloud[​](#cloud "Direct link to cloud")
+## cloud
 
 \[EXPERIMENTAL] Browse tasks from dbt Wizard in dbt platform and apply changes locally
 
@@ -539,13 +383,7 @@ Search table...
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## exec-server[​](#exec-server "Direct link to exec-server")
+## exec-server
 
 \[EXPERIMENTAL] Run the standalone exec-server service
 
@@ -560,13 +398,7 @@ Search table...
 | `--name <NAME>`             | —     | string  | Human-readable environment name                                                                                                                                                                                                                                        |
 | `--use-agent-identity-auth` | —     | boolean | Use Agent Identity auth from DBT\_WIZARD\_ACCESS\_TOKEN for remote registration                                                                                                                                                                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## features[​](#features "Direct link to features")
+## features
 
 Inspect feature flags
 
@@ -575,9 +407,3 @@ Inspect feature flags
 | `-c, --config <key=value>` | `-c`  | string | Override a configuration value that would otherwise be loaded from `~/.dbt/wizard/config.toml`. Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed as TOML. If it fails to parse as TOML, the raw string is used as a literal. |
 | `--enable <FEATURE>`       | —     | string | Enable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=true`                                                                                                                                                                                           |
 | `--disable <FEATURE>`      | —     | string | Disable a feature (repeatable). Equivalent to `-c features.&lt;name&gt;=false`                                                                                                                                                                                         |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

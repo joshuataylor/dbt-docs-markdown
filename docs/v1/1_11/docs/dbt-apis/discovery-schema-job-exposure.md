@@ -1,10 +1,10 @@
 # Exposure object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The exposure object allows you to query information about a particular exposure. To learn more, refer to [Add Exposures to your DAG](../build/exposures.md).
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for an `exposure`, the following arguments are available.
 
@@ -12,7 +12,7 @@ When querying for an `exposure`, the following arguments are available.
 
 Below we show some illustrative example queries and outline the schema of the exposure object.
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 The example below queries information about an exposure including the owner's name and email, the URL, and information about parent sources and parent models.
 
@@ -54,7 +54,7 @@ The example below queries information about an exposure including the owner's na
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for an `exposure`, the following fields are available:
 

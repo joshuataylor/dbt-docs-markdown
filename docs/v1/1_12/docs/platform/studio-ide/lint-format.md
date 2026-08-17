@@ -1,6 +1,6 @@
 # Lint and format your code
 
-dbt platformⓘ
+dbt platform
 
 Enhance your development workflow by integrating with popular linters and formatters like [SQLFluff](https://sqlfluff.com/), [sqlfmt](http://sqlfmt.com/), [Black](https://black.readthedocs.io/en/latest/), and [Prettier](https://prettier.io/). Leverage these powerful tools directly in the Studio IDE without interrupting your development flow.
 
@@ -30,7 +30,7 @@ By default, the IDE uses sqlfmt rules to format your code, making it convenient 
 
 [![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
-## Lint[​](#lint "Direct link to Lint")
+## Lint
 
 With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a configurable SQL linter, to warn you of complex functions, syntax, formatting, and compilation errors. This integration allows you to run checks, fix, and display any code errors directly within the Studio IDE:
 
@@ -44,7 +44,7 @@ Linting considerations
 * The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](../../fusion/supported-features.md#limitations).
 * Linting doesn't support ephemeral models in dbt v1.5 and lower. Refer to the [FAQs](#faqs) for more info.
 
-### Enable linting[​](#enable-linting "Direct link to Enable linting")
+### Enable linting
 
 Linting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
@@ -58,15 +58,13 @@ Linting is available on all branches, including your protected primary git branc
 
 5. After saving, use the toolbar above the console (below the **File editor**) to select **Lint file** or **Lint and Fix file**:
 
-   <!-- -->
-
    * **Lint**: Displays linting issues in the Studio IDE as wavy underlines in the **File editor**. You can hover over an underlined issue to display the details and actions, including a **Quick Fix** option to fix all or specific issues. After linting, you'll see a message confirming the outcome. Linting doesn't rerun after saving. Click **Lint** again to rerun linting.
    * **Fix**: Automatically fixes linting errors in the **File editor**. When fixing is complete, you'll see a message confirming the outcome.
    * Use the **Code quality** tab to view lint results and logs. Check the **Problems** tab for related editor diagnostics.
 
 [![Use the Lint or Fix button in the console section to lint or auto-fix your code.](/img/docs/dbt-platform/platform-ide/ide-lint-format-console.gif?v=2 "Use the Lint or Fix button in the console section to lint or auto-fix your code.")](#)Use the Lint or Fix button in the console section to lint or auto-fix your code.
 
-### Lint multiple files[​](#lint-multiple-files "Direct link to Lint multiple files")
+### Lint multiple files
 
 You can lint multiple SQL files at once, depending on how you are working with dbt. The behavior differs between the Studio IDE, dbt Core, and the dbt CLI.
 
@@ -82,7 +80,7 @@ You can lint multiple SQL files at once, depending on how you are working with d
 
   If no path is specified (for example, `dbt sqlfluff lint`), all SQL files in the project are linted.
 
-### Customize linting[​](#customize-linting "Direct link to Customize linting")
+### Customize linting
 
 SQLFluff is a configurable SQL linter, which means you can configure your own linting rules instead of using the default linting settings in the IDE. You can exclude files and directories by using a standard `.sqlfluffignore` file. Learn more about the syntax in the [.sqlfluffignore syntax docs](https://docs.sqlfluff.com/en/stable/configuration.html#id2).
 
@@ -95,7 +93,7 @@ To configure your own linting rules:
 5. Restart the Studio IDE.
 6. Test it out and happy linting!
 
-#### Snapshot linting[​](#snapshot-linting "Direct link to Snapshot linting")
+#### Snapshot linting
 
 By default, dbt lints all modified `.sql` files in your project, including snapshots. [Snapshots](../../build/snapshots.md) can be defined in YAML *and* `.sql` files, but their SQL isn't lintable and can cause errors during linting.
 
@@ -103,7 +101,7 @@ To prevent SQLFluff from linting snapshot files, add the snapshots directory to 
 
 Note that you should explicitly exclude snapshots in your `.sqlfluffignore` file since dbt doesn't automatically ignore snapshots on the backend.
 
-### Configure dbtonic linting rules[​](#configure-dbtonic-linting-rules "Direct link to Configure dbtonic linting rules")
+### Configure dbtonic linting rules
 
 Refer to the [Jaffle shop SQLFluff config file](https://github.com/dbt-labs/jaffle-shop-template/blob/main/.sqlfluff) for dbt-specific (or dbtonic) linting rules we use for our own projects:
 
@@ -154,19 +152,18 @@ For more information on styling best practices, refer to [How we style our SQL](
 
 [![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
-## Format[​](#format "Direct link to Format")
+## Format
 
 In the Studio IDE, you can format your code to match style guides with a click of a button. The Studio IDE integrates with formatters like sqlfmt, Prettier, and Black to automatically format code on five different file types: SQL, YAML, Markdown, Python, and JSON.
 
 * SQL: Format with [sqlfmt](http://sqlfmt.com/), which provides one way to format your dbt SQL and Jinja.
-  <!-- -->
   * **Note**: Custom sqlfmt configuration in the Studio IDE is not supported.
 * YAML, Markdown, and JSON: Format with [Prettier](https://prettier.io/).
 * Python: Format with [Black](https://black.readthedocs.io/en/latest/).
 
 The Studio IDE formatting integrations take care of manual tasks like code formatting, enabling you to focus on creating quality data models, collaborating, and driving impactful results.
 
-### Format SQL[​](#format-sql "Direct link to Format SQL")
+### Format SQL
 
 To format your SQL code, dbt integrates with [sqlfmt](http://sqlfmt.com/), which is an uncompromising SQL query formatter that provides one way to format the SQL query and Jinja.
 
@@ -183,7 +180,7 @@ Formatting is available on all branches, including your protected primary git br
 
 [![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
 
-### Format YAML, Markdown, JSON[​](#format-yaml-markdown-json "Direct link to Format YAML, Markdown, JSON")
+### Format YAML, Markdown, JSON
 
 To format your YAML, Markdown, or JSON code, dbt integrates with [Prettier](https://prettier.io/), which is an opinionated code formatter. Formatting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
@@ -197,7 +194,7 @@ You can add a configuration file to customize formatting rules for YAML, Markdow
 
 For more information on the order of precedence and how to configure files, refer to [Prettier's documentation](https://prettier.io/docs/en/configuration.html). Please note, `.prettierrc.json5`, `.prettierrc.js`, and `.prettierrc.toml` files aren't currently supported.
 
-### Format Python[​](#format-python "Direct link to Format Python")
+### Format Python
 
 To format your Python code, dbt integrates with [Black](https://black.readthedocs.io/en/latest/), which is an uncompromising Python code formatter. Formatting is available on all branches, including your protected primary git branch. Since the Studio IDE prevents commits to the protected branch, it prompts you to commit those changes to a new branch.
 
@@ -207,7 +204,7 @@ To format your Python code, dbt integrates with [Black](https://black.readthedoc
 
 [![Format Python files using Black.](/img/docs/dbt-platform/platform-ide/python-black.gif?v=2 "Format Python files using Black.")](#)Format Python files using Black.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  When should I use SQLFluff and when should I use sqlfmt?
 
@@ -239,7 +236,7 @@ Currently, the Studio IDE can lint or fix files up to a certain size and complex
 
 To avoid this, break up your model into smaller models (files) so that they are less complex to lint or fix. Note that linting is simpler than fixing so there may be cases where a file can be linted but not fixed.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [User interface](./ide-user-interface.md)
 * [Keyboard shortcuts](./keyboard-shortcuts.md)

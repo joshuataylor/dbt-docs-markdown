@@ -1,12 +1,10 @@
 # Connect Salesforce Data 360 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") Fusion compatible
 
-dbt platformⓘ
+dbt platform
 
 The dbt Fusion engine in dbt platform supports connecting to Salesforce Data 360.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you can connect dbt to Salesforce Data 360, you need the following:
 
@@ -15,7 +13,7 @@ Before you can connect dbt to Salesforce Data 360, you need the following:
 * An external client app configured for JSON Web Token (JWT) Bearer token flow. For more information, refer to [Setting up the external client app](#setting-up-the-external-client-app).
 * `Data Cloud Architect` and `Data Cloud User` permissions.
 
-### Generating a private key and certificate[​](#generating-a-private-key-and-certificate "Direct link to Generating a private key and certificate")
+### Generating a private key and certificate
 
 Before creating the external client app, generate a private key (`server.key`) and a self-signed certificate (`server.crt`) in Salesforce. Salesforce uses the certificate to verify the JWT Bearer token that dbt sends. Refer to [Create a Private Key and Self-Signed Digital Certificate](https://developer.salesforce.com/docs/atlas.en-us.252.0.sfdx_dev.meta/sfdx_dev/sfdx_dev_auth_key_and_cert.htm) for instructions.
 
@@ -23,7 +21,7 @@ note
 
 It is recommended to generate these credentials under a **service user account** rather than an individual user account to simplify credential management.
 
-### Creating the external client app[​](#creating-the-external-client-app "Direct link to Creating the external client app")
+### Creating the external client app
 
 To authenticate dbt using JWT Bearer token flow, you must create and configure an external client app in Salesforce Data 360.
 
@@ -36,8 +34,6 @@ Then, configure the OAuth settings for the app:
 2. Set the **Callback URL** to `https://login.salesforce.com/services/oauth2/callback`.
 
 3. Under **OAuth Scopes**, add the following to the **Selected OAuth Scopes** list:
-
-   <!-- -->
 
    * `api` - To manage user data via APIs
    * `refresh_token`, `offline_access` - To perform requests at any time, even when the user is offline or tokens have expired
@@ -59,11 +55,11 @@ Then, configure the OAuth settings for the app:
 
 11. Click **Save**.
 
-## Connection fields[​](#connection-fields "Direct link to Connection fields")
+## Connection fields
 
 To connect to Salesforce Data 360, configure the connection settings and provide your credentials.
 
-### Connection[​](#connection "Direct link to Connection")
+### Connection
 
 Configure the following fields to set up your Salesforce Data 360 connection:
 
@@ -75,13 +71,7 @@ Configure the following fields to set up your Salesforce Data 360 connection:
 | Database                   | (Optional) The Salesforce Data 360 database to connect to.                                          |                                          |
 | Data Transform Run Timeout | (Optional) The timeout duration (in milliseconds) for data transformation runs.                     |                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Credentials[​](#credentials "Direct link to Credentials")
+### Credentials
 
 Enter the following credentials to authenticate with Salesforce Data 360:
 
@@ -95,15 +85,15 @@ Enter the following credentials to authenticate with Salesforce Data 360:
 * For **Client ID**, get the Consumer Key from your external client app in Salesforce. Go to **Settings** > **OAuth Settings** > **Consumer Key and Secret**. Copy the **Consumer Key** and paste to the **Client ID** field.
 * The **Private Key** is the `server.key` file created in [Generating a private key and certificate](#generating-a-private-key-and-certificate).
 
-## Authentication method[​](#authentication-method "Direct link to Authentication method")
+## Authentication method
 
 Salesforce Data 360 supports JWT bearer authentication only. JWT bearer flow is a machine-to-machine authentication method that uses a private key file and Consumer Key (Client ID) to authenticate without requiring user interaction.
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt platform, refer to [Salesforce Data 360 configurations](../../../reference/resource-configs/data-cloud-configs.md).
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 The following dbt features are not yet supported for Salesforce Data 360 connections in dbt platform:
 

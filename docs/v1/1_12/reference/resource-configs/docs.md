@@ -1,11 +1,6 @@
 # docs
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
-* Macros
+### Models
 
 You can configure `docs` behavior for many resources at once by setting in `dbt_project.yml`. You can also use the `docs` config in `properties.yaml` files, to set or override documentation behaviors for specific resources:
 
@@ -31,7 +26,11 @@ models:
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+### Sources
+
 The `docs` config isn’t supported for sources.
+
+### Seeds
 
 You can use the `docs` config in YAML files, including the `dbt_project.yml`:
 
@@ -57,6 +56,8 @@ seeds:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+### Snapshots
+
 You can use the `docs` config in YAML files, including the `dbt_project.yml`:
 
 dbt\_project.yml
@@ -81,6 +82,8 @@ snapshots:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
+### Analyses
+
 You can configure `docs` for analyses in the `config` block under `analyses:` in your YAML file. Refer to [Analysis properties](../analysis-properties.md) for more information.
 
 analysis/schema.yml
@@ -94,6 +97,8 @@ analyses:
         show: true | false
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
+
+### Macros
 
 You can configure `docs` for macros in the `config` block under `macros:` in your YAML file. Refer to [Macro properties](../macro-properties.md) for more information.
 
@@ -109,7 +114,7 @@ macros:
 
 Note that for backwards compatibility, `docs` is supported as a top-level key, but without the capabilities of config inheritance.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can use the `docs` config to provide documentation-specific configuration for resources. It supports the following attributes:
 
@@ -118,13 +123,13 @@ You can use the `docs` config to provide documentation-specific configuration fo
 
 **Note:** Hidden models will still appear in the dbt DAG visualization but will be identified as "hidden.”
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 The default value for `show` is `true`.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Mark a model as hidden[​](#mark-a-model-as-hidden "Direct link to Mark a model as hidden")
+### Mark a model as hidden
 
 ```yml
 models:
@@ -133,7 +138,7 @@ models:
       show: false
 ```
 
-### Mark a subfolder of models as hidden[​](#mark-a-subfolder-of-models-as-hidden "Direct link to Mark a subfolder of models as hidden")
+### Mark a subfolder of models as hidden
 
 **Note:** This can also hide dbt packages.
 
@@ -154,12 +159,11 @@ models:
       show: false
 ```
 
-## Custom node colors[​](#custom-node-colors "Direct link to Custom node colors")
+## Custom node colors
 
 The `docs` attribute supports `node_color` to customize the display color of some node types in the DAG within [dbt Docs](../../docs/build/view-documentation.md). You can define node colors in the following files and apply overrides where needed.
 
 * `node_color` hierarchy:
-  <!-- -->
   * `<example-sql-file.sql>` overrides `schema.yml` overrides `dbt_project.yml`
 
 Note, you need to run or re-run the `dbt docs generate` command (dbt Core v1.x only) to apply and view the customized colors.
@@ -168,7 +172,7 @@ Custom node colors not applicable in Catalog
 
 The custom `node_color` attribute isn't applicable in Catalog. Instead, Explorer provides [lenses](../../docs/explore/explore-projects.md#lenses), which are map layers for your DAG. Lenses help you better understand your project's contextual metadata at scale and distinguish specific models or subsets of models.
 
-## Examples[​](#examples-1 "Direct link to Examples")
+## Examples
 
 Add custom `node_colors` to models that support it within subdirectories based on hex codes or a plain color name.
 

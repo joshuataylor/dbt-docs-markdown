@@ -1,6 +1,6 @@
 # Data test configurations
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Data tests](../docs/build/data-tests.md)
 
@@ -12,19 +12,17 @@ Data tests can be configured in a few different ways:
 
 Data test configs are applied hierarchically, in the order of specificity outlined above. In the case of a singular test, the `config()` block within the SQL definition takes precedence over configs in the project YAML file. In the case of a specific instance of a generic test, the test's `.yml` properties would take precedence over any values set in its generic SQL definition's `config()`, which in turn would take precedence over values set in the project YAML file (`dbt_project.yml`).
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
+## Available configurations
 
 Click the link on each configuration option to read more about what it can do.
 
-### Data test-specific configurations[​](#data-test-specific-configurations "Direct link to Data test-specific configurations")
+### Data test-specific configurations
 
 Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
 
-The following resource-specific configurations are only available to <!-- -->Data tests:
+The following resource-specific configurations are only available to Data tests:
 
-* Project file
-* SQL file config
-* Property file
+### Project file
 
 dbt\_project.yml
 
@@ -40,6 +38,8 @@ data_tests:
     +where: <string>
 ```
 
+### SQL file config
+
 ```jinja
 
 {{ config(
@@ -52,6 +52,8 @@ data_tests:
     where = "<string>"
 ) }}
 ```
+
+### Property file
 
 ```yaml
 <resource_type>:
@@ -97,13 +99,11 @@ This configuration mechanism is supported for specific instances of generic test
 
 Starting in dbt Core v1.12, you can set [`sql_header`](./resource-configs/sql_header.md) in the `config` of a generic data test at the model or column level of your `properties.yml`. Enable the [`require_sql_header_in_test_configs`](./global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `config.sql_header` in your data tests.
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-* Project file
-* SQL file config
-* Property file
+### Project file
 
 dbt\_project.yml
 
@@ -119,6 +119,8 @@ data_tests:
     +alias: <string>
 ```
 
+### SQL file config
+
 ```jinja
 
 {{ config(
@@ -130,6 +132,8 @@ data_tests:
     alias="<string>",
 ) }}
 ```
+
+### Property file
 
 ```yaml
 
@@ -170,9 +174,9 @@ data_tests:
 
 This configuration mechanism is supported for specific instances of generic data tests only. To configure a specific singular test, you should use the `config()` macro in its SQL definition.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
-#### Add a tag to one test[​](#add-a-tag-to-one-test "Direct link to Add a tag to one test")
+#### Add a tag to one test
 
 If a specific instance of a generic data test:
 
@@ -199,7 +203,7 @@ tests/\<filename>.sql
 select ...
 ```
 
-#### Set the default severity for all instances of a generic data test[​](#set-the-default-severity-for-all-instances-of-a-generic-data-test "Direct link to Set the default severity for all instances of a generic data test")
+#### Set the default severity for all instances of a generic data test
 
 macros/\<filename>.sql
 
@@ -213,7 +217,7 @@ macros/\<filename>.sql
 {% endtest %}
 ```
 
-#### Disable all data tests from a package[​](#disable-all-data-tests-from-a-package "Direct link to Disable all data tests from a package")
+#### Disable all data tests from a package
 
 dbt\_project.yml
 
@@ -223,7 +227,7 @@ data_tests:
     +enabled: false
 ```
 
-#### Specify custom configurations for generic data tests[​](#specify-custom-configurations-for-generic-data-tests "Direct link to Specify custom configurations for generic data tests")
+#### Specify custom configurations for generic data tests
 
 Beginning in dbt v1.9, you can use any custom config key to specify custom configurations for data tests. For example, the following specifies the `snowflake_warehouse` custom config that dbt should use when executing the `accepted_values` data test:
 
@@ -244,7 +248,7 @@ models:
 
 Given the config, the data test runs on a different Snowflake virtual warehouse than the one in your default connection to enable better price-performance with a different warehouse size or more granular cost allocation and visibility.
 
-#### Add a description to generic and singular tests[​](#add-a-description-to-generic-and-singular-tests "Direct link to Add a description to generic and singular tests")
+#### Add a description to generic and singular tests
 
 Starting from dbt v1.9 (also available to dbt [release tracks](../docs/dbt-versions/dbt-release-tracks.md)), you can add [descriptions](./resource-properties/data-tests.md#description) to both generic and singular tests.
 

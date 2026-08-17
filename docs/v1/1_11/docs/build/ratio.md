@@ -4,6 +4,8 @@ Ratio metrics allow you to create a ratio between two metrics. You specify a num
 
 The parameters for ratio metrics are as follows:
 
+(Applies to dbt v1.11 and earlier)
+
 | Parameter     | Description                                                                                                                         | Required | Type           |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------- |
 | `name`        | The name of the metric.                                                                                                             | Required | String         |
@@ -16,15 +18,9 @@ The parameters for ratio metrics are as follows:
 | `filter`      | Optional filter for the numerator or denominator.                                                                                   | Optional | String         |
 | `alias`       | Optional alias for the numerator or denominator.                                                                                    | Optional | String         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-<!-- -->
-
 The complete specification for ratio metrics is as follows:
+
+(Applies to dbt v1.11 and earlier)
 
 models/metrics/file\_name.yml
 
@@ -45,17 +41,17 @@ metrics:
         alias: Alias for the denominator # Optional
 ```
 
-<!-- -->
-
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
-## Ratio metrics example[​](#ratio-metrics-example "Direct link to Ratio metrics example")
+## Ratio metrics example
 
 These examples demonstrate how to create ratio metrics in your model. They cover basic and advanced use cases, including applying filters to the numerator and denominator metrics.
 
-#### Example 1[​](#example-1 "Direct link to Example 1")
+#### Example 1
 
 This example is a basic ratio metric that calculates the ratio of food orders to total orders:
+
+(Applies to dbt v1.11 and earlier)
 
 models/metrics/file\_name.yml
 
@@ -70,11 +66,11 @@ metrics:
       denominator: orders
 ```
 
-<!-- -->
-
-#### Example 2[​](#example-2 "Direct link to Example 2")
+#### Example 2
 
 This example is a ratio metric that calculates the ratio of food orders to total orders, with a filter and alias applied to the numerator. Note that in order to add these attributes, you'll need to use an explicit key for the name attribute too.
+
+(Applies to dbt v1.11 and earlier)
 
 models/metrics/file\_name.yml
 
@@ -95,9 +91,7 @@ metrics:
         alias: ny_orders
 ```
 
-<!-- -->
-
-## Ratio metrics using different semantic models[​](#ratio-metrics-using-different-semantic-models "Direct link to Ratio metrics using different semantic models")
+## Ratio metrics using different semantic models
 
 The system will simplify and turn the numerator and denominator into a ratio metric from different semantic models by computing their values in sub-queries. It will then join the result set based on common dimensions to calculate the final ratio. Here's an example of the SQL generated for such a ratio metric.
 
@@ -145,9 +139,11 @@ on
   )
 ```
 
-## Add filter[​](#add-filter "Direct link to Add filter")
+## Add filter
 
 Users can define constraints on input metrics for a ratio metric by applying a filter directly to the input metric, like so:
+
+(Applies to dbt v1.11 and earlier)
 
 models/metrics/file\_name.yml
 
@@ -166,14 +162,12 @@ metrics:
         name: distinct_purchasers
 ```
 
-<!-- -->
-
 Note the `filter` and `alias` parameters for the metric referenced in the numerator.
 
 * Use the `filter` parameter to apply a filter to the metric it's attached to.
 * The `alias` parameter is used to avoid naming conflicts in the rendered SQL queries when the same metric is used with different filters.
 * If there are no naming conflicts, the `alias` parameter can be left out.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

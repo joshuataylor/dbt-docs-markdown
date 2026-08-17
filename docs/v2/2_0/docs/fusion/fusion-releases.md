@@ -8,7 +8,7 @@ Track current versions and full release history for the dbt Fusion engine. This 
 
 Each of the versions on this page links to the matching section in the [dbt Fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md) on GitHub.
 
-## Release channels[​](#release-channels "Direct link to Release channels")
+## Release channels
 
 The dbt Fusion engine is distributed through three release channels:
 
@@ -18,17 +18,11 @@ The dbt Fusion engine is distributed through three release channels:
 | `canary` | The latest version to be officially released | ⚠️ Most recent stable version but still undergoing thorough testing |
 | `dev`    | The latest development build                 | ❌ May be unstable; may not have passed all internal tests          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Known-bad releases[​](#known-bad-releases "Direct link to Known-bad releases")
+## Known-bad releases
 
 If a shipped Fusion release is later found to contain a regression, dbt Labs flags it as a known-bad release. If you have a flagged version installed, the dbt VS Code extension shows a warning notification telling you which version to update to. To move off a flagged version, update it using your installation method (for example, pip or Homebrew). For details, including how air-gapped users receive these notifications, refer to [Known-bad releases](../dbt-versions/fusion-version-compatibility.md#known-bad-releases).
 
-## dbt platform Fusion release tracks[​](#dbt-platform-fusion-release-tracks "Direct link to dbt platform Fusion release tracks")
+## dbt platform Fusion release tracks
 
 On dbt platform, each [environment](../deploy/deploy-environments.md) uses the account default or your chosen **Fusion release track**. Release tracks control how often that environment receives new Fusion builds. They're separate from the local CLI release channels in the previous section.
 
@@ -60,21 +54,21 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 #### Dev
 
-[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.210`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this version in the dbt Fusion changelog")
 
-2026-08-09
+2026-08-14
 
 #### Canary
 
-[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.210`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this version in the dbt Fusion changelog")
 
-2026-08-09
+2026-08-14
 
 #### Latest
 
-[`v2.0.0-preview.205`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this version in the dbt Fusion changelog")
+[`v2.0.0-preview.209`](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview209 "View this version in the dbt Fusion changelog")
 
-2026-08-05
+2026-08-13
 
 ### All releases
 
@@ -84,23 +78,19 @@ Status:All (all)
 
 Channel:All (all)
 
-Showing
+Showing 169 of 169 releases
 
-<!-- -->
+[v2.0.0-preview.210](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
 
-167
+Released by: **aiguofer**Aug 14, 2026, 09:44 PM
 
-<!-- -->
+planned promotion
 
-of
+[v2.0.0-preview.209](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview209 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
 
-<!-- -->
+Released by: **johnchappelledbt**Aug 17, 2026, 06:39 PM
 
-167
-
-<!-- -->
-
-releases
+Automated ST snapshot
 
 [v2.0.0-preview.208](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview208 "View this release in the dbt Fusion changelog")Known BadDevnightly
 
@@ -120,11 +110,11 @@ Released by: **akbog**Aug 5, 2026, 01:11 AM
 
 Planned Promotion
 
-[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
+[v2.0.0-preview.205](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview205 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
-Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
+Released by: **akbog**Aug 14, 2026, 02:44 AM
 
-Automated ST snapshot
+Incident Investigation
 
 [v2.0.0-preview.204](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview204 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatest
 
@@ -132,9 +122,9 @@ Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extended
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
+Released by: **johnchappelledbt**Aug 17, 2026, 06:39 PM
 
 Automated ST snapshot
 
@@ -186,9 +176,9 @@ Released by: **aiguofer**Jun 30, 2026, 12:08 AM
 
 Automated promotion
 
-[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallback
+[v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **johnchappelledbt**Aug 10, 2026, 06:26 PM
+Released by: **johnchappelledbt**Aug 17, 2026, 06:39 PM
 
 Automated ST snapshot
 

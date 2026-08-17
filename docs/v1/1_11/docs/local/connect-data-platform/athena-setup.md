@@ -1,43 +1,31 @@
 # Connect Athena to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  dbt Labs
+* **Maintained by**: dbt Labs
+* **Authors**: dbt Labs
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-athena` [![](https://badge.fury.io/py/dbt-athena.svg)](https://badge.fury.io/py/dbt-athena)
 * **Slack channel**: [#db-athena](https://getdbt.slack.com/archives/C013MLFR7BQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.3.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  engine version 2 and 3
+* **Supported dbt Core version**: v1.3.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: engine version 2 and 3
 
-## Installing <!-- -->dbt-athena
+## Installing dbt-athena
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-athena`
 
-## Configuring <!-- -->dbt-athena<!-- -->
+## Configuring dbt-athena
 
-For <!-- -->Athena<!-- -->-specific configuration, please refer to [Athena<!-- --> configs.](../../../reference/resource-configs/athena-configs.md)
+For Athena-specific configuration, please refer to [Athena configs.](../../../reference/resource-configs/athena-configs.md)
 
 `dbt-athena` vs `dbt-athena-community`
 
 `dbt-athena-community` was the community-maintained adapter until dbt Labs took over maintenance in late 2024. Both `dbt-athena` and `dbt-athena-community` are maintained by dbt Labs, but `dbt-athena-community` is now simply a wrapper on `dbt-athena`, published for backwards compatibility.
 
-## Connecting to Athena with dbt-athena[​](#connecting-to-athena-with-dbt-athena "Direct link to Connecting to Athena with dbt-athena")
+## Connecting to Athena with dbt-athena
 
 This plugin does not accept any credentials directly. Instead, [credentials are determined automatically](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) based on AWS CLI/boto3 conventions and stored login info. You can configure the AWS profile name to use via `aws_profile_name`. Alternatively, you can set explicit credential keys in the profile: `aws_access_key_id`, `aws_secret_access_key`, and, for [AWS STS temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html), `aws_session_token` (must match exactly).
 
@@ -60,7 +48,7 @@ default:
   target: dev
 ```
 
-### Example Config[​](#example-config "Direct link to Example Config")
+### Example Config
 
 profiles.yml
 

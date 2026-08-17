@@ -10,10 +10,7 @@ The `static_analysis` config sets how the dbt Fusion engine validates SQL before
 
 To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](./snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](./bigquery-function-support.md).
 
-* Models
-* Tests
-* Seeds
-* Snapshots
+### Models
 
 dbt\_project.yml
 
@@ -38,6 +35,8 @@ models/model\_name.sql
 {{ config(static_analysis='strict' | 'baseline' | 'off') }}
 ```
 
+### Tests
+
 dbt\_project.yml
 
 ```yml
@@ -58,6 +57,8 @@ models:
             static_analysis: strict | baseline | off
 ```
 
+### Seeds
+
 dbt\_project.yml
 
 ```yml
@@ -74,6 +75,8 @@ seeds:
     config:
       static_analysis: strict | baseline | off
 ```
+
+### Snapshots
 
 dbt\_project.yml
 
@@ -92,7 +95,7 @@ snapshots:
       static_analysis: strict | baseline | off
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can configure `static_analysis` for [models](../../docs/build/sql-models.md), [data tests](../../docs/build/data-tests.md), [seeds](../../docs/build/seeds.md), and [snapshots](../../docs/build/snapshots.md).
 
@@ -110,7 +113,7 @@ Deprecated values
 
 The `on` and `unsafe` values are deprecated and will be removed in May 2026. Use `strict` instead.
 
-### User-defined functions (UDFs) in `strict` mode[​](#user-defined-functions-udfs-in-strict-mode "Direct link to user-defined-functions-udfs-in-strict-mode")
+### User-defined functions (UDFs) in `strict` mode
 
 When `static_analysis: strict` is in effect, the dbt Fusion engine parses `CREATE FUNCTION` statements from [`sql_header`](./sql_header.md) and from [`on-run-start`](../project-configs/on-run-start-on-run-end.md) project hooks, registers those UDFs in the compiler registry, and makes them available during strict static compilation. The `baseline` and `off` modes don't perform this UDF registration for static analysis.
 
@@ -118,7 +121,7 @@ A model’s `sql_header` can include multiple statements. Fusion registers UDFs 
 
 If strict analysis still cannot resolve a UDF, set [`static_analysis: off`](./static-analysis.md#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf) on the affected models.
 
-### How static analysis modes cascade[​](#how-static-analysis-modes-cascade "Direct link to How static analysis modes cascade")
+### How static analysis modes cascade
 
 Two rules determine how `static_analysis` modes apply in a lineage:
 
@@ -144,18 +147,16 @@ This makes sure that stricter validation requirements don't apply downstream whe
 
 Refer to the Fusion concepts page for deeper discussion and visuals: [New concepts](../../docs/build/about-static-analysis.md). For more info on the JSON schema, refer to the [dbt-jsonschema file](https://github.com/dbt-labs/dbt-jsonschema/blob/1e2c1536fbdd421e49c8b65c51de619e3cd313ff/schemas/latest_fusion/dbt_project-latest-fusion.json#L4689).
 
-## CLI override[​](#cli-override "Direct link to CLI override")
+## CLI override
 
-You can override model-level configuration for a run using the following CLI flags. For example, to disable static analysis for a run:
+You can override model-level configuration for a run using the [`--static-analysis`](../global-configs/static-analysis-flag.md) flag. For example, to disable static analysis for a run:
 
 ```bash
 dbt run --static-analysis off # disable static analysis for all models
 dbt run --static-analysis baseline # use baseline analysis for all models
 ```
 
-See [static analysis CLI flag](../global-configs/static-analysis-flag.md).
-
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples show how to disable or configure `static_analysis` for different scenarios:
 
@@ -168,7 +169,7 @@ The following examples show how to disable or configure `static_analysis` for di
 * [Configure static analysis for seeds](#configure-static-analysis-for-seeds)
 * [Configure static analysis for snapshots](#configure-static-analysis-for-snapshots)
 
-#### Enable strict analysis for all your models[​](#enable-strict-analysis-for-all-your-models "Direct link to Enable strict analysis for all your models")
+#### Enable strict analysis for all your models
 
 The recommended way to get maximum SQL validation for your entire project is to set `strict` in the top-level `models` configuration in your `dbt_project.yml`. This configuration applies strict analysis to every model in your project, so you don't need to configure each model individually:
 
@@ -190,7 +191,7 @@ You can set individual subdirectories or models to `baseline` or `off` where nee
 
 In this example, strict static analysis applies only to Jaffle Shop models. Installed packages keep the default `baseline` setting unless you explicitly configure them.
 
-#### Disable static analysis for all models in a package[​](#disable-static-analysis-for-all-models-in-a-package "Direct link to Disable static analysis for all models in a package")
+#### Disable static analysis for all models in a package
 
 This example shows how to disable static analysis for all models in a package. The [`+` prefix](./plus-prefix.md) applies the config to all models in the package.
 
@@ -208,7 +209,7 @@ models:
     +static_analysis: off
 ```
 
-#### Disable static analysis in YAML for a single model[​](#disable-static-analysis-in-yaml-for-a-single-model "Direct link to Disable static analysis in YAML for a single model")
+#### Disable static analysis in YAML for a single model
 
 This example shows how to disable static analysis for a single model in YAML.
 
@@ -221,7 +222,7 @@ models:
       static_analysis: off
 ```
 
-#### Disable static analysis in SQL for a model using a custom UDF[​](#disable-static-analysis-in-sql-for-a-model-using-a-custom-udf "Direct link to Disable static analysis in SQL for a model using a custom UDF")
+#### Disable static analysis in SQL for a model using a custom UDF
 
 This example shows how to disable static analysis for a model using a custom [user-defined function (UDF)](../../docs/build/udfs.md) in a SQL file.
 
@@ -236,7 +237,7 @@ select
 from {{ ref('my_model') }}
 ```
 
-#### Configure static analysis for data tests[​](#configure-static-analysis-for-data-tests "Direct link to Configure static analysis for data tests")
+#### Configure static analysis for data tests
 
 This example shows how to set static analysis for all tests in a project using `dbt_project.yml`.
 
@@ -264,7 +265,7 @@ models:
             static_analysis: off
 ```
 
-#### Configure static analysis for seeds[​](#configure-static-analysis-for-seeds "Direct link to Configure static analysis for seeds")
+#### Configure static analysis for seeds
 
 This example shows how to set static analysis for all seeds in a project.
 
@@ -289,7 +290,7 @@ seeds:
       static_analysis: off
 ```
 
-#### Configure static analysis for snapshots[​](#configure-static-analysis-for-snapshots "Direct link to Configure static analysis for snapshots")
+#### Configure static analysis for snapshots
 
 This example shows how to set static analysis for all snapshots in a project.
 
@@ -314,7 +315,13 @@ snapshots:
       static_analysis: off
 ```
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 * For models, disabling static analysis means that features of the VS Code extension that depend on SQL comprehension will be unavailable.
 * For models, static analysis can fail in some cases (for example, dynamic SQL constructs or unrecognized UDFs) and you might need to set `static_analysis: off`. For more examples, refer to [When should I turn static analysis off?](../../docs/build/about-static-analysis.md#when-should-i-turn-static-analysis-off).
+
+## Related docs
+
+* [About static analysis](../../docs/build/about-static-analysis.md)
+* [`--static-analysis` flag](../global-configs/static-analysis-flag.md)
+* [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md)

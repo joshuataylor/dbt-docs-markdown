@@ -2,7 +2,7 @@
 
 To test and document seeds, use a [properties file](../../reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 seeds/properties.yml
 

@@ -1,45 +1,31 @@
 # Connect Yellowbrick to dbt Core
 
-Local developmentⓘ
+Local development
 
 Community plugin
 
 Some core functionality may be limited.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  InfoCapital team
+* **Maintained by**: Community
+* **Authors**: InfoCapital team
 * **GitHub repo**: [InfoCapital-AU/dbt-yellowbrick](https://github.com/InfoCapital-AU/dbt-yellowbrick) [![](https://img.shields.io/github/stars/InfoCapital-AU/dbt-yellowbrick?style=for-the-badge)](https://github.com/InfoCapital-AU/dbt-yellowbrick)
 * **PyPI package**: `dbt-yellowbrick` [![](https://badge.fury.io/py/dbt-yellowbrick.svg)](https://badge.fury.io/py/dbt-yellowbrick)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.7.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Yellowbrick 5.2
+* **Supported dbt Core version**: v1.7.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: Yellowbrick 5.2
 
-## Installing <!-- -->dbt-yellowbrick
+## Installing dbt-yellowbrick
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-yellowbrick`
 
-## Configuring <!-- -->dbt-yellowbrick<!-- -->
+## Configuring dbt-yellowbrick
 
-For <!-- -->Yellowbrick Data<!-- -->-specific configuration, please refer to [Yellowbrick Data<!-- --> configs.](../../../reference/resource-configs/yellowbrick-configs.md)
+For Yellowbrick Data-specific configuration, please refer to [Yellowbrick Data configs.](../../../reference/resource-configs/yellowbrick-configs.md)
 
-## Profile configuration[​](#profile-configuration "Direct link to Profile configuration")
+## Profile configuration
 
 Yellowbrick targets should be set up using the following configuration in your `profiles.yml` file.
 
@@ -63,14 +49,14 @@ company-name:
   
 ```
 
-### Configuration notes[​](#configuration-notes "Direct link to Configuration notes")
+### Configuration notes
 
 This adapter is based on the dbt-postgres adapter documented here [Postgres profile setup](./postgres-setup.md)
 
-#### role[​](#role "Direct link to role")
+#### role
 
 The `role` config controls the user role that dbt assumes when opening new connections to the database.
 
-#### sslmode / sslrootcert[​](#sslmode--sslrootcert "Direct link to sslmode / sslrootcert")
+#### sslmode / sslrootcert
 
 The ssl config parameters control how dbt connects to Yellowbrick using SSL. Refer to the [Yellowbrick documentation](https://docs.yellowbrick.com/5.2.27/client_tools/config_ssl_for_clients_intro.html) for details.

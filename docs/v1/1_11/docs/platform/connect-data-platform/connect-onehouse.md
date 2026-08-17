@@ -1,6 +1,6 @@
 # Connect Onehouse
 
-dbt platformⓘ
+dbt platform
 
 dbt supports connecting to [Onehouse SQL](https://www.onehouse.ai/product/quanton) using the Apache Spark Connector with the Thrift method.
 
@@ -8,23 +8,23 @@ note
 
 Connect to a Onehouse SQL Cluster with the [dbt-spark](./connect-apache-spark.md) adapter.\*\*
 
-## Requirements[​](#requirements "Direct link to Requirements")
+## Requirements
 
 * For dbt, ensure your Onehouse SQL endpoint is accessible via external DNS/IP, whitelisting dbt IPs.
 
-## What works[​](#what-works "Direct link to What works")
+## What works
 
 * All dbt Commands, including: `dbt clean`, `dbt compile`, `dbt debug`, `dbt seed`, and `dbt run`.
 * dbt materializations: `table` and `incremental`
 * Apache Hudi table types of Merge on Read (MoR) and Copy on Write (CoW). It is recommended to use MoR for mutable workloads.
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
 * Views are not supported
 * `dbt seed` has row / record limits.
 * `dbt seed` only supports Copy on Write tables.
 
-## dbt connection[​](#dbt-connection "Direct link to dbt connection")
+## dbt connection
 
 Fill in the following fields when creating an **Apache Spark** warehouse connection using the Thrift connection method:
 
@@ -41,15 +41,9 @@ Fill in the following fields when creating an **Apache Spark** warehouse connect
 | Auth                  | Optional, supply if using Kerberos. Not enabled by default.     | `KERBEROS`                  |
 | Kerberos Service Name | Optional, supply if using Kerberos. Not enabled by default.     | `hive`                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 [![Onehouse configuration](/img/onehouse/onehouse-dbt.png?v=2 "Onehouse configuration")](#)Onehouse configuration
 
-## dbt project[​](#dbt-project "Direct link to dbt project")
+## dbt project
 
 We recommend that you set default configurations on the dbt\_project.yml to ensure that the adapter executes with Onehouse compatible sql
 
@@ -59,12 +53,6 @@ We recommend that you set default configurations on the dbt\_project.yml to ensu
 | file\_format      | table format the project will default to              | Yes      | N/A                   | hudi                           |
 | location\_root    | Location of the database in DFS                       | Yes      | N/A                   | `<your_database_location_dfs>` |
 | hoodie.table.type | Merge on Read or Copy on Write                        | No       | cow                   | mor                            |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 dbt\_project.yml template
 

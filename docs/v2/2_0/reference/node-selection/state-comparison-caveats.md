@@ -2,21 +2,27 @@
 
 The [`state:` selection method](./methods.md#state) is a powerful feature, with a lot of underlying complexity. Below are a handful of considerations when setting up automated jobs that leverage state comparison.
 
-### Seeds[​](#seeds "Direct link to Seeds")
+### Seeds
 
 dbt stores a file hash of seed files that are <1 MiB in size. If the contents of these seeds is modified, the seed will be included in `state:modified`.
 
 If a seed file is >1 MiB in size, dbt cannot compare its contents and will raise a warning as such. Instead, dbt will use only the seed's file path to detect changes. If the file path has changed, the seed will be included in `state:modified`; if it hasn't, it won't.
 
-### Macros[​](#macros "Direct link to Macros")
+### `tags` and `meta`
+
+Changes to `tags` and `meta`, whether set at the resource level or on individual columns in a YAML file, don't count as modifications and will not trigger `state:modified`. dbt treats these fields as metadata only, since they don't affect how a resource is materialized. This is intentional behavior.
+
+This is different from `description`, which *is* treated as a modification, but only when [`persist_docs`](../resource-configs/persist_docs.md) is enabled. Any other config change counts as a modification, because that config could affect materialization.
+
+### Macros
 
 dbt will mark modified any resource that depends on a changed macro, or on a macro that depends on a changed macro.
 
-### Vars[​](#vars "Direct link to Vars")
+### Vars
 
 If a model uses a `var` or `env_var` in its definition, dbt is unable to identify that lineage in such a way that it can include the model in `state:modified` because the `var` or `env_var` value has changed. It's likely that the model will be marked modified if the change in variable results in a different configuration.
 
-### Tests[​](#tests "Direct link to Tests")
+### Tests
 
 The command `dbt test -s state:modified` will include both:
 
@@ -41,9 +47,7 @@ dbt run -s "state:modified"
 dbt test -s "state:modified" --exclude "test_name:relationships"
 ```
 
-### Overwrites the `manifest.json`[​](#overwrites-the-manifestjson "Direct link to overwrites-the-manifestjson")
-
-<!-- -->
+### Overwrites the `manifest.json`
 
 dbt overwrites the `manifest.json` file during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.
 
@@ -53,9 +57,7 @@ During the next job run, dbt follows a sequence of steps that lead to the issue.
 
 Avoid setting `--state` and `--target-path` to the same path with state-dependent features like `--defer` and `state:modified` as it can lead to non-idempotent behavior and won't work as expected.
 
-#### Recommendation[​](#recommendation "Direct link to Recommendation")
-
-<!-- -->
+#### Recommendation
 
 To prevent the `manifest.json` from being overwritten before dbt reads it for change detection, update your workflow using one of these methods:
 
@@ -65,7 +67,9 @@ To prevent the `manifest.json` from being overwritten before dbt reads it for ch
 
 * Pass the `--no-write-json` flag: `dbt ls --no-write-json --select state:modified --state target`: during the reproduction stage.
 
-### False positives[​](#false-positives "Direct link to False positives")
+### False positives
+
+(Applies to dbt v1.9 and later)
 
 To reduce false positives during `state:modified` selection due to env-aware logic, you can set the `state_modified_compare_more_unrendered_values` [behavior flag](../global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md) to `true`.
 
@@ -73,11 +77,17 @@ You need to build the state directory using dbt v1.9 or higher, or [the dbt "Lat
 
 If the state directory was built with an older dbt version or if the `state_modified_compare_more_unrendered_values` behavior change flag was either not set or set to `false`, you need to rebuild the state directory to avoid false positives during state comparison with `state:modified`.
 
-### Final note[​](#final-note "Direct link to Final note")
+### Scheduled jobs
+
+[`state:modified`](./methods.md#state) and `state:modified+` only detect changes to your project's code, configuration, or manifest-relevant metadata — not changes to the data itself, like new rows landing in a source table. When dbt detects no code or configuration changes since the deferred manifest was last produced, the job succeeds without building any models. This is expected behavior.
+
+If your job needs to build models on every scheduled run regardless of code changes, remove the `state:modified` selector from that job. Reserve it for [CI](../../docs/deploy/ci-jobs.md) or [merge jobs](../../docs/deploy/merge-jobs.md), where the intent is to build only what changed in a given pull request or merge.
+
+### Final note
 
 State comparison is complex. We hope to reach eventual consistency between all configuration options, as well as providing users with the control they need to reliably return all modified resources, and only the ones they expect. If you're interested in learning more, read [open issues tagged "state"](https://github.com/dbt-labs/dbt-core/issues?q=is%3Aopen+is%3Aissue+label%3Astate) in the dbt repository.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About state in dbt](./state-selection.md)
 * [Configure state selection](./configure-state.md)

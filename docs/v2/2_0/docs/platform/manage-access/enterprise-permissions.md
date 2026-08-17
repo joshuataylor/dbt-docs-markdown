@@ -1,8 +1,6 @@
 # Enterprise permissions
 
-dbt platform | Enterprise, Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise, Enterprise+
 
 Available to Enterprise-tier plans
 
@@ -10,11 +8,15 @@ This feature is available to the dbt Enterprise and Enterprise+ plans. If you're
 
 The dbt Enterprise and Enterprise+ plans support a number of pre-built permission sets to help manage access controls within a dbt account. See the docs on [access control](./about-user-access.md) for more information on Role-Based access control (RBAC).
 
-## Permission sets[​](#permission-sets "Direct link to Permission sets")
+## Permission sets
 
 The following permission sets are available for assignment in all dbt Enterprise-tier accounts. They can be granted to dbt groups and then to users. A dbt group can be associated with more than one permission set. Permission assignments with more access take precedence.
 
 Access to dbt features and functionality is split into `account-level` and `project-level` permission sets. Account-level permissions are primarily for account administration (inviting users, configuring SSO, and creating groups). Project-level permissions are for the configuration and maintenance of the projects themselves (configuring environments, accessing IDE, and running jobs). Account permission sets may have access to project features, and project permission sets may have access to account features. Check out the [permissions tables](./enterprise-permissions.md#account-permissions) to compare sets and their access.
+
+Read-Only users
+
+If you have users with a Read-Only license, you can [enable granular permissions](./about-user-access.md#enable-granular-permissions-for-read-only-users) for your account. This is a one-time, irreversible setting. After you enable it, Read-Only users keep their project access only if they're in a group with a Read-Only permission set that covers all projects.
 
  Account admin
 
@@ -65,19 +67,19 @@ Notable features:
 * Can view jobs but can't edit them.
 * Can access Catalog.
 
- Analyst read[Private beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+ Analyst read
 
 The Analyst read permission set is a project-level set designed for users who need read-only access to analyze dbt models and project resources without the ability to develop or make changes.
 
 Availability
 
-The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../../dbt-ai/about-mcp.md)) is available to use. The **Analyst read** permission set and the read-only permission changes described here are in **private beta**. To enable them, contact your account manager.
+The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../../dbt-ai/about-mcp.md)) is available to use.
 
 Notable features:
 
 * Analyst read is a project-level set.
-* Read-only access to project resources, jobs, runs, and environment configs.
-* Can access Catalog.
+* Read-only access to **Connections** (account and project), **Projects**, repositories (Git repository settings), Semantic Layer configuration, **Environments**, custom environment variables, and Catalog metadata (Metadata GraphQL API).
+* No read access to jobs or runs.
 * Includes `user_credential_write`, so users can view and edit their own user credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt CLI. Read-only users still need personal user credentials on this page to run warehouse queries in analysis features such as Insights and the Semantic Layer.
 * No write access and no access to develop in the Studio IDE or dbt CLI.
 
@@ -125,10 +127,18 @@ Database admins manage configurations between dbt and the underlying databases.
 Notable features:
 
 * Database admin is a project-level set.
+
 * Can set up and maintain environment variables and Semantic Layer configs.
-* Write access to data platform configurations within environments (credentials, warehouse, schema per environment).
+
+* Write access to data platform configurations within environments (credentials, warehouse, schema per environment), including:
+
+  * Editing [profile](../about-profiles.md) configs like profile name, deployment credentials, extended attributes, and connection overrides such as `schema`, `role`, `database`, and so on (fields vary by data platform).
+  * Creating new profiles for projects they have access to, including setting which connection the profile is associated with
+
 * Helpful for scenarios where your data warehouse admins only need access to dbt to configure data platform settings within environments.
+
 * Read-only access to account-level connections, Git repo, job, and run settings.
+
 * Can access Catalog.
 
  Developer
@@ -306,8 +316,6 @@ Notable features:
 * Read-only access to many account settings (excluding sensitive content like billing and auth providers).
 * Can access Catalog.
 
-<!-- -->
-
 License types override group permissions
 
 **User license types always override their assigned group permission sets.** For example, a user with a Read-Only license cannot perform administrative actions, even if they belong to an Account Admin group.
@@ -323,7 +331,7 @@ note
 
 Some permissions sets have read-only access to environment settings that can be overriden with more privileged access if the user is assigned to a group with [Environment write access](./about-user-access.md#environment-write-access) configured.
 
-### Account permissions[​](#account-permissions "Direct link to Account permissions")
+### Account permissions
 
 Account permission sets enable you to manage the dbt account and manage the account settings (for example, generating service tokens, inviting users, and configuring SSO). They also provide project-level permissions. The **Account Admin** permission set is the highest level of access you can assign.
 
@@ -332,10 +340,7 @@ Key:
 * **(W)rite** — Create new or modify existing. Includes `send`, `create`, `delete`, `allocate`, `modify`, and `develop`.
 * **(R)ead** — Can view but cannot create or change any fields.
 
-#### Account access for account permissions[​](#account-access-for-account-permissions "Direct link to Account access for account permissions")
-
-|   |
-| - |
+#### Account access for account permissions
 
 | Account-level permission | Account Admin | Billing admin | Cost Insights Admin | Cost Insights Viewer | Manage marketplace apps | Notification Manager | Project creator | Security admin | Account Viewer |
 | ------------------------ | ------------- | ------------- | ------------------- | -------------------- | ----------------------- | -------------------- | --------------- | -------------- | -------------- |
@@ -357,14 +362,90 @@ Key:
 | Service tokens           | W             | -             | -                   | -                    | -                       | -                    | -               | R              | R              |
 | Webhooks                 | W             | -             | -                   | -                    | -                       | -                    | -               | -              | -              |
 
-Search table...
+\*Permission sets with write (**W**) access to Account settings can modify account-level settings. The **Notification Manager** permission set has dedicated write access to **Job notifications** (Slack, Microsoft Teams, and email) without requiring full Account settings access.
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+\*\***Cost Insights Admin** can edit [platform metadata credentials](../../explore/set-up-cost-insights.md#configure-platform-metadata-credentials) and [Cost Insights](../../explore/set-up-cost-insights.md) settings in **Connection settings**, even though **Connections** is read-only (**R**) for this permission set.
 
-Search table...
+Credentials access
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
+Users can access the **Credentials** page under **Your profile** when they have `develop_access` or `user_credential_write` on at least one project.
+
+An admin can grant `user_credential_write` to any group, regardless of which permission set the group is assigned. Users with only `user_credential_write` can configure warehouse and Git credentials on that page; environment variable and dbt version overrides still require `develop_access`.
+
+#### Project access for account permissions
+
+| Project-level permission     | Account Admin | Billing admin | Cost Insights Admin | Cost Insights Viewer | Notification Manager | Project creator | Security admin | Account Viewer |
+| ---------------------------- | ------------- | ------------- | ------------------- | -------------------- | -------------------- | --------------- | -------------- | -------------- |
+| Environment credentials      | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Custom env. variables        | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Cost Insights                | R             | -             | R                   | R                    | -                    | R               | -              | R              |
+| Data platform configurations | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Develop (IDE or CLI)         | W             | -             | -                   | -                    | -                    | W               | -              | -              |
+| Environments                 | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Jobs                         | W             | -             | R                   | R                    | -                    | W               | -              | R              |
+| Metadata GraphQL API access  | R             | -             | R                   | R                    | -                    | R               | -              | R              |
+| Permissions                  | W             | -             | -                   | -                    | -                    | W               | W              | R              |
+| Projects                     | W             | -             | R                   | R                    | -                    | W               | R              | R              |
+| Repositories                 | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Runs                         | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+| Semantic Layer config        | W             | -             | -                   | -                    | -                    | W               | -              | R              |
+
+### Project permissions
+
+The project permission sets enable you to work within the projects in various capacities. They primarily provide access to project-level permissions such as repos and the Studio IDE or dbt CLI, but may also provide some account-level permissions.
+
+Key:
+
+* **(W)rite** — Create new or modify existing. Includes `send`, `create`, `delete`, `allocate`, `modify`, and `develop`.
+* **(R)ead** — Can view but cannot create or change any fields.
+
+#### Account access for project permissions
+
+| Account-level permission | Admin | Analyst | Analyst read | Cost Insights Admin | Cost Insights Viewer | Database admin | Developer | Git Admin | Job admin | Job creator | Job runner | Job viewer | Metadata (Discovery API only) | Semantic Layer | Stakeholder/Read-Only | Team admin |
+| ------------------------ | ----- | ------- | ------------ | ------------------- | -------------------- | -------------- | --------- | --------- | --------- | ----------- | ---------- | ---------- | ----------------------------- | -------------- | --------------------- | ---------- |
+| Account settings         | R     | -       | R            | -                   | -                    | R              | -         | R         | -         | -           | -          | -          | -                             | -              | R                     | R          |
+| Auth provider            | -     | -       | -            | -                   | -                    | -              | -         | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Billing                  | -     | -       | -            | -                   | -                    | -              | -         | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Connections              | R     | R       | R            | R\*                 | R                    | R              | R         | R         | R         | R           | -          | -          | -                             | R              | R                     | R          |
+| Cost Insights            | -     | -       | R            | R                   | R                    | R              | -         | R         | R         | -           | -          | -          | -                             | -              | R                     | R          |
+| Groups                   | R     | -       | R            | -                   | -                    | R              | R         | R         | -         | -           | -          | -          | -                             | R              | R                     | R          |
+| Invitations              | W     | R       | R            | -                   | -                    | R              | R         | R         | R         | -           | R          | -          | -                             | R              | R                     | R          |
+| Licenses                 | W     | R       | R            | -                   | -                    | R              | R         | R         | R         | -           | R          | -          | -                             | -              | R                     | R          |
+| Members                  | W     | -       | R            | -                   | -                    | R              | R         | R         | -         | -           | -          | -          | -                             | R              | R                     | R          |
+| Project (create)         | -     | -       | -            | -                   | -                    | -              | -         | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Public models            | R     | R       | R            | -                   | -                    | R              | R         | R         | R         | R           | R          | R          | R                             | R              | R                     | R          |
+| Service tokens           | -     | -       | -            | -                   | -                    | -              | -         | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Webhooks                 | W     | -       | -            | -                   | -                    | -              | W         | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+
+\***Cost Insights Admin** can edit [platform metadata credentials](../../explore/set-up-cost-insights.md#configure-platform-metadata-credentials) and [Cost Insights](../../explore/set-up-cost-insights.md) settings in **Connection settings**, even though **Connections** is read-only (**R**) for this permission set.
+
+#### Project access for project permissions
+
+| Project-level permission    | Admin | Analyst | Analyst read\*\*\* | Cost Insights Admin | Cost Insights Viewer | Database admin | Developer | Fusion admin | Git Admin | Job admin | Job creator | Job runner | Job viewer | Metadata (Discovery API only) | Semantic Layer | Stakeholder/Read-Only | Team admin |
+| --------------------------- | ----- | ------- | ------------------ | ------------------- | -------------------- | -------------- | --------- | ------------ | --------- | --------- | ----------- | ---------- | ---------- | ----------------------------- | -------------- | --------------------- | ---------- |
+| Environment credentials     | W     | R       | R                  | -                   | -                    | W              | R         | -            | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
+| Custom env. variables       | W     | W\*\*   | R                  | -                   | -                    | W              | W\*\*     | -            | W         | W         | R           | -          | R          | -                             | -              | R                     | W          |
+| Cost Insights               | -     | -       | -                  | R                   | R                    | R              | -         | -            | R         | R         | -           | -          | -          | -                             | -              | -                     | R          |
+| Data platform configs       | W     | W       | R                  | -                   | -                    | W              | W         | -            | R         | W         | R           | -          | -          | -                             | -              | R                     | R          |
+| Develop (IDE or CLI)        | W     | W       | -                  | -                   | -                    | -              | W         | -            | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Environments                | W     | R       | R                  | -                   | -                    | R              | R         | -            | R         | W         | R           | -          | R          | -                             | -              | R                     | R          |
+| Fusion upgrade              | -     | -       | -                  | -                   | -                    | -              | -         | W            | -         | -         | -           | -          | -          | -                             | -              | -                     | -          |
+| Jobs                        | W     | R\*     | -                  | R                   | R                    | R\*            | R\*       | -            | R\*       | W         | W           | R          | R          | -                             | -              | R                     | R\*        |
+| Metadata GraphQL API access | R     | R       | R                  | R                   | R                    | R              | R         | -            | R         | R         | R           | -          | R          | R                             | -              | R                     | R          |
+| Permissions                 | W     | -       | -                  | -                   | -                    | R              | R         | -            | R         | -         | -           | -          | -          | -                             | -              | -                     | R          |
+| Projects                    | W     | R       | R                  | R                   | R                    | W              | R         | -            | W         | R         | R           | -          | R          | -                             | -              | R                     | W          |
+| Repositories                | W     | R       | R                  | -                   | -                    | R              | R         | -            | W         | -         | R           | -          | -          | -                             | -              | R                     | R          |
+| Runs                        | W     | R\*     | -                  | -                   | -                    | R\*            | R\*       | -            | R\*       | W         | W           | W          | R          | -                             | -              | R                     | R\*        |
+| Semantic Layer config       | W     | R       | R                  | -                   | -                    | W              | R         | -            | R         | R         | R           | -          | -          | -                             | W              | R                     | R          |
+
+\*These permissions are `R`ead-only by default, but may be changed to `W`rite with [environment permissions](./environment-permissions.md#environments-and-roles).
+
+\*\*Custom env. variables for the `Developer` and `Analyst` roles are set in the **Credentials** section of **Account settings**.
+
+\*\*\*The **Analyst read** permission set also includes `user_credential_write`, letting users manage their own credentials on the **Credentials** page (under **Your profile**).
+
+## Additional resources
+
+* [Grant users access](./about-user-access.md#grant-access)
+* [Role-based access control](./about-user-access.md#role-based-access-control-)
+* [Environment-level permissions](./environment-permissions.md)

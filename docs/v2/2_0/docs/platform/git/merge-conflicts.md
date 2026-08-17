@@ -1,12 +1,12 @@
 # Merge conflicts
 
-dbt platformⓘ
+dbt platform
 
 [Merge conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts) in the [Studio IDE](../studio-ide/develop-in-studio.md) often occur when multiple users are simultaneously making edits to the same section in the same file. This makes it difficult for Git to decide what changes to incorporate in the final merge.
 
 The merge conflict process provides users the ability to choose which lines of code they'd like to preserve and commit. This document will show you how to resolve merge conflicts in the Studio IDE.
 
-## Identify merge conflicts[​](#identify-merge-conflicts "Direct link to Identify merge conflicts")
+## Identify merge conflicts
 
 You can experience a merge conflict in two possible ways:
 
@@ -38,12 +38,11 @@ The Studio IDE will display:
 
 [![Pop up box when you commit without resolving the conflict](/img/docs/dbt-platform/platform-ide/commit-without-resolve.png?v=2 "Pop up box when you commit without resolving the conflict")](#)Pop up box when you commit without resolving the conflict
 
-## Resolve merge conflicts[​](#resolve-merge-conflicts "Direct link to Resolve merge conflicts")
+## Resolve merge conflicts
 
 You can seamlessly resolve merge conflicts that involve competing line changes in the Cloud Studio IDE.
 
 1. In the Studio IDE, you can edit the right-side of the conflict file, choose which lines of code you'd like to preserve, and delete the rest.
-   <!-- -->
    * Note: The left view editor is read-only and you cannot make changes.
 2. Delete the special flags or conflict markers `<<<<<<<`, `=======`, `>>>>>>>` that highlight the merge conflict and also choose which lines of code to preserve.
 3. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps one and two to resolve your merge conflict.
@@ -58,7 +57,7 @@ Edit conflict files
   <br />
 * If you open the conflict file under **File Catalog**, you can edit the file in the right view.
 
-## Commit changes[​](#commit-changes "Direct link to Commit changes")
+## Commit changes
 
 When you've resolved all the merge conflicts, the last step would be to commit the changes you've made.
 

@@ -1,8 +1,6 @@
 # Intro to dbt Mesh
 
-## What is dbt Mesh?[​](#what-is-dbt-mesh "Direct link to What is dbt Mesh?")
-
-<!-- -->
+## What is dbt Mesh?
 
 Organizations of all sizes rely upon dbt to manage their data transformations, from small startups to large enterprises. At scale, it can be challenging to coordinate all the organizational and technical requirements demanded by your stakeholders within the scope of a single dbt project.
 
@@ -18,14 +16,12 @@ Mesh is not a single product - it is a pattern enabled by a convergence of sever
 
 * **Governance** - dbt's governance features allow you to manage access to your dbt models both within and across projects.
 
-  <!-- -->
-
   * **[Groups](../../docs/mesh/govern/model-access.md#groups)** - With groups, you can organize nodes in your dbt DAG that share a logical connection (for example, by functional area) and assign an owner to the entire group.
   * **[Access](../../docs/mesh/govern/model-access.md#access-modifiers)** - access configs allow you to control who can reference models.
   * **[Model Versions](../../docs/mesh/govern/model-versions.md)** - when coordinating across projects and teams, we recommend treating your data models as stable APIs. Model versioning is the mechanism to allow graceful adoption and deprecation of models as they evolve.
   * **[Model Contracts](../../docs/mesh/govern/model-contracts.md)** - data contracts set explicit expectations on the shape of the data to ensure data changes upstream of dbt or within a project's logic don't break downstream consumers' data products.
 
-## When is the right time to use dbt Mesh?[​](#when-is-the-right-time-to-use-dbt-mesh "Direct link to When is the right time to use dbt Mesh?")
+## When is the right time to use dbt Mesh?
 
 The multi-project architecture helps organizations with mature, complex transformation workflows in dbt increase the flexibility and performance of their dbt projects. If you're already using dbt and your project has started to experience any of the following, you're likely ready to start exploring this paradigm:
 
@@ -40,13 +36,11 @@ If you're just starting your dbt journey, don't worry about building a multi-pro
 
 For additional information, refer to the [Mesh FAQs](./mesh-5-faqs.md).
 
-## Learning goals[​](#learning-goals "Direct link to Learning goals")
+## Learning goals
 
 * Understand the **purpose and tradeoffs** of building a multi-project architecture.
 * Develop an intuition for various **Mesh patterns** and how to design a multi-project architecture for your organization.
 * Establish recommended steps to **incrementally adopt** these patterns in your dbt implementation.
-
-<!-- -->
 
 tip
 

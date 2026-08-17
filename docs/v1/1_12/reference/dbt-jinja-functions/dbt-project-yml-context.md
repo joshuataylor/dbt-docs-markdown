@@ -5,9 +5,7 @@ The following context methods and variables are available when configuring resou
 **Available context methods:**
 
 * [env\_var](./env_var.md)
-* [var](./var.md)
-  <!-- -->
-  (*Note: Variables defined in `vars.yml` or with `--vars` are available*)
+* [var](./var.md) (Applies to dbt v1.12 and later) (*Note: Variables defined in `vars.yml` or with `--vars` are available*)
 
 **Available context variables:**
 
@@ -15,7 +13,7 @@ The following context methods and variables are available when configuring resou
 * [builtins](./builtins.md)
 * [dbt\_version](./dbt_version.md)
 
-### Example configuration[​](#example-configuration "Direct link to Example configuration")
+### Example configuration
 
 dbt\_project.yml
 

@@ -1,9 +1,6 @@
 # persist\_docs
 
-* Models
-* Sources
-* Seeds
-* Snapshots
+### Models
 
 dbt\_project.yml
 
@@ -26,7 +23,11 @@ models/\<modelname>.sql
 select ...
 ```
 
+### Sources
+
 This config is not implemented for sources.
+
+### Seeds
 
 dbt\_project.yml
 
@@ -38,6 +39,8 @@ seeds:
       columns: true
 ```
 
+### Snapshots
+
 dbt\_project.yml
 
 ```yml
@@ -47,6 +50,8 @@ snapshots:
       relation: true
       columns: true
 ```
+
+(Applies to dbt v1.9 and later)
 
 snapshots/snapshot\_name.yml
 
@@ -74,11 +79,11 @@ select ...
 {% endsnapshot %}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally persist [resource descriptions](../resource-properties/description.md) as column and relation comments in the database. By default, documentation persistence is disabled, but it can be enabled for specific resources or groups of resources as needed.
 
-## Support[​](#support "Direct link to Support")
+## Support
 
 The `persist_docs` config is supported on the most widely used dbt adapters:
 
@@ -93,10 +98,11 @@ However, some databases limit where and how descriptions can be added to databas
 
 Some known issues and limitations:
 
-* Databricks
-* Snowflake
+### Databricks
 
-- Column-level comments require `file_format: delta` (or another "v2 file format").
+* Column-level comments require `file_format: delta` (or another "v2 file format").
+
+### Snowflake
 
 * If a column name in a SQL model is in a mixed-case format (for example, `ca_net_ht_N`), the docs for that column will not be persisted. For the docs to persist, there are two options:
 
@@ -137,9 +143,9 @@ Some known issues and limitations:
          "ca_net_ht_N" COMMENT $$This should be the description of the column$$;
      ```
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
-### Documenting columns and relations[​](#documenting-columns-and-relations "Direct link to Documenting columns and relations")
+### Documenting columns and relations
 
 Supply a [description](../resource-properties/description.md) for a model:
 

@@ -1,6 +1,6 @@
 # 2025 dbt platform release notes
 
-dbt platform | Freeⓘ
+dbt platform | Free
 
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
@@ -11,7 +11,7 @@ dbt release notes for recent and historical changes. Release notes fall into one
 
 Release notes are grouped by month for both multi-tenant and virtual private cloud (VPC) environments.
 
-## December 2025[​](#december-2025 "Direct link to December 2025")
+## December 2025
 
 * **New**: [Global navigation](../explore/global-navigation.md) is now the default experience for Catalog, providing a unified search experience that lets you find dbt resources across all your projects, as well as non-dbt resources in Snowflake. Global navigation is now generally available to all users. You can access Catalog by clicking **Catalog** in the top-level navigation.
 
@@ -21,13 +21,11 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **New and enhancements:** The dbt [Studio IDE user interface](../platform/studio-ide/ide-user-interface.md) has been enhanced to bring more powerful development features to your fingertips:
 
-  <!-- -->
-
   * A newly designed toolbar that groups all of your action and project insight tabs for easy access.
   * A dedicated inline **Commands** tab for history and logs.
   * When you upgrade your development environment to the dbt Fusion engine, the environment includes a new **Problems** tab that gives you live error detection on issues that could block your project from running successfully.
 
-## November 2025[​](#november-2025 "Direct link to November 2025")
+## November 2025
 
 * **Behavior change**: [dbt Copilot](../platform/wizard-platform.md) now requires all input files to use UTF-8 encoding. Files that use other encodings will return an error. If you're working with legacy files that use a different encoding, convert them to UTF-8 before using Copilot.
 * **Enhancement**: dbt Copilot now has improved reliability when working with OpenAI. This includes longer timeouts, better retry behavior, and improved handling of reasoning messages for long code generations, resulting in fewer failures and more successful completions.
@@ -36,7 +34,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 * **New**: The `cluster_by` configuration is supported in dynamic tables. For more information, see [Dynamic table clustering](../../reference/resource-configs/snowflake-configs.md#dynamic-table-clustering).
 * **New**: When jobs exceed their configured timeout, the BigQuery adapter sends a cancellation request to the BigQuery job. For more information, see [Connect BigQuery](../platform/connect-data-platform/connect-bigquery.md#job-creation-timeout-seconds).
 
-## October 2025[​](#october-2025 "Direct link to October 2025")
+## October 2025
 
 * **Enhancement**: dbt enforces cumulative log size limits on run endpoints. If logs exceed this limit, dbt omits them and displays a banner. For more information, see [Run visibility](../deploy/run-visibility.md#log-size-limits).
 
@@ -49,14 +47,13 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **Enhancement**: The CodeGenCodeLen feature has been re-introduced to the Studio IDE. This feature was [temporarily](#pre-coalesce) removed in the previous release due to compatibility issues.
 
-### Coalesce 2025 announcements[​](#coalesce-2025-announcements "Direct link to Coalesce 2025 announcements")
+### Coalesce 2025 announcements
 
 The following features are new or enhanced as part of [dbt's Coalesce analytics engineering conference](https://coalesce.getdbt.com/event/21662b38-2c17-4c10-9dd7-964fd652ab44/summary) from October 13-16, 2025:
 
 * **New**: The [dbt MCP server](../dbt-ai/about-mcp.md) is now generally available (GA). For more information on the dbt MCP server and dbt Agents, refer to the [Announcing dbt Agents and the remote dbt MCP Server: Trusted AI for analytics](https://www.getdbt.com/blog/dbt-agents-remote-dbt-mcp-server-trusted-ai-for-analytics) blog post.
 
 * **Private preview**: The [dbt platform (powered by Fusion)](./upgrade-dbt-platform-version.md#dbt-fusion-engine) is now in private preview. If you have any questions, please reach out to your account manager.
-  <!-- -->
   * [About data platform connections](../platform/connect-data-platform/about-connections.md) lists all available dbt platform connections on Fusion and the supported authentication methods per connection.
 
 * **New**: Fusion‑specific configuration is now available for BigQuery, Databricks, Redshift, and Snowflake. For more information, see [Connect Fusion to your data platform](../local/profiles.yml.md).
@@ -65,15 +62,11 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
 * **Private preview**: [State-aware orchestration](../deploy/state-aware-about.md) is now in private preview!
 
-  <!-- -->
-
   * **New**: You can now [enable state-aware orchestration](../deploy/state-aware-setup.md) by selecting **Enable Fusion cost optimization features** in your job settings. Previously, you had to disable **Force node selection** to enable state-aware orchestration.
 
   * **Private beta**: The [Efficient Testing feature](../deploy/state-aware-about.md#efficient-testing-in-state-aware-orchestration) is now available in private beta. This feature reduces warehouse costs by avoiding redundant data tests and combining multiple tests in a single query.
 
   * **New**: To improve visibility into state‑aware orchestration and provide better control when you need to reset cached state, the following [UI enhancements](../deploy/state-aware-interface.md) are introduced:
-
-    <!-- -->
 
     * **Models built and reused chart** on your **Account home**
     * New charts in the **Overview** section of your job that display **Recent runs**, **Total run duration**, **Models built**, and **Models reused**
@@ -83,15 +76,13 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
 * **New**: [dbt Insights](../explore/dbt-insights.md) is now generally available (GA)!
 
-  <!-- -->
-
   * **Private beta**: The [Analyst agent](../explore/navigate-dbt-insights.md#dbt-copilot) is now available in dbt Insights. The Analyst agent is a conversational AI feature where you can ask natural language prompts and receive analysis in real-time. For more information, see [Analyze data with the Analyst agent](../dbt-ai/analyst-agent.md).
   * **Beta**: The [Semantic Layer querying](../explore/navigate-dbt-insights.md#semantic-layer-querying) within dbt Insights is now available in beta. With this feature, you can build SQL queries against the Semantic Layer without writing SQL code. It guides you in creating queries based on available metrics, dimensions, and entities.
   * **Enhancement**: In [dbt Insights](../explore/dbt-insights.md), projects upgraded to the [dbt Fusion engine](../fusion/about-fusion.md) get [Language Server Protocol (LSP) features](../explore/navigate-dbt-insights.md#lsp-features) and their compilation running on Fusion.
 
 * **New**: [MetricFlow](../build/about-metricflow.md) is now developed and maintained as part of the [Open Semantic Interchange (OSI)](https://www.snowflake.com/en/blog/open-semantic-interchange-ai-standard/) initiative, and is distributed under the [Apache 2.0 license](https://github.com/dbt-labs/metricflow/blob/main/LICENSE). For more information, see the blog post about [Open sourcing MetricFlow](https://www.getdbt.com/blog/open-source-metricflow-governed-metrics).
 
-### Pre-Coalesce[​](#pre-coalesce "Direct link to Pre-Coalesce")
+### Pre-Coalesce
 
 * **Behavior change**: dbt platform [access URLs](../platform/about-platform/access-regions-ip-addresses.md) for accounts in the US multi-tenant (US MT) region are transitioning from `cloud.getdbt.com` to dedicated domains on `dbt.com` (for example, `us1.dbt.com`). Users will be automatically redirected, which means no action is required. EMEA and APAC MT accounts are not impacted by this change and will be updated by the end of November 2025.
 
@@ -108,18 +99,18 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 
 * **Behavior change**: The CodeGenCodeLens feature for creating models from your sources with a click of a button has been temporarily removed from the Studio IDE due to compatibility issues. We plan to reintroduce this feature in the near future for both the IDE and the VS Code extension.
 
-## September 2025[​](#september-2025 "Direct link to September 2025")
+## September 2025
 
 * **Fix**: Improved how [MetricFlow](../build/about-metricflow.md) handles [offset metrics](../build/derived.md) for more accurate results when querying time-based data. MetricFlow now joins data *after* aggregation when the query grain matches the offset grain. Previously, when querying offset metrics, the offset join was applied *before* aggregation, which could exclude some values from the total time period.
 
-## August 2025[​](#august-2025 "Direct link to August 2025")
+## August 2025
 
 * **Fix**: Resolved a bug that caused [saved query](../build/saved-queries.md) exports to fail during `dbt build` with `Unable to get saved_query` errors.
 * **New**: The Semantic Layer GraphQL API now has a [`queryRecords`](../dbt-apis/sl-graphql.md#query-records) endpoint. With this endpoint, you can view the query history both for Insights and Semantic Layer queries.
 * **Fix**: Resolved a bug that caused Semantic Layer queries with a trailing whitespace to produce an error. This issue mostly affected [Push.ai](https://docs.push.ai/data-sources/semantic-layers/dbt) users and is fixed now.
 * **New**: You can now use [personal access tokens (PATs)](../dbt-apis/user-tokens.md) to authenticate in the Semantic Layer. This enables user-level authentication and reduces the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal user credentials. For more information, see [Set up the dbt Semantic Layer](../use-dbt-semantic-layer/setup-sl.md).
 
-## July 2025[​](#july-2025 "Direct link to July 2025")
+## July 2025
 
 * **New**: The [Tableau Cloud](https://www.tableau.com/products/cloud-bi) integration with Semantic Layer is now available. For more information, see [Tableau](../platform-integrations/semantic-layer/tableau.md).
 * **Preview**: The [Semantic Layer Power BI integration](../platform-integrations/semantic-layer/power-bi.md) is now available in Preview.
@@ -127,7 +118,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 * **Enhancement:** Users assigned IT [licenses](../platform/manage-access/seats-and-users.md) can now edit and manage [global connections settings](../platform/connect-data-platform/about-connections.md#connection-management).
 * **New**: Paginated [GraphQL](../dbt-apis/sl-graphql.md) endpoints for metadata queries in Semantic Layer are now available. This improves integration load times for large manifests. For more information, see [Metadata calls](../dbt-apis/sl-graphql.md#metadata-calls).
 
-## June 2025[​](#june-2025 "Direct link to June 2025")
+## June 2025
 
 * **New**: [System for Cross-Domain Identity Management](../platform/manage-access/scim.md#scim-configuration-for-entra-id) (SCIM) through Microsoft Entra ID is now GA. Also available on legacy Enterprise plans.
 * **Enhancement:** You can now set the [compilation environment](../explore/access-dbt-insights.md#set-jinja-environment) to control how Jinja functions are rendered in dbt Insights.
@@ -141,15 +132,13 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 * **Enhancement**: Group owners can now specify multiple email addresses for model-level notifications, enabling broader team alerts. Previously, only a single email address was supported. Check out the [Configure groups](../deploy/model-notifications.md#configure-groups) section to learn more.
 * **New**: The Semantic Layer GraphQL API now has a [`List a saved query`](../dbt-apis/sl-graphql.md#list-a-saved-query) endpoint.
 
-## May 2025[​](#may-2025 "Direct link to May 2025")
+## May 2025
 
-### 2025 dbt Launch Showcase[​](#2025-dbt-launch-showcase "Direct link to 2025 dbt Launch Showcase")
+### 2025 dbt Launch Showcase
 
 The following features are new or enhanced as part of our [dbt Launch Showcase](https://www.getdbt.com/resources/webinars/2025-dbt-cloud-launch-showcase) on May 28th, 2025:
 
 * **New**: The dbt Fusion engine is the brand new dbt engine re-written from the ground up to provide incredible speed, cost-savings tools, and comprehensive SQL language tools. The dbt Fusion engine is now available in beta for Snowflake users.
-
-  <!-- -->
 
   * Read more [about Fusion](../fusion/about-fusion.md).
   * Understand what actions you need to take to get your projects Fusion-ready with the [upgrade guide](./core-upgrade/upgrading-to-v2.md).
@@ -159,8 +148,6 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 * **New**: The dbt VS Code extension is a powerful new tool that brings the speed and productivity of the dbt Fusion engine into your Visual Studio Code editor. This is a free download that will forever change your dbt development workflows. The dbt VS Code extension is now available as beta [alongside Fusion](https://getdbt.com/blog/get-to-know-the-new-dbt-fusion-engine-and-vs-code-extension). Check out the [installation instructions](../install-dbt-extension.md) and read more [about the features](../about-dbt-extension.md) to get started enhancing your dbt workflows today!
 
 * **New**: dbt Explorer is now Catalog! Learn more about the change [here](https://getdbt.com/blog/updated-names-for-dbt-platform-and-features).
-
-  <!-- -->
 
   * dbt's Catalog, global navigation provides a search experience that lets you find dbt resources across all your projects, as well as non-dbt resources in Snowflake.
   * External metadata ingestion allows you to connect directly to your data warehouse, giving you visibility into tables, views, and other resources that aren't defined in dbt.
@@ -191,8 +178,6 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 * **Update**: Product renaming and other changes. For more information, refer to [Updated names for dbt platform and features](https://getdbt.com/blog/updated-names-for-dbt-platform-and-features).
 
-  <!-- -->
-
    Product names key
 
   * Canvas (previously Visual Editor)
@@ -207,13 +192,13 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
   * Semantic Layer
   * Pricing plan changes. For more information, refer to [One dbt](https://www.getdbt.com/product/one-dbt).
 
-## April 2025[​](#april-2025 "Direct link to April 2025")
+## April 2025
 
 * **Enhancement**: The [Python SDK](../dbt-apis/sl-python.md) now supports lazy loading for large fields for `dimensions`, `entities`, and `measures` on `Metric` objects. For more information, see [Lazy loading for large fields](../dbt-apis/sl-python.md#lazy-loading-for-large-fields).
 * **Enhancement**: The Semantic Layer now supports SSH tunneling for [Postgres](../platform/connect-data-platform/connect-postgresql-alloydb.md#connecting-using-an-ssh-tunnel) or [Redshift](../platform/connect-data-platform/connect-redshift.md#connecting-using-an-ssh-tunnel) connections. Refer to [Set up the Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) for more information.
 * **Behavior change**: Users assigned the [`job admin` permission set](../platform/manage-access/enterprise-permissions.md#job-admin) now have access to set up integrations for projects, including the [Tableau](../platform-integrations/downstream-exposures-tableau.md) integration to populate downstream exposures.
 
-## March 2025[​](#march-2025 "Direct link to March 2025")
+## March 2025
 
 * **Behavior change**: As of March 31st, 2025, dbt Core versions 1.0, 1.1, and 1.2 have been deprecated from dbt. They are no longer available to select as versions for dbt projects. Workloads currently on these versions will be automatically upgraded to v1.3, which may cause new failures.
 * **Enhancement**: [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) users on single-tenant configurations no longer need to contact their account representative to enable this feature. Setup is now self-service and available across all tenant configurations.
@@ -221,21 +206,21 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 * **New**: New [environment variable default](../build/environment-variables.md#dbt-cloud-context) `DBT_CLOUD_INVOCATION_CONTEXT`.
 * **Enhancement**: Users assigned [read-only licenses](../platform/manage-access/about-user-access.md#licenses) are now able to view the [Deploy](../deploy/deployments.md) section of their dbt account and click into the individual sections but not edit or otherwise make any changes.
 
-#### dbt Developer day[​](#dbt-developer-day "Direct link to dbt Developer day")
+#### dbt Developer day
 
 The following features are new or enhanced as part of our [dbt Developer day](https://www.getdbt.com/resources/webinars/dbt-developer-day) on March 19th and 20th, 2025:
 
 * **New**: The [`--sample` flag](../build/sample-flag.md), now available for the `run` and `build` commands, helps reduce build times and warehouse costs by running dbt in sample mode. It generates filtered refs and sources using time-based sampling, allowing developers to validate outputs without building entire models.
 * **New**: dbt Wizard, an AI-powered assistant, is now generally available in the Cloud IDE for all dbt Enterprise accounts. Check out [dbt Wizard](../platform/wizard-platform.md) for more information.
 
-#### Also available this month[​](#also-available-this-month "Direct link to Also available this month")
+#### Also available this month
 
 * **New**: Bringing your own [Azure OpenAI key](../platform/enable-dbt-ai.md#enable-ai-features) for [dbt Wizard](../platform/wizard-platform.md) is now generally available. Your organization can configure dbt Wizard to use your own Azure OpenAI keys, giving you more control over data governance and billing.
 * **New**: The Semantic Layer supports Power BI as a [partner integration](../platform-integrations/avail-sl-integrations.md), available in private beta. To join the private beta, please reach out to your account representative. Check out the [Power BI](../platform-integrations/semantic-layer/power-bi.md) integration for more information.
 * **New**: [dbt release tracks](./dbt-release-tracks.md) are Generally Available. Depending on their plan, customers may select among the Latest, Compatible, or Extended tracks to manage the update cadences for development and deployment environments.
 * **New:** The dbt-native integration with Azure DevOps now supports [Entra ID service principals](../platform/git/setup-service-principal.md). Unlike a services user, which represents a real user object in Entra ID, the service principal is a secure identity associated with your dbt app to access resources in Azure unattended. Please [migrate your service user](../platform/git/setup-service-principal.md#migrate-to-service-principal) to a service principal for Azure DevOps as soon as possible.
 
-## February 2025[​](#february-2025 "Direct link to February 2025")
+## February 2025
 
 * **Enhancement**: The [Python SDK](../dbt-apis/sl-python.md) added a new timeout parameter to Semantic Layer client and to underlying GraphQL clients to specify timeouts. Set a timeout number or use the `total_timeout` parameter in the global `TimeoutOptions` to control connect, execute, and close timeouts granularly. `ExponentialBackoff.timeout_ms` is now deprecated.
 
@@ -244,7 +229,6 @@ The following features are new or enhanced as part of our [dbt Developer day](ht
 * **New**: Added the `dbt invocation` command to the [dbt CLI](../platform/dbt-cli-installation.md). This command allows you to view and manage active invocations, which are long-running sessions in the dbt CLI. For more information, see [dbt invocation](../../reference/commands/invocation.md?version=2.0).
 
 * **New**: Users can now switch themes directly from the user menu, available [in Preview](./product-lifecycles.md). We have added support for **Light mode** (default), **Dark mode**, and automatic theme switching based on system preferences. The selected theme is stored in the user profile and will follow users across all devices.
-  <!-- -->
   * Dark mode is currently available on the Developer plan and will be available for all [plans](https://www.getdbt.com/pricing) in the future. We’ll be rolling it out gradually, so stay tuned for updates. For more information, refer to [Change your dbt theme](../platform/about-platform/change-your-dbt-theme.md).
 
 * **Fix**: Semantic Layer errors in the Cloud IDE are now displayed with proper formatting, fixing an issue where newlines appeared broken or difficult to read. This fix ensures error messages are more user-friendly and easier to parse.
@@ -253,16 +237,12 @@ The following features are new or enhanced as part of our [dbt Developer day](ht
 
 * **New**: You can now query metric alias in Semantic Layer [GraphQL](../dbt-apis/sl-graphql.md) and [JDBC](../dbt-apis/sl-jdbc.md) APIs.
 
-  <!-- -->
-
   * For the JDBC API, refer to [Query metric alias](../dbt-apis/sl-jdbc.md#query-metric-alias) for more information.
   * For the GraphQL API, refer to [Query metric alias](../dbt-apis/sl-graphql.md#query-metric-alias) for more information.
 
 * **Enhancement**: Added support to automatically refresh access tokens when Snowflake's SSO connection expires. Previously, users would get the following error: `Connection is not available, request timed out after 30000ms` and would have to wait 10 minutes to try again.
 
 * **Enhancement**: The [`dbt_version` format](../../reference/commands/version.md#versioning) in dbt Cloud now better aligns with [semantic versioning rules](https://semver.org/). Leading zeroes have been removed from the month and day (`YYYY.M.D+<suffix>`). For example:
-
-  <!-- -->
 
   * New format: `2024.10.8+996c6a8`
   * Previous format: `2024.10.08+996c6a8`

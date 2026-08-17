@@ -6,7 +6,7 @@ info
 
 There are tons of generic data tests defined in open source packages, such as [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) and [dbt-expectations](https://hub.getdbt.com/calogica/dbt_expectations/latest/) — the test you're looking for might already be here!
 
-### Generic tests with standard arguments[​](#generic-tests-with-standard-arguments "Direct link to Generic tests with standard arguments")
+### Generic tests with standard arguments
 
 Generic tests are defined in SQL files. Those files can live in two places:
 
@@ -55,6 +55,8 @@ If this `select` statement returns zero records, then every record in the suppli
 
 To use this generic test, specify it by name in the `data_tests` property of a model, source, snapshot, or seed:
 
+(Applies to dbt v1.9 and later)
+
 models/\<filename>.yml
 
 ```yaml
@@ -69,7 +71,7 @@ models:
 
 With one line of code, you've just created a test! In this example, `users` will be passed to the `is_even` test as the `model` argument, and `favorite_number` will be passed in as the `column_name` argument. You could add the same line for other columns, other models—each will add a new test to your project, *using the same generic test definition*.
 
-### Add description to generic data test logic[​](#add-description-to-generic-data-test-logic "Direct link to Add description to generic data test logic")
+### Add description to generic data test logic
 
 You can add a description to the Jinja macro that provides the core logic for a data test by including the `description` key under the `macros:` section. You can add descriptions directly to the macro, including descriptions for macro arguments.
 
@@ -96,7 +98,7 @@ In this example:
 * We've provided a description at the macro level, explaining what the test does and any relevant notes.
 * Each argument (like `model`, `column_name`) also includes a description to clarify its purpose.
 
-### Generic tests with additional arguments[​](#generic-tests-with-additional-arguments "Direct link to Generic tests with additional arguments")
+### Generic tests with additional arguments
 
 The `is_even` test works without needing to specify any additional arguments. Other tests, like `relationships`, require more than just `model` and `column_name`. If your custom tests requires more than the standard arguments, include those arguments in the test signature, as `field` and `to` are included below:
 
@@ -133,6 +135,8 @@ where id is not null
 
 When calling this test from a `.yml` file, supply the arguments to the test in a dictionary. Note that the standard arguments (`model` and `column_name`) are provided by the context, so you do not need to define them again.
 
+(Applies to dbt v1.9 and later)
+
 models/\<filename>.yml
 
 ```yaml
@@ -150,7 +154,7 @@ models:
                 field: id
 ```
 
-### Generic tests with default config values[​](#generic-tests-with-default-config-values "Direct link to Generic tests with default config values")
+### Generic tests with default config values
 
 It is possible to include a `config()` block in a generic test definition. Values set there will set defaults for all specific instances of that generic test, unless overridden within the specific instance's `.yml` properties.
 
@@ -170,6 +174,8 @@ tests/generic/warn\_if\_odd.sql
 
 Any time the `warn_if_odd` test is used, it will *always* have warning-level severity, unless the specific test overrides that value:
 
+(Applies to dbt v1.9 and later)
+
 models/\<filename>.yml
 
 ```yaml
@@ -188,7 +194,7 @@ models:
                 severity: error   # overrides
 ```
 
-### Customizing dbt's built-in tests[​](#customizing-dbts-built-in-tests "Direct link to Customizing dbt's built-in tests")
+### Customizing dbt's built-in tests
 
 To change the way a built-in generic test works—whether to add additional parameters, re-write the SQL, or for any other reason—you simply add a test block named `<test_name>` to your own project. dbt will favor your version over the global implementation!
 
@@ -202,7 +208,7 @@ tests/generic/\<filename>.sql
 {% endtest %}
 ```
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 Here's some additional examples of custom generic ("schema") tests from the community:
 

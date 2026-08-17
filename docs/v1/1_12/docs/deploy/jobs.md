@@ -1,6 +1,6 @@
 # Jobs in the dbt platform
 
-dbt platformⓘ
+dbt platform
 
 info
 
@@ -24,9 +24,3 @@ The following comparison table describes the behaviors of the different job type
 | Efficiency run savings | Detects over-scheduled jobs and cancels unnecessary runs to avoid queue clog.  | Cancels existing runs when a newer commit is pushed to avoid redundant work.                                          | N/A                                                                                                                   | Runs jobs and build models *only* when source data is updated or if models are older than what you specified in the project refresh interval |
 | State comparison       | Only sometimes needs to detect state.                                          | Almost always needs to compare state against the production environment to build on modified code and its dependents. | Almost always needs to compare state against the production environment to build on modified code and its dependents. |                                                                                                                                              |
 | Job run duration       | Limit is 24 hours.                                                             | Limit is 24 hours.                                                                                                    | Limit is 24 hours.                                                                                                    | Limit is 24 hours.                                                                                                                           |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

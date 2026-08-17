@@ -8,8 +8,6 @@ The `+` prefix is a dbt syntax feature which helps disambiguate between [resourc
 
 * It doesn't apply to:
 
-  <!-- -->
-
   * `config()` Jinja macro within a resource file
   * config property in a `.yml` file.
 
@@ -34,16 +32,16 @@ Throughout this documentation, we use the `+` prefix on configuration keys in `d
 
 For projects using [`config-version`](../project-configs/config-version.md) 2, dbt expects configuration keys to use the `+` prefix. Specifying configurations without the `+` prefix is [deprecated](../deprecations.md#missingplusprefixdeprecation). Folder and file names within resource configurations still do not use the `+` prefix.
 
+(Applies to dbt v2.0 and later)
+
+Because the `+` prefix is reserved for configs, folder and file names in a [resource path](./resource-path.md) must not start with `+`. In Fusion, dbt raises a warning for any resource path that begins with `+`, and raises an error when you enable the [`require_resource_names_without_plus_prefix`](../global-configs/behavior-flags/require_resource_names_without_plus_prefix.md) behavior change flag. If you have a folder named `+my_folder`, rename it to remove the `+` prefix.
+
 The `+` prefix is especially important when you need to disambiguate between [resource paths](./resource-path.md) and configs. For example, when:
 
 * A config accepts a dictionary as its input, such as [`persist_docs`](./persist_docs.md).
 * A config shares a key with part of a resource path, such as a directory of models named `tags`.
 
-<!-- -->
-
 dbt has deprecated specifying configurations without [the `+` prefix](https://docs.getdbt.com/reference/dbt_project.yml#the--prefix) in `dbt_project.yml`. Only folder and file names can be specified without the `+` prefix within resource configurations in `dbt_project.yml`.
-
-<!-- -->
 
 This deprecation warning is only raised for the following adapters:
 

@@ -1,49 +1,35 @@
 # Connect Microsoft SQL Server to dbt Core
 
-Local developmentⓘ
+Local development
 
 Community plugin
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  Mikael Ene & dbt-msft community (https\://github.com/dbt-msft)
+* **Maintained by**: Community
+* **Authors**: Mikael Ene & dbt-msft community (https\://github.com/dbt-msft)
 * **GitHub repo**: [dbt-msft/dbt-sqlserver](https://github.com/dbt-msft/dbt-sqlserver) [![](https://img.shields.io/github/stars/dbt-msft/dbt-sqlserver?style=for-the-badge)](https://github.com/dbt-msft/dbt-sqlserver)
 * **PyPI package**: `dbt-sqlserver` [![](https://badge.fury.io/py/dbt-sqlserver.svg)](https://badge.fury.io/py/dbt-sqlserver)
 * **Slack channel**: [#db-sqlserver](https://getdbt.slack.com/archives/CMRMDDQ9W)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.14.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  SQL Server 2016
+* **Supported dbt Core version**: v0.14.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: SQL Server 2016
 
-## Installing <!-- -->dbt-sqlserver
+## Installing dbt-sqlserver
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-sqlserver`
 
-## Configuring <!-- -->dbt-sqlserver<!-- -->
+## Configuring dbt-sqlserver
 
-For <!-- -->SQL Server<!-- -->-specific configuration, please refer to [SQL Server<!-- --> configs.](../../../reference/resource-configs/mssql-configs.md)
+For SQL Server-specific configuration, please refer to [SQL Server configs.](../../../reference/resource-configs/mssql-configs.md)
 
 Default settings change in dbt-sqlserver v1.2 / ODBC Driver 18
 
 Microsoft made several changes related to connection encryption. Read more about the changes [below](#connection-encryption).
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 On Debian/Ubuntu make sure you have the ODBC header files before installing
 
@@ -53,7 +39,7 @@ sudo apt install unixodbc-dev
 
 Download and install the [Microsoft ODBC Driver 18 for SQL Server](https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15). If you already have ODBC Driver 17 installed, then that one will work as well.
 
-#### Supported configurations[​](#supported-configurations "Direct link to Supported configurations")
+#### Supported configurations
 
 * The adapter is tested with SQL Server 2017, SQL Server 2019, SQL Server 2022 and Azure SQL Database.
 * We test all combinations with Microsoft ODBC Driver 17 and Microsoft ODBC Driver 18.
@@ -61,9 +47,9 @@ Download and install the [Microsoft ODBC Driver 18 for SQL Server](https://docs.
 
 The adapter support is not limited to the matrix of the above configurations. If you notice an issue with any other configuration, let us know by opening an issue on [GitHub](https://github.com/dbt-msft/dbt-sqlserver).
 
-## Authentication methods & profile configuration[​](#authentication-methods--profile-configuration "Direct link to Authentication methods & profile configuration")
+## Authentication methods & profile configuration
 
-### Common configuration[​](#common-configuration "Direct link to Common configuration")
+### Common configuration
 
 For all the authentication methods, refer to the following configuration options that can be set in your `profiles.yml` file. A complete reference of all options can be found [at the end of this page](#reference-of-all-connection-options).
 
@@ -81,13 +67,7 @@ For all the authentication methods, refer to the following configuration options
 | `encrypt`              | Whether to encrypt the connection to the server. Defaults to `true`. Read more about [connection encryption](#connection-encryption).                                                             | Optional | Not applicable                  |
 | `trust_cert`           | Whether to trust the server certificate. Defaults to `false`. Read more about [connection encryption](#connection-encryption).                                                                    | Optional | Not applicable                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Connection encryption[​](#connection-encryption "Direct link to Connection encryption")
+### Connection encryption
 
 Microsoft made several changes in the release of ODBC Driver 18 that affects how connection encryption is configured. To accommodate these changes, starting in dbt-sqlserver 1.2.0 or newer the default values of `encrypt` and `trust_cert` have changed. Both of these settings will now **always** be included in the connection string to the server, regardless if you've left them out of your profile configuration or not.
 
@@ -96,14 +76,13 @@ Microsoft made several changes in the release of ODBC Driver 18 that affects how
 
 More details about how these values affect your connection and how they are used differently in versions of the ODBC driver can be found in the [Microsoft documentation](https://learn.microsoft.com/en-us/sql/connect/odbc/dsn-connection-string-attribute?view=sql-server-ver16#encrypt).
 
-### Standard SQL Server authentication[​](#standard-sql-server-authentication "Direct link to Standard SQL Server authentication")
+### Standard SQL Server authentication
 
 SQL Server credentials are supported for on-premise servers as well as Azure, and it is the default authentication method for `dbt-sqlserver`.
 
 When running on Windows, you can also use your Windows credentials to authenticate.
 
-* SQL Server credentials
-* Windows credentials
+### SQL Server credentials
 
 profiles.yml
 
@@ -122,6 +101,8 @@ your_profile_name:
       password: password
 ```
 
+### Windows credentials
+
 profiles.yml
 
 ```yaml
@@ -138,7 +119,7 @@ your_profile_name:
       windows_login: True
 ```
 
-### Microsoft Entra ID authentication[​](#microsoft-entra-id-authentication "Direct link to Microsoft Entra ID authentication")
+### Microsoft Entra ID authentication
 
 While you can use the SQL username and password authentication as mentioned above, you might opt to use one of the authentication methods below for Azure SQL.
 
@@ -155,12 +136,7 @@ The following additional methods are available to authenticate to Azure SQL prod
 
 The automatic authentication setting is in most cases the easiest choice and works for all of the above.
 
-* Microsoft Entra ID username & password
-* Service principal
-* Managed Identity
-* Environment-based
-* Azure CLI
-* Automatic
+### Microsoft Entra ID username & password
 
 profiles.yml
 
@@ -179,6 +155,8 @@ your_profile_name:
       user: bill.gates@microsoft.com
       password: iheartopensource
 ```
+
+### Service principal
 
 Client ID is often also referred to as Application ID.
 
@@ -201,6 +179,8 @@ your_profile_name:
       client_secret: S3cret!
 ```
 
+### Managed Identity
+
 Both system-assigned and user-assigned managed identities will work.
 
 profiles.yml
@@ -218,6 +198,8 @@ your_profile_name:
       schema: schema_name
       authentication: ActiveDirectoryMsi
 ```
+
+### Environment-based
 
 This authentication option allows you to dynamically select an authentication method depending on the available environment variables.
 
@@ -239,6 +221,8 @@ your_profile_name:
       authentication: environment
 ```
 
+### Azure CLI
+
 First, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), then, log in:
 
 `az login`
@@ -258,6 +242,8 @@ your_profile_name:
       schema: schema_name
       authentication: CLI
 ```
+
+### Automatic
 
 This authentication option will automatically try to use all available authentication methods.
 
@@ -286,7 +272,7 @@ your_profile_name:
       authentication: auto
 ```
 
-#### Additional options for Microsoft Entra ID on Windows[​](#additional-options-for-microsoft-entra-id-on-windows "Direct link to Additional options for Microsoft Entra ID on Windows")
+#### Additional options for Microsoft Entra ID on Windows
 
 On Windows systems, the following additional authentication methods are also available for Azure SQL:
 
@@ -294,8 +280,7 @@ On Windows systems, the following additional authentication methods are also ava
 * Microsoft Entra ID integrated
 * Visual Studio authentication (available through the automatic option above)
 
-- Microsoft Entra ID interactive
-- Microsoft Entra ID integrated
+### Microsoft Entra ID interactive
 
 This setting can optionally show Multi-Factor Authentication prompts.
 
@@ -316,6 +301,8 @@ your_profile_name:
       user: bill.gates@microsoft.com
 ```
 
+### Microsoft Entra ID integrated
+
 This uses the credentials you're logged in with on the current machine.
 
 profiles.yml
@@ -334,7 +321,7 @@ your_profile_name:
       authentication: ActiveDirectoryIntegrated
 ```
 
-### Automatic Microsoft Entra ID principal provisioning for grants[​](#automatic-microsoft-entra-id-principal-provisioning-for-grants "Direct link to Automatic Microsoft Entra ID principal provisioning for grants")
+### Automatic Microsoft Entra ID principal provisioning for grants
 
 In dbt 1.2 or newer you can use the [grants](../../../reference/resource-configs/grants.md) config block to automatically grant/revoke permissions on your models to users or groups. This is fully supported in this adapter and comes with an additional feature.
 
@@ -344,7 +331,7 @@ In Azure SQL, you can sign in using Microsoft Entra ID authentication, but to be
 
 Note that principals will not be deleted automatically when they are removed from the `grants` block.
 
-### Schema authorization[​](#schema-authorization "Direct link to Schema authorization")
+### Schema authorization
 
 You can optionally set the principal who should own all schemas created by dbt. This is then used in the `CREATE SCHEMA` statement like so:
 
@@ -354,7 +341,7 @@ CREATE SCHEMA [schema_name] AUTHORIZATION [schema_authorization]
 
 A common use case is to use this when you are authenticating with a principal who has permissions based on a group, such as a Microsoft Entra ID group. When that principal creates a schema, the server will first try to create an individual login for this principal and then link the schema to that principal. If you would be using Microsoft Entra ID in this case, then this would fail since Azure SQL can't create logins for individuals part of an AD group automatically.
 
-### Reference of all connection options[​](#reference-of-all-connection-options "Direct link to Reference of all connection options")
+### Reference of all connection options
 
 | Configuration option   | Description                                                                                                                                          | Required | Default value |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------- |
@@ -376,12 +363,6 @@ A common use case is to use this when you are authenticating with a principal wh
 | `schema_authorization` | Optionally set this to the principal who should own the schemas created by dbt. [Details above](#schema-authorization).                              |          |               |
 | `login_timeout`        | The amount of seconds to wait until a response from the server is received when establishing a connection. `0` means that the timeout is disabled.   |          | `0`           |
 | `query_timeout`        | The amount of seconds to wait until a response from the server is received when executing a query. `0` means that the timeout is disabled.           |          | `0`           |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Valid values for `authentication`:
 

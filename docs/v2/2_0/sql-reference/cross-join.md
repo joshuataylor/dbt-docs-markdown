@@ -4,7 +4,7 @@ A truly rarely seen, but important join: the cross join. The majority of your an
 
 A cross join, on the other hand, typically takes two columns between two database objects and creates a table forming a combination of all rows across joined tables, called a cartesian product. Use this page to understand how to use cross joins and where you might leverage them in your dbt project.
 
-## How to create a cross join[​](#how-to-create-a-cross-join "Direct link to How to create a cross join")
+## How to create a cross join
 
 Unlike regular joins, cross joins don’t use keys to join database objects together:
 
@@ -17,7 +17,7 @@ cross join <table_2> as t2
 
 Cross joins are one of those SQL concepts that is easier to understand with a tangible example, so let’s jump into it.
 
-### SQL cross join example[​](#sql-cross-join-example "Direct link to SQL cross join example")
+### SQL cross join example
 
 Table A `date_spine`
 
@@ -27,12 +27,6 @@ Table A `date_spine`
 | 2022-01-02 |
 | 2022-01-03 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Table B `users`
 
 | user\_id |
@@ -40,12 +34,6 @@ Table B `users`
 | 1        |
 | 3        |
 | 4        |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ```sql
 select
@@ -70,16 +58,10 @@ This simple query will return a cartesian cross of all users and dates, essentia
 | 3        | 2022-01-02 |
 | 3        | 2022-01-03 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Generate surrogate keys from cross joins
 
 In the generated table above, the unique key is a combination of the `user_id` and `date` per row. To add a primary key to this table, you could generate a surrogate key using an MD5 hash the `generate_surrogate_key` macro in dbt-utils (ex. `{{ dbt_utils.generate_surrogate_key(user_id, type) }}` that could eventually be joined onto other tables.
 
-## SQL cross join use case[​](#sql-cross-join-use-case "Direct link to SQL cross join use case")
+## SQL cross join use case
 
 When would the generated table above be useful? Cross joining unique dates and users can be an effective way to create a base table to join various event counts, such as key website, email, or product events, to. These report-type tables are useful to expose to end business users in BI tools to look at aggregate counts per day per user and other useful measures.

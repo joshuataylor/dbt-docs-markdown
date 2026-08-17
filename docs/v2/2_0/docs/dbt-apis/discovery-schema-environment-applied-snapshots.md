@@ -1,18 +1,18 @@
 # Snapshots object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 [Snapshots](../build/snapshots.md) represent point-in-time copies of your data, allowing you to track historical changes. You can query your snapshots from the Discovery API.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `snapshots` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `snapshots`, you can use the following arguments:
 
 # Fetching data...
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 You can specify the `environmentId`, filter by the database, and limit to the first 100 to see the first 100 snapshots in the `analytics` database, including their execution performance and status information:
 
@@ -47,12 +47,12 @@ query {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `snapshots`, you can use the following fields:
 
 # Fetching data...
 
-### Key fields from nodes[​](#key-fields-from-nodes "Direct link to Key fields from nodes")
+### Key fields from nodes
 
 # Fetching data...

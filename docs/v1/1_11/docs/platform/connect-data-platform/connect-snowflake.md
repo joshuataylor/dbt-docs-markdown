@@ -1,8 +1,6 @@
 # Connect Snowflake Fusion compatible
 
-dbt platformⓘ
-
-<!-- -->
+dbt platform
 
 Snowflake column size change
 
@@ -35,13 +33,11 @@ dbt platform connections and credentials inherit the permissions of the accounts
 
 Refer to [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md) for more information about customizing roles in Snowflake. To see which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](../../../reference/resource-configs/snowflake-function-support.md).
 
-## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")
-
-<!-- -->
+## Warehouse permissions for Fusion
 
 The Snowflake user or service account that dbt Fusion engine connects as must be able to run dbt workloads (queries, metadata, and typical materializations). Grant privileges through a Snowflake role assigned to that user.
 
-### Required Snowflake objects[​](#required-snowflake-objects "Direct link to Required Snowflake objects")
+### Required Snowflake objects
 
 Before connecting, these objects must exist:
 
@@ -54,13 +50,7 @@ Before connecting, these objects must exist:
 | **Database**  | Target database or databases for dbt models        |
 | **Schema**    | Target schema or schemas within the database       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Core operations[​](#core-operations "Direct link to Core operations")
+### Core operations
 
 The following are required permissions for fundamental dbt operations:
 
@@ -78,13 +68,7 @@ The following are required permissions for fundamental dbt operations:
 | `TRUNCATE`     | Tables          | Full refresh of incremental models         |
 | `DROP`         | Tables or views | Replace existing objects                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
+### Metadata operations
 
 The following are required permissions for dbt metadata operations:
 
@@ -95,13 +79,7 @@ The following are required permissions for dbt metadata operations:
 | `SHOW OBJECTS`        | Schema              | List relations in schema        |
 | `SHOW USER FUNCTIONS` | Schema              | Discover UDFs (if used)         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Schema and database management[​](#schema-and-database-management "Direct link to Schema and database management")
+### Schema and database management
 
 The following are conditional permissions for schema and database management:
 
@@ -110,13 +88,7 @@ The following are conditional permissions for schema and database management:
 | `CREATE SCHEMA`   | Database | Fusion should auto-create schemas   |
 | `CREATE DATABASE` | Account  | Fusion should auto-create databases |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Advanced features[​](#advanced-features "Direct link to Advanced features")
+### Advanced features
 
 The following are optional permissions for advanced features:
 
@@ -127,15 +99,9 @@ The following are optional permissions for advanced features:
 | `CREATE SEQUENCE`    | Schema | Sequences                           |
 | `EXECUTE TASK`       | Schema | Snowflake tasks                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For role examples in Snowflake, see [Snowflake permissions](../../../reference/database-permissions/snowflake-permissions.md).
 
-## Connection fields[​](#connection-fields "Direct link to Connection fields")
+## Connection fields
 
 The following fields are required when creating a Snowflake connection:
 
@@ -146,13 +112,7 @@ The following fields are required when creating a Snowflake connection:
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                             | `analytics`                                                                                               |
 | Warehouse | The virtual warehouse to use for running queries.                                                                                                                                                                       | `transforming`                                                                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Authentication methods[​](#authentication-methods "Direct link to Authentication methods")
+## Authentication methods
 
 This section describes the different authentication methods for connecting dbt to Snowflake. Configure deployment environment (Production, Staging, General) credentials globally in the [**Connections**](../../deploy/deploy-environments.md#deployment-connection) area of **Account settings**. Individual users configure their user credentials in the [**Credentials**](../studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) area of their user profile.
 
@@ -160,7 +120,7 @@ Snowflake authentication in the dbt platform
 
 You cannot create new Snowflake credentials with username and password in dbt platform. New development and deployment credentials default to [key pair](#key-pair) authentication. For user credentials on Enterprise-tier plans, [Snowflake OAuth](#snowflake-oauth) is also available when configured on the connection. To update existing password credentials, refer to [Username and password with MFA](#username-and-password-with-mfa).
 
-### Key pair[​](#key-pair "Direct link to Key pair")
+### Key pair
 
 **Available in:** Development environments, Deployment environments
 
@@ -191,9 +151,7 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
 
 [![Snowflake keypair authentication](/img/docs/dbt-platform/snowflake-keypair-auth.png?v=2 "Snowflake keypair authentication")](#)Snowflake keypair authentication
 
-#### Fusion key pair[​](#fusion-key-pair "Direct link to Fusion key pair")
-
-<!-- -->
+#### Fusion key pair
 
 We recommend using PKCS#8 format with AES-256 encryption for key pair authentication with Fusion. Fusion doesn't support legacy 3DES encryption or headerless key formats. Using older key formats may cause authentication failures.
 
@@ -214,7 +172,7 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
   -----END ENCRYPTED PRIVATE KEY-----
   ```
 
-### Snowflake OAuth[​](#snowflake-oauth "Direct link to Snowflake OAuth")
+### Snowflake OAuth
 
 **Available in:** Development environments, Enterprise-tier plans only
 
@@ -230,7 +188,7 @@ If your credentials still use username and password, you can view the existing c
 
 To migrate off of username and password, follow the steps in [Key pair](#key-pair) or [Snowflake OAuth](#snowflake-oauth).
 
-### Username and password with MFA[​](#username-and-password-with-mfa "Direct link to Username and password with MFA")
+### Username and password with MFA
 
 **Available in:** Existing development and deployment credentials only
 
@@ -252,11 +210,11 @@ If you are still on username and password while you plan your migration, [MFA](h
 
 [![Configure the MFA username and password, and connect\_retries in the development environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/extended-attributes-mfa.png?v=2 "Configure the MFA username and password, and connect_retries in the development environment settings.")](#)Configure the MFA username and password, and connect\_retries in the development environment settings.
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt, refer to [Snowflake-specific configuration](../../../reference/resource-configs/snowflake-configs.md).
 
-### Custom domain URL[​](#custom-domain-url "Direct link to Custom domain URL")
+### Custom domain URL
 
 To connect to Snowflake through a custom domain (vanity URL) instead of the account locator, use [extended attributes](../../dbt-platform-environments.md#extended-attributes) to configure the `host` parameter with the custom domain:
 
@@ -266,7 +224,7 @@ host: https://custom_domain_to_snowflake.com
 
 This configuration may conflict with Snowflake OAuth when used with PrivateLink. IF users can't reach Snowflake authentication servers from a networking standpoint, please [contact dbt Support](mailto:support@getdbt.com) to find a workaround with this architecture.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If you're receiving a `Could not deserialize key data` or `JWT token` error, refer to the following causes and solutions:
 

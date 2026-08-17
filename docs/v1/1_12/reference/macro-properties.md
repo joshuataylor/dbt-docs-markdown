@@ -1,6 +1,6 @@
 # Macro properties
 
-You can declare macro properties and configs in `.yml` files in your project. Macro properties<!-- --> are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.
+You can declare macro properties and configs in `.yml` files in your project. Macro properties are "special properties" in that you can't configure them in the `dbt_project.yml` file or using `config()` blocks. Refer to [Configs and properties](https://docs.getdbt.com/reference/define-properties#which-properties-are-not-also-configs) for more info.
 
 Macros support a `config` block. You can define `meta` and `docs` within `config`.
 
@@ -26,7 +26,7 @@ macros:
   - name: ... # declare properties of additional macros
 ```
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 macros/schema.yml
 

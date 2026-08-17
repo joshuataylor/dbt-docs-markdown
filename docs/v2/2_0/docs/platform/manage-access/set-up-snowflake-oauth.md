@@ -1,6 +1,6 @@
 # Set up Snowflake OAuth
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Subdomain migration
 
@@ -9,8 +9,6 @@ We're migrating dbt platform [multi-tenant accounts worldwide](../about-platform
 The migration may require additional actions in your Snowflake account. See [subdomain migration](#subdomain-migration) for more information.
 
 dbt Enterprise and Enterprise+ supports [OAuth authentication](https://docs.snowflake.net/manuals/user-guide/oauth-intro.html) with Snowflake. When Snowflake OAuth is enabled, users can authorize their user credentials using Single Sign On (SSO) via Snowflake rather than submitting a username and password to dbt. If Snowflake is set up with SSO through a third-party identity provider, developers can use this method to log into Snowflake and authorize the dbt user credentials without any additional setup.
-
-<!-- -->
 
 Snowflake OAuth with PrivateLink
 
@@ -28,7 +26,7 @@ To set up Snowflake OAuth in dbt, admins from both are required for the followin
 
 To use Snowflake in the Studio IDE, all developers must [authenticate with Snowflake](#authorize-developer-credentials) in their profile credentials.
 
-### Locate the redirect URI value[​](#locate-the-redirect-uri-value "Direct link to Locate the redirect URI value")
+### Locate the redirect URI value
 
 To get started, copy the connection's redirect URI from dbt:
 
@@ -39,7 +37,7 @@ To get started, copy the connection's redirect URI from dbt:
 
 [![The OAuth method and Redirect URI inputs for a Snowflake connection in dbt.](/img/docs/dbt-platform/dbt-platform-enterprise/snowflake-oauth-redirect-uri.png?v=2 "Locate the Snowflake OAuth redirect URI")](#)Locate the Snowflake OAuth redirect URI
 
-### Create a security integration[​](#create-a-security-integration "Direct link to Create a security integration")
+### Create a security integration
 
 In Snowflake, execute a query to create a security integration. Please find the complete documentation on creating a security integration for custom clients [here](https://docs.snowflake.net/manuals/sql-reference/sql/create-security-integration.html#syntax).
 
@@ -73,15 +71,9 @@ Note: Only Snowflake account administrators (users with the `ACCOUNTADMIN` role)
 | OAUTH\_ISSUE\_REFRESH\_TOKENS   | Required                                                                                                                                                                             |
 | OAUTH\_REFRESH\_TOKEN\_VALIDITY | Required. This configuration dictates the number of seconds that a refresh token is valid for. Use a smaller value to force users to re-authenticate with Snowflake more frequently. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Additional configuration options may be specified for the security integration as needed.
 
-### Configure a Connection in dbt[​](#configure-a-connection-in-dbt "Direct link to Configure a Connection in dbt")
+### Configure a Connection in dbt
 
 The Database Admin is responsible for creating a Snowflake Connection in dbt. This Connection is configured using a Snowflake Client ID and Client Secret. These values can be determined by running the following query in Snowflake:
 
@@ -107,11 +99,11 @@ To complete the creation of your connection in dbt:
 
 [![Configuring Snowflake OAuth credentials in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth credentials in dbt")](#)Configuring Snowflake OAuth credentials in dbt
 
-### Authorize developer credentials[​](#authorize-developer-credentials "Direct link to Authorize developer credentials")
+### Authorize developer credentials
 
 Once Snowflake SSO is enabled, users on the project will be able to configure their credentials in their Profiles. By clicking the "Connect to Snowflake Account" button, users will be redirected to Snowflake to authorize with the configured SSO provider, then back to dbt to complete the setup process. At this point, users should now be able to access the Studio IDE with their user credentials.
 
-### SSO OAuth flow diagram[​](#sso-oauth-flow-diagram "Direct link to SSO OAuth flow diagram")
+### SSO OAuth flow diagram
 
 [![SSO OAuth flow diagram](/img/docs/dbt-platform/dbt-platform-enterprise/84427818-841b3680-abf3-11ea-8faf-693d4a39cffb.png?v=2 "SSO OAuth flow diagram")](#)SSO OAuth flow diagram
 
@@ -119,11 +111,11 @@ Once a user has authorized dbt with Snowflake via their identity provider, Snowf
 
 **NOTE**: The lifetime of the refresh token is dictated by the OAUTH\_REFRESH\_TOKEN\_VALIDITY parameter supplied in the “create security integration” statement. When a user’s refresh token expires, the user will need to re-authorize with Snowflake to continue development in dbt.
 
-### Setting up multiple dbt projects with Snowflake 0Auth[​](#setting-up-multiple-dbt-projects-with-snowflake-0auth "Direct link to Setting up multiple dbt projects with Snowflake 0Auth")
+### Setting up multiple dbt projects with Snowflake 0Auth
 
 If you are planning to set up the same Snowflake account to different dbt projects, you can use the same security integration for all of the projects.
 
-## Subdomain migration[​](#subdomain-migration "Direct link to Subdomain migration")
+## Subdomain migration
 
 If your account uses a static subdomain for the [access URL migration](../about-platform/account-url-migration.md), you might need to update Snowflake security integrations shared across projects or connections to prevent service disruptions.
 
@@ -136,7 +128,7 @@ SET OAUTH_ALTERNATE_REDIRECT_URIS = ('<ACCESS_URL>/complete/snowflake')
 
 Values for `OAUTH_REDIRECT_URI` and `OAUTH_ALTERNATE_REDIRECT_URIS` are interchangeable.
 
-### Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+### Troubleshooting
 
  Invalid consent request
 
@@ -176,4 +168,4 @@ OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';
 
 For the full query example, see [Create a security integration](#create-a-security-integration).
 
-## Learn more[​](#learn-more "Direct link to Learn more")
+## Learn more

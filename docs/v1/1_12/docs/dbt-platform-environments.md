@@ -1,6 +1,6 @@
 # dbt environments
 
-dbt platformⓘ
+dbt platform
 
 An environment determines how dbt will execute your project in the [Studio IDE](./platform/studio-ide/develop-in-studio.md) or [dbt CLI](./platform/dbt-cli-installation.md) (for development) and scheduled jobs (for deployment).
 
@@ -18,9 +18,7 @@ Use environments to customize settings for different stages of your project and 
 
 The following sections detail the different types of environments and how to intuitively configure your development environment in dbt.
 
-<!-- -->
-
-## Types of environments[​](#types-of-environments "Direct link to Types of environments")
+## Types of environments
 
 In dbt, there are two types of environments:
 
@@ -29,8 +27,6 @@ In dbt, there are two types of environments:
   <br />
 
   Types of deployment environments:
-
-  <!-- -->
 
   * General
   * Staging
@@ -45,17 +41,11 @@ Each dbt project can only have a single development environment, but can have an
 | **Determines settings for**            | Studio IDE or dbt CLI | dbt Job runs | dbt Job runs | dbt Job runs |
 | **How many can I have in my project?** | 1                     | Any number   | 1            | 1            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 note
 
 For users familiar with development on dbt Core, each environment is roughly analogous to an entry in your `profiles.yml` file, with some additional information about your repository to ensure the proper version of code is executed. More info on dbt core environments [here](./local/dbt-core-environments.md).
 
-## Common environment settings[​](#common-environment-settings "Direct link to Common environment settings")
+## Common environment settings
 
 Both development and deployment environments have a section called **General Settings**, which has some basic settings that all environments will define:
 
@@ -68,17 +58,11 @@ Both development and deployment environments have a section called **General Set
 | Only run on a custom branch | ☑️            | Determines whether to use a branch other than the repository’s default                                                                                                            | See below                    |
 | Custom branch               | dev           | Custom Branch name                                                                                                                                                                | See below                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 About dbt version
 
 dbt allows users to select a [release track](./dbt-versions/dbt-release-tracks.md) to receive ongoing dbt version upgrades at the cadence that makes sense for their team.
 
-### Custom branch behavior[​](#custom-branch-behavior "Direct link to Custom branch behavior")
+### Custom branch behavior
 
 By default, all environments will use the default branch in your repository (usually the `main` branch) when accessing your dbt code. This is overridable within each dbt Environment using the **Default to a custom branch** option. This setting will have slightly different behavior depending on the environment type:
 
@@ -87,7 +71,7 @@ By default, all environments will use the default branch in your repository (usu
 
 For more info, check out this [FAQ page on this topic](../faqs/Environments/custom-branch-settings.md)!
 
-### Extended attributes[​](#extended-attributes "Direct link to Extended attributes")
+### Extended attributes
 
 note
 
@@ -119,7 +103,7 @@ db_groups:
   - db_viewer
 ```
 
-#### Extended Attributes don't mask secret values[​](#extended-attributes-dont-mask-secret-values "Direct link to Extended Attributes don't mask secret values")
+#### Extended Attributes don't mask secret values
 
 * We recommend you avoid setting secret values to prevent visibility in the text box and logs. A common workaround is to wrap extended attributes in [environment variables](./build/environment-variables.md). In the earlier example, `password: '{{ env_var(''DBT_ENV_SECRET_PASSWORD'') }}'` will get a value from the `DBT_ENV_SECRET_PASSWORD` environment variable at runtime.
 
@@ -127,7 +111,7 @@ db_groups:
 
   To set a project-scoped variable, go to **Orchestration** > **Environments** > **Environment variables**, and set a value in the **Project default** column. This value applies across all environments in the project, making it available to profiles during connection tests. See [environment variables](./build/environment-variables.md?version=2.0#setting-environment-variables) for more information.
 
-#### How extended attributes work[​](#how-extended-attributes-work "Direct link to How extended attributes work")
+#### How extended attributes work
 
 If you're developing in the [Studio IDE](./platform/studio-ide/develop-in-studio.md), [dbt CLI](./platform/dbt-cli-installation.md), or [orchestrating job runs](./deploy/deployments.md), extended attributes parses through the provided YAML and extracts the `profiles.yml` attributes. For each individual attribute:
 
@@ -135,11 +119,11 @@ If you're developing in the [Studio IDE](./platform/studio-ide/develop-in-studio
 
 * If the attribute doesn't exist, it will add the attribute or value pair to the profile.
 
-#### Only the **top-level keys** are accepted in extended attributes[​](#only-the-top-level-keys-are-accepted-in-extended-attributes "Direct link to only-the-top-level-keys-are-accepted-in-extended-attributes")
+#### Only the **top-level keys** are accepted in extended attributes
 
 This means that if you want to change a specific sub-key value, you must provide the entire top-level key as a JSON block in your resulting YAML. For example, if you want to customize a particular field within a [service account JSON](./local/connect-data-platform/bigquery-setup.md#service-account-json) for your BigQuery connection (like 'project\_id' or 'client\_email'), you need to provide an override for the entire top-level `keyfile_json` main key/attribute using extended attributes. Include the sub-fields as a nested JSON block.
 
-## Create a development environment[​](#create-a-development-environment "Direct link to Create a development environment")
+## Create a development environment
 
 To create a new dbt development environment:
 
@@ -151,11 +135,11 @@ To create a new dbt development environment:
 
 [![Creating a development environment](/img/docs/dbt-platform/refresh-ide/new-development-environment-fields.png?v=2 "Creating a development environment")](#)Creating a development environment
 
-### Set user credentials[​](#set-user-credentials "Direct link to Set user credentials")
+### Set user credentials
 
 To use the dbt Studio IDE or dbt CLI, each developer will need to set up [personal user credentials](./platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to your warehouse connection. Click your account name in the bottom left, select **Your profile**, then go to **Credentials**. This allows you to set separate target information and maintain individual credentials to connect to your warehouse.
 
-## Deployment environment[​](#deployment-environment "Direct link to Deployment environment")
+## Deployment environment
 
 Deployment environments in dbt are necessary to execute scheduled jobs and use other features (like different workspaces for different tasks). You can have many environments in a single dbt project, enabling you to set up each space in a way that suits different needs (such as experimenting or testing).
 
@@ -163,9 +147,7 @@ Even though you can have many environments, only one of them can be the "main" d
 
 To learn more about dbt deployment environments and how to configure them, refer to the [Deployment environments](./deploy/deploy-environments.md) page. For our best practices guide, read [dbt environment best practices](../guides/set-up-ci.md) for more info.
 
-## Change environment settings[​](#change-environment-settings "Direct link to Change environment settings")
-
-<!-- -->
+## Change environment settings
 
 To change an environment's settings (such as its name, credentials, or dbt version):
 
@@ -177,9 +159,7 @@ To change an environment's settings (such as its name, credentials, or dbt versi
 
 For details on available settings, see [Common environment settings](./dbt-platform-environments.md#common-environment-settings) in the environment info above.
 
-## Delete an environment[​](#delete-an-environment "Direct link to Delete an environment")
-
-<!-- -->
+## Delete an environment
 
 Deleting an environment automatically deletes its associated job(s). If you want to keep those jobs, move them to a different environment first.
 
@@ -197,9 +177,7 @@ Follow these steps to delete an environment in dbt:
 
 If you're having any issues, feel free to [contact us](mailto:support@getdbt.com) for additional help.
 
-<!-- -->
-
-## Job monitoring[​](#job-monitoring "Direct link to Job monitoring")
+## Job monitoring
 
 On the **Environments** page, there are two sections that provide an overview of the jobs for that environment:
 
@@ -208,7 +186,7 @@ On the **Environments** page, there are two sections that provide an overview of
 
 [![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")](#)In progress jobs and Top jobs by models built
 
-## Environment settings history[​](#environment-settings-history "Direct link to Environment settings history")
+## Environment settings history
 
 You can view historical environment settings changes over the last 90 days.
 

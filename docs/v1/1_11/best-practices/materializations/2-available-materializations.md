@@ -14,14 +14,14 @@ info
 
 ![Tables and views in the browser on Snowflake.](/assets/images/tables-and-views-d510f9a1eecc0c54f4352182389f3435.png)
 
-### Views[​](#views "Direct link to Views")
+### Views
 
 * ✅ **The default materialization in dbt**. A starting project has no configurations defined for materializations, which means *everything* is by default built as a view.
 * 👩‍💻 **Store *only the SQL logic* of the transformation in the warehouse, *not the data***. As such, they make a great default. They build almost instantly and cost almost nothing to build.
 * ⏱️ Always reflect the **most up-to-date** version of the input data, as they’re run freshly every time they’re queried.
 * 👎 **Have to be processed every time they’re queried, so slower to return results than a table of the same data.** That also means they can cost more over time, especially if they contain intensive transformations and are queried often.
 
-### Tables[​](#tables "Direct link to Tables")
+### Tables
 
 * 🏗️ **Tables store the data itself** as opposed to views which store the query logic. This means we can pack all of the transformation compute into a single run. A view is storing a *query* in the warehouse. Even to preview that data we have to query it. A table is storing the literal rows and columns on disk.
 * 🏎️ Querying lets us **access that transformed data directly**, so we get better performance. Tables feel **faster and more responsive** compared to views of the same logic.
@@ -29,7 +29,7 @@ info
 * 🔍 **Ideal for models that get queried regularly**, due to the combination of these qualities.
 * 👎 **Limited to the source data that was available when we did our most recent run.** We’re ‘freezing’ the transformation logic into a table. So if we run a model as a table every hour, at 10:59a we still only have data up to 10a, because that was what was available in our source data when we ran the table last at 10a. Only at the next run will the newer data be included in our rebuild.
 
-### Incremental models[​](#incremental-models "Direct link to Incremental models")
+### Incremental models
 
 * 🧱 **Incremental** models build a **table** in **pieces over time**, only adding and updating new or changed records.
 * 🏎️  **Builds more quickly** than a regular table of the same logic.
@@ -37,7 +37,7 @@ info
 * 👎 **Add complexity.** Incremental models require deeper consideration of layering and timing.
 * 👎 Can drift from source data over time. As we’re not processing all of the source data when we run an incremental model, extra effort is required to capture changes to historical data.
 
-### Comparing the materialization types[​](#comparing-the-materialization-types "Direct link to Comparing the materialization types")
+### Comparing the materialization types
 
 |                      | view                                 | table                                  | incremental                            |
 | -------------------- | ------------------------------------ | -------------------------------------- | -------------------------------------- |
@@ -46,12 +46,6 @@ info
 | 📊💸 **query costs** | ❤️  higher — reprocess every query   | 💚  lower — data in warehouse          | 💚  lower — data in warehouse          |
 | 🍅🌱 **freshness**   | 💚  best — up-to-the-minute of query | 💛  moderate — up to most recent build | 💛  moderate — up to most recent build |
 | 🧠🤔 **complexity**  | 💚 simple - maps to warehouse object | 💚 simple - map to warehouse concept   | 💛 moderate - adds logical complexity  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 info
 

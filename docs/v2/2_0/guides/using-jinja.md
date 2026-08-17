@@ -12,7 +12,7 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 In this guide, we're going to take a common pattern used in SQL, and then use Jinja to improve our code.
 
@@ -23,7 +23,7 @@ While working through the steps of this model, we recommend that you have your c
 * **Using dbt:** Click the compile button to see the compiled SQL in the right hand pane
 * **Using dbt Core:** Run `dbt compile` from the command line. Then open the compiled SQL file in the `target/compiled/{project name}/` directory. Use a split screen in your code editor to keep both files open at once.
 
-## Write the SQL without Jinja[​](#write-the-sql-without-jinja "Direct link to Write the SQL without Jinja")
+## Write the SQL without Jinja
 
 Consider a data model in which an `order` can have many `payments`. Each `payment` may have a `payment_method` of `bank_transfer`, `credit_card` or `gift_card`, and therefore each `order` can have multiple `payment_methods`
 
@@ -50,7 +50,7 @@ The SQL for each payment method amount is repetitive, which can be difficult to 
 
 So we're going to use Jinja to help us clean it up, or to make our code more "DRY" ("Don't Repeat Yourself").
 
-## Use a for loop in models for repeated SQL[​](#use-a-for-loop-in-models-for-repeated-sql "Direct link to Use a for loop in models for repeated SQL")
+## Use a for loop in models for repeated SQL
 
 Here, the repeated code can be replaced with a `for` loop. The following will be compiled to the same query, but is significantly easier to maintain.
 
@@ -67,7 +67,7 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
-## Set variables at the top of a model[​](#set-variables-at-the-top-of-a-model "Direct link to Set variables at the top of a model")
+## Set variables at the top of a model
 
 We recommend setting variables at the top of a model, as it helps with readability, and enables you to reference the list in multiple places if required. This is a practice we've borrowed from many other programming languages.
 
@@ -86,7 +86,7 @@ from {{ ref('raw_payments') }}
 group by 1
 ```
 
-## Use loop.last to avoid trailing commas[​](#use-looplast-to-avoid-trailing-commas "Direct link to Use loop.last to avoid trailing commas")
+## Use loop.last to avoid trailing commas
 
 In the above query, our last column is outside of the `for` loop. However, this may not always be the case. If the last iteration of a loop is our final column, we need to ensure there isn't a trailing comma at the end.
 
@@ -109,7 +109,7 @@ group by 1
 
 An alternative way to write this is `{{ "," if not loop.last }}`.
 
-## Use whitespace control to tidy up compiled code[​](#use-whitespace-control-to-tidy-up-compiled-code "Direct link to Use whitespace control to tidy up compiled code")
+## Use whitespace control to tidy up compiled code
 
 If you've been checking your code in the `target/compiled` folder, you might have noticed that this code results in a lot of white space:
 
@@ -153,7 +153,7 @@ group by 1
 
 Getting whitespace control right is often a lot of trial and error! We recommend that you prioritize the readability of your model code over the readability of the compiled code, and only do this as an extra polish.
 
-## Use a macro to return payment methods[​](#use-a-macro-to-return-payment-methods "Direct link to Use a macro to return payment methods")
+## Use a macro to return payment methods
 
 Here, we've hardcoded the list of payment methods in our model. We may need to access this list from another model. A good solution here is to use a [variable](../docs/build/project-variables.md), but for the purpose of this tutorial, we're going to instead use a macro!
 
@@ -193,7 +193,7 @@ group by 1
 
 Note that we didn't use curly braces when calling the macro – we're already within a Jinja statement, so there's no need to use the brackets again.
 
-## Dynamically retrieve the list of payment methods[​](#dynamically-retrieve-the-list-of-payment-methods "Direct link to Dynamically retrieve the list of payment methods")
+## Dynamically retrieve the list of payment methods
 
 So far, we've been hardcoding the list of possible payment methods. If a new `payment_method` was introduced, or one of the existing methods was renamed, the list would need to be updated.
 
@@ -272,7 +272,7 @@ There's a few tricky pieces in here:
 
 Fortunately, our model code doesn't need to be updated, since we're already calling the macro to get the list of payment methods. And now, any new `payment_methods` added to the underlying data model will automatically be handled by the dbt model.
 
-## Write modular macros[​](#write-modular-macros "Direct link to Write modular macros")
+## Write modular macros
 
 You may wish to use a similar pattern elsewhere in your dbt project. As a result, you decide to break up your logic into two separate macros -- one to generically return a column from a relation, and the other that calls this macro with the correct arguments to get back the list of payment methods.
 
@@ -309,7 +309,7 @@ order by 1
 {% endmacro %}
 ```
 
-## Use a macro from a package[​](#use-a-macro-from-a-package "Direct link to Use a macro from a package")
+## Use a macro from a package
 
 Macros let analysts bring software engineering principles to the SQL they write. One of the features of macros that makes them even more powerful is their ability to be shared across projects.
 

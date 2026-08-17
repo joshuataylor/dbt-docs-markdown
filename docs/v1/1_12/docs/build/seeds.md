@@ -1,12 +1,12 @@
 # Add Seeds to your DAG
 
-## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
+## Related reference docs
 
 * [Seed configurations](../../reference/seed-configs.md)
 * [Seed properties](../../reference/seed-properties.md)
 * [`seed` command](../../reference/commands/seed.md)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 Seeds are CSV files in your dbt project (typically in your `seeds` directory), that dbt can load into your data warehouse using the `dbt seed` command.
 
@@ -25,7 +25,7 @@ Poor use-cases of dbt seeds:
 * Loading raw data that has been exported to CSVs
 * Any kind of production data containing sensitive information. For example personal identifiable information (PII) and passwords.
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 To load a seed file in your dbt project:
 
@@ -69,15 +69,15 @@ models/orders.sql
 select * from {{ ref('country_codes') }}
 ```
 
-## Configuring seeds[​](#configuring-seeds "Direct link to Configuring seeds")
+## Configuring seeds
 
 Seeds are configured in your `dbt_project.yml`, check out the [seed configurations](../../reference/seed-configs.md) docs for a full list of available configurations.
 
-## Documenting and testing seeds[​](#documenting-and-testing-seeds "Direct link to Documenting and testing seeds")
+## Documenting and testing seeds
 
 You can document and test seeds in YAML by declaring properties — check out the docs on [seed properties](../../reference/seed-properties.md) for more information.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Can I use seeds to load raw data?
 
@@ -103,8 +103,7 @@ The columns of my seed changed, and now I get an error when running the \`seed\`
 
 If you changed the columns of your seed, you may get a `Database Error`:
 
-* Snowflake
-* Redshift
+### Snowflake
 
 ```shell
 $ dbt seed
@@ -126,6 +125,8 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
+
+### Redshift
 
 ```shell
 $ dbt seed
@@ -165,7 +166,7 @@ How do I test and document seeds?
 
 To test and document seeds, use a [properties file](../../reference/configs-and-properties.md) and nest the configurations under a `seeds:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 seeds/properties.yml
 

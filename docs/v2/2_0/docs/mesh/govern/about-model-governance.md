@@ -13,13 +13,11 @@ All of the following features are available in dbt Core and the dbt platform, *e
 * [**Model namespaces**](../../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) — Organize models into [groups](../../build/groups.md) and [packages](../../build/packages.md) to delineate ownership boundaries. Models in different packages can share the same name, and the `ref` function can take the project/package namespace as its first argument.
 * [**Project dependencies**](./project-dependencies.md) — Resolve references to public models in other projects ("cross-project ref") using an always-on stateful metadata service, instead of importing all models from those projects as packages. Each project serves data products (public model references) while managing its own implementation details, enabling an [enterprise data mesh](../../../best-practices/how-we-mesh/mesh-1-intro.md). [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-<!-- -->
-
 Supporting data freshness SLAs
 
 Use [dbt State](../../deploy/dbt-state-about.md) and the [`lag_tolerance`](../../../reference/resource-configs/lag-tolerance.md) config to govern data freshness at the model level, helping your team align with freshness Service Level Agreements (SLAs) without unnecessary rebuilds.
 
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 There are some considerations to keep in mind when using model governance features:
 

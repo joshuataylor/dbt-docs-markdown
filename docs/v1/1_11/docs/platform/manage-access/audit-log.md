@@ -1,6 +1,6 @@
 # dbt audit log
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 To review actions performed by people in your account, dbt provides logs of audited user and system events in real time. The audit log appears as events happen and includes details such as who performed the action, what the action was, and when it was performed. You can use these details to troubleshoot access issues, perform security audits, or analyze specific events. You can also [query and export audit log events through the API](#using-the-api).
 
@@ -13,11 +13,11 @@ The dbt audit log stores all the events that occurred in your account in real ti
 
 Note that the retention period for events in the audit log is at least 12 months.
 
-## Accessing the audit log[​](#accessing-the-audit-log "Direct link to Accessing the audit log")
+## Accessing the audit log
 
 To access the audit log, click on your account name in the left-side menu and select **Account settings**. Click **Audit log** in the left sidebar.
 
-## Understanding the audit log[​](#understanding-the-audit-log "Direct link to Understanding the audit log")
+## Understanding the audit log
 
 On the audit log page, you will see a list of various events and their associated event data. Each of these events shows the following information in dbt:
 
@@ -25,7 +25,7 @@ On the audit log page, you will see a list of various events and their associate
 * **Agent**: User who triggered that action/event
 * **Timestamp**: Local timestamp of when the event occurred
 
-### Event details[​](#event-details "Direct link to Event details")
+### Event details
 
 Click the event card to see the details about the activity that triggered the event. This view provides important details, including when it happened and what type of event was triggered. For example, if someone changes the settings for a job, you can use the event details to see which job was changed (type of event: `job_definition.changed`), by whom (person who triggered the event: `actor`), and when (time it was triggered: `created_at`). For types of events and their descriptions, refer to [Events in audit log](#audit-log-events).
 
@@ -46,17 +46,11 @@ The event details provide the key factors of an event:
 | service        | Service that carried out the action                                                                                                                    |
 | source         | Source of the event - dbt UI or API                                                                                                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Audit log events[​](#audit-log-events "Direct link to Audit log events")
+## Audit log events
 
 The audit log supports various events for different objects in dbt. You will find events for authentication, environment, jobs, service tokens, groups, user, project, permissions, license, connection, repository, and credentials.
 
-### Authentication[​](#authentication "Direct link to Authentication")
+### Authentication
 
 | Event name                 | Event type               | Description                                                                                                             |
 | -------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -67,13 +61,7 @@ The audit log supports various events for different objects in dbt. You will fin
 | SSO Login Failed           | login.sso.failed         | User sign-in through SSO failed                                                                                         |
 | SSO Login Succeeded        | login.sso.succeeded      | User successfully signed in through SSO                                                                                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### OAuth clients[​](#oauth-clients "Direct link to OAuth clients")
+### OAuth clients
 
 These events cover the lifecycle of OAuth clients registered in **Account settings** → **Integrations** → **App integrations** (refer to [Connect apps with OAuth](./connect-apps-oauth.md)). Actions a user performs through an OAuth-connected client (for example, creating a job) are logged under the relevant event (such as `job_definition.added`) with the user as the actor.
 
@@ -85,13 +73,7 @@ These events cover the lifecycle of OAuth clients registered in **Account settin
 | Client Registered             | oauth\_client.registered              | An OAuth client was registered, either manually by an admin or dynamically through [RFC 7591](https://datatracker.ietf.org/doc/html/rfc7591). |
 | Client Removed                | oauth\_client.removed                 | An OAuth client was removed from **Account settings** → **Integrations** → **App integrations**.                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Environment[​](#environment "Direct link to Environment")
+### Environment
 
 | Event name          | Event type          | Description                          |
 | ------------------- | ------------------- | ------------------------------------ |
@@ -99,13 +81,7 @@ Search table...
 | Environment Changed | environment.changed | Environment settings changed         |
 | Environment Removed | environment.removed | Environment successfully removed     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Jobs[​](#jobs "Direct link to Jobs")
+### Jobs
 
 | Event name  | Event type              | Description                  |
 | ----------- | ----------------------- | ---------------------------- |
@@ -113,26 +89,14 @@ Search table...
 | Job Changed | job\_definition.changed | Job settings changed         |
 | Job Removed | job\_definition.removed | Job definition removed       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Service Token[​](#service-token "Direct link to Service Token")
+### Service Token
 
 | Event name            | Event type             | Description                                |
 | --------------------- | ---------------------- | ------------------------------------------ |
 | Service Token Created | service\_token.created | New Service Token was successfully created |
 | Service Token Revoked | service\_token.revoked | Service Token was revoked                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Group[​](#group "Direct link to Group")
+### Group
 
 | Event name    | Event type    | Description                    |
 | ------------- | ------------- | ------------------------------ |
@@ -140,13 +104,7 @@ Search table...
 | Group Changed | group.changed | Group settings changed         |
 | Group Removed | group.removed | Group successfully removed     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### User[​](#user "Direct link to User")
+### User
 
 | Event name                   | Event type               | Description                                         |
 | ---------------------------- | ------------------------ | --------------------------------------------------- |
@@ -161,13 +119,7 @@ Search table...
 | Verification Email Confirmed | user.jit.email.confirmed | Email verification confirmed by user                |
 | Verification Email Sent      | user.jit.email.sent      | Email verification sent to user created through JIT |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Project[​](#project "Direct link to Project")
+### Project
 
 | Event name      | Event type      | Description              |
 | --------------- | --------------- | ------------------------ |
@@ -175,26 +127,14 @@ Search table...
 | Project Changed | project.changed | Project settings changed |
 | Project Removed | project.removed | Project is removed       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Permissions[​](#permissions "Direct link to Permissions")
+### Permissions
 
 | Event name              | Event type         | Description                    |
 | ----------------------- | ------------------ | ------------------------------ |
 | User Permission Added   | permission.added   | New user permissions are added |
 | User Permission Removed | permission.removed | User permissions are removed   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### License[​](#license "Direct link to License")
+### License
 
 | Event name              | Event type           | Description                               |
 | ----------------------- | -------------------- | ----------------------------------------- |
@@ -202,13 +142,7 @@ Search table...
 | License Mapping Changed | license\_map.changed | User license mapping settings are changed |
 | License Mapping Removed | license\_map.removed | User license mapping is removed           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Connection[​](#connection "Direct link to Connection")
+### Connection
 
 | Event name         | Event type         | Description                                |
 | ------------------ | ------------------ | ------------------------------------------ |
@@ -216,13 +150,7 @@ Search table...
 | Connection Changed | connection.changed | Data Warehouse Connection settings changed |
 | Connection Removed | connection.removed | Data Warehouse connection removed          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Repository[​](#repository "Direct link to Repository")
+### Repository
 
 | Event name         | Event type         | Description                 |
 | ------------------ | ------------------ | --------------------------- |
@@ -230,13 +158,7 @@ Search table...
 | Repository Changed | repository.changed | Repository settings changed |
 | Repository Removed | repository.removed | Repository removed          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Credentials[​](#credentials "Direct link to Credentials")
+### Credentials
 
 | Event name                       | Event type          | Description                      |
 | -------------------------------- | ------------------- | -------------------------------- |
@@ -244,25 +166,13 @@ Search table...
 | Credentials Changed in Project   | credentials.changed | Credentials changed in project   |
 | Credentials Removed from Project | credentials.removed | Credentials removed from project |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Git integration[​](#git-integration "Direct link to Git integration")
+### Git integration
 
 | Event name                 | Event type                  | Description                         |
 | -------------------------- | --------------------------- | ----------------------------------- |
 | GitLab Application Changed | gitlab\_application.changed | GitLab configuration in dbt changed |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Webhooks[​](#webhooks "Direct link to Webhooks")
+### Webhooks
 
 | Event name                    | Event type                    | Description                            |
 | ----------------------------- | ----------------------------- | -------------------------------------- |
@@ -270,13 +180,7 @@ Search table...
 | Webhook Subscriptions Changed | webhook\_subscription.changed | Existing webhook configuration altered |
 | Webhook Subscriptions Removed | webhook\_subscription.removed | Existing webhook deleted               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Semantic Layer[​](#semantic-layer "Direct link to Semantic Layer")
+### Semantic Layer
 
 | Event name                         | Event type                           | Description                                                                          |
 | ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------ |
@@ -287,39 +191,21 @@ Search table...
 | Semantic Layer Credentials Changed | semantic\_layer\_credentials.changed | Semantic Layer credentials changed. Does not trigger `semantic_layer_config.changed` |
 | Semantic Layer Credentials Removed | semantic\_layer\_credentials.removed | Semantic Layer credentials removed                                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Extended attributes[​](#extended-attributes "Direct link to Extended attributes")
+### Extended attributes
 
 | Event name                 | Event type                   | Description                           |
 | -------------------------- | ---------------------------- | ------------------------------------- |
 | Extended Attribute Added   | extended\_attributes.added   | Extended attribute added to a project |
 | Extended Attribute Changed | extended\_attributes.changed | Extended attribute changed or removed |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Account-scoped personal access token[​](#account-scoped-personal-access-token "Direct link to Account-scoped personal access token")
+### Account-scoped personal access token
 
 | Event name                                   | Event type                   | Description                       |
 | -------------------------------------------- | ---------------------------- | --------------------------------- |
 | Account Scoped Personal Access Token Created | account\_scoped\_pat.created | An account-scoped PAT was created |
 | Account Scoped Personal Access Token Deleted | account\_scoped\_pat.deleted | An account-scoped PAT was deleted |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### IP restrictions[​](#ip-restrictions "Direct link to IP restrictions")
+### IP restrictions
 
 | Event name                   | Event type                    | Description                                 |
 | ---------------------------- | ----------------------------- | ------------------------------------------- |
@@ -328,13 +214,7 @@ Search table...
 | IP Restrictions Rule Changed | ip\_restrictions.rule.changed | IP restriction rule edited                  |
 | IP Restrictions Rule Removed | ip\_restrictions.rule.removed | IP restriction rule deleted                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### SCIM[​](#scim "Direct link to SCIM")
+### SCIM
 
 | Event name     | Event type                          | Description                                  |
 | -------------- | ----------------------------------- | -------------------------------------------- |
@@ -345,19 +225,13 @@ Search table...
 | Group Update   | v1.events.user\_group\_user.Changed | Group membership was updated by SCIM service |
 | Group Removal  | v1.events.user\_group.Removed       | Group removed by SCIM service                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Searching the audit log[​](#searching-the-audit-log "Direct link to Searching the audit log")
+## Searching the audit log
 
 You can search the audit log to find a specific event or actor, which is limited to the ones listed in [Events in audit log](#audit-log-events). The audit log lists historical events from the last 90 days. You can search for an actor or event using the search bar, and then narrow your results using the time window.
 
 [![Use search bar to find content in the audit log](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-search.png?v=2 "Use search bar to find content in the audit log")](#)Use search bar to find content in the audit log
 
-## Exporting logs[​](#exporting-logs "Direct link to Exporting logs")
+## Exporting logs
 
 You can use the audit log to export all historical audit results for security, compliance, and analysis purposes. Events in the audit log are retained for at least 12 months.
 
@@ -367,7 +241,7 @@ You can use the audit log to export all historical audit results for security, c
 
 [![View audit log export options](/img/docs/dbt-platform/dbt-platform-enterprise/audit-log-section.png?v=2 "View audit log export options")](#)View audit log export options
 
-## Using the API[​](#using-the-api "Direct link to Using the API")
+## Using the API
 
 You can also query and export audit log events with the [Administrative API v3](https://docs.getdbt.com/dbt-cloud/api-v3). Use the API when you want to pull audit data into a script, a scheduled job, or security monitoring or log aggregation tooling. The same access requirements at the top of this page apply to the API. For common automation approaches, refer to [Common automation patterns](#common-automation-patterns).
 
@@ -377,12 +251,6 @@ You can also query and export audit log events with the [Administrative API v3](
 | Export a date range as CSV               | [Download a CSV](#download-a-csv) |
 | Export full history                      | [Bulk export](#bulk-export)       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Authenticate with a [service token](../../dbt-apis/service-tokens.md) or [personal access token](../../dbt-apis/user-tokens.md), passed as `Authorization: Bearer YOUR_TOKEN` or `Token YOUR_TOKEN`.
 
 Bulk exports require a [personal access token](../../dbt-apis/user-tokens.md) as service tokens aren't supported for that step.
@@ -391,7 +259,7 @@ Without date parameters, list and CSV download requests default to the last 90 d
 
 In the following examples, replace `YOUR_ACCESS_URL` with your dbt access URL, `ACCOUNT_ID` with your account ID, and `YOUR_TOKEN` with your token. You can find your account ID in **Account settings**, or refer to [Finding your user and account IDs](../../../faqs/Accounts/find-user-id.md) for more information.
 
-### Query events[​](#query-events "Direct link to Query events")
+### Query events
 
 To fetch audit log events as JSON, send a `GET` request to `/api/v3/accounts/ACCOUNT_ID/audit-logs/`:
 
@@ -404,7 +272,7 @@ curl --request GET \
 
 The response includes a `data` array of events with details such as `event_type`, `event_label`, `actor`, `created_at`, and `event_context`. Use `logged_at_start` and `logged_at_end` to filter by date range, and `limit` and `offset` to paginate through results. For more options, refer to [List Recent Audit Log Events](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/List%20Recent%20Audit%20Log%20Events) in the API reference.
 
-### Download a CSV[​](#download-a-csv "Direct link to Download a CSV")
+### Download a CSV
 
 To download audit log events as a CSV file, send a `GET` request to `/api/v3/accounts/ACCOUNT_ID/audit-logs/download/`. This is the API equivalent of **Export Selection** in the UI:
 
@@ -417,7 +285,7 @@ curl --request GET \
 
 You can use the same `logged_at_start` and `logged_at_end` query parameters as the list endpoint.
 
-### Bulk export[​](#bulk-export "Direct link to Bulk export")
+### Bulk export
 
 To export your full audit log history through the API, use the same workflow as **Export All** in the UI:
 
@@ -455,7 +323,7 @@ curl --request GET \
   --output audit-log-full.csv
 ```
 
-### Common automation patterns[​](#common-automation-patterns "Direct link to Common automation patterns")
+### Common automation patterns
 
 Teams often automate audit log access in a few ways:
 

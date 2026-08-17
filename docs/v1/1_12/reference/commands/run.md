@@ -1,19 +1,19 @@
 # About dbt run command
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 The `dbt run` command only applies to models. It doesn't run tests, snapshots, seeds, or other resource types. To run those commands, use the appropriate dbt commands found in the [dbt commands](../dbt-commands.md) section — such as `dbt test`, `dbt snapshot`, or `dbt seed`. Alternatively, use `dbt build` with a [resource type selector](../node-selection/methods.md#resource_type).
 
 You can use the `dbt run` command when you want to build or rebuild models in your project.
 
-### How does `dbt run` work?[​](#how-does-dbt-run-work "Direct link to how-does-dbt-run-work")
+### How does `dbt run` work?
 
 * `dbt run` executes compiled SQL model files against the current `target` database.
 * dbt connects to the target database and runs the relevant SQL required to materialize all data models using the specified materialization strategies.
 * Models are run in the order defined by the dependency graph generated during compilation. Intelligent multi-threading is used to minimize execution time without violating dependencies.
 * Deploying new models frequently involves destroying prior versions of these models. In these cases, `dbt run` minimizes downtime by first building each model with a temporary name, then dropping and renaming within a single transaction (for adapters that support transactions).
 
-## Refresh incremental models[​](#refresh-incremental-models "Direct link to Refresh incremental models")
+## Refresh incremental models
 
 If you provide the `--full-refresh` flag to `dbt run`, dbt will treat incremental models as table models. This is useful when
 
@@ -45,7 +45,7 @@ select * from all_events
 {% endif %}
 ```
 
-## Running specific models[​](#running-specific-models "Direct link to Running specific models")
+## Running specific models
 
 dbt will also allow you select which specific models you'd like to materialize. This can be useful during special scenarios where you may prefer running a different set of models at various intervals. This can also be helpful when you may want to limit the tables materialized while you develop and test new models.
 
@@ -53,23 +53,23 @@ For more information, see the [Model Selection Syntax Documentation](../node-sel
 
 For more information on running parents or children of specific models, see the [Graph Operators Documentation](../node-selection/graph-operators.md).
 
-## Treat warnings as errors[​](#treat-warnings-as-errors "Direct link to Treat warnings as errors")
+## Treat warnings as errors
 
 See [global configs](../global-configs/warnings.md)
 
-## Failing fast[​](#failing-fast "Direct link to Failing fast")
+## Failing fast
 
 See [global configs](../global-configs/failing-fast.md)
 
-## Enable or Disable Colorized Logs[​](#enable-or-disable-colorized-logs "Direct link to Enable or Disable Colorized Logs")
+## Enable or Disable Colorized Logs
 
 See [global configs](../global-configs/print-output.md#print-color)
 
-## The `--empty` flag[​](#the---empty-flag "Direct link to the---empty-flag")
+## The `--empty` flag
 
 The `run` command supports the `--empty` flag for building schema-only dry runs. The `--empty` flag limits the refs and sources to zero rows. dbt will still execute the model SQL against the target data warehouse but will avoid expensive reads of input data. This validates dependencies and ensures your models will build properly.
 
-## Status codes[​](#status-codes "Direct link to Status codes")
+## Status codes
 
 When calling the [list\_runs api](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/List%20Runs), you will get a status code for each run returned. The available run status codes are as follows:
 

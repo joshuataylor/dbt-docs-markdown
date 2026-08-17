@@ -10,7 +10,7 @@ dbt supports creating Iceberg tables for two Databricks materializations:
 * [Table](../../materializations.md#table)
 * [Incremental](../../materializations.md#incremental)
 
-## Databricks Iceberg support[​](#databricks-iceberg-support "Direct link to Databricks Iceberg support")
+## Databricks Iceberg support
 
 Databricks is built on [Delta Lake](https://docs.databricks.com/aws/en/delta/) and stores data in the [Delta table](https://docs.databricks.com/aws/en/introduction/delta-comparison#delta-tables-default-data-table-architecture) format.
 
@@ -25,7 +25,7 @@ External Iceberg compute engines can read from and write to these Iceberg tables
 
 dbt doesn't yet support enabling [Iceberg v3](https://docs.databricks.com/aws/en/iceberg/iceberg-v3) on managed Iceberg tables.
 
-### External tables[​](#external-tables "Direct link to External tables")
+### External tables
 
 dbt also supports creating externally-managed Iceberg tables using the model configuration [`location_root`](../../../../reference/resource-configs/databricks-configs.md#configuring-tables). Databricks' DDL for creating tables requires a fully qualified `location`. dbt defines this parameter on the user's behalf to streamline usage and enforce basic isolation of table data:
 
@@ -34,7 +34,7 @@ dbt also supports creating externally-managed Iceberg tables using the model con
 
 In dbt v2, you may set `location_root` within the catalog definition in `catalogs.yml`, under `config.databricks` (in the new catalog spec) or `adapter_properties` (in the old catalog spec).
 
-### Catalogs[​](#catalogs "Direct link to Catalogs")
+### Catalogs
 
 Configure catalogs in order to:
 
@@ -46,12 +46,11 @@ Notes:
 * Every Databricks catalog may optionally configure `table_format`. By default, this is set to `iceberg` for `catalog_type=unity`, and `default` for `hive_metastore`.
 * On Databricks, `catalog_name` takes precedence over the `catalog` config when determining the model's top-level namespace.
 
-## Configure catalog integration for Iceberg tables[​](#configure-catalog-integration-for-iceberg-tables "Direct link to Configure catalog integration for Iceberg tables")
+## Configure catalog integration for Iceberg tables
 
 1. Create a `catalogs.yml` at the top level of your dbt project. An example of Unity Catalog as the catalog:
 
-* New spec
-* Old spec
+### New spec (beta)
 
 catalogs.yml
 
@@ -66,6 +65,8 @@ catalogs:
         # optional
         location_root: s3://cloud-storage-uri
 ```
+
+### Old spec
 
 catalogs.yml
 

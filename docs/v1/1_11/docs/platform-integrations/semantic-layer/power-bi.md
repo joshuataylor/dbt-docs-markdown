@@ -1,6 +1,6 @@
 # Power BI [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The Power BI integration enables you to query the Semantic Layer directly, allowing you to build dashboards with trusted, live data in Power BI. It provides a live connection to the Semantic Layer through Power BI Desktop or Power BI Service.
 
@@ -10,17 +10,14 @@ This integration is currently in preview. Production readiness depends on Micros
 
 Using Power BI? You can help shape the future of this integration. Ask your Microsoft representative about Ossie support!
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md).
 * You are on a supported [dbt release track](../../dbt-versions/dbt-release-tracks.md) or on dbt v1.6 or higher.
 * You installed [Power BI Desktop or Power BI On-premises Data Gateway](https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-custom-connectors).
-  <!-- -->
   * Power BI Service doesn't natively support custom connectors. To use the connector in Power BI Service, you must install and configure it on an On-premises Data Gateway.
 * You need your [dbt host](../../use-dbt-semantic-layer/setup-sl.md#3-view-connection-detail), [Environment ID](../../use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer), and a [service token](../../dbt-apis/service-tokens.md) or a [personal access token](../../dbt-apis/user-tokens.md) to log in. This account should be set up with the Semantic Layer.
 * You must have a dbt Starter or Enterprise-tier [account](https://www.getdbt.com/pricing). Suitable for both Multi-tenant and Single-tenant deployment.
-
-<!-- -->
 
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
@@ -28,7 +25,7 @@ Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/cours
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-## Install the connector[​](#install-the-connector "Direct link to Install the connector")
+## Install the connector
 
 power bi versions
 
@@ -40,7 +37,7 @@ The Semantic Layer Power BI connector consists of a custom `.pqx` Power BI conne
 
 2. Run the installer and follow the on-screen instructions to install the ODBC driver and connector onto your Power BI Desktop.
 
-### Verify installation[​](#verify-installation "Direct link to Verify installation")
+### Verify installation
 
 Note that users on older versions of Power BI may have to [configure the connector](#configure-the-connector) before they can verify the installation.
 
@@ -53,7 +50,7 @@ To verify the installation:
 
 To allow published reports in Power BI Service to use the connector. An IT admin in your organization needs to install and configure the connector on an On-premises Data Gateway.
 
-## For IT admins[​](#for-it-admins "Direct link to For IT admins")
+## For IT admins
 
 This section is for IT admins trying to install the ODBC driver and connector into an On-premises Data Gateway.
 
@@ -63,8 +60,6 @@ To allow published reports to use the connector in Power BI Service, an IT Admin
 
 2. Copy connector file to Gateway directory:
 
-   <!-- -->
-
    1. Locate that `.pqx` file: `C:\Users\<YourUser>\Documents\Power BI Desktop\Custom Connectors\dbtSemanticLayer.pqx`.
    2. Copy it to the Power BI On-premises Data Gateway custom connectors directory: `C:\Windows\ServiceProfiles\PBIEgwService\Documents\Power BI Desktop\Custom Connectors`.
 
@@ -72,15 +67,13 @@ To allow published reports to use the connector in Power BI Service, an IT Admin
 
 4. Enable connector in Power BI Enterprise Gateway:
 
-   <!-- -->
-
    1. Open the `EnterpriseGatewayConfigurator.exe`.
    2. Navigate to **Connectors**.
    3. Verify that the `dbt Semantic Layer` connector is installed and active.
 
 For more information on how to set up custom connectors in the Power BI On-premises Data Gateway, refer to Power BI’s [official documentation](https://learn.microsoft.com/en-us/power-bi/connect-data/service-gateway-custom-connectors).
 
-## Configure the connector[​](#configure-the-connector "Direct link to Configure the connector")
+## Configure the connector
 
 After installing the connector, you’ll have to configure your project credentials to connect to the Semantic Layer from a report.
 
@@ -94,49 +87,43 @@ To configure project credentials in Power BI Desktop:
 
 4. Fill in your connection details. You can find your Host and Environment ID under the Semantic Layer configuration for your dbt project.
 
-   <!-- -->
-
    tip
 
    Make sure you select **DirectQuery** under **Data Connectivity mode** since the Semantic Layer connector does not support **Import** mode. See [Considerations](#considerations) for more details.
 
 5. Click **OK** to proceed.
-   <!-- -->
+
    [![Select DirectQuery mode](/img/docs/platform-integrations/sl-pbi/pbi-directquery.jpg?v=2 "Select DirectQuery mode")](#)Select DirectQuery mode
 
 6. On the next screen, paste your service or personal token and then click **Connect**.
 
 7. You should see a side pane with a few "virtual" tables. `ALL` represents all of your defined semantic layer objects. The other tables represent each of your saved queries. Select the one you want to load into your dashboard. Then click **Load**.
-   <!-- -->
+
    [![Select tables in the side panel](/img/docs/platform-integrations/sl-pbi/pbi-sidepanel.jpg?v=2 "Select tables in the side panel")](#)Select tables in the side panel
 
 Now that you've configured the connector, you can configure published reports in the next section to use the connector.
 
-## Configure published reports[​](#configure-published-reports "Direct link to Configure published reports")
+## Configure published reports
 
 After publishing a report and the first time you hit **Publish** on a given report, configure Power BI Service to use your organization’s On-premises Data Gateway to access data from the Semantic Layer:
 
 1. On the top right, click on **Settings > Power BI settings**.
-   <!-- -->
+
    [![Navigate to Settings > Power BI Settings](/img/docs/platform-integrations/sl-pbi/pbi-settings.jpg?v=2 "Navigate to Settings > Power BI Settings")](#)Navigate to Settings > Power BI Settings
 
 2. Navigate to the **Semantic models** tab and select your report on the sidebar on the left.
 
 3. Under **Gateway and cloud connections**, select the **On-premises Data Gateway** where your IT admin has installed the Semantic Layer connector.
 
-   <!-- -->
-
    * If the Status is **Not configured correctly**, you’ll have to configure it.
 
    [![Configure the gateway connection](/img/docs/platform-integrations/sl-pbi/pbi-gateway-cloud-connections.jpg?v=2 "Configure the gateway connection")](#)Configure the gateway connection
 
 4. Click on the arrow under **Actions** and then, click on **Manually add to gateway**.
-   <!-- -->
+
    [![Manually add to gateway](/img/docs/platform-integrations/sl-pbi/pbi-manual-gateway.jpg?v=2 "Manually add to gateway")](#)Manually add to gateway
 
 5. Provide a name for your connection and enter your connection details.
-
-   <!-- -->
 
    * Set the connection as **Encrypted** (Required). Failing to do so will result in the Semantic Layer servers rejecting the connection.
 
@@ -146,7 +133,7 @@ After publishing a report and the first time you hit **Publish** on a given repo
 
 You can now go back to your published report on Power BI Service to assert data loads as expected.
 
-## Use the connector[​](#use-the-connector "Direct link to Use the connector")
+## Use the connector
 
 This section describes how to use the Semantic Layer connector in Power BI.
 
@@ -166,9 +153,7 @@ These tables do not actually map to an underlying table in your data warehouse. 
 
 This allows for very flexible analytics workflows, like drag and drop metrics and slice by dimensions and entities — the Semantic Layer will generate the appropriate SQL to actually query your data source for you.
 
-#### Modifying time granularity[​](#modifying-time-granularity "Direct link to Modifying time granularity")
-
-<!-- -->
+#### Modifying time granularity
 
 When you select time dimensions in the **Group By** menu, you'll see a list of available time granularities. The lowest granularity is selected by default. Metric time is the default time dimension for grouping your metrics.
 
@@ -176,7 +161,7 @@ info
 
 Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custom-granularities) (like fiscal year) aren't currently supported or accessible in this integration. Only [standard granularities](../../build/dimensions.md?dimension=time_gran#time) (like day, week, month, and so on) are available. If you'd like to access custom granularities, consider using the [Semantic Layer APIs](../../dbt-apis/sl-api-overview.md).
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
  Not every “column” of METRICS.ALL are compatible with every other column
 
@@ -191,8 +176,6 @@ Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custo
 * `Import` mode tries to select an entire table to import into Power BI, which means it'll likely generate SQL that translates to an invalid Semantic Layer query which will try to query all metrics, dimensions and entities at the same time.
 
 * To import data into a PowerBI report, select a valid combination of columns to import, (something that will generate a valid Semantic Layer query).
-
-  <!-- -->
 
   * You can use `Table.SelectColumns` for this: `= Table.SelectColumns(Source{[Item="ALL",Schema="METRICS",Catalog=null]}[Data], {"Total Profit", "Metric Time (Day)"})`
   * Be aware that all calculations will happen inside of Power BI and won’t pass through Semantic Layer servers. This could lead to incorrect or diverging results.

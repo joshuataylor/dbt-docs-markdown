@@ -1,14 +1,12 @@
 # Users and licenses
 
-dbt platformⓘ
+dbt platform
 
 In dbt, *licenses* are used to allocate users to your account.
 
 There are four license types in dbt:
 
 * **Analyst**\* — Available on [Enterprise and Enterprise+ plans only](https://www.getdbt.com/pricing).
-
-  <!-- -->
 
   * User can be granted *any* permission sets.
   * \* The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
@@ -17,15 +15,11 @@ There are four license types in dbt:
 
 * **IT** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing). User has Security Admin and Billing Admin [permissions](./enterprise-permissions.md#permission-sets) applied, as well as permissions to edit **Connections** in the **Account settings** page.
 
-  <!-- -->
-
   * Can manage users, groups, connections, and licenses, among other permissions.
   * *IT licensed users do not inherit rights from any permission sets*.
   * Every IT licensed user has the same access across the account, regardless of the group permissions assigned.
 
 * **Read-Only** — Available on [Starter, Enterprise, and Enterprise+ plans only](https://www.getdbt.com/pricing).
-
-  <!-- -->
 
   * User has read-only permissions applied to all dbt resources.
   * Intended to view the [artifacts](../../deploy/artifacts.md) and the [deploy](../../deploy/deployments.md) section (jobs, runs, schedules) in a dbt account, but can’t make changes.
@@ -49,19 +43,11 @@ The user's assigned license determines the specific capabilities they can access
 | Use [Docs](../../explore/build-and-view-your-docs.md)          | ✅                                  | ✅              | ❌            |
 | Receive [Job notifications](../../deploy/job-notifications.md) | ✅                                  | ✅              | ✅            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 \*The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
 \*\*Available on Starter, Enterprise, and Enterprise+ plans only. IT seats are limited to 1 seat per Starter or Enterprise-tier account and don't count toward developer seat usage.
 
-## Licenses[​](#licenses "Direct link to Licenses")
-
-<!-- -->
+## Licenses
 
 License types override group permissions
 
@@ -75,8 +61,7 @@ If you have a Developer plan account and want to add more people to your team, y
 
 The following tabs detail steps on how to modify your user license count:
 
-* Enterprise-tier plans
-* Starter plans
+### Enterprise-tier plans
 
 If you're on an Enterprise-tier plan and have the correct [permissions](./enterprise-permissions.md), you can add or remove licenses by adjusting your user seat count. Note, an IT license does not count toward seat usage.
 
@@ -91,6 +76,8 @@ If you're on an Enterprise-tier plan and have the correct [permissions](./enterp
   * Click the [**Invite Users**](./invite-users.md) button.
   * For fine-grained permission configuration, refer to [Role based access control](./about-user-access.md#role-based-access-control-).
 
+### Starter plans
+
 If you're on a Starter plan and have the correct [permissions](./self-service-permissions.md), you can add or remove developers.
 
 Refer to [Self-service Starter account permissions](./self-service-permissions.md#licenses) for more information on the number of each license type included in the Starter plan.
@@ -102,8 +89,7 @@ You'll need to make two changes:
 
 You can add or remove developers by increasing or decreasing the number of users and billable seats in your account settings:
 
-* Adding users
-* Deleting users
+### Adding users
 
 To add a user in dbt, you must be an account owner or have admin privileges.
 
@@ -120,6 +106,8 @@ To add a user in dbt, you must be an account owner or have admin privileges.
 Now that you've updated your billing, you can now [invite users](./invite-users.md) to join your dbt account:
 
 Great work! After completing those these steps, your dbt user count and billing count should now be the same.
+
+### Deleting users
 
 To delete a user in dbt, you must be an account owner or have admin privileges. If the user has a `developer` license type, this will open up their seat for another user or allow the admins to lower the total number of seats.
 
@@ -143,11 +131,11 @@ If you are on a **Starter** plan and you're deleting users to reduce the number 
 
 Great work! After completing these steps, your dbt user count and billing count should now be the same.
 
-## Managing license types[​](#managing-license-types "Direct link to Managing license types")
+## Managing license types
 
 Licenses can be assigned to users individually or through group membership. To assign a license via group membership, you can manually add a user to a group during the invitation process or assign them to a group after they’ve enrolled in dbt. Alternatively, with [SSO configuration](./sso-overview.md) and [role-based access control](./about-user-access.md#role-based-access-control-) (Enterprise-tier only), users can be automatically assigned to groups. By default, new users in an account are assigned a Developer license.
 
-### Manual configuration[​](#manual-configuration "Direct link to Manual configuration")
+### Manual configuration
 
 To manually assign a specific type of license to a user on your team:
 
@@ -160,11 +148,11 @@ To manually assign a specific type of license to a user on your team:
 
 [![Manually assigning licenses](/img/docs/dbt-platform/access-control/license-manual.png?v=2 "Manually assigning licenses")](#)Manually assigning licenses
 
-### Mapped configuration [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#mapped-configuration- "Direct link to mapped-configuration-")
+### Mapped configuration [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 If your account is connected to an Identity Provider (IdP) for [Single Sign On](./sso-overview.md), you can automatically map IdP user groups to specific license types in dbt. For SCIM-based license mapping with Okta, see [Automated license mapping](./scim-manage-user-licenses.md#automated-license-mapping).
 
-#### Configure license mappings[​](#configure-license-mappings "Direct link to Configure license mappings")
+#### Configure license mappings
 
 1. Click on your account name in the left side menu and select **Account settings**.
 2. Navigate to **Groups & Licenses** and scroll to the **License mappings** section.
@@ -173,13 +161,13 @@ If your account is connected to an Identity Provider (IdP) for [Single Sign On](
 
 [![Configuring IdP group license mapping](/img/docs/dbt-platform/access-control/license-mapping.png?v=2 "Configuring IdP group license mapping")](#)Configuring IdP group license mapping
 
-#### Fundamental licensing rules[​](#fundamental-licensing-rules "Direct link to Fundamental licensing rules")
+#### Fundamental licensing rules
 
 * **Default assignment**: All new members of a dbt account are assigned a Developer license unless you configure otherwise.
 * **Mapping basis**: License type mappings are based on *IdP groups* (groups in your identity provider), not *dbt groups*. Check group memberships in your IdP when configuring or troubleshooting.
 * **When changes take effect**: License types are adjusted when users sign into dbt using single sign-on. Changes to license type mappings take effect the next time users sign in.
 
-#### Mapping logic and precedence[​](#mapping-logic-and-precedence "Direct link to Mapping logic and precedence")
+#### Mapping logic and precedence
 
 When a user belongs to multiple IdP groups, the Developer license takes precedence. The following table shows how group membership determines the assigned license:
 
@@ -190,16 +178,18 @@ When a user belongs to multiple IdP groups, the Developer license takes preceden
 | Yes                                  | No                                   | Developer                              |
 | Yes                                  | Yes                                  | Developer (Developer takes precedence) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 note
 
 If a user's IdP groups do not match *any* license type mappings, dbt assigns a Developer license by default.
 
-## Granular permissioning[​](#granular-permissioning "Direct link to Granular permissioning")
+## Granular permissioning [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 dbt Enterprise-tier plans support role-based access controls for configuring granular in-app permissions. See [access control](./about-user-access.md) for more information on Enterprise permissioning.
+
+#### Read-Only granular permissions
+
+dbt Enterprise-tier plans support granular permissions to help you control which projects your Read-Only users can access by assigning them to specific groups, rather than granting access to the entire account.
+
+Enabling granular permissions is a one-time, permanent change. Before you enable this, make sure your Read-Only users are in a group with a Read-Only permission set that covers all projects. If a user isn't in a group, or their group's permission set only covers some projects, they'll lose access to the projects that aren't covered.
+
+For complete setup instructions, refer to [How to enable granular permissions for read-only users](./about-user-access.md#enable-granular-permissions-for-read-only-users) for the full setup steps.

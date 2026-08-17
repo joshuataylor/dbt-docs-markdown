@@ -10,7 +10,7 @@ dbt Wizard is an AI-powered assistant fully integrated into your dbt experience 
 
 dbt Labs is committed to protecting your privacy and data. This page provides information about how dbt Wizard handles your data. For more information, check out the [dbt Labs AI development principles](https://www.getdbt.com/legal/ai-principles) page.
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
  What is dbt Wizard?
 
@@ -55,7 +55,7 @@ dbt Copilot features include quick-action buttons in Studio IDE, the Copilot pan
 
 Yes, as a temporary compatibility bridge through July 13, 2026 or longer (timeline subject to change).
 
-## Availability[​](#availability "Direct link to Availability")
+## Availability
 
  Who has access to dbt Wizard?
 
@@ -73,7 +73,7 @@ Refer to [Use dbt Wizard locally](./wizard-quickstart.md) for more information.
 
 Yes, dbt Wizard is powered by ai-codegen-api, which is deployed everywhere including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
 
-## How it works[​](#how-it-works "Direct link to How it works")
+## How it works
 
  What data/code is used to train the AI model supporting dbt Wizard?
 
@@ -91,7 +91,7 @@ In dbt platform, the dbt Wizard BYOK option is currently an account-only configu
 
 dbt Wizard CLI supports BYOK locally for OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview).
 
-## Privacy and data[​](#privacy-and-data "Direct link to Privacy and data")
+## Privacy and data
 
  Does dbt Wizard store or use personal data?
 
@@ -113,7 +113,7 @@ dbt Wizard is governed by our [Terms of Use](https://www.getdbt.com/terms-of-use
 
 Clients who signed with terms after January 2024 don't need additional terms prior to enabling dbt Wizard. Longer term clients have also protected their data through confidentiality and data deletion obligations. In the event clients prefer additional terms, clients may enter into the presigned AI & Beta Addendum (the dbt Labs signature will be dated as of the date the client signs).
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
  What are the considerations for using dbt Wizard?
 
@@ -121,7 +121,7 @@ Clients who signed with terms after January 2024 don't need additional terms pri
 
 Future releases are planned that may bring dbt Wizard to even more parts of the dbt application.
 
-## dbt Wizard allowlisting URLs[​](#dbt-wizard-allowlisting-urls "Direct link to dbt Wizard allowlisting URLs")
+## dbt Wizard allowlisting URLs
 
  Allowlisting URLs
 

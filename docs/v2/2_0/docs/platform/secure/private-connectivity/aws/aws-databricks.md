@@ -1,8 +1,6 @@
 # Configuring Databricks PrivateLink
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,9 +13,9 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of a Databricks AWS PrivateLink endpoint in the dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Databricks<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Databricks) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
-## Configure AWS PrivateLink[​](#configure-aws-privatelink "Direct link to Configure AWS PrivateLink")
+## Configure AWS PrivateLink
 
 1. Locate your [Databricks instance name](https://docs.databricks.com/en/workspace/workspace-details.html#workspace-instance-names-urls-and-ids).
 
@@ -51,7 +49,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
    "After creating (or updating) a workspace, wait until it’s available for using or creating clusters. The workspace status stays at status RUNNING and the VPC change happens immediately. However, you cannot use or create clusters for another 20 minutes. If you create or use clusters before this time interval elapses, clusters do not launch successfully, fail, or could cause other unexpected behavior."
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once you've completed the setup in the Databricks environment, you can configure a private endpoint in dbt:
 

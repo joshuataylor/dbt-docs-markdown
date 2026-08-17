@@ -1,6 +1,6 @@
 # About dbt environment command
 
-dbt platformⓘ
+dbt platform
 
 info
 
@@ -13,7 +13,7 @@ The `dbt environment` command enables you to interact with your dbt environment.
 
 This guide lists all the commands and options you can use with `dbt environment` in the [dbt CLI](../../docs/platform/dbt-cli-installation.md). To use them, add a command or option like this: `dbt environment [command]` or use the shorthand `dbt env [command]`.
 
-### dbt environment show[​](#dbt-environment-show "Direct link to dbt environment show")
+### dbt environment show
 
 The `show` command allows you to view your local and dbt configuration details. To run the command with the dbt CLI, enter one of the following commands, including the shorthand:
 
@@ -61,7 +61,7 @@ Snowflake Connection Details:
 
 Note, that dbt won't return anything that is a secret key and will return an 'NA' for any field that isn't configured.
 
-### dbt environment flags[​](#dbt-environment-flags "Direct link to dbt environment flags")
+### dbt environment flags
 
 Use the following flags (or options) with the `dbt environment` command:
 

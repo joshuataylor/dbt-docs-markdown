@@ -1,12 +1,12 @@
 # Set up SCIM with Okta
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 SCIM available for Okta
 
 System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-manage-user-licenses.md) is currently only supported for Okta. For other providers, license types must be [managed](./seats-and-users.md#mapped-configuration) within the dbt platform user interface.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * Available on [Enterprise or Enterprise+ plans](https://www.getdbt.com/pricing).
 * You must use Okta as your single sign-on (SSO) provider and have it connected in the dbt platform.
@@ -14,7 +14,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
 * Complete [setup SSO with Okta](./set-up-sso-okta.md) before configuring SCIM settings.
 * Complete the [Set up SCIM](./scim.md#set-up-dbt) to get your SCIM base URL and token.
 
-## Set up Okta[​](#set-up-okta "Direct link to Set up Okta")
+## Set up Okta
 
 1. Log in to your Okta account and select **Applications** from the sidebar. Open the application you configured for SSO.
 
@@ -58,7 +58,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
 
 13. To complete your group setup, go to **Push Groups** and push your Okta groups to dbt platform. This makes the groups available in dbt platform.
 
-## Assign permission sets to SCIM groups[​](#assign-permission-sets-to-scim-groups "Direct link to Assign permission sets to SCIM groups")
+## Assign permission sets to SCIM groups
 
 SCIM syncs groups and memberships into dbt platform, but it does not assign [permission sets](./enterprise-permissions.md). Without a permission set, group members will not have access to features beyond their user profile.
 
@@ -72,7 +72,7 @@ Repeat for each SCIM-synced group that needs access.
 
 You've now configured SCIM for the Okta SSO integration in dbt platform. You can [manage user licenses with SCIM](./scim-manage-user-licenses.md) to set license type for users as they are provisioned.
 
-## SCIM username format[​](#scim-username-format "Direct link to SCIM username format")
+## SCIM username format
 
 For dbt platform SCIM with Okta, `userName` **must be the email address format**. dbt platform uses `userName` to look up existing users during SCIM sync. If Okta sends another format (such as an Okta internal ID like `00u...` or an employee ID), dbt platform cannot match the existing user, and provisioning will fail.
 
@@ -87,11 +87,11 @@ SSO and SCIM username
 
 When you use both SSO and SCIM with Okta, the SAML **Application username** format must be **Email**. SCIM requires `userName` in email address format, and it must be the same value as the email attribute so users match between SSO and provisioning.
 
-## SCIM license mapping[​](#scim-license-mapping "Direct link to SCIM license mapping")
+## SCIM license mapping
 
 To automate seat assignments in Okta for users as they are provisioned, see [Manage user licenses with SCIM](./scim-manage-user-licenses.md).
 
-## Existing Okta integrations[​](#existing-okta-integrations "Direct link to Existing Okta integrations")
+## Existing Okta integrations
 
 If you are adding SCIM to an existing Okta integration in dbt platform (as opposed to setting up SCIM and SSO concurrently for the first time), be aware of the following behavior. Refer to [SCIM FAQ](./scim-faq.md) for more details on what happens to pre-existing users:
 
@@ -99,14 +99,12 @@ If you are adding SCIM to an existing Okta integration in dbt platform (as oppos
 
 * (Recommended) Import and manage existing dbt groups and users with Okta's **Import Groups** and **Import Users** features. Update the groups in your IdP with the same naming convention used for dbt groups. New users, groups, and changes to existing profiles will be automatically imported into dbt.
 
-  <!-- -->
-
   * Ensure the **Import users and profile updates** and **Import Groups** boxes are selected under the **Provisioning settings** tab in the Okta SCIM configuration.
   * Use **Import Users** to sync all users from dbt, including previously deleted users, if you need to re-provision those users.
   * Read more about this feature in the [Okta documentation](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-import-groups-app-provisioning.htm).
 
 To set license type for users as they are provisioned, see [Manage user licenses with SCIM](./scim-manage-user-licenses.md).
 
-## FAQ and troubleshooting[​](#faq-and-troubleshooting "Direct link to FAQ and troubleshooting")
+## FAQ and troubleshooting
 
 For common questions about SCIM provisioning with Okta — including onboarding workflows, SSO group mapping behavior, and troubleshooting, refer to [SCIM FAQs and troubleshooting](./scim-faq.md).

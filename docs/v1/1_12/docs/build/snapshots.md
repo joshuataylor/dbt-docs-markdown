@@ -1,30 +1,16 @@
 # Add snapshots to your DAG
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [Snapshot configurations](../../reference/snapshot-configs.md)
 * [Snapshot properties](../../reference/snapshot-properties.md)
 * [`snapshot` command](../../reference/commands/snapshot.md)
 
-<!-- -->
-
 Learn by video!
 
-For video tutorials on
+For video tutorials on Snapshots, go to dbt Learn and check out the [Snapshots course](https://learn.getdbt.com/courses/snapshots).
 
-<!-- -->
-
-Snapshots
-
-<!-- -->
-
-, go to dbt Learn and check out the [Snapshots](https://learn.getdbt.com/courses/snapshots)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/snapshots).
-
-## What are snapshots?[​](#what-are-snapshots "Direct link to What are snapshots?")
+## What are snapshots?
 
 Analysts often need to "look back in time" at previous data states in their mutable tables. While some source data systems are built in a way that makes accessing historical data possible, this is not always the case. dbt provides a mechanism, **snapshots**, which records changes to a mutable table over time.
 
@@ -34,23 +20,11 @@ Snapshots implement [type-2 Slowly Changing Dimensions](https://en.wikipedia.org
 | -- | ------- | ----------- |
 | 1  | pending | 2024-01-01  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Now, imagine that the order goes from "pending" to "shipped". That same record will now look like:
 
 | id | status  | updated\_at |
 | -- | ------- | ----------- |
 | 1  | shipped | 2024-01-02  |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 This order is now in the "shipped" state, but we've lost the information about when the order was last in the "pending" state. This makes it difficult (or impossible) to analyze how long it took for an order to ship. dbt can "snapshot" these changes to help you understand how values in a row change over time. Here's an example of a snapshot table for the previous example:
 
@@ -59,13 +33,9 @@ This order is now in the "shipped" state, but we've lost the information about w
 | 1  | pending | 2024-01-01  | 2024-01-01       | 2024-01-02     |
 | 1  | shipped | 2024-01-02  | 2024-01-02       | `null`         |
 
-Search table...
+## Configuring snapshots
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Configuring snapshots[​](#configuring-snapshots "Direct link to Configuring snapshots")
+(Applies to dbt v1.9 and later)
 
 Configure your snapshots in YAML files to tell dbt how to detect record changes. Define snapshots configurations in YAML files, alongside your models, for a cleaner, faster, and more consistent set up. Place snapshot YAML files in the models directory or in a snapshots directory.
 
@@ -104,19 +74,13 @@ The following table outlines the configurations available for snapshots:
 | [snapshot\_meta\_column\_names](../../reference/resource-configs/snapshot_meta_column_names.md) | Customize the names of the snapshot meta fields                                                                                                                                                                                                                              | No                                     | dictionary                       |
 | [hard\_deletes](../../reference/resource-configs/hard-deletes.md)                               | Specify how to handle deleted rows from the source. Supported options are `ignore` (default), `invalidate` (replaces the legacy `invalidate_hard_deletes=true`), and `new_record`.                                                                                           | No                                     | string                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 * In v1.9, `target_schema` became optional, allowing snapshots to be environment-aware. By default, without `target_schema` or `target_database` defined, snapshots now use the `generate_schema_name` or `generate_database_name` macros to determine where to build.
 * Developers can still set a custom location with [`schema`](../../reference/resource-configs/schema.md) and [`database`](../../reference/resource-configs/database.md) configs, consistent with other resource types.
 * A number of other configurations are also supported (for example, `tags` and `post-hook`). For the complete list, refer to [Snapshot configurations](../../reference/snapshot-configs.md).
 * You can configure snapshots from both the `dbt_project.yml` file and a `config` block. For more information, refer to the [configuration docs](../../reference/snapshot-configs.md).
 * Starting dbt Core v1.12, you can inspect the SQL generated for snapshots by running [`dbt compile`](../../reference/commands/compile.md). You can find compiled SQL files in the `target/compiled/` directory of your dbt project.
 
-### Add a snapshot to your project[​](#add-a-snapshot-to-your-project "Direct link to Add a snapshot to your project")
+### Add a snapshot to your project
 
 To add a snapshot to your project follow these steps. For users on versions 1.8 and earlier, refer to [Legacy snapshot configurations](../../reference/resource-configs/snapshots-jinja-legacy.md).
 
@@ -200,7 +164,7 @@ To add a snapshot to your project follow these steps. For users on versions 1.8 
 
 8. Snapshots are only useful if you run them frequently — schedule the `dbt snapshot` command to run regularly.
 
-### Configuration best practices[​](#configuration-best-practices "Direct link to Configuration best practices")
+### Configuration best practices
 
  Use the timestamp strategy where possible
 
@@ -224,6 +188,8 @@ This allows for straightforward date range filtering.
 
 The unique key is used by dbt to match rows up, so it's extremely important to make sure this key is actually unique! If you're snapshotting a source, I'd recommend adding a uniqueness test to your source ([example](https://github.com/dbt-labs/jaffle_shop/blob/8e7c853c858018180bef1756ec93e193d9958c5b/models/staging/schema.yml#L26)).
 
+(Applies to dbt v1.9 and later)
+
  Use a schema that is separate to your models' schema
 
 Snapshots can't be rebuilt. Because of this, it's a good idea to put snapshots in a separate schema so end users know they're special. From there, you may want to set different privileges on your snapshots compared to your models, and even run them as a different user (or role, depending on your warehouse) to make it very difficult to drop a snapshot unless you really want to.
@@ -232,7 +198,7 @@ Snapshots can't be rebuilt. Because of this, it's a good idea to put snapshots i
 
 If you need to clean or transform your data before snapshotting, create an ephemeral model or a staging model that applies the necessary transformations. Then, reference this model in your snapshot configuration. This approach keeps your snapshot definitions clean and allows you to test and run transformations separately.
 
-### How snapshots work[​](#how-snapshots-work "Direct link to How snapshots work")
+### How snapshots work
 
 When you run the [`dbt snapshot` command](../../reference/commands/snapshot.md):
 
@@ -240,12 +206,12 @@ When you run the [`dbt snapshot` command](../../reference/commands/snapshot.md):
 
 * **On subsequent runs:** dbt will check which records have changed or if any new records have been created:
 
-  <!-- -->
-
   * The `dbt_valid_to` column will be updated for any existing records that have changed.
   * The updated record and any new records will be inserted into the snapshot table. These records will now have `dbt_valid_to = null` or the value configured in `dbt_valid_to_current` (available in dbt Core v1.9+).
 
-#### Note[​](#note "Direct link to Note")
+(Applies to dbt v1.9 and later)
+
+#### Note
 
 * These column names can be customized to your team or organizational conventions using the [snapshot\_meta\_column\_names](#snapshot-meta-fields) config.
 * Use the `dbt_valid_to_current` config to set a custom indicator for the value of `dbt_valid_to` in current snapshot records (like a future date such as `9999-12-31`). By default, this value is `NULL`. When set, dbt will use this specified value instead of `NULL` for `dbt_valid_to` for current records in the snapshot table.
@@ -253,14 +219,14 @@ When you run the [`dbt snapshot` command](../../reference/commands/snapshot.md):
 
 Snapshots can be referenced in downstream models the same way as referencing models — by using the [ref](../../reference/dbt-jinja-functions/ref.md) function.
 
-## Detecting row changes[​](#detecting-row-changes "Direct link to Detecting row changes")
+## Detecting row changes
 
 Snapshot "strategies" define how dbt knows if a row has changed. There are two strategies built-in to dbt:
 
 * [Timestamp](#timestamp-strategy-recommended) — Uses an `updated_at` column to determine if a row has changed.
 * [Check](#check-strategy) — Compares a list of columns between their current and historical values to determine if a row has changed.
 
-### Timestamp strategy (recommended)[​](#timestamp-strategy-recommended "Direct link to Timestamp strategy (recommended)")
+### Timestamp strategy (recommended)
 
 The `timestamp` strategy uses an `updated_at` field to determine if a row has changed. If the configured `updated_at` column for a row is more recent than the last time the snapshot ran, then dbt will invalidate the old record and record the new one. If the timestamps are unchanged, then dbt will not take any action.
 
@@ -276,13 +242,9 @@ The `timestamp` strategy requires the following configurations:
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | updated\_at | A column which represents when the source row was last updated. May support ISO date strings and unix epoch integers, depending on the data platform you use. | `updated_at` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 **Example usage:**
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot.yml
 
@@ -297,7 +259,7 @@ snapshots:
       updated_at: updated_at
 ```
 
-### Check strategy[​](#check-strategy "Direct link to Check strategy")
+### Check strategy
 
 The `check` strategy is useful for tables which do not have a reliable `updated_at` column. This strategy works by comparing a list of columns between their current and historical values. If any of these columns have changed, then dbt will invalidate the old record and record the new one. If the column values are identical, then dbt will not take any action.
 
@@ -307,17 +269,13 @@ The `check` strategy requires the following configurations:
 | ----------- | --------------------------------------------------------------------- | ------------------- |
 | check\_cols | A list of columns to check for changes, or `all` to check all columns | `["name", "email"]` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 check\_cols = 'all'
 
 The `check` snapshot strategy can be configured to track changes to *all* columns by supplying `check_cols = 'all'`. It is better to explicitly enumerate the columns that you want to check. Consider using a surrogate key to condense many columns into a single column.
 
-#### Example usage[​](#example-usage "Direct link to Example usage")
+#### Example usage
+
+(Applies to dbt v1.9 and later)
 
 snapshots/orders\_snapshot.yml
 
@@ -334,7 +292,7 @@ snapshots:
         - is_cancelled
 ```
 
-#### Example usage with `updated_at`[​](#example-usage-with-updated_at "Direct link to example-usage-with-updated_at")
+#### Example usage with `updated_at`
 
 When using the `check` strategy, dbt tracks changes by comparing values in `check_cols`. By default, dbt uses the timestamp to update `dbt_updated_at`, `dbt_valid_from` and `dbt_valid_to` fields. Optionally you can set an `updated_at` column:
 
@@ -363,7 +321,9 @@ In this example:
 * If `updated_at` isn’t set, then dbt automatically falls back to [using the current timestamp](#sample-results-for-the-check-strategy) to track changes.
 * Use this approach when your `updated_at` column isn't reliable for tracking record updates, but you still want to use it — rather than the snapshot's execution time — whenever row changes are detected.
 
-### Hard deletes (opt-in)[​](#hard-deletes-opt-in "Direct link to Hard deletes (opt-in)")
+### Hard deletes (opt-in)
+
+(Applies to dbt v1.9 and later)
 
 In dbt v1.9 and higher, the [`hard_deletes`](../../reference/resource-configs/hard-deletes.md) config replaces the `invalidate_hard_deletes` config to give you more control on how to handle deleted rows from the source. The `hard_deletes` config is not a separate strategy but an additional opt-in feature that can be used with any snapshot strategy.
 
@@ -374,12 +334,6 @@ The `hard_deletes` config has three options/fields:
 | `ignore` (default) | No action for deleted records.                                                                                                    |
 | `invalidate`       | Behaves the same as the existing `invalidate_hard_deletes=true`, where deleted records are invalidated by setting `dbt_valid_to`. |
 | `new_record`       | Tracks deleted records as new rows using the `dbt_is_deleted` [meta field](#snapshot-meta-fields) when records are deleted.       |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
  When to use the hard\_deletes and invalidate\_hard\_deletes config?
 
@@ -395,7 +349,7 @@ Search table...
 * You want to explicitly track deletions by adding new rows with a `dbt_is_deleted` column (explicit delete).
 * You are working with larger datasets where explicitly tracking deleted records improves data lineage clarity.
 
-#### Example usage[​](#example-usage-1 "Direct link to Example usage")
+#### Example usage
 
 snapshots/orders\_snapshot.yml
 
@@ -422,13 +376,7 @@ The resulting table will look like this:
 | 1  | deleted  | 2024-01-01 11:20 | 2024-01-01 11:20 | 2024-01-01 12:00 | True             |
 | 1  | restored | 2024-01-01 12:00 | 2024-01-01 12:00 |                  | False            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Snapshot meta-fields[​](#snapshot-meta-fields "Direct link to Snapshot meta-fields")
+## Snapshot meta-fields
 
 Snapshot tables will be created as a clone of your source dataset, plus some additional meta-fields.
 
@@ -446,17 +394,11 @@ In dbt Core v1.9+ (or available sooner in [the **Latest** release track in dbt](
 | `dbt_updated_at` | The source record's change timestamp when this snapshot row was inserted.                                                                        | Used internally by dbt. [Strategy and meta-field timestamps](#strategy-and-meta-field-timestamps) describes which value populates this column for each strategy.                                                                                | `snapshot_meta_column_names: {dbt_updated_at: modified_date}` |
 | `dbt_is_deleted` | A string value indicating if the record has been deleted. (`True` if deleted, `False` if not deleted).                                           | Added when `hard_deletes='new_record'` is configured.                                                                                                                                                                                           | `snapshot_meta_column_names: {dbt_is_deleted: is_deleted}`    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 All of these column names can be customized using the `snapshot_meta_column_names` config. Refer to this [example](../../reference/resource-configs/snapshot_meta_column_names.md#example) for more details.
 
 On insert, `dbt_valid_from` and `dbt_updated_at` are set from the same value. They represent validity start and recorded change time, respectively.
 
-### Strategy and meta-field timestamps[​](#strategy-and-meta-field-timestamps "Direct link to Strategy and meta-field timestamps")
+### Strategy and meta-field timestamps
 
 The timestamps used for each column depend on the strategy you use:
 
@@ -470,35 +412,17 @@ The timestamps used for each column depend on the strategy you use:
   | -- | ------- | ---------------- |
   | 1  | pending | 2024-01-01 10:47 |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   Snapshot results (note that `11:00` is not used anywhere):
 
   | id | status  | updated\_at      | dbt\_valid\_from | dbt\_valid\_to | dbt\_updated\_at |
   | -- | ------- | ---------------- | ---------------- | -------------- | ---------------- |
   | 1  | pending | 2024-01-01 10:47 | 2024-01-01 10:47 |                | 2024-01-01 10:47 |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   Query results at `2024-01-01 11:30`:
 
   | id | status  | updated\_at      |
   | -- | ------- | ---------------- |
   | 1  | shipped | 2024-01-01 11:05 |
-
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
 
   Snapshot results (note that `11:30` is not used anywhere):
 
@@ -507,12 +431,6 @@ The timestamps used for each column depend on the strategy you use:
   | 1  | pending | 2024-01-01 10:47 | 2024-01-01 10:47 | 2024-01-01 11:05 | 2024-01-01 10:47 |
   | 1  | shipped | 2024-01-01 11:05 | 2024-01-01 11:05 |                  | 2024-01-01 11:05 |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   Snapshot results with `hard_deletes='new_record'`:
 
   | id | status  | updated\_at      | dbt\_valid\_from | dbt\_valid\_to   | dbt\_updated\_at | dbt\_is\_deleted |
@@ -520,12 +438,6 @@ The timestamps used for each column depend on the strategy you use:
   | 1  | pending | 2024-01-01 10:47 | 2024-01-01 10:47 | 2024-01-01 11:05 | 2024-01-01 10:47 | False            |
   | 1  | shipped | 2024-01-01 11:05 | 2024-01-01 11:05 | 2024-01-01 11:20 | 2024-01-01 11:05 | False            |
   | 1  | deleted | 2024-01-01 11:20 | 2024-01-01 11:20 |                  | 2024-01-01 11:20 | True             |
-
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
 
 * For the `check` strategy, the current timestamp is used to populate each column. If configured, the `check` strategy uses the `updated_at` column instead, as with the timestamp strategy.
 
@@ -537,23 +449,11 @@ The timestamps used for each column depend on the strategy you use:
   | -- | ------- |
   | 1  | pending |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   Snapshot results:
 
   | id | status  | dbt\_valid\_from | dbt\_valid\_to | dbt\_updated\_at |
   | -- | ------- | ---------------- | -------------- | ---------------- |
   | 1  | pending | 2024-01-01 11:00 |                | 2024-01-01 11:00 |
-
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
 
   Query results at `2024-01-01 11:30`:
 
@@ -561,24 +461,12 @@ The timestamps used for each column depend on the strategy you use:
   | -- | ------- |
   | 1  | shipped |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
   Snapshot results:
 
   | id | status  | dbt\_valid\_from | dbt\_valid\_to   | dbt\_updated\_at |
   | -- | ------- | ---------------- | ---------------- | ---------------- |
   | 1  | pending | 2024-01-01 11:00 | 2024-01-01 11:30 | 2024-01-01 11:00 |
   | 1  | shipped | 2024-01-01 11:30 |                  | 2024-01-01 11:30 |
-
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
 
   Snapshot results with `hard_deletes='new_record'`:
 
@@ -588,13 +476,7 @@ The timestamps used for each column depend on the strategy you use:
   | 1  | shipped | 2024-01-01 11:30 | 2024-01-01 11:40 | 2024-01-01 11:30 | False            |
   | 1  | deleted | 2024-01-01 11:40 |                  | 2024-01-01 11:40 | True             |
 
-  Search table...
-
-  |                  |   |   |   |   |
-  | ---------------- | - | - | - | - |
-  | Loading table... |   |   |   |   |
-
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 How do I run one snapshot at a time?
 

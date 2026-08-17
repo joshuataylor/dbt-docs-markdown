@@ -4,7 +4,7 @@ Develop dbt projects using the dbt platform, a faster and more reliable way to d
 
 You can develop in your browser using a dbt-powered command line interface (CLI), an integrated development environment (Studio IDE), or Canvas.
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 To get started, you'll need a [dbt](https://www.getdbt.com/signup) account and a developer license. For a more comprehensive guide about developing in dbt, refer to the [quickstart guides](../get-started-dbt.md).
 

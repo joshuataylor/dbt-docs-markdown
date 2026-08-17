@@ -1,10 +1,10 @@
 # About network security
 
-dbt platformⓘ
+dbt platform
 
 Network security in dbt gives you control over how traffic flows between dbt and your infrastructure. Choose the approach that best fits your security requirements.
 
-## Choose your connectivity approach[​](#choose-your-connectivity-approach "Direct link to Choose your connectivity approach")
+## Choose your connectivity approach
 
 [![](/img/icons/dbt-bit.svg)](./ip-restrictions.md)
 

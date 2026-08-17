@@ -6,15 +6,15 @@ dbt\_project.yml
 function-paths: [directorypath]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally specify a custom list of directories where [user-defined functions (UDFs)](../../docs/build/udfs.md) are located.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt will search for functions in the `functions` directory, for example, `function-paths: ["functions"]`
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 Use a subdirectory named `udfs` instead of `functions`:
 

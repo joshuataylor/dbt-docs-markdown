@@ -45,8 +45,6 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 2. Delete the self-hosted dbt MCP config files:
 
-   <!-- -->
-
    * macOS/Linux: `rm -f ~/.dbt/mcp.yml ~/.dbt/mcp.lock`
    * Windows: `Remove-Item -Force $env:USERPROFILE\.dbt\mcp.yml, $env:USERPROFILE\.dbt\mcp.lock`
 

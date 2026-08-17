@@ -1,6 +1,6 @@
 # Cloudera Hive configurations
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
+## Configuring tables
 
 When materializing a model as `table`, you may include several optional configs that are specific to the dbt-hive plugin, in addition to the standard [model configs](../model-configs.md).
 
@@ -15,20 +15,14 @@ When materializing a model as `table`, you may include several optional configs 
 | tbl\_properties | any metadata can be stored as key/value pair with the table                                                                      | No        | tbl\_properties="('dbt\_test'='1')"  |
 | table\_type     | indicates the type of the table                                                                                                  | No        | table\_type="iceberg"                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 Supported modes for incremental model:
 
 * **`append`** (default): Insert new records without updating or overwriting any existing data.
 * **`insert_overwrite`**: For new records, insert data. When used along with partition clause, update data for changed record and insert data for new records.
 
-## Example: Using partition\_by config option[​](#example-using-partition_by-config-option "Direct link to Example: Using partition_by config option")
+## Example: Using partition\_by config option
 
 hive\_partition\_by.sql
 

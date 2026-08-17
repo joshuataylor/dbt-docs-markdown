@@ -17,7 +17,7 @@ When sharing a final dbt model with other teams or systems, that model is operat
 
 Model versioning is a tool to tackle this problem, thoughtfully and head-on. The goal is not to make the problem go away entirely, nor to pretend it's easier or simpler than it is.
 
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 There are some considerations to keep in mind when using model governance features:
 
@@ -25,14 +25,14 @@ There are some considerations to keep in mind when using model governance featur
 
 * Governance features are model-specific. They don't apply to other resource types, including snapshots, seeds, or sources. This is because these objects can change structure over time (for example, snapshots capture evolving historical data) and aren't suited to guarantees like contracts, access, or versioning.
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [`versions`](../../../reference/resource-properties/versions.md)
 * [`latest_version`](../../../reference/resource-properties/latest_version.md)
 * [`include` and `exclude`](../../../reference/resource-properties/versions.md#include)
 * [`ref` with `version` argument](../../../reference/dbt-jinja-functions/ref.md#versioned-ref)
 
-## Why version a model?[​](#why-version-a-model "Direct link to Why version a model?")
+## Why version a model?
 
 If a model defines a ["contract"](./model-contracts.md) (a set of guarantees for its structure), it's also possible to change that model's structure in a way that breaks the previous set of guarantees. This could be as obvious as removing or renaming a column, or more subtle, like changing its data type or nullability.
 
@@ -50,7 +50,7 @@ dbt Core 1.6 introduced first-class support for **deprecating models** by specif
 
 There is a real trade-off that exists here—the cost to frequently migrate downstream code, and the cost (and clutter) of materializing multiple versions of a model in the data warehouse. Model versions do not make that problem go away, but by setting a deprecation date, and communicating a clear window for consumers to gracefully migrate off old versions, they put a known boundary on the cost of that migration.
 
-## When should you version a model?[​](#when-should-you-version-a-model "Direct link to When should you version a model?")
+## When should you version a model?
 
 By enforcing a model's contract, dbt can help you catch unintended changes to column names and data types that could cause a big headache for downstream queriers. If you're making these changes intentionally, you should create a new model version. If you're making a non-breaking change, you don't need a new version—such as adding a new column, or fixing a bug in an existing column's calculation.
 
@@ -62,7 +62,7 @@ The process of sunsetting and migrating model versions requires real work, and l
 
 Rather than constantly adding a new version for each small change, you should opt for a predictable cadence (once or twice a year, communicated well in advance) where you bump the "latest" version of your model, removing columns that are no longer being used.
 
-## How is this different from "version control"?[​](#how-is-this-different-from-version-control "Direct link to How is this different from \"version control\"?")
+## How is this different from "version control"?
 
 [Version control](../../platform/git/git-version-control.md) allows your team to collaborate simultaneously on a single code repository, manage conflicts between changes, and review changes before deploying into production. In that sense, version control is an essential tool for versioning the deployment of an entire dbt project—always the latest state of the `main` branch. In general, only one version of your project code is deployed into an environment at a time. If something goes wrong, you have the ability to roll back changes by reverting a commit or pull request, or by leveraging data platform capabilities around "time travel."
 
@@ -72,7 +72,7 @@ When you make updates to a model's source code — its logical definition, in SQ
 
 Multiple versions of a model will live in the same code repository at the same time, and be deployed into the same data environment simultaneously. This is similar to how web APIs are versioned: Multiple versions live simultaneously, two or three, and not more). Over time, newer versions come online, and older versions are sunsetted .
 
-## How is this different from just creating a new model?[​](#how-is-this-different-from-just-creating-a-new-model "Direct link to How is this different from just creating a new model?")
+## How is this different from just creating a new model?
 
 Honestly, it's only a little bit different! There isn't much magic here, and that's by design.
 
@@ -99,12 +99,6 @@ Let's say that `dim_customers` has three versions defined: `v2` is the "latest",
 | 3 | "prerelease" | `ref('dim_customers', v=3)`                                | `dim_customers_v3.sql`                            | `analytics.dim_customers_v3`                                                 |
 | 2 | "latest"     | `ref('dim_customers', v=2)` **and** `ref('dim_customers')` | `dim_customers_v2.sql` **or** `dim_customers.sql` | `analytics.dim_customers_v2` **and** `analytics.dim_customers` (recommended) |
 | 1 | "old"        | `ref('dim_customers', v=1)`                                | `dim_customers_v1.sql`                            | `analytics.dim_customers_v1`                                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 As you'll see in the implementation section below, a versioned model can reuse the majority of its YAML properties and configuration. Each version needs to only say how it *differs* from the shared set of attributes. This gives you, as the producer of a versioned model, the opportunity to highlight the differences across versions—which is otherwise difficult to detect in models with dozens or hundreds of columns—and to clearly track, in one place, all versions of the model which are currently live.
 
@@ -136,7 +130,7 @@ When that happens, this reference will resolve to my_model.v3 instead.
   Pin to  v2: {{ ref('my_dbt_project', 'my_model', v='2') }}
 ```
 
-## How to create a new version of a model[​](#how-to-create-a-new-version-of-a-model "Direct link to How to create a new version of a model")
+## How to create a new version of a model
 
 Most often, you'll start with a model that is not yet versioned. Let's go back in time to when `dim_customers` was a simple standalone model, with an enforced contract. For simplicity, let's pretend it has only two columns, `customer_id` and `country_name`, though most mature models will have many more.
 
@@ -198,8 +192,7 @@ select * from final
 
 Now, you could define properties and configuration for `dim_customers_v2` as a new standalone model, with no actual relation to `dim_customers` save a striking resemblance. Instead, we're going to declare that these are versions of the same model, both named `dim_customers`. We can define their properties in common, and then **just** highlight the diffs between them. (Or, you can choose to define each model version with full specifications, and repeat the values they have in common.)
 
-* Diffs only (recommended)
-* Fully specified
+### Diffs only (recommended)
 
 models/schema.yml
 
@@ -232,6 +225,8 @@ models:
             exclude: [country_name]
       
 ```
+
+### Fully specified
 
 models/schema.yml
 
@@ -275,7 +270,7 @@ The configuration above says: Instead of two unrelated models, I have two versio
 
 **Which version is "latest"?** If not specified explicitly, the `latest_version` would be `2`, because it's numerically greatest. In this case, we've explicitly specified that `latest_version: 1`. That means `v2` is a "prerelease," in early development and testing. When we're ready to roll out `v2` to everyone by default, we would bump `latest_version: 2`, or remove `latest_version` from the specification.
 
-### Configuring versioned models[​](#configuring-versioned-models "Direct link to Configuring versioned models")
+### Configuring versioned models
 
 You can reconfigure each version independently. For example, you could materialize `v2` as a table and `v1` as a view:
 
@@ -293,7 +288,7 @@ versions:
 
 Like with all config inheritance, any configs set *within* the versioned model's definition (`.sql` or `.py` file) will take precedence over the configs set in YAML.
 
-### Configuring database location with `alias`[​](#configuring-database-location-with-alias "Direct link to configuring-database-location-with-alias")
+### Configuring database location with `alias`
 
 Following the example, let's say you wanted `dim_customers_v1` to continue populating the database table named `dim_customers`. That's what the table was named previously, and you may have several other dashboards or tools expecting to read its data from `<dbname>.<schemaname>.dim_customers`.
 
@@ -306,6 +301,8 @@ models/schema.yml
         config:
           alias: dim_customers   # keep v1 in its original database location
 ```
+
+(Applies to dbt v1.11 and earlier)
 
 **The pattern we recommend:** Create a view or table clone with the model's canonical name that always points to the latest version. By following this pattern, you can offer the same flexibility as `ref`, even if someone is querying outside of dbt. Want a specific version? Pin to version X by adding the `_vX` suffix. Want the latest version? No suffix, and the view will redirect you.
 
@@ -374,9 +371,7 @@ dbt.exceptions.AmbiguousAliasError: Compilation Error
 
 We opted to use `generate_alias_name` for this functionality so that the logic remains accessible to end users, and could be reimplemented with custom logic.
 
-<!-- -->
-
-### Run a model with multiple versions[​](#run-a-model-with-multiple-versions "Direct link to Run a model with multiple versions")
+### Run a model with multiple versions
 
 To run a model with multiple versions, you can use the [`--select` flag](../../../reference/node-selection/syntax.md). For example:
 
@@ -403,7 +398,7 @@ To run a model with multiple versions, you can use the [`--select` flag](../../.
 
 These commands provide flexibility in managing and executing different versions of a dbt model.
 
-### Optimizing model versions[​](#optimizing-model-versions "Direct link to Optimizing model versions")
+### Optimizing model versions
 
 How you define each model version is completely up to you. While it's easy to start by copy-pasting from one model's SQL definition into another, you should think about *what actually is changing* from one version to another.
 
@@ -431,7 +426,7 @@ We expect to develop more opinionated recommendations as teams start adopting mo
 
 In the example above, the third point might be tricky. It's easier to *exclude* `country_name`, than it is to add it back in. Instead, we might need to keep around the full original logic for `dim_customers_v1`—but materialize it as a `view`, to minimize the data warehouse cost of building it. If downstream queriers see slightly degraded performance, it's still significantly better than broken queries, and all the more reason to migrate to the new "latest" version.
 
-## Coordinate model versioning[​](#coordinate-model-versioning "Direct link to Coordinate model versioning")
+## Coordinate model versioning
 
 Safely releasing a new model version requires coordination between model producers (who build the models) and model consumers (who depend on them).
 

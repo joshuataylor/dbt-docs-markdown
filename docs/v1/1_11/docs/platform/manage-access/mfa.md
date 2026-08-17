@@ -1,6 +1,6 @@
 # Multi-factor authentication
 
-dbt platformⓘ
+dbt platform
 
 important
 
@@ -9,12 +9,11 @@ dbt enforces multi-factor authentication (MFA) for all users with username and p
 dbt provides multiple options for multi-factor authentication (MFA), which adds an extra layer of security to username and password logins. MFA is available across dbt plans for users with username and password logins only. The available MFA methods are:
 
 * SMS verification code
-  <!-- -->
   * Currently, only phone numbers with the North American Numbering Plan (NANP) +1 country code are supported.
 * Authenticator app
 * Webauthn-compliant security key
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 You can only have one of the three MFA methods configured per user. These are enabled at the user level, not the account level.
 
@@ -52,13 +51,13 @@ Choose the next steps based on your preferred enrollment selection:
 
 4) You will be given a backup passcode, store it in a secure location. This key will be useful if the MFA method fails (like a lost or broken phone).
 
-## Account Recovery[​](#account-recovery "Direct link to Account Recovery")
+## Account Recovery
 
 When setting up MFA, ensure that you store your recovery codes in a secure location, in case your MFA method fails. If you are unable to access your account, reach out to <support@getdbt.com> for further support. You may need to create a new account if your account cannot be recovered.
 
 If possible, it's recommended to configure multiple MFA methods so that if one fails, there is a backup option.
 
-## Disclaimer[​](#disclaimer "Direct link to Disclaimer")
+## Disclaimer
 
 The terms below apply to dbt’s MFA via SMS program, that dbt Labs (“dbt Labs”, “we”, or “us”) uses to facilitate auto sending of authorization codes to users via SMS for dbt log-in requests.
 

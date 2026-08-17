@@ -1,6 +1,6 @@
 # Connect with managed repository
 
-dbt platformⓘ
+dbt platform
 
 Managed repositories are a great way to trial dbt without needing to create a new repository. If you don't already have a Git repository for your dbt project, you can let dbt host and manage a repository for you.
 
@@ -18,10 +18,10 @@ To set up a project with a managed repository:
 4. Select **Managed**.
 5. Enter a name for the repository. For example, "analytics" or "dbt-models."
 6. Click **Create**.
-   <!-- -->
+
    [![Adding a managed repository](/img/docs/dbt-platform/platform-configuring-dbt-platform/managed-repo.png?v=2 "Adding a managed repository")](#)Adding a managed repository
 
-## Download managed repository[​](#download-managed-repository "Direct link to Download managed repository")
+## Download managed repository
 
 To download a copy of your managed repository from dbt to your local machine:
 

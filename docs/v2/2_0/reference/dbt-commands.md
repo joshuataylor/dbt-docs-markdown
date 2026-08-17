@@ -7,7 +7,7 @@ You can run dbt using the following tools:
 
 A key distinction is that dbt CLI and Studio IDE are designed to support safe parallel execution of dbt commands, leveraging dbt platform's infrastructure and its comprehensive [features](../docs/platform/about-platform/dbt-platform-features.md). In contrast, dbt Core *doesn't support* safe parallel execution for multiple invocations in the same process. Learn more in the [parallel execution](#parallel-execution) section.
 
-## Parallel execution[​](#parallel-execution "Direct link to Parallel execution")
+## Parallel execution
 
 dbt platform allows for concurrent execution of commands, enhancing efficiency without compromising data integrity. This enables you to run multiple commands at the same time. However, it's important to understand which commands can be run in parallel and which can't.
 
@@ -22,13 +22,7 @@ dbt commands can be `read` or `write` commands:
 | **Write**    | These commands perform actions that change data or metadata in your data platform.<br /><br />Limited to one invocation at any given time, which prevents any potential conflicts, such as overwriting the same table in your data platform at the same time.                                                              | `dbt build`<br />`dbt run`     |
 | **Read**     | These commands involve operations that fetch or read data without making any changes to your data platform.<br /><br />Can have multiple invocations in parallel and aren't limited to one invocation at any given time. This means read commands can run in parallel with other read commands and a single write command. | `dbt parse`<br />`dbt compile` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Available commands[​](#available-commands "Direct link to Available commands")
+## Available commands
 
 The following sections outline the commands supported by dbt and their relevant flags. They are available in all tools and all [supported versions](../docs/dbt-versions.md) unless noted otherwise. You can run these commands in your specific tool by prefixing them with `dbt` — for example, to run the `test` command, type `dbt test`.
 
@@ -71,11 +65,5 @@ Some commands are not yet supported in the dbt Fusion engine or have limited fun
 | [system](./commands/system.md?version=2.0)               | Manages the CLI installation: update to a new version, uninstall, or pre-install ADBC adapter drivers | N/A                | Fusion only                                                                                                                             |
 | [test](./commands/test.md)                               | Executes tests defined in a project                                                                   | ✅                 | All tools<br />All [supported versions](../docs/dbt-versions.md)<br />Fusion flag `--warn-error` not yet supported |
 | [wizard](../docs/dbt-ai/wizard-cli-reference.md)                    | Starts an agentic dbt development session with dbt Wizard from the command line                       | N/A                | Local development<br />[All supported versions](../docs/dbt-versions.md)                                           |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Note, use the [`--version`](./commands/version.md) flag to display the installed dbt Core or dbt CLI version. (Not applicable for the Studio IDE). Available on all [supported versions](../docs/dbt-versions.md).

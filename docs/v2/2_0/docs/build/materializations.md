@@ -1,6 +1,6 @@
 # Materializations
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 Materializations are strategies for persisting dbt models in a warehouse. There are five types of materializations built into dbt. They are:
 
@@ -14,31 +14,15 @@ You can also configure [custom materializations](../../guides/create-new-materia
 
 For a detailed guide on materializations, refer to [Materializations best practices](../../best-practices/materializations/1-guide-overview.md). For information about data streaming, refer to [How to handle real-time data](../../best-practices/how-we-handle-real-time-data/1-intro.md).
 
-<!-- -->
-
 Learn by video!
 
-For video tutorials on
+For video tutorials on Materializations, go to dbt Learn and check out the [Materializations fundamentals course](https://learn.getdbt.com/courses/materializations-fundamentals).
 
-<!-- -->
-
-Materializations
-
-<!-- -->
-
-, go to dbt Learn and check out the [Materializations fundamentals](https://learn.getdbt.com/courses/materializations-fundamentals)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/materializations-fundamentals).
-
-## Configuring materializations[​](#configuring-materializations "Direct link to Configuring materializations")
+## Configuring materializations
 
 By default, dbt models are materialized as "views". Models can be configured with a different materialization by supplying the [`materialized` configuration](../../reference/resource-configs/materialized.md) parameter as shown in the following tabs.
 
-* Project file
-* Model file
-* Property file
+### Project file
 
 dbt\_project.yml
 
@@ -67,6 +51,8 @@ models:
       +materialized: view
 ```
 
+### Model file
+
 Alternatively, materializations can be configured directly inside of the model SQL files. This can be useful if you are also setting \[Performance Optimization] configs for specific models (for example, [Redshift specific configurations](../../reference/resource-configs/redshift-configs.md) or [BigQuery specific configurations](../../reference/resource-configs/bigquery-configs.md)).
 
 models/events/stg\_event\_log.sql
@@ -78,6 +64,8 @@ models/events/stg\_event\_log.sql
 select *
 from ...
 ```
+
+### Property file
 
 Materializations can also be configured in the model's `properties.yml` file. The following example shows the `table` materialization type. For a complete list of materialization types, refer to [materializations](./materializations.md#materializations).
 
@@ -91,9 +79,9 @@ models:
       materialized: table
 ```
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
-### View[​](#view "Direct link to View")
+### View
 
 When using the `view` materialization, your model is rebuilt as a view on each run, via a `create view as` statement.
 
@@ -106,7 +94,7 @@ When using the `view` materialization, your model is rebuilt as a view on each r
   * Generally start with views for your models, and only change to another materialization when you notice performance problems.
   * Views are best suited for models that do not do significant transformation, for example, renaming, or recasting columns.
 
-### Table[​](#table "Direct link to Table")
+### Table
 
 When using the `table` materialization, your model is rebuilt as a table on each run, via a `create table as` statement.
 
@@ -122,7 +110,7 @@ When using the `table` materialization, your model is rebuilt as a table on each
   * Use the table materialization for any models being queried by BI tools, to give your end user a faster experience
   * Also use the table materialization for any slower transformations that are used by many downstream models
 
-### Incremental[​](#incremental "Direct link to Incremental")
+### Incremental
 
 `incremental` models allow dbt to insert or update records into a table since the last time that model was run.
 
@@ -135,7 +123,7 @@ When using the `table` materialization, your model is rebuilt as a table on each
   * Incremental models are best for event-style data
   * Use incremental models when your `dbt run`s are becoming too slow (i.e. don't start with incremental models)
 
-### Ephemeral[​](#ephemeral "Direct link to Ephemeral")
+### Ephemeral
 
 `ephemeral` models are not directly built into the database. Instead, dbt will interpolate the code from an ephemeral model into its dependent models using a common table expression (CTE). You can control the identifier for this CTE using a [model alias](./custom-aliases.md), but dbt will always prefix the model identifier with `__dbt__cte__`.
 
@@ -153,13 +141,11 @@ When using the `table` materialization, your model is rebuilt as a table on each
 
 * **Advice:** Use the ephemeral materialization for:
 
-  <!-- -->
-
   * Very light-weight transformations that are early on in your DAG
   * Are only used in one or two downstream models, and
   * Don't need to be queried directly
 
-### Materialized View[​](#materialized-view "Direct link to Materialized View")
+### Materialized View
 
 The `materialized_view` materialization allows the creation and maintenance of materialized views in the target database. Materialized views are a combination of a view and a table, and serve use cases similar to incremental models.
 
@@ -177,11 +163,11 @@ The `materialized_view` materialization allows the creation and maintenance of m
 * **Advice:**
   * Consider materialized views for use cases where incremental models are sufficient, but you would like the data platform to manage the incremental logic and refresh.
 
-#### Configuration Change Monitoring[​](#configuration-change-monitoring "Direct link to Configuration Change Monitoring")
+#### Configuration Change Monitoring
 
 This materialization makes use of the [`on_configuration_change`](../../reference/resource-configs/on_configuration_change.md) config, which aligns with the incremental nature of the namesake database object. This setting tells dbt to attempt to make configuration changes directly to the object when possible, as opposed to completely recreating the object to implement the updated configuration. Using `dbt-postgres` as an example, indexes can be dropped and created on the materialized view without the need to recreate the materialized view itself.
 
-#### Scheduled Refreshes[​](#scheduled-refreshes "Direct link to Scheduled Refreshes")
+#### Scheduled Refreshes
 
 In the context of a `dbt run` command, materialized views should be thought of as similar to views. For example, a `dbt run` command is only needed if there is the potential for a change in configuration or sql; it's effectively a deploy action. By contrast, a `dbt run` command is needed for a table in the same scenarios *AND when the data in the table needs to be updated*. This also holds true for incremental and snapshot models, whose underlying relations are tables. In the table cases, the scheduling mechanism is either dbt or your local scheduler; there is no built-in functionality to automatically refresh the data behind a table. However, most platforms (Postgres excluded) provide functionality to configure automatically refreshing a materialized view. Hence, materialized views work similarly to incremental models with the benefit of not needing to run dbt to refresh the data. This assumes, of course, that auto refresh is turned on and configured in the model.
 
@@ -189,7 +175,7 @@ info
 
 `dbt-snowflake` *does not* support materialized views, it uses Dynamic Tables instead. For details, refer to [Snowflake specific configurations](../../reference/resource-configs/snowflake-configs.md#dynamic-tables).
 
-## Python materializations[​](#python-materializations "Direct link to Python materializations")
+## Python materializations
 
 Python models support two materializations:
 
@@ -202,8 +188,7 @@ Python models can't be materialized as `view` or `ephemeral`. Python isn't suppo
 
 For incremental models, like SQL models, you will need to filter incoming tables to only new rows of data:
 
-* Snowpark
-* PySpark
+### Snowpark
 
 models/my\_python\_model.py
 
@@ -227,6 +212,8 @@ def model(dbt, session):
 
     return df
 ```
+
+### PySpark
 
 models/my\_python\_model.py
 

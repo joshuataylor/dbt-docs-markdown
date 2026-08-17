@@ -1,23 +1,18 @@
 # Administer the Semantic Layer
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 With the dbt Semantic Layer, you can centrally define business metrics, reduce code duplication and inconsistency, create self-service in downstream tools, and more. This topic shows you how to set up credentials and tokens so that other tools can query the Semantic Layer.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
-
-<!-- -->
+## Prerequisites
 
 * Have a dbt Starter, Enterprise, or Enterprise+ account. Available on all [tenant configurations](../platform/about-platform/tenancy.md).
 * Ensure your production and development environments are on a [supported dbt version](../dbt-versions/upgrade-dbt-platform-version.md).
 * Use Snowflake, BigQuery, Databricks, Redshift, Postgres, or Trino.
 * Create a successful run in the environment where you configure the Semantic Layer.
-  <!-- -->
   * **Note:** Semantic Layer supports querying in Deployment environments; development querying is coming soon.
 * Understand [MetricFlow's](../build/about-metricflow.md) key concepts powering the Semantic Layer.
 * Note that the Semantic Layer doesn't support using [Single sign-on (SSO)](../platform/manage-access/sso-overview.md) for [production credentials](../dbt-apis/service-tokens.md#permissions-for-service-account-tokens), though SSO is supported for development user accounts.
-
-<!-- -->
 
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
@@ -25,15 +20,11 @@ Explore our [dbt Semantic Layer on-demand course](https://learn.getdbt.com/cours
 
 Additionally, dive into mini-courses for querying the dbt Semantic Layer in your favorite tools: [Tableau](https://courses.getdbt.com/courses/tableau-querying-the-semantic-layer), [Excel](https://learn.getdbt.com/courses/querying-the-semantic-layer-with-excel), [Hex](https://courses.getdbt.com/courses/hex-querying-the-semantic-layer), and [Mode](https://courses.getdbt.com/courses/mode-querying-the-semantic-layer).
 
-## Administer the Semantic Layer[​](#administer-the-semantic-layer-1 "Direct link to Administer the Semantic Layer")
-
-<!-- -->
+## Administer the Semantic Layer
 
 You must be part of the Owner group and have the correct [license](../platform/manage-access/seats-and-users.md) and [permissions](../platform/manage-access/enterprise-permissions.md) to administer the Semantic Layer at the environment and project level.
 
 * Enterprise+ and Enterprise plan:
-
-  <!-- -->
 
   * Developer license with Account Admin permissions, or
   * Owner with a Developer license, assigned Project Creator, Database Admin, or Admin permissions.
@@ -42,7 +33,7 @@ You must be part of the Owner group and have the correct [license](../platform/m
 
 * Free trial: You are on a free trial of the Starter plan as an Owner, which means you have access to the dbt Semantic Layer.
 
-### 1. Select environment[​](#1-select-environment "Direct link to 1. Select environment")
+### 1. Select environment
 
 Select the environment where you want to enable the Semantic Layer:
 
@@ -56,14 +47,14 @@ Select the environment where you want to enable the Semantic Layer:
 
 [![Select the deployment environment to run your Semantic Layer against.](/img/docs/dbt-platform/semantic-layer/sl-select-env.png?v=2 "Select the deployment environment to run your Semantic Layer against.")](#)Select the deployment environment to run your Semantic Layer against.
 
-### 2. Configure credentials and create tokens[​](#2-configure-credentials-and-create-tokens "Direct link to 2. Configure credentials and create tokens")
+### 2. Configure credentials and create tokens
 
 There are two options for setting up Semantic Layer using API tokens:
 
 * [Add a credential and create service tokens](#add-a-credential-and-create-service-tokens)
 * [Configure user credentials and create personal tokens](#configure-development-credentials-and-create-a-personal-token)
 
-#### Add a credential and create service tokens[​](#add-a-credential-and-create-service-tokens "Direct link to Add a credential and create service tokens")
+#### Add a credential and create service tokens
 
 The first option is to use [service tokens](../dbt-apis/service-tokens.md) for authentication which are tied to an underlying data platform credential that you configure. The credential configured is used to execute queries that the Semantic Layer issues against your data platform.
 
@@ -75,20 +66,14 @@ This credential controls the physical access to underlying data accessed by the 
 | Credentials per project                             | One credential per project.                                  | Can [add multiple](#4-add-more-credentials) credentials per project.                                                                                            |
 | Link multiple service tokens to a single credential | ✅                                                           | ✅                                                                                                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 *If you're on a Starter plan and need to add more credentials, consider upgrading to our [Enterprise+ or Enterprise plan](https://www.getdbt.com/contact). All Enterprise users can refer to [Add more credentials](#4-add-more-credentials) for detailed steps on adding multiple credentials.*
 
-##### 1. Select deployment environment[​](#1--select-deployment-environment "Direct link to 1.  Select deployment environment")
+##### 1. Select deployment environment
 
 * After selecting the deployment environment, you should see the **Credentials & service tokens** page.
 * Click the **Add Semantic Layer credential** button.
 
-##### 2. Configure credential[​](#2-configure-credential "Direct link to 2. Configure credential")
+##### 2. Configure credential
 
 * In the **1. Add credentials** section, enter the credentials specific to your data platform that you want the Semantic Layer to use.
 
@@ -102,7 +87,7 @@ Search table...
 
 [![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.
 
-##### 3. Create or link service tokens[​](#3-create-or-link-service-tokens "Direct link to 3. Create or link service tokens")
+##### 3. Create or link service tokens
 
 * If you have permission to create service tokens, you’ll see the [**Map new service token** option](./setup-sl.md#map-service-tokens-to-credentials) after adding the credential. Name the token, set permissions to 'Semantic Layer Only' and 'Metadata Only', and click **Save**.
 * Once the token is generated, you won't be able to view this token again, so make sure to record it somewhere safe.
@@ -117,15 +102,13 @@ info
 
 [Book a free live demo](https://www.getdbt.com/contact) to discover the full potential of dbt Enterprise and higher plans.
 
-#### Configure development credentials and create a personal token[​](#configure-development-credentials-and-create-a-personal-token "Direct link to Configure development credentials and create a personal token")
+#### Configure development credentials and create a personal token
 
 Using [personal access tokens (PATs)](../dbt-apis/user-tokens.md) is also a supported authentication method for the dbt Semantic Layer. This enables user-level authentication, reducing the need for sharing tokens between users. When you authenticate using PATs, queries are run using your personal user credentials.
 
 To use PATs in Semantic Layer:
 
 1. Configure your user credentials.
-
-   <!-- -->
 
    1. Click your account name at the bottom left-hand menu and go to **Account settings** > **Credentials**.
    2. Select your project.
@@ -137,7 +120,7 @@ To use PATs in Semantic Layer:
 
 You can use the generated PAT as the authentication method for Semantic Layer [APIs](../dbt-apis/sl-api-overview.md) and [integrations](../platform-integrations/avail-sl-integrations.md).
 
-### 3. View connection detail[​](#3-view-connection-detail "Direct link to 3. View connection detail")
+### 3. View connection detail
 
 1. Go back to the **Project details** page for connection details to connect to downstream tools.
 
@@ -147,7 +130,7 @@ You can use the generated PAT as the authentication method for Semantic Layer [A
 
 [![After configuring, you'll be provided with the connection details to connect to you downstream tools.](/img/docs/dbt-platform/semantic-layer/sl-configure-example.png?v=2 "After configuring, you'll be provided with the connection details to connect to you downstream tools.")](#)After configuring, you'll be provided with the connection details to connect to you downstream tools.
 
-### 4. Add more credentials [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#4-add-more-credentials- "Direct link to 4-add-more-credentials-")
+### 4. Add more credentials [Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 All dbt Enterprise plans can optionally add multiple credentials and map them to service tokens, offering more granular control and tailored access for different teams, which can then be shared to relevant teams for BI connection setup. These credentials control the physical access to underlying data accessed by the Semantic Layer.
 
@@ -165,15 +148,15 @@ We recommend configuring credentials and service tokens to reflect your teams an
 
   Similarly, if you set the account value using `{{env_var('DBT_ACCOUNT')}}` in Extended Attributes, dbt will check both the Extended Attributes and the environment variable.
 
-#### 1. Add more credentials[​](#1-add-more-credentials "Direct link to 1. Add more credentials")
+#### 1. Add more credentials
 
 * After configuring your environment, on the **Credentials & service tokens** page, click the **Add Semantic Layer credential** button to create multiple credentials and map them to a service token.
   <br />
 * In the **1. Add credentials** section, fill in the data platform's credential fields. We recommend using “read-only” credentials.
-  <!-- -->
+
   [![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.
 
-#### 2. Map service tokens to credentials[​](#2-map-service-tokens-to-credentials "Direct link to 2. Map service tokens to credentials")
+#### 2. Map service tokens to credentials
 
 * In the **2. Map new service token** section, [map a service token to the credential](./setup-sl.md#map-service-tokens-to-credentials) you configured in the previous step. dbt automatically selects the service token permission set you need (Semantic Layer Only and Metadata Only).
 * To add another service token during configuration, click **Add Service Token**.
@@ -182,7 +165,7 @@ We recommend configuring credentials and service tokens to reflect your teams an
 
 [![Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.](/img/docs/dbt-platform/semantic-layer/sl-credentials-service-token.png?v=2 "Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.")](#)Use the configuration page to manage multiple credentials or link or unlink service tokens for more granular control.
 
-#### 3. Delete credentials[​](#3-delete-credentials "Direct link to 3. Delete credentials")
+#### 3. Delete credentials
 
 * To delete a credential, go back to the **Credentials & service tokens** page.
 
@@ -190,7 +173,7 @@ We recommend configuring credentials and service tokens to reflect your teams an
 
   When you delete a credential, any service tokens mapped to that credential in the project will no longer work and will break for any end users.
 
-### Delete configuration[​](#delete-configuration "Direct link to Delete configuration")
+### Delete configuration
 
 You can delete the entire Semantic Layer configuration for a project. Note that deleting the Semantic Layer configuration will remove all credentials and unlink all service tokens to the project. It will also cause all queries to the Semantic Layer to fail.
 
@@ -204,11 +187,11 @@ To re-enable the dbt Semantic Layer setup in the future, you will need to recrea
 
 [![Delete the Semantic Layer configuration for a project.](/img/docs/dbt-platform/semantic-layer/sl-delete-config.png?v=2 "Delete the Semantic Layer configuration for a project.")](#)Delete the Semantic Layer configuration for a project.
 
-## Additional configuration[​](#additional-configuration "Direct link to Additional configuration")
+## Additional configuration
 
 The following are the additional flexible configurations for Semantic Layer credentials.
 
-### Map service tokens to credentials[​](#map-service-tokens-to-credentials "Direct link to Map service tokens to credentials")
+### Map service tokens to credentials
 
 * After configuring your environment, you can map additional service tokens to the same credential if you have the required [permissions](../platform/manage-access/about-user-access.md#permission-sets).
 * Go to the **Credentials & service tokens** page and click the **+Add Service Token** button in the **Linked Service Tokens** section.
@@ -218,25 +201,25 @@ The following are the additional flexible configurations for Semantic Layer cred
 
 [![Map additional service tokens to a credential.](/img/docs/dbt-platform/semantic-layer/sl-add-service-token.gif?v=2 "Map additional service tokens to a credential.")](#)Map additional service tokens to a credential.
 
-### Unlink service tokens[​](#unlink-service-tokens "Direct link to Unlink service tokens")
+### Unlink service tokens
 
 * Unlink a service token from the credential by clicking **Unlink** under the **Linked service tokens** section. If you try to query the Semantic Layer with an unlinked credential, you'll experience an error in your BI tool because no valid token is mapped.
 
-### Manage from service token page[​](#manage-from-service-token-page "Direct link to Manage from service token page")
+### Manage from service token page
 
 **View credential from service token**
 
 * View your Semantic Layer credential directly by navigating to the **API tokens** and then **Service tokens** page.
 * Select the service token to view the credential it's linked to. This is useful if you want to know which service tokens are mapped to credentials in your project.
 
-#### Create a new service token[​](#create-a-new-service-token "Direct link to Create a new service token")
+#### Create a new service token
 
 * From the **Service tokens** page, create a new service token and map it to the credential(s) (assuming the semantic layer permission exists). This is useful if you want to create a new service token and directly map it to a credential in your project.
 * Make sure to select the correct permission set for the service token (Semantic Layer Only and Metadata Only).
 
 [![Create a new service token and map credentials directly on the separate 'Service tokens page'.](/img/docs/dbt-platform/semantic-layer/sl-create-service-token-page.png?v=2 "Create a new service token and map credentials directly on the separate 'Service tokens page'.")](#)Create a new service token and map credentials directly on the separate 'Service tokens page'.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * Now that you've set up your credentials and tokens, start querying your metrics with the [available integrations](../platform-integrations/avail-sl-integrations.md).
 * [Optimize querying performance](./sl-cache.md) using declarative caching.
@@ -244,7 +227,7 @@ The following are the additional flexible configurations for Semantic Layer cred
 * If you haven't already, learn how to [build you metrics and semantic models](../build/build-metrics-intro.md) in your development tool of choice.
 * Learn about commonly asked [Semantic Layer FAQs](./sl-faqs.md).
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  How does caching interact with access controls?
 

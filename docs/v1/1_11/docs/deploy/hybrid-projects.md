@@ -1,6 +1,6 @@
 # About Hybrid projects
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 With Hybrid projects, your organization can adopt complementary dbt Core and dbt workflows (where some teams deploy projects in dbt Core and others in dbt) and seamlessly integrate these workflows by automatically uploading dbt Core [artifacts](../../reference/artifacts/dbt-artifacts.md) into dbt.
 
@@ -14,7 +14,7 @@ dbt Core users can seamlessly upload [artifacts](../../reference/artifacts/dbt-a
 * (Coming soon) New users interested in the [Canvas](../platform/canvas.md) can build off of dbt models already created by a central data team in dbt Core rather than having to start from scratch.
 * dbt Core and dbt users can navigate to [Catalog](../explore/explore-projects.md) and view their models and assets. To view Catalog, you must have a [read-only seat](../platform/manage-access/seats-and-users.md).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To upload artifacts, make sure you meet these prerequisites:
 
@@ -25,8 +25,6 @@ To upload artifacts, make sure you meet these prerequisites:
 * [Configured](./hybrid-setup.md#connect-project-in-dbt-cloud) a hybrid project in dbt.
 
 * Updated your existing dbt Core project with latest changes and [configured it with model access](./hybrid-setup.md#make-dbt-core-models-public):
-
-  <!-- -->
 
   * Ensure models that you want to share with other dbt projects use `access: public` in their model configuration. This makes the models more discoverable and shareable
   * Learn more about [access modifier](../mesh/govern/model-access.md#access-modifiers) and how to set the [`access` config](../../reference/resource-configs/access.md)

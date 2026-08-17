@@ -1,10 +1,10 @@
 # Connect with Git clone
 
-dbt platformⓘ
+dbt platform
 
 In dbt, you can import a git repository from any valid git URL that points to a dbt project. There are some important considerations to keep in mind when doing this.
 
-## Git protocols[​](#git-protocols "Direct link to Git protocols")
+## Git protocols
 
 Use an SSH clone URL for your repo. dbt supports both common SSH formats:
 
@@ -13,7 +13,7 @@ Use an SSH clone URL for your repo. dbt supports both common SSH formats:
 
 Don't use `https://...` or other HTTP URLs. dbt clones repos over SSH and can't clone repos that use the HTTP protocol.
 
-### Converting SSH URLs to ssh://[​](#converting-ssh-urls-to-ssh "Direct link to Converting SSH URLs to ssh://")
+### Converting SSH URLs to ssh://
 
 Git providers often show SSH clone URLs in SCP-style format, with a colon between the host and repo path (usually found under **Code** -> **Clone** -> **SSH**).
 
@@ -31,9 +31,7 @@ ssh://git@github.com/organization/repo-name.git
 ssh://user@custom-host.example.com/organization/repo-name.git
 ```
 
-<!-- -->
-
-## Availability of features by Git provider[​](#availability-of-features-by-git-provider "Direct link to Availability of features by Git provider")
+## Availability of features by Git provider
 
 * If your git provider has a [native dbt integration](./configure-git.md), you can seamlessly set up [continuous integration (CI)](../../deploy/ci-jobs.md) jobs directly within dbt.
 
@@ -48,13 +46,7 @@ The following table outlines the available integration options and their corresp
 | [GitLab](./connect-gitlab.md)<br />                                                                                                                                                                                                                                                                  | ✅                         | ✅                   | ✅            |                                                                                                                                                                                                  | All dbt plans           |
 | All other git providers using [Git clone](./import-a-project-by-git-url.md) ([BitBucket](./import-a-project-by-git-url.md#bitbucket), [AWS CodeCommit](./import-a-project-by-git-url.md#aws-codecommit), and others) | ❌                         | ❌                   | ✅            | Refer to the [Customizing CI/CD with custom pipelines](../../../guides/custom-cicd-pipelines.md?step=1) guide to set up continuous integration and continuous deployment (CI/CD). |                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Managing deploy keys[​](#managing-deploy-keys "Direct link to Managing deploy keys")
+## Managing deploy keys
 
 After importing a project by Git URL, dbt will generate a Deploy Key for your repository. To find the deploy key in dbt:
 
@@ -67,7 +59,7 @@ You must provide this Deploy Key in the Repository configuration of your Git hos
 
 **Note**: Each dbt project will generate a different deploy key when connected to a repo, even if two projects are connected to the same repo. You will need to supply both deploy keys to your Git provider.
 
-## Troubleshooting clone errors[​](#troubleshooting-clone-errors "Direct link to Troubleshooting clone errors")
+## Troubleshooting clone errors
 
 If dbt can't clone your repository after you connect it using a git URL, the issue is usually one of the following:
 
@@ -77,20 +69,20 @@ If dbt can't clone your repository after you connect it using a git URL, the iss
 
 If you still can't connect, [contact dbt Support](mailto:support@getdbt.com) and include the repository URL you're using and the time the error occurred.
 
-## GitHub[​](#github "Direct link to GitHub")
+## GitHub
 
 Use GitHub?
 
 If you use GitHub, you can import your repo directly using [dbt's GitHub Application](./connect-github.md). Connecting your repo via the GitHub Application [enables Continuous Integration](../../deploy/continuous-integration.md).
 
-### Locate your SSH URL[​](#locate-your-ssh-url "Direct link to Locate your SSH URL")
+### Locate your SSH URL
 
 1. Navigate to your repository on GitHub.
 2. Click the **Code** button.
 3. Select the **SSH** tab to view the SSH clone URL.
 4. Copy the URL from the **SSH** tab. SCP-style (`git@...`) and `ssh://...` URLs are both supported. If you want the `ssh://` form, refer to [Converting SSH URLs to ssh://](#converting-ssh-urls-to-ssh).
 
-### Add a deploy key[​](#add-a-deploy-key "Direct link to Add a deploy key")
+### Add a deploy key
 
 To add a deploy key to a GitHub account, navigate to the Deploy keys tab of the settings page in your GitHub repository.
 
@@ -100,7 +92,7 @@ To add a deploy key to a GitHub account, navigate to the Deploy keys tab of the 
 
 [![Configuring a GitHub Deploy Key](/img/docs/dbt-platform/platform-configuring-dbt-platform/cd7351c-Screen_Shot_2019-10-16_at_1.09.41_PM.png?v=2 "Configuring a GitHub Deploy Key")](#)Configuring a GitHub Deploy Key
 
-## GitLab[​](#gitlab "Direct link to GitLab")
+## GitLab
 
 Use GitLab?
 
@@ -113,7 +105,7 @@ If you use GitLab, you can import your repo directly using [dbt's GitLab Applica
 
 [![Configuring a GitLab SSH Key](/img/docs/dbt-platform/platform-configuring-dbt-platform/f3ea88d-Screen_Shot_2019-10-16_at_4.45.50_PM.png?v=2 "Configuring a GitLab SSH Key")](#)Configuring a GitLab SSH Key
 
-## BitBucket[​](#bitbucket "Direct link to BitBucket")
+## BitBucket
 
 Use a deploy key to import your BitBucket repository into dbt. To preserve account security, use a service account to add the BitBucket deploy key and maintain the connection between your BitBucket repository and dbt.
 
@@ -127,18 +119,18 @@ To add a deploy key to a BitBucket account:
 
 [![Configuring a BitBucket SSH Key](/img/docs/dbt-platform/platform-configuring-dbt-platform/bitbucket-ssh-key.png?v=2 "Configuring a BitBucket SSH Key")](#)Configuring a BitBucket SSH Key
 
-## AWS CodeCommit[​](#aws-codecommit "Direct link to AWS CodeCommit")
+## AWS CodeCommit
 
 dbt can work with dbt projects hosted on AWS CodeCommit, but there are some extra steps needed compared to GitHub or other git providers. This guide will help you connect your CodeCommit-hosted dbt project to dbt.
 
-#### Step 1: Create an AWS User for dbt[​](#step-1-create-an-aws-user-for-dbt "Direct link to Step 1: Create an AWS User for dbt")
+#### Step 1: Create an AWS User for dbt
 
 * To give dbt access to your repository, first you'll need to create an AWS IAM user for dbt.
 * Log into the AWS Console and navigate to the IAM section.
 * Click **Add User**, and create a new user by entering a unique and meaningful user name.
 * The user will need clone access to your repository. You can do this by adding the **AWSCodeCommitPowerUser** permission during setup.
 
-#### Step 2: Import your repository by name[​](#step-2-import-your-repository-by-name "Direct link to Step 2: Import your repository by name")
+#### Step 2: Import your repository by name
 
 * Open the AWS CodeCommit console and choose your repository.
 * Copy the SSH URL from that page.
@@ -149,7 +141,7 @@ dbt can work with dbt projects hosted on AWS CodeCommit, but there are some extr
 
 **Note:** The dbt-generated public key is the only key that will work in the next step. Any other key that has been generated outside of dbt will not work.
 
-#### Step 3: Grant dbt AWS User access[​](#step-3-grant-dbt-aws-user-access "Direct link to Step 3: Grant dbt AWS User access")
+#### Step 3: Grant dbt AWS User access
 
 * Open up the newly created dbt user in the AWS IAM Console.
 * Choose the **Security Credentials** tab and then click **Upload SSH public key**.
@@ -157,7 +149,7 @@ dbt can work with dbt projects hosted on AWS CodeCommit, but there are some extr
 * Once you've created the key, you'll see an **SSH key ID** for it.
 * **[Contact dbt Support](mailto:support@getdbt.com)** and share that field so that dbt Support team can complete the setup process for you.
 
-#### Step 4: Specify a custom branch in dbt[​](#step-4-specify-a-custom-branch-in-dbt "Direct link to Step 4: Specify a custom branch in dbt")
+#### Step 4: Specify a custom branch in dbt
 
 CodeCommit uses `master` as its default branch, and to initialize your project, you'll need to specify the `master` branch as a [custom branch](../../../faqs/Environments/custom-branch-settings.md#development) in dbt.
 
@@ -165,24 +157,24 @@ CodeCommit uses `master` as its default branch, and to initialize your project, 
 * Select **Settings** -> **Edit** and under **General Settings**, check the **Default to a custom branch** checkbox.
 * Specify the custom branch as `master` and click **Save**.
 
-#### Step 5: Configure pull request template URLs (Optional)[​](#step-5-configure-pull-request-template-urls-optional "Direct link to Step 5: Configure pull request template URLs (Optional)")
+#### Step 5: Configure pull request template URLs (Optional)
 
 To prevent users from directly merging code changes into the default branch, configure the [PR Template URL](./pr-template.md) in the **Repository details** page for your project. Once configured, dbt will prompt users to open a new PR after committing and synching code changes on the branch in the Studio IDE, before merging any changes into the default branch.
 
 * Go to **Account Settings** -> **Projects** -> Select the project.
 * Click the repository link under **Repository**.
 * In the **Repository details** page, click **Edit** in the lower right.
-  <!-- -->
+
   [![Configure PR template in the 'Repository details' page.](/img/docs/collaborate/repo-details.jpg?v=2 "Configure PR template in the 'Repository details' page.")](#)Configure PR template in the 'Repository details' page.
 * In the **Pull request URL** field, set the URL based on the suggested [PR template format](./pr-template.md#aws-codecommit).
 * Replace `<repo>` with the name of your repository (Note that it is case sensitive). In the following example, the repository name is `New_Repo`.
-  <!-- -->
+
   [![In the Pull request URL field example, the repository name is 'New\_Repo'.](/img/docs/collaborate/pr-template-example.jpg?v=2 "In the Pull request URL field example, the repository name is 'New_Repo'.")](#)In the Pull request URL field example, the repository name is 'New\_Repo'.
 * After filling the **Pull request URL** field, click **Save**.
 
 🎉 **You're all set!** Once dbt Support handles your request and you've set your custom branch, your project is ready to execute dbt runs on dbt.
 
-## Azure DevOps[​](#azure-devops "Direct link to Azure DevOps")
+## Azure DevOps
 
 Use Azure DevOps?
 
@@ -204,15 +196,15 @@ If you use Azure DevOps and you are on the dbt Enterprise or Enterprise+ plan, y
 
 [![Enter and save the public key generated for your repository by dbt](/img/docs/dbt-platform/platform-configuring-dbt-platform/d19f199-Screen_Shot_2020-03-09_at_4.13.50_PM.png?v=2 "Enter and save the public key generated for your repository by dbt")](#)Enter and save the public key generated for your repository by dbt
 
-## Other git providers[​](#other-git-providers "Direct link to Other git providers")
+## Other git providers
 
 Don't see your git provider here? Please [contact dbt Support](mailto:support@getdbt.com). We're happy to help you set up dbt with any supported git provider.
 
-## Limited integration[​](#limited-integration "Direct link to Limited integration")
+## Limited integration
 
 Some features of dbt require a tight integration with your git host, for example, updating GitHub pull requests with dbt run statuses. Importing your project by a URL prevents you from using these features. Once you give dbt access to your repository, you can continue to set up your project by adding a connection and creating and running your first dbt job.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 How can I fix my .gitignore file?
 
@@ -276,8 +268,7 @@ Sometimes it's necessary to use the git providers web interface to fix a broken 
 
 There are two options for this approach: editing the main branch directly if allowed, or creating a pull request to implement the changes if required:
 
-* Edit in main branch
-* Unable to edit main branch
+### Edit in main branch
 
 When permissions allow it, it's possible to edit the `.gitignore` directly on the main branch of your repo. Here are the following steps:
 
@@ -296,16 +287,16 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
 9. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
-   <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 11. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.
 12. Great job 🎉! You've configured the `.gitignore` correctly and can continue with your development!
+
+### Unable to edit main branch
 
 If you can't edit the `.gitignore` directly on the main branch of your repo, follow these steps:
 
@@ -324,14 +315,12 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deleted folders.
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
 11. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
-    <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 13. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.

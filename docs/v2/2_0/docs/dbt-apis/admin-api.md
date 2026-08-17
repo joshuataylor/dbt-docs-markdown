@@ -1,6 +1,6 @@
 # dbt Administrative API
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The dbt Administrative API is enabled by default for [Starter, Enterprise, and Enterprise+ plans](https://www.getdbt.com/pricing/). It can be used to:
 

@@ -10,7 +10,7 @@ Exposures can be defined in two ways:
 * Manual — Declared [explicitly](./exposures.md#declaring-an-exposure) in your project’s YAML files.
 * Automatic — dbt [creates and visualizes downstream exposures](../platform-integrations/downstream-exposures.md) automatically for supported integrations, removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](../explore/explore-projects.md), and behave like manual exposures. However, they don’t exist in YAML files.
 
-### Declaring an exposure[​](#declaring-an-exposure "Direct link to Declaring an exposure")
+### Declaring an exposure
 
 Exposures are defined in `.yml` files nested under an `exposures:` key.
 
@@ -41,7 +41,7 @@ exposures:
       email: data@jaffleshop.com
 ```
 
-### Available properties[​](#available-properties "Direct link to Available properties")
+### Available properties
 
 *Required:*
 
@@ -70,7 +70,7 @@ exposures:
 * [**meta**](../../reference/resource-configs/meta.md)
 * [**enabled**](../../reference/resource-configs/enabled.md) — You can set this property at the exposure level or at the project level in the [`dbt_project.yml`](../../reference/dbt_project.yml.md) file.
 
-### Referencing exposures[​](#referencing-exposures "Direct link to Referencing exposures")
+### Referencing exposures
 
 Once an exposure is defined, you can run commands that reference it:
 
@@ -85,7 +85,7 @@ When we generate the [Catalog site](../explore/explore-projects.md), you'll see 
 
 [![Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ](/img/docs/building-a-dbt-project/dag-exposures.png?v=2 "Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node. ")](#)Exposures appear as nodes in the dbt Catalog DAG. It displays an orange 'EXP' indicator within the node.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Exposure properties](../../reference/exposure-properties.md)
 * [`exposure:` selection method](../../reference/node-selection/methods.md#exposure)

@@ -2,19 +2,7 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.12
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 dbt\_project.yml
 
@@ -22,23 +10,19 @@ dbt\_project.yml
 osi-paths: [directorypath]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally specify a custom list of directories where [Apache Ossie semantic layer documents](../../docs/build/ossie-semantic-models.md) are located.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 By default, dbt will search for Ossie documents in the `OSI` directory, for example, `osi-paths: ["OSI"]`.
-
-<!-- -->
 
 Paths specified in `osi-paths` must be relative to the location of your `dbt_project.yml` file. Avoid using absolute paths like `/Users/username/project/OSI`, as it will lead to unexpected behavior and outcomes.
 
 * ✅ **Do**
 
   * Use relative path:
-
-    <!-- -->
 
     ```yml
     osi-paths: ["OSI"]
@@ -48,13 +32,11 @@ Paths specified in `osi-paths` must be relative to the location of your `dbt_pro
 
   * Avoid absolute paths:
 
-    <!-- -->
-
     ```yml
     osi-paths: ["/Users/username/project/OSI"]
     ```
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 Use a subdirectory named `semantic_interchange` instead of `OSI`:
 

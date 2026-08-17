@@ -1,10 +1,10 @@
 # Models object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The models object allows you to query information about all models in a given job.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `models`, the following arguments are available.
 
@@ -12,14 +12,14 @@ When querying for `models`, the following arguments are available.
 
 Below we show some illustrative example queries and outline the schema of the models object.
 
-### Example queries[​](#example-queries "Direct link to Example queries")
+### Example queries
 
 The database, schema, and identifier arguments are all optional. This means that with this endpoint you can:
 
 * Find a specific model by providing `<database>.<schema>.<identifier>`
 * Find all of the models in a database and/or schema by providing `<database>` and/or `<schema>`
 
-#### Find models by their database, schema, and identifier[​](#find-models-by-their-database-schema-and-identifier "Direct link to Find models by their database, schema, and identifier")
+#### Find models by their database, schema, and identifier
 
 The example query below finds a model by its unique database, schema, and identifier.
 
@@ -40,7 +40,7 @@ The example query below finds a model by its unique database, schema, and identi
 }
 ```
 
-#### Find models by their schema[​](#find-models-by-their-schema "Direct link to Find models by their schema")
+#### Find models by their schema
 
 The example query below finds all models in this schema and their respective execution times.
 
@@ -56,7 +56,7 @@ The example query below finds all models in this schema and their respective exe
 }
 ```
 
-#### Paginate models in a job run[​](#paginate-models-in-a-job-run "Direct link to Paginate models in a job run")
+#### Paginate models in a job run
 
 Job-based `models` queries support `first` and `after` for cursor pagination. Each model returns a `paginationCursor` field to fetch the next page. Refer to [Job-based queries](./discovery-querying.md#job-based-queries) for paging behavior, supported resource types, and legacy default behavior.
 
@@ -72,7 +72,7 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 The models object can access the *same fields* as the [Model node](./discovery-schema-job-model.md). The difference is that the models object can output a list so instead of querying for fields for one specific model, you can query for those parameters for all models within a jobID, database, and so on.
 

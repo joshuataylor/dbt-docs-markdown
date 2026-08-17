@@ -1,22 +1,20 @@
 # Install dbt
 
-Local developmentⓘ
+Local development(Applies to dbt v2.0 and later)
 
 Get dbt running on your machine in a few minutes. Installing dbt gives you Fusion by default: the current, free-to-use experience for v2. Choose your preferred installation method:
 
-## Install dbt [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#install-dbt- "Direct link to install-dbt-")
+## Install dbt [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-* pip
-* Homebrew (macOS)
-* curl (macOS/Linux)
-* winget (Windows)
-* Windows (PowerShell)
+### pip
 
 ```shell
 python -m pip install --pre dbt
 ```
 
 To upgrade later, run `python -m pip install --upgrade --pre dbt`.
+
+### Homebrew (macOS)
 
 ```shell
 brew tap dbt-labs/dbt
@@ -25,19 +23,27 @@ brew install dbt-labs/dbt/dbt
 
 To upgrade later, run `brew upgrade dbt`.
 
+### curl (macOS/Linux)
+
 ```shell
 curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh -s -- --update
 ```
 
+This installs the dbt binary to `~/.local/bin/dbt` and adds that directory to your `$PATH`. See [uninstalling a curl install](#faqs) if you ever need to remove it.
+
 Close and reopen your terminal (or run `exec $SHELL`) so the new `$PATH` is recognized.
 
 To upgrade later, run `dbt system update`.
+
+### winget (Windows)
 
 ```shell
 winget install --id dbtLabs.dbt --exact
 ```
 
 To install a specific version, run `winget install --id dbtLabs.dbt --exact --version <version>`.
+
+### Windows (PowerShell)
 
 ```powershell
 irm https://public.cdn.getdbt.com/fs/install/install.ps1 | iex
@@ -65,7 +71,7 @@ Refer to the [dbt VS Code extension docs](../about-dbt-extension.md) for more in
 
 If you or your org has a strict requirement to use the open-source runtime, install it [here](./install-dbt-core-v2.md).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 Common issues and resolutions:
 
@@ -73,7 +79,7 @@ Common issues and resolutions:
 * **Version conflicts:** Check that no other dbt Core or dbt CLI versions are installed or active on your machine.
 * **Installation permissions:** Make sure your user account can install software locally.
 
-## Frequently asked questions[​](#frequently-asked-questions "Direct link to Frequently asked questions")
+## FAQs
 
 *  Can I revert to my previous dbt installation?
 
@@ -83,7 +89,33 @@ Common issues and resolutions:
 
   Yes if you need to use the Apache 2.0 runtime, you can [install dbt Core 2.0](./install-dbt-core-v2.md), the open-source project behind Fusion.
 
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+*  How do I uninstall a curl (install.sh) install?
+
+  These steps apply only if you installed Fusion with the curl (`install.sh`) script. If you used pip, Homebrew, or winget, remove dbt with that tool instead (for example, `pip uninstall dbt` or `brew uninstall dbt`).
+
+  1. **Uninstall dbt.** Run the built-in uninstall command to clear cached files and state. This also removes the binary for you:
+
+     ```shell
+     dbt system uninstall
+     ```
+
+  2. **Clean up your shell profile.** The installer adds a `$PATH` export and a `dbtf` alias to `~/.zshrc` or `~/.bashrc`, each under its own comment. Open that file and delete these lines:
+
+     ```shell
+     # Added by dbt installer
+     export PATH="$PATH:$HOME/.local/bin"
+
+     # dbt aliases
+     alias dbtf=$HOME/.local/bin/dbt
+     ```
+
+     Then reload your profile:
+
+     ```shell
+     source ~/.zshrc   # or source ~/.bashrc
+     ```
+
+## More information about Fusion
 
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](../fusion/supported-features.md)
@@ -92,9 +124,7 @@ Common issues and resolutions:
 * [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md)
 * [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
-<!-- -->
-
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * Configure [environment variables](./configure-environment-variables.md) to manage credentials.
 * Configure your [profiles.yml](./profiles.yml.md#location-of-profilesyml) file.

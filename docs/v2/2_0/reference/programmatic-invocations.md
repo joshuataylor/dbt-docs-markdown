@@ -10,6 +10,8 @@ Common use cases include:
 
 Refer to the [dbt Core package on PyPI](https://pypi.org/project/dbt-core/) to install the official Python package for dbt Core if you haven't done so already.
 
+(Applies to dbt v2.0 and later)
+
 ```python
 from dbt.cli.main import dbtRunner, dbtRunnerResult
 
@@ -24,12 +26,12 @@ res: dbtRunnerResult = dbt.invoke(cli_args)
 
 # inspect the results
 for r in res.result:
-    print(f"{r.node.name}: {r.status}")
+    print(f"{r.unique_id}: {r.status}")
 ```
 
-For implementation details, refer to the source definitions of `dbtRunner` and `dbtRunnerResult` in the [dbt Core repository](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/cli/main.py).
+For implementation details, refer to the [`dbt-python` crate](https://github.com/dbt-labs/dbt-core/tree/main/crates/dbt-python) in the dbt Core repository.
 
-## Supported arguments[​](#supported-arguments "Direct link to Supported arguments")
+## Supported arguments
 
 `dbtRunner.invoke` accepts the same arguments as the dbt Core CLI. The first positional argument is the command (for example, `run`, `build`, `test`), followed by any flags and options you would normally pass on the command line.
 
@@ -43,7 +45,7 @@ dbt.invoke(["run", "--select", "tag:my_tag"])
 dbt.invoke(["run"], select="tag:my_tag")
 ```
 
-## Parallel execution not supported[​](#parallel-execution-not-supported "Direct link to Parallel execution not supported")
+## Parallel execution not supported
 
 [`dbt-core`](https://pypi.org/project/dbt-core/) doesn't support [safe parallel execution](./dbt-commands.md#parallel-execution) for multiple invocations in the same process. Running multiple dbt commands concurrently in one process is unsafe and officially discouraged, and requires a wrapping process to manage subprocesses. This is because:
 
@@ -52,13 +54,29 @@ dbt.invoke(["run"], select="tag:my_tag")
 
 For [safe parallel execution](./dbt-commands.md#available-commands), you can use the [dbt CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md), both of which do that additional work to manage concurrency (multiple processes) on your behalf.
 
-## `dbtRunnerResult`[​](#dbtrunnerresult "Direct link to dbtrunnerresult")
+(Applies to dbt v2.0 and later)
 
-Each command returns a `dbtRunnerResult` object with three attributes:
+In v2, invocations are serialized through thread-level locks, so multiple invocations can't run concurrently within the same process. (In v1, parallel execution was unsupported but there was no locking, so invocations could still run in multithreaded mode.) As in v1, you can still parallelize by using multiprocessing to run each invocation in a separate process.
+
+## `dbtRunnerResult`
+
+Each command returns a `dbtRunnerResult` object with the following attributes:
 
 * `success` (bool): Whether the command succeeded.
 * `result`: When the command completes (successfully or with handled errors), it returns the command's result(s). The return type varies by command.
 * `exception`: When the dbt invocation encounters an unhandled error and does not complete, the exception that was raised.
+* `catalog` (v2 only): The catalog that the command produces when you request catalog generation.
+
+(Applies to dbt v2.0 and later)
+
+The v2 engine is implemented in Rust, so `exception` no longer contains the exact Python exception object raised by dbt. Instead, the caught error message is forwarded under an exception type:
+
+* If the invocation fails at a foreign function interface (FFI) boundary before the engine picks up the invocation, `exception` contains an unwrapped exception type, such as `ValueError` or `RuntimeError`.
+* If the invocation fails inside the engine, `exception` is a `DbtRunnerError`.
+
+v2 also adds a top-level `catalog` attribute to `dbtRunnerResult` when catalog generation is requested.
+
+In v1, `catalog.json` was only created when you ran `dbt docs generate`. In v2, you can generate the catalog as part of any command by passing the [`--write-catalog` flag](./commands/cmd-docs.md?version=2.0#--write-catalog-flag). For example, `dbt run --write-catalog` populates both `dbtRunnerResult.result` and `dbtRunnerResult.catalog`.
 
 There is a one-to-one correspondence between [CLI exit codes](./exit-codes.md) and the `dbtRunnerResult` returned by a programmatic invocation:
 
@@ -68,19 +86,13 @@ There is a one-to-one correspondence between [CLI exit codes](./exit-codes.md) a
 | Invocation completed with at least one handled error (for example, test failure or model build error) | 1             | `False`   | varies by command | `None`      |
 | Unhandled error. Invocation did not complete, and returns no results.                                 | 2             | `False`   | `None`            | Exception   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Commitments and caveats[​](#commitments-and-caveats "Direct link to Commitments and caveats")
+## Commitments and caveats
 
 We're making an ongoing commitment to providing a Python entry point at functional parity with dbt Core's CLI. We reserve the right to change the underlying implementation used to achieve that goal. We expect that the current implementation will unlock real use cases in the short- and medium-term while we work on a set of stable, long-term interfaces that will ultimately replace it.
 
 In particular, the objects returned by each command in `dbtRunnerResult.result` are not fully contracted, and therefore liable to change. Some of the returned objects are partially documented, because they overlap in part with the contents of [dbt artifacts](./artifacts/dbt-artifacts.md). As Python objects, they contain many more fields and methods than what's available in the serialized JSON artifacts. These additional fields and methods should be considered **internal and liable to change in future versions of dbt-core.**
 
-## Advanced usage patterns[​](#advanced-usage-patterns "Direct link to Advanced usage patterns")
+## Advanced usage patterns
 
 caution
 
@@ -88,47 +100,17 @@ The syntax and support for these patterns are liable to change in future version
 
 The goal of `dbtRunner` is to offer parity with CLI workflows within a programmatic environment. There are a few advanced usage patterns that extend what's possible with the CLI.
 
-### Reusing objects[​](#reusing-objects "Direct link to Reusing objects")
+(Applies to dbt v2.0 and later)
 
-Pass pre-constructed objects into `dbtRunner`, to avoid recreating those objects by reading files from disk. Currently, the only object supported is the `Manifest` (project contents).
+### Reusing objects
 
-```python
-from dbt.cli.main import dbtRunner, dbtRunnerResult
-from dbt.contracts.graph.manifest import Manifest
+Manifest injection isn't supported in v2. You can't pass a pre-constructed `Manifest` into `dbtRunner`.
 
-# use 'parse' command to load a Manifest
-res: dbtRunnerResult = dbtRunner().invoke(["parse"])
-manifest: Manifest = res.result
+### Registering callbacks
 
-# introspect manifest
-# for example, assert every public model has a description
-for node in manifest.nodes.values():
-    if node.resource_type == "model" and node.access == "public":
-        assert node.description != "", f"{node.name} is missing a description"
+Registering callbacks on dbt's `EventManager` isn't supported in v2.
 
-# reuse this manifest in subsequent commands to skip parsing
-dbt = dbtRunner(manifest=manifest)
-cli_args = ["run", "--select", "tag:my_tag"]
-res = dbt.invoke(cli_args)
-```
-
-### Registering callbacks[​](#registering-callbacks "Direct link to Registering callbacks")
-
-Register `callbacks` on dbt's `EventManager`, to access structured events and enable custom logging. The current behavior of callbacks is to block subsequent steps from proceeding; this functionality is not guaranteed in future versions.
-
-```python
-from dbt.cli.main import dbtRunner
-from dbt_common.events.base_types import EventMsg
-
-def print_version_callback(event: EventMsg):
-    if event.info.name == "MainReportVersion":
-        print(f"We are thrilled to be running dbt{event.data.version}")
-
-dbt = dbtRunner(callbacks=[print_version_callback])
-dbt.invoke(["list"])
-```
-
-### Overriding parameters[​](#overriding-parameters "Direct link to Overriding parameters")
+### Overriding parameters
 
 Pass in parameters as keyword arguments, instead of a list of CLI-style strings. At present, dbt will not do any validation or type coercion on your inputs. The command must be specified, in a list, as the first positional argument.
 

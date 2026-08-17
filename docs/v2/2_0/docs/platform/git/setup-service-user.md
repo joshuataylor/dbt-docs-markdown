@@ -1,8 +1,8 @@
 # Set up Azure DevOps with Service User
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
-## Service user overview[​](#service-user-overview "Direct link to Service user overview")
+## Service user overview
 
 important
 
@@ -27,7 +27,7 @@ The following personas are required to complete the steps on this page:
 * dbt account admin
 * Azure admin (if your Entra ID and Azure DevOps environments are not connected)
 
-## Register a Microsoft Entra ID app[​](#register-a-microsoft-entra-id-app "Direct link to Register a Microsoft Entra ID app")
+## Register a Microsoft Entra ID app
 
 A Microsoft Entra ID admin needs to perform the following steps:
 
@@ -43,8 +43,6 @@ A Microsoft Entra ID admin needs to perform the following steps:
 
 6. Add a redirect URI.
 
-   <!-- -->
-
    1. Select **Web** as the platform.
    2. In the field, enter `https://YOUR_ACCESS_URL/complete/azure_active_directory`. Make sure to replace `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
 
@@ -56,7 +54,7 @@ Here's what your app should look like before registering it:
 
 [![Registering a Microsoft Entra ID app](</img/docs/dbt-platform/connecting-azure-devops/AD app.png?v=2> "Registering a Microsoft Entra ID app")](#)Registering a Microsoft Entra ID app
 
-## Add permissions to your new app[​](#add-permissions-to-your-new-app "Direct link to Add permissions to your new app")
+## Add permissions to your new app
 
 An Entra ID admin needs to provide your new app access to Azure DevOps:
 
@@ -68,7 +66,7 @@ An Entra ID admin needs to provide your new app access to Azure DevOps:
 
 [![Adding permissions to the app](/img/docs/dbt-platform/connecting-azure-devops/user-impersonation.gif?v=2 "Adding permissions to the app")](#)Adding permissions to the app
 
-## Add another redirect URI[​](#add-another-redirect-uri "Direct link to Add another redirect URI")
+## Add another redirect URI
 
 A Microsoft Entra ID admin needs to add another redirect URI to your Entra ID application. This redirect URI will be used to authenticate the service user for headless actions in deployment environments.
 
@@ -84,7 +82,7 @@ Before adding another redirect URI, make sure you selected **Web** as the platfo
 
 [![Adding the Service User redirect URI](/img/docs/dbt-platform/connecting-azure-devops/redirect-uri.gif?v=2 "Adding the Service User redirect URI")](#)Adding the Service User redirect URI
 
-## Create a client secret[​](#create-a-client-secret "Direct link to Create a client secret")
+## Create a client secret
 
 A Microsoft Entra ID admin needs to complete the following steps:
 
@@ -94,7 +92,7 @@ A Microsoft Entra ID admin needs to complete the following steps:
 4. Give the secret a description and select the expiration time. Click **Add**.
 5. Copy the **Value** field and securely share it with the dbt account admin who will complete the setup.
 
-## Connect Azure DevOps to your new app[​](#connect-azure-devops-to-your-new-app "Direct link to Connect Azure DevOps to your new app")
+## Connect Azure DevOps to your new app
 
 An Azure admin will need one of the following permissions in both the Microsoft Entra ID and Azure DevOps environments:
 
@@ -111,7 +109,7 @@ If your Azure DevOps account is connected to Entra ID, then you can proceed to [
 
 [![Connecting Azure DevOps and Microsoft Entra ID](</img/docs/dbt-platform/connecting-azure-devops/connect AD to Azure DevOps.gif?v=2> "Connecting Azure DevOps and Microsoft Entra ID")](#)Connecting Azure DevOps and Microsoft Entra ID
 
-## Add your Microsoft Entra ID app to dbt[​](#add-your-microsoft-entra-id-app-to-dbt "Direct link to Add your Microsoft Entra ID app to dbt")
+## Add your Microsoft Entra ID app to dbt
 
 A dbt account admin needs to perform the following steps.
 
@@ -125,18 +123,16 @@ Once you connect your Microsoft Entra ID app and Azure DevOps, you need to provi
 
 4. Complete the form:
 
-   <!-- -->
-
    * **Azure DevOps Organization:** Must match the name of your Azure DevOps organization exactly. Do not include the `dev.azure.com/` prefix in this field. ✅ Use `my-devops-org` ❌ Avoid `dev.azure.com/my-devops-org`
    * **Application (client) ID:** Found in the Microsoft Entra ID app.
    * **Client Secrets:** Copy the **Value** field in the Microsoft Entra ID app client secrets and paste it in the **Client Secret** field in dbt. Entra ID admins are responsible for the Entra ID app secret expiration and dbt Admins should note the expiration date for rotation.
    * **Directory(tenant) ID:** Found in the Microsoft Entra ID app.
-     <!-- -->
+
      [![Adding a Microsoft Entra ID app to dbt](/img/docs/dbt-platform/connecting-azure-devops/AzureDevopsAppdbtCloud.gif?v=2 "Adding a Microsoft Entra ID app to dbt")](#)Adding a Microsoft Entra ID app to dbt
 
 Your Microsoft Entra ID app should now be added to your dbt Account. People on your team who want to develop in the Studio IDE or dbt CLI can now personally [authorize Azure DevOps from their profiles](./authenticate-azure.md).
 
-## Connect a service user[​](#connect-a-service-user "Direct link to Connect a service user")
+## Connect a service user
 
 A service user is a pseudo user set up in the same way an admin would set up a real user, but it's given permissions specifically scoped for service to service interactions. You should avoid linking authentication to a real Azure DevOps user because if this person leaves your organization, dbt will lose privileges to the dbt Azure DevOps repositories, causing production runs to fail.
 
@@ -144,7 +140,7 @@ Service user authentication expiration
 
 dbt will refresh the authentication for the service user on each run triggered by the scheduler, API, or CI. If your account does not have any active runs for over 90 days, an admin will need to manually refresh the authentication of the service user by disconnecting and reconnecting the service user's profile via the OAuth flow described above in order to resume headless interactions like project set up, deployment runs, and CI.
 
-### Service users permissions[​](#service-users-permissions "Direct link to Service users permissions")
+### Service users permissions
 
 A service user account must have the following Azure DevOps permissions for all Azure DevOps projects and repos you want accessible in dbt. Read more about how dbt uses each permission in the following paragraphs.
 
@@ -159,10 +155,11 @@ A service user account must have the following Azure DevOps permissions for all 
 
 Some of these permissions are only accessible via the [Azure DevOps API](https://docs.microsoft.com/en-us/azure/devops/organizations/security/namespace-reference?view=azure-devops) or [CLI](https://learn.microsoft.com/en-us/cli/azure/devops?view=azure-cli-latest). We’ve also detailed more information on Azure DevOps API usage below to help accelerate the setup. Alternatively, you can use the Azure DevOps UI to enable permissions, but you cannot get the least permissioned set.
 
-* Required permissions for service users
-* Turn off MFA for service user
+### Required permissions for service users
 
 The service user's permissions will also power which repositories a team can select from during dbt project set up, so an Azure DevOps admin must grant at minimum Project Reader access to the service user *before* creating a new project in dbt. If you are migrating an existing dbt project to use the native Azure DevOps integration, the dbt account's service user must have proper permissions on the repository before migration.
+
+### Turn off MFA for service user
 
 While it's common to enforce multi-factor authentication (MFA) for normal user accounts, service user authentication must not need an extra factor. If you enable a second factor for the service user, this can interrupt production runs and cause a failure to clone the repository. In order for the OAuth access token to work, the best practice is to remove any more burden of proof of identity for service users.
 

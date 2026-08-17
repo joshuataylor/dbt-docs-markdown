@@ -1,15 +1,14 @@
 # Vertica configurations
 
-## Configuration of Incremental Models[​](#configuration-of-incremental-models "Direct link to Configuration of Incremental Models")
+## Configuration of Incremental Models
 
-### Using the on\_schema\_change config parameter[​](#using-the-on_schema_change-config-parameter "Direct link to Using the on_schema_change config parameter")
+### Using the on\_schema\_change config parameter
 
 You can use `on_schema_change` parameter with values `ignore`, `fail` and `append_new_columns`. Value `sync_all_columns` is not supported at this time.
 
-#### Configuring the `ignore` (default) parameter[​](#configuring-the-ignore-default-parameter "Direct link to configuring-the-ignore-default-parameter")
+#### Configuring the `ignore` (default) parameter
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -19,6 +18,8 @@ vertica\_incremental.sql
     
     select * from {{ ref('seed_added') }}
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -31,10 +32,9 @@ vertica\_incremental.sql
     )
 ```
 
-#### Configuring the `fail` parameter[​](#configuring-the-fail-parameter "Direct link to configuring-the-fail-parameter")
+#### Configuring the `fail` parameter
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -44,6 +44,8 @@ vertica\_incremental.sql
       
       select * from {{ ref('seed_added') }}
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -61,10 +63,9 @@ vertica\_incremental.sql
                  New column types: {{ schema_changes_dict['new_target_types'] }}
 ```
 
-#### Configuring the `append_new_columns` parameter[​](#configuring-the-append_new_columns-parameter "Direct link to configuring-the-append_new_columns-parameter")
+#### Configuring the `append_new_columns` parameter
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -78,6 +79,8 @@ vertica\_incremental.sql
     select * from  public.seed_added
 ```
 
+### Run code
+
 vertica\_incremental.sql
 
 ```sql
@@ -89,14 +92,13 @@ vertica\_incremental.sql
           )
 ```
 
-### Using the `incremental_strategy` config ​parameter[​](#using-the-incremental_strategy-config-parameter "Direct link to using-the-incremental_strategy-config-parameter")
+### Using the `incremental_strategy` config ​parameter
 
 **The `append` strategy (default)**:
 
 Insert new records without updating or overwriting any existing data. append only adds the new records based on the condition specified in the `is_incremental()` conditional block.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -115,6 +117,8 @@ vertica\_incremental.sql
     
     {% endif %}
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -137,8 +141,7 @@ vertica\_incremental.sql
 
 Match records based on a unique\_key; update old records, insert new ones. (If no unique\_key is specified, all new data is inserted, similar to append.) The unique\_key config parameter is required for using the merge strategy, the value accepted by this parameter is a single table column.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -149,6 +152,8 @@ vertica\_incremental.sql
       
           select * FROM  public.promotion_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -170,12 +175,11 @@ vertica\_incremental.sql
         )
 ```
 
-###### Using the `merge_update_columns` config parameter[​](#using-the-merge_update_columns-config-parameter "Direct link to using-the-merge_update_columns-config-parameter")
+###### Using the `merge_update_columns` config parameter
 
 The `merge_update_columns` config parameter is passed to only update the columns specified and it accepts a list of table columns.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -185,6 +189,8 @@ vertica\_incremental.sql
     
         select * from {{ref('seed_tc1')}}
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -206,8 +212,7 @@ vertica\_incremental.sql
 
 Through the `delete+insert` incremental strategy, you can instruct dbt to use a two-step incremental approach. It will first delete the records detected through the configured `is_incremental()` block and then re-insert them. The `unique_key` is a required parameter for using `delete+instert` strategy which specifies how to update the records when there is duplicate data. The value accepted by this parameter is a single table column.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -218,6 +223,8 @@ vertica\_incremental.sql
 
           select * FROM  public.date_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -268,8 +275,7 @@ If both the `partition_by_string` and `partitions` parameters are not provided t
 
 If you want to use `partitions` parameter then you have to partition the table by passing `partition_by_string` parameter.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -279,6 +285,8 @@ vertica\_incremental.sql
 
         select * from online_sales.call_center_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -306,7 +314,7 @@ vertica\_incremental.sql
         );
 ```
 
-## Optimization options for table materialization[​](#optimization-options-for-table-materialization "Direct link to Optimization options for table materialization")
+## Optimization options for table materialization
 
 There are multiple optimizations that can be used when materializing models as tables. Each config parameter applies a Vertica specific clause in the generated `CREATE TABLE` DDL.
 
@@ -314,14 +322,13 @@ For more information see [Vertica](https://www.vertica.com/docs/12.0.x/HTML/Cont
 
 You can configure these optimizations in your model SQL file as described in the examples below:
 
-### Configuring the `ORDER BY` clause[​](#configuring-the-order-by-clause "Direct link to configuring-the-order-by-clause")
+### Configuring the `ORDER BY` clause
 
 To leverage the `ORDER BY` clause of the `CREATE TABLE` statement use the `order_by` config param in your model.
 
-#### Using the `order_by` config parameter[​](#using-the-order_by-config-parameter "Direct link to using-the-order_by-config-parameter")
+#### Using the `order_by` config parameter
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -330,6 +337,8 @@ vertica\_incremental.sql
     
         select * from public.product_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -342,18 +351,17 @@ vertica\_incremental.sql
                  order by product_key;
 ```
 
-### Configuring the `SEGMENTED BY` clause[​](#configuring-the-segmented-by-clause "Direct link to configuring-the-segmented-by-clause")
+### Configuring the `SEGMENTED BY` clause
 
 To leverage the `SEGMENTED BY` clause of the `CREATE TABLE` statement, use the `segmented_by_string` or `segmented_by_all_nodes` config parameters in your model. By default ALL NODES are used to segment tables, so the ALL NODES clause in the SQL statement will be added when using `segmented_by_string` config parameter. You can disable ALL NODES using `no_segmentation` parameter.
 
 To learn more about segmented by clause check [here](https://www.vertica.com/docs/12.0.x/HTML/Content/Authoring/SQLReferenceManual/Statements/hash-segmentation-clause.htm).
 
-#### Using the `segmented_by_string` config parameter[​](#using-the-segmented_by_string-config-parameter "Direct link to using-the-segmented_by_string-config-parameter")
+#### Using the `segmented_by_string` config parameter
 
 `segmented_by_string` config parameter can be used to segment projection data using a SQL expression like hash segmentation.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -364,6 +372,8 @@ vertica\_incremental.sql
         
         select * from public.product_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -377,7 +387,7 @@ vertica\_incremental.sql
              segmented by product_key  ALL NODES;
 ```
 
-#### Using the `segmented_by_all_nodes` config parameter[​](#using-the-segmented_by_all_nodes-config--parameter "Direct link to using-the-segmented_by_all_nodes-config--parameter")
+#### Using the `segmented_by_all_nodes` config parameter
 
 `segmented_by_all_nodes` config parameter can be used to segment projection data for distribution across all cluster nodes.
 
@@ -385,8 +395,7 @@ Note:
 
 If you want to pass `segmented_by_all_nodes` parameter then you have to segment the table by passing `segmented_by_string` parameter.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -395,6 +404,8 @@ vertica\_incremental.sql
         
             select * from public.product_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -407,14 +418,13 @@ vertica\_incremental.sql
             segmented by product_key  ALL NODES;
 ```
 
-### Configuring the UNSEGMENTED ALL NODES clause[​](#configuring-the-unsegmented-all-nodes-clause "Direct link to Configuring the UNSEGMENTED ALL NODES clause")
+### Configuring the UNSEGMENTED ALL NODES clause
 
 To leverage the`UNSEGMENTED ALL NODES` clause of the `CREATE TABLE` statement, use the `no_segmentation` config parameters in your model.
 
-#### Using the `no_segmentation` config parameter[​](#using-the-no_segmentation-config-parameter "Direct link to using-the-no_segmentation-config-parameter")
+#### Using the `no_segmentation` config parameter
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -425,6 +435,8 @@ vertica\_incremental.sql
 
           select * from public.product_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -443,18 +455,17 @@ vertica\_incremental.sql
   
 ```
 
-### Configuring the `PARTITION BY` clause[​](#configuring-the-partition-by-clause "Direct link to configuring-the-partition-by-clause")
+### Configuring the `PARTITION BY` clause
 
 To leverage the `PARTITION BY` clause of the `CREATE TABLE` statement, use the `partition_by_string`, `partition_by_active_count` or the `partition_by_group_by_string` config parameters in your model.
 
 To learn more about partition by clause check [here](https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/SQLReferenceManual/Statements/partition-clause.htm)
 
-#### Using the `partition_by_string` config parameter[​](#using-the-partition_by_string-config-parameter "Direct link to using-the-partition_by_string-config-parameter")
+#### Using the `partition_by_string` config parameter
 
 `partition_by_string` (optinal) accepts a string value of a any one specific `column_name` based on which partitioning of the table data takes place.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -465,6 +476,8 @@ vertica\_incremental.sql
       
         select * FROM public.employee_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -478,7 +491,7 @@ vertica\_incremental.sql
         partition BY employee_age
 ```
 
-#### Using the `partition_by_active_count` config parameter[​](#using-the-partition_by_active_count-config-parameter "Direct link to using-the-partition_by_active_count-config-parameter")
+#### Using the `partition_by_active_count` config parameter
 
 `partition_by_active_count` (optional) specifies how many partitions are active for this table. It accepts an integer value.
 
@@ -486,8 +499,7 @@ Note:
 
 If you want to pass `partition_by_active_count` parameter then you have to partition the table by passing `partition_by_string` parameter.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -506,6 +518,8 @@ vertica\_incremental.sql
  
  
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -526,7 +540,7 @@ vertica\_incremental.sql
         SET ACTIVEPARTITIONCOUNT 2  ;
 ```
 
-#### Using the `partition_by_group_by_string` config parameter[​](#using-the-partition_by_group_by_string-config-parameter "Direct link to using-the-partition_by_group_by_string-config-parameter")
+#### Using the `partition_by_group_by_string` config parameter
 
 `partition_by_group_by_string` parameter(optional) accepts a string, in which user should specify each group cases as a single string.
 
@@ -538,8 +552,7 @@ Note:
 
 If you want to pass `partition_by_group_by_string` parameter then you have to partition the table by passing `partition_by_string` parameter.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -552,6 +565,8 @@ vertica\_incremental.sql
                                   ELSE 'big_family' END""")}}
 select * from public.customer_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 
@@ -566,12 +581,11 @@ vertica\_incremental.sql
                                              ELSE 'big_family' END  ;
 ```
 
-### Configuring the KSAFE clause[​](#configuring-the-ksafe-clause "Direct link to Configuring the KSAFE clause")
+### Configuring the KSAFE clause
 
 To leverage the `KSAFE` clause of the `CREATE TABLE` statement, use the `ksafe` config parameter in your model.
 
-* Source code
-* Run code
+### Source code
 
 vertica\_incremental.sql
 
@@ -580,6 +594,8 @@ vertica\_incremental.sql
         
           select * from  public.product_dimension
 ```
+
+### Run code
 
 vertica\_incremental.sql
 

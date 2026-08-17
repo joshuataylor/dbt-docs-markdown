@@ -4,11 +4,11 @@ You can specify documentation text in a docs block, then use the `doc()` Jinja f
 
 The `doc()` Jinja function, which is analogous to `ref()`, looks up the named docs block (for example, `{% docs orders %} ... {% enddocs %}` in a `docs.md` file) and returns its rendered content. For more information, refer to the [Documentation guide](../../docs/explore/build-and-view-your-docs.md).
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 In dbt, column descriptions can be defined directly in a model's properties YAML file. These descriptions are written as plain text and are associated with a specific column.
 
-### Manually adding descriptions[​](#manually-adding-descriptions "Direct link to Manually adding descriptions")
+### Manually adding descriptions
 
 models/orders.yml
 
@@ -22,7 +22,7 @@ models:
 
 When you run `dbt docs generate` (dbt Core v1.x only) and view the docs site, this text appears exactly as written but only for the `order_total_cents` column of the `orders` model.
 
-### Reusing descriptions with doc()[​](#reusing-descriptions-with-doc "Direct link to Reusing descriptions with doc()")
+### Reusing descriptions with doc()
 
 To avoid repeating the same description across multiple models or columns, dbt lets you define documentation separately and reference it using the `doc()` function.
 
@@ -56,11 +56,11 @@ When you run `dbt docs generate` (dbt Core v1.x only), dbt resolves the `doc()` 
 
 As a result, the column description displays the text defined in the markdown file, rather than inline YAML.
 
-## Avoid duplicate names[​](#avoid-duplicate-names "Direct link to Avoid duplicate names")
+## Avoid duplicate names
 
 Docs block names must be unique within your project. If you define multiple `{% docs %}` blocks with the same name, dbt cannot reliably determine which block to use when `doc('DOCS_BLOCK_NAME')` is called.
 
-<!-- -->
+(Applies to dbt v2.0 and later)
 
 In the dbt Fusion engine, duplicate docs block names are not allowed. If duplicates are found, dbt reports the conflicting files and surfaces a warning. Rename one block so each docs block name is unique. For more information, refer to [Stricter evaluation of duplicate docs blocks](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md?version=2.0#stricter-evaluation-of-duplicate-docs-blocks).
 

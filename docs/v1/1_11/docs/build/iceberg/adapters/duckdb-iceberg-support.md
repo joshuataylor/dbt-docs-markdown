@@ -1,4 +1,4 @@
-# DuckDB and Apache Iceberg
+# DuckDB and Apache Iceberg [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Fusion only
 
@@ -18,11 +18,11 @@ dbt supports creating Iceberg tables for two DuckDB materializations:
 * [Table](../../materializations.md#table)
 * [Incremental](../../materializations.md#incremental)
 
-## How DuckDB attaches catalogs[​](#how-duckdb-attaches-catalogs "Direct link to How DuckDB attaches catalogs")
+## How DuckDB attaches catalogs
 
 When you configure a catalog with a `duckdb` block in `catalogs.yml`, dbt generates and runs the appropriate DuckDB [`ATTACH`](https://duckdb.org/docs/sql/statements/attach.html) statement on your behalf — you don't need to write `ATTACH` SQL yourself. dbt then resolves any model with a matching `catalog_name` to that attached database.
 
-## Iceberg REST catalogs[​](#iceberg-rest-catalogs "Direct link to Iceberg REST catalogs")
+## Iceberg REST catalogs
 
 DuckDB can attach to any catalog that implements the Iceberg REST protocol, including self-hosted catalogs (such as [Lakekeeper](https://github.com/lakekeeper/lakekeeper) or [Nessie](https://github.com/projectnessie/nessie)), AWS Glue, and AWS S3 Tables.
 
@@ -69,11 +69,11 @@ catalogs:
 
 `endpoint` and `endpoint_type` are mutually exclusive.
 
-## Cross-platform Mesh: reading catalogs managed by other platforms[​](#cross-platform-mesh-reading-catalogs-managed-by-other-platforms "Direct link to Cross-platform Mesh: reading catalogs managed by other platforms")
+## Cross-platform Mesh: reading catalogs managed by other platforms
 
 Because a single catalog entry in `catalogs.yml` can carry configuration for multiple platforms at once, you can point DuckDB at the same physical catalog that Snowflake or Databricks writes to — enabling [cross-platform Mesh](../../../mesh/cross-platform-mesh.md) without copying data.
 
-### Snowflake Horizon[​](#snowflake-horizon "Direct link to Snowflake Horizon")
+### Snowflake Horizon
 
 [Snowflake Horizon](./snowflake-iceberg-support.md) is Snowflake's managed Iceberg catalog. Add a `duckdb` block alongside the `snowflake` block to let DuckDB attach to the same catalog:
 
@@ -94,7 +94,7 @@ catalogs:
         default_schema: demo
 ```
 
-### Databricks Unity Catalog[​](#databricks-unity-catalog "Direct link to Databricks Unity Catalog")
+### Databricks Unity Catalog
 
 Similarly, for [Databricks Unity Catalog](./databricks-iceberg-support.md):
 
@@ -115,7 +115,7 @@ catalogs:
         default_schema: demo
 ```
 
-### Read-only vs. read-write[​](#read-only-vs-read-write "Direct link to Read-only vs. read-write")
+### Read-only vs. read-write
 
 By default, dbt attaches Horizon and Unity catalogs read-write (`read_only: false`) and applies write-compat `ATTACH` defaults for each (for example, disabling multi-table commits on Unity). Writing to these catalogs from DuckDB requires DuckDB 1.5.4+ and [duckdb-iceberg#1017](https://github.com/duckdb/duckdb-iceberg/issues/1017). If you only need to *read* Iceberg tables that another platform wrote, set `read_only: true`:
 
@@ -126,7 +126,7 @@ By default, dbt attaches Horizon and Unity catalogs read-write (`read_only: fals
         read_only: true
 ```
 
-## DuckLake[​](#ducklake "Direct link to DuckLake")
+## DuckLake
 
 [DuckLake](https://ducklake.select/) is a separate open table format (not Apache Iceberg) built for DuckDB, but you configure it the same way, through `catalogs.yml`. Because DuckLake isn't Iceberg, its catalog entries use `table_format: default`.
 
@@ -163,7 +163,7 @@ INSTALL ducklake
 ATTACH IF NOT EXISTS 'ducklake:metadata.ducklake' AS local_lake (DATA_PATH 's3://my-bucket/lake')
 ```
 
-## Secrets[​](#secrets "Direct link to Secrets")
+## Secrets
 
 The `secret` field in a `duckdb` catalog block references a named secret defined in `profiles.yml`, which dbt turns into a DuckDB [`CREATE SECRET`](https://duckdb.org/docs/configuration/secrets_manager.html) statement:
 
@@ -184,7 +184,7 @@ my_profile:
           # iceberg extension docs for the parameters your catalog needs.
 ```
 
-## DuckDB-specific configs for Iceberg catalogs[​](#duckdb-specific-configs-for-iceberg-catalogs "Direct link to DuckDB-specific configs for Iceberg catalogs")
+## DuckDB-specific configs for Iceberg catalogs
 
 You can supply these configs, nested under `config.duckdb`, for `horizon`, `unity`, and `iceberg_rest` catalogs:
 
@@ -209,12 +209,6 @@ You can supply these configs, nested under `config.duckdb`, for `horizon`, `unit
 | `purge_requested`                    | Optional                                                             | Purge underlying files when supported by the catalog.                                       |
 | `encode_entire_prefix`               | Optional                                                             | Percent-encode the entire object key prefix.                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For `ducklake` catalogs, `config.duckdb` accepts:
 
 | Field                     | Required | Description                                                                                                |
@@ -230,9 +224,3 @@ For `ducklake` catalogs, `config.duckdb` accepts:
 | `encrypted`               | Optional | Encrypt the DuckLake catalog.                                                                              |
 | `automatic_migration`     | Optional | Automatically migrate the catalog's DuckLake format version on attach.                                     |
 | `override_data_path`      | Optional | Allow attaching with a `data_path` that differs from the one recorded in an existing catalog.              |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

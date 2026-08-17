@@ -1,6 +1,6 @@
 # Applied object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The applied object allows you to query information about a particular model based on `environmentId`.
 
@@ -10,7 +10,7 @@ The [Example queries](#example/docs/dbt-apis-queries) illustrate a few fields yo
 
 Within `executionInfo`, `lastRun*` fields reflect the most recent run *attempt* (regardless of outcome), while `execute*`, `executionTime`, `runGeneratedAt`, and `lastSuccess*` fields reflect the most recent *successful* materialization. Refer to [Project state](./project-state.md#definition-logical-vs-applied-state-of-dbt-nodes) for more information.
 
-### Example queries[​](#example-queries "Direct link to Example queries")
+### Example queries
 
 You can use your production environment's `id`:
 
@@ -33,7 +33,7 @@ query Example {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying the `applied` field of `environment`, you can use the following fields.
 

@@ -12,11 +12,11 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide will demonstrate how to build a data lakehouse with dbt Core 1.5 or newer and Dremio Cloud. You can simplify and optimize your data infrastructure with dbt's robust transformation framework and Dremio’s open and easy data lakehouse. The integrated solution empowers companies to establish a strong data and analytics foundation, fostering self-service analytics and enhancing business insights while simplifying operations by eliminating the necessity to write complex Extract, Transform, and Load (ETL) pipelines.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * You must have a [Dremio Cloud](https://docs.dremio.com/cloud/) account.
 * You must have Python 3 installed.
@@ -24,7 +24,7 @@ This guide will demonstrate how to build a data lakehouse with dbt Core 1.5 or n
 * You must have the Dremio adapter 1.5.0 or newer [installed and configured](../docs/local/connect-data-platform/dremio-setup.md) for Dremio Cloud.
 * You must have basic working knowledge of Git and the command line interface (CLI).
 
-## Validate your environment[​](#validate-your-environment "Direct link to Validate your environment")
+## Validate your environment
 
 Validate your environment by running the following commands in your CLI and verifying the results:
 
@@ -49,7 +49,7 @@ Plugins:
   - dremio: 1.5.0 - Up to date! # Must be 1.5 or newer
 ```
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 1. Clone the Dremio dbt Core sample project from the [GitHub repo](https://github.com/dremio-brock/DremioDBTSample/tree/master/dremioSamples).
 
@@ -76,7 +76,7 @@ def quoted_by_component(self, identifier, componentName):
 
 You need to update this pattern because the plugin doesn’t support schema names in Dremio containing dots and spaces.
 
-## Build your pipeline[​](#build-your-pipeline "Direct link to Build your pipeline")
+## Build your pipeline
 
 1. Create a `profiles.yml` file in the `$HOME/.dbt/profiles.yml` path and add the following configs:
 
@@ -137,7 +137,7 @@ Now that you have a running environment and a completed job, you can view the da
 
 [![Cloned repo in an IDE](/img/guides/dremio/dremio-cloned-repo.png?v=2 "Cloned repo in an IDE")](#)Cloned repo in an IDE
 
-## About the schema.yml[​](#about-the-schemayml "Direct link to About the schema.yml")
+## About the schema.yml
 
 The `schema.yml` file defines Dremio sources and models to be used and what data models are in scope. In this guides sample project, there are two data sources:
 
@@ -150,7 +150,7 @@ The sources can be found by navigating to the **Object Storage** section of the 
 
 [![NYC-weather.csv location in Dremio Cloud](/img/guides/dremio/dremio-nyc-weather.png?v=2 "NYC-weather.csv location in Dremio Cloud")](#)NYC-weather.csv location in Dremio Cloud
 
-## About the models[​](#about-the-models "Direct link to About the models")
+## About the models
 
 **Preparation** — `preparation_trips.sql` and `preparation_weather.sql` are building views on top of the trips and weather data.
 
@@ -158,7 +158,7 @@ The sources can be found by navigating to the **Object Storage** section of the 
 
 **Application** — `application_nyc_trips_with_weather.sql` joins the output from the Business model. This is what your business users will consume.
 
-## The Job output[​](#the-job-output "Direct link to The Job output")
+## The Job output
 
 When you run the dbt job, it will create a **dev** space folder that has all the data assets created. This is what you will see in Dremio Cloud UI. Spaces in Dremio is a way to organize data assets which map to business units or data products.
 
@@ -168,7 +168,7 @@ Open the **Application folder** and you will see the output of the simple transf
 
 [![Application folder transformation output](/img/guides/dremio/dremio-dev-application.png?v=2 "Application folder transformation output")](#)Application folder transformation output
 
-## Query the data[​](#query-the-data "Direct link to Query the data")
+## Query the data
 
 Now that you have run the job and completed the transformation, it's time to query your data. Click on the `nyc_trips_with_weather` view. That will take you to the SQL Runner page. Click **Show SQL Pane** on the upper right corner of the page.
 

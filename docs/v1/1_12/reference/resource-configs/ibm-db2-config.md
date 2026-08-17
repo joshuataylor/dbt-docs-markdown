@@ -1,12 +1,12 @@
 # IBM Db2 configurations
 
-## Instance requirements[​](#instance-requirements "Direct link to Instance requirements")
+## Instance requirements
 
 To use IBM Db2 with the `ibm-dbt-db2` adapter, ensure the instance has an attached database that supports creating, renaming, altering, and dropping objects such as tables and views. The user connecting to the instance via the `ibm-dbt-db2` adapter must have the necessary permissions for the target database and schema.
 
 For more details, please visit the official [IBM Db2 documentation](https://www.ibm.com/docs/en/db2)
 
-## Supported Db2 platforms[​](#supported-db2-platforms "Direct link to Supported Db2 platforms")
+## Supported Db2 platforms
 
 The `ibm-dbt-db2` adapter supports the following IBM Db2 platforms:
 
@@ -14,13 +14,13 @@ The `ibm-dbt-db2` adapter supports the following IBM Db2 platforms:
 * **Db2 for z/OS** - Version 11 and higher
 * **Db2 for iSeries** - Compatible versions
 
-## Seeds and data types[​](#seeds-and-data-types "Direct link to Seeds and data types")
+## Seeds and data types
 
 The `ibm-dbt-db2` adapter offers comprehensive support for all Db2 data types in seed files. To leverage this functionality, you must explicitly define the data types for each column in your seed configuration.
 
 You can configure column data types either in the `dbt_project.yml` file or in property files, as supported by dbt. For more details on seed configuration and best practices, refer to the [dbt seed configuration documentation](../seed-configs.md).
 
-### Example seed configuration[​](#example-seed-configuration "Direct link to Example seed configuration")
+### Example seed configuration
 
 In your `dbt_project.yml`:
 
@@ -36,7 +36,7 @@ seeds:
         is_active: BOOLEAN
 ```
 
-### Supported Db2 data types[​](#supported-db2-data-types "Direct link to Supported Db2 data types")
+### Supported Db2 data types
 
 | Db2 Data Type | Description                    | Example Usage                   |
 | ------------- | ------------------------------ | ------------------------------- |
@@ -59,17 +59,11 @@ seeds:
 | VARGRAPHIC(n) | Variable-length graphic string | `unicode_name: VARGRAPHIC(100)` |
 | DBCLOB        | Double-byte CLOB               | `large_unicode: DBCLOB`         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Materialization strategies[​](#materialization-strategies "Direct link to Materialization strategies")
+## Materialization strategies
 
 The `ibm-dbt-db2` adapter supports all standard dbt materializations:
 
-### Table materialization[​](#table-materialization "Direct link to Table materialization")
+### Table materialization
 
 Creates a physical table in the database. This is the default materialization if not specified.
 
@@ -79,7 +73,7 @@ Creates a physical table in the database. This is the default materialization if
 SELECT * FROM source_table
 ```
 
-### View materialization[​](#view-materialization "Direct link to View materialization")
+### View materialization
 
 Creates a database view. Views are virtual tables that don't store data physically.
 
@@ -89,11 +83,11 @@ Creates a database view. Views are virtual tables that don't store data physical
 SELECT * FROM source_table
 ```
 
-### Incremental materialization[​](#incremental-materialization "Direct link to Incremental materialization")
+### Incremental materialization
 
 Builds tables incrementally, processing only new or changed records. The `ibm-dbt-db2` adapter supports two incremental strategies:
 
-#### Merge strategy (default)[​](#merge-strategy-default "Direct link to Merge strategy (default)")
+#### Merge strategy (default)
 
 Uses Db2's MERGE statement for efficient upserts:
 
@@ -112,7 +106,7 @@ WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
 
-#### Delete+insert strategy[​](#deleteinsert-strategy "Direct link to Delete+insert strategy")
+#### Delete+insert strategy
 
 Deletes matching records then inserts new ones:
 
@@ -131,7 +125,7 @@ WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
 {% endif %}
 ```
 
-### Ephemeral materialization[​](#ephemeral-materialization "Direct link to Ephemeral materialization")
+### Ephemeral materialization
 
 Creates a Common Table Expression (CTE) that exists only for the duration of a single dbt run:
 
@@ -141,7 +135,7 @@ Creates a Common Table Expression (CTE) that exists only for the duration of a s
 SELECT * FROM source_table
 ```
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 The `ibm-dbt-db2` adapter supports dbt snapshots for tracking slowly changing dimensions (SCD Type 2). Snapshots capture the state of your data at different points in time.
 
@@ -164,7 +158,7 @@ SELECT * FROM {{ source('raw', 'customers') }}
 {% endsnapshot %}
 ```
 
-## Constraints[​](#constraints "Direct link to Constraints")
+## Constraints
 
 The `ibm-dbt-db2` adapter supports defining constraints in your models, but enforcement varies:
 
@@ -175,12 +169,6 @@ The `ibm-dbt-db2` adapter supports defining constraints in your models, but enfo
 | UNIQUE          | ⚠️ Not Enforced | Defined but not enforced in dbt context |
 | PRIMARY KEY     | ⚠️ Not Enforced | Defined but not enforced in dbt context |
 | FOREIGN KEY     | ⚠️ Not Enforced | Defined but not enforced in dbt context |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Example with constraints:
 
@@ -214,9 +202,9 @@ models:
           - type: not_null
 ```
 
-## Performance optimization[​](#performance-optimization "Direct link to Performance optimization")
+## Performance optimization
 
-### Indexing[​](#indexing "Direct link to Indexing")
+### Indexing
 
 While dbt doesn't directly manage indexes, you can create them using post-hooks:
 
@@ -234,7 +222,7 @@ While dbt doesn't directly manage indexes, you can create them using post-hooks:
 SELECT * FROM source_table
 ```
 
-### Table organization[​](#table-organization "Direct link to Table organization")
+### Table organization
 
 Db2 supports different table organization types. You can specify these using post-hooks:
 
@@ -251,7 +239,7 @@ Db2 supports different table organization types. You can specify these using pos
 SELECT * FROM source_table
 ```
 
-## Grants management[​](#grants-management "Direct link to Grants management")
+## Grants management
 
 The `ibm-dbt-db2` adapter supports managing grants on database objects:
 
@@ -270,7 +258,7 @@ The `ibm-dbt-db2` adapter supports managing grants on database objects:
 SELECT * FROM source_table
 ```
 
-## Case sensitivity[​](#case-sensitivity "Direct link to Case sensitivity")
+## Case sensitivity
 
 Db2 uppercases unquoted identifiers by default. The adapter handles this automatically, but keep in mind:
 
@@ -278,7 +266,7 @@ Db2 uppercases unquoted identifiers by default. The adapter handles this automat
 * Use double quotes to preserve case: `"MyTable"` vs `MYTABLE`
 * The adapter automatically handles case conversion for dbt operations
 
-## Recommendations[​](#recommendations "Direct link to Recommendations")
+## Recommendations
 
 * **Check SQL Documentation**: Review IBM Db2 [SQL Reference](https://www.ibm.com/docs/en/db2) to understand platform-specific features and limitations.
 * **Use Incremental Models**: For large datasets, use incremental materializations with the `merge` strategy for optimal performance.

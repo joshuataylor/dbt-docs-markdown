@@ -1,50 +1,38 @@
 # Connect Layer to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Layer
-* **Authors**:
-  <!-- -->
-  Mehmet Ecevit
+* **Maintained by**: Layer
+* **Authors**: Mehmet Ecevit
 * **GitHub repo**: [layerai/dbt-layer](https://github.com/layerai/dbt-layer) [![](https://img.shields.io/github/stars/layerai/dbt-layer?style=for-the-badge)](https://github.com/layerai/dbt-layer)
 * **PyPI package**: `dbt-layer-bigquery` [![](https://badge.fury.io/py/dbt-layer-bigquery.svg)](https://badge.fury.io/py/dbt-layer-bigquery)
 * **Slack channel**: [#tools-layer](https://getdbt.slack.com/archives/C03STA39TFE)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.0.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.0.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-layer-bigquery
+## Installing dbt-layer-bigquery
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-layer-bigquery`
 
-## Configuring <!-- -->dbt-layer-bigquery<!-- -->
+## Configuring dbt-layer-bigquery
 
-For <!-- -->Layer<!-- -->-specific configuration, please refer to [Layer<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For Layer-specific configuration, please refer to [Layer configs.](../../../reference/resource-configs/no-configs.md)
 
-### Profile Configuration[​](#profile-configuration "Direct link to Profile Configuration")
+### Profile Configuration
 
 Layer Bigquery targets should be set up using the following sections in your `profiles.yml` file.
 
-#### Layer Authentication[​](#layer-authentication "Direct link to Layer Authentication")
+#### Layer Authentication
 
 Add your `layer_api_key` to your `profiles.yaml` to authenticate with Layer. To get your Layer API Key:
 
 * First, [create your free Layer account](https://app.layer.ai/login?returnTo=%2Fgetting-started).
 * Go to [app.layer.ai](https://app.layer.ai) > **Settings** (Cog Icon by your profile photo) > **Developer** > **Create API key** to get your Layer API Key.
 
-#### Bigquery Authentication[​](#bigquery-authentication "Direct link to Bigquery Authentication")
+#### Bigquery Authentication
 
 You can use any [authentication method](./bigquery-setup.md) supported in the official dbt Bigquery adapter since Layer uses `dbt-bigquery` adapter to connect to your Bigquery instance.
 
@@ -68,7 +56,7 @@ layer-profile:
       keyfile: [/path/to/bigquery/keyfile.json]
 ```
 
-#### Description of Layer Bigquery Profile Fields[​](#description-of-layer-bigquery-profile-fields "Direct link to Description of Layer Bigquery Profile Fields")
+#### Description of Layer Bigquery Profile Fields
 
 The following fields are required:
 
@@ -79,17 +67,11 @@ The following fields are required:
 | `layer_project` |         | string (opt) | Specifies your target Layer project. If you don't specify, Layer will use the project same name with your dbt project.                                                                                                                 |
 | `method`        |         | string       | Specifies the authentication type to connect to your BigQuery.                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Rest of the parameters depends on the BigQuery authentication method you specified.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
-### AutoML[​](#automl "Direct link to AutoML")
+### AutoML
 
 You can automatically build state-of-art ML models using your own dbt models with plain SQL. To train an AutoML model all you have to do is pass your model type, input data (features) and target column you want to predict to `layer.automl()` in your SQL. The Layer AutoML will pick the best performing model and enable you to call it by its dbt model name to make predictions as shown above.
 
@@ -106,12 +88,6 @@ layer.automl("MODEL_TYPE", ARRAY[FEATURES], TARGET)
 | `MODEL_TYPE` | Type of the model your want to train. There are two options:<br />- `classifier`: A model to predict classes/labels or categories such as spam detection<br />- `regressor`: A model to predict continuous outcomes such as CLV prediction. |
 | `FEATURES`   | Input column names as a list to train your AutoML model.                                                                                                                                                                                    |
 | `TARGET`     | Target column that you want to predict.                                                                                                                                                                                                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 *Requirements:*
 
@@ -136,7 +112,7 @@ SELECT order_id,
 FROM {{ ref('training_data') }}
 ```
 
-### Prediction[​](#prediction "Direct link to Prediction")
+### Prediction
 
 You can make predictions using any Layer ML model within your dbt models. Layer dbt Adapter helps you score your data resides on your warehouse within your dbt DAG with SQL.
 
@@ -152,12 +128,6 @@ layer.predict("LAYER_MODEL_PATH", ARRAY[FEATURES])
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `LAYER_MODEL_PATH` | This is the Layer model path in form of `/[organization_name]/[project_name]/models/[model_name]`. You can use only the model name if you want to use an AutoML model within the same dbt project. |
 | `FEATURES`         | These are the columns that this model requires to make a prediction. You should pass the columns as a list like `ARRAY[column1, column2, column3]`.                                                |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 *Example:*
 

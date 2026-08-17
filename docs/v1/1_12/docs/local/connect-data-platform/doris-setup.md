@@ -1,43 +1,33 @@
 # Connect Doris to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  SelectDB
-* **Authors**:
-  <!-- -->
-  catpineapple,JNSimba
+* **Maintained by**: SelectDB
+* **Authors**: catpineapple,JNSimba
 * **GitHub repo**: [selectdb/dbt-doris](https://github.com/selectdb/dbt-doris) [![](https://img.shields.io/github/stars/selectdb/dbt-doris?style=for-the-badge)](https://github.com/selectdb/dbt-doris)
 * **PyPI package**: `dbt-doris` [![](https://badge.fury.io/py/dbt-doris.svg)](https://badge.fury.io/py/dbt-doris)
 * **Slack channel**: [#db-doris](https://www.getdbt.com/community)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.3.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
+* **Supported dbt Core version**: v1.3.0 and newer
+* **dbt support**: Not Supported
 * **Minimum data platform version**:
 
-## Installing <!-- -->dbt-doris
+## Installing dbt-doris
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-doris`
 
-## Configuring <!-- -->dbt-doris<!-- -->
+## Configuring dbt-doris
 
-For <!-- -->Apache Doris / SelectDB<!-- -->-specific configuration, please refer to [Apache Doris / SelectDB<!-- --> configs.](../../../reference/resource-configs/doris-configs.md)
+For Apache Doris / SelectDB-specific configuration, please refer to [Apache Doris / SelectDB configs.](../../../reference/resource-configs/doris-configs.md)
 
-## Connecting to Doris/SelectDB with **dbt-doris**[​](#connecting-to-dorisselectdb-with-dbt-doris "Direct link to connecting-to-dorisselectdb-with-dbt-doris")
+## Connecting to Doris/SelectDB with **dbt-doris**
 
-### User / Password Authentication[​](#user--password-authentication "Direct link to User / Password Authentication")
+### User / Password Authentication
 
 Configure your dbt profile for using Doris:
 
-#### Doris connection profile[​](#doris-connection-profile "Direct link to Doris connection profile")
+#### Doris connection profile
 
 profiles.yml
 
@@ -54,7 +44,7 @@ dbt-doris:
       password: password
 ```
 
-#### Description of Profile Fields[​](#description-of-profile-fields "Direct link to Description of Profile Fields")
+#### Description of Profile Fields
 
 | Option   | Description                                                                                                                      | Required? | Example     |
 | -------- | -------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------- |
@@ -65,13 +55,7 @@ dbt-doris:
 | username | The username to use to connect to the doris                                                                                      | Required  | `root`      |
 | password | The password to use for authenticating to the doris                                                                              | Required  | `password`  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Database User Privileges[​](#database-user-privileges "Direct link to Database User Privileges")
+## Database User Privileges
 
 Your Doris/SelectDB database user would be able to have some abilities to read or write. You can find some help [here](https://doris.apache.org/docs/admin-manual/privilege-ldap/user-privilege) with Doris privileges management.
 
@@ -82,9 +66,3 @@ Your Doris/SelectDB database user would be able to have some abilities to read o
 | Alter\_priv        |
 | Create\_priv       |
 | Drop\_priv         |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

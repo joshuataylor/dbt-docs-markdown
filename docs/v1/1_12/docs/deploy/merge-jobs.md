@@ -1,6 +1,6 @@
 # Merge jobs in dbt
 
-dbt platform | Starter, Enterpriseⓘ
+dbt platform | Starter, Enterprise
 
 You can set up a merge job to implement a continuous deployment (CD) workflow in dbt. The merge job triggers a dbt job to run when someone merges Git pull requests into production. This workflow creates a seamless development experience where changes made in code will automatically update production data.
 
@@ -12,21 +12,18 @@ Triggering merge jobs in monorepos
 
 If you have a monorepo with several dbt projects, merging a single pull request in one of your projects will trigger jobs for all projects connected to the monorepo. To address this, you can use separate target branches per project (for example, `main-project-a`, `main-project-b`) to separate CI triggers.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a dbt account.
 * You have set up a [connection with your Git provider](../platform/git/configure-git.md). This integration lets dbt run jobs on your behalf for job triggering.
-  <!-- -->
   * If you're using a native [GitLab](../platform/git/connect-gitlab.md) integration, you need a paid or self-hosted account that includes support for GitLab webhooks and [project access tokens](https://docs.gitlab.com/ee/user/project/settings/project_access_tokens.html). If you're using GitLab Free, merge requests will trigger CI jobs but CI job status updates (success or failure of the job) will not be reported back to GitLab.
 * For deferral (which is the default), make sure there has been at least one successful job run in the environment you defer to.
 
-## Set up job trigger on Git merge[​](#set-up-merge-jobs "Direct link to Set up job trigger on Git merge")
+## Set up job trigger on Git merge
 
 1. On your deployment environment page, click **Create job** > **Merge job**.
 
 2. Options in the **Job settings** section:
-
-   <!-- -->
 
    * **Job name** — Specify the name for the merge job.
    * **Description** — Provide a description about the job.
@@ -36,15 +33,11 @@ If you have a monorepo with several dbt projects, merging a single pull request 
 
 4. Options in the **Execution settings** section:
 
-   <!-- -->
-
    * **Commands** — By default, it includes the `dbt build --select state:modified+` command. This informs dbt to build only new or changed models and their downstream dependents. Importantly, state comparison can only happen when there is a deferred environment selected to compare state to. Click **Add command** to add more [commands](./job-commands.md) that you want to be invoked when this job runs.
    * **Compare changes against** — By default, it's set to compare changes against the environment you created the job from. This option allows dbt to check the state of the code in the PR against the code running in the deferred environment, so as to only check the modified code, instead of building the full table or the entire DAG. To change the default settings, you can select **No deferral**, **This job** for self-deferral, or choose a different environment.
    * **Enable dbt State** [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") — [dbt State](./dbt-state-about.md) reduces unnecessary model rebuilds by reusing nodes when neither the logic nor the data has changed. For more details, refer to [Setting up dbt State](./dbt-state-setup.md) and [Enabling dbt State on individual jobs](./dbt-state-enable-jobs.md).
 
 5. (optional) Options in the **Advanced settings** section:
-
-   <!-- -->
 
    * **Environment variables** — Define [environment variables](../build/environment-variables.md) to customize the behavior of your project when this job runs.
    * **Target name** — Define the [target name](../build/custom-target-names.md). Similar to environment variables, this option lets you customize the behavior of the project.
@@ -54,7 +47,7 @@ If you have a monorepo with several dbt projects, merging a single pull request 
 
 [![Example of creating a merge job](/img/docs/dbt-platform/using-dbt-platform/example-create-merge-job.png?v=2 "Example of creating a merge job")](#)Example of creating a merge job
 
-## Verify push events in Git[​](#verify-push-events-in-git "Direct link to Verify push events in Git")
+## Verify push events in Git
 
 Merge jobs require push events so make sure they've been enabled in your Git provider, especially if you have an already-existing Git integration. However, for a new integration setup, you can skip this check since push events are typically enabled by default.
 

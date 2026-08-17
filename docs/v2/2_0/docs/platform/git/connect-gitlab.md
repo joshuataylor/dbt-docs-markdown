@@ -1,6 +1,6 @@
 # Connect to GitLab
 
-dbt platformⓘ
+dbt platform
 
 Connecting your GitLab account to dbt provides convenience and another layer of security to dbt:
 
@@ -23,7 +23,7 @@ Depending on your plan, use these steps to integrate GitLab with dbt:
 * For the Developer or Starter plans, follow these [instructions](#for-dbt-developer-and-starter-plans).
 * For the Enterprise or Enterprise+ plans, follow these [instructions](#for-the-dbt-enterprise-plans).
 
-## For dbt Developer and Starter plans[​](#for-dbt-developer-and-starter-plans "Direct link to For dbt Developer and Starter plans")
+## For dbt Developer and Starter plans
 
 Before you can work with GitLab repositories in dbt, you’ll need to connect your GitLab account to your user profile. This allows dbt to authenticate your actions when interacting with Git repositories. Make sure to read the [requirements and limitations](#requirements-and-limitations) of the Starter and Developer plans before you connect your account.
 
@@ -37,7 +37,7 @@ To connect your GitLab account:
 
 After you authorize the request, you’ll be redirected back to dbt, and you'll see that your account has been linked to your profile.
 
-### Requirements and limitations[​](#requirements-and-limitations "Direct link to Requirements and limitations")
+### Requirements and limitations
 
 dbt Starter and Developer plans use a single GitLab deploy token created by the first user who connects the repository, which means:
 
@@ -47,7 +47,7 @@ dbt Starter and Developer plans use a single GitLab deploy token created by the 
 
 To support advanced Git workflows and multi-user commit behavior, upgrade to the Enterprise plan, which provides more flexible Git authentication strategies.
 
-## For the dbt Enterprise plans[​](#for-the-dbt-enterprise-plans "Direct link to For the dbt Enterprise plans")
+## For the dbt Enterprise plans
 
 dbt Enterprise and Enterprise+ customers have the added benefit of bringing their own GitLab OAuth application to dbt. This tier benefits from extra security, as dbt will:
 
@@ -63,7 +63,7 @@ Once the admin completes those steps, dbt developers need to:
 
 1. [Personally authenticate with GitLab](#personally-authenticating-with-gitlab) from dbt.
 
-### Setting up a GitLab OAuth application[​](#setting-up-a-gitlab-oauth-application "Direct link to Setting up a GitLab OAuth application")
+### Setting up a GitLab OAuth application
 
 We recommend that before you set up a project in dbt, a GitLab account admin set up an OAuth application in GitLab for use in dbt.
 
@@ -84,19 +84,13 @@ To create a group-owned OAuth application in GitLab:
    | **Confidential** | ✅                                        |
    | **Scopes**       | ✅ api                                    |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
    For the **Redirect URI** field, replace `YOUR_ACCESS_URL` with the [appropriate Access URL](../about-platform/access-regions-ip-addresses.md) for your region and plan.
 
 3. Click **Save application**. GitLab will generate an **Application ID** and **Secret**. These values remain available even if you close the app screen, so you can return to save them later.
 
 If you're a Business Critical customer using [IP restrictions](../secure/ip-restrictions.md), ensure you've added the appropriate GitLab CIDRs to your IP restriction rules, or else the GitLab connection will fail.
 
-### Adding the GitLab OAuth application to dbt[​](#adding-the-gitlab-oauth-application-to-dbt "Direct link to Adding the GitLab OAuth application to dbt")
+### Adding the GitLab OAuth application to dbt
 
 After you've created your GitLab application, add it to dbt:
 
@@ -110,12 +104,6 @@ After you've created your GitLab application, add it to dbt:
    | **Application ID**  | *copy value from GitLab app* |
    | **Secret**          | *copy value from GitLab app* |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
    If you use a self-hosted GitLab instance, set **GitLab Instance** to your organization’s GitLab hostname (for example, `https://gitlab.yourgreatcompany.com`).
 
 3. Click **Save**.
@@ -126,7 +114,7 @@ After you've created your GitLab application, add it to dbt:
 
 After you authorize the request, you’ll be redirected back to dbt. Your integration is now ready for developers on your team to [personally authenticate with GitLab](#personally-authenticating-with-gitlab).
 
-### Personally authenticating with GitLab[​](#personally-authenticating-with-gitlab "Direct link to Personally authenticating with GitLab")
+### Personally authenticating with GitLab
 
 dbt developers on the Enterprise or Enterprise+ plan must each connect their GitLab profiles to dbt, as every developer's read/write access for the dbt repo is checked in the Studio IDE or dbt CLI.
 
@@ -140,7 +128,7 @@ To connect a personal GitLab account:
 
 Once you approve authorization, you will be redirected to dbt, and you should see your connected account. You're now ready to start developing in the Studio IDE or dbt CLI.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 Unable to trigger a CI job with GitLab
 
@@ -231,8 +219,7 @@ Sometimes it's necessary to use the git providers web interface to fix a broken 
 
 There are two options for this approach: editing the main branch directly if allowed, or creating a pull request to implement the changes if required:
 
-* Edit in main branch
-* Unable to edit main branch
+### Edit in main branch
 
 When permissions allow it, it's possible to edit the `.gitignore` directly on the main branch of your repo. Here are the following steps:
 
@@ -251,16 +238,16 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deletions to the main branch.
 8. Switch to the Studio IDE , and open the project that you're fixing.
 9. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the IDE by clicking on the three dots next to the **IDE Status** button on the lower right corner of the IDE screen, then select **Rollback to remote**.
-   <!-- -->
    * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 10. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 11. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.
 12. Great job 🎉! You've configured the `.gitignore` correctly and can continue with your development!
+
+### Unable to edit main branch
 
 If you can't edit the `.gitignore` directly on the main branch of your repo, follow these steps:
 
@@ -279,14 +266,12 @@ dbt_modules/
 
 5. Commit (save) the file.
 6. Delete the following folders from the dbt project root, if they exist. No data or code will be lost:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 7. Commit (save) the deleted folders.
 8. Open a merge request using the git provider web interface. The merge request should attempt to merge the changes into the 'main' branch that all development branches are created from.
 9. Follow the necessary procedures to get the branch approved and merged into the 'main' branch. You can delete the branch after the merge is complete.
 10. Once the merge is complete, go back to the Studio IDE, and open the project that you're fixing.
 11. [Rollback your repo to remote](./version-control-basics.md#the-git-button-in-the-cloud-ide) in the Studio IDE by clicking on the three dots next to the **Studio IDE Status** button on the lower right corner of the Studio IDE screen, then select **Rollback to remote**.
-    <!-- -->
     * **Note** — Rollback to remote resets your repo back to an earlier clone from your remote. Any saved but uncommitted changes will be lost, so make sure you copy any modified code that you want to keep in a temporary location outside of dbt.
 12. Once you rollback to remote, open the `.gitignore` file in the branch you're working in. If the new changes aren't included, you'll need to merge the latest commits from the main branch into your working branch.
 13. Go to the **File Explorer** to verify the `.gitignore` file contains the correct entries and make sure the untracked files/folders in the .gitignore file are in *italics*.
@@ -300,7 +285,7 @@ If you're seeing a 'GitLab Authentication is out of date' 500 server error page 
 
 No worries - this is a current issue the dbt Labs team is working on and we have a few workarounds for you to try:
 
-#### First workaround[​](#first-workaround "Direct link to First workaround")
+#### First workaround
 
 1. Disconnect repo from project in dbt.
 2. Go to Gitlab and click on Settings > Repository.
@@ -309,7 +294,7 @@ No worries - this is a current issue the dbt Labs team is working on and we have
 5. You would then need to check Gitlab to make sure that the new deploy key is added.
 6. Once confirmed that it's added, refresh dbt and try developing once again.
 
-#### Second workaround[​](#second-workaround "Direct link to Second workaround")
+#### Second workaround
 
 1. Keep repo in project as is -- don't disconnect.
 2. Copy the deploy key generated in dbt.

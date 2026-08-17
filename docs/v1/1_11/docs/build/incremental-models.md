@@ -35,7 +35,7 @@ Often, the rows you filter for on an incremental run will be the rows in your so
 
 Using an incremental model limits the amount of data that needs to be transformed, vastly reducing the runtime of your transformations. This improves warehouse performance and reduces compute costs.
 
-## Configure incremental materializations[​](#configure-incremental-materializations "Direct link to Configure incremental materializations")
+## Configure incremental materializations
 
 Like the other materializations built into dbt, incremental models are defined with `select` statements, with the materialization defined in a config block.
 
@@ -54,7 +54,7 @@ To use incremental models, you also need to tell dbt:
 * How to filter the rows on an incremental run
 * The unique key of the model (if any)
 
-### Understand the is\_incremental() macro[​](#understand-the-is_incremental-macro "Direct link to Understand the is_incremental() macro")
+### Understand the is\_incremental() macro
 
 The `is_incremental()` macro powers incremental materializations. It will return `True` if *all* of the following conditions are met:
 
@@ -64,7 +64,7 @@ The `is_incremental()` macro powers incremental materializations. It will return
 
 Note that the SQL in your model needs to be valid whether `is_incremental()` evaluates to `True` or `False`.
 
-### Filtering rows on an incremental run[​](#filtering-rows-on-an-incremental-run "Direct link to Filtering rows on an incremental run")
+### Filtering rows on an incremental run
 
 To tell dbt which rows it should transform on an incremental run, wrap valid SQL that filters for these rows in the `is_incremental()` macro.
 
@@ -103,9 +103,7 @@ Optimizing your incremental model
 
 For more complex incremental models that make use of Common Table Expressions (CTEs), you should consider the impact of the position of the `is_incremental()` macro on query performance. In some warehouses, filtering your records early can vastly improve the run time of your query!
 
-<!-- -->
-
-### About incremental\_predicates[​](#about-incremental_predicates "Direct link to About incremental_predicates")
+### About incremental\_predicates
 
 `incremental_predicates` is an advanced use of incremental models, where data volume is large enough to justify additional investments in performance. This config accepts a list of any valid SQL expression(s). dbt does not check the syntax of the SQL statements.
 
@@ -177,7 +175,7 @@ with large_source_table as (
 ...
 ```
 
-### Defining a unique key[​](#defining-a-unique-key "Direct link to Defining a unique key")
+### Defining a unique key
 
 Defining the optional [`unique_key` parameter](../../reference/resource-configs/unique_key.md) enables updating existing rows instead of just appending new rows. If new information arrives for an existing `unique_key`, that new information can replace the current information instead of being appended to the table. If a duplicate row arrives, it can be ignored. Refer to [strategy specific configs](./incremental-strategy.md#strategy-specific-configs) for more options on managing this update behavior, like choosing only specific columns to update.
 
@@ -208,7 +206,7 @@ info
 
 While common incremental strategies, such as `delete+insert` + `merge`, might use `unique_key`, others don't. For example, the `insert_overwrite` strategy does not use `unique_key`, because it operates on partitions of data rather than individual rows. For more information, see [About incremental\_strategy](./incremental-strategy.md).
 
-#### `unique_key` example[​](#unique_key-example "Direct link to unique_key-example")
+#### `unique_key` example
 
 Consider a model that calculates the number of daily active users (DAUs), based on an event stream. As source data arrives, you will want to recalculate the number of DAUs for both the day that dbt last ran, and any days since then. The model would look as follows:
 
@@ -242,7 +240,7 @@ group by 1
 
 Building this model incrementally without the `unique_key` parameter would result in multiple rows in the target table for a single day – one row for each time dbt runs on that day. Instead, the inclusion of the `unique_key` parameter ensures the existing row is updated instead.
 
-## How do I rebuild an incremental model?[​](#how-do-i-rebuild-an-incremental-model "Direct link to How do I rebuild an incremental model?")
+## How do I rebuild an incremental model?
 
 If your incremental model logic has changed, the transformations on your new rows of data may diverge from the historical transformations, which are stored in your target table. In this case, you should rebuild your incremental model.
 
@@ -258,7 +256,7 @@ You can optionally use the [`full_refresh config`](../../reference/resource-conf
 
 For detailed usage instructions, check out the [dbt run](../../reference/commands/run.md) documentation.
 
-## What if the columns of my incremental model change?[​](#what-if-the-columns-of-my-incremental-model-change "Direct link to What if the columns of my incremental model change?")
+## What if the columns of my incremental model change?
 
 Incremental models can be configured to include an optional `on_schema_change` parameter to enable additional control when incremental model columns change. These options enable dbt to continue running incremental models in the presence of schema changes, resulting in fewer `--full-refresh` scenarios and saving query costs.
 
@@ -296,7 +294,7 @@ The possible values for `on_schema_change` are:
 
 Currently, `on_schema_change` only tracks top-level column changes. It does not track nested column changes. For example, on BigQuery, adding, removing, or modifying a nested column will not trigger a schema change, even if `on_schema_change` is set appropriately.
 
-### Default behavior[​](#default-behavior "Direct link to Default behavior")
+### Default behavior
 
 This is the behavior of `on_schema_change: ignore`, which is set by default.
 

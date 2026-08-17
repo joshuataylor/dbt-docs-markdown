@@ -1,8 +1,6 @@
 # Set up external OAuth with Redshift
 
-dbt platform | Enterprise, Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise, Enterprise+
 
 note
 
@@ -10,7 +8,7 @@ This feature is currently only available for Okta and Entra ID identity provider
 
 dbt Enterprise and Enterprise+ plans support OAuth authentication with external providers. When **External OAuth** is enabled, users can authorize their user credentials using single sign-on (SSO) via the identity provider (IdP). External OAuth authorizes users to access multiple applications, including dbt, without sharing their static credentials with the service. This makes the process of authenticating for development environments easier for the user and provides an additional layer of security to your dbt account.
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 The process of setting up external OAuth will require a little bit of back-and-forth between your dbt, IdP, and data warehouse accounts, and having them open in multiple browser tabs will help speed up the configuration process:
 
@@ -28,14 +26,13 @@ If the admins that handle these products are all different people, it’s better
 
 Ensure your Amazon admins have completed the [Amazon Identity Center integration](https://aws.amazon.com/blogs/big-data/integrate-identity-provider-idp-with-amazon-redshift-query-editor-v2-and-sql-client-using-aws-iam-identity-center-for-seamless-single-sign-on/) with Okta or Entra ID.
 
-## Identity provider configuration[​](#identity-provider-configuration "Direct link to Identity provider configuration")
+## Identity provider configuration
 
 Select a supported identity provider (IdP) for instructions on configuring external OAuth in their environment and completing the integration in dbt:
 
-* Okta
-* Entra ID
+### Okta
 
-### 1. Initialize the dbt settings[​](#1-initialize-the-dbt-settings "Direct link to 1. Initialize the dbt settings")
+### 1. Initialize the dbt settings
 
 1. In your dbt account, navigate to **Account settings** —> **Integrations**.
 2. Scroll down to **Custom integrations** and click **Add integrations**
@@ -43,7 +40,7 @@ Select a supported identity provider (IdP) for instructions on configuring exter
 
 [![Copy the callback URI at the bottom of the integration page in dbt.](/img/docs/dbt-platform/callback-uri.png?v=2 "Copy the callback URI at the bottom of the integration page in dbt.")](#)Copy the callback URI at the bottom of the integration page in dbt.
 
-### 2. Create the Okta app[​](#2-create-the-okta-app "Direct link to 2. Create the Okta app")
+### 2. Create the Okta app
 
 1. Expand the **Applications** section from the Okta dashboard and click **Applications.** Click the **Create app integration** button.
 2. Select **OIDC** as the sign-in method and **Web applications** as the application type. Click **Next**.
@@ -58,7 +55,7 @@ Select a supported identity provider (IdP) for instructions on configuring exter
 
 6. Save the app configuration. You’ll come back to it, but move on to the next steps for now.
 
-### 3. Create the Okta API[​](#3-create-the-okta-api "Direct link to 3. Create the Okta API")
+### 3. Create the Okta API
 
 1. Expand the **Security** section and click **API** from the Okta sidebar menu.
 2. On the API screen, click **Add authorization server**. Give the authorization server a name (a nickname for your data warehouse account would be appropriate). For the **Audience** field, copy and paste your data warehouse login URL. Give the server an appropriate description and click **Save**.
@@ -89,13 +86,13 @@ Select a supported identity provider (IdP) for instructions on configuring exter
 
 8. Navigate back to the **Settings** tab and leave it open in your browser. You’ll need some of the information in later steps.
 
-### 4. Create the OAuth settings in the data warehouse[​](#4-create-the-oauth-settings-in-the-data-warehouse "Direct link to 4. Create the OAuth settings in the data warehouse")
+### 4. Create the OAuth settings in the data warehouse
 
 Ensure your Amazon admins have completed the Identity Center integration with Okta.
 
 Configure the Okta application and APIs in accordance with your Amazon configs.
 
-### 5. Configuring the integration in dbt[​](#5-configuring-the-integration-in-dbt "Direct link to 5. Configuring the integration in dbt")
+### 5. Configuring the integration in dbt
 
 1. Navigate back to the dbt **Account settings** —> **Integrations** page you were on at the beginning. It’s time to start filling out all of the fields.
 
@@ -110,7 +107,7 @@ Configure the Okta application and APIs in accordance with your Amazon configs.
 
 2. **Save** the configuration
 
-### 6. Create a new connection in dbt[​](#6-create-a-new-connection-in-dbt "Direct link to 6. Create a new connection in dbt")
+### 6. Create a new connection in dbt
 
 1. Navigate to **Account settings** and click **Connections** from the menu. Click **New connection**.
 2. Configure the `Account`, `Database`, and `Warehouse` as you normally would, and for the `OAuth method`, select the external OAuth you just created.
@@ -123,17 +120,19 @@ Configure the Okta application and APIs in accordance with your Amazon configs.
 
 4. **Save** the connection, and you have now configured External OAuth with Okta!
 
-### 1. Initialize the dbt settings[​](#1-initialize-the-dbt-settings-1 "Direct link to 1. Initialize the dbt settings")
+### Entra ID
+
+### 1. Initialize the dbt settings
 
 1. In your dbt account, navigate to **Account settings** —> **Integrations**.
 2. Scroll down to **Custom integrations** and click **Add integrations**.
 3. Leave this window open. You can set the **Integration type** to Entra ID and note the **Redirect URI** at the bottom of the page. Copy this to your clipboard for use in the next steps.
 
-### 2. Create the Entra ID apps[​](#2-create-the-entra-id-apps "Direct link to 2. Create the Entra ID apps")
+### 2. Create the Entra ID apps
 
 You’ll create two apps in the Azure portal: A resource server and a client app.
 
-#### Create a resource server[​](#create-a-resource-server "Direct link to Create a resource server")
+#### Create a resource server
 
 In your Entra ID account:
 
@@ -161,7 +160,7 @@ In your Entra ID account:
    4. Ensure **State** is set to **Enabled**.
    5. Click **Add scope**.
 
-#### Create a client app[​](#create-a-client-app "Direct link to Create a client app")
+#### Create a client app
 
 1. From the **App registration page**, click **New registration**.
 
@@ -188,7 +187,7 @@ In your Entra ID account:
 
    * **Note**: Entra ID will not display this value again once you navigate away from this screen.
 
-### 3. Configuring the integration in dbt[​](#3-configuring-the-integration-in-dbt "Direct link to 3. Configuring the integration in dbt")
+### 3. Configuring the integration in dbt
 
 1. Navigate back to the dbt **Account settings** —> **Integrations** page you were on at the beginning. It’s time to start filling out all of the fields. There will be some back-and-forth between the Entra ID account and dbt.
 2. `Integration name`: Give the integration a descriptive name that includes identifying information about the Entra ID environment so future users won’t have to guess where it belongs.
@@ -197,7 +196,7 @@ In your Entra ID account:
 5. `Authorization URL` and `Token URL`: From the client ID app, open the `Endpoints` tab. These URLs map to the `OAuth 2.0 authorization endpoint (v2)` and `OAuth 2.0 token endpoint (v2)` fields. *You must use v2 of the `OAuth 2.0 authorization endpoint`. Do not use V1.* You can use either version of the `OAuth 2.0 token endpoint`.
 6. `Application ID URI`: Copy the `Application ID URI` field from the resource server’s Overview screen.
 
-## Configure the Trusted Token Issuer in IAM IdC[​](#configure-the-trusted-token-issuer-in-iam-idc "Direct link to Configure the Trusted Token Issuer in IAM IdC")
+## Configure the Trusted Token Issuer in IAM IdC
 
 A *trusted token issuer* generates an access token that is used to identify a user, and then authenticates that user. This essentially lets services outside of the AWS ecosystem, such as the dbt platform, connect to IAM IdC (and Redshift) with access tokens they have generated or retrieved from an external IdP (Entra ID or Okta).
 
@@ -209,15 +208,11 @@ The following steps are outlined per [this blog post](https://aws.amazon.com/blo
 
 3. On the **Set up an external IdP to issue trusted tokens** page, under **Trusted token issuer details**, do the following:
 
-   <!-- -->
-
    1. For **Issuer URL**, enter the OIDC discovery URL of the external IdP that will issue tokens for trusted identity propagation. *Include the forward slash at the end of the URL*.
 
    2. For **Trusted token issuer name**, enter a name to identify this TTI in IAM Identity Center and the application console.
 
    3. Under Map attributes, do the following:
-
-      <!-- -->
 
       1. For **Identity provider attribute**, select an attribute from the list to map to an attribute in the Identity Center identity store. You can choose:
 
@@ -226,7 +221,7 @@ The following steps are outlined per [this blog post](https://aws.amazon.com/blo
       * Subject
       * Other — When using this options with UPN, it's been our experience that `upn` matched up with `Email`.
 
-## Configure Redshift IdC application to utilize TTI[​](#configure-redshift-idc-application-to-utilize-tti "Direct link to Configure Redshift IdC application to utilize TTI")
+## Configure Redshift IdC application to utilize TTI
 
 To start, select **IAM Identity Center connection** from the Amazon Redshift console menu.
 
@@ -238,7 +233,7 @@ To start, select **IAM Identity Center connection** from the Amazon Redshift c
 4. Select the checkbox for **Trusted token issuer** that you created in the previous section.
 5. Enter the aud claim value under **Configure selected trusted token issuers**. **This should be the application ID URI you set for the integration in the dbt platform.**
 
-## Finalizing the dbt configuration[​](#finalizing-the-dbt-configuration "Direct link to Finalizing the dbt configuration")
+## Finalizing the dbt configuration
 
 If you have an existing connection, make sure that the OAuth method is set to **External OAuth** and select the integration you created in an earlier step. Otherwise, create a new Redshift connection, being sure to set values for:
 
@@ -250,6 +245,6 @@ This connection should be set as the connection for a development environment in
 
 Once the connection has been assigned to a development environment, you can configure your user credentials for that development environment under `Account Settings > Your Profile > Credentials > <Your Project Name>`. Set the authentication method to `External OAuth`, set the `schema` and other fields if desired, and save the credentials. You can then click the `Connect to Redshift` button.
 
-### Verify connection in Studio[​](#verify-connection-in-studio "Direct link to Verify connection in Studio")
+### Verify connection in Studio
 
 Once your development session has initialized, you can test that you’re able to connect to Redshift using external OAuth by running `dbt debug`.

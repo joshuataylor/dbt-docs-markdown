@@ -1,5 +1,7 @@
 # About var function
 
+(Applies to dbt v1.12 and later)
+
 You can provide variables from `vars.yml` or `dbt_project.yml` to models during compilation. These variables are useful for configuring packages for deployment in multiple environments, or for defining values that should be used across multiple models within a package.
 
 Variables defined in `vars.yml` or `dbt_project.yml` act as project-wide defaults. You can override them at runtime using the `--vars` command-line argument. For example, when testing with a different date range or running models with environment-specific settings without changing your model logic.
@@ -26,12 +28,11 @@ Vars supplied to package_name.my_model = {
 }
 ```
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 To define a variable in your project, add the `vars:` config to a dedicated `vars.yml` file or to your `dbt_project.yml` file. `vars.yml` is parsed *before* `dbt_project.yml`, so you can reference variables from `vars.yml` in `dbt_project.yml` using `{{ var('...') }}`.
 
-* vars.yml
-* dbt\_project.yml
+### vars.yml
 
 vars.yml
 
@@ -39,6 +40,8 @@ vars.yml
 vars:
   event_type: activation
 ```
+
+### dbt\_project.yml
 
 You can define variables in `dbt_project.yml`, or reference variables from `vars.yml` (for example, in your `models` config):
 
@@ -63,7 +66,7 @@ You cannot define variables in both `vars.yml` and `dbt_project.yml`; you can on
 
 See the docs on [using variables](../../docs/build/project-variables.md) for more information on how to define variables in your dbt project.
 
-### Variable default values[​](#variable-default-values "Direct link to Variable default values")
+### Variable default values
 
 The `var()` function takes an optional second argument, `default`. If this argument is provided, then it will be the default value for the variable if one is not explicitly defined.
 
@@ -74,9 +77,7 @@ my\_model.sql
 select * from events where event_type = '{{ var("event_type", "activation") }}'
 ```
 
-### Command line variables[​](#command-line-variables "Direct link to Command line variables")
-
-<!-- -->
+### Command line variables
 
 The `dbt_project.yml` file is a great place to define variables that rarely change.
 

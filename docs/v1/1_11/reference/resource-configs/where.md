@@ -1,6 +1,6 @@
 # where
 
-### Definition[​](#definition "Direct link to Definition")
+### Definition
 
 Filter the resource being tested (model, source, seed, or snapshot).
 
@@ -20,12 +20,9 @@ from (select * from my_model where date_column = current_date) dbt_subquery
 where my_column is null
 ```
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
-* Specific test
-* One-off test
-* Generic test block
-* Project level
+### Specific test
 
 Configure a specific instance of a generic (schema) test:
 
@@ -50,7 +47,11 @@ models:
                 where: "date_column < current_date"
 ```
 
+### One-off test
+
 This config is ignored for one-off tests.
+
+### Generic test block
 
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
@@ -66,6 +67,8 @@ select ...
 {% endtest %}
 ```
 
+### Project level
+
 Set the default for all tests in a package or project:
 
 dbt\_project.yml
@@ -80,7 +83,7 @@ data_tests:
         and another_column is not null
 ```
 
-### Custom logic[​](#custom-logic "Direct link to Custom logic")
+### Custom logic
 
 The rendering context for the `where` config is the same as for all configurations defined in `.yml` files. You have access to `{{ var() }}` and `{{ env_var() }}`, but you **do not** have access to custom macros for setting this config. If you do want to use custom macros to template out the `where` filter for certain tests, there is a workaround.
 
@@ -98,7 +101,7 @@ You can override this behavior by:
 
 Within this macro definition, you can reference whatever custom macros you want, based on static inputs from the configuration. At simplest, this enables you to DRY up code that you'd otherwise need to repeat across many different `.yml` files. Because the `get_where_subquery` macro is resolved at runtime, your custom macros can also include [fetching the results of introspective database queries](../dbt-jinja-functions/run_query.md).
 
-#### Example[​](#example "Direct link to Example")
+#### Example
 
 Filter your test to the past N days of data, using dbt's cross-platform [`dateadd()`](../dbt-jinja-functions/cross-database-macros.md#dateadd) utility macro. You can set the number of days in the placeholder string.
 

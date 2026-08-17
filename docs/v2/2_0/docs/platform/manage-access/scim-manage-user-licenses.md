@@ -1,6 +1,6 @@
 # Manage user licenses with SCIM
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 You can manage user license assignments using System for Cross-Domain Identity Management (SCIM) and a user attribute in Okta, so the license type is set as users are provisioned and onboarded.
 
@@ -15,7 +15,7 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
 For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 Before you enable SCIM license mapping:
 
@@ -23,7 +23,7 @@ Before you enable SCIM license mapping:
 * **Best practice**: Use one source of truth for license assignment (either dbt platform or SCIM). Don't mix SCIM license management with manual or single sign-on (SSO) mapping changes.
 * **Analyst license**: Only available on [select plans](./seats-and-users.md). Assigning this license using SCIM will return an error if that license type isn't available for your account. The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
-## Enable SCIM license mapping[​](#enable-scim-license-mapping "Direct link to Enable SCIM license mapping")
+## Enable SCIM license mapping
 
 To manage user licenses with SCIM, go to **Account settings** > **SSO & SCIM**. Under the **SCIM** section, enable the **Ignore dbt license mapping** toggle. This setting enforces license type for a user based on their SCIM attribute and disables the license mapping and manual configuration set up in dbt.
 
@@ -38,7 +38,7 @@ The recommended steps for migrating to SCIM license mapping are as follows:
 3. Test that SCIM attributes are being used to set license type in dbt.
 4. Enable the toggle to ignore existing license mappings so that SCIM is the source of truth for assigning licenses to users.
 
-## Enterprise default groups[​](#enterprise-default-groups "Direct link to Enterprise default groups")
+## Enterprise default groups
 
 On the Enterprise licensing page, the following default groups are available. These are often used for initial setup but should be managed or removed once IdP groups are successfully synced via SCIM.
 
@@ -48,35 +48,29 @@ On the Enterprise licensing page, the following default groups are available. Th
 | **Member**   | Robust access to the account with restrictions on billing and security settings. Users in the Member group are assigned a Developer license by default.                         |
 | **Everyone** | A catch-all group for all users. This group does not have permission assignments beyond the user's profile. Users must be assigned to the Member or Owner group to work in dbt. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Best practice
 
 After creating and syncing your specific IdP groups, remove users from these default groups to ensure that SCIM remains the single source of truth for permissions and licensing. Once all users have been removed, you can also delete the groups altogether.
 
-## Automated license mapping[​](#automated-license-mapping "Direct link to Automated license mapping")
+## Automated license mapping
 
 Automating license assignments is available for Okta only. It's a common strategy to reduce administrative overhead. For SSO-based license mapping (for example, Entra ID), see [Mapped configuration](./seats-and-users.md#mapped-configuration).
 
-#### Define IdP groups[​](#define-idp-groups "Direct link to Define IdP groups")
+#### Define IdP groups
 
 A common strategy involves defining two primary groups in your IdP, for example:
 
 * `dbt_developers`
 * `dbt_read_only`
 
-#### Fundamental licensing rules[​](#fundamental-licensing-rules "Direct link to Fundamental licensing rules")
+#### Fundamental licensing rules
 
 Understanding these rules will help you plan your group structure in Okta:
 
 * **Default assignment:** When someone new is added to your account, they automatically receive a Developer license unless you configure otherwise.
 * **Mapping basis:** The license someone receives is determined by which groups they belong to in your identity provider (Okta) — not by groups you create in dbt platform. In other words, your Okta groups are the source of truth. When you add or remove someone from a group in Okta, their license in dbt platform updates automatically to match.
 
-#### Mapping logic and precedence[​](#mapping-logic-and-precedence "Direct link to Mapping logic and precedence")
+#### Mapping logic and precedence
 
 With SSO license mapping, the Developer license takes precedence over all other licenses. With SCIM license mapping (Okta), precedence depends on your configuration — whether you assign the license attribute directly to the user or derive it from group membership through the expression in your Okta Profile Editor.
 
@@ -93,13 +87,7 @@ Users in the Enterprise default group **Member** are assigned a **Developer** li
 | Yes                        | No                        | Developer                                           |
 | Yes                        | Yes                       | Developer (Developer takes precedence)              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Add license type attribute for Okta[​](#add-license-type-attribute-for-okta "Direct link to Add license type attribute for Okta")
+## Add license type attribute for Okta
 
 To add the attribute for license types to your Okta environment:
 
@@ -125,20 +113,12 @@ To add the attribute for license types to your Okta environment:
 
    * **Attribute members:** Add the initial attribute and then click **Add another** until each license type is defined. We recommend adding all of the values even if you don't use them today, so they'll be available in the future. Refer to the following table for the values you can use.
 
-     <!-- -->
-
      | Display name  | Value       |
      | ------------- | ----------- |
      | **IT**        | `it`        |
      | **Analyst**   | `analyst`   |
      | **Developer** | `developer` |
      | **Read Only** | `read_only` |
-
-     Search table...
-
-     |                  |   |   |   |   |
-     | ---------------- | - | - | - | - |
-     | Loading table... |   |   |   |   |
 
    The **Analyst** license is only available on [select plans](./seats-and-users.md). It is not available for new purchase.
 
@@ -150,7 +130,7 @@ To add the attribute for license types to your Okta environment:
 
    [![Set the license type for the user in their Okta profile.](/img/docs/dbt-platform/access-control/scim-license-provisioning.png?v=2 "Set the license type for the user in their Okta profile.")](#)Set the license type for the user in their Okta profile.
 
-## Automate license assignments with Okta groups[​](#automate-license-assignments-with-okta-groups "Direct link to Automate license assignments with Okta groups")
+## Automate license assignments with Okta groups
 
 To automate seat assignments in Okta, use the Profile Editor to map Okta group memberships to dbt license types.
 

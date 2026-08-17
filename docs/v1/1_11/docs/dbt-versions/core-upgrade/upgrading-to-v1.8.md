@@ -1,26 +1,24 @@
 # Upgrading to v1.8
 
-Available in v1ⓘ
+Available in v1
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.8.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [Cloud upgrade guide](../upgrade-dbt-platform-version.md)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x, except for any changes explicitly mentioned on this page. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-## Release tracks[​](#release-tracks "Direct link to Release tracks")
+## Release tracks
 
 Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. Select a release track in your development, staging, and production [environments](../../deploy/deploy-environments.md) to access everything in dbt Core v1.8+ and more. To upgrade an environment in the [dbt Admin API](../../dbt-apis/admin-api.md) or [Terraform](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest), set `dbt_version` to the string `latest`.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
 Features and functionality new in dbt v1.8.
-
-<!-- -->
 
 Snowflake column size change
 
@@ -49,7 +47,7 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
-### Unit Tests[​](#unit-tests "Direct link to Unit Tests")
+### Unit Tests
 
 Historically, dbt's test coverage was confined to [“data” tests](../../build/data-tests.md), assessing the quality of input data or resulting datasets' structure.
 
@@ -65,7 +63,7 @@ dbt test --select "test_type:data"           # run all data tests
 
 Unit tests are defined in YML files in your `models/` directory and are currently only supported on SQL models. To distinguish between the two, the `tests:` config has been renamed to `data_tests:`. Both are currently supported for backward compatibility.
 
-#### New `data_tests:` syntax[​](#new-data_tests-syntax "Direct link to new-data_tests-syntax")
+#### New `data_tests:` syntax
 
 The `tests:` syntax is changing to reflect the addition of unit tests. Start migrating your [data test](../../build/data-tests.md#new-data_tests-syntax) YML to use `data_tests:` after you upgrade to v1.8 to prevent issues in the future.
 
@@ -80,11 +78,11 @@ models:
           - not_null
 ```
 
-#### The `--empty` flag[​](#the---empty-flag "Direct link to the---empty-flag")
+#### The `--empty` flag
 
 The [`run`](../../../reference/commands/run.md#the-%60--empty%60-flag) and [`build`](../../../reference/commands/build.md#the---empty-flag) commands now support the `--empty` flag for building schema-only dry runs. The `--empty` flag limits the refs and sources to zero rows. dbt will still execute the model SQL against the target data warehouse but will avoid expensive reads of input data. This validates dependencies and ensures your models will build properly.
 
-### dbt-core and adapters are decoupled[​](#dbt-core-and-adapters-are-decoupled "Direct link to dbt-core and adapters are decoupled")
+### dbt-core and adapters are decoupled
 
 Before v1.8, dbt adapters directly depended on components of `dbt-core`, and `dbt-core` depended on the adapter for execution. This bidirectional dependency made it difficult to develop adapters independently. Starting in dbt Core v1.8, [`dbt-core` and adapters are decoupled](https://github.com/dbt-labs/dbt-adapters/discussions/87), making it easier to maintain and evolve them independent of each other.
 
@@ -92,7 +90,7 @@ For backward compatibility, adapter packages continue to depend on `dbt-core` at
 
 This behavior remains unchanged. For example, `pip install dbt-snowflake` installs the latest versions of both `dbt-core` and `dbt-snowflake`.
 
-### Deprecated functionality[​](#deprecated-functionality "Direct link to Deprecated functionality")
+### Deprecated functionality
 
 The ability for installed packages to override built-in materializations without explicit opt-in from the user is being deprecated.
 
@@ -108,7 +106,7 @@ The ability for installed packages to override built-in materializations without
   {% endmaterialization %}
   ```
 
-### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
+### Managing changes to legacy behaviors
 
 dbt Core v1.8 has introduced flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
@@ -118,7 +116,7 @@ You can read more about each of these behavior changes in the following links:
 * (Introduced, disabled by default) [Require resource names without spaces](../../../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md)
 * (Introduced, disabled by default) [Run project hooks (`on-run-*`) in the `dbt source freshness` command](../../../reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md)
 
-## Quick hits[​](#quick-hits "Direct link to Quick hits")
+## Quick hits
 
 * Custom defaults of [global config flags](../../../reference/global-configs/about-global-configs.md) should be set in the `flags` dictionary in [`dbt_project.yml`](../../../reference/dbt_project.yml.md), instead of in [`profiles.yml`](../../local/profiles.yml.md). Support for `profiles.yml` has been deprecated.
 * New CLI flag [`--resource-type`/`--exclude-resource-type`](../../../reference/global-configs/resource-type.md) for including/excluding resources from dbt `build`, `run`, and `clone`.

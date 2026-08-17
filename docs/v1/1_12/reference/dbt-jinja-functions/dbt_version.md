@@ -2,7 +2,7 @@
 
 The `dbt_version` variable returns the installed version of dbt that is currently running. It can be used for debugging or auditing purposes. For details about release versioning, refer to [Versioning](../commands/version.md#versioning).
 
-## Example usages[​](#example-usages "Direct link to Example usages")
+## Example usages
 
 macros/get\_version.sql
 

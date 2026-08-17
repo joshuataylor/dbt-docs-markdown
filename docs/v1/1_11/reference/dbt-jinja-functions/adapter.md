@@ -20,7 +20,7 @@ For example, the adapter methods below will be translated into specific SQL stat
 * [adapter.rename\_relation](#rename_relation)
 * [adapter.quote](#quote)
 
-### Deprecated adapter functions[​](#deprecated-adapter-functions "Direct link to Deprecated adapter functions")
+### Deprecated adapter functions
 
 The following adapter functions are deprecated, and will be removed in a future release.
 
@@ -28,11 +28,11 @@ The following adapter functions are deprecated, and will be removed in a future 
 * [adapter.already\_exists](#already_exists) **(deprecated)**
 * [adapter\_macro](#adapter_macro) **(deprecated)**
 
-## dispatch[​](#dispatch "Direct link to dispatch")
+## dispatch
 
 Moved to separate page: [dispatch](./dispatch.md)
 
-## get\_missing\_columns[​](#get_missing_columns "Direct link to get_missing_columns")
+## get\_missing\_columns
 
 **Args**:
 
@@ -57,7 +57,7 @@ models/example.sql
 {% endfor %}
 ```
 
-## expand\_target\_column\_types[​](#expand_target_column_types "Direct link to expand_target_column_types")
+## expand\_target\_column\_types
 
 **Args**:
 
@@ -77,7 +77,7 @@ example.sql
 {% do adapter.expand_target_column_types(tmp_relation, target_relation) %}
 ```
 
-## get\_relation[​](#get_relation "Direct link to get_relation")
+## get\_relation
 
 **Args**:
 
@@ -101,7 +101,7 @@ example.sql
 {{ log("Source Relation: " ~ source_relation, info=true) }}
 ```
 
-## load\_relation[​](#load_relation "Direct link to load_relation")
+## load\_relation
 
 **Args**:
 
@@ -123,7 +123,7 @@ example.sql
 {% endif %}
 ```
 
-## get\_columns\_in\_relation[​](#get_columns_in_relation "Direct link to get_columns_in_relation")
+## get\_columns\_in\_relation
 
 **Args**:
 
@@ -144,7 +144,7 @@ example.sql
 {% endfor %}
 ```
 
-## create\_schema[​](#create_schema "Direct link to create_schema")
+## create\_schema
 
 **Args**:
 
@@ -161,7 +161,7 @@ example.sql
 {% do adapter.create_schema(api.Relation.create(database=target.database, schema="my_schema")) %}
 ```
 
-## drop\_schema[​](#drop_schema "Direct link to drop_schema")
+## drop\_schema
 
 **Args**:
 
@@ -178,7 +178,7 @@ example.sql
 {% do adapter.drop_schema(api.Relation.create(database=target.database, schema="my_schema")) %}
 ```
 
-## drop\_relation[​](#drop_relation "Direct link to drop_relation")
+## drop\_relation
 
 **Args**:
 
@@ -197,7 +197,7 @@ example.sql
 {% do adapter.drop_relation(this) %}
 ```
 
-## rename\_relation[​](#rename_relation "Direct link to rename_relation")
+## rename\_relation
 
 **Args**:
 
@@ -225,7 +225,7 @@ example.sql
 {% do adapter.rename_relation(old_relation, backup_relation) %}
 ```
 
-## quote[​](#quote "Direct link to quote")
+## quote
 
 **Args**:
 
@@ -243,7 +243,7 @@ select
       'def' as {{ adapter.quote('group by') }} 
 ```
 
-## get\_columns\_in\_table[​](#get_columns_in_table "Direct link to get_columns_in_table")
+## get\_columns\_in\_table
 
 Deprecated
 
@@ -268,7 +268,7 @@ insert into {{ this }} ({{ dest_cols_csv }}) (
 );
 ```
 
-## already\_exists[​](#already_exists "Direct link to already_exists")
+## already\_exists
 
 Deprecated
 
@@ -291,7 +291,7 @@ select * from {{ref('raw_table')}}
 {% endif %}
 ```
 
-## adapter\_macro[​](#adapter_macro "Direct link to adapter_macro")
+## adapter\_macro
 
 Deprecated
 

@@ -2,7 +2,7 @@
 
 Analytics engineering requires more than code generation — it requires understanding your data, how it connects, and what breaks when something changes. dbt brings purpose-built AI to that workflow, grounded in your project's lineage, tests, contracts, and metric definitions.
 
-## Explore dbt Wizard and AI[​](#explore-dbt-wizard-and-ai "Direct link to Explore dbt Wizard and AI")
+## Explore dbt Wizard and AI
 
 [![](/img/icons/wizard.svg)](./wizard-quickstart.md)
 
@@ -40,7 +40,7 @@ Analytics engineering requires more than code generation — it requires underst
 
 [Move from Claude Code, Cursor, or another AI agent to dbt Wizard with native project context.](./wizard-migrate.md)
 
-## Explore dbt Copilot[​](#explore-dbt-copilot "Direct link to Explore dbt Copilot")
+## Explore dbt Copilot
 
 [![](/img/icons/dbt-copilot.svg)](./copilot-overview.md)
 
@@ -54,15 +54,13 @@ Analytics engineering requires more than code generation — it requires underst
 
 [Chat with your data using dbt Copilot in Insights, powered by the Semantic Layer.](./analyst-agent.md)
 
-## Explore the dbt MCP server[​](#explore-the-dbt-mcp-server "Direct link to Explore the dbt MCP server")
+## Explore the dbt MCP server
 
 [![](/img/icons/integration.svg)](./about-mcp.md)
 
 #### [dbt MCP server](./about-mcp.md)
 
 [Bring dbt structured context into any MCP-compatible AI tool.](./about-mcp.md)
-
-<!-- -->
 
 info
 

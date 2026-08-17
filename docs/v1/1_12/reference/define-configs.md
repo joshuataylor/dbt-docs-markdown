@@ -4,10 +4,12 @@ Learn how to define configurations for your resources in a dbt project
 
 Depending on the resource type, you can define configurations in a dbt project and also in an installed package by:
 
+(Applies to dbt v1.9 and later)
+
 1. Using a [`config` property](./resource-properties/config.md) in a `.yml` file for supported resource directories like `models/`, `snapshots/`, `seeds/`, `analyses`, `tests/`, and more.
 2. From the [`dbt_project.yml` file](./dbt_project.yml.md), under the corresponding resource key (`models:`, `snapshots:`, `data_tests:`, and so on)
 
-## Config inheritance[​](#config-inheritance "Direct link to Config inheritance")
+## Config inheritance
 
 The most specific config always takes precedence. This generally follows the order above: an in-file `config()` block --> properties defined in a `.yml` file --> config defined in the project file.
 
@@ -17,7 +19,7 @@ Within the project file, configurations are also applied hierarchically. The mos
 
 Configurations in your root dbt project have *higher* precedence than configurations in installed packages. This enables you to override the configurations of installed packages, providing more control over your dbt runs.
 
-## Combining configs[​](#combining-configs "Direct link to Combining configs")
+## Combining configs
 
 Most configurations are "clobbered" when applied hierarchically. Whenever a more specific value is available, it will completely replace the less specific value. Note that a few configs have different merge behavior:
 
@@ -47,7 +49,7 @@ Most configurations are "clobbered" when applied hierarchically. Whenever a more
 
   `owner` is kept because it appears at only one level. `dagster` appears at both levels, so the more specific value replaces it as a whole — and because the merge never looks inside `dagster`, the nested `automation_condition` is lost. A deep (recursive) merge would instead combine the nested keys, producing `dagster: {automation_condition: "eager", asset_key: "my_key"}`. `meta` doen't do this — nested dictionaries are replaced, not merged.
 
-### Which config wins across levels[​](#which-config-wins-across-levels "Direct link to Which config wins across levels")
+### Which config wins across levels
 
 For clobbering and merging configurations that are inherited from multiple levels, the general rules are:
 
@@ -55,9 +57,7 @@ For clobbering and merging configurations that are inherited from multiple level
 * For sources, table-level configs (more specific) clobber source-level configs (less specific).
 * The root project's configuration in `dbt_project.yml` clobbers configuration within package files. This is so that users can control the behavior of packages they are installing using `dbt deps` without needing to edit the code in those package files directly.
 
-## The `+` prefix[​](#the--prefix "Direct link to the--prefix")
-
-<!-- -->
+## The `+` prefix
 
 dbt demarcates between a folder name and a configuration by using a `+` prefix before the configuration name. The `+` prefix is used for configs *only* and applies to `dbt_project.yml` under the corresponding resource key. It doesn't apply to:
 
@@ -66,9 +66,7 @@ dbt demarcates between a folder name and a configuration by using a `+` prefix b
 
 For more info, see the [Using the `+` prefix](./resource-configs/plus-prefix.md).
 
-<!-- -->
-
-## Example[​](#example "Direct link to Example")
+## Example
 
 Here's an example that defines both `sources` and `models` for a project:
 
@@ -134,7 +132,7 @@ models:
                 severity: warn
 ```
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 You can find an exhaustive list of each supported property and config, broken down by resource type:
 
@@ -146,7 +144,7 @@ You can find an exhaustive list of each supported property and config, broken do
 * Macro [properties](./macro-properties.md)
 * Exposure [properties](./exposure-properties.md)
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Does my \`.yml\` file containing tests and descriptions need to be named \`schema.yml\`?
 
@@ -214,7 +212,7 @@ Can I use a YAML file extension?
 
 No. At present, dbt will only search for files with a `.yml` file extension. In a future release of dbt, dbt will also search for files with a `.yaml` file extension.
 
-## Troubleshooting common errors[​](#troubleshooting-common-errors "Direct link to Troubleshooting common errors")
+## Troubleshooting common errors
 
  Invalid test config given in \[model name]
 

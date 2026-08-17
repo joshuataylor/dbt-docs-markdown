@@ -2,7 +2,7 @@
 
 Many data applications integrate with dbt, enabling you to leverage the power of dbt for a variety of use cases and workflows.
 
-## Integrations with dbt[​](#integrations-with-dbt "Direct link to Integrations with dbt")
+## Integrations with dbt
 
 [![](/img/icons/vsce.svg)](../about-dbt-extension.md)
 

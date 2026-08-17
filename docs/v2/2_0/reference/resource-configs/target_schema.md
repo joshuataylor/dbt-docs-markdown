@@ -22,23 +22,19 @@ snapshots/\<filename>.sql
 ) }}
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 The schema that dbt should build a [snapshot](../../docs/build/snapshots.md) table into. When `target_schema` is provided, snapshots build into the same `target_schema`, no matter who is running them.
 
 On **BigQuery**, this is analogous to a `dataset`.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
-<!-- -->
+(Applies to dbt v1.9 and later) In dbt Core v1.9+ and dbt **Latest** release track, this is not a required parameter.
 
-In dbt Core v1.9+ and dbt **Latest** release track, this is not a required parameter.
+## Examples
 
-<!-- -->
-
-## Examples[​](#examples "Direct link to Examples")
-
-### Build all snapshots in a schema named `snapshots`[​](#build-all-snapshots-in-a-schema-named-snapshots "Direct link to build-all-snapshots-in-a-schema-named-snapshots")
+### Build all snapshots in a schema named `snapshots`
 
 dbt\_project.yml
 

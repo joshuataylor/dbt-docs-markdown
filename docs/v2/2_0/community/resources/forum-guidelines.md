@@ -1,6 +1,6 @@
 # Community Forum guidelines
 
-## What is the dbt Community Forum?[​](#what-is-the-dbt-community-forum "Direct link to What is the dbt Community Forum?")
+## What is the dbt Community Forum?
 
 [The dbt Community Forum](https://discourse.getdbt.com) is the platform for getting support with dbt as well as to have long-lived discussions about dbt, analytics engineering, and analytics. It's a place for us to build up a long-lasting knowledge base around the common challenges, opportunities, and patterns we work with every day. The forum is different from the dbt Community Slack in a few key ways, most importantly it is:
 
@@ -17,7 +17,7 @@ The community [Rules of the Road](./community-rules-of-the-road.md) apply, and f
 * Mark replies as Solutions in the Help section
 * Don’t double post
 
-## Categories[​](#categories "Direct link to Categories")
+## Categories
 
 The forum is broken down into three categories:
 
@@ -26,8 +26,6 @@ The forum is broken down into three categories:
   * This is a Q\&A style forum where you can ask the dbt Community for help with specific questions about dbt, dbt, data modeling, or anything else you want a definitive answer on.
 
   * This category is for questions which can plausibly have a *single correct answer*.
-
-    <!-- -->
 
     * ✅ How do I debug this Jinja error?
     * ✅ How do I set up CI in dbt on GitHub?
@@ -39,7 +37,7 @@ The forum is broken down into three categories:
 * [In-Depth Discussions](https://discourse.getdbt.com/c/discussions/21)
   * Share anything you’re thinking about that has to do with dbt or analytics engineering! This is a great place to jot down some thoughts to share with the community or spark a discussion on a topic that’s currently interesting you.
 
-## Inclusivity on the Community Forum[​](#inclusivity-on-the-community-forum "Direct link to Inclusivity on the Community Forum")
+## Inclusivity on the Community Forum
 
 We are **strongly** committed to building a community where everyone can feel welcome.
 
@@ -49,7 +47,7 @@ Technical forums have the potential to replicate harmful power structures, and c
 
 If you have any ideas or feedback on how to make this space friendlier or more inclusive please let us know, either on the community Slack in the #community-strategy channel or via email at <community@dbtlabs.com>. We want to hear from you!
 
-## Following new and ongoing Discussions[​](#following-new-and-ongoing-discussions "Direct link to Following new and ongoing Discussions")
+## Following new and ongoing Discussions
 
 The best way to stay up to date is to [browse the forum](https://discourse.getdbt.com/) directly. You can also Track or Watch specific threads or the whole category to receive updates on them without commenting.
 

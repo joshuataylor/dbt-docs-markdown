@@ -1,6 +1,6 @@
 # Use cases and examples for the Discovery API
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 With the Discovery API, you can query the metadata in dbt to learn more about your dbt deployments and the data it generates to analyze them and make improvements.
 
@@ -14,19 +14,13 @@ You can use the API in a variety of ways to get answers to your business questio
 | [Governance](#governance)   | Audit data development and facilitate collaboration within and between teams.                        | - Who is responsible for this model?<br />- How do I contact the model’s owner?<br />- Who can use this model?                     |
 | [Development](#development) | Understand dataset changes and usage and gauge impacts to inform project definition.                 | - How is this metric used in BI tools?<br />- Which nodes depend on this data source?<br />- How has a model changed? What impact? |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Performance[​](#performance "Direct link to Performance")
+## Performance
 
 You can use the Discovery API to identify inefficiencies in pipeline execution to reduce infrastructure costs and improve timeliness. Below are example questions and queries you can run.
 
 For performance use cases, people typically query the historical or latest applied state across any part of the DAG (for example, models) using the `environment`, `modelHistoricalRuns`, or job-level endpoints.
 
-### How long did each model take to run?[​](#how-long-did-each-model-take-to-run "Direct link to How long did each model take to run?")
+### How long did each model take to run?
 
 It’s helpful to understand how long it takes to build models (tables) and tests to execute during a dbt run. Longer model build times result in higher infrastructure costs and fresh data arriving later to stakeholders. Analyses like these can be in observability tools or ad-hoc queries, like in a notebook.
 
@@ -165,7 +159,7 @@ Plotting examples:
 
 [![The plot of executionTime over time](/img/docs/dbt-platform/discovery-api/plot-of-executiontime.png?v=2 "The plot of executionTime over time")](#)The plot of executionTime over time
 
-### What’s the latest state of each model?[​](#whats-the-latest-state-of-each-model "Direct link to What’s the latest state of each model?")
+### What’s the latest state of each model?
 
 The Discovery API provides information about the applied state of models and how they arrived in that state. You can retrieve the status information from the most recent run and most recent successful run (execution) from the `environment` endpoint and dive into historical runs using job-based and `modelByEnvironment` endpoints.
 
@@ -205,7 +199,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What happened with my job run?[​](#what-happened-with-my-job-run "Direct link to What happened with my job run?")
+### What happened with my job run?
 
 You can query the metadata at the job level to review results for specific runs. This is helpful for historical analysis of deployment performance or optimizing particular jobs.
 
@@ -259,7 +253,7 @@ query JobModelsPage($jobId: BigInt!, $runId: BigInt, $first: Int!, $after: Strin
 }
 ```
 
-### What’s changed since the last run?[​](#whats-changed-since-the-last-run "Direct link to What’s changed since the last run?")
+### What’s changed since the last run?
 
 Unnecessary runs incur higher infrastructure costs and load on the data team and their systems. A model doesn’t need to be run if it’s a view and there's no code change since the last run, or if it’s a table/incremental with no code change since last run and source data has not been updated since the last run.
 
@@ -312,13 +306,13 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Quality[​](#quality "Direct link to Quality")
+## Quality
 
 You can use the Discovery API to monitor data source freshness and test results to diagnose and resolve issues and drive trust in data. When used with [webhooks](../deploy/webhooks.md), can also help with detecting, investigating, and alerting issues. Below lists example questions the API can help you answer. Below are example questions and queries you can run.
 
 For quality use cases, people typically query the historical or latest applied state, often in the upstream part of the DAG (for example, sources), using the `environment` or `environment { applied { modelHistoricalRuns } }` endpoints.
 
-### Which models and tests failed to run?[​](#which-models-and-tests-failed-to-run "Direct link to Which models and tests failed to run?")
+### Which models and tests failed to run?
 
 By filtering on the latest status, you can get lists of models that failed to build and tests that failed during their most recent execution. This is helpful when diagnosing issues with the deployment that result in delayed or incorrect data.
 
@@ -377,7 +371,7 @@ query ($environmentId: BigInt!, $uniqueId: String!, $lastRunCount: Int) {
 
 3. Identify the runs and plot the historical trends of failure/error rates.
 
-### When was the data my model uses last refreshed?[​](#when-was-the-data-my-model-uses-last-refreshed "Direct link to When was the data my model uses last refreshed?")
+### When was the data my model uses last refreshed?
 
 You can get the metadata on the latest execution for a particular model or across all models in your project. For instance, investigate when each model or snapshot that's feeding into a given model was last executed or the source or seed was last loaded to gauge the *freshness* of the data.
 
@@ -488,7 +482,7 @@ Graph example:
 
 [![A lineage graph with source freshness information](/img/docs/dbt-platform/discovery-api/lineage-graph-with-freshness-info.png?v=2 "A lineage graph with source freshness information")](#)A lineage graph with source freshness information
 
-### Are my data sources fresh?[​](#are-my-data-sources-fresh "Direct link to Are my data sources fresh?")
+### Are my data sources fresh?
 
 Checking [source freshness](../build/sources.md#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
 
@@ -538,7 +532,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What’s the test coverage and status?[​](#whats-the-test-coverage-and-status "Direct link to What’s the test coverage and status?")
+### What’s the test coverage and status?
 
 [Data tests](../build/data-tests.md) are an important way to ensure that your stakeholders are reviewing high-quality data. You can execute tests during a dbt run. The Discovery API provides complete test results for a given environment or job, which it represents as the `children` of a given node that’s been tested (for example, a `model`).
 
@@ -573,7 +567,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### How is this model contracted and versioned?[​](#how-is-this-model-contracted-and-versioned "Direct link to How is this model contracted and versioned?")
+### How is this model contracted and versioned?
 
 To enforce the shape of a model's definition, you can define contracts on models and their columns. You can also specify model versions to keep track of discrete stages in its evolution and use the appropriate one.
 
@@ -609,13 +603,13 @@ query {
 }
 ```
 
-## Discovery[​](#discovery "Direct link to Discovery")
+## Discovery
 
 You can use the Discovery API to find and understand relevant datasets and semantic nodes with rich context and metadata. Below are example questions and queries you can run.
 
 For discovery use cases, people typically query the latest applied or definition state, often in the downstream part of the DAG (for example, mart models or metrics), using the `environment` endpoint.
 
-### What does this dataset and its columns mean?[​](#what-does-this-dataset-and-its-columns-mean "Direct link to What does this dataset and its columns mean?")
+### What does this dataset and its columns mean?
 
 Query the Discovery API to map a table/view in the data platform to the model in the dbt project; then, retrieve metadata about its meaning, including descriptive metadata from its YAML file and catalog information from its YAML file and the schema.
 
@@ -654,7 +648,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### What's the full data lineage at a model level?[​](#whats-the-full-data-lineage-at-a-model-level "Direct link to What's the full data lineage at a model level?")
+### What's the full data lineage at a model level?
 
 The Discovery API enables access to comprehensive model-level data lineage by exposing:
 
@@ -694,7 +688,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### Which metrics are available?[​](#which-metrics-are-available "Direct link to Which metrics are available?")
+### Which metrics are available?
 
 You can define and query metrics using the [Semantic Layer](../build/about-metricflow.md), use them for documentation purposes (like for a data catalog), and calculate aggregations (like in a BI tool that doesn’t query the SL).
 
@@ -725,13 +719,13 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Governance[​](#governance "Direct link to Governance")
+## Governance
 
 You can use the Discovery API to audit data development and facilitate collaboration within and between teams.
 
 For governance use cases, people tend to query the latest definition state, often in the downstream part of the DAG (for example, public models), using the `environment` endpoint.
 
-### Who is responsible for this model?[​](#who-is-responsible-for-this-model "Direct link to Who is responsible for this model?")
+### Who is responsible for this model?
 
 You can define and surface the groups each model is associated with. Groups contain information like owner. This can help you identify which team owns certain models and who to contact about them.
 
@@ -772,7 +766,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### Who can use this model?[​](#who-can-use-this-model "Direct link to Who can use this model?")
+### Who can use this model?
 
 You can enable people the ability to specify the level of access for a given model. In the future, public models will function like APIs to unify project lineage and enable reuse of models using cross-project refs.
 
@@ -813,13 +807,13 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Development[​](#development "Direct link to Development")
+## Development
 
 You can use the Discovery API to understand dataset changes and usage and gauge impacts to inform project definition. Below are example questions and queries you can run.
 
 For development use cases, people typically query the historical or latest definition or applied state across any part of the DAG using the `environment` endpoint.
 
-### How is this model or metric used in downstream tools?[​](#how-is-this-model-or-metric-used-in-downstream-tools "Direct link to How is this model or metric used in downstream tools?")
+### How is this model or metric used in downstream tools?
 
 [Exposures](../build/exposures.md) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
 
@@ -858,7 +852,7 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-### How has this model changed over time?[​](#how-has-this-model-changed-over-time "Direct link to How has this model changed over time?")
+### How has this model changed over time?
 
 The Discovery API provides historical information about any resource in your project. For instance, you can view how a model has evolved over time (across recent runs) given changes to its shape and contents.
 
@@ -895,7 +889,7 @@ query (
 }
 ```
 
-### Which nodes depend on this data source?[​](#which-nodes-depend-on-this-data-source "Direct link to Which nodes depend on this data source?")
+### Which nodes depend on this data source?
 
 dbt lineage begins with data sources. For a given source, you can look at which nodes are its children then iterate downstream to get the full list of dependencies.
 
@@ -931,6 +925,6 @@ query ($environmentId: BigInt!, $first: Int!) {
 }
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Query Discovery API](./discovery-querying.md)

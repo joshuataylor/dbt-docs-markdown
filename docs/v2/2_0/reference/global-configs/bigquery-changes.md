@@ -1,6 +1,6 @@
 # BigQuery adapter behavior changes
 
-## The `bigquery_use_batch_source_freshness` flag[​](#the-bigquery_use_batch_source_freshness-flag "Direct link to the-bigquery_use_batch_source_freshness-flag")
+## The `bigquery_use_batch_source_freshness` flag
 
 The `bigquery_use_batch_source_freshness` flag is `false` by default. Setting it to `true` in your `dbt_project.yml` file enables dbt to compute `source freshness` results with a single batched query to BigQuery's [`INFORMATION_SCHEMA.TABLE_STORAGE`](https://cloud.google.com/bigquery/docs/information-schema-table-storage) view as opposed to sending a metadata request for each source.
 
@@ -16,7 +16,9 @@ However, if `loaded_at_field` is set on *all* sources, freshness fails with a co
 
 To avoid this, remove `loaded_at_field` from any sources you want checked using batch freshness.
 
-## The `bigquery_reject_wildcard_metadata_source_freshness` flag[​](#the-bigquery_reject_wildcard_metadata_source_freshness-flag "Direct link to the-bigquery_reject_wildcard_metadata_source_freshness-flag")
+(Applies to dbt v1.12 and later)
+
+## The `bigquery_reject_wildcard_metadata_source_freshness` flag
 
 When a BigQuery source uses a wildcard table identifier (for example, `events_*`), metadata-based source freshness checks return incorrect results. BigQuery's `client.get_table()` method creates a temporary union table for wildcard identifiers whose modified timestamp reflects the current time — not the actual modification time of the underlying tables. This makes freshness checks report an age of approximately 0 seconds, masking stale data without any warning.
 
@@ -63,7 +65,7 @@ sources:
           loaded_at_field: _etl_loaded_at
 ```
 
-## The `bigquery_use_standard_sql_for_partitions` flag[​](#the-bigquery_use_standard_sql_for_partitions-flag "Direct link to the-bigquery_use_standard_sql_for_partitions-flag")
+## The `bigquery_use_standard_sql_for_partitions` flag
 
 BigQuery is [deprecating legacy SQL starting June 1, 2026](https://docs.cloud.google.com/bigquery/docs/release-notes#February_25_2026). New Google Cloud Platform projects created after that date will not support legacy SQL. The `get_partitions_metadata()` macro currently uses legacy SQL with `$__PARTITIONS_SUMMARY__`, which will stop working after this deprecation.
 

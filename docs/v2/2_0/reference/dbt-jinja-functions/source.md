@@ -4,7 +4,7 @@
 select * from {{ source("source_name", "table_name") }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 This function:
 
@@ -12,16 +12,16 @@ This function:
 * Creates dependencies between a source and the current model, which is useful for documentation and [node selection](../node-selection/syntax.md)
 * Compiles to the full object name in the database
 
-## Related guides[​](#related-guides "Direct link to Related guides")
+## Related guides
 
 * [Using sources](../../docs/build/sources.md)
 
-## Arguments[​](#arguments "Direct link to Arguments")
+## Arguments
 
 * `source_name`: The `name:` defined under a `sources:` key
 * `table_name`: The `name:` defined under a `tables:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Consider a source defined as follows:
 

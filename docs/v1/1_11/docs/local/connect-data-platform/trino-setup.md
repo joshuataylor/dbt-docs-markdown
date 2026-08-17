@@ -1,51 +1,37 @@
 # Connect Starburst/Trino to dbt Core
 
-Local developmentⓘ
+Local development
 
 `profiles.yml` file is for dbt Core and dbt fusion only
 
 If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Starburst Data, Inc.
-* **Authors**:
-  <!-- -->
-  Marius Grama, Przemek Denkiewicz, Michiel de Smet, Damian Owsianny
+* **Maintained by**: Starburst Data, Inc.
+* **Authors**: Marius Grama, Przemek Denkiewicz, Michiel de Smet, Damian Owsianny
 * **GitHub repo**: [starburstdata/dbt-trino](https://github.com/starburstdata/dbt-trino) [![](https://img.shields.io/github/stars/starburstdata/dbt-trino?style=for-the-badge)](https://github.com/starburstdata/dbt-trino)
 * **PyPI package**: `dbt-trino` [![](https://badge.fury.io/py/dbt-trino.svg)](https://badge.fury.io/py/dbt-trino)
 * **Slack channel**: [#db-starburst-and-trino](https://getdbt.slack.com/archives/CNNPBQ24R)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.20.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.20.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-trino
+## Installing dbt-trino
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-trino`
 
-## Configuring <!-- -->dbt-trino<!-- -->
+## Configuring dbt-trino
 
-For <!-- -->Starburst/Trino<!-- -->-specific configuration, please refer to [Starburst/Trino<!-- --> configs.](../../../reference/resource-configs/trino-configs.md)
+For Starburst/Trino-specific configuration, please refer to [Starburst/Trino configs.](../../../reference/resource-configs/trino-configs.md)
 
-## Connecting to Starburst/Trino[​](#connecting-to-starbursttrino "Direct link to Connecting to Starburst/Trino")
+## Connecting to Starburst/Trino
 
 To connect to a data platform with dbt Core, create appropriate *profile* and *target* YAML keys/values in the `profiles.yml` configuration file for your Starburst/Trino clusters. This dbt YAML file lives in the `.dbt/` directory of your user/home directory. For more information, refer to [Connection profiles](../profiles.yml.md) and [profiles.yml](../profiles.yml.md).
 
 The parameters for setting up a connection are for Starburst Enterprise, Starburst Galaxy, and Trino clusters. Unless specified, "cluster" will mean any of these products' clusters.
 
-## Host parameters[​](#host-parameters "Direct link to Host parameters")
+## Host parameters
 
 The following profile fields are always required except for `user`, which is also required unless you're using the `oauth`, `oauth_console`, `cert`, or `jwt` authentication methods.
 
@@ -57,21 +43,15 @@ The following profile fields are always required except for `user`, which is als
 | `port`     | `443`                                                                                                                                                               | The port to connect to your cluster. By default, it's 443 for TLS enabled clusters.                                                                                       |
 | `user`     | Format for Starburst Enterprise or Trino:<br />- `user.name`<br />- `user.name@mydomain.com`<br />Format for Starburst Galaxy:<br />- `user.name@mydomain.com/role` | The username (of the account) to log in to your cluster. When connecting to Starburst Galaxy clusters, you must include the role of the user as a suffix to the username. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Roles in Starburst Enterprise[​](#roles-in-starburst-enterprise "Direct link to Roles in Starburst Enterprise")
+### Roles in Starburst Enterprise
 
 If connecting to a Starburst Enterprise cluster with built-in access controls enabled, you must specify a role using the format detailed in [Additional parameters](#additional-parameters). If a role is not specified, the default role for the provided username is used.
 
-### Schemas and databases[​](#schemas-and-databases "Direct link to Schemas and databases")
+### Schemas and databases
 
 When selecting the catalog and the schema, make sure the user has read and write access to both. This selection does not limit your ability to query the catalog. Instead, they serve as the default location for where tables and views are materialized. In addition, the Trino connector used in the catalog must support creating tables. This *default* can be changed later from within your dbt project.
 
-## Additional parameters[​](#additional-parameters "Direct link to Additional parameters")
+## Additional parameters
 
 The following profile fields are optional to set up. They let you configure your cluster's session and dbt for your connection.
 
@@ -86,13 +66,7 @@ The following profile fields are optional to set up. They let you configure your
 | `http_headers`                | `X-Trino-Client-Info: dbt-trino` | HTTP Headers to send alongside requests to Trino, specified as a YAML dictionary of (header, value) pairs. |
 | `http_scheme`                 | `https` or `http`                | The HTTP scheme to use for requests to Trino (default: `http`, or `https` if `kerberos`, `ldap` or `jwt`)  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Authentication parameters[​](#authentication-parameters "Direct link to Authentication parameters")
+## Authentication parameters
 
 The authentication methods that dbt Core supports are:
 
@@ -108,13 +82,7 @@ Set the `method` field to the authentication method you intend to use for the co
 
 Click on one of these authentication methods for further details on how to configure your connection profile. Each tab also includes an example `profiles.yml` configuration file for you to review.
 
-* LDAP
-* Kerberos
-* JWT
-* Certificate
-* OAuth
-* OAuth (console)
-* None
+### LDAP
 
 The following table lists the authentication parameters to set for LDAP.
 
@@ -127,15 +95,9 @@ For more information, refer to [LDAP authentication](https://trino.io/docs/curre
 | `password`                      | `abc123`                                                                                                                                                            | Password for authentication.                                                                                                                                              |
 | `impersonation_user` (optional) | `impersonated_tom`                                                                                                                                                  | Override the provided username. This lets you impersonate another user.                                                                                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for LDAP[​](#example-profilesyml-for-ldap "Direct link to Example profiles.yml for LDAP")
+#### Example profiles.yml for LDAP
 
 \~/.dbt/profiles.yml
 
@@ -155,6 +117,8 @@ trino:
       threads: [1 or more]
 ```
 
+### Kerberos
+
 The following table lists the authentication parameters to set for Kerberos.
 
 For more information, refer to [Kerberos authentication](https://trino.io/docs/current/security/kerberos.html) in the Trino docs.
@@ -173,15 +137,9 @@ For more information, refer to [Kerberos authentication](https://trino.io/docs/c
 | `sanitize_mutual_error_response` (optional) | `true`              | Boolean flag to strip content and headers from error responses  |
 | `delegate` (optional)                       | `false`             | Boolean flag for credential delegation (`GSS_C_DELEG_FLAG`)     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for Kerberos[​](#example-profilesyml-for-kerberos "Direct link to Example profiles.yml for Kerberos")
+#### Example profiles.yml for Kerberos
 
 \~/.dbt/profiles.yml
 
@@ -202,6 +160,8 @@ trino:
       schema: public
 ```
 
+### JWT
+
 The following table lists the authentication parameters to set for JSON Web Token.
 
 For more information, refer to [JWT authentication](https://trino.io/docs/current/security/jwt.html) in the Trino docs.
@@ -211,15 +171,9 @@ For more information, refer to [JWT authentication](https://trino.io/docs/curren
 | `method`      | `jwt`               | Set JWT as the authentication method. |
 | `jwt_token`   | `aaaaa.bbbbb.ccccc` | The JWT string.                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for JWT[​](#example-profilesyml-for-jwt "Direct link to Example profiles.yml for JWT")
+#### Example profiles.yml for JWT
 
 \~/.dbt/profiles.yml
 
@@ -238,6 +192,8 @@ trino:
       threads: [1 or more]
 ```
 
+### Certificate
+
 The following table lists the authentication parameters to set for certificates.
 
 For more information, refer to [Certificate authentication](https://trino.io/docs/current/security/certificate.html) in the Trino docs.
@@ -249,15 +205,9 @@ For more information, refer to [Certificate authentication](https://trino.io/doc
 | `client_private_key` | `/tmp/tls.key` | Path to client private key                         |
 | `cert`               |                | The full path to a certificate file                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for certificate[​](#example-profilesyml-for-certificate "Direct link to Example profiles.yml for certificate")
+#### Example profiles.yml for certificate
 
 \~/.dbt/profiles.yml
 
@@ -277,13 +227,15 @@ trino:
       threads: [1 or more]
 ```
 
+### OAuth
+
 The only authentication parameter to set for OAuth 2.0 is `method: oauth`. If you're using Starburst Enterprise or Starburst Galaxy, you must enable OAuth 2.0 in Starburst before you can use this authentication method.
 
 For more information, refer to both [OAuth 2.0 authentication](https://trino.io/docs/current/security/oauth2.html) in the Trino docs and the [README](https://github.com/trinodb/trino-python-client#oauth2-authentication) for the Trino Python client.
 
 It's recommended that you install `keyring` to cache the OAuth 2.0 token over multiple dbt invocations by running `python -m pip install 'trino[external-authentication-token-cache]'`. The `keyring` package is not installed by default.
 
-#### Example profiles.yml for OAuth[​](#example-profilesyml-for-oauth "Direct link to Example profiles.yml for OAuth")
+#### Example profiles.yml for OAuth
 
 ```yaml
 sandbox-galaxy:
@@ -298,6 +250,8 @@ sandbox-galaxy:
       port: 443
 ```
 
+### OAuth (console)
+
 The only authentication parameter to set for OAuth 2.0 is `method: oauth_console`. If you're using Starburst Enterprise or Starburst Galaxy, you must enable OAuth 2.0 in Starburst before you can use this authentication method.
 
 For more information, refer to both [OAuth 2.0 authentication](https://trino.io/docs/current/security/oauth2.html) in the Trino docs and the [README](https://github.com/trinodb/trino-python-client#oauth2-authentication) for the Trino Python client.
@@ -309,7 +263,7 @@ The only difference between `oauth_console` and `oauth` is:
 
 It's recommended that you install `keyring` to cache the OAuth 2.0 token over multiple dbt invocations by running `python -m pip install 'trino[external-authentication-token-cache]'`. The `keyring` package is not installed by default.
 
-#### Example profiles.yml for OAuth[​](#example-profilesyml-for-oauth-1 "Direct link to Example profiles.yml for OAuth")
+#### Example profiles.yml for OAuth
 
 ```yaml
 sandbox-galaxy:
@@ -324,9 +278,11 @@ sandbox-galaxy:
       port: 443
 ```
 
+### None
+
 You don't need to set up authentication (`method: none`), however, dbt Labs strongly discourages people from using it in any real application. Its use case is only for toy purposes (as in to play around with it), like local examples such as running Trino and dbt entirely within a single Docker container.
 
-#### Example profiles.yml for no authentication[​](#example-profilesyml-for-no-authentication "Direct link to Example profiles.yml for no authentication")
+#### Example profiles.yml for no authentication
 
 \~/.dbt/profiles.yml
 

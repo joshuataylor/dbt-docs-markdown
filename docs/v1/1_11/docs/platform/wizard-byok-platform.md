@@ -1,6 +1,6 @@
 # Configure BYOK for dbt Wizard in dbt platform
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Use bring-your-own-key (BYOK) to connect dbt Wizard or dbt Copilot in dbt platform to your own AI provider account instead of using dbt Labs' managed infrastructure.
 
@@ -8,7 +8,7 @@ The following BYOK instructions apply to dbt platform only. For CLI BYOK setup, 
 
 When you configure a provider with your own key, usage costs appear on your provider account instead of your dbt Labs account, and token costs are billed by whichever provider you choose.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * A [dbt platform account](https://www.getdbt.com/pricing) on Starter, Enterprise, or Enterprise+ plans
 * dbt admin permissions to enable AI features and configure providers in **Account settings**
@@ -17,9 +17,9 @@ When you configure a provider with your own key, usage costs appear on your prov
 
  See the full list of supported AI providers
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -40,7 +40,7 @@ Refer to the following pages for more information:
 * [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
-#### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
+#### dbt Copilot
 
 dbt Copilot supports different AI providers, including bring your own key (BYOK) for Enterprise and Enterprise+ plans:
 
@@ -50,13 +50,13 @@ dbt Copilot supports different AI providers, including bring your own key (BYOK)
 
 Snowflake Cortex, AWS Bedrock, Azure AI Foundry, and Anthropic aren't supported for dbt Copilot.
 
-## Configure AI provider[​](#configure-ai-provider "Direct link to Configure AI provider")
+## Configure AI provider
 
 Once AI features have been [enabled](./enable-dbt-ai.md#enable-ai-features), Enterprise and Enterprise+ accounts can configure a custom AI provider. If you bring your own provider, you will incur API calls and associated charges from that provider.
 
 \* *Managed (or Managed by dbt Labs): dbt Labs manages the AI provider connection; no user provider key is required. Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.*
 
-### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+### dbt Wizard
 
 To configure your AI provider for dbt Wizard:
 
@@ -65,9 +65,7 @@ To configure your AI provider for dbt Wizard:
 3. Under **AI providers**, click **Edit** to configure the AI integration.
 4. For each provider, select your **Key management** option from the dropdown.
 
-* OpenAI
-* Azure AI Foundry
-* Anthropic
+### OpenAI
 
 **Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
@@ -93,6 +91,8 @@ To use BYOK, ensure your OpenAI project doesn’t have data residency controls e
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled. Projects without project region settings use the standard OpenAI endpoint (<https://api.openai.com>) and support BYOK.
 
+### Azure AI Foundry
+
 **Managed by you only** (Enterprise or Enterprise+ plans)
 
 To learn about deploying models on Azure, refer to [Deploy models on Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/deploy-models-openai) and [Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-foundry/). Configure credentials for your Azure AI Foundry deployment in dbt as follows:
@@ -113,6 +113,8 @@ Supported formats include:
 
 [![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
 
+### Anthropic
+
 **Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select **dbt Labs** from the list to use dbt Labs' managed\* Anthropic key.
@@ -128,7 +130,7 @@ Embedding limitations
 
 When using an Anthropic API key, dbt continues to use the dbt Labs-managed OpenAI key for embeddings in `text_to_sql` MCP tools, since Anthropic doesn't natively provide embeddings.
 
-### dbt Copilot[​](#dbt-copilot "Direct link to dbt Copilot")
+### dbt Copilot
 
 To configure your AI provider for dbt Copilot:
 
@@ -137,14 +139,14 @@ To configure your AI provider for dbt Copilot:
 3. Under **AI providers**, click **Edit** to configure the AI integration.
 4. For each provider, select your **Key management** option from the dropdown.
 
-* dbt Labs OpenAI
-* OpenAI
-* Azure OpenAI
+### dbt Labs OpenAI
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
 
 [![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
+
+### OpenAI
 
 Bringing your own OpenAI key is available for Enterprise or Enterprise+ plans.
 
@@ -159,6 +161,8 @@ Data residency limitation
 OpenAI projects with [data residency controls](https://platform.openai.com/docs/guides/your-data#data-residency-controls) enabled and configured for the United States (project region set to US) don't currently support BYOK. These projects can only use the API key in the dbt platform configuration. Specifying custom endpoints required for data residency isn’t yet supported, and we’re evaluating a solution for this.
 
 To use BYOK, ensure your OpenAI project doesn’t have data residency controls enabled. Projects without project region settings will use the standard OpenAI endpoint (`https://api.openai.com`) and support BYOK.
+
+### Azure OpenAI
 
 Bringing your own Azure OpenAI key is available for Enterprise or Enterprise+ plans.
 

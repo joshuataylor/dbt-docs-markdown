@@ -1,6 +1,6 @@
 # Navigate the interface
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 The Canvas interface contains an operator toolbar, operators, canvas, and more to help you access and transform data through a seamless drag-and-drop dbt model creation experience in dbt.
 
@@ -11,8 +11,6 @@ The Canvas interface is composed of:
 * **Navigation bars** — The top and ledft-side navigation bars contain options for switching between models in the workspace, opening existing or creating new models, uploading CSV data, previewing data and runs, and viewing helpful shortcuts.
 
 * **Operator toolbar** — Located at the top of the canvas area, the toolbar displays all the node categories available, as well as tools to help you develop:
-
-  <!-- -->
 
   * **Input:** Source models and data
   * **Transform:** Data transformation tools
@@ -26,7 +24,7 @@ The Canvas interface is composed of:
 
 * **Configuration panel** — Each operator has a configuration panel that opens when you click on it. The configuration panel allows you to configure the operator, review the current model, preview changes to the table, view the SQL code for the node, and delete the operator.
 
-## Operators[​](#operators "Direct link to Operators")
+## Operators
 
 The operator toolbar above the canvas contains the different transformation operators available to use. Use each operator to configure or perform specific tasks, like adding filters or joining models by dragging an operator onto the canvas. You can connect operators using the connector line, which allows you to form a complete model for your data transformation.
 
@@ -34,13 +32,13 @@ The operator toolbar above the canvas contains the different transformation oper
 
 Here the following operators are available:
 
-#### Input[​](#input "Direct link to Input")
+#### Input
 
 Input operators configure source data:
 
 * **Model explorer**: Select the model and columns you want to use.
 
-#### Transform[​](#transform "Direct link to Transform")
+#### Transform
 
 Transform operators shape your data:
 
@@ -54,7 +52,7 @@ Transform operators shape your data:
 * **Filter**: Set the conditions to filter data.
 * **Rename:** Provide custom alias' for your columns.
 
-#### Output model[​](#output-model "Direct link to Output model")
+#### Output model
 
 Output operators configure the names and location of your transformed data:
 
@@ -66,7 +64,7 @@ When you click on each operator, it opens a configuration panel. The configurati
 
 If you have any feedback on additional operators that you might need, we'd love to hear it! Please contact your dbt Labs account team and share your thoughts.
 
-## Canvas[​](#canvas "Direct link to Canvas")
+## Canvas
 
 Canvas has a sleek drag-and-drop interface for creating and modifying dbt SQL models. It's like a digital whiteboard space for easily viewing and delivering trustworthy data. Use the canvas to:
 
@@ -78,7 +76,7 @@ Canvas has a sleek drag-and-drop interface for creating and modifying dbt SQL mo
 
 [![The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.")](#)The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.
 
-### Connector[​](#connector "Direct link to Connector")
+### Connector
 
 Connectors allow you to connect your operators to create dbt models. Once you've added operators to the canvas:
 
@@ -88,7 +86,7 @@ Connectors allow you to connect your operators to create dbt models. Once you've
 
 [![Click and drag your cursor to connect operators.](/img/docs/dbt-platform/canvas/connector.png?v=2 "Click and drag your cursor to connect operators.")](#)Click and drag your cursor to connect operators.
 
-## Configuration panel[​](#configuration-panel "Direct link to Configuration panel")
+## Configuration panel
 
 Each operator has a configuration side panel that opens when you click on it. The configuration panel allows you to configure the operator, review the current model, preview changes, view the SQL code for the operator, and delete the operator.
 

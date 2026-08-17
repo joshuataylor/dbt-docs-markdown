@@ -13,12 +13,6 @@
 | Core v1.4              | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
 | Core v1.3              | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 **Produced by**: Any [dbt command](../../category/list-of-commands.md) that parses the project. This includes all commands, *except* [`deps`](../commands/deps.md), [`clean`](../commands/clean.md), [`debug`](../commands/debug.md), and [`init`](../commands/init.md).
@@ -33,7 +27,7 @@ This file contains a full representation of your dbt project's resources (models
 
 Today, dbt uses this file to populate the [docs site](../../docs/explore/build-and-view-your-docs.md), and to perform [state comparison](../node-selection/syntax.md#about-node-selection). Members of the community also use it to analyze project health, such as checking for missing descriptions or tests.
 
-### Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
+### Top-level keys
 
 * [`metadata`](./dbt-artifacts.md#common-metadata)
 * `nodes`: Dictionary of all analyses, models, seeds, snapshots, and tests.
@@ -49,7 +43,7 @@ Today, dbt uses this file to populate the [docs site](../../docs/explore/build-a
 * `selectors`: Expanded dictionary representation of [YAML `selectors`](../node-selection/yaml-selectors.md)
 * `disabled`: Array of resources with `enabled: false`
 
-### Resource details[​](#resource-details "Direct link to Resource details")
+### Resource details
 
 All resources nested within `nodes`, `sources`, `metrics`, `exposures`, `macros`, and `docs` have the following base properties:
 
@@ -62,7 +56,7 @@ All resources nested within `nodes`, `sources`, `metrics`, `exposures`, `macros`
 
 Each has several additional properties related to its resource type.
 
-### dbt JSON schema[​](#dbt-json-schema "Direct link to dbt JSON schema")
+### dbt JSON schema
 
 You can refer to the [dbt JSON schema](https://schemas.getdbt.com/) for information on describing and consuming dbt-generated artifacts.
 

@@ -9,19 +9,18 @@ The following tips are organized into the following categories:
 
 If you're developing with the Studio IDE, you can refer to the [keyboard shortcuts](../platform/studio-ide/keyboard-shortcuts.md) page to help make development more productive and easier for everyone.
 
-## YAML tips[​](#yaml-tips "Direct link to YAML tips")
+## YAML tips
 
 This section clarifies where you can use [Jinja](./jinja-macros.md), nest [vars](../../reference/dbt-jinja-functions/var.md) and [`env_var`](../../reference/dbt-jinja-functions/env_var.md) in your YAML files.
 
 * You can use Jinja in almost every YAML file in dbt *except* the [`dependencies.yml` file](./packages.md#use-cases). This is because the `dependencies.yml` file doesn't support Jinja.
 * Use `vars` in any YAML file that supports Jinja (like `schema.yml`, `snapshots.yml`). However, note that:
-  <!-- -->
   * In `dbt_project.yml`, `packages.yml`, and `profiles.yml` files, you must pass `vars` through the CLI using `--vars`, not defined inside the `vars:` block in the YAML file. This is because these files are parsed before Jinja is rendered.
 * You can use `env_var()` in all YAML files that support Jinja. Only `profiles.yml` and `packages.yml` support environment variables for secure values (using the `DBT_ENV_SECRET_` prefix). These are masked in logs and intended for credentials or secrets.
 
 For additional information, check out [dbt Core's context docs](https://github.com/dbt-labs/dbt-core/blob/1.latest/core/dbt/context/README.md).
 
-## Package tips[​](#package-tips "Direct link to Package tips")
+## Package tips
 
 Leverage these dbt packages to streamline your workflow:
 
@@ -35,13 +34,7 @@ Leverage these dbt packages to streamline your workflow:
 | [`dbt_artifacts`](https://hub.getdbt.com/brooklyn-data/dbt_artifacts/latest)            | The package saves information about your dbt runs directly to your data platform so that you can track the performance of models over time.                   |
 | [`dbt_meta_testing`](https://hub.getdbt.com/tnightengale/dbt_meta_testing/latest)       | This package checks that your dbt project is sufficiently tested and documented.                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Advanced tips and techniques[​](#advanced-tips-and-techniques "Direct link to Advanced tips and techniques")
+## Advanced tips and techniques
 
 * Use your folder structure as your primary selector method. `dbt build --select marts.marketing` is simpler and more resilient than relying on tagging every model.
 * Think about jobs in terms of build cadences and SLAs. Run models that have hourly, daily, or weekly build cadences together.
@@ -61,7 +54,7 @@ Search table...
 * Use [seeds](./seeds.md) to create manual lookup tables, like zip codes to states or marketing UTMs to campaigns. `dbt seed` will build these from CSVs into your warehouse and make them `ref` able in your models.
 * Use [target.name](./custom-schemas.md#an-alternative-pattern-for-generating-schema-names) to pivot logic based on what environment you’re using. For example, to build into a single development schema while developing, but use multiple schemas in production.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstart guide](../../guides.md)
 * [About dbt](../platform/about-platform/dbt-platform-features.md)

@@ -4,7 +4,7 @@ This document provides technical guidance for dbt partners and vendors on how to
 
 Fusion leverages ADBC as a unified driver layer for seamless, high-performance integration with data platforms. Building an ADBC driver is the first step to connecting Fusion with a new platform.
 
-## Why Fusion uses ADBC[​](#why-fusion-uses-adbc "Direct link to Why Fusion uses ADBC")
+## Why Fusion uses ADBC
 
 The dbt Fusion engine represents a major evolution in the dbt engine with minimal changes to the authoring layer. Built in Rust, Fusion delivers speed, language understanding, and seamless integration with numerous data warehouses. A key aspect of the new engine is its adoption of ADBC — a modern, open standard from the Apache Arrow project that simplifies columnar data interchange across platforms.
 
@@ -14,13 +14,13 @@ Historically, dbt Core adapters required bespoke connection logic for each data 
 * **Performance**: Drivers leverage Arrow's columnar memory format for efficient query execution with minimal transformations.
 * **Maintainability**: ADBC drivers follow a shared specification, reducing the complexity of implementing new adapters.
 
-## Technical overview[​](#technical-overview "Direct link to Technical overview")
+## Technical overview
 
 This technical specification covers the ADBC specification. The specification maintains backwards compatibility, so guidance here remains valid as the spec evolves. For the latest information and detailed documentation, refer to the [ADBC documentation](https://arrow.apache.org/adbc/current/), which is the source of truth.
 
 The ADBC API provides a powerful array of features, but you don't need to implement all of them. This section covers the API surface required for Fusion compatibility.
 
-### Programming language[​](#programming-language "Direct link to Programming language")
+### Programming language
 
 **tl;dr: Use Go.**
 
@@ -33,7 +33,7 @@ For Fusion compatibility, drivers must:
 
 We recommend **Go** as the language of choice, though Rust or C++ also work. Go has a runtime and garbage collector, but it's engineered to compile into well-behaved shared libraries—unlike languages like C# or Java. A standalone binary allows users to download and run the driver out of the box without setting up an interpreter. Compiled languages like Go also enable Fusion and its drivers to share memory directly over FFI without external dependencies.
 
-### ADBC specifications[​](#adbc-specifications "Direct link to ADBC specifications")
+### ADBC specifications
 
 This section covers the minimum requirements for a Fusion-compatible ADBC driver. For complete details on the ADBC specification and driver development, refer to the [ADBC driver authoring guide](https://arrow.apache.org/adbc/current/driver/authoring.html).
 
@@ -46,7 +46,7 @@ Drivers consist of several key abstractions:
 
 Fusion achieves high performance through aggressive parallelism, so expect many simultaneous connections during project execution.
 
-### Authentication[​](#authentication "Direct link to Authentication")
+### Authentication
 
 Drivers handle authentication through key-value options set on the database. Fusion translates options from user-authored `profiles.yml` files before passing them to the driver. For example, what dbt calls `client_secret` in a Snowflake profile gets set on the driver as `adbc.snowflake.sql.client_option.client_secret`.
 
@@ -54,7 +54,7 @@ For a complete example of how Fusion translates profile options, see the [Snowfl
 
 For more information on profile configuration, refer to [dbt profiles](../local/profiles.yml.md).
 
-#### Credential caching[​](#credential-caching "Direct link to Credential caching")
+#### Credential caching
 
 Simple authentication methods (like username/password stored in `profiles.yml`) support fully parallel connection creation with no special handling required.
 
@@ -68,7 +68,7 @@ Your credential cache for browser-based authentication must:
 
 This caching is critical for any browser-based or MFA authentication option, but is not needed for simple credential-based authentication.
 
-## Required APIs[​](#required-apis "Direct link to Required APIs")
+## Required APIs
 
 This section covers the minimum API set for Fusion compatibility. The requirements are:
 
@@ -78,19 +78,13 @@ This section covers the minimum API set for Fusion compatibility. The requiremen
 
 These requirements are not exhaustive. dbt Labs encourages implementing the full ADBC specification to benefit both Fusion and the broader ADBC community.
 
-#### Driver[​](#driver "Direct link to Driver")
+#### Driver
 
 | Method        | Description                     |
 | ------------- | ------------------------------- |
 | `NewDatabase` | Create a new database instance. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Database[​](#database "Direct link to Database")
+#### Database
 
 | Method       | Description                                           |
 | ------------ | ----------------------------------------------------- |
@@ -98,13 +92,7 @@ Search table...
 | `Open`       | Open a connection.                                    |
 | `Close`      | Close the database.                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Connection[​](#connection "Direct link to Connection")
+#### Connection
 
 | Method           | Description                             |
 | ---------------- | --------------------------------------- |
@@ -113,13 +101,7 @@ Search table...
 | `NewStatement`   | Create a statement for query execution. |
 | `Close`          | Close the connection.                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Statement[​](#statement "Direct link to Statement")
+#### Statement
 
 | Method          | Description                         |
 | --------------- | ----------------------------------- |
@@ -128,9 +110,3 @@ Search table...
 | `ExecuteQuery`  | Execute a query and return results. |
 | `ExecuteUpdate` | Execute DML queries.                |
 | `Close`         | Close the statement.                |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

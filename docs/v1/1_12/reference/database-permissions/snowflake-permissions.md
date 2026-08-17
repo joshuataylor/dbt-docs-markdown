@@ -2,7 +2,7 @@
 
 In Snowflake, permissions are used to control who can perform certain actions on different database objects. Use SQL statements to manage permissions in a Snowflake database.
 
-## Set up Snowflake account[​](#set-up-snowflake-account "Direct link to Set up Snowflake account")
+## Set up Snowflake account
 
 This section explains how to set up permissions and roles within Snowflake. In Snowflake, you would perform these actions using SQL commands and set up your data warehouse and access control within Snowflake's ecosystem.
 
@@ -145,7 +145,7 @@ When new users are added, make sure you add them to the right role! Everything e
 
 For more discussion and legacy information, refer to [this Discourse article](https://discourse.getdbt.com/t/setting-up-snowflake-the-exact-grant-statements-we-run/439).
 
-## Example Snowflake permissions[​](#example-snowflake-permissions "Direct link to Example Snowflake permissions")
+## Example Snowflake permissions
 
 The following example provides you with the SQL statements you can use to manage permissions.
 

@@ -5,7 +5,7 @@ dbt supports materializing models in the Iceberg table format in two ways:
 * **Simplest:** The model config `table_format = 'iceberg'` instructs dbt to materialize this model as an Iceberg table in Snowflake Horizon (managed catalog), using Snowflake-managed storage
 * **Extensible:** Define an Iceberg catalog in `catalogs.yml` and configure this model with `catalog_name`
 
-## Creating Iceberg tables[​](#creating-iceberg-tables "Direct link to Creating Iceberg tables")
+## Creating Iceberg tables
 
 dbt supports creating Iceberg tables for three of the Snowflake materializations:
 
@@ -13,13 +13,13 @@ dbt supports creating Iceberg tables for three of the Snowflake materializations
 * [Incremental](../../materializations.md#incremental)
 * [Dynamic Table](../../../../reference/resource-configs/snowflake-configs.md#dynamic-tables)
 
-## Iceberg catalogs[​](#iceberg-catalogs "Direct link to Iceberg catalogs")
+## Iceberg catalogs
 
 Snowflake supports writing Iceberg tables to Snowflake Horizon (its managed catalog), and to external catalogs through [catalog-linked databases](https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog-linked-database). Those external catalogs include Polaris (self-hosted), Open Catalog (Snowflake's managed Polaris), AWS Glue, GCP BigLake, Databricks Unity, and (in theory) any other catalog that implements Iceberg REST compatibility.
 
-### Snowflake Horizon (Snowflake-managed)[​](#snowflake-horizon-snowflake-managed "Direct link to Snowflake Horizon (Snowflake-managed)")
+### Snowflake Horizon (Snowflake-managed)
 
-#### Simplest: Create a single Iceberg table[​](#simplest-create-a-single-iceberg-table "Direct link to Simplest: Create a single Iceberg table")
+#### Simplest: Create a single Iceberg table
 
 models/MODEL\_NAME.sql
 
@@ -47,18 +47,11 @@ For more information, check out the Snowflake reference for [`CREATE ICEBERG TAB
 | `base_location_subpath` | String  | No       | An optional suffix to add to the `base_location` path that dbt automatically specifies.                                    | `jaffle_marketing_folder` | We recommend that you don't specify this. Modifying this parameter results in a new Iceberg table. See [Base Location](#base-location) for more info.                                                                                                                             |
 | `iceberg_version`       | Integer | No       | Specifies the Iceberg format version for the table. Defaults to `2`. Cannot be changed after table creation.               | `3`                       | Set to `3` for improved `VARIANT` type support and better incremental/snapshot performance through deletion vectors.                                                                                                                                                              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Extensible: Configure `horizon` catalog[​](#extensible-configure-horizon-catalog "Direct link to extensible-configure-horizon-catalog")
+#### Extensible: Configure `horizon` catalog
 
 First, configure a catalog with `type: horizon` in `catalogs.yml`:
 
-* New spec
-* Old spec
+### New spec (beta)
 
 catalogs.yml
 
@@ -74,6 +67,8 @@ catalogs:
         change_tracking: true
         iceberg_version: 3  # available in v1.12+
 ```
+
+### Old spec
 
 catalogs.yml
 
@@ -110,7 +105,7 @@ select * from {{ ref('jaffle_shop_customers') }}
 
 Finally, run the model: `dbt run -s my_iceberg_model`. Because dbt understands that `type: horizon` refers to Snowflake's managed catalog, dbt templates the appropriate Snowflake DDL/DML for creating and updating managed Iceberg tables.
 
-### External catalogs[​](#external-catalogs "Direct link to External catalogs")
+### External catalogs
 
 dbt can also template Snowflake DDL/DML for creating and updating Iceberg tables managed by external catalogs.
 
@@ -129,8 +124,7 @@ After you create the external catalog integration, you can do two things:
 
 Now, we can configure that external catalog in `catalogs.yml`. Here is an example for an AWS Glue catalog:
 
-* New spec
-* Old spec
+### New spec (beta)
 
 catalogs.yml
 
@@ -144,6 +138,8 @@ catalogs:
       snowflake:
         catalog_database: catalog_linked_db_glue  # name of catalog-linked database in Snowflake
 ```
+
+### Old spec
 
 catalogs.yml
 
@@ -160,11 +156,13 @@ catalogs:
           catalog_linked_database_type: glue
 ```
 
-## Snowflake-specific configs for Iceberg catalogs[​](#snowflake-specific-configs-for-iceberg-catalogs "Direct link to Snowflake-specific configs for Iceberg catalogs")
+## Snowflake-specific configs for Iceberg catalogs
 
 These are the additional configurations, specific to Snowflake, that can be supplied and nested under `config.snowflake` (in the new catalog spec) or `adapter_properties` (in the old catalog spec). Available configurations are different when writing dbt models as Snowflake-managed Iceberg tables (Snowflake Horizon catalog) versus writing to external catalogs.
 
-#### Snowflake-managed (Horizon)[​](#snowflake-managed-horizon "Direct link to Snowflake-managed (Horizon)")
+#### Snowflake-managed (Horizon)
+
+(Applies to dbt v1.12 and later)
 
 | Field                             | Required | Accepted values                                                                         |
 | --------------------------------- | -------- | --------------------------------------------------------------------------------------- |
@@ -174,16 +172,11 @@ These are the additional configurations, specific to Snowflake, that can be supp
 | `storage_serialization_policy`    | Optional | `COMPATIBLE` or `OPTIMIZED`                                                             |
 | `base_location_root`              | Optional | Relative path segment (for example, `'subpath1/subpath2'`)                              |
 | `base_location_subpath`           | Optional | Relative path segment (for example, `'subpath1/subpath2'`), only configurable per-model |
+| `iceberg_version` (v1.12+)        | Optional | `2` (default) or `3`                                                                    |
 
-Search table...
+#### External catalogs
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-\| `iceberg_version` (v1.12+) | Optional | `2` (default) or `3` |
-
-#### External catalogs[​](#external-catalogs-1 "Direct link to External catalogs")
+(Applies to dbt v1.12 and later)
 
 | Field                             | Required                                  | Accepted values                                                                 |
 | --------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------- |
@@ -192,14 +185,7 @@ Search table...
 | `catalog_linked_database_type`    | Optional                                  | Catalog-linked database type. For example, `glue`                               |
 | `max_data_extension_time_in_days` | Optional                                  | `0` to `90` (default: `14`)                                                     |
 | `target_file_size`                | Optional                                  | Values like `'AUTO'`, `'16MB'`, `'32MB'`, `'64MB'`, `'128MB'`. Case-insensitive |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-\| `iceberg_version` (v1.12+) | Optional | `2` (default) or `3` |
+| `iceberg_version` (v1.12+)        | Optional                                  | `2` (default) or `3`                                                            |
 
 * **storage\_serialization\_policy:** The serialization policy tells Snowflake what kind of encoding and compression to perform on the table data files. If not specified at table creation, the table inherits the value set at the schema, database, or account level. If the value isn’t specified at any level, the table uses the default value. You can’t change the value of this parameter after table creation.
 * **max\_data\_extension\_time\_in\_days:** The maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. The `MAX_DATA_EXTENSION_TIME_IN_DAYS` parameter enables you to limit this automatic extension period to control storage costs for data retention, or for compliance reasons.
@@ -209,12 +195,14 @@ Search table...
 * **auto\_refresh:** Specifies whether Snowflake should automatically poll the external Iceberg catalog for metadata updates. If `REFRESH_INTERVAL_SECONDS` isn’t set on the catalog integration, the default refresh interval is 30 seconds.
 * **target\_file\_size:** Specifies a target Parquet file size. Default is `AUTO`.
 
-- **iceberg\_version:** Specifies the Iceberg format version for the table. Default value is `2`. Set to `3` for improved support for `VARIANT` data types and faster incremental operations. Version 3 uses [deletion vectors](https://docs.snowflake.com/en/user-guide/tables-iceberg-manage#tables-iceberg-deletion-vectors), which let Snowflake mark rows as deleted without rewriting the underlying data files, making incremental runs faster. Note that you can't change the Iceberg version after table creation. As an alternative, you can [configure the default Iceberg version](https://docs.snowflake.com/en/user-guide/tables-iceberg-v3-specification-support#configure-the-default-iceberg-version) at the account, database, or schema level in Snowflake.
+(Applies to dbt v1.12 and later)
 
-* **base\_location\_root:** Specifies the prefix of the [`BASE_LOCATION`](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-snowflake#optional-parameters), the write path for the Iceberg table.
-* **base\_location\_subpath:** Specifies the suffix of the [`BASE_LOCATION`](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-snowflake#optional-parameters), the write path for the Iceberg table. This property can only be set in model configurations, not in `catalogs.yml`.
+* **iceberg\_version:** Specifies the Iceberg format version for the table. Default value is `2`. Set to `3` for improved support for `VARIANT` data types and faster incremental operations. Version 3 uses [deletion vectors](https://docs.snowflake.com/en/user-guide/tables-iceberg-manage#tables-iceberg-deletion-vectors), which let Snowflake mark rows as deleted without rewriting the underlying data files, making incremental runs faster. Note that you can't change the Iceberg version after table creation. As an alternative, you can [configure the default Iceberg version](https://docs.snowflake.com/en/user-guide/tables-iceberg-v3-specification-support#configure-the-default-iceberg-version) at the account, database, or schema level in Snowflake.
 
-### Base location[​](#base-location "Direct link to Base location")
+- **base\_location\_root:** Specifies the prefix of the [`BASE_LOCATION`](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-snowflake#optional-parameters), the write path for the Iceberg table.
+- **base\_location\_subpath:** Specifies the suffix of the [`BASE_LOCATION`](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-snowflake#optional-parameters), the write path for the Iceberg table. This property can only be set in model configurations, not in `catalogs.yml`.
+
+### Base location
 
 Snowflake's `CREATE ICEBERG TABLE` DDL requires that a `base_location` be provided. dbt defines this parameter on the user's behalf to streamline usage and enforce basic isolation of table data within the `EXTERNAL VOLUME`. The default behavior in dbt is to provide a `base_location` string of the form: `_dbt/{SCHEMA_NAME}/{MODEL_NAME}`.
 
@@ -250,7 +238,7 @@ note
 
 While you can customize paths with `base_location_root` and `base_location_subpath`, we don't recommend relying on them for environment isolation (such as separating development and production environments). Anyone with repository access can easily modify these configuration values. For true environment isolation, use separate `external_volume` values with infrastructure-level access controls.
 
-#### Rationale[​](#rationale "Direct link to Rationale")
+#### Rationale
 
 By default, dbt manages `base_location` on behalf of users to enforce best practices. With Snowflake-managed Iceberg format tables, the user owns and maintains the data storage of the tables in an external storage solution (the declared `external volume`). The `base_location` parameter declares where to write the data within the external volume. The Snowflake Iceberg catalog keeps track of your Iceberg table regardless of where the data lives within the `external volume` declared and the `base_location` provided. However, Snowflake permits passing anything into the `base_location` field, including an empty string, even reusing the same path across multiple tables. This behavior could result in future technical debt because it limits the ability to:
 
@@ -261,7 +249,7 @@ By default, dbt manages `base_location` on behalf of users to enforce best pract
 
 To maintain best practices, dbt enforces an input and, by default, writes your tables within a `_dbt/{SCHEMA_NAME}/{TABLE_NAME}` prefix to ensure easier object-store observability and auditability.
 
-### Limitations[​](#limitations "Direct link to Limitations")
+### Limitations
 
 * When you use Iceberg tables with dbt, dbt materializes your query in Iceberg. However, dbt often creates intermediary objects as temporary and transient tables for certain materializations, such as incremental ones. You can't configure these temporary objects to be Iceberg-formatted. You may see non-Iceberg tables created in the logs to support specific materializations, but they are dropped after usage.
 

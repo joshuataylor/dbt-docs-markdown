@@ -23,7 +23,6 @@ dbt_modules/
 
 4. Select **Restart Studio IDE**.
 5. Go back to the **File explorer** in the IDE and delete the following files or folders if you have them:
-   <!-- -->
    * `target`, `dbt_modules`, `dbt_packages`, `logs`
 6. **Save** and then **Commit and sync** your changes.
 7. Restart the Studio IDE again.

@@ -1,10 +1,8 @@
 # Navigating the state-aware interface
 
-dbt platformⓘ
+dbt platform
 
 Learn how to navigate the state-aware orchestration interface for better visibility into model builds and cost tracking.
-
-<!-- -->
 
 State-aware orchestration is now dbt State
 
@@ -12,7 +10,7 @@ State-aware orchestration is now dbt State
 
 If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](./dbt-state-migration.md).
 
-## Models built and reused chart[​](#models-built-and-reused-chart "Direct link to Models built and reused chart")
+## Models built and reused chart
 
 When you go to your **Account home**, you'll see a chart showing the number of models built and reused, giving you visibility into how state-aware orchestration is optimizing your data builds. This chart helps you to:
 
@@ -25,7 +23,7 @@ You can also view the number of reused models per project in the **Accounts home
 
 [![View reused models count per project in the Accounts home page](/img/docs/deploy/sao-model-reuse.png?v=2 "View reused models count per project in the Accounts home page")](#)View reused models count per project in the Accounts home page
 
-## Model consumption view in jobs[​](#model-consumption-view-in-jobs "Direct link to Model consumption view in jobs")
+## Model consumption view in jobs
 
 State-aware jobs provide charts that show information about your job runs, and how many models were built and reused by your job in the past week, in the last 14 days, or in the last 30 days. In the **Overview** section of your job, the following charts are available:
 
@@ -43,7 +41,7 @@ Under the **Models** tab:
 
 [![Charts for Models built and Models reused](/img/docs/dbt-platform/using-dbt-platform/sao-models-chart.png?v=2 "Charts for Models built and Models reused")](#)Charts for Models built and Models reused
 
-## Logs view of built models[​](#logs-view-of-built-models "Direct link to Logs view of built models")
+## Logs view of built models
 
 When running a job, a structured logs view shows which models were built, skipped, or reused.
 
@@ -54,7 +52,7 @@ When running a job, a structured logs view shows which models were built, skippe
 3. You can use the search bar or filter the logs to show **All**, **Success**, **Warning**, **Failed**, **Running**, **Skipped**, **Reused**, or **Debugged** messages.
 4. Detailed log messages are provided to get more context on why models were built, reused, or skipped. These messages are highlighted in the logs.
 
-## Reused tag in the Latest status lens[​](#reused-tag-in-the-latest-status-lens "Direct link to Reused tag in the Latest status lens")
+## Reused tag in the Latest status lens
 
 Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explore-projects.md#lenses) that show additional context on your lineage graph to understand how resources are defined or performing. When you apply a lens, tags become visible on the nodes in the lineage graph, indicating the layer value along with coloration based on that value. If you're significantly zoomed out, only the tags and their colors are visible in the graph.
 
@@ -69,7 +67,7 @@ To view your lineage with the **Latest status** lens:
 3. Go to the **Lineage** tab. The lineage of your project appears.
 4. In the **Lenses** field, select **Latest status**.
 
-## Clear cache button[​](#clear-cache-button "Direct link to Clear cache button")
+## Clear cache button
 
 State-aware orchestration uses a cached hash of both code and data state for each model in an environment stored in Redis. When running a job, dbt checks if there are changes in the hash for the model being built between the saved state in Redis and the current state that would be built by the job. If there is a change, dbt builds the model. If there are no changes, dbt reuses the model from the last time it was built.
 
@@ -81,7 +79,7 @@ State-aware orchestration uses a cached hash of both code and data state for eac
 
 [![Clear cache button](/img/docs/dbt-platform/using-dbt-platform/sao-clear-cache.png?v=2 "Clear cache button")](#)Clear cache button
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

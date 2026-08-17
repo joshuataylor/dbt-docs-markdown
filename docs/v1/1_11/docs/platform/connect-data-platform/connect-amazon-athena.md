@@ -1,6 +1,6 @@
 # Connect Amazon Athena
 
-dbt platformⓘ
+dbt platform
 
 Your environment(s) must be on a supported [release track](../../dbt-versions/dbt-release-tracks.md) to use the Amazon Athena connection.
 
@@ -21,13 +21,7 @@ Connect dbt to Amazon's Athena interactive query service to build your dbt proje
 | Boto3 retries                 | num\_boto3\_retries   | Number of times to retry boto3 requests (for example, deleting S3 files for materialized tables) | Integer | Optional  | 5                     |
 | Iceberg retries               | num\_iceberg\_retries | Number of times to retry iceberg commit queries to fix ICEBERG\_COMMIT\_ERROR                    | Integer | Optional  | 0                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Development credentials[​](#development-credentials "Direct link to Development credentials")
+### Development credentials
 
 Enter your *development* (not deployment) credentials with the following fields:
 
@@ -38,13 +32,7 @@ Enter your *development* (not deployment) credentials with the following fields:
 | Schema                | schema                   | Specify the schema (Athena database) to build models into (lowercase only) | String  | Required | dbt                                      |
 | Threads               | threads                  |                                                                            | Integer | Optional | 3                                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Temporary credentials[​](#temporary-credentials "Direct link to Temporary credentials")
+### Temporary credentials
 
 If you prefer to not store long-lived IAM user AWS Access Key ID and AWS Secret Access Key in the dbt platform, you can use `aws_session_token`, which is part of [temporary AWS Security Token Service (STS) credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html), instead. This approach mirrors a user or role’s long-term permissions.
 

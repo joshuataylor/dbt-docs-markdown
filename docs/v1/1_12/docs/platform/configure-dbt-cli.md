@@ -1,6 +1,6 @@
 # Configure and use the dbt CLI
 
-dbt platformⓘ
+dbt platform
 
 Learn how to configure the dbt CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
 
@@ -9,15 +9,14 @@ Learn how to configure the dbt CLI for your dbt project to run dbt commands, lik
 * Speedier, lower-cost builds.
 * Support for Mesh ([cross-project ref](../mesh/govern/project-dependencies.md)), and more.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must set up a project in dbt.
-  <!-- -->
   * **Note** — If you're using the dbt CLI, you can connect to your [data platform](./connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](../local/profiles.yml.md) file.
 * You must have your [personal user credentials](../dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
 * You must be on dbt version 1.5 or higher. Refer to [dbt versions](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
-## Configure the dbt CLI[​](#configure-the-dbt-cli "Direct link to Configure the dbt CLI")
+## Configure the dbt CLI
 
 Once you install the dbt CLI, you need to configure it to connect to a dbt project.
 
@@ -43,7 +42,7 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
 
 With your repo recloned, you can add, edit, and sync files with your repo.
 
-## Set environment variables[​](#set-environment-variables "Direct link to Set environment variables")
+## Set environment variables
 
 To set environment variables in the dbt CLI for your dbt project:
 
@@ -52,14 +51,13 @@ To set environment variables in the dbt CLI for your dbt project:
 3. Click on your project and scroll to the **Environment variables** section.
 4. Click **Edit** on the lower right and then set the user-level environment variables.
 
-## Use the dbt CLI[​](#use-the-dbt-cli "Direct link to Use the dbt CLI")
+## Use the dbt CLI
 
 The dbt CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt CLI, you can:
 
 * Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
 * Automatically defer build artifacts to your project's production environment.
 * Support [project dependencies](../mesh/govern/project-dependencies.md), which allows you to depend on another project using the metadata service in dbt.
-  <!-- -->
   * Project dependencies instantly connect to and reference (or `ref`) public models defined in other projects. You don't need to execute or analyze these upstream models yourself. Instead, you treat them as an API that returns a dataset.
 
 Use the `--help` flag
@@ -70,7 +68,7 @@ As a tip, most command-line tools have a `--help` flag to show available command
   <br />
 * `dbt run --help`: Lists the flags available for the `run` command
 
-## Lint SQL files[​](#lint-sql-files "Direct link to Lint SQL files")
+## Lint SQL files
 
 From the dbt CLI, you can invoke [SQLFluff](https://sqlfluff.com/), which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. Many of the same flags that you can pass to SQLFluff are available from the dbt CLI.
 
@@ -90,7 +88,7 @@ When you don't specify a path, dbt lints all SQL files in the current project. T
 
 To show detailed information on all the dbt supported commands and flags, run the `dbt sqlfluff -h` command.
 
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 When running `dbt sqlfluff` from the dbt CLI, the following are important behaviors to consider:
 
@@ -98,9 +96,7 @@ When running `dbt sqlfluff` from the dbt CLI, the following are important behavi
 * For continuous integration/continuous development (CI/CD) workflows, your project must have a `dbt_cloud.yml` file and you have successfully run commands from within this dbt project.
 * An SQLFluff command will return an exit code of 0 if it ran with any file violations. This dbt behavior differs from SQLFluff behavior, where a linting violation returns a non-zero exit code. dbt Labs plans on addressing this in a later release.
 
-## Considerations[​](#considerations-1 "Direct link to Considerations")
-
-<!-- -->
+## Considerations
 
 The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
 
@@ -120,9 +116,7 @@ In this example, `../shared_macros` is a relative path that tells dbt to look fo
 
 To work around this limitation, use the [Studio IDE](./studio-ide/develop-in-studio.md), which fully supports relative paths in `packages.yml`.
 
-## FAQs[​](#faqs "Direct link to FAQs")
-
-<!-- -->
+## FAQs
 
  How to create a .dbt directory and move your file
 
@@ -131,24 +125,23 @@ If you've never had a `.dbt` directory, you should perform the following recomme
 * A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
 * To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
 
-- Create a .dbt directory
-- Move the dbt\_cloud.yml file
+### Create a .dbt directory
 
 1. Clone your dbt project repository locally.
 2. Use the `mkdir` command followed by the name of the folder you want to create.
 
 * If using macOS, add the `~` prefix to create a `.dbt` folder in the root of your filesystem:
 
-  <!-- -->
-
   * macOS: `mkdir ~/.dbt`
   * Windows: `mkdir %USERPROFILE%\.dbt`
+
+### Move the dbt\_cloud.yml file
 
 You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
 
 To move the file using the terminal, use the `mv/move` command. This command moves the `dbt_cloud.yml` from the `Downloads` folder to the `.dbt` folder. If your `dbt_cloud.yml` file is located elsewhere, adjust the path accordingly.
 
-#### Mac or Linux[​](#mac-or-linux "Direct link to Mac or Linux")
+#### Mac or Linux
 
 In your command line, use the `mv` command to move your `dbt_cloud.yml` file into the `.dbt` directory. If you've just downloaded the `dbt_cloud.yml` file and it's in your Downloads folder, the command might look something like this:
 
@@ -156,7 +149,7 @@ In your command line, use the `mv` command to move your `dbt_cloud.yml` file int
 mv ~/Downloads/dbt_cloud.yml ~/.dbt/dbt_cloud.yml
 ```
 
-#### Windows[​](#windows "Direct link to Windows")
+#### Windows
 
 In your command line, use the move command. Assuming your file is in the Downloads folder, the command might look like this:
 

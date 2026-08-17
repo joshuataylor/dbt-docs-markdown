@@ -1,6 +1,6 @@
 # dbt Semantic Layer FAQs
 
-dbt platformⓘ
+dbt platform
 
 The [Semantic Layer](./dbt-sl.md) is a dbt offering that allows users to centrally define their metrics within their dbt project using [MetricFlow](../build/about-metricflow.md).
 
@@ -12,7 +12,7 @@ The Semantic Layer offers:
 
 The Semantic Layer is powered by MetricFlow, which is a source-available component.
 
-## Overview of the dbt Semantic Layer[​](#overview-of-the-dbt-semantic-layer "Direct link to Overview of the dbt Semantic Layer")
+## Overview of the dbt Semantic Layer
 
  What are the main benefits of using the dbt Semantic Layer?
 
@@ -53,7 +53,7 @@ While the dbt Semantic Layer will work for both cases, it's best to allow Metric
 
 The dbt Semantic Layer measures usage in distinct 'Queried Metrics'. Refer to the [Billing](../platform/billing/how-pricing-works.md#what-counts-as-a-queried-metric) to learn more about pricing.
 
-## Availability[​](#availability "Direct link to Availability")
+## Availability
 
  What data platforms are supported by the dbt Semantic Layer?
 
@@ -86,7 +86,7 @@ dbt Core users can also query their semantic layer locally using the command lin
 
 If you're interested in the this type of implementation, please reach out to us [here](https://www.getdbt.com/contact).
 
-## How does the dbt Semantic Layer work?[​](#how-does-the-dbt-semantic-layer-work "Direct link to How does the dbt Semantic Layer work?")
+## How does the dbt Semantic Layer work?
 
  Why is the dbt Semantic Layer better than using tables or dbt models to calculate metrics?
 
@@ -161,7 +161,7 @@ If the underlying metric aggregation is different, then these would be different
 
 This can be managed by adjusting how the metric is viewed in downstream tools or setting up [saved queries](../build/saved-queries.md) to handle the various permutations of it.
 
-## Build metrics and semantic models[​](#build-metrics-and-semantic-models "Direct link to Build metrics and semantic models")
+## Build metrics and semantic models
 
  Can I define my own aggregations?
 
@@ -196,7 +196,7 @@ Yes! You can validate your semantic nodes (semantic models, metrics, saved queri
 * [Query and validate you metrics](../build/metricflow-commands.md) in your development tool before submitting your code changes.
 * [Validate semantic nodes in CI](../deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.
 
-## Available integrations[​](#available-integrations "Direct link to Available integrations")
+## Available integrations
 
  What integrations are supported today?
 
@@ -218,7 +218,7 @@ Creating an [export](./exports.md) allows you to bring your governed metric defi
 
 Yes, all of our interfaces or APIs expose metric descriptions, which you can surface in downstream tools.
 
-## Permissions and access[​](#permissions-and-access "Direct link to Permissions and access")
+## Permissions and access
 
  How do fine-grained access controls work with the dbt Semantic Layer?
 
@@ -230,7 +230,7 @@ Personal access tokens [(PATs)](../dbt-apis/user-tokens.md) enable user-level au
 
 Currently, the credentials you configure when setting up the dbt Semantic Layer are used for every request. Any physical access policies you have tied to your credentials will be respected.
 
-## Implementation[​](#implementation "Direct link to Implementation")
+## Implementation
 
  How can I implement dbt Mesh with the dbt Semantic Layer?
 
@@ -240,9 +240,7 @@ When using the dbt Semantic Layer in a [dbt Mesh](../../best-practices/how-we-me
 * Then as you build your Semantic Layer, you can [cross-reference dbt models](../mesh/govern/project-dependencies.md) across your various projects or packages to create your semantic models using the [two-argument `ref` function](../../reference/dbt-jinja-functions/ref.md#ref-project-specific-models) (`ref('project_name', 'model_name')`).
 * Your dbt Semantic Layer project serves as a global source of truth across the rest of your projects.
 
-<!-- -->
-
-#### Usage example[​](#usage-example "Direct link to Usage example")
+#### Usage example
 
 For example, let's say you have a public model (`fct_orders`) that lives in the `jaffle_finance` project. As you build your semantic model, use the following syntax to ref the model:
 

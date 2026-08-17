@@ -4,7 +4,7 @@ Use dbt Wizard to move from a broad project map to evidence-backed answers about
 
 This workflow helps when you join a project, review an unfamiliar area of the DAG, prepare a refactor, or investigate why a model exists.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Start dbt Wizard from the dbt project root, and make sure the project has a current `target/manifest.json`. Refer to [Use dbt Wizard locally](../../docs/dbt-ai/wizard-quickstart.md) for setup.
 
@@ -12,7 +12,7 @@ If you want dbt Wizard to inspect warehouse results, you also need a working dev
 
 The prompts on this page work the same way in dbt platform.
 
-## Start with a project map[​](#start-with-a-project-map "Direct link to Start with a project map")
+## Start with a project map
 
 Ask for a read-only inventory before narrowing the investigation:
 
@@ -25,7 +25,7 @@ Do not edit anything.
 
 This gives you a starting hypothesis, not a complete project specification. Ask follow-up questions about any labels or architectural claims that aren't supported by code, configuration, or metadata.
 
-## Investigate one model[​](#investigate-one-model "Direct link to Investigate one model")
+## Investigate one model
 
 Name a model and ask dbt Wizard to connect its definition to its place in the DAG:
 
@@ -50,7 +50,7 @@ For each conclusion, label it as code, metadata, warehouse evidence, or an
 inference. List the business questions I still need to ask the model owner.
 ```
 
-## Trace a business concept[​](#trace-a-business-concept "Direct link to Trace a business concept")
+## Trace a business concept
 
 You don't need to know the model name before you begin. Describe the concept and let dbt Wizard search for likely resources:
 
@@ -62,7 +62,7 @@ definition changes or where multiple definitions exist.
 
 When several candidates match, ask dbt Wizard to show the candidates and explain why each one might be relevant before continuing.
 
-## Assess change impact[​](#assess-change-impact "Direct link to Assess change impact")
+## Assess change impact
 
 Once you understand the current behavior, test a proposed change without editing files:
 
@@ -74,7 +74,7 @@ grain-dependent joins, tests, metrics, and exposures. Do not make changes.
 
 Use the result to define the scope of a change plan. High fan-out models, contracts, metrics, exposures, and joins on the changed grain deserve closer review.
 
-## Confirm assumptions with data[​](#confirm-assumptions-with-data "Direct link to Confirm assumptions with data")
+## Confirm assumptions with data
 
 SQL and metadata show intended behavior. Warehouse data can help you check whether that intent matches current results:
 
@@ -86,7 +86,7 @@ me the query before running it.
 
 Treat current data as evidence about the present state, not a permanent guarantee. Sampling, filters, stale relations, and environment differences can all affect the result.
 
-## Turn findings into a plan[​](#turn-findings-into-a-plan "Direct link to Turn findings into a plan")
+## Turn findings into a plan
 
 End the investigation with a handoff that another engineer can review:
 
@@ -98,7 +98,7 @@ recommendations. Do not edit files yet.
 
 The summary should include relevant file paths, model names, lineage scope, supporting evidence, and explicit unknowns.
 
-## Understand what can be missing[​](#understand-what-can-be-missing "Direct link to Understand what can be missing")
+## Understand what can be missing
 
 dbt Wizard can reason from the project and the tools connected to the session. It can't reliably infer context that isn't represented there, including:
 
@@ -110,7 +110,7 @@ dbt Wizard can reason from the project and the tools connected to the session. I
 
 Use model owners, pull request history, and business documentation to fill these gaps.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Validate dbt changes with dbt Wizard](./wizard-3-validate-changes.md)
 * [dbt Wizard use cases](../../docs/dbt-ai/wizard-use-cases.md)

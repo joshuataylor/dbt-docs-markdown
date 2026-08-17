@@ -1,7 +1,5 @@
 # About self-hosted Fusion installation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-<!-- -->
-
 important
 
 The dbt Fusion engine is currently available for installation in:
@@ -16,7 +14,7 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 Learn more about installing Fusion locally, along with important prerequisites, step-by-step installation instructions, troubleshooting common issues, and configuration guidance.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before installing Fusion, ensure that you:
 
@@ -26,14 +24,11 @@ Before installing Fusion, ensure that you:
 
 * Use a supported data warehouse and authentication method and configure permissions as needed:
 
-  <!-- -->
-
    BigQuery[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
   * Service Account / User Token
   * Native OAuth
   * External OAuth
-    <!-- -->
     * [Workload Identity Federation](../platform/manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation) (Microsoft Entra)
   * [Required permissions](../local/connect-data-platform/bigquery-setup.md#required-permissions)
 
@@ -59,18 +54,13 @@ Before installing Fusion, ensure that you:
 
   * Thrift
 
-    <!-- -->
-
     * Simple Authentication and Security Layer (SASL) PLAIN
     * No SASL (NOSASL)
 
   * Livy
 
-    <!-- -->
-
     * Basic authentication (username and password)
     * When deployed on Amazon Web Services (AWS): AWS Signature Version 4
-      <!-- -->
       * Supports authentication using single sign-on, service accounts, or user tokens
 
    DuckDB (CLI only)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
@@ -81,13 +71,11 @@ Before installing Fusion, ensure that you:
 
 * Use a supported operating system:
 
-  <!-- -->
-
   * **macOS:** Supported on both Intel (x86-64) and Apple Silicon (ARM)
   * **Linux:** Supported on both x86-64 and ARM
   * **Windows:** Supported on x86-64; ARM support coming soon
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
 If you're ready to get started, choose one of the following options. To learn more about which tool is best for you, see the [Fusion availability](./fusion-availability.md) page.
 

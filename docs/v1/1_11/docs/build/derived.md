@@ -4,6 +4,8 @@ In MetricFlow, derived metrics are metrics created by defining an expression usi
 
 The parameters, description, and type for derived metrics are:
 
+(Applies to dbt v1.11 and earlier)
+
 | Parameter       | Description                                                                                                                                           | Required | Type   |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ |
 | `name`          | The name of the metric.                                                                                                                               | Required | String |
@@ -17,15 +19,9 @@ The parameters, description, and type for derived metrics are:
 | `filter`        | Optional filter to apply to the metric.                                                                                                               | Optional | String |
 | `offset_window` | Set the period for the offset window, such as 1 month. This will return the value of the metric one month from the metric time.                       | Optional | String |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-<!-- -->
-
 The following displays the complete specification for derived metrics, along with an example.
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 metrics:
@@ -42,11 +38,11 @@ metrics:
           offset_window: set the period for the offset window, such as 1 month. This will return the value of the metric one month from the metric time. # Optional
 ```
 
-<!-- -->
-
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
-## Derived metrics example[​](#derived-metrics-example "Direct link to Derived metrics example")
+## Derived metrics example
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 metrics:
@@ -89,15 +85,15 @@ metrics:
           alias: order_total_prev_month
 ```
 
-<!-- -->
-
-## Derived metric offset[​](#derived-metric-offset "Direct link to Derived metric offset")
+## Derived metric offset
 
 To perform calculations using a metric's value from a previous time period, you can add an offset parameter to a derived metric. For example, if you want to calculate period-over-period growth or track user retention, you can use this metric offset.
 
 **Note:** You must include the [`metric_time` dimension](./dimensions.md#time) when querying a derived metric with an offset window.
 
 The following example displays how you can calculate monthly revenue growth using a 1-month offset window:
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 - name: customer_retention
@@ -113,11 +109,11 @@ The following example displays how you can calculate monthly revenue growth usin
         alias: active_customers_prev_month
 ```
 
-<!-- -->
-
-### Offset windows and granularity[​](#offset-windows-and-granularity "Direct link to Offset windows and granularity")
+### Offset windows and granularity
 
 You can query any granularity and offset window combination. The following example queries a metric with a 7-day offset and a monthly grain:
+
+(Applies to dbt v1.11 and earlier)
 
 ```yaml
 - name: d7_booking_change
@@ -134,19 +130,11 @@ You can query any granularity and offset window combination. The following examp
         alias: bookings_7_days_ago
 ```
 
-<!-- -->
-
 When you run the query `dbt sl query --metrics d7_booking_change --group-by metric_time__month` for the metric, here's how it's calculated. For dbt Core, you can use the `mf query` prefix.
 
-1. Retrieve the raw, unaggregated dataset with the specified
-   <!-- -->
-   measure
-   <!-- -->
-   and dimensions at the smallest level of detail, which is currently 'day'.
+1. Retrieve the raw, unaggregated dataset with the specified (Applies to dbt v1.11 and earlier) measure and dimensions at the smallest level of detail, which is currently 'day'.
 
 2. Then, perform an offset join on the daily dataset, followed by performing a date trunc and aggregation to the requested granularity. For example, to calculate `d7_booking_change` for July 2017:
-
-   <!-- -->
 
    * First, sum up all the booking values for each day in July to calculate the bookings metric.
    * The following table displays the range of days that make up this monthly aggregation.
@@ -158,12 +146,6 @@ When you run the query `dbt sl query --metrics d7_booking_change --group-by metr
 |       | 78     | 2017-07-01               |
 | Total | 7438   | 2017-07-01               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 3. Calculate July's bookings with a 7-day offset. The following table displays the range of days that make up this monthly aggregation. Note that the month begins 7 days later (offset by 7 days) on 2017-07-24.
 
 |       | Orders | Metric\_time             |
@@ -172,12 +154,6 @@ Search table...
 |       | 6840   | 2017-07-23 to 2017-06-30 |
 |       | 83     | 2017-06-24               |
 | Total | 7252   | 2017-07-01               |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 4. Lastly, calculate the derived metric and return the final result set:
 
@@ -189,12 +165,6 @@ bookings - bookings_7_days_ago would be compile as 7438 - 7252 = 186.
 | ------------------- | --------------------- |
 | 186                 | 2017-07-01            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

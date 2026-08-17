@@ -1,6 +1,6 @@
 # Connect Teradata to dbt Core
 
-Local developmentⓘ
+Local development
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code in the repository listed in the next section.
 
@@ -8,40 +8,26 @@ Some core functionality may be limited. If you're interested in contributing, ch
 
 If you're using dbt platform, you don't need to create a `profiles.yml` file. This file is only necessary when you use dbt Core or dbt Fusion locally. To learn more about Fusion prerequisites, refer to [Supported features](../../fusion/supported-features.md). To connect your data platform to dbt, refer to [About data platforms](../../platform/connect-data-platform/about-connections.md).
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Teradata
-* **Authors**:
-  <!-- -->
-  Teradata
+* **Maintained by**: Teradata
+* **Authors**: Teradata
 * **GitHub repo**: [Teradata/dbt-teradata](https://github.com/Teradata/dbt-teradata) [![](https://img.shields.io/github/stars/Teradata/dbt-teradata?style=for-the-badge)](https://github.com/Teradata/dbt-teradata)
 * **PyPI package**: `dbt-teradata` [![](https://badge.fury.io/py/dbt-teradata.svg)](https://badge.fury.io/py/dbt-teradata)
 * **Slack channel**: [#db-teradata](https://getdbt.slack.com/archives/C027B6BHMT3)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.21.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.21.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-teradata
+## Installing dbt-teradata
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-teradata`
 
-## Configuring <!-- -->dbt-teradata<!-- -->
+## Configuring dbt-teradata
 
-For <!-- -->Teradata<!-- -->-specific configuration, please refer to [Teradata<!-- --> configs.](../../../reference/resource-configs/teradata-configs.md)
+For Teradata-specific configuration, please refer to [Teradata configs.](../../../reference/resource-configs/teradata-configs.md)
 
-## Python compatibility[​](#python-compatibility "Direct link to Python compatibility")
+## Python compatibility
 
 | Plugin version | Python 3.9 | Python 3.10 | Python 3.11 | Python 3.12 | Python 3.13 |
 | -------------- | ---------- | ----------- | ----------- | ----------- | ----------- |
@@ -57,13 +43,7 @@ For <!-- -->Teradata<!-- -->-specific configuration, please refer to [Teradata<!
 | 1.9.x          | ✅         | ✅          | ✅          | ✅          | ❌          |
 | 1.10.x         | ✅         | ✅          | ✅          | ✅          | ✅          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## dbt dependent packages version compatibility[​](#dbt-dependent-packages-version-compatibility "Direct link to dbt dependent packages version compatibility")
+## dbt dependent packages version compatibility
 
 | dbt-teradata | dbt Core | dbt-teradata-util | dbt-util       |
 | ------------ | -------- | ----------------- | -------------- |
@@ -76,13 +56,7 @@ Search table...
 | 1.9.x        | 1.9.x    | 1.3.0             | 1.3.0          |
 | 1.10.x       | 1.10.x   | 1.3.0             | 1.3.0          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Connecting to Teradata[​](#connecting-to-teradata "Direct link to Connecting to Teradata")
+### Connecting to Teradata
 
 To connect to Teradata Vantage from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A Teradata profile conforms to the following syntax:
 
@@ -103,7 +77,7 @@ profiles.yml
       <field-name: <field-value>
 ```
 
-#### Description of Teradata Profile Fields[​](#description-of-teradata-profile-fields "Direct link to Description of Teradata Profile Fields")
+#### Description of Teradata Profile Fields
 
 The following fields are required:
 
@@ -113,12 +87,6 @@ The following fields are required:
 | `password` |          | string | Specifies the database password. Equivalent to the Teradata JDBC Driver `PASSWORD` connection parameter. |
 | `schema`   |          | string | Specifies the initial database to use after logon, instead of the user's default database.               |
 | `tmode`    | `"ANSI"` | string | Specifies the transaction mode. Only `ANSI` mode is currently supported.                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 The plugin also supports the following optional connection parameters:
 
@@ -161,24 +129,18 @@ The plugin also supports the following optional connection parameters:
 | `teradata_values`     | `"true"`                                     | quoted boolean | Controls whether `str` or a more specific Python data type is used for certain result set column value types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `query_band`          | `"org=teradata-internal-telem;appname=dbt;"` | string         | Specifies the Query Band string to be set for each SQL request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Refer to [connection parameters](https://github.com/Teradata/python-driver#connection-parameters) for the full description of the connection parameters.
 
-## Supported features[​](#supported-features "Direct link to Supported features")
+## Supported features
 
-### Materializations[​](#materializations "Direct link to Materializations")
+### Materializations
 
 * `view`
 * `table`
 * `ephemeral`
 * `incremental`
 
-#### Incremental Materialization[​](#incremental-materialization "Direct link to Incremental Materialization")
+#### Incremental Materialization
 
 The following incremental materialization strategies are supported:
 
@@ -193,11 +155,11 @@ info
 * To learn more about dbt incremental strategies, refer to [the dbt incremental strategy documentation](../../build/incremental-strategy.md).
 * To learn more about `valid_history` incremental strategy, refer to [Teradata configs](../../../reference/resource-configs/teradata-configs.md).
 
-### Commands[​](#commands "Direct link to Commands")
+### Commands
 
 All dbt commands are supported.
 
-## Support for model contracts[​](#support-for-model-contracts "Direct link to Support for model contracts")
+## Support for model contracts
 
 Model contracts are supported with dbt-teradata v1.7.1 and onwards. Constraint support and enforcement in dbt-teradata:
 
@@ -209,25 +171,19 @@ Model contracts are supported with dbt-teradata v1.7.1 and onwards. Constraint s
 | unique          | ✅ Supported     | ✅ Enforced |
 | check           | ✅ Supported     | ✅ Enforced |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Refer to [Model contracts](../../mesh/govern/model-contracts.md) for more info.
 
-## Support for `dbt-utils` package[​](#support-for-dbt-utils-package "Direct link to support-for-dbt-utils-package")
+## Support for `dbt-utils` package
 
 `dbt-utils` package is supported through `teradata/teradata_utils` dbt package. The package provides a compatibility layer between `dbt_utils` and `dbt-teradata`. See [teradata\_utils](https://hub.getdbt.com/teradata/teradata_utils/latest/) package for install instructions.
 
-### Cross DB macros[​](#cross-db-macros "Direct link to Cross DB macros")
+### Cross DB macros
 
 Starting with release 1.3, some macros were migrated from [teradata-dbt-utils](https://github.com/Teradata/dbt-teradata-utils) dbt package to the connector. Refer the following table for the macros supported by the connector.
 
 For using cross-DB macros, teradata-utils as a macro namespace will not be used, as cross-DB macros have been migrated from teradata-utils to Dbt-Teradata.
 
-#### Compatibility[​](#compatibility "Direct link to Compatibility")
+#### Compatibility
 
 | Macro Group           | Macro Name         | Status | Comment                                                      |
 | --------------------- | ------------------ | ------ | ------------------------------------------------------------ |
@@ -244,27 +200,21 @@ For using cross-DB macros, teradata-utils as a macro namespace will not be used,
 | Cross-database macros | generate\_series   | ✅     | custom macro provided                                        |
 | Cross-database macros | date\_spine        | ✅     | no customization                                             |
 
-Search table...
+#### examples for cross DB macros
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### examples for cross DB macros[​](#examples-for-cross-db-macros "Direct link to examples for cross DB macros")
-
-##### []()replace[​](#replace "Direct link to replace")
+##### []()replace
 
 {{ dbt.replace("string\_text\_column", "old\_chars", "new\_chars") }} {{ replace('abcgef', 'g', 'd') }}
 
-##### []()date\_trunc[​](#date_trunc "Direct link to date_trunc")
+##### []()date\_trunc
 
 {{ dbt.date\_trunc("date\_part", "date") }} {{ dbt.date\_trunc("DD", "'2018-01-05 12:00:00'") }}
 
-##### []()datediff[​](#datediff "Direct link to datediff")
+##### []()datediff
 
 `datediff` macro in teradata supports difference between dates. Differece between timestamps is not supported.
 
-##### []()hash[​](#hash "Direct link to hash")
+##### []()hash
 
 `Hash` macro needs an `md5` function implementation. Teradata doesn't support `md5` natively. You need to install a User Defined Function (UDF) and optionally specify `md5_udf` [variable](../../build/project-variables.md).
 
@@ -278,15 +228,11 @@ If not specified the code defaults to using `GLOBAL_FUNCTIONS.hash_md5`. See the
 
 4. Create database `GLOBAL_FUNCTIONS` that will host the UDF. You can't change the database name as it's hardcoded in the macro:
 
-   <!-- -->
-
    ```sql
    CREATE DATABASE GLOBAL_FUNCTIONS AS PERMANENT = 60e6, SPOOL = 120e6;
    ```
 
 5. Create the UDF. Replace `<CURRENT_USER>` with your current database user:
-
-   <!-- -->
 
    ```sql
    GRANT CREATE FUNCTION ON GLOBAL_FUNCTIONS TO <CURRENT_USER>;
@@ -295,8 +241,6 @@ If not specified the code defaults to using `GLOBAL_FUNCTIONS.hash_md5`. See the
    ```
 
 6. Grant permissions to run the UDF with grant option.
-
-   <!-- -->
 
    ```sql
    GRANT EXECUTE FUNCTION ON GLOBAL_FUNCTIONS TO PUBLIC WITH GRANT OPTION;
@@ -309,15 +253,15 @@ vars:
   md5_udf: Custom_database_name.hash_method_function
 ```
 
-##### []()last\_day[​](#last_day "Direct link to last_day")
+##### []()last\_day
 
 `last_day` in `teradata_utils`, unlike the corresponding macro in `dbt_utils`, doesn't support `quarter` datepart.
 
 dbt-teradata 1.8.0 and later versions support unit tests, enabling you to validate SQL models and logic with a small set of static inputs before going to production. This feature enhances test-driven development and boosts developer efficiency and code reliability. Learn more about dbt unit tests [here](../../build/unit-tests.md).
 
-## Limitations[​](#limitations "Direct link to Limitations")
+## Limitations
 
-### Browser authentication[​](#browser-authentication "Direct link to Browser authentication")
+### Browser authentication
 
 * When running a dbt job with logmech set to "browser", the initial authentication opens a browser window where you must enter your username and password.
 * After authentication, this window remains open, requiring you to manually switch back to the dbt console.
@@ -326,7 +270,7 @@ dbt-teradata 1.8.0 and later versions support unit tests, enabling you to valida
 * This behavior is the default functionality of the teradatasql driver and cannot be avoided at this time.
 * To prevent session expiration and the need to re-enter credentials, ensure the authentication browser window stays open until the job is complete.
 
-### Transaction mode[​](#transaction-mode "Direct link to Transaction mode")
+### Transaction mode
 
 Both ANSI and TERA modes are now supported in dbt-teradata. TERA mode's support is introduced with dbt-teradata 1.7.1, it is an initial implementation.
 
@@ -334,10 +278,10 @@ TERA transaction mode
 
 This is an initial implementation of the TERA transaction mode and may not support some use cases. We highly recommend validating all records or transformations using this mode to avoid unexpected issues or errors.
 
-## Credits[​](#credits "Direct link to Credits")
+## Credits
 
 The adapter was originally created by [Doug Beatty](https://github.com/dbeatty10). Teradata took over the adapter in January 2022. We are grateful to Doug for founding the project and accelerating the integration of dbt + Teradata.
 
-## License[​](#license "Direct link to License")
+## License
 
 The adapter is published using Apache-2.0 License. Refer to the [terms and conditions](https://github.com/dbt-labs/dbt-core/blob/main/LICENSE) to understand items such as creating derivative work and the support model.

@@ -1,12 +1,12 @@
 # Account integrations in dbt
 
-dbt platformⓘ
+dbt platform
 
 The following sections describe the different **Account integrations** available from your dbt account under the account **Settings** section.
 
 [![Example of Account integrations from the sidebar](/img/docs/dbt-platform/account-integrations.png?v=2 "Example of Account integrations from the sidebar")](#)Example of Account integrations from the sidebar
 
-## Git integrations[​](#git-integrations "Direct link to Git integrations")
+## Git integrations
 
 Connect your dbt account to your Git provider to enable dbt users to authenticate your personal accounts. dbt will perform Git actions on behalf of your authenticated self, against repositories to which you have access according to your Git provider permissions.
 
@@ -28,7 +28,7 @@ You can connect your dbt account to additional Git providers by importing a git 
 
 [![Example of the Git integration page](/img/docs/dbt-platform/account-integration-git.png?v=2 "Example of the Git integration page")](#)Example of the Git integration page
 
-## OAuth integrations[​](#oauth-integrations "Direct link to OAuth integrations")
+## OAuth integrations
 
 Connect your dbt account to an OAuth provider that are integrated with dbt.
 

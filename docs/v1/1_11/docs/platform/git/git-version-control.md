@@ -1,6 +1,6 @@
 # About git
 
-dbt platformⓘ
+dbt platform
 
 A [version control](https://en.wikipedia.org/wiki/Version_control) system allows you and your teammates to work collaboratively, safely, and simultaneously on a single project. Version control helps you track all the code changes made in your dbt project.
 
@@ -12,7 +12,7 @@ Git allows developers see the entire timeline of their changes, decisions, and p
 
 When you develop in the command line interface (CLI) or Cloud integrated development environment (Studio IDE), you can leverage Git directly to version control your code. To use version control, make sure you are connected to a Git repository in the CLI or Cloud Studio IDE.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Version control basics](./version-control-basics.md)
 * [Merge conflicts](./merge-conflicts.md)

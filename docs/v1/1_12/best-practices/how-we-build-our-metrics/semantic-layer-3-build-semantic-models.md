@@ -6,13 +6,11 @@ Note that this best practices guide doesn't yet use the [new YAML specification]
 
 To read more about the new spec, see [Creating metrics](../../docs/build/metrics-overview.md).
 
-## How to build a semantic model[​](#how-to-build-a-semantic-model "Direct link to How to build a semantic model")
+## How to build a semantic model
 
 A semantic model is the Semantic Layer equivalent to a logical layer model (what historically has just been called a 'model' in dbt land). Just as configurations for models are defined on the `models:` YAML key, configurations for semantic models are housed under `semantic models:`. A key difference is that while a logical model consists of configuration and SQL or Python code, a **semantic model is defined purely via YAML**. Rather than encoding a specific dataset, a **semantic model describes relationships and expressions** that let your end users select and refine their own datasets dynamically and reliably.
 
 * ⚙️ Semantic models are **comprised of three components**:
-
-  <!-- -->
 
   * 🫂 **entities**: these describe the **relationships** between various semantic models (think ids)
   * 🔪 **dimensions**: these are the columns you want to **slice, dice, group, and filter by** (think timestamps, categories, booleans).
@@ -20,7 +18,7 @@ A semantic model is the Semantic Layer equivalent to a logical layer model (what
 
 * 🪣 We define **columns as being an entity, dimension, or measure**. Columns will typically fit into one of these 3 buckets, or if they're a complex aggregation expression, they might constitute a metric.
 
-## Defining orders[​](#defining-orders "Direct link to Defining orders")
+## Defining orders
 
 Let's zoom in on how we might define an *orders* semantic model.
 
@@ -53,7 +51,7 @@ semantic_models:
     measures: ...
 ```
 
-## Establishing our entities[​](#establishing-our-entities "Direct link to Establishing our entities")
+## Establishing our entities
 
 * 🫂 Entities are the **objects and concepts** in our data that *have* dimensions and measures. You can think of them as the **nouns** of our project, the **spines** of our queries that we may want to aggregate by, or simply the **join keys**.
 * 🔀 Entities help MetricFlow understand **how various semantic models relate to one another**.
@@ -62,7 +60,7 @@ semantic_models:
 * 🫂 Entities require a **name and type**
   * 🔑 Types available are **primary**, **foreign**, **unique** or **natural** — we'll be focused on the first two for now, but you can [read more about unique and natural keys](../../docs/build/entities.md#entity-types).
 
-### Entities in action[​](#entities-in-action "Direct link to Entities in action")
+### Entities in action
 
 If we look at an example staging model for orders, we see that it has 3 id columns, so we'll need three entities.
 
@@ -115,11 +113,9 @@ semantic_models:
       ...
 ```
 
-## Defining our dimensions[​](#defining-our-dimensions "Direct link to Defining our dimensions")
+## Defining our dimensions
 
 * 🧮 Dimensions are the columns that we want to **filter and group by**, **the adjectives of our project**. They come in three types:
-
-  <!-- -->
 
   * **categorical**
   * **time**
@@ -129,7 +125,7 @@ semantic_models:
 
 * 📛 Categorical dimensions are the simplest, they simply require a `name` and `type` (type being categorical). **If the `name` property matches the name of the dimension column**, that's it, you're done. If you want or need to use a `name` other than the column name, or do some filtering or computation, **you can supply an optional `expr` property** to evaluate for the dimension.
 
-### Dimensions in action[​](#dimensions-in-action "Direct link to Dimensions in action")
+### Dimensions in action
 
 * 👀 Let's look at our staging model again and see what fields we have available.
 
@@ -191,13 +187,13 @@ dimensions:
     expr: case when order_total > 50 then true else false end
 ```
 
-## Making our measures[​](#making-our-measures "Direct link to Making our measures")
+## Making our measures
 
 * 📏 Measures are the final component of a semantic model. They describe the **numeric values that we want to aggregate**.
 * 🧱 Measures form **the building blocks of metrics**, with entities and dimensions helping us combine, group, and filter those metrics correctly.
 * 🏃 You can think of them as something like the **verbs of a semantic model**.
 
-### Measures in action[​](#measures-in-action "Direct link to Measures in action")
+### Measures in action
 
 * 👀 Let's look at **our staging model** one last time and see what **fields we want to measure**.
 
@@ -249,7 +245,7 @@ models/marts/orders.yml
   agg: sum
 ```
 
-## Reviewing our work[​](#reviewing-our-work "Direct link to Reviewing our work")
+## Reviewing our work
 
 Our completed code will look like this, our first semantic model! Here are two examples showing different organizational approaches:
 
@@ -363,7 +359,7 @@ As you can see, the content of the semantic model is identical in both approache
 
 Choose the approach that best fits your project structure and team preferences. The co-located approach is often simpler for new projects, while the parallel sub-folder approach can be clearer for migrating large existing projects to the Semantic Layer.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Let's review the basics of semantic models:
 

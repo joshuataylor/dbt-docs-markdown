@@ -7,7 +7,7 @@ You can use the `zip` context method to return an iterator of tuples, where the 
 * `*args`: Any number of iterables
 * `default`: A default value to return if `*args` is not iterable
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
 ```text
 {% set my_list_a = [1, 2] %}
@@ -23,7 +23,7 @@ You can use the `zip` context method to return an iterator of tuples, where the 
 {% do log(my_zip) %}  {# [] #}
 ```
 
-### zip\_strict[​](#zip_strict "Direct link to zip_strict")
+### zip\_strict
 
 You can use the `zip_strict` context to return an iterator of tuples, just like `zip`. The difference to the `zip` context method is that the `zip_strict` method will raise an exception on a `TypeError`, if one of the provided values is not a valid iterable.
 

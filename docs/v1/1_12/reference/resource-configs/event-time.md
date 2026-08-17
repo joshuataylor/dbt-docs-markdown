@@ -2,24 +2,9 @@
 
 💡Did you know\...
 
-Available from dbt v
+Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
-<!-- -->
-
-1.9
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
-
-* Models
-* Seeds
-* Snapshots
-* Sources
+### Models
 
 dbt\_project.yml
 
@@ -46,6 +31,8 @@ models/modelname.sql
 ) }}
 ```
 
+### Seeds
+
 dbt\_project.yml
 
 ```yml
@@ -63,6 +50,8 @@ seeds:
       event_time: my_time_field
 ```
 
+### Snapshots
+
 dbt\_project.yml
 
 ```yml
@@ -70,6 +59,8 @@ snapshots:
   resource-path:
     +event_time: my_time_field
 ```
+
+(Applies to dbt v1.9 and later)
 
 snapshots/properties.yml
 
@@ -79,6 +70,8 @@ snapshots:
     config:
       event_time: my_time_field
 ```
+
+### Sources
 
 dbt\_project.yml
 
@@ -97,7 +90,7 @@ sources:
       event_time: my_time_field
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 dbt uses `event_time` to understand when an event occurred. Configure it in your project YAML file (`dbt_project.yml`), properties YAML file (`models/properties.yml`), or SQL file config for [models](../../docs/build/models.md), [seeds](../../docs/build/seeds.md), or [sources](../../docs/build/sources.md).
 
@@ -107,11 +100,11 @@ For incremental microbatch models, if your upstream models don't have `event_tim
 
 To avoid this, configure `event_time` on every upstream model that should be filtered. Learn how to exclude a model from auto-filtering by [opting out of auto-filtering](../../docs/build/incremental-microbatch.md#opting-out-of-auto-filtering).
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
-`event_time` is required for the [incremental microbatch](../../docs/build/incremental-microbatch.md) strategy<!-- -->, the [`--sample` flag](../../docs/build/sample-flag.md),<!-- --> and highly recommended for [Advanced CI's compare changes](../../docs/deploy/advanced-ci.md#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
+`event_time` is required for the [incremental microbatch](../../docs/build/incremental-microbatch.md) strategy(Applies to dbt v1.10 and later) , the [`--sample` flag](../../docs/build/sample-flag.md), and highly recommended for [Advanced CI's compare changes](../../docs/deploy/advanced-ci.md#optimizing-comparisons) in CI/CD workflows, where it ensures the same time-slice of data is correctly compared between your CI and production environments.
 
-### Best practices[​](#best-practices "Direct link to Best practices")
+### Best practices
 
 Set the `event_time` to the name of the field that represents the actual timestamp of the event (like `account_created_at`). The timestamp of the event should represent "at what time did the row occur" rather than an event ingestion date. Marking a column as the `event_time` when it isn't, diverges from the semantic meaning of the column which may result in user confusion when other tools make use of the metadata.
 
@@ -129,18 +122,9 @@ Here are some examples of recommended and not recommended `event_time` columns:
 | ❌ Not recommended | `_fivetran_synced`   | This represents the time the event was ingested, not when it happened.                                                                         |
 | ❌ Not recommended | `last_updated_at`    | Changes over time and isn't tied to the event itself. If used, note the considerations mentioned earlier in [best practices](#best-practices). |
 
-Search table...
+## Examples
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Examples[​](#examples "Direct link to Examples")
-
-* Models
-* Seeds
-* Snapshots
-* Sources
+### Models
 
 Here's an example in the `dbt_project.yml` file:
 
@@ -176,6 +160,8 @@ models/user\_sessions.sql
 
 This setup sets `session_start_time` as the `event_time` for the `user_sessions` model.
 
+### Seeds
+
 Here's an example in the `dbt_project.yml` file:
 
 dbt\_project.yml
@@ -200,6 +186,8 @@ seeds:
 
 This setup sets `record_timestamp` as the `event_time` for `my_seed`.
 
+### Snapshots
+
 Here's an example in the `dbt_project.yml` file:
 
 dbt\_project.yml
@@ -223,6 +211,8 @@ snapshots:
 ```
 
 This setup sets `record_timestamp` as the `event_time` for `my_snapshot`.
+
+### Sources
 
 Here's an example of a source property file:
 

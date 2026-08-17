@@ -1,6 +1,6 @@
 # 2024 dbt platform release notes
 
-dbt platform | Freeⓘ
+dbt platform | Free
 
 dbt release notes for recent and historical changes. Release notes fall into one of the following categories:
 
@@ -13,7 +13,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 \* The official release date for this new format of release notes is May 15th, 2024. Historical release notes for prior dates may not reflect all available features released earlier this year or their tenancy availability.
 
-## December 2024[​](#december-2024 "Direct link to December 2024")
+## December 2024
 
 * **New**: Saved queries now support [tags](../../reference/resource-configs/tags.md), which allow you to categorize your resources and filter them. Add tags to your [saved queries](../build/saved-queries.md) in the `semantic_model.yml` file or `dbt_project.yml` file. For example:
 
@@ -44,7 +44,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **New**: The [`hard_deletes`](../../reference/resource-configs/hard-deletes.md) config gives you more control on how to handle deleted rows from the source. Supported options are `ignore` (default), `invalidate` (replaces the legacy `invalidate_hard_deletes=true`), and `new_record`. Note that `new_record` will create a new metadata column in the snapshot table.
 
-## November 2024[​](#november-2024 "Direct link to November 2024")
+## November 2024
 
 * **Enhancement**: Data health signals in dbt Explorer are now available for Exposures, providing a quick view of data health while browsing resources. To view trust signal icons, go to dbt Explorer and click **Exposures** under the **Resource** tab. Refer to [Data health signals for resources](../explore/data-health-signals.md) for more info.
 
@@ -64,8 +64,6 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **Fix**: This update improves [Semantic Layer Tableau integration](../platform-integrations/semantic-layer/tableau.md) making query parsing more reliable. Some key fixes include:
 
-  <!-- -->
-
   * Error messages for unsupported joins between saved queries and ALL tables.
   * Improved handling of queries when multiple tables are selected in a data source.
   * Fixed a bug when an IN filter contained a lot of values.
@@ -73,7 +71,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **Enhancement**: The Semantic Layer supports creating new credentials for users who don't have permissions to create service tokens. In the **Credentials & service tokens** side panel, the **+Add Service Token** option is unavailable for those users who don't have permission. Instead, the side panel displays a message indicating that the user doesn't have permission to create a service token and should contact their administration. Refer to [Set up Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) for more details.
 
-## October 2024[​](#october-2024 "Direct link to October 2024")
+## October 2024
 
  Coalesce 2024 announcements
 
@@ -126,8 +124,6 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **New**: In the **Latest** release track in dbt, [Snapshots](../build/snapshots.md) have been updated to use YAML configuration files instead of SQL snapshot blocks. This new feature simplifies snapshot management and improves performance, and will soon be released in dbt Core 1.9.
 
-  <!-- -->
-
   * Who does this affect? Users of the **Latest** release track in dbt can define snapshots using the new YAML specification. Users upgrading to **Latest** who have existing snapshot definitions can keep their existing configurations, or they can choose to migrate their snapshot definitions to YAML.
   * Users on older versions: No action is needed; existing snapshots will continue to work as before. However, we recommend upgrading to the **Latest** release track to take advantage of the new snapshot features.
 
@@ -145,15 +141,11 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 - **New:** Downstream exposures are now available in Preview in dbt. Downstream exposures helps users understand how their models are used in downstream analytics tools to inform investments and reduce incidents. It imports and auto-generates exposures based on Tableau dashboards, with user-defined curation. To learn more, refer to [Downstream exposures](../platform-integrations/downstream-exposures-tableau.md).
 
-## September 2024[​](#september-2024 "Direct link to September 2024")
+## September 2024
 
 * **Fix**: MetricFlow updated `get_and_expire` to replace the unsupported `GETEX` command with a `GET` and conditional expiration, ensuring compatibility with Azure Redis 6.0.
 * **Enhancement**: The [dbt Semantic Layer Python SDK](../dbt-apis/sl-python.md) now supports `TimeGranularity` custom grain for metrics. This feature allows you to define custom time granularities for metrics, such as `fiscal_year` or `retail_month`, to query data using non-standard time periods.
-* **New**: Use the
-  <!-- -->
-  AI engine to generate semantic model for your models, now available in beta.
-  <!-- -->
-  automatically generates documentation, tests, and now semantic models based on the data in your model, . To learn more, refer to [](../platform/wizard-platform.md).
+* **New**: Use the AI engine to generate semantic model for your models, now available in beta. automatically generates documentation, tests, and now semantic models based on the data in your model, . To learn more, refer to [](../platform/wizard-platform.md).
 * **New**: Use the new recommended syntax for [defining `foreign_key` constraints](../../reference/resource-properties/constraints.md) using `refs`, available in the **Latest** release track in dbt Cloud. This will soon be released in dbt Core v1.9. This new syntax will capture dependencies and works across different environments.
 * **Enhancement**: You can now run [Semantic Layer commands](../build/metricflow-commands.md) commands in the [dbt Cloud IDE](../platform/studio-ide/develop-in-studio.md). The supported commands are `dbt sl list`, `dbt sl list metrics`, `dbt sl list dimension-values`, `dbt sl list saved-queries`, `dbt sl query`, `dbt sl list dimensions`, `dbt sl list entities`, and `dbt sl validate`.
 * **New**: Microsoft Excel, a Semantic Layer integration, is now generally available. The integration allows you to connect to Microsoft Excel to query metrics and collaborate with your team. Available for [Excel Desktop](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationId=4132ecd1-425d-982d-efb4-de94ebc83f26) or [Excel Online](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationid=4132ecd1-425d-982d-efb4-de94ebc83f26\&isWac=True). For more information, refer to [Microsoft Excel](../platform-integrations/semantic-layer/excel.md).
@@ -163,14 +155,14 @@ Documentation for new features and functionality announced at Coalesce 2024:
 * **New:** There are two new [environment variable defaults](../build/environment-variables.md#dbt-cloud-context) — `DBT_CLOUD_ENVIRONMENT_NAME` and `DBT_CLOUD_ENVIRONMENT_TYPE`.
 * **New:** The [Amazon Athena warehouse connection](../platform/connect-data-platform/connect-amazon-athena.md) is available as a public preview for dbt accounts that have upgraded to [the **Latest** release track](./dbt-release-tracks.md).
 
-## August 2024[​](#august-2024 "Direct link to August 2024")
+## August 2024
 
 * **Fix:** Fixed an issue in [dbt Explorer](../explore/explore-projects.md) where navigating to a consumer project from a public node resulted in displaying a random public model rather than the original selection.
 * **New**: You can now configure metrics at granularities at finer time grains, such as hour, minute, or even by the second. This is particularly useful for more detailed analysis and for datasets where high-resolution time data is required, such as minute-by-minute event tracking. Refer to [dimensions](../build/dimensions.md) for more information about time granularity.
 * **Enhancement**: Microsoft Excel now supports [saved selections](../platform-integrations/semantic-layer/excel.md#using-saved-selections) and [saved queries](../platform-integrations/semantic-layer/excel.md#using-saved-queries). Use Saved selections to save your query selections within the Excel application. The application also clears stale data in [trailing rows](../platform-integrations/semantic-layer/excel.md#other-settings) by default. To return your results and keep any previously selected data intact, un-select the **Clear trailing rows** option.
 * **Behavior change:** GitHub is no longer supported for OAuth login to dbt. Use a supported [SSO or OAuth provider](../platform/manage-access/sso-overview.md) to securely manage access to your dbt account.
 
-## July 2024[​](#july-2024 "Direct link to July 2024")
+## July 2024
 
 * **Behavior change:** `target_schema` is no longer a required configuration for [snapshots](../build/snapshots.md). You can now target different schemas for snapshots across development and deployment environments using the [schema config](../../reference/resource-configs/schema.md).
 
@@ -186,7 +178,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 * **Enhancement**: Introducing a revamped overview page for dbt Explorer, available in beta. It includes a new design and layout for the dbt Explorer homepage. The new layout provides a more intuitive experience for users to navigate their dbt projects, as well as a new **Latest updates** section to view the latest changes or issues related to project resources. To learn more, refer to [Overview page](../explore/explore-projects.md#overview-page).
 
-#### dbt Semantic Layer[​](#dbt-semantic-layer "Direct link to dbt Semantic Layer")
+#### dbt Semantic Layer
 
 * **New**: Introduced the [`dbt-sl-sdk` Python software development kit (SDK)](https://github.com/dbt-labs/semantic-layer-sdk-python) Python library, which provides you with easy access to the dbt Semantic Layer with Python. It allows developers to interact with the dbt Semantic Layer APIs and query metrics and dimensions in downstream tools. Refer to the [dbt Semantic Layer Python SDK](../dbt-apis/sl-python.md) for more information.
 * **New**: Introduced Semantic validations in CI pipelines. Automatically test your semantic nodes (metrics, semantic models, and saved queries) during code reviews by adding warehouse validation checks in your CI job using the `dbt sl validate` command. You can also validate modified semantic nodes to guarantee code changes made to dbt models don't break these metrics. Refer to [Semantic validations in CI](../deploy/ci-jobs.md#semantic-validations-in-ci) to learn about the additional commands and use cases.
@@ -198,13 +190,13 @@ Documentation for new features and functionality announced at Coalesce 2024:
 * **Fix**: Addressed a bug that caused a "closed connection" error to be returned when querying or running an Export.
 * **Fix**: Resolved an issue in dbt Core where, during partial parsing, all generated metrics in a file were incorrectly deleted instead of just those related to the changed semantic model. Now, only the metrics associated with the modified model are affected.
 
-## June 2024[​](#june-2024 "Direct link to June 2024")
+## June 2024
 
 * **New:** Introduced new granularity support for cumulative metrics in MetricFlow. Granularity options for cumulative metrics are slightly different than granularity for other metric types. For other metrics, we use the `date_trunc` function to implement granularity. However, because cumulative metrics are non-additive (values can't be added up), we can't use the `date_trunc` function to change their time grain granularity.
 
   Instead, we use the `first()`, `last()`, and `avg()` aggregation functions to aggregate cumulative metrics over the requested period. By default, we take the first value of the period. You can change this behavior by using the `period_agg` parameter. For more information, refer to [Granularity options for cumulative metrics](../build/cumulative.md#granularity-options).
 
-#### dbt Semantic Layer[​](#dbt-semantic-layer-1 "Direct link to dbt Semantic Layer")
+#### dbt Semantic Layer
 
 * **New:** Added support for Predicate pushdown SQL optimization in MetricFlow. We will now push down categorical dimension filters to the metric source table. Previously filters were applied after we selected from the metric source table. This change helps reduce full table scans on certain query engines.
 * **New:** Enabled `where` filters on dimensions (included in saved queries) to use the cache during query time. This means you can now dynamically filter your dashboards without losing the performance benefits of caching. Refer to [caching](../use-dbt-semantic-layer/sl-cache.md#result-caching) for more information.
@@ -220,18 +212,18 @@ Documentation for new features and functionality announced at Coalesce 2024:
 * **Fix:** Fixed an error when refreshing database metadata for columns that we can't convert to Arrow. These columns will now be skipped. This mainly affected Redshift users with custom types.
 * **Fix:** Fixed Private Link connections for Databricks.
 
-#### Also available this month:[​](#also-available-this-month "Direct link to Also available this month:")
+#### Also available this month:
 
 * **Enhancement:** Updates to the UI when [creating merge jobs](../deploy/merge-jobs.md) are now available. The updates include improvements to helper text, new deferral settings, and performance improvements.
 * **New**: The Semantic Layer now offers a seamless integration with Microsoft Excel, available in [preview](./product-lifecycles.md). Build semantic layer queries and return data on metrics directly within Excel, through a custom menu. To learn more and install the add-on, check out [Microsoft Excel](../platform-integrations/semantic-layer/excel.md).
 * **New:** [Job warnings](../deploy/job-notifications.md) are now GA. Previously, you could receive email or Slack alerts about your jobs when they succeeded, failed, or were canceled. Now with the new **Warns** option, you can also receive alerts when jobs have encountered warnings from tests or source freshness checks during their run. This gives you more flexibility on *when* to be notified.
 * **New:** A [preview](./product-lifecycles.md) of the dbt Snowflake Native App is now available. With this app, you can access dbt Explorer, the **Ask dbt** chatbot, and orchestration observability features, extending your dbt experience into the Snowflake UI.
 
-## May 2024[​](#may-2024 "Direct link to May 2024")
+## May 2024
 
 * **Enhancement:** We've now introduced a new **Prune branches** [Git button](../platform/studio-ide/ide-user-interface.md#prune-branches-modal) in the IDE. This button allows you to delete local branches that have been deleted from the remote repository, keeping your branch management tidy. Available in all regions now and will be released to single tenant accounts during the next release cycle.
 
-#### dbt Cloud Launch Showcase event[​](#dbt-cloud-launch-showcase-event "Direct link to dbt Cloud Launch Showcase event")
+#### dbt Cloud Launch Showcase event
 
 The following features are new or enhanced as part of our [dbt Launch Showcase](https://www.getdbt.com/resources/webinars/dbt-cloud-launch-showcase) event on May 14th, 2024:
 
@@ -284,7 +276,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 * **Enhancement:** As part of our ongoing commitment to improving the [IDE](../platform/studio-ide/develop-in-studio.md#considerations), the filesystem now comes with improvements to speed up dbt development, such as introducing a Git repository limit of 10GB.
 
-#### Also available this month:[​](#also-available-this-month-1 "Direct link to Also available this month:")
+#### Also available this month:
 
 * **Update**: The [dbt CLI](../platform/dbt-cli-installation.md) is now available for Azure single tenant and is accessible in all [deployment regions](../platform/about-platform/access-regions-ip-addresses.md) for both multi-tenant and single-tenant accounts.
 
@@ -302,7 +294,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 * **Behavior change:** Introduced the `require_resource_names_without_spaces` flag, opt-in and disabled by default. If set to `True`, dbt will raise an exception if it finds a resource name containing a space in your project or an installed package. This will become the default in a future version of dbt. Read [No spaces in resource names](../../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md) for more information.
 
-## April 2024[​](#april-2024 "Direct link to April 2024")
+## April 2024
 
 *  New: Merge jobs[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -325,7 +317,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 * **Enhancement**: In the Google Sheets application, we added an option to exclude column headers, which is useful for populating templates with only the required data.
 * **Deprecation**: For the Tableau integration, the [`METRICS_AND_DIMENSIONS` data source](../platform-integrations/semantic-layer/tableau.md#using-the-integration) has been deprecated for all accounts not actively using it. We encourage users to transition to the "ALL" data source for future integrations.
 
-## March 2024[​](#march-2024 "Direct link to March 2024")
+## March 2024
 
 * **New:** The Semantic Layer services now support using Privatelink for customers who have it enabled.
 * **New:** You can now develop against and test your Semantic Layer in the dbt CLI if your user credential uses SSO.
@@ -335,7 +327,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 * **Fix:** Fixed an issue where exports in Redshift were not always committing to the DWH, which also had the side-effect of leaving table locks open.
 * **Behavior change:** Introduced the `source_freshness_run_project_hooks` flag, opt-in and disabled by default. If set to `True`, dbt will include `on-run-*` project hooks in the `source freshness` command. This will become the default in a future version of dbt. Read [Project hooks with source freshness](../../reference/global-configs/behavior-flags/source_freshness_run_project_hooks.md) for more information.
 
-## February 2024[​](#february-2024 "Direct link to February 2024")
+## February 2024
 
 * **New:** [Exports](../use-dbt-semantic-layer/exports.md#define-exports) allow you to materialize a saved query as a table or view in your data platform. By using exports, you can unify metric definitions in your data platform and query them as you would any other table or view.
 
@@ -424,11 +416,11 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
 * **Fix:** Fixed a bug that previously caused errors when entities were referenced in `where` filters.
 
-## January 2024[​](#january-2024 "Direct link to January 2024")
+## January 2024
 
 *  January docs updates
 
-  Hello from the dbt Docs team: @mirnawong1, @matthewshaver, @nghi-ly, and @runleonarun! First, we’d like to thank the 10 new community contributors to docs.getdbt.com <!-- -->🙏<!-- --> What a busy start to the year! We merged 110 PRs in January.
+  Hello from the dbt Docs team: @mirnawong1, @matthewshaver, @nghi-ly, and @runleonarun! First, we’d like to thank the 10 new community contributors to docs.getdbt.com 🙏 What a busy start to the year! We merged 110 PRs in January.
 
   Here's how we improved the [docs.getdbt.com](http://docs.getdbt.com/) experience:
 
@@ -443,8 +435,6 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
   * Beta launch of [Explorer’s column-level lineage](../explore/column-level-lineage.md) feature
 
   * Developer blog posts:
-
-    <!-- -->
 
     * [More time coding, less time waiting: Mastering defer in dbt](https://docs.getdbt.com/blog/defer-to-prod)
     * [Deprecation of dbt Server](https://docs.getdbt.com/blog/deprecation-of-dbt-server)

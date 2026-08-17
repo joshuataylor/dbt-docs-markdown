@@ -14,7 +14,7 @@ Beginner
 
 
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 Learn how to write effective prompts for dbt dbt Wizard to generate accurate SQL, models, metrics, and macros. Each recipe is self-contained with its own realistic example.
 
@@ -32,7 +32,7 @@ This cookbook covers the following topics:
 * [Troubleshoot errors and issues](https://docs.getdbt.com/guides/prompt-cookbook?step=7)
 * [Conclusion](https://docs.getdbt.com/guides/prompt-cookbook?step=8)
 
-## Prompt best practices[​](#prompt-best-practices "Direct link to Prompt best practices")
+## Prompt best practices
 
 Writing effective prompts is about giving dbt Wizard the right context and clear direction. Follow these principles:
 
@@ -41,7 +41,7 @@ Writing effective prompts is about giving dbt Wizard the right context and clear
 * [State the business question, not just the output](#state-the-business-question-not-just-the-output)
 * [Be clear and explicit about the result](#be-clear-and-explicit-about-the-result)
 
-### Provide rich context[​](#provide-rich-context "Direct link to Provide rich context")
+### Provide rich context
 
 In your prompt, include table names, column types, and example values to describe how they relate to each other.
 
@@ -87,7 +87,7 @@ and compare conversion rates: do high-frequency punch-card users convert to our
 
 **Why it works:** The AI now knows exact data types, how tables relate, what values to expect, and the specific business logic (3+ visits/week defines "regulars").
 
-### Break complex logic into smaller steps[​](#break-complex-logic-into-smaller-steps "Direct link to Break complex logic into smaller steps")
+### Break complex logic into smaller steps
 
 Common misconception
 
@@ -105,7 +105,7 @@ For multi-part tasks, write them as a sequence of clear instructions. dbt Wizard
 
 **Why this works:** Each step is clear and actionable. You can always iterate on your prompt to refine results — start simple, then build complexity.
 
-### State the business question, not just the output[​](#state-the-business-question-not-just-the-output "Direct link to State the business question, not just the output")
+### State the business question, not just the output
 
 Describe the decision or insight the query supports, and avoid only technical-like prompts. This means, instead of "count users", you can say "count active users per week to analyze engagement trends."
 
@@ -125,7 +125,7 @@ to all products. If not, we'll improve the feature before expanding.
 
 **Why it works:** You've described the feature, the behavior you're measuring, specific success criteria (20%+ lift), and the decision you'll make based on results.
 
-### Be clear and explicit about the result[​](#be-clear-and-explicit-about-the-result "Direct link to Be clear and explicit about the result")
+### Be clear and explicit about the result
 
 Define the expected output clearly. Mention the expected columns in the final result and state whether results should be sorted, limited, or filtered.
 
@@ -150,7 +150,7 @@ show how many upgraded to paid within 30 days and what their average workouts lo
 
 **Why it works:** Specific metrics that are ready to present.
 
-## Generate SQL queries[​](#generate-sql-queries "Direct link to Generate SQL queries")
+## Generate SQL queries
 
 Let's say you want to build a query to find top-spending customers.
 
@@ -199,7 +199,7 @@ limit 10
 
 **Pro tip:** Start simple, then iterate. If dbt Wizard's first attempt isn't perfect, no worries! Refine your prompt with more specific details and let dbt Wizard do its magic, it usually gets there in the end ✨
 
-## Use what you already have[​](#use-what-you-already-have "Direct link to Use what you already have")
+## Use what you already have
 
 You don't need to write everything from scratch. Pull in documentation, definitions, and sample data you already have—it helps dbt Wizard understand your specific business context.
 
@@ -207,7 +207,7 @@ dbt Insights integration
 
 When using dbt Wizard in [Insights](../docs/explore/dbt-insights.md), you can easily cross-reference between dbt Wizard's generated SQL and metadata from [dbt Catalog](../docs/explore/explore-projects.md). This embedded integration makes it seamless to access documentation, definitions, and sample data while building queries.
 
-### Define your business rules[​](#define-your-business-rules "Direct link to Define your business rules")
+### Define your business rules
 
 Instead of just saying "active customer," explain the rule:
 
@@ -218,7 +218,7 @@ Net revenue = gross sales minus discounts and returns
 
 **Pull from:** Metrics glossaries, KPI catalogs, product requirement docs, data dictionaries
 
-### Show sample values[​](#show-sample-values "Direct link to Show sample values")
+### Show sample values
 
 Give dbt Wizard examples of what the data actually looks like, especially edge cases:
 
@@ -231,7 +231,7 @@ Order statuses:
 
 **Pull from:** Data profiling reports, QA test datasets, BI dashboard filters
 
-### Start with a draft, refine later[​](#start-with-a-draft-refine-later "Direct link to Start with a draft, refine later")
+### Start with a draft, refine later
 
 Frame your model first, then iterate. Start with a clean outline that gets the basic structure right:
 
@@ -243,7 +243,7 @@ on customer_id. Filter to the last 30 days for preview only.
 
 **Pull from:** Source-to-target mapping sheets (join keys and transformations), data dictionaries (primary and foreign keys)
 
-## Create semantic models and metrics[​](#create-semantic-models-and-metrics "Direct link to Create semantic models and metrics")
+## Create semantic models and metrics
 
 Fast-track your semantic layer strategy with AI-generated YAML using dbt Wizard.
 
@@ -270,7 +270,7 @@ These built-in features automatically understand your model's columns, data type
 
 For more details, check out the [dbt Wizard](../docs/dbt-ai/wizard-ide.md) docs.
 
-## Create reusable macros[​](#create-reusable-macros "Direct link to Create reusable macros")
+## Create reusable macros
 
 In this section, we'll look at how to create reusable macros using dbt Wizard.
 
@@ -278,7 +278,7 @@ In this section, we'll look at how to create reusable macros using dbt Wizard.
 * [Lower the barrier to entry](#lower-the-barrier-to-entry)
 * [Accelerate complex logic design](#accelerate-complex-logic-design)
 
-### Turn repetitive code into reusable logic[​](#turn-repetitive-code-into-reusable-logic "Direct link to Turn repetitive code into reusable logic")
+### Turn repetitive code into reusable logic
 
 A junior analyst keeps copy-pasting CASE statements across models.
 
@@ -302,7 +302,7 @@ Macro requirements:
 
 **Why it works:** Clear input (the CASE statement), clear requirements, clear output expectations.
 
-### Lower the barrier to entry[​](#lower-the-barrier-to-entry "Direct link to Lower the barrier to entry")
+### Lower the barrier to entry
 
 You need a macro but don't know Jinja syntax well.
 
@@ -321,7 +321,7 @@ Include a docstring explaining how to use it.
 
 **Outcome:** dbt Wizard generates proper Jinja syntax, handles parameters, and includes documentation. You learn Jinja patterns while getting working code.
 
-### Accelerate complex logic design[​](#accelerate-complex-logic-design "Direct link to Accelerate complex logic design")
+### Accelerate complex logic design
 
 This is best for advanced users who are comfortable with Jinja.
 
@@ -342,7 +342,7 @@ Add a docstring with parameter descriptions and usage example.
 
 **Why this works:** You've outlined the interface (parameters) and edge cases (empty lists), letting dbt Wizard handle the Jinja boilerplate while you focus on design. This approach accelerates iteration so you can refine the structure without getting stuck in syntax details.
 
-## Troubleshoot errors and issues[​](#troubleshoot-errors-and-issues "Direct link to Troubleshoot errors and issues")
+## Troubleshoot errors and issues
 
 dbt Wizard acts as a fast, context-aware reviewer for failing SQL and macros. It reads errors, inspects your query structure, and suggests minimal fixes. Troubleshooting with dbt Wizard gives you:
 
@@ -350,7 +350,7 @@ dbt Wizard acts as a fast, context-aware reviewer for failing SQL and macros. It
 * Safer fixes by biasing toward small, targeted changes
 * Better learning by generating explanations you can paste into docs or PR descriptions
 
-### Troubleshoot errors[​](#troubleshoot-errors "Direct link to Troubleshoot errors")
+### Troubleshoot errors
 
 When something breaks, give dbt Wizard the error message, your code, and what you expected to happen. Here are a couple of examples to show you how to use dbt Wizard to troubleshoot errors.
 
@@ -386,7 +386,7 @@ Show me the rendered SQL from target/compiled and explain what's wrong.
 
 **Tip:** Include your warehouse type (Snowflake, BigQuery, Databricks and so on.) — this is because the syntax can vary across data platforms.
 
-## Conclusion[​](#conclusion "Direct link to Conclusion")
+## Conclusion
 
 Congrats, you've now learned some tips on how to create and use prompts for dbt dbt Wizard 🎉! You can:
 
@@ -395,7 +395,7 @@ Congrats, you've now learned some tips on how to create and use prompts for dbt 
 * Generate Jinja macros to build more scalable and maintainable systems
 * Troubleshoot your code to diagnose issues fast and apply safe, explainable fixes
 
-### Quick reference checklist[​](#quick-reference-checklist "Direct link to Quick reference checklist")
+### Quick reference checklist
 
 When writing prompts for dbt dbt Wizard:
 
@@ -411,7 +411,7 @@ For troubleshooting:
 * ✅ Provide sample data: Representative rows that trigger the issue
 * ✅ State your warehouse: Snowflake, BigQuery, Databricks, etc.
 
-### Next steps[​](#next-steps "Direct link to Next steps")
+### Next steps
 
 Start with one task—automating documentation, generating a test, or refactoring a model—and build the habit from there.
 

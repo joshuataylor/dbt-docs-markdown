@@ -1,15 +1,14 @@
 # Seed configurations
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
+## Available configurations
 
-### Seed-specific configurations[​](#seed-specific-configurations "Direct link to Seed-specific configurations")
+### Seed-specific configurations
 
 Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
 
-The following resource-specific configurations are only available to <!-- -->Seeds:
+The following resource-specific configurations are only available to Seeds:
 
-* Project file
-* Property file
+### Project file
 
 dbt\_project.yml
 
@@ -20,6 +19,8 @@ seeds:
     +column_types: {column_name: datatype}
     +delimiter: <string>
 ```
+
+### Property file
 
 seeds/properties.yml
 
@@ -33,14 +34,15 @@ seeds:
       delimiter: <string>
 ```
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-* Project file
-* Property file
+### Project file
 
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 seeds:
@@ -59,7 +61,11 @@ seeds:
     +event_time: my_time_field
 ```
 
+### Property file
+
 seeds/properties.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 
@@ -80,15 +86,15 @@ seeds:
       event_time: my_time_field
 ```
 
-## Configuring seeds[​](#configuring-seeds "Direct link to Configuring seeds")
+## Configuring seeds
 
 Seeds can only be configured from YAML files, either in `dbt_project.yml` or within an individual seed's YAML properties. It is not possible to configure a seed from within its CSV file.
 
 Seed configurations, like model configurations, are applied hierarchically — configurations applied to a `marketing` subdirectory will take precedence over configurations applied to the entire `jaffle_shop` project, and configurations defined in a specific seed's properties will override configurations defined in `dbt_project.yml`.
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
-#### Apply the `schema` configuration to all seeds[​](#apply-the-schema-configuration-to-all-seeds "Direct link to apply-the-schema-configuration-to-all-seeds")
+#### Apply the `schema` configuration to all seeds
 
 To apply a configuration to all seeds, including those in any installed [packages](../docs/build/packages.md), nest the configuration directly under the `seeds` key:
 
@@ -100,7 +106,7 @@ seeds:
   +schema: seed_data
 ```
 
-#### Apply the `schema` configuration to all seeds in your project[​](#apply-the-schema-configuration-to-all-seeds-in-your-project "Direct link to apply-the-schema-configuration-to-all-seeds-in-your-project")
+#### Apply the `schema` configuration to all seeds in your project
 
 To apply a configuration to all seeds in your project only (i.e. *excluding* any seeds in installed packages), provide your [project name](./project-configs/name.md) as part of the resource path.
 
@@ -117,7 +123,7 @@ seeds:
 
 Similarly, you can use the name of an installed package to configure seeds in that package.
 
-#### Apply the `schema` configuration to one seed only[​](#apply-the-schema-configuration-to-one-seed-only "Direct link to apply-the-schema-configuration-to-one-seed-only")
+#### Apply the `schema` configuration to one seed only
 
 To apply a configuration to one seed only, provide the full resource path (including the project name, and subdirectories).
 
@@ -143,7 +149,7 @@ seeds:
         +schema: seed_data
 ```
 
-## Example seed configuration[​](#example-seed-configuration "Direct link to Example seed configuration")
+## Example seed configuration
 
 The following is a valid seed configuration for a project with:
 

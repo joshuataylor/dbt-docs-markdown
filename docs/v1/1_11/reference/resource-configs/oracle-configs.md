@@ -1,6 +1,8 @@
 # Oracle configurations
 
-## Use `parallel` hint[​](#use-parallel-hint "Direct link to use-parallel-hint")
+(Applies to dbt v1.3.2 and later)
+
+## Use `parallel` hint
 
 Table materialization supports specifying the number of parallel executions as shown below
 
@@ -11,11 +13,11 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
-## Use `table_compression_clause`[​](#use-table_compression_clause "Direct link to use-table_compression_clause")
+## Use `table_compression_clause`
 
 Table materialization supports different compression clauses as shown below
 
-### Advanced Row Compression[​](#advanced-row-compression "Direct link to Advanced Row Compression")
+### Advanced Row Compression
 
 With Advanced compression enabled, Oracle Database maintains compression during all types of data manipulation operations, including conventional DML such as INSERT and UPDATE. `ROW STORE COMPRESS ADVANCED` is recommended in OLTP systems.
 
@@ -26,9 +28,9 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
-### Hybrid Columnar Compression[​](#hybrid-columnar-compression "Direct link to Hybrid Columnar Compression")
+### Hybrid Columnar Compression
 
-#### Querying[​](#querying "Direct link to Querying")
+#### Querying
 
 `COLUMN STORE COMPRESS FOR QUERY` is useful in data warehouse environments. Valid values are `HIGH` or `LOW`, with `HIGH` providing a higher compression ratio. The default is `HIGH`
 
@@ -46,7 +48,7 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
-#### Archival[​](#archival "Direct link to Archival")
+#### Archival
 
 `COLUMN STORE COMPRESS FOR ARCHIVE` supports a higher compression ratio than `COLUMN STORE COMPRESS FOR QUERY` and is useful for archival. Valid values are `HIGH` or `LOW` with `HIGH` providing the highest compression ratio. The default is `LOW`
 
@@ -64,7 +66,7 @@ SELECT c.cust_id, c.cust_first_name, c.cust_last_name
 from {{ source('sh_database', 'customers') }} c
 ```
 
-## Partitioning[​](#partitioning "Direct link to Partitioning")
+## Partitioning
 
 Table and Incremental materialization configuration supports adding a partitioning clause:
 
@@ -81,7 +83,7 @@ SELECT *
 FROM {{ source('sh_database', 'sales') }}
 ```
 
-## Session info in `v$session`[​](#session-info-in-vsession "Direct link to session-info-in-vsession")
+## Session info in `v$session`
 
 Custom session information can be supplied under `session_info` in `profiles.yml`
 

@@ -1,12 +1,12 @@
 # Account settings in dbt
 
-dbt platformⓘ
+dbt platform
 
 The following sections describe the different **Account settings** available from your dbt account in the sidebar (under your account name on the lower left-hand side).
 
 [![Example of Account settings from the sidebar](/img/docs/dbt-platform/example-sidebar-account-settings.png?v=2 "Example of Account settings from the sidebar")](#)Example of Account settings from the sidebar
 
-## Git repository caching [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#git-repository-caching- "Direct link to git-repository-caching-")
+## Git repository caching [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 repo caching enabled by default
 
@@ -32,7 +32,7 @@ To use, select the **Enable repository caching** option from your account settin
 
 [![Example of the Enable repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Enable repository caching option")](#)Example of the Enable repository caching option
 
-## Partial parsing[​](#partial-parsing "Direct link to Partial parsing")
+## Partial parsing
 
 At the start of every dbt invocation, dbt reads all the files in your project, extracts information, and constructs an internal manifest containing every object (model, source, macro, and so on). Among other things, it uses the `ref()`, `source()`, and `config()` macro calls within models to set properties, infer dependencies, and construct your project's DAG. When dbt finishes parsing your project, it stores the internal manifest in a file called `partial_parse.msgpack`.
 
@@ -44,15 +44,15 @@ To use, select the **Enable partial parsing between deployment runs** option fro
 
 [![Example of the Enable partial parsing between deployment runs option](/img/docs/deploy/account-settings-partial-parsing.png?v=2 "Example of the Enable partial parsing between deployment runs option")](#)Example of the Enable partial parsing between deployment runs option
 
-## Account access and enablement[​](#account-access-and-enablement "Direct link to Account access and enablement")
+## Account access and enablement
 
 Enable access to features in your account by selecting the appropriate option from your account settings.
 
-### Enabling AI features[​](#enabling-ai-features "Direct link to Enabling AI features")
+### Enabling AI features
 
 Admins can enable access to both dbt Wizard (dbt Labs’ AI agent layer, available on the dbt platform and CLI) and dbt Copilot for authorized users across the dbt platform.
 
-### Enabling Advanced CI features [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#enabling-advanced-ci-features- "Direct link to enabling-advanced-ci-features-")
+### Enabling Advanced CI features [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 [Advanced CI](../deploy/advanced-ci.md) features, such as [compare changes](../deploy/advanced-ci.md#compare-changes), allow dbt account members to view details about the changes between what's in the production environment and the pull request.
 
@@ -62,7 +62,7 @@ Once enabled, the **dbt compare** option becomes available in the CI job setting
 
 [![The Enable account access to Advanced CI option](/img/docs/deploy/account-settings-advanced-ci.png?v=2 "The Enable account access to Advanced CI option")](#)The Enable account access to Advanced CI option
 
-### Enabling external metadata ingestion in dbt Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#enabling-external-metadata-ingestion-in-dbt-catalog- "Direct link to enabling-external-metadata-ingestion-in-dbt-catalog-")
+### Enabling external metadata ingestion in dbt Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 [Catalog](../explore/explore-projects.md) allows you to view your project's resources (for example, models, tests, and metrics), their lineage, and model consumption to gain a better understanding of your project's latest production state.
 
@@ -70,11 +70,9 @@ You can bring [external metadata](../explore/external-metadata-ingestion.md) int
 
 To use external metadata ingestion, you must be an [account admin](./manage-access/enterprise-permissions.md#account-admin) with permission to edit connections. Enable Catalog in your account by selecting the **Ingest external metadata in dbt Catalog (formerly dbt Explorer)** option from your account settings. For more information, see [Enable external metadata ingestion](../explore/external-metadata-ingestion.md#enable-external-metadata-ingestion).
 
-### Enable global account discovery[​](#enable-global-account-discovery "Direct link to Enable global account discovery")
+### Enable global account discovery
 
 When **Enable global account discovery** is on, users can discover all accounts associated with their email address at login. Users still access accounts using their credentials or the account's designated auth method (for example, SSO). Refer to [Log in to dbt platform](./about-platform/login.md) for more info.
-
-<!-- -->
 
 info
 
@@ -86,7 +84,7 @@ Disabling this setting means users must know their [account URL](./about-platfor
 
 To change this setting, select or clear the **Enable global account discovery** option in your account settings. If you disable it, a confirmation pop-up box explains that users will need the account URL to log in and access the account.
 
-## Project settings history[​](#project-settings-history "Direct link to Project settings history")
+## Project settings history
 
 You can view historical project settings changes over the last 90 days.
 

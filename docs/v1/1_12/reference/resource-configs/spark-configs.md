@@ -10,7 +10,7 @@ note
 
 See [Databricks configuration](#databricks-configs) for the Databricks version of this page.
 
-## Configuring tables[​](#configuring-tables "Direct link to Configuring tables")
+## Configuring tables
 
 When materializing a model as `table`, you may include several optional configs that are specific to the dbt-spark plugin, in addition to the standard [model configs](../model-configs.md).
 
@@ -26,13 +26,7 @@ tblproperties:
   read.split.target-size: 268435456
   commit.retry.num-retries: 10` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 dbt seeks to offer useful, intuitive modeling abstractions by means of its built-in configurations and materializations. Because there is so much variance between Apache Spark clusters out in the world—not to mention the powerful features offered to Databricks users by the Delta file format and custom runtime—making sense of all the available options is an undertaking in its own right.
 
@@ -47,14 +41,13 @@ For that reason, the dbt-spark plugin leans heavily on the [`incremental_strateg
 
 Each of these strategies has its pros and cons, which we'll discuss below. As with any model config, `incremental_strategy` may be specified in `dbt_project.yml` or within a model file's `config()` block.
 
-### The `append` strategy[​](#the-append-strategy "Direct link to the-append-strategy")
+### The `append` strategy
 
 Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
 Specifying `append` as the incremental strategy is optional, since it's the default strategy used when none is specified.
 
-* Source code
-* Run code
+### Source code
 
 spark\_incremental.sql
 
@@ -72,6 +65,8 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
+### Run code
+
 spark\_incremental.sql
 
 ```sql
@@ -87,7 +82,7 @@ insert into table analytics.spark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
 
-### The `insert_overwrite` strategy[​](#the-insert_overwrite-strategy "Direct link to the-insert_overwrite-strategy")
+### The `insert_overwrite` strategy
 
 This strategy is most effective when specified alongside a `partition_by` clause in your model config. dbt will run an [atomic `insert overwrite` statement](https://downloads.apache.org/spark/docs/3.0.0/sql-ref-syntax-dml-insert-overwrite-table.html) that dynamically replaces all partitions included in your query. Be sure to re-select *all* of the relevant data for a partition when using this incremental strategy.
 
@@ -101,8 +96,7 @@ If no `partition_by` is specified, then the `insert_overwrite` strategy will ato
 
 [![Databricks cluster: Spark Config](/img/reference/databricks-cluster-sparkconfig-partition-overwrite.png?v=2 "Databricks cluster: Spark Config")](#)Databricks cluster: Spark Config
 
-* Source code
-* Run code
+### Source code
 
 spark\_incremental.sql
 
@@ -137,6 +131,8 @@ from events
 group by 1
 ```
 
+### Run code
+
 spark\_incremental.sql
 
 ```sql
@@ -166,7 +162,7 @@ insert overwrite table analytics.spark_incremental
     select `date_day`, `users` from spark_incremental__dbt_tmp
 ```
 
-### The `merge` strategy[​](#the-merge-strategy "Direct link to the-merge-strategy")
+### The `merge` strategy
 
 **Usage notes:** The `merge` incremental strategy requires:
 
@@ -176,8 +172,7 @@ insert overwrite table analytics.spark_incremental
 
 dbt will run an [atomic `merge` statement](https://docs.databricks.com/spark/latest/spark-sql/language-manual/merge-into.html) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
-* Source code
-* Run code
+### Source code
 
 merge\_incremental.sql
 
@@ -206,6 +201,8 @@ select
 from events
 group by 1
 ```
+
+### Run code
 
 target/run/merge\_incremental.sql
 
@@ -238,19 +235,19 @@ merge into analytics.merge_incremental as DBT_INTERNAL_DEST
     when not matched then insert *
 ```
 
-## Persisting model descriptions[​](#persisting-model-descriptions "Direct link to Persisting model descriptions")
+## Persisting model descriptions
 
 Relation-level docs persistence is supported in dbt. For more information on configuring docs persistence, see [the docs](./persist_docs.md).
 
 When the `persist_docs` option is configured appropriately, you'll be able to see model descriptions in the `Comment` field of `describe [table] extended` or `show table extended in [database] like '*'`.
 
-## Always `schema`, never `database`[​](#always-schema-never-database "Direct link to always-schema-never-database")
+## Always `schema`, never `database`
 
 Apache Spark uses the terms "schema" and "database" interchangeably. dbt understands `database` to exist at a higher level than `schema`. As such, you should *never* use or set `database` as a node config or in the target profile when running dbt-spark.
 
 If you want to control the schema/database in which dbt will materialize models, use the `schema` config and `generate_schema_name` macro *only*.
 
-## Default file format configurations[​](#default-file-format-configurations "Direct link to Default file format configurations")
+## Default file format configurations
 
 To access advanced incremental strategies features, such as [snapshots](../../docs/build/snapshots.md) and the `merge` incremental strategy, you will want to use the Delta, Iceberg or Hudi file format as the default file format when materializing models as tables.
 
@@ -269,7 +266,9 @@ snapshots:
   +file_format: delta # or iceberg or hudi
 ```
 
-## Retry handling for PyHive connections[​](#retry-handling-for-pyhive-connections "Direct link to Retry handling for PyHive connections")
+(Applies to dbt v1.11 and later)
+
+## Retry handling for PyHive connections
 
 When using HTTP or Thrift connection methods, you can configure how dbt handles polling, timeouts, and connection retries for long-running queries. These settings help prevent queries from hanging indefinitely and automatically recover from connection interruptions during query execution.
 
@@ -281,16 +280,8 @@ There are three profile configurations available:
 | `query_timeout` | Integer | None    | Maximum duration (in seconds) for query execution. If a query exceeds this duration during polling, dbt raises a `DbtRuntimeError`. No timeout by default. |
 | `query_retries` | Integer | 1       | How many times the adapter retries when connection loss occurs during query execution.                                                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The adapter catches specific connection exceptions (such as `ConnectionResetError`, `BrokenPipeError`, and `TTransportException`) and retries with a fresh cursor when connection loss occurs. After exhausting all retries, dbt raises a `DbtRuntimeError` and suggests increasing `query_retries` in your profile.
 
-<!-- -->
-
-## Footnotes[​](#footnote-label "Direct link to Footnotes")
+## Footnotes
 
 1. If you configure `location_root`, dbt specifies a location path in the `create table` statement. This changes the table from "managed" to "external" in Spark/Databricks. [↩](#user-content-fnref-1)

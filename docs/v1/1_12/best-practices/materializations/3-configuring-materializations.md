@@ -1,10 +1,10 @@
 # Configuring materializations
 
-## Configuring materializations[​](#configuring-materializations "Direct link to Configuring materializations")
+## Configuring materializations
 
 Choosing which materialization is as simple as setting any other configuration in dbt. We’ll look first at how we select our materializations for individual models, then at more powerful ways of setting materializations for entire folders of models.
 
-### Configuring tables and views[​](#configuring-tables-and-views "Direct link to Configuring tables and views")
+### Configuring tables and views
 
 Let’s look at how we can use tables and views to get started with materializations:
 
@@ -29,8 +29,7 @@ info
 
 * Configuring a model to materialize as a `table` is simple, and possible for both SQL and python models.
 
-- SQL
-- Python
+### SQL
 
 ```sql
 {{
@@ -41,6 +40,8 @@ info
 
 select ...
 ```
+
+### Python
 
 ```python
 def model(dbt, session):

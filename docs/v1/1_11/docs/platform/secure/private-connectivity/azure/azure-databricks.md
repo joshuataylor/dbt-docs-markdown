@@ -1,6 +1,6 @@
 # Configuring Databricks and Azure Private Link
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -13,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of a Databricks Azure Private Link endpoint in the dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Databricks<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Databricks) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
 VNet injection required
 
@@ -21,7 +21,7 @@ Azure supports private endpoints for Databricks workspaces only when the workspa
 
 Confirm your workspace uses VNet injection before you submit the request. If it doesn't, create a new workspace with VNet injection enabled first. For more information, refer to [Deploy Azure Databricks in your own virtual network](https://learn.microsoft.com/en-us/azure/databricks/security/network/classic/vnet-inject).
 
-## Configure Azure Private Link[​](#configure-azure-private-link "Direct link to Configure Azure Private Link")
+## Configure Azure Private Link
 
 1. Navigate to your Azure Databricks workspace. The path format is: `/subscriptions/<subscription_uuid>/resourceGroups/<resource_group_name>/providers/Microsoft.Databricks/workspaces/<workspace_name>`.
 
@@ -56,7 +56,7 @@ Confirm your workspace uses VNet injection before you submit the request. If it 
 
    Any clients — including other dbt platform projects, tools, or users — that connect to this workspace over the public internet **may lose connectivity** after this change. Coordinate this change with all teams that use the workspace before approving. For more information, see [Azure services DNS zone configuration](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration).
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once you've completed the setup in the Databricks environment, you can configure a private endpoint in dbt:
 

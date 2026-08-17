@@ -4,11 +4,11 @@ v2 is the current generation of dbt — installing or upgrading gives you dbt Fu
 
 If you're using the dbt platform (including the dbt CLI), you don't need to manage dbt versions yourself. [Release tracks](./dbt-versions/dbt-release-tracks.md) automatically keep you up to date and provide early access to new features.
 
-## dbt Fusion engine versioning[​](#dbt-fusion-engine-versioning "Direct link to dbt Fusion engine versioning")
+## dbt Fusion engine versioning
 
 The dbt Fusion engine uses semantic versioning starting with version 2.0. To install or update Fusion, see [Install dbt](./local/install-dbt.md?version=2).
 
-### Semantic versioning[​](#semantic-versioning "Direct link to Semantic versioning")
+### Semantic versioning
 
 Fusion follows [semantic versioning](https://semver.org/):
 
@@ -16,7 +16,7 @@ Fusion follows [semantic versioning](https://semver.org/):
 * **Minor versions** (for example, v2.0 to v2.1) add features and are backwards compatible. They will not break project code that relies on documented functionality.
 * **Patch versions** (for example, v2.0.0 to v2.0.1) include fixes only: bug fixes, security fixes, or installation fixes.
 
-### Release channels[​](#release-channels "Direct link to Release channels")
+### Release channels
 
 Fusion is distributed through release channels during the preview period:
 
@@ -26,17 +26,11 @@ Fusion is distributed through release channels during the preview period:
 | `canary` | The latest officially released version | ⚠️ Most recent stable version but still undergoing thorough testing |
 | `dev`    | The latest development build           | ❌ May not have passed all tests                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Run `dbt system update` to get the latest stable release, or specify a channel with `dbt system update --version canary`.
 
 For current versions and release history, see [Fusion releases](./fusion/fusion-releases.md).
 
-### Checking your version[​](#checking-your-version "Direct link to Checking your version")
+### Checking your version
 
 Run `dbt --version` to check your installed version:
 
@@ -45,13 +39,13 @@ $ dbt --version
 dbt Fusion 2.0.0-preview.126
 ```
 
-### Further reading[​](#further-reading "Direct link to Further reading")
+### Further reading
 
 * [Install Fusion](./local/install-dbt.md?version=2): Install or update the dbt Fusion engine.
 * [Fusion releases](./fusion/fusion-releases.md): View current versions and release history.
 * [Get started with Fusion](./fusion/get-started-fusion.md): Learn about Fusion features and migration.
 
-## dbt Core versioning[​](#dbt-core-versioning "Direct link to dbt Core versioning")
+## dbt Core versioning
 
 The dbt Core engine uses semantic versioning for the 1.x release series. To install or update dbt Core, see [Install dbt](./local/install-dbt.md?version=1).
 
@@ -60,7 +54,7 @@ The dbt Core engine uses semantic versioning for the 1.x release series. To inst
 * **[End of Life](./dbt-versions.md#end-of-life-versions)**: Minor versions that have reached EOL no longer receive new patch releases.
 * **Deprecated**: dbt Core versions that are no longer maintained by dbt Labs, nor supported in the dbt platform.
 
-### Latest releases[​](#latest-releases "Direct link to Latest releases")
+### Latest releases
 
 | dbt Core                                                                                                 | Initial release                                                                       | Support level and end date          |
 | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------- |
@@ -80,19 +74,13 @@ The dbt Core engine uses semantic versioning for the 1.x release series. To inst
 | [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021                                                                           | Deprecated ⛔️                      |
 | **v0.X** ⛔️                                                                                             | (Various dates)                                                                       | Deprecated ⛔️                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 All functionality in dbt Core since the v1.7 release is available in [dbt release tracks](./dbt-versions/dbt-release-tracks.md), which provide automated upgrades at a cadence appropriate for your team.
 
 1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **Latest** release track.
 
 For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-versions/dbt-release-tracks.md) or a supported version.
 
-### How dbt Core uses semantic versioning[​](#how-dbt-core-uses-semantic-versioning "Direct link to How dbt Core uses semantic versioning")
+### How dbt Core uses semantic versioning
 
 dbt follows [semantic versioning](https://semver.org/):
 
@@ -106,7 +94,7 @@ We are committed to avoiding breaking changes in minor versions for end users of
 
 * Changes to metadata interfaces, including [artifacts](./deploy/artifacts.md) and [logging](../reference/events-logging.md), signalled by a version bump. Those version upgrades may require you to update external code that depends on these interfaces, or to coordinate upgrades between dbt orchestrations that share metadata, such as [state-powered selection](../reference/node-selection/syntax.md#about-node-selection).
 
-### Adapter plugin versions[​](#adapter-plugin-versions "Direct link to Adapter plugin versions")
+### Adapter plugin versions
 
 dbt releases `dbt-core` and adapter plugins (such as `dbt-snowflake`) independently. Their minor and patch version numbers may not match, but they coordinate through the `dbt-adapters` interface so you won't get a broken experience. For example, `dbt-core==1.8.0` can work with `dbt-snowflake==1.9.0`.
 
@@ -132,17 +120,17 @@ You can also find the registered adapter version in [logs](../reference/global-c
 
 Refer to [Supported data platforms](./supported-data-platforms.md) for the full list of adapters.
 
-### Further reading[​](#further-reading-1 "Direct link to Further reading")
+### Further reading
 
 * [Choosing a dbt Core version in dbt](./dbt-versions/upgrade-dbt-platform-version.md): Learn how to use dbt Core versions in dbt.
 * [Install dbt Core](./local/install-dbt.md?version=1): Install or update dbt Core.
 * [`require-dbt-version`](../reference/project-configs/require-dbt-version.md) and [`dbt_version`](../reference/dbt-jinja-functions/dbt_version.md): Restrict your project to work with a specific range of versions.
 
-## End-of-life versions[​](#end-of-life-versions "Direct link to End-of-life versions")
+## End-of-life versions
 
 Once a dbt version reaches end-of-life (EOL), it no longer receives patches, including for known bugs. We recommend upgrading to a newer version in [dbt](./dbt-versions/upgrade-dbt-platform-version.md), [Fusion](./local/install-dbt.md?version=2), or [dbt Core](./local/install-dbt.md). All versions prior to v1.0 have been deprecated.
 
-## Current version support[​](#current-version-support "Direct link to Current version support")
+## Current version support
 
 dbt supports each minor version (for example, v1.8) for *one year* from its initial release. During that window, we release patches with bug fixes and security updates. When we refer to a minor version, we mean its latest available patch (v1.8.x).
 
@@ -153,7 +141,7 @@ While a minor version is officially supported:
 * You can use it in dbt. For more on dbt versioning, see [Choosing a dbt version](./dbt-versions/upgrade-dbt-platform-version.md).
 * You can select it from the version dropdown on this website to see documentation that is accurate for use with that minor version.
 
-## Upgrading[​](#upgrading "Direct link to Upgrading")
+## Upgrading
 
 Upgrade to new patch versions as soon as they're available. Upgrade to new minor versions when you're ready because you can only get some features and fixes on the latest minor version.
 

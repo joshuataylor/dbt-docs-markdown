@@ -6,12 +6,6 @@
 | Matured (default → `true`)         | —              | —        |
 | Removed                            | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Previously, project-level configuration for [analyses](../../../docs/build/analyses.md) in `dbt_project.yml` was silently ignored. Fully qualified names (FQNs) for analyses also contained an extra `analyses` path segment that was inconsistent with other resource types.
 
 When `require_corrected_analysis_fqns` is set to `true`, dbt:

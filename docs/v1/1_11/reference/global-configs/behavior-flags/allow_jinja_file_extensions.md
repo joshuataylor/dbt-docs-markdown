@@ -6,12 +6,6 @@
 | Matured (default → `true`)     | —              | —        |
 | Removed                        | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The `allow_jinja_file_extensions` flag is set to `false` by default.
 
 When set to `true`, dbt recognizes Jinja-style extension suffixes (for example, `.j2`, `.jinja`, and `.jinja2`) appended to `.sql` and `.md` files. This lets you use Jinja-aware syntax highlighting in IDEs that associate these suffixes with Jinja templating.

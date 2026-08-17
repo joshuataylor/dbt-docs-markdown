@@ -1,5 +1,7 @@
 # About the dbt Fusion engine
 
+(Applies to dbt v1.99 and earlier)
+
 Available only on v2
 
 v2 is the free, faster way to develop dbt that uses the Rust-based engine. For richer [Upgrade to v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to get it.
@@ -7,6 +9,8 @@ v2 is the free, faster way to develop dbt that uses the Rust-based engine. For r
 Get started right away with many dbt features, free forever! You can also try advanced features by running `dbt login` to create a free dbt platform account for the best v2 experience.
 
 dbt is the industry standard for data transformation. The dbt Fusion engine enables dbt to operate at speed and scale like never before.
+
+(Applies to dbt v1.99 and earlier)
 
 important
 
@@ -22,13 +26,13 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 The dbt Fusion engine shares the same dbt framework you already know — the same dbt language and project structure — while enabling you to work faster and deploy transformation workloads more efficiently.
 
-### What is Fusion[​](#what-is-fusion "Direct link to What is Fusion")
+### What is Fusion
 
 Fusion is written in Rust and has a native understanding of SQL across multiple engine dialects — catching errors before they reach your warehouse and powering editor features like autocomplete and inline errors as you type.
 
 Fusion is the default experience when you [install dbt](../local/install-dbt.md). It gives you the recommended v2 experience from the command line and builds on the Apache 2.0 runtime available as dbt Core 2.0. It's free to use, with some capabilities unlocked when you sign in with any dbt platform account — free, no paid plan required.
 
-## Why use Fusion[​](#why-use-fusion "Direct link to Why use Fusion")
+## Why use Fusion
 
 As a developer, Fusion can:
 
@@ -39,7 +43,7 @@ As a developer, Fusion can:
 
 Get all of this, free, in the [dbt extension for VSCode](../about-dbt-extension.md) — built on Fusion.
 
-### Thread management[​](#thread-management "Direct link to Thread management")
+### Thread management
 
 The dbt Fusion engine manages parallelism differently than dbt Core v1.x. Rather than treating the `threads` setting as a strict limit on concurrent operations, Fusion optimizes parallelism based on each adapter's characteristics.
 
@@ -50,7 +54,7 @@ For BigQuery and Redshift, setting `--threads 0` or omitting the setting allows 
 
 For more information, refer to [Using threads](../running-a-dbt-project/using-threads.md#fusion-engine-thread-optimization).
 
-### How to use Fusion[​](#how-to-use-fusion "Direct link to How to use Fusion")
+### How to use Fusion
 
 You can use Fusion in three ways:
 
@@ -62,9 +66,7 @@ To get started quickly, try the [Fusion quickstart](../../guides/fusion.md). If 
 
 *Need Apache 2.0 only? [Install dbt Core 2.0](../local/install-dbt-core-v2.md), the open-source project behind Fusion.*
 
-<!-- -->
-
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](./supported-features.md)

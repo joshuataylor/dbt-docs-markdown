@@ -1,18 +1,16 @@
 # Set up Cost Insights
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 This guide walks you through setting up Cost Insights to track warehouse compute costs and cost reductions from dbt State and state-aware orchestration across your dbt projects and models.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before setting up Cost Insights, ensure you have:
 
 * An administrator role.
 
 * A supported data warehouse:
-
-  <!-- -->
 
   * Snowflake
   * BigQuery
@@ -28,7 +26,7 @@ To set up Cost Insights, follow these steps:
 
 After completing these setup steps, you can view cost and optimization data across multiple areas of the dbt platform. Refer to [Explore cost data](./explore-cost-data.md) to learn more about the Cost Insights section and how to use it.
 
-## Assign required permissions[​](#assign-required-permissions "Direct link to Assign required permissions")
+## Assign required permissions
 
 Users with the following [permission sets](../platform/manage-access/enterprise-permissions.md) can view cost data by default:
 
@@ -44,7 +42,7 @@ Users with the following [permission sets](../platform/manage-access/enterprise-
 
 For more information on how to assign permissions to users, refer to [About user access](../platform/manage-access/about-user-access.md).
 
-## Configure platform metadata credentials[​](#configure-platform-metadata-credentials "Direct link to Configure platform metadata credentials")
+## Configure platform metadata credentials
 
 1. Click your account name at the bottom of the left-side menu and click **Account settings**.
 
@@ -67,8 +65,6 @@ For more information on how to assign permissions to users, refer to [About user
       * `read` permissions to the [`ORGANIZATION_USAGE`](https://docs.snowflake.com/en/sql-reference/organization-usage) and [`ACCOUNT_USAGE`](https://docs.snowflake.com/en/sql-reference/account-usage) schemas
 
       * A Snowflake database role assigned the following access:
-
-        <!-- -->
 
         * `ACCOUNT_USAGE.QUERY_HISTORY`
 
@@ -98,8 +94,6 @@ For more information on how to assign permissions to users, refer to [About user
 
       * `SELECT` permissions on the following system tables:
 
-        <!-- -->
-
         * [`system.billing.usage`](https://docs.databricks.com/aws/en/admin/system-tables/billing)
         * [`system.billing.list_prices`](https://docs.databricks.com/aws/en/admin/system-tables/pricing)
         * [`system.query.history`](https://docs.databricks.com/aws/en/admin/system-tables/query-history)
@@ -112,15 +106,11 @@ For more information on how to assign permissions to users, refer to [About user
 
       * **`sys:monitor` role** (recommended):
 
-        <!-- -->
-
         ```sql
         GRANT ROLE sys:monitor TO <user>;
         ```
 
       * **Unrestricted syslog access**:
-
-        <!-- -->
 
         ```sql
         ALTER USER <user> SYSLOG ACCESS UNRESTRICTED;
@@ -134,7 +124,7 @@ For more information on how to assign permissions to users, refer to [About user
 
 6. Click **Save**.
 
-## Configure Cost Insights settings (optional)[​](#configure-cost-insights-settings-optional "Direct link to Configure Cost Insights settings (optional)")
+## Configure Cost Insights settings (optional)
 
 **Note:** This step is required for Amazon Redshift users. Without a configured price, costs will appear as $0.
 
@@ -147,12 +137,6 @@ By default, dbt uses standard warehouse pricing, which you can override if you h
 | [Databricks](https://docs.databricks.com/aws/en/admin/system-tables/pricing) | dbt queries the `list_prices` system table directly, so there is no default value. |
 | [Amazon Redshift Serverless](https://aws.amazon.com/redshift/pricing/)       | `rpu_price_per_hour` — no default value; costs appear as $0 until configured.      |
 | [Amazon Redshift Provisioned](https://aws.amazon.com/redshift/pricing/)      | `node_price_per_hour` — no default value; costs appear as $0 until configured.     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 <br />
 
@@ -167,7 +151,7 @@ To change the default value:
 
 These custom values will apply to all future cost calculations for this connection. If you clear these values, they will reset to the default warehouse pricing.
 
-## Enable dbt State (optional)[​](#enable-dbt-state-optional "Direct link to Enable dbt State (optional)")
+## Enable dbt State (optional)
 
 State-aware orchestration is now dbt State
 
@@ -179,13 +163,11 @@ Cost Insights displays cost data for your dbt models and jobs without dbt State.
 
 Cost Insights also reflects cost reductions and efficiency gains from state-aware orchestration if you have it enabled.
 
-<!-- -->
-
 note
 
 For accounts already using dbt State or state-aware orchestration before Cost Insights is enabled, at least one full model build must occur within the last 10 days to establish a baseline for cost reduction calculations. If you don't see cost reduction data, try running a full build to establish the baseline.
 
-## Disable Cost Insights[​](#disable-cost-insights "Direct link to Disable Cost Insights")
+## Disable Cost Insights
 
 To disable Cost Insights, you must have an administrator role.
 

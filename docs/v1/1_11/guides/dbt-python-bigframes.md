@@ -18,7 +18,7 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 In this guide, you'll learn how to set up dbt so you can use it with BigQuery DataFrames (BigFrames):
 
@@ -29,7 +29,7 @@ In addition to the existing dataproc/pyspark based submission methods for execut
 
 BigQuery DataFrames is an open source Python package that transpiles pandas and scikit-learn code to scalable BigQuery SQL. The dbt-bigquery adapter relies on the BigQuery Studio Notebook Executor Service to run the Python client side code.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * A [Google Cloud account](https://cloud.google.com/free)
 * A [dbt account](https://www.getdbt.com/signup/)
@@ -38,15 +38,13 @@ BigQuery DataFrames is an open source Python package that transpiles pandas and 
 
 During setup, you’ll need to select the **BigQuery** adapter and enter values for your **Google Cloud Storage Bucket** and **Dataproc Region** in the dbt platform. See [Configure BigQuery in dbt platform](./dbt-python-bigframes.md?step=2#configure-bigquery-in-dbt-platform) for details.
 
-### What you'll build[​](#what-youll-build "Direct link to What you'll build")
+### What you'll build
 
 Here's what you'll build in two parts:
 
 * Google Cloud project setup
-  <!-- -->
   * A one-time setup to configure the Google Cloud project you’ll be working with.
 * Build and Run the Python Model
-  <!-- -->
   * Create, configure, and execute a Python model using BigQuery DataFrames and dbt.
 
 You will set up the environments, build scalable pipelines in dbt, and execute a python model.
@@ -55,7 +53,7 @@ You will set up the environments, build scalable pipelines in dbt, and execute a
 
 **Figure 1** - Implementation of the BigFrames submission method for dbt python models
 
-## Configure Google Cloud[​](#configure-google-cloud "Direct link to Configure Google Cloud")
+## Configure Google Cloud
 
 The dbt BigFrames submission method supports both service account and OAuth credentials. You will use the service account in the following steps.
 
@@ -125,7 +123,7 @@ The dbt BigFrames submission method supports both service account and OAuth cred
    gcloud storage buckets add-iam-policy-binding gs://${GOOGLE_CLOUD_PROJECT}-bucket --member=serviceAccount:dbt-bigframes-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com --role=roles/storage.admin
    ```
 
-### Configure BigQuery in the dbt platform[​](#configure-bigquery-in-the-dbt-platform "Direct link to Configure BigQuery in the dbt platform")
+### Configure BigQuery in the dbt platform
 
 To set up your BigQuery DataFrames connection in the dbt platform, refer to the following steps:
 
@@ -137,8 +135,6 @@ To set up your BigQuery DataFrames connection in the dbt platform, refer to the 
 
 4. Under **Optional settings**, enter values for the following fields:
 
-   <!-- -->
-
    * **Google Cloud Storage Bucket** (for example: `dbt_name_bucket`)
    * **Dataproc Region** (for example: `us-central1`)
 
@@ -148,7 +144,7 @@ This is required so that BigFrames jobs execute correctly.
 
 Refer to [Connect to BigQuery](../docs/platform/connect-data-platform/connect-bigquery.md) for more info on how to connect to BigQuery in the dbt platform.
 
-## Create, configure, and execute your Python models[​](#create-configure-and-execute-your-python-models "Direct link to Create, configure, and execute your Python models")
+## Create, configure, and execute your Python models
 
 1. In your dbt project, create a SQL model in your models directory, ending in the `.sql` file extension. Name it `my_sql_model.sql`.
 

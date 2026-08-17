@@ -1,10 +1,10 @@
 # dbt Architecture
 
-dbt platformⓘ
+dbt platform
 
 This page helps practitioners and those interested in dbt's architecture and data flow.
 
-## About dbt architecture[​](#about-dbt-architecture "Direct link to About dbt architecture")
+## About dbt architecture
 
 The dbt application has two types of components: static and dynamic. The static components are always running to serve highly available dbt functions, like the dbt web application. On the other hand, the dynamic components are created ad-hoc to handle tasks such as background jobs or requests to use the Studio IDE.
 
@@ -16,7 +16,7 @@ All data at rest on dbt servers is protected using AES-256 encryption.
 
 ![](/img/docs/dbt-platform/on-premises/data-flows.png)
 
-## Communication[​](#communication "Direct link to Communication")
+## Communication
 
 dbt can communicate with several external services, including data platforms, git repositories, authentication services, and directories. All communications occur over HTTPS (attempts to connect via HTTP are redirected to HTTPS). dbt encrypts in transit using the TLS 1.2 cryptographic protocol.
 
@@ -30,19 +30,19 @@ If that user runs a command that initializes communication between dbt and the d
 
 For more detailed information on our security practices, read our [Security page](https://getdbt.com/security).
 
-### Data warehouse interaction[​](#data-warehouse-interaction "Direct link to Data warehouse interaction")
+### Data warehouse interaction
 
 dbt's primary role is as a data processor, not a data store. The dbt application enables users to dispatch SQL to the warehouse for transformation. However, users can post SQL that returns customer data into the dbt application. This data never persists and will only exist in memory on the instance for the duration of the session. To lock down customer data correctly, proper data warehouse permissions must be applied to prevent improper access or storage of sensitive data.
 
 Some data warehouse providers offer advanced security features that can be leveraged in dbt. [Private connections](../secure/private-connectivity/private-connectivity.md) allows supported data platforms on AWS to communicate with dbt without the traffic traversing the public internet. [Snowflake](../manage-access/set-up-snowflake-oauth.md) and [BigQuery](../manage-access/set-up-bigquery-oauth.md) offer Oauth integration which adds a layer of security for the data platforms (Enterprise-tier plan only).
 
-### Git sync[​](#git-sync "Direct link to Git sync")
+### Git sync
 
 dbt can sync with a variety of git providers, including [Github](../git/connect-github.md), [Gitlab](../git/connect-gitlab.md), and [Azure DevOps](../git/connect-azure-devops.md) within its integrated development environment ([Studio IDE](../studio-ide/develop-in-studio.md)). Communication takes place over HTTPS rather than SSH and is protected using the TLS 1.2 protocol for data in transit.
 
 The git repo information is stored on dbt servers to make it accessible during the Studio IDE sessions. When the git sync is disabled, you must [contact support](mailto:support@getdbt.com) to request the deletion of the synced data.
 
-### Authentication services[​](#authentication-services "Direct link to Authentication services")
+### Authentication services
 
 The default settings of dbt enable local users with credentials stored in dbt. Still, integrations with various authentication services are offered as an alternative, including [single sign-on services](../manage-access/sso-overview.md). Access to features can be granted/restricted by role using [RBAC](../manage-access/about-user-access.md#role-based-access-control-).
 
@@ -50,7 +50,7 @@ SSO features are essential because they reduce the number of credentials a user 
 
 [Snowflake](../manage-access/set-up-snowflake-oauth.md) and [BigQuery](../manage-access/set-up-bigquery-oauth.md) offer OAuth (JSON to pass info and API calls for auth) services as an alternative to SAML (XML to pass info and session cookies for auth). Users can authenticate against the data platform for secure access to dbt and prevent access when credentials are revoked.
 
-## Security[​](#security "Direct link to Security")
+## Security
 
 dbt Labs is dedicated to upholding industry standards for Cloud security and GDPR compliance. Our compliance certifications include the following:
 

@@ -1,10 +1,6 @@
 # schema
 
-* Model
-* Seeds
-* Snapshots
-* Saved queries
-* Test
+### Model
 
 Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a group of models in your project YAML file (`dbt_project.yml`) or in a [SQL file config](./schema.md#models).
 
@@ -21,6 +17,8 @@ models:
 
 This would result in the generated relations for these models being located in the `marketing` schema, so the full relation names would be `analytics.target_schema_marketing.model_name`. This is because the schema of the relation is `{{ target.schema }}_{{ schema }}`. The [definition](#definition) section explains this in more detail.
 
+### Seeds
+
 Configure a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) in your `dbt_project.yml` file.
 
 For example, if you have a seed that should be placed in a separate schema called `mappings`, you can configure it like this:
@@ -35,6 +33,10 @@ seeds:
 ```
 
 This would result in the generated relation being located in the `mappings` schema, so the full relation name would be `analytics.mappings.seed_name`.
+
+### Snapshots
+
+(Applies to dbt v1.9 and later)
 
 Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a snapshot in your `dbt_project.yml` or property file.
 
@@ -65,6 +67,8 @@ snapshots:
 
 This results in the generated relation being located in the `snapshots` schema so the full relation name would be `analytics.snapshots.your_snapshot` instead of the default target schema.
 
+### Saved queries
+
 Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a [saved query](../../docs/build/saved-queries.md#parameters) in your `dbt_project.yml` or property file.
 
 dbt\_project.yml
@@ -75,6 +79,8 @@ saved-queries:
 ```
 
 This would result in the saved query being stored in the `metrics` schema.
+
+### Test
 
 Customize a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for storing test results in your `dbt_project.yml` file.
 
@@ -92,7 +98,7 @@ This would result in the test results being stored in the `test_results` schema.
 
 Refer to [Usage](#usage) for more examples.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Optionally specify a custom schema for a [model](../../docs/build/sql-models.md), [seed](../../docs/build/seeds.md), [snapshot](../../docs/build/snapshots.md), [saved query](../../docs/build/saved-queries.md), or [test](../../docs/build/data-tests.md).
 
@@ -107,9 +113,9 @@ The standard behavior of dbt is:
 
 To learn more about changing the way that dbt generates a relation's `schema`, read [Using Custom Schemas](../../docs/build/custom-schemas.md)
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
-### Models[​](#models "Direct link to Models")
+### Models
 
 Configure groups of models from the `dbt_project.yml` file.
 
@@ -132,7 +138,7 @@ models/my\_model.sql
 ) }}
 ```
 
-### Seeds[​](#seeds "Direct link to Seeds")
+### Seeds
 
 dbt\_project.yml
 
@@ -141,7 +147,7 @@ seeds:
   +schema: mappings
 ```
 
-### Data tests[​](#data-tests "Direct link to Data tests")
+### Data tests
 
 Customize the name of the schema in which tests [configured to store failures](./store_failures.md) will save their results. The resulting schema is `{{ profile.schema }}_{{ tests.schema }}`, with a default suffix of `dbt_test__audit`. To use the same profile schema, set `+schema: null`.
 
@@ -163,6 +169,6 @@ create schema if not exists dev_username_dbt_test__audit authorization username;
 
 This command grants the appropriate permissions to create and access the `dbt_test__audit` schema, which is often used with the `store_failures` configuration.
 
-## Warehouse specific information[​](#warehouse-specific-information "Direct link to Warehouse specific information")
+## Warehouse specific information
 
 * BigQuery: `dataset` and `schema` are interchangeable

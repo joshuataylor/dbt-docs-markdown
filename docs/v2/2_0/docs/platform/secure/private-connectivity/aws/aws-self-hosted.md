@@ -1,8 +1,6 @@
 # Configuring AWS PrivateLink for a self-hosted service
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 AWS PrivateLink enables secure, private connectivity between dbt and your self-hosted services. These services may include version control systems (VCS), data warehouses, or any other applications you manage. With PrivateLink, you do not need to expose your service to the public internet. All communication occurs over a private network, significantly enhancing security. For more details, refer to the [AWS PrivateLink documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/).
 
-## What this guide covers[​](#what-this-guide-covers "Direct link to What this guide covers")
+## What this guide covers
 
 The focus of this guide is not on any particular service or backend architecture, but on the [Endpoint Service](#terminology) that interconnects dbt with your self-hosted service. This process should be standard across most use cases.
 
@@ -25,11 +23,11 @@ Out of scope
 
 This guide does not cover the configuration or troubleshooting of your self-hosted service, load balancer, or target group health, due to the virtually limitless ways these environments can be configured. While dbt Support may assist with such issues on a best-effort basis, we recommend engaging [AWS Support](https://aws.amazon.com/support/) to expedite resolution.
 
-## Audience[​](#audience "Direct link to Audience")
+## Audience
 
 This guide is intended for cloud network administrators or engineers responsible for configuring and maintaining secure network communications within your organization's AWS environment.
 
-## Terminology[​](#terminology "Direct link to Terminology")
+## Terminology
 
 This guide uses several important terms related to AWS PrivateLink. Understanding these definitions will help ensure successful implementation. For a more detailed explanation of these concepts, refer to the [AWS PrivateLink documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-share-your-services.html).
 
@@ -40,7 +38,7 @@ This guide uses several important terms related to AWS PrivateLink. Understandin
 * **Network Load Balancer (NLB):** The required load balancer type (internal) that sits in front of your service. Your application must run behind an NLB to use PrivateLink.
 * **Target Group:** Routes traffic from the NLB to your service instances (EC2, IP addresses, or ALB).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin, make sure to review the following requirements:
 
@@ -60,15 +58,15 @@ Before you begin, make sure to review the following requirements:
 
    * Contact [dbt Support](mailto:support@getdbt.com) to obtain the dbt AWS IAM role ARN. You will need this in order to allow dbt to connect to your Endpoint Service.
 
-## Additional NLB configuration[​](#additional-nlb-configuration "Direct link to Additional NLB configuration")
+## Additional NLB configuration
 
 The following settings are optional but recommended when configuring your Network Load Balancer for PrivateLink connectivity with dbt.
 
-### Cross-zone load balancing[​](#cross-zone-load-balancing "Direct link to Cross-zone load balancing")
+### Cross-zone load balancing
 
 Enable [cross-zone load balancing](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#cross-zone-load-balancing) on your NLB to avoid availability zone mismatches between your service and dbt's VPC endpoint. This ensures traffic is distributed evenly across all healthy targets, regardless of which availability zone the request originates from.
 
-### Security group configuration[​](#security-group-configuration "Direct link to Security group configuration")
+### Security group configuration
 
 If your NLB has an associated [security group](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-security-groups.html), you need to ensure PrivateLink traffic from dbt is allowed. By default, when a security group is associated with an NLB, inbound rules are enforced on all traffic — including PrivateLink traffic.
 
@@ -79,20 +77,14 @@ You have two options:
 | **Disable enforcement** (recommended) | Turn off security group enforcement for PrivateLink traffic. This is the simplest approach and doesn't require knowledge of dbt's internal CIDRs. In the AWS Console: NLB → Security → Edit → Clear **Enforce inbound rules on PrivateLink traffic**. |
 | **Add dbt CIDRs to inbound rules**    | If your use case requires security group enforcement on PrivateLink traffic, [contact dbt Support](mailto:support@getdbt.com) to obtain the internal CIDR ranges to add to your NLB's security group inbound rules.                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For more details, see [Update the security groups for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-security-groups.html).
 
-## Instructions[​](#instructions "Direct link to Instructions")
+## Instructions
 
 1. Log in to the [AWS Console](https://console.aws.amazon.com).
 2. Navigate to the AWS Account and Region where your self-hosted service is located.
 
-### Create a VPC endpoint service[​](#create-a-vpc-endpoint-service "Direct link to Create a VPC endpoint service")
+### Create a VPC endpoint service
 
 3. In the AWS Console, navigate to **VPC** → **Endpoint Services** → **Create Endpoint Service**
 
@@ -106,7 +98,7 @@ For more details, see [Update the security groups for your Network Load Balancer
 
    d. Click **Create**
 
-### Grant dbt access to the endpoint service[​](#grant-dbt-access-to-the-endpoint-service "Direct link to Grant dbt access to the endpoint service")
+### Grant dbt access to the endpoint service
 
 5. After the Endpoint Service is created, select it and go to the **Allow principals** tab
 
@@ -114,13 +106,13 @@ For more details, see [Update the security groups for your Network Load Balancer
 
    * Principal: `arn:aws:iam::<dbt-account-id>:role/MTPL_Admin`
 
-### Obtain the endpoint service name[​](#obtain-the-endpoint-service-name "Direct link to Obtain the endpoint service name")
+### Obtain the endpoint service name
 
 7. On the Endpoint Service details page, copy the **Service name** value (format: `com.amazonaws.vpce.region.vpce-svc-xxx`)
 
 [![Copy the Endpoint Service name](/img/docs/dbt-platform/aws-self-hosted-privatelink/obtain-endpoint-svc-name.png?v=2 "Copy the Endpoint Service name")](#)Copy the Endpoint Service name
 
-### Providing dbt Support with connection details[​](#providing-dbt-support-with-connection-details "Direct link to Providing dbt Support with connection details")
+### Providing dbt Support with connection details
 
 8. Add the required information to the template below, and submit your request to [dbt Support](mailto:support@getdbt.com):
 
@@ -139,15 +131,13 @@ Subject: New AWS Self-hosted PrivateLink Request
 - dbt AWS environment (US, EMEA, AU, JP):
 ```
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If the PrivateLink endpoint has been provisioned and configured in dbt but connectivity is still failing, check the following in your networking setup to ensure requests and responses can be successfully routed between dbt and your service.
 
-### Configuration checklist[​](#configuration-checklist "Direct link to Configuration checklist")
+### Configuration checklist
 
 1. **NLB security group**
 
@@ -173,18 +163,18 @@ If the PrivateLink endpoint has been provisioned and configured in dbt but conne
 
    One way to test this is to create a VPC endpoint in another VPC in your network to verify that connectivity is working independent of dbt's connection.
 
-### Monitoring[​](#monitoring "Direct link to Monitoring")
+### Monitoring
 
 To help isolate connection issues over a PrivateLink connection from dbt, there are a few monitoring sources that can be used to verify request activity. Requests must first be sent to the endpoint to see anything in the monitoring. [Contact dbt Support](mailto:support@getdbt.com) to understand when connection testing occurred or request new connection attempts. Use these times to correlate with activity in the following monitoring sources.
 
-#### VPC Endpoint Service monitoring[​](#vpc-endpoint-service-monitoring "Direct link to VPC Endpoint Service monitoring")
+#### VPC Endpoint Service monitoring
 
 In the AWS Console, navigate to **VPC** → **Endpoint Services**. Select the Endpoint Service being tested and click the **Monitoring** tab. Update the time selection to include when test connection attempts were sent. If there is activity in the *New connections* and *Bytes processed* graphs, then requests have been received by the Endpoint Service, suggesting that the dbt endpoint is routing properly.
 
-#### NLB monitoring[​](#nlb-monitoring "Direct link to NLB monitoring")
+#### NLB monitoring
 
 In the AWS Console, navigate to **EC2** → **Load Balancers**. Select the Network Load Balancer (NLB) being tested and click the **Monitoring** tab. Update the time selection to include when test connection attempts were sent. If there is activity in the *New flow count* and *Processed bytes* graphs, then requests have been received by the NLB from the Endpoint Service, suggesting the NLB Listener, Target Group, and security group are correctly configured.
 
-#### VPC Flow Logs[​](#vpc-flow-logs "Direct link to VPC Flow Logs")
+#### VPC Flow Logs
 
 VPC Flow Logs can provide various helpful information for requests being routed through your VPCs, though they can sometimes be challenging to locate and interpret. Flow logs can be written to either S3 or CloudWatch Logs, so determine the availability of these logs for your VPC and query them accordingly. Flow logs record the Elastic Network Interface (ENI) ID, source and destination IP and port, and whether the request was accepted or rejected by the security group and/or network ACL. This can be useful in understanding if a request arrived at a certain network interface and whether that request was accepted, potentially illuminating overly restrictive rules. For more information on accessing and interpreting VPC Flow Logs, see the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html).

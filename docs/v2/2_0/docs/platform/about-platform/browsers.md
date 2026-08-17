@@ -1,6 +1,6 @@
 # Supported browsers
 
-dbt platformⓘ
+dbt platform
 
 To have the best experience with dbt, we recommend using the latest versions of the following browsers:
 
@@ -20,7 +20,7 @@ note
 
 To improve your experience using dbt, we suggest that you turn off ad blockers.
 
-### Browser sessions[​](#browser-sessions "Direct link to Browser sessions")
+### Browser sessions
 
 A session is a period of time during which you’re signed in to a dbt account from a browser. If you close your browser, it will end your session and log you out. You'll need to log in again the next time you try to access dbt.
 

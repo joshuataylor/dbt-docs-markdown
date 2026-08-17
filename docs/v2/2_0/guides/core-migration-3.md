@@ -14,13 +14,11 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Moving from dbt Core to dbt streamlines analytics engineering workflows by allowing teams to develop, test, deploy, and explore data products using a single, fully managed software service. It's not just better tooling — it's about lowering total cost of ownership, powering AI with trusted data, and scaling with governed self-service.
 
 Explore our 3-part-guide series on moving from dbt Core to dbt. The series is ideal for users aiming for streamlined workflows and enhanced analytics:
-
-<!-- -->
 
 | Guide                                                                                                           | Information                                                                                  | Audience                                          |
 | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------- |
@@ -28,13 +26,7 @@ Explore our 3-part-guide series on moving from dbt Core to dbt. The series is id
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -57,7 +49,7 @@ Moving from dbt Core to dbt simplifies workflows by providing a fully managed en
 
 It's ideal for teams looking to reduce the burden of maintaining their own infrastructure while enhancing governance and productivity.
 
-## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
+## What you'll learn
 
 You may have already started your move to dbt and are looking for tips to help you optimize your dbt experience. This guide includes tips and caveats for the following areas:
 
@@ -68,30 +60,29 @@ You may have already started your move to dbt and are looking for tips to help y
 * [Semantic Layer](./core-migration-3.md?step=7)
 * [Catalog](./core-migration-3.md?step=8)
 
-## Adapters and connections[​](#adapters-and-connections "Direct link to Adapters and connections")
+## Adapters and connections
 
 In dbt, you can natively connect to your data platform and test its [connection](../docs/connect-adapters.md) with a click of a button. This is especially useful for users who are new to dbt or are looking to streamline their connection setup. Here are some tips and caveats to consider:
 
-### Tips[​](#tips "Direct link to Tips")
+### Tips
 
 * Manage [dbt versions](../docs/dbt-versions/upgrade-dbt-platform-version.md) and ensure team collaboration with dbt's one-click feature, eliminating the need for manual updates and version discrepancies. Select a [release track](../docs/dbt-versions/dbt-release-tracks.md) for ongoing updates, to always stay up to date with fixes and (optionally) get early access to new functionality for your dbt project.
 * dbt supports a whole host of [cloud providers](../docs/platform/connect-data-platform/about-connections.md), including Snowflake, Databricks, BigQuery, Fabric, and Redshift (to name a few).
 * Use [Extended Attributes](../docs/deploy/deploy-environments.md#extended-attributes) to set a flexible [profiles.yml](../docs/local/profiles.yml.md) snippet in your dbt environment settings. It gives you more control over environments (both deployment and development) and extends how dbt connects to the data platform within a given environment.
-  <!-- -->
   * For example, if you have a field in your `profiles.yml` that you’d like to add to the dbt adapter user interface, you can use Extended Attributes to set it.
 
-### Caveats[​](#caveats "Direct link to Caveats")
+### Caveats
 
 * Not all parameters are available for adapters.
 * A project can only use one warehouse type.
 
-## Development tools[​](#development-tools "Direct link to Development tools")
+## Development tools
 
 dbt empowers data practitioners to develop in the tool of their choice. It ships with a [dbt CLI](../docs/platform/dbt-cli-installation.md) (local) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) (browser-based) to build, test, run, and version control your dbt projects.
 
 Both development tools are tailored to suit different audiences and preferences within your team. To streamline your team's workflow, it's important to know who will prefer the Studio IDE and who might lean towards the dbt CLI. This section aims to clarify these preferences.
 
-### Studio IDE[​](#studio-ide "Direct link to Studio IDE")
+### Studio IDE
 
 A web-based interface for building, testing, running, and version-controlling dbt projects. It compiles dbt code into SQL and executes it directly on your database. The Studio IDE makes developing fast and easy for new and seasoned data practitioners to build and test changes.
 
@@ -104,8 +95,6 @@ A web-based interface for building, testing, running, and version-controlling db
 **Key features**
 
 * The Studio IDE has simplified Git functionality:
-
-  <!-- -->
 
   * Create feature branches from the branch configured in the development environment.
   * View saved but not-committed code changes directly in the Studio IDE.
@@ -122,7 +111,7 @@ The Studio IDE provides a simplified interface that's accessible to all users, r
 * Mass-generating files / interacting with the file system are not available.
 * Combining/piping commands, such as `dbt run -s (bash command)`, is not available.
 
-### dbt CLI[​](#dbt-cli "Direct link to dbt CLI")
+### dbt CLI
 
 The dbt CLI allows you to run dbt [commands](../reference/dbt-commands.md#available-commands) against your dbt platform development environment from your local command line. For users who seek full control over their development environment and ideal for those comfortable with the command line.
 
@@ -141,11 +130,11 @@ When moving from dbt Core to dbt, make sure you check the `.gitignore` file cont
 * Support running multiple dbt commands at the same time through [safe parallel execution](../reference/dbt-commands.md#parallel-execution), a [feature](../docs/platform/about-platform/dbt-platform-features.md) available in dbt's infrastructure. In contrast, `dbt-core` *doesn't support* safe parallel execution for multiple invocations in the same process.
 * Able to use Visual Studio (VS) Code extensions
 
-## Orchestration[​](#orchestration "Direct link to Orchestration")
+## Orchestration
 
 dbt provides robust orchestration that enables you to schedule, run, and monitor dbt jobs with ease. Here are some tips and caveats to consider when using dbt's orchestration features:
 
-### Tips[​](#tips-1 "Direct link to Tips")
+### Tips
 
 * Enable [partial parsing](../docs/platform/account-settings.md#partial-parsing) between jobs in dbt to significantly speed up project parsing by only processing changed files, optimizing performance for large projects.
 * [Run multiple CI/CD](../docs/deploy/continuous-integration.md) jobs at the same time which will not block production runs. The Job scheduler automatically cancels stale runs when a newer commit is pushed. This is because each PR will run in its own schema.
@@ -154,18 +143,16 @@ dbt provides robust orchestration that enables you to schedule, run, and monitor
 * [Link deploy jobs](../docs/deploy/deploy-jobs.md#trigger-on-job-completion) across dbt projects by configuring your job or using the [Create Job API](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) to do this. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 * [Rerun your jobs](../docs/deploy/retry-jobs.md) from the start or the point of failure if your dbt job run completed with a status of **`Error.`**
 
-### Caveats[​](#caveats-1 "Direct link to Caveats")
+### Caveats
 
 * To automate the setup and configuration of your dbt platform, you can store your job configurations as code within a repository:
-
-  <!-- -->
 
   * Check out our [Terraform provider.](https://registry.terraform.io/providers/dbt-labs/dbtcloud/latest/docs/resources/job)
   * Alternatively, check out our [jobs-as-code](https://github.com/dbt-labs/dbt-jobs-as-code) repository, which is a tool built to handle dbt jobs as a well-defined YAML file.
 
 * dbt users and external emails can receive notifications if a job fails, succeeds, or is cancelled. To get notifications for warnings, you can create a [webhook subscription](./zapier-slack.md) and post to Slack.
 
-## dbt Mesh[​](#dbt-mesh "Direct link to dbt Mesh")
+## dbt Mesh
 
 [Mesh](../best-practices/how-we-mesh/mesh-1-intro.md) helps organizations with mature, complex transformation workflows in dbt increase the flexibility and performance of their dbt projects. It allows you to make use of multiple interconnected dbt projects instead of a single large, monolithic project.
 
@@ -173,7 +160,7 @@ It enables you to interface and navigate between different projects and models w
 
 Here are some tips and caveats to consider when using Mesh:
 
-### Tips[​](#tips-2 "Direct link to Tips")
+### Tips
 
 * To dynamically resolve [cross-project references](../docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref), all developers need to develop with dbt (either with the dbt CLI or Studio IDE). Cross-project references aren't natively supported in dbt Core, except by installing the source code from upstream projects [as packages](../docs/build/packages.md#how-do-i-add-a-package-to-my-project)
 
@@ -181,14 +168,12 @@ Here are some tips and caveats to consider when using Mesh:
 
 * Manage access to your dbt models both within and across projects using:
 
-  <!-- -->
-
   * **[Groups](../docs/mesh/govern/model-access.md#groups)** — Organize nodes in your dbt DAG that share a logical connection and assign an owner to the entire group.
   * **[Model access](../docs/mesh/govern/model-access.md#access-modifiers)** — Control which other models or projects can reference this model.
   * **[Model versions](../docs/mesh/govern/model-versions.md)** — Enable adoption and deprecation of models as they evolve.
   * **[Model contracts](../docs/mesh/govern/model-contracts.md)** — Set clear expectations on the shape of the data to ensure data changes upstream of dbt or within a project's logic don't break downstream consumers' data products.
 
-### Caveats[​](#caveats-2 "Direct link to Caveats")
+### Caveats
 
 * To use cross-project references in dbt, each dbt project must correspond to just one dbt project. We strongly discourage defining multiple projects for the same codebase, even if you're trying to manage access permissions, connect to different data warehouses, or separate production and non-production data. While this was required historically, features like [Staging environments](../docs/dbt-platform-environments.md#types-of-environments), Environment-level RBAC (*coming soon*), and [Extended attributes](../docs/dbt-platform-environments.md#extended-attributes) will make it unnecessary.
 * Project dependencies are uni-directional, meaning they go in one direction. This means dbt checks for cycles across projects (circular dependencies) and raise errors if any are detected. However, we are considering support to allow projects to depend on each other in both directions in the future, with dbt still checking for node-level cycles while allowing cycles at the project level.
@@ -196,18 +181,18 @@ Here are some tips and caveats to consider when using Mesh:
 
 Refer to the [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md) for more questions.
 
-## dbt Semantic Layer[​](#dbt-semantic-layer "Direct link to dbt Semantic Layer")
+## dbt Semantic Layer
 
 Leverage the [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), powered by MetricFlow, to create a unified view of your business metrics, ensuring consistency across all analytics tools. The data layer is the foundation for AI as well as analytics — shared definitions and lineage give AI and BI the same trusted context so answers are consistent and actionable. Here are some tips and caveats to consider when using Semantic Layer:
 
-### Tips[​](#tips-3 "Direct link to Tips")
+### Tips
 
 * Define semantic models and metrics once in dbt with the [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) (powered by MetricFlow). Reuse them across various analytics platforms, reducing redundancy and errors.
 * Use the [Semantic Layer APIs](../docs/dbt-apis/sl-api-overview.md) to query metrics in downstream tools for consistent, reliable data metrics.
 * Connect to several data applications, from business intelligence tools to notebooks, spreadsheets, data catalogs, and more, to query your metrics. [Available integrations](../docs/platform-integrations/avail-sl-integrations.md) include Tableau, Google Sheets, Hex, and more.
 * Use [exports](../docs/use-dbt-semantic-layer/exports.md) to write commonly used queries directly within your data platform, on a schedule.
 
-### Caveats[​](#caveats-3 "Direct link to Caveats")
+### Caveats
 
 * Semantic Layer currently supports the Deployment environment for querying. Development querying experience coming soon.
 * Run queries/semantic layer commands in the dbt CLI, however running queries/semantic layer commands in the Studio IDE isn't supported *yet.*
@@ -215,18 +200,18 @@ Leverage the [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md), powered
 
 Refer to the [Semantic Layer FAQs](../docs/use-dbt-semantic-layer/sl-faqs.md) for more information.
 
-## dbt Catalog[​](#dbt-catalog "Direct link to dbt Catalog")
+## dbt Catalog
 
 [Catalog](../docs/explore/explore-projects.md) enhances your ability to discover, understand, and troubleshoot your data assets through rich metadata and lineage visualization. Lineage and discovery are essential for governance and for feeding reliable context to AI workflows. Here are some tips and caveats to consider when using Catalog:
 
-### Tips[​](#tips-4 "Direct link to Tips")
+### Tips
 
 * Use the search and filter capabilities in Catalog to quickly locate models, sources, and tests, streamlining your workflow.
 * View all the [different projects](../docs/explore/explore-multiple-projects.md) and public models in the account, where the public models are defined, and how they are used to gain a better understanding of your cross-project resources.
 * Use the [Lenses](../docs/explore/explore-projects.md#lenses) feature, which are map-like layers for your DAG, available from your project's lineage graph. Lenses help you further understand your project's contextual metadata at scale, especially to distinguish a particular model or a subset of models.
 * Access column-level lineage (CLL) for the resources in your dbt project. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-### Caveats[​](#caveats-4 "Direct link to Caveats")
+### Caveats
 
 * There must be at least one successful job run in the production deployment environment for Catalog to populate information.
 
@@ -234,7 +219,7 @@ Familiarize yourself with Catalog's features to fully leverage its capabilities 
 
 Refer to the [Catalog FAQs](../docs/explore/dbt-explorer-faqs.md) for more information.
 
-## What's next?[​](#whats-next "Direct link to What's next?")
+## What's next?
 
 Congratulations on making it through the guide 🎉!
 
@@ -248,13 +233,7 @@ For the next steps, continue exploring our 3-part-guide series on moving from db
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -277,7 +256,7 @@ Moving from dbt Core to dbt simplifies workflows by providing a fully managed en
 
 It's ideal for teams looking to reduce the burden of maintaining their own infrastructure while enhancing governance and productivity.
 
-### Resources[​](#resources "Direct link to Resources")
+### Resources
 
 If you need any additional help or have some questions, use the following resources:
 

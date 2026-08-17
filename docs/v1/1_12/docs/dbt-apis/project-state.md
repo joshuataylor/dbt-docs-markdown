@@ -12,7 +12,7 @@ There are two states that can be queried in dbt:
 
 * **Definition state** depends on what exists in the project given the code defined in it (for example, manifest state), which hasn’t necessarily been executed in the data platform (maybe just the result of `dbt compile`).
 
-## Definition (logical) vs. applied state of dbt nodes[​](#definition-logical-vs-applied-state-of-dbt-nodes "Direct link to Definition (logical) vs. applied state of dbt nodes")
+## Definition (logical) vs. applied state of dbt nodes
 
 In a dbt project, the state of a node *definition* represents the configuration, transformations, and dependencies defined in the SQL and YAML files. It captures how the node should be processed in relation to other nodes and tables in the data warehouse and may be produced by a `dbt build`, `run`, `parse`, or `compile`. It changes whenever the project code changes.
 
@@ -24,12 +24,6 @@ The applied state includes execution info, which contains metadata about how the
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
 | Most recent run attempt                | The latest run regardless of outcome (success, error, or skip)                                                                                                                 | `lastRunId`, `lastRunStatus`, `lastRunError`, `lastRunGeneratedAt`, `lastJobDefinitionId`                                     |
 | Most recent successful materialization | The last run in which the node was built in the data warehouse.<br />When a run errors out, the node isn't rebuilt, so these fields remain pinned to the prior successful run. | `executeStartedAt`, `executeCompletedAt`, `executionTime`, `runGeneratedAt`, `lastSuccessRunId`, `lastSuccessJobDefinitionId` |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 For example, if a model's most recent run errors out, `lastRunStatus` will be `error` and `lastRunGeneratedAt` will reference that failed run, while `executeCompletedAt` and `lastSuccessRunId` will still reference the prior run in which the model was successfully materialized.
 
@@ -67,7 +61,7 @@ query Compare($environmentId: Int!, $first: Int!) {
 
 Most Discovery API use cases will favor the *applied state* since it pertains to what has actually been run and can be analyzed.
 
-## Affected states by node type[​](#affected-states-by-node-type "Direct link to Affected states by node type")
+## Affected states by node type
 
 The following table shows the states of dbt nodes and how they are affected by the Discovery API.
 
@@ -87,13 +81,7 @@ The following table shows the states of dbt nodes and how they are affected by t
 | [Source](../build/sources.md)                                | Yes             | No                   | Yes                | Downstream            | Applied & definition |
 | [Unit tests](../build/unit-tests.md)                         | Yes             | Yes                  | No                 | Downstream            | Definition           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Caveats about state/metadata updates[​](#caveats-about-statemetadata-updates "Direct link to Caveats about state/metadata updates")
+## Caveats about state/metadata updates
 
 Over time, Cloud Artifacts will provide information to maintain state for features/services in dbt and enable you to access state in dbt and its downstream ecosystem. Cloud Artifacts is currently focused on the latest production state, but this focus will evolve.
 

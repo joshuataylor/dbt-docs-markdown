@@ -1,6 +1,6 @@
 # Teradata configurations
 
-## General[​](#general "Direct link to General")
+## General
 
 * *Set `quote_columns`* - to prevent a warning, make sure to explicitly set a value for `quote_columns` in your `dbt_project.yml`. See the [doc on quote\_columns](./quote_columns.md) for more information.
 
@@ -9,15 +9,13 @@
     +quote_columns: false  #or `true` if you have CSV column headers with spaces
   ```
 
-## Models[​](#models "Direct link to Models")
+## Models
 
 ### table
 
 * `table_kind` - define the table kind. Legal values are `MULTISET` (default for ANSI transaction mode required by `dbt-teradata`) and `SET`, e.g.:
 
   * in SQL materialization definition file:
-
-    <!-- -->
 
     ```yaml
     {{
@@ -29,8 +27,6 @@
     ```
 
   * in seed configuration:
-
-    <!-- -->
 
     ```yaml
     seeds:
@@ -62,8 +58,6 @@
 
   * mergeblockratio:
 
-    <!-- -->
-
     ```text
     { DEFAULT MERGEBLOCKRATIO |
       MERGEBLOCKRATIO = integer [PERCENT] |
@@ -72,8 +66,6 @@
     ```
 
   * datablocksize:
-
-    <!-- -->
 
     ```text
     DATABLOCKSIZE = {
@@ -84,8 +76,6 @@
 
   * blockcompression:
 
-    <!-- -->
-
     ```text
     BLOCKCOMPRESSION = { AUTOTEMP | MANUAL | ALWAYS | NEVER | DEFAULT }
       [, BLOCKCOMPRESSIONALGORITHM = { ZLIB | ELZS_H | DEFAULT } ]
@@ -94,8 +84,6 @@
 
   * isolated\_loading:
 
-    <!-- -->
-
     ```text
     WITH [NO] [CONCURRENT] ISOLATED LOADING [ FOR { ALL | INSERT | NONE } ]
     ```
@@ -103,8 +91,6 @@
   Examples:
 
   * In SQL materialization definition file:
-
-    <!-- -->
 
     ```yaml
     {{
@@ -136,8 +122,6 @@
     ```
 
   * in seed configuration:
-
-    <!-- -->
 
     ```yaml
     seeds:
@@ -190,8 +174,6 @@
 
   * partitioning\_level:
 
-    <!-- -->
-
     ```text
     { partitioning_expression |
       COLUMN [ [NO] AUTO COMPRESS |
@@ -201,15 +183,11 @@
 
   * ordering:
 
-    <!-- -->
-
     ```text
     ORDER BY [ VALUES | HASH ] [ ( order_column_name ) ]
     ```
 
   * loading:
-
-    <!-- -->
 
     ```text
     WITH [NO] LOAD IDENTITY
@@ -218,8 +196,6 @@
   Examples:
 
   * In SQL materialization definition file:
-
-    <!-- -->
 
     ```yaml
     {{
@@ -230,7 +206,7 @@
     }}
     ```
 
-    > ℹ️<!-- --> Note, unlike in `table_option`, there are no commas between index statements!
+    > ℹ️ Note, unlike in `table_option`, there are no commas between index statements!
 
     ```yaml
     {{
@@ -261,15 +237,13 @@
 
   * in seed configuration:
 
-    <!-- -->
-
     ```yaml
     seeds:
       <project-name>:
         index: "UNIQUE PRIMARY INDEX ( GlobalID )"
     ```
 
-    > ℹ️<!-- --> Note, unlike in `table_option`, there are no commas between index statements!
+    > ℹ️ Note, unlike in `table_option`, there are no commas between index statements!
 
     ```yaml
     seeds:
@@ -292,7 +266,7 @@
           INDEX index_attrA (attrA) WITH LOAD IDENTITY"
     ```
 
-## Seeds[​](#seeds "Direct link to Seeds")
+## Seeds
 
 Using seeds to load raw data
 
@@ -310,7 +284,7 @@ Loading CSVs using dbt's seed functionality is not performant for large files. C
       +use_fastload: true
   ```
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 Snapshots use the [HASHROW function](https://docs.teradata.com/r/Enterprise_IntelliFlex_VMware/SQL-Functions-Expressions-and-Predicates/Hash-Related-Functions/HASHROW/HASHROW-Function-Syntax) of the Teradata database to generate a unique hash value for the `dbt_scd_id` column.
 
@@ -333,7 +307,7 @@ select * from {{ ref('order_payments') }}
 {% endsnapshot %}
 ```
 
-#### Grants[​](#grants "Direct link to Grants")
+#### Grants
 
 Grants are supported in dbt-teradata adapter with release version 1.2.0 and above. You can use grants to manage access to the datasets you're producing with dbt. To implement these permissions, define grants as resource configs on each model, seed, or snapshot. Define the default grants that apply to the entire project in your `dbt_project.yml`, and define model-specific grants within each model's SQL or property file.
 
@@ -359,11 +333,11 @@ models:
       insert: ["user_c"]
 ```
 
-> ℹ️<!-- --> `copy_grants` is not supported in Teradata.
+> ℹ️ `copy_grants` is not supported in Teradata.
 
 Refer to [grants](./grants.md) for more information on Grants.
 
-## Query band[​](#query-band "Direct link to Query band")
+## Query band
 
 Query band in dbt-teradata can be set on three levels:
 
@@ -400,15 +374,14 @@ Project_name:
 * For example, if the model the user is running is `stg_orders`, `{model}` will be replaced with `stg_orders` in runtime.
 * If no `query_band` is set by the user, the default query\_band used will be: `org=teradata-internal-telem;appname=dbt;`
 
-## Unit testing[​](#unit-testing "Direct link to Unit testing")
+## Unit testing
 
 * Unit testing is supported in dbt-teradata, allowing users to write and execute unit tests using the dbt test command.
-  <!-- -->
   * For detailed guidance, refer to the [dbt unit tests documentation](../../docs/build/documentation.md).
 
 > In Teradata, reusing the same alias across multiple common table expressions (CTEs) or subqueries within a single model is not permitted, as it results in parsing errors; therefore, it is essential to assign unique aliases to each CTE or subquery to ensure proper query execution.
 
-## valid\_history incremental materialization strategy[​](#valid_history-incremental-materialization-strategy "Direct link to valid_history incremental materialization strategy")
+## valid\_history incremental materialization strategy
 
 *This is available in early access*
 
@@ -437,30 +410,22 @@ The valid\_history strategy in dbt-teradata involves several critical steps to e
 
 * Remove duplicates and conflicting values from the source data:
 
-  <!-- -->
-
   * This step ensures that the data is clean and ready for further processing by eliminating any redundant or conflicting records.
   * The process of removing primary key duplicates (two or more records with the same value for the `unique_key` and BEGIN() bond of the `valid_period` fields) in the dataset produced by the model. If such duplicates exist, the row with the lowest value is retained for all non-primary-key fields (in the order specified in the model). Full-row duplicates are always de-duplicated.
 
 * Identify and adjust overlapping time slices:
-  <!-- -->
   * Overlapping or adjacent time periods in the data are corrected to maintain a consistent and non-overlapping timeline. To achieve this, the macro adjusts the valid period end bound of a record to align with the begin bound of the next record (if they overlap or are adjacent) within the same `unique_key` group. If `use_valid_to_time = 'yes'`, the valid period end bound provided in the source data is used. Otherwise, a default end date is applied for missing bounds, and adjustments are made accordingly.
 
 * Manage records needing to be adjusted, deleted, or split based on the source and target data:
-  <!-- -->
   * This involves handling scenarios where records in the source data overlap with or need to replace records in the target data, ensuring that the historical timeline remains accurate.
 
 * Compact history:
-  <!-- -->
   * Normalize and compact the history by merging records of adjacent time periods with the same value, optimizing database storage and performance. We use the function TD\_NORMALIZE\_MEET for this purpose.
 
 * Delete existing overlapping records from the target table:
-  <!-- -->
   * Before inserting new or updated records, any existing records in the target table that overlap with the new data are removed to prevent conflicts.
 
 * Insert the processed data into the target table:
-
-  <!-- -->
 
   * Finally, the cleaned and adjusted data is inserted into the target table, ensuring that the historical data is up-to-date and accurately reflects the intended timeline.
 
@@ -492,7 +457,7 @@ These steps collectively ensure that the valid\_history strategy effectively man
       2  | PERIOD(TIMESTAMP)[2024-03-12 00:00:00.0, 9999-12-31 23:59:59.9999] | C          | x1
 ```
 
-## Common Teradata-specific tasks[​](#common-teradata-specific-tasks "Direct link to Common Teradata-specific tasks")
+## Common Teradata-specific tasks
 
 * *collect statistics* - when a table is created or modified significantly, there might be a need to tell Teradata to collect statistics for the optimizer. It can be done using `COLLECT STATISTICS` command. You can perform this step using dbt's `post-hooks`, e.g.:
 
@@ -506,7 +471,7 @@ These steps collectively ensure that the valid\_history strategy effectively man
 
   See [Collecting Statistics documentation](https://docs.teradata.com/r/76g1CuvvQlYBjb2WPIuk3g/RAyUdGfvREwbO9J0DMNpLw) for more information.
 
-## The external tables package[​](#the-external-tables-package "Direct link to The external tables package")
+## The external tables package
 
 The [dbt-external-tables](https://github.com/dbt-labs/dbt-external-tables) package is supported with the dbt-teradata adapter from v1.9.3 onwards. Under the hood, dbt-teradata uses the concept of foreign tables to create tables from external sources. More information can be found in the [Teradata documentation](https://docs.teradata.com/r/Enterprise_IntelliFlex_VMware/SQL-Data-Definition-Language-Syntax-and-Examples/Table-Statements/CREATE-FOREIGN-TABLE).
 
@@ -588,7 +553,7 @@ sources:
               data_type: CHAR(1)
 ```
 
-### `temporary_metadata_generation_schema` (previously `fallback_schema`)[​](#temporary_metadata_generation_schema-previously-fallback_schema "Direct link to temporary_metadata_generation_schema-previously-fallback_schema")
+### `temporary_metadata_generation_schema` (previously `fallback_schema`)
 
 The dbt-teradata adapter internally creates temporary tables to fetch the metadata of views for manifest and catalog creation. If you lack permission to create tables on the schema you are working with, you can define a `temporary_metadata_generation_schema` (to which you have the proper `create`/`drop` privileges) in the `dbt_project.yml` as a variable.
 

@@ -10,36 +10,34 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 The focus of this workshop will be to demonstrate how we can use both *SQL and python together* in the same workflow to run *both analytics and machine learning models* on dbt.
 
 All code in today’s workshop can be found on [GitHub](https://github.com/dbt-labs/python-snowpark-formula1/tree/python-formula1).
 
-### What you'll use during the lab[​](#what-youll-use-during-the-lab "Direct link to What you'll use during the lab")
+### What you'll use during the lab
 
 * A [Snowflake account](https://trial.snowflake.com/) with ACCOUNTADMIN access
 * A [dbt account](https://www.getdbt.com/signup/)
 
-### What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
+### What you'll learn
 
 * How to build scalable data transformation pipelines using dbt, and Snowflake using SQL and Python
 * How to leverage copying data into Snowflake from a public S3 bucket
 
-### What you need to know[​](#what-you-need-to-know "Direct link to What you need to know")
+### What you need to know
 
 * Basic to intermediate SQL and python.
 * Basic understanding of dbt fundamentals. We recommend the [dbt Fundamentals course](https://learn.getdbt.com) if you're interested.
 * High level machine learning process (encoding, training, testing)
 * Simple ML algorithms — we will use logistic regression to keep the focus on the *workflow*, not algorithms!
 
-### What you'll build[​](#what-youll-build "Direct link to What you'll build")
+### What you'll build
 
 * A set of data analytics and prediction pipelines using Formula 1 data leveraging dbt and Snowflake, making use of best practices like data quality tests and code promotion between environments
 
 * We will create insights for:
-
-  <!-- -->
 
   1. Finding the lap time average and rolling average through the years (is it generally trending up or down)?
   2. Which constructor has the fastest pit stops in 2021?
@@ -49,7 +47,7 @@ As inputs, we are going to leverage Formula 1 datasets hosted on a dbt Labs publ
 
 Overall we are going to set up the environments, build scalable pipelines in dbt, establish data tests, and promote code to production.
 
-## Configure Snowflake[​](#configure-snowflake "Direct link to Configure Snowflake")
+## Configure Snowflake
 
 1. Log in to your trial Snowflake account. You can [sign up for a Snowflake Trial Account using this form](https://signup.snowflake.com/) if you don’t have one.
 2. Ensure that your account is set up using **AWS** in the **US East (N. Virginia)**. We will be copying the data from a public AWS S3 bucket hosted by dbt Labs in the us-east-1 region. By ensuring our Snowflake environment setup matches our bucket region, we avoid any multi-region data copy and retrieval latency issues.
@@ -72,7 +70,7 @@ Overall we are going to set up the environments, build scalable pipelines in dbt
 2. In the Snowflake UI, click the Create icon **+** in the upper left (under the Snowflake logo) to open a dropdown.
 3. Select the first option, **SQL File**.
 
-## Connect to data source[​](#connect-to-data-source "Direct link to Connect to data source")
+## Connect to data source
 
 We need to obtain our data source by copying our Formula 1 data into Snowflake tables from a public S3 bucket that dbt Labs hosts.
 
@@ -270,7 +268,7 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
 
       [![Query circuits data](/img/guides/dbt-ecosystem/dbt-python-snowpark/3-connect-to-data-source/4-query-circuits-data.png?v=2 "Query circuits data")](#)Query circuits data
 
-## Configure dbt[​](#configure-dbt "Direct link to Configure dbt")
+## Configure dbt
 
 1. We are going to be using [Snowflake Partner Connect](https://docs.snowflake.com/en/user-guide/ecosystem-partner-connect.html) to set up a dbt account. Using this method will allow you to spin up a fully fledged dbt account with your [Snowflake connection](../docs/platform/connect-data-platform/connect-snowflake.md), [managed repository](../docs/platform/git/managed-repository.md), environments, and credentials already established.
 
@@ -300,7 +298,7 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
 
 10. To help you version control your dbt project, we have connected it to a [managed repository](../docs/platform/git/managed-repository.md), which means that dbt Labs will be hosting your repository for you. This will give you access to a Git workflow without you having to create and host the repository yourself. You will not need to know Git for this workshop; dbt will help guide you through the workflow. In the future, when you’re developing your own project, [feel free to use your own repository](../docs/platform/git/connect-github.md). This will allow you to learn more about features like [Slim CI](../docs/deploy/continuous-integration.md) builds after this workshop.
 
-## Change development schema name and navigate the IDE[​](#change-development-schema-name-and-navigate-the-ide "Direct link to Change development schema name and navigate the IDE")
+## Change development schema name and navigate the IDE
 
 1. First we are going to change the name of our default schema to where our dbt models will build. By default, the name is `dbt_`. We will change this to `dbt_<YOUR_NAME>` to create your own personal development schema. To do this, click on your account name in the left side menu and select **Account settings**.
 
@@ -348,7 +346,7 @@ We need to obtain our data source by copying our Formula 1 data into Snowflake t
 
     [![Confirm example models are built in Snowflake](/img/guides/dbt-ecosystem/dbt-python-snowpark/5-development-schema-name/10-confirm-example-models-built-in-snowflake.png?v=2 "Confirm example models are built in Snowflake")](#)Confirm example models are built in Snowflake
 
-## Create branch and set up project configs[​](#create-branch-and-set-up-project-configs "Direct link to Create branch and set up project configs")
+## Create branch and set up project configs
 
 In this step, we’ll need to create a development branch and set up project level configurations.
 
@@ -427,7 +425,7 @@ In this step, we’ll need to create a development branch and set up project lev
      +materialized: table
    ```
 
-## Create folders and organize files[​](#create-folders-and-organize-files "Direct link to Create folders and organize files")
+## Create folders and organize files
 
 dbt Labs has developed a [project structure guide](../best-practices/how-we-structure/1-guide-overview.md) that contains a number of recommendations for how to build the folder structure for your project. Do check out that guide if you want to learn more. Right now we are going to create some folders to organize our files:
 
@@ -438,8 +436,6 @@ dbt Labs has developed a [project structure guide](../best-practices/how-we-stru
 * Intermediate — This is where we will be joining some Formula staging models.
 
 * Marts models — Here is where we perform our major transformations. It contains these subfolders:
-
-  <!-- -->
 
   * aggregates
   * core
@@ -461,7 +457,7 @@ dbt Labs has developed a [project structure guide](../best-practices/how-we-stru
 
 Remember you can always reference the entire project in [GitHub](https://github.com/dbt-labs/python-snowpark-formula1/tree/python-formula1) to view the complete folder and file strucutre.
 
-## Create source and staging models[​](#create-source-and-staging-models "Direct link to Create source and staging models")
+## Create source and staging models
 
 In this section, we are going to create our source and staging models.
 
@@ -471,7 +467,7 @@ Staging models are the base of our project, where we bring all the individual co
 
 Since we want to focus on dbt and Python in this workshop, check out our [sources](../docs/build/sources.md) and [staging](../best-practices/how-we-structure/2-staging.md) docs if you want to learn more (or take our [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) course which covers all of our core functionality).
 
-### 1. Create sources[​](#1-create-sources "Direct link to 1. Create sources")
+### 1. Create sources
 
 We're going to be using each of our 8 Formula 1 tables from our `formula1` database under the `raw`  schema for our transformations and we want to create those tables as sources in our project.
 
@@ -542,7 +538,7 @@ sources:
             - not_null
 ```
 
-### 2. Create staging models[​](#2-create-staging-models "Direct link to 2. Create staging models")
+### 2. Create staging models
 
 The next step is to set up the staging models for each of the 8 source tables. Given the one-to-one relationship between staging models and their corresponding source tables, we'll build 8 staging models here. We know it’s a lot and in the future, we will seek to update the workshop to make this step less repetitive and more efficient. This step is also a good representation of the real world of data, where you have multiple hierarchical tables that you will need to join together!
 
@@ -796,7 +792,7 @@ The next step is to set up the staging models for each of the 8 source tables. G
 
     Before we move onto the next section, be sure to commit your new models to your Git branch. Click **Commit and push** and give your commit a message like `profile, sources, and staging setup` before moving on.
 
-## Transform SQL[​](#transform-sql "Direct link to Transform SQL")
+## Transform SQL
 
 Now that we have all our sources and staging models done, it's time to move into where dbt shines — transformation!
 
@@ -808,12 +804,10 @@ We need to:
 
 * Answer the two questions about:
 
-  <!-- -->
-
   * fastest pit stops
   * lap time trends about our Formula 1 data by creating aggregate models using python!
 
-### Intermediate models[​](#intermediate-models "Direct link to Intermediate models")
+### Intermediate models
 
 We need to join lots of reference tables to our results table to create a human readable dataframe. What does this mean? For example, we don’t only want to have the numeric `status_id` in our table, we want to be able to read in a row of data that a driver could not finish a race due to engine failure (`status_id=5`).
 
@@ -983,7 +977,7 @@ By now, we are pretty good at creating new files in the correct directories so w
 
    That wraps up the intermediate models we need to create our core models!
 
-### Core models[​](#core-models "Direct link to Core models")
+### Core models
 
 1. Create a file `fct_results.sql`. This is what I like to refer to as the “mega table” — a really large denormalized table with all our context added in at row level for human readability. Importantly, we have a table `circuits` that is linked through the table `races`. When we joined `races` to `results` in `int_results.sql` we allowed our tables to make the connection from `circuits` to `results` in `fct_results.sql`. We are only taking information about pit stops at the result level so our join would not cause a [fanout](https://community.looker.com/technical-tips-tricks-1021/what-is-a-fanout-23327).
 
@@ -1100,13 +1094,13 @@ By now, we are pretty good at creating new files in the correct directories so w
 
 5. Time to **Commit and push** our changes and give your commit a message like `intermediate and fact models` before moving on.
 
-## Running dbt Python models[​](#running-dbt-python-models "Direct link to Running dbt Python models")
+## Running dbt Python models
 
 Up until now, SQL has been driving the project (car pun intended) for data cleaning and hierarchical joining. Now it’s time for Python to take the wheel (car pun still intended) for the rest of our lab! For more information about running Python models on dbt, check out our [docs](../docs/build/python-models.md). To learn more about dbt python works under the hood, check out [Snowpark for Python](https://docs.snowflake.com/en/developer-guide/snowpark/python/index.html), which makes running dbt Python models possible.
 
 There are quite a few differences between SQL and Python in terms of the dbt syntax and DDL, so we’ll be breaking our code and model runs down further for our python models.
 
-### Pit stop analysis[​](#pit-stop-analysis "Direct link to Pit stop analysis")
+### Pit stop analysis
 
 First, we want to find out: which constructor had the fastest pit stops in 2021? (constructor is a Formula 1 team that builds or “constructs” the car).
 
@@ -1153,7 +1147,6 @@ First, we want to find out: which constructor had the fastest pit stops in 2021?
 4. Zooming out a bit, what are we doing differently here in Python from our typical SQL code:
 
    * Method chaining is a technique in which multiple methods are called on an object in a single statement, with each method call modifying the result of the previous one. The methods are called in a chain, with the output of one method being used as the input for the next one. The technique is used to simplify the code and make it more readable by eliminating the need for intermediate variables to store the intermediate results.
-     <!-- -->
      * The way you see method chaining in Python is the syntax `.().()`. For example, `.describe().sort_values(by='mean')` where the `.describe()` method is chained to `.sort_values()`.
    * The `.describe()` method is used to generate various summary statistics of the dataset. It's used on pandas dataframe. It gives a quick and easy way to get the summary statistics of your dataset without writing multiple lines of code.
    * The `.sort_values()` method is used to sort a pandas dataframe or a series by one or multiple columns. The method sorts the data by the specified column(s) in ascending or descending order. It is the pandas equivalent to `order by` in SQL.
@@ -1246,13 +1239,11 @@ in the command bar.
 
 13. Now is a good time to checkpoint and commit our work to Git. Click **Commit and push** and give your commit a message like `aggregate python models` before moving on.
 
-### The dbt model, .source(), .ref() and .config() functions[​](#the-dbt-model-source-ref-and-config-functions "Direct link to The dbt model, .source(), .ref() and .config() functions")
+### The dbt model, .source(), .ref() and .config() functions
 
 Let’s take a step back before starting machine learning to both review and go more in-depth at the methods that make running dbt python models possible. If you want to know more outside of this lab’s explanation read the documentation [here](../docs/build/python-models.md?version=1).
 
 * dbt model(dbt, session). For starters, each Python model lives in a .py file in your models/ folder. It defines a function named `model()`, which takes two parameters:
-
-  <!-- -->
 
   * dbt — A class compiled by dbt Core, unique to each model, enables you to run your Python code in the context of your dbt project and DAG.
   * session — A class representing your data platform’s connection to the Python backend. The session is needed to read in tables as DataFrames and to write DataFrames back to tables. In PySpark, by convention, the SparkSession is named spark, and available globally. For consistency across platforms, we always pass it into the model function as an explicit argument called session.
@@ -1262,8 +1253,6 @@ Let’s take a step back before starting machine learning to both review and go 
 * `.source()` and `.ref()` functions. Python models participate fully in dbt's directed acyclic graph (DAG) of transformations. If you want to read directly from a raw source table, use `dbt.source()`. We saw this in our earlier section using SQL with the source function. These functions have the same execution, but with different syntax. Use the `dbt.ref()` method within a Python model to read data from other models (SQL or Python). These methods return DataFrames pointing to the upstream source, model, seed, or snapshot.
 
 * `.config()`. Just like SQL models, there are three ways to configure Python models:
-
-  <!-- -->
 
   * In a dedicated `.yml` file, within the `models/` directory
 
@@ -1280,7 +1269,7 @@ Let’s take a step back before starting machine learning to both review and go 
 
   * There's a limit to how complex you can get with the `dbt.config()` method. It accepts only literal values (strings, booleans, and numeric types). Passing another function or a more complex data structure is not possible. The reason is that dbt statically analyzes the arguments to `.config()` while parsing your model without executing your Python code. If you need to set a more complex configuration, we recommend you define it using the config property in a [properties YAML file](../reference/resource-properties/config.md). Learn more about configurations [here](../reference/model-configs.md).
 
-## Prepare for machine learning: cleaning, encoding, and splits[​](#prepare-for-machine-learning-cleaning-encoding-and-splits "Direct link to Prepare for machine learning: cleaning, encoding, and splits")
+## Prepare for machine learning: cleaning, encoding, and splits
 
 Now that we’ve gained insights and business intelligence about Formula 1 at a descriptive level, we want to extend our capabilities into prediction. We’re going to take the scenario where we censor the data. This means that we will pretend that we will train a model using earlier data and apply it to future data. In practice, this means we’ll take data from 2010-2019 to train our model and then predict 2020 data.
 
@@ -1292,7 +1281,7 @@ At a high level we’ll be:
 * Encoding our data (algorithms like numbers) and simplifying our target variable called `position`
 * Splitting our dataset into training, testing, and validation
 
-### ML data prep[​](#ml-data-prep "Direct link to ML data prep")
+### ML data prep
 
 1. To keep our project organized, we’ll need to create two new subfolders in our `ml` directory. Under the `ml` folder, make the subfolders `prep` and `train_predict`.
 
@@ -1365,7 +1354,6 @@ At a high level we’ll be:
    * We’re first referencing our upstream `fct_results` table and casting it to a pandas dataframe.
    * Filtering on years 2010-2020 since we’ll need to clean all our data we are using for prediction (both training and testing).
    * Filling in empty data for `total_pit_stops` and making a mapping active constructors and drivers to avoid erroneous predictions
-     <!-- -->
      * ⚠️ You might be wondering why we didn’t do this upstream in our `fct_results` table! The reason for this is that we want our machine learning cleanup to reflect the year 2020 for our predictions and give us an up-to-date team name. However, for business intelligence purposes we can keep the historical data at that point in time. Instead of thinking of one table as “one source of truth” we are creating different datasets fit for purpose: one for historical descriptions and reporting and another for relevant predictions.
    * Create new confidence features for drivers and constructors
    * Generate flags for the constructors and drivers that were active in 2020
@@ -1379,12 +1367,9 @@ At a high level we’ll be:
 5. There are more aspects we could consider for this project, such as normalizing the driver confidence by the number of races entered. Including this would help account for a driver’s history and consider whether they are a new or long-time driver. We’re going to keep it simple for now, but these are some of the ways we can expand and improve our machine learning dbt projects. Breaking down our machine learning prep model:
 
    * Lambda functions — We use some lambda functions to transform our data without having to create a fully-fledged function using the `def` notation. So what exactly are lambda functions?
-     <!-- -->
      * In Python, a lambda function is a small, anonymous function defined using the keyword "lambda". Lambda functions are used to perform a quick operation, such as a mathematical calculation or a transformation on a list of elements. They are often used in conjunction with higher-order functions, such as `apply`, `map`, `filter`, and `reduce`.
 
    * `.apply()` method — We used `.apply()` to pass our functions into our lambda expressions to the columns and perform this multiple times in our code. Let’s explain apply a little more:
-
-     <!-- -->
 
      * The `.apply()` function in the pandas library is used to apply a function to a specified axis of a DataFrame or a Series. In our case the function we used was our lambda function!
      * The `.apply()` function takes two arguments: the first is the function to be applied, and the second is the axis along which the function should be applied. The axis can be specified as 0 for rows or 1 for columns. We are using the default value of 0 so we aren’t explicitly writing it in the code. This means that the function will be applied to each *row* of the DataFrame or Series.
@@ -1393,7 +1378,7 @@ At a high level we’ll be:
 
 [![What our clean dataframe fit for machine learning looks like](/img/guides/dbt-ecosystem/dbt-python-snowpark/11-machine-learning-prep/1-completed-ml-data-prep.png?v=2 "What our clean dataframe fit for machine learning looks like")](#)What our clean dataframe fit for machine learning looks like
 
-### Covariate encoding[​](#covariate-encoding "Direct link to Covariate encoding")
+### Covariate encoding
 
 In this next part, we’ll be performing covariate encoding. Breaking down this phrase a bit, a *covariate* is a variable that is relevant to the outcome of a study or experiment, and *encoding* refers to the process of converting data (such as text or categorical variables) into a numerical format that can be used as input for a model. This is necessary because most machine learning algorithms can only work with numerical data. Algorithms don’t speak languages, have eyes to see images, etc. so we encode our data into numbers so algorithms can perform tasks by using calculations they otherwise couldn’t.
 
@@ -1467,17 +1452,11 @@ In this next part, we’ll be performing covariate encoding. Breaking down this 
 
    * Create a new variable called `POSITION_LABEL`, which is a derived from our position variable.
 
-     <!-- -->
-
      * 💭 Why are we changing our position variable? There are 20 total positions in Formula 1 and we are grouping them together to simplify the classification and improve performance. We also want to demonstrate you can create a new function within your dbt model!
 
      * Our new `position_label` variable has meaning:
 
-       <!-- -->
-
        * In Formula1 if you are in:
-
-         <!-- -->
 
          * Top 3 you get a “podium” position
          * Top 10 you gain points that add to your overall season total
@@ -1487,7 +1466,7 @@ In this next part, we’ll be performing covariate encoding. Breaking down this 
 
    * Drop the active driver and constructor flags since they were filter criteria and additionally drop our original position variable.
 
-### Splitting into training and testing datasets[​](#splitting-into-training-and-testing-datasets "Direct link to Splitting into training and testing datasets")
+### Splitting into training and testing datasets
 
 Now that we’ve cleaned and encoded our data, we are going to further split in by time. In this step, we will create dataframes to use for training and prediction. We’ll be creating two dataframes 1) using data from 2010-2019 for training, and 2) data from 2020 for new prediction inferences. We’ll create variables called `start_year` and `end_year` so we aren’t filtering on hardcasted values (and can more easily swap them out in the future if we want to retrain our model on different timeframes).
 
@@ -1547,7 +1526,7 @@ Now that we’ve cleaned and encoded our data, we are going to further split in 
 
 👏 Now that we’ve finished our machine learning prep work we can move onto the fun part — training and prediction!
 
-## Training a model to predict in machine learning[​](#training-a-model-to-predict-in-machine-learning "Direct link to Training a model to predict in machine learning")
+## Training a model to predict in machine learning
 
 We’re ready to start training a model to predict the driver’s position. Now is a good time to pause and take a step back and say, usually in ML projects you’ll try multiple algorithms during development and use an evaluation method such as cross validation to determine which algorithm to use. You can definitely do this in your dbt project, but for the content of this lab we’ll have decided on using a logistic regression to predict position (we actually tried some other algorithms using cross validation outside of this lab such as k-nearest neighbors and a support vector classifier but that didn’t perform as well as the logistic regression and a decision tree that overfit).
 
@@ -1559,7 +1538,7 @@ There are 3 areas to break down as we go since we are working at the intersectio
 
 If you haven’t seen code like this before or use joblib files to save machine learning models, we’ll be going over them at a high level and you can explore the links for more technical in-depth along the way! Because Snowflake and dbt have abstracted away a lot of the nitty gritty about serialization and storing our model object to be called again, we won’t go into too much detail here. There’s *a lot* going on here so take it at your pace!
 
-### Training and saving a machine learning model[​](#training-and-saving-a-machine-learning-model "Direct link to Training and saving a machine learning model")
+### Training and saving a machine learning model
 
 1. Project organization remains key, so let’s make a new subfolder called `train_predict` under the `ml` folder.
 
@@ -1646,11 +1625,7 @@ If you haven’t seen code like this before or use joblib files to save machine 
 
    * We’re importing some helpful libraries.
 
-     <!-- -->
-
      * Defining a function called `save_file()` that takes four parameters: `session`, `model`, `path` and `dest_filename` that will save our logistic regression model file.
-
-       <!-- -->
 
        * `session` — an object representing a connection to Snowflake.
        * `model` — an object that needs to be saved. In this case, it's a Python object that is a scikit-learn that can be serialized with joblib.
@@ -1659,15 +1634,11 @@ If you haven’t seen code like this before or use joblib files to save machine 
 
      * Creating our dbt model
 
-       <!-- -->
-
        * Within this model we are creating a stage called `MODELSTAGE` to place our logistic regression `joblib` model file. This is really important since we need a place to keep our model to reuse and want to ensure it's there. When using Snowpark commands, it's common to see the `.collect()` method to ensure the action is performed. Think of the session as our “start” and collect as our “end” when [working with Snowpark](https://docs.snowflake.com/en/developer-guide/snowpark/python/working-with-dataframes.html) (you can use other ending methods other than collect).
 
        * Using `.ref()` to connect into our `train_test_dataset` model.
 
        * Now we see the machine learning part of our analysis:
-
-         <!-- -->
 
          * Create new dataframes for our prediction features from our target variable `position_label`.
          * Split our dataset into 70% training (and 30% testing), train\_size=0.7 with a `random_state` specified to have repeatable results.
@@ -1695,7 +1666,7 @@ If you haven’t seen code like this before or use joblib files to save machine 
 
 [![View Snowflake query history to see how python models are run under the hood](/img/guides/dbt-ecosystem/dbt-python-snowpark/12-machine-learning-training-prediction/3-view-snowflake-query-history.png?v=2 "View Snowflake query history to see how python models are run under the hood")](#)View Snowflake query history to see how python models are run under the hood
 
-### Predicting on new data[​](#predicting-on-new-data "Direct link to Predicting on new data")
+### Predicting on new data
 
 1. Create a new file called `predict_position.py` and copy and save the following code:
 
@@ -1814,8 +1785,6 @@ If you haven’t seen code like this before or use joblib files to save machine 
 
    * The temporary file paths we created might look intimidating, but all we’re doing here is programmatically using an initial file path and adding to it to create the following directories:
 
-     <!-- -->
-
      * LOCAL\_TEMP\_DIR ➡️ /tmp/driver\_position
      * DOWNLOAD\_DIR ➡️ /tmp/driver\_position/download
      * TARGET\_MODEL\_DIR\_PATH ➡️ /tmp/driver\_position/ml\_model
@@ -1843,7 +1812,7 @@ If you haven’t seen code like this before or use joblib files to save machine 
 
 7. We can see that we created predictions in our final dataset, we are ready to move on to testing!
 
-## Test your data models[​](#test-your-data-models "Direct link to Test your data models")
+## Test your data models
 
 We have now completed building all the models for today’s lab, but how do we know if they meet our assertions? Put another way, how do we know the quality of our data models are any good? This brings us to testing!
 
@@ -1860,7 +1829,7 @@ You might be wondering: *what about testing Python models?*
 
 Since the output of our Python models are tables, we can test SQL and Python models the same way! We don’t have to worry about any syntax differences when testing SQL versus Python data models. This means we use `.yml` and `.sql` files to test our entities (tables, views, etc.). Under the hood, dbt is running an SQL query on our tables to see if they meet assertions. If no rows are returned, dbt will surface a passed test. Conversely, if a test results in returned rows, it will fail or warn depending on the configuration (more on that later).
 
-### Generic tests[​](#generic-tests "Direct link to Generic tests")
+### Generic tests
 
 1. To implement generic out-of-the-box tests dbt comes with, we can use YAML files to specify information about our models. To add generic tests to our aggregates model, create a file called `aggregates.yml`, copy the code block below into the file, and save.
 
@@ -1892,7 +1861,7 @@ models:
 2. Let’s unpack the code we have here. We have both our aggregates models with the model name to know the object we are referencing and the description of the model that we’ll populate in our documentation. At the column level (a level below our model), we are providing the column name followed by our tests. We want to ensure our `constructor_name` is unique since we used a pandas `groupby` on `constructor_name` in the model `fastest_pit_stops_by_constructor`. Next, we want to ensure our `race_year` has referential integrity from the model we selected from `int_lap_times_years` into our subsequent `lap_times_moving_avg` model.
 3. Finally, if we want to see how tests were deployed on sources and SQL models, we can look at other files in our project such as the `f1_sources.yml` we created in our Sources and staging section.
 
-### Using macros for testing[​](#using-macros-for-testing "Direct link to Using macros for testing")
+### Using macros for testing
 
 1. Under your `macros` folder, create a new file and name it `test_all_values_gte_zero.sql`. Copy the code block below and save the file. For clarity, “gte” is an abbreviation for greater than or equal to.
 
@@ -1930,7 +1899,7 @@ select * from {{ ref(table) }} where {{ column }} < 0
 
 Then, in our final line, we are calling the `test_all_values_gte_zero` macro that takes in our table and column arguments and inputting our table `'fastest_pit_stops_by_constructor'` and the column `'mean'`.
 
-### Custom singular tests to validate Python models[​](#custom-singular-tests-to-validate-python-models "Direct link to Custom singular tests to validate Python models")
+### Custom singular tests to validate Python models
 
 The simplest way to define a test is by writing the exact SQL that will return failing records. We call these "singular" tests, because they're one-off assertions usable for a single purpose.
 
@@ -1960,7 +1929,7 @@ Let’s add a custom test that asserts that the moving average of the lap time o
    where lap_moving_avg_5_years < 0 and lap_moving_avg_5_years is not null
    ```
 
-### Putting all our tests together[​](#putting-all-our-tests-together "Direct link to Putting all our tests together")
+### Putting all our tests together
 
 1. Time to run our tests! Altogether, we have created 4 tests for our 2 Python models:
 
@@ -1988,7 +1957,7 @@ Let’s add a custom test that asserts that the moving average of the lap time o
 
 [![view details of testing our python model that used SQL to test data assertions](/img/guides/dbt-ecosystem/dbt-python-snowpark/13-testing/6-testing-output-details.png?v=2 "view details of testing our python model that used SQL to test data assertions")](#)view details of testing our python model that used SQL to test data assertions
 
-## Document your dbt project[​](#document-your-dbt-project "Direct link to Document your dbt project")
+## Document your dbt project
 
 When it comes to documentation, dbt brings together both column and model level descriptions that you can provide as well as details from your Snowflake information schema in a static site for consumption by other data team members and stakeholders.
 
@@ -2021,17 +1990,15 @@ This will generate the documentation for your project. Click the book button, as
 
 [![Full project DAG on docs site](/img/guides/dbt-ecosystem/dbt-python-snowpark/14-documentation/4-full-dag-docs.png?v=2 "Full project DAG on docs site")](#)Full project DAG on docs site
 
-## Deploy your code[​](#deploy-your-code "Direct link to Deploy your code")
+## Deploy your code
 
 Before we jump into deploying our code, let's have a quick primer on environments. Up to this point, all of the work we've done in the Studio IDE has been in our development environment, with code committed to a feature branch and the models we've built created in our development schema in Snowflake as defined in our Development environment connection. Doing this work on a feature branch, allows us to separate our code from what other coworkers are building and code that is already deemed production ready. Building models in a development schema in Snowflake allows us to separate the database objects we might still be modifying and testing from the database objects running production dashboards or other downstream dependencies. Together, the combination of a Git branch and Snowflake database objects form our environment.
 
 Now that we've completed testing and documenting our work, we're ready to deploy our code from our development environment to our production environment and this involves two steps:
 
 * Promoting code from our feature branch to the production branch in our repository.
-  <!-- -->
   * Generally, the production branch is going to be named your main branch and there's a review process to go through before merging code to the main branch of a repository. Here we are going to merge without review for ease of this workshop.
 * Deploying code to our production environment.
-  <!-- -->
   * Once our code is merged to the main branch, we'll need to run dbt in our production environment to build all of our models and run all of our tests. This will allow us to build production-ready objects into our production environment in Snowflake. Luckily for us, the Partner Connect flow has already created our deployment environment and job to facilitate this step.
 
 1. Before getting started, let's make sure that we've committed all of our work to our feature branch. If you still have work to commit, you'll be able to select the **Commit and push**, provide a message, and then select **Commit** again.
@@ -2068,7 +2035,7 @@ So, what are we changing then? Just the name! Click **Edit** to allow you to mak
 
 [![Check all our models in our pipeline are in Snowflake](/img/guides/dbt-ecosystem/dbt-python-snowpark/15-deployment/6-all-models-generated.png?v=2 "Check all our models in our pipeline are in Snowflake")](#)Check all our models in our pipeline are in Snowflake
 
-### Conclusion[​](#conclusion "Direct link to Conclusion")
+### Conclusion
 
 Fantastic! You’ve finished the workshop! We hope you feel empowered in using both SQL and Python in your dbt workflows with Snowflake. Having a reliable pipeline to surface both analytics and machine learning is crucial to creating tangible business value from your data.
 

@@ -418,9 +418,3 @@ This table is updated weekly from the [BigQuery SQL function reference](https://
 | [VARIANCE](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/statistical_aggregate_functions#variance)                                      | Built-in | ✓                   |
 | [VECTOR\_INDEX.STATISTICS](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/vectorindex_functions#vector_indexstatistics)                  | Built-in | —                   |
 | [VECTOR\_SEARCH](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#vector_search)                                          | Built-in | —                   |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

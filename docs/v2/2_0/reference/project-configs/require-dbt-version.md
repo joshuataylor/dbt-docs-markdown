@@ -6,7 +6,7 @@ dbt\_project.yml
 require-dbt-version: version-range | [version-range]
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 You can use `require-dbt-version` to restrict your project to only work with a range of dbt versions.
 
@@ -47,7 +47,7 @@ models/some\_days.sql
 {% endmacro %}
 ```
 
-## YAML quoting[​](#yaml-quoting "Direct link to YAML quoting")
+## YAML quoting
 
 This configuration needs to be interpolated by the YAML parser as a string. As such, you should quote the value of the configuration, taking care to avoid whitespace. For example:
 
@@ -61,11 +61,11 @@ require-dbt-version: >=1.0.0 # No quotes? No good
 require-dbt-version: ">= 1.0.0" # Don't put whitespace after the equality signs
 ```
 
-#### Avoid unbounded upper limits[​](#avoid-unbounded-upper-limits "Direct link to Avoid unbounded upper limits")
+#### Avoid unbounded upper limits
 
 We recommend [defining both lower and upper bounds](#pin-to-a-range), such as `">=1.0.0,<3.0.0"`, to ensure stability across releases. We don't recommend having an unbounded `require-dbt-version` (for example, `">=1.0.0"`). Without an upper limit, a project may break when dbt releases a new major version.
 
-## Fusion compatibility[​](#fusion-compatibility "Direct link to Fusion compatibility")
+## Fusion compatibility
 
 The `require-dbt-version` also signals whether a project or package supports the [dbt Fusion engine](../../docs/fusion/about-fusion.md) (`2.0.0` and higher).
 
@@ -86,7 +86,7 @@ When it runs, `dbt-autofix` will:
 
 This ensures that `dbt-autofix` only updates packages that are confirmed to work with Fusion and avoids updating packages that are known to be incompatible with Fusion.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples showcase how to use the `require-dbt-version`:
 
@@ -94,7 +94,7 @@ The following examples showcase how to use the `require-dbt-version`:
 * [Pin to a range](#pin-to-a-range) — Use a comma separated list to specify an upper and lower bound.
 * [Require a specific dbt version](#require-a-specific-dbt-version) — Restrict your project to run only with an exact version of dbt Core.
 
-### Specify a minimum dbt version[​](#specify-a-minimum-dbt-version "Direct link to Specify a minimum dbt version")
+### Specify a minimum dbt version
 
 Use a `>=` operator to specify a lower and an upper limit. For example:
 
@@ -107,7 +107,7 @@ require-dbt-version: ">=2.0.0" # project will only work with the dbt Fusion engi
 
 Remember, having an unbounded upper limit isn't recommended. Instead, check out the [pin to a range](#pin-to-a-range) example to define a range with both a lower and upper limit to ensure stability across releases.
 
-### Pin to a range[​](#pin-to-a-range "Direct link to Pin to a range")
+### Pin to a range
 
 Use a comma separated list for an upper and lower bound. You can define a version range either as a YAML list (using square brackets) or as a comma-delimited string — both forms are valid and work.
 
@@ -125,7 +125,7 @@ require-dbt-version: ">=1.10.0,<3.0.0"
 
 If your range excludes 2.0.0 (for example, `>=1.6.0,<2.0.0`), Fusion will show a warning now and error in a future release. You can [bypass version checks](#disabling-version-checks) with `--no-version-check`.
 
-### Require a specific dbt version[​](#require-a-specific-dbt-version "Direct link to Require a specific dbt version")
+### Require a specific dbt version
 
 Not recommended
 
@@ -141,7 +141,7 @@ dbt\_project.yml
 require-dbt-version: "1.5.0"
 ```
 
-## Invalid dbt versions[​](#invalid-dbt-versions "Direct link to Invalid dbt versions")
+## Invalid dbt versions
 
 If the version of dbt used to invoke a project disagrees with the specified `require-dbt-version` in the project or *any* of the included packages, then dbt will fail immediately with the following error:
 
@@ -156,7 +156,7 @@ Runtime Error
   Check the requirements for the 'my_project' package, or run dbt again with --no-version-check
 ```
 
-## Disabling version checks[​](#disabling-version-checks "Direct link to Disabling version checks")
+## Disabling version checks
 
 To suppress failures to incompatible dbt versions, supply the `--no-version-check` flag to `dbt run`.
 

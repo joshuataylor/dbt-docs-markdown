@@ -23,7 +23,7 @@ is responsible for handling model code that looks like this:
 
 Review [Model configurations](../model-configs.md) for examples and more information on valid arguments.
 
-## config.get[​](#configget "Direct link to config.get")
+## config.get
 
 **Args**:
 
@@ -60,7 +60,7 @@ Example usage:
   ...
 ```
 
-## config.require[​](#configrequire "Direct link to config.require")
+## config.require
 
 **Args**:
 
@@ -80,7 +80,7 @@ Example usage:
   ...
 ```
 
-## config.meta\_get[​](#configmeta_get "Direct link to config.meta_get")
+## config.meta\_get
 
 This functionality is available starting in dbt Core v1.10 and in the dbt Fusion engine.
 
@@ -117,7 +117,7 @@ models:
         custom_setting: "my_value"
 ```
 
-## config.meta\_require[​](#configmeta_require "Direct link to config.meta_require")
+## config.meta\_require
 
 This functionality is available starting in dbt Core v1.10 and in the dbt Fusion engine.
 

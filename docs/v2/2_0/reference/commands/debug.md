@@ -16,7 +16,7 @@ By default, `dbt debug` validates:
 
 \*Note: Not to be confused with [debug-level logging](../global-configs/logs.md#debug-level-logging) through the `--debug` option which increases verbosity.
 
-## Flags[​](#flags "Direct link to Flags")
+## Flags
 
 Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in dbt CLI, but only `--connection` is supported in the Studio IDE.
 
@@ -231,7 +231,7 @@ Options:
                 Show this message and exit.
 ```
 
-## Example usage[​](#example-usage "Direct link to Example usage")
+## Example usage
 
 Only test the connection to the data platform and skip the other checks `dbt debug` looks for:
 

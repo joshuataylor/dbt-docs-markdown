@@ -12,17 +12,17 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 If a model uses the [`schema` config](../reference/resource-properties/schema.md) but builds under an unexpected schema, here are some steps for debugging the issue. The full explanation of custom schemas can be found [here](../docs/build/custom-schemas.md).
 
 You can also follow along via this video:
 
-## Search for a macro named `generate_schema_name`[​](#search-for-a-macro-named-generate_schema_name "Direct link to search-for-a-macro-named-generate_schema_name")
+## Search for a macro named `generate_schema_name`
 
 Do a file search to check if you have a macro named `generate_schema_name` in the `macros` directory of your project.
 
-### You do not have a macro named `generate_schema_name` in your project[​](#you-do-not-have-a-macro-named-generate_schema_name-in-your-project "Direct link to you-do-not-have-a-macro-named-generate_schema_name-in-your-project")
+### You do not have a macro named `generate_schema_name` in your project
 
 This means that you are using dbt's default implementation of the macro, as defined [here](https://github.com/dbt-labs/dbt-adapters/blob/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/get_custom_name/get_custom_schema.sql)
 
@@ -45,7 +45,7 @@ This means that you are using dbt's default implementation of the macro, as defi
 
 Note that this logic is designed so that two dbt users won't accidentally overwrite each other's work by writing to the same schema.
 
-### You have a `generate_schema_name` macro in a project that calls another macro[​](#you-have-a-generate_schema_name-macro-in-a-project-that-calls-another-macro "Direct link to you-have-a-generate_schema_name-macro-in-a-project-that-calls-another-macro")
+### You have a `generate_schema_name` macro in a project that calls another macro
 
 If your `generate_schema_name` macro looks like so:
 
@@ -74,21 +74,21 @@ Your project is switching out the `generate_schema_name` macro for another macro
 {%- endmacro %}
 ```
 
-### You have a `generate_schema_name` macro with custom logic[​](#you-have-a-generate_schema_name-macro-with-custom-logic "Direct link to you-have-a-generate_schema_name-macro-with-custom-logic")
+### You have a `generate_schema_name` macro with custom logic
 
 If this is the case — it might be a great idea to reach out to the person who added this macro to your project, as they will have context here — you can use [GitHub's blame feature](https://docs.github.com/en/free-pro-team@latest/github/managing-files-in-a-repository/tracking-changes-in-a-file) to do this.
 
 In all cases take a moment to read through the Jinja to see if you can follow the logic.
 
-## Confirm your `schema` config[​](#confirm-your-schema-config "Direct link to confirm-your-schema-config")
+## Confirm your `schema` config
 
 Check if you are using the [`schema` config](../reference/resource-properties/schema.md) in your model, either via a `{{ config() }}` block, or from `dbt_project.yml`. In both cases, dbt passes this value as the `custom_schema_name` parameter of the `generate_schema_name` macro.
 
-## Confirm your target values[​](#confirm-your-target-values "Direct link to Confirm your target values")
+## Confirm your target values
 
 Most `generate_schema_name` macros incorporate logic from the [`target` variable](../reference/dbt-jinja-functions/target.md), in particular `target.schema` and `target.name`. Use the docs [here](../reference/dbt-jinja-functions/target.md) to help you find the values of each key in this dictionary.
 
-## Put the two together[​](#put-the-two-together "Direct link to Put the two together")
+## Put the two together
 
 Now, re-read through the logic of your `generate_schema_name` macro, and mentally plug in your `customer_schema_name` and `target` values.
 
@@ -96,7 +96,7 @@ You should find that the schema dbt is constructing for your model matches the o
 
 Be careful. Snapshots do not follow this behavior if target\_schema is set. To have environment-aware snapshots in v1.9+ or dbt, remove the [target\_schema config](../reference/resource-configs/target_schema.md) from your snapshots. If you still want a custom schema for your snapshots, use the [`schema`](../reference/resource-configs/schema.md) config instead.
 
-## Prefixed schema names[​](#prefixed-schema-names "Direct link to Prefixed schema names")
+## Prefixed schema names
 
 By default, dbt combines `target.schema` and `custom_schema_name` using the following pattern: `{target.schema}_{custom_schema_name}`.
 
@@ -121,7 +121,7 @@ The macro looks like this:
 
 Verify actual relation locations with `dbt ls --output json` or by querying your warehouse catalog (`pg_views`, `information_schema.tables`, or equivalent).
 
-## Adjust as necessary[​](#adjust-as-necessary "Direct link to Adjust as necessary")
+## Adjust as necessary
 
 Now that you understand how a model's schema is being generated, you can adjust as necessary:
 

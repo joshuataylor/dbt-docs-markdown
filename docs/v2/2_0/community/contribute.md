@@ -1,6 +1,6 @@
 # Become a contributor
 
-## Want to get involved? Start here[​](#want-to-get-involved-start-here "Direct link to Want to get involved? Start here")
+## Want to get involved? Start here
 
 The dbt Community predates dbt Labs as an organization and harkens back to the days when a scrappy analytics consultancy of a few [pissed off data analysts](https://www.hashpath.com/2020/12/an-analytics-engineer-is-really-just-a-pissed-off-data-analyst/#:~:text=Often%20times%2C%20an%20analytics%20engineer,necessity%20\(and%20genius%20branding\).) started hacking together an open source project around which gathered a community that would change how the world uses data.
 

@@ -15,8 +15,7 @@ For example:
 
 To view the contents of `model` for a given model:
 
-* Command line interface
-* Studio IDE
+### Command line interface
 
 If you're using the command line interface (CLI), use [log()](./log.md) to print the full contents:
 
@@ -24,13 +23,15 @@ If you're using the command line interface (CLI), use [log()](./log.md) to print
 {{ log(model, info=True) }}
 ```
 
+### Studio IDE
+
 If you're using the Studio IDE, compile the following to print the full contents:<br /><br />
 
 ```jinja
 {{ model | tojson(indent = 4) }}
 ```
 
-## Batch properties for microbatch models[​](#batch-properties-for-microbatch-models "Direct link to Batch properties for microbatch models")
+## Batch properties for microbatch models
 
 Starting in dbt Core v1.9, the model object includes a `batch` property (`model.batch`), which provides details about the current batch when executing an [incremental microbatch](../../docs/build/incremental-microbatch.md) model. This property is only populated during the batch execution of a microbatch model.
 
@@ -42,17 +43,11 @@ The following table describes the properties of the `batch` object. Note that db
 | `event_time_start` | The start time of the batch's [`event_time`](../resource-configs/event-time.md) filter (inclusive). | `model.batch.event_time_start` |
 | `event_time_end`   | The end time of the batch's `event_time` filter (exclusive).                                                                       | `model.batch.event_time_end`   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Usage notes[​](#usage-notes "Direct link to Usage notes")
+### Usage notes
 
 `model.batch` is only available during the execution of a microbatch model batch. Outside of the microbatch execution, `model.batch` is `None`, and its sub-properties aren't accessible.
 
-#### Example of safeguarding access to batch properties[​](#example-of-safeguarding-access-to-batch-properties "Direct link to Example of safeguarding access to batch properties")
+#### Example of safeguarding access to batch properties
 
 We recommend to always check if `model.batch` is populated before accessing its properties. To do this, use an `if` statement for safe access to `batch` properties:
 
@@ -66,7 +61,7 @@ We recommend to always check if `model.batch` is populated before accessing its 
 
 In this example, the `if model.batch` statement makes sure that the code only runs during a batch execution. `log()` is used to print the `batch` properties for debugging.
 
-#### Example of log batch details[​](#example-of-log-batch-details "Direct link to Example of log batch details")
+#### Example of log batch details
 
 This is a practical example of how you might use `model.batch` in a microbatch model to log batch details for the `batch.id`:
 
@@ -79,19 +74,16 @@ This is a practical example of how you might use `model.batch` in a microbatch m
 
 In this example, the `if model.batch` statement makes sure that the code only runs during a batch execution. `log()` is used to print the `batch` properties for debugging.
 
-## Model structure and JSON schema[​](#model-structure-and-json-schema "Direct link to Model structure and JSON schema")
+## Model structure and JSON schema
 
 To view the structure of `models` and their definitions:
 
 * Refer to [dbt JSON Schema](https://schemas.getdbt.com/) for describing and consuming dbt generated artifacts
 * Select the corresponding manifest version under **Manifest**. For example if you're on dbt v1.8, then you would select Manifest v12
-  <!-- -->
   * The `manifest.json` version number is related to (but not *equal* to) your dbt version, so you *must* use the correct `manifest.json` version for your dbt version. To find the correct `manifest.json` version, refer to [Manifest](../artifacts/manifest-json.md) and select the dbt version on the top navigation (such as `v1.5`). This will help you find out which tags are associated with your model.
 * Then go to `nodes` --> Select Additional properties --> `CompiledModelNode` or view other definitions/objects.
 
 Use the following table to understand how the versioning pattern works and match the Manifest version with the dbt version:
-
-<!-- -->
 
 | dbt version            | Manifest version                                              |
 | ---------------------- | ------------------------------------------------------------- |
@@ -106,12 +98,6 @@ Use the following table to understand how the versioning pattern works and match
 | Core v1.4              | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
 | Core v1.3              | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt JSON Schema](https://schemas.getdbt.com/)

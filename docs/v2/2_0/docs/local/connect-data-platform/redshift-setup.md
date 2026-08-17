@@ -1,6 +1,8 @@
+(Applies to dbt v2.0 and later)
+
 # Connect Redshift to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 You can configure the Redshift adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
@@ -9,11 +11,11 @@ The Redshift adapter for Fusion supports the following [authentication methods](
 * Password
 * IAM profile
 
-## Warehouse permissions[​](#warehouse-permissions "Direct link to Warehouse permissions")
+## Warehouse permissions
 
 The Redshift database user that dbt Fusion engine uses must be able to run dbt workloads and read catalog metadata used for introspection.
 
-### Required Redshift objects[​](#required-redshift-objects "Direct link to Required Redshift objects")
+### Required Redshift objects
 
 Before connecting, these objects must exist or be accessible:
 
@@ -25,13 +27,7 @@ Before connecting, these objects must exist or be accessible:
 | **User**                                                | Database user for authentication  |
 | **IAM role or profile** (optional)                      | For IAM-based authentication      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Core permissions[​](#core-permissions "Direct link to Core permissions")
+### Core permissions
 
 The following permissions are required for fundamental dbt features:
 
@@ -46,13 +42,7 @@ The following permissions are required for fundamental dbt features:
 | `DROP`     | Tables or views | Drop or replace objects               |
 | `TRUNCATE` | Tables          | Truncate tables                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
+### Metadata operations
 
 Fusion queries these Redshift system relations:
 
@@ -65,13 +55,7 @@ Fusion queries these Redshift system relations:
 | `svv_table_info`   | List materialized views when the project includes them | SELECT on the system view |
 | `svv_mv_info`      | List materialized views when the project includes them | SELECT on the system view |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Schema management[​](#schema-management "Direct link to Schema management")
+### Schema management
 
 Conditional permissions for schema management
 
@@ -79,15 +63,9 @@ Conditional permissions for schema management
 | --------------- | -------- | ------------------- |
 | `CREATE SCHEMA` | Database | Auto-create schemas |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For example SQL grants in Redshift, refer to [Redshift permissions](../../../reference/database-permissions/redshift-permissions.md).
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -101,14 +79,13 @@ Alternatively, you can manually create the `profiles.yml` file and configure the
 
 Next, select your authentication method. Follow the on-screen prompts to provide the required information.
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
-* Password
-* IAM profile
+### Password
 
 Use your Redshift user's password to authenticate. You can also manually enter it in plain text into the `profiles.yml` file configuration.
 
-#### Example password configuration[​](#example-password-configuration "Direct link to Example password configuration")
+#### Example password configuration
 
 profiles.yml
 
@@ -129,6 +106,8 @@ default:
       threads: 16
 ```
 
+### IAM profile
+
 Specify the IAM profile to use to connect your Fusion sessions. You will need to provide the following information:
 
 * **IAM Profile:** The profile name
@@ -136,7 +115,7 @@ Specify the IAM profile to use to connect your Fusion sessions. You will need to
 * **Region:** Your AWS region (for example, us-east-1)
 * **Use RA3 node type (y/n):** Use high performance AWS RA3 node
 
-#### Example IAM profile configuration[​](#example-iam-profile-configuration "Direct link to Example IAM profile configuration")
+#### Example IAM profile configuration
 
 profiles.yml
 
@@ -159,6 +138,6 @@ default:
       threads: 16
 ```
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Redshift-specific configuration information in the [Redshift adapter reference guide](../../../reference/resource-configs/redshift-configs.md).

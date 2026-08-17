@@ -1,12 +1,12 @@
 # Jinja and macros
 
-## Related reference docs[​](#related-reference-docs "Direct link to Related reference docs")
+## Related reference docs
 
 * [Jinja Template Designer Documentation](https://jinja.palletsprojects.com/page/templates/) (external link)
 * [dbt Jinja context](../../reference/dbt-jinja-functions-context-variables.md)
 * [Macro properties](../../reference/macro-properties.md)
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 In dbt, you can combine SQL with [Jinja](https://jinja.palletsprojects.com), a templating language.
 
@@ -22,8 +22,6 @@ For example, with Jinja, you can:
 
 * Operate on the results of one query to generate another query, for example:
 
-  <!-- -->
-
   * Return a list of payment methods, to create a subtotal column per payment method (pivot)
   * Return a list of columns in two relations, and select them in the same order to make it easier to union them together
 
@@ -37,9 +35,9 @@ Ready to get started with Jinja and macros?
 
 Check out the [tutorial on using Jinja](../../guides/using-jinja.md) for a step-by-step example of using Jinja in a model, and turning it into a macro!
 
-## Getting started[​](#getting-started "Direct link to Getting started")
+## Getting started
 
-### Jinja[​](#jinja "Direct link to Jinja")
+### Jinja
 
 Here's an example of a dbt model that leverages Jinja:
 
@@ -84,7 +82,7 @@ When used in a dbt model, your Jinja needs to compile to a valid query. To check
 * **Using dbt:** Click the compile button to see the compiled SQL in the Compiled SQL pane
 * **Using dbt Core:** Run `dbt compile` from the command line. Then open the compiled SQL file in the `target/compiled/{project name}/` directory. Use a split screen in your code editor to keep both files open at once.
 
-### Macros[​](#macros "Direct link to Macros")
+### Macros
 
 [Macros](./jinja-macros.md) in Jinja are pieces of code that can be reused multiple times – they are analogous to "functions" in other programming languages, and are extremely useful if you find yourself repeating code across multiple models. Macros are defined in `.sql` files, typically in your `macros` directory ([docs](../../reference/project-configs/macro-paths.md)).
 
@@ -123,15 +121,13 @@ select
 from app_data.payments
 ```
 
-<!-- -->
-
 💡 Use Jinja's whitespace control to tidy your macros!
 
 When you're modifying macros in your project, you might notice extra white space in your code in the `target/compiled` folder.
 
 You can remove unwanted spaces and lines with Jinja's [whitespace control](../../faqs/Jinja/jinja-whitespace.md) by using a minus sign. For example, use `{{- ... -}}` or `{%- ... %}` around your macro definitions (such as `{%- macro generate_schema_name(...) -%} ... {%- endmacro -%}`).
 
-### Using a macro from a package[​](#using-a-macro-from-a-package "Direct link to Using a macro from a package")
+### Using a macro from a package
 
 A number of useful macros have also been grouped together into [packages](./packages.md) — our most popular package is [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/).
 
@@ -152,7 +148,7 @@ from my_table
 
 You can also qualify a macro in your own project by prefixing it with your [package name](../../reference/dbt-jinja-functions/project_name.md) (this is mainly useful for package authors).
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 What parts of Jinja are dbt-specific?
 
@@ -202,7 +198,7 @@ How do I document macros?
 
 To document macros, use a [properties file](../../reference/macro-properties.md) and nest the configurations under a `macros:` key
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 macros/properties.yml
 
@@ -229,7 +225,7 @@ From dbt Core v1.10, you can opt into validating the arguments you define in mac
 
 Learn more about [macro argument validation](../../reference/global-configs/behavior-flags/validate_macro_args.md).
 
-## Document a custom materialization[​](#document-a-custom-materialization "Direct link to Document a custom materialization")
+## Document a custom materialization
 
 When you create a [custom materialization](../../guides/create-new-materializations.md), dbt creates an associated macro with the following format:
 
@@ -261,19 +257,19 @@ Found 1 model, 0 tests, 0 snapshots, 0 analyses, 138 macros, 0 operations, 0 see
 
 This is because dbt ships with its own project, which also includes macros! You can learn more about this [here](https://discourse.getdbt.com/t/did-you-know-dbt-ships-with-its-own-project/764).
 
-## dbtonic Jinja[​](#dbtonic-jinja "Direct link to dbtonic Jinja")
+## dbtonic Jinja
 
 Just like well-written python is pythonic, well-written dbt code is dbtonic.
 
-### Favor readability over DRY-ness[​](#favor-readability-over-dry-ness "Direct link to favor-readability-over-dry-ness")
+### Favor readability over DRY-ness
 
 Once you learn the power of Jinja, it's common to want to abstract every repeated line into a macro! Remember that using Jinja can make your models harder for other users to interpret — we recommend favoring readability when mixing Jinja with SQL, even if it means repeating some lines of SQL in a few places. If all your models are macros, it might be worth re-assessing.
 
-### Leverage package macros[​](#leverage-package-macros "Direct link to Leverage package macros")
+### Leverage package macros
 
 Writing a macro for the first time? Check whether we've open sourced one in [dbt-utils](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) that you can use, and save yourself some time!
 
-### Set variables at the top of a model[​](#set-variables-at-the-top-of-a-model "Direct link to Set variables at the top of a model")
+### Set variables at the top of a model
 
 `{% set ... %}` can be used to create a new variable, or update an existing one. We recommend setting variables at the top of a model, rather than hardcoding it inline. This is a practice borrowed from many other coding languages, since it helps with readability, and comes in handy if you need to reference the variable in two places:
 

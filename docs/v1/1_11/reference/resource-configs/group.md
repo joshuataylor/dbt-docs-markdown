@@ -1,13 +1,6 @@
 # group
 
-* Models
-* Seeds
-* Snapshots
-* Tests
-* Analyses
-* Metrics
-* Semantic models
-* Saved queries
+### Models
 
 dbt\_project.yml
 
@@ -39,6 +32,8 @@ models/\<modelname>.sql
 select ...
 ```
 
+### Seeds
+
 dbt\_project.yml
 
 ```yml
@@ -56,6 +51,8 @@ seeds:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
+### Snapshots
+
 dbt\_project.yml
 
 ```yml
@@ -63,6 +60,8 @@ snapshots:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+(Applies to dbt v1.9 and later)
 
 snapshots/properties.yml
 
@@ -87,6 +86,8 @@ select ...
 
 {% endsnapshot %}
 ```
+
+### Tests
 
 dbt\_project.yml
 
@@ -130,6 +131,8 @@ tests/\<filename>.sql
 ) }}
 ```
 
+### Analyses
+
 analyses/\<filename>.yml
 
 ```yml
@@ -139,6 +142,8 @@ analyses:
     config:
       group: GROUP_NAME # changed to config in v1.10
 ```
+
+### Metrics
 
 dbt\_project.yml
 
@@ -158,6 +163,8 @@ metrics:
       group: GROUP_NAME
 ```
 
+### Semantic models
+
 dbt\_project.yml
 
 ```yaml
@@ -165,6 +172,8 @@ semantic-models:
   <resource-path>:
     +group: GROUP_NAME
 ```
+
+(Applies to dbt v1.11 and earlier)
 
 models/semantic\_models.yml
 
@@ -174,6 +183,8 @@ semantic_models:
     config:
       group: GROUP_NAME
 ```
+
+### Saved queries
 
 dbt\_project.yml
 
@@ -194,15 +205,15 @@ saved_queries:
 
 Note that for backwards compatibility, `group` is supported as a top-level key, but without the capabilities of config inheritance.
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 An optional configuration for assigning a group to a resource. When a resource is grouped, dbt will allow it to reference private models within the same group.
 
 For more details on reference access between resources in groups, check out [model access](../../docs/mesh/govern/model-access.md#groups).
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Prevent a 'marketing' group model from referencing a private 'finance' group model[​](#prevent-a-marketing-group-model-from-referencing-a-private-finance-group-model "Direct link to Prevent a 'marketing' group model from referencing a private 'finance' group model")
+### Prevent a 'marketing' group model from referencing a private 'finance' group model
 
 This is useful if you want to prevent other groups from building on top of models that are rapidly changing, experimental, or otherwise internal to a group or team.
 
@@ -233,7 +244,7 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   which is not allowed because the referenced node is private to the finance group.
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Model Access](../../docs/mesh/govern/model-access.md#groups)
 * [Defining groups](../../docs/build/groups.md)

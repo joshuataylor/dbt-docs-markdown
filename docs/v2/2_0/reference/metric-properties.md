@@ -5,8 +5,6 @@ Metrics define measurable quantities that you can query through the Semantic Lay
 * In a model using the *latest* YAML spec. Top-level `metrics:` list on a [model](./model-properties.md) that has semantic modeling enabled, alongside `semantic_model:` and `columns:`. Available in the dbt platform **Latest** release track and the dbt Fusion engine.
 * In the standalone *legacy* YAML spec. Refer to [Creating metrics](../docs/build/metrics-overview.md) for more information.
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -17,11 +15,13 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-## Latest spec (model YAML)[​](#latest-spec-model-yaml "Direct link to Latest spec (model YAML)")
+(Applies to dbt v1.12 and later)
+
+## Latest spec (model YAML)
 
 In the latest YAML spec, you can define metrics on a model that has semantic modeling enabled. Add a top-level `metrics` list alongside `semantic_model` and `columns` (metrics are not nested under `semantic_model`). Type-specific settings are top-level keys on each metric.
 
-### Available metric properties (latest spec)[​](#available-metric-properties-latest-spec "Direct link to Available metric properties (latest spec)")
+### Available metric properties (latest spec)
 
 | Property    | Type   | Required | Description                                                                                                                                                                                                                                                                                      |
 | ----------- | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -32,13 +32,7 @@ In the latest YAML spec, you can define metrics on a model that has semantic mod
 | filter      | string | No       | MetricFlow filter expression (dimensions, entities, or other metrics).                                                                                                                                                                                                                           |
 | config      | object | No       | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [tags](./resource-configs/tags.md), [enabled](./resource-configs/enabled.md). |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Properties by metric type (latest spec)[​](#properties-by-metric-type-latest-spec "Direct link to Properties by metric type (latest spec)")
+### Properties by metric type (latest spec)
 
 | Metric type                                                    | Key properties                                                                                                                  |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -48,12 +42,6 @@ Search table...
 | [Ratio](../docs/build/ratio.md)           | numerator, denominator (each a metric name or a dict with name, filter, alias)                                                  |
 | [Conversion](../docs/build/conversion.md) | entity, calculation, base\_metric, conversion\_metric, window; optional constant\_properties                                    |
 | [Cumulative](../docs/build/cumulative.md) | input\_metric, window, grain\_to\_date, period\_agg                                                                             |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 **Cross-model metrics:** Metrics under a model's `metrics:` list can only reference that semantic model. Metrics that depend on other semantic models (for example, cross-model cumulative, ratio, derived, or conversion) go in a top-level `metrics:` block (outside `models:`). This can live in the same YAML file or a separate file.
 

@@ -4,7 +4,7 @@ Use plugins to install a coordinated set of dbt Wizard CLI extensions from a mar
 
 Plugins and hooks are available in interactive dbt Wizard CLI sessions. You can't install them in Studio IDE or the dbt Wizard home tab.
 
-## Understand plugins, marketplaces, and hooks[​](#understand-plugins-marketplaces-and-hooks "Direct link to Understand plugins, marketplaces, and hooks")
+## Understand plugins, marketplaces, and hooks
 
 * A **marketplace** is a local or Git source that publishes one or more plugins.
 * A **plugin** is a named bundle with a `.dbt-wizard-plugin/plugin.json` manifest.
@@ -12,7 +12,7 @@ Plugins and hooks are available in interactive dbt Wizard CLI sessions. You can'
 
 Hooks can inspect context, add guidance, or block an action depending on the event. Because a hook can execute a command on your machine, review its source and trust request with the same care you would use for any development tool.
 
-## Add a marketplace[​](#add-a-marketplace "Direct link to Add a marketplace")
+## Add a marketplace
 
 Add a marketplace from a GitHub repository:
 
@@ -44,7 +44,7 @@ Before installing a plugin, inspect the marketplace snapshot and the plugin's `.
 
 Use `wizard plugin --help` to view the rest of the plugin commands in the dbt Wizard CLI.
 
-## Install and inspect a plugin[​](#install-and-inspect-a-plugin "Direct link to Install and inspect a plugin")
+## Install and inspect a plugin
 
 List the available plugins and their installation state:
 
@@ -70,7 +70,7 @@ Review hooks before trusting them
 
 Don't use `--dangerously-bypass-hook-trust` as a routine setup step. It allows enabled hooks to run without persisted review for that invocation. Review each hook and persist its trust decision instead.
 
-## Verify the extension[​](#verify-the-extension "Direct link to Verify the extension")
+## Verify the extension
 
 Test one capability at a time after installation:
 
@@ -82,7 +82,7 @@ Test one capability at a time after installation:
 
 If a plugin bundles an MCP server, its tools still follow the [MCP approval settings](../../docs/dbt-ai/wizard-mcp.md#approvals-and-tool-permissions). A plugin doesn't bypass the CLI sandbox or tool approval policy.
 
-## Update or remove an extension[​](#update-or-remove-an-extension "Direct link to Update or remove an extension")
+## Update or remove an extension
 
 Refresh one configured Git marketplace:
 
@@ -112,7 +112,7 @@ wizard plugin marketplace remove MARKETPLACE_NAME
 
 Removing a marketplace and removing an installed plugin are separate operations. List both after cleanup to confirm the intended state.
 
-## Choose the smallest extension mechanism[​](#choose-the-smallest-extension-mechanism "Direct link to Choose the smallest extension mechanism")
+## Choose the smallest extension mechanism
 
 Use a plugin when several capabilities need to be installed and versioned together. For a single concern, a smaller extension is easier to review:
 
@@ -123,7 +123,7 @@ Use a plugin when several capabilities need to be installed and versioned togeth
 | A command that runs at a lifecycle event               | A hook, distributed only from a source your team trusts.                                      |
 | Skills, tools, apps, and hooks that must ship together | A plugin from a reviewed marketplace.                                                         |
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use skills with dbt Wizard CLI](../../docs/dbt-ai/wizard-skills.md)
 * [Use MCP servers with dbt Wizard CLI](../../docs/dbt-ai/wizard-mcp.md)

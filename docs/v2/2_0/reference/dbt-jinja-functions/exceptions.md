@@ -17,7 +17,7 @@ When calling these functions during `dbt run` or `dbt run-operation`, wrap them 
 
 Learn more about the [`execute`](./execute.md) variable.
 
-## raise\_compiler\_error[​](#raise_compiler_error "Direct link to raise_compiler_error")
+## raise\_compiler\_error
 
 The `exceptions.raise_compiler_error` method raises a compilation error with the provided message. This is typically only useful in macros or materializations when invalid arguments are provided by the calling model. Throwing an exception causes a model to fail, so use this method with care.
 
@@ -33,9 +33,7 @@ exceptions.sql
 {% endif %}
 ```
 
-<!-- -->
-
-## raise\_fail\_fast\_error[​](#raise_fail_fast_error "Direct link to raise_fail_fast_error")
+## raise\_fail\_fast\_error
 
 Use `exceptions.raise_fail_fast_error` to stop dbt immediately when it should not continue running.
 
@@ -55,7 +53,7 @@ macros/materialized\_view\.sql
 {% endif %}
 ```
 
-## raise\_not\_implemented[​](#raise_not_implemented "Direct link to raise_not_implemented")
+## raise\_not\_implemented
 
 Use `exceptions.raise_not_implemented` to stop a dbt run when a macro or feature isn't supported by the current adapter.
 
@@ -74,7 +72,7 @@ macros/get\_columns\_in\_relation.sql
 {% endmacro %}
 ```
 
-## warn[​](#warn "Direct link to warn")
+## warn
 
 Use the `exceptions.warn` method to raise a compiler warning with the provided message. The model will still be successful and treated as a PASS. By default, warnings will not cause dbt runs to fail. However:
 

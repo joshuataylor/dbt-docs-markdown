@@ -6,15 +6,15 @@ Support for dbt is available to all users through the following channels:
 * [The Community Forum](https://discourse.getdbt.com/).
 * [dbt Community slack](https://www.getdbt.com/community/join-the-community/).
 
-## dbt Core support[​](#dbt-core-support "Direct link to dbt Core support")
+## dbt Core support
 
 If you're developing on the command line (CLI) and have questions or need some help — reach out to the helpful dbt community through [the Community Forum](https://discourse.getdbt.com/) or [dbt Community slack](https://www.getdbt.com/community/join-the-community/).
 
-## dbt platform support[​](#dbt-platform-support "Direct link to dbt platform support")
+## dbt platform support
 
 The global dbt Support team is available to dbt customers by [email](mailto:support@getdbt.com) or by clicking **Create a support ticket** through the dbt navigation.
 
-### Create a support ticket[​](#create-a-support-ticket "Direct link to Create a support ticket")
+### Create a support ticket
 
 To create a support ticket in dbt:
 
@@ -23,7 +23,7 @@ To create a support ticket in dbt:
 3. Fill out the form and click **Create Ticket**.
 4. A dbt Support team member will respond to your ticket through email.
 
-### Ask dbt Support Assistant[​](#ask-dbt-support-assistant "Direct link to Ask dbt Support Assistant")
+### Ask dbt Support Assistant
 
 dbt Support Assistant is an AI widget that provides instant, AI-generated responses to common questions. This feature is available to dbt users and can help answer troubleshooting questions, give a synopsis of features and functionality, or link to relevant documentation.
 
@@ -33,7 +33,7 @@ info
 
 We recommend validating information received in AI responses for any scenario using our documentation. Please [contact support](mailto:support@getdbt.com) to report incorrect information provided by the Support Assistant.
 
-### Support plans and resources[​](#support-plans-and-resources "Direct link to Support plans and resources")
+### Support plans and resources
 
 We want to help you work through implementing and utilizing dbt platform at your organization. Have a question you can't find an answer to in [our docs](https://docs.getdbt.com/) or [the Community Forum](https://discourse.getdbt.com/)? Our Support team is here to `dbt help` you!
 
@@ -73,7 +73,7 @@ Types of dbt cloud-based platform related questions our Support team can assist 
 * why my CI jobs are not kicking off as expected.
   <br />
 
-## dbt Enterprise accounts[​](#dbt-enterprise-accounts "Direct link to dbt Enterprise accounts")
+## dbt Enterprise accounts
 
 Basic assistance with dbt project troubleshooting. Help with errors and issues in macros, models, and dbt Labs' packages. For strategic advice, best practices, or expansion conversations, consult your Account team.
 
@@ -98,7 +98,7 @@ Types of questions you should ask your Account team:
 * Here is our data road map for the next year - can we talk through how dbt fits into it and what features we may not be utilizing that can help us achieve our goals?
 * It is time for our contract renewal, what options do I have?
 
-### Severity level for Enterprise support[​](#severity-level-for-enterprise-support "Direct link to Severity level for Enterprise support")
+### Severity level for Enterprise support
 
 Support tickets are assigned a severity level based on the impact of the issue on your business. The severity level is assigned by dbt Labs, and the level assigned determines the priority level of support you will receive. For specific ticket response time or other questions that relate to your Enterprise or Enterprise+ account’s SLA, please refer to your Enterprise contract.
 
@@ -109,17 +109,11 @@ Support tickets are assigned a severity level based on the impact of the issue o
 | Severity Level 3 | Feature failure, but a workaround exists.                                                                                                                           |
 | Severity Level 4 | Error with low-to-no impact on Client’s access to or use of the Subscription, or Client has a general question or feature enhancement request.                      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Leave feedback[​](#leave-feedback "Direct link to Leave feedback")
+## Leave feedback
 
 Leave feedback or submit a feature request for dbt or dbt Core.
 
-#### Share feedback or feature request for the dbt platform[​](#share-feedback-or-feature-request-for-the-dbt-platform "Direct link to Share feedback or feature request for the dbt platform")
+#### Share feedback or feature request for the dbt platform
 
 1. In the dbt navigation, click **Leave feedback**.
 2. In the **Leave feedback** pop up, fill out the form.
@@ -129,11 +123,11 @@ Leave feedback or submit a feature request for dbt or dbt Core.
 
 [![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")](#)Leave feedback in dbt
 
-#### Share feedback or feature request for dbt Core[​](#share-feedback-or-feature-request-for-dbt-core "Direct link to Share feedback or feature request for dbt Core")
+#### Share feedback or feature request for dbt Core
 
 * [Create a GitHub issue here](https://github.com/dbt-labs/dbt-core/issues).
 
-## External help[​](#external-help "Direct link to External help")
+## External help
 
 For SQL writing, project performance review, or project building, refer to dbt Preferred Consulting Providers and dbt Labs' Services. For help writing SQL, reviewing the overall performance of your project, or want someone to actually help build your dbt project, refer to the following pages:
 

@@ -4,21 +4,15 @@
 
 [![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](./index.md)
 
-dbt version▾
-
 * [v2]()
 * [v1]()
 * [1.12]()
 * [1.11]()
 * On dbt platform?
   <br />
-  v2 =
-  <!-- -->
-  [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#fusion-release-tracks)
+  v2 = [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#fusion-release-tracks)
   <br />
-  v1 =
-  <!-- -->
-  [Core release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#dbt-core-release-tracks)
+  v1 = [Core release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#dbt-core-release-tracks)
 
 [Docs](#)
 
@@ -84,8 +78,6 @@ The free dbt VS Code extension is the best way to develop locally with the dbt F
 [Contact Support](./docs/dbt-support.md) [Professional Services](https://www.getdbt.com/services) [Find a Partner](https://www.getdbt.com/partner-directory) [System Status](https://status.getdbt.com/)
 
 ##### Connect with Us
-
-<!--! Font Awesome Pro 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 
 [](https://github.com/dbt-labs/docs.getdbt.com "GitHub") [](https://www.linkedin.com/company/dbtlabs/mycompany/ "LinkedIn") [](https://www.youtube.com/channel/UCVpBwKK-ecMEV75y1dYLE5w "YouTube") [](https://www.instagram.com/dbt_labs/ "Instagram") [](https://x.com/dbt_labs "X") [](https://bsky.app/profile/getdbt.com "Bluesky") [](https://www.getdbt.com/community/join-the-community/ "Community Slack")
 

@@ -2,7 +2,7 @@
 
 By default, dbt rebuilds every selected node on every run — even if nothing has changed. This makes it easy to get started, but adds up for larger projects: longer job times, higher warehouse costs, and slower feedback during development. dbt has features designed to help you skip unnecessary work and reuse existing results instead.
 
-## dbt State[​](#dbt-state "Direct link to dbt State")
+## dbt State
 
 [dbt State](./deploy/dbt-state-about.md) is a service that makes dbt smarter about what to build. It integrates into any dbt deployment — including self-hosted deployments using dbt Fusion engine or dbt Core — without requiring a recurring dbt platform subscription.
 
@@ -30,7 +30,7 @@ To enable dbt State:
 
 Authentication requires a dbt platform account with a [30-day free trial](./deploy/dbt-state-trial.md). dbt State pricing is usage-based — you're billed per target table that dbt State reuses each day, not per dbt platform seat. For full setup instructions, refer to [Setting up dbt State](./deploy/dbt-state-setup.md).
 
-## Deferral[​](#deferral "Direct link to Deferral")
+## Deferral
 
 [Deferral](../reference/node-selection/defer.md) lets you build a subset of your project without building all upstream dependencies first. Instead of running everything upstream, dbt points unbuilt references at existing objects in another environment — typically production.
 
@@ -40,7 +40,7 @@ This is useful in development and CI environments, where you want to test one or
 dbt build --select my_model --defer --state path/to/prod/artifacts
 ```
 
-## dbt clone[​](#dbt-clone "Direct link to dbt clone")
+## dbt clone
 
 [`dbt clone`](../reference/commands/clone.md) creates copies of selected nodes in a target schema. On warehouses that support zero-copy cloning (for example, Snowflake), it creates lightweight database clones without duplicating the underlying data. On other warehouses, it creates views pointing at the upstream relations.
 
@@ -50,7 +50,7 @@ This is useful in development when you want to quickly populate a dev environmen
 dbt clone --select my_model
 ```
 
-## dbt's selection syntax[​](#dbts-selection-syntax "Direct link to dbt's selection syntax")
+## dbt's selection syntax
 
 dbt has a [variety of selectors](../reference/node-selection/syntax.md) you can use to target specific parts of your project instead of building everything every time. For example, `+my_model` selects `my_model` and all of its upstream dependencies, while `my_model+2` selects `my_model` and two levels of downstream dependents. This lets you test your changes in isolation without running your entire project.
 

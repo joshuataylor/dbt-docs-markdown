@@ -18,7 +18,7 @@ Best practices for using dbt Wizard
 
 For recommended workflows on real project tasks — understanding a project, validating changes, debugging a failed job, and more — refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md).
 
-## Use dbt Wizard[​](#use-dbt-wizard "Direct link to Use dbt Wizard")
+## Use dbt Wizard
 
 dbt Wizard is for anyone doing dbt development — from analytics engineers working in a self-hosted setup in the terminal to teams building in the dbt platform. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account.
 
@@ -34,9 +34,9 @@ The following table shows where dbt Wizard is available, the AI keys each surfac
 
 For included action limits by plan and how managed usage is metered, refer to the [Billing](./billing.md) page. To bring your own key, refer to [supported providers](#supported-ai-providers) on this page.
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -57,10 +57,9 @@ Refer to the following pages for more information:
 * [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
-## Choose a dbt Wizard experience[​](#choose-a-dbt-wizard-experience "Direct link to Choose a dbt Wizard experience")
+## Choose a dbt Wizard experience
 
-* Terminal [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-* dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+### Terminal Beta
 
 *Available in public beta.*
 
@@ -75,12 +74,15 @@ If you've never used the terminal before, check out the [terminal guide](../../g
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
-* macOS/Linux
-* Windows
+### macOS/Linux
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
+
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](../dbt-ai/wizard-cli.md#uninstall) if you ever need to remove them.
+
+### Windows
 
 Run the following in PowerShell:
 
@@ -97,6 +99,8 @@ wizard             # start an interactive session
 
 After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](../dbt-ai/wizard-config.md) for more details.
 
+(Applies to dbt v1.99 and earlier)
+
 Upgrade for automatic updates
 
 Upgrade to [v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
@@ -104,6 +108,8 @@ Upgrade to [v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wiza
 Your browser does not support the video tag.
 
 dbt Wizard CLI in your terminal
+
+### dbt platform Preview
 
 *Available in public preview.*
 
@@ -119,8 +125,6 @@ To get started:
 
 4. Try a prompt, such as:
 
-   <!-- -->
-
    * `summarize what this project does`
    * `list all models with no tests`
    * `add not_null and unique tests to the primary key of stg_customers`
@@ -133,11 +137,11 @@ Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompt
 
 .)
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Now that you know where to start, continue with **[Use self-hosted dbt Wizard](../dbt-ai/wizard-quickstart.md)** for installation and onboarding, or **[Enable AI features in dbt platform](./enable-dbt-ai.md)** for the platform setup flow.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md) — generate docs, tests, semantic models, SQL, and delegate end-to-end model work
 * [Use skills in the dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project

@@ -1,6 +1,6 @@
 # Model query history
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Model query history helps data teams track model usage by analyzing query logs.
 
@@ -25,7 +25,7 @@ Model query history is supported in the following data warehouses:
 * Redshift
 * Databricks
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To access the features, you should meet the following requirements:
 
@@ -33,10 +33,9 @@ To access the features, you should meet the following requirements:
 * You have set up a [production](../deploy/deploy-environments.md#set-as-production-environment) deployment environment for each project you want to explore, with at least one successful job run.
 * You have [admin permissions](../platform/manage-access/enterprise-permissions.md) in dbt to edit project settings or production environment settings.
 * You use Snowflake, BigQuery, Redshift, or Databricks as your data warehouse and can enable [query history permissions](#credential-permissions) or work with an admin to do so.
-  <!-- -->
   * For Snowflake users: You must have a Snowflake Enterprise-tier or higher subscription.
 
-## Enable query history in dbt[​](#enable-query-history-in-dbt "Direct link to Enable query history in dbt")
+## Enable query history in dbt
 
 New and existing production environments
 
@@ -61,7 +60,7 @@ To turn it back on, click **Test Permissions** in **Environment settings**. If t
 
 [![Enable query history in your environment settings.](/img/docs/collaborate/dbt-explorer/enable-query-history.png?v=2 "Enable query history in your environment settings.")](#)Enable query history in your environment settings.
 
-## Credential permissions[​](#credential-permissions "Direct link to Credential permissions")
+## Credential permissions
 
 This section explains the permissions and steps you need to enable and view model query history in Catalog.
 
@@ -72,7 +71,6 @@ The model query history feature uses the credentials in your production environm
 3. Click **Edit**.
 4. Click the sync icon in the **Connection profiles** section.
 5. Look at the information under **Deployment credentials**.
-   <!-- -->
    * Note: Querying query history entails warehouse costs / uses credits.
 
 [![Click the sync icon in the Connection profiles section.](/img/docs/dbt-platform/sync-icon.png?v=2 "Click the sync icon in the Connection profiles section.")](#)Click the sync icon in the Connection profiles section.
@@ -81,7 +79,7 @@ The model query history feature uses the credentials in your production environm
 
 6. Copy or cross reference those credential permissions with the warehouse permissions and grant your user the right permissions.
 
-### Snowflake model query history[​](#snowflake-model-query-history "Direct link to Snowflake model query history")
+### Snowflake model query history
 
 Model query history uses metadata tables available to [Snowflake Enterprise-tier](https://docs.snowflake.com/en/user-guide/intro-editions#enterprise-edition) accounts or higher: `QUERY_HISTORY` and `ACCESS_HISTORY`. The Snowflake user in the production environment must have the `GOVERNANCE_VIEWER` permission to view the data.
 
@@ -93,14 +91,14 @@ GRANT DATABASE ROLE SNOWFLAKE.GOVERNANCE_VIEWER TO ROLE <YOUR_DBT_CLOUD_DEPLOYME
 
 Without this grant, model query history won't display any data. For more information, refer to the [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/account-usage#enabling-other-roles-to-use-schemas-in-the-snowflake-database).
 
-### BigQuery model query history[​](#bigquery-model-query-history "Direct link to BigQuery model query history")
+### BigQuery model query history
 
 The model query history uses metadata from the [`INFORMATION_SCHEMA.JOBS` view](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs) in BigQuery. To access the metadata, the production environment user must have the correct [IAM role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.resourceViewer) or permission to access this data:
 
 * If you use a BigQuery provided role, we recommend `roles/bigquery.resourceViewer`.
 * If you use a custom role, ensure it includes the `bigquery.jobs.listAll permission`.
 
-### Redshift model query history[​](#redshift-model-query-history "Direct link to Redshift model query history")
+### Redshift model query history
 
 Model query history uses the `SYS_QUERY_HISTORY` and `SYS_QUERY_DETAIL` system views in Redshift. By default, users can only see their own queries in these views. To surface query history across all warehouse users, your database admin must grant the production environment credentials one of the following:
 
@@ -118,7 +116,7 @@ Model query history uses the `SYS_QUERY_HISTORY` and `SYS_QUERY_DETAIL` system v
 
 Without one of these, model query history won't display data from other users. For more information, refer to the [Redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_system-tables.html#c_visibility-of-data).
 
-#### Redshift considerations[​](#redshift-considerations "Direct link to Redshift considerations")
+#### Redshift considerations
 
 Redshift model query history is derived from physical table scans (`SYS_QUERY_DETAIL` where `step_name = 'scan'`). This means usage data reflects a high-quality signal rather than an exact query count.
 
@@ -130,7 +128,7 @@ Because Redshift expands regular views at execution time, scans are attributed t
 
 If your project relies heavily on views, usage may appear lower than expected. This is a known limitation of scan-based attribution rather than missing data.
 
-### Databricks model query history[​](#databricks-model-query-history "Direct link to Databricks model query history")
+### Databricks model query history
 
 Model query history uses two Unity Catalog system tables: `system.query.history` and `system.access.table_lineage`. Before granting access, confirm the following prerequisites are met:
 
@@ -154,7 +152,7 @@ note
 
 For more information, refer to the [Databricks Unity Catalog privileges documentation](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/privileges).
 
-#### Databricks considerations[​](#databricks-considerations "Direct link to Databricks considerations")
+#### Databricks considerations
 
 Keep the following in mind when using model query history with Databricks:
 
@@ -164,7 +162,7 @@ Keep the following in mind when using model query history with Databricks:
 * **Statement text encryption affects query filtering**. If statement text encryption is enabled in Databricks, `statement_text` in `system.query.history` is `NULL`. In this case, dbt test queries cannot be filtered and may be counted as user queries.
 * **Serverless compute lineage may be incomplete**. `system.query.history` includes queries from SQL warehouses and serverless compute, but lineage attribution for serverless executions may not always be captured.
 
-## View query history in Catalog[​](#view-query-history-in-catalog "Direct link to View query history in Catalog")
+## View query history in Catalog
 
 To enhance your discovery, you can view your model query history in various locations within Catalog:
 
@@ -172,7 +170,7 @@ To enhance your discovery, you can view your model query history in various loca
 * [View from Project lineage](#view-from-project-lineage)
 * [View from Model list](#view-from-model-list)
 
-### View from Performance charts[​](#view-from-performance-charts "Direct link to View from Performance charts")
+### View from Performance charts
 
 1. Navigate to Catalog by clicking **Catalog** in the navigation.
 2. In the main **Overview** page, click on **Performance** under the **Project details** section. Scroll down to view the **Most consumed models**.
@@ -186,7 +184,7 @@ To enhance your discovery, you can view your model query history in various loca
 
 [![View consumption queries over time for a given model.](/img/docs/collaborate/dbt-explorer/model-consumption-queries.png?v=2 "View consumption queries over time for a given model.")](#)View consumption queries over time for a given model.
 
-### View from Project lineage[​](#view-from-project-lineage "Direct link to View from Project lineage")
+### View from Project lineage
 
 1. To view your model in your project lineage, go to the main **Overview page** and click on **Project lineage.**
 2. In the lower left of your lineage, click on **Lenses** and select **Consumption queries**.
@@ -195,7 +193,7 @@ To enhance your discovery, you can view your model query history in various loca
 
 3. Your lineage should display a small purple box above each model, indicating the consumption query number. The number for each model represents the model consumption over the last 30 days.
 
-### View from Model list[​](#view-from-model-list "Direct link to View from Model list")
+### View from Model list
 
 1. To view a list of models, go to the main **Overview page**.
 2. In the left navigation, go to the **Resources** tab and click on **Models** to view the models list.

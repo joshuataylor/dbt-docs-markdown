@@ -1,6 +1,6 @@
 # About the Discovery API
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Every time dbt runs a project, it generates and stores information about the project. The metadata includes details about your project’s models, sources, and other nodes along with their execution results. With the dbt Discovery API, you can query this comprehensive information to gain a better understanding of your DAG and the data it produces.
 
@@ -17,23 +17,19 @@ You can query the dbt metadata:
 * At the [environment](../environments-in-dbt.md) level for both the latest state (use the `environment` endpoint) and historical run results (use `modelHistoricalRuns`) of a dbt project in production.
 * At the job level for results on a specific dbt job run for a given resource type, like `models` or `test`.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You must have a dbt [multi-tenant](../platform/about-platform/tenancy.md#multi-tenant) or [single tenant](../platform/about-platform/tenancy.md#single-tenant) account.
 * You must be on a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
 * Your projects must be on a dbt [release tracks](../dbt-versions/dbt-release-tracks.md) or dbt version 1.0 or later. Refer to [Upgrade dbt version in Cloud](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
-## What you can use the Discovery API for[​](#what-you-can-use-the-discovery-api-for "Direct link to What you can use the Discovery API for")
+## What you can use the Discovery API for
 
 Click the following tabs to learn more about the API's use cases, the analysis you can do, and the results you can achieve by integrating with it.
 
 To use the API directly or integrate your tool with it, refer to [Uses case and examples](./discovery-use-cases-and-examples.md) for detailed information.
 
-* Performance
-* Quality
-* Discovery
-* Governance
-* Development
+### Performance
 
 Use the API to look at historical information like model build time to determine the health of your dbt projects. Finding inefficiencies in orchestration configurations can help decrease infrastructure costs and improve timeliness. To learn more about how to do this, refer to [Performance](./discovery-use-cases-and-examples.md#performance).
 
@@ -41,9 +37,13 @@ You can use, for example, the [model timing](../deploy/run-visibility.md#model-t
 
 [![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")](#)Model timing visualization in dbt
 
+### Quality
+
 Use the API to determine if the data is accurate and up-to-date by monitoring test failures, source freshness, and run status. Accurate and reliable information is valuable for analytics, decisions, and monitoring to help prevent your organization from making bad decisions. To learn more about this, refer to [Quality](./discovery-use-cases-and-examples.md#quality).
 
 When used with [webhooks](../deploy/webhooks.md), it can also help with detecting, investigating, and alerting issues.
+
+### Discovery
 
 Use the API to find and understand dbt assets in integrated tools using information like model and metric definitions, and column information. For more details, refer to [Discovery](./discovery-use-cases-and-examples.md#discovery).
 
@@ -51,13 +51,17 @@ Data producers must manage and organize data for stakeholders, while data consum
 
 [![Data lineage produced by dbt](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Data lineage produced by dbt")](#)Data lineage produced by dbt
 
+### Governance
+
 Use the API to review who developed the models and who uses them to help establish standard practices for better governance. For more details, refer to [Governance](./discovery-use-cases-and-examples.md#governance).
+
+### Development
 
 Use the API to review dataset changes and uses by examining exposures, lineage, and dependencies. From the investigation, you can learn how to define and build more effective dbt projects. For more details, refer to [Development](./discovery-use-cases-and-examples.md#development).
 
 [![Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.")](#)Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.
 
-## Types of project state[​](#types-of-project-state "Direct link to Types of project state")
+## Types of project state
 
 You can query these two types of [project state](./project-state.md) at the environment level:
 
@@ -66,7 +70,7 @@ You can query these two types of [project state](./project-state.md) at the envi
 
 These states allow you to easily examine the difference between a model’s definition and its applied state so you can get answers to questions like, did the model run? or did the run fail? Applied models exist as a table/view in the data platform given their most recent successful run.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use cases and examples for the Discovery API](./discovery-use-cases-and-examples.md)
 * [Query the Discovery API](./discovery-querying.md)

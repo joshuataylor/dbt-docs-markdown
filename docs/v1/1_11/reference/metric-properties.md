@@ -5,8 +5,6 @@ Metrics define measurable quantities that you can query through the Semantic Lay
 * In a model using the *latest* YAML spec. Top-level `metrics:` list on a [model](./model-properties.md) that has semantic modeling enabled, alongside `semantic_model:` and `columns:`. Available in the dbt platform **Latest** release track and the dbt Fusion engine.
 * In the standalone *legacy* YAML spec. Refer to [Creating metrics](../docs/build/metrics-overview.md) for more information.
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -17,13 +15,13 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
-## Legacy spec (standalone YAML)[​](#legacy-spec-standalone-yaml "Direct link to Legacy spec (standalone YAML)")
+## Legacy spec (standalone YAML)
 
 Metrics are defined in a top-level `metrics:` key in standalone YAML. Type-specific settings go under `type_params`.
 
-### Available metric properties (legacy spec)[​](#available-metric-properties-legacy-spec "Direct link to Available metric properties (legacy spec)")
+### Available metric properties (legacy spec)
 
 | Property     | Type   | Required | Description                                                                                                                                                                                                                                                                                      |
 | ------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -35,13 +33,7 @@ Metrics are defined in a top-level `metrics:` key in standalone YAML. Type-speci
 | filter       | string | No       | MetricFlow filter expression (dimensions, entities, or other metrics).                                                                                                                                                                                                                           |
 | config       | object | No       | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [tags](./resource-configs/tags.md), [enabled](./resource-configs/enabled.md). |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Type-specific parameters (legacy spec)[​](#type-specific-parameters-legacy-spec "Direct link to Type-specific parameters (legacy spec)")
+### Type-specific parameters (legacy spec)
 
 The following parameters apply by metric type under `type_params`:
 

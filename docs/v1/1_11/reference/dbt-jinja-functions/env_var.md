@@ -21,9 +21,7 @@ profile:
 
 If the `DBT_USER` and `DBT_ENV_SECRET_PASSWORD` environment variables are present when dbt is invoked, dbt will use these variables in your connection configuration — for example, in `profiles.yml` when running locally, or in [connection profiles](../../docs/platform/about-profiles.md) if you have a dbt platform project. If your project references environment variables that aren't set, dbt will raise a compilation error.
 
-<!-- -->
-
-### Converting env\_vars[​](#converting-env_vars "Direct link to Converting env_vars")
+### Converting env\_vars
 
 Environment variables are always strings. When using them for configurations that expect integers or booleans, you must explicitly convert the value to the correct type.
 
@@ -49,7 +47,7 @@ Quoting, curly brackets, & you
 
 Be sure to quote the entire Jinja string. Otherwise, the YAML parser will be confused by the Jinja curly brackets.
 
-### Default values[​](#default-values "Direct link to Default values")
+### Default values
 
 You can also provide a default value as a second argument:
 
@@ -64,7 +62,7 @@ models:
 
 This can be useful to avoid compilation errors when the environment variable isn't available.
 
-### Secrets[​](#secrets "Direct link to Secrets")
+### Secrets
 
 For certain configurations, you can use "secret" env vars. Any env var named with the prefix `DBT_ENV_SECRET` will be:
 
@@ -84,7 +82,7 @@ host: "{{ env_var('DBT_ENV_SECRET_HOST') }}"
 host: "www.{{ env_var('DBT_ENV_SECRET_HOST_DOMAIN') }}.com/{{ env_var('DBT_ENV_SECRET_HOST_PATH') }}"
 ```
 
-### Custom metadata[​](#custom-metadata "Direct link to Custom metadata")
+### Custom metadata
 
 Any env var named with the prefix `DBT_ENV_CUSTOM_ENV_` will be included in two places, with its prefix-stripped name as the key:
 
@@ -111,7 +109,7 @@ Compiles to:
 select 1 as id
 ```
 
-### dbt platform usage[​](#dbt-platform-usage "Direct link to dbt platform usage")
+### dbt platform usage
 
 If you're using dbt platform, environment variables must be:
 

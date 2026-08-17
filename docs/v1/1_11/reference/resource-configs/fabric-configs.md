@@ -2,16 +2,15 @@
 
 This page describes configuration options specific to the `dbt-fabric` adapter for Microsoft Fabric Data Warehouse. It outlines supported materializations, incremental strategies (including [merge](#merge) and [microbatch](#microbatch)), cross-warehouse references, warehouse snapshots, and profile setup.
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
 Ephemeral materialization is not supported due to T-SQL not supporting nested CTEs. It may work in some cases when you're working with very simple ephemeral models.
 
-### Tables[​](#tables "Direct link to Tables")
+### Tables
 
 Tables are the default materialization in dbt-fabric. When you configure a model as a table, dbt will create or replace the table in Fabric Data Warehouse on each run.
 
-* Model config
-* Project config
+### Model config
 
 models/example.sql
 
@@ -26,6 +25,8 @@ select *
 from ...
 ```
 
+### Project config
+
 dbt\_project.yml
 
 ```yaml
@@ -38,7 +39,7 @@ models:
 
 > **Limitation:** Nested CTE aren't supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
 
-## Table Clone[​](#table-clone "Direct link to Table Clone")
+## Table Clone
 
 The `table_clone` materialization creates a physical copy of an existing table using Fabric’s cloning capabilities. This is useful for versioning, branching, or snapshot-like workflows.
 
@@ -53,7 +54,7 @@ select * from staging_table
 * Cloning preserves the schema and data state at the time of creation.
 * Ideal for scenarios requiring fast, zero-copy duplication for testing or rollback.
 
-## Seeds[​](#seeds "Direct link to Seeds")
+## Seeds
 
 By default, `dbt-fabric` will attempt to insert seed files in batches of 400 rows. If this exceeds Microsoft Fabric Data Warehouse 2100 parameter limit, the adapter will automatically limit to the highest safe value possible.
 
@@ -66,7 +67,7 @@ vars:
   max_batch_size: 200 # Any integer less than or equal to 2100 will do.
 ```
 
-## Views[​](#views "Direct link to Views")
+## Views
 
 You can create views using the `view` materialization:
 
@@ -85,23 +86,23 @@ models:
 
 > **Limitation:** Nested CTEs (Common Table Expressions) are not supported in model materialization. Models using multiple nested CTEs may fail during compilation or execution.
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 Columns in source tables can not have any constraints. If, for example, any column has a `NOT NULL` constraint, an error will be thrown.
 
-## Indexes[​](#indexes "Direct link to Indexes")
+## Indexes
 
 Indexes are not supported by Microsoft Fabric Data Warehouse. Any Indexes provided as a configuration is ignored by the adapter.
 
-## Grants with auto provisioning[​](#grants-with-auto-provisioning "Direct link to Grants with auto provisioning")
+## Grants with auto provisioning
 
 Grants with auto provisioning is not supported by Microsoft Fabric Data Warehouse at this time.
 
-## Incremental models[​](#incremental-models "Direct link to Incremental models")
+## Incremental models
 
 Incremental materializations are supported with multiple strategies. In **dbt-fabric**, the **default strategy is `merge`**, introduced in v1.9.7. Other supported strategies include `append`, `delete+insert`, and `microbatch`.
 
-### Merge (default)[​](#merge-default "Direct link to Merge (default)")
+### Merge (default)
 
 The `merge` strategy automatically updates existing records and inserts new ones based on the configured `unique_key`.
 
@@ -118,7 +119,7 @@ select * from source_table
 {% endif %}
 ```
 
-### Append[​](#append "Direct link to Append")
+### Append
 
 Appends new records to the existing dataset.
 
@@ -132,7 +133,7 @@ Appends new records to the existing dataset.
 select * from new_data
 ```
 
-### Delete+Insert[​](#deleteinsert "Direct link to Delete+Insert")
+### Delete+Insert
 
 Deletes and re-inserts based on `unique_key`.
 
@@ -147,7 +148,7 @@ Deletes and re-inserts based on `unique_key`.
 select * from updated_data
 ```
 
-### Microbatch[​](#microbatch "Direct link to Microbatch")
+### Microbatch
 
 The `microbatch` strategy processes data in bounded time intervals using an event timestamp column.
 
@@ -164,7 +165,7 @@ The `microbatch` strategy processes data in bounded time intervals using an even
 select * from raw_events
 ```
 
-#### Notes[​](#notes "Direct link to Notes")
+#### Notes
 
 * [`event_time`](./event-time.md) must be a valid timestamp column.
 * dbt processes each batch independently, allowing efficient incremental refresh of large time-series datasets.
@@ -172,11 +173,11 @@ select * from raw_events
 
 For more details, see [Incremental models](../../docs/build/incremental-models.md).
 
-## Permissions[​](#permissions "Direct link to Permissions")
+## Permissions
 
 The Microsoft Entra identity (user or service principal) must be a Fabric Workspace admin to work on the database level at this time. Fine grain access control will be incorporated in the future.
 
-## Cross-warehouse references[​](#cross-warehouse-references "Direct link to Cross-warehouse references")
+## Cross-warehouse references
 
 The dbt-fabric adapter supports cross-warehouse queries using `source()` or `ref()` macros.
 
@@ -201,7 +202,7 @@ sources:
 
 > To use cross-warehouse references or warehouse snapshots, ensure the identity configured here has access to all referenced Fabric Warehouses.
 
-## Warehouse snapshots[​](#warehouse-snapshots "Direct link to Warehouse snapshots")
+## Warehouse snapshots
 
 Microsoft Fabric warehouse snapshots are read-only copies of your warehouse at a specific moment, kept for up to 30 days. They allow analysts query a stable dataset, even while ELT processes are updating the warehouse. By moving the snapshot’s timestamp forward, changes are applied all at once (atomically).
 

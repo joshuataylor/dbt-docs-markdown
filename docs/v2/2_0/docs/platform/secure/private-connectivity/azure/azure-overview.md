@@ -1,6 +1,6 @@
 # Azure private connectivity
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,7 +15,7 @@ Azure Private Link enables secure, private connectivity between dbt and your Azu
 
 For more details, refer to the [Azure Private Link documentation](https://learn.microsoft.com/en-us/azure/private-link/).
 
-## Azure private connectivity matrix[​](#azure-private-connectivity-matrix "Direct link to Azure private connectivity matrix")
+## Azure private connectivity matrix
 
 The following charts outline private connectivity options for Azure deployments of dbt ([multi-tenant and single-tenant](../../../about-platform/tenancy.md)).
 
@@ -32,7 +32,7 @@ These tables indicate whether private connectivity can be established to specifi
 
 ***
 
-### Connecting to the dbt platform (Ingress)[​](#connecting-to-the-dbt-platform-ingress "Direct link to Connecting to the dbt platform (Ingress)")
+### Connecting to the dbt platform (Ingress)
 
 Your services can connect to dbt over private connectivity using the dbt-provisioned model. In this case, dbt is the service producer and you are the consumer.
 
@@ -41,15 +41,9 @@ Your services can connect to dbt over private connectivity using the dbt-provisi
 | Private dbt access             | ❌ | ✅ |
 | Dual access (public + private) | ❌ | ✅ |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 ***
 
-### Connecting the dbt platform to managed services (Egress)[​](#connecting-the-dbt-platform-to-managed-services-egress "Direct link to Connecting the dbt platform to managed services (Egress)")
+### Connecting the dbt platform to managed services (Egress)
 
 dbt can establish private connections to managed data platforms and cloud-native services.
 
@@ -63,15 +57,9 @@ dbt can establish private connections to managed data platforms and cloud-native
 | Azure Fabric [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") | ✅ | ✅ | [View](./azure-fabric.md)     |
 | Teradata VantageCloud                                                                                                                                  | ✅ | ✅ | [View](./azure-teradata.md)   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 ***
 
-### Connecting the dbt platform to self-hosted services (Egress)[​](#connecting-the-dbt-platform-to-self-hosted-services-egress "Direct link to Connecting the dbt platform to self-hosted services (Egress)")
+### Connecting the dbt platform to self-hosted services (Egress)
 
 All of the services below share a common Private Link setup guide — backend configuration varies by service. Self-hosted connections use the customer-provisioned model — you are the service producer and dbt is the consumer.
 
@@ -87,14 +75,8 @@ All of the services below share a common Private Link setup guide — backend co
 | Starburst / Trino        | ✅ | ✅ |
 | Teradata (self-hosted)   | ✅ | ✅ |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 If you have questions about whether your specific architecture is supported, [contact dbt Support](../../../../../community/resources/getting-help.md#dbt-cloud-support).
 
-## Cross-region private connections[​](#cross-region-private-connections "Direct link to Cross-region private connections")
+## Cross-region private connections
 
 dbt Labs has globally connected private networks specifically used to host private endpoints, which are connected to dbt instance environments. This connectivity allows dbt environments to connect to any supported region from any dbt instance within the same cloud provider network. To ensure security, access to these endpoints is protected by security groups, network policies, and application connection safeguards, in addition to the authentication and authorization mechanisms provided by each of the connected platforms.

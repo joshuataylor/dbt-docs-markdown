@@ -4,15 +4,15 @@ Whether it's `dbt-core`, adapters, packages, or this very documentation site, co
 
 Have you seen things in other projects that you like, and think we could learn from? [Open a discussion on the dbt Community Forum](https://discourse.getdbt.com), or start a conversation in the [dbt Community Slack](https://www.getdbt.com/community/join-the-community) (for example: `#community-strategy`, `#dbt-core-development`, `#package-ecosystem`, `#adapter-ecosystem`). We always appreciate hearing from you!
 
-## Principles[​](#principles "Direct link to Principles")
+## Principles
 
-### dbt is a team sport[​](#dbt-is-a-team-sport "Direct link to dbt is a team sport")
+### dbt is a team sport
 
 We all build dbt together -- whether you write code or contribute your ideas. By using dbt, you're invested in the future of the tool, and have an active role in pushing forward the standard of analytics engineering. You already benefit from using code and documentation contributed by community members. Contributing to the dbt community is your way to be an active participant in the thing we're all creating together.
 
 There's a very practical reason, too: building in public prioritizes our collective knowledge and experience over any one person's. We don't have experience using every database, operating system, security environment, ... We rely on the community of users to hone our product capabilities and documentation to the wide variety of contexts in which it operates. In this way, dbt gets to be the handiwork of thousands, rather than a few dozen.
 
-### We take seriously our role as maintainers of a standard[​](#we-take-seriously-our-role-as-maintainers-of-a-standard "Direct link to We take seriously our role as maintainers of a standard")
+### We take seriously our role as maintainers of a standard
 
 As a standard, dbt must be reliable and consistent. Our first priority is ensuring the continued high quality of existing dbt capabilities before we introduce net-new capabilities.
 
@@ -31,7 +31,7 @@ In the meantime — we'll do our best to respond to new issues with:
 * Alternatives and workarounds
 * When possible, pointers to code that would aid a community contributor
 
-### Initiative is everything[​](#initiative-is-everything "Direct link to Initiative is everything")
+### Initiative is everything
 
 Given that we, as maintainers, will not be able to resolve every bug or flesh out every feature request, we empower you, as a community member, to initiate a change.
 
@@ -43,9 +43,9 @@ Given that we, as maintainers, will not be able to resolve every bug or flesh ou
 
 Sometimes, this can feel like shouting into the void, especially if you aren't met with an immediate response. We promise that there are dozens (if not hundreds) of folks who will read your comment, including us as maintainers. It all adds up to a real difference.
 
-## Practicalities[​](#practicalities "Direct link to Practicalities")
+## Practicalities
 
-### Discussions[​](#discussions "Direct link to Discussions")
+### Discussions
 
 A discussion is best suited to propose a Big Idea, such as brand-new capability in the Core framework. Anyone can open a discussion, comment on an existing one, or reply in a thread.
 
@@ -53,21 +53,21 @@ When you open a new discussion, you might be looking for validation from other m
 
 If, over the course of a discussion, we reach a consensus on specific elements of a proposed design, we can open new implementation issues that reference the discussion for context. Those issues will connect desired user outcomes to specific implementation details, acceptance testing, and remaining questions that need answering.
 
-### Issues[​](#issues "Direct link to Issues")
+### Issues
 
 An issue could be a bug you've identified while using the product or reading the documentation. It could also be a specific idea you've had for a narrow extension of existing functionality.
 
-#### Best practices for issues[​](#best-practices-for-issues "Direct link to Best practices for issues")
+#### Best practices for issues
 
 * Issues are **not** for support / troubleshooting / debugging help. Please see [dbt support](../../docs/dbt-support.md) for more details and suggestions on how to get help.
 * Always search existing issues first, to see if someone else had the same idea / found the same bug you did.
 * Many dbt repositories offer templates for creating issues, such as reporting a bug or requesting a new feature. If available, please select the relevant template and fill it out to the best of your ability. This information helps us (and others) understand your issue.
 
-##### You've found an existing issue that interests you. What should you do?[​](#youve-found-an-existing-issue-that-interests-you-what-should-you-do "Direct link to You've found an existing issue that interests you. What should you do?")
+##### You've found an existing issue that interests you. What should you do?
 
 Comment on it! Explain that you've run into the same bug, or had a similar idea for a new feature. If the issue includes a detailed proposal for a change, say which parts of the proposal you find most compelling, and which parts give you pause.
 
-##### You've opened a new issue. What can you expect to happen?[​](#youve-opened-a-new-issue-what-can-you-expect-to-happen "Direct link to You've opened a new issue. What can you expect to happen?")
+##### You've opened a new issue. What can you expect to happen?
 
 In our most critical repositories (such as `dbt-core`), our goal is to respond to new issues as soon as possible. This initial response will often be a short acknowledgement that the maintainers are aware of the issue, signalling our perception of its urgency. Depending on the nature of your issue, it might be well suited to an external contribution, from you or another community member.
 
@@ -82,7 +82,7 @@ We'll do our best to explain the open questions or complexity, and when / why we
 
 **Automation that can help us:** In many repositories, we use a bot that marks issues as stale if they haven't had any activity for 180 days. This helps us keep our backlog organized and up-to-date. We encourage you to comment on older open issues that you're interested in, to keep them from being marked stale. You're also always welcome to comment on closed issues to say that you're still interested in the proposal.
 
-#### Issue labels[​](#issue-labels "Direct link to Issue labels")
+#### Issue labels
 
 In all likelihood, the maintainer who responds will also add a number of labels. Not all of these labels are used in every repository.
 
@@ -100,15 +100,9 @@ Many labels follow a namespaced `facet:value` model, where each facet answers on
 | `status:`     | `status:triage`, `status:needs-repro`, `status:has-repro`, `status:ready-for-review`                                              | Where the issue sits in the workflow.                                                                                                                                         |
 | `resolution:` | `resolution:wontfix`                                                                                                              | Why an issue was closed without a code change.                                                                                                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Automation labels new issues for triage — currently with both the faceted `status:triage` and the legacy `triage` label while it migrates to the faceted set — to mark them as awaiting a maintainer's first response. Older issues may also carry previous, un-namespaced labels such as `bug`, `enhancement`, `good_first_issue`, `help_wanted`, `duplicate`, `stale`, and `wontfix`. These map onto the faceted labels above (`bug` → `type:bug`, `enhancement` → `type:feature`, `good_first_issue` → `type:good-first-issue`, `wontfix` → `resolution:wontfix`, and so on) and remain in place for continuity. You may see either set while the transition settles.
 
-### Pull requests[​](#pull-requests "Direct link to Pull requests")
+### Pull requests
 
 **Every PR should be associated with an issue.** Why? Before you spend a lot of time working on a contribution, we want to make sure that your proposal will be accepted. You should open an issue first, describing your desired outcome and outlining your planned change. If you've found an older issue that's already open, comment on it with an outline for your planned implementation *before* putting in the work to open a pull request.
 
@@ -128,16 +122,16 @@ Automation labels new issues for triage — currently with both the faceted `sta
 * **Changelog:** In projects that include a number of changes in each release, we need a reliable way to signal what's been included. The mechanism for this will vary by repository, so keep an eye out for notes about how to update the changelog.
 * **Semver label:** Some repositories require every pull request to carry exactly one `semver:patch` (bug fixes and other safe changes) or `semver:minor` (new, non-breaking features) label; `semver:major` isn't accepted. Where this applies, CI enforces it.
 
-### Inclusion in release versions[​](#inclusion-in-release-versions "Direct link to Inclusion in release versions")
+### Inclusion in release versions
 
 #### dbt Core v1.x
 
 Both bug fixes and backwards-compatible new features will be included in the [next minor release of dbt Core](../../docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning). Fixes for regressions and net-new bugs that were present in the minor version's original release will be backported to versions with [active support](../../docs/dbt-versions.md). Other bug fixes may be backported when we have high confidence that they're narrowly scoped and won't cause unintended side effects.
 
-#### dbt Core 2.0[​](#-1 "Direct link to -1")
+#### dbt Core 2.0
 
 [dbt Core 2.0](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
 
-#### dbt Fusion engine[​](#-2 "Direct link to -2")
+#### dbt Fusion engine
 
 The dbt Fusion engine is released continuously, and it contains a superset of the code and functionality available in dbt Core 2.0. When Core v2.0.0 is released (General Availability), the version numbers for Core v2 and Fusion will converge.

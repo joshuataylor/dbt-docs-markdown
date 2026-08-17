@@ -1,10 +1,12 @@
 # About dbt self-hosted installations
 
-Local developmentⓘ
+Local development
 
 You can run dbt locally from your terminal with the dbt CLI, or from your code editor with the dbt VS Code extension. Local development lets you build, test, and run dbt projects from your own machine while connecting to your data platform.
 
-## Install dbt[​](#install-dbt "Direct link to Install dbt")
+(Applies to dbt v2.0 and later)
+
+## Install dbt
 
 Install dbt locally to run dbt commands from your terminal. You can install it with `pip`:
 
@@ -20,13 +22,11 @@ curl -fsSL https://public.cdn.getdbt.com/fs/install/install.sh | sh
 
 For full installation instructions, including adapter-specific setup, refer to [Install dbt](./install-dbt.md).
 
-<!-- -->
-
-## dbt VS Code extension[​](#dbt-vs-code-extension "Direct link to dbt VS Code extension")
+## dbt VS Code extension
 
 The [dbt VS Code extension](../about-dbt-extension.md) lets you develop dbt projects from VS Code, Cursor, or Windsurf. Use the extension if you want an editor-based local development experience. For installation and setup, refer to the [extension docs](../about-dbt-extension.md).
 
-## dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+## dbt Wizard
 
 [dbt Wizard](../dbt-ai/wizard-quickstart.md) is a natural next step for local dbt development. It works with dbt and adds an AI agent that understands your full project through dbt's [native metadata engine](../dbt-ai/about-dbt-ai.md), a structured index of your [lineage](../explore/explore-projects.md), model health, test coverage, and semantic definitions.
 
@@ -36,7 +36,7 @@ The [dbt VS Code extension](../about-dbt-extension.md) lets you develop dbt proj
 
 For data practitioners, dbt Wizard adds an AI layer that knows your project, not just your code. Refer to the [dbt Wizard quickstart](../dbt-ai/wizard-quickstart.md) to get started.
 
-## dbt MCP server[​](#dbt-mcp-server "Direct link to dbt MCP server")
+## dbt MCP server
 
 The dbt MCP server connects your local dbt project to AI assistants using the [Model Context Protocol](https://modelcontextprotocol.io/). It works with dbt and requires no repository clone.
 
@@ -47,12 +47,11 @@ The dbt MCP server connects your local dbt project to AI assistants using the [M
 
 [Connect dbt MCP server to your local project](../dbt-ai/mcp-quickstart-cli.md).
 
-## Licensing info[​](#licensing-info "Direct link to Licensing info")
+## Licensing info
 
 dbt framework has two distributions which can both be installed locally for free, powered by a single engine:
 
 * dbt Core is completely open-source and the code behind Fusion. Its code and binary are subject to the Apache 2.0 license.
-  <!-- -->
   * Includes dbt Core v1.x and dbt Core 2.0
 * dbt Fusion extends dbt Core with additional advanced capabilities — some are free to use, and other premium features (under proprietary code) are unlocked with a free login or payment method.
 

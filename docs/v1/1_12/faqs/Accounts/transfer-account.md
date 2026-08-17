@@ -9,12 +9,6 @@ You can transfer your dbt [access control](../../docs/platform/manage-access/abo
 | **Enterprise or Enterprise+**              | Account admins can add users to, or remove users from a group with Account Admin permissions.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **If all account owners left the company** | If the account owner has left your organization, you will need to work with *your* IT department to have incoming emails forwarded to the new account owner. Once your IT department has redirected the emails, you can request to reset the user password. Once you log in, you can change the email on the Profile page when you replace `YOUR_ACCESS_URL` with the [appropriate Access URL](../../docs/platform/about-platform/access-regions-ip-addresses.md) for your region and plan: `https://YOUR_ACCESS_URL/settings/profile`. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 When you make any account owner and email changes:
 
 * The new email address *must* be verified through our email verification process.

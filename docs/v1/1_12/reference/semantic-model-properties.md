@@ -2,8 +2,6 @@
 
 Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](./model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](../docs/build/semantic-models.md).
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -14,7 +12,9 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-## Latest spec (model YAML)[​](#latest-spec-model-yaml "Direct link to Latest spec (model YAML)")
+(Applies to dbt v1.12 and later)
+
+## Latest spec (model YAML)
 
 In the latest spec, a model defines a semantic model with the `semantic_model` key, and that value can be:
 
@@ -23,7 +23,7 @@ In the latest spec, a model defines a semantic model with the `semantic_model` k
 
 Dimensions and entities are defined with a column.
 
-### Available semantic model properties (latest spec)[​](#available-semantic-model-properties-latest-spec "Direct link to Available semantic model properties (latest spec)")
+### Available semantic model properties (latest spec)
 
 | Property / location              | Type              | Required                              | Description                                                                                                                                                                                                                  |
 | -------------------------------- | ----------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -38,13 +38,7 @@ Dimensions and entities are defined with a column.
 | `derived_semantics` (top-level)  | object            | No                                    | Optional dimensions and entities with `expr`.                                                                                                                                                                                |
 | `metrics` (top-level)            | array             | No                                    | Metrics derived from this semantic model; list is alongside (not under) `semantic_model`.                                                                                                                                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Minimal structure example[​](#minimal-structure-example "Direct link to Minimal structure example")
+### Minimal structure example
 
 ```yaml
 models:
@@ -81,7 +75,7 @@ models:
         expr: optional_expr
 ```
 
-### Example with boolean instead of mapping[​](#example-with-boolean-instead-of-mapping "Direct link to Example with boolean instead of mapping")
+### Example with boolean instead of mapping
 
 Same layout as previous example, but with a boolean instead of a `semantic_model:` mapping (semantic model name defaults to the model name):
 

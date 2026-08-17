@@ -2,27 +2,13 @@
 
 💡Did you know\...
 
-Available from dbt v
-
-<!-- -->
-
-1.8
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
+Available from dbt v1.8 or with the [dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
 
 Historically, dbt's test coverage was confined to [“data” tests](./data-tests.md), assessing the quality of input data or resulting datasets' structure. However, these tests could only be executed *after* building a model.
 
 There is an additional type of test in dbt: unit tests. In software programming, unit tests validate small portions of your functional code, and they work much the same way here. Unit tests allow you to validate your SQL modeling logic on a small set of static inputs *before* you materialize your full model in production. Unit tests enable test-driven development, benefiting developer efficiency and code reliability.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * We currently only support unit testing SQL models.
 * We currently only support adding unit tests to models in your *current* project.
@@ -36,7 +22,7 @@ There is an additional type of test in dbt: unit tests. In software programming,
 
 Unit tests are discovered from `model-paths` (by default, the `models/` directory), so define them alongside your models in a `.yml` file under your `model-paths`. Don't define unit test YAML in the `tests/` directory, which is reserved for [data tests](./data-tests.md).
 
-#### Adapter-specific caveats[​](#adapter-specific-caveats "Direct link to Adapter-specific caveats")
+#### Adapter-specific caveats
 
 * You must specify all fields in a BigQuery `STRUCT` in a unit test. You cannot use only a subset of fields in a `STRUCT`.
 * Redshift customers need to be aware of a [limitation when building unit tests](../../reference/resource-configs/redshift-configs.md#unit-test-limitations) that requires a workaround.
@@ -48,13 +34,11 @@ Check out our [Unit tests on-demand course](https://learn.getdbt.com/learn/cours
 
 Read the [reference doc](../../reference/resource-properties/unit-tests.md) for more details about formatting your unit tests.
 
-### When to add a unit test to your model[​](#when-to-add-a-unit-test-to-your-model "Direct link to When to add a unit test to your model")
+### When to add a unit test to your model
 
 You should unit test a model:
 
 * When your SQL contains complex logic:
-
-  <!-- -->
 
   * Regex
   * Date math
@@ -74,11 +58,11 @@ You should unit test a model:
 
 * Models with high "criticality" (public, contracted models or models directly upstream of an exposure).
 
-### When to run unit tests[​](#when-to-run-unit-tests "Direct link to When to run unit tests")
+### When to run unit tests
 
 dbt Labs strongly recommends only running unit tests in development or CI environments. Since the inputs of the unit tests are static, there's no need to use additional compute cycles running them in production. Use them in development for a test-driven approach and CI to ensure changes don't break them.
 
-Use the [resource type](../../reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the `DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
+Use the [resource type](../../reference/global-configs/resource-type.md) flag `--exclude-resource-type` or the (Applies to dbt v1.11 and later) `DBT_ENGINE_EXCLUDE_RESOURCE_TYPES` environment variable to exclude unit tests from your production builds and save compute.
 
 To run only unit tests on demand, use the `test_type` selector — this works across all engines (dbt Core and Fusion):
 
@@ -86,7 +70,7 @@ To run only unit tests on demand, use the `test_type` selector — this works ac
 dbt test --select "test_type:unit"
 ```
 
-## Unit testing a model[​](#unit-testing-a-model "Direct link to Unit testing a model")
+## Unit testing a model
 
 This example creates a new `dim_customers` model with a field `is_valid_email_address` that calculates whether or not the customer’s email is valid:
 
@@ -290,7 +274,7 @@ dbt test --select test_is_valid_email_address
 
 Your model is now ready for production! Adding this unit test helped catch an issue with the SQL logic *before* you materialized `dim_customers` in your warehouse and will better ensure the reliability of this model in the future.
 
-## Unit testing incremental models[​](#unit-testing-incremental-models "Direct link to Unit testing incremental models")
+## Unit testing incremental models
 
 When configuring your unit test, you can override the output of macros, vars, or environment variables. This enables you to unit test your incremental models in "full refresh" and "incremental" modes.
 
@@ -368,7 +352,7 @@ unit_tests:
 
 There is currently no way to unit test whether the dbt framework inserted/merged the records into your existing model correctly, but [we're investigating support for this in the future](https://github.com/dbt-labs/dbt-core/issues/8664).
 
-## Unit testing a model that depends on ephemeral model(s)[​](#unit-testing-a-model-that-depends-on-ephemeral-models "Direct link to Unit testing a model that depends on ephemeral model(s)")
+## Unit testing a model that depends on ephemeral model(s)
 
 If you want to unit test a model that depends on an ephemeral model, you must use `format: sql` for that input.
 
@@ -386,7 +370,7 @@ unit_tests:
         - {id: 1, first_name: emily}
 ```
 
-## Unit test exit codes[​](#unit-test-exit-codes "Direct link to Unit test exit codes")
+## Unit test exit codes
 
 Unit test successes and failures are represented by two exit codes:
 
@@ -397,7 +381,7 @@ Exit codes differ from data test success and failure outputs because they don't 
 
 Learn about [exit codes](../../reference/exit-codes.md) for more information.
 
-## Additional resources[​](#additional-resources "Direct link to Additional resources")
+## Additional resources
 
 * [Unit testing reference page](../../reference/resource-properties/unit-tests.md)
 * [Supported data formats for mock data](../../reference/resource-properties/data-formats.md)

@@ -4,11 +4,7 @@ Unit tests are designed to test for the expected *values*, not for the data type
 
 How you specify input and expected values in your unit test YAML definitions are largely consistent across data warehouses, with some variation for more complex data types. The following are platform-specific data types:
 
-* Snowflake
-* BigQuery
-* Redshift
-* Spark
-* Postgres
+### Snowflake
 
 ```yml
 
@@ -34,6 +30,8 @@ unit_tests:
            int_array_field: [1, 2, 3]
            binary_field: 19E1FFDCCB6CDEE788BF631C1C4905D1
 ```
+
+### BigQuery
 
 ```yml
 
@@ -63,6 +61,8 @@ unit_tests:
            # It's not currently possible to use only a subset of columns in a 'struct'
 ```
 
+### Redshift
+
 ```yml
 
 unit_tests:
@@ -82,6 +82,8 @@ unit_tests:
 ```
 
 Currently, the `array` is not supported.
+
+### Spark
 
 ```yml
 
@@ -103,6 +105,8 @@ unit_tests:
            map_field: 'map("10", "t", "15", "f", "20", NULL)'
            named_struct_field: 'named_struct("a", 1, "b", 2, "c", 3)'
 ```
+
+### Postgres
 
 ```yml
 

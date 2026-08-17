@@ -1,8 +1,6 @@
 # Configure AWS PrivateLink for Postgres
 
-dbt platform | Enterprise+ⓘ
-
-<!-- -->
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -15,11 +13,11 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 A Postgres database, hosted either in AWS or in a properly connected on-prem data center, can be accessed through a private network connection using AWS Interface-type PrivateLink. The type of Target Group connected to the Network Load Balancer (NLB) may vary based on the location and type of Postgres instance being connected, as explained in the following steps.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Postgres<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Postgres) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
-## Configuring Postgres interface-type PrivateLink[​](#configuring-postgres-interface-type-privatelink "Direct link to Configuring Postgres interface-type PrivateLink")
+## Configuring Postgres interface-type PrivateLink
 
-### 1. Provision AWS resources[​](#1-provision-aws-resources "Direct link to 1. Provision AWS resources")
+### 1. Provision AWS resources
 
 Creating an Interface VPC PrivateLink connection requires creating multiple AWS resources in the account containing, or connected to, the Postgres instance:
 
@@ -65,7 +63,7 @@ We highly recommend cross-zone load balancing for your NLB or Target Group; some
 
 * [Enabling cross-zone load balancing for a load balancer or target group](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#target-group-cross-zone)
 
-### 2. Grant dbt AWS account access to the VPC endpoint service[​](#2-grant-dbt-aws-account-access-to-the-vpc-endpoint-service "Direct link to 2. Grant dbt AWS account access to the VPC endpoint service")
+### 2. Grant dbt AWS account access to the VPC endpoint service
 
 On the provisioned VPC endpoint service, click the **Allow principals** tab. Click **Allow principals** to grant access. Enter the ARN of the root user in the appropriate production AWS account and save your changes.
 
@@ -73,13 +71,13 @@ On the provisioned VPC endpoint service, click the **Allow principals** tab. Cli
 
 [![Enter ARN](/img/docs/dbt-platform/privatelink-allow-principals.png?v=2 "Enter ARN")](#)Enter ARN
 
-### 3. Obtain VPC endpoint service name[​](#3-obtain-vpc-endpoint-service-name "Direct link to 3. Obtain VPC endpoint service name")
+### 3. Obtain VPC endpoint service name
 
 Once the VPC Endpoint Service is provisioned, you can find the service name in the AWS console by navigating to **VPC** → **Endpoint Services** and selecting the appropriate endpoint service. You can copy the service name field value and include it in your communication to dbt support.
 
 [![Get service name field value](/img/docs/dbt-platform/privatelink-endpoint-service-name.png?v=2 "Get service name field value")](#)Get service name field value
 
-### 4. Submit your request to dbt Support[​](#4-submit-your-request-to-dbt-support "Direct link to 4. Submit your request to dbt Support")
+### 4. Submit your request to dbt Support
 
 Add the required information to the template below and submit your request to [dbt Support](mailto:support@getdbt.com):
 
@@ -95,17 +93,15 @@ Subject: New Multi-Tenant PrivateLink Request
 - dbt AWS multi-tenant environment (US, EMEA, AU, JP):
 ```
 
-<!-- -->
-
 dbt Labs will work on your behalf to complete the private connection setup. Please allow 3-5 business days for this process to complete. Support will contact you when the endpoint is available.
 
-### 5. Accept the connection request[​](#5-accept-the-connection-request "Direct link to 5. Accept the connection request")
+### 5. Accept the connection request
 
 When you receive notification that the resources are provisioned within the dbt environment, you must accept the endpoint connection (unless the VPC endpoint service is set to auto-accept connection requests). You can accept requests through the AWS console, as shown below, or through the AWS CLI.
 
 [![Accept the connection request](/img/docs/dbt-platform/platform-configuring-dbt-platform/accept-request.png?v=2 "Accept the connection request")](#)Accept the connection request
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once dbt Support completes the configuration, you can start creating new connections using PrivateLink.
 
@@ -117,11 +113,11 @@ Once dbt Support completes the configuration, you can start creating new connect
 6. Configure the remaining data platform details.
 7. Test your connection and save it.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If the PrivateLink endpoint has been provisioned and configured in dbt but connectivity is still failing, check the following in your networking setup to ensure requests and responses can be successfully routed between dbt and the backing service.
 
-### Configuration[​](#configuration "Direct link to Configuration")
+### Configuration
 
 Start with the configuration:
 
@@ -143,7 +139,7 @@ Check that *Cross-zone load balancing* is enabled for your NLB (check the **Attr
 
 If all the above check out, it may be possible that requests are not routing correctly within the private network. This could be due to a misconfiguration in the VPCs routing tables or access control lists. Review these settings with your network administrator to ensure that requests can be routed from the VPC Endpoint Service to the backing service and that the response can be returned to the VPC Endpoint Service. One way to test this is to create a VPC endpoint in another VPC in your network to test that connectivity is working independent of dbt's connection.
 
-### Monitoring[​](#monitoring "Direct link to Monitoring")
+### Monitoring
 
 To help isolate connection issues over a PrivateLink connection from dbt, there are a few monitoring sources that can be used to verify request activity. Requests must first be sent to the endpoint to see anything in the monitoring. Contact dbt Support to understand when connection testing occurred or request new connection attempts. Use these times to correlate with activity in the following monitoring sources.
 

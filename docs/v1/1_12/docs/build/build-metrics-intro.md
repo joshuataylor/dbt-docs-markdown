@@ -69,7 +69,7 @@ MetricFlow allows you to:
 
 <br />
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstart guide with the Semantic Layer](../../guides/sl-snowflake-qs.md)
 * [The Semantic Layer: what's next](https://www.getdbt.com/blog/dbt-semantic-layer-whats-next/) blog

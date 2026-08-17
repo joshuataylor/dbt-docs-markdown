@@ -1,6 +1,6 @@
 # Configure Git in dbt
 
-dbt platformⓘ
+dbt platform
 
 [Version control](./version-control-basics.md) — a system that allows you and your teammates to work safely and simultaneously on a single project — is an essential part of the dbt workflow. It enables teams to collaborate effectively and maintain a history of changes to their dbt projects.
 

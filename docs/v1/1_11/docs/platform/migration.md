@@ -1,6 +1,6 @@
 # Multi-cell migration checklist
 
-dbt platformⓘ
+dbt platform
 
 dbt Labs is in the process of rolling out a new cell-based architecture for dbt. This architecture provides the foundation of dbt for years to come, and brings improved reliability, performance, and consistency to users of dbt.
 
@@ -8,7 +8,7 @@ We're scheduling migrations by account. When we're ready to migrate your account
 
 Your account will be automatically migrated on or after its scheduled date. However, if you use certain features, you must take action before that date to avoid service disruptions.
 
-## Recommended actions[​](#recommended-actions "Direct link to Recommended actions")
+## Recommended actions
 
 Rescheduling your migration
 
@@ -22,7 +22,7 @@ We highly recommended you take these actions:
 * Commit unsaved changes in the [Studio IDE](./studio-ide/develop-in-studio.md). Unsaved changes might be lost during migration.
 * Export and download [audit logs](./manage-access/audit-log.md) older than 90 days, as they will be unavailable from dbt after the migration is complete. Logs older than 90 days while within the data retention period are not deleted, but you will have to work with the dbt Labs Customer Support team to recover.
 
-## Required actions[​](#required-actions "Direct link to Required actions")
+## Required actions
 
 These actions are required to prevent users from losing access dbt:
 
@@ -36,13 +36,13 @@ These actions are required to prevent users from losing access dbt:
 
   Keep the old dbt IPs listed until the migration is complete.
 
-## Run related data retention[​](#run-related-data-retention "Direct link to Run related data retention")
+## Run related data retention
 
 All runs available in dbt will be migrated with your account. This includes metadata about the run, like its status, execution start time, and duration. However, the individual steps associated with a run will not be migrated with your account. Therefore, the dbt commands executed during a run, along with their logs and artifact files, will not be available in dbt after your migration.
 
 The [Discovery API](../dbt-apis/discovery-api.md) will contain a subset of data after your account has been migrated. Metadata generated in the past 7 days will be migrated with your account. A maximum of 20 runs will be available when querying the [job object](../dbt-apis/discovery-schema-job.md) after migration.
 
-## Post-migration​[​](#post-migration "Direct link to Post-migration​")
+## Post-migration​
 
 Complete all of these items to ensure your dbt resources and jobs will continue working without interruption.
 

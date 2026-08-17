@@ -1,6 +1,6 @@
 # Connect PostgreSQL, Lakebase and AlloyDB
 
-dbt platformⓘ
+dbt platform
 
 dbt platform supports connecting to PostgresSQL and Postgres-compatible databases (AlloyDB, Lakebase).
 
@@ -12,17 +12,11 @@ The following fields are required when creating a connection:
 | Port      | Usually 5432                                                                                                                                                                                                                             | `5439`                                  |
 | Database  | The logical database to connect to and run queries against.                                                                                                                                                                              | `analytics`                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 **Note**: When you set up a Postgres connection in dbt, SSL-related parameters aren't available as inputs.
 
 [![Configuring a Postgres connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Postgres connection")](#)Configuring a Postgres connection
 
-### Authentication Parameters[​](#authentication-parameters "Direct link to Authentication Parameters")
+### Authentication Parameters
 
 For authentication, dbt users can use **Database username and password** for Postgres and Postgres-compatible databases. For more information on what is supported, check out the database specific setup page for limitations and helpful tips.
 
@@ -33,17 +27,9 @@ The following table contains the parameters for the database (password-based) co
 | `user`     | Account username to log into your cluster | myuser       |
 | `password` | Password for authentication               | \_password1! |
 
-Search table...
+### Connecting using an SSH Tunnel
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Connecting using an SSH Tunnel[​](#connecting-using-an-ssh-tunnel "Direct link to Connecting using an SSH Tunnel")
-
-<!-- -->
-
-Use an SSH tunnel when your <!-- -->Postgres or AlloyDB<!-- --> instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
+Use an SSH tunnel when your Postgres or AlloyDB instance is not publicly accessible and must be reached through a [bastion server](./connect-redshift.md#about-the-bastion-server-in-aws). When enabled, dbt platform connects to your database by first establishing a secure connection to the bastion host, which then forwards traffic to your database.
 
 To configure a connection using an SSH tunnel:
 
@@ -62,7 +48,7 @@ To configure a connection using an SSH tunnel:
 
    Each time you create and save a new SSH tunnel connection, dbt platform generates a unique SSH key pair, even when the connection details are identical to an existing connection.
 
-#### About the Bastion server in AWS[​](#about-the-bastion-server-in-aws "Direct link to About the Bastion server in AWS")
+#### About the Bastion server in AWS
 
 What is a bastion server?
 
@@ -72,9 +58,9 @@ A bastion server in [Amazon Web Services (AWS)](https://aws.amazon.com/blogs/sec
 
 dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.<br /><br />
 
-Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the <!-- -->Postgres<!-- --> instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
+Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the Postgres instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
 
-#### Configuring the Bastion Server in AWS[​](#configuring-the-bastion-server-in-aws "Direct link to Configuring the Bastion Server in AWS")
+#### Configuring the Bastion Server in AWS
 
 To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of your bastion server, username, and port, of your choosing, that dbt will connect to. Review the following steps:
 
@@ -94,13 +80,13 @@ To configure the SSH tunnel in dbt, you'll need to provide the hostname/IP of yo
 
 3. Copy and paste the dbt generated public key, into the authorized\_keys file.
 
-The bastion server should now be ready for dbt to use as a tunnel into the <!-- -->Postgres<!-- --> environment.
+The bastion server should now be ready for dbt to use as a tunnel into the Postgres environment.
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To grant users or roles database permissions (access rights and privileges), refer to the [Postgres permissions](../../../reference/database-permissions/postgres-permissions.md) page.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Database Error - could not connect to server: Connection timed out
 

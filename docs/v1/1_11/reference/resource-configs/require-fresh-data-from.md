@@ -1,8 +1,6 @@
 # require\_fresh\_data\_from
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -12,6 +10,8 @@ models:
     +state:
       require_fresh_data_from: any | all
 ```
+
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,6 +23,8 @@ models:
         require_fresh_data_from: any | all
 ```
 
+### SQL file config
+
 models/\<filename>.sql
 
 ```sql
@@ -33,7 +35,7 @@ models/\<filename>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 `require_fresh_data_from` controls how many direct parent nodes need fresh data before dbt State considers this node eligible for a rebuild. dbt State still looks for an object to reuse before triggering an actual rebuild.
 
@@ -42,19 +44,13 @@ models/\<filename>.sql
 | `any` (default) | The node becomes eligible for a rebuild when *any* direct parent has fresh data. Rebuilds more frequently; may increase spend.   |
 | `all`           | The node only becomes eligible for a rebuild when *all* direct parents have fresh data. Rebuilds less frequently; reduces spend. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Default[​](#default "Direct link to Default")
+## Default
 
 `any`
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Require all parents to have fresh data[​](#require-all-parents-to-have-fresh-data "Direct link to Require all parents to have fresh data")
+### Require all parents to have fresh data
 
 Use `all` for a model that joins multiple sources and should only rebuild when every upstream dependency has updated:
 
@@ -68,7 +64,7 @@ models:
         require_fresh_data_from: all
 ```
 
-### Apply a project-wide default[​](#apply-a-project-wide-default "Direct link to Apply a project-wide default")
+### Apply a project-wide default
 
 dbt\_project.yml
 
@@ -78,7 +74,7 @@ models:
     require_fresh_data_from: all
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

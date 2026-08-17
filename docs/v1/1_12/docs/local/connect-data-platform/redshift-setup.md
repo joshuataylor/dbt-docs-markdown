@@ -1,41 +1,31 @@
+(Applies to dbt v1.99 and earlier)
+
 # Connect Redshift to dbt Core
 
-Local developmentⓘ
+Local development
 
 [Fusion compatible](./redshift-setup.md?version=2 "Fusion compatible") connection also available.
 
-* **Maintained by**:
-  <!-- -->
-  dbt Labs
-* **Authors**:
-  <!-- -->
-  dbt maintainers
+* **Maintained by**: dbt Labs
+* **Authors**: dbt maintainers
 * **GitHub repo**: [dbt-labs/dbt-adapters](https://github.com/dbt-labs/dbt-adapters) [![](https://img.shields.io/github/stars/dbt-labs/dbt-adapters?style=for-the-badge)](https://github.com/dbt-labs/dbt-adapters)
 * **PyPI package**: `dbt-redshift` [![](https://badge.fury.io/py/dbt-redshift.svg)](https://badge.fury.io/py/dbt-redshift)
 * **Slack channel**: [#db-redshift](https://getdbt.slack.com/archives/C01DRQ178LQ)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.10.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.10.0 and newer
+* **dbt support**: Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-redshift
+## Installing dbt-redshift
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-redshift`
 
-## Configuring <!-- -->dbt-redshift<!-- -->
+## Configuring dbt-redshift
 
-For <!-- -->Redshift<!-- -->-specific configuration, please refer to [Redshift<!-- --> configs.](../../../reference/resource-configs/redshift-configs.md)
+For Redshift-specific configuration, please refer to [Redshift configs.](../../../reference/resource-configs/redshift-configs.md)
 
-## Configurations[​](#configurations "Direct link to Configurations")
+## Configurations
 
 | Profile field                                                                                                                                           | Example                                                                                                  | Description                                                                                                                                                                                                                      |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,15 +50,9 @@ For <!-- -->Redshift<!-- -->-specific configuration, please refer to [Redshift<!
 | `tcp_keepalive_count`                                                                                                                                   | 5                                                                                                        | Number of times probes will be sent                                                                                                                                                                                              |
 | `drop_without_cascade`                                                                                                                                  | false                                                                                                    | Optional, default `False`. Omits `CASCADE` from `DROP TABLE/VIEW/MATERIALIZED VIEW` statements. Available in `dbt-redshift` v1.11.0rc3 and later.                                                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For your tcp\_keepalive inputs, we recommend taking a look at the [Redshift documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/troubleshooting-connections.html) for more information on the right configuration for you.
 
-## Authentication Parameters[​](#authentication-parameters "Direct link to Authentication Parameters")
+## Authentication Parameters
 
 The authentication methods that dbt Core supports on Redshift are:
 
@@ -77,8 +61,7 @@ The authentication methods that dbt Core supports on Redshift are:
 
 Click on one of these authentication methods for further details on how to configure your connection profile. Each tab also includes an example `profiles.yml` configuration file for you to review.
 
-* Database
-* IAM User via AWS Profile (Core)
+### Database
 
 The following table contains the parameters for the database (password-based) connection method.
 
@@ -88,15 +71,9 @@ The following table contains the parameters for the database (password-based) co
 | `user`        | username  | Account username to log into your cluster                  |
 | `password`    | password1 | Password for authentication                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for database authentication[​](#example-profilesyml-for-database-authentication "Direct link to Example profiles.yml for database authentication")
+#### Example profiles.yml for database authentication
 
 \~/.dbt/profiles.yml
 
@@ -123,6 +100,8 @@ company-name:
       connect_timeout: None
 ```
 
+### IAM User via AWS Profile (Core)
+
 The following table lists the authentication parameters to use IAM authentication.
 
 To set up a Redshift profile using IAM Authentication, set the `method` parameter to `iam` as shown below. Note that a password is not required when using IAM Authentication. For more information on this type of authentication, consult the [Redshift Documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/generating-user-credentials.html) and [boto3 docs](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift.html#Redshift.Client.get_cluster_credentials) on generating user credentials with IAM Auth.
@@ -137,15 +116,9 @@ If you receive the "You must specify a region" error when using IAM Authenticati
 | `user`        | username    | User querying the database, ignored for Serverless (but field still required)   |
 | `region`      | us-east-1   | Region of your Redshift instance                                                |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
-#### Example profiles.yml for IAM[​](#example-profilesyml-for-iam "Direct link to Example profiles.yml for IAM")
+#### Example profiles.yml for IAM
 
 \~/.dbt/profiles.yml
 
@@ -178,13 +151,13 @@ Search table...
       db_groups: ['ANALYSTS']
 ```
 
-#### Specifying an IAM Profile[​](#specifying-an-iam-profile "Direct link to Specifying an IAM Profile")
+#### Specifying an IAM Profile
 
 When the `iam_profile` configuration is set, dbt will use the specified profile from your `~/.aws/config` file instead of using the profile name `default`
 
-## Redshift notes[​](#redshift-notes "Direct link to Redshift notes")
+## Redshift notes
 
-### `sslmode` change[​](#sslmode-change "Direct link to sslmode-change")
+### `sslmode` change
 
 Before dbt-redshift 1.5, `psycopg2` was used as the driver. `psycopg2` accepts `disable`, `prefer`, `allow`, `require`, `verify-ca`, `verify-full` as valid inputs of `sslmode`, and does not have an `ssl` parameter, as indicated in PostgreSQL [doc](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING:~:text=%2Dencrypted%20connection.-,sslmode,-This%20option%20determines).
 
@@ -203,17 +176,11 @@ The table below details accepted `sslmode` parameters and how the connection wil
 | verify-ca           | Connection will be made using verify-ca   | Set `ssl` = True & `sslmode` = verify-ca   |
 | verify-full         | Connection will be made using verify-full | Set `ssl` = True & `sslmode` = verify-full |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 When a connection is made using `verify-ca`, will look for the CA certificate in `~/redshift-ca-bundle.crt`.
 
 For more details on sslmode changes, our design choices, and reasoning — please refer to the [PR pertaining to this change](https://github.com/dbt-labs/dbt-redshift/pull/439).
 
-### `autocommit` parameter[​](#autocommit-parameter "Direct link to autocommit-parameter")
+### `autocommit` parameter
 
 The [autocommit mode](https://www.psycopg.org/docs/connection.html#connection.autocommit) is useful to execute commands that run outside a transaction. Connection objects used in Python must have `autocommit = True` to run operations such as `CREATE DATABASE`, and `VACUUM`. `autocommit` is off by default in `redshift_connector`, but we've changed this default to `True` to ensure certain macros run successfully in your dbt project.
 
@@ -242,7 +209,7 @@ profile-to-my-RS-target:
 
 To run certain macros with autocommit, load the profile with autocommit using the `--profile` flag. For more context, please refer to this [PR](https://github.com/dbt-labs/dbt-redshift/pull/475/files).
 
-### `datasharing` [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#datasharing- "Direct link to datasharing-")
+### `datasharing` [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Previously, the Redshift adapter used PostgreSQL-compatible catalog tables (for example, `pg_*`, `information_schema`) for metadata operations such as listing relations, schemas, and columns. These tables only surface objects within the currently connected database, which prevents cross-database operations needed for [Redshift Datasharing](https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html).
 
@@ -282,12 +249,6 @@ The following macros switch to `SHOW` commands when `datasharing: true`:
 | `get_relation_last_modified`          | `information_schema.tables`         | `SHOW TABLES FROM SCHEMA`                          |
 | Grants                                | `pg_user`, `has_table_privilege()`  | `SHOW GRANTS ON TABLE`                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 `ra3_node: true` also enables this behavior and is supported for backward compatibility. For new projects, use `datasharing: true` instead.
 
 note
@@ -303,13 +264,13 @@ The following limitations apply when using `datasharing`:
 * Cross-database writes require the `SNAPSHOT` transaction isolation level.
 * For views that reference tables in another database, define them as [late-binding views](../../../reference/resource-configs/redshift-configs.md#late-binding-views).
 
-### Deprecated `profile` parameters in 1.5[​](#deprecated-profile-parameters-in-15 "Direct link to deprecated-profile-parameters-in-15")
+### Deprecated `profile` parameters in 1.5
 
 * `iam_duration_seconds`
 
 * `keepalives_idle`
 
-### `drop_without_cascade`[​](#drop_without_cascade "Direct link to drop_without_cascade")
+### `drop_without_cascade`
 
 Set `drop_without_cascade: true` to omit `CASCADE` from `DROP TABLE`, `DROP VIEW`, and `DROP MATERIALIZED VIEW` statements. Use this when your project has no downstream dependents (for example, it uses only unbound views) and you want to avoid the overhead of resolving the `CASCADE` dependency graph on every drop for large clusters.
 
@@ -317,10 +278,10 @@ info
 
 This option is intended for projects with no downstream dependents. If a dependent object exists and `CASCADE` is omitted, Redshift raises an error.
 
-### `sort` and `dist` keys[​](#sort-and-dist-keys "Direct link to sort-and-dist-keys")
+### `sort` and `dist` keys
 
 Where possible, dbt enables the use of `sort` and `dist` keys. See the section on [Redshift specific configurations](../../../reference/resource-configs/redshift-configs.md).
 
-#### retries[​](#retries "Direct link to retries")
+#### retries
 
 If `dbt-redshift` encounters an operational error or timeout when opening a new connection, it will retry up to the number of times configured by `retries`. If set to 2+ retries, dbt will wait 1 second before retrying. The default value is 1 retry. If set to 0, dbt will not retry at all.

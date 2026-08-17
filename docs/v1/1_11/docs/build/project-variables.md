@@ -2,6 +2,8 @@
 
 dbt provides a mechanism called [variables](../../reference/dbt-jinja-functions/var.md) to provide data to models for compilation. Variables allow you to define configurable values for your project instead of hardcoding them in SQL.
 
+(Applies to dbt v1.11 and earlier)
+
 You can define variables in two ways:
 
 * In the [`dbt_project.yml`](../../reference/dbt_project.yml.md) file
@@ -9,17 +11,13 @@ You can define variables in two ways:
 
 Variables defined in the `dbt_project.yml` act as project-wide defaults. These defaults apply anywhere the variable is referenced. You can override them at runtime using the `--vars` command-line argument, which is useful when you want to change a value for a specific run. For example, when testing with a different date range or running models with environment-specific settings.
 
-<!-- -->
-
 You might use variables to [configure timezones](https://github.com/dbt-labs/snowplow/blob/0.3.9/dbt_project.yml#L22), set reporting date ranges, [avoid hardcoding table names](https://github.com/dbt-labs/quickbooks/blob/v0.1.0/dbt_project.yml#L23), or otherwise control how models are compiled.
 
 To use a variable in a model, hook, or macro, use the `{{ var('...') }}` function. The `var()` function retrieves the value defined in your project or passed using `--vars`. For more information, see [About var function](../../reference/dbt-jinja-functions/var.md).
 
 Note, refer to [YAML tips](./dbt-tips.md#yaml-tips) for more YAML information.
 
-<!-- -->
-
-### Defining variables in `dbt_project.yml`[​](#defining-variables-in-dbt_projectyml "Direct link to defining-variables-in-dbt_projectyml")
+### Defining variables in `dbt_project.yml`
 
 info
 
@@ -51,11 +49,7 @@ models:
     ...
 ```
 
-<!-- -->
-
-### Defining variables on the command line[​](#defining-variables-on-the-command-line "Direct link to Defining variables on the command line")
-
-<!-- -->
+### Defining variables on the command line
 
 The `dbt_project.yml` file is a great place to define variables that rarely change.
 
@@ -108,7 +102,9 @@ Variables defined using `--var`, override values defined in `dbt_project.yml`. T
 
 You can find more information on defining dictionaries with YAML [here](https://github.com/Animosity/CraftIRC/wiki/Complete-idiot%27s-introduction-to-yaml).
 
-### Variable precedence[​](#variable-precedence "Direct link to Variable precedence")
+### Variable precedence
+
+(Applies to dbt v1.11 and earlier)
 
 Variables defined with the `--vars` command line argument override variables defined in the `dbt_project.yml` file. They are globally scoped and accessible to the root project and all installed packages.
 
@@ -119,8 +115,6 @@ The order of precedence for variable declaration is as follows (highest priority
 3. The global variable declaration in the root `dbt_project.yml` file
 4. If this node is defined in a package: variable declarations in that package's `dbt_project.yml` file
 5. The variable's default argument (if one is provided)
-
-<!-- -->
 
 If dbt is unable to find a definition for a variable after checking all possible variable declaration places, then a compilation error will be raised.
 

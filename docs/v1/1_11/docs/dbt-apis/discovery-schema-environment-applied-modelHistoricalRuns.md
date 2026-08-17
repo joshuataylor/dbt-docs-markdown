@@ -1,18 +1,18 @@
 # Model Historical Runs object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The model historical runs object allows you to query information about a model's run history.
 
 The [Example query](#example-query) illustrates a few fields you can query with the `modelHistoricalRuns` object. Refer to [Fields](#fields) to view the entire schema, which provides all possible fields you can query.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `modelHistoricalRuns`, you can use the following arguments:
 
 # Fetching data...
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 You can specify the `environmentId` and the model's `uniqueId` to return the model and its execution history for the `customers` model in the `marketing` package, including performance metrics and test results for the last 20 times it was run, regardless of which job ran it.
 
@@ -39,7 +39,7 @@ query {
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `modelHistoricalRuns`, you can use the following fields:
 

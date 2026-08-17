@@ -1,10 +1,6 @@
 # Move from dbt Core to the dbt platform: Get started
 
-[Back to guides](../guides.md)
-
-<!-- -->
-
-Total estimated time: 3-4 hours
+[Back to guides](../guides.md) Total estimated time: 3-4 hours
 
 Migration
 
@@ -18,7 +14,7 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Moving from dbt Core to dbt streamlines analytics engineering workflows by allowing teams to develop, test, deploy, and explore data products using a single, fully managed software service. The data layer is the foundation for trusted analytics and AI; dbt platform gives you the governance, shared definitions, and reliability to scale both — without the hidden cost of self-hosting in engineer hours and wasted compute.
 
@@ -30,13 +26,7 @@ Explore our 3-part-guide series on moving from dbt Core to dbt. This series is i
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -63,8 +53,6 @@ It's ideal for teams looking to reduce the burden of maintaining their own infra
 
 * dbt is the fastest and most reliable way to deploy dbt. It enables you to develop, test, deploy, and explore data products using a single, fully managed service. Infrastructure is managed for you — no custom scripts or fragile orchestration. State-aware orchestration only builds what's changed, so you waste less compute and time. Browser-based development and dbt Wizard open up development to analysts, so you're no longer the bottleneck for every change. With end-to-end lineage, shared metric definitions, and CI that catches regressions before production, you spend less time debugging and more time building. dbt also supports:
 
-  <!-- -->
-
   * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](../docs/platform/dbt-cli-installation.md))
   * Out-of-the-box [CI/CD workflows](../docs/deploy/ci-jobs.md)
   * The [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) for consistent metrics
@@ -77,7 +65,7 @@ Learn more about [dbt features](../docs/platform/about-platform/dbt-platform-fea
 
 You absorb the cost of every upgrade, every broken CI run, and every request that pulls you away from real work: maintaining infrastructure, debugging the CI pipeline, and fielding every change that requires CLI access. Compute runs unchecked, upgrades are risky, and there's no easy way to trace what broke or why. This requires significant, costly work that adds up over time to maintain and scale — and without governance, shared definitions, or reliable testing.
 
-## What you'll learn[​](#what-youll-learn "Direct link to What you'll learn")
+## What you'll learn
 
 This guide outlines the steps you need to take to move from dbt Core to dbt and highlights the necessary technical changes:
 
@@ -90,18 +78,18 @@ This guide outlines the steps you need to take to move from dbt Core to dbt and 
 * [Models configuration](./core-migration-1.md?step=10): Get insights on validating and running your models in dbt, using either the Studio IDE or dbt CLI.
 * [What's next?](./core-migration-1.md?step=11): Summarizes key takeaways and introduces what to expect in the following guides.
 
-### Related docs[​](#related-docs "Direct link to Related docs")
+### Related docs
 
 * [Learn dbt](https://learn.getdbt.com) on-demand video learning.
 * Book [expert-led demos](https://www.getdbt.com/resources/dbt-cloud-demos-with-experts) and insights
 * Work with the [dbt Labs' Professional Services](https://www.getdbt.com/dbt-labs/services) team to support your data organization and migration.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have an existing dbt Core project connected to a Git repository and data platform supported in [dbt](../docs/platform/connect-data-platform/about-connections.md).
 * You have a dbt account. **[Don't have one? Start your free trial today](https://www.getdbt.com/signup)**!
 
-## Account setup[​](#account-setup "Direct link to Account setup")
+## Account setup
 
 This section outlines the steps to set up your dbt account and configure it for your team.
 
@@ -113,7 +101,7 @@ This section outlines the steps to set up your dbt account and configure it for 
 
    * This removes the need to save passwords and secret environment variables locally.
 
-### Additional configuration[​](#additional-configuration "Direct link to Additional configuration")
+### Additional configuration
 
 Explore these additional configurations for performance and reliability improvements:
 
@@ -121,7 +109,7 @@ Explore these additional configurations for performance and reliability improvem
 
 2. In **Account settings**, enable [Git repo caching](../docs/platform/account-settings.md#git-repository-caching) for job reliability & third-party outage protection. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-## Data platform setup[​](#data-platform-setup "Direct link to Data platform setup")
+## Data platform setup
 
 This section outlines the considerations and methods to connect your data platform to dbt.
 
@@ -142,13 +130,13 @@ This section outlines the considerations and methods to connect your data platfo
 
 2. You can verify your data platform connections by clicking the **Test connection** button in your deployment and user credentials settings.
 
-### Additional configuration[​](#additional-configuration-1 "Direct link to Additional configuration")
+### Additional configuration
 
 Explore these additional configurations to optimize your data platform setup further:
 
 1. Use [OAuth connections](../docs/platform/manage-access/set-up-snowflake-oauth.md), which enables secure authentication using your data platform's SSO. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-## Git setup[​](#git-setup "Direct link to Git setup")
+## Git setup
 
 Your existing dbt project source code should live in a Git repository. In this section, you will connect your existing dbt project source code from Git to dbt.
 
@@ -162,7 +150,7 @@ Your existing dbt project source code should live in a Git repository. In this s
 
    * [Import a Git repository](../docs/platform/git/import-a-project-by-git-url.md) from any valid Git URL that points to a dbt project.
 
-## Developer setup[​](#developer-setup "Direct link to Developer setup")
+## Developer setup
 
 This section highlights the development configurations you'll need for your dbt project. The following categories are covered in this section:
 
@@ -171,7 +159,7 @@ This section highlights the development configurations you'll need for your dbt 
 * [Additional configuration](./core-migration-1.md?step=7#additional-configuration-2)
 * [dbt commands](./core-migration-1.md?step=7#dbt-cloud-commands)
 
-### dbt environments[​](#dbt-environments "Direct link to dbt environments")
+### dbt environments
 
 The most common data environments are production, staging, and development. The way dbt Core manages [environments](../docs/environments-in-dbt.md) is through `target`, which are different sets of connection details.
 
@@ -183,7 +171,7 @@ The most common data environments are production, staging, and development. The 
 * Adding `profiles.yml` attributes to dbt environment settings with [Extended Attributes](../docs/dbt-platform-environments.md#extended-attributes).
 * Using [Git repo caching](../docs/platform/account-settings.md#git-repository-caching) to protect you from third-party outages, Git auth failures, and more. [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-### Initial setup steps[​](#initial-setup-steps "Direct link to Initial setup steps")
+### Initial setup steps
 
 1. **Set up development environment** — Set up your [development](../docs/dbt-platform-environments.md#create-a-development-environment) environment and [user credentials](../docs/platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide). You'll need this to access your dbt project and start developing.
 
@@ -199,17 +187,17 @@ The most common data environments are production, staging, and development. The 
 
    * If you've previously installed dbt Core, the [dbt CLI installation doc](../docs/platform/dbt-cli-installation.md?install=pip#install-dbt-cloud-cli) has more information on how to install the dbt CLI, create aliases, or uninstall dbt Core for a smooth transition.
 
-### Additional configuration[​](#additional-configuration-2 "Direct link to Additional configuration")
+### Additional configuration
 
 Explore these additional configurations to optimize your developer setup further:
 
 1. **Custom target names** — Using [`custom target.names`](../docs/build/custom-target-names.md) in your dbt projects helps identify different environments (like development, staging, and production). While you can specify the `custom target.name` values in your development credentials or orchestration setup, we recommend using [environment variables](../docs/build/environment-variables.md) as the preferred method. They offer a clearer way to handle different environments and are better supported by dbt's partial parsing feature, unlike using [`{{ target }}` logic](../reference/dbt-jinja-functions/target.md) which is meant for defining the data warehouse connection.
 
-### dbt commands[​](#dbt-commands "Direct link to dbt commands")
+### dbt commands
 
 1. Review the [dbt commands](../reference/dbt-commands.md) supported for dbt development. For example, `dbt init` isn't needed in dbt as you can create a new project directly in dbt.
 
-## Environment variables[​](#environment-variables "Direct link to Environment variables")
+## Environment variables
 
 This section will help you understand how to set up and manage dbt environment variables for your project. The following categories are covered:
 
@@ -221,7 +209,7 @@ In dbt, you can set [environment variables](../docs/build/environment-variables.
 
 In dbt Core, environment variables, or the [`env_var` function](../reference/dbt-jinja-functions/env_var.md), are defined manually by the developer or within the external application running dbt.
 
-### Environment variables in dbt[​](#environment-variables-in-dbt "Direct link to Environment variables in dbt")
+### Environment variables in dbt
 
 * dbt environment variables must be prefixed with `DBT_` (including `DBT_ENV_CUSTOM_ENV_` or `DBT_ENV_SECRET`).
 * If your dbt Core environment variables don't follow this naming convention, perform a ["find and replace"](../docs/platform/studio-ide/develop-in-studio.md#studio-ide-features) in your project to make sure all references to these environment variables contain the proper naming conventions.
@@ -229,7 +217,7 @@ In dbt Core, environment variables, or the [`env_var` function](../reference/dbt
 
 [![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")](#)Setting project level and environment level values
 
-### dbt environment variables order of precedence[​](#dbt-environment-variables-order-of-precedence "Direct link to dbt environment variables order of precedence")
+### dbt environment variables order of precedence
 
 Environment variables in dbt are managed with a clear [order of precedence](../docs/build/environment-variables.md#setting-and-overriding-environment-variables), allowing users to define values at four levels (highest to lowest order of precedence):
 
@@ -240,13 +228,13 @@ Environment variables in dbt are managed with a clear [order of precedence](../d
 
 [![Environment variables order of precedence](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/env-var-precdence.png?v=2> "Environment variables order of precedence")](#)Environment variables order of precedence
 
-### Set environment variables in dbt[​](#set-environment-variables-in-dbt "Direct link to Set environment variables in dbt")
+### Set environment variables in dbt
 
 * To set these variables for an entire project or specific environments, navigate to **Deploy** > **Environments** > **Environment variables** tab.
 * To set these variables at the job level, navigate to **Deploy** > **Jobs** > **Select your job** > **Settings** > **Advanced settings**.
 * To set these variables at the personal override level, navigate to **Your profile** > **Credentials** > **Select your project** > **Environment variables**.
 
-## Orchestration setup[​](#orchestration-setup "Direct link to Orchestration setup")
+## Orchestration setup
 
 This section outlines the considerations and methods to set up your dbt environments and jobs for orchestration. The following categories are covered in this section:
 
@@ -255,11 +243,11 @@ This section outlines the considerations and methods to set up your dbt environm
 * [Additional configuration](./core-migration-1.md?step=8#additional-configuration-3)
 * [CI/CD setup](./core-migration-1.md?step=8#cicd-setup)
 
-### dbt environments[​](#dbt-environments-1 "Direct link to dbt environments")
+### dbt environments
 
 To use the [dbt's job scheduler](../docs/deploy/job-scheduler.md), set up one environment as the production environment. This is the [deployment](../docs/deploy/deploy-environments.md) environment. You can set up multiple environments for different stages of your deployment pipeline, such as development, staging/QA, and production.
 
-### Initial setup steps[​](#initial-setup-steps-1 "Direct link to Initial setup steps")
+### Initial setup steps
 
 1. **dbt Core version** — In your environment settings, configure dbt with the same dbt Core version.
 
@@ -269,7 +257,7 @@ To use the [dbt's job scheduler](../docs/deploy/job-scheduler.md), set up one en
 
    * Note that alongside [jobs in dbt](../docs/deploy/jobs.md), discover other ways to schedule and run your dbt jobs with the help of other tools. Refer to [Integrate with other tools](../docs/deploy/deployment-tools.md) for more information.
 
-### Additional configuration[​](#additional-configuration-3 "Direct link to Additional configuration")
+### Additional configuration
 
 Explore these additional configurations to optimize your dbt orchestration setup further:
 
@@ -285,7 +273,7 @@ Explore these additional configurations to optimize your dbt orchestration setup
 
 6. **Catalog** — If you use [Catalog](../docs/explore/explore-projects.md) and run production jobs with an external orchestrator, ensure your production jobs run `dbt run` or `dbt build` to update and view models and their [metadata](../docs/explore/explore-projects.md#generate-metadata) in Catalog. Running `dbt compile` alone will not update model metadata. In addition, features like column-level lineage also requires catalog metadata produced through running `dbt docs generate`. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-### CI/CD setup[​](#cicd-setup "Direct link to CI/CD setup")
+### CI/CD setup
 
 Building a custom solution to efficiently check code upon pull requests is complicated. With dbt, you can enable [continuous integration / continuous deployment (CI/CD)](../docs/deploy/continuous-integration.md) and configure dbt to run your dbt projects in a temporary schema when new commits are pushed to open pull requests.
 
@@ -297,7 +285,7 @@ This build-on-PR functionality is a great way to catch bugs before deploying to 
 2. Create [a CI/CD job](../docs/deploy/ci-jobs.md) to automate quality checks before code is deployed to production.
 3. Run your jobs in a production environment to fully implement CI/CD. Future pull requests will also leverage the last production runs to compare against.
 
-## Model development and discovery[​](#model-development-and-discovery "Direct link to Model development and discovery")
+## Model development and discovery
 
 In this section, you'll be able to validate whether your models run or compile correctly in your development tool of choice: The [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](../docs/platform/dbt-cli-installation.md).
 
@@ -310,7 +298,7 @@ You'll want to make sure you set up your [development environment and credential
 
 2. Once your first job has successfully run in your production environment, use [Catalog](../docs/explore/explore-projects.md) to view your project's [resources](../docs/build/projects.md) (such as models, tests, and metrics) and their data lineage to gain a better understanding of its latest production state. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-## What's next?[​](#whats-next "Direct link to What's next?")
+## What's next?
 
 Congratulations on completing the first part of your move to dbt 🎉!
 
@@ -329,13 +317,7 @@ For the next steps, you can continue exploring our 3-part-guide series on moving
 | [Move from dbt Core to dbt platform: Get started](./core-migration-1.md?step=1)    | Learn the steps needed to move from dbt Core to dbt platform.                                | Developers<br />Data engineers<br />Data analysts |
 | [Move from dbt Core to dbt platform: Optimization tips](./core-migration-3.md)     | Learn how to optimize your dbt experience with common scenarios and useful tips.             | Everyone                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Why move to the dbt platform?[​](#why-move-to-the-dbt-platform "Direct link to Why move to the dbt platform?")
+### Why move to the dbt platform?
 
 If your team is using dbt Core today, you could be reading this guide because:
 
@@ -358,7 +340,7 @@ Moving from dbt Core to dbt simplifies workflows by providing a fully managed en
 
 It's ideal for teams looking to reduce the burden of maintaining their own infrastructure while enhancing governance and productivity.
 
-### Related docs[​](#related-docs-1 "Direct link to Related docs")
+### Related docs
 
 * [Learn dbt](https://learn.getdbt.com) video courses for on-demand learning.
 * Book [expert-led demos](https://www.getdbt.com/resources/dbt-cloud-demos-with-experts) and insights.

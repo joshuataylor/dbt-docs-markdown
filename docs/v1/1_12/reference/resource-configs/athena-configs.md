@@ -1,8 +1,8 @@
 # Amazon Athena configurations
 
-## Models[​](#models "Direct link to Models")
+## Models
 
-### Table configuration[​](#table-configuration "Direct link to Table configuration")
+### Table configuration
 
 | Parameter                 | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,17 +25,9 @@
 | `lf_inherited_tags`       | None    | List of the Lake Formation tag keys that are to be inherited from the database level and shouldn't be removed during the assignment of those defined in `ls_tags_config`.                                                                                                                                                                                                                                  |
 | `lf_grants`               | None    | Lake Formation grants config for `data_cell` filters.                                                                                                                                                                                                                                                                                                                                                      |
 
-Search table...
+#### Configuration examples
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Configuration examples[​](#configuration-examples "Direct link to Configuration examples")
-
-* schema.yml
-* dbt\_project.yml
-* Lake formation grants
+### schema.yml
 
 models/schema.yml
 
@@ -65,6 +57,8 @@ models/schema.yml
 }}
 ```
 
+### dbt\_project.yml
+
 dbt\_project.yml
 
 ```yaml
@@ -78,6 +72,8 @@ dbt\_project.yml
         value1: [ column1, column2 ]
     inherited_tags: [ tag1, tag2 ]
 ```
+
+### Lake formation grants
 
 ```python
 lf_grants={
@@ -100,10 +96,9 @@ Consider these limitations and recommendations:
 * `data_cell_filters` management can't be automated outside dbt because the filter can't be attached to the table, which doesn't exist. Once you `enable` this config, dbt will set all filters and their permissions during every dbt run. Such an approach keeps the actual state of row-level security configuration after every dbt run and applies changes if they occur: drop, create, and update filters and their permissions.
 * Any tags listed in `lf_inherited_tags` should be strictly inherited from the database level and never overridden at the table and column level.
 * Currently, `dbt-athena` does not differentiate between an inherited tag association and an override it made previously.
-  <!-- -->
   * For example, If a `lf_tags_config` value overrides an inherited tag in one run, and that override is removed before a subsequent run, the prior override will linger and no longer be encoded anywhere (for example, Terraform where the inherited value is configured nor in the dbt project where the override previously existed but now is gone).
 
-### Table location[​](#table-location "Direct link to Table location")
+### Table location
 
 The saved location of a table is determined in precedence by the following conditions:
 
@@ -123,7 +118,7 @@ To set the `s3_data_naming` globally in the target profile, overwrite the value 
 
 Note: If you're using a workgroup with a default output location configured, `s3_data_naming` ignores any configured buckets and uses the location configured in the workgroup.
 
-### Incremental models[​](#incremental-models "Direct link to Incremental models")
+### Incremental models
 
 The following [incremental models](../../docs/build/incremental-models.md) strategies are supported:
 
@@ -135,7 +130,7 @@ Consider this limitation when using Iceberg models:
 
 * Incremental Iceberg models — Sync all columns on schema change. You can't remove columns used for partitioning with an incremental refresh; you must fully refresh the model.
 
-### On schema change[​](#on-schema-change "Direct link to On schema change")
+### On schema change
 
 The `on_schema_change` option reflects changes of the schema in incremental models. The values you can set this to are:
 
@@ -146,7 +141,7 @@ The `on_schema_change` option reflects changes of the schema in incremental mode
 
 To learn more, refer to [What if the columns of my incremental model change](../../docs/build/incremental-models.md#what-if-the-columns-of-my-incremental-model-change).
 
-### Iceberg[​](#iceberg "Direct link to Iceberg")
+### Iceberg
 
 The adapter supports table materialization for Iceberg.
 
@@ -182,8 +177,6 @@ The following are the supported strategies for using Iceberg incrementally:
 
 * `merge`: Perform an update and insert (and optional delete) where new and existing records are added. This is only available with Athena engine version 3.
 
-  <!-- -->
-
   * `unique_key`(required): Columns that define a unique source and target table record.
   * `incremental_predicates` (optional): The SQL conditions that enable custom join clauses in the merge statement. This helps improve performance via predicate pushdown on target tables.
   * `delete_condition` (optional): SQL condition that identifies records that should be deleted.
@@ -192,9 +185,7 @@ The following are the supported strategies for using Iceberg incrementally:
 
 `incremental_predicates`, `delete_condition`, `update_condition` and `insert_condition` can include any column of the incremental table (`src`) or the final table (`target`). Column names must be prefixed by either `src` or `target` to prevent a `Column is ambiguous` error.
 
-* delete\_condition
-* update\_condition
-* insert\_condition
+### delete\_condition
 
 ```sql
 {{ config(
@@ -215,6 +206,8 @@ select 'A' as user_id,
        100000000 as quantity_big,
        current_date as my_date
 ```
+
+### update\_condition
 
 ```sql
 {{ config(
@@ -247,6 +240,8 @@ select * from (
 {% endif %}
 ```
 
+### insert\_condition
+
 ```sql
 {{ config(
         materialized='incremental',
@@ -264,7 +259,7 @@ select * from (
 ) as t (id, status)
 ```
 
-### High availability (HA) table[​](#high-availability-ha-table "Direct link to High availability (HA) table")
+### High availability (HA) table
 
 The current implementation of table materialization can lead to downtime, as the target table is dropped and re-created. For less destructive behavior, you can use the `ha` config on your `table` materialized models. It leverages the table versions feature of the glue catalog, which creates a temporary table and swaps the target table to the location of the temporary table. This materialization is only available for `table_type=hive` and requires using unique locations. For Iceberg, high availability is the default.
 
@@ -289,13 +284,13 @@ select 'b'        as user_id,
        'disabled' as status
 ```
 
-### HA known issues[​](#ha-known-issues "Direct link to HA known issues")
+### HA known issues
 
 * There could be a little downtime when swapping from a table with partitions to a table without (and the other way around). If higher performance is needed, consider bucketing instead of partitions.
 * By default, Glue "duplicates" the versions internally, so the last two versions of a table point to the same location.
 * It's recommended to set `versions_to_keep` >= 4, as this will avoid having the older location removed.
 
-### Avoid deleting parquet files[​](#avoid-deleting-parquet-files "Direct link to Avoid deleting parquet files")
+### Avoid deleting parquet files
 
 If a dbt model has the same name as an existing table in the AWS Glue catalog, the `dbt-athena` adapter deletes the files in that table’s S3 location before recreating the table using the SQL from the model.
 
@@ -308,7 +303,7 @@ When dropping a model, the `dbt-athena` adapter performs two cleanup steps for b
 
 However, for Iceberg tables, using standard SQL like [`DROP TABLE`](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg-drop-table.html) may not remove all related S3 objects. To ensure proper cleanup in a dbt workflow, the adapter includes a workaround that explicitly deletes these S3 objects. Alternatively, users can enable [`native_drop`](./athena-configs.md#table-configuration) to let Iceberg handle the cleanup natively.
 
-### Update glue data catalog[​](#update-glue-data-catalog "Direct link to Update glue data catalog")
+### Update glue data catalog
 
 You can persist your column and model level descriptions to the Glue Data Catalog as [glue table properties](https://docs.aws.amazon.com/glue/latest/dg/tables-described.html#table-properties) and [column parameters](https://docs.aws.amazon.com/glue/latest/webapi/API_Column.html). To enable this, set the configuration to `true` as shown in the following example. By default, documentation persistence is disabled, but it can be enabled for specific resources or groups of resources as needed.
 
@@ -333,29 +328,29 @@ models:
 
 Refer to [persist\_docs](./persist_docs.md) for more details.
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 The adapter supports snapshot materialization. It supports both the timestamp and check strategies. To create a snapshot, create a snapshot file in the `snapshots` directory. You'll need to create this directory if it doesn't already exist.
 
-### Timestamp strategy[​](#timestamp-strategy "Direct link to Timestamp strategy")
+### Timestamp strategy
 
 Refer to [Timestamp strategy](../../docs/build/snapshots.md#timestamp-strategy-recommended) for details on how to use it.
 
-### Check strategy[​](#check-strategy "Direct link to Check strategy")
+### Check strategy
 
 Refer to [Check strategy](../../docs/build/snapshots.md#check-strategy) for details on how to use it.
 
-### Hard deletes[​](#hard-deletes "Direct link to Hard deletes")
+### Hard deletes
 
 The materialization also supports invalidating hard deletes. For usage details, refer to [Hard deletes](../../docs/build/snapshots.md#hard-deletes-opt-in).
 
-### Snapshots known issues[​](#snapshots-known-issues "Direct link to Snapshots known issues")
+### Snapshots known issues
 
 * Tables, schemas, and database names should only be lowercase.
 * To avoid potential conflicts, make sure [`dbt-athena-adapter`](https://github.com/Tomme/dbt-athena) is not installed in the target environment.
 * Snapshot does not support dropping columns from the source table. If you drop a column, make sure to drop the column from the snapshot as well. Another workaround is to NULL the column in the snapshot definition to preserve the history.
 
-## AWS Lake Formation integration[​](#aws-lake-formation-integration "Direct link to AWS Lake Formation integration")
+## AWS Lake Formation integration
 
 The following describes how the adapter implements the AWS Lake Formation tag management:
 
@@ -375,17 +370,17 @@ That's why it's important to take care of this yourself or use an automation too
 * [terraform aws\_lakeformation\_permissions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lakeformation_permissions)
 * [terraform aws\_lakeformation\_resource\_lf\_tags](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lakeformation_resource_lf_tags)
 
-## Python models[​](#python-models "Direct link to Python models")
+## Python models
 
 The adapter supports Python models using [`spark`](https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark.html).
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 * A Spark-enabled workgroup created in Athena.
 * Spark execution role granted access to Athena, Glue and S3.
 * The Spark workgroup is added to the `~/.dbt/profiles.yml` file and the profile to be used is referenced in `dbt_project.yml`.
 
-### Spark-specific table configuration[​](#spark-specific-table-configuration "Direct link to Spark-specific table configuration")
+### Spark-specific table configuration
 
 | Configuration                 | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ----------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -394,25 +389,15 @@ The adapter supports Python models using [`spark`](https://docs.aws.amazon.com/a
 | `spark_cross_account_catalog` | False   | When using the Spark Athena workgroup, queries can only be made against catalogs on the same AWS account by default. Setting this parameter to true will enable querying external catalogs if you want to query another catalog on an external AWS account.<br />Use the syntax `external_catalog_id/database.table` to access the external table on the external catalog (For example, `999999999999/mydatabase.cloudfront_logs` where 999999999999 is the external catalog ID). |
 | `spark_requester_pays`        | False   | When set to true, if an Amazon S3 bucket is configured as `requester pays`, the user account running the query is charged for data access and data transfer fees associated with the query.                                                                                                                                                                                                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Spark notes[​](#spark-notes "Direct link to Spark notes")
+### Spark notes
 
 * A session is created for each unique engine configuration defined in the models that are part of the invocation. A session's idle timeout is set to 10 minutes. Within the timeout period, if a new calculation (Spark Python model) is ready for execution and the engine configuration matches, the process will reuse the same session.
 * The number of Python models running simultaneously depends on the `threads`. The number of sessions created for the entire run depends on the number of unique engine configurations and the availability of sessions to maintain thread concurrency.
 * For Iceberg tables, it's recommended to use the `table_properties` configuration to set the `format_version` to `2`. This helps maintain compatibility between the Iceberg tables Trino created and those Spark created.
 
-### Example models[​](#example-models "Direct link to Example models")
+### Example models
 
-* Simple pandas
-* Simple Spark
-* Spark incremental
-* Config Spark model
-* PySpark UDF
+### Simple pandas
 
 ```python
 import pandas as pd
@@ -426,6 +411,8 @@ def model(dbt, session):
     return model_df
 ```
 
+### Simple Spark
+
 ```python
 def model(dbt, spark_session):
     dbt.config(materialized="table")
@@ -436,6 +423,8 @@ def model(dbt, spark_session):
 
     return df
 ```
+
+### Spark incremental
 
 ```python
 def model(dbt, spark_session):
@@ -450,6 +439,8 @@ def model(dbt, spark_session):
 
     return df
 ```
+
+### Config Spark model
 
 ```python
 def model(dbt, spark_session):
@@ -473,6 +464,8 @@ def model(dbt, spark_session):
 
     return df
 ```
+
+### PySpark UDF
 
 Using imported external python files:
 
@@ -504,7 +497,7 @@ def model(dbt, spark_session):
     return df.withColumn("udf_test_col", udf_with_import(col("alpha")))
 ```
 
-### Known issues in Python models[​](#known-issues-in-python-models "Direct link to Known issues in Python models")
+### Known issues in Python models
 
 * Python models can't [reference Athena SQL views](https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark.html).
 * You can use third-party Python libraries; however, they must be [included in the pre-installed list](https://docs.aws.amazon.com/athena/latest/ug/notebooks-spark-preinstalled-python-libraries.html) or [imported manually](https://docs.aws.amazon.com/athena/latest/ug/notebooks-import-files-libraries.html).
@@ -514,7 +507,7 @@ def model(dbt, spark_session):
 * Spark can only reference tables within the same catalog.
 * For tables created outside of the dbt tool, be sure to populate the location field, or dbt will throw an error when creating the table.
 
-## Contracts[​](#contracts "Direct link to Contracts")
+## Contracts
 
 The adapter partly supports contract definitions:
 

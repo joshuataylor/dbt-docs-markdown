@@ -1,12 +1,12 @@
 # About dbt platform profiles
 
-dbt platformⓘ
+dbt platform
 
 dbt platform profiles define the connections, credentials, and attributes you use to connect to a data warehouse.
 
 Assign profiles to [deployment environments](../dbt-platform-environments.md#deployment-environment) and reuse those profiles in other deployment environments within the same project. You can manage profiles programmatically using our [API documentation](https://docs.getdbt.com/dbt-cloud/api-v3#/operations/List%20Profiles).
 
-## Environment profiles table[​](#environment-profiles-table "Direct link to Environment profiles table")
+## Environment profiles table
 
 On an environment's **Settings** page, the **Connection profiles** section lists the profiles assigned to that environment:
 
@@ -14,12 +14,12 @@ On an environment's **Settings** page, the **Connection profiles** section lists
 * **Connection**: Click the connection to open the [connection details](./connect-data-platform/about-connections.md#connection-management) page in a new tab.
 * **Edit mode**: Click **Edit** to switch to edit mode. Use the **swap icon** ![Swap icon](/img/docs/deploy/swap-icon.png) next to a profile row to assign a different profile.
 
-### Considerations[​](#considerations "Direct link to Considerations")
+### Considerations
 
 * Profiles don't apply to development environments because of the unique configurations and individual credentials applied.
 * The Semantic Layer configuration isn't supported with profiles yet.
 
-## Create a profile[​](#create-a-profile "Direct link to Create a profile")
+## Create a profile
 
 new feature rollout
 
@@ -29,14 +29,15 @@ You can create profiles from either the project or the environment settings. No 
 
 To create a new profile:
 
-* From project settings
-* From environment settings
+### From project settings
 
 1. From the main menu, navigate to your project's **Dashboard**.
 2. Click **Settings**.
 3. Scroll down to the **Profiles** section and click **Create new profile**.
 
 [![Creating a profile from project settings.](/img/docs/dbt-platform/profile-from-project.png?v=2 "Creating a profile from project settings.")](#)Creating a profile from project settings.
+
+### From environment settings
 
 1. From the main menu, click **Orchestration** and select **Environments**.
 2. Click an available deployment environment.
@@ -72,7 +73,7 @@ The following steps are the same regardless of which approach you take:
 
 Repeat these steps until you've created all the profiles you need for your project's deployment environments.
 
-## Assign a profile[​](#assign-a-profile "Direct link to Assign a profile")
+## Assign a profile
 
 You configure profiles when you create a deployment environment. For accounts that already have environments configured when you enable profiles, dbt automatically creates and assigns a default profile to all projects.
 
@@ -87,7 +88,7 @@ To assign a different profile, update the deployment environment settings:
 7. Click **Assign profile**.
 8. Click **Save**.
 
-## Permissions and access to profiles[​](#permissions-and-access-to-profiles "Direct link to Permissions and access to profiles")
+## Permissions and access to profiles
 
 Profiles are created at the project level. Only users with permission to edit the project can create profiles and anyone with permission to create or edit deployment environments in that project can assign that profile and its credentials to those environments.
 
@@ -95,7 +96,7 @@ To avoid unintended access, only grant permission sets like **Job Admin** or **P
 
 For more information on permission sets, see [Enterprise permissions](./manage-access/enterprise-permissions.md).
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Do I need to create profiles for all of my existing projects?
 

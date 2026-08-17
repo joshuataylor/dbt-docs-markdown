@@ -11,13 +11,7 @@ The following are the current [behavior change flags](./behavior-changes.md#beha
 | [`use_replace_on_for_insert_overwrite`](#use-replace-on-for-insert_overwrite-strategy)      | 1.11.0                  | 1.12.0                     | Active, defaults to `true`  |
 | [`use_describe_as_json_for_relation_metadata`](#use-describe-as-json-for-relation-metadata) | 1.12.0                  | TBD                        | Active, defaults to `false` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Use information schema for columns[​](#use-information-schema-for-columns "Direct link to Use information schema for columns")
+## Use information schema for columns
 
 Removed in v1.11.0
 
@@ -25,7 +19,7 @@ The `use_info_schema_for_columns` flag has been **removed** as of dbt-databricks
 
 If you're still using this flag in your project configuration, you can safely remove it. The new approach provides better performance and doesn't require the `REPAIR TABLE` operations that were needed with `information_schema`.
 
-### Legacy documentation[​](#legacy-documentation "Direct link to Legacy documentation")
+### Legacy documentation
 
 *This applies to dbt-databricks versions v1.11 and older* The `use_info_schema_for_columns` flag was `false` by default in versions 1.9 and 1.10.
 
@@ -35,7 +29,7 @@ For complex types
 
 If your complex type comes from processing JSON using `from_json`, you have an alternative: use [`parse_json` to create the column as the `variant` type](https://docs.databricks.com/aws/en/sql/language-manual/functions/parse_json). The `variant` type might be a reasonable alternative in terms of performance, while avoiding type truncation issues.
 
-## Use user's folder for Python model notebooks[​](#use-users-folder-for-python-model-notebooks "Direct link to Use user's folder for Python model notebooks")
+## Use user's folder for Python model notebooks
 
 Default changed in v1.11.0
 
@@ -55,7 +49,7 @@ flags:
   use_user_folder_for_python: false
 ```
 
-## Use restructured materializations[​](#use-restructured-materializations "Direct link to Use restructured materializations")
+## Use restructured materializations
 
 The `use_materialization_v2` flag is `false` by default and guards significant rewrites of the core materializations in `dbt-databricks` while they are still in an experimental stage.
 
@@ -68,11 +62,11 @@ These configs aren't required to receive the core benefits of this flag — like
 
 In v1.11.0, this flag will stay set to `false` by default. Based on feedback about the new materialization’s lack of atomicity (all-or-nothing updates), we won’t enable it automatically. We’ll explore other ways to achieve the same benefits without losing atomicity. Given feedback about lack of atomicity of the new materialization approach, we will not be flipping this flag to `true`. Instead, we will be investigating new ways to provide the same benefits while maintaining atomicity.
 
-### Changes to the Seed materialization[​](#changes-to-the-seed-materialization "Direct link to Changes to the Seed materialization")
+### Changes to the Seed materialization
 
 The seeds materialization should have the smallest difference between the old and new materialization, as the primary difference is just removing calls to methods that are not supported by Databricks, such as transaction operations.
 
-### Changes to the View materialization[​](#changes-to-the-view-materialization "Direct link to Changes to the View materialization")
+### Changes to the View materialization
 
 With the `use_materialization_v2` flag set to `true`, there are two model configuration options that can customize how we handle the view materialization when we detect an existing relation at the target location.
 
@@ -124,7 +118,7 @@ This configuration option may increase costs and disrupt Unity Catalog history.
 
 While this approach is equivalent to the default dbt view materialization, it will create additional UC objects, as compared to alternatives. Since this config does not use atomic 'create or replace...' for any materialization, the history of the object in Unity Catalog may not behave as you expect. Consider carefully before using this model config broadly.
 
-### Changes to the Table materialization[​](#changes-to-the-table-materialization "Direct link to Changes to the Table materialization")
+### Changes to the Table materialization
 
 This flag may increase storage costs for tables.
 
@@ -134,7 +128,7 @@ When `use_materialization_v2` is set to `true`, all materialization paths are up
 
 Additionally, this change makes it possible to support other column features — like column-level masks — that aren’t compatible with inserting data during creation. While these features aren’t included in version 1.10.0, they can now be added in future releases.
 
-#### Constraints[​](#constraints "Direct link to Constraints")
+#### Constraints
 
 For several feature releases now, dbt-databricks supported both dbt's [constraints](../resource-properties/constraints.md) implementation and our own alternative, earlier version called `persist_constraints`. With the `use_materialization_v2` flag, we're beginning to deprecate `persist_constraints` and shifting fully to dbt's native constraint support.
 
@@ -144,7 +138,7 @@ Separating `create` and `insert` also changes how constraints behave. Previously
 
 As with views, you can select between performance and safety with the [`use_safer_relation_operations` flag](#use_safer_relation_operations), but regardless of setting, the new materialization approach ensures constraint violations don't make it into the target table.
 
-#### `use_safer_relation_operations`[​](#use_safer_relation_operations "Direct link to use_safer_relation_operations")
+#### `use_safer_relation_operations`
 
 When using this model configuration with tables, we first create a staging table. After successfully inserting data into the table, we rename it to replace the target materialization. Since Databricks doesn’t support rollbacks, this is a safer approach — if something fails before the rename, the original table stays intact. That gives you time to troubleshoot without worrying that exposures or work streams relying on that table are broken in the mean time.
 
@@ -154,7 +148,7 @@ This configuration option may increase costs and disrupt Unity Catalog history.
 
 As with views, there is a cost to using additional temporary objects, in the form of creating more UC objects with their own history. Consider carefully whether you need this behavior.
 
-### Changes to the Incremental materialization[​](#changes-to-the-incremental-materialization "Direct link to Changes to the Incremental materialization")
+### Changes to the Incremental materialization
 
 All the changes made to the [Table materialization section](#changes-to-the-table-materialization) also apply to Incremental materializations.
 
@@ -178,11 +172,11 @@ models:
 ...
 ```
 
-## Use managed Iceberg[​](#use-managed-iceberg "Direct link to Use managed Iceberg")
+## Use managed Iceberg
 
 When you set `table_format` to `iceberg`, the `use_managed_iceberg` flag controls how the table is created. By default, this flag is set to `false` and dbt creates a [UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability) table. When set to `true`, dbt creates a [managed Iceberg](https://docs.databricks.com/aws/en/tables/managed) table.
 
-## Use `replace on` for `insert_overwrite` strategy[​](#use-replace-on-for-insert_overwrite-strategy "Direct link to use-replace-on-for-insert_overwrite-strategy")
+## Use `replace on` for `insert_overwrite` strategy
 
 The `use_replace_on_for_insert_overwrite` flag controls which SQL syntax dbt generates for incremental models using the `insert_overwrite` strategy. This flag defaults to `true` by default and results in using the [`insert into ... replace on`](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-syntax-dml-insert-into#replace-on) syntax to perform dynamic partition/cluster overwrites, which is the same behavior as in cluster computes. When the flag is set to `false`, `insert_overwrite` will truncate the entire table when used with SQL warehouses. The flag is not relevant for cluster computes because the `insert_overwrite`'s behavior has always been dynamic partition/cluster overwrites in cluster computes.
 
@@ -193,7 +187,7 @@ The `use_replace_on_for_insert_overwrite` flag controls which SQL syntax dbt gen
 
 If you previously relied on this behavior to get full table replacement without dropping existing metadata, that behavior continues to exist with the flag set to `true`, provided you do not use any partitions or liquid clustering clusters. These data layout optimizations only tend to have a significant effect for tables that are approximately 1 TB large or greater, at which point regular replacement of all of the data is probably not the best approach.
 
-## Use `DESCRIBE AS JSON` for relation metadata[​](#use-describe-as-json-for-relation-metadata "Direct link to use-describe-as-json-for-relation-metadata")
+## Use `DESCRIBE AS JSON` for relation metadata
 
 The `use_describe_as_json_for_relation_metadata` flag controls how dbt fetches relation-level metadata such as constraints (primary key, foreign key, and non-null), column masks, row filters, and view descriptions for Databricks tables and views. It accepts two values:
 
@@ -202,7 +196,7 @@ The `use_describe_as_json_for_relation_metadata` flag controls how dbt fetches r
 
 Enabling this flag is useful for projects that have many models with constraints, column masks, or row filters, because it reduces the number of metadata queries dbt has to issue.
 
-#### Requirements[​](#requirements "Direct link to Requirements")
+#### Requirements
 
 dbt uses the `DESCRIBE AS JSON` path for a given relation only when *all* of the following are true:
 

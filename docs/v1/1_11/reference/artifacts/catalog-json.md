@@ -2,18 +2,18 @@
 
 **Current schema**: [`v1`](https://schemas.getdbt.com/dbt/catalog/v1.json)
 
-**Produced by:** [`docs generate`](../commands/cmd-docs.md)
+**Produced by:** (Applies to dbt v1.99 and earlier) [`docs generate`](../commands/cmd-docs.md)
 
 This file contains information from your data warehouse about the tables and views produced and defined by the resources in your project. Today, dbt uses this file to populate metadata, such as column types and table statistics, in the [docs site](../../docs/explore/build-and-view-your-docs.md).
 
-### Top-level keys[​](#top-level-keys "Direct link to Top-level keys")
+### Top-level keys
 
 * [`metadata`](./dbt-artifacts.md#common-metadata)
 * `nodes`: Dictionary containing information about database objects corresponding to dbt models, seeds, and snapshots.
 * `sources`: Dictionary containing information about database objects corresponding to dbt sources.
-* `errors`: Errors received while running metadata queries during `dbt docs generate`.
+* `errors`: Errors received while running metadata queries during (Applies to dbt v1.99 and earlier) `dbt docs generate`.
 
-### Resource details[​](#resource-details "Direct link to Resource details")
+### Resource details
 
 Within `sources` and `nodes`, each dictionary key is a resource `unique_id`. Each nested resource contains:
 
@@ -29,8 +29,6 @@ Within `sources` and `nodes`, each dictionary key is a resource `unique_id`. Eac
   * `owner`
 
 * `columns` (array)
-
-  <!-- -->
 
   * `name`
   * `type`: data type

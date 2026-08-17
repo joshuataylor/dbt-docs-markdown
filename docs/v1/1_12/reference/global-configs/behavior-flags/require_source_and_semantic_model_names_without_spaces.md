@@ -6,12 +6,6 @@
 | Matured (default → `true`)                                    | —              | —        |
 | Removed                                                       | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The `require_source_and_semantic_model_names_without_spaces` flag is set to `false` by default.
 
 Source names and semantic model names should contain letters, numbers, and underscores — *not* spaces. dbt raises the [`ResourceNamesWithSpacesDeprecation`](../../deprecations.md#resourcenameswithspacesdeprecation) warning if it detects a space in a source name or semantic model name. When the `require_source_and_semantic_model_names_without_spaces` flag is set to `true`, dbt raises an error.

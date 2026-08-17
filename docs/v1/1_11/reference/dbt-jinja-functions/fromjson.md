@@ -7,7 +7,7 @@ The `fromjson` context method can be used to deserialize a JSON string into a Py
 * `string`: The JSON string to deserialize (required)
 * `default`: A default value to return if the `string` argument cannot be deserialized (optional)
 
-### Usage:[​](#usage "Direct link to Usage:")
+### Usage:
 
 ```text
 {% set my_json_str = '{"abc": 123}' %}

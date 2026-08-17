@@ -1,5 +1,7 @@
 # Simple metrics
 
+(Applies to dbt v1.12 and later)
+
 Simple metrics are metrics that directly reference a single column expression within a semantic model, without any additional columns involved. They are aggregations over a column in your data platform and can be filtered by one or multiple dimensions.
 
 The parameters, description, and type for simple metrics are:
@@ -19,15 +21,9 @@ The parameters, description, and type for simple metrics are:
 | `join_to_timespine`      | Indicates if the aggregated measure should be joined to the time spine table to fill in missing dates. Default `false`.                                                                       | Optional | Boolean |
 | `fill_nulls_with`        | Set the value in your metric definition instead of null (such as zero).                                                                                                                       | Optional | Integer |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The following displays the complete specification for simple metrics, along with an example.
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 Note that you must define simple metrics within a semantic model's YAML entry.
 
@@ -57,9 +53,9 @@ models:
 
 For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine` to [set null metric values to zero](./fill-nulls-advanced.md), ensuring numeric values for every data row.
 
-## Simple metrics example[​](#simple-metrics-example "Direct link to Simple metrics example")
+## Simple metrics example
 
-<!-- -->
+(Applies to dbt v1.12 and later)
 
 ```yaml
   metrics:
@@ -84,6 +80,6 @@ For advanced data modeling, you can use `fill_nulls_with` and `join_to_timespine
       filter: "{{ Dimension('customer__order_total_dim') }} >= 20"
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Fill null values for simple, derived, or ratio metrics](./fill-nulls-advanced.md)

@@ -10,7 +10,7 @@ Note
 
 Please make sure to take a look at the [SQL expressions section](#sql-expressions) to understand quoting syntax for string values and date literals.
 
-## All functions (alphabetical)[​](#all-functions-alphabetical "Direct link to All functions (alphabetical)")
+## All functions (alphabetical)
 
 * [Cross-database macros](#cross-database-macros)
 
@@ -140,9 +140,9 @@ Please make sure to take a look at the [SQL expressions section](#sql-expression
 * [date\_trunc](#date_trunc)
 * [last\_day](#last_day)
 
-## Data type functions[​](#data-type-functions "Direct link to Data type functions")
+## Data type functions
 
-### type\_bigint[​](#type_bigint "Direct link to type_bigint")
+### type\_bigint
 
 **Args**:
 
@@ -162,7 +162,7 @@ This macro yields the database-specific data type for a `BIGINT`.
 bigint
 ```
 
-### type\_boolean[​](#type_boolean "Direct link to type_boolean")
+### type\_boolean
 
 **Args**:
 
@@ -182,7 +182,7 @@ This macro yields the database-specific data type for a `BOOLEAN`.
 BOOLEAN
 ```
 
-### type\_float[​](#type_float "Direct link to type_float")
+### type\_float
 
 **Args**:
 
@@ -202,7 +202,7 @@ This macro yields the database-specific data type for a `FLOAT`.
 FLOAT
 ```
 
-### type\_int[​](#type_int "Direct link to type_int")
+### type\_int
 
 **Args**:
 
@@ -222,7 +222,7 @@ This macro yields the database-specific data type for an `INT`.
 INT
 ```
 
-### type\_numeric[​](#type_numeric "Direct link to type_numeric")
+### type\_numeric
 
 **Args**:
 
@@ -242,7 +242,7 @@ This macro yields the database-specific data type for a `NUMERIC`.
 numeric(28,6)
 ```
 
-### type\_string[​](#type_string "Direct link to type_string")
+### type\_string
 
 **Args**:
 
@@ -262,7 +262,7 @@ This macro yields the database-specific data type for `TEXT`.
 TEXT
 ```
 
-### type\_timestamp[​](#type_timestamp "Direct link to type_timestamp")
+### type\_timestamp
 
 **Args**:
 
@@ -282,7 +282,7 @@ This macro yields the database-specific data type for a `TIMESTAMP` (which may o
 TIMESTAMP
 ```
 
-### current\_timestamp[​](#current_timestamp "Direct link to current_timestamp")
+### current\_timestamp
 
 This macro returns the current date and time for the system. Depending on the adapter:
 
@@ -307,9 +307,9 @@ This macro returns the current date and time for the system. Depending on the ad
 now()
 ```
 
-## Set functions[​](#set-functions "Direct link to Set functions")
+## Set functions
 
-### except[​](#except "Direct link to except")
+### except
 
 **Args**:
 
@@ -329,7 +329,7 @@ now()
 except
 ```
 
-### intersect[​](#intersect "Direct link to intersect")
+### intersect
 
 **Args**:
 
@@ -349,9 +349,9 @@ except
 intersect
 ```
 
-## Array functions[​](#array-functions "Direct link to Array functions")
+## Array functions
 
-### array\_append[​](#array_append "Direct link to array_append")
+### array\_append
 
 **Args**:
 
@@ -376,7 +376,7 @@ array_append(array_column, 5)
 array_append(array_column, 'blue')
 ```
 
-### array\_concat[​](#array_concat "Direct link to array_concat")
+### array\_concat
 
 **Args**:
 
@@ -397,7 +397,7 @@ This macro returns the concatenation of two arrays.
 array_cat(array_column_1, array_column_2)
 ```
 
-### array\_construct[​](#array_construct "Direct link to array_construct")
+### array\_construct
 
 **Args**:
 
@@ -424,9 +424,9 @@ array[ 1 , 2 , 3 , 4 ]
 array[ 'blue' , 'green' ]
 ```
 
-## String functions[​](#string-functions "Direct link to String functions")
+## String functions
 
-### concat[​](#concat "Direct link to concat")
+### concat
 
 **Args**:
 
@@ -452,7 +452,7 @@ first_part_column || '.' || second_part_column
 first_part_column || ',' || second_part_column
 ```
 
-### hash[​](#hash "Direct link to hash")
+### hash
 
 **Args**:
 
@@ -478,7 +478,7 @@ md5(cast('Pennsylvania' as
 ))
 ```
 
-### length[​](#length "Direct link to length")
+### length
 
 **Args**:
 
@@ -500,7 +500,7 @@ This macro calculates the number of characters in a string.
     )
 ```
 
-### position[​](#position "Direct link to position")
+### position
 
 **Args**:
 
@@ -528,7 +528,7 @@ This macro searches for the first occurrence of `substring_text` within `string_
     )
 ```
 
-### replace[​](#replace "Direct link to replace")
+### replace
 
 **Args**:
 
@@ -561,7 +561,7 @@ This macro updates a string and replaces all occurrences of one substring with a
     )
 ```
 
-### right[​](#right "Direct link to right")
+### right
 
 **Args**:
 
@@ -591,7 +591,7 @@ This macro returns the N rightmost characters from a string.
     )
 ```
 
-### split\_part[​](#split_part "Direct link to split_part")
+### split\_part
 
 **Args**:
 
@@ -626,9 +626,9 @@ When referencing a column, use one pair of quotes. When referencing a string, us
         )
 ```
 
-## String literal functions[​](#string-literal-functions "Direct link to String literal functions")
+## String literal functions
 
-### escape\_single\_quotes[​](#escape_single_quotes "Direct link to escape_single_quotes")
+### escape\_single\_quotes
 
 **Args**:
 
@@ -652,7 +652,7 @@ they''re
 ain''t ain''t a word
 ```
 
-### string\_literal[​](#string_literal "Direct link to string_literal")
+### string\_literal
 
 **Args**:
 
@@ -674,9 +674,9 @@ select {{ dbt.string_literal("Pennsylvania") }}
 select 'Pennsylvania'
 ```
 
-## Aggregate and window functions[​](#aggregate-and-window-functions "Direct link to Aggregate and window functions")
+## Aggregate and window functions
 
-### any\_value[​](#any_value "Direct link to any_value")
+### any\_value
 
 **Args**:
 
@@ -696,7 +696,7 @@ This macro returns some value of the expression from the group. The selected val
 any(column_name)
 ```
 
-### bool\_or[​](#bool_or "Direct link to bool_or")
+### bool\_or
 
 **Args**:
 
@@ -722,7 +722,7 @@ bool_or(string_column = 'Pennsylvania')
 bool_or(column1 = column2)
 ```
 
-### listagg[​](#listagg "Direct link to listagg")
+### listagg
 
 **Args**:
 
@@ -753,9 +753,9 @@ array_to_string(
         )
 ```
 
-## Cast functions[​](#cast-functions "Direct link to Cast functions")
+## Cast functions
 
-### cast[​](#cast "Direct link to cast")
+### cast
 
 **Availability**: dbt v1.8 or higher. For more information, select the version from the documentation navigation menu.
 
@@ -782,7 +782,7 @@ This macro casts a value to the specified data type. Unlike [safe\_cast](#safe_c
     cast('2016-03-09' as date)
 ```
 
-### cast\_bool\_to\_text[​](#cast_bool_to_text "Direct link to cast_bool_to_text")
+### cast\_bool\_to\_text
 
 **Args**:
 
@@ -829,7 +829,7 @@ This macro casts a boolean value to a string.
 )
 ```
 
-### safe\_cast[​](#safe_cast "Direct link to safe_cast")
+### safe\_cast
 
 **Args**:
 
@@ -854,11 +854,11 @@ For databases that support it, this macro will return `NULL` when the cast fails
     cast('2016-03-09' as date)
 ```
 
-## Comparison functions[​](#comparison-functions "Direct link to Comparison functions")
+## Comparison functions
 
 Comparison functions are macros that compare two SQL expressions and return a boolean SQL expression (for example, `TRUE`, `FALSE`, or `UNKNOWN`).
 
-### equals[​](#equals "Direct link to equals")
+### equals
 
 **Args**:
 
@@ -885,9 +885,9 @@ When the [`enable_truthy_nulls_equals_macro`](../global-configs/behavior-flags/e
 (id IS NOT DISTINCT FROM previous_id)
 ```
 
-## Date and time functions[​](#date-and-time-functions "Direct link to Date and time functions")
+## Date and time functions
 
-### date[​](#date "Direct link to date")
+### date
 
 **Availability**: dbt v1.8 or later. For more information, select the version from the documentation navigation menu.
 
@@ -911,7 +911,7 @@ This macro converts the `year`, `month`, and `day` into an SQL `DATE` type.
 to_date('2023-10-04', 'YYYY-MM-DD')
 ```
 
-### dateadd[​](#dateadd "Direct link to dateadd")
+### dateadd
 
 **Args**:
 
@@ -935,7 +935,7 @@ This macro adds a time/day interval to the supplied date/timestamp. Note: The `d
     '2016-03-09' + ((interval '10 month') * (-2))
 ```
 
-### datediff[​](#datediff "Direct link to datediff")
+### datediff
 
 **Args**:
 
@@ -964,7 +964,7 @@ This macro calculates the difference between two dates.
         (date_part('year', (column)::date) - date_part('year', ('2016-03-09')::date))
 ```
 
-### date\_trunc[​](#date_trunc "Direct link to date_trunc")
+### date\_trunc
 
 **Args**:
 
@@ -989,7 +989,7 @@ date_trunc('month', updated_at)
 date_trunc('year', '2016-03-09')
 ```
 
-### last\_day[​](#last_day "Direct link to last_day")
+### last\_day
 
 **Args**:
 
@@ -1022,7 +1022,7 @@ cast(
         as date)
 ```
 
-## Date and time parts[​](#date-and-time-parts "Direct link to Date and time parts")
+## Date and time parts
 
 Often supported date and time parts (case insensitive):
 
@@ -1040,7 +1040,7 @@ Often supported date and time parts (case insensitive):
 
 This listing is not meant to be exhaustive, and some of these date and time parts may not be supported for particular adapters. Some macros may not support all date and time parts. Some adapters may support more or less precision.
 
-## SQL expressions[​](#sql-expressions "Direct link to SQL expressions")
+## SQL expressions
 
 A SQL expression may take forms like the following:
 

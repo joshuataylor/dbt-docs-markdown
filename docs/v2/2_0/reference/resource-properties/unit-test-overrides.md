@@ -29,7 +29,7 @@ models/schema.yml
         - {macro_call: override, var_call: var_override, env_var_call: env_var_override, invocation_id: 123}
 ```
 
-## Macros[​](#macros "Direct link to Macros")
+## Macros
 
 You can override the output of any macro referenced directly by the model being unit tested in your unit test definition. Overrides apply only to macros, variables, and environment variables that are referenced directly within the model being unit tested. If a macro, variable, or environment variable is only referenced indirectly (for example, inside a macro that your model calls), the override will not be applied.
 

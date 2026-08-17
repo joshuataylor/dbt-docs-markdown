@@ -1,6 +1,6 @@
 # Postgres configurations
 
-## Incremental materialization strategies[​](#incremental-materialization-strategies "Direct link to Incremental materialization strategies")
+## Incremental materialization strategies
 
 In dbt-postgres, the following incremental materialization strategies are supported:
 
@@ -9,9 +9,9 @@ In dbt-postgres, the following incremental materialization strategies are suppor
 * `delete+insert` (default when `unique_key` is defined)
 * [`microbatch`](../../docs/build/incremental-microbatch.md)
 
-## Performance optimizations[​](#performance-optimizations "Direct link to Performance optimizations")
+## Performance optimizations
 
-### Unlogged[​](#unlogged "Direct link to Unlogged")
+### Unlogged
 
 "Unlogged" tables can be considerably faster than ordinary tables, as they are not written to the write-ahead log nor replicated to read replicas. They are also considerably less safe than ordinary tables. See [Postgres docs](https://www.postgresql.org/docs/current/sql-createtable.html#SQL-CREATETABLE-UNLOGGED) for details.
 
@@ -30,7 +30,7 @@ models:
   +unlogged: true
 ```
 
-### Indexes[​](#indexes "Direct link to Indexes")
+### Indexes
 
 While Postgres works reasonably well for datasets smaller than about 10m rows, database tuning is sometimes required. It's important to create indexes for columns that are commonly used in joins or where clauses.
 
@@ -82,7 +82,7 @@ models:
           type: hash
 ```
 
-## Materialized views[​](#materialized-views "Direct link to Materialized views")
+## Materialized views
 
 The Postgres adapter supports [materialized views](https://www.postgresql.org/docs/current/rules-materializedviews.html) with the following configuration parameters:
 
@@ -91,15 +91,7 @@ The Postgres adapter supports [materialized views](https://www.postgresql.org/do
 | [`on_configuration_change`](./on_configuration_change.md) | `<string>`         | no       | `apply` | n/a                       |
 | [`indexes`](#indexes)                                                                                      | `[{<dictionary>}]` | no       | `none`  | alter                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -113,6 +105,8 @@ models:
         unique: true | false
         type: hash | btree
 ```
+
+### Properties YAML file
 
 models/properties.yml
 
@@ -128,6 +122,8 @@ models:
           unique: true | false
           type: hash | btree
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 

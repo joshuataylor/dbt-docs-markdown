@@ -1,6 +1,6 @@
 # Snowflake setup [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in v2 | Local developmentⓘ
+Available in v2 | Local development
 
 Snowflake enforcing strong authentication
 
@@ -19,7 +19,7 @@ note
 
 [Snowflake is deprecating single-access password login](https://docs.snowflake.com/en/user-guide/security-mfa-rollout). Individual developers should use MFA or SSO instead of password authentication. Password-based login remains supported for service users (Snowflake user type: `LEGACY_SERVICE`).
 
-## Snowflake configuration details[​](#snowflake-configuration-details "Direct link to Snowflake configuration details")
+## Snowflake configuration details
 
 The information required for configuring the Snowflake adapter can be found conveniently in your Snowflake account menu:
 
@@ -30,7 +30,7 @@ The information required for configuring the Snowflake adapter can be found conv
 
 [![Sample config file in Snowflake.](/img/fusion/connect-adapters/snowflake-account-details.png?v=2 "Sample config file in Snowflake.")](#)Sample config file in Snowflake.
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -45,17 +45,15 @@ Alternatively, you can manually create the `profiles.yml` file and configure the
 
 Next, select your authentication method. Follow the on-screen prompts to provide the required information.
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
-* Password
-* Key pair
-* Single sign-on
+### Password
 
 Password authentication prompts for your Snowflake account password. This is becoming an increasingly less common option as organizations opt for more secure authentication.
 
 Selecting **Password with MFA** redirects you to the Snowflake account login to provide your passkey or authenticator password.
 
-#### Example password configuration[​](#example-password-configuration "Direct link to Example password configuration")
+#### Example password configuration
 
 profiles.yml
 
@@ -74,7 +72,7 @@ default:
       password: THISISMYPASSWORD
 ```
 
-#### Example password with MFA configuration[​](#example-password-with-mfa-configuration "Direct link to Example password with MFA configuration")
+#### Example password with MFA configuration
 
 profiles.yml
 
@@ -92,6 +90,8 @@ default:
       warehouse: TRANFORM
       schema: JANE_SMITH
 ```
+
+### Key pair
 
 Key pair authentication gives you the option to:
 
@@ -119,7 +119,7 @@ If you encounter the `Key is PKCS#1 (RSA private key). Snowflake requires PKCS#8
 
 Once the key is configuted, you will be given the option to provide a passphrase, if required.
 
-#### Example key pair configuration[​](#example-key-pair-configuration "Direct link to Example key pair configuration")
+#### Example key pair configuration
 
 profiles.yml
 
@@ -139,13 +139,15 @@ default:
       private_key_passphrase: YOURPASSPHRASEHERE
 ```
 
+### Single sign-on
+
 Single sign-on will leverage your browser to authenticate the Snowflake session.
 
 By default, every connection that dbt opens will require you to re-authenticate in a browser. The Snowflake connector package supports caching your session token, but it [currently only supports Windows and Mac OS](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-use.html#optional-using-connection-caching-to-minimize-the-number-of-prompts-for-authentication).
 
 Refer to the [Snowflake docs](https://docs.snowflake.com/en/sql-reference/parameters.html#label-allow-id-token) for information on enabling this feature in your account.
 
-#### Example SSO configuration[​](#example-sso-configuration "Direct link to Example SSO configuration")
+#### Example SSO configuration
 
 profiles.yml
 
@@ -164,6 +166,6 @@ default:
       schema: JANE_SMITH
 ```
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Snowflake-specific configuration information in the [Snowflake adapter reference guide](../../../reference/resource-configs/snowflake-configs.md).

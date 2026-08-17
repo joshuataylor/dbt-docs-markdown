@@ -1,24 +1,24 @@
 # Upgrading to v1.9
 
-Available in v1ⓘ
+Available in v1
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 * [dbt Core 1.9 changelog](https://github.com/dbt-labs/dbt-core/blob/1.9.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../local/install-dbt.md)
 * [dbt platform upgrade guide](../upgrade-dbt-platform-version.md#fusion-release-tracks)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 dbt Labs is committed to providing backward compatibility for all versions 1.x. Any behavior changes will be accompanied by a [behavior change flag](../../../reference/global-configs/behavior-changes.md#behavior-change-flags) to provide a migration window for existing projects. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
 Starting in 2024, dbt provides the functionality from new versions of dbt Core via [release tracks](../dbt-release-tracks.md) with automatic upgrades. If you have selected the **Latest** release track in dbt, you already have access to all the features, fixes, and other functionality that is included in dbt Core v1.9! If you have selected the **Compatible** release track, you will have access in the next monthly **Compatible** release after the dbt Core v1.9 final release.
 
-## New and changed features and functionality[​](#new-and-changed-features-and-functionality "Direct link to New and changed features and functionality")
+## New and changed features and functionality
 
 Features and functionality new in dbt v1.9.
 
-### Microbatch `incremental_strategy`[​](#microbatch-incremental_strategy "Direct link to microbatch-incremental_strategy")
+### Microbatch `incremental_strategy`
 
 info
 
@@ -50,7 +50,7 @@ Currently microbatch is supported on these adapters with more to come:
 * spark
 * databricks
 
-### Snapshots improvements[​](#snapshots-improvements "Direct link to Snapshots improvements")
+### Snapshots improvements
 
 Beginning in dbt Core 1.9, we've streamlined snapshot configuration and added a handful of new configurations to make dbt **snapshots easier to configure, run, and customize.** These improvements include:
 
@@ -66,7 +66,7 @@ Read more about [Snapshots meta fields](../../build/snapshots.md#snapshot-meta-f
 
 To learn how to safely migrate existing snapshots, refer to [Snapshot configuration migration](../../../reference/snapshot-configs.md#snapshot-configuration-migration) for more information.
 
-### Some `properties` moved to `configs`[​](#some-properties-moved-to-configs "Direct link to some-properties-moved-to-configs")
+### Some `properties` moved to `configs`
 
 The following `properties` were moved to `configs` in [Core v1.10](./upgrading-to-v1.10.md) and backported to Core v1.9:
 
@@ -74,13 +74,13 @@ The following `properties` were moved to `configs` in [Core v1.10](./upgrading-t
 * [`meta`](../../../reference/resource-configs/meta.md) under `columns`
 * [`tags`](../../../reference/resource-configs/tags.md) under `columns`
 
-### `state:modified` improvements[​](#statemodified-improvements "Direct link to statemodified-improvements")
+### `state:modified` improvements
 
 We’ve made improvements to `state:modified` behaviors to help reduce the risk of false positives and negatives. Read more about [the `state:modified` behavior flag](#managing-changes-to-legacy-behaviors) that unlocks this improvement:
 
 * Added environment-aware enhancements for environments where the logic purposefully differs (for example, materializing as a table in `prod` but a `view` in dev).
 
-### Managing changes to legacy behaviors[​](#managing-changes-to-legacy-behaviors "Direct link to Managing changes to legacy behaviors")
+### Managing changes to legacy behaviors
 
 dbt Core v1.9 has a handful of new flags for [managing changes to legacy behaviors](../../../reference/global-configs/behavior-changes.md). You may opt into recently introduced changes (disabled by default), or opt out of mature changes (enabled by default), by setting `true` / `false` values, respectively, for `flags` in `dbt_project.yml`.
 
@@ -88,15 +88,12 @@ You can read more about each of these behavior changes in the following links:
 
 * (Introduced, disabled by default) [`state_modified_compare_more_unrendered_values`](../../../reference/global-configs/behavior-flags/state_modified_compare_more_unrendered_values.md). Set to `true` to persist `unrendered_config` during model parsing and `unrendered_database`/`unrendered_schema` during source parsing, then compare on unrendered values during `state:modified` checks. This reduces false positives from environment-aware logic, but requires rebuilding your state directory; without a rebuild, `state:modified` may select nodes with Jinja in YAML configs that haven't actually changed.
 * (Introduced, disabled by default) [`skip_nodes_if_on_run_start_fails` project config flag](../../../reference/global-configs/behavior-flags/skip_nodes_if_on_run_start_fails.md). If the flag is set and **any** `on-run-start` hook fails, mark all selected nodes as skipped.
-  <!-- -->
   * `on-run-start/end` hooks are **always** run, regardless of whether they passed or failed last time.
 
 - (Introduced, disabled by default) [`require_nested_cumulative_type_params`](../../../reference/global-configs/behavior-flags/require_nested_cumulative_type_params.md). If the flag is set to `true`, users will receive an error instead of a warning if they're not properly formatting cumulative metrics using the new [`cumulative_type_params`](../../build/cumulative.md#parameters) nesting.
 - (Introduced, disabled by default) [`require_batched_execution_for_custom_microbatch_strategy`](../../../reference/global-configs/behavior-flags/require_batched_execution_for_custom_microbatch_strategy.md). Set to `true` if you use a custom microbatch macro to enable batched execution. If you don't have a custom microbatch macro, you don't need to set this flag as dbt will handle microbatching automatically for any model using the microbatch strategy.
 
-## Adapter-specific features and functionalities[​](#adapter-specific-features-and-functionalities "Direct link to Adapter-specific features and functionalities")
-
-<!-- -->
+## Adapter-specific features and functionalities
 
 Snowflake column size change
 
@@ -125,25 +122,25 @@ dbt ls -s config.materialized:incremental,config.on_schema_change:sync_all_colum
 
   This ensures your incremental models can safely handle schema changes while maintaining required collation settings.
 
-### Redshift[​](#redshift "Direct link to Redshift")
+### Redshift
 
 * Support IAM Role auth
 
-### Snowflake[​](#snowflake "Direct link to Snowflake")
+### Snowflake
 
 * Iceberg Table Format — Support will be available on three out-of-the-box materializations: table, incremental, dynamic tables.
 * Breaking change — When upgrading from dbt 1.8 to 1.9 `{{ target.account }}` replaces underscores with dashes. For example, if the `target.account` is set to `sample_company`, then the compiled code now generates `sample-company`. [Refer to the `dbt-snowflake` issue](https://github.com/dbt-labs/dbt-snowflake/issues/1286) for more information.
 
-### Bigquery[​](#bigquery "Direct link to Bigquery")
+### Bigquery
 
 * Can cancel running queries on keyboard interrupt
 * Auto-drop intermediate tables created by incremental models to save resources
 
-### Spark[​](#spark "Direct link to Spark")
+### Spark
 
 * Support overriding the ODBC driver connection string which now enables you to provide custom connections
 
-## Quick hits[​](#quick-hits "Direct link to Quick hits")
+## Quick hits
 
 We also made some quality-of-life improvements in Core 1.9, enabling you to:
 

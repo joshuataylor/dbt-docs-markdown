@@ -1,6 +1,6 @@
 # Service account tokens
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Service account tokens enable you to securely authenticate with the dbt API by assigning each token a narrow set of permissions that more precisely manages access to the API. While similar to [personal access tokens](./user-tokens.md), service account tokens belong to an account rather than a user.
 
@@ -12,7 +12,7 @@ You can use service account tokens for system-level integrations that do not run
 
 You can assign as many permission sets as needed to one token. For more on permissions sets, see "[Enterprise Permissions](../platform/manage-access/enterprise-permissions.md)."
 
-## Generate service account tokens[​](#generate-service-account-tokens "Direct link to Generate service account tokens")
+## Generate service account tokens
 
 You can generate service tokens if you have a Developer [license](../platform/manage-access/seats-and-users.md) and account admin [permissions](../platform/manage-access/about-user-access.md#permission-sets). To create a service token in dbt, follow these steps:
 
@@ -22,18 +22,16 @@ You can generate service tokens if you have a Developer [license](../platform/ma
 
 3. Click the **+ Create service token** button to generate a new token.
 
-   <!-- -->
-
    1. Enter a name for your token.
    2. Add the necessary [permissions](./service-tokens.md#permissions-for-service-account-tokens).
 
 4. Once the token is generated, you won't be able to view this token again so make sure to save it somewhere safe.
 
-## Permissions for service account tokens[​](#permissions-for-service-account-tokens "Direct link to Permissions for service account tokens")
+## Permissions for service account tokens
 
 You can assign service account tokens to any permission set available in dbt. When you assign a permission set to a token, you will also be able to choose whether to grant those permissions to all projects in the account or to specific projects.
 
-### Team plans using service account tokens[​](#team-plans-using-service-account-tokens "Direct link to Team plans using service account tokens")
+### Team plans using service account tokens
 
 The following permissions can be assigned to a service account token on a Team plan. Refer to [Enterprise permissions](../platform/manage-access/enterprise-permissions.md) for more information about these roles.
 
@@ -45,7 +43,7 @@ The following permissions can be assigned to a service account token on a Team p
 * Read-only
 * Semantic Layer Only
 
-### Enterprise plans using service account tokens[​](#enterprise-plans-using-service-account-tokens "Direct link to Enterprise plans using service account tokens")
+### Enterprise plans using service account tokens
 
 Refer to [Enterprise permissions](../platform/manage-access/enterprise-permissions.md) for more information about these roles.
 
@@ -68,7 +66,7 @@ Refer to [Enterprise permissions](../platform/manage-access/enterprise-permissio
 * Stakeholder
 * Team Admin
 
-## Service token update[​](#service-token-update "Direct link to Service token update")
+## Service token update
 
 On July 18, 2023, dbt Labs changed how tokens are generated and validated to increase performance. These improvements only apply to tokens created after July 18, 2023.
 
@@ -82,7 +80,7 @@ To rotate your token:
 4. Copy the new token and replace the old one in your systems. Store it in a safe place, as it will not be available again once the creation screen is closed.
 5. Delete the old token in dbt by clicking the **trash can icon**. *Only take this action after the new token is in place to avoid service disruptions*.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 I'm receiving a 403 error 'Forbidden: Access denied' when using service tokens
 

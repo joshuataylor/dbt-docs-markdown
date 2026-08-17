@@ -20,7 +20,7 @@ Migrating between tenancy types requires a contract change.
 
 Make sure you contact your account manager before starting this process to confirm eligibility, timeline, and initiate the necessary contract updates. *Do not* begin migration steps until a contract change is confirmed.
 
-## Overview[​](#overview "Direct link to Overview")
+## Overview
 
 This guide walks you through a self-serve migration between [dbt platform tenancy types](../docs/platform/about-platform/tenancy.md) — for example, moving from multi-tenant to single-tenant.
 
@@ -42,12 +42,12 @@ The following factors add coordination overhead regardless of account size — f
 * Privatelink endpoints
 * Multiple warehouse connection types
 
-### Related docs[​](#related-docs "Direct link to Related docs")
+### Related docs
 
 * [Tenancy](../docs/platform/about-platform/tenancy.md)
 * [Access, regions, and IP addresses](../docs/platform/about-platform/access-regions-ip-addresses.md)
 
-## What doesn't migrate automatically[​](#what-doesnt-migrate-automatically "Direct link to What doesn't migrate automatically")
+## What doesn't migrate automatically
 
 The migration tool automates most configuration, but some things require manual setup after you apply the Terraform configuration.
 
@@ -73,7 +73,7 @@ The migration tool automates most configuration, but some things require manual 
 
 * PrivateLink endpoints require assistance from the dbt Labs infrastructure team — [open a support ticket](https://www.getdbt.com/support)
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before starting your migration, confirm the following:
 
@@ -83,7 +83,7 @@ Before starting your migration, confirm the following:
 * The target account is provisioned in the new environment
 * You have a service token with Account Admin permissions on the source account
 
-## Migration steps[​](#migration-steps "Direct link to Migration steps")
+## Migration steps
 
 This migration uses two open-source tools:
 
@@ -94,10 +94,9 @@ info
 
 Credentials, secrets, and some other items don't migrate automatically — plan to recreate them manually. Refer to [What doesn't migrate automatically](#what-doesnt-migrate-automatically) for the full list.
 
-* Mac/Linux
-* Windows
+### Mac/Linux
 
-### Step 1: Install prerequisites[​](#step-1-install-prerequisites "Direct link to Step 1: Install prerequisites")
+### Step 1: Install prerequisites
 
 You need Python, Terraform, and `dbtcloud-terraforming`. Install them using any method you prefer — we use Homebrew as an example here.
 
@@ -120,7 +119,7 @@ Install `dbtcloud-terraforming`:
 brew install dbt-labs/dbt-cli/dbtcloud-terraforming
 ```
 
-### Step 2: Set up the migration tool[​](#step-2-set-up-the-migration-tool "Direct link to Step 2: Set up the migration tool")
+### Step 2: Set up the migration tool
 
 Clone the migration tool repo and navigate into it:
 
@@ -137,7 +136,7 @@ export DBT_CLOUD_TOKEN="your_source_service_token"
 export DBT_CLOUD_ACCOUNT_ID="your_source_account_id"
 ```
 
-### Step 3: Generate and apply Terraform configuration[​](#step-3-generate-and-apply-terraform-configuration "Direct link to Step 3: Generate and apply Terraform configuration")
+### Step 3: Generate and apply Terraform configuration
 
 Run the migration tool to generate a `resources.tf` file with your source account's resources:
 
@@ -162,7 +161,9 @@ terraform apply
 
 Terraform will output the newly created resources and any warnings or errors. You may need to re-run `migrate.sh` multiple times to catch all required resource types.
 
-### Step 1: Install prerequisites[​](#step-1-install-prerequisites-1 "Direct link to Step 1: Install prerequisites")
+### Windows
+
+### Step 1: Install prerequisites
 
 You need Python, Terraform, and `dbtcloud-terraforming`. Install them using any method you prefer — we use Chocolatey as an example here.
 
@@ -181,7 +182,7 @@ terraform --version
 
 Install `dbtcloud-terraforming` by adding it to your Terraform installation directory. If you used Chocolatey, the path is typically `C:\ProgramData\chocolatey\bin`.
 
-### Step 2: Set up the migration tool[​](#step-2-set-up-the-migration-tool-1 "Direct link to Step 2: Set up the migration tool")
+### Step 2: Set up the migration tool
 
 The following steps should be run in a bash environment (for example, Git Bash). Clone the migration tool repo and navigate into it:
 
@@ -190,7 +191,7 @@ git clone https://github.com/dpguthrie/dbt-cloud-migration-tool.git
 cd dbt-cloud-migration-tool
 ```
 
-### Step 3: Configure and run the migration[​](#step-3-configure-and-run-the-migration "Direct link to Step 3: Configure and run the migration")
+### Step 3: Configure and run the migration
 
 Set environment variables for your source dbt platform account (these reset when you close the terminal):
 
@@ -223,13 +224,9 @@ terraform apply
 
 Terraform will output the newly created resources and any warnings or errors. You may need to re-run `migrate.sh` multiple times to catch all required resource types.
 
-## Post-migration checklist[​](#post-migration-checklist "Direct link to Post-migration checklist")
+## Post-migration checklist
 
-* <!-- -->
-  Verify all connections, permissions, and secrets in the target account
-* <!-- -->
-  Run test jobs to confirm end-to-end functionality
-* <!-- -->
-  Confirm IP allowlist and network settings are updated for the new tenant
-* <!-- -->
-  Update internal bookmarks, SSO configurations, and API integrations to the new account URL
+* [ ] Verify all connections, permissions, and secrets in the target account
+* [ ] Run test jobs to confirm end-to-end functionality
+* [ ] Confirm IP allowlist and network settings are updated for the new tenant
+* [ ] Update internal bookmarks, SSO configurations, and API integrations to the new account URL

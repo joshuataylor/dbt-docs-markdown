@@ -1,6 +1,6 @@
 # Configuring Snowflake and Azure Private Link
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -13,7 +13,7 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of an Azure-hosted Snowflake Private Link endpoint in a dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Snowflake<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Snowflake) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
 Snowflake OAuth with Private Link
 
@@ -25,7 +25,7 @@ Snowflake docs:
 
 * [Snowflake SSO with Private Connectivity](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-overview#label-sso-private-connectivity)
 
-## Configure Azure Private Link[​](#configure-azure-private-link "Direct link to Configure Azure Private Link")
+## Configure Azure Private Link
 
 To configure Snowflake instances hosted on Azure for [Private Link](https://learn.microsoft.com/en-us/azure/private-link/private-link-overview):
 
@@ -68,7 +68,7 @@ USE ROLE ACCOUNTADMIN;
 SELECT SYSTEM$AUTHORIZE_STAGE_PRIVATELINK_ACCESS ( 'AZURE_PRIVATE_ENDPOINT_RESOURCE_ID' );
 ```
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once dbt Support completes the configuration, you can start creating new connections using Private Link.
 
@@ -80,11 +80,11 @@ Once dbt Support completes the configuration, you can start creating new connect
 6. Configure the remaining data platform details.
 7. Test your connection and save it.
 
-## Configuring network policies[​](#configuring-network-policies "Direct link to Configuring network policies")
+## Configuring network policies
 
 If your organization uses [Snowflake Network Policies](https://docs.snowflake.com/en/user-guide/network-policies) to restrict access to your Snowflake account, you need to add a network rule for dbt.
 
-### Find the endpoint Azure Link ID[​](#find-the-endpoint-azure-link-id "Direct link to Find the endpoint Azure Link ID")
+### Find the endpoint Azure Link ID
 
 Snowflake allows you to find the Azure Link ID of configured endpoints by running the `SYSTEM$GET_PRIVATELINK_AUTHORIZED_ENDPOINTS` command. Use the following to isolate the Link ID value and the associated endpoint resource name:
 
@@ -100,7 +100,7 @@ from
   );
 ```
 
-### Using the UI[​](#using-the-ui "Direct link to Using the UI")
+### Using the UI
 
 Open the Snowflake UI and take the following steps:
 
@@ -121,7 +121,7 @@ Open the Snowflake UI and take the following steps:
 
 [![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")](#)Update Network Policy
 
-### Using SQL[​](#using-sql "Direct link to Using SQL")
+### Using SQL
 
 For quick and automated setup of network rules via SQL in Snowflake, the following commands allow you to create and configure access rules for dbt. These SQL examples demonstrate how to add a network rule and update your network policy accordingly.
 

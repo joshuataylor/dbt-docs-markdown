@@ -6,7 +6,7 @@ dbt Labs actively maintained `dbt-rpc` for compatibility with dbt-core versions 
 
 In the meantime, dbt Labs will be performing critical maintenance only for `dbt-rpc`, until the last compatible version of dbt-core has reached the [end of official support](../../docs/dbt-versions.md#end-of-life-versions). At that point, dbt Labs will archive this repository to be read-only.
 
-### Overview[​](#overview "Direct link to Overview")
+### Overview
 
 You can use the `dbt-rpc` plugin to run a Remote Procedure Call (rpc) dbt server. This server compiles and runs queries in the context of a dbt project. Additionally, the RPC server provides methods that enable you to list and terminate running processes. We recommend running an rpc server from a directory containing a dbt project. The server will compile the project into memory, then accept requests to operate against that project's dbt context.
 
@@ -50,9 +50,9 @@ rpc-spec.json
 }
 ```
 
-## Built-in Methods[​](#built-in-methods "Direct link to Built-in Methods")
+## Built-in Methods
 
-### status[​](#status "Direct link to status")
+### status
 
 The `status` method will return the status of the rpc server. This method response includes a high-level status, like `ready`, `compiling`, or `error`, as well as the set of logs accumulated during the initial compilation of the project. When the rpc server is in the `compiling` or `error` state, only built-in methods of the RPC server will be accepted.
 
@@ -82,7 +82,7 @@ The `status` method will return the status of the rpc server. This method respon
 }
 ```
 
-### poll[​](#poll "Direct link to poll")
+### poll
 
 The `poll` endpoint will return the status, logs, and results (if available) for a running or completed task. The `poll` method requires a `request_token` parameter which indicates the task to poll a response for. The `request_token` is returned in the response of dbt tasks like `compile`, `run` and `test`.
 
@@ -127,7 +127,7 @@ The `poll` endpoint will return the status, logs, and results (if available) for
 }
 ```
 
-### ps[​](#ps "Direct link to ps")
+### ps
 
 The `ps` methods lists running and completed processes executed by the RPC server.
 
@@ -176,7 +176,7 @@ The `ps` methods lists running and completed processes executed by the RPC serve
 }
 ```
 
-### kill[​](#kill "Direct link to kill")
+### kill
 
 The `kill` method will terminate a running task. You can find a `task_id` for a running task either in the original response which invoked that task, or in the results of the `ps` method.
 
@@ -193,18 +193,18 @@ The `kill` method will terminate a running task. You can find a `task_id` for a 
 }
 ```
 
-## Running dbt projects[​](#running-dbt-projects "Direct link to Running dbt projects")
+## Running dbt projects
 
 The following methods make it possible to run dbt projects via the RPC server.
 
-### Common parameters[​](#common-parameters "Direct link to Common parameters")
+### Common parameters
 
 All RPC requests accept the following parameters in addition to the parameters listed:
 
 * `timeout`: The max amount of time to wait before cancelling the request.
 * `task_tags`: Arbitrary key/value pairs to attach to this task. These tags will be returned in the output of the `poll` and `ps` methods (optional).
 
-### Running a task with CLI syntax[​](#running-a-task-with-cli-syntax "Direct link to Running a task with CLI syntax")
+### Running a task with CLI syntax
 
 **Parameters:**
 
@@ -233,7 +233,7 @@ Several of the following request types accept these additional parameters:
 * `exclude`: The space-delimited set of resources to exclude from compiling, running, testing, seeding, or snapshotting (optional)
 * `state`: The filepath of artifacts to use when establishing [state](../node-selection/syntax.md#about-node-selection) (optional)
 
-### Compile a project ([docs](./compile.md))[​](#compile-a-project-docs "Direct link to compile-a-project-docs")
+### Compile a project ([docs](./compile.md))
 
 ```json
 {
@@ -250,7 +250,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run models ([docs](./run.md))[​](#run-models-docs "Direct link to run-models-docs")
+### Run models ([docs](./run.md))
 
 **Additional parameters:**
 
@@ -272,7 +272,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run tests ([docs](./test.md))[​](#run-tests-docs "Direct link to run-tests-docs")
+### Run tests ([docs](./test.md))
 
 **Additional parameters:**
 
@@ -296,7 +296,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run seeds ([docs](./seed.md))[​](#run-seeds-docs "Direct link to run-seeds-docs")
+### Run seeds ([docs](./seed.md))
 
 **Parameters:**
 
@@ -318,7 +318,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Run snapshots ([docs](../../docs/build/snapshots.md))[​](#run-snapshots-docs "Direct link to run-snapshots-docs")
+### Run snapshots ([docs](../../docs/build/snapshots.md))
 
 ```json
 {
@@ -335,7 +335,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Build ([docs](./build.md))[​](#build-docs "Direct link to build-docs")
+### Build ([docs](./build.md))
 
 ```json
 {
@@ -353,7 +353,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### List project resources ([docs](./cmd-docs.md#dbt-docs-generate))[​](#list-project-resources-docs "Direct link to list-project-resources-docs")
+### List project resources ([docs](./cmd-docs.md#dbt-docs-generate))
 
 **Additional parameters:**
 
@@ -375,7 +375,7 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-### Generate docs ([docs](./cmd-docs.md#dbt-docs-generate))[​](#generate-docs-docs "Direct link to generate-docs-docs")
+### Generate docs ([docs](./cmd-docs.md#dbt-docs-generate))
 
 **Additional parameters:**
 
@@ -393,9 +393,9 @@ Several of the following request types accept these additional parameters:
 }
 ```
 
-## Compiling and running SQL statements[​](#compiling-and-running-sql-statements "Direct link to Compiling and running SQL statements")
+## Compiling and running SQL statements
 
-### Compiling a query[​](#compiling-a-query "Direct link to Compiling a query")
+### Compiling a query
 
 This query compiles the SQL `select {{ 1 + 1 }} as id` (base64-encoded) against the rpc server:
 
@@ -416,7 +416,7 @@ rpc-spec.json
 
 The resulting response will include a key called `compiled_sql` with a value of `'select 2'`.
 
-### Executing a query[​](#executing-a-query "Direct link to Executing a query")
+### Executing a query
 
 This query executes the SQL `select {{ 1 + 1 }} as id` (bas64-encoded) against the rpc server:
 
@@ -437,11 +437,11 @@ rpc-run.json
 
 The resulting response will include a key called `table` with a value of `{'column_names': ['?column?'], 'rows': [[2.0]]}`
 
-## Reloading the RPC Server[​](#reloading-the-rpc-server "Direct link to Reloading the RPC Server")
+## Reloading the RPC Server
 
 When the dbt RPC Server starts, it will load the dbt project into memory using the files present on disk at startup. If the files in the dbt project should change (either during development or in a deployment), the dbt RPC Server can be updated live without cycling the server process. To reload the files present on disk, send a "hangup" signal to the running server process using the Process ID (pid) of the running process.
 
-### Finding the server PID[​](#finding-the-server-pid "Direct link to Finding the server PID")
+### Finding the server PID
 
 To find the server PID, either fetch the `.result.pid` value from the `status` method response on the server, or use `ps`:
 

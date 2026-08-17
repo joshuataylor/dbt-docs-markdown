@@ -1,24 +1,24 @@
 # Upgrading to v1.1
 
-Available in v1ⓘ
+Available in v1
 
-### Resources[​](#resources "Direct link to Resources")
+### Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.1.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 There are no breaking changes for code in dbt projects and packages. We are committed to providing backwards compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
-### For maintainers of adapter plugins[​](#for-maintainers-of-adapter-plugins "Direct link to For maintainers of adapter plugins")
+### For maintainers of adapter plugins
 
 We have reworked the testing suite for adapter plugin functionality. For details on the new testing suite, refer to the "Test your adapter" step in the [Build, test, document, and promote adapters](../../../../guides/adapter-creation.md) guide.
 
 The abstract methods `get_response` and `execute` now only return `connection.AdapterReponse` in type hints. Previously, they could return a string. We encourage you to update your methods to return an object of class `AdapterResponse`, or implement a subclass specific to your adapter. This also gives you the opportunity to add fields specific to your adapter's query execution, such as `rows_affected` or `bytes_processed`.
 
-### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
+### For consumers of dbt artifacts (metadata)
 
 The manifest schema version will be updated to v5. The only change is to the default value of `config` for parsed nodes.
 
@@ -32,7 +32,7 @@ If you have two jobs, whereby one job compares or defers to artifacts produced b
 Expected a schema version of "https://schemas.getdbt.com/dbt/manifest/v5.json" in <state-path>/manifest.json, but found "https://schemas.getdbt.com/dbt/manifest/v4.json". Are you running with a different version of dbt?
 ```
 
-## New and changed documentation[​](#new-and-changed-documentation "Direct link to New and changed documentation")
+## New and changed documentation
 
 [**Incremental models**](../../../build/incremental-models.md) can now accept a list of multiple columns as their `unique_key`, for models that need a combination of columns to uniquely identify each row. This is supported by the most common data warehouses, for incremental strategies that make use of the `unique_key` config (`merge` and `delete+insert`).
 
@@ -40,7 +40,7 @@ Expected a schema version of "https://schemas.getdbt.com/dbt/manifest/v5.json" i
 
 [**Sources**](../../../../reference/source-properties.md) can define configuration inline with other `.yml` properties, just like other resource types. The only supported config is `enabled`; you can use this to dynamically enable/disable sources based on environment or package variables.
 
-### Advanced and experimental functionality[​](#advanced-and-experimental-functionality "Direct link to Advanced and experimental functionality")
+### Advanced and experimental functionality
 
 **Fresh Rebuilds.** There's a new *experimental* selection method in town: [`source_status:fresher`](../../../../reference/node-selection/methods.md#source_status). Much like the `state:` and `result` methods, the goal is to use dbt metadata to run your DAG more efficiently. If dbt has access to previous and current results of `dbt source freshness` (the `sources.json` artifact), dbt can compare them to determine which sources have loaded new data, and select only resources downstream of "fresher" sources. Read more in [Understanding State](../../../../reference/node-selection/syntax.md#about-node-selection) and [CI/CD in dbt](../../../deploy/continuous-integration.md).
 
@@ -54,12 +54,12 @@ Expected a schema version of "https://schemas.getdbt.com/dbt/manifest/v5.json" i
 * `QUIET` and `NO_PRINT`, to control which log messages dbt prints to terminal output. For use in advanced macro-driven workflows, such as [codegen](https://hub.getdbt.com/dbt-labs/codegen/latest/).
 * `CACHE_SELECTED_ONLY` is an *experimental* config that can significantly speed up dbt's start-of-run preparations, in cases where you're running only a few models from a large project that manages many schemas.
 
-### For users of specific adapters[​](#for-users-of-specific-adapters "Direct link to For users of specific adapters")
+### For users of specific adapters
 
 **dbt-bigquery** added Support for finer-grained configuration of query timeout and retry when defining your [connection profile](../../../local/connect-data-platform/bigquery-setup.md).
 
 **dbt-spark** added support for a [`session` connection method](../../../local/connect-data-platform/spark-setup.md#session), for use with a pySpark session, to support rapid iteration when developing advanced or experimental functionality. This connection method is not recommended for new users, and it is not supported in dbt.
 
-### Dependencies[​](#dependencies "Direct link to Dependencies")
+### Dependencies
 
 [Python compatibility](../../../../faqs/Core/install-python-compatibility.md): dbt Core officially supports Python 3.10

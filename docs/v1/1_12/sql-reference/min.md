@@ -4,7 +4,7 @@ SQL MIN, MAX, SUM…the aggregate functions that you’ll live and die by as an 
 
 The MIN aggregate function allows you to compute the minimum value from a column or across a set of rows for a column. The results from the MIN function are useful for understanding the distribution of column values and determining the first timestamps of key events.
 
-## How to use the MIN function in a query[​](#how-to-use-the-min-function-in-a-query "Direct link to How to use the MIN function in a query")
+## How to use the MIN function in a query
 
 Use the following syntax in a query to find the minimum value of a field:
 
@@ -16,7 +16,7 @@ MIN can also be used as a window function to operate across specified or partiti
 
 Let’s take a look at a practical example using MIN below.
 
-### MIN example[​](#min-example "Direct link to MIN example")
+### MIN example
 
 The following example is querying from a sample dataset created by dbt Labs called [jaffle\_shop](https://github.com/dbt-labs/jaffle_shop):
 
@@ -38,17 +38,11 @@ This simple query is returning the first and last order date for a customer in t
 | 3            | 2018-01-02         | 2018-03-11        |
 | 94           | 2018-01-04         | 2018-01-29        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL MIN function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-min-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL MIN function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL MIN function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 All modern data warehouses support the ability to use the MIN function (and follow the same syntax).
 
-## MIN function use cases[​](#min-function-use-cases "Direct link to MIN function use cases")
+## MIN function use cases
 
 We most commonly see queries using MIN to:
 

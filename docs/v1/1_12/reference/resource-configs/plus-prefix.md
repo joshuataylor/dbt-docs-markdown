@@ -8,8 +8,6 @@ The `+` prefix is a dbt syntax feature which helps disambiguate between [resourc
 
 * It doesn't apply to:
 
-  <!-- -->
-
   * `config()` Jinja macro within a resource file
   * config property in a `.yml` file.
 
@@ -39,11 +37,7 @@ The `+` prefix is especially important when you need to disambiguate between [re
 * A config accepts a dictionary as its input, such as [`persist_docs`](./persist_docs.md).
 * A config shares a key with part of a resource path, such as a directory of models named `tags`.
 
-<!-- -->
-
 dbt has deprecated specifying configurations without [the `+` prefix](https://docs.getdbt.com/reference/dbt_project.yml#the--prefix) in `dbt_project.yml`. Only folder and file names can be specified without the `+` prefix within resource configurations in `dbt_project.yml`.
-
-<!-- -->
 
 This deprecation warning is only raised for the following adapters:
 

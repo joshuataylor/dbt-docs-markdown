@@ -2,7 +2,7 @@
 
 Transform raw warehouse data into trusted data products with dbt Core.
 
-<!-- -->
+(Applies to dbt v1.99 and earlier)
 
 dbt Core v1.x is the original Python-based, Apache 2.0 implementation of dbt Core and remains fully supported.
 

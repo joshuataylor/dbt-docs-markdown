@@ -1,6 +1,6 @@
 # Databricks setup [Private preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Available in v2 | Local developmentⓘ
+Available in v2 | Local development
 
 You can configure the Databricks adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
@@ -10,7 +10,7 @@ The Databricks adapter for Fusion supports the following [authentication methods
 * Service Principal token (for service users)
 * OAuth
 
-## Databricks configuration details[​](#databricks-configuration-details "Direct link to Databricks configuration details")
+## Databricks configuration details
 
 The dbt Fusion engine `dbt-databricks` adapter is the only supported connection method for Databricks.
 
@@ -18,7 +18,7 @@ The dbt Fusion engine `dbt-databricks` adapter is the only supported connection 
 
 Refer to the [Databricks docs](https://docs.databricks.com/dev-tools/dbt.html#) for more info on how to obtain the credentials for configuring your profile.
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -31,15 +31,13 @@ Alternatively, you can manually create the `profiles.yml` file and configure the
 
 Next, select your authentication method. Follow the on-screen prompts to provide the required information.
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
-* Personal access token
-* Service Principal token
-* OAuth (Recommended)
+### Personal access token
 
 Enter your personal access token (PAT) for the Databricks environment. For more information about obtaining a PAT, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/dev-tools/auth/pat). This is considered a legacy feature by Databricks and OAuth is recommended over PATs.
 
-#### Example personal access token configuration[​](#example-personal-access-token-configuration "Direct link to Example personal access token configuration")
+#### Example personal access token configuration
 
 profiles.yml
 
@@ -57,10 +55,12 @@ default:
       auth_type: databricks_cli
       threads: 16
 ```
+
+### Service Principal token
 
 Enter your Service Principal token for the Databricks environment. For more information about obtaining a Service Principal token, refer to the [Databricks documentation](https://docs.databricks.com/aws/en/admin/users-groups/service-principals).
 
-#### Example Service Principal token configuration[​](#example-service-principal-token-configuration "Direct link to Example Service Principal token configuration")
+#### Example Service Principal token configuration
 
 profiles.yml
 
@@ -79,9 +79,11 @@ default:
       threads: 16
 ```
 
+### OAuth (Recommended)
+
 Selecting the OAuth option will create a connection to your Databricks environment and open a web browser so you can complete the authentication. Users will be prompted to re-authenticate with each new dbt session they initiate.
 
-#### Example OAuth configuration[​](#example-oauth-configuration "Direct link to Example OAuth configuration")
+#### Example OAuth configuration
 
 profiles.yml
 
@@ -99,6 +101,6 @@ default:
       threads: 16
 ```
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find Databricks-specific configuration information in the [Databricks adapter reference guide](../../../reference/resource-configs/databricks-configs.md).

@@ -1,10 +1,10 @@
 # About var function
 
+(Applies to dbt v1.11 and earlier)
+
 Variables can be passed from your [`dbt_project.yml`](../dbt_project.yml.md) file into models during compilation. These variables allow you to make your models configurable instead of hardcoding values directly in SQL. For example, you might define a default reporting date, region, or feature flag once in your project and reference it across multiple models.
 
 Variables defined in your `dbt_project.yml` file act as project-wide defaults. You can override them at runtime using the `--vars` command-line argument. For example, to test a different date range or run models with environment-specific settings without modifying your model logic.
-
-<!-- -->
 
 To retrieve a variable inside a model, hook, or macro, use the `var()` function. The `var()` function returns the value defined in your project or passed using `--vars`, based on precedence.
 
@@ -28,6 +28,8 @@ Vars supplied to package_name.my_model = {
 }
 ```
 
+(Applies to dbt v1.11 and earlier)
+
 To define a variable in your project, add the `vars:` config to your `dbt_project.yml` file. See the docs on [Project variables](../../docs/build/project-variables.md) for more information on defining variables in your dbt project.
 
 dbt\_project.yml
@@ -43,9 +45,7 @@ vars:
   event_type: activation
 ```
 
-<!-- -->
-
-### Variable default values[​](#variable-default-values "Direct link to Variable default values")
+### Variable default values
 
 The `var()` function takes an optional second argument, `default`. If this argument is provided, then it will be the default value for the variable if one is not explicitly defined.
 
@@ -56,9 +56,7 @@ my\_model.sql
 select * from events where event_type = '{{ var("event_type", "activation") }}'
 ```
 
-### Command line variables[​](#command-line-variables "Direct link to Command line variables")
-
-<!-- -->
+### Command line variables
 
 The `dbt_project.yml` file is a great place to define variables that rarely change.
 

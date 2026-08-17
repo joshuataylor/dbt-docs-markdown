@@ -1,38 +1,26 @@
 # Connect Extrica to dbt Core
 
-Local developmentⓘ
+Local development
 
-## Overview of <!-- -->dbt-extrica<!-- -->
+## Overview of dbt-extrica
 
-* **Maintained by**:
-  <!-- -->
-  Extrica, Trianz
-* **Authors**:
-  <!-- -->
-  Gaurav Mittal, Viney Kumar, Mohammed Feroz, and Mrinal Mayank
+* **Maintained by**: Extrica, Trianz
+* **Authors**: Gaurav Mittal, Viney Kumar, Mohammed Feroz, and Mrinal Mayank
 * **GitHub repo**: [extricatrianz/dbt-extrica](https://github.com/extricatrianz/dbt-extrica)
 * **PyPI package**: `dbt-extrica` [![](https://badge.fury.io/py/dbt-extrica.svg)](https://badge.fury.io/py/dbt-extrica)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.7.2
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.7.2 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-extrica<!-- -->
+## Installing dbt-extrica
 
 Use `pip` to install the adapter, which automatically installs `dbt-core` and any additional dependencies. Use the following command for installation:
 
 `python -m pip install dbt-extrica`
 
-## Connecting to <!-- -->Extrica<!-- -->
+## Connecting to Extrica
 
-#### Example profiles.yml[​](#example-profilesyml "Direct link to Example profiles.yml")
+#### Example profiles.yml
 
 Here is an example of dbt-extrica profiles. At a minimum, you need to specify `type`, `method`, `username`, `password` `host`, `port`, `schema`, `catalog` and `threads`.
 
@@ -65,7 +53,7 @@ Here is an example of dbt-extrica profiles. At a minimum, you need to specify `t
   target: dev
 ```
 
-#### Description of Extrica Profile Fields[​](#description-of-extrica-profile-fields "Direct link to Description of Extrica Profile Fields")
+#### Description of Extrica Profile Fields
 
 | Parameter | Type    | Description                                                                                                          |
 | --------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -78,9 +66,3 @@ Here is an example of dbt-extrica profiles. At a minimum, you need to specify `t
 | schema    | string  | Schema or database name for the connection.                                                                          |
 | catalog   | string  | Name of the catalog representing the data source.                                                                    |
 | threads   | integer | Number of threads for parallel execution of queries. (1 or more)                                                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

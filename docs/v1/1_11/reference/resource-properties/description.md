@@ -1,14 +1,6 @@
 # description
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
-* Macros
-* Data tests
-* Unit tests
-* Groups
+### Models
 
 models/schema.yml
 
@@ -22,6 +14,8 @@ models:
       - name: column_name
         description: markdown_string
 ```
+
+### Sources
 
 models/schema.yml
 
@@ -40,6 +34,8 @@ sources:
             description: markdown_string
 ```
 
+### Seeds
+
 seeds/schema.yml
 
 ```yml
@@ -52,6 +48,8 @@ seeds:
       - name: column_name
         description: markdown_string
 ```
+
+### Snapshots
 
 snapshots/schema.yml
 
@@ -66,6 +64,8 @@ snapshots:
         description: markdown_string
 ```
 
+### Analyses
+
 analysis/schema.yml
 
 ```yml
@@ -79,6 +79,8 @@ analyses:
         description: markdown_string
 ```
 
+### Macros
+
 macros/schema.yml
 
 ```yml
@@ -91,6 +93,10 @@ macros:
       - name: argument_name
         description: markdown_string
 ```
+
+### Data tests
+
+(Applies to dbt v1.9 and later)
 
 You can add a description to a [singular data test](../../docs/build/data-tests.md#singular-data-tests) or a [generic data test](../../docs/build/data-tests.md#generic-data-tests).
 
@@ -122,6 +128,8 @@ models:
               description: markdown_string
 ```
 
+### Unit tests
+
 models/schema.yml
 
 ```yml
@@ -144,6 +152,8 @@ unit_tests:
       fixture: fixture_name
 ```
 
+### Groups
+
 models/schema.yml
 
 ```yml
@@ -155,7 +165,7 @@ groups:
       email: owner@example.com
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 A user-defined description used to document:
 
@@ -177,7 +187,7 @@ You may need to quote your YAML
 
 Be mindful of YAML semantics when providing a description. If your description contains special YAML characters like curly brackets, colons, or square brackets, you may need to quote your description. An example of a quoted description is shown [below](#use-some-markdown-in-a-description).
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 This section contains examples of how to add descriptions to various resources:
 
@@ -199,7 +209,7 @@ This section contains examples of how to add descriptions to various resources:
 * [Add a description to a unit test](#add-a-description-to-a-unit-test)
   <br />
 
-### Add a simple description to a model and column[​](#add-a-simple-description-to-a-model-and-column "Direct link to Add a simple description to a model and column")
+### Add a simple description to a model and column
 
 models/schema.yml
 
@@ -215,7 +225,7 @@ models:
         description: Primary key
 ```
 
-### Add a multiline description to a model[​](#add-a-multiline-description-to-a-model "Direct link to Add a multiline description to a model")
+### Add a multiline description to a model
 
 You can use YAML [block notation](https://yaml-multiline.info/) to split a longer description over multiple lines:
 
@@ -236,7 +246,7 @@ models:
         description: Primary key.
 ```
 
-### Use some markdown in a description[​](#use-some-markdown-in-a-description "Direct link to Use some markdown in a description")
+### Use some markdown in a description
 
 You can use markdown in your descriptions, but you may need to quote your description to ensure the YAML parser doesn't get confused by special characters!
 
@@ -254,7 +264,7 @@ models:
         description: Primary key.
 ```
 
-### Use a docs block in a description[​](#use-a-docs-block-in-a-description "Direct link to Use a docs block in a description")
+### Use a docs block in a description
 
 If you have a long description, especially if it contains markdown, it may make more sense to leverage a [`docs` block](../dbt-jinja-functions/doc.md). A benefit of this approach is that code editors will correctly highlight markdown, making it easier to debug as you write.
 
@@ -291,7 +301,7 @@ Orders can be one of the following statuses:
 {% enddocs %}
 ```
 
-### Link to another model in a description[​](#link-to-another-model-in-a-description "Direct link to Link to another model in a description")
+### Link to another model in a description
 
 You can use relative links to link to another model. It's a little hacky — but to do this:
 
@@ -314,7 +324,7 @@ models:
         description: Primary key
 ```
 
-### Include an image from your repo in your descriptions[​](#include-an-image-from-your-repo-in-your-descriptions "Direct link to Include an image from your repo in your descriptions")
+### Include an image from your repo in your descriptions
 
 This section applies to dbt Core users only. Including an image from your repository ensures your images are version-controlled.
 
@@ -353,7 +363,7 @@ models:
 
 If mixing images and text, also consider using a docs block.
 
-### Include an image from the web in your descriptions[​](#include-an-image-from-the-web-in-your-descriptions "Direct link to Include an image from the web in your descriptions")
+### Include an image from the web in your descriptions
 
 This section applies to dbt and dbt Core users. Including an image from the web offers dynamic content, reduced repository size, accessibility, and ease of collaboration.
 
@@ -375,11 +385,11 @@ models:
 
 If mixing images and text, also consider using a docs block.
 
-### Add a description to a data test[​](#add-a-description-to-a-data-test "Direct link to Add a description to a data test")
+### Add a description to a data test
 
 You can add a `description` property to a generic or singular data test.
 
-#### Generic data test[​](#generic-data-test "Direct link to Generic data test")
+#### Generic data test
 
 This example shows a generic data test that checks for unique values in a column for the `orders` model.
 
@@ -399,7 +409,7 @@ models:
 
 You can also add descriptions to the Jinja macro that provides the core logic of a generic data test. Refer to the [Add description to generic data test logic](../../best-practices/writing-custom-generic-tests.md#add-description-to-generic-data-test-logic) for more information.
 
-#### Singular data test[​](#singular-data-test "Direct link to Singular data test")
+#### Singular data test
 
 This example shows a singular data test that checks to ensure all values in the `payments` model are not negative (≥ 0).
 
@@ -415,7 +425,7 @@ data_tests:
 
 Note that in order for the test to run, the `tests/assert_total_payment_amount_is_positive.sql` SQL file has to exist in the `tests` directory.
 
-### Add a description to a unit test[​](#add-a-description-to-a-unit-test "Direct link to Add a description to a unit test")
+### Add a description to a unit test
 
 This example shows a unit test that checks to ensure the `opened_at` timestamp is properly truncated to a date for the `stg_locations` model.
 

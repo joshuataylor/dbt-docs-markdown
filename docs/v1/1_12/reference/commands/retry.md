@@ -7,13 +7,15 @@ Retry re-executes the last invocation from the point of failure.
 * Once some nodes have run, you can use retry to re-execute from any new point of failure.
 * If the previously executed command completed successfully, retry will finish as `no operation`.
 
-## Retry flags[​](#retry-flags "Direct link to Retry flags")
+## Retry flags
 
 The `dbt retry` flags apply when you use a self-hosted dbt installation or the Studio IDE.
 
 dbt platform CLI
 
 If you use the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) against your cloud environment, `dbt retry` accepts only a small subset of overrides—typically `--threads`, `--vars`, and related options. Use `dbt retry --help` on your machine for the exact list your CLI build supports.
+
+(Applies to dbt v1.99 and earlier)
 
 The following flags are supported when you run `dbt retry` with the dbt Core engine:
 
@@ -29,19 +31,11 @@ The following flags are supported when you run `dbt retry` with the dbt Core eng
 | `--state`        | path        | Path to a directory containing `run_results.json` from a previous run (defaults to the target directory) | `dbt retry --state path/to/previous/run`     |
 | `--full-refresh` | —           | Override incremental models to run as full refreshes                                                     | `dbt retry --full-refresh`                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 Run `dbt retry --help` for the full list of flags available.
 
-<!-- -->
-
-## Supported commands[​](#supported-commands "Direct link to Supported commands")
+## Supported commands
 
 Retry works with the following commands:
 
@@ -57,9 +51,9 @@ Retry works with the following commands:
 
 Retry references [run\_results.json](../artifacts/run-results-json.md) to determine where to start. Executing retry without correcting the previous failures yields idempotent results.
 
-`dbt retry` reuses the prior command’s selection, including any [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments. You cannot override those selectors on retry with dbt Core or the dbt platform CLI.
+(Applies to dbt v1.99 and earlier)
 
-<!-- -->
+`dbt retry` reuses the prior command’s selection, including any [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments. You cannot override those selectors on retry with dbt Core or the dbt platform CLI.
 
 Example results of executing `dbt retry` after a successful `dbt run`:
 

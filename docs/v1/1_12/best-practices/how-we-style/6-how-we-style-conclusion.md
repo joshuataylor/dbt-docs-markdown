@@ -1,14 +1,14 @@
 # Now it's your turn
 
-## BYO Styles[​](#byo-styles "Direct link to BYO Styles")
+## BYO Styles
 
 Now that you've seen how we style our dbt projects, it's time to build your own. Feel free to copy this guide and use it as a template for your own project. If you do, we'd love to hear about it! Reach out to us on [the Community Forum](https://discourse.getdbt.com/c/show-and-tell/22) or [Slack](https://www.getdbt.com/community) to share your style guide. We recommend co-locating your style guide with your code to make sure contributors can easily follow it. If you're using GitHub, you can add your style guide to your repository's wiki, or include it in your README.
 
-## Pre-commit hooks[​](#pre-commit-hooks "Direct link to Pre-commit hooks")
+## Pre-commit hooks
 
 You can use [pre-commit hooks](https://pre-commit.com/) to automatically check your code for style violations (and often fix them automagically) before you commit. This is a great way to make sure all contributors follow your style guide. We recommend implementing this once you've settled on and published your style guide, and your codebase is conforming to it. This will ensure that all future commits follow the style guide. You can find an excellent set of open source pre-commit hooks for dbt from the community [here in the dbt-checkpoint project](https://github.com/dbt-checkpoint/dbt-checkpoint).
 
-## dbt Project Evaluator[​](#dbt-project-evaluator "Direct link to dbt Project Evaluator")
+## dbt Project Evaluator
 
 The [`dbt_project_evaluator`](https://github.com/dbt-labs/dbt-project-evaluator) is a package that ensures compliance to [dbt's style guide and best practices](../how-we-structure/1-guide-overview.md). The `dbt_project_evaluator` package highlights areas of a dbt project that are not aligned with dbt's best practices and provides recommendations on how to improve a project. This enables analytics engineers to determine exactly where their projects deviated from dbt's best practices and improve their projects on their own. The `dbt_project_evaluator` package covers the following categories:
 
@@ -21,7 +21,7 @@ The [`dbt_project_evaluator`](https://github.com/dbt-labs/dbt-project-evaluator)
 
 For more information, see [Introducing the dbt\_project\_evaluator: Automatically evaluate your dbt project for alignment with best practices](https://docs.getdbt.com/blog/align-with-dbt-project-evaluator).
 
-## Style guide template[​](#style-guide-template "Direct link to Style guide template")
+## Style guide template
 
 ```markdown
 # dbt Example Style Guide

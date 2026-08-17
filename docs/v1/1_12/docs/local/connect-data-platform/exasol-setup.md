@@ -1,45 +1,33 @@
 # Connect Exasol to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Exasol
-* **Authors**:
-  <!-- -->
-  Torsten Glunde, Ilija Kutle
+* **Maintained by**: Exasol
+* **Authors**: Torsten Glunde, Ilija Kutle
 * **GitHub repo**: [exasol/dbt-exasol](https://github.com/exasol/dbt-exasol) [![](https://img.shields.io/github/stars/exasol/dbt-exasol?style=for-the-badge)](https://github.com/exasol/dbt-exasol)
 * **PyPI package**: `dbt-exasol` [![](https://badge.fury.io/py/dbt-exasol.svg)](https://badge.fury.io/py/dbt-exasol)
 * **Slack channel**: [n/a]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Exasol 6.x
+* **Supported dbt Core version**: v1.8.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: Exasol 6.x
 
-## Installing <!-- -->dbt-exasol
+## Installing dbt-exasol
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-exasol`
 
-## Configuring <!-- -->dbt-exasol<!-- -->
+## Configuring dbt-exasol
 
-For <!-- -->Exasol<!-- -->-specific configuration, please refer to [Exasol<!-- --> configs.](../../../reference/resource-configs/exasol-configs.md)
+For Exasol-specific configuration, please refer to [Exasol configs.](../../../reference/resource-configs/exasol-configs.md)
 
-### Connecting to Exasol with **dbt-exasol**[​](#connecting-to-exasol-with-dbt-exasol "Direct link to connecting-to-exasol-with-dbt-exasol")
+### Connecting to Exasol with **dbt-exasol**
 
-#### User / password authentication[​](#user--password-authentication "Direct link to User / password authentication")
+#### User / password authentication
 
 Configure your dbt profile for using Exasol:
 
-##### Exasol connection information[​](#exasol-connection-information "Direct link to Exasol connection information")
+##### Exasol connection information
 
 profiles.yml
 
@@ -57,7 +45,7 @@ dbt-exasol:
       schema: SCHEMA
 ```
 
-#### OpenID authentication (Exasol SaaS)[​](#open-id-authentication "Direct link to OpenID authentication (Exasol SaaS)")
+#### OpenID authentication (Exasol SaaS)
 
 For Exasol SaaS environments, you can authenticate using OpenID tokens instead of username and password:
 
@@ -85,7 +73,7 @@ info
 
 Use either `access_token` or `refresh_token`, not both. TLS encryption is required when using OpenID authentication with Exasol SaaS.
 
-#### Optional parameters[​](#optional-parameters "Direct link to Optional parameters")
+#### Optional parameters
 
 * **`connection_timeout`** — defaults to pyexasol default
 * **`socket_timeout`** — defaults to pyexasol default

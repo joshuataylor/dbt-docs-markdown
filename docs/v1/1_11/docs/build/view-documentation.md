@@ -10,17 +10,11 @@ You can view documentation in three complementary ways, depending on your needs:
 | [**dbt Docs v2**](#dbt-docs-v2) alpha                                   | A modern, performant open-source catalog built for data consumers. Includes a redesigned UI, large-project performance, Semantic Layer metadata, column-level lineage (Fusion), and a REST API for AI agents.                                                                                          | dbt Fusion engine and dbt Core 2.0            |
 | [**Catalog**](../explore/explore-projects.md) | The premier documentation experience in dbt. Builds on dbt Docs to provide a dynamic, real-time interface with rich [metadata](../explore/explore-projects.md#generate-metadata), customizable views, deep insight into your project and resources, and collaborative tools. | dbt Starter, Enterprise, or Enterprise+ plans |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Navigating your documentation[​](#navigating-your-documentation "Direct link to Navigating your documentation")
+## Navigating your documentation
 
 The following sections describe how to navigate your documentation in Catalog and dbt Docs.
 
-### Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#catalog- "Direct link to catalog-")
+### Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 [Catalog](../explore/explore-projects.md) offers a dynamic, interactive way to explore your models, sources, and lineage. To access Catalog, navigate to the **Catalog** option in the dbt navigation menu.
 
@@ -40,7 +34,7 @@ Catalog offers users a comprehensive suite of features to enhance data project n
 
 For additional details and instructions on how to explore your lineage, navigate your resources, view model query history and data health signals, feature availability, and more — refer to [Discover data with Catalog](../explore/explore-projects.md).
 
-### dbt Docs v2 alpha[​](#dbt-docs-v2- "Direct link to dbt-docs-v2-")
+### dbt Docs v2 alpha
 
 dbt Docs v2 is the next-generation open-source catalog experience, available when using the dbt Fusion engine and dbt Core 2.0. It is designed for data consumers (analysts, BI users, data scientists, and stakeholders) who need to understand what data exists, how it was built, and whether they can trust it.
 
@@ -56,7 +50,7 @@ To generate and serve dbt Docs v2, use the dbt Fusion engine or dbt Core 2.0 to 
 
 Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage.
 
-#### Self-hosting dbt Docs v2[​](#self-hosting-dbt-docs-v2 "Direct link to Self-hosting dbt Docs v2")
+#### Self-hosting dbt Docs v2
 
 Because dbt Docs v2 ships as a single self-contained binary (the API and the embedded UI in one executable) that serves from the Parquet index files rather than a live warehouse connection, you can self-host it in a container. This is useful when you want a persistent, shared docs site instead of running `dbt docs serve` locally.
 
@@ -64,8 +58,7 @@ The server is read-only and stateless: it loads the Parquet artifacts from `targ
 
 Before you start, generate the artifacts by building your project with `--write-index` (for example, `dbt compile --write-index`), which writes the Parquet files to `./target/index/`.
 
-* Docker Compose
-* Docker
+### Docker Compose
 
 Use the included `docker-compose.yml`, which wires up the build, the artifact mount, the port, and a persistent driver-cache volume. Point `DBT_TARGET_PATH` at your project's `target/` directory (use an absolute path) and start it:
 
@@ -74,6 +67,8 @@ DBT_TARGET_PATH=/abs/path/to/project/target docker compose up --build
 ```
 
 Then, open `http://localhost:8580`.
+
+### Docker
 
 Use the included `Dockerfile`, which installs the released dbt binary (it doesn't build from source), so the build is quick and needs no cargo toolchain:
 
@@ -102,7 +97,7 @@ docker run --rm -p 8580:8580 \
   dbt-docs-server
 ```
 
-### dbt Docs (Legacy)[​](#dbt-docs-legacy "Direct link to dbt Docs (Legacy)")
+### dbt Docs (Legacy)
 
 dbt Docs provides valuable insights into your dbt Core or dbt Developer plan projects. The interface enables you to navigate to the documentation for specific models. That might look something like this:
 
@@ -118,7 +113,7 @@ In this example, the `fct_subscription_transactions` model only has one direct p
 
 [![The full lineage for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/ac97fba-Screen_Shot_2018-08-14_at_6.35.14_PM.png?v=2 "The full lineage for a dbt model")](#)The full lineage for a dbt model
 
-## Deploy the documentation site[​](#deploy-the-documentation-site "Direct link to Deploy the documentation site")
+## Deploy the documentation site
 
 Effortlessly deploy documentation in Catalog or dbt Docs to make it available to your teams.
 
@@ -126,13 +121,13 @@ Security
 
 The `dbt docs serve` command is only intended for local/development hosting of the documentation site. Please use one of the methods listed in the next section (or similar) to ensure that your documentation site is hosted securely!
 
-### Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[​](#catalog--1 "Direct link to catalog--1")
+### Catalog [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 Catalog automatically updates documentation after each production or staging job run using the metadata generated. This means it always has the latest results for your project with no manual deployment required. For details on how Catalog uses metadata to automatically update documentation, refer to [Generate metadata](../explore/explore-projects.md#generate-metadata).
 
 To learn how to deploy your documentation site, see [Build and view your docs with dbt](../explore/build-and-view-your-docs.md).
 
-### dbt Docs (Legacy)[​](#dbt-docs-legacy-1 "Direct link to dbt Docs (Legacy)")
+### dbt Docs (Legacy)
 
 dbt Docs was built to make it easy to host on the web. The site is "static," meaning you don't need any "dynamic" servers to serve the docs. You can host your documentation in several ways:
 

@@ -4,7 +4,7 @@ There are many different ranking window functions…[ROW\_NUMBER](./row-number.m
 
 The RANK function is an effective way to create a ranked column or filter a query based on rankings. More specifically, the RANK function returns the rank of a value (starting at 1) in an ordered group or dataset. It's important to note that if multiple values executed by the rank function are the same, they’ll have the same rank.
 
-## How to use the RANK function[​](#how-to-use-the-rank-function "Direct link to How to use the RANK function")
+## How to use the RANK function
 
 The RANK function has a pretty simple syntax, with an optional partition field and support for ordering customization:
 
@@ -17,7 +17,7 @@ Some notes on this function’s syntax:
 
 Let’s take a look at a practical example using the RANK function below.
 
-### RANK function example[​](#rank-function-example "Direct link to RANK function example")
+### RANK function example
 
 ```sql
 select
@@ -38,12 +38,6 @@ This simple query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle
 | 5         | 2018-01-05  | 4           |
 | 6         | 2018-01-07  | 6           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Some notes on these results:
 
 * Orders that have the same `order_date`(ex. Orders 4 and 5) have the same `order_rank` (4).
@@ -53,7 +47,7 @@ Ranking functions to know
 
 RANK is just one of the ranking functions that analytics engineering practitioners will use throughout their data models. There’s also DENSE\_RANK and [ROW\_NUMBER](./row-number.md) which rank rows differently than RANK.
 
-## RANK syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#rank-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to RANK syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## RANK syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 Most, if not all, modern data warehouses support RANK and other similar ranking functions; the syntax is also the same across them. Use the table below to read more on the documentation for the RANK function in your data warehouse.
 
@@ -64,13 +58,7 @@ Most, if not all, modern data warehouses support RANK and other similar ranking 
 | Amazon Redshift | ✅            |
 | Google BigQuery | ✅            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## RANK function use cases[​](#rank-function-use-cases "Direct link to RANK function use cases")
+## RANK function use cases
 
 We most commonly see the RANK function used in data work to:
 

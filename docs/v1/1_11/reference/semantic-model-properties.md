@@ -2,8 +2,6 @@
 
 Semantic models define the structure that MetricFlow uses to build the semantic graph. In the *latest spec*, they can be declared as a top-level `semantic_model:` block on a [model](./model-properties.md). In the *legacy spec*, we used standalone YAML. For more information, refer to [Semantic models](../docs/build/semantic-models.md).
 
-<!-- -->
-
 Availability
 
 The latest YAML spec is supported in the following environments:
@@ -14,13 +12,13 @@ The latest YAML spec is supported in the following environments:
 
 For more information, refer to [Migrate to the latest YAML spec](../docs/build/latest-metrics-spec.md).
 
-<!-- -->
+(Applies to dbt v1.11 and earlier)
 
-## Legacy spec[​](#legacy-spec "Direct link to Legacy spec")
+## Legacy spec
 
 Semantic models are defined in a top-level `semantic_models:` list in standalone YAML, with `model`, `defaults`, `entities`, `dimensions`, and `measures`.
 
-### Available semantic model properties (legacy spec)[​](#available-semantic-model-properties-legacy-spec "Direct link to Available semantic model properties (legacy spec)")
+### Available semantic model properties (legacy spec)
 
 | Property        | Type   | Required | Description                                                                                                                                                                                                                  |
 | --------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,13 +33,7 @@ Semantic models are defined in a top-level `semantic_models:` list in standalone
 | label           | string | No       | Display name in downstream tools.                                                                                                                                                                                            |
 | config          | object | No       | Supports [meta](./resource-configs/meta.md), [group](./resource-configs/group.md), [enabled](./resource-configs/enabled.md). |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Full structure[​](#full-structure "Direct link to Full structure")
+### Full structure
 
 ```yaml
 semantic_models:

@@ -1,10 +1,10 @@
 # Configure environment variables
 
-Local developmentⓘ
+Local development
 
 Fusion automatically loads environment variables from a `.env` file in your current working directory (the folder you `cd` into and run dbt commands from in your terminal). This helps you manage credentials and settings without hardcoding them in your `profiles.yml` or exposing them in your shell history.
 
-## Using a `.env` file[​](#using-a-env-file "Direct link to using-a-env-file")
+## Using a `.env` file
 
 1. Create a `.env` file in your current working directory (typically at the root of your dbt project):
 
@@ -42,9 +42,9 @@ Fusion automatically loads environment variables from a `.env` file in your curr
 
 note
 
-We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
+We recommend placing your `.env` file in the project root and running dbt commands from that location because the file is loaded *only* from your current working directory. It doesn't support the `--project-dir` flag or (Applies to dbt v1.11 and later) `DBT_ENGINE_PROJECT_DIR` environment variable, and dbt won't search your project root if you're running commands from a different directory location.
 
-### Precedence order[​](#precedence-order "Direct link to Precedence order")
+### Precedence order
 
 When the same environment variable is defined in multiple places, Fusion uses the following precedence order (highest to lowest):
 

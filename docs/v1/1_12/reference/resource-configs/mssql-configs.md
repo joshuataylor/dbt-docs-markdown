@@ -1,17 +1,16 @@
 # Microsoft SQL Server configurations
 
-## Materializations[​](#materializations "Direct link to Materializations")
+## Materializations
 
 Ephemeral materialization is not supported due to T-SQL not supporting nested CTEs. It may work in some cases when you're working with very simple ephemeral models.
 
-### Tables[​](#tables "Direct link to Tables")
+### Tables
 
 Tables will, by default, be materialized as a columnstore tables. This requires SQL Server 2017 or newer for on-premise instances or service tier S2 or higher for Azure.
 
 This behaviour can be disabled by setting the `as_columnstore` configuration option to `False`.
 
-* Model config
-* Project config
+### Model config
 
 models/example.sql
 
@@ -26,6 +25,8 @@ select *
 from ...
 ```
 
+### Project config
+
 dbt\_project.yml
 
 ```yaml
@@ -37,7 +38,7 @@ models:
       as_columnstore: False
 ```
 
-## Seeds[​](#seeds "Direct link to Seeds")
+## Seeds
 
 By default, `dbt-sqlserver` will attempt to insert seed files in batches of 400 rows. If this exceeds SQL Server's 2100 parameter limit, the adapter will automatically limit to the highest safe value possible.
 
@@ -50,11 +51,11 @@ vars:
   max_batch_size: 200 # Any integer less than or equal to 2100 will do.
 ```
 
-## Snapshots[​](#snapshots "Direct link to Snapshots")
+## Snapshots
 
 Columns in source tables can not have any constraints. If, for example, any column has a `NOT NULL` constraint, an error will be thrown.
 
-## Indices[​](#indices "Direct link to Indices")
+## Indices
 
 You can specify indices to be created for your table by specifying post-hooks calling purpose-built macros.
 
@@ -86,7 +87,7 @@ select *
 from ...
 ```
 
-## Grants with auto provisioning[​](#grants-with-auto-provisioning "Direct link to Grants with auto provisioning")
+## Grants with auto provisioning
 
 dbt 1.2 introduced the capability to grant/revoke access using the `grants` [configuration option](./grants.md). In dbt-sqlserver, you can additionally set `auto_provision_aad_principals` to `true` in your model configuration if you are using Microsoft Entra ID authentication with an Azure SQL Database or Azure Synapse Dedicated SQL Pool.
 
@@ -102,7 +103,7 @@ models:
     auto_provision_aad_principals: true
 ```
 
-## Permissions[​](#permissions "Direct link to Permissions")
+## Permissions
 
 The following permissions are required for the user executing dbt:
 
@@ -113,7 +114,7 @@ The following permissions are required for the user executing dbt:
 
 The 3 `CREATE` permissions above are required on the database level if you want to make use of tests or snapshots in dbt. You can work around this by creating the schemas used for testing and snapshots in advance and granting the right roles.
 
-## cross-database macros[​](#cross-database-macros "Direct link to cross-database macros")
+## cross-database macros
 
 The following macros are currently not supported:
 
@@ -122,6 +123,6 @@ The following macros are currently not supported:
 * `array_concat`
 * `array_append`
 
-## dbt-utils[​](#dbt-utils "Direct link to dbt-utils")
+## dbt-utils
 
 Many [`dbt-utils`](https://hub.getdbt.com/dbt-labs/dbt_utils/latest/) are supported, but require the installation of the [`tsql_utils`](https://hub.getdbt.com/dbt-msft/tsql_utils/latest/) dbt package.

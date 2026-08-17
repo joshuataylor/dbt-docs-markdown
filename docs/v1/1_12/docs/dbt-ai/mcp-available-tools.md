@@ -2,7 +2,7 @@
 
 The dbt MCP server has access to many parts of the dbt experience related to development, deployment, and discovery. This page lists the tools available in the dbt MCP server and how to configure them.
 
-## Supported tools by MCP server type[​](#supported-tools-by-mcp-server-type "Direct link to Supported tools by MCP server type")
+## Supported tools by MCP server type
 
 The following sections list every tool by category, along with which server type (local or remote) supports it.
 
@@ -18,26 +18,20 @@ The following sections list every tool by category, along with which server type
 | [Product Docs Tools](#product-docs)               | ✅    | ✅     |
 | [MCP Server Metadata Tools](#mcp-server-metadata) | ✅    | ✅     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Note that access to the Discovery API and the Semantic Layer API is limited depending on your [plan type](https://www.getdbt.com/pricing).
 
-## dbt MCP server tool list[​](#dbt-mcp-server-tool-list "Direct link to dbt MCP server tool list")
+## dbt MCP server tool list
 
 The following tool list is available for your MCP server and is auto-fetched from the [dbt MCP server README on GitHub](https://github.com/dbt-labs/dbt-mcp#tools) when the docs are built, so it stays in sync with each release.
 
-### SQL[​](#sql "Direct link to SQL")
+### SQL
 
 Tools for executing and generating SQL on dbt Platform infrastructure.
 
 * `execute_sql`: Executes SQL on dbt Platform infrastructure with Semantic Layer support.
 * `text_to_sql`: Generates SQL from natural language using project context.
 
-### Semantic Layer[​](#semantic-layer "Direct link to Semantic Layer")
+### Semantic Layer
 
 To learn more about the dbt Semantic Layer, click [here](https://docs.getdbt.com/docs/use-dbt-semantic-layer/dbt-sl).
 
@@ -49,7 +43,7 @@ To learn more about the dbt Semantic Layer, click [here](https://docs.getdbt.com
 * `list_saved_queries`: Retrieves all saved queries.
 * `query_metrics`: Executes metric queries with filtering and grouping options.
 
-### Discovery[​](#discovery "Direct link to Discovery")
+### Discovery
 
 To learn more about the dbt Discovery API, click [here](https://docs.getdbt.com/docs/dbt-cloud-apis/discovery-api).
 
@@ -75,7 +69,7 @@ To learn more about the dbt Discovery API, click [here](https://docs.getdbt.com/
 * `get_test_details`: *(deprecated — use `get_node_details` instead)*
 * `search`: \[Alpha] Searches for resources across the dbt project (not generally available).
 
-### dbt CLI[​](#dbt-cli "Direct link to dbt CLI")
+### dbt CLI
 
 Allowing your client to utilize dbt commands through the MCP tooling could modify your data models, sources, and warehouse objects. Proceed only if you trust the client and understand the potential impact.
 
@@ -91,7 +85,7 @@ Allowing your client to utilize dbt commands through the MCP tooling could modif
 * `show`: Executes SQL against the database and returns results.
 * `test`: Runs tests to validate data and model integrity.
 
-### Admin API[​](#admin-api "Direct link to Admin API")
+### Admin API
 
 To learn more about the dbt Administrative API, click [here](https://docs.getdbt.com/docs/dbt-cloud-apis/admin-cloud-api).
 
@@ -106,7 +100,7 @@ To learn more about the dbt Administrative API, click [here](https://docs.getdbt
 * `retry_job_run`: Retries a failed job run.
 * `trigger_job_run`: Triggers a job run; option to override git branch, schema, or other settings.
 
-### dbt Codegen[​](#dbt-codegen "Direct link to dbt Codegen")
+### dbt Codegen
 
 These tools help automate boilerplate code generation for dbt project files.
 
@@ -114,7 +108,7 @@ These tools help automate boilerplate code generation for dbt project files.
 * `generate_source`: Generates source YAML by introspecting database schemas; option to include columns.
 * `generate_staging_model`: Generates staging model SQL from a source table.
 
-### dbt LSP[​](#dbt-lsp "Direct link to dbt LSP")
+### dbt LSP
 
 A set of tools that leverage the Fusion engine for advanced SQL compilation and column-level lineage analysis.
 
@@ -122,14 +116,14 @@ A set of tools that leverage the Fusion engine for advanced SQL compilation and 
 * `fusion.get_column_lineage`: Traces column-level lineage via dbt Platform.
 * `get_column_lineage`: Traces column-level lineage locally (requires dbt-lsp via dbt Labs VSCE).
 
-### Product Docs[​](#product-docs "Direct link to Product Docs")
+### Product Docs
 
 Tools for searching and fetching content from the official dbt documentation at docs.getdbt.com.
 
 * `get_product_doc_pages`: Fetches the full Markdown content of one or more docs.getdbt.com pages by path or URL.
 * `search_product_docs`: Searches docs.getdbt.com for pages matching a query; returns titles, URLs, and descriptions ranked by relevance. Use get\_product\_doc\_pages to fetch full content.
 
-### MCP Server Metadata[​](#mcp-server-metadata "Direct link to MCP Server Metadata")
+### MCP Server Metadata
 
 These tools provide information about the MCP server itself.
 

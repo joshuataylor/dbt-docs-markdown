@@ -1,31 +1,19 @@
 # Connect YDB to dbt Core
 
-Local developmentⓘ
+Local development
 
-## Overview of <!-- -->dbt-ydb<!-- -->
+## Overview of dbt-ydb
 
-* **Maintained by**:
-  <!-- -->
-  YDB Team
-* **Authors**:
-  <!-- -->
-  YDB Team
+* **Maintained by**: YDB Team
+* **Authors**: YDB Team
 * **GitHub repo**: [ydb-platform/dbt-ydb](https://github.com/ydb-platform/dbt-ydb)[![](https://img.shields.io/github/stars/ydb-platform/dbt-ydb?style=for-the-badge)](https://github.com/ydb-platform/dbt-ydb)
 * **PyPI package**: `dbt-ydb` [![](https://badge.fury.io/py/dbt-ydb.svg)](https://badge.fury.io/py/dbt-ydb)
 * **Slack channel**: [n/a]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v1.8.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-ydb<!-- -->
+## Installing dbt-ydb
 
 pip is the easiest way to install the adapter:
 
@@ -33,13 +21,13 @@ pip is the easiest way to install the adapter:
 
 Installing `dbt-ydb` will also install `dbt-core` and any other dependencies.
 
-## Configuring <!-- -->dbt-ydb<!-- -->
+## Configuring dbt-ydb
 
-For <!-- -->YDB<!-- -->-specifc configuration please refer to [YDB<!-- --> Configuration](../../../reference/resource-configs/no-configs.md)
+For YDB-specifc configuration please refer to [YDB Configuration](../../../reference/resource-configs/no-configs.md)
 
 For further info, refer to the GitHub repository: [ydb-platform/dbt-ydb](https://github.com/ydb-platform/dbt-ydb)
 
-## Connecting to YDB[​](#connecting-to-ydb "Direct link to Connecting to YDB")
+## Connecting to YDB
 
 To connect to YDB from dbt, you'll need to add a [profile](../profiles.yml.md) to your `profiles.yml` file. A YDB profile conforms to the following syntax:
 
@@ -69,7 +57,7 @@ profile-name:
       service_account_credentials_file: empty_string
 ```
 
-### All configurations[​](#all-configurations "Direct link to All configurations")
+### All configurations
 
 | Config                              | Required? | Default        | Description                                                                   |
 | ----------------------------------- | --------- | -------------- | ----------------------------------------------------------------------------- |
@@ -83,9 +71,3 @@ profile-name:
 | password                            | No        | `empty_string` | YDB password to use static credentials                                        |
 | token                               | No        | `empty_string` | YDB token to use Access Token credentials                                     |
 | service\_account\_credentials\_file | No        | `empty_string` | Path to service account credentials file to use service account credentials   |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

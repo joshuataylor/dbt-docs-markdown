@@ -2,7 +2,7 @@
 
 In Databricks, permissions are used to control who can perform certain actions on different database objects. Use SQL statements to manage permissions in a Databricks database.
 
-## Example Databricks permissions[​](#example-databricks-permissions "Direct link to Example Databricks permissions")
+## Example Databricks permissions
 
 The following example provides you with the SQL statements you can use to manage permissions.
 

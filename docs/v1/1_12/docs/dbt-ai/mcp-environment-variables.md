@@ -1,10 +1,10 @@
 # MCP environment variables reference
 
-Local developmentⓘ
+Local development
 
 This page is a condensed reference for all environment variables used by the self-hosted dbt MCP server. For full detail on each variable (including examples), see [Set up self-hosted MCP](./setup-local-mcp.md).
 
-## Self-hosted CLI[​](#self-hosted-cli "Direct link to Self-hosted CLI")
+## Self-hosted CLI
 
 These variables are required to use dbt commands through MCP.
 
@@ -15,7 +15,7 @@ These variables are required to use dbt commands through MCP.
 | `DBT_PROFILES_DIR` | Optional | Path to a custom `profiles.yml` directory. Defaults to `~/.dbt/`.                                                                                    |
 | `DBT_CLI_TIMEOUT`  | Optional | Seconds before dbt commands time out. Defaults to `60`. Compile runs the whole project, so large projects may need a higher limit to avoid timeouts. |
 
-## dbt platform[​](#dbt-platform "Direct link to dbt platform")
+## dbt platform
 
 These variables are required for dbt platform features (Semantic Layer, Discovery API, Admin API, SQL execution).
 
@@ -34,7 +34,7 @@ Legacy prefix variables
 
 See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions on locating each value.
 
-## Tool configuration[​](#tool-configuration "Direct link to Tool configuration")
+## Tool configuration
 
 dbt MCP has two modes for controlling which tools are available: disable mode (default) and enable mode (allowlist).
 
@@ -55,7 +55,7 @@ DBT_MCP_ENABLE_SEMANTIC_LAYER=true
 
 Also avoid empty `DBT_MCP_ENABLE_*=` lines as they activate enable mode and will silently disable all other toolsets.
 
-### Disable mode (default)[​](#disable-mode-default "Direct link to Disable mode (default)")
+### Disable mode (default)
 
 All tools are available by default. To disable a toolset, set any of the following variables to `true` in your MCP client configuration:
 
@@ -71,7 +71,7 @@ All tools are available by default. To disable a toolset, set any of the followi
 | `DISABLE_MCP_SERVER_METADATA` | `true`  | Server metadata tools are disabled by default. Set to `false` to enable.                        |
 | `DISABLE_TOOLS`               | `""`    | Comma-separated list of specific tool names to disable.                                         |
 
-### Enable mode (allowlist)[​](#enable-mode-allowlist "Direct link to Enable mode (allowlist)")
+### Enable mode (allowlist)
 
 If any `DBT_MCP_ENABLE_*` variable is set, only the explicitly enabled toolsets are active:
 
@@ -86,7 +86,7 @@ If any `DBT_MCP_ENABLE_*` variable is set, only the explicitly enabled toolsets 
 | `DBT_MCP_ENABLE_LSP`            | Set to `true` to enable LSP/Fusion tools.                           |
 | `DBT_MCP_ENABLE_TOOLS`          | Comma-separated list of specific tool names to enable.              |
 
-### Precedence[​](#precedence "Direct link to Precedence")
+### Precedence
 
 When multiple variables are set, they're evaluated in this order (highest priority first):
 
@@ -96,7 +96,7 @@ When multiple variables are set, they're evaluated in this order (highest priori
 4. Toolset disable (`DISABLE_*=true`)
 5. Default behavior
 
-## Semantic Layer[​](#semantic-layer "Direct link to Semantic Layer")
+## Semantic Layer
 
 These variables control the behavior of Semantic Layer tools.
 
@@ -105,7 +105,7 @@ These variables control the behavior of Semantic Layer tools.
 | `DBT_MCP_SL_METRICS_RELATED_MAX` | `10`    | Maximum number of metrics for which `list_metrics` also returns dimension and entity names inline, reducing the number of tool calls needed to answer data questions. When the metric count is at or below this value, dimensions and entities are embedded directly in the `list_metrics` response. When above this value, only metric names are returned and the LLM calls `get_dimensions`/`get_entities` separately. Set to `0` to always return metrics only and never inline dimension or entity data. |
 | `DBT_MCP_SL_MAX_RESPONSE_CHARS`  | `16000` | Maximum character length of the CSV returned by `list_metrics`. Must be an integer `>= 0`. When the response would exceed this length *and* the metric count is above `DBT_MCP_SL_METRICS_RELATED_MAX`, the `description` and `metadata` columns are dropped from the response to save tokens. Set to `0` to disable trimming and always return the full response.                                                                                                                                           |
 
-## Logging and debugging[​](#logging-and-debugging "Direct link to Logging and debugging")
+## Logging and debugging
 
 | Variable            | Default | Description                                                                                                                                                                                                            |
 | ------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

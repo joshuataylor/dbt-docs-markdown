@@ -1,6 +1,6 @@
 # Install dbt Wizard CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 Install the dbt Wizard CLI from your terminal for agentic and governed data development in dbt.
 
@@ -12,12 +12,15 @@ You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CL
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
-* macOS/Linux
-* Windows
+### macOS/Linux
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
+
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](./wizard-cli.md#uninstall) if you ever need to remove them.
+
+### Windows
 
 Run the following in PowerShell:
 
@@ -34,21 +37,23 @@ wizard             # start an interactive session
 
 After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](./wizard-config.md) for more details.
 
+(Applies to dbt v1.99 and earlier)
+
 Upgrade for automatic updates
 
 Upgrade to [v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
 Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and onboarding](#first-run-setup-and-onboarding) sections for more details.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * macOS, Windows, or Linux
 * A dbt project with a built `target/` directory (`dbt parse`, `dbt compile`, or `dbt build`)
 * Credentials for a supported CLI provider. Refer to [Supported AI providers](./wizard-byok.md#supported-ai-providers) in the next section.
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -76,7 +81,7 @@ If you've never used the terminal before, check out the [terminal guide](../../g
 * Enter `/` to see the available commands or try out `/overview` to get a quick summary of your project.
 * Press `Shift+Tab` to cycle through collaboration modes.
 
-## First-run setup and onboarding[​](#first-run-setup-and-onboarding "Direct link to First-run setup and onboarding")
+## First-run setup and onboarding
 
 The first time you start dbt Wizard in a project, it walks you through a short setup and saves your answers to [`wizard_config.toml`, `providers.json`, and `provider-auth.json`](./wizard-config.md), so you only do this once per project. You'll be asked to:
 
@@ -109,7 +114,7 @@ After onboarding, dbt Wizard shows a welcome screen with two sections:
 
 Enter `/` to see the available [slash commands](./wizard-slash-commands.md), or try `/overview` for a summary of your project. CLI commands use the `wizard` prefix, so you can also run [subcommands](./wizard-cli-reference.md) such as `wizard exec`, `wizard review`, and `wizard resume`.
 
-## Update[​](#update "Direct link to Update")
+## Update
 
 Run the following command to update dbt Wizard to the latest version:
 
@@ -117,7 +122,27 @@ Run the following command to update dbt Wizard to the latest version:
 wizard update
 ```
 
-## Telemetry[​](#telemetry "Direct link to Telemetry")
+## Uninstall
+
+1. Run the built-in uninstall command. It lists every binary, config, and data directory it's about to remove, then asks you to confirm (`Proceed? [Y/N]`) before deleting anything:
+
+   ```shell
+   wizard system uninstall
+   ```
+
+Uninstalling Wizard
+
+Removing `~/.dbt/wizard` deletes your local config, logs, and cache, and can't be undone. Your dbt profiles (`~/.dbt/`) and dbt projects aren't part of dbt Wizard and won't be touched.
+
+2. Confirm the binary is deleted by checking your system path:
+
+   ```bash
+   which wizard
+   ```
+
+If no output path is returned, dbt Wizard is successfully uninstalled.
+
+## Telemetry
 
 dbt Wizard collects anonymous product telemetry to improve the AI agent experience, understand usage patterns, optimize performance, and attribute compute costs without capturing your code, queries, prompts, responses, or file contents.
 
@@ -127,7 +152,7 @@ Best practices for using dbt Wizard
 
 Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Use dbt Wizard locally](./wizard-quickstart.md): Install dbt Wizard and start a local terminal session
 * [Configure BYOK](./wizard-byok.md): Manage your API key and choose an AI model

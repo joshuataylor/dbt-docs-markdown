@@ -14,7 +14,7 @@ Beginner
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 In this quickstart guide, you'll learn how to use dbt with Snowflake. It will show you how to:
 
@@ -35,12 +35,12 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 
 You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.com/watch?v=kbCkwhySV_I\&list=PL0QYlrC86xQm7CoOH6RS7hcgLnd3OQioG).
 
-### Prerequisites​[​](#prerequisites "Direct link to Prerequisites​")
+### Prerequisites​
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have a [trial Snowflake account](https://signup.snowflake.com/). During trial account creation, make sure to choose the **Enterprise** Snowflake edition so you have `ACCOUNTADMIN` access. For a full implementation, you should consider organizational questions when choosing a cloud provider. For more information, see [Introduction to Cloud Platforms](https://docs.snowflake.com/en/user-guide/intro-cloud-platforms.html) in the Snowflake docs. For the purposes of this setup, all cloud providers and regions will work so choose whichever you’d like.
 
-### Related content[​](#related-content "Direct link to Related content")
+### Related content
 
 * Learn more with [dbt Learn courses](https://learn.getdbt.com)
 * [How we configure Snowflake](https://blog.getdbt.com/how-we-configure-snowflake/)
@@ -49,13 +49,13 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 * [Job notifications](../docs/deploy/job-notifications.md)
 * [Source freshness](../docs/deploy/source-freshness.md)
 
-## Create a new Snowflake SQL file[​](#create-a-new-snowflake-sql-file "Direct link to Create a new Snowflake SQL file")
+## Create a new Snowflake SQL file
 
 1. Log in to your [trial Snowflake account](https://app.snowflake.com).
 2. In the Snowflake UI, click the Create icon **+** in the upper left (under the Snowflake logo) to open a dropdown.
 3. Select the first option, **SQL File**.
 
-## Load data[​](#load-data "Direct link to Load data")
+## Load data
 
 The data used here is stored as CSV files in a public S3 bucket and the following steps will guide you through how to prepare your Snowflake account for that data and upload it.
 
@@ -153,12 +153,11 @@ The data used here is stored as CSV files in a public S3 bucket and the followin
    select * from raw.stripe.payment;   
    ```
 
-## Connect dbt to Snowflake[​](#connect-dbt-to-snowflake "Direct link to Connect dbt to Snowflake")
+## Connect dbt to Snowflake
 
 There are two ways to connect dbt to Snowflake. The first option is Partner Connect, which provides a streamlined setup to create your dbt account from within your new Snowflake trial account. The second option is to create your dbt account separately and build the Snowflake connection yourself (connect manually). If you want to get started quickly, dbt Labs recommends using Partner Connect. If you want to customize your setup from the very beginning and gain familiarity with the dbt setup flow, dbt Labs recommends connecting manually.
 
-* Use Partner Connect
-* Connect manually
+### Use Partner Connect
 
 Using Partner Connect allows you to create a complete dbt account with your [Snowflake connection](../docs/platform/connect-data-platform/connect-snowflake.md), [a managed repository](../docs/platform/git/managed-repository.md), [environments](../docs/build/custom-schemas.md#managing-environments), and credentials.
 
@@ -191,6 +190,8 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 [![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")](#)dbt - Snowflake Project Overview
 
 [![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")](#)dbt - Update Database and Warehouse
+
+### Connect manually
 
 1. Create a new project in dbt. Navigate to **Account settings** (by clicking on your account name in the left side menu), and click **+ New Project**.
 
@@ -238,7 +239,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 12. If the test succeeded, click **Save** to complete the configuration. If it failed, you may need to check your Snowflake settings and credentials.
 
-## Set up a dbt managed repository[​](#set-up-a-dbt-managed-repository "Direct link to Set up a dbt managed repository")
+## Set up a dbt managed repository
 
 If you used Partner Connect, you can skip to [initializing your dbt project](#initialize-your-dbt-project-and-start-developing) as the Partner Connect provides you with a managed repository. Otherwise, you will need to create your repository connection.
 
@@ -253,7 +254,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing[​](#initialize-your-dbt-project-and-start-developing "Direct link to Initialize your dbt project​ and start developing")
+## Initialize your dbt project​ and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 
@@ -265,11 +266,7 @@ Now that you have a repository configured, you can initialize your project and s
 
 4. You can now directly query data from your warehouse and execute `dbt run`. You can try this out now:
 
-   <!-- -->
-
    * Click **+ Create new file**, add this query to the new file, and click **Save as** to save the new file:
-
-     <!-- -->
 
      ```sql
      select * from raw.jaffle_shop.customers
@@ -296,7 +293,7 @@ grant all on all tables in database raw to role snowflake_role_name;
 grant all on future tables in database raw to role snowflake_role_name;
 ```
 
-## Build your first model[​](#build-your-first-model "Direct link to Build your first model")
+## Build your first model
 
 You have two options for working with files in the Studio IDE:
 
@@ -371,7 +368,7 @@ select * from final
 
 Later, you can connect your business intelligence (BI) tools to these views and tables so they only read cleaned-up data rather than raw data.
 
-## Change the way your model is materialized[​](#change-the-way-your-model-is-materialized "Direct link to Change the way your model is materialized")
+## Change the way your model is materialized
 
 One of the most powerful features of dbt is that you can change the way a model is materialized in your warehouse, simply by changing a configuration value. You can change things between tables and views by changing a keyword rather than writing the data definition language (DDL) to do this behind the scenes.
 
@@ -433,7 +430,7 @@ By default, everything gets created as a view. You can override that at the dire
 
 5. Enter the `dbt run --full-refresh` command for this to take effect in your warehouse.
 
-### FAQs[​](#faqs "Direct link to FAQs")
+### FAQs
 
 What materializations are available in dbt?
 
@@ -459,7 +456,7 @@ You can also configure:
 
 Check out the docs on [model configurations](../reference/model-configs.md) to learn more.
 
-## Delete the example models[​](#delete-the-example-models "Direct link to Delete the example models")
+## Delete the example models
 
 You can now delete the files that dbt created when you initialized the project:
 
@@ -489,7 +486,7 @@ You can now delete the files that dbt created when you initialized the project:
 
 3. Save your changes.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How do I remove deleted models from my data warehouse?
 
@@ -505,7 +502,7 @@ You might have forgotten to nest your configurations under your project name, or
 
 Check out this [article](https://discourse.getdbt.com/t/faq-i-got-an-unused-model-configurations-error-message-what-does-this-mean/112) to understand more.
 
-## Build models on top of other models[​](#build-models-on-top-of-other-models "Direct link to Build models on top of other models")
+## Build models on top of other models
 
 As a best practice in SQL, you should separate logic that cleans up your data from logic that transforms your data. You have already started doing this in the existing query by using common table expressions (CTEs).
 
@@ -595,7 +592,7 @@ Now you can experiment by separating the logic out into separate models and usin
 
    This time, when you performed a `dbt run`, separate views/tables were created for `stg_customers`, `stg_orders` and `customers`. dbt inferred the order to run these models. Because `customers` depends on `stg_customers` and `stg_orders`, dbt builds `customers` last. You do not need to explicitly define these dependencies.
 
-#### FAQs[​](#faq-2 "Direct link to FAQs")
+#### FAQs
 
 How do I run one model at a time?
 
@@ -621,7 +618,7 @@ There's no one best way to structure a project! Every organization is unique.
 
 If you're just getting started, check out how we (dbt Labs) [structure our dbt projects](../best-practices/how-we-structure/1-guide-overview.md).
 
-## Build models on top of sources[​](#build-models-on-top-of-sources "Direct link to Build models on top of sources")
+## Build models on top of sources
 
 Sources make it possible to name and describe the data loaded into your warehouse by your extract and load tools. By declaring these tables as sources in dbt, you can:
 
@@ -680,7 +677,7 @@ Sources make it possible to name and describe the data loaded into your warehous
 
    The results of your `dbt run` will be exactly the same as the previous step. Your `stg_customers` and `stg_orders` models will still query from the same raw data source in Snowflake. By using `source`, you can test and document your raw data and also understand the lineage of your sources.
 
-## Add tests to your models[​](#add-tests-to-your-models "Direct link to Add tests to your models")
+## Add tests to your models
 
 Adding [data tests](../docs/build/data-tests.md) to a project helps validate that your models are working correctly.
 
@@ -734,7 +731,7 @@ To add data tests to your project:
 
 When you run `dbt test`, dbt iterates through your YAML files, and constructs a query for each test. Each query will return the number of records that fail the test. If this number is 0, then the test is successful.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 What tests are available for me to use in dbt? Can I add my own custom tests?
 
@@ -807,7 +804,7 @@ When should I run my data tests?
 
 You should run your data tests whenever you are writing new code (to ensure you haven't broken any existing models by changing SQL), and whenever you run your transformations in production (to ensure that your assumptions about your source data are still valid).
 
-## Document your models[​](#document-your-models "Direct link to Document your models")
+## Document your models
 
 Adding [documentation](../docs/build/documentation.md) to your project allows you to describe your models in rich detail, and share that information with your team. Here, we're going to add some basic documentation to our project.
 
@@ -861,14 +858,11 @@ models:
                 field: customer_id
 ```
 
-* View in Catalog
-* View in Studio IDE
+### View in Catalog
 
 [Catalog](../docs/explore/explore-projects.md) provides powerful tools to interact with your dbt projects, including documentation:
 
 1. Run one of the following commands:
-
-   <!-- -->
 
    * `dbt docs generate` if you're on dbt Core
    * `dbt build` if you're on the dbt Fusion engine
@@ -887,18 +881,20 @@ models:
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
+### View in Studio IDE
+
 You can view docs directly from the IDE if you're on `Latest` or another version of dbt Core. Keep in mind that this is a legacy view and doesn't offer the same level of interactivity as Catalog.
 
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
-   <!-- -->
+
    [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
 [![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 How do I write long-form explanations in my descriptions?
 
@@ -938,7 +934,7 @@ Access Catalog in dbt by clicking the **Catalog** link in the navigation. You ca
 
 dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-and-view-your-docs.md#dbt-docs), which generates basic documentation but it doesn't offer the same speed, metadata, or visibility as Catalog.
 
-## Commit your changes[​](#commit-your-changes "Direct link to Commit your changes")
+## Commit your changes
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
@@ -957,11 +953,11 @@ Now that you've built your customer model, you need to commit the changes you ma
 3. Add a commit message, such as "Add customers model, tests, docs."
 4. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-## Deploy dbt[​](#deploy-dbt "Direct link to Deploy dbt")
+## Deploy dbt
 
 Use dbt's Scheduler to deploy your production jobs confidently and build observability into your processes. You'll learn to create a deployment environment and run a job in the following steps.
 
-### Create a deployment environment[​](#create-a-deployment-environment "Direct link to Create a deployment environment")
+### Create a deployment environment
 
 1. From the main menu, go to **Orchestration** > **Environments**.
 2. Click **Create environment**.
@@ -970,7 +966,7 @@ Use dbt's Scheduler to deploy your production jobs confidently and build observa
 5. Under **Deployment connection**, enter the name of the dataset you want to use as the target, such as "Analytics". This will allow dbt to build and work with that dataset. For some data warehouses, the target dataset may be referred to as a "schema".
 6. Click **Save**.
 
-### Create and run a job[​](#create-and-run-a-job "Direct link to Create and run a job")
+### Create and run a job
 
 Jobs are a set of dbt commands that you want to run on a schedule. For example, `dbt build`.
 
@@ -981,7 +977,6 @@ As the `jaffle_shop` business gains more customers, and those customers create m
 3. Provide a job name (for example, "Production run") and select the environment you just created.
 4. Scroll down to the **Execution settings** section.
 5. Under **Commands**, add this command as part of your job if you don't see it:
-   <!-- -->
    * `dbt build`
 6. Select the **Generate docs on run** option to automatically [generate updated project docs](../docs/explore/build-and-view-your-docs.md) each time your job runs.
 7. For this exercise, do *not* set a schedule for your project to run — while your organization's project should run regularly, there's no need to run this example project on a schedule. Scheduling a job is sometimes referred to as *deploying a project*.
@@ -991,7 +986,7 @@ As the `jaffle_shop` business gains more customers, and those customers create m
 
 Congratulations 🎉! You've just deployed your first dbt project!
 
-#### FAQs[​](#faqs "Direct link to FAQs")
+#### FAQs
 
 What happens if one of my runs fails?
 

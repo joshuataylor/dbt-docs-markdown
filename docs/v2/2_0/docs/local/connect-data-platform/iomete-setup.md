@@ -1,37 +1,25 @@
 # Connect iomete to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  iomete
-* **Authors**:
-  <!-- -->
-  Namig Aliyev
+* **Maintained by**: iomete
+* **Authors**: Namig Aliyev
 * **GitHub repo**: [iomete/dbt-iomete](https://github.com/iomete/dbt-iomete) [![](https://img.shields.io/github/stars/iomete/dbt-iomete?style=for-the-badge)](https://github.com/iomete/dbt-iomete)
 * **PyPI package**: `dbt-iomete` [![](https://badge.fury.io/py/dbt-iomete.svg)](https://badge.fury.io/py/dbt-iomete)
 * **Slack channel**: [##db-iomete](https://getdbt.slack.com/archives/C03JFG22EP9)
-* **Supported dbt Core version**:
-  <!-- -->
-  v0.18.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  n/a
+* **Supported dbt Core version**: v0.18.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: n/a
 
-## Installing <!-- -->dbt-iomete
+## Installing dbt-iomete
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-iomete`
 
-## Configuring <!-- -->dbt-iomete<!-- -->
+## Configuring dbt-iomete
 
-For <!-- -->iomete<!-- -->-specific configuration, please refer to [iomete<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For iomete-specific configuration, please refer to [iomete configs.](../../../reference/resource-configs/no-configs.md)
 
 Set up a iomete Target
 
@@ -54,7 +42,7 @@ iomete:
       password: iomete_user_password
 ```
 
-##### Description of Profile Fields[​](#description-of-profile-fields "Direct link to Description of Profile Fields")
+##### Description of Profile Fields
 
 | Field           | Description                                                                                                                             | Required | Example                |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------- |
@@ -67,13 +55,7 @@ iomete:
 | username        | The iomete username to use to connect to the server.                                                                                    | Required | `dbt_user`             |
 | password        | The iomete user password to use to connect to the server.                                                                               | Required | `strong_password`      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Supported Functionality[​](#supported-functionality "Direct link to Supported Functionality")
+## Supported Functionality
 
 Most dbt Core functionality is supported.
 

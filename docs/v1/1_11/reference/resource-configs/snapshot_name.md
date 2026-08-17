@@ -1,5 +1,7 @@
 # snapshot\_name
 
+(Applies to dbt v1.9 and later)
+
 snapshots/\<filename>.yml
 
 ```yaml
@@ -14,7 +16,7 @@ snapshots:
       updated_at: column_name  # Required if strategy is 'timestamp'
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 The name of a snapshot, which is used when selecting from a snapshot using the [`ref` function](../dbt-jinja-functions/ref.md)
 
@@ -22,9 +24,11 @@ This name must not conflict with the name of any other "refable" resource (model
 
 The name does not need to match the file name. As a result, snapshot filenames do not need to be unique.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Name a snapshot `order_snapshot`[​](#name-a-snapshot-order_snapshot "Direct link to name-a-snapshot-order_snapshot")
+### Name a snapshot `order_snapshot`
+
+(Applies to dbt v1.9 and later)
 
 snapshots/order\_snapshot.yml
 

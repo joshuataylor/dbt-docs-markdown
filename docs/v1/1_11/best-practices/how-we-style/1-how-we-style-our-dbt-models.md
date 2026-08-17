@@ -1,6 +1,6 @@
 # How we style our dbt models
 
-## Fields and model names[​](#fields-and-model-names "Direct link to Fields and model names")
+## Fields and model names
 
 * 👥 Models should be pluralized, for example, `customers`, `orders`, `products`.
 
@@ -9,8 +9,6 @@
 * 🔑 The primary key of a model should be named `<object>_id`, for example, `account_id`. This makes it easier to know what `id` is being referenced in downstream joined models.
 
 * Use underscores for naming dbt models; avoid dots.
-
-  <!-- -->
 
   * ✅ `models_without_dots`
   * ❌ `models.with.dots`
@@ -42,7 +40,7 @@
 
 * 🗄️ Use a consistent ordering of data types and consider grouping and labeling columns by type, as in the example below. This will minimize join errors and make it easier to read the model, as well as help downstream consumers of the data understand the data types and scan models for the columns they need. We prefer to use the following order: ids, strings, numerics, booleans, dates, and timestamps.
 
-## Example model[​](#example-model "Direct link to Example model")
+## Example model
 
 ```sql
 with

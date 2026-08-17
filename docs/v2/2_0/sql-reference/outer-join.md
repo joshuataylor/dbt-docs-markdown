@@ -4,7 +4,7 @@ SQL full outer joins exist and therefore we have to talk about them, but they’
 
 In this page, we’ll unpack how to create a full outer join and demonstrate when you might need one in your analytics engineering work.
 
-## How to create a full outer join[​](#how-to-create-a-full-outer-join "Direct link to How to create a full outer join")
+## How to create a full outer join
 
 Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a full outer join:
 
@@ -20,7 +20,7 @@ In this example above, there’s only one field being used to join the table tog
 
 A note on full outer joins: it may sound obvious, but because full outer joins can return all rows between two tables, they therefore can return *many* rows, which is not necessarily a recipe for efficiency. When you use full outer joins, you often can find alternatives using different joins or unions to potentially bypass major inefficiencies caused by a full outer join.
 
-### SQL full outer join example[​](#sql-full-outer-join-example "Direct link to SQL full outer join example")
+### SQL full outer join example
 
 Table A `car_type`
 
@@ -30,12 +30,6 @@ Table A `car_type`
 | 2        | sedan     |
 | 3        | truck     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Table B `car_color`
 
 | user\_id | car\_color |
@@ -43,12 +37,6 @@ Table B `car_color`
 | 1        | red        |
 | 3        | green      |
 | 4        | yellow     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ```sql
 select
@@ -70,13 +58,7 @@ This simple query will return all rows from tables A and B, regardless of `user_
 | 3        | truck | green  |
 | 4        | null  | yellow |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL full outer join use cases[​](#sql-full-outer-join-use-cases "Direct link to SQL full outer join use cases")
+## SQL full outer join use cases
 
 There will inevitably be valid use cases for full outer joins in your dbt project. However, because of the nature of dbt, which heavily encourages modularity and DRY dryness, the necessity for full outer joins may go down (slightly). Regardless, the two primary cases for full outer joins we typically see are around consolidating or merging multiple entities together and data validation.
 

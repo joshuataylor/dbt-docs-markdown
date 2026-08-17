@@ -10,14 +10,14 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide will teach you how to refresh a Tableau workbook that leverages [extracts](https://help.tableau.com/current/pro/desktop/en-us/extracting_data.htm) when a dbt job has completed successfully and there is fresh data available. The integration will:
 
 * Receive a webhook notification in Zapier
 * Trigger a refresh of a Tableau workbook
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 To set up the integration, you need to be familiar with:
 
@@ -26,11 +26,11 @@ To set up the integration, you need to be familiar with:
 * The [Tableau API](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api.htm)
 * The [version](https://help.tableau.com/current/api/rest_api/en-us/REST/rest_api_concepts_versions.htm#rest_api_versioning) of Tableau's REST API that is compatible with your server
 
-## Obtain authentication credentials from Tableau[​](#obtain-authentication-credentials-from-tableau "Direct link to Obtain authentication credentials from Tableau")
+## Obtain authentication credentials from Tableau
 
 To authenticate with the Tableau API, obtain a [Personal Access Token](https://help.tableau.com/current/server/en-us/security_personal_access_tokens.htm) from your Tableau Server/Cloud instance. In addition, make sure your Tableau workbook uses data sources that allow refresh access, which is usually set when publishing.
 
-## Create a new Zap in Zapier[​](#create-a-new-zap-in-zapier "Direct link to Create a new Zap in Zapier")
+## Create a new Zap in Zapier
 
 To trigger an action with the delivery of a webhook in Zapier, you'll want to create a new Zap with **Webhooks by Zapier** as the Trigger and **Catch Raw Hook** as the Event. However, if you choose not to [validate the authenticity of your webhook](../docs/deploy/webhooks.md#validate-a-webhook), which isn't recommended, you can choose **Catch Hook** instead.
 
@@ -38,7 +38,7 @@ Press **Continue**, then copy the webhook URL.
 
 ![Screenshot of the Zapier UI, showing the webhook URL ready to be copied](/assets/images/catch-raw-hook-16dd72d8a6bc26284c5fad897f3da646.png)
 
-## Configure a new webhook in dbt[​](#configure-a-new-webhook-in-dbt "Direct link to Configure a new webhook in dbt")
+## Configure a new webhook in dbt
 
 To set up a webhook subscription for dbt, follow the instructions in [Create a webhook subscription](../docs/deploy/webhooks.md#create-a-webhook-subscription). For the event, choose **Run completed** and modify the **Jobs** list to include only the jobs that should trigger a report refresh.
 
@@ -48,7 +48,7 @@ Once you've tested the endpoint in dbt, go back to Zapier and click **Test Trigg
 
 The sample body's values are hard-coded and not reflective of your project, but they give Zapier a correctly-shaped object during development.
 
-## Store secrets[​](#store-secrets "Direct link to Store secrets")
+## Store secrets
 
 In the next step, you will need the Webhook Secret Key from the prior step, and your Tableau authentication credentials and details. Specifically, you'll need your Tableau server/site URL, server/site name, PAT name, and PAT secret.
 
@@ -58,11 +58,11 @@ This guide assumes the names for the secret keys are: `DBT_WEBHOOK_KEY`, `TABLEA
 
 This guide uses a short-lived code action to store the secrets, but you can also use a tool like Postman to interact with the [REST API](https://store.zapier.com/) or create a separate Zap and call the [Set Value Action](https://help.zapier.com/hc/en-us/articles/8496293271053-Save-and-retrieve-data-from-Zaps#3-set-a-value-in-your-store-0-3).
 
-### a. Create a Storage by Zapier connection[​](#a-create-a-storage-by-zapier-connection "Direct link to a. Create a Storage by Zapier connection")
+### a. Create a Storage by Zapier connection
 
 Create a new connection at <https://zapier.com/app/connections/storage> if you don't already have one and remember the UUID secret you generate for later.
 
-### b. Add a temporary code step[​](#b-add-a-temporary-code-step "Direct link to b. Add a temporary code step")
+### b. Add a temporary code step
 
 Choose **Run Python** as the Event and input the following code:
 
@@ -77,7 +77,7 @@ store.set('TABLEAU_API_TOKEN_SECRET', 'abc123') #replace with your Tableau API S
 
 Test the step to run the code. You can delete this action when the test succeeds. The keys will remain stored as long as it is accessed at least once every three months.
 
-## Add a code action[​](#add-a-code-action "Direct link to Add a code action")
+## Add a code action
 
 Select **Code by Zapier** as the App, and **Run Python** as the Event.
 
@@ -171,6 +171,6 @@ refresh_trigger = requests.post(refresh_url, data=json.dumps(refresh_data), head
 return {"message": "Workbook refresh has been queued"}
 ```
 
-## Test and deploy[​](#test-and-deploy "Direct link to Test and deploy")
+## Test and deploy
 
 To make changes to your code, you can modify it and test it again. When you're happy with it, you can publish your Zap.

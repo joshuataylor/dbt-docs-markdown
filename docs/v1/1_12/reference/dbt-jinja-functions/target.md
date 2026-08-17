@@ -6,14 +6,12 @@ The `target` variable contains information about your connection to the warehous
 
 * **dbt** To learn more about setting up your adapter in dbt, refer to [About data platform connections](../../docs/platform/connect-data-platform/about-connections.md).
 
-  <!-- -->
-
   * **[Orchestrator](../../docs/deploy/job-scheduler.md)**: `target.name` is defined per job as described in [Custom target names](../../docs/build/custom-target-names.md). For other attributes, values are defined by the deployment connection. To check these values, click **Deploy** and select **Environments**. Then, select the relevant deployment environment, and click **Settings**.
   * **[Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md)**: These values are defined by your connection and credentials. To edit these values, click on your account name in the left side menu and select **Account settings**. Then, click **Credentials**. Select and edit a project to set up the credentials and target name.
 
 Some configurations are shared between all adapters, while others are adapter-specific. You can also use the [`--target` flag](#using-the---target-flag) to set the active target when running dbt commands.
 
-## Common[​](#common "Direct link to Common")
+## Common
 
 | Variable              | Example      | Description                                                                                         |
 | --------------------- | ------------ | --------------------------------------------------------------------------------------------------- |
@@ -23,15 +21,9 @@ Some configurations are shared between all adapters, while others are adapter-sp
 | `target.type`         | postgres     | The active adapter being used. One of "postgres", "snowflake", "bigquery", "redshift", "databricks" |
 | `target.threads`      | 4            | The number of threads in use by dbt                                                                 |
 
-Search table...
+## Adapter-specific
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Adapter-specific[​](#adapter-specific "Direct link to Adapter-specific")
-
-### Snowflake[​](#snowflake "Direct link to Snowflake")
+### Snowflake
 
 | Variable           | Example         | Description                                |
 | ------------------ | --------------- | ------------------------------------------ |
@@ -41,13 +33,7 @@ Search table...
 | `target.role`      | TRANSFORM\_ROLE | The role specified in the active target    |
 | `target.account`   | abc123          | The account specified in the active target |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Postgres/Redshift[​](#postgresredshift "Direct link to Postgres/Redshift")
+### Postgres/Redshift
 
 | Variable        | Example                                 | Description                               |
 | --------------- | --------------------------------------- | ----------------------------------------- |
@@ -56,26 +42,14 @@ Search table...
 | `target.user`   | dbt\_user                               | The user specified in the active target   |
 | `target.port`   | 5439                                    | The port specified in the active profile  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### BigQuery[​](#bigquery "Direct link to BigQuery")
+### BigQuery
 
 | Variable         | Example    | Description                                 |
 | ---------------- | ---------- | ------------------------------------------- |
 | `target.project` | abc-123    | The project specified in the active profile |
 | `target.dataset` | dbt\_alice | The dataset the active profile              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Using the --target flag[​](#using-the---target-flag "Direct link to Using the --target flag")
+## Using the --target flag
 
 Use the `--target` flag when running dbt commands to set the active target and its associated `target.name` value:
 
@@ -89,9 +63,9 @@ dbt run --target prod
 
 You can use the `--target` flag with any dbt command to override the default target specified in your `profiles.yml` file. This is useful for running the same dbt project against different environments (like dev, staging, or prod) without changing your configuration files.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use `target.name` to limit data in dev[​](#use-targetname-to-limit-data-in-dev "Direct link to use-targetname-to-limit-data-in-dev")
+### Use `target.name` to limit data in dev
 
 As long as you use sensible target names, you can perform conditional logic to limit data when working in dev.
 
@@ -104,7 +78,7 @@ where created_at >= dateadd('day', -3, current_date)
 {% endif %}
 ```
 
-### Use `target.name` to change your source database[​](#use-targetname-to-change-your-source-database "Direct link to use-targetname-to-change-your-source-database")
+### Use `target.name` to change your source database
 
 If you have specific Snowflake databases configured for your dev/qa/prod environments, you can set up your sources to compile to different databases depending on your environment.
 

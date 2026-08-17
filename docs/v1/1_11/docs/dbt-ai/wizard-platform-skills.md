@@ -1,6 +1,6 @@
 # Use skills with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Skills are reusable instructions that help dbt Wizard follow your team's SQL conventions, naming rules, modeling patterns, and workflows without repeating them in every prompt.
 
@@ -8,7 +8,7 @@ dbt Wizard also includes built-in skills from [dbt Agent skills](https://github.
 
 For general project context (`AGENTS.md`, `CLAUDE.md`), refer to [Migrate to dbt Wizard](./wizard-migrate.md) — dbt Wizard reads those instruction files out of the box.
 
-## How skills work[​](#how-skills-work "Direct link to How skills work")
+## How skills work
 
 At the start of every session, dbt Wizard scans for repo-level skills in the `.agents/skills/` directory in your dbt project root:
 
@@ -23,15 +23,13 @@ Custom skills use the [Agent Skills](https://agentskills.io/specification) forma
 
 If a custom skill and a built-in skill share the same name, the custom skill takes precedence.
 
-## Create a skill[​](#create-a-skill "Direct link to Create a skill")
+## Create a skill
 
 In [Studio IDE](./wizard-ide.md), use the file explorer to create the skill directory and file:
 
 1. Create a folder at `.agents/skills/SKILL_NAME/` in your project root.
 
 2. Add a `SKILL.md` file inside it. A typical `SKILL.md` includes:
-
-   <!-- -->
 
    * YAML frontmatter with at minimum `name` and `description`.
    * A Markdown body with sections for when to use the skill, workflow steps, and conventions.
@@ -41,7 +39,7 @@ In [Studio IDE](./wizard-ide.md), use the file explorer to create the skill dire
 
 4. Start a new dbt Wizard chat — skills are discovered at session start, so mid-session changes won't be picked up until you start a new chat.
 
-## Skill file format[​](#skill-file-format "Direct link to Skill file format")
+## Skill file format
 
 A skill file has two required parts: YAML frontmatter and a Markdown body.
 
@@ -49,7 +47,7 @@ A skill file has two required parts: YAML frontmatter and a Markdown body.
 * **Body**: Markdown sections explaining when to use the skill, what it does, and any conventions or constraints.
 * **References** (optional): Supporting `.md` files in a `references/` subfolder for detail that would make `SKILL.md` too long.
 
-### Example skill file[​](#example-skill-file "Direct link to Example skill file")
+### Example skill file
 
 If you're new to skills, start with a small `SKILL.md` like the following example, then grow it over time:
 
@@ -74,7 +72,7 @@ Use this skill whenever you are changing SQL or YAML under `models/` and the use
 
 For a full production-style example, refer to dbt's [`adding-dbt-unit-test` skill](https://github.com/dbt-labs/dbt-agent-skills/blob/main/skills/dbt/skills/adding-dbt-unit-test/SKILL.md).
 
-## Use a skill[​](#use-a-skill "Direct link to Use a skill")
+## Use a skill
 
 In the dbt Wizard chat panel:
 
@@ -82,20 +80,20 @@ In the dbt Wizard chat panel:
 2. If needed, use `@` mentions to point to the skill file or supporting `.md` files directly.
 3. Review and approve proposed changes as usual in the dbt Wizard panel.
 
-## Built-in dbt skills[​](#built-in-dbt-skills "Direct link to Built-in dbt skills")
+## Built-in dbt skills
 
 dbt Wizard ships with skills from [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills), maintained by dbt Labs and the community. These capture analytics engineering knowledge for common workflows and are always available. The agent loads the relevant skill automatically when your prompt matches its use case.
 
 For the latest catalog, refer to the [dbt Agent Skills repository](https://github.com/dbt-labs/dbt-agent-skills).
 
-## Tips[​](#tips "Direct link to Tips")
+## Tips
 
 * **Keep `SKILL.md` focused.** One skill per concern (style guide, testing conventions, deployment workflow). Smaller skills are loaded more reliably than large monolithic ones.
 * **Use `description` to control when dbt Wizard activates the skill.** A precise description ("Use when creating or editing models in models/marts/") means the skill fires when relevant, not on every prompt.
 * **Start a new session after adding or editing a skill.** Skills are discovered at session start — mid-session changes aren't picked up until you start a new chat.
 * **Cross-project sharing isn't supported yet.** To reuse a skill in another repo, copy the skill files manually.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Wizard in Studio IDE](./wizard-ide.md)
 * [Use skills locally](./wizard-skills.md)

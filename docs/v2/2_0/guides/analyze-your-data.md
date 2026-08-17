@@ -14,7 +14,7 @@ Quickstart
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 As a data analyst, you play a key role in transforming complex data into trusted, actionable insights for your team. With dbt, you can use built-in, AI-powered tools to build governed data models, explore how they’re built, and even run your own analysis.
 
@@ -31,7 +31,7 @@ Here's more about the tools you will use on your journey:
 * Insights: Explore, validate, and query data with an intuitive, context-rich interface that bridges technical and business users by combining metadata, documentation, AI-assisted tools, and powerful querying capabilities.
 * Canvas: Quickly access and transform data through a visual, drag-and-drop experience and with a built-in AI for custom code generation.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin, make sure:
 
@@ -39,7 +39,7 @@ Before you begin, make sure:
 * Your team has already run a successful dbt job, so models are built and ready
 * You have a a git provider connected and authenticated
 
-## Analyst workflows[​](#analyst-workflows "Direct link to Analyst workflows")
+## Analyst workflows
 
 Kimiko, an analyst at the Jaffle Shop, notices they've been doing a lot of new sales and wants to investigate the most critical data they have in their warehouse.
 
@@ -47,7 +47,7 @@ Kimiko, an analyst at the Jaffle Shop, notices they've been doing a lot of new s
 
 Kimiko wonders, "How do I find data in our project that will help me answer their question?"
 
-### Explore a stakeholder question[​](#explore-a-stakeholder-question "Direct link to Explore a stakeholder question")
+### Explore a stakeholder question
 
 She navigates to the data catalog, Catalog, by signing into dbt and clicking Catalog in the left panel. Because the question was about customers, Kimiko begins by searching for "customers" in Catalog:
 
@@ -65,7 +65,7 @@ The `first_ordered_at` column stands out to Kimiko, and she wonders if she might
 
 But first, she decides to interact with the data to learn more.
 
-### Query data in Insights[​](#query-data-in-insights "Direct link to Query data in Insights")
+### Query data in Insights
 
 From the **Customer model page** in Catalog, Kimiko selects **Analyze data** from the **Open in...** dropdown. This enables her to query data for the Customer model. Once opened, Insights contains a query poised and ready to run.
 
@@ -121,7 +121,7 @@ She adds x- and y-axis labels, such as "Month of first order" and "Total new cus
 
 She often comes back to this data so Kimiko decides to bookmark the page by clicking **Bookmark** in the top right. She also exports it to a CSV file.
 
-### Visualize results[​](#visualize-results "Direct link to Visualize results")
+### Visualize results
 
 Kimiko has a few conversations with teammates and she finds out they're running pretty similar one-off queries, so she decides to take her long running query that she previously bookmarked and turn it into a full-fledged dbt model using Canvas. She does this so she can share it with others, which de-duplicates work and helps her team become more efficient.
 
@@ -131,7 +131,7 @@ When she examines the model, she notes it's selecting from customers as expected
 
 Now Kimiko's entire team, those who have the same access as her, can run this model and see the same results she does! What's more is they can help her improve the model as the stakeholder requests get more complicated, and she will benefit from their help.
 
-### The query becomes a model[​](#the-query-becomes-a-model "Direct link to The query becomes a model")
+### The query becomes a model
 
 Going forward, Kimiko is able to return to her project in Catalog and run the model to get the most current results. From here, she can:
 

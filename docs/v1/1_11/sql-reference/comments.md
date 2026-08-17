@@ -6,11 +6,11 @@ Why not both!?
 
 In this page, we’ll unpack how to create both inline and database object-level comments, general best practices around SQL comments, and how dbt can help you improve (and version-control) your comments.
 
-## How to create SQL comments[​](#how-to-create-sql-comments "Direct link to How to create SQL comments")
+## How to create SQL comments
 
 Inline SQL comments will begin with two dashes (--) in front of them in a query or dbt model; any text following these dashes is therefore what you’d call “commented out.” For longer, multi-line comments, you’ll typically see this syntax `/* your multi-line comment here */` used.
 
-### SQL comment example[​](#sql-comment-example "Direct link to SQL comment example")
+### SQL comment example
 
 ```sql
 /* these lines form a multi-line SQL comment; if it’s uncommented, 
@@ -32,11 +32,11 @@ comment on [database object type] <database object name> is 'comment text here';
 
 These database object-level comments are more useful for adding additional context or metadata to these objects versus inline comments being useful for explaining code functionality. Alternatively, these table and view-level comments can be easily abstracted out and version-controlled using [model descriptions in dbt](../reference/resource-properties/description.md) and persisted in the objects using the [persist\_docs config](../reference/resource-configs/persist_docs.md) in dbt.
 
-## SQL comments in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-comments-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL comments in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL comments in Snowflake, Databricks, BigQuery, and Redshift
 
 Google BigQuery, Amazon Redshift, Snowflake, and Databricks all support the ability to add inline SQL comments. With the exception of BigQuery, these data warehouses also support native database object-level comments; BigQuery does, however, support native field-level descriptions.
 
-## SQL commenting best practices[​](#sql-commenting-best-practices "Direct link to SQL commenting best practices")
+## SQL commenting best practices
 
 In general, inline SQL comments should be used thoughtfully; another analytics engineer should be able to pair your comments with your code to clearly understand model functionality.
 

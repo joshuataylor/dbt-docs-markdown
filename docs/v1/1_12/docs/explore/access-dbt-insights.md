@@ -1,6 +1,6 @@
 # Access the dbt Insights interface
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Learn how to access Insights, run queries, and view results.
 
@@ -15,7 +15,7 @@ Insights provides a rich console experience with editor navigation. You can expe
 * Use dbt Copilot in Insights to generate or edit SQL queries using natural language prompts
 * Integrate with [Catalog](./explore-projects.md), [Studio IDE](../platform/studio-ide/develop-in-studio.md), and [Canvas](../platform/canvas.md) to provide a seamless experience for data exploration, AI-assisted writing, and collaboration
 
-## Access the dbt Insights interface[​](#access-the-dbt-insights-interface-1 "Direct link to Access the dbt Insights interface")
+## Access the dbt Insights interface
 
 Before accessing Insights, ensure that the [prerequisites](./dbt-insights.md#prerequisites) are met.
 
@@ -23,7 +23,7 @@ Before accessing Insights, ensure that the [prerequisites](./dbt-insights.md#pre
 2. If your [user credentials](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) aren’t set up, Insights will prompt you to set them up. The ability to query data is subject to warehouse provider permissions according to your user credentials.
 3. Once your credentials are set up, you can write, run, and edit SQL queries in the Insights editor for existing models in your project.
 
-## Run queries[​](#run-queries "Direct link to Run queries")
+## Run queries
 
 To run queries in Insights, you can use:
 
@@ -34,7 +34,7 @@ To run queries in Insights, you can use:
 * Basic aggregations and joins
 * Semantic Layer queries using Semantic Layer Jinja functions
 
-## Example[​](#example "Direct link to Example")
+## Example
 
 Let's use an example to illustrate how to run queries in Insights:
 
@@ -69,11 +69,9 @@ Let's use an example to illustrate how to run queries in Insights:
   order by 1
   ```
 
-### Use dbt Copilot[​](#use-dbt-copilot "Direct link to Use dbt Copilot")
+### Use dbt Copilot
 
 To make things easier, [use dbt Copilot in Insights](./navigate-dbt-insights.md) to save time and explore other ways to analyze the data. dbt Copilot can help you quickly update the query or generate a new one based on your prompt.
-
-<!-- -->
 
 info
 
@@ -92,8 +90,6 @@ Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-co
 4. Click **↑** to submit your prompt.
 
 5. dbt Copilot responds with:
-
-   <!-- -->
 
    * A summary of the query
    * An explanation of the logic
@@ -120,7 +116,7 @@ Want to turn a query into a model?
 
 You can access the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [Canvas](../platform/canvas.md) from the [Query console menu](./navigate-dbt-insights.md#query-console-menu) to promote your SQL into a reusable dbt model — all within dbt!
 
-### View results[​](#view-results "Direct link to View results")
+### View results
 
 Using the same example, you can perform some exploratory data analysis by running the query and:
 
@@ -130,7 +126,7 @@ Using the same example, you can perform some exploratory data analysis by runnin
 
 [![dbt Insights Export to CSV](/img/docs/dbt-insights/insights-export-csv.png?v=2 "dbt Insights Export to CSV")](#)dbt Insights Export to CSV
 
-### View details[​](#view-details "Direct link to View details")
+### View details
 
 View the details of the query by clicking on the **Details** tab:
 
@@ -140,7 +136,7 @@ View the details of the query by clicking on the **Details** tab:
 
 [![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")](#)dbt Insights Details tab
 
-### Chart results[​](#chart-results "Direct link to Chart results")
+### Chart results
 
 Visualize the chart results of the query by clicking on the **Chart** tab to:
 
@@ -150,7 +146,7 @@ Visualize the chart results of the query by clicking on the **Chart** tab to:
 
 [![dbt Insights Chart tab](/img/docs/dbt-insights/insights-chart.png?v=2 "dbt Insights Chart tab")](#)dbt Insights Chart tab
 
-### Query history[​](#query-history "Direct link to Query history")
+### Query history
 
 View the history of queries and their statuses (All, Success, Error, or Pending) using the **Query history** icon:
 
@@ -162,7 +158,7 @@ The query history is stored indefinitely.
 
 [![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")](#)dbt Insights Query history icon
 
-### Use dbt Catalog[​](#use-dbt-catalog "Direct link to Use dbt Catalog")
+### Use dbt Catalog
 
 Access [Catalog](./explore-projects.md) directly in Insights to view project resources such as models, columns, metrics, and dimensions, and more — all integrated in the Insights interface.
 
@@ -177,7 +173,7 @@ To access Catalog, click on the **Catalog** icon in the [Query console sidebar m
 
 [![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
 
-### Set Jinja environment[​](#set-jinja-environment "Direct link to Set Jinja environment")
+### Set Jinja environment
 
 Set the compilation environment to control how Jinja functions are rendered. This feature:
 
@@ -188,7 +184,7 @@ Set the compilation environment to control how Jinja functions are rendered. Thi
 
 [![Set the environment for your Jinja context](/img/docs/dbt-insights/insights-jinja-environment.png?v=2 "Set the environment for your Jinja context")](#)Set the environment for your Jinja context
 
-## Save your Insights[​](#save-your-insights "Direct link to Save your Insights")
+## Save your Insights
 
 Insights offers a robust save feature for quickly finding the queries you use most. There's also an option to share saved Insights with other dbt users (and have them share with you). Click the **bookmark icon** in a query to add it to your list!
 
@@ -200,16 +196,14 @@ Insights offers a robust save feature for quickly finding the queries you use mo
 
 * View the Insight history in the **Version history** tab. Click a version to compare it the current and view changes.
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 * Insights uses your user credentials to query. You have the ability to query against any object in your data warehouse that is accessible using your user credentials configured in **Account settings**.
 * Every Jinja function uses [`defer --favor-state`](../../reference/node-selection/defer.md) to resolve Jinja.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 * What’s the difference between Insights and Catalog?
-
-  <!-- -->
 
   * That’s a great question! Catalog helps you understand your dbt project's structure, resources, lineage, and metrics, offering context for your data.
   * Insights builds on that context, allowing you to write, run, and iterate on SQL queries directly in dbt. It’s designed for ad-hoc or exploratory analysis and empowers business users and analysts to explore data, ask questions, and collaborate seamlessly.

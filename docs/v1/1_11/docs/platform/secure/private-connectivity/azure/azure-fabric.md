@@ -1,6 +1,6 @@
 # Configuring Private Link for Microsoft Fabric [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Enterprise+ⓘ
+dbt platform | Enterprise+
 
 Available to certain Enterprise tiers
 
@@ -13,13 +13,13 @@ To learn more about these tiers, contact us at <sales@getdbt.com>.
 
 The following steps walk you through the setup of a Private Link endpoint for Microsoft Fabric in a dbt multi-tenant environment.
 
-Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like <!-- -->Microsoft Fabric<!-- -->) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
+Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Microsoft Fabric) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
 Workspace-level Private Link
 
 Microsoft Fabric offers two private connectivity models. Only **workspace-level Private Link** supports cross-tenant connections and is compatible with dbt. Tenant-level Private Link is designed for intra-organization access and does not support connections from external services like dbt.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before configuring Private Link, make sure you have the following:
 
@@ -28,11 +28,11 @@ Before configuring Private Link, make sure you have the following:
 * You have a Fabric workspace already created
 * You have a service principal set up with the right Fabric permissions (Member or Contributor on the workspace, and Fabric APIs enabled in the Admin portal)
 
-## Configure Fabric Private Link[​](#configure-fabric-private-link "Direct link to Configure Fabric Private Link")
+## Configure Fabric Private Link
 
 Complete the following steps in your Microsoft Fabric and Azure environments before submitting a request to dbt.
 
-### 1. Enable the workspace-level Private Link tenant setting[​](#1-enable-the-workspace-level-private-link-tenant-setting "Direct link to 1. Enable the workspace-level Private Link tenant setting")
+### 1. Enable the workspace-level Private Link tenant setting
 
 A Fabric Administrator must enable workspace-level private link for your tenant before it can be configured on individual workspaces.
 
@@ -42,7 +42,7 @@ A Fabric Administrator must enable workspace-level private link for your tenant 
 4. Toggle the setting to **Enabled**.
 5. Click **Apply**.
 
-### 2. Configure your workspace network settings[​](#2-configure-your-workspace-network-settings "Direct link to 2. Configure your workspace network settings")
+### 2. Configure your workspace network settings
 
 1. Open your Fabric workspace in the [Microsoft Fabric portal](https://app.fabric.microsoft.com).
 2. Navigate to **Workspace settings** → **Inbound networking**.
@@ -55,7 +55,7 @@ When you select this option, only connections from approved IP addresses and wor
 
 If you get locked out, a Fabric Administrator can restore access by navigating to the [Admin portal](https://app.fabric.microsoft.com/admin-portal) → **Tenant settings** → **Advanced networking** → **Configure workspace-level inbound network rules** and toggling the setting to **Disabled**. This reverts all workspaces to their previous network configuration.
 
-### 3. Register the Microsoft.Fabric resource provider[​](#3-register-the-microsoftfabric-resource-provider "Direct link to 3. Register the Microsoft.Fabric resource provider")
+### 3. Register the Microsoft.Fabric resource provider
 
 The `Microsoft.Fabric` resource provider must be registered in your Azure subscription before you can create Fabric Private Link resources.
 
@@ -63,7 +63,7 @@ The `Microsoft.Fabric` resource provider must be registered in your Azure subscr
 2. Search for `Microsoft.Fabric`.
 3. Select it and click **Register** (or **Re-register** if already registered). Wait for the status to change to **Registered**.
 
-### 4. Create the Private Link Service resource[​](#4-create-the-private-link-service-resource "Direct link to 4. Create the Private Link Service resource")
+### 4. Create the Private Link Service resource
 
 Fabric workspace-level Private Link uses a dedicated Azure resource (`Microsoft.Fabric/privateLinkServicesForFabric`) to expose your workspace as a private endpoint target. This resource is not available in the Azure portal marketplace, so you must deploy it using a custom template.
 
@@ -103,7 +103,7 @@ Fabric workspace-level Private Link uses a dedicated Azure resource (`Microsoft.
 
    The Resource ID path format is: `/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.Fabric/privateLinkServicesForFabric/NAME`
 
-## Submit a Private Link request to dbt[​](#submit-a-private-link-request-to-dbt "Direct link to Submit a Private Link request to dbt")
+## Submit a Private Link request to dbt
 
 Add the required information to the following template and submit your Azure Private Link request to [dbt Support](mailto:support@getdbt.com):
 
@@ -123,7 +123,7 @@ Subject: New Azure Multi-Tenant Private Link Request
 
 Make sure you replace `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, and `NAME` with your values.
 
-## Approve the Private Link connection[​](#approve-the-private-link-connection "Direct link to Approve the Private Link connection")
+## Approve the Private Link connection
 
 Once dbt Support confirms the private endpoint has been created on our side:
 
@@ -138,7 +138,7 @@ Use Private Link Center, not the PLS resource
 
 Navigate to the **Private Link Center** service to approve the connection. The Fabric Private Link Service resource blade does not display pending connections. You must use **Private Link Center** → **Pending connections** to see and approve the connection from dbt.
 
-## Create connection in dbt[​](#create-connection-in-dbt "Direct link to Create connection in dbt")
+## Create connection in dbt
 
 Once dbt Support confirms the endpoint is available, configure the connection in dbt:
 
@@ -157,7 +157,7 @@ Once dbt Support confirms the endpoint is available, configure the connection in
 
 5. Save it and proceed to the next step.
 
-### Configure authentication[​](#configure-authentication "Direct link to Configure authentication")
+### Configure authentication
 
 The **Connection** page only includes **Server**, **Port**, and **Database**. Configure the following later when you [set up your development credentials](../../../../dbt-platform-environments.md#set-user-credentials) or [create a deployment environment](../../../../deploy/deploy-environments.md):
 

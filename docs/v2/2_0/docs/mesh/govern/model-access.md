@@ -9,12 +9,12 @@ The two concepts will be closely related, as we develop multi-project collaborat
 * Users with access to develop in a dbt project can view and modify **all** models in that project, including private models.
 * Users in the same dbt account *without* access to develop in a project cannot view that project's private models, and they can take a dependency on its public models only.
 
-## Related documentation[​](#related-documentation "Direct link to Related documentation")
+## Related documentation
 
 * [`groups`](../../build/groups.md)
 * [`access`](../../../reference/resource-configs/access.md)
 
-## Groups[​](#groups "Direct link to Groups")
+## Groups
 
 Models can be grouped under a common designation with a shared owner. For example, you could group together all models owned by a particular team, or related to modeling a specific data source (`github`).
 
@@ -39,9 +39,7 @@ models:
 
 Each model can only belong to one `group`, and groups cannot be nested. If you set a different `group` in that model's YAML or in-file config, it will override the `group` applied at the project level.
 
-<!-- -->
-
-#### Considerations[​](#considerations "Direct link to Considerations")
+#### Considerations
 
 There are some considerations to keep in mind when using model governance features:
 
@@ -49,7 +47,7 @@ There are some considerations to keep in mind when using model governance featur
 
 * Governance features are model-specific. They don't apply to other resource types, including snapshots, seeds, or sources. This is because these objects can change structure over time (for example, snapshots capture evolving historical data) and aren't suited to guarantees like contracts, access, or versioning.
 
-## Access modifiers[​](#access-modifiers "Direct link to Access modifiers")
+## Access modifiers
 
 Some models are implementation details, meant for reference only within their group of related models. Other models should be accessible through the [ref](../../../reference/dbt-jinja-functions/ref.md) function across groups and projects. Models can set an [access modifier](https://en.wikipedia.org/wiki/Access_modifiers) to indicate their intended level of accessibility.
 
@@ -58,12 +56,6 @@ Some models are implementation details, meant for reference only within their gr
 | private   | Same group                                                                               |
 | protected | Same project (or installed as a package)                                                 |
 | public    | Any group, package, or project. When defined, rerun a production job to apply the change |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 If you try to reference a model outside of its supported access, you will see an error:
 
@@ -74,6 +66,8 @@ dbt.exceptions.DbtReferenceError: Parsing Error
   Node model.jaffle_shop.marketing_model attempted to reference node model.jaffle_shop.finance_model, 
   which is not allowed because the referenced node is private to the finance group.
 ```
+
+(Applies to dbt v1.12 and later)
 
 When a macro is invoked with `dbt run-operation`, dbt doesn't enforce model access or group controls, so you can use `ref()` to reference all models (including `private` and `protected` ones).
 
@@ -145,9 +139,9 @@ Parsing Error
   Node model.jaffle_shop.my_model with 'ephemeral' materialization has an invalid value (public) for the access field
 ```
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
-### How does model access relate to database permissions?[​](#how-does-model-access-relate-to-database-permissions "Direct link to How does model access relate to database permissions?")
+### How does model access relate to database permissions?
 
 These are different!
 
@@ -160,14 +154,14 @@ Of course, dbt can facilitate this by means of [the `grants` config](../../../re
 
 As we continue to develop multi-project collaboration, `access: public` will mean that other teams are allowed to start taking a dependency on that model. This assumes that they've requested, and you've granted them access, to select from the underlying dataset.
 
-### How do I ref a model from another project?[​](#how-do-i-ref-a-model-from-another-project "Direct link to How do I ref a model from another project?")
+### How do I ref a model from another project?
 
 You can `ref` a model from another project in two ways:
 
 1. [Project dependency](./project-dependencies.md): In dbt Enterprise, you can use project dependencies to `ref` a model. dbt uses a behind-the-scenes metadata service to resolve the reference, enabling efficient collaboration across teams and at scale.
 2. ["Package" dependency](../../build/packages.md): Another way to `ref` a model from another project is to treat the other project as a package dependency. This requires installing the other project as a package, including its full source code, as well as its upstream dependencies.
 
-### How do I restrict access to models defined in a package?[​](#how-do-i-restrict-access-to-models-defined-in-a-package "Direct link to How do I restrict access to models defined in a package?")
+### How do I restrict access to models defined in a package?
 
 Source code installed from a package becomes part of your runtime environment. You can call macros and run models as if they were macros and models that you had defined in your own project.
 

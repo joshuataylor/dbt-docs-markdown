@@ -6,7 +6,7 @@ It can do this because its compilation step is more comprehensive than that of t
 
 dbt Fusion engine can also render Jinja, but then it completes a second phase: *static analysis*, producing and validating a logical plan for every rendered query in the project. This step is the cornerstone of Fusion's new capabilities.
 
-## Principles of static analysis[​](#principles-of-static-analysis "Direct link to Principles of static analysis")
+## Principles of static analysis
 
 The software engineering concept of [static analysis](https://en.wikipedia.org/wiki/Static_program_analysis) describes checks that can be done on code before it runs (static == not running).
 
@@ -18,7 +18,7 @@ The dbt Fusion engine uses the [`static_analysis`](../../reference/resource-conf
 
 The dbt Fusion engine is unique in that it can statically analyze not just a single model in isolation, but every query from one end of your DAG to the other. Even your database can only validate the query in front of it! Concepts like [information flow theory](https://roundup.getdbt.com/i/156064124/beyond-cll-information-flow-theory-and-metadata-propagation) — although not incorporated into the dbt platform [yet](https://www.getdbt.com/blog/where-we-re-headed-with-the-dbt-fusion-engine) — rely on stable inputs and the ability to trace columns DAG-wide.
 
-### Baseline mode: A smooth transition from dbt Core[​](#baseline-mode-a-smooth-transition-from-dbt-core "Direct link to Baseline mode: A smooth transition from dbt Core")
+### Baseline mode: A smooth transition from dbt Core
 
 The dbt Fusion engine defaults to `static_analysis: baseline` mode, inspired by similar type-checking and linting tools like [TypeScript's migration approach](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html), [basedpyright's baseline feature](https://docs.basedpyright.com/latest/benefits-over-pyright/baseline/), and [Pydantic's strict/lax modes](https://docs.pydantic.dev/latest/why/#strict-lax).
 
@@ -30,7 +30,7 @@ The philosophy behind the above-mentioned tools and Fusion's baseline mode is:
 
 Use this style of gradual typing to start with lightweight validation, then incrementally adopt strict guarantees as your project is ready.
 
-#### What baseline mode changes[​](#what-baseline-mode-changes "Direct link to What baseline mode changes")
+#### What baseline mode changes
 
 Baseline mode introduces several fundamental behavior changes compared to the previous binary (off/on) approach:
 
@@ -40,7 +40,7 @@ Baseline mode introduces several fundamental behavior changes compared to the pr
 
 The following table shows how baseline mode expands what's available without requiring strict mode.
 
-### LSP feature comparison[​](#lsp-feature-comparison "Direct link to LSP feature comparison")
+### LSP feature comparison
 
 Baseline mode unlocks a meaningful set of features without requiring strict mode. We're also investing in moving more features into baseline over time.
 
@@ -62,12 +62,6 @@ VS Code extension features by static analysis configuration:
 | Rich column lineage                            | ❌  | ❌       | ✅     |
 | Detect data type and function signature errors | ❌  | ❌       | ✅     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 * dbt VS Code extension features in this table are available to all users for 14 days.
 * After the 14-day period, sign in or register for a dbt platform account from the dbt VS Code extension to keep using advanced capabilities.
 * Unregistered users can continue using core editing and build workflows without signing in.
@@ -83,7 +77,7 @@ The VS Code extension and Studio IDE provide CodeLens even when static analysis 
 
 Ultimately, we want everyone developing in strict mode for maximum guarantees. We acknowledge this isn't a change that can happen overnight — baseline exists to smooth the transition. Many planned features (like local compute) require strict mode. We're also exploring inferring column types on your behalf, which would enable more functionality in baseline mode without requiring you to manually provide type information.
 
-### Introspection handling in baseline mode[​](#introspection-handling-in-baseline-mode "Direct link to Introspection handling in baseline mode")
+### Introspection handling in baseline mode
 
 In `baseline` mode, all static analysis findings are warnings, not errors — your project can continue running even when the compiler flags invalid or problematic SQL. This section is a good example of why that design exists.
 
@@ -128,7 +122,7 @@ dbt0101: no viable alternative at input '(
   --> models/example_model.sql:17:1
 ```
 
-#### Migration scenarios[​](#migration-scenarios "Direct link to Migration scenarios")
+#### Migration scenarios
 
 Migrating to Fusion can involve more than moving YAML around. Some scenarios that can make migration more involved include:
 
@@ -139,7 +133,7 @@ Migrating to Fusion can involve more than moving YAML around. Some scenarios tha
 
 Setting `static_analysis` to `baseline` mode lets you start using Fusion immediately while you address these scenarios incrementally. As you resolve compatibility issues, you can opt specific models or your entire project into `strict` mode for maximum validation guarantees.
 
-## Recapping the differences between engines[​](#recapping-the-differences-between-engines "Direct link to Recapping the differences between engines")
+## Recapping the differences between engines
 
 dbt Core v1.x and [dbt Core 2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
 
@@ -156,7 +150,7 @@ The dbt Fusion engine (strict mode):
 * Guarantees nothing runs until the entire project is proven valid.
 * Parses `CREATE FUNCTION` in [`sql_header`](../../reference/resource-configs/sql_header.md) and in [`on-run-start`](../../reference/project-configs/on-run-start-on-run-end.md) hooks, then registers those UDFs so strict compilation can resolve calls to them. `baseline` and `off` don't register UDFs this way. See [User-defined functions (UDFs) in `strict` mode](../../reference/resource-configs/static-analysis.md#user-defined-functions-udfs-in-strict-mode).
 
-## Configuring `static_analysis`[​](#configuring-static_analysis "Direct link to configuring-static_analysis")
+## Configuring `static_analysis`
 
 You can modify the way static analysis is applied for specific models in your project. The static analysis configuration cascades from most strict to least strict. Going downstream in your lineage, a model can keep the same mode or relax it — it can't be stricter than its parent.
 
@@ -168,6 +162,8 @@ The [`static_analysis`](../../reference/resource-configs/static-analysis.md) con
 * `strict` (previously `on`): Statically analyze all SQL before execution begins. Use this for maximum validation guarantees — nothing runs until the entire project is proven valid.
 * `off`: Skip SQL analysis on this model and its descendants.
 
+(Applies to dbt v2.0 and later)
+
 Any run that uses `strict` mode requires authentication using [`dbt login`](../../reference/commands/login.md?version=2.0), whether `strict` is set with the `--static-analysis strict` CLI flag or in `dbt_project.yml`. Unauthenticated runs fall back to `baseline`.
 
 Deprecated values
@@ -178,7 +174,7 @@ When you disable static analysis, features of the VS Code extension which depend
 
 The best place to configure `static_analysis` is as a config on an individual model or group of models. As a debugging aid, you can also use the [`--static-analysis strict`](../../reference/global-configs/static-analysis-flag.md) or `--static-analysis off` CLI flags to override all model-level configuration.
 
-### Incrementally adopting strict mode[​](#incrementally-adopting-strict-mode "Direct link to Incrementally adopting strict mode")
+### Incrementally adopting strict mode
 
 Once you're comfortable with Fusion in baseline mode, you can incrementally opt models or directories into `strict` mode:
 
@@ -197,7 +193,7 @@ models:
       +static_analysis: baseline
 ```
 
-#### strict mode inheritance[​](#strict-mode-inheritance "Direct link to strict mode inheritance")
+#### strict mode inheritance
 
 Unlike `baseline` or `off`, `strict` mode doesn't propagate to downstream models. If you configure a model as `strict`, its downstream models won't inherit `strict` mode unless you set them explicitly. To make all models `strict`, you must set `+static_analysis: strict` on root models first, or use the project-wide config in the next section at the project level.
 
@@ -207,9 +203,9 @@ This approach lets you gain the benefits of strict validation where possible whi
 
 Refer to [CLI options](../../reference/global-configs/command-line-options.md) and [Configurations and properties](../../reference/configs-and-properties.md) to learn more about configs.
 
-### Example configurations[​](#example-configurations "Direct link to Example configurations")
+### Example configurations
 
-##### Configure strict for the entire project[​](#configure-strict-for-the-entire-project "Direct link to Configure strict for the entire project")
+##### Configure strict for the entire project
 
 Many teams want to enable `strict` mode for the whole project and all packages. You can do this by setting `+static_analysis: strict` under each resource type in `dbt_project.yml` for your project name (and for any package names if you want those to be strict too):
 
@@ -247,7 +243,7 @@ analyses:
 
 Use your project name in place of `my_project` — that's the same value as the `name:` key at the top of `dbt_project.yml` (for example, `jaffle_shop`). To apply `strict` to a package as well, add another entry under each resource type using the package name as the key; for example, under `models:` add `your_package_name:` with `+static_analysis: strict` beneath it.
 
-##### Disable static analysis for all models in a package:[​](#disable-static-analysis-for-all-models-in-a-package "Direct link to Disable static analysis for all models in a package:")
+##### Disable static analysis for all models in a package:
 
 dbt\_project.yml
 
@@ -263,7 +259,7 @@ models:
     +static_analysis: off
 ```
 
-##### Disable static analysis in YAML:[​](#disable-static-analysis-in-yaml "Direct link to Disable static analysis in YAML:")
+##### Disable static analysis in YAML:
 
 models/my\_udf\_using\_model.yml
 
@@ -274,7 +270,7 @@ models:
       static_analysis: off
 ```
 
-##### Disable static analysis for a model using a custom UDF:[​](#disable-static-analysis-for-a-model-using-a-custom-udf "Direct link to Disable static analysis for a model using a custom UDF:")
+##### Disable static analysis for a model using a custom UDF:
 
 models/my\_udf\_using\_model.sql
 
@@ -287,15 +283,19 @@ select
 from {{ ref('my_model') }}
 ```
 
-### When should I turn static analysis `off`?[​](#when-should-i-turn-static-analysis-off "Direct link to when-should-i-turn-static-analysis-off")
+### Can I use strict mode in development and baseline in deployment?
+
+Yes. This pattern is valid and recommended: use `strict` while you develop for stronger validation, and keep `baseline` in deployment for faster runs that are less likely to stop on analysis findings.
+
+For more information, including CLI examples and an optional environment variable pattern, refer to [Optimize static analysis for development and deployment](../../best-practices/optimize-static-analysis-for-development-and-deployment.md).
+
+### When should I turn static analysis `off`?
 
 With baseline mode enabled by default, static analysis is less likely to block your runs. You should only disable it if the dbt Fusion engine cannot parse SQL that is valid for your database of choice.
 
 This is a very rare occurrence. If you encounter this situation, please [open an issue](https://github.com/dbt-labs/dbt-fusion/issues) with an example of the failing SQL so we can update our parsers.
 
-<!-- -->
-
-## More information about Fusion[​](#more-information-about-fusion "Direct link to More information about Fusion")
+## More information about Fusion
 
 * [About the dbt extension](../about-dbt-extension.md)
 * [Supported features matrix](../fusion/supported-features.md)

@@ -27,7 +27,7 @@ When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-s
 
 If `user_settings.yml` already contains a value, [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state) prompts you before overwriting it.
 
-## Config precedence[​](#config-precedence "Direct link to Config precedence")
+## Config precedence
 
 `user_settings.yml` is the lowest precedence level in dbt's flag hierarchy. More specific settings always override it. For more on flag precedence, refer to [About flags (global configs)](./about-global-configs.md).
 
@@ -38,7 +38,7 @@ If `user_settings.yml` already contains a value, [`dbt login`](../commands/login
 
 For example, if `manage_state: true` is set in `user_settings.yml` but you run `dbt run --no-manage-state`, the CLI flag takes precedence, and dbt disables dbt State for that invocation.
 
-## When dbt State is enabled locally but not in dbt platform[​](#when-dbt-state-is-enabled-locally-but-not-in-dbt-platform "Direct link to When dbt State is enabled locally but not in dbt platform")
+## When dbt State is enabled locally but not in dbt platform
 
 If `manage_state: true` is set in `user_settings.yml` but dbt State is not enabled in your dbt platform account, dbt fails with an error on your next `dbt run` or `dbt build`. To resolve this, either:
 

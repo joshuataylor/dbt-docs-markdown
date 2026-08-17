@@ -22,7 +22,9 @@ logs/dbt.log
 21:21:16.207330 [info ] [MainThread]: Found 2 models, 0 tests, 0 snapshots, 1 analysis, 535 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
 ```
 
-## Structured logging[​](#structured-logging "Direct link to Structured logging")
+## Structured logging
+
+(Applies to dbt v2.0 and later)
 
 The dbt Fusion engine emits structured run telemetry using [OpenTelemetry](https://opentelemetry.io/) conventions instead of dbt Core's JSON event logs. To view it locally, use `--log-format otel` or the options in [Fusion telemetry and observability](./telemetry-observability.md#available-output-formats).
 
@@ -30,9 +32,9 @@ In dbt platform, you can [download OTel logs](../docs/deploy/run-visibility.md#a
 
 For `--log-format`, `--log-level`, and related CLI configs, refer to [Logs](./global-configs/logs.md).
 
-<!-- -->
+## Python interface
 
-## Python interface[​](#python-interface "Direct link to Python interface")
+(Applies to dbt v2.0 and later)
 
 The dbt Fusion engine doesn't share dbt Core's Python event interface.
 

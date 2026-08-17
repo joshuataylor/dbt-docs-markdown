@@ -8,7 +8,7 @@ Unlike general coding agents, dbt Wizard is aware of warehouse operations. It un
 
 Most of how dbt Wizard works is the same in the [dbt platform](../platform/wizard-platform.md) and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
 
-## Native metadata engine[​](#native-metadata-engine "Direct link to Native metadata engine")
+## Native metadata engine
 
 dbt Wizard ships with a metadata engine — a pre-built, structured index of your entire project that's ready before your first prompt.
 
@@ -29,13 +29,9 @@ dbt version shown in the status panel
 
 The dbt version dbt Wizard displays comes from your project's manifest (`target/manifest.json`), not the `dbt` executable on your `PATH`. If you generated the manifest with a different binary, dbt Wizard reports that version until you recompile. Run `dbt compile` (or `dbt parse`/`dbt build`) with your intended dbt to refresh the manifest and the displayed version.
 
-<!-- -->
-
-## Validation mechanics[​](#validation-loop-mechanics "Direct link to Validation mechanics")
+## Validation mechanics
 
 Validation can combine static checks, dbt commands, development builds, downstream impact analysis, and development-to-production comparisons. The checks that run depend on the surface, available tools, project state, permissions, and the validation depth you approve.
-
-<!-- -->
 
 In dbt Wizard CLI, choose light, medium, heavy, or skipped validation. Medium validation is the default:
 
@@ -45,7 +41,7 @@ In dbt Wizard CLI, choose light, medium, heavy, or skipped validation. Medium va
 
 dbt Wizard reports failures and checks it couldn't complete. A passing check doesn't remove the need to review business logic, and a skipped check should remain visible in your review. For a complete procedure and the approval points for warehouse commands, refer to [Validate dbt changes with dbt Wizard](../../best-practices/how-to-use-wizard/wizard-3-validate-changes.md).
 
-## Tools and capabilities[​](#tools-and-capabilities "Direct link to Tools and capabilities")
+## Tools and capabilities
 
 dbt Wizard takes action through a defined set of tools — from reading files to running dbt commands — so you can see exactly what it's doing and why.
 
@@ -60,7 +56,7 @@ dbt Wizard takes action through a defined set of tools — from reading files to
 
 dbt Wizard never runs destructive commands (such as `dbt build --full-refresh`, `dbt run --full-refresh`, or `git reset --hard`) without approval.
 
-## Skills and memories[​](#skills-and-memories "Direct link to Skills and memories")
+## Skills and memories
 
 dbt Wizard supports reusable skills and memories that help it apply your team's conventions across sessions.
 
@@ -73,11 +69,11 @@ dbt Wizard automatically loads skills from your project and local directories in
 
 Refer to the [Skills](./wizard-skills.md) page for more details.
 
-## In the dbt platform[​](#in-the-dbt-platform "Direct link to In the dbt platform")
+## In the dbt platform
 
 Use dbt Wizard in the [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE. An admin must [enable dbt Wizard](../platform/enable-dbt-ai.md) for your account first.
 
-### Approval and review[​](#approval-and-review "Direct link to Approval and review")
+### Approval and review
 
 By default, dbt Wizard keeps you in control before it changes your project or runs commands.
 
@@ -89,7 +85,7 @@ In the platform:
 
 There is no bash sandbox in the platform — shell access is not exposed the way it is in the CLI.
 
-### Sessions and conversations[​](#sessions-and-conversations "Direct link to Sessions and conversations")
+### Sessions and conversations
 
 In the platform, a session is a saved conversation in the dbt Wizard panel or home app:
 
@@ -101,11 +97,11 @@ Start a new session with **Start new dbt Wizard chat** in the panel. Chat histor
 
 For Studio-specific behavior and availability, refer to [dbt Wizard in Studio IDE](./wizard-ide.md).
 
-## In the terminal (CLI)[​](#in-the-terminal-cli "Direct link to In the terminal (CLI)")
+## In the terminal (CLI)
 
 Use the [dbt Wizard CLI](./wizard-cli.md) for local development.
 
-### Connections and authentication (MCP)[​](#connections-and-authentication-mcp "Direct link to Connections and authentication (MCP)")
+### Connections and authentication (MCP)
 
 dbt Wizard can connect to MCP servers from the CLI, including the [dbt MCP server](./about-mcp.md), for access to platform APIs, Semantic Layer metadata, and cross-project context. For the complete setup (like supported server types, configuration keys, authentication, and examples), refer to [Use MCP servers with the dbt Wizard CLI](./wizard-mcp.md).
 
@@ -136,7 +132,7 @@ If dbt Wizard can't reach the server, confirm these values are set, then restart
 
 For the full list of variables and an example `.env` file, refer to [Set up self-hosted MCP](./setup-local-mcp.md) and the [Environment variables reference](./mcp-environment-variables.md).
 
-### Deferral and state[​](#deferral-and-state "Direct link to Deferral and state")
+### Deferral and state
 
 When you work on part of a project, dbt Wizard uses [deferral](../../reference/node-selection/defer.md) so it can reuse models that are already built elsewhere (for example, in production) instead of rebuilding everything. This saves time and warehouse cost.
 
@@ -157,7 +153,7 @@ The per-project `favor_state` setting defaults to `true`. With favor-state on, d
 
 dbt Wizard stores the deferral mode for each project in `wizard_config.toml` under `deferral.mode`. For a complete setup and verification procedure, refer to [Developing with production deferral](../../best-practices/how-to-use-wizard/wizard-6-production-deferral.md).
 
-### Approval and sandboxing[​](#approval-and-sandboxing "Direct link to Approval and sandboxing")
+### Approval and sandboxing
 
 By default, the CLI keeps you in control before it changes your project or runs commands.
 
@@ -192,7 +188,7 @@ You can view more options by running:
 wizard --help
 ```
 
-### Sessions[​](#sessions "Direct link to Sessions")
+### Sessions
 
 In the CLI, a session is a saved conversation and task history from a previous run on your machine. Sessions help you return to earlier work, continue a multi-step task, or review what the agent did in a past interaction.
 
@@ -211,7 +207,7 @@ wizard resume --last # resume the most recent session
 
 Each CLI session is saved locally. This is separate from platform conversations, which are stored in your dbt platform account.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Wizard overview](../platform/wizard-overview.md)
 * [dbt Wizard in the dbt platform](../platform/wizard-platform.md)

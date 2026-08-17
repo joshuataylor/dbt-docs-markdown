@@ -6,22 +6,16 @@ In dbt, libraries like these are called *packages*. dbt's packages are so powerf
 
 * transforming data from a consistently structured SaaS dataset, for example:
 
-  <!-- -->
-
   * turning [Snowplow](https://hub.getdbt.com/dbt-labs/snowplow/latest/) or [Segment](https://hub.getdbt.com/dbt-labs/segment/latest/) pageviews into sessions
   * transforming [AdWords](https://hub.getdbt.com/dbt-labs/adwords/latest/) or [Facebook Ads](https://hub.getdbt.com/dbt-labs/facebook_ads/latest/) spend data into a consistent format.
 
 * writing dbt macros that perform similar functions, for example:
-
-  <!-- -->
 
   * [generating SQL](https://github.com/dbt-labs/dbt-utils#sql-helpers) to union together two relations, pivot columns, or construct a surrogate key
   * creating [custom schema tests](https://github.com/dbt-labs/dbt-utils#schema-tests)
   * writing [audit queries](https://hub.getdbt.com/dbt-labs/audit_helper/latest/)
 
 * building models and macros for a particular tool used in your data stack, for example:
-
-  <!-- -->
 
   * Models to understand [Redshift](https://hub.getdbt.com/dbt-labs/redshift/latest/) privileges.
   * Macros to work with data loaded by [Stitch](https://hub.getdbt.com/dbt-labs/stitch_utils/latest/).
@@ -34,9 +28,7 @@ dbt *packages* are in fact standalone dbt projects, with models, macros, and oth
 * You can use macros in the package in your own project.
 * It's important to note that defining and installing dbt packages is different from [defining and installing Python packages](./python-models.md#using-pypi-packages)
 
-<!-- -->
-
-## Use cases[​](#use-cases "Direct link to Use cases")
+## Use cases
 
 The following setup will work for every dbt project:
 
@@ -45,7 +37,7 @@ The following setup will work for every dbt project:
 
 However, you may be able to consolidate both into a single `dependencies.yml` file. Read the following section to learn more.
 
-#### About packages.yml and dependencies.yml[​](#about-packagesyml-and-dependenciesyml "Direct link to About packages.yml and dependencies.yml")
+#### About packages.yml and dependencies.yml
 
 The `dependencies.yml`. file can contain both types of dependencies: "package" and "project" dependencies.
 
@@ -76,7 +68,7 @@ Package dependencies allow you to add source code from someone else's dbt projec
 
 Previously, to use private Git repositories in dbt, you needed to use a workaround that involved embedding a Git token with Jinja. This is not ideal as it requires extra steps like creating a user and sharing a Git token. We’ve introduced support for [native private packages](./packages.md#native-private-packages-) to address this.
 
-## How do I create a package?[​](#how-do-i-create-a-package "Direct link to How do I create a package?")
+## How do I create a package?
 
 Creating packages is an advanced use of dbt, but it can be a relatively simple task. The only strict requirement is the presence of a [`dbt_project.yml` file](../../reference/dbt_project.yml.md).
 
@@ -89,7 +81,7 @@ Note that packages can be [private](#private-packages) — they don't need to be
 
 For instructions on creating dbt packages and additional information, refer to our guide [Building dbt packages](../../guides/building-packages.md?step=1).
 
-## How do I add a package to my project?[​](#how-do-i-add-a-package-to-my-project "Direct link to How do I add a package to my project?")
+## How do I add a package to my project?
 
 1. Add a file named `dependencies.yml` or `packages.yml` to your dbt project. This should be at the same level as your `dbt_project.yml` file.
 2. Specify the package(s) you wish to add using one of the supported syntaxes, for example:
@@ -109,11 +101,11 @@ The default [`packages-install-path`](../../reference/project-configs/packages-i
 
 3. Run `dbt deps` to install the package(s). Packages get installed in the `dbt_packages` directory – by default this directory is ignored by git, to avoid duplicating the source code for the package.
 
-## How do I specify a package?[​](#how-do-i-specify-a-package "Direct link to How do I specify a package?")
+## How do I specify a package?
 
 You can specify a package using one of the following methods, depending on where your package is stored.
 
-### Hub packages (recommended)[​](#hub-packages-recommended "Direct link to Hub packages (recommended)")
+### Hub packages (recommended)
 
 dbt Labs hosts the [Package hub](https://hub.getdbt.com), registry for dbt packages, as a courtesy to the dbt Community, but does not certify or confirm the integrity, operability, effectiveness, or security of any Packages. Please read the [dbt Labs Package Disclaimer](https://hub.getdbt.com/disclaimer/) before installing Hub packages.
 
@@ -144,9 +136,9 @@ Where possible, we recommend installing packages via dbt Hub, since this allows 
 
 In comparison, other package installation methods are unable to handle the duplicate dbt-utils package.
 
-Advanced users can choose to host an internal version of the package hub based on [this repository](https://github.com/dbt-labs/hub.getdbt.com) and setting the `DBT_ENGINE_PACKAGE_HUB_URL` environment variable.
+Advanced users can choose to host an internal version of the package hub based on [this repository](https://github.com/dbt-labs/hub.getdbt.com) and setting the (Applies to dbt v1.11 and later) `DBT_ENGINE_PACKAGE_HUB_URL` environment variable.
 
-#### Prerelease versions[​](#prerelease-versions "Direct link to Prerelease versions")
+#### Prerelease versions
 
 Some package maintainers may wish to push prerelease versions of packages to the dbt Hub, in order to test out new functionality or compatibility with a new version of dbt. A prerelease version is demarcated by a suffix, such as `a1` (first alpha), `b2` (second beta), or `rc3` (third release candidate).
 
@@ -170,7 +162,7 @@ packages:
     install_prerelease: true
 ```
 
-### Git packages[​](#git-packages "Direct link to Git packages")
+### Git packages
 
 Packages stored on a Git server can be installed using the `git` syntax, like so:
 
@@ -198,7 +190,7 @@ packages:
 
 By default, `dbt deps` "pins" each package. See ["Pinning packages"](#pinning-packages) for details.
 
-### Internally hosted tarball URL[​](#internally-hosted-tarball-url "Direct link to Internally hosted tarball URL")
+### Internally hosted tarball URL
 
 Some organizations have security requirements to pull resources only from internal services. To address the need to install packages from hosted environments such as Artifactory or cloud storage buckets, dbt Core enables you to install packages from internally-hosted tarball URLs.
 
@@ -210,20 +202,18 @@ packages:
 
 Where `name: 'dbt_utils'` specifies the subfolder of `dbt_packages` that's created for the package source code to be installed within.
 
-## Private packages[​](#private-packages "Direct link to Private packages")
+## Private packages
 
-### Native private packages[​](#native-private-packages "Direct link to Native private packages")
+### Native private packages
 
 Native private packages let you install packages from [supported](#prerequisites) private Git repos using the `private` key, without having to configure a [token](#git-token-method) or write out a full Git URL. This simplifies setup and reduces credential management.
 
 * dbt platform: Uses your existing Git [integration](../platform/git/configure-git.md) for authentication.
 * Locally using Fusion or dbt Core v1.12+: Uses your system's SSH configuration. Requires the [`provider` key](#using-the-provider-key).
 
-#### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+#### Prerequisites
 
 * **dbt platform**: You must have one of the following Git providers configured in the **Integrations** section of your **Account settings**:
-
-  <!-- -->
 
   * **[GitHub](../platform/git/connect-github.md)**
   * **[Azure DevOps](../platform/git/connect-azure-devops.md)**
@@ -233,7 +223,7 @@ Native private packages let you install packages from [supported](#prerequisites
 
 * **Locally using Fusion or dbt Core v1.12+**: You must have an SSH key configured on your machine for the relevant Git provider and include the [`provider` key](#using-the-provider-key) in your package configuration.
 
-#### Configuration[​](#configuration "Direct link to Configuration")
+#### Configuration
 
 Use the `private` key in your `packages.yml` or `dependencies.yml` to clone package repos using your existing dbt Git integration without having to provision an access token or create a dbt environment variable.
 
@@ -290,7 +280,7 @@ packages:
   
 ```
 
-#### Using the `provider` key[​](#using-the-provider-key "Direct link to using-the-provider-key")
+#### Using the `provider` key
 
 Add the `provider` key when:
 
@@ -312,15 +302,9 @@ dbt Core and Fusion use the `provider` value to construct the correct SSH URL fo
 | `gitlab` | `git@gitlab.com:org/repo.git`               |
 | `ado`    | `git@ssh.dev.azure.com:v3/org/project/repo` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 dbt Core and Fusion rely on your system's SSH configuration to authenticate and clone the private repository. If `git clone` works on your system for the private package repo, the private package install should work too.
 
-### SSH key method (CLI only)[​](#ssh-key-method-cli-only "Direct link to SSH key method (CLI only)")
+### SSH key method (CLI only)
 
 note
 
@@ -339,7 +323,7 @@ packages:
 
 If you're using the dbt platform, the SSH key method will not work, but you can use [native private packages](#native-private-packages) or the [HTTPS Git Token Method](./packages.md#git-token-method).
 
-### Git token method[​](#git-token-method "Direct link to Git token method")
+### Git token method
 
 note
 
@@ -402,7 +386,7 @@ packages:
 
 Read more about creating a Personal Access Token [here](https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html).
 
-## Configure subdirectory for packaged projects[​](#configure-subdirectory-for-packaged-projects "Direct link to Configure subdirectory for packaged projects")
+## Configure subdirectory for packaged projects
 
 In general, dbt expects `dbt_project.yml` to be located as a top-level file in a package. If the packaged project is instead nested in a subdirectory—perhaps within a much larger mono repo—you can optionally specify the folder path as `subdirectory`. dbt will attempt a [sparse checkout](https://git-scm.com/docs/git-sparse-checkout) of just the files located within that subdirectory. Note that you must be using a recent version of `git` (`>=2.26.0`).
 
@@ -414,7 +398,7 @@ packages:
     subdirectory: "materialized-views" # name of subdirectory containing `dbt_project.yml`
 ```
 
-### Local packages[​](#local-packages "Direct link to Local packages")
+### Local packages
 
 A "local" package is a dbt project accessible from your local file system. They're best suited for when there is a common collection of models and macros that you want to share across multiple downstream dbt projects (but each downstream project still has its own unique models, macros, etc).
 
@@ -444,13 +428,11 @@ There are a few specific use cases where we recommend using a "local" package:
 2. **Testing changes** — To test changes in one project or package within the context of a downstream project or package that uses it. By temporarily switching the installation to a "local" package, you can make changes to the former and immediately test them in the latter for quicker iteration. This is similar to [editable installs](https://pip.pypa.io/en/stable/topics/local-project-installs/) in Python.
 3. **Nested project** — When you have a nested project that defines fixtures and tests for a project of utility macros, like [the integration tests within the `dbt-utils` package](https://github.com/dbt-labs/dbt-utils/tree/main/integration_tests).
 
-## What packages are available?[​](#what-packages-are-available "Direct link to What packages are available?")
+## What packages are available?
 
 To see the library of published dbt packages, check out the [dbt package hub](https://hub.getdbt.com)!
 
-## Fusion package compatibility[​](#fusion-package-compatibility "Direct link to Fusion package compatibility")
-
-<!-- -->
+## Fusion package compatibility
 
 To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
@@ -465,9 +447,7 @@ Fivetran package considerations:
 * The Fivetran `source` and `transformation` packages have been combined into a single package.
 * If you manually installed source packages like `fivetran/github_source`, you need to ensure `fivetran/github` is installed and deactivate the transformation models.
 
-<!-- -->
-
-#### Package compatibility messages[​](#package-compatibility-messages "Direct link to Package compatibility messages")
+#### Package compatibility messages
 
 Inconsistent Fusion warnings and `dbt-autofix` logs
 
@@ -491,20 +471,20 @@ Here's an example of a Fusion warning in the Studio IDE that says a package is
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]
 ```
 
-## Advanced package configuration[​](#advanced-package-configuration "Direct link to Advanced package configuration")
+## Advanced package configuration
 
-### Updating a package[​](#updating-a-package "Direct link to Updating a package")
+### Updating a package
 
 When you update a version or revision in your `packages.yml` file, it isn't automatically updated in your dbt project. You should run `dbt deps` to update the package. You may also need to run a [full refresh](../../reference/commands/run.md) of the models in this package.
 
-### Uninstalling a package[​](#uninstalling-a-package "Direct link to Uninstalling a package")
+### Uninstalling a package
 
 When you remove a package from your `packages.yml` file, it isn't automatically deleted from your dbt project, as it still exists in your `dbt_packages/` directory. If you want to completely uninstall a package, you should either:
 
 * delete the package directory in `dbt_packages/`; or
 * run `dbt clean` to delete *all* packages (and any compiled models), followed by `dbt deps`.
 
-### Pinning packages[​](#pinning-packages "Direct link to Pinning packages")
+### Pinning packages
 
 Running [`dbt deps`](../../reference/commands/deps.md) "pins" each package by creating or updating the `package-lock.yml` file in the *project\_root* where `packages.yml` is recorded.
 
@@ -515,7 +495,7 @@ For example, if you use a branch name, the `package-lock.yml` file pins to the h
 
 dbt will warn you if you install a package using the `git` syntax without specifying a revision (see below).
 
-### Configuring packages[​](#configuring-packages "Direct link to Configuring packages")
+### Configuring packages
 
 You can configure the models and seeds in a package from the `dbt_project.yml` file, like so:
 
@@ -546,7 +526,7 @@ For example, when using a dataset specific package, you may need to configure va
 
 Configurations made in your project YAML file (`dbt_project.yml`) will override any configurations in a package (either in the project YAML file of the package, or in config blocks).
 
-### Specifying unpinned Git packages[​](#specifying-unpinned-git-packages "Direct link to Specifying unpinned Git packages")
+### Specifying unpinned Git packages
 
 If your project specifies an "unpinned" Git package, you may see a warning like:
 
@@ -565,7 +545,7 @@ packages:
     warn-unpinned: false
 ```
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If you encounter errors while working with dbt packages, see the following FAQs:
 

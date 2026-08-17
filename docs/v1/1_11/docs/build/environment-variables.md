@@ -6,7 +6,7 @@ Environment Variable Naming and Prefixing
 
 Environment variables in dbt must be prefixed with either `DBT_`, `DBT_ENV_SECRET_`, or `DBT_ENV_CUSTOM_ENV_`. Environment variable keys are uppercased and case sensitive. When referencing `{{env_var('DBT_KEY')}}` in your project's code, the key must match exactly the variable defined in dbt's UI.
 
-### Setting and overriding environment variables[​](#setting-and-overriding-environment-variables "Direct link to Setting and overriding environment variables")
+### Setting and overriding environment variables
 
 This section explains how to set and override environment variables in dbt.
 
@@ -16,7 +16,7 @@ This section explains how to set and override environment variables in dbt.
 * [Overriding environment variables at the personal level](#overriding-environment-variables-at-the-personal-level)
 * [Local environment variables](#local-environment-variables)
 
-#### Order of precedence[​](#order-of-precedence "Direct link to Order of precedence")
+#### Order of precedence
 
 Environment variable values can be set in multiple places within dbt. As a result, dbt will interpret environment variables according to the following order of precedence (lowest to highest):
 
@@ -29,7 +29,7 @@ There are four levels of environment variables:
 3. The environment level, which can in turn be overridden again at
 4. The job level (job override) or in the Studio IDE for an individual dev (personal override). (*highest precedence*)
 
-#### Setting environment variables[​](#setting-environment-variables "Direct link to Setting environment variables")
+#### Setting environment variables
 
 To set environment variables at the project and environment level, click **Orchestration** in the left-side menu, then select **Environments**. Click **Environment variables** to add and update your environment variables.
 
@@ -41,7 +41,7 @@ To the right of the **Project default** column, you can see all your environment
 
 [![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")](#)Setting project level and environment level values
 
-#### Overriding environment variables at the job level[​](#overriding-environment-variables-at-the-job-level "Direct link to Overriding environment variables at the job level")
+#### Overriding environment variables at the job level
 
 You may have multiple jobs that run in the same environment, and you'd like the environment variable to be interpreted differently depending on the job.
 
@@ -53,7 +53,7 @@ Every job runs in a specific deployment environment, and by default, a job will 
 
 [![Setting a job override value](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/job-override.png?v=2> "Setting a job override value")](#)Setting a job override value
 
-#### Overriding environment variables at the personal level[​](#overriding-environment-variables-at-the-personal-level "Direct link to Overriding environment variables at the personal level")
+#### Overriding environment variables at the personal level
 
 You can also set a personal value override for an environment variable when you develop in the dbt-integrated developer environment (Studio IDE). By default, dbt uses environment variable values set in the project's development environment. To see and override these values, from dbt:
 
@@ -79,13 +79,13 @@ To refresh the Studio IDE mid-development, click on either the green 'ready' sig
 
 There are some known issues with partial parsing of a project and changing environment variables mid-session in the IDE. If you find that your dbt project is not compiling to the values you've set, try deleting the `target/partial_parse.msgpack` file in your dbt project which will force dbt to re-compile your whole project.
 
-#### Local environment variables[​](#local-environment-variables "Direct link to Local environment variables")
+#### Local environment variables
 
 If you are using the dbt VS Code extension, you can set environment variables locally in your shell profile (`~/.zshrc` or `~/.bashrc`) or in a `.env` file at the root level of your dbt project.
 
 For more information, refer to [Configure the dbt VS Code extension](../configure-dbt-extension.md#set-environment-variables-locally).
 
-### Handling secrets[​](#handling-secrets "Direct link to Handling secrets")
+### Handling secrets
 
 While all environment variables are encrypted at rest in dbt, dbt has additional capabilities for managing environment variables with secret or otherwise sensitive values. If you want a particular environment variable to be scrubbed from all logs and error messages, in addition to obfuscating the value in dbt, you can prefix the key with `DBT_ENV_SECRET_`.
 
@@ -95,17 +95,15 @@ Environment variables prefixed with `DBT_ENV_SECRET_` are protected with additio
 
 **Note**: An environment variable can be used to store a [git token for repo cloning](./environment-variables.md#clone-private-packages). We recommend you make the git token's permissions read only and consider using a machine account or service user's PAT with limited repo access in order to practice good security hygiene.
 
-### Special environment variables[​](#special-environment-variables "Direct link to Special environment variables")
+### Special environment variables
 
 dbt has a number of pre-defined variables built in. Variables are set automatically and cannot be changed. This means that the order of precedence for overriding environment variables doesn't apply to these pre-defined variables at the project, environment, or job level.
 
-#### Studio IDE details[​](#studio-ide-details "Direct link to Studio IDE details")
+#### Studio IDE details
 
 The following environment variable is set automatically for the Studio IDE:
 
 * `DBT_CLOUD_GIT_BRANCH` — Provides the development Git branch name in the [Studio IDE](../platform/studio-ide/develop-in-studio.md).
-
-  <!-- -->
 
   * The variable changes when the branch is changed.
   * Doesn't require restarting the Studio IDE after a branch change.
@@ -113,7 +111,7 @@ The following environment variable is set automatically for the Studio IDE:
 
 Use case — This is useful in cases where you want to dynamically use the Git branch name as a prefix for a [development schema](./custom-schemas.md) (`{{ env_var('DBT_CLOUD_GIT_BRANCH') }}`).
 
-#### dbt platform context[​](#dbt-platform-context "Direct link to dbt platform context")
+#### dbt platform context
 
 The following environment variables are set automatically:
 
@@ -121,10 +119,9 @@ The following environment variables are set automatically:
 * `DBT_CLOUD_ENVIRONMENT_NAME` — The name of the dbt environment in which `dbt` is running.
 * `DBT_CLOUD_ENVIRONMENT_TYPE` — The type of dbt environment in which `dbt` is running. The valid values are `dev`, `staging`, or `prod`. The value will be empty for [General deployment environments](../dbt-platform-environments.md#types-of-environments), so use a default like `{{ env_var('DBT_CLOUD_ENVIRONMENT_TYPE', '') }}`.
 * `DBT_CLOUD_INVOCATION_CONTEXT` — The context type in which `dbt` is invoked. The values are `dev`, `staging`, `prod`, or `ci`.
-  <!-- -->
   * Additionally, use `DBT_CLOUD_INVOCATION_CONTEXT` in the `generate_schema_name()` macro to define explicit guidelines to use the default schema only (with the `dbt_cloud_pr prefix`) in CI job runs, even if those CI jobs run in the same environment as production jobs.
 
-#### Run details[​](#run-details "Direct link to Run details")
+#### Run details
 
 * `DBT_CLOUD_PROJECT_ID` — The ID of the dbt Project for this run
 * `DBT_CLOUD_JOB_ID` — The ID of the dbt Job for this run
@@ -134,14 +131,14 @@ The following environment variables are set automatically:
 * `DBT_CLOUD_ENVIRONMENT_ID` — The ID of the environment for this run
 * `DBT_CLOUD_ACCOUNT_ID` — The ID of the dbt account for this run
 
-#### Git details[​](#git-details "Direct link to Git details")
+#### Git details
 
 *The following variables are currently only available for GitHub, GitLab, and Azure DevOps PR builds triggered using a webhook*
 
 * `DBT_CLOUD_PR_ID` — The Pull Request ID in the connected version control system
 * `DBT_CLOUD_GIT_SHA` — The git commit SHA which is being run for this Pull Request build
 
-### Example usage[​](#example-usage "Direct link to Example usage")
+### Example usage
 
 Environment variables can be used in many ways, and they give you the power and flexibility to do what you want to do more easily in dbt.
 

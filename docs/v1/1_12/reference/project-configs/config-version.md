@@ -8,10 +8,10 @@ dbt\_project.yml
 config-version: 2
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Specify your `dbt_project.yml` as using the v2 structure.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 Without this configuration, dbt will assume your `dbt_project.yml` uses the version 2 syntax. Version 1 has been deprecated.

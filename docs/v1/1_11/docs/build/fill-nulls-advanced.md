@@ -2,7 +2,7 @@
 
 Understanding and implementing strategies to fill null values in metrics is key for accurate analytics. This guide explains `fill_nulls_with` and `join_to_timespine` to ensure data completeness, helping end users make more informed decisions and enhancing your dbt workflows.
 
-### About null values[​](#about-null-values "Direct link to About null values")
+### About null values
 
 You can use `fill_nulls_with` to replace null values in metrics with a value like zero (or your chosen integer). This ensures every data row shows a numeric value.
 
@@ -11,7 +11,7 @@ This guide explains how to ensure there are no null values in your metrics:
 * Use `fill_nulls_with` for `simple`, `cumulative`, and `conversion` metrics
 * Use `join_to_timespine` and `fill_nulls_with` together for derived and ratio metrics to avoid null values appearing.
 
-### Fill null values for simple metrics[​](#fill-null-values-for-simple-metrics "Direct link to Fill null values for simple metrics")
+### Fill null values for simple metrics
 
 For example, if you'd like to handle days with site visits but no leads, you can use `fill_nulls_with` to set the value for leads to zero on days when there are no conversions.
 
@@ -19,6 +19,8 @@ Let's say you have three metrics:
 
 * `website_visits` and `leads`
 * and a derived metric called `leads_to_website_visit` that calculates the ratio of leads to site visits.
+
+(Applies to dbt v1.11 and earlier)
 
 On the days when there are no conversions, you can set the value for leads to zero by adding the `fill_nulls_with` parameter to the measure input on the leads metric:
 
@@ -46,8 +48,6 @@ metrics:
         - name: website_visits
 ```
 
-<!-- -->
-
 The `website_visits` and `leads` metrics have the following data:
 
 | metric\_time | website\_visits |
@@ -56,22 +56,10 @@ The `website_visits` and `leads` metrics have the following data:
 | 2024-01-02   | 37              |
 | 2024-01-03   | 79              |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 | metric\_time | leads |
 | ------------ | ----- |
 | 2024-01-01   | 5     |
 | 2024-01-03   | 8     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 * Note that there is no data for `2024-01-02` in the `leads` metric.
 
@@ -83,13 +71,9 @@ Although there are no days without visits, there are days without leads. After a
 | 2024-01-02   | 37              | 0     |
 | 2024-01-03   | 79              | 8     |
 
-Search table...
+### Use join\_to\_timespine for derived and ratio metrics
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Use join\_to\_timespine for derived and ratio metrics[​](#use-join_to_timespine-for-derived-and-ratio-metrics "Direct link to Use join_to_timespine for derived and ratio metrics")
+(Applies to dbt v1.11 and earlier)
 
 To ensure you have a complete set of data for every and daily coverage for metrics calculated from other metrics, you can use `join_to_timespine` to fill null values for `derived` and `ratio` metrics. These metrics are built from other metrics (other calculations), not direct measures (raw data), requiring MetricFlow to have an extra subquery layer to render the metric. The subquery nesting is as follows:
 
@@ -100,11 +84,9 @@ Because `coalesce` isn't applied to the third, subquery layer for `derived` or `
 
 * Note you can use `join_to_timespine` with metrics that take measure inputs as well if you want to include a row for every date, even if there is no data.
 
-<!-- -->
+### Fill null values for derived and ratio metrics
 
-### Fill null values for derived and ratio metrics[​](#fill-null-values-for-derived-and-ratio-metrics "Direct link to Fill null values for derived and ratio metrics")
-
-To fill null values for derived and ratio metrics, you can link them with a time spine to ensure daily data coverage. As mentioned in [the previous section](#use-join_to_timespine-for-derived-and-ratio-metrics), this is because `derived` and `ratio` metrics take *metrics* as inputs<!-- --> instead of *measures*.
+To fill null values for derived and ratio metrics, you can link them with a time spine to ensure daily data coverage. As mentioned in [the previous section](#use-join_to_timespine-for-derived-and-ratio-metrics), this is because `derived` and `ratio` metrics take *metrics* as inputs(Applies to dbt v1.11 and earlier) instead of *measures*.
 
 For example, the following structure leaves nulls in the final results (`leads_to_website_visit` column) because `COALESCE` isn't applied at the third outer rendering layer for the final metric calculation in `derived` metrics:
 
@@ -114,13 +96,9 @@ For example, the following structure leaves nulls in the final results (`leads_t
 | 2024-01-02   | 37              | 0     | null                      |
 | 2024-01-03   | 79              | 8     | .1                        |
 
-Search table...
+To display a zero value for `leads_to_website_visit` for `2024-01-02`, you would join the `leads` metric to a time spine model to ensure a value for each day. You can do this by adding `join_to_timespine` to the (Applies to dbt v1.11 and earlier) `measure` parameter in the `leads` metric configuration:
 
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-To display a zero value for `leads_to_website_visit` for `2024-01-02`, you would join the `leads` metric to a time spine model to ensure a value for each day. You can do this by adding `join_to_timespine` to the `measure` parameter<!-- --> in the `leads` metric configuration:
+(Applies to dbt v1.11 and earlier)
 
 models/metrics/leads.yml
 
@@ -134,8 +112,6 @@ models/metrics/leads.yml
       join_to_timespine: true
 ```
 
-<!-- -->
-
 Once you do this, if you query the `leads` metric after the timespine join, there will be a record for each day and any null values will get filled with zero.
 
 | metric\_time | leads | leads\_to\_website\_visit |
@@ -144,15 +120,9 @@ Once you do this, if you query the `leads` metric after the timespine join, ther
 | 2024-01-02   | 0     | 0                         |
 | 2024-01-03   | 8     | .1                        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Now, if you combine the metrics in a `derived` metric, there will be a zero value for `leads_to_website_visit` on `2024-01-02` and the final result set will not have any null values.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  How to handle null values in derived metrics defined on top of multiple tables
 

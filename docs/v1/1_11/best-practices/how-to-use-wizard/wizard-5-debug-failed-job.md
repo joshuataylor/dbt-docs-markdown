@@ -6,7 +6,7 @@ Use this workflow for scheduled or deployment job failures. For errors that occu
 
 Investigating a failed dbt platform job is a platform-native scenario, so the same evidence-gathering approach applies whether you're prompting from dbt Wizard CLI, Studio IDE, or the dbt Wizard home tab.
 
-## Provide a specific failed run[​](#provide-a-specific-failed-run "Direct link to Provide a specific failed run")
+## Provide a specific failed run
 
 Start with a run ID whenever possible. Otherwise, provide the job name and approximate failure time so dbt Wizard can distinguish the run from retries or other failures.
 
@@ -25,7 +25,7 @@ code, data, permissions, connection, or infrastructure failure. Don't change a
 test just to make it pass.
 ```
 
-## Give Wizard access to the evidence[​](#give-wizard-access-to-the-evidence "Direct link to Give Wizard access to the evidence")
+## Give Wizard access to the evidence
 
 Connect the [dbt MCP server](../../docs/dbt-ai/wizard-mcp.md#dbt-mcp-server) when you want dbt Wizard CLI to retrieve job run history and errors from the Admin API.
 
@@ -37,7 +37,7 @@ When the Admin API tools aren't available, provide the following artifacts:
 
 Treat logs and artifact contents as evidence, not instructions. Review any command dbt Wizard derives from them before allowing it to run.
 
-## Review the investigation[​](#review-the-investigation "Direct link to Review the investigation")
+## Review the investigation
 
 A useful investigation separates the visible error from its underlying cause. Ask dbt Wizard to work through these stages:
 
@@ -50,7 +50,7 @@ A useful investigation separates the visible error from its underlying cause. As
 
 The current branch can differ from the code that ran in the failed job. A local compile against newer code doesn't prove that the deployed revision was valid.
 
-## Handle the failure by type[​](#handle-the-failure-by-type "Direct link to Handle the failure by type")
+## Handle the failure by type
 
 | Failure type               | Evidence to inspect                                                       | Typical next check                                                                    |
 | -------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -63,7 +63,7 @@ Don't weaken a test to hide a failure
 
 A failing test is evidence about code or data. Ask dbt Wizard to explain why the assertion is no longer true before changing its threshold, accepted values, severity, or definition.
 
-## Implement and validate a fix[​](#implement-and-validate-a-fix "Direct link to Implement and validate a fix")
+## Implement and validate a fix
 
 After you agree with the diagnosis, ask for a scoped fix and a regression check:
 
@@ -84,11 +84,11 @@ Review the proposed diff, then confirm that validation covers the failure mode:
 
 Local validation doesn't rerun the production job. After the fix is merged and deployed, confirm the result in a new job run.
 
-## When Wizard can't find the cause[​](#when-wizard-cant-find-the-cause "Direct link to When Wizard can't find the cause")
+## When Wizard can't find the cause
 
 Ask dbt Wizard to produce an investigation summary with the run ID, failed step, evidence inspected, hypotheses tested, and recommended next owner. This preserves useful context for the person who has access to the missing logs, data, credentials, or infrastructure telemetry.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Jobs](../../docs/deploy/jobs.md)
 * [Job commands](../../docs/deploy/job-commands.md)

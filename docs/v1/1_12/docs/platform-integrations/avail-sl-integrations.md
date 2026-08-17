@@ -1,12 +1,10 @@
 # Available integrations
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 There are a number of data applications that seamlessly integrate with the Semantic Layer, powered by MetricFlow, from business intelligence tools to notebooks, spreadsheets, data catalogs, and more. These integrations allow you to query and unlock valuable insights from your data ecosystem.
 
 Use the [Semantic Layer APIs](../dbt-apis/sl-api-overview.md) to simplify metric queries, optimize your development workflow, and reduce coding. This approach also ensures data governance and consistency for data consumers.
-
-<!-- -->
 
 The following tools integrate with the dbt Semantic Layer:
 
@@ -102,7 +100,7 @@ The following tools integrate with the dbt Semantic Layer:
 
 Before you connect to these tools, you'll need to first [set up the dbt Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) and [generate a service token](../dbt-apis/service-tokens.md) to create **Semantic Layer Only** and **Metadata Only** permissions.
 
-### Custom integration[​](#custom-integration "Direct link to Custom integration")
+### Custom integration
 
 * All BI tools can use [exports](../use-dbt-semantic-layer/exports.md) with the Semantic Layer, even if they don’t have a native integration.
 
@@ -110,12 +108,10 @@ Before you connect to these tools, you'll need to first [set up the dbt Semantic
 
 * Connect to any tool that supports SQL queries. These tools must meet one of the two criteria:
 
-  <!-- -->
-
   * Offers a generic JDBC driver option (such as DataGrip) or
   * Is compatible Arrow Flight SQL JDBC driver version 12.0.0 or higher.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview) to learn how to integrate and query your metrics in downstream tools.
 * [Semantic Layer API query syntax](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata)

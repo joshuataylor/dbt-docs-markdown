@@ -1,6 +1,6 @@
 # Webhooks for your jobs
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 With dbt, you can create outbound webhooks to send events (notifications) about your dbt jobs to your other systems. Your other systems can listen for (subscribe to) these events to further automate your workflows or to help trigger automation flows you have set up.
 
@@ -24,13 +24,11 @@ If you're interested in course learning with videos, check out the [Webhooks on-
 
 You can also check out the free [dbt Fundamentals course](https://learn.getdbt.com/courses/dbt-fundamentals).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * You have a dbt account that is on the [Starter or Enterprise-tier](https://www.getdbt.com/pricing/) plan.
 
 * For `write` access to webhooks:
-
-  <!-- -->
 
   * **Enterprise-tier plans** — Permission sets are the same for both API service tokens and the dbt UI. You, or the API service token, must have the Account Admin, Admin, or Developer [permission set](../platform/manage-access/enterprise-permissions.md).
   * **Starter plan accounts** — For the dbt user interface (UI), you need to have a [Developer license](../platform/manage-access/self-service-permissions.md).
@@ -39,7 +37,7 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
 * Your destination system supports [Authorization headers](#troubleshooting).
 
-## Create a webhook subscription[​](#create-a-webhook-subscription "Direct link to Create a webhook subscription")
+## Create a webhook subscription
 
 1. Navigate to **Account settings** in dbt (by clicking your account name from the left side panel)
 
@@ -57,7 +55,7 @@ You can also check out the free [dbt Fundamentals course](https://learn.getdbt.c
 
    dbt provides a secret token that you can use to [check for the authenticity of a webhook](#validate-a-webhook). It’s strongly recommended that you perform this check on your server to protect yourself from fake (spoofed) requests.
 
-## Archived webhooks[​](#archived-webhooks "Direct link to Archived webhooks")
+## Archived webhooks
 
 dbt automatically archives a webhook after 1,000 consecutive failed deliveries or 7 consecutive days of failed deliveries, whichever comes first.
 
@@ -75,7 +73,7 @@ To reactivate a webhook, use one of the following methods:
 
 To find the appropriate dbt access URL for your region and plan, refer to [Regions & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
-### Differences between completed and errored webhook events[​](#completed-errored-event-difference "Direct link to Differences between completed and errored webhook events")
+### Differences between completed and errored webhook events
 
 The `job.run.errored` event is a subset of the `job.run.completed` events. If you subscribe to both, you will receive two notifications when your job encounters an error. However, dbt triggers the two events at different times:
 
@@ -86,7 +84,7 @@ If your integration depends on data from the Admin API (such as accessing the lo
 
 If your integration doesn’t depend on additional data or if improved delivery performance is more important for you, use `job.run.errored` and build your integration to handle API calls that might not return data a short period at first.
 
-## Validate a webhook[​](#validate-a-webhook "Direct link to Validate a webhook")
+## Validate a webhook
 
 You can use the secret token provided by dbt to validate that webhooks received by your endpoint were actually sent by dbt. Official webhooks will include the `Authorization` header that contains a SHA256 hash of the request body and uses the secret token as a key.
 
@@ -105,11 +103,11 @@ Note that the destination system must support [Authorization headers](#troublesh
 curl -H 'Authorization: 123' -X POST https://<your-webhook-endpoint>
 ```
 
-## Inspect HTTP requests[​](#inspect-http-requests "Direct link to Inspect HTTP requests")
+## Inspect HTTP requests
 
 When working with webhooks, it’s good practice to use tools like [RequestBin](https://requestbin.com/) and [Requestly](https://requestly.io/). These tools allow you to inspect your HTML requests, response payloads, and response headers so you can debug and test webhooks before incorporating them into your systems.
 
-## Examples of JSON payloads[​](#examples-of-json-payloads "Direct link to Examples of JSON payloads")
+## Examples of JSON payloads
 
 An example of a webhook payload for a run that's started:
 
@@ -197,7 +195,7 @@ An example of a webhook payload for an errored run:
 }
 ```
 
-## API for webhooks[​](#api-for-webhooks "Direct link to API for webhooks")
+## API for webhooks
 
 You can use the dbt API to create new webhooks that you want to subscribe to, get detailed information about your webhooks, and to manage the webhooks that are associated with your account. The following sections describe the API endpoints you can use for this.
 
@@ -205,30 +203,24 @@ Access URLs
 
 dbt is hosted in multiple regions in the world and each region has a different access URL. People on Enterprise-tier plans can choose to have their account hosted in any one of these regions. For a complete list of available dbt access URLs, refer to [Regions & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 
-### List all webhook subscriptions[​](#list-all-webhook-subscriptions "Direct link to List all webhook subscriptions")
+### List all webhook subscriptions
 
 List all webhooks that are available from a specific dbt account.
 
-#### Request[​](#request "Direct link to Request")
+#### Request
 
 ```shell
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscriptions
 ```
 
-#### Path parameters[​](#path-parameters "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                       |
 | ----------------- | ------------------------------------------------- |
 | `your access URL` | The login URL for your dbt account.               |
 | `account_id`      | The dbt account the webhooks are associated with. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -288,7 +280,7 @@ Search table...
 }
 ```
 
-#### Response schema[​](#response-schema "Direct link to Response schema")
+#### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -307,23 +299,17 @@ Search table...
 | `dispatched_at`      | Timestamp of when the webhook was last dispatched to the specified endpoint URL.                                                                                                                   |                                                                                                                                                                         |
 | `account_id`         | The dbt account ID.                                                                                                                                                                                |                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Get details about a webhook[​](#get-details-about-a-webhook "Direct link to Get details about a webhook")
+### Get details about a webhook
 
 Get detailed information about a specific webhook.
 
-#### Request[​](#request-1 "Direct link to Request")
+#### Request
 
 ```shell
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
 ```
 
-#### Path parameters[​](#path-parameters-1 "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                     |
 | ----------------- | ----------------------------------------------- |
@@ -331,13 +317,7 @@ GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription
 | `account_id`      | The dbt account the webhook is associated with. |
 | `webhook_id`      | The webhook you want detailed information on.   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample-1 "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -364,7 +344,7 @@ Search table...
 }
 ```
 
-#### Response schema[​](#response-schema-1 "Direct link to Response schema")
+#### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -382,17 +362,11 @@ Search table...
 | `job_ids`            | The specific jobs the webhook is set to trigger for. When the list is empty, the webhook is set to trigger for all jobs in your account; by default, dbt configures webhooks at the account level. | One of these: - Empty list<br />- List of job IDs                                                                                                                       |
 | `http_status_code`   | The latest HTTP status of the webhook.                                                                                                                                                             | Can be any [HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). If the value is `0`, that means the webhook has never been triggered. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Create a new webhook subscription[​](#create-a-new-webhook-subscription "Direct link to Create a new webhook subscription")
+### Create a new webhook subscription
 
 Create a new outbound webhook and specify the endpoint URL that will be subscribing (listening) to the webhook's events.
 
-#### Request sample[​](#request-sample "Direct link to Request sample")
+#### Request sample
 
 ```shell
 POST https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscriptions
@@ -414,20 +388,14 @@ POST https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscriptio
 }
 ```
 
-#### Path parameters[​](#path-parameters-2 "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                     |
 | ----------------- | ----------------------------------------------- |
 | `your access URL` | The login URL for your dbt account.             |
 | `account_id`      | The dbt account the webhook is associated with. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Request parameters[​](#request-parameters "Direct link to Request parameters")
+#### Request parameters
 
 | Name          | Description                                                                                                                                                                                                                                                  | Possible Values                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
@@ -438,13 +406,7 @@ Search table...
 | `description` | Enter a description of your webhook.                                                                                                                                                                                                                         |                                                                                               |
 | `job_ids`     | Enter the specific jobs you want the webhook to trigger on or you can leave this parameter as an empty list. If this is an empty list, the webhook is set to trigger for all jobs in your account; by default, dbt configures webhooks at the account level. | One of these: - Empty list<br />- List of job IDs                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample-2 "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -474,7 +436,7 @@ Search table...
 }
 ```
 
-#### Response schema[​](#response-schema-2 "Direct link to Response schema")
+#### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -492,17 +454,11 @@ Search table...
 | `account_id`         | The dbt account ID.                                                                                                                                                                                |                                                                                                                                                                         |
 | `http_status_code`   | The latest HTTP status of the webhook.                                                                                                                                                             | Can be any [HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). If the value is `0`, that means the webhook has never been triggered. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Update a webhook[​](#update-a-webhook "Direct link to Update a webhook")
+### Update a webhook
 
 Update the configuration details for a specific webhook.
 
-#### Request sample[​](#request-sample-1 "Direct link to Request sample")
+#### Request sample
 
 ```shell
 PUT https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
@@ -524,7 +480,7 @@ PUT https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription
 }
 ```
 
-#### Path parameters[​](#path-parameters-3 "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                     |
 | ----------------- | ----------------------------------------------- |
@@ -532,13 +488,7 @@ PUT https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription
 | `account_id`      | The dbt account the webhook is associated with. |
 | `webhook_id`      | The webhook you want to update.                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Request parameters[​](#request-parameters-1 "Direct link to Request parameters")
+#### Request parameters
 
 | Name          | Description                                                                                                                      | Possible Values                                                                               |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -549,13 +499,7 @@ Search table...
 | `description` | Update the webhook's description.                                                                                                |                                                                                               |
 | `job_ids`     | Change which jobs you want the webhook to trigger for. Or, you can use an empty list to trigger it for all jobs in your account. | One of these: - Empty list<br />- List of job IDs                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample-3 "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -583,7 +527,7 @@ Search table...
 }
 ```
 
-#### Response schema[​](#response-schema-3 "Direct link to Response schema")
+#### Response schema
 
 | Name                 | Description                                                                                                                                                                                        | Possible Values                                                                                                                                                         |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -600,23 +544,17 @@ Search table...
 | `http_status_code`   | The latest HTTP status of the webhook.                                                                                                                                                             | Can be any [HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). If the value is `0`, that means the webhook has never been triggered. |
 | `account_id`         | The dbt account ID.                                                                                                                                                                                |                                                                                                                                                                         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Test a webhook[​](#test-a-webhook "Direct link to Test a webhook")
+### Test a webhook
 
 Test a specific webhook.
 
-#### Request[​](#request-2 "Direct link to Request")
+#### Request
 
 ```shell
 GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}/test
 ```
 
-#### Path parameters[​](#path-parameters-4 "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                     |
 | ----------------- | ----------------------------------------------- |
@@ -624,13 +562,7 @@ GET https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription
 | `account_id`      | The dbt account the webhook is associated with. |
 | `webhook_id`      | The webhook you want to test.                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample-4 "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -644,17 +576,17 @@ Search table...
 }
 ```
 
-### Delete a webhook[​](#delete-a-webhook "Direct link to Delete a webhook")
+### Delete a webhook
 
 Delete a specific webhook.
 
-#### Request[​](#request-3 "Direct link to Request")
+#### Request
 
 ```shell
 DELETE https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscription/{webhook_id}
 ```
 
-#### Path parameters[​](#path-parameters-5 "Direct link to Path parameters")
+#### Path parameters
 
 | Name              | Description                                     |
 | ----------------- | ----------------------------------------------- |
@@ -662,13 +594,7 @@ DELETE https://{your access URL}/api/v3/accounts/{account_id}/webhooks/subscript
 | `account_id`      | The dbt account the webhook is associated with. |
 | `webhook_id`      | The webhook you want to delete.                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Response sample[​](#response-sample-5 "Direct link to Response sample")
+#### Response sample
 
 ```json
 {
@@ -682,12 +608,12 @@ Search table...
 }
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt CI](./continuous-integration.md)
 * [Use dbt's webhooks with other SaaS apps](../../guides.md?tags=Webhooks)
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 If your destination system isn't receiving dbt webhooks, ensure it allows Authorization headers. dbt webhooks send an Authorization header, and if your endpoint doesn't support this, it may be incompatible. Services like Azure Logic Apps and Power Automate may not accept Authorization headers, so they won't work with dbt webhooks. You can test your endpoint's support by sending a request with curl and an Authorization header, like this:
 

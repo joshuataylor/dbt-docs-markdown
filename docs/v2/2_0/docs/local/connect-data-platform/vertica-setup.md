@@ -1,51 +1,37 @@
 # Connect Vertica to dbt Core
 
-Local developmentⓘ
+Local development
 
 VENDOR-SUPPORTED PLUGIN
 
 If you're interested in contributing, check out the source code for each repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Vertica
-* **Authors**:
-  <!-- -->
-  Vertica (Former authors: Matthew Carter, Andy Regan, Andrew Hedengren)
+* **Maintained by**: Vertica
+* **Authors**: Vertica (Former authors: Matthew Carter, Andy Regan, Andrew Hedengren)
 * **GitHub repo**: [vertica/dbt-vertica](https://github.com/vertica/dbt-vertica) [![](https://img.shields.io/github/stars/vertica/dbt-vertica?style=for-the-badge)](https://github.com/vertica/dbt-vertica)
 * **PyPI package**: `dbt-vertica` [![](https://badge.fury.io/py/dbt-vertica.svg)](https://badge.fury.io/py/dbt-vertica)
 * **Slack channel**: [n/a](https://www.getdbt.com/community/)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.5
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  Vertica 24.3.0
+* **Supported dbt Core version**: v1.8.5 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: Vertica 24.3.0
 
-## Installing <!-- -->dbt-vertica
+## Installing dbt-vertica
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-vertica`
 
-## Configuring <!-- -->dbt-vertica<!-- -->
+## Configuring dbt-vertica
 
-For <!-- -->Vertica<!-- -->-specific configuration, please refer to [Vertica<!-- --> configs.](../../../reference/resource-configs/vertica-configs.md)
+For Vertica-specific configuration, please refer to [Vertica configs.](../../../reference/resource-configs/vertica-configs.md)
 
-### Connecting to <!-- -->Vertica<!-- --> with <!-- -->dbt-vertica<!-- -->
+### Connecting to Vertica with dbt-vertica
 
-#### Username / password authentication[​](#username--password-authentication "Direct link to Username / password authentication")
+#### Username / password authentication
 
 Configure your dbt profile for using Vertica:
 
-##### Vertica connection information[​](#vertica-connection-information "Direct link to Vertica connection information")
+##### Vertica connection information
 
 profiles.yml
 
@@ -70,7 +56,7 @@ your-profile:
   target: dev
 ```
 
-##### Description of Profile Fields:[​](#description-of-profile-fields "Direct link to Description of Profile Fields:")
+##### Description of Profile Fields:
 
 | Property                  | Description                                                                                                                                                                                                                                                  | Required? | Default Value                                         | Example                                                                                                       |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -88,11 +74,5 @@ your-profile:
 | threads                   | The number of threads the dbt project will run on.                                                                                                                                                                                                           | No        | 1                                                     | 3                                                                                                             |
 | label                     | A session label to identify the connection.                                                                                                                                                                                                                  | No        | An auto-generated label with format of: dbt\_username | dbt\_dbadmin                                                                                                  |
 | autocommit                | Boolean value that indicates if the connection can enable or disable auto-commit.                                                                                                                                                                            | No        | True                                                  | False                                                                                                         |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 For more information on Vertica’s connection properties please refer to [Vertica-Python](https://github.com/vertica/vertica-python#create-a-connection) Connection Properties.

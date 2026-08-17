@@ -6,12 +6,6 @@
 | Matured (default → `true`) | Sep 1, 2026    | 1.12.0   |
 | Removed                    | —              | —        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
@@ -47,14 +41,12 @@ Macro argument validation runs during project parsing, not during macro executio
 
 * In dbt Core:
 
-  <!-- -->
-
   * Validation runs as part of parsing for most commands (`parse`, `build`, `run`, `test`, `seed`, `snapshot`, `compile`).
   * With a full parse, dbt validates all macros.
   * With partial parsing (the default), dbt validates only macros affected by changed files.
   * Use `--no-partial-parse` to force validation of all macros.
 
-## Impact[​](#impact "Direct link to Impact")
+## Impact
 
 On its own, the flag emits warnings and builds continue. However, these warnings use the force-handled path and respect `--warn-error`, so projects with `--warn-error` set will see build failures at parse time.
 

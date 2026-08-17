@@ -8,7 +8,7 @@ CLI workflow
 
 The built-in `test_writer` agent is available in dbt Wizard CLI. Refer to [Use subagents with dbt Wizard CLI](../../docs/dbt-ai/wizard-subagents.md) for availability and agent behavior.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you begin:
 
@@ -20,7 +20,7 @@ Before you begin:
 
 Warehouse queries can consume compute and can expose data values in your terminal session. Review proposed queries and apply your organization's data-access policies.
 
-## Choose a focused scope[​](#choose-a-focused-scope "Direct link to Choose a focused scope")
+## Choose a focused scope
 
 Start with a model or a small project area. This keeps the proposed tests reviewable and the warehouse queries bounded:
 
@@ -40,7 +40,7 @@ before writing tests.
 
 State constraints in the prompt. For example, name columns that must not be queried, limit the number of models, or ask dbt Wizard to avoid custom generic tests.
 
-## Review the coverage analysis[​](#review-the-coverage-analysis "Direct link to Review the coverage analysis")
+## Review the coverage analysis
 
 Before it writes YAML, ask `test_writer` to explain:
 
@@ -61,7 +61,7 @@ The strongest candidates protect model contracts and business behavior, not just
 
 If the data disproves a candidate assertion, investigate the discrepancy. Don't automatically add a filter or weaken the test to make it pass.
 
-## Approve the warehouse checks[​](#approve-the-warehouse-checks "Direct link to Approve the warehouse checks")
+## Approve the warehouse checks
 
 `test_writer` can use warehouse previews to check assumptions such as uniqueness, nullability, relationships, and observed values. Before approving a query, confirm that:
 
@@ -77,7 +77,7 @@ Validate the proposed grain without selecting customer attributes. Query only
 customer_id and aggregate counts, and explain any sampling or date filter.
 ```
 
-## Review the proposed tests[​](#review-the-proposed-tests "Direct link to Review the proposed tests")
+## Review the proposed tests
 
 For each proposed YAML change, confirm that:
 
@@ -90,7 +90,7 @@ For each proposed YAML change, confirm that:
 
 The `test_writer` agent writes the tests. The normal dbt Wizard validation flow is responsible for running them. Select an appropriate [validation level](./wizard-3-validate-changes.md#choose-a-validation-level) and review any failing rows before accepting the final change.
 
-## Investigate a failed candidate[​](#investigate-a-failed-candidate "Direct link to Investigate a failed candidate")
+## Investigate a failed candidate
 
 When a new test fails, keep the original assumption visible while you determine what the data means:
 
@@ -103,7 +103,7 @@ the test until you explain the evidence.
 
 Possible outcomes include fixing a model defect, documenting a source limitation, selecting the correct compound grain, or rejecting the candidate test.
 
-## Understand the limits[​](#understand-the-limits "Direct link to Understand the limits")
+## Understand the limits
 
 Data-informed test generation still requires engineering judgment:
 
@@ -114,7 +114,7 @@ Data-informed test generation still requires engineering judgment:
 * High test counts can increase build time without improving meaningful coverage.
 * Tests don't replace model contracts, source freshness checks, monitoring, or review by a model owner.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Validate dbt changes with dbt Wizard](./wizard-3-validate-changes.md)
 * [Use subagents with dbt Wizard CLI](../../docs/dbt-ai/wizard-subagents.md)

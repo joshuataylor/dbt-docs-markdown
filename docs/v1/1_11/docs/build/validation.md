@@ -6,7 +6,7 @@ These validations ensure that configuration files follow the expected schema, th
 
 The code that handles validation [can be found here](https://github.com/dbt-labs/dbt-semantic-interfaces/tree/main/dbt_semantic_interfaces/validations) for those who want to dive deeper into this topic.
 
-## Validations command[​](#validations-command "Direct link to Validations command")
+## Validations command
 
 You can run validations from the dbt platform or the command line with the following [MetricFlow commands](./metricflow-commands.md). In dbt, you need user credentials configured in your account settings to run `dbt sl validate` in the IDE or CLI, and deployment credentials to run it in CI.
 
@@ -28,7 +28,7 @@ You can run validations from the dbt platform or the command line with the follo
 
   This runs parsing and semantic validations.
 
-## Availability by environment[​](#availability-by-environment "Direct link to Availability by environment")
+## Availability by environment
 
 Validation behavior and availability differ depending on your environment and setup:
 
@@ -39,17 +39,13 @@ Validation behavior and availability differ depending on your environment and se
 | dbt Core          | Open source users                                   | ✅      | ✅              | ❌            | Use dbt Core for parsing/builds. Run additional validation manually with the MetricFlow CLI.                                                                                                                                                                                                                                                                                                                                                                      |
 | MetricFlow CLI    | Open source users                                   | ✅      | ✅              | ✅            | Run `mf validate-configs` locally to validate and test metrics.                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 \*Jobs run in **Orchestration** or **Studio IDE** run this validation automatically.
 
-## Parsing[​](#parsing "Direct link to Parsing")
+## Parsing
 
 In this validation step, we ensure your config files follow the defined schema for each semantic graph object and can be parsed successfully. It validates the schema for the following core objects:
+
+(Applies to dbt v1.11 and earlier)
 
 * Semantic models
 * Identifiers
@@ -57,11 +53,11 @@ In this validation step, we ensure your config files follow the defined schema f
 * Dimensions
 * Metrics
 
-<!-- -->
+## Semantic syntax
 
-## Semantic syntax[​](#semantic-syntax "Direct link to Semantic syntax")
+This syntactic validation step occurs after we've built your semantic graph. The Semantic Layer, powered by MetricFlow, runs a suite of tests to ensure that your semantic graph doesn't violate any constraints. For example, we check to see if (Applies to dbt v1.11 and earlier) measure names are unique, or if metrics referenced in materialization exist. The current semantic rules we check for are:
 
-This syntactic validation step occurs after we've built your semantic graph. The Semantic Layer, powered by MetricFlow, runs a suite of tests to ensure that your semantic graph doesn't violate any constraints. For example, we check to see if <!-- -->measure<!-- --> names are unique, or if metrics referenced in materialization exist. The current semantic rules we check for are:
+(Applies to dbt v1.11 and earlier)
 
 1. Check those semantic models with measures have a valid time dimension
 2. Check that there is only one primary identifier defined in each semantic model
@@ -70,18 +66,16 @@ This syntactic validation step occurs after we've built your semantic graph. The
 5. Measures in metrics are valid
 6. Cumulative metrics are configured properly
 
-<!-- -->
-
-## Data platform[​](#data-platform "Direct link to Data platform")
+## Data platform
 
 This type of validation checks to see if the semantic definitions in your semantic graph exist in the underlying physical table. To test this, we run queries against your data platform to ensure the generated SQL for semantic models, dimensions, and metrics will execute.
 
 We run the following checks:
 
+(Applies to dbt v1.11 and earlier)
+
 * Measures and dimensions exist
 * Underlying tables for data sources exist
 * Generated SQL for metrics will execute
-
-<!-- -->
 
 You can run semantic validations (against your semantic layer) in a CI job to guarantee any code changes made to dbt models don't break these metrics. For more information, refer to [semantic validation in CI](../deploy/ci-jobs.md#semantic-validations-in-ci).

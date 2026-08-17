@@ -1,4 +1,4 @@
-# Cross-platform Mesh using Iceberg catalogs
+# Cross-platform Mesh using Iceberg catalogs [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 If a model is configured with `catalog_name`, dbt uses the current project's [catalog definition](../build/iceberg/about-catalogs.md) (in `catalogs.yml`), for the current active adapter, to resolve the top-level namespace of that model.
 
@@ -14,7 +14,7 @@ Supported cross-platform combinations include:
 * Snowflake ↔ DuckDB using Horizon catalog ([example](https://github.com/dataders/dbt_aws_cloud_cost))
 * Databricks ↔ DuckDB using Unity catalog ([example](https://github.com/dataders/dbt_aws_cloud_cost))
 
-## Example: Snowflake ↔ Databricks using Unity catalog[​](#example-snowflake-databricks "Direct link to Example: Snowflake ↔ Databricks using Unity catalog")
+## Example: Snowflake ↔ Databricks using Unity catalog
 
 Let's imagine two "mesh" projects, [`jaffle_finance`](https://github.com/dbt-labs/jaffle-shop-mesh-finance) and [`jaffle_marketing`](https://github.com/dbt-labs/jaffle-shop-mesh-marketing), with a cross-project dependency `jaffle_finance -> jaffle_marketing`.
 
@@ -127,7 +127,7 @@ with monthly_revenue as (
 
 Behind the scenes, Snowflake is syncing Databricks' `finance_db` ↔ Snowflake's `snowflake_cld__finance_db`, with eventual consistency. This means that `finance_db.jaffle_finance.monthly_revenue` in Databricks and `snowflake_cld__finance_db."jaffle_finance"."monthly_revenue"` in Snowflake are pointers to *the exact same Iceberg table* in the Databricks-managed Unity catalog.
 
-### Alternative approach: catalog federation[​](#catalog-federation "Direct link to Alternative approach: catalog federation")
+### Alternative approach: catalog federation
 
 Writes to external Iceberg catalogs are generally slower than writes to managed Iceberg tables, and they can also run into reliability issues at scale. (See our [blog](https://docs.getdbt.com/blog/catalog-linked-databases) and [benchmark](https://github.com/dbt-labs/snow-dbx-iceberg-benchmark).)
 

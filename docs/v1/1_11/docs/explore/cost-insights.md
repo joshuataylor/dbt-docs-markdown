@@ -1,6 +1,6 @@
 # Cost Insights
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Cost Insights shows estimated costs and compute time for your dbt projects and models directly in the dbt platform, so you can measure and share the impact of optimizations like [dbt State](../deploy/dbt-state-about.md) and [state-aware orchestration](../deploy/state-aware-about.md).
 
@@ -32,17 +32,13 @@ The Cost Insights section is available in different dbt platform areas and lets 
 
 [![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")](#)Cost Insights in job details
 
-## Prerequisities[​](#prerequisities "Direct link to Prerequisities")
-
-<!-- -->
+## Prerequisities
 
 To view cost data, ensure you have:
 
 * One of the roles listed in [Assign required permissions](./set-up-cost-insights.md#assign-required-permissions).
 
 * A supported data warehouse:
-
-  <!-- -->
 
   * Snowflake
   * BigQuery
@@ -51,7 +47,7 @@ To view cost data, ensure you have:
 
 For setup instructions, see [Set up Cost Insights](./set-up-cost-insights.md).
 
-## Understanding cost and reduction estimates[​](#understanding-cost-and-reduction-estimates "Direct link to Understanding cost and reduction estimates")
+## Understanding cost and reduction estimates
 
 note
 
@@ -59,7 +55,7 @@ Cost estimates are intended for visibility and optimization, not billing reconci
 
 dbt calculates the cost of running your dbt models using your data warehouse's usage metadata and billing context. dbt computes costs daily using up to the *last seven days of available data*.
 
-### Warehouse-specific logic[​](#warehouse-specific-logic "Direct link to Warehouse-specific logic")
+### Warehouse-specific logic
 
 The following sections explain how costs are calculated for each supported warehouse. Expand each section to view the details.
 
@@ -76,8 +72,6 @@ credits_per_query * price_per_credit
 Where:
 
 * `credits_per_query` — Cloud services, compute, and query acceleration credits attributed to the query.
-
-  <!-- -->
 
   * For standard and Generation 2 warehouses, dbt sources this value from [`QUERY_ATTRIBUTION_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history).
   * For [Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive), dbt sources this value from [`QUERY_METERING_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_metering_history) — refer to [Configure platform metadata credentials](./set-up-cost-insights.md#snowflake) for required permissions.
@@ -206,7 +200,7 @@ Concurrent query costs
 
 Redshift attributes cost to each query as if it ran alone on the cluster. If queries run concurrently, the sum of individual query costs may exceed your actual bill.
 
-### Cost reduction calculation[​](#cost-reduction-calculation "Direct link to Cost reduction calculation")
+### Cost reduction calculation
 
 dbt calculates cost reductions by comparing actual costs to what costs would have been *without model reuse*. To do this, dbt uses data from the last seven days (where available) and performs the following steps:
 
@@ -227,7 +221,7 @@ Additional notes:
 * dbt calculates estimated costs and savings daily.
 * Pricing inputs come from warehouse system tables (where available), connection-level configuration, or default list prices.
 
-#### Example[​](#example "Direct link to Example")
+#### Example
 
 The following example shows how dbt calculates cost reductions. Looking back seven days, assuming a model runs on two distinct days:
 
@@ -237,33 +231,24 @@ The following example shows how dbt calculates cost reductions. Looking back sev
 | Day 2     | $10        | 10               |
 | **Total** | **$15**    | **15**           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 The average cost per execution: $15 ÷ 15 runs = $1 per run
 
 If the model was *reused* eight times instead of rebuilt during this same period, the estimated cost reduction is: $1 average cost per run \* 8 reuses = $8
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 Keep the following in mind when using Cost Insights:
 
 **Data collection and refresh**
 
 * Cost Insights uses your platform metadata credentials to access warehouse system tables. No separate credentials are needed beyond the platform metadata setup.
-  <!-- -->
   * You need sufficient [permissions](./set-up-cost-insights.md#configure-platform-metadata-credentials) to query warehouse metadata tables.
 
 * Cost data is calculated *once per day* by a scheduled job that runs at approximately 17:00 UTC.
 
 * The data collection job processes completed calendar days only. It does not include the current day because warehouse usage data may still be incomplete.
-
-  <!-- -->
 
   * Jobs that ran yesterday (or earlier) will have cost data available after the next daily refresh.
   * Jobs that ran today will not have cost data until the following day’s refresh, regardless of what time they ran.
@@ -287,7 +272,7 @@ Keep the following in mind when using Cost Insights:
 
 * You can export cost data as a CSV file for further analysis and reporting. For more information, see [Explore cost data](./explore-cost-data.md).
 
-## Related FAQs[​](#related-faqs "Direct link to Related FAQs")
+## Related FAQs
 
 Why might my actual warehouse costs differ from displayed costs?
 

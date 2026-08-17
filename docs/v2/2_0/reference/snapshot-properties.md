@@ -2,25 +2,17 @@
 
 Define snapshot properties in YAML to document snapshots, configure settings, add tests, and describe columns.
 
+(Applies to dbt v1.9 and later)
+
 In dbt v1.9 and later, snapshots are defined and configured in YAML files within your `snapshots/` directory (as defined by the [`snapshot-paths` config](./project-configs/snapshot-paths.md)). Snapshot properties are declared within these YAML files, allowing you to define both the snapshot configurations and properties in one place.
 
 We recommend that you put them in the `snapshots/` directory. You can name these files `whatever_you_want.yml`, and nest them arbitrarily deeply in subfolders within the `snapshots/` or `models/` directory.
 
 Learn by video!
 
-For video tutorials on
+For video tutorials on Snapshots, go to dbt Learn and check out the [Snapshots course](https://learn.getdbt.com/courses/snapshots).
 
-<!-- -->
-
-Snapshots
-
-<!-- -->
-
-, go to dbt Learn and check out the [Snapshots](https://learn.getdbt.com/courses/snapshots)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/snapshots).
+(Applies to dbt v1.9 and later)
 
 snapshots/\<filename>.yml
 

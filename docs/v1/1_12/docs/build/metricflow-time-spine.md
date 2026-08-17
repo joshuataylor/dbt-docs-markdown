@@ -1,5 +1,7 @@
 # MetricFlow time spine
 
+(Applies to dbt v1.9 and later)
+
 It's common in analytics engineering to have a date dimension or "time spine" table as a base table for different types of time-based joins and aggregations. The structure of this table is typically a base column of daily or hourly dates, with additional columns for other time grains, like fiscal quarters, defined based on the base column. You can join other tables to the time spine on the base column to calculate metrics like revenue at a point in time, or to aggregate to a specific time grain.
 
 To use MetricFlow with time-based metrics and dimensions, you *must* provide a time spine. This table serves as the foundation for time-based joins and aggregations. You can either:
@@ -9,7 +11,7 @@ To use MetricFlow with time-based metrics and dimensions, you *must* provide a t
 
 And once you have a time spine, you need to configure it in YAML to tell MetricFlow how to use it.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 MetricFlow requires you to define at least one dbt model which provides a time-spine, and then specify (in YAML) the columns to be used for time-based joins. This means you need to:
 
@@ -28,7 +30,7 @@ MetricFlow will then join against the time spine model for the following types o
 
 To see the generated SQL for the metric and dimension types that use time spine joins, refer to the respective documentation or add the `compile=true` flag when querying the Semantic Layer to return the compiled SQL.
 
-## Configuring time spine in YAML[​](#configuring-time-spine-in-yaml "Direct link to Configuring time spine in YAML")
+## Configuring time spine in YAML
 
 Use our mini guide to create a time spine table
 
@@ -51,11 +53,13 @@ tip
 * You can also configure MetricFlow to use any date dimension or time spine table already in your project by updating the `model` setting in the Semantic Layer.
 * If you don’t have a date dimension table, you can still create one by using the code snippet in the [next section](#creating-a-time-spine-table) to build your time spine model.
 
-### Creating a time spine table[​](#creating-a-time-spine-table "Direct link to Creating a time spine table")
+### Creating a time spine table
 
 MetricFlow supports granularities ranging from milliseconds to years. Refer to the [Dimensions page](./dimensions.md?dimension=time_gran#time) (time\_granularity tab) to find the full list of supported granularities.
 
 To create a time spine table from scratch, you can do so by adding the following code to your dbt project. This example creates a time spine at an hourly grain and a daily grain: `time_spine_hourly` and `time_spine_daily`.
+
+(Applies to dbt v1.9 and later)
 
 models/\_models.yml
 
@@ -86,20 +90,17 @@ models:
 
 * The `standard_granularity_column` is the column that maps to one of our [standard granularities](./dimensions.md?dimension=time_gran). This column must be set under the `columns` key and should have a grain that is finer or equal to any custom granularity columns defined in the same model.
 
-  <!-- -->
-
   * It needs to reference a column defined under the `columns` key, in this case, `date_hour` and `date_day`, respectively.
   * It sets the granularity at the column-level using the `granularity` key, in this case, `hour` and `day`, respectively.
 
 * MetricFlow will use the `standard_granularity_column` as the join key when joining the time spine table to another source table.
 
 * [The `custom_granularities` field](#custom-calendar), (available in dbt Latest and dbt Core v1.9 and higher) lets you specify non-standard time periods like `fiscal_year` or `retail_month` that your organization may use.
-  <!-- -->
   * The `column_name` field must reference a column that exists in the same model.
 
 For an example project, refer to our [Jaffle shop](https://github.com/dbt-labs/jaffle-sl-template/blob/main/models/marts/_models.yml) example.
 
-### Migrating from SQL to YAML[​](#migrating-from-sql-to-yaml "Direct link to Migrating from SQL to YAML")
+### Migrating from SQL to YAML
 
 If you already have a SQL model that defines your time spine, you can reference that model directly in the YAML file. If you don't have a SQL model that defines your time spine, add one before proceeding to the following steps.
 
@@ -127,13 +128,13 @@ Note that if you're migrating from a `metricflow_time_spine.sql` file:
 * Replace its functionality by adding the `time_spine` property to YAML as shown in the previous example.
 * Once configured, MetricFlow will recognize the YAML settings, and then the SQL model file can be safely removed.
 
-### Considerations when choosing which granularities to create[​](#granularity-considerations "Direct link to Considerations when choosing which granularities to create")
+### Considerations when choosing which granularities to create
 
 * MetricFlow will use the time spine with the largest compatible granularity for a given query to ensure the most efficient query possible. For example, if you have a time spine at a monthly grain, and query a dimension at a monthly grain, MetricFlow will use the monthly time spine. If you only have a daily time spine, MetricFlow will use the daily time spine and `date_trunc` to month.
 * You can add a time spine for each granularity you intend to use if query efficiency is more important to you than configuration time, or storage constraints. For most engines, the query performance difference should be minimal and transforming your time spine to a coarser grain at query time shouldn't add significant overhead to your queries.
 * We recommend having a time spine at the finest grain used in any of your dimensions to avoid unexpected errors. For example, if you have dimensions at an hourly grain, you should have a time spine at an hourly grain.
 
-## Example time spine tables[​](#example-time-spine-tables "Direct link to Example time spine tables")
+## Example time spine tables
 
 The following examples show how to create time spine tables at different granularities:
 
@@ -143,7 +144,7 @@ The following examples show how to create time spine tables at different granula
 * [Daily (BigQuery)](#daily-bigquery)
 * [Hourly](#hourly)
 
-### Seconds[​](#seconds "Direct link to Seconds")
+### Seconds
 
 metricflow\_time\_spine.sql
 
@@ -170,7 +171,7 @@ final as (
 select * from final
 ```
 
-### Minutes[​](#minutes "Direct link to Minutes")
+### Minutes
 
 metricflow\_time\_spine.sql
 
@@ -197,7 +198,7 @@ final as (
 select * from final
 ```
 
-### Daily[​](#daily "Direct link to Daily")
+### Daily
 
 metricflow\_time\_spine.sql
 
@@ -230,7 +231,7 @@ where date_day > dateadd(year, -4, current_timestamp())
 and date_day < dateadd(day, 30, current_timestamp())
 ```
 
-### Daily (BigQuery)[​](#daily-bigquery "Direct link to Daily (BigQuery)")
+### Daily (BigQuery)
 
 Use this model if you're using BigQuery. BigQuery supports `DATE()` instead of `TO_DATE()`:
 
@@ -260,7 +261,7 @@ where date_day > date_add(DATE(current_timestamp()), INTERVAL -4 YEAR)
 and date_day < date_add(DATE(current_timestamp()), INTERVAL 30 DAY)
 ```
 
-### Hourly[​](#hourly "Direct link to Hourly")
+### Hourly
 
 time\_spine\_hourly.sql
 
@@ -294,11 +295,13 @@ where date_day > dateadd(year, -4, current_timestamp())
 and date_hour < dateadd(day, 30, current_timestamp())
 ```
 
-## Custom calendar [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#custom-calendar- "Direct link to custom-calendar-")
+## Custom calendar [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 tip
 
 Check out our mini guide on [how to create a time spine table](../../guides/mf-time-spine.md) to get started!
+
+(Applies to dbt v1.9 and later)
 
 Custom date transformations can be complex, and organizations often have unique needs that can’t be easily generalized. Creating a custom calendar model allows you to define these transformations in SQL, offering more flexibility than native transformations in MetricFlow. This approach lets you map custom columns back to MetricFlow granularities, ensuring consistency while giving you control over the transformations.
 
@@ -320,7 +323,7 @@ When working with custom calendars in MetricFlow, it's important to ensure:
 
 For example, if your time spine column is `TIMESTAMP` type and your dimension column is `DATE` type, comparisons between these columns might not work as intended. To fix this, convert your `DATE` column to `TIMESTAMP`, or make sure both columns are the same data type.
 
-### Add custom granularities[​](#add-custom-granularities "Direct link to Add custom granularities")
+### Add custom granularities
 
 To add custom granularities, the Semantic Layer supports custom calendar configurations that allow users to query data using non-standard time periods like `fiscal_year` or `retail_month`. You can define these custom granularities (all lowercased) by modifying your model's YAML configuration like this:
 
@@ -337,11 +340,11 @@ models:
           column_name: fiscal_year_column # must refer to a column defined in the model
 ```
 
-#### Coming soon[​](#coming-soon "Direct link to Coming soon")
+#### Coming soon
 
 Note that features like calculating offsets and period-over-period will be supported soon!
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [MetricFlow time granularity](./dimensions.md?dimension=time_gran#time)
 * [MetricFlow time spine mini guide](../../guides/mf-time-spine.md)

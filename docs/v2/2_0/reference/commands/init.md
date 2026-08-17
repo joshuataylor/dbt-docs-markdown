@@ -2,7 +2,7 @@
 
 `dbt init` helps get you started using dbt Core!
 
-## New project[​](#new-project "Direct link to New project")
+## New project
 
 If this is your first time ever using the tool, it will:
 
@@ -20,7 +20,7 @@ When using `dbt init` to initialize your project, include the `--profile` flag t
 
 If the profile does not exist in `profiles.yml` or the command is run inside an existing project, the command raises an error.
 
-## Command-line options[​](#command-line-options "Direct link to Command-line options")
+## Command-line options
 
 `dbt init --help` includes both global flags (which apply to all dbt commands) and a small number of `init`-specific options. The most commonly used `init` options are:
 
@@ -34,11 +34,11 @@ dbt init [PROJECT_NAME] [--profile PROFILE_NAME] [--skip-profile-setup]
 
 For global command options that also apply to `dbt init`, refer to [Command line options](../global-configs/command-line-options.md).
 
-## Existing project[​](#existing-project "Direct link to Existing project")
+## Existing project
 
 If you've just cloned or downloaded an existing dbt project, `dbt init` can still help you set up your connection profile so that you can start working quickly. It will prompt you for connection information, as above, and add a profile (using the `profile` name from the project) to your local `profiles.yml`, or create the file if it doesn't already exist.
 
-## profile\_template.yml[​](#profile_templateyml "Direct link to profile_template.yml")
+## profile\_template.yml
 
 `dbt init` knows how to prompt for connection information by looking for a file named `profile_template.yml`. It will look for this file in two places:
 

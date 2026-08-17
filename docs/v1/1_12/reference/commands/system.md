@@ -6,13 +6,13 @@
 
 dbt Core has no equivalent.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 ```shell
 dbt system <subcommand> [flags]
 ```
 
-## Subcommands[​](#subcommands "Direct link to Subcommands")
+## Subcommands
 
 | Subcommand                   | Description                                       |
 | ---------------------------- | ------------------------------------------------- |
@@ -20,13 +20,7 @@ dbt system <subcommand> [flags]
 | `dbt system uninstall`       | Remove Fusion from your system                    |
 | `dbt system install-drivers` | Pre-install all supported ADBC adapter drivers    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## dbt system update[​](#dbt-system-update "Direct link to dbt system update")
+## dbt system update
 
 `dbt system update` updates the CLI binary in place. By default, it updates to the latest stable release. You can also target a named channel or a specific version number.
 
@@ -34,20 +28,14 @@ Search table...
 dbt system update [flags]
 ```
 
-### Options[​](#options "Direct link to Options")
+### Options
 
 | Flag                | Description                                                                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | `--version VERSION` | Update to a specific version (for example, `2.0.0-preview.190`) or a named channel (`canary`, `dev`). Defaults to the latest stable release. |
 | `--package PACKAGE` | Which package to update. Accepts `dbt` or `all`. Defaults to `dbt`.                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Version channels[​](#version-channels "Direct link to Version channels")
+### Version channels
 
 | Channel  | Description                                                             |
 | -------- | ----------------------------------------------------------------------- |
@@ -55,13 +43,7 @@ Search table...
 | `canary` | Most recent preview build (under active testing and may be pulled back) |
 | `dev`    | Development build (may be unstable)                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 Update to the latest stable release:
 
@@ -81,7 +63,7 @@ Update to the canary channel:
 dbt system update --version canary
 ```
 
-## dbt system uninstall[​](#dbt-system-uninstall "Direct link to dbt system uninstall")
+## dbt system uninstall
 
 `dbt system uninstall` removes the CLI binary from your system. On macOS and Linux, it downloads and runs the official `uninstall.sh` script. On Windows, a PowerShell script handles removal after the current process exits (to release the file lock on the running executable).
 
@@ -91,7 +73,7 @@ dbt system uninstall
 
 This command takes no additional flags.
 
-## dbt system install-drivers[​](#dbt-system-install-drivers "Direct link to dbt system install-drivers")
+## dbt system install-drivers
 
 `dbt system install-drivers` downloads and caches all supported ADBC adapter driver libraries (`.dylib`, `.so`, `.dll`) for every supported data platform at once. Normally, dbt downloads drivers on first use when you run a command against a new data platform. Use `dbt system install-drivers` to pre-populate the cache (for example, before going offline or switching between projects that target different warehouses).
 
@@ -105,7 +87,7 @@ Networking note
 
 `dbt system install-drivers` downloads files from `https://public.cdn.getdbt.com`. If your environment restricts outbound network access, make sure this endpoint is allowlisted. See [Fusion networking requirements](../../docs/local/fusion-networking-requirements.md) for the full list of endpoints.
 
-## Related commands[​](#related-commands "Direct link to Related commands")
+## Related commands
 
 * [`dbt debug`](./debug.md) — Test your dbt project and connection configuration.
 * [Fusion networking requirements](../../docs/local/fusion-networking-requirements.md) — Review outbound endpoints required by the dbt Fusion engine.

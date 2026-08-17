@@ -1,12 +1,12 @@
 # Set up SCIM
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 The System for Cross-Domain Identity Management (SCIM) makes user data more secure and simplifies the admin and end-user lifecycle experience by automating user identities and groups. You can create or disable user identities in your Identity Provider (IdP), and SCIM will automatically make those changes in near real-time downstream in dbt.
 
 When configuring your IdP, review [API rate limits](../../dbt-apis/rate-limits.md) for SCIM provisioning quotas and `429` retry behavior.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 To configure SCIM in your dbt environment:
 
@@ -15,7 +15,7 @@ To configure SCIM in your dbt environment:
 * You must have [permissions](./enterprise-permissions.md) to configure the account settings in dbt platform and change application settings in [Okta](https://help.okta.com/en-us/content/topics/security/administrators-admin-comparison.htm).
 * If you have IP restrictions enabled, you must add [Okta's IPs](https://help.okta.com/en-us/content/topics/security/ip-address-allow-listing.htm) to your allowlist. If you're using Entra ID with IP restrictions enabled, refer to [Azure SCIM provisioning fails due to IP allowlisting](./scim-faq.md) in the SCIM FAQ.
 
-### Supported features[​](#supported-features "Direct link to Supported features")
+### Supported features
 
 The currently available supported features for SCIM are:
 
@@ -56,7 +56,7 @@ dbt platform supports automatic license assignment with SCIM, with these differe
 
 For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 
-## Set up dbt[​](#set-up-dbt "Direct link to Set up dbt")
+## Set up dbt
 
 To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 
@@ -65,36 +65,32 @@ To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 2. Under **Settings**, click **SSO & SCIM**.
 
 3. Scroll to the bottom of your SSO configuration settings and click **Enable SCIM**.
-   <!-- -->
+
    [![SCIM enabled in the configuration settings.](/img/docs/dbt-platform/access-control/enable-scim.png?v=2 "SCIM enabled in the configuration settings.")](#)SCIM enabled in the configuration settings.
 
 4. Record the **SCIM base URL** field for use in a later step.
 
 5. Click **Create SCIM token**.
 
-   <!-- -->
-
    note
 
    To follow best practices, you should regularly rotate your SCIM tokens. To do so, follow these same instructions you did to create a new one. To avoid service disruptions, remember to replace your token in your IdP before deleting the old token in dbt.
 
 6. In the pop-up window, give the token a name that will make it easily identifiable. Click **Save**.
-   <!-- -->
+
    [![Give your token and identifier.](/img/docs/dbt-platform/access-control/name-scim-token.png?v=2 "Give your token and identifier.")](#)Give your token and identifier.
 
 7. Copy the token and record it securely, as *it will not be available again after you close the window*. You must create a new token if you lose the current one.
-   <!-- -->
+
    [![Give your token and identifier.](/img/docs/dbt-platform/access-control/copy-scim-token.png?v=2 "Give your token and identifier.")](#)Give your token and identifier.
 
 8. (Optional) Manual updates are turned off by default for all SCIM-managed entities, including the ability to invite new users manually. This ensures SCIM-managed entities stay in sync with the IdP, and we recommend keeping this setting disabled.
-
-   <!-- -->
 
    * However, if you need to make manual updates (like update group membership for a SCIM-managed group), you can enable this setting by clicking **Allow manual updates** and confirming the **Allow manual updates** pop up. For more details on this setting, refer to [What does "Allow manual updates" mean?](./scim-faq.md?version=1.12#what-does-allow-manual-updates-mean) in the SCIM FAQ.
 
    [![Enabling manual updates in SCIM settings.](/img/docs/dbt-platform/access-control/scim-manual-updates.png?v=2 "Enabling manual updates in SCIM settings.")](#)Enabling manual updates in SCIM settings.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Configure SCIM for your identity provider and optionally manage licenses:
 

@@ -1,12 +1,10 @@
 # Connect BigQuery Fusion compatible
 
-dbt platformⓘ
+dbt platform
 
 To see which BigQuery functions are supported in Fusion in `strict` mode, refer to [BigQuery function support](../../../reference/resource-configs/bigquery-function-support.md).
 
-## Required permissions[​](#required-permissions "Direct link to Required permissions")
-
-<!-- -->
+## Required permissions
 
 dbt user accounts need the following permissions to read from and create tables and views in a BigQuery project:
 
@@ -29,13 +27,11 @@ For BigQuery DataFrames, users need these additional permissions:
 * Code Creator
 * colabEnterpriseUser
 
-## Warehouse permissions for Fusion[​](#warehouse-permissions-for-fusion "Direct link to Warehouse permissions for Fusion")
-
-<!-- -->
+## Warehouse permissions for Fusion
 
 The Google Cloud identity (service account or user) that dbt Fusion engine uses must have IAM permissions to run jobs, read and write table data, and read metadata Fusion uses for introspection and source freshness.
 
-### Required Google Cloud objects[​](#required-google-cloud-objects "Direct link to Required Google Cloud objects")
+### Required Google Cloud objects
 
 Before connecting, these objects must exist or be accessible:
 
@@ -46,13 +42,7 @@ Before connecting, these objects must exist or be accessible:
 | **Service account or user** | IAM identity  | Identity for authentication                         |
 | **Location or region**      | Location      | Data location (for example, `US`, `EU`, `us-east1`) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### IAM permissions[​](#iam-permissions "Direct link to IAM permissions")
+### IAM permissions
 
 The following permissions are required for fundamental dbt features::
 
@@ -68,12 +58,6 @@ The following permissions are required for fundamental dbt features::
 | `bigquery.tables.updateData` | Insert, update, or delete rows |
 | `bigquery.jobs.create`       | Run queries                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The following are optional permissions for additional dbt features:
 
 | Permission                 | When required                    |
@@ -84,13 +68,7 @@ The following are optional permissions for additional dbt features:
 | `storage.objects.create`   | Python models (GCS staging)      |
 | `dataproc.*`               | Python models on Dataproc        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Predefined IAM roles[​](#predefined-iam-roles "Direct link to Predefined IAM roles")
+#### Predefined IAM roles
 
 The following roles represent the typical starting point for dbt access:
 
@@ -100,15 +78,9 @@ The following roles represent the typical starting point for dbt access:
 | `roles/bigquery.user`       | Run jobs, create datasets         | Job execution           |
 | `roles/bigquery.jobUser`    | Run jobs only                     | Minimal query execution |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](./connect-bigquery.md#required-permissions).
 
-### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
+### Metadata operations
 
 The following are required for fundamental dbt features:
 
@@ -120,13 +92,7 @@ The following are required for fundamental dbt features:
 | Get table stats  | Query `INFORMATION_SCHEMA`  | `bigquery.tables.get`      |
 | Create dataset   | `CREATE SCHEMA`             | `bigquery.datasets.create` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### INFORMATION\_SCHEMA and metadata views[​](#information_schema-and-metadata-views "Direct link to INFORMATION_SCHEMA and metadata views")
+### INFORMATION\_SCHEMA and metadata views
 
 Fusion queries these BigQuery system views:
 
@@ -138,30 +104,20 @@ Fusion queries these BigQuery system views:
 | `INFORMATION_SCHEMA.PARTITIONS` | Partition information    | Dataset only      |
 | `__TABLES__` (deprecated)       | Table modification times | Dataset           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### BigQuery DataFrames (optional)[​](#bigquery-dataframes "Direct link to BigQuery DataFrames (optional)")
+### BigQuery DataFrames (optional)
 
 For BigQuery DataFrames workflows, users typically need additional roles such as `BigQuery Job User`, `BigQuery Read Session User`, `Notebook Runtime User`, `Code Creator`, and `colabEnterpriseUser`. See your Google Cloud admin for exact role names in your organization.
 
-## Authentication[​](#authentication "Direct link to Authentication")
+## Authentication
 
 dbt supports different authentication methods depending on your environment and plan type:
 
 * Development environments support:
 
-  <!-- -->
-
   * Service JSON
   * BigQuery OAuth [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
 * Deployment environments support:
-
-  <!-- -->
 
   * Service JSON
   * BigQuery Workload Identity Federation (WIF) [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
@@ -175,7 +131,7 @@ When you create a new BigQuery connection, you will be presented with two schema
 
 All new connections should use the **BigQuery** option as **BigQuery (Legacy)** will be deprecated. To update existing connections and credentials in an environment to use the new BigQuery option, first, use the [APIs](../../dbt-apis/admin-api.md) to remove the configurations.
 
-### JSON keyfile[​](#json-keyfile "Direct link to JSON keyfile")
+### JSON keyfile
 
 Uploading a service account JSON keyfile
 
@@ -207,15 +163,9 @@ In addition to these fields, two other optional fields can be configured in a Bi
 | Timeout  | Deprecated; exists for backwards compatibility with older versions of dbt and will be removed in the future. | `300`      |
 | Location | The [location](https://cloud.google.com/bigquery/docs/locations) where dbt should create datasets.           | `US`, `EU` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 [![A valid BigQuery connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/bigquery-connection.png?v=2 "A valid BigQuery connection")](#)A valid BigQuery connection
 
-### BigQuery OAuth[​](#bigquery-oauth "Direct link to BigQuery OAuth")
+### BigQuery OAuth
 
 **Available in:** Development environments, Enterprise-tier plans only
 
@@ -223,7 +173,7 @@ The OAuth auth method permits dbt to run queries on behalf of a BigQuery user or
 
 As an end user, if your organization has set up BigQuery OAuth, you can link a project with your personal BigQuery account in your Profile in dbt.
 
-### BigQuery Workload Identity Federation [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")[​](#bigquery-workload-identity-federation- "Direct link to bigquery-workload-identity-federation-")
+### BigQuery Workload Identity Federation [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 note
 
@@ -233,11 +183,11 @@ If you're using BigQuery WIF, we recommend using it with BigQuery OAuth. Otherwi
 
 The BigQuery WIF auth method permits dbt to run deployment queries as a service account without configuring a BigQuery service account keyfile in dbt. For more information on the initial configuration of a BigQuery WIF connection in dbt, refer to [Set up BigQuery Workload Identity Federation](../manage-access/set-up-bigquery-oauth.md#set-up-bigquery-workload-identity-federation).
 
-## Configuration[​](#configuration "Direct link to Configuration")
+## Configuration
 
 To learn how to optimize performance with data platform-specific configurations in dbt, refer to [BigQuery-specific configuration](../../../reference/resource-configs/bigquery-configs.md).
 
-### Optional configurations[​](#optional-configurations "Direct link to Optional configurations")
+### Optional configurations
 
 In BigQuery, optional configurations let you tailor settings for tasks such as query priority, dataset location, job timeout, and more. These options give you greater control over how BigQuery functions behind the scenes to meet your requirements.
 
@@ -267,12 +217,6 @@ The following are the optional configurations you can set in dbt:
 | [Dataproc cluster name](#dataproc-cluster-name)               | Assigns a unique identifier to a group of virtual machines in Dataproc                            | String  | `my-cluster`                                      |
 | [Notebook Template ID](#notebook-template-id)                 | Unique identifier to a Colab Enterprise notebook runtime                                          | Integer | `7018811640745295872`                             |
 | [Compute Region](#compute-region)                             | Assigns a unique identifier to a group of virtual machines in Dataproc                            | String  | `US`, `EU`, `asia-northeast1`                     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
  Priority
 
@@ -317,9 +261,7 @@ Job creation timeout seconds is the maximum time BigQuery will wait to start the
 
 From dbt Core v1.10, the BigQuery adapter cancels BigQuery jobs that exceed their configured timeout by sending a cancellation request. If the request succeeds, dbt stops the job. If the request fails, the BigQuery job may keep running in the background until it finishes or you cancel it manually.
 
-#### Run dbt python models on Google Cloud Platform[​](#run-dbt-python-models-on-google-cloud-platform "Direct link to Run dbt python models on Google Cloud Platform")
-
-<!-- -->
+#### Run dbt python models on Google Cloud Platform
 
 To run dbt Python models on GCP, dbt uses companion services, Dataproc and Cloud Storage, that offer tight integrations with BigQuery. You may use an existing Dataproc cluster and Cloud Storage bucket, or create new ones:
 
@@ -350,7 +292,7 @@ The unique identifier associated with a specific Colab notebook, which acts are 
 
 This region must match the location of your BigQuery dataset if you want to use BigQuery DataFrames, ensure the Colab runtime is also within the same region.
 
-### Account level connections and credential management[​](#account-level-connections-and-credential-management "Direct link to Account level connections and credential management")
+### Account level connections and credential management
 
 You can re-use connections across multiple projects with [global connections](./about-connections.md#migration-from-project-level-connections-to-account-level-connections). Connections are attached at the environment level (formerly project level), so you can use multiple connections inside of a single project (to handle dev, staging, production, and more).
 

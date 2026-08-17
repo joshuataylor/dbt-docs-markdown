@@ -1,10 +1,10 @@
 # Setting up dbt State [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 This page walks you through setting up dbt State across dbt Core, dbt platform, and Fusion.
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 Before you set up dbt State, make sure you have:
 
@@ -12,15 +12,13 @@ Before you set up dbt State, make sure you have:
 * **A supported data platform**: Snowflake, Databricks, BigQuery, or Redshift. More warehouses are on the roadmap.
 * **A dbt State account**: Authenticate through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) to choose the right option, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](../platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
 
-## Setting up dbt State[​](#setting-up-dbt-state "Direct link to Setting up dbt State")
+## Setting up dbt State
 
 Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt.
 
-* dbt platform
-* Fusion
-* dbt Core 1.7–1.12
+### dbt platform
 
-#### Enabling dbt State on your account[​](#enabling-dbt-state-on-your-account "Direct link to Enabling dbt State on your account")
+#### Enabling dbt State on your account
 
 **Prerequisite**: You must be an admin in your dbt platform account.
 
@@ -56,6 +54,8 @@ For next steps, see:
 * [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
 * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
 
+### Fusion
+
 1. Navigate to your project:
 
    ```bash
@@ -80,6 +80,8 @@ To enable dbt State for everyone on your project, add [`manage_state: true`](../
 flags:
   manage_state: true
 ```
+
+### dbt Core 1.7–1.12
 
 dbt State is available as a plugin for dbt Core v1.7+. If you are running on dbt Core v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](../dbt-versions.md#latest-releases).
 
@@ -110,7 +112,7 @@ The CLI flags `--manage-state` and `--no-manage-state` are not available in olde
 
 To see how dbt State optimizes your runs, refer to [dbt State usage examples](./dbt-state-examples.md).
 
-## Configuring lag tolerance[​](#configuring-lag-tolerance "Direct link to Configuring lag tolerance")
+## Configuring lag tolerance
 
 Lag tolerance allows you to set a tolerance level for older data at the project, environment, or model level. If not configured, `lag_tolerance` defaults to `45m`. We recommend starting with the following Jinja expression:
 
@@ -126,14 +128,14 @@ In this example, models in the `prod` target rebuild only when upstream data is 
 
 For more details, refer to the [`lag_tolerance` config reference](../../reference/resource-configs/lag-tolerance.md).
 
-## Inviting team members[​](#inviting-team-members "Direct link to Inviting team members")
+## Inviting team members
 
 The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them.
 
 * **For [standalone app](https://app.state.dbt.com) users**: Click the invite link in the upper-right corner of the **Users** page.
 * **For dbt platform users**: Have your colleagues run [`dbt login`](../../reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
 
-## Debugging dbt State[​](#debugging-dbt-state "Direct link to Debugging dbt State")
+## Debugging dbt State
 
 If dbt State is behaving unexpectedly, you can prepend your run command with the `DBT_ENGINE_MANAGE_STATE` environment variable to isolate the issue:
 
@@ -141,7 +143,7 @@ If dbt State is behaving unexpectedly, you can prepend your run command with the
 DBT_ENGINE_MANAGE_STATE=0 dbt run --target dev --select "customers"
 ```
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * [Migrate from state-aware orchestration](./dbt-state-migration.md)
 * [`dbt login` with dbt State](../../reference/commands/login.md?version=2.0#dbt-login-with-dbt-state)

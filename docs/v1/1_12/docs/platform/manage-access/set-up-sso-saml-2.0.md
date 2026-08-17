@@ -1,6 +1,6 @@
 # Set up SSO with SAML 2.0
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 dbt Enterprise-tier plans support single-sign on (SSO) for any SAML 2.0-compliant identity provider (IdP). Currently supported features include:
 
@@ -10,7 +10,7 @@ dbt Enterprise-tier plans support single-sign on (SSO) for any SAML 2.0-complian
 
 This document details the steps to integrate dbt with an identity provider in order to configure Single Sign On and [role-based access control](./about-user-access.md#role-based-access-control).
 
-## Auth0 URIs[​](#auth0-uris "Direct link to Auth0 URIs")
+## Auth0 URIs
 
 The URI used for SSO connections will vary based on your dbt hosted region. To find the Auth0 URI (also called the **Single sign-on URL**, **Authorization URL**, or **Callback URI**) for your environment:
 
@@ -29,12 +29,6 @@ The URI used for SSO connections will vary based on your dbt hosted region. To f
    | Google Workspace   | **Authorized Redirect URI** | `https://YOUR_AUTH0_URI/login/callback`                         |
    | Microsoft Entra ID | **Callback URI**            | `https://YOUR_AUTH0_URI/login/callback`                         |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
    *Replace `YOUR_AUTH0_URI` and `ACCOUNT_NAME` with your account values.*
 
 [![Example of the identity provider values for a SAML 2.0 provider](/img/docs/dbt-platform/access-control/sso-uri.png?v=2 "Example of the identity provider values for a SAML 2.0 provider")](#)Example of the identity provider values for a SAML 2.0 provider
@@ -43,28 +37,26 @@ Auth0 URI
 
 The Auth0 URI always contains YOUR\_AUTH0\_URI (for example, auth.cloud.getdbt.com), not your account-specific prefix URL (such as ks123.us1.dbt.com). This is because dbt uses Auth0 as a centralized authentication service across all regions and accounts. You don't need to replace this value with your cell-specific URL.
 
-## Generic SAML 2.0 integrations[​](#generic-saml-20-integrations "Direct link to Generic SAML 2.0 integrations")
+## Generic SAML 2.0 integrations
 
 If your SAML identity provider is one of Okta, Google, Azure or OneLogin, navigate to the relevant section further down this page. For all other SAML compliant identity providers, you can use the instructions in this section to configure that identity provider.
 
-### Configure your identity provider[​](#configure-your-identity-provider "Direct link to Configure your identity provider")
+### Configure your identity provider
 
 You'll need administrator access to your SAML 2.0 compliant identity provider to configure the identity provider. You can use the following instructions with any SAML 2.0 compliant identity provider.
 
-### Creating the application[​](#creating-the-application "Direct link to Creating the application")
+### Creating the application
 
 1. Log into your SAML 2.0 identity provider and create a new application.
 
 2. When promoted, configure the application with the following details:
-
-   <!-- -->
 
    * **Platform:** Web
    * **Sign on method:** SAML 2.0
    * **App name:** dbt
    * **App logo (optional):** You can optionally [download the dbt logo](https://drive.google.com/file/d/1fnsWHRu2a_UkJBJgkZtqt99x5bSyf3Aw/view?usp=sharing), and use as the logo for this app.
 
-#### Configuring the application[​](#configuring-the-application "Direct link to Configuring the application")
+#### Configuring the application
 
 The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
@@ -88,12 +80,6 @@ Additionally, you may configure the IdP attributes passed from your identity pro
 | last\_name  | Unspecified | user.last\_name  | The user's last name     |
 | NameID      | Unspecified | ID               | The user's unchanging ID |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 `NameID` values can be persistent (`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`) rather than unspecified if your IdP supports these values. Using an email address for `NameID` will work, but dbt creates an entirely new user if that email address changes. Configuring a value that will not change, even if the user's email address does, is a best practice.
 
 dbt's [role-based access control](./about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure your identity provider to provide group membership information in user attribute called `groups`:
@@ -102,17 +88,11 @@ dbt's [role-based access control](./about-user-access.md#role-based-access-contr
 | ------ | ----------- | ---------------- | --------------------------------------- |
 | groups | Unspecified | `<IdP-specific>` | The groups a user belongs to in the IdP |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Note
 
 You may use a restricted group attribute statement to limit the groups set to dbt for each authenticated user. For example, if all of your dbt groups start with `DBT_CLOUD_...`, you may optionally apply a filter like `Starts With: DBT_CLOUD_`.
 
-### Collect integration secrets[​](#collect-integration-secrets "Direct link to Collect integration secrets")
+### Collect integration secrets
 
 After confirming your details, the IdP should show you the following values for the new SAML 2.0 integration. Keep these values somewhere safe, as you will need them to complete setup in dbt.
 
@@ -121,8 +101,6 @@ After confirming your details, the IdP should show you the following values for 
 * Identity Provider SSO Url
 
 * X.509 Certificate (PEM format required)
-
-  <!-- -->
 
   *  Example of PEM format
 
@@ -145,11 +123,11 @@ After confirming your details, the IdP should show you the following values for 
     -----END CERTIFICATE-----
     ```
 
-### Finish setup[​](#finish-setup "Direct link to Finish setup")
+### Finish setup
 
 After creating the application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration.
 
-## Okta integration[​](#okta-integration "Direct link to Okta integration")
+## Okta integration
 
 You can use the instructions in this section to configure Okta as your identity provider.
 
@@ -166,7 +144,7 @@ You can use the instructions in this section to configure Okta as your identity 
 
 [![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")](#)Configure a new app
 
-### Configure the Okta application[​](#configure-the-okta-application "Direct link to Configure the Okta application")
+### Configure the Okta application
 
 The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
@@ -183,7 +161,7 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 [![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")](#)Configure the app's General Settings
 
-### Configure SAML Settings[​](#configure-saml-settings "Direct link to Configure SAML Settings")
+### Configure SAML Settings
 
 1. On the **SAML Settings** page, enter the following values:
 
@@ -206,23 +184,11 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
    | `first_name` | Unspecified | `user.firstName` | *The user's first name*    |
    | `last_name`  | Unspecified | `user.lastName`  | *The user's last name*     |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
 4. The following table illustrates expected **Group Attribute Statements**:
 
    | Name     | Name format | Filter        | Value | Description                           |
    | -------- | ----------- | ------------- | ----- | ------------------------------------- |
    | `groups` | Unspecified | Matches regex | `.*`  | *The groups that the user belongs to* |
-
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
 
 You can instead use a more restrictive Group Attribute Statement than the example shown in the previous steps. For example, if all of your dbt groups start with `DBT_CLOUD_`, you may use a filter like `Starts With: DBT_CLOUD_`. **Okta only returns 100 groups for each user, so if your users belong to more than 100 IdP groups, you will need to use a more restrictive filter**. Please contact support if you have any questions.
 
@@ -230,7 +196,7 @@ You can instead use a more restrictive Group Attribute Statement than the exampl
 
 5. Click **Next** to continue.
 
-### Finish Okta setup[​](#finish-okta-setup "Direct link to Finish Okta setup")
+### Finish Okta setup
 
 1. Select *I'm an Okta customer adding an internal app*.
 2. Select *This is an internal app that we have created*.
@@ -238,7 +204,7 @@ You can instead use a more restrictive Group Attribute Statement than the exampl
 
 [![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")](#)Finishing setup in Okta
 
-### View setup instructions[​](#view-setup-instructions "Direct link to View setup instructions")
+### View setup instructions
 
 1. On the next page, click **View Setup Instructions**.
 2. In the steps below, you'll supply these values in your dbt Account Settings to complete the integration between Okta and dbt.
@@ -249,11 +215,11 @@ You can instead use a more restrictive Group Attribute Statement than the exampl
 
 3. After creating the Okta application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration.
 
-## Google integration[​](#google-integration "Direct link to Google integration")
+## Google integration
 
 Use this section if you are configuring Google as your identity provider.
 
-### Configure the Google application[​](#configure-the-google-application "Direct link to Configure the Google application")
+### Configure the Google application
 
 The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
@@ -271,13 +237,11 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 5. Make these changes on the App Details page:
 
-   <!-- -->
-
    * Name the custom app
    * Upload an app logo (optional)
    * Click **Continue**.
 
-### Configure SAML Settings[​](#configure-saml-settings-1 "Direct link to Configure SAML Settings")
+### Configure SAML Settings
 
 1. Go to the **Google Identity Provider details** page.
 
@@ -286,8 +250,6 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 3. Copy the **SSO URL** and **Entity ID** and download the **Certificate** (or **SHA-256 fingerprint**, if needed).
 
 4. Enter the following values on the **Service Provider Details** window:
-
-   <!-- -->
 
    * **ACS URL**: `https://YOUR_AUTH0_URI/login/callback?connection=<login URL slug>`
    * **Audience URI (SP Entity ID)**: `urn:auth0:<YOUR_AUTH0_ENTITYID>:<login URL slug>`
@@ -310,27 +272,15 @@ Expected **Attributes**:
 | `Last name`     | Unspecified | `last_name`  | The user's last name.     |
 | `Primary email` | Unspecified | `email`      | The user's email address. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 9. To use [role-based access control](./about-user-access.md#role-based-access-control) in dbt, enter the groups in the **Group membership** field during configuration:
 
 | Google groups  | App attributes |
 | -------------- | -------------- |
 | Name of groups | `groups`       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 10. Click **Finish** to continue.
 
-### Finish Google setup[​](#finish-google-setup "Direct link to Finish Google setup")
+### Finish Google setup
 
 1. From the Admin console Home page, go to **Apps** and then click **Web and mobile apps**.
 2. Select your SAML app.
@@ -340,15 +290,15 @@ Search table...
 
 **Note:** Changes typically take effect in minutes, but can take up to 24 hours.
 
-### Finish setup[​](#finish-setup-1 "Direct link to Finish setup")
+### Finish setup
 
 After creating the Google application, follow the instructions in the [dbt setup](#dbt-setup)
 
-## Microsoft Entra ID (formerly Azure AD) integration[​](#microsoft-entra-id-formerly-azure-ad-integration "Direct link to Microsoft Entra ID (formerly Azure AD) integration")
+## Microsoft Entra ID (formerly Azure AD) integration
 
 If you're using Microsoft Entra ID (formerly Azure AD), the instructions below will help you configure it as your identity provider.
 
-### Create a Microsoft Entra ID Enterprise application[​](#create-a-microsoft-entra-id-enterprise-application "Direct link to Create a Microsoft Entra ID Enterprise application")
+### Create a Microsoft Entra ID Enterprise application
 
 The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
@@ -387,15 +337,9 @@ Follow these steps to set up single sign-on (SSO) with dbt:
 | **Reply URL (Assertion Consumer Service URL)** | Use `https://YOUR_AUTH0_URI/login/callback?connection=<login URL slug>`. |
 | **Relay State**                                | `<login URL slug>`                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 14. Click **Save** at the top of the form.
 
-### Creating SAML settings[​](#creating-saml-settings "Direct link to Creating SAML settings")
+### Creating SAML settings
 
 From the Set up Single Sign-On with SAML page:
 
@@ -417,12 +361,6 @@ From the Set up Single Sign-On with SAML page:
    | **first\_name** | user.givenname   |
    | **last\_name**  | user.surname     |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
 7. Click **Add a group claim** from **User Attributes and Claims.**
 
 8. If you assign users directly to the enterprise application, select **Security Groups**. If not, select **Groups assigned to the application**.
@@ -433,7 +371,7 @@ From the Set up Single Sign-On with SAML page:
 
 **Note:** Keep in mind that the Group ID in Entra ID maps to that group's GUID. It should be specified in lowercase for the mappings to work as expected. The Source Attribute field alternatively can be set to a different value of your preference.
 
-### Finish setup[​](#finish-setup-2 "Direct link to Finish setup")
+### Finish setup
 
 9. After creating the Azure application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration. The names for fields in dbt vary from those in the Entra ID app. They're mapped as follows:
 
@@ -442,19 +380,13 @@ From the Set up Single Sign-On with SAML page:
    | **Identity Provider SSO URL** | Login URL                    |
    | **Identity Provider Issuer**  | Microsoft Entra Identifier   |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
-## OneLogin integration[​](#onelogin-integration "Direct link to OneLogin integration")
+## OneLogin integration
 
 Use this section if you are configuring OneLogin as your identity provider.
 
 To configure OneLogin, you will need **Administrator** access.
 
-### Configure the OneLogin application[​](#configure-the-onelogin-application "Direct link to Configure the OneLogin application")
+### Configure the OneLogin application
 
 The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace these placeholders with the [appropriate Auth0 URI and Auth0 Entity ID](./sso-overview.md#auth0-uris) for your region. You can find these values in **Account settings** > **SSO & SCIM** > **Edit** or **Get started** after selecting your identity provider.
 
@@ -466,14 +398,12 @@ Users can also sign in at <https://login.dbt.com> to see accounts they have acce
 
 2. Configure the application with the following details:
 
-   <!-- -->
-
    * **Platform:** Web
    * **Sign on method:** SAML 2.0
    * **App name:** dbt
    * **App logo (optional):** You can optionally [download the dbt logo](https://drive.google.com/file/d/1fnsWHRu2a_UkJBJgkZtqt99x5bSyf3Aw/view?usp=sharing), and use as the logo for this app.
 
-### Configure SAML settings[​](#configure-saml-settings-2 "Direct link to Configure SAML settings")
+### Configure SAML settings
 
 3. Under the **Configuration tab**, input the following values:
 
@@ -493,25 +423,13 @@ We recommend using the following values:
 | first\_name | Unspecified | First Name  |
 | last\_name  | Unspecified | Last Name   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 dbt's [role-based access control](./about-user-access.md#role-based-access-control) relies on group mappings from the IdP to assign dbt users to dbt groups. To use role-based access control in dbt, also configure OneLogin to provide group membership information in user attribute called `groups`:
 
 | name   | name format | value                                             | description                             |
 | ------ | ----------- | ------------------------------------------------- | --------------------------------------- |
 | groups | Unspecified | Series of groups to be used for your organization | The groups a user belongs to in the IdP |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Collect integration secrets[​](#collect-integration-secrets-1 "Direct link to Collect integration secrets")
+### Collect integration secrets
 
 5. After confirming your details, go to the **SSO tab**. OneLogin should show you the following values for the new integration. Keep these values somewhere safe, as you will need them to complete setup in dbt.
 
@@ -520,8 +438,6 @@ Search table...
 * SAML 2.0 Endpoint (HTTP)
 
 * X.509 Certificate (PEM format required)
-
-  <!-- -->
 
   *  Example of PEM format
 
@@ -544,13 +460,13 @@ Search table...
     -----END CERTIFICATE-----
     ```
 
-### Finish setup[​](#finish-setup-3 "Direct link to Finish setup")
+### Finish setup
 
 6. After creating the OneLogin application, follow the instructions in the [dbt setup](#dbt-setup) section to complete the integration.
 
-## dbt setup[​](#dbt-setup "Direct link to dbt setup")
+## dbt setup
 
-### Providing IdP values to dbt[​](#providing-idp-values-to-dbt "Direct link to Providing IdP values to dbt")
+### Providing IdP values to dbt
 
 To complete setup, follow the steps below in dbt:
 
@@ -567,19 +483,13 @@ To complete setup, follow the steps below in dbt:
    | Identity Provider Issuer  | Paste the **Identity Provider Issuer** shown in the IdP setup instructions                                                                                                                                                 |
    | X.509 Certificate         | Paste the **X.509 Certificate** shown in the IdP setup instructions;<br />**Note:** When the certificate expires, an Idp admin will have to generate a new one to be pasted into dbt for uninterrupted application access. |
 
-   Search table...
-
-   |                  |   |   |   |   |
-   | ---------------- | - | - | - | - |
-   | Loading table... |   |   |   |   |
-
    [![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")](#)Configuring the application in dbt
 
 4. Click **Save** to complete setup for the SAML 2.0 integration.
 
 5. After completing the setup, you can navigate to the URL generated for your account's *slug* to test logging in with your identity provider. Additionally, users added the the SAML 2.0 app will be able to log in to dbt from the IdP directly.
 
-### Additional configuration options[​](#additional-configuration-options "Direct link to Additional configuration options")
+### Additional configuration options
 
 The **Single sign-on** section also contains additional configuration options which are located after the credentials fields.
 
@@ -597,7 +507,7 @@ For SSO through your identity provider, you can also use the following URL forma
 
 Account administrators can turn account discovery on or off with **Enable global account discovery** in [Account settings](../account-settings.md#enable-global-account-discovery).
 
-### Setting up RBAC[​](#setting-up-rbac "Direct link to Setting up RBAC")
+### Setting up RBAC
 
 After configuring an identity provider, you will be able to set up [role-based access control](./enterprise-permissions.md) for your account.
 

@@ -1,6 +1,6 @@
 # dbt Wizard slash command reference [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 Full reference for dbt Wizard interactive TUI slash commands.
 
@@ -18,11 +18,11 @@ We'd love to hear how dbt Wizard is working for you. Share your feedback by eith
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
 
-## Slash commands[​](#slash-commands "Direct link to Slash commands")
+## Slash commands
 
 Type `/` in the composer to open the command picker. Use arrow keys to navigate or keep typing to filter. Press **Tab** to queue a command while a task is running — it executes at the end of the current turn.
 
-### All slash commands[​](#all-slash-commands "Direct link to All slash commands")
+### All slash commands
 
 | Command                                             | Alias    | Purpose                                                                | Available during task |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------- | --------------------- |
@@ -79,7 +79,7 @@ Type `/` in the composer to open the command picker. Use arrow keys to navigate 
 
 ***
 
-### Model and AI[​](#model-and-ai "Direct link to Model and AI")
+### Model and AI
 
 Control the AI model, provider, speed, and response style.
 
@@ -91,7 +91,7 @@ Control the AI model, provider, speed, and response style.
 
 ***
 
-### Session management[​](#session-management "Direct link to Session management")
+### Session management
 
 Start, resume, branch, and clean up sessions.
 
@@ -107,7 +107,7 @@ Start, resume, branch, and clean up sessions.
 
 ***
 
-### Review and context[​](#review-and-context "Direct link to Review and context")
+### Review and context
 
 Pull information into the session or trigger a code review.
 
@@ -123,7 +123,7 @@ Pull information into the session or trigger a code review.
 
 ***
 
-### Permissions and safety[​](#permissions-and-safety "Direct link to Permissions and safety")
+### Permissions and safety
 
 Control what Wizard is allowed to execute.
 
@@ -135,7 +135,7 @@ Control what Wizard is allowed to execute.
 
 ***
 
-### Customization[​](#customization "Direct link to Customization")
+### Customization
 
 Appearance, keybindings, and UI preferences.
 
@@ -152,7 +152,7 @@ Appearance, keybindings, and UI preferences.
 
 ***
 
-### Skills and extensions[​](#skills-and-extensions "Direct link to Skills and extensions")
+### Skills and extensions
 
 Manage capabilities Wizard can use during a session.
 
@@ -166,7 +166,7 @@ Manage capabilities Wizard can use during a session.
 
 ***
 
-### Long-running tasks[​](#long-running-tasks "Direct link to Long-running tasks")
+### Long-running tasks
 
 Manage multi-turn goals, parallel agents, and branched conversations.
 
@@ -181,7 +181,7 @@ Manage multi-turn goals, parallel agents, and branched conversations.
 
 ***
 
-### Background terminals[​](#background-terminals "Direct link to Background terminals")
+### Background terminals
 
 Inspect and control shell processes Wizard has running in the background.
 
@@ -192,7 +192,7 @@ Inspect and control shell processes Wizard has running in the background.
 
 ***
 
-### Memory[​](#memory "Direct link to Memory")
+### Memory
 
 Control how Wizard stores and uses memory across sessions.
 
@@ -202,7 +202,7 @@ Control how Wizard stores and uses memory across sessions.
 
 ***
 
-### Session info[​](#session-info "Direct link to Session info")
+### Session info
 
 Inspect the current session state without changing anything.
 
@@ -215,7 +215,7 @@ Inspect the current session state without changing anything.
 
 ***
 
-### Exit[​](#exit "Direct link to Exit")
+### Exit
 
 | Command | Inline args | Description |
 | ------- | ----------- | ----------- |
@@ -224,7 +224,7 @@ Inspect the current session state without changing anything.
 
 ***
 
-### Realtime (experimental)[​](#realtime-experimental "Direct link to Realtime (experimental)")
+### Realtime (experimental)
 
 | Command     | Inline args | Description                               |
 | ----------- | ----------- | ----------------------------------------- |
@@ -233,7 +233,7 @@ Inspect the current session state without changing anything.
 
 ***
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Wizard CLI command reference](./wizard-cli-reference.md) for flags and subcommands
 * [Use subagents](./wizard-subagents.md) for the `/agent` and `/subagents` commands

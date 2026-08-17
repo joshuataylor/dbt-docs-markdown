@@ -14,7 +14,7 @@ info
 
 This guide is for dbt Core 2.0. For dbt Core v1.x, see [Build, test, document, and promote adapters](./adapter-creation.md).
 
-## Step 1: Introduction[​](#step-1-introduction "Direct link to Step 1: Introduction")
+## Step 1: Introduction
 
 dbt Core v2.0 adapters work very differently from v1, and it's worth understanding why before diving in.
 
@@ -30,7 +30,7 @@ This guide walks you through the architecture, crate structure, and how to contr
 
 The Exasol adapter, contributed by [Marco Nätlitz](https://www.linkedin.com/in/marco-naetlitz/), is used as the reference example throughout. The full file breakdown in the [reference section](#reference-file-by-file-implementation-guide) defines exactly what you're building.
 
-### How v1 vs. v2 adapters differ[​](#how-v1-vs-v2-adapters-differ "Direct link to How v1 vs. v2 adapters differ")
+### How v1 vs. v2 adapters differ
 
 | Topic                     | dbt Core v1.x                                                                                        | dbt Core v2.0                                                                                                   |
 | ------------------------- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -41,13 +41,7 @@ The Exasol adapter, contributed by [Marco Nätlitz](https://www.linkedin.com/in/
 | **Connection management** | Each adapter implements its own connection logic, built on vendor Python SDK connectors/drivers      | ADBC drivers handle connection management: a unified driver interface that abstracts away wire protocol details |
 | **Code organization**     | Organized by warehouse, each adapter is its own isolated codebase                                    | Organized by feature area (vertical): a fix in one crate benefits all adapters                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### What you're building[​](#what-youre-building "Direct link to What you're building")
+### What you're building
 
 As a community contributor, you're building the foundation: connect your warehouse, run dbt macros, and support basic materializations. Once your adapter is in place, `dbt build` and `dbt run` should work. The \~13 files in the [reference section](#reference-file-by-file-implementation-guide) define the complete scope.
 
@@ -55,7 +49,7 @@ Think of your adapter contribution as the bridge between dbt Core v2.0 and your 
 
 [![dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse](/img/adapter-guide/adapter-creation-v2-architecture.svg?v=2 "dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse")](#)dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse
 
-## Step 2: Prerequisites[​](#step-2-prerequisites "Direct link to Step 2: Prerequisites")
+## Step 2: Prerequisites
 
 **Rust familiarity**: You don't need to be a Rust expert. You need to read Rust, understand enum match expressions, and make sense of compiler errors. If Rust is new to you, skim [The Rust Book](https://doc.rust-lang.org/book/) Chapter 6 (enums and pattern matching). Those are the concepts you'll encounter most.
 
@@ -72,7 +66,7 @@ Think of your adapter contribution as the bridge between dbt Core v2.0 and your 
 
 **A note on AI-assisted development**: dbt Core v2.0's architecture is naturally legible to AI coding tools. Match arms are explicit, compiler errors are precise, and the scope of each file is narrow. You don't need to use an LLM, but if you do, the structure works in your favor.
 
-### Your ADBC driver[​](#your-adbc-driver "Direct link to Your ADBC driver")
+### Your ADBC driver
 
 *Do you have an ADBC driver for your warehouse? If no, stop here.* The ADBC driver is a firm requirement before creating a dbt Core v2.0 adapter.
 
@@ -89,9 +83,9 @@ Long-term: signed driver distribution
 
 dbt Labs is working toward a model where community drivers can be distributed and loaded safely via signed binaries, similar to how operating systems verify installers. The goal is to make third-party driver installation as seamless and trustworthy as first-party. This isn't in place yet, but dbt Labs is considering this direction.
 
-## Step 3: Understanding the codebase shape before you build[​](#step-3-understanding-the-codebase-shape-before-you-build "Direct link to Step 3: Understanding the codebase shape before you build")
+## Step 3: Understanding the codebase shape before you build
 
-### The vertical model[​](#the-vertical-model "Direct link to The vertical model")
+### The vertical model
 
 dbt Core v2.0 organizes adapter logic by *capability*, not by warehouse. There's no `SnowflakeAdapter` class, no `BigQueryAdapter` class. Instead, a single shared codebase handles all warehouses, with warehouse-specific behavior driven by `match adapter_type()` expressions. When you add a new warehouse, you're adding arms to those expressions across a set of feature areas, auth, relations, catalog introspection, Jinja macros, rather than creating a new top-level package.
 
@@ -99,7 +93,7 @@ The structural diagram below shows how the layers fit together. Your work lives 
 
 [![dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers](/img/adapter-guide/adapter-creation-v2-structural.svg?v=2 "dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers")](#)dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers
 
-### Crate map[​](#crate-map "Direct link to Crate map")
+### Crate map
 
 In Rust, a **crate** is a package: the unit of compilation, roughly equivalent to a "library" or "module" in other languages. The `dbt-core` repo is a monorepo of multiple crates, each responsible for one vertical slice of functionality across all warehouses. This is a quick-reference map of the six crates you'll touch to build your adapter, in the order you'll work through them in Step 5.
 
@@ -112,13 +106,7 @@ In Rust, a **crate** is a package: the unit of compilation, roughly equivalent t
 | `dbt-adapter`      | `crates/dbt-adapter/`      | Relation quoting, metadata catalog queries, adapter match arms, column builder, sql\_types |
 | `dbt-loader`       | `crates/dbt-loader/`       | Jinja SQL macros (`dbt_macro_assets/dbt-<adapter>/`)                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Where your adapter fits in the execution model[​](#where-your-adapter-fits-in-the-execution-model "Direct link to Where your adapter fits in the execution model")
+### Where your adapter fits in the execution model
 
 By the time your adapter is invoked, all the dbt work is already done. dbt has resolved `ref()` and `source()` calls, rendered every Jinja template, and produced dialect-specific SQL. Your adapter receives a finished string and executes it.
 
@@ -159,7 +147,7 @@ error[E0004]: non-exhaustive patterns: `AdapterType::MyWarehouse` not covered
 
 Each failure is a concrete implementation task.
 
-### Are you porting an existing v1 adapter?[​](#are-you-porting-an-existing-v1-adapter "Direct link to Are you porting an existing v1 adapter?")
+### Are you porting an existing v1 adapter?
 
 No v1 adapter? Skip to [Step 4](#step-4-development-machine-setup). If you're porting, use this map to see exactly what transfers, what needs rethinking, and what dbt Labs now owns for you in v2.
 
@@ -185,15 +173,9 @@ Some warehouses already appear in v2's `AdapterType` enum but aren't fully imple
 | Dremio    | [dbt-dremio](https://github.com/dremio/dbt-dremio) (trusted)      | `AdapterType::Dremio` exists: needs auth, macros, adapter arms    |
 | Oracle    | [dbt-oracle](https://github.com/oracle/dbt-oracle) (trusted)      | `AdapterType::Oracle` exists: needs auth, macros, adapter arms    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For warehouses not yet in `AdapterType` at all (MySQL, Hive, Vertica, SQL Server, Teradata, etc.), you start from Step 5.1 by adding the `AdapterType` variant.
 
-#### What transfers from v1 to v2[​](#what-transfers-from-v1-to-v2 "Direct link to What transfers from v1 to v2")
+#### What transfers from v1 to v2
 
 | v1 component                                                | Where it goes in v2                                                                                                                                                                    | Notes                                                                                                          |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
@@ -205,13 +187,7 @@ For warehouses not yet in `AdapterType` at all (MySQL, Hive, Vertica, SQL Server
 | `BaseRelation.quote_policy` / identifier casing behavior    | `include_policy()` in `crates/dbt-adapter/src/relation/relation_impl.rs`, `Policy` is a type alias for `ResolvedQuoting` defined in `crates/dbt-schemas/src/schemas/relations/base.rs` | The 3-part vs. 2-part name structure and quote flags map 1:1 to the dbt Core v2.0 `Policy` struct              |
 | Catalog introspection SQL in macros and `adapter.py`        | `get_relation.rs` and Jinja macros                                                                                                                                                     | The system catalog table names and queries you already know transfer directly                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### What doesn't transfer by design[​](#what-doesnt-transfer-by-design "Direct link to What doesn't transfer by design")
+#### What doesn't transfer by design
 
 Four categories of v1 code simply don't exist in v2, which means less code to port:
 
@@ -220,7 +196,7 @@ Four categories of v1 code simply don't exist in v2, which means less code to po
 * **Adapter class hierarchy**: The Python subclass structure is replaced by shared Rust match expressions. You register your adapter; you don't implement execution logic.
 * **Packaging and distribution**: No `setup.py`, no PyPI release. dbt Labs ships your adapter once the PR is merged.
 
-## Step 4: Development machine setup[​](#step-4-development-machine-setup "Direct link to Step 4: Development machine setup")
+## Step 4: Development machine setup
 
 ```shell
 # Rust
@@ -250,14 +226,13 @@ If disk fills during build:
 cargo clean  # frees old build artifacts; you'll do this often
 ```
 
-### Development workflow[​](#development-workflow "Direct link to Development workflow")
+### Development workflow
 
 The core development loop is the same whether you write code manually or with an AI assistant:
 
 1. Add `AdapterType::MyWarehouse` to the enum (Step 5.1)
 2. Run `cargo build -p <crate>`: the compiler lists every match arm missing for your new variant
 3. Use the compiler output + the file you're editing + the equivalent reference file (from the breakdown at the bottom) to write each arm. If using an AI assistant, paste all three in as context.
-   <!-- -->
    * *Example:* to fill in the `quote_char` arm, paste the error listing `AdapterType::MyWarehouse` as missing, the `quote_char` match block from `dbt-adapter-core/src/lib.rs`, and the Exasol line (`Exasol => '"'`) as the pattern to follow.
 4. Fill in the arm; verify with `cargo build` again
 5. Repeat for each crate until error-free
@@ -277,7 +252,7 @@ Watch out for:
 * **Always verify with the type checker**: run `cargo build -p <crate>` after any AI-generated changes.
 * **SQL macro patterns from v1** may not apply cleanly in dbt Core v2.0. Compare against the reference `adapters.sql` at `crates/dbt-loader/src/dbt_macro_assets/dbt-exasol/macros/adapters.sql` in [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core).
 
-## Step 5: Build a new adapter[​](#step-5-build-a-new-adapter "Direct link to Step 5: Build a new adapter")
+## Step 5: Build a new adapter
 
 This step walks you through each crate you need to touch. Work through them in order. Each builds on the last. After each sub-step, run the type checker to catch missed match arms and type errors:
 
@@ -287,7 +262,7 @@ cargo build -p <crate-name>
 
 Replace `<crate-name>` with the crate you just edited, for example `dbt-adapter-core`, `dbt-xdbc`, `dbt-schemas`, `dbt-auth`, `dbt-adapter`, or `dbt-loader`.
 
-### 5.1: Register the adapter type[​](#51-register-the-adapter-type "Direct link to 5.1: Register the adapter type")
+### 5.1: Register the adapter type
 
 **Crate:** `crates/dbt-adapter-core/`
 
@@ -320,7 +295,7 @@ fn quote_char(&self) -> char {
 }
 ```
 
-### 5.2: Register the ADBC driver[​](#52-register-the-adbc-driver "Direct link to 5.2: Register the ADBC driver")
+### 5.2: Register the ADBC driver
 
 **Crate:** `crates/dbt-xdbc/`
 
@@ -331,15 +306,9 @@ Your driver already exists (covered in Step 2). This step is where you register 
 | `src/driver.rs`  | Add a variant to the `Backend` enum; add the ADBC library name (e.g. `"adbc_driver_exasol"`) and FFI protocol; also define a `LoadStrategy` | **Yes**                                                                                                   |
 | `src/install.rs` | Add CDN download URL and platform strings                                                                                                   | No, only for drivers distributed via the dbt Labs CDN, which requires separate coordination with dbt Labs |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The `Backend` enum maps to the ADBC shared library name (`lib<name>.so` / `<name>.dll` / `lib<name>.dylib`). You're registering its identity so dbt Core v2.0 knows what to load. You're not writing the driver here.
 
-#### CDN-distributed vs. manual install[​](#cdn-distributed-vs-manual-install "Direct link to CDN-distributed vs. manual install")
+#### CDN-distributed vs. manual install
 
 For these 11 adapters, dbt Core v2.0 automatically downloads the driver on first use. All other adapters require manual installation. Users take one extra setup step. Make this clear in your documentation (Step 7).
 
@@ -347,27 +316,15 @@ For these 11 adapters, dbt Core v2.0 automatically downloads the driver on first
 | ----------------------------------------------------------------------------------------------------------------------- |
 | Snowflake, BigQuery, ClickHouse, Postgres, Databricks, Redshift, DuckDB, DuckDB Extended, Salesforce, Spark, SQL Server |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For **custom Arrow type mappings** (for example, DuckDB needed this for `HUGEINT`, `UTINYINT`): only add warehouse-specific type handling if your driver returns types that Arrow's standard schema doesn't cover. Most warehouses don't need this.
 
-### 5.3: Add your connection profile[​](#53-add-your-connection-profile "Direct link to 5.3: Add your connection profile")
+### 5.3: Add your connection profile
 
 **Crate:** `crates/dbt-schemas/`
 
 | File                      | What to do                                                              |
 | ------------------------- | ----------------------------------------------------------------------- |
 | `src/schemas/profiles.rs` | Add a `DbConfig` variant and a config struct with all connection fields |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 The config struct should include everything a user would put in their `profiles.yml` for your warehouse. Example from Exasol:
 
@@ -391,7 +348,7 @@ pub struct ExasolDbConfig {
 
 After adding the config struct, also add `DbConfig::MyWarehouse(Box<MyWarehouseDbConfig>)` as a new variant to the `DbConfig` enum. The compiler will then point you at every place that reads from `DbConfig` and needs a new case for your warehouse. Follow those errors to wire it in.
 
-### 5.3.1: Add `dbt init` profile generation (optional but strongly encouraged)[​](#531-add-dbt-init-profile-generation-optional-but-strongly-encouraged "Direct link to 531-add-dbt-init-profile-generation-optional-but-strongly-encouraged")
+### 5.3.1: Add `dbt init` profile generation (optional but strongly encouraged)
 
 This is what makes your adapter easy to use. When someone runs `dbt init` and selects your warehouse, they get a guided prompt that builds their `profiles.yml`, without documentation hunting or manual YAML editing.
 
@@ -429,7 +386,7 @@ AdapterType::MyWarehouse => {
 }
 ```
 
-### 5.4: Add authentication[​](#54-add-authentication "Direct link to 5.4: Add authentication")
+### 5.4: Add authentication
 
 **Crate:** `crates/dbt-auth/`
 
@@ -439,17 +396,11 @@ AdapterType::MyWarehouse => {
 | `src/<warehouse>/init.rs` | Init SQL generation, SQL that must run when the connection opens (e.g. `USE SCHEMA`, `SET` statements, extension loading) | Optional, only for warehouses that need SQL on connection open. Most don't. |
 | `src/lib.rs`              | Register the new module with `mod <warehouse>;` and wire it into the auth dispatch match                                  | **Yes**                                                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The auth module turns a `DbConfig` into a live, authenticated ADBC connection. At minimum you need basic credential handling. More sophisticated auth (OAuth, SSO, key-pair) can be added incrementally.
 
 The pattern is: read config fields → construct URI → call `builder.with_parse_uri(uri)`, `builder.with_username(user)`, `builder.with_password(password)`.
 
-### 5.5: Build the adapter layer[​](#55-build-the-adapter-layer "Direct link to 5.5: Build the adapter layer")
+### 5.5: Build the adapter layer
 
 **Crate:** `crates/dbt-adapter/`
 
@@ -463,7 +414,7 @@ Only adapters with highly custom relation logic (Snowflake's multi-part names an
 
 If your warehouse uses standard `schema.table` or `database.schema.table` naming with straightforward quoting, you're a simple adapter. Start simple and only add complexity if the compiler forces it.
 
-#### Relation type and quoting[​](#relation-type-and-quoting "Direct link to Relation type and quoting")
+#### Relation type and quoting
 
 **File:** `crates/dbt-adapter/src/relation/relation_impl.rs`
 
@@ -498,7 +449,7 @@ Databricks | Spark | Fabric | DuckDB | Exasol | Postgres | Redshift | Salesforce
 }
 ```
 
-#### Catalog introspection[​](#catalog-introspection "Direct link to Catalog introspection")
+#### Catalog introspection
 
 **File:** `src/metadata/get_relation.rs`
 
@@ -537,7 +488,7 @@ fn exasol_get_relation(
 
 Use `information_schema` if your warehouse supports standard SQL, or system catalog tables (`sys.*`, `information_schema.*`) as appropriate.
 
-#### Adapter match arms[​](#adapter-match-arms "Direct link to Adapter match arms")
+#### Adapter match arms
 
 **File:** `src/adapter/adapter_impl.rs`
 
@@ -556,7 +507,7 @@ AdapterType::Exasol => "DATA_TYPE",  // in src/sql_types.rs
 
 For capabilities your adapter doesn't support yet (like `valid_incremental_strategies`), return `unimplemented!()`. That's fine for an initial community adapter contribution.
 
-#### Column builder[​](#column-builder "Direct link to Column builder")
+#### Column builder
 
 **File:** `src/column/column_builder.rs`
 
@@ -568,7 +519,7 @@ Exasol => Ok(Self::build_postgres_like(field, type_ops)),
 
 Only implement custom logic if your warehouse has unusual type handling.
 
-### 5.6: Write your SQL macros[​](#56-write-your-sql-macros "Direct link to 5.6: Write your SQL macros")
+### 5.6: Write your SQL macros
 
 **Crate:** `crates/dbt-loader/`
 
@@ -582,12 +533,6 @@ The loader discovers adapter packages by scanning `src/dbt_macro_assets/`. You d
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dbt_macro_assets/dbt-<warehouse>/dbt_project.yml` | Adapter plugin project definition: `name: dbt_<warehouse>`, `macro-paths: ["macros"]`                                                                                                                                                                                                                 |
 | `macros/adapters.sql`                              | Core adapter macros: `create_schema`, `drop_schema`, `drop_relation`, `rename_relation`, `truncate_relation`, `create_table_as`, `create_view_as`, `list_schemas`, `check_schema_exists`, `information_schema_name`, `current_timestamp`, `get_columns_in_relation`, `list_relations_without_caching` |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 v2 uses the same `adapter.dispatch()` pattern as v1. Your macros use the `<warehouse>__` prefix to override defaults:
 
@@ -656,9 +601,9 @@ If your warehouse is similar to an existing one (e.g. Postgres-compatible), star
 {%- endmacro %}
 ```
 
-## Step 6: Test your adapter[​](#step-6-test-your-adapter "Direct link to Step 6: Test your adapter")
+## Step 6: Test your adapter
 
-### Type check after each crate[​](#type-check-after-each-crate "Direct link to Type check after each crate")
+### Type check after each crate
 
 Run the type checker after completing work in each crate to catch missed match arms and type errors immediately:
 
@@ -671,7 +616,7 @@ cargo build -p dbt-adapter
 cargo build -p dbt-loader
 ```
 
-### Smoke testing with a dbt project[​](#smoke-testing-with-a-dbt-project "Direct link to Smoke testing with a dbt project")
+### Smoke testing with a dbt project
 
 Run a real `dbt build` against your warehouse and ensure it builds error-free. At minimum, exercise table, view, incremental, and seed materializations. A clean `dbt build` on [jaffle-shop](https://github.com/dbt-labs/jaffle-shop) is one example of an acceptance bar for a community adapter.
 
@@ -686,7 +631,7 @@ cargo build --bin dbt
 ./target/debug/dbt build --project-dir <your-project>
 ```
 
-### CI testing[​](#ci-testing "Direct link to CI testing")
+### CI testing
 
 CI testing for community adapter PRs is coordinated with the dbt Labs adapters team: the test infrastructure is not publicly distributed. When your PR is ready, reach out in `#adapter-ecosystem` on the [dbt Community Slack](https://community.getdbt.com/), tag Hope Watson (`@Hope Watson (dbt Labs)`), and the adapters team will work with you on warehouse validation. Note that this may take some time and coordination.
 
@@ -694,11 +639,11 @@ Known gap: CI requires coordination
 
 Community contributors cannot run CI independently. dbt Labs' CI pipeline requires certain checks. For certain adapters, that means warehouse credentials. dbt Labs is still defining this handoff process for dbt Core v2.0. Expect to coordinate closely with the adapters team, for the approval process to take some time, and for some back-and-forth. If you hit friction, flag it in `#adapter-ecosystem`.
 
-## Step 7: Document your adapter[​](#step-7-document-your-adapter "Direct link to Step 7: Document your adapter")
+## Step 7: Document your adapter
 
 Once your adapter is merged and available in a release, document it so users can find and configure it.
 
-### Write a setup guide[​](#write-a-setup-guide "Direct link to Write a setup guide")
+### Write a setup guide
 
 Document the `profiles.yml` configuration for your warehouse: what fields are required, what's optional, and example values. Follow the format of existing [adapter setup guides](../docs/local/connect-data-platform/about-dbt-connections.md?version=2.0).
 
@@ -706,31 +651,31 @@ Driver installation is critical to document
 
 Unlike adapters distributed via the CDN, your users won't get the driver automatically: dbt Core v2.0 won't download it for them. Your setup guide must explain where to get the driver binary and how to install it so dbt Core v2.0 can find it at runtime. Without this, users will configure a valid profile and still get a connection error. Include the exact library name dbt Core v2.0 looks for (e.g. `libadbc_driver_<yourwarehouse>.dylib`) and where to put it.
 
-### General documentation guidelines[​](#general-documentation-guidelines "Direct link to General documentation guidelines")
+### General documentation guidelines
 
 * Assume the reader knows dbt fundamentals but is not an expert on your warehouse's inner workings.
 * Include a complete working `profiles.yml` example.
 * Document any warehouse-specific quirks (e.g. 2-part vs 3-part naming, identifier case sensitivity).
 * Link to the warehouse vendor's ADBC driver documentation.
 
-## Step 8: Promote your adapter[​](#step-8-promote-your-adapter "Direct link to Step 8: Promote your adapter")
+## Step 8: Promote your adapter
 
 Your PR must be merged first
 
 dbt Labs reviews and merges community adapter PRs into dbt-core. Wait until the PR is merged and the adapter ships in a published release before directing users to it.
 
-### Community channels[​](#community-channels "Direct link to Community channels")
+### Community channels
 
 Join the [dbt Community Slack](https://community.getdbt.com/) and find:
 
 * **`#adapter-ecosystem`**: the main channel for adapter developers
 * **`#db-<yourwarehouse>`**: if a channel exists for your warehouse, let users know v2 support is available. Note: v1 adapter users will still be on the Python-based adapter and will need to migrate.
 
-### Before you announce[​](#before-you-announce "Direct link to Before you announce")
+### Before you announce
 
 Align with the adapters team on: which materializations you're targeting in the initial implementation, any known gaps in your ADBC driver, and timeline. This prevents surprises during review and sets accurate expectations for users.
 
-## Reference: File-by-file implementation guide[​](#reference-file-by-file-implementation-guide "Direct link to Reference: File-by-file implementation guide")
+## Reference: File-by-file implementation guide
 
 A community-contributed dbt Core v2.0 adapter touches roughly 13 files, all in the public [dbt-labs/dbt-core](https://github.com/dbt-labs/dbt-core) repo. The "Exasol example" column shows what it looks like in practice. Substitute your warehouse name and system catalog throughout.
 
@@ -750,13 +695,7 @@ A community-contributed dbt Core v2.0 adapter touches roughly 13 files, all in t
 | `crates/dbt-loader/src/dbt_macro_assets/dbt-<warehouse>/dbt_project.yml`     | Macro plugin project definition                                                                                                       | `dbt-exasol/dbt_project.yml`                                                                                                                    |
 | `crates/dbt-loader/src/dbt_macro_assets/dbt-<warehouse>/macros/adapters.sql` | All required adapter macros                                                                                                           | `dbt-exasol/macros/adapters.sql`, uses `sys.*` instead of `information_schema`                                                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Reference: Useful commands[​](#reference-useful-commands "Direct link to Reference: Useful commands")
+## Reference: Useful commands
 
 ```shell
 # Type check a specific crate

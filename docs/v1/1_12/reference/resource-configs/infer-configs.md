@@ -1,6 +1,6 @@
 # Infer configurations
 
-## Authentication[​](#authentication "Direct link to Authentication")
+## Authentication
 
 To connect to Infer from your dbt instance you need to set up a correct profile in your `profiles.yml`.
 
@@ -21,7 +21,7 @@ The format of this should look like this:
         [configuration for your underlying data warehouse]  
 ```
 
-### Description of Infer Profile Fields[​](#description-of-infer-profile-fields "Direct link to Description of Infer Profile Fields")
+### Description of Infer Profile Fields
 
 | Field         | Required | Description                                                                                                                                       |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,9 +30,3 @@ The format of this should look like this:
 | `username`    | Yes      | Your Infer username - the one you use to login.                                                                                                   |
 | `apikey`      | Yes      | Your Infer api key.                                                                                                                               |
 | `data_config` | Yes      | The configuration for your underlying data warehouse. The format of this follows the format of the configuration for your data warehouse adapter. |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

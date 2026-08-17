@@ -7,7 +7,7 @@ Retry re-executes the last invocation from the point of failure.
 * Once some nodes have run, you can use retry to re-execute from any new point of failure.
 * If the previously executed command completed successfully, retry will finish as `no operation`.
 
-## Retry flags[​](#retry-flags "Direct link to Retry flags")
+## Retry flags
 
 The `dbt retry` flags apply when you use a self-hosted dbt installation or the Studio IDE.
 
@@ -15,7 +15,7 @@ dbt platform CLI
 
 If you use the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) against your cloud environment, `dbt retry` accepts only a small subset of overrides—typically `--threads`, `--vars`, and related options. Use `dbt retry --help` on your machine for the exact list your CLI build supports.
 
-<!-- -->
+(Applies to dbt v2.0 and later)
 
 The following flags are supported when you run `dbt retry` with the dbt Fusion engine:
 
@@ -29,21 +29,15 @@ The following flags are supported when you run `dbt retry` with the dbt Fusion e
 | `--target-path`           | path        | The output directory for all produced assets                     | `dbt retry --target-path target`                 |
 | `--vars`                  | vars        | Variables for the project (use the format shown in the CLI help) | `dbt retry --vars '{"my_var": "new_value"}'`     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 <br />
 
 Run `dbt retry --help` for the full list of flags available.
 
-### Fusion node selection[​](#fusion-node-selection "Direct link to Fusion node selection")
+### Fusion node selection
 
 Unlike `dbt retry` with dbt Core, Fusion lets you narrow what gets retried using [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), and [`--selector`](../node-selection/yaml-selectors.md). Those arguments override the prior invocation’s selection set for the retry run instead of only inheriting it.
 
-#### Examples[​](#examples "Direct link to Examples")
+#### Examples
 
 ```shell
 dbt retry --select my_model+
@@ -53,7 +47,7 @@ dbt retry --select my_model+
 dbt retry --exclude package:analytics --selector nightly_models
 ```
 
-## Supported commands[​](#supported-commands "Direct link to Supported commands")
+## Supported commands
 
 Retry works with the following commands:
 
@@ -69,7 +63,7 @@ Retry works with the following commands:
 
 Retry references [run\_results.json](../artifacts/run-results-json.md) to determine where to start. Executing retry without correcting the previous failures yields idempotent results.
 
-<!-- -->
+(Applies to dbt v2.0 and later)
 
 With `dbt retry`, you can optionally pass new [`--select`](../node-selection/syntax.md), [`--exclude`](../node-selection/syntax.md), or [`--selector`](../node-selection/yaml-selectors.md) arguments to narrow the retry scope, as described in [Retry flags](#retry-flags).
 

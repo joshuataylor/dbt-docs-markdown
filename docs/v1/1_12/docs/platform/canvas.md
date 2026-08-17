@@ -1,6 +1,6 @@
 # About Canvas
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Canvas helps you quickly access and transform data through a visual, drag-and-drop experience.
 
@@ -15,7 +15,7 @@ These models compile directly to SQL and are indistinguishable from other dbt mo
 
 [![Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.")](#)Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.
 
-## Canvas prerequisites[​](#canvas-prerequisites "Direct link to Canvas prerequisites")
+## Canvas prerequisites
 
 Before using Canvas, you should:
 
@@ -24,8 +24,6 @@ Before using Canvas, you should:
 * Have a [developer license](./manage-access/seats-and-users.md) with user credentials set up.
 
 * Be using one of the following adapters:
-
-  <!-- -->
 
   * Bigquery
   * Databricks
@@ -36,8 +34,6 @@ Before using Canvas, you should:
 
 * Use [GitHub](./git/connect-github.md), [GitLab](./git/connect-gitlab.md), or [Azure DevOps](./git/connect-azure-devops.md) as your Git provider, connected to dbt via HTTPS.
 
-  <!-- -->
-
   * SSH connections aren't supported at this time.
   * Self-hosted or on-premises deployments of any Git provider aren't supported for Canvas at this time.
 
@@ -47,8 +43,6 @@ Before using Canvas, you should:
 
 * Have read-only access to the [Staging environment](../deploy/deploy-environments.md#staging-environment) with the data to be able to execute `run` in the Canvas. To customize the required access for the Canvas user group, refer to [Set up environment-level permissions](./manage-access/environment-permissions-setup.md) for more information.
 
-<!-- -->
-
 info
 
 dbt Wizard is the new and recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
@@ -57,13 +51,13 @@ dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experi
 
 Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](./billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
-## Feedback[​](#feedback "Direct link to Feedback")
+## Feedback
 
 Please note, always review AI-generated code and content as it may produce incorrect results.
 
 To give feedback, please reach out to your dbt Labs account team. We appreciate your feedback and suggestions as we improve Canvas.
 
-## Resources[​](#resources "Direct link to Resources")
+## Resources
 
 Learn more about Canvas:
 

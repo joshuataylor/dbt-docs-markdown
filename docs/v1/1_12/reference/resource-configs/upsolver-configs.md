@@ -1,6 +1,6 @@
 # Upsolver configurations
 
-## Supported Upsolver SQLake functionality[​](#supported-upsolver-sqlake-functionality "Direct link to Supported Upsolver SQLake functionality")
+## Supported Upsolver SQLake functionality
 
 | COMMAND                | STATE         | MATERIALIZED     |
 | ---------------------- | ------------- | ---------------- |
@@ -12,13 +12,7 @@
 | SQL materialized views | supported     | materializedview |
 | Expectations           | supported     | incremental      |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Configs materialization[​](#configs-materialization "Direct link to Configs materialization")
+## Configs materialization
 
 | Config                 | Required | Materialization              | Description                                                                                    | Example                                                                                         |
 | ---------------------- | -------- | ---------------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -39,13 +33,7 @@ Search table...
 | sync                   | No       | incremental/materializedview | Boolean option to define if job is synchronized or non-msynchronized. Default: False           | sync=True                                                                                       |
 | options                | No       | incremental/materializedview | Dictionary of job options                                                                      | options={ 'START\_FROM': 'BEGINNING', 'ADD\_MISSING\_COLUMNS': True }                           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## SQL connection[​](#sql-connection "Direct link to SQL connection")
+## SQL connection
 
 Connections are used to provide Upsolver with the proper credentials to bring your data into SQLake as well as to write out your transformed data to various services. More details on ["Upsolver SQL connections"](https://docs.upsolver.com/sqlake/sql-command-reference/sql-connections) As a dbt model connection is a model with materialized='connection'
 
@@ -60,7 +48,7 @@ Connections are used to provide Upsolver with the proper credentials to bring yo
 
 Running this model will compile CREATE CONNECTION(or ALTER CONNECTION if exists) SQL and send it to Upsolver engine. Name of the connection will be name of the model.
 
-## SQL copy job[​](#sql-copy-job "Direct link to SQL copy job")
+## SQL copy job
 
 A COPY FROM job allows you to copy your data from a given source into a table created in a metastore connection. This table then serves as your staging table and can be used with SQLake transformation jobs to write to various target locations. More details on ["Upsolver SQL copy-from"](https://docs.upsolver.com/sqlake/sql-command-reference/sql-jobs/create-job/copy-from)
 
@@ -81,7 +69,7 @@ SELECT * FROM {{ ref(<model>) }}
 
 Running this model will compile CREATE TABLE SQL for target type Data lake (or ALTER TABLE if exists) and CREATE COPY JOB(or ALTER COPY JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
-## SQL insert job[​](#sql-insert-job "Direct link to SQL insert job")
+## SQL insert job
 
 An INSERT job defines a query that pulls in a set of data based on the given SELECT statement and inserts it into the designated target. This query is then run periodically based on the RUN\_INTERVAL defined within the job. More details on ["Upsolver SQL insert"](https://docs.upsolver.com/sqlake/sql-command-reference/sql-jobs/create-job/sql-transformation-jobs/insert).
 
@@ -107,7 +95,7 @@ HAVING COUNT(DISTINCT orderid::string) ...
 
 Running this model will compile CREATE TABLE SQL for target type Data lake(or ALTER TABLE if exists) and CREATE INSERT JOB(or ALTER INSERT JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
-## SQL merge job[​](#sql-merge-job "Direct link to SQL merge job")
+## SQL merge job
 
 A MERGE job defines a query that pulls in a set of data based on the given SELECT statement and inserts into, replaces, or deletes the data from the designated target based on the job definition. This query is then run periodically based on the RUN\_INTERVAL defined within the job. More details on ["Upsolver SQL merge"](https://docs.upsolver.com/sqlake/sql-command-reference/sql-jobs/create-job/sql-transformation-jobs/merge).
 
@@ -133,7 +121,7 @@ HAVING COUNT ...
 
 Running this model will compile CREATE TABLE SQL for target type Data lake(or ALTER TABLE if exists) and CREATE MERGE JOB(or ALTER MERGE JOB if exists) SQL and send it to Upsolver engine. Name of the table will be name of the model. Name of the job will be name of the model plus '\_job'
 
-## SQL materialized views[​](#sql-materialized-views "Direct link to SQL materialized views")
+## SQL materialized views
 
 When transforming your data, you may find that you need data from multiple source tables in order to achieve your desired result. In such a case, you can create a materialized view from one SQLake table in order to join it with your other table (which in this case is considered the main table). More details on ["Upsolver SQL materialized views"](https://docs.upsolver.com/sqlake/sql-command-reference/sql-jobs/create-job/sql-transformation-jobs/sql-materialized-views).
 
@@ -153,7 +141,7 @@ GROUP BY ...
 
 Running this model will compile CREATE MATERIALIZED VIEW SQL(or ALTER MATERIALIZED VIEW if exists) and send it to Upsolver engine. Name of the materializedview will be name of the model.
 
-## Expectations/constraints[​](#expectationsconstraints "Direct link to Expectations/constraints")
+## Expectations/constraints
 
 Data quality conditions can be added to your job to drop a row or trigger a warning when a column violates a predefined condition.
 
@@ -193,11 +181,11 @@ models:
             name: <constraint_name>
 ```
 
-## Projects examples[​](#projects-examples "Direct link to Projects examples")
+## Projects examples
 
 > projects examples link: [github.com/dbt-upsolver/examples/](https://github.com/Upsolver/dbt-upsolver/tree/main/examples)
 
-## Connection options[​](#connection-options "Direct link to Connection options")
+## Connection options
 
 | Option                             | Storage       | Editable | Optional | Config Syntax                                                       |
 | ---------------------------------- | ------------- | -------- | -------- | ------------------------------------------------------------------- |
@@ -272,13 +260,7 @@ models:
 | password                           | mssql         | True     | False    | 'password': `'<password>'`                                          |
 | comment                            | mssql         | True     | True     | 'comment': `'<comment>'`                                            |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Target options[​](#target-options "Direct link to Target options")
+## Target options
 
 | Option                      | Storage            | Editable | Optional | Config Syntax                                                                   |
 | --------------------------- | ------------------ | -------- | -------- | ------------------------------------------------------------------------------- |
@@ -303,13 +285,7 @@ Search table...
 | create\_table\_if\_missing  | snowflake          | False    | True     | 'create\_table\_if\_missing': True/False}                                       |
 | run\_interval               | snowflake          | False    | True     | 'run\_interval': `'<N MINUTES/HOURS/DAYS>'`                                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Transformation options[​](#transformation-options "Direct link to Transformation options")
+## Transformation options
 
 | Option                             | Storage       | Editable | Optional | Config Syntax                                                                                     |
 | ---------------------------------- | ------------- | -------- | -------- | ------------------------------------------------------------------------------------------------- |
@@ -383,13 +359,7 @@ Search table...
 | run\_parallelism                   | postgres      | True     | True     | 'run\_parallelism': `<integer>`                                                                   |
 | comment                            | postgres      | True     | True     | 'comment': `'<comment>'`                                                                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Copy options[​](#copy-options "Direct link to Copy options")
+## Copy options
 
 | Option                     | Storage  | Category        | Editable | Optional | Config Syntax                                                            |
 | -------------------------- | -------- | --------------- | -------- | -------- | ------------------------------------------------------------------------ |
@@ -485,9 +455,3 @@ Search table...
 | compute\_cluster           | mongodb  | job\_options    | True     | True     | 'compute\_cluster': `'<compute_cluster>'`                                |
 | snapshot\_parallelism      | mongodb  | job\_options    | True     | True     | 'snapshot\_parallelism': `<integer>`                                     |
 | comment                    | mongodb  | job\_options    | True     | True     | 'comment': `'<comment>'`                                                 |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

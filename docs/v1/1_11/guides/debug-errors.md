@@ -14,7 +14,7 @@ Beginner
 
 
 
-## General process of debugging[​](#general-process-of-debugging "Direct link to General process of debugging")
+## General process of debugging
 
 Learning how to debug is a skill, and one that will make you great at your role!
 
@@ -26,8 +26,6 @@ Learning how to debug is a skill, and one that will make you great at your role!
 
 4. Get comfortable with compiled files and the logs.
 
-   <!-- -->
-
    * The `target/compiled` directory contains `select` statements that you can run in any query editor.
    * The `target/run` directory contains the SQL dbt executes to build your models.
    * The `logs/dbt.log` file contains all the queries that dbt runs, and additional logging. Recent errors will be at the bottom of the file.
@@ -36,7 +34,7 @@ Learning how to debug is a skill, and one that will make you great at your role!
 
 5. If you are really stuck, try [asking for help](../community/resources/getting-help.md). Before doing so, take the time to write your question well so that others can diagnose the problem quickly.
 
-## Types of errors[​](#types-of-errors "Direct link to Types of errors")
+## Types of errors
 
 Below, we've listed some of common errors. It's useful to understand what dbt is doing behind the scenes when you execute a command like `dbt run`.
 
@@ -47,19 +45,13 @@ Below, we've listed some of common errors. It's useful to understand what dbt is
 | Graph validation | Compile the dependencies into a graph. Check that it's acyclic.                   | `Dependency Error`  |
 | SQL execution    | Run the models                                                                    | `Database Error`    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Let's dive into some of these errors and how to debug 👇. Note: not all errors are covered here!
 
-## Runtime Errors[​](#runtime-errors "Direct link to Runtime Errors")
+## Runtime Errors
 
 *Note: If you're using the Studio IDE to work on your project, you're unlikely to encounter these errors.*
 
-### Not a dbt project[​](#not-a-dbt-project "Direct link to Not a dbt project")
+### Not a dbt project
 
 ```text
 Running with dbt=1.7.1
@@ -73,7 +65,7 @@ Debugging
 * Use `pwd` to check that you're in the right directory. If not, `cd` your way there!
 * Check that you have a file named `dbt_project.yml` in the root directory of your project. You can use `ls` to list files in the directory, or also open the directory in a code editor and see files in the "tree view".
 
-### Could not find profile[​](#could-not-find-profile "Direct link to Could not find profile")
+### Could not find profile
 
 ```text
 Running with dbt=1.7.1
@@ -122,7 +114,7 @@ open /Users/alice/.dbt
 
 * Then execute `open /Users/alice/.dbt` (adjusting accordingly), and check that you have a `profiles.yml` file. If you do not have one, set one up using [these docs](../docs/local/profiles.yml.md)
 
-### Failed to connect[​](#failed-to-connect "Direct link to Failed to connect")
+### Failed to connect
 
 ```text
 Encountered an error:
@@ -156,7 +148,7 @@ Connection:
   Connection test: OK connection ok
 ```
 
-### Invalid `dbt_project.yml` file[​](#invalid-dbt_projectyml-file "Direct link to invalid-dbt_projectyml-file")
+### Invalid `dbt_project.yml` file
 
 ```text
 Encountered an error while reading the project:
@@ -184,11 +176,11 @@ hello: world # this is not allowed
 * Use the reference section for [`dbt_project.yml` files](../reference/dbt_project.yml.md) to correct this issue.
 * If you're using a key that is valid according to the documentation, check that you're using the latest version of dbt with `dbt --version`.
 
-## Compilation Errors[​](#compilation-errors "Direct link to Compilation Errors")
+## Compilation Errors
 
 *Note: if you're using the Studio IDE to work on your dbt project, this error often shows as a red bar in your command prompt as you work on your dbt project. For dbt Core users, these won't get picked up until you run `dbt run` or `dbt compile`.*
 
-### Invalid `ref` function[​](#invalid-ref-function "Direct link to invalid-ref-function")
+### Invalid `ref` function
 
 ```text
 $ dbt run -s customers
@@ -205,7 +197,7 @@ Debugging
 * `cmd + f` (or equivalent) for `stg_customer`. There must be a file named `stg_customer.sql` for this to work.
 * Replace this reference with a reference to another model (i.e. the filename for another model), in this case `stg_customers`. OR rename your model to `stg_customer`
 
-### Invalid Jinja[​](#invalid-jinja "Direct link to Invalid Jinja")
+### Invalid Jinja
 
 ```text
 $ dbt run
@@ -232,7 +224,7 @@ To prevent this:
 
 * *(dbt Core only)* Use snippets to auto-complete pieces of Jinja ([atom-dbt package](https://github.com/dbt-labs/atom-dbt))
 
-### Invalid YAML[​](#invalid-yaml "Direct link to Invalid YAML")
+### Invalid YAML
 
 dbt wasn't able to turn your YAML into a valid dictionary.
 
@@ -285,7 +277,7 @@ To prevent this:
 * (dbt Core users) Turn on indentation guides in your code editor to help you inspect your files
 * Use a YAML validator ([example](http://www.yamllint.com/)) to debug any issues
 
-### Incorrect YAML spec[​](#incorrect-yaml-spec "Direct link to Incorrect YAML spec")
+### Incorrect YAML spec
 
 Slightly different error — the YAML structure is right (i.e. the YAML parser can turn this into a python dictionary), *but* there's a key that dbt doesn't recognize.
 
@@ -305,7 +297,7 @@ Debugging
 * Fix it. Use the [model properties](../reference/model-properties.md) docs to find valid keys
 * If you are using a valid key, check that you're using the latest version of dbt with `dbt --version`
 
-## Dependency Errors[​](#dependency-errors "Direct link to Dependency Errors")
+## Dependency Errors
 
 ```text
 $ dbt run
@@ -320,7 +312,7 @@ Your dbt DAG is not acyclic, and needs to be fixed!
 * Update the `ref` functions to break the cycle.
 * If you need to reference the current model, use the [`{{ this }}` variable](../reference/dbt-jinja-functions/this.md) instead.
 
-## Database Errors[​](#database-errors "Direct link to Database Errors")
+## Database Errors
 
 The thorniest errors of all! These errors come from your data warehouse, and dbt passes the message on. You may need to use your warehouse docs (i.e. the Snowflake docs, or BigQuery docs) to debug these.
 
@@ -339,14 +331,10 @@ Database Error in model customers (models/customers.sql)
 
 1. Open the offending file:
 
-   <!-- -->
-
    * **dbt:** Open the model (in this case `models/customers.sql` as per the error message)
    * **dbt Core:** Open the model as above. Also open the compiled SQL (in this case `target/run/jaffle_shop/models/customers.sql` as per the error message) — it can be useful to show these side-by-side in your code editor.
 
 2. Try to re-execute the SQL to isolate the error:
-
-   <!-- -->
 
    * **dbt:** Use the `Preview` button from the model file
    * **dbt Core:** Copy and paste the compiled query into a query runner (e.g. the Snowflake UI, or a desktop app like DataGrip / TablePlus) and execute it
@@ -371,9 +359,9 @@ Isolating errors in the logs
 
 If you're hitting a strange `Database Error`, it can be a good idea to clean out your logs by opening the file, and deleting the contents. Then, re-execute `dbt run` for *just* the problematic model. The logs will *just* have the output you're looking for.
 
-## Common pitfalls[​](#common-pitfalls "Direct link to Common pitfalls")
+## Common pitfalls
 
-### `Preview` vs. `dbt run`[​](#preview-vs-dbt-run "Direct link to preview-vs-dbt-run")
+### `Preview` vs. `dbt run`
 
 *(Studio IDE users only)*
 
@@ -384,17 +372,17 @@ There's two interfaces that look similar:
 
 Using the `Preview` button is useful when developing models and you want to visually inspect the results of a query. However, you'll need to make sure you have executed `dbt run` for any upstream models — otherwise dbt will try to select `from` tables and views that haven't been built.
 
-### Forgetting to save files before running[​](#forgetting-to-save-files-before-running "Direct link to Forgetting to save files before running")
+### Forgetting to save files before running
 
 We've all been there. dbt uses the last-saved version of a file when you execute a command. In most code editors, and in the Studio IDE, a dot next to a filename indicates that a file has unsaved changes. Make sure you hit `cmd + s` (or equivalent) before running any dbt commands — over time it becomes muscle memory.
 
-### Editing compiled files[​](#editing-compiled-files "Direct link to Editing compiled files")
+### Editing compiled files
 
 *(More likely for dbt Core users)*
 
 If you just opened a SQL file in the `target/` directory to help debug an issue, it's not uncommon to accidentally edit that file! To avoid this, try changing your code editor settings to grey out any files in the `target/` directory — the visual cue will help avoid the issue.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
 Here are some useful FAQs to help you debug your dbt project:
 
@@ -408,7 +396,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
   Remove or hide any confidential or personally identifying information before you send the HAR file to dbt Labs. You can edit the file using a text editor.
 
-  ### Google Chrome[​](#google-chrome "Direct link to Google Chrome")
+  ### Google Chrome
 
   1. Open Google Chrome.
   2. Click on **View** --> **Developer Tools**.
@@ -421,7 +409,7 @@ Here are some useful FAQs to help you debug your dbt project:
   9. Save the HAR file.
   10. Upload the HAR file to the dbt Support ticket thread.
 
-  ### Mozilla Firefox[​](#mozilla-firefox "Direct link to Mozilla Firefox")
+  ### Mozilla Firefox
 
   1. Open Firefox.
   2. Click the application menu and then **More tools** --> **Web Developer Tools**.
@@ -432,7 +420,7 @@ Here are some useful FAQs to help you debug your dbt project:
   7. Save the HAR file.
   8. Upload the HAR file to the dbt Support ticket thread.
 
-  ### Apple Safari[​](#apple-safari "Direct link to Apple Safari")
+  ### Apple Safari
 
   1. Open Safari.
   2. In case the **Develop** menu doesn't appear in the menu bar, go to **Safari** and then **Settings**.
@@ -445,7 +433,7 @@ Here are some useful FAQs to help you debug your dbt project:
   9. Save the file.
   10. Upload the HAR file to the dbt Support ticket thread.
 
-  ### Microsoft Edge[​](#microsoft-edge "Direct link to Microsoft Edge")
+  ### Microsoft Edge
 
   1. Open Microsoft Edge.
   2. Click the **Settings and more** menu (...) to the right of the toolbar and then select **More tools** --> **Developer tools**.
@@ -457,7 +445,7 @@ Here are some useful FAQs to help you debug your dbt project:
   8. Save the HAR file.
   9. Upload the HAR file to the dbt Support ticket thread.
 
-  ### Additional resources[​](#additional-resources "Direct link to Additional resources")
+  ### Additional resources
 
   Check out the [How to generate a HAR file in Chrome](https://www.loom.com/share/cabdb7be338243f188eb619b4d1d79ca) video for a visual guide on how to generate HAR files in Chrome.
 
@@ -517,7 +505,6 @@ Here are some useful FAQs to help you debug your dbt project:
 
   4. Select **Restart Studio IDE**.
   5. Go back to the **File explorer** in the IDE and delete the following files or folders if you have them:
-     <!-- -->
      * `target`, `dbt_modules`, `dbt_packages`, `logs`
   6. **Save** and then **Commit and sync** your changes.
   7. Restart the Studio IDE again.
@@ -533,14 +520,14 @@ Here are some useful FAQs to help you debug your dbt project:
 
   If you're receiving a `This run exceeded your account's run memory limits` error in your failed job, it means that the job exceeded the [memory limits](../docs/deploy/job-scheduler.md#job-memory) set for your account. All dbt accounts have a pod memory of 600Mib and memory limits are on a per run basis. They're typically influenced by the amount of result data that dbt has to ingest and process, which is small but can become bloated unexpectedly by project design choices.
 
-  ### Common reasons[​](#common-reasons "Direct link to Common reasons")
+  ### Common reasons
 
   Some common reasons for higher memory usage are:
 
   * dbt run/build: Macros that capture large result sets from run query may not all be necessary and may be memory inefficient.
   * dbt docs generate: Source or model schemas with large numbers of tables (even if those tables aren't all used by dbt) cause the ingest of very large results for catalog queries.
 
-  ### Resolution[​](#resolution "Direct link to Resolution")
+  ### Resolution
 
   There are various reasons why you could be experiencing this error but they are mostly the outcome of retrieving too much data back into dbt. For example, using the `run_query()` operations or similar macros, or even using database/schemas that have a lot of other non-dbt related tables/views. Try to reduce the amount of data / number of rows retrieved back into dbt by refactoring the SQL in your `run_query()` operation using `group`, `where`, or `limit` clauses. Additionally, you can also use a database/schema with fewer non-dbt related tables/views.
 
@@ -550,7 +537,7 @@ Here are some useful FAQs to help you debug your dbt project:
 
   If you've tried the earlier suggestions and are still experiencing failed job runs with this error about hitting the memory limits of your account, please [reach out to support](mailto:support@getdbt.com). We're happy to help!
 
-  ### Additional resources[​](#additional-resources "Direct link to Additional resources")
+  ### Additional resources
 
   * [Blog post on how we shaved 90 mins off](https://docs.getdbt.com/blog/how-we-shaved-90-minutes-off-model)
 

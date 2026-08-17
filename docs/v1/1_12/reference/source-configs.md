@@ -1,17 +1,20 @@
 # Source configurations
 
-## Available configurations[​](#available-configurations "Direct link to Available configurations")
+## Available configurations
+
+(Applies to dbt v1.9 and later)
 
 Sources configurations support [`enabled`](./resource-configs/enabled.md), [`event_time`](./resource-configs/event-time.md), and [`meta`](./resource-configs/meta.md)
 
-### General configurations[​](#general-configurations "Direct link to General configurations")
+### General configurations
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-* Project YAML file
-* Properties YAML file
+### Project YAML file
 
 dbt\_project.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 sources:
@@ -26,7 +29,11 @@ sources:
       key: value
 ```
 
+### Properties YAML file
+
 models/properties.yml
+
+(Applies to dbt v1.9 and later)
 
 ```yaml
 
@@ -51,7 +58,7 @@ sources:
           meta: {<dictionary>}
 ```
 
-## Configuring sources[​](#configuring-sources "Direct link to Configuring sources")
+## Configuring sources
 
 Sources can be configured via a `config:` block within their `.yml` definitions, or from the `dbt_project.yml` file under the `sources:` key. This configuration is most useful for configuring sources imported from [a package](../docs/build/packages.md).
 
@@ -60,6 +67,8 @@ You can disable sources imported from a package to prevent them from rendering i
 * **Note**: To disable a source table nested in a properties YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that properties YAML file, as well as the source name and the table name in the project YAML file (`dbt_project.yml`).<br /><br />The following example shows how to disable a source table nested in a properties YAML file in a subfolder:
 
   dbt\_project.yml
+
+  (Applies to dbt v1.9 and later)
 
   ```yaml
   sources:
@@ -71,13 +80,13 @@ You can disable sources imported from a package to prevent them from rendering i
             +event_time: my_time_field
   ```
 
-### Examples[​](#examples "Direct link to Examples")
+### Examples
 
 The following examples show how to configure sources in your dbt project.
 
 — [Disable all sources imported from a package](#disable-all-sources-imported-from-a-package)<br />— [Conditionally enable a single source](#conditionally-enable-a-single-source)<br />— [Disable a single source from a package](#disable-a-single-source-from-a-package)<br />— [Configure a source with an `event_time`](#configure-a-source-with-an-event_time)<br />— [Configure meta to a source](#configure-meta-to-a-source)<br />— [Configure source freshness](#configure-source-freshness)<br />
 
-#### Disable all sources imported from a package[​](#disable-all-sources-imported-from-a-package "Direct link to Disable all sources imported from a package")
+#### Disable all sources imported from a package
 
 To apply a configuration to all sources included from a [package](../docs/build/packages.md), state your configuration under the [project name](./project-configs/name.md) in the `sources:` config as a part of the resource path.
 
@@ -89,7 +98,7 @@ sources:
     +enabled: false
 ```
 
-#### Conditionally enable a single source[​](#conditionally-enable-a-single-source "Direct link to Conditionally enable a single source")
+#### Conditionally enable a single source
 
 When defining a source, you can disable the entire source, or specific source tables, using the inline `config` property. You can also specify `database` and `schema` to override the target database and schema:
 
@@ -124,7 +133,7 @@ sources:
           enabled: "{{ var('my_source_table_enabled', false) }}"
 ```
 
-#### Disable a single source from a package[​](#disable-a-single-source-from-a-package "Direct link to Disable a single source from a package")
+#### Disable a single source from a package
 
 To disable a specific source from another package, qualify the resource path for your configuration with both a package name and a source name. In this case, we're disabling the `clickstream` source from the `events` package.
 
@@ -149,7 +158,9 @@ sources:
         +enabled: false
 ```
 
-#### Configure a source with an `event_time`[​](#configure-a-source-with-an-event_time "Direct link to configure-a-source-with-an-event_time")
+#### Configure a source with an `event_time`
+
+(Applies to dbt v1.9 and later)
 
 To configure a source with an `event_time`, specify the `event_time` field in the source configuration. This field is used to represent the actual timestamp of the event, rather than something like a loading date.
 
@@ -166,7 +177,7 @@ sources:
 
 In this example, the `event_time` is set to `event_timestamp`, which has the exact time each clickstream event happened. Not only is this required for the [incremental microbatching strategy](../docs/build/incremental-microbatch.md), but when you compare data across [CI and production](../docs/deploy/advanced-ci.md#speeding-up-comparisons) environments, dbt will use `event_timestamp` to filter and match data by this event-based timeframe, ensuring that only overlapping timeframes are compared.
 
-#### Configure meta to a source[​](#configure-meta-to-a-source "Direct link to Configure meta to a source")
+#### Configure meta to a source
 
 Use the `meta` field to assign metadata information to sources. This is useful for tracking additional context, documentation, logging, and more.
 
@@ -183,7 +194,7 @@ sources:
         data_owner: "marketing_team"
 ```
 
-#### Configure source freshness[​](#configure-source-freshness "Direct link to Configure source freshness")
+#### Configure source freshness
 
 Use a `freshness` block to define expectations about how frequently a table is updated with new data, and to raise warnings and errors when those expectation are not met.
 
@@ -204,7 +215,7 @@ sources:
         period: hour
 ```
 
-## Example source configuration[​](#example-source-configuration "Direct link to Example source configuration")
+## Example source configuration
 
 The following is a valid source configuration for a project with:
 

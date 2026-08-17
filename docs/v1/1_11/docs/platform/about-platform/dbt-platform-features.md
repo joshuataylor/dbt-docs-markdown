@@ -1,6 +1,6 @@
 # The dbt platform features
 
-dbt platformⓘ
+dbt platform
 
 dbt platform is the fastest and most reliable way to deploy dbt. Develop, test, schedule, document, and investigate data models all in one browser-based UI.
 
@@ -124,7 +124,7 @@ Track warehouse compute costs and understand the impact of optimizations across 
 
 \*These features are available on [selected plans](https://www.getdbt.com/pricing/).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt plans and pricing](https://www.getdbt.com/pricing/)
 * [Quickstart guides](../../get-started-dbt.md)

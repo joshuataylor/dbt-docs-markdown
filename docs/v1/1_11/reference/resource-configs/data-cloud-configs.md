@@ -1,6 +1,6 @@
 # Salesforce Data 360 configurations[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-## Supported materializations[​](#supported-materializations "Direct link to Supported materializations")
+## Supported materializations
 
 | Materialization   | Supported | Notes                                                       |
 | ----------------- | --------- | ----------------------------------------------------------- |
@@ -13,13 +13,7 @@
 | Custom data tests | ❌        |                                                             |
 | Snapshots         | ❌        |                                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Sources[​](#sources "Direct link to Sources")
+### Sources
 
 For models that query raw Data 360 data, reference the table though a dbt source. Selecting a DLO directly is not supported.
 
@@ -48,7 +42,7 @@ sources:
               - unique
 ```
 
-### Table materialization[​](#table-materialization "Direct link to Table materialization")
+### Table materialization
 
 dbt Fusion supports Table materialization on Salesforce Data 360. Execution of the materialization results in the creation of a [batch data transform](https://help.salesforce.com/s/articleView?id=data.c360_a_batch_transform_overview.htm\&language=en_US\&type=5) and a [Data Lake Object (DLO)](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_concepts_data_cloud_objects.htm) for querying.
 
@@ -71,14 +65,14 @@ Currently, only the `profile` type DLO is supported. Support for `engagement` DL
     from {{ source('default', 'raw_customers__dll') }}
 ```
 
-## Naming rules and required configs[​](#naming-rules-and-required-configs "Direct link to Naming rules and required configs")
+## Naming rules and required configs
 
 * All dbt model names must end with `__dll`. If you omit this suffix in your file name, it is appended automatically during execution (for example, `model_name` becomes `model_name__dll`). This will break downstream dbt references because dbt will look for a DLO named `model_name` when Data 360 has `model_name__dll`.
 * Columns must end with `__c`. Omitting the suffix causes a Data 360 “unknown syntax” error.
 * Model names cannot contain double under scores (`__`) outside of the final `__dll`. For example, `supplies__agg__dll` will build as `agg__dll`, which can cause confusion for downstream refs.
 * All dbt models must be configured with `primary_key` and `category='Profile'` in the model configuration. You can also apply the configurations in the `resources.yml` and `dbt_project.yml`.
 
-## Known limitations[​](#known-limitations "Direct link to Known limitations")
+## Known limitations
 
 * **Reruns of dbt models**: Due to the Data 360 architecture of metadata and dependency management, dbt cannot rerun the same model if a data transform and a DLO already exist. This is because dbt can't drop the DLO during subsequent runs of table materializations, as expected in data warehouses. If you change your logic between runs, you have to delete the dependencies of the data transform and DLO manually in the UI before executing a `dbtf run`. A fix is in progress.
 * **Static analysis in VS Code**: Column-level lineage and dbt buttons (`Build` and `Test`) are affected. You can either turn off static analysis temporarily by running all commands with `--static-analysis off` or set up your environment variables with `DBT_STATIC_ANALYSIS=off`.

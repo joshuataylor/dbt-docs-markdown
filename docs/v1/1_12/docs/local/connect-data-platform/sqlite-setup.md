@@ -1,50 +1,36 @@
 # Connect SQLite to dbt Core
 
-Local developmentⓘ
+Local development
 
 Community plugin
 
 Some core functionality may be limited. If you're interested in contributing, check out the source code for each repository listed below.
 
-<!-- -->
-
-* **Maintained by**:
-  <!-- -->
-  Community
-* **Authors**:
-  <!-- -->
-  Jeff Chiu (https\://github.com/codeforkjeff)
+* **Maintained by**: Community
+* **Authors**: Jeff Chiu (https\://github.com/codeforkjeff)
 * **GitHub repo**: [codeforkjeff/dbt-sqlite](https://github.com/codeforkjeff/dbt-sqlite) [![](https://img.shields.io/github/stars/codeforkjeff/dbt-sqlite?style=for-the-badge)](https://github.com/codeforkjeff/dbt-sqlite)
 * **PyPI package**: `dbt-sqlite` [![](https://badge.fury.io/py/dbt-sqlite.svg)](https://badge.fury.io/py/dbt-sqlite)
 * **Slack channel**: [n/a](https://www.getdbt.com/community)
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.1.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
-* **Minimum data platform version**:
-  <!-- -->
-  SQlite Version 3.0
+* **Supported dbt Core version**: v1.1.0 and newer
+* **dbt support**: Not Supported
+* **Minimum data platform version**: SQlite Version 3.0
 
-## Installing <!-- -->dbt-sqlite
+## Installing dbt-sqlite
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-sqlite`
 
-## Configuring <!-- -->dbt-sqlite<!-- -->
+## Configuring dbt-sqlite
 
-For <!-- -->SQLite<!-- -->-specific configuration, please refer to [SQLite<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For SQLite-specific configuration, please refer to [SQLite configs.](../../../reference/resource-configs/no-configs.md)
 
 Starting with the release of dbt Core 1.0.0, versions of dbt-sqlite are aligned to the same major+minor [version](https://semver.org/) of dbt Core.
 
 * versions 1.1.x of this adapter work with dbt Core 1.1.x
 * versions 1.0.x of this adapter work with dbt Core 1.0.x
 
-## Connecting to SQLite with dbt-sqlite[​](#connecting-to-sqlite-with-dbt-sqlite "Direct link to Connecting to SQLite with dbt-sqlite")
+## Connecting to SQLite with dbt-sqlite
 
 SQLite targets should be set up using the following configuration in your `profiles.yml` file.
 
@@ -69,7 +55,7 @@ your_profile_name:
         - "/path/to/sqlean/crypto.so"
 ```
 
-#### Description of SQLite Profile Fields[​](#description-of-sqlite-profile-fields "Direct link to Description of SQLite Profile Fields")
+#### Description of SQLite Profile Fields
 
 | Field               | Description                                                                                                                                                                                                                                               |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -81,13 +67,7 @@ your_profile_name:
 | `schema_directory`  | Directory where all \*.db files are attached as schema, using base filename as schema name, and where new schemas are created. This can overlap with the dirs of files in schemas\_and\_paths as long as there's no conflicts.                            |
 | `extensions`        | Optional. List of file paths of SQLite extensions to load. crypto.so is needed for snapshots to work; see SQLlite Extensions below.                                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Caveats[​](#caveats "Direct link to Caveats")
+## Caveats
 
 * Schemas are implemented as attached database files. (SQLite conflates databases and schemas.)
 
@@ -101,7 +81,7 @@ Search table...
 
 * Materializations are simplified: they drop and re-create the model, instead of doing the backup-and-swap-in new model that the other dbt database adapters support. This choice was made because SQLite doesn't support `DROP ... CASCADE` or `ALTER VIEW` or provide information about relation dependencies in something information\_schema-like. These limitations make it really difficult to make the backup-and-swap-in functionality work properly. Given how SQLite aggressively [locks](https://sqlite.org/lockingv3.html) the database anyway, it's probably not worth the effort.
 
-## SQLite Extensions[​](#sqlite-extensions "Direct link to SQLite Extensions")
+## SQLite Extensions
 
 For snapshots to work, you'll need the `crypto` module from SQLean to get an `md5()` function. It's recommended that you install all the SQLean modules, as they provide many common SQL functions missing from SQLite.
 

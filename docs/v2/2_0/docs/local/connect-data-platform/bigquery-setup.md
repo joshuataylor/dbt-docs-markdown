@@ -1,6 +1,8 @@
+(Applies to dbt v2.0 and later)
+
 # Connect BigQuery to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 You can configure the BigQuery adapter by running `dbt init` in your CLI or manually providing the `profiles.yml` file with the fields configured for your authentication type.
 
@@ -10,11 +12,11 @@ The BigQuery adapter for Fusion supports the following [authentication methods](
 * gcloud OAuth
 * Workload Identity Federation (Microsoft Entra)
 
-## Warehouse permissions[​](#warehouse-permissions "Direct link to Warehouse permissions")
+## Warehouse permissions
 
 The Google Cloud identity (service account or user) that dbt Fusion engine uses must have IAM permissions to run jobs, read and write table data, and read metadata Fusion uses for introspection and source freshness.
 
-### Required Google Cloud objects[​](#required-google-cloud-objects "Direct link to Required Google Cloud objects")
+### Required Google Cloud objects
 
 Before connecting, these objects must exist or be accessible:
 
@@ -25,13 +27,7 @@ Before connecting, these objects must exist or be accessible:
 | **Service account or user** | IAM identity  | Identity for authentication                         |
 | **Location or region**      | Location      | Data location (for example, `US`, `EU`, `us-east1`) |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### IAM permissions[​](#iam-permissions "Direct link to IAM permissions")
+### IAM permissions
 
 The following permissions are required for fundamental dbt features::
 
@@ -47,12 +43,6 @@ The following permissions are required for fundamental dbt features::
 | `bigquery.tables.updateData` | Insert, update, or delete rows |
 | `bigquery.jobs.create`       | Run queries                    |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The following are optional permissions for additional dbt features:
 
 | Permission                 | When required                    |
@@ -63,13 +53,7 @@ The following are optional permissions for additional dbt features:
 | `storage.objects.create`   | Python models (GCS staging)      |
 | `dataproc.*`               | Python models on Dataproc        |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Predefined IAM roles[​](#predefined-iam-roles "Direct link to Predefined IAM roles")
+#### Predefined IAM roles
 
 The following roles represent the typical starting point for dbt access:
 
@@ -79,15 +63,9 @@ The following roles represent the typical starting point for dbt access:
 | `roles/bigquery.user`       | Run jobs, create datasets         | Job execution           |
 | `roles/bigquery.jobUser`    | Run jobs only                     | Minimal query execution |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For Storage Read API access with Fusion, also grant **BigQuery Read Session User** (`roles/bigquery.readSessionUser`) on the project, as noted in [Connect BigQuery](../../platform/connect-data-platform/connect-bigquery.md#required-permissions).
 
-### Metadata operations[​](#metadata-operations "Direct link to Metadata operations")
+### Metadata operations
 
 The following are required for fundamental dbt features:
 
@@ -99,13 +77,7 @@ The following are required for fundamental dbt features:
 | Get table stats  | Query `INFORMATION_SCHEMA`  | `bigquery.tables.get`      |
 | Create dataset   | `CREATE SCHEMA`             | `bigquery.datasets.create` |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### INFORMATION\_SCHEMA and metadata views[​](#information_schema-and-metadata-views "Direct link to INFORMATION_SCHEMA and metadata views")
+### INFORMATION\_SCHEMA and metadata views
 
 Fusion queries these BigQuery system views:
 
@@ -117,17 +89,11 @@ Fusion queries these BigQuery system views:
 | `INFORMATION_SCHEMA.PARTITIONS` | Partition information    | Dataset only      |
 | `__TABLES__` (deprecated)       | Table modification times | Dataset           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### BigQuery DataFrames (optional)[​](#bigquery-dataframes "Direct link to BigQuery DataFrames (optional)")
+### BigQuery DataFrames (optional)
 
 For BigQuery DataFrames workflows, users typically need additional roles such as `BigQuery Job User`, `BigQuery Read Session User`, `Notebook Runtime User`, `Code Creator`, and `colabEnterpriseUser`. See your Google Cloud admin for exact role names in your organization.
 
-## Configure Fusion[​](#configure-fusion "Direct link to Configure Fusion")
+## Configure Fusion
 
 Executing `dbt init` in your CLI will prompt for the following fields:
 
@@ -139,15 +105,13 @@ Alternatively, you can manually create the `profiles.yml` file and configure the
 
 Next, select your authentication method. Follow the on-screen prompts to provide the required information.
 
-## Supported authentication types[​](#supported-authentication-types "Direct link to Supported authentication types")
+## Supported authentication types
 
-* Service account (JSON file)
-* gcloud OAuth
-* Workload Identity Federation (Microsoft Entra)
+### Service account (JSON file)
 
 Selecting the **Service account (JSON file)** authentication type will prompt you for the path to your JSON file. You can also manually define the path in your `profiles.yml` file.
 
-#### Example service account JSON file configuration[​](#example-service-account-json-file-configuration "Direct link to Example service account JSON file configuration")
+#### Example service account JSON file configuration
 
 profiles.yml
 
@@ -166,9 +130,11 @@ default:
       dataproc_batch: null
 ```
 
+### gcloud OAuth
+
 Prior to selecting this authentication method, you must first configure local OAuth for gcloud:
 
-#### Local OAuth gcloud setup[​](#local-oauth-gcloud-setup "Direct link to Local OAuth gcloud setup")
+#### Local OAuth gcloud setup
 
 1. Make sure the `gcloud` command is [installed on your computer](https://cloud.google.com/sdk/downloads).
 2. Activate the application-default account with:
@@ -185,7 +151,7 @@ https://www.googleapis.com/auth/cloud-platform
 
 A browser window should open, and you should be prompted to log into your Google account. Once you've done that, dbt will use your OAuth'd credentials to connect to BigQuery.
 
-#### Example gcloud configuration[​](#example-gcloud-configuration "Direct link to Example gcloud configuration")
+#### Example gcloud configuration
 
 profiles.yml
 
@@ -203,13 +169,15 @@ default:
       dataproc_batch: null
 ```
 
+### Workload Identity Federation (Microsoft Entra)
+
 Workload Identity Federation (WIF) lets you authenticate to BigQuery using credentials issued by an external OAuth identity provider — currently Microsoft Entra — without managing a Google service account key file.
 
 Fusion exchanges an Entra-issued token for short-lived Google credentials through a Google Cloud [workload identity pool](https://docs.cloud.google.com/iam/docs/workload-identity-federation#pools).
 
 Before selecting this method, an administrator must configure a workload identity pool and provider in GCP that trusts your Entra tenant. You'll need the resulting workload pool provider path.
 
-#### Configuration fields[​](#configuration-fields "Direct link to Configuration fields")
+#### Configuration fields
 
 Here are the required and optional fields for the WIF config in your `profiles.yml` file:
 
@@ -222,7 +190,7 @@ Here are the required and optional fields for the WIF config in your `profiles.y
 | `token_endpoint.request_data`       | Yes      | The URL-encoded request body used to fetch the Entra token (for example `grant_type`, `client_id`, `client_secret`, and `scope`).                             |
 | `service_account_impersonation_url` | No       | The `generateAccessToken` URL of a service account to impersonate after federation, if you want BigQuery access scoped to that service account's permissions. |
 
-#### WIF config example in `profiles.yml`[​](#wif-config-example-in-profilesyml "Direct link to wif-config-example-in-profilesyml")
+#### WIF config example in `profiles.yml`
 
 The following code snippet is an example of a WIF config in your `profiles.yml`. Make sure to replace the values with your own:
 
@@ -249,6 +217,6 @@ default:
       # service_account_impersonation_url: https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/sa@project.iam.gserviceaccount.com:generateAccessToken
 ```
 
-## More information[​](#more-information "Direct link to More information")
+## More information
 
 Find BigQuery-specific configuration information in the [BigQuery adapter reference guide](../../../reference/resource-configs/bigquery-configs.md).

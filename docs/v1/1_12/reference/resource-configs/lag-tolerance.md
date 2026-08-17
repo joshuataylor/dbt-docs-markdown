@@ -1,8 +1,6 @@
 # lag\_tolerance
 
-* Project YAML file
-* Properties YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -12,6 +10,8 @@ models:
     +state:
       lag_tolerance: <duration_string>
 ```
+
+### Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,6 +23,8 @@ models:
         lag_tolerance: <duration_string>
 ```
 
+### SQL file config
+
 models/\<filename>.sql
 
 ```sql
@@ -33,7 +35,7 @@ models/\<filename>.sql
 ) }}
 ```
 
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 Source systems may update more frequently than downstream models need to rebuild. For example, a model used for daily reporting doesn't need to refresh more than once per day, even if new upstream data is available hourly.
 
@@ -62,7 +64,7 @@ This config accepts two value types:
   lag_tolerance: "{{ '4h' if target.name == 'prod' else '7d' }}"
   ```
 
-### When does `lag_tolerance` apply[​](#when-does-lag_tolerance-apply "Direct link to when-does-lag_tolerance-apply")
+### When does `lag_tolerance` apply
 
 `lag_tolerance` only applies to data freshness checks. A downstream model still rebuilds within its tolerance window if an upstream model's compiled SQL has changed since the last run, regardless of the `lag_tolerance` setting.
 
@@ -93,13 +95,13 @@ group by 1
 
 When `fct_orders` transitions from a full load to an incremental run, its compiled SQL changes. `agg_orders_daily` rebuilds on that run despite its 3-hour `lag_tolerance`.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 `45m`. When `lag_tolerance` is not set, dbt State applies a default tolerance of 45 minutes.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use different tolerances per environment[​](#use-different-tolerances-per-environment "Direct link to Use different tolerances per environment")
+### Use different tolerances per environment
 
 Use a Jinja expression to set a tight tolerance in production and a looser one everywhere else. This keeps production data fresh while reducing unnecessary rebuilds during development:
 
@@ -113,7 +115,7 @@ models:
 
 In this example, models in the `prod` target rebuild only when upstream data is more than 4 hours old. In all other environments, models wait 7 days before rebuilding.
 
-### Apply different tolerances per folder[​](#apply-different-tolerances-per-folder "Direct link to Apply different tolerances per folder")
+### Apply different tolerances per folder
 
 Set different tolerances for different parts of your project by targeting folders:
 
@@ -130,7 +132,7 @@ models:
         lag_tolerance: 1h
 ```
 
-### Override for a specific model[​](#override-for-a-specific-model "Direct link to Override for a specific model")
+### Override for a specific model
 
 Override the project-level default for a single model:
 
@@ -144,7 +146,7 @@ models:
         lag_tolerance: 1h
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](../../docs/deploy/dbt-state-about.md)
 * [Set up dbt State](../../docs/deploy/dbt-state-setup.md)

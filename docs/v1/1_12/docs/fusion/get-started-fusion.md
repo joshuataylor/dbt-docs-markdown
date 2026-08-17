@@ -1,4 +1,4 @@
-### New to dbt? Start here[​](#new-to-dbt-start-here "Direct link to New to dbt? Start here")
+### New to dbt? Start here
 
 Once you've caught up on everything [Fusion has to offer](./about-fusion.md), start with the path that matches how you want to use dbt.
 
@@ -28,7 +28,7 @@ Get Fusion's performance plus autocomplete, inline errors, and lineage in your e
 
 [Create a dbt platform account to unlock the full Fusion feature set.](https://www.getdbt.com/signup)
 
-### Already using dbt? Start here[​](#already-using-dbt-start-here "Direct link to Already using dbt? Start here")
+### Already using dbt? Start here
 
 Upgrade your existing projects to v2 and learn about the tools available to you once you're there.
 

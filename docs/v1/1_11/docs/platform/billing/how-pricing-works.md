@@ -1,12 +1,12 @@
 # How does dbt pricing work?
 
-dbt platformⓘ
+dbt platform
 
 As a customer, you pay for the number of seats you have and the amount of usage consumed each month. Seats are billed primarily on the amount of Developer and Read licenses purchased.
 
 Usage is based on the number of [Successful Models Built](#what-counts-as-a-successful-model-built) and, if purchased and used, Semantic Layer [Queried Metrics](#what-counts-as-a-queried-metric) subject to reasonable usage. All billing computations are conducted in Coordinated Universal Time (UTC).
 
-### What counts as a seat license?[​](#what-counts-as-a-seat-license "Direct link to What counts as a seat license?")
+### What counts as a seat license?
 
 You can learn more about allocating users to your account in [Users and licenses](../manage-access/seats-and-users.md). There are four types of possible seat licenses:
 
@@ -17,7 +17,7 @@ You can learn more about allocating users to your account in [Users and licenses
 
 \* The [Analyst license type](../manage-access/about-user-access.md?version=1.12#licenses) is not available for new purchase.
 
-### What counts as a Successful Model Built?[​](#what-counts-as-a-successful-model-built "Direct link to What counts as a Successful Model Built?")
+### What counts as a Successful Model Built?
 
 A Successful Model Built is any model successfully built in a dbt deployment environment through dbt’s orchestration. This includes jobs run via the scheduler, CI builds (triggered by pull requests), and runs kicked off via the dbt API. Models that build successfully are counted even if the overall run later fails. For example, if a job containing 100 models fails after 51 are built, only those 51 are counted.
 
@@ -35,13 +35,7 @@ When a dynamic table is initially created, the model is counted (if the creation
 | Seeds                                       | ❌ |
 | Snapshots                                   | ❌ |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### What counts as a Queried Metric?[​](#what-counts-as-a-queried-metric "Direct link to What counts as a Queried Metric?")
+### What counts as a Queried Metric?
 
 The Semantic Layer, powered by MetricFlow, measures usage in distinct Queried Metrics.
 
@@ -66,7 +60,7 @@ Examples of queried metrics include:
 
 Compiling metrics counts the same way — one queried metric per metric compiled (for example, `dbt sl query --metrics revenue --compile` → 1 queried metric).
 
-### Viewing usage in the product[​](#viewing-usage-in-the-product "Direct link to Viewing usage in the product")
+### Viewing usage in the product
 
 Viewing usage in the product is restricted to specific roles:
 

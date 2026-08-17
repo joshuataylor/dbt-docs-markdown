@@ -1,7 +1,8 @@
 # strategy
 
-* timestamp
-* check
+### timestamp
+
+(Applies to dbt v1.9 and later)
 
 snapshots/\<filename>.yml
 
@@ -23,6 +24,10 @@ snapshots:
     +updated_at: column_name
 ```
 
+### check
+
+(Applies to dbt v1.9 and later)
+
 snapshots/\<filename>.yml
 
 ```yaml
@@ -43,17 +48,19 @@ snapshots:
     +check_cols: [column_name] | all
 ```
 
-## Description[​](#description "Direct link to Description")
+## Description
 
 The snapshot strategy dbt should use to detect record changes. Read the guide to [snapshots](../../docs/build/snapshots.md#detecting-row-changes) to understand the differences between the two.
 
-## Default[​](#default "Direct link to Default")
+## Default
 
 This is a **required configuration**. There is no default value.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
-### Use the timestamp strategy[​](#use-the-timestamp-strategy "Direct link to Use the timestamp strategy")
+### Use the timestamp strategy
+
+(Applies to dbt v1.9 and later)
 
 snapshots/timestamp\_example.yml
 
@@ -68,7 +75,9 @@ snapshots:
       updated_at: updated_at
 ```
 
-### Use the check strategy[​](#use-the-check-strategy "Direct link to Use the check strategy")
+### Use the check strategy
+
+(Applies to dbt v1.9 and later)
 
 snapshots/check\_example.yml
 
@@ -85,7 +94,7 @@ snapshots:
         - is_cancelled
 ```
 
-### Advanced: define and use custom snapshot strategy[​](#advanced-define-and-use-custom-snapshot-strategy "Direct link to Advanced: define and use custom snapshot strategy")
+### Advanced: define and use custom snapshot strategy
 
 Behind the scenes, snapshot strategies are implemented as macros, named `snapshot_<strategy>_strategy`
 
@@ -96,6 +105,8 @@ It's possible to implement your own snapshot strategy by adding a macro with the
 
 1. Create a macro named `snapshot_timestamp_with_deletes_strategy`. Use the existing code as a guide and adjust as needed.
 2. Use this strategy via the `strategy` configuration:
+
+(Applies to dbt v1.9 and later)
 
 snapshots/\<filename>.yml
 

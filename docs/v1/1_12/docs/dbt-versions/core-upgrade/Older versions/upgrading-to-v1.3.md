@@ -1,14 +1,14 @@
 # Upgrading to v1.3
 
-Available in v1ⓘ
+Available in v1
 
-### Resources[​](#resources "Direct link to Resources")
+### Resources
 
 * [Changelog](https://github.com/dbt-labs/dbt-core/blob/1.3.latest/CHANGELOG.md)
 * [dbt Core CLI Installation guide](../../../local/install-dbt.md)
 * [Cloud upgrade guide](../../upgrade-dbt-platform-version.md)
 
-## What to know before upgrading[​](#what-to-know-before-upgrading "Direct link to What to know before upgrading")
+## What to know before upgrading
 
 We are committed to providing backward compatibility for all versions 1.x. If you encounter an error upon upgrading, please let us know by [opening an issue](https://github.com/dbt-labs/dbt-core/issues/new).
 
@@ -18,7 +18,7 @@ There are three changes in dbt Core v1.3 that may require action from some users
 2. If you already have `.py` files defined in the `model-paths` of your dbt project, dbt will start trying to read them as Python models. You can use [the new `.dbtignore` file](../../../../reference/dbtignore.md) to tell dbt to ignore those files.
 3. If you have custom code accessing the `raw_sql` property of models (with the [model](../../../../reference/dbt-jinja-functions/model.md) or [graph](../../../../reference/dbt-jinja-functions/graph.md) objects), it has been renamed to `raw_code`. This is a change to the manifest contract, described in more detail below.
 
-### For users of dbt Metrics[​](#for-users-of-dbt-metrics "Direct link to For users of dbt Metrics")
+### For users of dbt Metrics
 
 The names of metric properties have changed, with backward compatibility. Those changes are:
 
@@ -28,7 +28,7 @@ The names of metric properties have changed, with backward compatibility. Those 
 
 We plan to keep backward compatibility for a full minor version. Defining metrics with the old names will raise an error in dbt Core v1.4.
 
-### For consumers of dbt artifacts (metadata)[​](#for-consumers-of-dbt-artifacts-metadata "Direct link to For consumers of dbt artifacts (metadata)")
+### For consumers of dbt artifacts (metadata)
 
 We have updated the manifest schema version to `v7`. This includes the changes to metrics described above and a few other changes related to the addition of Python models:
 
@@ -38,11 +38,11 @@ We have updated the manifest schema version to `v7`. This includes the changes t
 
 For users of [state-based selection](../../../../reference/node-selection/syntax.md#about-node-selection): This release includes logic providing backward and forward compatibility for older manifest versions. While running dbt Core v1.3, it should be possible to use `state:modified --state ...` selection against a manifest produced by dbt Core v1.0 and higher.
 
-### For maintainers of adapter plugins[​](#for-maintainers-of-adapter-plugins "Direct link to For maintainers of adapter plugins")
+### For maintainers of adapter plugins
 
 GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-labs/dbt-core/discussions/6011)
 
-## New and changed documentation[​](#new-and-changed-documentation "Direct link to New and changed documentation")
+## New and changed documentation
 
 * **[Python models](../../../build/python-models.md)** are natively supported in `dbt-core` for the first time, on data warehouses that support Python runtimes.
 
@@ -54,7 +54,7 @@ GitHub discussion with details: [dbt-labs/dbt-core#6011](https://github.com/dbt-
 
 * **[`Profiles.yml`](../../../local/profiles.yml.md#advanced-customizing-a-profile-directory)** search order now looks in the current working directory before `~/.dbt`.
 
-### Quick hits[​](#quick-hits "Direct link to Quick hits")
+### Quick hits
 
 * **["Full refresh"](../../../../reference/resource-configs/full_refresh.md)** flag supports a short name, `-f`.
 * **[The "config" selection method](../../../../reference/node-selection/methods.md#config)** supports boolean and list config values, in addition to strings.

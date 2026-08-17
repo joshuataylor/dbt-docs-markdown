@@ -4,7 +4,7 @@ An analytics engineer favorite: the left join. Without a doubt, this is probably
 
 The left join returns all rows in the [FROM statement](./from.md), regardless of match in the left join database object. Compare this to an [inner join](./inner-join.md), where only rows are returned that have successful key matches between the database object in the FROM statement and in the inner join statement.
 
-## How to create a left join[​](#how-to-create-a-left-join "Direct link to How to create a left join")
+## How to create a left join
 
 Like all joins, you need some database objects (ie tables/views), keys to join on, and a [select statement](./select.md) to perform a left join:
 
@@ -18,7 +18,7 @@ on t1.id = t2.id
 
 In this example above, there’s only one field from each table being used to join the two together together; if you’re joining between two database objects that require multiple fields, you can leverage AND/OR operators, and more preferably, surrogate keys. You may additionally add [WHERE](./where.md), [GROUP BY](./group-by.md), [ORDER BY](./order-by.md), [HAVING](./having.md), and other clauses after your joins to create filtering, ordering, and performing aggregations. You may also left (or any join really) as many joins as you’d like in an individual query or CTE.
 
-### SQL left join example[​](#sql-left-join-example "Direct link to SQL left join example")
+### SQL left join example
 
 Table A `car_type`
 
@@ -28,12 +28,6 @@ Table A `car_type`
 | 2            | sedan         |
 | 3            | truck         |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Table B `car_color`
 
 | user\_id | car\_color |
@@ -41,12 +35,6 @@ Table B `car_color`
 | 1        | red        |
 | 3        | green      |
 | 4        | yellow     |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 ```sql
 select
@@ -66,15 +54,9 @@ This simple query will return *all rows* from Table A and adds the `color` colum
 | 2            | sedan    | null      |
 | 3            | truck    | green     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Because there’s no `user_id` = 2 in Table B, there is no `color` available, thus a null result `color` column for `user_id` 2.
 
-## SQL left join use cases[​](#sql-left-join-use-cases "Direct link to SQL left join use cases")
+## SQL left join use cases
 
 Left joins are a fundamental in data modeling and analytics engineering work—they allow you to easily join database objects onto each other while maintaining an original table’s row count (in the from statement). Compared to right joins, that return all rows in a right join database object (and not the from statement), we find left joins a little more intuitive to understand and build off of.
 

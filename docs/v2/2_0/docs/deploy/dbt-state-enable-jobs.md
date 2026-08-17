@@ -1,6 +1,6 @@
 # Enabling dbt State on individual jobs [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 dbt State is available on all job types: deploy, continuous integration (CI), and merge jobs.
 
@@ -12,7 +12,7 @@ To enable dbt State on any job — whether already existing or newly created in 
 4. In the **Execution settings** section of the job, select **Enable dbt State**.
 5. Click **Save**.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

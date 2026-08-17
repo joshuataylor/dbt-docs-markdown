@@ -1,6 +1,6 @@
 # Studio IDE keyboard shortcuts
 
-dbt platformⓘ
+dbt platform
 
 The Studio IDE provides keyboard shortcuts, features, and development tips to help you work faster and be more productive.
 
@@ -19,13 +19,7 @@ Use this Studio IDE page to help you quickly reference some common operations.
 | Open the [**Invocation History Drawer**](./ide-user-interface.md#invocation-history) located at the bottom of the IDE.                     | Control-backtick (or Control + \`)                       | Control-backtick (or Ctrl + \`) |
 | Add a block comment to the selected code. SQL files will use the Jinja syntax `({# #})` rather than the SQL one `(/* */)`.                                                                | Shift-Option-A                                           | Shift-Alt-A                     |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Quickstart guide](../../../guides.md)
 * [About dbt](../about-platform/dbt-platform-features.md)

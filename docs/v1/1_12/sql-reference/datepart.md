@@ -4,7 +4,7 @@ In this post, we’re going to give a deep dive into the DATE\_PART function, ho
 
 The DATE\_PART function allows you to extract a specified date part from a date/time. For example, if you were to extract the month from the date February 14, 2022, it would return 2 since February is the second month in the year.
 
-## How to use the DATE\_PART function[​](#how-to-use-the-date_part-function "Direct link to How to use the DATE_PART function")
+## How to use the DATE\_PART function
 
 Like most other SQL functions, you need to pass in arguments; for the DATE\_PART function, you’ll pass in a date/timestamp/date field that you want to extract a date part from and specify the part you want removed. You can extract the numeric month, date, year, hour, seconds, etc. from a timestamp or date field) using the DATE\_PART function using the following syntax:
 
@@ -12,7 +12,7 @@ Like most other SQL functions, you need to pass in arguments; for the DATE\_PART
 
 Let’s take a look at a practical example below.
 
-### DATE\_PART function example[​](#date_part-function-example "Direct link to DATE_PART function example")
+### DATE\_PART function example
 
 ```sql
 select
@@ -31,17 +31,11 @@ This query using the [Jaffle Shop’s](https://github.com/dbt-labs/jaffle_shop) 
 | 3            | 18                 |
 | 4            | 17                 |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 Unlike the DATE\_TRUNC function that actually truncates a date to its first instance of a given date part (so it maintains a date structure), the DATE\_PART function returns a numeric value from a date field.
 
 You may commonly see the DATE\_PART function replaced with an EXTRACT function, which performs the same functionality.
 
-## DATE\_PART function syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#date_part-function-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to DATE_PART function syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## DATE\_PART function syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 | Data warehouse  | DATE\_PART support? | Notes                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,13 +45,7 @@ You may commonly see the DATE\_PART function replaced with an EXTRACT function, 
 | Google BigQuery | ❌                  | BigQuery supports the EXTRACT function which performs the same functionality as the DATE\_PART function                                                                                                                                                                                                                                                                      |
 | Postgres        | ✅                  | This is overly pedantic and you’ll likely never encounter an issue with DATE\_PART and EXTRACT evaluating to differences in values that truly matter, but it’s worth noting. Postgres’ DATE\_PART and EXTRACT functions would previously evaluate to the same output. However, with Postgres 14, the EXTRACT function now returns a numeric type instead of an 8-byte float. |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-## DATE\_PART function use cases[​](#date_part-function-use-cases "Direct link to DATE_PART function use cases")
+## DATE\_PART function use cases
 
 We most commonly see the DATE\_PART or EXTRACT function used in data work to analyze:
 

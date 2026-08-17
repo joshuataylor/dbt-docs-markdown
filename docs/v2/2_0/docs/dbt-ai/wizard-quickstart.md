@@ -1,6 +1,6 @@
 # Use dbt Wizard locally
 
-Local developmentⓘ
+Local development
 
 Install dbt Wizard locally and start an agentic dbt development session from your terminal.
 
@@ -8,12 +8,15 @@ You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CL
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
-* macOS/Linux
-* Windows
+### macOS/Linux
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
+
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](./wizard-cli.md#uninstall) if you ever need to remove them.
+
+### Windows
 
 Run the following in PowerShell:
 
@@ -30,8 +33,6 @@ wizard             # start an interactive session
 
 After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](./wizard-config.md) for more details.
 
-<!-- -->
-
 By the end of this guide, you can install dbt Wizard locally, authenticate with your dbt platform credentials if applicable, complete first-run onboarding, and send your first prompt from the terminal.
 
 dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../fusion/about-fusion.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
@@ -40,9 +41,9 @@ Be warned, the wizard has been known to cast spells
 
 .
 
-## Supported AI providers[​](#supported-ai-providers "Direct link to Supported AI providers")
+## Supported AI providers
 
-#### dbt Wizard[​](#dbt-wizard "Direct link to dbt Wizard")
+#### dbt Wizard
 
 dbt Wizard supports different AI providers depending on where you use it.
 
@@ -63,9 +64,7 @@ Refer to the following pages for more information:
 * [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
 * [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
-<!-- -->
-
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 You'll need:
 
@@ -79,7 +78,7 @@ If you've never used the terminal before, check out the [terminal guide](../../g
 * Enter `/` to see the available commands or try out `/overview` to get a quick summary of your project.
 * Press `Shift+Tab` to cycle through collaboration modes.
 
-## Complete first-run onboarding[​](#complete-first-run-onboarding "Direct link to Complete first-run onboarding")
+## Complete first-run onboarding
 
 The first time you start dbt Wizard in a project, it walks you through a short setup and saves your answers to [`wizard_config.toml`, `providers.json`, and `provider-auth.json`](./wizard-config.md), so you only do this once per project. You'll be asked to:
 
@@ -152,7 +151,7 @@ Best practices for using dbt Wizard
 
 Once you're set up, refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md) for recommended workflows on real project tasks.
 
-## Useful terminal commands[​](#useful-terminal-commands "Direct link to Useful terminal commands")
+## Useful terminal commands
 
 Use the following commands to get started:
 
@@ -172,7 +171,7 @@ Need to re-run setup?
 
 If you want to re-run onboarding — re-authenticate, reset project config, or retrigger the trusted folder prompt — refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * [Use cases and examples](./wizard-use-cases.md) for realistic analytics engineering scenarios
 * [Install and update reference](./wizard-cli.md) for full install, update, and uninstall details

@@ -6,7 +6,7 @@ There is no user-facing configuration to modify or extend the `modules` namespac
 
 If your workflow requires functionality from additional Python libraries, use a [Python model](../../docs/build/python-models.md) (where supported) instead of Jinja. Python models run in a different execution context and allow you to import and use external libraries as needed.
 
-## datetime[​](#datetime "Direct link to datetime")
+## datetime
 
 This variable is a pointer to the Python [`datetime`](https://docs.python.org/3/library/datetime.html) module, which supports complex date and time logic.
 
@@ -21,7 +21,7 @@ It includes the modules contexts of `date`, `datetime`, `time`, `timedelta`, and
 
 This module will return the current date and time on every Jinja evaluation. For the date and time of the start of the run, please see [run\_started\_at](./run_started_at.md).
 
-## pytz[​](#pytz "Direct link to pytz")
+## pytz
 
 This variable is a pointer to the Python [`pytz`](https://pypi.org/project/pytz/) module, which supports timezone logic.
 
@@ -33,7 +33,7 @@ This variable is a pointer to the Python [`pytz`](https://pypi.org/project/pytz/
 {{ dt_local }}
 ```
 
-## re[​](#re "Direct link to re")
+## re
 
 This variable is a pointer to the Python [`re`](https://docs.python.org/3/library/re.html) module, which supports regular expressions.
 
@@ -52,7 +52,7 @@ This variable is a pointer to the Python [`re`](https://docs.python.org/3/librar
 {% endif %}
 ```
 
-## itertools[​](#itertools "Direct link to itertools")
+## itertools
 
 Note
 

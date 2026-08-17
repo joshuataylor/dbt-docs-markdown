@@ -1,37 +1,27 @@
 # Connect MaxCompute to dbt Core
 
-Local developmentⓘ
+Local development
 
-* **Maintained by**:
-  <!-- -->
-  Alibaba Cloud MaxCompute Team
-* **Authors**:
-  <!-- -->
-  Alibaba Cloud MaxCompute Team
+* **Maintained by**: Alibaba Cloud MaxCompute Team
+* **Authors**: Alibaba Cloud MaxCompute Team
 * **GitHub repo**: [aliyun/dbt-maxcompute](https://github.com/aliyun/dbt-maxcompute) [![](https://img.shields.io/github/stars/aliyun/dbt-maxcompute?style=for-the-badge)](https://github.com/aliyun/dbt-maxcompute)
 * **PyPI package**: `dbt-maxcompute` [![](https://badge.fury.io/py/dbt-maxcompute.svg)](https://badge.fury.io/py/dbt-maxcompute)
 * **Slack channel**:[]()
-* **Supported dbt Core version**:
-  <!-- -->
-  v1.8.0
-  <!-- -->
-  and newer
-* **dbt support**:
-  <!-- -->
-  Not Supported
+* **Supported dbt Core version**: v1.8.0 and newer
+* **dbt support**: Not Supported
 * **Minimum data platform version**:
 
-## Installing <!-- -->dbt-maxcompute
+## Installing dbt-maxcompute
 
 Use `pip` to install the adapter. Use the following command for installation:
 
 `python -m pip install dbt-maxcompute`
 
-## Configuring <!-- -->dbt-maxcompute<!-- -->
+## Configuring dbt-maxcompute
 
-For <!-- -->MaxCompute<!-- -->-specific configuration, please refer to [MaxCompute<!-- --> configs.](../../../reference/resource-configs/no-configs.md)
+For MaxCompute-specific configuration, please refer to [MaxCompute configs.](../../../reference/resource-configs/no-configs.md)
 
-## Connecting to MaxCompute with **dbt-maxcompute**[​](#connecting-to-maxcompute-with-dbt-maxcompute "Direct link to connecting-to-maxcompute-with-dbt-maxcompute")
+## Connecting to MaxCompute with **dbt-maxcompute**
 
 Check out the dbt profile configuration below for details.
 
@@ -63,21 +53,15 @@ Currently it supports the following parameters:
 | `access_key_id`     | The Access ID for authentication with MaxCompute.                                                  | Required  | `XXX`                                                  |
 | `access_key_secret` | The Access Key for authentication with MaxCompute.                                                 | Required  | `XXX`                                                  |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 See the section below for other authentication type.
 
-## Authentication Configuration[​](#authentication-configuration "Direct link to Authentication Configuration")
+## Authentication Configuration
 
 `dbt-maxcompute` is a dbt adapter that allows you to seamlessly integrate with Alibaba Cloud's MaxCompute service, enabling you to build and manage your data transformations using dbt. To ensure secure and flexible access to MaxCompute, `dbt-maxcompute` leverages the [credentials-python](https://github.com/aliyun/credentials-python) library, which provides comprehensive support for various authentication methods supported by Alibaba Cloud.
 
 With `dbt-maxcompute`, you can utilize all the authentication mechanisms provided by `credentials-python`, ensuring that your credentials are managed securely and efficiently. Whether you're using Access Keys, STS Tokens, RAM Roles, or other advanced authentication methods, `dbt-maxcompute` has got you covered.
 
-### Key Notes on Configuration[​](#key-notes-on-configuration "Direct link to Key Notes on Configuration")
+### Key Notes on Configuration
 
 To avoid ambiguity in configuration options, some parameter names have been adjusted compared to those used in `credentials-python`. Specifically:
 
@@ -90,13 +74,13 @@ To avoid ambiguity in configuration options, some parameter names have been adju
 
 These changes ensure clarity and consistency across different authentication methods while maintaining compatibility with the underlying `credentials-python` library.
 
-## Usage[​](#usage "Direct link to Usage")
+## Usage
 
 Before you begin, you need to sign up for an Alibaba Cloud account and retrieve your [Credentials](https://usercenter.console.aliyun.com/#/manage/ak).
 
-### Credential Type[​](#credential-type "Direct link to Credential Type")
+### Credential Type
 
-#### Access Key[​](#access-key "Direct link to Access Key")
+#### Access Key
 
 Setup access\_key credential through \[User Information Management]\[ak], it have full authority over the account, please keep it safe. Sometimes for security reasons, you cannot hand over a primary account AccessKey with full access to the developer of a project. You may create a sub-account \[RAM Sub-account]\[ram] , grant its \[authorization]\[permissions]，and use the AccessKey of RAM Sub-account.
 
@@ -114,7 +98,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       access_key_secret: accessKeySecret # AccessKeySecret
 ```
 
-#### STS[​](#sts "Direct link to STS")
+#### STS
 
 Create a temporary security credential by applying Temporary Security Credentials (TSC) through the Security Token Service (STS).
 
@@ -133,7 +117,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       security_token: securityToken  # STS Token
 ```
 
-#### RAM Role ARN[​](#ram-role-arn "Direct link to RAM Role ARN")
+#### RAM Role ARN
 
 By specifying \[RAM Role]\[RAM Role], the credential will be able to automatically request maintenance of STS Token. If you want to limit the permissions(\[How to make a policy]\[policy]) of STS Token, you can assign value for `Policy`.
 
@@ -156,7 +140,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       role_session_expiration: 3600 # Not required, limit the Valid time of STS Token
 ```
 
-#### OIDC Role ARN[​](#oidc-role-arn "Direct link to OIDC Role ARN")
+#### OIDC Role ARN
 
 By specifying \[OIDC Role]\[OIDC Role], the credential will be able to automatically request maintenance of STS Token. If you want to limit the permissions(\[How to make a policy]\[policy]) of STS Token, you can assign value for `Policy`.
 
@@ -181,7 +165,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       role_session_expiration: 3600 # Not required, limit the Valid time of STS Token
 ```
 
-#### ECS RAM Role[​](#ecs-ram-role "Direct link to ECS RAM Role")
+#### ECS RAM Role
 
 Both ECS and ECI instances support binding instance RAM roles. When the Credentials tool is used in an instance, the RAM role bound to the instance will be automatically obtained, and the STS Token of the RAM role will be obtained by accessing the metadata service to complete the initialization of the credential client.
 
@@ -207,7 +191,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       disable_imds_v1: True # Optional, whether to forcibly disable IMDSv1, that is, to use IMDSv2 hardening mode, which can be set by the environment variable ALIBABA_CLOUD_IMDSV1_DISABLED
 ```
 
-#### Credentials URI[​](#credentials-uri "Direct link to Credentials URI")
+#### Credentials URI
 
 By specifying a credentials uri, get credential from the local or remote uri, the credential will be able to automatically request maintenance to keep it update.
 
@@ -224,7 +208,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       credentials_uri: http://local_or_remote_uri/ # Credentials URI
 ```
 
-#### Bearer[​](#bearer "Direct link to Bearer")
+#### Bearer
 
 If credential is required by the Cloud Call Centre (CCC), please apply for Bearer Token maintenance by yourself.
 
@@ -241,7 +225,7 @@ jaffle_shop: # this needs to match the profile in your dbt_project.yml file
       bearer_token: bearerToken # BearerToken
 ```
 
-### Use the credential provider chain[​](#use-the-credential-provider-chain "Direct link to Use the credential provider chain")
+### Use the credential provider chain
 
 ```yaml
 jaffle_shop: # this needs to match the profile in your dbt_project.yml file
@@ -313,6 +297,6 @@ The default credential provider chain looks for available credentials, with foll
 
    If the environment variable `ALIBABA_CLOUD_CREDENTIALS_URI` is defined and not empty, the program will take the value of the environment variable as credentials uri to get the temporary Security credentials.
 
-## References[​](#references "Direct link to References")
+## References
 
 * [Credentials Python](https://github.com/aliyun/credentials-python)

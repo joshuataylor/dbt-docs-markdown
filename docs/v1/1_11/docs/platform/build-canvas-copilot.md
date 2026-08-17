@@ -1,12 +1,12 @@
 # Build with dbt Copilot
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Use dbt Copilot to build visual models in the Canvas with natural language prompts.
 
 dbt Copilot integrates with [Canvas](./canvas.md), a drag-and-drop experience for building visual models with natural language prompts.
 
-## Considerations[​](#considerations "Direct link to Considerations")
+## Considerations
 
 dbt Copilot in Canvas has setup and AI requirements. Confirm the following before you begin.
 
@@ -15,8 +15,6 @@ dbt Copilot in Canvas has setup and AI requirements. Confirm the following befor
 * dbt Copilot requires AI features to be [enabled](./enable-dbt-ai.md) for your account. AI terms and conditions apply. Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#does-dbt-labs-have-terms-in-place) for details.
 * Your development environment must be on a supported [release track](../dbt-versions/dbt-release-tracks.md).
 * Refer to [Billing](./billing.md) for dbt Copilot usage limits.
-
-<!-- -->
 
 info
 
@@ -34,8 +32,6 @@ To begin building models with natural language prompts in the Canvas:
 
 3. Click **Generate** and dbt Copilot generates a summary of the model(s) you want to build.
 
-   <!-- -->
-
    * To start over, click on the **+** icon. To close the prompt box, click **X**.
 
    [![Enter a prompt in the dbt Copilot prompt box to build models using natural language](/img/docs/dbt-platform/copilot-generate.jpg?v=2 "Enter a prompt in the dbt Copilot prompt box to build models using natural language")](#)Enter a prompt in the dbt Copilot prompt box to build models using natural language
@@ -43,8 +39,6 @@ To begin building models with natural language prompts in the Canvas:
 4. Click **Apply** to generate the model(s) in the Canvas.
 
 5. dbt Copilot displays a visual "diff" view to help you compare the proposed changes with your existing code. Review the diff view in the canvas to see the generated operators built by dbt Copilot:
-
-   <!-- -->
 
    * White: Located in the top of the canvas and means existing set up or blank canvas that will be removed or replaced by the suggested changes.
    * Green: Located in the bottom of the canvas and means new code that will be added if you accept the suggestion.
@@ -57,7 +51,7 @@ To begin building models with natural language prompts in the Canvas:
 7. In the **generated** operator box, click the play icon to preview the data
 
 8. Confirm the results or continue building your model.
-   <!-- -->
+
    [![Use the generated operator with play icon to preview the data](/img/docs/dbt-platform/copilot-output.jpg?v=2 "Use the generated operator with play icon to preview the data")](#)Use the generated operator with play icon to preview the data
 
 9. To edit the generated model, open **dbt Copilot** prompt box and type your edits.

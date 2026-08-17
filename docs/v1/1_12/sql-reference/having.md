@@ -6,7 +6,7 @@ A not-so-fun fact about the [WHERE clause](./where.md) is that you can’t filte
 
 This page will walk through how to use HAVING, when you should use it, and discuss data warehouse support for it.
 
-## How to use the HAVING clause in SQL[​](#how-to-use-the-having-clause-in-sql "Direct link to How to use the HAVING clause in SQL")
+## How to use the HAVING clause in SQL
 
 The HAVING clause essentially requires one thing: an aggregate field to evaluate. Since HAVING is technically a boolean, it will return rows that execute to true, similar to the WHERE clause.
 
@@ -23,10 +23,9 @@ having condition
 
 That example syntax looks a little gibberish without some real fields, so let’s dive into a practical example using HAVING.
 
-### SQL HAVING example[​](#sql-having-example "Direct link to SQL HAVING example")
+### SQL HAVING example
 
-* HAVING example
-* CTE example
+### HAVING example
 
 ```sql
 select
@@ -36,6 +35,8 @@ from {{ ref('orders') }}
 group by 1
 having num_orders > 1 --if you replace this with `where`, this query would not successfully run
 ```
+
+### CTE example
 
 ```sql
 with counts as (
@@ -62,14 +63,8 @@ This simple query using the sample dataset [Jaffle Shop’s](https://github.com/
 | 64           | 2           |
 | 54           | 4           |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 The query above using the CTE utilizes more lines compared to the simpler query using HAVING, but will produce the same result.
 
-## SQL HAVING clause syntax in Snowflake, Databricks, BigQuery, and Redshift[​](#sql-having-clause-syntax-in-snowflake-databricks-bigquery-and-redshift "Direct link to SQL HAVING clause syntax in Snowflake, Databricks, BigQuery, and Redshift")
+## SQL HAVING clause syntax in Snowflake, Databricks, BigQuery, and Redshift
 
 [Snowflake](https://docs.snowflake.com/en/sql-reference/constructs/having.html), [Databricks](https://docs.databricks.com/sql/language-manual/sql-ref-syntax-qry-select-having.html), [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#having_clause), and [Redshift](https://docs.aws.amazon.com/redshift/latest/dg/r_HAVING_clause.html) all support the HAVING clause and the syntax for using HAVING is the same across each of those data warehouses.

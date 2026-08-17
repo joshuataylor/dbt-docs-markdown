@@ -1,10 +1,6 @@
 # columns
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
+### Models
 
 models/\<filename>.yml
 
@@ -24,6 +20,8 @@ models:
       - name: <another_column>
         ...
 ```
+
+### Sources
 
 models/\<filename>.yml
 
@@ -46,6 +44,8 @@ sources:
           ...
 ```
 
+### Seeds
+
 seeds/\<filename>.yml
 
 ```yml
@@ -65,6 +65,8 @@ seeds:
             ...
 ```
 
+### Snapshots
+
 snapshots/\<filename>.yml
 
 ```yml
@@ -82,6 +84,8 @@ snapshots:
           meta: ...
       - name: <another_column>
 ```
+
+### Analyses
 
 analyses/\<filename>.yml
 
@@ -110,15 +114,11 @@ Columns may optionally define a `data_type`, which is necessary for:
 * Enforcing a model [contract](../resource-configs/contract.md)
 * Use in other packages or plugins, such as the [`external`](./external.md) property of sources and [`dbt-external-tables`](https://hub.getdbt.com/dbt-labs/dbt_external_tables/latest/)
 
-### `quote`[​](#quote "Direct link to quote")
+### `quote`
 
 The `quote` field can be used to enable or disable quoting for column names.
 
-* Models
-* Sources
-* Seeds
-* Snapshots
-* Analyses
+### Models
 
 models/schema.yml
 
@@ -130,6 +130,8 @@ models:
       - name: column_name
         quote: true | false
 ```
+
+### Sources
 
 models/schema.yml
 
@@ -144,6 +146,8 @@ sources:
             quote: true | false
 ```
 
+### Seeds
+
 seeds/schema.yml
 
 ```yml
@@ -154,6 +158,8 @@ seeds:
       - name: column_name
         quote: true | false
 ```
+
+### Snapshots
 
 snapshots/schema.yml
 
@@ -166,6 +172,8 @@ snapshots:
         quote: true | false
 ```
 
+### Analyses
+
 analysis/schema.yml
 
 ```yml
@@ -177,11 +185,11 @@ analyses:
         quote: true | false
 ```
 
-### Default[​](#default "Direct link to Default")
+### Default
 
 The default quoting value is `false`
 
-### Explanation[​](#explanation "Direct link to Explanation")
+### Explanation
 
 This is particularly relevant to those using Snowflake, where quoting can be particularly fickle.
 
@@ -200,9 +208,9 @@ Without setting `quote: true`:
 * [Data tests](../../docs/build/data-tests.md) applied to this column may fail due to invalid SQL
 * Documentation may not render correctly, e.g. `group` and `"group"` may not be matched as the same column name.
 
-### Example[​](#example "Direct link to Example")
+### Example
 
-#### Add data tests to a quoted column in a source table[​](#add-data-tests-to-a-quoted-column-in-a-source-table "Direct link to Add data tests to a quoted column in a source table")
+#### Add data tests to a quoted column in a source table
 
 This is especially relevant if using Snowflake:
 

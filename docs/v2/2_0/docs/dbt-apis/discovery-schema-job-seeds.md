@@ -1,10 +1,10 @@
 # Seeds object schema
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 The seeds object allows you to query information about all seeds in a given job.
 
-### Arguments[​](#arguments "Direct link to Arguments")
+### Arguments
 
 When querying for `seeds`, the following arguments are available.
 
@@ -12,7 +12,7 @@ When querying for `seeds`, the following arguments are available.
 
 Below we show some illustrative example queries and outline the schema of the seeds object.
 
-### Example query[​](#example-query "Direct link to Example query")
+### Example query
 
 The example query below pulls relevant information about all seeds in a given job. For instance, you can view load times.
 
@@ -30,7 +30,7 @@ The example query below pulls relevant information about all seeds in a given jo
 }
 ```
 
-### Fields[​](#fields "Direct link to Fields")
+### Fields
 
 When querying for `seeds`, the following fields are available:
 

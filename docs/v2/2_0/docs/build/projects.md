@@ -21,19 +21,13 @@ At a minimum, all a project needs is the `dbt_project.yml` project configuration
 | [saved queries](./saved-queries.md)     | Saved queries organize reusable queries by grouping metrics, dimensions, and filters into nodes visible in the dbt DAG.                                                                                                                                                           |
 | [user-defined functions](./udfs.md)     | User-defined functions (UDFs) let you create reusable custom functions in your warehouse, shareable across dbt, BI tools, data science workflows, and more.                                                                                                                       |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 When building out the structure of your project, you should consider these impacts on your organization's workflow:
 
 * **How would people run dbt commands** — Selecting a path
 * **How would people navigate within the project** — Whether as developers in the Studio IDE or stakeholders from the docs
 * **How would people configure the models** — Some bulk configurations are easier done at the directory level so people don't have to remember to do everything in a config block with each new model
 
-## Project configuration[​](#project-configuration "Direct link to Project configuration")
+## Project configuration
 
 Every dbt project includes a project configuration file called `dbt_project.yml`. It defines the directory of the dbt project and other project configurations.
 
@@ -54,15 +48,9 @@ Edit `dbt_project.yml` to set up common project configurations such as:
 | [docs-paths](../../reference/project-configs/docs-paths.md)                   | Directories to where your docs blocks live                                                                           |
 | [vars](./project-variables.md)                                 | Project variables you want to use for data compilation                                                               |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For complete details on project configurations, see [dbt\_project.yml](../../reference/dbt_project.yml.md).
 
-## Project subdirectories[​](#project-subdirectories "Direct link to Project subdirectories")
+## Project subdirectories
 
 You can use the Project subdirectory option in dbt to specify a subdirectory in your git repository that dbt should use as the root directory for your project. This is helpful when you have multiple dbt projects in one repository or when you want to organize your dbt project files into subdirectories for easier management.
 
@@ -86,7 +74,7 @@ Project support in dbt plans
 
 Some [plans](https://www.getdbt.com/pricing) support only one dbt project, while [Enterprise-tier plans](https://www.getdbt.com/contact) allow multiple projects and [cross-project references](../../best-practices/how-we-mesh/mesh-1-intro.md) with Mesh.
 
-## New projects[​](#new-projects "Direct link to New projects")
+## New projects
 
 You can create new projects and [share them](../platform/git/git-version-control.md) with other people by making them available on a hosted git repository like GitHub, GitLab, and BitBucket.
 
@@ -94,13 +82,13 @@ After you set up a connection with your data platform, you can [initialize your 
 
 During project initialization, dbt creates sample model files in your project directory to help you start developing quickly.
 
-## Sample projects[​](#sample-projects "Direct link to Sample projects")
+## Sample projects
 
 If you want to explore dbt projects more in-depth, refer to [Clone the Jaffle Shop sample project](../../guides/clone-jaffle-shop.md). It's a runnable project that contains sample configurations and helpful notes.
 
 If you want to see what a mature, production project looks like, check out the [GitLab Data Team public repo](https://gitlab.com/gitlab-data/analytics/-/tree/master/transform/snowflake-dbt).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Best practices: How we structure our dbt projects](../../best-practices/how-we-structure/1-guide-overview.md)
 * [Quickstarts for dbt](../../guides.md)

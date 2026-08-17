@@ -2,7 +2,7 @@
 
 You can run your dbt projects locally or using the [dbt platform](../platform/about-platform/dbt-platform-features.md) with the dbt framework.
 
-## Common commands[​](#common-commands "Direct link to Common commands")
+## Common commands
 
 In dbt, the commands you commonly use are:
 
@@ -20,9 +20,7 @@ If you're new to the command line:
 2. Make sure you navigate to your dbt project directory before running any dbt commands.
 3. These terminal commands help you navigate your file system: `cd` (change directory), `ls` (list directory contents), and `pwd` (present working directory).
 
-## Where to run dbt[​](#where-to-run-dbt "Direct link to Where to run dbt")
-
-<!-- -->
+## Where to run dbt
 
 Use the dbt framework to quickly and collaboratively transform data and deploy analytics code following software engineering best practices like version control, modularity, portability, CI/CD, and documentation. This means anyone on the data team familiar with SQL can safely contribute to production-grade data pipelines.
 
@@ -32,7 +30,7 @@ The dbt framework is composed of a *language* and an *engine*:
 
 * The *dbt engine* compiles your project, executes your transformation graph, and produces metadata. Today, the current Rust-based version generation is v2. By default, installing dbt gives you SQL comprehension, editor features, and richer development workflows.
 
-### dbt platform[​](#dbt-platform "Direct link to dbt platform")
+### dbt platform
 
 The dbt platform is a fully managed service that gives you a complete environment to build, test, deploy, and collaborate on dbt projects. You can develop in the browser or with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
 
@@ -42,7 +40,7 @@ The dbt platform is a fully managed service that gives you a complete environmen
 
 For more details, see [About dbt plans](https://www.getdbt.com/pricing).
 
-### Self-hosted dbt development[​](#dbt-local-development "Direct link to Self-hosted dbt development")
+### Self-hosted dbt development
 
 You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
 
@@ -50,7 +48,7 @@ You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
 * [Install the dbt VS Code extension](../about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](../about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
 * [Install the dbt CLI](../platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About the dbt VS Code extension](../about-dbt-extension.md)
 * [dbt features](../platform/about-platform/dbt-platform-features.md)

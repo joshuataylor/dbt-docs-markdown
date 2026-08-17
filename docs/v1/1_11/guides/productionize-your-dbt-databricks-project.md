@@ -14,11 +14,11 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 Welcome to the third installment of our comprehensive series on optimizing and deploying your data pipelines using Databricks and dbt. In this guide, we'll dive into delivering these models to end users while incorporating best practices to ensure that your production data remains reliable and timely.
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 If you don't have any of the following requirements, refer to the instructions in the [Set up your dbt project with Databricks](./set-up-your-databricks-dbt-project.md) for help meeting these requirements:
 
@@ -30,7 +30,7 @@ If you don't have any of the following requirements, refer to the instructions i
 
 To get started, let's revisit the deployment environment created for your production data.
 
-### Deployment environments[​](#deployment-environments "Direct link to Deployment environments")
+### Deployment environments
 
 In software engineering, environments play a crucial role in allowing engineers to develop and test code without affecting the end users of their software. Similarly, you can design [data lakehouses](https://www.databricks.com/product/data-lakehouse) with separate environments. The *production* environment includes the relations (schemas, tables, and views) that end users query or use, typically in a BI tool or ML model.
 
@@ -41,7 +41,7 @@ In dbt, [environments](../docs/dbt-platform-environments.md) come in two flavors
 
 Each dbt project can have multiple deployment environments, but only one development environment per user.
 
-## Create and schedule a production job[​](#create-and-schedule-a-production-job "Direct link to Create and schedule a production job")
+## Create and schedule a production job
 
 With your deployment environment set up, it's time to create a production job to run in your *prod* environment.
 
@@ -56,15 +56,12 @@ Let’s [create a job](../docs/deploy/deploy-jobs.md#create-and-schedule-jobs) i
 2. **Name** the job “Daily refresh”.
 
 3. Set the **Environment** to your *production* environment.
-   <!-- -->
    * This will allow the job to inherit the catalog, schema, credentials, and environment variables defined in [Set up your dbt project with Databricks](./set-up-your-databricks-dbt-project.md).
 
 4. Under **Execution Settings**
 
    * Check the **Generate docs on run** checkbox to configure the job to automatically generate project docs each time this job runs. This will ensure your documentation stays evergreen as models are added and modified.
    * Select the **Run on source freshness** checkbox to configure dbt [source freshness](../docs/deploy/source-freshness.md) as the first step of this job. Your sources will need to be configured to [snapshot freshness information](../docs/build/sources.md#source-data-freshness) for this to drive meaningful insights.
-
-   <!-- -->
 
    Add the following three **Commands:**
 
@@ -81,7 +78,6 @@ Let’s [create a job](../docs/deploy/deploy-jobs.md#create-and-schedule-jobs) i
      * The fail-fast flag will make dbt exit immediately if a single resource fails to build. If other models are in-progress when the first model fails, then dbt will terminate the connections for these still-running models.
 
 5. Under **Triggers**, use the toggle to configure your job to [run on a schedule](../docs/deploy/deploy-jobs.md#schedule-days). You can enter specific days and timing or create a custom cron schedule.
-   <!-- -->
    * If you want your dbt job scheduled by another orchestrator, like Databricks Workflows, see the [Advanced Considerations](#advanced-considerations) section below.
 
 This is just one example of an all-or-nothing command list designed to minimize wasted computing. The [job command list](../docs/deploy/job-commands.md) and [selectors](../reference/node-selection/syntax.md) provide a lot of flexibility on how your DAG will execute. You may want to design yours to continue running certain models if others fail. You may want to set up multiple jobs to refresh models at different frequencies. See our [Job Creation Best Practices discourse](https://discourse.getdbt.com/t/job-creation-best-practices-in-dbt-cloud-feat-my-moms-lasagna/2980) for more job design suggestions.
@@ -90,7 +86,7 @@ After your job is set up and runs successfully, configure your **[project artifa
 
 This will be our main production job to refresh data that will be used by end users. Another job everyone should include in their dbt project is a continuous integration job.
 
-## Add a CI job[​](#add-a-ci-job "Direct link to Add a CI job")
+## Add a CI job
 
 CI/CD, or Continuous Integration and Continuous Deployment/Delivery, has become a standard practice in software development for rapidly delivering new features and bug fixes while maintaining high quality and stability. dbt enables you to apply these practices to your data transformations.
 
@@ -112,7 +108,7 @@ We recommend setting up a dbt CI job. This will decrease the job’s runtime by 
 
 With dbt tests and SlimCI, you can feel confident that your production data will be timely and accurate even while delivering at high velocity.
 
-## Monitor your jobs[​](#monitor-your-jobs "Direct link to Monitor your jobs")
+## Monitor your jobs
 
 Keeping a close eye on your dbt jobs is crucial for maintaining a robust and efficient data pipeline. By monitoring job performance and quickly identifying potential issues, you can ensure that your data transformations run smoothly. dbt provides three entry points to monitor the health of your project: run history, deployment monitor, and status tiles.
 
@@ -124,7 +120,7 @@ The deployment monitor in dbt offers a higher-level view of your run history, en
 
 By adding [data health tiles](../docs/explore/data-tile.md) to your BI dashboards, you can give stakeholders visibility into the health of your data pipeline without leaving their preferred interface. Data tiles instill confidence in your data and help prevent unnecessary inquiries or context switching. To implement dashboard status tiles, you'll need to have dbt docs with [exposures](../docs/build/exposures.md) defined.
 
-## Set up notifications[​](#set-up-notifications "Direct link to Set up notifications")
+## Set up notifications
 
 Setting up [notifications](../docs/deploy/job-notifications.md) in dbt allows you to receive alerts via email or a Slack channel whenever a run ends. This ensures that the appropriate teams are notified and can take action promptly when jobs fail or are canceled. To set up notifications:
 
@@ -134,7 +130,7 @@ Setting up [notifications](../docs/deploy/job-notifications.md) in dbt allows yo
 
 If you require notifications through other means than email or Slack, you can use dbt's outbound [webhooks](../docs/deploy/webhooks.md) feature to relay job events to other tools. Webhooks enable you to integrate dbt with a wide range of SaaS applications, extending your pipeline’s automation into other systems.
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
 When a disruption occurs in your production pipeline, it's essential to know how to troubleshoot issues effectively to minimize downtime and maintain a high degree of trust with your stakeholders.
 
@@ -153,11 +149,11 @@ If your jobs are taking longer than expected, use the [model timing](../docs/dep
 
 For more on performance tuning, see our guide on [How to Optimize and Troubleshoot dbt Models on Databricks](./optimize-dbt-models-on-databricks.md).
 
-## Advanced considerations[​](#advanced-considerations "Direct link to Advanced considerations")
+## Advanced considerations
 
 As you become more experienced with dbt and Databricks, you might want to explore advanced techniques to further enhance your data pipeline and improve the way you manage your data transformations. The topics in this section are not requirements but will help you harden your production environment for greater security, efficiency, and accessibility.
 
-### Refreshing your data with Databricks Workflows[​](#refreshing-your-data-with-databricks-workflows "Direct link to Refreshing your data with Databricks Workflows")
+### Refreshing your data with Databricks Workflows
 
 The dbt job scheduler offers several ways to trigger your jobs. If your dbt transformations are just one step of a larger orchestration workflow, use the dbt API to trigger your job from Databricks Workflows.
 
@@ -173,7 +169,7 @@ Inserting dbt jobs into a Databricks Workflows allows you to chain together exte
 
 To trigger your dbt job from Databricks, follow the instructions in our [Databricks Workflows to run dbt jobs guide](./databricks-workflows.md).
 
-## Data masking[​](#data-masking "Direct link to Data masking")
+## Data masking
 
 Our [Best Practices for dbt and Unity Catalog](../best-practices/dbt-unity-catalog-best-practices.md) guide recommends using separate catalogs *dev* and *prod* for development and deployment environments, with Unity Catalog and dbt handling configurations and permissions for environment isolation. Ensuring security while maintaining efficiency in your development and deployment environments is crucial. Additional security measures may be necessary to protect sensitive data, such as personally identifiable information (PII).
 
@@ -192,7 +188,7 @@ It is recommended not to grant users the ability to read tables and views refere
 
 Using the same sources for development and deployment environments enables testing with the same volumes and frequency you will see in production. However, this may cause development runs to take longer than necessary. To address this issue, consider using the Jinja variable target.name to [limit data when working in the development environment](../reference/dbt-jinja-functions/target.md#use-targetname-to-limit-data-in-dev).
 
-## Pairing dbt Docs and Unity Catalog[​](#pairing-dbt-docs-and-unity-catalog "Direct link to Pairing dbt Docs and Unity Catalog")
+## Pairing dbt Docs and Unity Catalog
 
 Though there are similarities between dbt docs and Databricks Unity Catalog, they are ultimately used for different purposes and complement each other well. By combining their strengths, you can provide your organization with a robust and user-friendly data management ecosystem.
 
@@ -202,7 +198,7 @@ Unity Catalog is a unified governance solution for your lakehouse. It provides a
 
 To get the most out of both tools, you can use the [persist docs config](../reference/resource-configs/persist_docs.md) to push table and column descriptions written in dbt into Unity Catalog, making the information easily accessible to both tools' users. Keeping the descriptions in dbt ensures they are version controlled and can be reproduced after a table is dropped.
 
-### Related docs[​](#related-docs "Direct link to Related docs")
+### Related docs
 
 * [Advanced Deployment course](https://learn.getdbt.com/courses/advanced-deployment) if you want a deeper dive into these topics
 * [Autoscaling CI: The intelligent Slim CI](../docs/deploy/continuous-integration.md)

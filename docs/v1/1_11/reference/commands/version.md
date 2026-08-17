@@ -6,13 +6,13 @@ The `--version` command-line flag returns information about the currently instal
 * **dbt CLI** — Returns the installed version of the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and, for the other `dbt_version` values, the *latest* version of the dbt runtime in dbt.
 * **dbt Fusion engine** — Returns the installed Fusion version. Because the CLI and language server ship in a single binary, they always report the same version. Refer to [Version compatibility](../../docs/dbt-versions/fusion-version-compatibility.md) for how this maps to the dbt VS Code extension.
 
-## Versioning[​](#versioning "Direct link to Versioning")
+## Versioning
 
 To learn more about release versioning for dbt Core, refer to [How dbt Core uses semantic versioning](../../docs/dbt-versions.md#how-dbt-core-uses-semantic-versioning).
 
 If using a [dbt release track](../../docs/dbt-versions/dbt-release-tracks.md), which provide ongoing updates to dbt, then `dbt_version` represents the release version of dbt in dbt. This also follows semantic versioning guidelines, using the `YYYY.M.D+<suffix>` format. The year, month, and day represent the date the version was built (for example, `2024.10.8+996c6a8`). The suffix provides an additional unique identification for each build.
 
-## Example usages[​](#example-usages "Direct link to Example usages")
+## Example usages
 
 dbt Core example:
 

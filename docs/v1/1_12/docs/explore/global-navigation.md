@@ -1,6 +1,6 @@
 # Global navigation [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+ⓘ
+dbt platform | Starter, Enterprise, Enterprise+
 
 Search, explore, and analyze data assets across all your dbt projects and connected metadata sources. Discover cross-project lineage, data discovery, and unified analytics governance.
 
@@ -11,17 +11,14 @@ Global navigation search varies depending on your [dbt platform](https://www.get
 * Enterprise plans — Catalog lets you search across all [dbt resources](../build/projects.md) (models, seeds, snapshots, sources, exposures, and more) in your account, plus discover external metadata.
 * Starter plans (single project) — Use global navigation to search and navigate resources within your project
 
-## About Global navigation[​](#about-global-navigation "Direct link to About Global navigation")
+## About Global navigation
 
 Global navigation in Catalog lets you search, explore, and analyze data assets across all your dbt projects and connected metadata sources—giving you a unified, account-wide view of your analytics ecosystem. With global navigation, you can:
 
 * Search data assets — expand your search by including dbt resources (models, seeds, snapshots, sources, exposures, and more) across your entire account. This broadens the results returned and gives you greater insight into all the assets across your dbt projects.
-  <!-- -->
   * External metadata ingestion — connect directly to your data warehouse, giving you visibility into tables, views, and other resources that aren't defined in dbt with Catalog.
 
 * Explore lineage — explore an interactive map of data relationships across all your dbt projects. It lets you:
-
-  <!-- -->
 
   * View upstream/downstream dependencies for models, sources, and more.
   * Drill into project and column-level lineage, including multi-project (Mesh) links.
@@ -32,8 +29,6 @@ Global navigation in Catalog lets you search, explore, and analyze data assets a
 * See recommendations — global navigation offers a project-wide snapshot of dbt health, highlighting actionable tips to enhance your analytics engineering. These insights are automatically generated using dbt metadata and best practices from the project evaluator ruleset.
 
 * View model query history — see how often each dbt model is queried in your warehouse, helping you:
-
-  <!-- -->
 
   * Track real usage via successful `SELECT`s (excluding builds/tests)
   * Identify most/least used models for optimization or deprecation

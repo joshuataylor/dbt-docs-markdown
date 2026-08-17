@@ -1,6 +1,6 @@
 # Upgrade to Fusion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Local developmentⓘ
+Local development
 
 After [installing the dbt VS Code extension](./install-dbt-extension.md), use the **Get started** panel to upgrade your project to the dbt Fusion engine if you haven't already done so.
 
@@ -10,22 +10,16 @@ If you are already running the dbt Fusion engine, you must be on version `2.0.0-
 
 The dbt extension provides two ways to upgrade your project to Fusion from the **Get started** panel:
 
-* [**Agentic migration**:](#agentic-migration) Runs the dbt Core-to-Fusion migration with
-  <!-- -->
-  or AI agents. Select this option in the **Check Fusion compatibility** step. Requires
-  <!-- -->
-  or AI agents.
-* [**Manual CLI onboarding**:](#manual-cli-onboarding) Walks you through the upgrade in your terminal. Use this if you prefer the CLI or don't use
-  <!-- -->
-  or AI agents.
+* [**Agentic migration**:](#agentic-migration) Runs the dbt Core-to-Fusion migration with or AI agents. Select this option in the **Check Fusion compatibility** step. Requires or AI agents.
+* [**Manual CLI onboarding**:](#manual-cli-onboarding) Walks you through the upgrade in your terminal. Use this if you prefer the CLI or don't use or AI agents.
 
-## Agentic migration[​](#agentic-migration "Direct link to Agentic migration")
+## Agentic migration
 
 1. Select **Start with an agent** from the **Check Fusion compatibility** step.
 2. The extension installs the **Migrate dbt Core to Fusion** agent skill to your editor's skill folder, then opens your AI chat with a migration prompt.
 3. Click **Install & open chat** to continue. The chat opens with the migration prompt already loaded, so you can run it directly from the editor. No CLI commands are required.
 
-## Manual CLI onboarding[​](#manual-cli-onboarding "Direct link to Manual CLI onboarding")
+## Manual CLI onboarding
 
 The **Get started** panel has an upgrade assistant that guides you through the upgrade process in your terminal.
 
@@ -33,18 +27,19 @@ The **Get started** panel has an upgrade assistant that guides you through the u
 
 You can start manual onboarding in either of the following ways:
 
-* From the Get started panel
-* From your terminal
+### From the Get started panel
 
-- From the **Get started** panel, select **Start manually in CLI** in the **Check Fusion compatibility** step.
-- Follow the prompts in the upgrade assistant to complete the upgrade.
-- Run `dbtf compile` to verify your project is ready for Fusion.
+* From the **Get started** panel, select **Start manually in CLI** in the **Check Fusion compatibility** step.
+* Follow the prompts in the upgrade assistant to complete the upgrade.
+* Run `dbtf compile` to verify your project is ready for Fusion.
 
 [![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")](#)The message received when you have completed upgrading your project to the dbt Fusion engine.
 
 Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
 
 Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
+
+### From your terminal
 
 * From your terminal, run:
 
@@ -91,11 +86,12 @@ Once the upgrade is completed, you're ready to dive into all the features that t
 
 Next, [sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 Once you've upgraded your project to Fusion, you can:
 
 * [Sign in or register](./sign-in-dbt-extension.md) for a dbt platform account to keep using advanced features after the 14-day trial.
 * [Configure your local environment](./configure-dbt-extension.md) to mirror your dbt platform environment and [set environment variables](./configure-dbt-extension.md#configure-environment-variables) required by your project.
 * [Compare changes locally](./fusion/vs-compare-changes.md) to preview data changes caused by your local edits.
+* [Optimize static analysis for development and deployment](../best-practices/optimize-static-analysis-for-development-and-deployment.md) for stronger local validation without slowing deployment jobs.
 * Review the [limitations and unsupported features](./fusion/supported-features.md#limitations).

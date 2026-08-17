@@ -1,6 +1,6 @@
 # Advanced configuration usage
 
-## Alternative SQL file config syntax[​](#alternative-sql-file-config-syntax "Direct link to Alternative SQL file config syntax")
+## Alternative SQL file config syntax
 
 Some configurations may contain characters (e.g. dashes) that cannot be parsed as a Jinja argument. For example, the following would return an error:
 

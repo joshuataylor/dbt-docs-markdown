@@ -2,25 +2,13 @@
 
 💡Did you know\...
 
-Available from dbt v
+Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
-<!-- -->
-
-1.9
-
-<!-- -->
-
-or with the
-
-<!-- -->
-
-[dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
-
-## Definition[​](#definition "Direct link to Definition")
+## Definition
 
 The `batch_size` config determines how large batches are when running a [microbatch incremental model](../../docs/build/incremental-microbatch.md). Accepted values are `hour`, `day`, `month`, or `year`. You can configure `batch_size` for a [model](../../docs/build/models.md) in your project YAML file (`dbt_project.yml`), properties YAML file, or config block.
 
-## Examples[​](#examples "Direct link to Examples")
+## Examples
 
 The following examples set `day` as the `batch_size` for the `user_sessions` model.
 

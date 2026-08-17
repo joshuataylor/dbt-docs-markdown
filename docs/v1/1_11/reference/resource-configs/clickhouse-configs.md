@@ -1,13 +1,12 @@
 # ClickHouse configurations
 
-## ClickHouse configurations[​](#clickhouse-configurations "Direct link to ClickHouse configurations")
+## ClickHouse configurations
 
-### View materialization[​](#view-materialization "Direct link to View materialization")
+### View materialization
 
 A dbt model can be created as a [ClickHouse view](https://clickhouse.com/docs/en/sql-reference/table-functions/view/) and configured using the following syntax:
 
-* Project YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -17,18 +16,19 @@ models:
     +materialized: view
 ```
 
+### SQL file config
+
 models/\<model\_name>.sql
 
 ```jinja
 {{ config(materialized = "view") }}
 ```
 
-### Table materialization[​](#table-materialization "Direct link to Table materialization")
+### Table materialization
 
 A dbt model can be created as a [ClickHouse table](https://clickhouse.com/docs/en/operations/system-tables/tables/) and configured using the following syntax:
 
-* Project YAML file
-* SQL file config
+### Project YAML file
 
 dbt\_project.yml
 
@@ -40,6 +40,8 @@ models:
     +engine: <engine-type>
     +partition_by: [ <column-name>, ... ]
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -54,7 +56,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Table configuration[​](#table-configuration "Direct link to Table configuration")
+#### Table configuration
 
 | Option         | Description                                                                                                                                          | Required?                         |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
@@ -63,20 +65,13 @@ models/\<model\_name>.sql
 | `order_by`     | A tuple of column names or arbitrary expressions. This allows you to create a small sparse index that helps find data faster.                        | Optional (default: `tuple()`)     |
 | `partition_by` | A partition is a logical combination of records in a table by a specified criterion. The partition key can be any expression from the table columns. | Optional                          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For the complete list of configuration options, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
-### Incremental materialization[​](#incremental-materialization "Direct link to Incremental materialization")
+### Incremental materialization
 
 Table model will be reconstructed for each dbt execution. This may be infeasible and extremely costly for larger result sets or complex transformations. To address this challenge and reduce the build time, a dbt model can be created as an incremental ClickHouse table and is configured using the following syntax:
 
-* Project file
-* SQL file config
+### Project file
 
 dbt\_project.yml
 
@@ -90,6 +85,8 @@ models:
     +unique_key: [ <column-name>, ... ]
     +inserts_only: [ True|False ]
 ```
+
+### SQL file config
 
 models/\<model\_name>.sql
 
@@ -106,7 +103,7 @@ models/\<model\_name>.sql
 ) }}
 ```
 
-#### Incremental table configuration[​](#incremental-table-configuration "Direct link to Incremental table configuration")
+#### Incremental table configuration
 
 | Option                   | Description                                                                                                                                                                                                                                                     | Required?                                                                            |
 | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -119,17 +116,13 @@ models/\<model\_name>.sql
 | `incremental_strategy`   | The strategy to use for incremental materialization. `delete+insert`, `append` and `insert_overwrite` (experimental) are supported. For additional details on strategies, see [here](https://github.com/ClickHouse/dbt-clickhouse#incremental-model-strategies) | Optional (default: 'default')                                                        |
 | `incremental_predicates` | Incremental predicate clause to be applied to `delete+insert` materializations                                                                                                                                                                                  | Optional                                                                             |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
 For the complete list of configuration options, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).
 
-## Snapshot[​](#snapshot "Direct link to Snapshot")
+## Snapshot
 
 dbt snapshots allow a record to be made of changes to a mutable model over time. This in turn allows point-in-time queries on models, where analysts can “look back in time” at the previous state of a model. This functionality is supported by the ClickHouse connector and is configured using the following syntax:
+
+(Applies to dbt v1.9 and later)
 
 snapshots/\<model\_name>.sql
 
@@ -146,6 +139,6 @@ snapshots/\<model\_name>.sql
 
 For more information on configuration, check out the [snapshot configs](../snapshot-configs.md) reference page.
 
-## Learn more[​](#learn-more "Direct link to Learn more")
+## Learn more
 
 The `dbt-clickhouse` adapter supports most dbt-native features like tests, snapshots, helper macros, and more. For a complete overview of supported features and best practices, see the [ClickHouse documentation](https://clickhouse.com/docs/integrations/dbt).

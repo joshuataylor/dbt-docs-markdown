@@ -8,7 +8,7 @@ Advanced
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 The model materializations you're familiar with, `table`, `view`, and `incremental` are implemented as macros in a package that's distributed along with dbt. You can check out the [source code for these materializations](https://github.com/dbt-labs/dbt-adapters/tree/60005a0a2bd33b61cb65a591bc1604b1b3fd25d5/dbt/include/global_project/macros/materializations). If you need to create your own materializations, reading these files is a good place to start. Continue reading below for a deep-dive into dbt materializations.
 
@@ -16,23 +16,11 @@ caution
 
 This is an advanced feature of dbt. Let us know if you need a hand! We're always happy to [chat](http://community.getdbt.com/).
 
-## Creating a materialization[​](#creating-a-materialization "Direct link to Creating a materialization")
+## Creating a materialization
 
 Learn by video!
 
-For video tutorials on
-
-<!-- -->
-
-Materializations
-
-<!-- -->
-
-, go to dbt Learn and check out the [Materializations fundamentals](https://learn.getdbt.com/courses/materializations-fundamentals)
-
-<!-- -->
-
-[ course](https://learn.getdbt.com/courses/materializations-fundamentals).
+For video tutorials on Materializations, go to dbt Learn and check out the [Materializations fundamentals course](https://learn.getdbt.com/courses/materializations-fundamentals).
 
 Materialization blocks make it possible for dbt to load custom materializations from packages. The materialization blocks work very much like `macro` blocks, with a couple of key exceptions. Materializations are defined as follows:
 
@@ -61,7 +49,7 @@ info
 
 dbt's ability to dynamically pick the correct materialization based on the active database target is called [multiple dispatch](https://en.wikipedia.org/wiki/Multiple_dispatch). This feature unlocks a whole world of cross-database compatibility features -- if you're interested in this, please let us know on Slack!
 
-### Anatomy of a materialization[​](#anatomy-of-a-materialization "Direct link to Anatomy of a materialization")
+### Anatomy of a materialization
 
 Materializations are responsible for taking a dbt model SQL statement and turning it into a transformed dataset in a database. As such, materializations generally take the following shape:
 
@@ -74,7 +62,7 @@ Materializations are responsible for taking a dbt model SQL statement and turnin
 
 Each of these tasks are explained in sections below.
 
-### Prepare the database[​](#prepare-the-database "Direct link to Prepare the database")
+### Prepare the database
 
 Materializations are responsible for creating new tables or views in the database, or inserting/updating/deleting data from existing tables. As such, materializations need to know about the state of the database to determine exactly what SQL they should run. Here is some pseudocode for the "setup" phase of the **table** materialization:
 
@@ -91,7 +79,7 @@ In this example, the `get_relation` method is used to fetch the state of the cur
 
 This is a simplified example, and the setup phase for a materialization can become quite complicated indeed! When building a materialization, be sure to consider the state of the database and any supplied [flags](../reference/dbt-jinja-functions/flags.md) (ie. `--full-refresh`) to ensure that the materialization code behaves correctly in different scenarios.
 
-### Run pre-hooks[​](#run-pre-hooks "Direct link to Run pre-hooks")
+### Run pre-hooks
 
 Pre- and post-hooks can be specified for any model -- be sure that your materialization plays nicely with these settings. Two variables, `pre_hooks` and `post_hooks` are automatically injected into the materialization context. Invoke these hooks at the appropriate time with:
 
@@ -101,15 +89,15 @@ Pre- and post-hooks can be specified for any model -- be sure that your material
 ....
 ```
 
-### Executing SQL[​](#executing-sql "Direct link to Executing SQL")
+### Executing SQL
 
 Construct your materialization DML to account for the different permutations of table existence, materialization flags, etc. There are a number of [adapter functions](../reference/dbt-jinja-functions/adapter.md) and context variables that can help you here. Be sure to consult the Reference section of this site for a full list of variables and functions at your disposal.
 
-### Run post-hooks[​](#run-post-hooks "Direct link to Run post-hooks")
+### Run post-hooks
 
 See the section above on pre-hooks for more information on running post-hooks.
 
-### Clean up[​](#clean-up "Direct link to Clean up")
+### Clean up
 
 The "cleanup" phase of the materialization typically renames or drops relations and commits the transaction opened in "preparation" step above. The `table` materialization, for instance, executes the following cleanup code:
 
@@ -119,7 +107,7 @@ The "cleanup" phase of the materialization typically renames or drops relations 
 
 Be sure to `commit` the transaction in the `cleanup` phase of the materialization with `{{ adapter.commit() }}`. If you do not commit this transaction, it will be rolled back by dbt and the transformations applied in your materialization will be discarded.
 
-### Update the Relation cache[​](#update-the-relation-cache "Direct link to Update the Relation cache")
+### Update the Relation cache
 
 Materializations should [return](../reference/dbt-jinja-functions/return.md) the list of Relations that they have created at the end of execution. dbt will use this list of Relations to update the relation cache in order to reduce the number of queries executed against the database's `information_schema`. If a list of Relations is not returned, then dbt will raise a Deprecation Warning and infer the created relation from the model's configured database, schema, and alias.
 
@@ -153,11 +141,11 @@ If a materialization solely creates a single relation, then returning that relat
 
 To explicitly remove a relation from the cache, use [adapter.drop\_relation](../reference/dbt-jinja-functions/adapter.md). To explicitly rename a relation in the cache, use [adapter.rename\_relation](../reference/dbt-jinja-functions/adapter.md). Calling these methods is preferable to executing the corresponding SQL directly, as they will mutate the cache as required. If you do need to execute the SQL to drop or rename relations directly, use the `adapter.cache_dropped` and `adapter.cache_renamed` methods to synchronize the cache.
 
-## Materialization Configuration[​](#materialization-configuration "Direct link to Materialization Configuration")
+## Materialization Configuration
 
 Materializations support custom configuration. You might be familiar with some of these configs from materializations like `unique_key` in [incremental models](../docs/build/incremental-models.md) or `strategy` in [snapshots](../docs/build/snapshots.md) .
 
-### Specifying configuration options[​](#specifying-configuration-options "Direct link to Specifying configuration options")
+### Specifying configuration options
 
 Materialization configurations can either be "optional" or "required". If a user fails to provide required configurations, then dbt will raise a compilation error. You can define these configuration options with the `config.get` and `config.require` functions.
 
@@ -170,7 +158,7 @@ config.require('required_config_name')
 
 For more information on the `config` dbt Jinja function, see the [config](../reference/dbt-jinja-functions/config.md) reference.
 
-## Materialization precedence[​](#materialization-precedence "Direct link to Materialization precedence")
+## Materialization precedence
 
 dbt will pick the materialization macro in the following order (lower takes priority):
 

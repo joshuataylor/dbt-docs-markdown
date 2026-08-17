@@ -7,7 +7,7 @@ The following context methods are available when configuring resources in the `p
 * [env\_var](./env_var.md)
 * [var](./var.md) (*Note: only variables defined with `--vars` are available*)
 
-### Example usage[​](#example-usage "Direct link to Example usage")
+### Example usage
 
 \~/.dbt/profiles.yml
 

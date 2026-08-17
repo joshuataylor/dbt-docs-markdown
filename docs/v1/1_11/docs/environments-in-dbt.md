@@ -24,7 +24,7 @@ Configure environments to tell dbt or dbt Core how to build and execute your pro
 
 <br />
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [dbt environment best practices](../guides/set-up-ci.md)
 * [Deployment environments](./deploy/deploy-environments.md)

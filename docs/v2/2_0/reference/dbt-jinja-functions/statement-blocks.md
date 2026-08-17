@@ -1,5 +1,7 @@
 # About statement blocks
 
+(Applies to dbt v2.0 and later)
+
 When to use statement blocks in Fusion
 
 For queries where you need to fetch results (for example, when your macro or Jinja code needs to use data returned from the database), you can use either `statement` blocks with `fetch_result=True` or the [`run_query` macro](./run_query.md).
@@ -97,7 +99,9 @@ states.sql
 ]
 ```
 
-## Fire and forget operations[​](#fire-and-forget-operations "Direct link to Fire and forget operations")
+(Applies to dbt v2.0 and later)
+
+## Fire and forget operations
 
 For DDL or utility operations where you don't need the results (because you don't use the returned rows in Jinja), set `fetch_result=False`. This is the recommended pattern for operations like `OPTIMIZE` or `VACUUM` on Databricks, which return result sets that may contain null values in non-nullable columns.
 

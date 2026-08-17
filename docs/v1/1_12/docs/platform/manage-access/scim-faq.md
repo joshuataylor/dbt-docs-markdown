@@ -1,10 +1,10 @@
 # SCIM FAQs and troubleshooting
 
-dbt platform | Enterprise, Enterprise+ⓘ
+dbt platform | Enterprise, Enterprise+
 
 Find answers to common questions about configuring and using SCIM provisioning in dbt platform, plus guidance for resolving common issues.
 
-## FAQs[​](#faqs "Direct link to FAQs")
+## FAQs
 
  Do the userName and email.value fields have to be the same value for SCIM to work?
 
@@ -12,7 +12,7 @@ Yes. Both must match the email address the user uses to sign in to dbt platform 
 
  What is the recommended workflow for onboarding new users through SCIM?
 
-#### Entra ID[​](#entra-id "Direct link to Entra ID")
+#### Entra ID
 
 Once SCIM provisioning is configured in Entra ID according to the schema requirements, provisioning begins automatically. Entra ID will sync users and groups assigned to the Entra app with dbt platform.
 
@@ -34,7 +34,7 @@ Once SCIM provisioning is configured in Entra ID according to the schema require
 * To ensure users and groups become SCIM-managed, they must exist in both Entra and dbt platform with matching identifiers (email for users, name for groups).
 * After setup, ongoing syncs automatically provision and manage any newly assigned users or groups in Entra.
 
-#### Okta[​](#okta "Direct link to Okta")
+#### Okta
 
 Unlike Entra ID, Okta does not run continuous full syncs. You trigger initial provisioning manually, then Okta continues provisioning incrementally as changes are made.
 
@@ -97,7 +97,7 @@ If your organization uses separate IdPs for authentication and directory managem
 
 ***
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  There is a "All users must have licenses on the account" error
 
@@ -121,8 +121,6 @@ After enabling SCIM and completing the initial sync, pre-existing dbt platform u
 1. In your IdP, assign existing users to the dbt platform SCIM application.
 
 2. Trigger a provisioning sync. The IdP will attempt to match users by their `userName` (typically their email address) and establish the SCIM-managed link.
-
-   <!-- -->
 
    Entra ID note
 

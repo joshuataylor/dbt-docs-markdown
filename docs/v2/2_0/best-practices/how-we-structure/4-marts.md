@@ -6,7 +6,7 @@ Our guidance here diverges if you use the Semantic Layer. In a project without t
 
 This is the layer where everything comes together and we start to arrange all of our atoms (staging models) into full-fledged cells that have identity and purpose. We sometimes like to call this the *entity* *layer* or *concept layer*, to emphasize that all our marts are meant to represent a specific entity or concept at its unique grain. For instance, an order, a customer, a territory, a click event, a payment — each of these would be represented with a distinct mart, and each row would represent a discrete instance of these concepts. Unlike in a traditional Kimball star schema though, in modern data warehousing — where storage is cheap and compute is expensive — we'll happily borrow and add any and all data from other concepts that are relevant to answering questions about the mart's core entity. Building the same data in multiple places, as we do with `orders` in our `customers` mart example below, is more efficient in this paradigm than repeatedly rejoining these concepts (this is a basic definition of denormalization in this context). Let's take a look at how we approach this first layer intended expressly for exposure to end users.
 
-### Marts: Files and folders[​](#marts-files-and-folders "Direct link to Marts: Files and folders")
+### Marts: Files and folders
 
 The marts layer in our example project contains one model per core business entity:
 
@@ -32,7 +32,7 @@ models/marts
 
 ❌ **Build the same concept differently for different teams.** `finance_orders` and `marketing_orders` is typically considered an anti-pattern. There are, as always, exceptions — a common pattern we see is that, finance may have specific needs, for example reporting revenue to the government in a way that diverges from how the company as a whole measures revenue day-to-day. Just make sure that these are clearly designed and understandable as *separate* concepts, not departmental views on the same concept: `tax_revenue` and `revenue` not `finance_revenue` and `marketing_revenue`.
 
-### Marts: Models[​](#marts-models "Direct link to Marts: Models")
+### Marts: Models
 
 Finally we'll take a look at the best practices for models within the marts directory by examining two of our marts models. These are the business-conformed — that is, crafted to our vision and needs — entities we've been bringing these transformed components together to create.
 
@@ -176,10 +176,10 @@ Marts are entity-grained.
 
 The most important aspect of marts is that they contain all of the useful data about a *particular entity* at a granular level. That doesn't mean we don't bring in lots of other entities and concepts, like tons of `user` data into our `orders` mart, we do! It just means that individual `orders` remain the core grain of our table. If we start grouping `users` and `orders` along a [date spine](https://github.com/dbt-labs/dbt-utils#date_spine-source), into something like `user_orders_per_day`, we're moving past marts into *metrics*.
 
-### Marts: Other considerations[​](#marts-other-considerations "Direct link to Marts: Other considerations")
+### Marts: Other considerations
 
 * **Troubleshoot via tables.** While stacking views and ephemeral models up until our marts — only building data into the warehouse at the end of a chain when we have the models we really want end users to work with — is ideal in production, it can present some difficulties in development. Particularly, certain errors may seem to be surfacing in our later models that actually stem from much earlier dependencies in our model chain (ancestor models in our DAG that are built before the model throws the errors). If you're having trouble pinning down where or what a database error is telling you, it can be helpful to temporarily build a specific chain of models as tables so that the warehouse will throw the error where it's actually occurring.
 
-### The dbt Semantic Layer and marts[​](#the-dbt-semantic-layer-and-marts "Direct link to The dbt Semantic Layer and marts")
+### The dbt Semantic Layer and marts
 
 Our structural recommendations are impacted quite a bit by whether or not you're using the Semantic Layer. If you're using the Semantic Layer, we recommend a more normalized approach to your marts. If you're not using the Semantic Layer, we recommend a more denormalized approach that has become typical in dbt projects. For the full list of recommendations on structure, naming, and organization in the Semantic Layer, check out the [How we build our metrics](../how-we-build-our-metrics/semantic-layer-1-intro.md) guide, particularly the [Refactoring an existing rollup](../how-we-build-our-metrics/semantic-layer-8-refactor-a-rollup.md) section.

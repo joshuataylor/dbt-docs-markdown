@@ -1,13 +1,13 @@
 # Examining our builds
 
-## Examining our builds[​](#examining-our-builds "Direct link to Examining our builds")
+## Examining our builds
 
 * ⌚ dbt keeps track of how **long each model took to build**, when it started, when it finished, its completion status (error, warn, or success), its materialization type, and *much* more.
 * 🖼️ This information is stored in a couple files which dbt calls **artifacts**.
 * 📊 Artifacts contain a ton of information in JSON format, so aren’t easy to read, but **dbt** packages the most useful bits of information into a tidy **visualization** for you.
 * ☁️ If you’re not using dbt platform, we can still use the output of the **dbt Core CLI to understand our runs**.
 
-### Model timing[​](#model-timing "Direct link to Model timing")
+### Model timing
 
 That’s where dbt’s Model Timing visualization comes in extremely handy. If we’ve set up a [Job](../../guides/bigquery.md) in dbt to run our models, we can use the [**Model Timing** tab](../../docs/deploy/run-visibility.md#model-timing-tab) to pinpoint our longest-running models.
 
@@ -16,12 +16,8 @@ That’s where dbt’s Model Timing visualization comes in extremely handy. If w
 * 🔎 Use the **search** box to filter the timeline by resource name, and hover over any bar to see full details.
 * 📈 The **Concurrency over time** chart shows model activity over the run duration. Each bar is split into **Active models** and **Queued / ready**, so you can see how many models were running versus waiting at any point in time. It also displays the peak concurrency reached during the run.
 * 📋 The **Resource details** table lists every resource with its name, start time, end time, duration, execution phase, estimated critical path status, resource type, and folder.
-* 1️⃣
-  <!-- -->
-  If a job has a single dbt invocation (for example `dbt build`), the model timing tab reflects the timing of all models.
-* 🔢
-  <!-- -->
-  If a job includes multiple dbt commands (for example, `dbt build` followed by `dbt compile`), the model timing tab reflects only the models from the final command (`dbt compile`). For models executed in both commands, the chart displays the timing from the last invocation. Models that were not re-invoked in the final command retain their timing from the earlier command (`dbt build`).
+* 1️⃣ If a job has a single dbt invocation (for example `dbt build`), the model timing tab reflects the timing of all models.
+* 🔢 If a job includes multiple dbt commands (for example, `dbt build` followed by `dbt compile`), the model timing tab reflects only the models from the final command (`dbt compile`). For models executed in both commands, the chart displays the timing from the last invocation. Models that were not re-invoked in the final command retain their timing from the earlier command (`dbt build`).
 
 [![Metric tiles showing key run statistics including estimated critical path, peak concurrency, and longest model](/img/docs/dbt-platform/deployment/model-timing-metric-tiles.png?v=2 "Metric tiles showing key run statistics including estimated critical path, peak concurrency, and longest model")](#)Metric tiles showing key run statistics including estimated critical path, peak concurrency, and longest model
 
@@ -33,7 +29,7 @@ That’s where dbt’s Model Timing visualization comes in extremely handy. If w
 
 If you aren’t using dbt, that’s okay! We don’t get a fancy visualization out of the box, but we can use the output from the dbt Core CLI to check our model times, and it’s a great opportunity to become familiar with that output.
 
-### dbt Core CLI output[​](#dbt-core-cli-output "Direct link to dbt Core CLI output")
+### dbt Core CLI output
 
 If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you’ve seen some output like below. Let’s take a closer look at how to read this.
 
@@ -51,7 +47,7 @@ If you’ve ever run dbt, whether `build`, `test`, `run` or something else, you�
 * ✅  On the **second row** — which does *not* necessarily come right after, thanks to threads other models can be starting and finishing as this model runs — we see the **completion** entry which adds the **status**, in this case `OK` , and the **time to build**, a lightning-fast 0.13s. That’s not unexpected considering what we know about views.
 * 🏎️  **Views should typically take less than a second or two,** it’s tables and incremental models you’ll want to keep a closer eye on with these tools.
 
-### dbt Artifacts package[​](#dbt-artifacts-package "Direct link to dbt Artifacts package")
+### dbt Artifacts package
 
 * 🎨  Lastly, when it comes to examining your dbt runs, you’re **not stuck without fancy visuals** if you’re using dbt Core. It’s not set up out-of-the-box, but if you want to introspect your project more deeply, you can use the [dbt Artifacts package](https://github.com/brooklyn-data/dbt_artifacts).
 * 👩‍🎨  This provides models you can **visualize for every aspect of your project** at a very granular level.

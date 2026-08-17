@@ -1,12 +1,12 @@
 # Self-service Starter account permissions
 
-dbt platform | Starterⓘ
+dbt platform | Starter
 
 Self-service Starter accounts are a quick and easy way to get dbt up and running for a small team.
 
 For teams looking to scale and access advanced features like SSO, group management, and support for larger user bases, upgrading to an [Enterprise-tier](./enterprise-permissions.md) account unlocks these capabilities — if you're interested in upgrading, contact [dbt Labs today](https://www.getdbt.com/contact).
 
-## Groups and permissions[​](#groups-and-permissions "Direct link to Groups and permissions")
+## Groups and permissions
 
 Groups determine a user's permission and there are three groups are available for the Starter plan dbt accounts: Owner, Member, and Everyone. The first Owner user is the person who created the dbt account.
 
@@ -18,7 +18,7 @@ The group access permissions are as follows:
 * **Member** — Robust access to the account with restrictions on features that can alter billing or security.
 * **Everyone** — A catch-all group for all users in the account. This group does not have any permission assignments beyond the user's profile. Users must be assigned to either the Member or Owner group to work in dbt.
 
-## Licenses[​](#licenses "Direct link to Licenses")
+## Licenses
 
 You assign licenses to every user onboarded into dbt. You only assign Developer-licensed users to the Owner and Member groups. The groups have no impact on Read-only or IT licensed users.
 
@@ -30,15 +30,13 @@ There are three license types:
 
 See [Seats and Users](./seats-and-users.md) for more information on the impact of licenses on these permissions.
 
-<!-- -->
-
 License types override group permissions
 
 **User license types always override their assigned group permission sets.** For example, a user with a Read-Only license cannot perform administrative actions, even if they belong to an Account Admin group.
 
 This ensures that license restrictions are always enforced, regardless of group membership.
 
-## Table of groups, licenses, and permissions[​](#table-of-groups-licenses-and-permissions "Direct link to Table of groups, licenses, and permissions")
+## Table of groups, licenses, and permissions
 
 Key:
 
@@ -53,7 +51,7 @@ Permissions:
 
 The following tables outline the access that users have if they are assigned a Developer license and the Owner or Member group, Read-only license, or IT license.
 
-#### Account permissions for account roles[​](#account-permissions-for-account-roles "Direct link to Account permissions for account roles")
+#### Account permissions for account roles
 
 | Account-level permission | Owner | Member | Read-only license | IT license |
 | ------------------------ | ----- | ------ | ----------------- | ---------- |
@@ -67,13 +65,7 @@ The following tables outline the access that users have if they are assigned a D
 | Service tokens           | W     | -      | -                 | W          |
 | Webhooks                 | W     | W      | -                 | -          |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-#### Project permissions for account roles[​](#project-permissions-for-account-roles "Direct link to Project permissions for account roles")
+#### Project permissions for account roles
 
 | Project-level permission        | Owner | Member | Read-only | IT license |
 | ------------------------------- | ----- | ------ | --------- | ---------- |
@@ -91,9 +83,3 @@ Search table...
 | Repositories                    | W     | W      | R         | -          |
 | Runs                            | W     | W      | R         | -          |
 | Semantic Layer Config           | W     | W      | R         | -          |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |

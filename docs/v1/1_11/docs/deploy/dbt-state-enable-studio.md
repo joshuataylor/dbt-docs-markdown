@@ -1,6 +1,6 @@
 # Enabling dbt State in Studio [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Login required | Usage-basedⓘ
+Login required | Usage-based
 
 When you enable dbt State in the Studio IDE, it runs automatically on every `dbt run` or `dbt build` during development — skipping unchanged models and reusing production results so your runs are *faster*.
 
@@ -8,7 +8,7 @@ You can [turn it on for your development environment](#enabling-dbt-state-on-a-d
 
 **Prerequisite**: An account admin must [enable dbt State](./dbt-state-setup.md) before you can use it.
 
-## Enabling dbt State on a development environment[​](#enabling-dbt-state-on-a-development-environment "Direct link to Enabling dbt State on a development environment")
+## Enabling dbt State on a development environment
 
 Enabling dbt State on your development environment turns it on for everyone using the Studio IDE, unless they override it for their own account.
 
@@ -18,7 +18,7 @@ Enabling dbt State on your development environment turns it on for everyone usin
 4. Click **Save**.
 5. In the pop-up box, click **Continue** if you want to go ahead with the changes and restart all IDE sessions for this project.
 
-## Overriding dbt State setting per user[​](#overriding-dbt-state-setting-per-user "Direct link to Overriding dbt State setting per user")
+## Overriding dbt State setting per user
 
 You can override the development environment's dbt State setting for your own account without affecting other users. Because the user-level setting takes precedence over the environment-level setting, you can turn dbt State on for yourself before enabling it for your whole team, or turn it off when it's enabled at the environment level.
 
@@ -32,15 +32,13 @@ You can override the development environment's dbt State setting for your own ac
 
 5. Under **dbt State**, select one of the following options:
 
-   <!-- -->
-
    * **Enabled**: Enables dbt State for your user regardless of the development environment setting.
    * **Disabled**: Disables dbt State for your user regardless of the development environment setting.
    * **Reset (inherit from development)**: Only appears after you've saved an **Enabled** or **Disabled** override. Clears your override and falls back to the dbt State setting configured on your development environment.
 
 6. Click **Save**.
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About dbt State](./dbt-state-about.md)
 * [Set up dbt State](./dbt-state-setup.md)

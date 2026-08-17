@@ -2,15 +2,15 @@
 
 State and [defer](./defer.md) can be set by environment variables as well as CLI flags:
 
-* `--state` or `DBT_ENGINE_STATE`: file path
-* `--defer` or `DBT_ENGINE_DEFER`: boolean
-* `--defer-state` or `DBT_ENGINE_DEFER_STATE`: file path to use for deferral only (optional)
+* `--state` or (Applies to dbt v1.11 and later) `DBT_ENGINE_STATE`: file path
+* `--defer` or (Applies to dbt v1.11 and later) `DBT_ENGINE_DEFER`: boolean
+* `--defer-state` or (Applies to dbt v1.11 and later) `DBT_ENGINE_DEFER_STATE`: file path to use for deferral only (optional)
 
 If `--defer-state` is not specified, deferral will use the artifacts supplied by `--state`. This enables more granular control in cases where you want to compare against logical state from one environment or past point in time, and defer to applied state from a different environment or point in time.
 
 If both the flag and env var are provided, the flag takes precedence.
 
-#### Notes[​](#notes "Direct link to Notes")
+#### Notes
 
 * The `--state` artifacts must be of schema versions that are compatible with the currently running dbt version.
 * These are powerful, complex features. Read about [known caveats and limitations](./state-comparison-caveats.md) to state comparison.
@@ -19,7 +19,7 @@ Syntax deprecated
 
 In [dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we deprecated the original syntax for state (`DBT_ARTIFACT_STATE_PATH`) and defer (`DBT_DEFER_TO_STATE`). Although dbt supports backward compatibility with the old syntax, we will remove it in a future release that we have not yet determined.
 
-### The "result" status[​](#the-result-status "Direct link to The \"result\" status")
+### The "result" status
 
 Another element of job state is the `result` of a prior dbt invocation. After executing a `dbt run`, for example, dbt creates the `run_results.json` artifact which contains execution times and success / error status for dbt models. You can read more about `run_results.json` on the ['run results'](../artifacts/run-results-json.md) page.
 
@@ -32,7 +32,7 @@ The following dbt commands produce `run_results.json` artifacts whose results ca
 
 After issuing one of the above commands, you can reference the results by adding a selector to a subsequent command as follows:
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 # You can also set the DBT_ENGINE_STATE environment variable instead of the --state flag.
@@ -50,13 +50,7 @@ The available options depend on the resource (node) type:
 | `result:warn`      |       |      |          | ✅   |
 | `result:pass`      |       |      |          | ✅   |
 
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
-
-### Combining `state` and `result` selectors[​](#combining-state-and-result-selectors "Direct link to combining-state-and-result-selectors")
+### Combining `state` and `result` selectors
 
 The state and result selectors can also be combined in a single invocation of dbt to capture errors from a previous run OR any new or modified models.
 
@@ -64,7 +58,7 @@ The state and result selectors can also be combined in a single invocation of db
 dbt run --select "result:<status>+" state:modified+ --defer --state ./<dbt-artifact-path>
 ```
 
-### The "source\_status" status[​](#the-source_status-status "Direct link to The \"source_status\" status")
+### The "source\_status" status
 
 Another element of job state is the `source_status` of a prior dbt invocation. After executing `dbt source freshness`, for example, dbt creates the `sources.json` artifact which contains execution times and `max_loaded_at` dates for dbt sources. You can read more about `sources.json` on the ['sources'](../artifacts/sources-json.md) page.
 
@@ -74,7 +68,7 @@ When a job is selected, dbt will surface the artifacts from that job's most rece
 
 After issuing the `dbt source freshness` command, you can reference the source freshness results by adding a selector to a subsequent command:
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```bash
 # You can also set the DBT_ENGINE_STATE environment variable instead of the --state flag.
@@ -84,7 +78,7 @@ dbt build --select "source_status:fresher+" --state path/to/prod/artifacts
 
 For more example commands, refer to [Pro-tips for workflows](../../best-practices/best-practice-workflows.md#pro-tips-for-workflows).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About state in dbt](./state-selection.md)
 * [State comparison caveats](./state-comparison-caveats.md)

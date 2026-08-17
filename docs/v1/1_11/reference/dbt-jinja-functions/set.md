@@ -11,7 +11,7 @@ You can use the `set` context method to convert any iterable to a sequence of it
 * `value`: The iterable to convert (for example, a list)
 * `default`: A default value to return if the `value` argument is not a valid iterable
 
-### Usage[​](#usage "Direct link to Usage")
+### Usage
 
 ```text
 {% set my_list = [1, 2, 2, 3] %}
@@ -29,7 +29,7 @@ You can use the `set` context method to convert any iterable to a sequence of it
 {% set email_id = "'admin@example.com'" %}
 ```
 
-### set\_strict[​](#set_strict "Direct link to set_strict")
+### set\_strict
 
 The `set_strict` context method can be used to convert any iterable to a sequence of iterable elements that are unique (a set). The difference to the `set` context method is that the `set_strict` method will raise an exception on a `TypeError`, if the provided value is not a valid iterable and cannot be converted to a set.
 

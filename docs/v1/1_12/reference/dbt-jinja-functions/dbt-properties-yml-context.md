@@ -13,7 +13,7 @@ The following context methods and variables are available when configuring resou
 * [builtins](./builtins.md)
 * [dbt\_version](./dbt_version.md)
 
-### Example configuration[​](#example-configuration "Direct link to Example configuration")
+### Example configuration
 
 properties.yml
 

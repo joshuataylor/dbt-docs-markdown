@@ -4,14 +4,10 @@ Use inputs in your unit tests to reference a specific model or source for the te
 
 * For `input:`, use a string that represents a `ref` or `source` call:
 
-  <!-- -->
-
   * `ref('my_model')` or `ref('my_model', v='2')` or `ref('dougs_project', 'users')`
   * `source('source_schema', 'source_name')`
 
 * Optionally use for seeds:
-
-  <!-- -->
 
   * If you don’t supply an input for a seed, we will use the seed *as* the input.
   * If you do supply an input for a seed, we will use that input instead.

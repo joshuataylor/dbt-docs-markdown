@@ -1,6 +1,6 @@
 # Connection profiles
 
-Local developmentⓘ
+Local development
 
 When you invoke dbt from the command line, dbt parses your `dbt_project.yml` and obtains the `profile` name, which dbt needs to connect to your data warehouse.
 
@@ -49,9 +49,7 @@ jaffle_shop:
 
 To add an additional target (like `prod`) to your existing `profiles.yml`, you can add another entry under the `outputs` key.
 
-## The `env_var` function[​](#the-env_var-function "Direct link to the-env_var-function")
-
-<!-- -->
+## The `env_var` function
 
 The `env_var` function can be used to incorporate environment variables from the system into your dbt project. You can use the `env_var` function in your `profiles.yml` file, the `dbt_project.yml` file, the `sources.yml` file, your `schema.yml` files, and in model `.sql` files. Essentially, `env_var` is available anywhere dbt processes Jinja code.
 
@@ -72,11 +70,11 @@ profile:
       ....
 ```
 
-## About the `profiles.yml` file[​](#about-the-profilesyml-file "Direct link to about-the-profilesyml-file")
+## About the `profiles.yml` file
 
 In your `profiles.yml` file, you can store as many profiles as you need. Typically, you would have one profile for each warehouse you use. Most organizations only have one profile.
 
-## About profiles[​](#about-profiles "Direct link to About profiles")
+## About profiles
 
 A profile consists of *targets*, and a specified *default target*.
 
@@ -86,7 +84,7 @@ The credentials you need to provide in your target varies across warehouses — 
 
 **Pro Tip:** You may need to surround your password in quotes if it contains special characters. More details [here](https://stackoverflow.com/a/37015689/10415173).
 
-## Setting up your profile[​](#setting-up-your-profile "Direct link to Setting up your profile")
+## Setting up your profile
 
 To set up your profile, copy the correct sample profile for your warehouse into your `profiles.yml` file and update the details as follows:
 
@@ -95,8 +93,6 @@ To set up your profile, copy the correct sample profile for your warehouse into 
 * `target`: This is the default target your dbt project will use. It must be one of the targets you define in your profile. Commonly it is set to `dev`.
 
 * Populating your target:
-
-  <!-- -->
 
   * `type`: The type of data warehouse you are connecting to
   * Warehouse credentials: Get these from your database administrator if you don’t already have them. Remember that user credentials are very sensitive information that should not be shared.
@@ -107,7 +103,7 @@ You can find more information on which values to use in your targets below.
 
 Use the [debug](../../reference/dbt-jinja-functions/debug-method.md) command to validate your warehouse connection. Run `dbt debug` from within a dbt project to test your connection.
 
-## Understanding targets in profiles[​](#understanding-targets-in-profiles "Direct link to Understanding targets in profiles")
+## Understanding targets in profiles
 
 dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](./dbt-core-environments.md).
 
@@ -131,7 +127,7 @@ dbt test --target dev
 dbt compile --target qa
 ```
 
-### Overriding profiles and targets[​](#overriding-profiles-and-targets "Direct link to Overriding profiles and targets")
+### Overriding profiles and targets
 
 When running dbt commands, you can specify which profile and target to use from the CLI using the `--profile` and `--target` [flags](../../reference/global-configs/about-global-configs.md#available-flags). These flags override what’s defined in your `dbt_project.yml` as long as the specified profile and target are already defined in your `profiles.yml` file.
 
@@ -148,7 +144,7 @@ dbt run --profile my-profile-name --target dev
 
 In this example, the `dbt run` command will use the `my-profile-name` profile and the `dev` target.
 
-## Understanding warehouse credentials[​](#understanding-warehouse-credentials "Direct link to Understanding warehouse credentials")
+## Understanding warehouse credentials
 
 We recommend that each dbt user has their own set of database credentials, including a separate user for production runs of dbt – this helps debug rogue queries, simplifies ownerships of schemas, and improves security.
 
@@ -162,7 +158,7 @@ Running dbt without create schema privileges
 
 If your user is unable to be granted the privilege to create schemas, your dbt runs should instead target an existing schema that your user has permission to create relations within.
 
-## Understanding target schemas[​](#understanding-target-schemas "Direct link to Understanding target schemas")
+## Understanding target schemas
 
 The target schema represents the default schema that dbt will build objects into, and is often used as the differentiator between separate environments within a warehouse.
 
@@ -178,16 +174,15 @@ Note that there’s no need to create your target schema beforehand – dbt will
 
 While the target schema represents the default schema that dbt will use, it may make sense to split your models into separate schemas, which can be done by using [custom schemas](../build/custom-schemas.md).
 
-## Understanding threads[​](#understanding-threads "Direct link to Understanding threads")
+## Understanding threads
 
 When dbt runs, it creates a directed acyclic graph (DAG) of links between models. The number of threads represents the maximum number of paths through the graph dbt may work on at once – increasing the number of threads can minimize the run time of your project. The default value for threads in user profiles is 4 threads.
 
 For more information, check out [using threads](../running-a-dbt-project/using-threads.md).
 
-## Advanced: Customizing a profile directory[​](#advanced-customizing-a-profile-directory "Direct link to Advanced: Customizing a profile directory")
+## Advanced: Customizing a profile directory
 
-* dbt Fusion
-* dbt Core
+### dbt Fusion
 
 Fusion determines the parent directory for `profiles.yml` using the following precedence:
 
@@ -195,12 +190,14 @@ Fusion determines the parent directory for `profiles.yml` using the following pr
 2. Project root directory
 3. `~/.dbt/` directory
 
-Note that Fusion doesn't currently support the `DBT_ENGINE_PROFILES_DIR` environment variable or setting the `profiles.yml` in the current working directory.
+Note that Fusion doesn't currently support the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable or setting the `profiles.yml` in the current working directory.
+
+### dbt Core
 
 dbt Core determines the parent directory for `profiles.yml` using the following precedence:
 
 1. `--profiles-dir` option
-2. `DBT_ENGINE_PROFILES_DIR` environment variable
+2. (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable
 3. current working directory
 4. `~/.dbt/` directory
 
@@ -219,7 +216,7 @@ Note that the file always needs to be called `profiles.yml`, regardless of which
 
 There are multiple ways to direct dbt to a different location for your `profiles.yml` file:
 
-### 1. Use the `--profiles-dir` option when executing a dbt command[​](#1-use-the---profiles-dir-option-when-executing-a-dbt-command "Direct link to 1-use-the---profiles-dir-option-when-executing-a-dbt-command")
+### 1. Use the `--profiles-dir` option when executing a dbt command
 
 This option can be used as follows:
 
@@ -229,11 +226,11 @@ $ dbt run --profiles-dir path/to/directory
 
 If using this method, the `--profiles-dir` option needs to be provided every time you run a dbt command.
 
-### 2. Use the `DBT_ENGINE_PROFILES_DIR` environment variable to change the default location (dbt Core only)[​](#2-use-the-dbt_profiles_dirdbt_engine_profiles_dir-environment-variable-to-change-the-default-location-dbt-core-only "Direct link to 2-use-the-dbt_profiles_dirdbt_engine_profiles_dir-environment-variable-to-change-the-default-location-dbt-core-only")
+### 2. Use the (Applies to dbt v1.11 and later) `DBT_ENGINE_PROFILES_DIR` environment variable to change the default location (dbt Core only)
 
 Setting this environment variable tells dbt Core to look for your `profiles.yml` file in the specified directory instead of the default location. You can specify this by running:
 
-<!-- -->
+(Applies to dbt v1.11 and later)
 
 ```text
 $ export DBT_ENGINE_PROFILES_DIR=path/to/directory
@@ -241,10 +238,10 @@ $ export DBT_ENGINE_PROFILES_DIR=path/to/directory
 
 Note: This environment variable isn't supported in Fusion.
 
-## Advanced: Using environment variables[​](#advanced-using-environment-variables "Direct link to Advanced: Using environment variables")
+## Advanced: Using environment variables
 
 Credentials can be placed directly into the `profiles.yml` file or loaded from environment variables. Using environment variables is especially useful for production deployments of dbt. You can find more information about environment variables [here](../../reference/dbt-jinja-functions/env_var.md).
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [About `profiles.yml`](./profiles.yml.md)

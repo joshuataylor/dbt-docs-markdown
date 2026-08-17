@@ -14,7 +14,7 @@ The following context methods and variables are available when configuring a `pa
 * [dbt\_version](./dbt_version.md)
 * [target](./target.md)
 
-## Example usage[​](#example-usage "Direct link to Example usage")
+## Example usage
 
 The following examples show how to use the different context methods and variables in your `packages.yml`.
 
@@ -51,6 +51,6 @@ packages:
     version: "{% if target.name == 'prod' %}0.14.0{% else %}0.13.1{% endif %}"
 ```
 
-## Related docs[​](#related-docs "Direct link to Related docs")
+## Related docs
 
 * [Packages](../../docs/build/packages.md)

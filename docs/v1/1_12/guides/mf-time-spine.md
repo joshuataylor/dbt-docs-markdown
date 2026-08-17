@@ -12,11 +12,11 @@ Intermediate
 
 
 
-## Introduction[​](#introduction "Direct link to Introduction")
+## Introduction
 
 This guide explains how to configure a time spine using the [Semantic Layer Jaffle shop example project](https://github.com/dbt-labs/jaffle-sl-template) as a reference.
 
-### What is a time spine model?[​](#what-is-a-time-spine-model "Direct link to What is a time spine model?")
+### What is a time spine model?
 
 A [time spine](../docs/build/metricflow-time-spine.md) is essential for time-based joins and aggregations in MetricFlow, the engine that powers the Semantic Layer.
 
@@ -27,13 +27,13 @@ To use MetricFlow with time-based metrics and dimensions, you must provide a tim
 
 And once you have a time spine, you need to configure it in YAML to tell MetricFlow how to use it. This guide will show you how to do both!
 
-### Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+### Prerequisites
 
 Before you start, make sure you have:
 
 * A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](../guides.md?tags=Quickstart) guide to help you get started.
 
-## Add a time spine SQL model[​](#add-a-time-spine-sql-model "Direct link to Add a time spine SQL model")
+## Add a time spine SQL model
 
 Let's get started by assuming you're creating a time spine from scratch. If you have a dbt project set up already and have your own time spine (like a `dim_date` type model), you can skip this step and go to [Use an existing dim\_date model](./mf-time-spine.md#using-an-existing-dim-date-model).
 
@@ -89,7 +89,7 @@ The time spine is a dbt model that generates a series of dates (or timestamps) a
 
    [![Preview the time spine model in the Studio IDE](/img/mf-guide-preview-time-spine-table.png?v=2 "Preview the time spine model in the Studio IDE")](#)Preview the time spine model in the Studio IDE
 
-## Add YAML configuration for the time spine[​](#add-yaml-configuration-for-the-time-spine "Direct link to Add YAML configuration for the time spine")
+## Add YAML configuration for the time spine
 
 Now that you've created the SQL file, configure it in YAML so MetricFlow can recognize and use it.
 
@@ -116,7 +116,7 @@ This time spine YAML file:
 * Defines `date_day` as the base column for daily granularity.
 * Configures `time_spine` properties so MetricFlow can use the model.
 
-### Using an existing dim\_date model[​](#using-an-existing-dim_date-model "Direct link to Using an existing dim_date model")
+### Using an existing dim\_date model
 
 This optional approach reuses an existing model, saving you the effort of creating a new one. However if you created a time spine from scratch, you can skip this section.
 
@@ -145,7 +145,7 @@ If your project already includes a `dim_date` or similar model, you can configur
 
    This time spine YAML file configures the `time_spine` property so MetricFlow can use the model.
 
-## Run and preview the time spine[​](#run-and-preview-the-time-spine "Direct link to Run and preview the time spine")
+## Run and preview the time spine
 
 For the time spine you created, let's run it and preview the output if you haven't already done this. If you have already run the model, you can skip this step.
 
@@ -179,14 +179,14 @@ For the time spine you created, let's run it and preview the output if you haven
 
 5. Double check that the results are correct and returning the expected data.
 
-## Add additional granularities[​](#add-additional-granularities "Direct link to Add additional granularities")
+## Add additional granularities
 
 This section is optional and will show you how to add additional granularities to your time spine:
 
 * [Yearly](#yearly-time-spine)
 * [Custom calendars](#custom-calendars)
 
-### Yearly time spine[​](#yearly-time-spine "Direct link to Yearly time spine")
+### Yearly time spine
 
 To support multiple granularities (like hourly, yearly, monthly), create additional time spine models and configure them in YAML.
 
@@ -267,7 +267,7 @@ For some extra practice, try one of the following exercises:
 * Filter to this year and last year only to limit data returned.
 * Try creating a monthly time spine — duplicate your daily time spine model, adjust it to generate one row per month, and update the YAML file to include `granularity: month`. Give it a try!
 
-### Custom calendars[​](#custom-calendars "Direct link to Custom calendars")
+### Custom calendars
 
 To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [Latest release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
 
@@ -352,7 +352,7 @@ To support custom calendars (like fiscal years, fiscal quarters, and so on), cre
 
    [![Validate the custom calendar metrics and time spine output in the Studio IDE](/img/mf-guide-fiscal-preview.png?v=2 "Validate the custom calendar metrics and time spine output in the Studio IDE")](#)Validate the custom calendar metrics and time spine output in the Studio IDE
 
-## What's next[​](#whats-next "Direct link to What's next")
+## What's next
 
 Congratulations 🎉! You've set up a time spine and are ready to bring the benefits of MetricFlow and the Semantic Layer to your organization. You've learned:
 

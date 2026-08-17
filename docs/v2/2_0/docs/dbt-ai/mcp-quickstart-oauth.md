@@ -1,6 +1,6 @@
 # Connect dbt MCP server to dbt platform
 
-dbt platformⓘ
+dbt platform
 
 This quickstart uses the local MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs local dbt.
 
@@ -8,7 +8,7 @@ For self-hosted CLI only (with or without a dbt platform account), see [Run self
 
 To configure or disable specific tools, see the [Environment variables reference](./mcp-environment-variables.md).
 
-## Prerequisites[​](#prerequisites "Direct link to Prerequisites")
+## Prerequisites
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 
@@ -16,15 +16,12 @@ To configure or disable specific tools, see the [Environment variables reference
 
 * For OAuth connections:
 
-  <!-- -->
-
   * MCP OAuth is available for Starter, Enterprise, and Enterprise+ plans.
   * An account admin has to enable AI features on your dbt platform account. Refer to [Enable AI features](../platform/enable-dbt-ai.md) for more info.
 
-## Step 1: Choose your auth method and configure[​](#step-1-choose-your-auth-method-and-configure "Direct link to Step 1: Choose your auth method and configure")
+## Step 1: Choose your auth method and configure
 
-* OAuth
-* Tokens
+### OAuth
 
 *MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -36,7 +33,7 @@ Static subdomains required
 
 Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.com`) can use OAuth with MCP servers. Follow [these](../platform/about-platform/access-regions-ip-addresses.md) instructions to find your account subdomain. If your account does not have a subdomain, contact support for more information.
 
-#### Find your Access URL[​](#find-your-access-url "Direct link to Find your Access URL")
+#### Find your Access URL
 
 1. Log in to your dbt platform account.
 2. Go to **Account settings** and copy your **Access URL** (for example, `abc123.us1.dbt.com`).
@@ -50,12 +47,9 @@ Multi-cell and DBT\_HOST format
   * `DBT_HOST=us1.dbt.com`
   * `MULTICELL_ACCOUNT_PREFIX=abc123` Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](./setup-local-mcp.md#api-and-sql-tool-settings).
 
-#### Add the config to your MCP client[​](#add-the-config-to-your-mcp-client "Direct link to Add the config to your MCP client")
+#### Add the config to your MCP client
 
-* Claude Desktop
-* Claude Code
-* Cursor
-* VS Code
+### Claude Desktop
 
 **Option A: Quick install (recommended)**
 
@@ -90,6 +84,8 @@ Config file location:
 * macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
+### Claude Code
+
 Run this command, replacing `YOUR-ACCESS-URL` with your Access URL:
 
 ```shell
@@ -106,12 +102,16 @@ claude mcp add dbt \
 -- uvx dbt-mcp
 ```
 
+### Cursor
+
 Click a link below with Cursor open to auto-configure, then replace the placeholder with your Access URL:
 
 * [dbt platform only (OAuth)](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJZT1VSLUFDQ0VTUy1VUkwiLCJESVNBQkxFX0RCVF9DTEkiOiJ0cnVlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D) — platform features only, no CLI
 * [dbt platform + CLI (OAuth)](cursor://anysphere.cursor-deeplink/mcp/install?name=dbt\&config=eyJlbnYiOnsiREJUX0hPU1QiOiJZT1VSLUFDQ0VTUy1VUkwiLCJEQlRfUFJPSkVDVF9ESVIiOiIvcGF0aC90by9wcm9qZWN0IiwiREJUX1BBVEgiOiJwYXRoL3RvL2RidC9leGVjdXRhYmxlIn0sImNvbW1hbmQiOiJ1dngiLCJhcmdzIjpbImRidC1tY3AiXX0%3D) — platform features + self-hosted dbt CLI commands
 
 After clicking, replace `YOUR-ACCESS-URL` with your actual Access URL (for example, `abc123.us1.dbt.com`) and save.
+
+### VS Code
 
 1. Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
 2. Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
@@ -135,7 +135,7 @@ VS Code uses `"servers"`, not `"mcpServers"`
 
 Replace `YOUR-ACCESS-URL` with your Access URL (for example, `abc123.us1.dbt.com`) and save.
 
-#### Optional: Add self-hosted dbt CLI commands[​](#optional-add-self-hosted-dbt-cli-commands "Direct link to Optional: Add self-hosted dbt CLI commands")
+#### Optional: Add self-hosted dbt CLI commands
 
 To also run dbt CLI commands (`dbt run`, `dbt build`, `dbt test`, and more), add these two variables to your `env` block:
 
@@ -146,6 +146,8 @@ To also run dbt CLI commands (`dbt run`, `dbt build`, `dbt test`, and more), add
 
 Find `DBT_PATH` by running `which dbt` (macOS/Linux) or `where dbt` (Windows). `DBT_PROJECT_DIR` is the folder containing your `dbt_project.yml`.
 
+### Tokens
+
 Token-based auth gives you more control and is better for shared or team setups. You'll need a service token or Personal Access Token (PAT).
 
 Which token should I use?
@@ -155,7 +157,7 @@ Which token should I use?
 
 See [Choosing an auth method](./setup-local-mcp.md#choose-your-auth-method) for full guidance.
 
-### Find your paths and IDs[​](#find-your-paths-and-ids "Direct link to Find your paths and IDs")
+### Find your paths and IDs
 
 You need the following values. See [Finding your IDs](./mcp-find-ids.md) for step-by-step instructions.
 
@@ -167,12 +169,6 @@ You need the following values. See [Finding your IDs](./mcp-find-ids.md) for ste
 | `DBT_DEV_ENV_ID`  | Your development environment ID (required for `execute_sql`)               |
 | `DBT_USER_ID`     | Your numeric user ID (required for `execute_sql`)                          |
 | `DBT_ACCOUNT_ID`  | Your account ID (required for Admin API tools)                             |
-
-Search table...
-
-|                  |   |   |   |   |
-| ---------------- | - | - | - | - |
-| Loading table... |   |   |   |   |
 
 Use values only, not full URLs
 
@@ -198,14 +194,11 @@ If your Access URL is `abc123.us1.dbt.com`, split it into two variables:
 
 Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cell configuration examples](./setup-local-mcp.md#api-and-sql-tool-settings).
 
-### Add the config to your MCP client[​](#add-the-config-to-your-mcp-client-1 "Direct link to Add the config to your MCP client")
+### Add the config to your MCP client
 
 Use the configuration below, replacing the placeholder values with your IDs from above. Include only the variables you need:
 
-* Claude Desktop
-* Claude Code
-* Cursor
-* VS Code
+### Claude Desktop
 
 1. In Claude Desktop, go to **Settings** → **Developer** tab → **Edit Config**.
 2. Paste the following configuration, replacing the placeholder values:
@@ -236,6 +229,8 @@ Config file location:
 * macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
+### Claude Code
+
 Run this command, replacing the placeholders with your actual values:
 
 ```bash
@@ -247,6 +242,8 @@ claude mcp add dbt \
 ```
 
 Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; add `-e DBT_ACCOUNT_ID=...` for Admin API.
+
+### Cursor
 
 1. In Cursor, open **Settings** → **MCP** → **Edit config** (or your config file).
 2. Paste the following configuration, replacing the placeholder values:
@@ -272,9 +269,11 @@ Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; a
 
 3. Save the configuration.
 
-1) Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
-2) Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
-3) Add the following configuration to `mcp.json`:
+### VS Code
+
+1. Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
+2. Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
+3. Add the following configuration to `mcp.json`:
 
 VS Code uses `"servers"`, not `"mcpServers"`
 
@@ -310,10 +309,9 @@ To also run dbt commands (`dbt run`, `dbt build`, `dbt test`, and more), add the
 
 Find `DBT_PATH` by running `which dbt` (macOS/Linux) or `where dbt` (Windows). `DBT_PROJECT_DIR` is the folder containing your `dbt_project.yml`.
 
-## Step 2: Authenticate[​](#step-2-authenticate "Direct link to Step 2: Authenticate")
+## Step 2: Authenticate
 
-* OAuth
-* Tokens
+### OAuth
 
 The first time you connect, dbt MCP opens a browser window to complete OAuth. After signing in, your session is saved and future connections are automatic.
 
@@ -324,13 +322,15 @@ If authentication doesn't start, close your client and run:
 
 Then restart your client.
 
+### Tokens
+
 No additional authentication step is needed — your token is already in the configuration. The server connects automatically when your MCP client starts.
 
-## Step 3: Test your setup[​](#step-3-test-your-setup "Direct link to Step 3: Test your setup")
+## Step 3: Test your setup
 
 Ask your AI assistant a data-related question (for example, *"What models are in my dbt project?"* or *"What metrics are defined in my Semantic Layer?"*). If dbt MCP is working, the response will use your dbt metadata.
 
-## What's available[​](#whats-available "Direct link to What's available")
+## What's available
 
 With the platform setup, your AI assistant can use:
 
@@ -346,7 +346,7 @@ Looking for self-hosted dbt CLI only?
 
 If you only need to run dbt commands locally (with or without a dbt platform account), see [Run self-hosted dbt](./mcp-quickstart-cli.md).
 
-## Troubleshooting[​](#troubleshooting "Direct link to Troubleshooting")
+## Troubleshooting
 
  Can't find the uvx executable
 
@@ -394,8 +394,6 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 1. Close your MCP client (Claude Desktop, Cursor, VS Code, etc.).
 
 2. Delete the self-hosted dbt MCP config files:
-
-   <!-- -->
 
    * macOS/Linux: `rm -f ~/.dbt/mcp.yml ~/.dbt/mcp.lock`
    * Windows: `Remove-Item -Force $env:USERPROFILE\.dbt\mcp.yml, $env:USERPROFILE\.dbt\mcp.lock`
@@ -492,7 +490,7 @@ You no longer need to set `MULTICELL_ACCOUNT_PREFIX` or `DBT_HOST_PREFIX`. If yo
 
 For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).
 
-## Next steps[​](#next-steps "Direct link to Next steps")
+## Next steps
 
 * Run dbt commands locally: see [Run self-hosted dbt](./mcp-quickstart-cli.md)
 * Configure specific toolsets: see the [Environment variables reference](./mcp-environment-variables.md)
