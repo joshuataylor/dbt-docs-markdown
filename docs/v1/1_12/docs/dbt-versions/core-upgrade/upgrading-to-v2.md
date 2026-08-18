@@ -1,4 +1,4 @@
-# Upgrading to v2
+# Upgrading to v2 [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Available in v2
 

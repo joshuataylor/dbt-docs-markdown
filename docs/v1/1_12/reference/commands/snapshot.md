@@ -22,6 +22,10 @@ Use `--vars` when your snapshot SQL references values with the `var()` function.
 dbt snapshot --select my_snapshot --vars '{"cutoff_date": "2026-01-01"}'
 ```
 
+Snapshots ignore full refresh
+
+Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A command such as `dbt build --full-refresh` or `dbt snapshot --full-refresh` that includes a snapshot node runs the snapshot as normal — it won't drop or recreate the snapshot table, so existing snapshot history is preserved.
+
 Compiled SQL for snapshots
 
 Starting dbt Core v1.12, you can inspect the SQL generated for this snapshot by running [`dbt compile`](./compile.md) or `dbt compile --select orders_snapshot`.

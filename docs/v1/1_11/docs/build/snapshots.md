@@ -209,6 +209,10 @@ When you run the [`dbt snapshot` command](../../reference/commands/snapshot.md):
   * The `dbt_valid_to` column will be updated for any existing records that have changed.
   * The updated record and any new records will be inserted into the snapshot table. These records will now have `dbt_valid_to = null` or the value configured in `dbt_valid_to_current` (available in dbt Core v1.9+).
 
+Snapshots ignore full refresh
+
+Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A command such as `dbt build --full-refresh` or `dbt snapshot --full-refresh` that includes a snapshot node runs the snapshot as normal — it won't drop or recreate the snapshot table, so existing snapshot history is preserved.
+
 (Applies to dbt v1.9 and later)
 
 #### Note

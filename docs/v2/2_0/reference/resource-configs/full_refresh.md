@@ -45,6 +45,10 @@ You can set the `full_refresh` config in the `dbt_project.yml` file or in a reso
 | If set to `false`           | The resource *never* performs a full refresh, regardless of whether you pass the `--full-refresh` flag in the dbt command.                             |
 | If set to `none` or omitted | The resource follows the behavior of the `--full-refresh` flag. If the flag is used, the resource will perform a full refresh; otherwise, it will not. |
 
+Snapshots ignore full refresh
+
+Snapshots ignore both the `full_refresh` config and the `--full-refresh` flag. A command such as `dbt build --full-refresh` or `dbt snapshot --full-refresh` that includes a snapshot node runs the snapshot as normal — it won't drop or recreate the snapshot table, so existing snapshot history is preserved.
+
 #### Note
 
 * The `--full-refresh` flag also supports a short name, `-f`.

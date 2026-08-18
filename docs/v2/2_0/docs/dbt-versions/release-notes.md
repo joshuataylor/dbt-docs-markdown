@@ -15,6 +15,7 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## August 2026
 
+* **Beta**: [dbt Core 2.0](./core-upgrade/upgrading-to-v2.md) is now available in beta!
 * **New:** The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now generally available (GA) for Enterprise plans. Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources, and read-only users can connect to analysis features such as the [dbt MCP server](../dbt-ai/about-mcp.md).
 * **Enhancement:** [Cost Insights](../explore/cost-insights.md) now supports cost attribution for [Snowflake Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive). For setup details, refer to [Assign required permissions](../explore/set-up-cost-insights.md#assign-required-permissions).
 * **New:** The [Model timing tab](../deploy/run-visibility.md#model-timing-tab) in job run details has been redesigned with a richer, scalable view that includes metric tiles, an execution timeline with grouping and highlight controls, a concurrency-over-time chart, and a searchable resource details table.

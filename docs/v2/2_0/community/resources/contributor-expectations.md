@@ -130,7 +130,7 @@ Both bug fixes and backwards-compatible new features will be included in the [ne
 
 #### dbt Core 2.0
 
-[dbt Core 2.0](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in alpha, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
+[dbt Core 2.0](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md) is the next major version of dbt Core, built on the Fusion runtime. Contributions to `dbt-core` targeting the v2.x series follow the same principles as v1.x: bug fixes and backwards-compatible features are included in the next available release. Because Core v2 is currently in beta, we will be releasing new versions rapidly as we get closer to the final v2.0.0 release (General Availability).
 
 #### dbt Fusion engine
 

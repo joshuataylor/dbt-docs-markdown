@@ -135,7 +135,7 @@ Setting `static_analysis` to `baseline` mode lets you start using Fusion immedia
 
 ## Recapping the differences between engines
 
-dbt Core v1.x and [dbt Core 2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in alpha):
+dbt Core v1.x and [dbt Core 2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in beta):
 
 * Renders and runs models one at a time.
 * Never runs static analysis.
