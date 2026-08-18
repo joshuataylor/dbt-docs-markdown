@@ -1,4 +1,4 @@
-# Connect Snowflake Fusion compatible
+# Connect Snowflake [Generally available (GA)](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles") Fusion compatible
 
 dbt platform
 
