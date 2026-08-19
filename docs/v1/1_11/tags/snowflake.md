@@ -1,3 +1,3 @@
-## [Get hands-on with Apache Iceberg and local compute](../guides/iceberg.md)
+## [Get hands-on with Snowflake Horizon and Apache Iceberg](../guides/iceberg.md)
 
-Run dbt transformations across Snowflake and DuckDB against one shared set of Apache Iceberg tables, warehouse-free and with no data copies.
+Use Snowflake Horizon's open Iceberg REST catalog to access and transform one shared set of governed tables from Snowflake and DuckDB.

@@ -177,7 +177,7 @@ Clear all
 
 [![](/img/icons/zap.svg)](./guides/iceberg.md)
 
-#### [Get hands-on with Apache Iceberg and local compute](./guides/iceberg.md)
+#### [Get hands-on with Snowflake Horizon and Apache Iceberg](./guides/iceberg.md)
 
 [60 minutesStart ](./guides/iceberg.md)
 
