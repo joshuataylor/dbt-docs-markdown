@@ -80,11 +80,11 @@ Channel:All (all)
 
 Showing 169 of 169 releases
 
-[v2.0.0-preview.210](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this release in the dbt Fusion changelog")GoodDevnightlyCanaryLatest
+[v2.0.0-preview.210](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this release in the dbt Fusion changelog")GoodDevnightlyCanaryLateststable
 
-Released by: **aiguofer**Aug 18, 2026, 03:45 PM
+Released by: **aiguofer**Aug 19, 2026, 12:01 AM
 
-planned promotion
+planned promotion (previous was accidentally to latest)
 
 [v2.0.0-preview.209](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview209 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stable
 
