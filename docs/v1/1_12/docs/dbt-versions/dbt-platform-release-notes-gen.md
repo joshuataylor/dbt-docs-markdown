@@ -13,6 +13,18 @@ Release notes are grouped by date for single-tenant environments.
 
 ![RSS](/img/fontawesome/rss.svg)Subscribe to release note updates via [RSS](https://docs.getdbt.com/assets/files/release-notes-st-rss-4c9047ac2540f4efb76c9e4fcb1d8196.xml), [Atom](https://docs.getdbt.com/assets/files/release-notes-st-atom-682759378b01d903d7f530326fdb037b.xml), or [JSON Feed](https://docs.getdbt.com/assets/files/release-notes-st-rss-18276380b2823619bba7fb2ae538bda6.json).
 
+## August 19, 2026
+
+## Enhancements
+
+### Studio IDE
+
+* **Console tab persists across sessions**: New sessions open on the Wizard tab when available, and the Studio IDE remembers your last-used tab for each project so you can pick up where you left off.
+
+### Catalog
+
+* **Exact model relation name in the Discovery API**: A new `relationName` field on the `ModelAppliedStateNode` and `ModelAppliedStateNestedNode` GraphQL types exposes the fully-qualified, adapter-rendered relation name (for example, `"database"."schema"."model_name"`) from the last successful model build.
+
 ## August 12, 2026
 
 ## Enhancements
