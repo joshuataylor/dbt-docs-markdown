@@ -56,29 +56,29 @@ The dbt Core engine uses semantic versioning for the 1.x release series. To inst
 
 ### Latest releases
 
-| dbt Core                                                                                                 | Initial release                                                                      | Support level and end date          |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------- |
-| [**v2.0**](./dbt-versions/core-upgrade/upgrading-to-v2.md)                    | Currently in [beta](./dbt-versions/product-lifecycles.md) | TBD                                 |
-| [**v1.12**](./dbt-versions/core-upgrade/upgrading-to-v1.12.md)                | Jul 16, 2026                                                                         | **Active support — July 15, 2027**  |
-| [**v1.11**](./dbt-versions/core-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025                                                                         | **Critical support — Dec 18, 2026** |
-| [**v1.10**](./dbt-versions/core-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025                                                                         | Deprecated ⛔️                      |
-| [**v1.9**](./dbt-versions/core-upgrade/upgrading-to-v1.9.md)                  | Dec 9, 2024                                                                          | Deprecated ⛔️                      |
-| [**v1.8**](./dbt-versions/core-upgrade/upgrading-to-v1.8.md)                  | May 9, 2024                                                                          | Deprecated ⛔️                      |
-| [**v1.7**](./dbt-versions/core-upgrade/upgrading-to-v1.7.md)                  | Nov 2, 2023                                                                          | End of Life ⚠️                      |
-| [**v1.6**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.6.md>) | Jul 31, 2023                                                                         | End of Life ⚠️                      |
-| [**v1.5**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) | Apr 27, 2023                                                                         | End of Life ⚠️                      |
-| [**v1.4**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md>) | Jan 25, 2023                                                                         | End of Life ⚠️                      |
-| [**v1.3**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md>) | Oct 12, 2022                                                                         | End of Life ⚠️                      |
-| [**v1.2**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.2.md>) | Jul 26, 2022                                                                         | Deprecated ⛔️                      |
-| [**v1.1**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.1.md>) | Apr 28, 2022                                                                         | Deprecated ⛔️                      |
-| [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021                                                                          | Deprecated ⛔️                      |
-| **v0.X** ⛔️                                                                                             | (Various dates)                                                                      | Deprecated ⛔️                      |
+| dbt Core                                                                                                 | Initial release                                                                      | Support level and end date                             |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| [**v2.0**](./dbt-versions/core-upgrade/upgrading-to-v2.md)                    | Currently in [beta](./dbt-versions/product-lifecycles.md) | TBD                                                    |
+| [**v1.12**](./dbt-versions/core-upgrade/upgrading-to-v1.12.md)                | Jul 16, 2026                                                                         | **Active support — July 15, 2027**                     |
+| [**v1.11**](./dbt-versions/core-upgrade/upgrading-to-v1.11.md)                | Dec 19, 2025                                                                         | **Critical support — Dec 18, 2026**                    |
+| [**v1.10**](./dbt-versions/core-upgrade/upgrading-to-v1.10.md)                | Jun 16, 2025                                                                         | Deprecated ⛔️                                         |
+| [**v1.9**](./dbt-versions/core-upgrade/upgrading-to-v1.9.md)                  | Dec 9, 2024                                                                          | Deprecated ⛔️                                         |
+| [**v1.8**](./dbt-versions/core-upgrade/upgrading-to-v1.8.md)                  | May 9, 2024                                                                          | Deprecated ⛔️                                         |
+| [**v1.7**](./dbt-versions/core-upgrade/upgrading-to-v1.7.md)                  | Nov 2, 2023                                                                          | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.6**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.6.md>) | Jul 31, 2023                                                                         | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.5**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) | Apr 27, 2023                                                                         | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.4**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.4.md>) | Jan 25, 2023                                                                         | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.3**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md>) | Oct 12, 2022                                                                         | End of Life ⚠️<br />Deprecation date: January 31, 2027 |
+| [**v1.2**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.2.md>) | Jul 26, 2022                                                                         | Deprecated ⛔️                                         |
+| [**v1.1**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.1.md>) | Apr 28, 2022                                                                         | Deprecated ⛔️                                         |
+| [**v1.0**](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) | Dec 3, 2021                                                                          | Deprecated ⛔️                                         |
+| **v0.X** ⛔️                                                                                             | (Various dates)                                                                      | Deprecated ⛔️                                         |
 
 All functionality in dbt Core since the v1.7 release is available in [dbt release tracks](./dbt-versions/dbt-release-tracks.md), which provide automated upgrades at a cadence appropriate for your team.
 
 1 Release tracks are required for the Developer and Starter plans on dbt. Accounts using older dbt versions will be migrated to the **Latest** release track.
 
-For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-versions/dbt-release-tracks.md) or a supported version.
+For customers of dbt: dbt Labs strongly recommends migrating environments on older and unsupported versions to [release tracks](./dbt-versions/dbt-release-tracks.md) or a supported version. On January 31, 2027, dbt Labs will deprecate dbt Core versions v1.3 through v1.7, removing them from availability in dbt platform.
 
 ### How dbt Core uses semantic versioning
 
@@ -127,6 +127,10 @@ Refer to [Supported data platforms](./supported-data-platforms.md) for the full 
 * [`require-dbt-version`](../reference/project-configs/require-dbt-version.md) and [`dbt_version`](../reference/dbt-jinja-functions/dbt_version.md): Restrict your project to work with a specific range of versions.
 
 ## End-of-life versions
+
+info
+
+On January 31, 2027, dbt Core versions v1.3-v1.7 will be deprecated and removed from availability in dbt platform. Upgrade any environments still on these versions to a supported version or a [release track](./dbt-versions/dbt-release-tracks.md) before then.
 
 Once a dbt version reaches end-of-life (EOL), it no longer receives patches, including for known bugs. We recommend upgrading to a newer version in [dbt](./dbt-versions/upgrade-dbt-platform-version.md), [Fusion](./local/install-dbt.md?version=2), or [dbt Core](./local/install-dbt.md). All versions prior to v1.0 have been deprecated.
 

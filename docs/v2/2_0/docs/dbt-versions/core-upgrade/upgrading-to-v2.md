@@ -59,7 +59,7 @@ State-aware orchestration is now dbt State
 
 [dbt State](../../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, the dbt platform, and dbt Fusion engine.
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Existing state-aware orchestration customers automatically receive a 90-day trial of dbt State. To get started, refer to [Migrate from state-aware orchestration](../../deploy/dbt-state-migration.md).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../deploy/dbt-state-migration.md).
 
 ### Supported adapters
 
@@ -130,6 +130,14 @@ In dbt v2, [`dbt login`](../../../reference/commands/login.md?version=2.0) enabl
 Run [`dbt login status`](../../../reference/commands/login.md?version=2.0#dbt-login-status) to view your current authentication status.
 
 `dbt login` unlocks a broader set of features, such as advanced features in the [dbt VS Code extension](../../about-dbt-extension.md). For details, refer to [`dbt login`](../../../reference/commands/login.md?version=2.0).
+
+### dbt Docs v2
+
+v2 introduces [dbt Docs v2](../../build/view-documentation.md#dbt-docs-v2), a faster, statically hostable documentation experience that replaces the v1 static site. `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and exports a static site in a single command. `dbt docs serve` previews that site locally, and because the browser queries those artifacts directly with DuckDB-WASM (WebAssembly), you can also host the generated files on any static file host. You only need `--write-index` if you want to produce the artifacts from a separate `dbt compile` or `dbt build` command.
+
+To hydrate catalog metadata (`catalog.json`) for Catalog without building the site, use the [`--write-catalog` flag](../../../reference/commands/cmd-docs.md#--write-catalog-flag) instead.
+
+For full usage, refer to [About dbt docs commands](../../../reference/commands/cmd-docs.md).
 
 ### Changed functionality
 

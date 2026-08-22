@@ -121,6 +121,12 @@ Clear all
 
 ### Popular
 
+[![](/img/icons/guides.svg)](./guides/migrate-off-legacy-dbt-versions.md)
+
+#### [Migrate off legacy dbt versions](./guides/migrate-off-legacy-dbt-versions.md)
+
+[Start ](./guides/migrate-off-legacy-dbt-versions.md)
+
 [![](/img/icons/snowflake.svg)](./guides/snowflake.md)
 
 #### [Quickstart for dbt and Snowflake](./guides/snowflake.md)

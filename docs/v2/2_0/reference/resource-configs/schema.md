@@ -2,7 +2,7 @@
 
 ### Model
 
-Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a group of models in your project YAML file (`dbt_project.yml`) or in a [SQL file config](./schema.md#models).
+Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a group of models in your project YAML file (`dbt_project.yml`), in a [SQL file config](./schema.md#models), or in a property YAML file.
 
 For example, if you have a group of marketing-related models and want to place them in a separate schema called `marketing`, you can configure it like this:
 
@@ -13,6 +13,17 @@ models:
   your_project:
     marketing: #  Grouping or folder for set of models
       +schema: marketing
+```
+
+You can also set the schema for an individual model in its property file:
+
+models/properties.yml
+
+```yml
+models:
+  - name: my_model
+    config:
+      schema: marketing
 ```
 
 This would result in the generated relations for these models being located in the `marketing` schema, so the full relation names would be `analytics.target_schema_marketing.model_name`. This is because the schema of the relation is `{{ target.schema }}_{{ schema }}`. The [definition](#definition) section explains this in more detail.
@@ -136,6 +147,17 @@ models/my\_model.sql
 {{ config(
     schema='marketing'
 ) }}
+```
+
+Or configure individual models in a property file:
+
+models/properties.yml
+
+```yml
+models:
+  - name: my_model
+    config:
+      schema: marketing
 ```
 
 ### Seeds

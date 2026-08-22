@@ -11,7 +11,7 @@ The remote MCP server connects to dbt platform using HTTP. No self-hosted instal
 Remote MCP is a good fit when:
 
 * You don't want to or can't install software (`uvx`, dbt-mcp) on your machine.
-* Your use case is *consumption-based*: querying metrics, exploring metadata, viewing lineage, or running SQL via the platform.
+* Your use case is *consumption-based*: querying metrics, exploring metadata, viewing lineage, or running SQL on the platform.
 * You need Semantic Layer, Administrative, and Discovery APIs access without a local dbt project.
 
 Self-hosted development requires self-hosted MCP
@@ -31,16 +31,16 @@ In dbt platform, ensure that you have [AI features](../platform/enable-dbt-ai.md
 Obtain the following information from dbt platform:
 
 * **dbt platform host**: Form the URL as `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` (for example, `https://cloud.getdbt.com/api/ai/v1/mcp/`). For multi-cell accounts, the host is in the format `ACCOUNT_PREFIX.us1.dbt.com`. Refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
-* **Production environment ID**: From **Orchestration** in dbt platform. You will use it as the `x-dbt-prod-environment-id` header.
-* **Token** — PAT or service token with Semantic Layer and Developer permissions.
-* **If you use `execute_sql`:** You must use a PAT, plus your development environment ID and user ID. Refer to [Finding your IDs](./mcp-find-ids.md).
+* **Production environment ID**: From **Orchestration** → **Environments** in dbt platform. You will use it as the `x-dbt-prod-environment-id` header (token-based setup only). Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.
+* **Token** — PAT or service token with Semantic Layer and Developer permissions (token-based setup only).
+* **If you use `execute_sql` with token-based auth:** You must use a PAT, plus your development environment ID and user ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md) for details. With OAuth, you only need your MCP URL.
 
 ### 3. Choose authentication: OAuth or tokens
 
-| Type               | Info                                                                                                                                                      |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **OAuth (remote)** | No API tokens in your client config. Requires an OAuth-capable MCP client.<br /><br />Available for Starter, Enterprise, and Enterprise+ accounts.        |
-| **Token-based**    | PAT or service token in the `Authorization` header. Works with any client and is required for shared/CI setups and for `execute_sql` (which needs a PAT). |
+| Type                                                                                           | Info                                                                                                                                                                                      |
+| ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[OAuth (remote)](./setup-remote-mcp.md#oauth-remote-mcp)** | No API tokens in your client config. Requires an OAuth-capable MCP client. Supports `execute_sql`.<br /><br />Available in public beta for Starter, Enterprise, and Enterprise+ accounts. |
+| **Token-based**                                                                                | PAT or service token in the `Authorization` header. Works with any client and is required for shared/CI setups. For `execute_sql`, you must use a PAT (service tokens do not work).       |
 
 info
 
@@ -58,9 +58,9 @@ For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP 
 
 Depending on your auth method, you may also need:
 
-* **Production environment ID**: From **Orchestration** in dbt platform. Used as the `x-dbt-prod-environment-id` header for token-based setup.
+* **Production environment ID**: From **Orchestration** → **Environments** in dbt platform. Used as the `x-dbt-prod-environment-id` header for token-based setup. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.
 * **Token** — PAT or service token with Semantic Layer and Developer permissions (token-based setup only).
-* **If you use `execute_sql`:** You must use a PAT, plus your development environment ID and user ID. Refer to [Finding your IDs](./mcp-find-ids.md).
+* **If you use `execute_sql` with token-based auth:** You must use a PAT, plus your development environment ID and user ID. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md) for details. With OAuth, you only need your MCP URL.
 
 info
 
@@ -72,7 +72,7 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 ### 5. Configure your MCP client
 
-Configure your MCP client with the MCP URL and headers from the previous step.
+Configure your MCP client with the MCP URL from the previous step. If you use token-based authentication, also add the required headers.
 
 ### OAuth
 
@@ -86,7 +86,7 @@ Configure your MCP client with the MCP URL and headers from the previous step.
 
 For the full flow, sessions, and limitations, refer to [OAuth (remote MCP)](./setup-remote-mcp.md#oauth-remote-mcp).
 
-Configure your client with the MCP URL from the previous step. On first connect, your client opens a browser for sign-in and consent.
+Configure your client with the MCP URL from the previous step. On first connect, your client opens a browser for sign-in and consent. You don't need a personal access token or extra headers to use `execute_sql`.
 
 Some tools (like Claude Desktop) let you add dbt as a custom connector through their UI instead of editing a config file:
 
@@ -155,7 +155,7 @@ Add this to `mcp.json` (run **MCP: Open Workspace Folder MCP Configuration** fro
 Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the required headers:
 
 * **Required:** `Authorization` (value `Token YOUR_TOKEN` or `Bearer YOUR_TOKEN`), `x-dbt-prod-environment-id`
-* **For `execute_sql` or Fusion tools:** Also add `x-dbt-dev-environment-id` and `x-dbt-user-id`
+* **For `execute_sql` with token-based auth or Fusion tools:** Also add `x-dbt-dev-environment-id` and `x-dbt-user-id`
 * Use numeric IDs in headers, not full URLs copied from your browser.
 
 ### Claude Code

@@ -2,6 +2,12 @@
 
 Available in v1
 
+dbt Core v1.3 – v1.7 will be deprecated on January 31, 2027
+
+dbt Core versions v1.3-v1.7 have reached [end of life](../../../dbt-versions.md#end-of-life-versions) and will be deprecated on January 31, 2027. After that date, these versions are no longer maintained by dbt Labs and will be removed from dbt platform.
+
+Upgrade your environments to a [supported dbt version](../../../dbt-versions.md) or a [release track](../../dbt-release-tracks.md) before then to keep receiving updates and support. For more information, check out the [Migrate off legacy dbt versions](../../../../guides/migrate-off-legacy-dbt-versions.md?step=1) guide.
+
 dbt Core v1.5 is a feature release, with two significant additions:
 
 1. [**Model governance**](../../../mesh/govern/about-model-governance.md) — access, contracts, versions — the first phase of [multi-project deployments](https://github.com/dbt-labs/dbt-core/discussions/6725)

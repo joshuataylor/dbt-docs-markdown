@@ -129,7 +129,7 @@ Generate documentation for your project by following these steps:
 dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
 
 * [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
-* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core 2.0.
+* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles"): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and column-level lineage, served as a static site you can host anywhere. Available with the dbt Fusion engine and dbt Core 2.0.
 * [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
 
 Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.

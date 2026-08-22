@@ -120,17 +120,17 @@ Yes! You can document almost everything in your project using the `description:`
 
 (Applies to dbt v2.0 and later)
 
-Using the dbt Fusion engine, dbt Docs v2 replaces the v1 static site with a modern, performant catalog served through a local REST API. To generate and serve documentation:
+Using the dbt Fusion engine, dbt Docs v2 replaces the v1 static site with a modern, performant catalog. `dbt docs generate` compiles your project, produces the v2 Parquet artifacts, and writes a static site that the browser queries directly with DuckDB-WASM (WebAssembly), so you don't need a server to view it. To generate and serve documentation:
 
-1. Run any dbt command with `--write-index` to build the index (for example, `dbt compile --write-index` or `dbt build --write-index`). This writes index files to `target/index/`, which is what `dbt docs serve` reads from.
-2. Run `dbt docs serve` to start the local documentation server.
+1. Run `dbt docs generate` to compile your project, write the index, and export the documentation site in a single command.
+2. Run `dbt docs serve` to preview the site locally.
 
 Refer to [dbt docs commands](../../reference/commands/cmd-docs.md) for full usage details.
 
 dbt provides three complementary ways to [view documentation](./view-documentation.md) after descriptions are generated:
 
 * [**dbt Docs (Legacy)**](./view-documentation.md#dbt-docs): A static documentation site with model lineage, metadata, and documentation that can be hosted on your web server (like S3 or Netlify). Available for dbt Core v1.x or dbt Developer plans.
-* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) alpha: A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, column-level lineage, and a REST API. Available with the dbt Fusion engine and dbt Core 2.0.
+* [**dbt Docs v2**](./view-documentation.md#dbt-docs-v2) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles"): A modern, performant open-source catalog with a redesigned UI, Semantic Layer metadata, and column-level lineage, served as a static site you can host anywhere. Available with the dbt Fusion engine and dbt Core 2.0.
 * [**Catalog**](../explore/explore-projects.md): Builds upon dbt Docs to provide a dynamic, real-time interface with enhanced metadata, customizable views, deeper project insights, and collaboration tools. Available on dbt [Starter, Enterprise, or Enterprise+ plans](https://www.getdbt.com/pricing).
 
 Refer to [View documentation](./view-documentation.md) to get the most out of your dbt project's documentation.

@@ -17,8 +17,6 @@ Use Catalog to navigate and manage your projects within dbt to help you and othe
 
 Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display the details about [the state of your dbt project](../dbt-apis/project-state.md). The metadata that's available depends on the [deployment environment](../deploy/deploy-environments.md) you've designated as *production* or *staging* in your dbt project.
 
-Catalog also allows you to ingest metadata from your data warehouse, giving you visibility into external resources in Catalog. For information on supported warehouses, refer to [External metadata ingestion](./external-metadata-ingestion.md#prerequisites).
-
 ## dbt metadata
 
 If you're using a [hybrid project setup](../deploy/hybrid-setup.md) and uploading artifacts from dbt Core, make sure to follow the [setup instructions](../deploy/hybrid-setup.md#connect-project-in-dbt-cloud) to connect your project in dbt. This enables Catalog to access and display your metadata correctly.
@@ -58,12 +56,6 @@ tip
 
 If your organization works in both dbt Core and Cloud, you can unify these workflows by automatically uploading dbt Core artifacts into dbt Cloud and viewing them in Catalog for a more connected dbt experience. To learn more, visit [hybrid projects](../deploy/hybrid-projects.md).
 
-### External metadata ingestion [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
-
-Connect directly to your data warehouse with [external metadata ingestion](./external-metadata-ingestion.md), giving you visibility into tables, views, and other resources that aren't defined in dbt with Catalog.
-
-We create dbt metadata and pull external metadata. Catalog uses the metadata provided by the [Discovery API](../dbt-apis/discovery-api.md) to display details about the state of your project. The available metadata depends on which [deployment environment](../deploy/deploy-environments.md) you’ve designated as production or staging in your dbt project.
-
 ## Catalog overview
 
 [Global navigation](./global-navigation.md) [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
@@ -88,25 +80,23 @@ When using global navigation and searching across your projects, the following p
 
 * Your project access permissions determine which dbt projects appear in the left-hand menu of the global navigation.
 * In Catalog searches, we use soft access controls, you'll see all matching resources in search results, with clear indicators for items you don't have access to.
-* For external metadata, the global platform credential controls which resources metadata users can discover. See [External metadata ingestion](./external-metadata-ingestion.md) for more details.
 
 ### Availability by plan
 
 Catalog is available on all Starter, Enterprise, and Enterprise+ plans. However, certain features are only available on Enterprise and Enterprise+ plans:
 
-| Feature                                                                                            | Starter | Enterprise | Enterprise+ |
-| -------------------------------------------------------------------------------------------------- | ------- | ---------- | ----------- |
-| Core lineage & resource browsing                                                                   | ✅      | ✅         | ✅          |
-| [Global navigation](./global-navigation.md)                     | ✅      | ✅         | ✅          |
-| [Data health signals](./data-health-signals.md)                 | ✅      | ✅         | ✅          |
-| [Model performance](./model-performance.md)                     | ❌      | ✅         | ✅          |
-| [Project recommendations](./project-recommendations.md)         | ❌      | ✅         | ✅          |
-| [Column-level lineage](./column-level-lineage.md)               | ❌      | ✅         | ✅          |
-| [Multi-project lineage](./explore-multiple-projects.md)         | ❌      | ✅         | ✅          |
-| [Model query history](./model-query-history.md)                 | ❌      | ✅         | ✅          |
-| [Downstream exposures](./view-downstream-exposures.md)          | ❌      | ✅         | ✅          |
-| [Data health tile](./data-tile.md)                              | ❌      | ✅         | ✅          |
-| [External metadata ingestion](./external-metadata-ingestion.md) | ❌      | ✅         | ✅          |
+| Feature                                                                                    | Starter | Enterprise | Enterprise+ |
+| ------------------------------------------------------------------------------------------ | ------- | ---------- | ----------- |
+| Core lineage & resource browsing                                                           | ✅      | ✅         | ✅          |
+| [Global navigation](./global-navigation.md)             | ✅      | ✅         | ✅          |
+| [Data health signals](./data-health-signals.md)         | ✅      | ✅         | ✅          |
+| [Model performance](./model-performance.md)             | ❌      | ✅         | ✅          |
+| [Project recommendations](./project-recommendations.md) | ❌      | ✅         | ✅          |
+| [Column-level lineage](./column-level-lineage.md)       | ❌      | ✅         | ✅          |
+| [Multi-project lineage](./explore-multiple-projects.md) | ❌      | ✅         | ✅          |
+| [Model query history](./model-query-history.md)         | ❌      | ✅         | ✅          |
+| [Downstream exposures](./view-downstream-exposures.md)  | ❌      | ✅         | ✅          |
+| [Data health tile](./data-tile.md)                      | ❌      | ✅         | ✅          |
 
 On-demand learning
 

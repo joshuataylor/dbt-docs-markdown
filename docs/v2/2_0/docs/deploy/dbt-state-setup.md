@@ -34,7 +34,7 @@ To enable dbt State:
 
    Extended trial for state-aware orchestration users
 
-   If you're using state-aware orchestration prior to June 1, 2026, your dbt State trial will be extended until the billing period begins on September 1, 2026. If the extension isn’t applied to your account, contact your account team.
+   If you were using state-aware orchestration prior to June 1, 2026, your dbt State trial will be extended beyond 30 days. If the extension isn’t applied to your account, contact your account team.
 
 4. Review and agree to the terms of service.
 

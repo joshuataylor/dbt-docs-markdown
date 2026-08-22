@@ -8,7 +8,7 @@ Search, explore, and analyze data assets across all your dbt projects and connec
 
 Global navigation search varies depending on your [dbt platform](https://www.getdbt.com/pricing) plan:
 
-* Enterprise plans — Catalog lets you search across all [dbt resources](../build/projects.md) (models, seeds, snapshots, sources, exposures, and more) in your account, plus discover external metadata.
+* Enterprise plans — Catalog lets you search across all [dbt resources](../build/projects.md) (models, seeds, snapshots, sources, exposures, and more) in your account.
 * Starter plans (single project) — Use global navigation to search and navigate resources within your project
 
 ## About Global navigation
@@ -16,7 +16,6 @@ Global navigation search varies depending on your [dbt platform](https://www.get
 Global navigation in Catalog lets you search, explore, and analyze data assets across all your dbt projects and connected metadata sources—giving you a unified, account-wide view of your analytics ecosystem. With global navigation, you can:
 
 * Search data assets — expand your search by including dbt resources (models, seeds, snapshots, sources, exposures, and more) across your entire account. This broadens the results returned and gives you greater insight into all the assets across your dbt projects.
-  * External metadata ingestion — connect directly to your data warehouse, giving you visibility into tables, views, and other resources that aren't defined in dbt with Catalog.
 
 * Explore lineage — explore an interactive map of data relationships across all your dbt projects. It lets you:
 

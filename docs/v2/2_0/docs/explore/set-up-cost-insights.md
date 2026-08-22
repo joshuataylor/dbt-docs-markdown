@@ -157,7 +157,7 @@ State-aware orchestration is now dbt State
 
 [dbt State](../deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../deploy/dbt-state-migration.md).
 
 Cost Insights displays cost data for your dbt models and jobs without dbt State. However, to understand the impact of optimizations and see cost reductions from model and test reuse, you must enable dbt State in your jobs. For steps on how to enable it, see [Setting up dbt State](../deploy/dbt-state-setup.md).
 

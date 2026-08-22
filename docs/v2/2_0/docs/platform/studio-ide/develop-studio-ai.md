@@ -41,7 +41,7 @@ To use the dbt Wizard, follow these steps:
 
 2. Start a prompt in several ways in the [dbt Wizard panel](../../dbt-ai/wizard-ide.md):
 
-   * **Quick actions**: Use [quick-action resource generation](../../dbt-ai/wizard-ide.md#quick-action-resource-generation) at the top of the panel to generate documentation, tests, semantic models, and metrics.
+   * **Quick actions**: Use [quick-action resource generation](../../dbt-ai/wizard-ide.md#quick-action-resource-generation) at the top of the panel for quick action prompts.
    * **Plain text**: Type directly into the text field to describe what you want to build or change.
    * **Model context**: Type `@` to select a model as context. This scopes the agent's changes to that resource.
 
@@ -55,9 +55,11 @@ To use the dbt Wizard, follow these steps:
 
 7. Commit the changes to your dbt project and open a pull request.
 
-Your browser does not support the video tag.
+The following images show how dbt Wizard displays its work and outcome:
 
-Example of using the dbt Wizard to refactor a model in the Studio IDE.
+[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+
+[![Wizard final refactor result displayed as a diff](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard final refactor result displayed as a diff")](#)Wizard final refactor result displayed as a diff
 
 For more details on the dbt Wizard and how it works, expand the following sections to open additional information.
 
@@ -65,14 +67,14 @@ For more details on the dbt Wizard and how it works, expand the following sectio
 
 The dbt Wizard panel contains:
 
-1. **Quick actions** (center): Buttons at the top of the panel for common tasks like generating documentation, tests, semantic models, and metrics. When selected, the text field is pre-filled with a prompt.
+1. **Quick actions** (center): Buttons at the top of the panel for quick action prompts. When selected, the text field is pre-filled with a prompt.
 2. **Agent mode button** (bottom left): Switch between **Ask for approval** and **Edit files automatically** mode. Click the button to change modes.
 3. **dbt model context** (bottom left): Shows the currently open file. Use `@` in the text field to reference a different dbt model. Click **x** to remove the dbt model context.
 4. **Text input field** (bottom left): Type your prompt in the text field to describe what you want to build or change. Type `@` to select a dbt model as context. This scopes the agent's changes to that resource.
 5. **Start new dbt Wizard chat** (top right): Starts a new chat session.
 6. **Stop** or **Enter** (bottom right): Press **Enter** to submit your prompt. Press **Stop** to stop the current session and agent processing. You cannot undo this action.
 
-[![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dev-agent-copilot-panel.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")](#)The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
+[![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dbt-wizard-panel-controls-annotated.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")](#)The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
 
 dbt Wizard also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
 
@@ -87,8 +89,6 @@ The dbt Wizard operates in two modes:
 
 You can switch between modes at any time by clicking the **Agent mode** button in the dbt Wizard panel.
 
-[![dbt Wizard in Ask for approval mode, requesting approval before making file edits.](/img/docs/dbt-platform/dev-agent-ask-mode.png?v=2 "dbt Wizard in Ask for approval mode, requesting approval before making file edits.")](#)dbt Wizard in Ask for approval mode, requesting approval before making file edits.
-
  Reviewing agent suggestions
 
 When the dbt Wizard proposes code changes, you can review them before they are saved to your project:
@@ -96,8 +96,6 @@ When the dbt Wizard proposes code changes, you can review them before they are s
 * **View the diff**: The agent displays a diff of the proposed changes. Click **Show all X lines** to expand and view the full suggestion.
 * **Line indicators**: Added and removed lines are highlighted with line number indicators so you can see exactly what changed.
 * **Copy or open in editor**: Use the options in the top-right corner of the diff view to copy the suggestion or open it directly in the editor.
-
-[![dbt Wizard displaying a diff of proposed YAML changes with line indicators and copy/open options.](/img/docs/dbt-platform/dev-agent-code-suggestion.png?v=2 "dbt Wizard displaying a diff of proposed YAML changes with line indicators and copy/open options.")](#)dbt Wizard displaying a diff of proposed YAML changes with line indicators and copy/open options.
 
  Granting command permissions
 
@@ -116,8 +114,6 @@ You can select one of the following options:
 | **No**                                                | Denies the request. The agent will not run the command.                                          |
 
 After you run a command, dbt Wizard adds an icon and a tooltip to the Studio IDE [**Commands** tab](./ide-user-interface.md#console-section) results. This helps you distinguish agent-run commands from manually run commands in the run results and logs.
-
-[![Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.](/img/docs/dbt-platform/dev-agent-cmd-icon.png?v=2 "Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.")](#)Commands run by dbt Wizard appear in the Studio IDE Commands tab with a dbt Wizard icon and 'Run by dbt Wizard' tooltip.
 
 ### Bringing your own skills
 
@@ -207,22 +203,20 @@ Generate documentation, tests, metrics, and semantic models [resources](../../bu
 
 1. Navigate to the Studio IDE and select a SQL model file under the **File Explorer**.
 
-2. In the **Console** section (under the **File Editor**), click **dbt Copilot** to view the available AI options.
-
-3. Select the available options to generate the YAML config: **Generate Documentation**, **Generate Tests**, **Generate Semantic Model**, or **Generate Metrics**. To generate multiple YAML configs for the same model, click each option separately. dbt Copilot intelligently saves the YAML config in the same file.
+2. In the **Console** section (under the **File Editor**), click the dbt Copilot button and choose what you want to generate, such as documentation, tests, metrics, SQL, or semantic models. To generate multiple YAML configs for the same model, select each option separately. dbt Copilot saves them to the same YAML file.
 
    note
 
    dbt Copilot doesn't yet support generating semantic models with the latest YAML spec.
 
    * To generate metrics, you need to first have semantic models defined.
-   * Once defined, click **dbt Copilot** and select **Generate Metrics**.
+   * Once defined, click **dbt Copilot** and select **Generate metrics**.
    * Write a prompt describing the metrics you want to generate and press enter.
    * **Accept** or **Reject** the generated code.
 
-4. Verify the AI-generated code. You can update or fix the code as needed.
+3. Verify the AI-generated code. You can update or fix the code as needed.
 
-5. Click **Save As**. You should see the file changes under the **Version control** section.
+4. Click **Save As**. You should see the file changes under the **Version control** section.
 
 ### Inline SQL editing
 

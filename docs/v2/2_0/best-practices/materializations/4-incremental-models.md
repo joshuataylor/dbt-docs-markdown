@@ -153,7 +153,7 @@ State-aware orchestration is now dbt State
 
 [dbt State](../../docs/deploy/dbt-state-about.md) works with all engines and environments: dbt Core, dbt platform, and Fusion
 
-If you're using state-aware orchestration prior to June 1, 2026, you can continue using it. Your dbt State trial will be extended until the billing period begins on September 1, 2026. If your trial wasn't extended, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
+If you were using state-aware orchestration prior to June 1, 2026, you can continue using it. Once you start your free dbt State trial, it will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team. To get started, refer to [Migrate from state-aware orchestration](../../docs/deploy/dbt-state-migration.md).
 
 [dbt State](../../docs/deploy/dbt-state-about.md) works with incremental models. Use [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md) to control how frequently the model rebuilds based on upstream data changes, and [`pre_clone`](../../reference/resource-configs/pre-clone.md) to pre-populate the model by cloning from production before a run. For example, to skip a rebuild if upstream data changed less than 4 hours ago, and always start from the current production state in local development:
 
