@@ -186,7 +186,7 @@ jobs:
           # branch has nothing on top of upstream current (everything merged).
           curl -fsSL \
             "https://github.com/joshuataylor/docs.getdbt.com/compare/dbt-labs:current...feature/fix-markdown.diff" \
-            | git apply --allow-empty
+            | git apply --3way --allow-empty
 
       - name: Build version docs
         working-directory: ${{ env.DOCS_CLONE_DIR }}/website
