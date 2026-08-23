@@ -68,7 +68,7 @@ The list of builds comes from `dbt-versions.js` in the source repo, so new versi
     
     [Reference guide for configuring the dbt\_project.yml file.](../reference/dbt_project.yml.md)
     ~~~
-- Convert <br> to line breaks in generated Markdown, for example: https://docs.getdbt.com/reference/function-configs.md.
+- Convert `<br>` to line breaks in generated Markdown, for example: https://docs.getdbt.com/reference/function-configs.md.
   Before:
     ~~~
     ### Function-specific configurations
