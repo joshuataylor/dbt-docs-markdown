@@ -32,13 +32,7 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 #### [Deploy jobs](./deploy-jobs.md)
 
-[Create and schedule jobs for the job scheduler to run.](./deploy-jobs.md)
-
-<br />
-
-<br />
-
-[Runs on a schedule, by API, or after another job completes.](./deploy-jobs.md)
+[Create and schedule jobs for the job scheduler to run. Runs on a schedule, by API, or after another job completes.](./deploy-jobs.md)
 
 [![](/img/icons/dbt-bit.svg)](./dbt-state-about.md)
 
@@ -63,8 +57,6 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 #### [Job commands](./job-commands.md)
 
 [Configure which dbt commands to execute when running a dbt job.](./job-commands.md)
-
-<br />
 
 ## Monitor jobs and alerts
 
@@ -116,8 +108,6 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 
 [Create outbound webhooks to send events about your dbt jobs' statuses to other systems in your organization.](./webhooks.md)
 
-<br />
-
 ## Hybrid projects [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing") [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 [![](/img/icons/dbt-bit.svg)](./hybrid-projects.md)
@@ -125,8 +115,6 @@ Learn how to use dbt's features to help your team ship timely and quality produc
 #### [Hybrid projects](./hybrid-projects.md)
 
 [Use Hybrid projects to upload dbt Core artifacts into the dbt platform for central visibility, cross-project referencing, and easier collaboration.](./hybrid-projects.md)
-
-<br />
 
 ## Related docs
 

@@ -82,7 +82,7 @@ Suppose you have two semantic models, `VISITS` and `BUYS`:
 
 The underlying tables look like the following:
 
-`VISITS`<br />Contains user visits with `USER_ID` and `REFERRER_ID`.
+`VISITS` Contains user visits with `USER_ID` and `REFERRER_ID`.
 
 | DS         | USER\_ID | REFERRER\_ID |
 | ---------- | -------- | ------------ |
@@ -90,7 +90,7 @@ The underlying tables look like the following:
 | 2020-01-04 | bob      | google       |
 | 2020-01-07 | bob      | amazon       |
 
-`BUYS`<br />Records completed orders with `USER_ID` and `REFERRER_ID`.
+`BUYS` Records completed orders with `USER_ID` and `REFERRER_ID`.
 
 | DS         | USER\_ID | REFERRER\_ID |
 | ---------- | -------- | ------------ |
@@ -327,7 +327,6 @@ You can add a constant property to a conversion metric to count only those conve
 For example, if you're at an e-commerce company and want to answer the following question:
 
 * *How often did visitors convert from `View Item Details` to `Complete Purchase` with the same product in each step?*
-  <br />
   * This question is tricky to answer because users could have completed these two conversion milestones across many products. For example, they may have viewed a pair of shoes, then a T-shirt, and eventually checked out with a bow tie. This would still count as a conversion, even though the conversion event only happened for the bow tie.
 
 Back to the initial questions, you want to see how many customers viewed an item detail page and then completed a purchase for the *same* product.

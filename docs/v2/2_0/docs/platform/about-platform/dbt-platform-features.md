@@ -120,8 +120,6 @@ dbt's [flexible plans](https://www.getdbt.com/pricing/) and features make it wel
 
 Track warehouse compute costs and understand the impact of optimizations across your dbt projects and models.
 
-<br />
-
 \*These features are available on [selected plans](https://www.getdbt.com/pricing/).
 
 ## Related docs

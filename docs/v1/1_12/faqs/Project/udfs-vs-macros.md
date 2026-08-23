@@ -27,7 +27,7 @@ Jinja influences the function when it’s created, whereas arguments influence i
 
  You need Python logic that runs in your warehouse
 
-A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br />This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
+A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL. This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
 
 Python UDFs support conditionals and looping within the function logic itself (using Python syntax), and execute at runtime, not at compile time like macros. Python UDFs are currently supported in Snowflake and BigQuery.
 

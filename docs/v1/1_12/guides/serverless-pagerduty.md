@@ -78,25 +78,7 @@ Sample output from the setup wizard:
 
 ``
 
-`joel@Joel-Labes dbt-cloud-webhooks-pagerduty % flyctl launch
-An existing fly.toml file was found for app dbt-cloud-webhooks-pagerduty
-? Would you like to copy its configuration to the new app? Yes
-Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-pagerduty
-Scanning source code
-Detected a Dockerfile app
-? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-pagerduty
-automatically selected personal organization: Joel Labes
-Some regions require a paid plan (fra, maa).
-See https://fly.io/plans to set up a plan.
-? Choose a region for deployment: [Use arrows to move, type to filter]
-? Choose a region for deployment: Sydney, Australia (syd)
-Created app dbtlabs-dbt-cloud-webhook-pagerduty in organization personal
-Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-pagerduty
-Hostname: demo-dbt-cloud-webhook-pagerduty.fly.dev
-? Would you like to set up a Postgresql database now? No
-? Would you like to set up an Upstash Redis database now? No
-Wrote config file fly.toml
-? Would you like to deploy now? Yes`
+`joel@Joel-Labes dbt-cloud-webhooks-pagerduty % flyctl launch An existing fly.toml file was found for app dbt-cloud-webhooks-pagerduty ? Would you like to copy its configuration to the new app? Yes Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-pagerduty Scanning source code Detected a Dockerfile app ? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-pagerduty automatically selected personal organization: Joel Labes Some regions require a paid plan (fra, maa). See https://fly.io/plans to set up a plan. ? Choose a region for deployment: [Use arrows to move, type to filter] ? Choose a region for deployment: Sydney, Australia (syd) Created app dbtlabs-dbt-cloud-webhook-pagerduty in organization personal Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-pagerduty Hostname: demo-dbt-cloud-webhook-pagerduty.fly.dev ? Would you like to set up a Postgresql database now? No ? Would you like to set up an Upstash Redis database now? No Wrote config file fly.toml ? Would you like to deploy now? Yes`
 
 ## Create a PagerDuty integration application
 

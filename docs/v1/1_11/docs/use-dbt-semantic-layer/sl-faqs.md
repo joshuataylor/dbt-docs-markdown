@@ -264,8 +264,6 @@ semantic_models:
 
 Notice that in the `model` parameter, we're using the `ref` function with two arguments to reference the public model `fct_orders` defined in the `jaffle_finance` project.
 
-<br />
-
  Which ‘staging layer’ should the dbt Semantic Layer talk to? Raw, staging, or marts?
 
 We recommend to build your semantic layer on top of the [marts layer](../../best-practices/how-we-structure/4-marts.md), which represents the clean and transformed data from your dbt models.

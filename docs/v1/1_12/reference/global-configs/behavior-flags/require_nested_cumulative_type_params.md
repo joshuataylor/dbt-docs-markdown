@@ -6,8 +6,6 @@
 | Matured (default → `true`)                | Sep 1, 2026    | 1.12.0   |
 | Removed                                   | —              | —        |
 
-<br />
-
 [Cumulative-type metrics](../../../docs/build/cumulative.md#parameters) are nested under the `cumulative_type_params` field in [the dbt **Latest** release track](../../../docs/dbt-versions/dbt-release-tracks.md), dbt Core v1.9 and newer. Starting in dbt Core v1.12, this flag defaults to `true`, which causes dbt to raise an error instead of a warning when cumulative metrics use the un-nested syntax.
 
 Use the following metric configured with the syntax before v1.9 as an example:

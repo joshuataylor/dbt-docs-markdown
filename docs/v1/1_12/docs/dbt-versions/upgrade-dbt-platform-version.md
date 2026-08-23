@@ -41,10 +41,7 @@ An example of overriding the configured version to [**Latest** release track](./
 
 [![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")](#)Example of overriding the dbt version on your user account
 
-5. (Optional) Verify that dbt will use your override setting to build the project by invoking a `dbt build` command in the Studio IDE's command bar. Expand the **System Logs** section and find the output's first line. It should begin with `Running with dbt=` and list the version dbt is using.
-   <br />
-   <br />
-   For users on Release tracks, the output will display `Running dbt...` instead of a specific version, reflecting the flexibility and continuous automatic updates provided by the release track functionality.
+5. (Optional) Verify that dbt will use your override setting to build the project by invoking a `dbt build` command in the Studio IDE's command bar. Expand the **System Logs** section and find the output's first line. It should begin with `Running with dbt=` and list the version dbt is using. For users on Release tracks, the output will display `Running dbt...` instead of a specific version, reflecting the flexibility and continuous automatic updates provided by the release track functionality.
 
 ## dbt Fusion engine
 
@@ -83,8 +80,6 @@ dbt Labs has introduced the new [dbt Fusion engine](../fusion/about-fusion.md), 
   * MFA
 
   *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
-
-  <br />
 
 * Once you upgrade your development environment(s) to `Fusion Stable`, every user will have to restart the IDE.
 

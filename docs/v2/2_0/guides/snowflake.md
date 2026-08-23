@@ -207,7 +207,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
    * **Account** — Find your account by using the Snowflake trial account URL and removing `snowflakecomputing.com`. The order of your account information will vary by Snowflake version. For example, Snowflake's Classic console URL might look like: `oq65696.west-us-2.azure.snowflakecomputing.com`. The AppUI or Snowsight URL might look more like: `snowflakecomputing.com/west-us-2.azure/oq65696`. In both examples, your account will be: `oq65696.west-us-2.azure`. For more information, see [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html) in the Snowflake docs.
 
-       ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com`
+       ✅ `db5261993` or `db5261993.east-us-2.azure`   ❌ `db5261993.eu-central-1.snowflakecomputing.com`
 
    * **Role** — Leave blank for now. You can update this to a default Snowflake role later.
 
@@ -938,7 +938,7 @@ dbt developer plan and dbt Core users can use [dbt Docs](../docs/explore/build-a
 
 Now that you've built your customer model, you need to commit the changes you made to the project so that the repository has your latest code.
 
-**If you edited directly in the protected primary branch:**<br />
+**If you edited directly in the protected primary branch:**
 
 1. Click the **Commit and sync git** button. This action prepares your changes for commit.
 2. A modal titled **Commit to a new branch** will appear.
@@ -946,7 +946,7 @@ Now that you've built your customer model, you need to commit the changes you ma
 4. Add a commit message, such as "Add customers model, tests, docs" and and commit your changes.
 5. Click **Merge this branch to main** to add these changes to the main branch on your repo.
 
-**If you created a new branch before editing:**<br />
+**If you created a new branch before editing:**
 
 1. Since you already branched out of the primary protected branch, go to **Version Control** on the left.
 2. Click **Commit and sync** to add a message.

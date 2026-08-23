@@ -246,8 +246,6 @@ semantic_models:
 
 Notice that in the `model` parameter, we're using the `ref` function with two arguments to reference the public model `fct_orders` defined in the `jaffle_finance` project.
 
-<br />
-
  How does dbt Catalog relate to and work with dbt Mesh?
 
 **[Catalog](../../docs/explore/explore-projects.md)** is a tool within dbt that serves as a knowledge base and lineage visualization platform. It provides a comprehensive view of your dbt assets, including models, tests, sources, and their interdependencies.

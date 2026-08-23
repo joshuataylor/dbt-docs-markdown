@@ -98,8 +98,6 @@ You will need to create an IAM User, generate an [access key](https://docs.aws.a
 | `access_key_id`     | ACCESS\_KEY\_ID     | IAM user [access key id](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey) |
 | `secret_access_key` | SECRET\_ACCESS\_KEY | IAM user secret access key                                                                                                       |
 
-<br />
-
 #### Example Extended Attributes for IAM User on Redshift Serverless
 
 To avoid pasting secrets in extended attributes, leverage [environment variables](../../build/environment-variables.md#handling-secrets):
@@ -143,9 +141,7 @@ What is a bastion server?
 
 A bastion server in [Amazon Web Services (AWS)](https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/) is a host that allows dbt to open an SSH connection.
 
-<br />
-
-dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.<br /><br />
+dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.
 
 Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the Redshift instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
 

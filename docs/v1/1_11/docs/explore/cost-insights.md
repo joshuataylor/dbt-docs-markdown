@@ -231,8 +231,6 @@ The following example shows how dbt calculates cost reductions. Looking back sev
 | Day 2     | $10        | 10               |
 | **Total** | **$15**    | **15**           |
 
-<br />
-
 The average cost per execution: $15 ÷ 15 runs = $1 per run
 
 If the model was *reused* eight times instead of rebuilt during this same period, the estimated cost reduction is: $1 average cost per run \* 8 reuses = $8

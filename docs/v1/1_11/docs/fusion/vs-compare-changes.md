@@ -44,7 +44,6 @@ The path you choose determines whether you need a dbt platform account:
 
 * **dbt platform deferral (recommended):** Requires a dbt platform account and at least one successful job run in the environment you're deferring to (usually staging or production). Fusion auto-downloads the deferred manifest and uses it as your baseline state.
 * **Manual `state` directory:** Point the extension at a local `manifest.json` (for example, copied from another environment). No dbt platform account is required; no job run is required.
-  <br />
 
 ## Use compare changes
 

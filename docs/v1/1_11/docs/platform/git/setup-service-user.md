@@ -182,8 +182,6 @@ To re-enable MFA for the user, select them again and click **Enable**. Note, you
 
 **ViewSubscriptions**
 
-<br />
-
 **Security Namespace ID:** cb594ebe-87dd-4fc9-ac2c-6a10a4c92046
 
 **Namespace:** ServiceHooks
@@ -215,8 +213,6 @@ az devops security permission update --organization https://dev.azure.com/<org_n
 
 **EditSubscriptions**
 
-<br />
-
 **Security Namespace ID:** cb594ebe-87dd-4fc9-ac2c-6a10a4c92046
 
 **Namespace:** ServiceHooks
@@ -247,8 +243,6 @@ az devops security permission update --organization https://dev.azure.com/<org_n
 ```
 
 **DeleteSubscriptions**
-
-<br />
 
 **Security Namespace ID:** cb594ebe-87dd-4fc9-ac2c-6a10a4c92046
 
@@ -283,8 +277,6 @@ az devops security permission update --organization https://dev.azure.com/<org_n
 
 **PullRequestContribute**
 
-<br />
-
 **Security Namespace ID:** 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87
 
 **Namespace:** Git Repositories
@@ -318,8 +310,6 @@ az devops security permission update --organization https://dev.azure.com/<org_n
 **Additional Notes:** This permission is automatically inherited if Project Reader/Contributor/Administrator is set in the UI.
 
 **GenericContribute**
-
-<br />
 
 **Security Namespace ID:** 2e9eb7ed-3c0a-47d4-87c1-0ffdd275fd87
 

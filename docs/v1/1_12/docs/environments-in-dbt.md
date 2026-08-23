@@ -22,8 +22,6 @@ Configure environments to tell dbt or dbt Core how to build and execute your pro
 
 [Setup and maintain separate deployment and development environments through the use of targets within a profile file](./local/dbt-core-environments.md)
 
-<br />
-
 ## Related docs
 
 * [dbt environment best practices](../guides/set-up-ci.md)

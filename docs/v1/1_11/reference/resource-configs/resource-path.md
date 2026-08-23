@@ -104,7 +104,7 @@ In the following project, this would only apply to the `payments` model:
 
 ### Apply config to a source nested in a subfolder
 
-To disable a source table nested in a YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that YAML file, as well as the source name and the table name in the `dbt_project.yml` file.<br /><br />The following example shows how to disable a source table nested in a YAML file in a subfolder:
+To disable a source table nested in a YAML file in a subfolder, you will need to supply the subfolder(s) within the path to that YAML file, as well as the source name and the table name in the `dbt_project.yml` file. The following example shows how to disable a source table nested in a YAML file in a subfolder:
 
 dbt\_project.yml
 

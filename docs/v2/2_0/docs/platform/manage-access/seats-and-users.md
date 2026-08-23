@@ -69,7 +69,6 @@ If you're on an Enterprise-tier plan and have the correct [permissions](./enterp
 
   * Select the user you want to remove, click **Edit**, and then **Delete**.
   * This action cannot be undone. However, you can re-invite the user with the same info if you deleted the user in error.
-    <br />
 
 * To add a user, go to **Account Settings** and select **Users**.
 

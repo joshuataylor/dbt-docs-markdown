@@ -10,8 +10,6 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | Matured (default → `true`)                          | Sep 1, 2026    | 1.12.0   |
 | Removed                                             | —              | v2.0     |
 
-<br />
-
 In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
 Starting in dbt Core v1.12, this flag defaults to `true`. When enabled, dbt suppresses the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.

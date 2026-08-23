@@ -17,10 +17,6 @@ For most supported data platforms, we recommend the v2 experience with Fusion, w
 
 *Adapter lifecycle can differ between the dbt platform and local development — an adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-<br />
-
-<br />
-
 If your data platform isn’t listed yet, support for more data platforms will roll out over time. You can continue using v1 for that project in the meantime.
 
 ## Connect your data platform in dbt

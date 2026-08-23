@@ -11,5 +11,3 @@
 #### [Incremental models](./incremental-models.md)
 
 [Learn how to use incremental models so you can limit the amount of data that needs to be transformed.](./incremental-models.md)
-
-<br />

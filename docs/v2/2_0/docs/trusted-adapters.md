@@ -15,10 +15,7 @@ Refer to the [Build, test, document, and promote adapters](../guides/adapter-cre
 #### AlloyDB
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-postgresql-alloydb.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/alloydb-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
 
@@ -29,11 +26,8 @@ dbt platformdbt Core
 #### Apache Spark
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-apache-spark.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/spark-setup.md)
 * [Install with dbt Fusion](./local/connect-data-platform/spark-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-spark.svg/)](https://badge.fury.io/py/dbt-spark)
 
@@ -44,12 +38,7 @@ dbt platformdbt CoreFusion
 #### Athena
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-amazon-athena.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/athena-setup.md)
-
-<br />
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-athena.svg/)](https://badge.fury.io/py/dbt-athena)
 
@@ -60,10 +49,7 @@ dbt platformdbt Core
 #### Azure Synapse
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-azure-synapse-analytics.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/azuresynapse-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-synapse.svg/)](https://badge.fury.io/py/dbt-synapse)
 
@@ -74,12 +60,8 @@ dbt platformdbt Core
 #### BigQuery
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-bigquery.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/bigquery-setup.md)
-  <br />
 * [Install with dbt Fusion](./local/connect-data-platform/bigquery-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-bigquery.svg/)](https://badge.fury.io/py/dbt-bigquery)
 
@@ -91,8 +73,6 @@ dbt platformdbt CoreFusion
 
 * [Install with dbt Core](./local/connect-data-platform/clickhouse-setup.md)
 
-<br />
-
 [![](https://badge.fury.io/py/dbt-clickhouse.svg/)](https://badge.fury.io/py/dbt-clickhouse)
 
 dbt Core
@@ -102,12 +82,8 @@ dbt Core
 #### Databricks
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-databricks.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/databricks-setup.md)
-  <br />
 * [Install with dbt Fusion](./local/connect-data-platform/databricks-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-databricks.svg/)](https://badge.fury.io/py/dbt-databricks)
 
@@ -118,10 +94,7 @@ dbt platformdbt CoreFusion
 #### DuckDB
 
 * [Install with dbt Core](./local/connect-data-platform/duckdb-setup.md?version=1)
-  <br />
 * [Install with dbt Fusion](./local/connect-data-platform/duckdb-setup.md?version=2)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-duckdb.svg/)](https://badge.fury.io/py/dbt-duckdb)
 
@@ -133,10 +106,6 @@ dbt CoreFusion
 
 * [Install with dbt Core](./local/connect-data-platform/dremio-setup.md)
 
-<br />
-
-<br />
-
 [![](https://badge.fury.io/py/dbt-dremio.svg/)](https://badge.fury.io/py/dbt-dremio)
 
 dbt Core
@@ -146,10 +115,6 @@ dbt Core
 #### Glue
 
 * [Install with dbt Core](./local/connect-data-platform/glue-setup.md)
-
-<br />
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-glue.svg/)](https://badge.fury.io/py/dbt-glue)
 
@@ -161,10 +126,6 @@ dbt Core
 
 * [Install with dbt Core](./local/connect-data-platform/exasol-setup.md)
 
-<br />
-
-<br />
-
 [![](https://badge.fury.io/py/dbt-exasol.svg/)](https://badge.fury.io/py/dbt-exasol)
 
 dbt Core
@@ -174,10 +135,6 @@ dbt Core
 #### IBM Db2
 
 * [Install with dbt Core](./local/connect-data-platform/ibm-db2-setup.md)
-
-<br />
-
-<br />
 
 [![](https://badge.fury.io/py/ibm-dbt-db2.svg/)](https://badge.fury.io/py/ibm-dbt-db2)
 
@@ -189,10 +146,6 @@ dbt Core
 
 * [Install with dbt Core](./local/connect-data-platform/ibmnetezza-setup.md)
 
-<br />
-
-<br />
-
 [![](https://badge.fury.io/py/dbt-ibm-netezza.svg/)](https://badge.fury.io/py/dbt-ibm-netezza)
 
 dbt Core
@@ -202,10 +155,6 @@ dbt Core
 #### Databricks Lakebase
 
 * [Install with dbt Core](./local/connect-data-platform/lakebase-setup.md)
-
-<br />
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
 
@@ -217,10 +166,6 @@ dbt platformdbt Core
 
 * [Install with dbt Core](./local/connect-data-platform/materialize-setup.md)
 
-<br />
-
-<br />
-
 [![](https://badge.fury.io/py/dbt-materialize.svg/)](https://badge.fury.io/py/dbt-materialize)
 
 dbt Core
@@ -230,10 +175,7 @@ dbt Core
 #### Microsoft Fabric Warehouse
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-microsoft-fabric.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/fabric-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-fabric.svg/)](https://badge.fury.io/py/dbt-fabric)
 
@@ -245,8 +187,6 @@ dbt platformdbt Core
 
 * [Install with dbt Core](./local/connect-data-platform/fabricspark-setup.md)
 
-<br />
-
 [![](https://badge.fury.io/py/dbt-fabricspark.svg/)](https://badge.fury.io/py/dbt-fabricspark)
 
 dbt Core
@@ -257,8 +197,6 @@ dbt Core
 
 * [Install with dbt Core](./local/connect-data-platform/oracle-setup.md)
 
-<br />
-
 [![](https://badge.fury.io/py/dbt-oracle.svg/)](https://badge.fury.io/py/dbt-oracle)
 
 dbt Core
@@ -268,10 +206,7 @@ dbt Core
 #### Postgres
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-postgresql-alloydb.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/postgres-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-postgres.svg/)](https://badge.fury.io/py/dbt-postgres)
 
@@ -282,12 +217,8 @@ dbt platformdbt Core
 #### Redshift
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-redshift.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/redshift-setup.md)
-  <br />
 * [Install with dbt Fusion](./local/connect-data-platform/redshift-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-redshift.svg/)](https://badge.fury.io/py/dbt-redshift)
 
@@ -299,10 +230,6 @@ dbt platformdbt CoreFusion
 
 * [Install with dbt Core](./local/connect-data-platform/risingwave-setup.md)
 
-<br />
-
-<br />
-
 [![](https://badge.fury.io/py/dbt-risingwave.svg/)](https://badge.fury.io/py/dbt-risingwave)
 
 dbt Core
@@ -311,10 +238,7 @@ dbt Core
 
 #### SingleStore
 
-* [Install with dbt Core](./local/connect-data-platform/singlestore-setup.md)
-  <br />
-  <br />
-  [![](https://badge.fury.io/py/dbt-singlestore.svg/)](https://badge.fury.io/py/dbt-singlestore)
+* [Install with dbt Core ](./local/connect-data-platform/singlestore-setup.md)[![](https://badge.fury.io/py/dbt-singlestore.svg/)](https://badge.fury.io/py/dbt-singlestore)
 
 dbt Core
 
@@ -323,12 +247,8 @@ dbt Core
 #### Snowflake
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-snowflake.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/snowflake-setup.md)
-  <br />
 * [Install with dbt Fusion](./local/connect-data-platform/snowflake-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-snowflake.svg/)](https://badge.fury.io/py/dbt-snowflake)
 
@@ -339,10 +259,7 @@ dbt platformdbt CoreFusion
 #### Starburst/Trino
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-starburst-trino.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/trino-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-trino.svg/)](https://badge.fury.io/py/dbt-trino)
 
@@ -353,10 +270,7 @@ dbt platformdbt Core
 #### Teradata
 
 * [Set up in the dbt platform](./platform/connect-data-platform/connect-teradata.md)
-  <br />
 * [Install with dbt Core](./local/connect-data-platform/teradata-setup.md)
-
-<br />
 
 [![](https://badge.fury.io/py/dbt-teradata.svg/)](https://badge.fury.io/py/dbt-teradata)
 

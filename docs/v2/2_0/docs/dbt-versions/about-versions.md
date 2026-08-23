@@ -43,5 +43,3 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 #### [dbt version upgrade guides](./core-upgrade.md)
 
 [All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more.](./core-upgrade.md)
-
-<br />

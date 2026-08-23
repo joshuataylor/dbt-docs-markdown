@@ -12,8 +12,6 @@
 
 [Learn how to use the `database` configuration key to specify a custom database.](./custom-databases.md)
 
-<br />
-
 [![](/img/icons/dbt-bit.svg)](./custom-aliases.md)
 
 #### [Custom aliases](./custom-aliases.md)

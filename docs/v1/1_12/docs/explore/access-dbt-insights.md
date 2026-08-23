@@ -42,10 +42,6 @@ Let's use an example to illustrate how to run queries in Insights:
 
 * To express this logic in SQL, you (an analyst assigned to this project) want to understand yearly trends to help guide expansion decisions. Write the following SQL query to calculate the number of unique customers, cities, and total order revenue:
 
-  <br />
-
-  <br />
-
   ```sql
   with 
 

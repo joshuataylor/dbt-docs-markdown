@@ -62,8 +62,6 @@ On the **Credentials** page, you can see your existing keys, client IDs, and ser
 | **Name**                     | dbt platform    |
 | **Authorized redirect URIs** | `REDIRECT_URI`  |
 
-<br />
-
 6. Click **Create** to create the BigQuery OAuth app and see the app client ID and secret values. These values are available even if you close the app screen, so this isn't the only chance you have to save them.
 
 [![Create an OAuth app in BigQuery](/img/docs/dbt-platform/using-dbt-platform/dbt-platform-enterprise/BQ-auth/bq-oauth-app-02.png?v=2 "Create an OAuth app in BigQuery")](#)Create an OAuth app in BigQuery
@@ -119,7 +117,7 @@ Create an app in Entra where dbt will request access tokens when authenticating 
 
 7. Click **Save**.
 
-8. (Optional) To include the `sub` claim in tokens issued by this application, configure [optional claims in Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/optional-claims?tabs=appui).<br />The `sub` (subject) claim uniquely identifies the user or service principal for whom the token is issued.<br />When you configure service account impersonation in GCP, the Workload Identity Federation mapping uses this `sub` value to verify the identity of the calling Entra application.
+8. (Optional) To include the `sub` claim in tokens issued by this application, configure [optional claims in Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/optional-claims?tabs=appui). The `sub` (subject) claim uniquely identifies the user or service principal for whom the token is issued. When you configure service account impersonation in GCP, the Workload Identity Federation mapping uses this `sub` value to verify the identity of the calling Entra application.
 
 9. (Optional but recommended) Test your Entra ID configuration by requesting a token:
 

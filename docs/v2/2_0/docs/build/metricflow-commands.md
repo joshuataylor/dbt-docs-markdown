@@ -598,8 +598,6 @@ How to set up your terminal to escape curly braces?
 
 To configure your `.zshrc`profile to escape curly braces, you can use the `setopt` command to enable the `BRACECCL` option. This option will cause the shell to treat curly braces as literals and prevent brace expansion. Refer to the following steps to set it up:
 
-<br />
-
 1. Open your terminal.
 2. Open your `.zshrc` file using a text editor like `nano`, `vim`, or any other text editor you prefer. You can use the following command to open it with `nano`:
 

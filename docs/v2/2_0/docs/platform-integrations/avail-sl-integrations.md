@@ -96,8 +96,6 @@ The following tools integrate with the dbt Semantic Layer:
 
 [](https://help.steep.app/integrations/dbt-cloud)
 
-<br />
-
 Before you connect to these tools, you'll need to first [set up the dbt Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) and [generate a service token](../dbt-apis/service-tokens.md) to create **Semantic Layer Only** and **Metadata Only** permissions.
 
 ### Custom integration

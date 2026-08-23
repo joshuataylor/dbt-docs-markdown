@@ -115,7 +115,7 @@ If you're using [dbt State](../../docs/deploy/dbt-state-about.md), `loaded_at_fi
 
 ## loaded\_at\_field
 
-Optional on adapters that support pulling freshness from warehouse metadata tables, required otherwise.<br /><br />A column name (or expression) that returns a timestamp indicating freshness.
+Optional on adapters that support pulling freshness from warehouse metadata tables, required otherwise. A column name (or expression) that returns a timestamp indicating freshness.
 
 Examples:
 

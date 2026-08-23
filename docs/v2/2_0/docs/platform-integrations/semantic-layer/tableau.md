@@ -67,17 +67,17 @@ Note: [Custom time granularities](../../build/metricflow-time-spine.md#add-custo
 
 ## Things to note
 
-**Aggregation**<br />
+**Aggregation**
 
 * All metrics are shown as using the "SUM" aggregation type in Tableau's UI, and this cannot be altered using Tableau's interface.
 * The Semantic Layer controls the aggregation type in code and it is intentionally fixed. Keep in mind that the underlying aggregation in the Semantic Layer might not be "SUM" ("SUM" is Tableau's default).
 
-**Data sources and display**<br />
+**Data sources and display**
 
 * In the "ALL" data source, Tableau surfaces all metrics and dimensions from the Semantic Layer on the left-hand side. Note, that not all metrics and dimensions can be combined. You will receive an error message if a particular dimension cannot be sliced with a metric (or vice versa). You can use saved queries for smaller pieces of data that you want to combine.
 * To display available metrics and dimensions, Semantic Layer returns metadata for a fake table with the dimensions and metrics as 'columns' on this table. Because of this, you can't actually query this table for previews or extracts.
 
-**Calculations and querying**<br />
+**Calculations and querying**
 
 * Certain Table calculations like "Totals" and "Percent Of" may not be accurate when using metrics aggregated in a non-additive way (such as count distinct)
 * In any of our Semantic Layer interfaces (not only Tableau), you must include a [time dimension](../../build/cumulative.md#limitations) when working with any cumulative metric that has a time window or granularity.

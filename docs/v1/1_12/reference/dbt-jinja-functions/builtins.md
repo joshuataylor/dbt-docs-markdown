@@ -20,8 +20,6 @@ It includes logic to extract user-provided arguments, including `version`, and c
 
 Note that the `ref`, `source`, and `config` functions can't be overridden with a package. This is because `ref`, `source`, and `config` are context properties within dbt and are not dispatched as global macros. Refer to [this GitHub discussion](https://github.com/dbt-labs/dbt-core/issues/4491#issuecomment-994709916) for more context.
 
-<br />
-
 ```text
 {% macro ref() %}
 

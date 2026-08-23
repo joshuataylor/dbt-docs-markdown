@@ -668,7 +668,7 @@ The setup for this pipeline will use the same steps as the prior page. Before mo
 
 For this job, we’ll set it up using the `bitbucket-pipelines.yml` file as in the prior step. The YAML file will look pretty similar to our earlier job, but we’ll pass in the required variables to the Python script using `export` statements. Update this section to match your setup based on the comments in the file.
 
-**What is this pipeline going to do?**<br />The setup below will trigger a dbt job to run every time a PR is opened in this repository. It will also run a fresh version of the pipeline for every commit that is made on the PR until it is merged.
+**What is this pipeline going to do?** The setup below will trigger a dbt job to run every time a PR is opened in this repository. It will also run a fresh version of the pipeline for every commit that is made on the PR until it is merged.
 
 For example, if you open a PR, it will run the pipeline. If you then decide additional changes are needed, and commit/push to the PR branch, a new pipeline will run with the updated code.
 

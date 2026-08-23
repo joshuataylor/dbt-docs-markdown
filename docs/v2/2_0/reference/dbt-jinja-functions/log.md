@@ -13,10 +13,6 @@ Code source
 
 Refer to [GitHub](https://github.com/dbt-labs/dbt-core/blob/HEAD/core/dbt/context/base.py#L549-L566) or the following code as a source:
 
-<br />
-
-<br />
-
 ```python
     def log(msg: str, info: bool = False) -> str: 
         """Logs a line to either the log file or stdout.

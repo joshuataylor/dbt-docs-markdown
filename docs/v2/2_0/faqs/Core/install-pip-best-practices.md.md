@@ -17,8 +17,6 @@ Managing Python local environments can be challenging! You can use these best pr
 | [Create a project](../../reference/commands/init.md)                                                                           | Use the `dbt init` command to create and initialize your first project                                                                                                                        | Creates a standard dbt project and verifies your installation                                                                            |
 | Ensure you have the latest versions of `pip`, `wheel`, and `setuptools`                                                                          | Before installing dbt, upgrade your Python packaging tools:<br /><br />`python -m pip install --upgrade pip wheel setuptools`                                                                 | Helps ensure a smoother, more predictable dbt installation                                                                               |
 
-<br />
-
 Note, dbt adapters and dbt Core are versioned independently to make it easier for us to maintain and independently evolve adapters going forward.
 
 ### Using virtual environments

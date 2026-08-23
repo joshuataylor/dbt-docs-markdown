@@ -215,22 +215,20 @@ You can always uninstall the dbt CLI to return to using dbt Core.
 
  How to create an alias?
 
-To create an alias for the dbt CLI:<br />
+To create an alias for the dbt CLI:
 
-1. Open your shell's profile configuration file. Depending on your shell and system, this could be `~/.bashrc`, `~/.bash_profile`, `~/.zshrc`, or another file.<br />
+1. Open your shell's profile configuration file. Depending on your shell and system, this could be `~/.bashrc`, `~/.bash_profile`, `~/.zshrc`, or another file.
 
 2. Add an alias that points to the dbt CLI binary. For example: `alias dbt-cli="path_to_dbt_cli_binary"`
 
-   Replace `path_to_dbt_cli_binary` with the actual path to the dbt CLI binary, which is `/opt/homebrew/bin/dbt`. With this alias, you can use the command `dbt-cli` to invoke the dbt CLI.<br />
+   Replace `path_to_dbt_cli_binary` with the actual path to the dbt CLI binary, which is `/opt/homebrew/bin/dbt`. With this alias, you can use the command `dbt-cli` to invoke the dbt CLI.
 
-3. Save the file and then either restart your shell or run `source` on the profile file to apply the changes. For example, in bash you would run: `source ~/.bashrc`<br />
+3. Save the file and then either restart your shell or run `source` on the profile file to apply the changes. For example, in bash you would run: `source ~/.bashrc`
 
-4. Test and use the alias to run commands:<br />
+4. Test and use the alias to run commands:
 
    * To run the dbt CLI, use the `dbt-cli` command: `dbt-cli command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
-     <br />
    * To run dbt Core, use the `dbt` command: `dbt command_name`. Replace 'command\_name' with the specific dbt command you want to execute.
-     <br />
 
 You can then use the `dbt-cli` command to invoke the dbt CLI while you keep dbt Core installed natively.
 

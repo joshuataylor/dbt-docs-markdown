@@ -44,34 +44,18 @@ We want to help you work through implementing and utilizing dbt platform at your
 
 Example of common support questions
 
-Types of dbt cloud-based platform related questions our Support team can assist you with, regardless of your dbt plan:<br /><br />**How do I...**<br />
+Types of dbt cloud-based platform related questions our Support team can assist you with, regardless of your dbt plan: **How do I...**
 
 * set up a dbt project?
-  <br />
 * set up a private package in dbt?
-  <br />
 * configure custom branches on git repos?
-  <br />
-* link dbt to a new GitHub account?
-  <br />
-  <br />
-  **Help! I can't...**
-  <br />
+* link dbt to a new GitHub account? **Help! I can't...**
 * log in.
-  <br />
 * access logs.
-  <br />
-* update user groups.
-  <br />
-  <br />
-  **I need help understanding...**
-  <br />
+* update user groups. **I need help understanding...**
 * why this run failed.
-  <br />
 * why I am getting this error message in dbt?
-  <br />
 * why my CI jobs are not kicking off as expected.
-  <br />
 
 ## dbt Enterprise accounts
 

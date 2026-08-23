@@ -99,26 +99,18 @@ dbt run-operation delete_streams --args '{streams: [stream1, stream2], skip_erro
 
 Deactivate all pipelines for resources defined within the project. If the pipelines argument is provided, then only the specified pipelines are deactivated.
 
-<br />
-
-<br />
-
 **delete\_pipelines(pipelines)**
 
 * pipelines: An optional list of pipeline names to delete. Defaults to none.
 
 Delete all pipelines for resources defined within the project. If the pipelines argument is provided, then only the specified pipelines are deleted.
 
-<br />
-
-<br />
-
 **delete\_streams(streams, skip\_errors)**
 
 * streams: An optional list of stream names to delete. Defaults to none.
 * skip\_errors: Specify whether to treat errors as warnings. When set to true, any stream deletion failures are reported as warnings. When set to false, the operation stops when a stream cannot be deleted. Defaults to true.
 
-Delete all streams for resources defined within the project. If a pipeline is associated with a stream, then neither the pipeline nor stream are deleted. See the cleanup operation for a complete removal of stream/pipeline pairs.<br /><br />
+Delete all streams for resources defined within the project. If a pipeline is associated with a stream, then neither the pipeline nor stream are deleted. See the cleanup operation for a complete removal of stream/pipeline pairs.
 
 **cleanup(list, models, seeds, tests)**
 
@@ -127,4 +119,4 @@ Delete all streams for resources defined within the project. If a pipeline is as
 * seeds: Specify whether to include seeds during cleanup. Defaults to true.
 * tests: Specify whether to include tests during cleanup. Defaults to true.
 
-<br /><br />Delete all Decodable entities resulting from the materialization of the project’s resources, i.e. connections, streams, and pipelines. If the list argument is provided, then only the specified resource entities are deleted. If the models, seeds, or test arguments are provided, then those resource types are also included in the cleanup. Tests that have not been materialized are not included in the cleanup.
+Delete all Decodable entities resulting from the materialization of the project’s resources, i.e. connections, streams, and pipelines. If the list argument is provided, then only the specified resource entities are deleted. If the models, seeds, or test arguments are provided, then those resource types are also included in the cleanup. Tests that have not been materialized are not included in the cleanup.

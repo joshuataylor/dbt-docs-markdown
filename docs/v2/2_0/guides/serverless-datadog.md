@@ -73,25 +73,7 @@ Sample output from the setup wizard:
 
 ``
 
-`joel@Joel-Labes dbt-cloud-webhooks-datadog % flyctl launch
-An existing fly.toml file was found for app dbt-cloud-webhooks-datadog
-? Would you like to copy its configuration to the new app? Yes
-Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-datadog
-Scanning source code
-Detected a Dockerfile app
-? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-datadog
-automatically selected personal organization: Joel Labes
-Some regions require a paid plan (fra, maa).
-See https://fly.io/plans to set up a plan.
-? Choose a region for deployment: [Use arrows to move, type to filter]
-? Choose a region for deployment: Sydney, Australia (syd)
-Created app dbtlabs-dbt-cloud-webhook-datadog in organization personal
-Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-datadog
-Hostname: demo-dbt-cloud-webhook-datadog.fly.dev
-? Would you like to set up a Postgresql database now? No
-? Would you like to set up an Upstash Redis database now? No
-Wrote config file fly.toml
-? Would you like to deploy now? Yes`
+`joel@Joel-Labes dbt-cloud-webhooks-datadog % flyctl launch An existing fly.toml file was found for app dbt-cloud-webhooks-datadog ? Would you like to copy its configuration to the new app? Yes Creating app in /Users/joel/Documents/GitHub/dbt-cloud-webhooks-datadog Scanning source code Detected a Dockerfile app ? Choose an app name (leave blank to generate one): demo-dbt-cloud-webhook-datadog automatically selected personal organization: Joel Labes Some regions require a paid plan (fra, maa). See https://fly.io/plans to set up a plan. ? Choose a region for deployment: [Use arrows to move, type to filter] ? Choose a region for deployment: Sydney, Australia (syd) Created app dbtlabs-dbt-cloud-webhook-datadog in organization personal Admin URL: https://fly.io/apps/demo-dbt-cloud-webhook-datadog Hostname: demo-dbt-cloud-webhook-datadog.fly.dev ? Would you like to set up a Postgresql database now? No ? Would you like to set up an Upstash Redis database now? No Wrote config file fly.toml ? Would you like to deploy now? Yes`
 
 ### 4. Create a Datadog API Key
 

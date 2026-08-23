@@ -19,10 +19,6 @@ The dbt Fusion engine includes built-in support for:
 
 *Adapter lifecycle can differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
-<br />
-
-<br />
-
 Fusion uses [ADBC (Arrow Database Connectivity)](https://arrow.apache.org/adbc/) drivers for high-performance connections to these platforms. No separate adapter installation is required.
 
 ## Connection profiles

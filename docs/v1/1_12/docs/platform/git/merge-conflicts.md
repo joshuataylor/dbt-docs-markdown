@@ -54,7 +54,6 @@ You can seamlessly resolve merge conflicts that involve competing line changes i
 Edit conflict files
 
 * If you open the conflict file under **Changes**, the file name will display something like `model.sql (last commit)` and is fully read-only and cannot be edited.
-  <br />
 * If you open the conflict file under **File Catalog**, you can edit the file in the right view.
 
 ## Commit changes

@@ -67,8 +67,6 @@ MetricFlow allows you to:
 
 [Discover the diverse range of partners that seamlessly integrate with the powerful dbt Semantic Layer, allowing you to query and unlock valuable insights from your data ecosystem.](../platform-integrations/avail-sl-integrations.md)
 
-<br />
-
 ## Related docs
 
 * [Quickstart guide with the Semantic Layer](../../guides/sl-snowflake-qs.md)

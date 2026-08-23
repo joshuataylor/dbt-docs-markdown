@@ -151,7 +151,6 @@ We recommend configuring credentials and service tokens to reflect your teams an
 #### 1. Add more credentials
 
 * After configuring your environment, on the **Credentials & service tokens** page, click the **Add Semantic Layer credential** button to create multiple credentials and map them to a service token.
-  <br />
 * In the **1. Add credentials** section, fill in the data platform's credential fields. We recommend using “read-only” credentials.
 
   [![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.

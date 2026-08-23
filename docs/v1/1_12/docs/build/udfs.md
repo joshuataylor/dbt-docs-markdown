@@ -133,8 +133,6 @@ Follow these steps to define UDFs in dbt:
 
    * [`entry_point`](../../reference/resource-configs/entry-point.md) — Specify the Python function to be called.
 
-   <br />
-
    On Databricks, `runtime_version` and `entry_point` are accepted for cross-adapter compatibility but have no effect. Databricks manages the Python runtime internally and uses the function body directly, so dbt displays a warning if you set them.
 
    You can specify public third-party PyPI packages for your Python UDF with the optional `packages` config. List package names, such as `numpy` and `pandas`, and optionally pin versions, such as `pandas==1.5.0`. The warehouse installs these packages when it creates the UDF, so your UDF can use functionality from external Python libraries. On Snowflake, some packages are installed from the Anaconda repository, and you may need to [accept Anaconda's Terms of Service](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-packages#using-third-party-packages-from-anaconda) before you can use them.
@@ -506,7 +504,7 @@ Jinja influences the function when it’s created, whereas arguments influence i
 
  You need Python logic that runs in your warehouse
 
-A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL.<br />This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
+A Python UDF creates a Python function directly within your data warehouse, which you can invoke using SQL. This makes it easier to apply complex transformations, calculations, or logic that would be difficult or verbose to express in SQL.
 
 Python UDFs support conditionals and looping within the function logic itself (using Python syntax), and execute at runtime, not at compile time like macros. Python UDFs are currently supported in Snowflake and BigQuery.
 

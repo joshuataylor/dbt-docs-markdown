@@ -130,7 +130,7 @@ Two rules determine how `static_analysis` modes apply in a lineage:
 
 The static analysis configuration cascades from most strict to least strict. Here's the strictness hierarchy: `strict` → `baseline` → `off`
 
-**Allowed downstream by parent mode**<br />When going downstream in your lineage, you can keep the same mode or relax it; but you cannot make a child stricter than its parent. The following table shows the allowed downstream modes by parent mode:
+**Allowed downstream by parent mode** When going downstream in your lineage, you can keep the same mode or relax it; but you cannot make a child stricter than its parent. The following table shows the allowed downstream modes by parent mode:
 
 | Parent mode | Child can be                       |
 | ----------- | ---------------------------------- |

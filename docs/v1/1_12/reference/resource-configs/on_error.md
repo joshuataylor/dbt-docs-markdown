@@ -81,6 +81,4 @@ The following table shows how `model_c` behaves based on the outcome of its upst
 | Success                            | Error                         | Runs               |
 | Error                              | Error                         | Skipped            |
 
-<br />
-
 When `model_a` errors, `model_c` is always skipped because `model_a` uses `skip_children`. When only `model_b` errors, `model_c` still runs because `model_b` uses `continue`, which does not block downstream models.

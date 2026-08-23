@@ -71,8 +71,6 @@ The following table contains the parameters for the database (password-based) co
 | `user`        | username  | Account username to log into your cluster                  |
 | `password`    | password1 | Password for authentication                                |
 
-<br />
-
 #### Example profiles.yml for database authentication
 
 \~/.dbt/profiles.yml
@@ -115,8 +113,6 @@ If you receive the "You must specify a region" error when using IAM Authenticati
 | `cluster_id`  | cluster\_id | Required for IAM authentication only for provisoned cluster, not for Serverless |
 | `user`        | username    | User querying the database, ignored for Serverless (but field still required)   |
 | `region`      | us-east-1   | Region of your Redshift instance                                                |
-
-<br />
 
 #### Example profiles.yml for IAM
 

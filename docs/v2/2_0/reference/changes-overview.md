@@ -8,55 +8,19 @@ Use this page to understand the different types of changes, what to do, and wher
 
 #### [Deprecations](./deprecations.md)
 
-[Features in your project code (models, YAML, macros) that still work but will be removed.](./deprecations.md)
-
-<br />
-
-<br />
-
-[**Impact:** Currently warnings; will cause errors in future versions.](./deprecations.md)
-
-<br />
-
-<br />
-
-[**Action:** Update your project code to use the new syntax.](./deprecations.md)
+[Features in your project code (models, YAML, macros) that still work but will be removed. **Impact:** Currently warnings; will cause errors in future versions. **Action:** Update your project code to use the new syntax.](./deprecations.md)
 
 [![](/img/icons/dbt-bit.svg)](./global-configs/behavior-changes.md)
 
 #### [Behavior change flags](./global-configs/behavior-changes.md)
 
-[Settings in your dbt\_project.yml file that let you opt in or out of new behaviors during migration periods.](./global-configs/behavior-changes.md)
-
-<br />
-
-<br />
-
-[**Impact:** Controls whether dbt uses old or new behavior; defaults change over time.](./global-configs/behavior-changes.md)
-
-<br />
-
-<br />
-
-[**Action:** Set flags to control timing of adoption.](./global-configs/behavior-changes.md)
+[Settings in your dbt\_project.yml file that let you opt in or out of new behaviors during migration periods. **Impact:** Controls whether dbt uses old or new behavior; defaults change over time. **Action:** Set flags to control timing of adoption.](./global-configs/behavior-changes.md)
 
 [![](/img/icons/square-terminal.svg)](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
 
 #### [Deprecated CLI flags](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
 
-[Command-line flags passed to dbt commands that are being removed in Fusion.](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
-
-<br />
-
-<br />
-
-[**Impact:** Some ignored (with warnings); **--models** flag will error in Fusion.](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
-
-<br />
-
-<br />
-
-[**Action:** Update job definitions and scripts to remove or replace these flags.](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
+[Command-line flags passed to dbt commands that are being removed in Fusion. **Impact:** Some ignored (with warnings); **--models** flag will error in Fusion. **Action:** Update job definitions and scripts to remove or replace these flags.](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags)
 
 ## Preparing for Fusion
 

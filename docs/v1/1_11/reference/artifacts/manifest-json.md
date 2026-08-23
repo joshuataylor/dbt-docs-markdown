@@ -13,8 +13,6 @@
 | Core v1.4              | [v8](https://schemas.getdbt.com/dbt/manifest/v8/index.html)   |
 | Core v1.3              | [v7](https://schemas.getdbt.com/dbt/manifest/v7/index.html)   |
 
-<br />
-
 **Produced by**: Any [dbt command](../../category/list-of-commands.md) that parses the project. This includes all commands, *except* [`deps`](../commands/deps.md), [`clean`](../commands/clean.md), [`debug`](../commands/debug.md), and [`init`](../commands/init.md).
 
 After executing a dbt command, the `manifest.json` file can be found in the project's `target/` directory:

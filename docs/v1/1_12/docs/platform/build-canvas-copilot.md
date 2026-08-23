@@ -42,7 +42,6 @@ To begin building models with natural language prompts in the Canvas:
 
    * White: Located in the top of the canvas and means existing set up or blank canvas that will be removed or replaced by the suggested changes.
    * Green: Located in the bottom of the canvas and means new code that will be added if you accept the suggestion.
-     <br />
 
    [![Visual diff view of proposed changes](/img/docs/dbt-platform/copilot-diff.jpg?v=2 "Visual diff view of proposed changes")](#)Visual diff view of proposed changes
 

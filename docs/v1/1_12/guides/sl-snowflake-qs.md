@@ -258,7 +258,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
    * **Account** — Find your account by using the Snowflake trial account URL and removing `snowflakecomputing.com`. The order of your account information will vary by Snowflake version. For example, Snowflake's Classic console URL might look like: `oq65696.west-us-2.azure.snowflakecomputing.com`. The AppUI or Snowsight URL might look more like: `snowflakecomputing.com/west-us-2.azure/oq65696`. In both examples, your account will be: `oq65696.west-us-2.azure`. For more information, see [Account Identifiers](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html) in the Snowflake docs.
 
-       ✅ `db5261993` or `db5261993.east-us-2.azure`<br />  ❌ `db5261993.eu-central-1.snowflakecomputing.com`
+       ✅ `db5261993` or `db5261993.east-us-2.azure`   ❌ `db5261993.eu-central-1.snowflakecomputing.com`
 
    * **Role** — Leave blank for now. You can update this to a default Snowflake role later.
 
@@ -973,9 +973,7 @@ This section explains how you can perform a job run in your deployment environme
 What’s happening internally?
 
 * Merging the code into your main branch allows dbt to pull those changes and build the definition in the manifest produced by the run.
-  <br />
 * Re-running the job in the deployment environment helps materialize the models, which the metrics depend on, in the data platform. It also makes sure that the manifest is up to date.
-  <br />
 * The Semantic Layer APIs pull in the most recent manifest and enables your integration to extract metadata from it.
 
 ## Administer the Semantic Layer
@@ -1117,7 +1115,6 @@ We recommend configuring credentials and service tokens to reflect your teams an
 #### 1. Add more credentials
 
 * After configuring your environment, on the **Credentials & service tokens** page, click the **Add Semantic Layer credential** button to create multiple credentials and map them to a service token.
-  <br />
 * In the **1. Add credentials** section, fill in the data platform's credential fields. We recommend using “read-only” credentials.
 
   [![Add credentials and map them to a service token. ](/img/docs/dbt-platform/semantic-layer/sl-add-credential.png?v=2 "Add credentials and map them to a service token. ")](#)Add credentials and map them to a service token.

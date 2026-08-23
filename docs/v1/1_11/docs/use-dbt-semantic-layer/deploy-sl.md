@@ -29,9 +29,7 @@ This section explains how you can perform a job run in your deployment environme
 What’s happening internally?
 
 * Merging the code into your main branch allows dbt to pull those changes and build the definition in the manifest produced by the run.
-  <br />
 * Re-running the job in the deployment environment helps materialize the models, which the metrics depend on, in the data platform. It also makes sure that the manifest is up to date.
-  <br />
 * The Semantic Layer APIs pull in the most recent manifest and enables your integration to extract metadata from it.
 
 ## Next steps

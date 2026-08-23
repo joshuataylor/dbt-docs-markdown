@@ -108,8 +108,6 @@ Refer to the [Apollo explorer documentation](https://www.apollographql.com/docs/
 
 4. Select **Authorization** in the **header key** dropdown list and enter your Bearer auth token in the **value** field. Remember to include the Token prefix. Your header key should be in this format: `{"Authorization": "Bearer <YOUR_TOKEN>}`.
 
-<br />
-
 [![Enter the header key and Bearer auth token values](/img/docs/dbt-platform/discovery-api/graphql_header.jpg?v=2 "Enter the header key and Bearer auth token values")](#)Enter the header key and Bearer auth token values
 
 1. Run your query by clicking the blue query button in the top right of the **Operation** editor (to the right of the query). You should see a successful query response on the right side of the explorer.

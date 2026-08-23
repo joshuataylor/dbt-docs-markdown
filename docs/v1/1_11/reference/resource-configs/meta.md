@@ -436,8 +436,6 @@ models/my\_model.sql
 select 1 as id
 ```
 
-<br />
-
 ### Assign owner and favorite\_color in the dbt\_project.yml as a config property
 
 dbt\_project.yml

@@ -131,8 +131,6 @@ Nice job, you're ready to start developing and building models 🎉!
     * **Creation start —** This is the state where you are starting the IDE for the first time. You can also view this as a *cold start* (see below), and you can expect this state to take longer because the git repository is being cloned.
     * **Cold start —** This is the process of starting a new develop session, which will be available for you for one hour. The environment automatically turns off one hour after the last activity. This includes compile, preview, or any dbt invocation, however, it *does not* include editing and saving a file.
     * **Hot start —** This is the state of resuming an existing or active develop session within one hour of the last activity.
-      <br />
-      <br />
 
   * #### Work retention
 
@@ -171,7 +169,7 @@ Nice job, you're ready to start developing and building models 🎉!
 
  Is there a cost to using the Studio IDE?
 
-Not at all! You can use dbt when you sign up for the [Free Developer plan](https://www.getdbt.com/pricing/), which comes with one developer seat. If you'd like to access more features or have more developer seats, you can upgrade your account to the Starter, Enterprise, or Enterprise+ plan.<br />
+Not at all! You can use dbt when you sign up for the [Free Developer plan](https://www.getdbt.com/pricing/), which comes with one developer seat. If you'd like to access more features or have more developer seats, you can upgrade your account to the Starter, Enterprise, or Enterprise+ plan.
 
 Refer to [dbt pricing plans](https://www.getdbt.com/pricing/) for more details.
 

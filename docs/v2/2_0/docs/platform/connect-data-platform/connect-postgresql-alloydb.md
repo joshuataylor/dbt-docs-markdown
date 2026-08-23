@@ -54,9 +54,7 @@ What is a bastion server?
 
 A bastion server in [Amazon Web Services (AWS)](https://aws.amazon.com/blogs/security/how-to-record-ssh-sessions-established-through-a-bastion-host/) is a host that allows dbt to open an SSH connection.
 
-<br />
-
-dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.<br /><br />
+dbt only sends queries and doesn't transmit large data volumes. This means the bastion server can run on an AWS instance of any size, like a t2.small instance or t2.micro.
 
 Make sure the location of the instance is the same Virtual Private Cloud (VPC) as the Postgres instance, and configure the security group for the bastion server to ensure that it's able to connect to the warehouse port.
 

@@ -17,8 +17,6 @@ Each of the following scenarios shows how a run differs between dbt Core alone a
 | [Selecting a model in a fresh dev environment after changing the customers model](#selecting-a-model-in-a-fresh-dev-environment-after-changing-the-customers-model) | `dbt run --target dev --select "customers"` | Defers to prod for upstream models                            |
 | [Selecting a model in a new dev schema with no model changes](#selecting-a-model-in-a-new-dev-schema-with-no-model-changes)                                         | `dbt run --target dev --select "customers"` | Defers and clones unchanged models                            |
 
-<br />
-
 Every skipped model is a model you didn't pay to rebuild. dbt State tracks what's changed and skips the rest — reducing run time and warehouse costs.
 
 ## Initial run in empty schema

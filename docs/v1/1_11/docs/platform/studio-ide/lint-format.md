@@ -208,11 +208,11 @@ To format your Python code, dbt integrates with [Black](https://black.readthedoc
 
  When should I use SQLFluff and when should I use sqlfmt?
 
-SQLFluff and sqlfmt are both tools used for formatting SQL code, but some differences may make one preferable to the other depending on your use case.<br />
+SQLFluff and sqlfmt are both tools used for formatting SQL code, but some differences may make one preferable to the other depending on your use case.
 
-SQLFluff is a SQL code linter and formatter. This means that it analyzes your code to identify potential issues and bugs, and follows coding standards. It also formats your code according to a set of rules, which are [customizable](#customize-linting), to ensure consistent coding practices. You can also use SQLFluff to keep your SQL code well-formatted and follow styling best practices.<br />
+SQLFluff is a SQL code linter and formatter. This means that it analyzes your code to identify potential issues and bugs, and follows coding standards. It also formats your code according to a set of rules, which are [customizable](#customize-linting), to ensure consistent coding practices. You can also use SQLFluff to keep your SQL code well-formatted and follow styling best practices.
 
-sqlfmt is a SQL code formatter. This means it automatically formats your SQL code according to a set of formatting rules that aren't customizable. It focuses solely on the appearance and layout of the code, which helps ensure consistent indentation, line breaks, and spacing. sqlfmt doesn't analyze your code for errors or bugs and doesn't look at coding issues beyond code formatting.<br />
+sqlfmt is a SQL code formatter. This means it automatically formats your SQL code according to a set of formatting rules that aren't customizable. It focuses solely on the appearance and layout of the code, which helps ensure consistent indentation, line breaks, and spacing. sqlfmt doesn't analyze your code for errors or bugs and doesn't look at coding issues beyond code formatting.
 
 You can use either SQLFluff or sqlfmt depending on your preference and what works best for you:
 
@@ -222,9 +222,9 @@ You can use either SQLFluff or sqlfmt depending on your preference and what work
 
  Can I nest \`.sqlfluff\` files?
 
-To ensure optimal code quality, consistent code, and styles, it's highly recommended you have one main `.sqlfluff` configuration file in the root folder of your project. Having multiple files can result in various different SQL styles in your project.<br /><br />
+To ensure optimal code quality, consistent code, and styles, it's highly recommended you have one main `.sqlfluff` configuration file in the root folder of your project. Having multiple files can result in various different SQL styles in your project.
 
-However, you can customize and include an additional child `.sqlfluff` configuration file within specific subfolders of your dbt project.<br /><br />By nesting a `.sqlfluff` file in a subfolder, SQLFluff will apply the rules defined in that subfolder's configuration file to any files located within it. The rules specified in the parent `.sqlfluff` file will be used for all other files and folders outside of the subfolder. This hierarchical approach allows for tailored linting rules while maintaining consistency throughout your project. Refer to [SQLFluff documentation](https://docs.sqlfluff.com/en/stable/configuration.html#configuration-files) for more info.
+However, you can customize and include an additional child `.sqlfluff` configuration file within specific subfolders of your dbt project. By nesting a `.sqlfluff` file in a subfolder, SQLFluff will apply the rules defined in that subfolder's configuration file to any files located within it. The rules specified in the parent `.sqlfluff` file will be used for all other files and folders outside of the subfolder. This hierarchical approach allows for tailored linting rules while maintaining consistency throughout your project. Refer to [SQLFluff documentation](https://docs.sqlfluff.com/en/stable/configuration.html#configuration-files) for more info.
 
  Can I run SQLFluff commands from the terminal?
 

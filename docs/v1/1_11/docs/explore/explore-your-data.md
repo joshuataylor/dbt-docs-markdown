@@ -28,8 +28,6 @@ dbt provides a variety of tools for you to explore your data, models, and other 
 
 [Document your dbt projects so stakeholders, engineers, and analysts can understand your resources and lineage from start to finish.](./build-and-view-your-docs.md)
 
-<br />
-
 Some features are only available on [selected plans](https://www.getdbt.com/pricing/).
 
 ## Related docs

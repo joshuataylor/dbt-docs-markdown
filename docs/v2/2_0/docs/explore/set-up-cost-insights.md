@@ -138,8 +138,6 @@ By default, dbt uses standard warehouse pricing, which you can override if you h
 | [Amazon Redshift Serverless](https://aws.amazon.com/redshift/pricing/)       | `rpu_price_per_hour` — no default value; costs appear as $0 until configured.      |
 | [Amazon Redshift Provisioned](https://aws.amazon.com/redshift/pricing/)      | `node_price_per_hour` — no default value; costs appear as $0 until configured.     |
 
-<br />
-
 To change the default value:
 
 1. Click your account name at the bottom of the left-side menu and click **Account settings**.

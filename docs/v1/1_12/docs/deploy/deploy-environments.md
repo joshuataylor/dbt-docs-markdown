@@ -101,8 +101,6 @@ A deployment environment needs two settings to run jobs:
 
 \| --- | --- | --- | | **Deployment connection** | Environment-level | Where dbt builds objects in your warehouse (database, schema, and warehouse) | | **Connection profile** | Project-level (assigned to the environment) | How dbt authenticates, and the credentials it uses to connect |
 
-<br />
-
 You need to complete both settings as a deployment connection on its own isn't enough for jobs to run. You also need a [connection profile](#connection-profiles) assigned to the environment.
 
 Deployment connections

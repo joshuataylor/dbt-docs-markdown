@@ -29,8 +29,6 @@ The following flags are supported when you run `dbt retry` with the dbt Fusion e
 | `--target-path`           | path        | The output directory for all produced assets                     | `dbt retry --target-path target`                 |
 | `--vars`                  | vars        | Variables for the project (use the format shown in the CLI help) | `dbt retry --vars '{"my_var": "new_value"}'`     |
 
-<br />
-
 Run `dbt retry --help` for the full list of flags available.
 
 ### Fusion node selection

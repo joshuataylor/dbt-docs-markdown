@@ -22,11 +22,7 @@ The following sections detail the different types of environments and how to int
 
 In dbt, there are two types of environments:
 
-* **Deployment environment** — Determines the settings used when jobs created within that environment are executed.
-
-  <br />
-
-  Types of deployment environments:
+* **Deployment environment** — Determines the settings used when jobs created within that environment are executed. Types of deployment environments:
 
   * General
   * Staging
@@ -82,8 +78,6 @@ Extended attributes allows users to set a flexible [profiles.yml](./local/profil
 Extended attributes are set at the environment level, and can partially override connection or environment credentials, including any custom environment variables. You can set any YAML attributes that a dbt adapter accepts in its `profiles.yml`.
 
 [![Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.")](#)Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.
-
-<br />
 
 The following code is an example of the types of attributes you can add in the **Extended Attributes** text box:
 
