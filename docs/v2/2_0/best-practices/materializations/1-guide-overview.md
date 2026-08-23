@@ -17,14 +17,14 @@ info
 By the end of this guide you should have a solid understanding of:
 
 * 🛠️ what **materializations** are
-* 👨👨👧 how the three main materializations that ship with dbt — **table**, **view**, and **incremental** — differ
+* 👨‍👨‍👧 how the three main materializations that ship with dbt — **table**, **view**, and **incremental** — differ
 * 🗺️ **when** and **where** to use specific materializations to optimize your development and production builds
 * ⚙️ how to **configure materializations** at various scopes, from an individual model to entire folder
 
 ### Prerequisites
 
 * 📒 You’ll want to have worked through the [quickstart guide](../../guides.md) and have a project setup to work through these concepts.
-* 🏃🏻♀️ Concepts like dbt runs, `ref()` statements, and models should be familiar to you.
+* 🏃🏻‍♀️ Concepts like dbt runs, `ref()` statements, and models should be familiar to you.
 * 🔧 \[**Optional**] Reading through the [How we structure our dbt projects](../how-we-structure/1-guide-overview.md) Guide will be beneficial for the last section of this guide, when we review best practices for materializations using the dbt project approach of staging models and marts.
 
 ### Guiding principle
