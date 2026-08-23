@@ -6,7 +6,7 @@ Local development
 * **Authors**: Alibaba Cloud Hologres Team
 * **GitHub repo**: [aliyun/dbt-hologres](https://github.com/aliyun/dbt-hologres) [![](https://img.shields.io/github/stars/aliyun/dbt-hologres?style=for-the-badge)](https://github.com/aliyun/dbt-hologres)
 * **PyPI package**: `dbt-alibaba-cloud-hologres` [![](https://badge.fury.io/py/dbt-alibaba-cloud-hologres.svg)](https://badge.fury.io/py/dbt-alibaba-cloud-hologres)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**:

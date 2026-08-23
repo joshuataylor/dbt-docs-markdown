@@ -38,7 +38,7 @@ models:
 
 We’ll start off simple with staging models. Lets consider some aspects of staging models to determine the ideal materialization strategy:
 
-* 🙅‍♀️ Staging models are **rarely accessed** directly by our **end users.**
+* 🙅♀️ Staging models are **rarely accessed** directly by our **end users.**
 * 🧱 They need to be always up-to-date and in sync with our source data as a **building blocks** for later models
 * 🔍  It’s clear we’ll want to keep our **staging models as views**.
 * 👍  Since views are the **default materialization** in dbt, we don’t *have* to do any specific configuration for this.

@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Quickstart
-
-Semantic Layer
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

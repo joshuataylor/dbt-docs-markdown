@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt platform
-
-Quickstart
-
-Teradata
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction
@@ -30,7 +20,7 @@ Videos for you
 
 You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
-### Prerequisites​
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have access to a Teradata Vantage instance. You can provision one for free at <https://clearscape.teradata.com>. See [the ClearScape Analytics Experience guide](https://developers.teradata.com/quickstarts/get-access-to-vantage/clearscape-analytics-experience/getting-started-with-csae/) for details.
@@ -150,7 +140,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 

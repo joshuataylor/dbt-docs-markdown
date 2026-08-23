@@ -2,12 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt Core
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

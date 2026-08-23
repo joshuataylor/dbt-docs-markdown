@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md) Total estimated time: 3-4 hours
 
-Migration
-
-dbt Core
-
-dbt platform
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

@@ -6,7 +6,7 @@ Local development
 * **Authors**: Bayan Albunayan, Reema Alzaid, Manjot Sidhu
 * **GitHub repo**: [IBM/dbt-watsonx-spark](https://github.com/IBM/dbt-watsonx-spark) [![](https://img.shields.io/github/stars/IBM/dbt-watsonx-spark?style=for-the-badge)](https://github.com/IBM/dbt-watsonx-spark)
 * **PyPI package**: `dbt-watsonx-spark` [![](https://badge.fury.io/py/dbt-watsonx-spark.svg)](https://badge.fury.io/py/dbt-watsonx-spark)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: v0.0.8 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a

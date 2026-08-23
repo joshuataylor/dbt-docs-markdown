@@ -2,18 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Migration
-
-dbt Core
-
-dbt platform
-
-Upgrade
-
-Beginner
-
-[Menu ]()
-
 
 
 Legacy dbt Core versions v1.3–v1.7 are being deprecated on January 31, 2027. To keep your work running and supported, move your environments and jobs to a [dbt Core release track](../docs/dbt-versions/dbt-release-tracks.md) now. A release track keeps you on a supported version automatically and prepares your project for [dbt Fusion engine](../docs/fusion/about-fusion.md) later.

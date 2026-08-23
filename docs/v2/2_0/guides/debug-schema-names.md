@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt Core
-
-Troubleshooting
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

@@ -14,7 +14,7 @@ Refer to [Configuring ibm-dbt-db2](https://github.com/IBM/db2-dbt) to learn more
 * **Authors**: Shubham Kapoor, Amit Kumar
 * **GitHub repo**: [IBM/db2-dbt](https://github.com/IBM/db2-dbt) [![](https://img.shields.io/github/stars/IBM/db2-dbt?style=for-the-badge)](https://github.com/IBM/db2-dbt)
 * **PyPI package**: `ibm-dbt-db2` [![](https://badge.fury.io/py/ibm-dbt-db2.svg)](https://badge.fury.io/py/ibm-dbt-db2)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: v1.11.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: IBM Db2 LUW 9.7+, z/OS 11+, iSeries

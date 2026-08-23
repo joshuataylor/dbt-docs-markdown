@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt Fusion engine
-
-dbt platform
-
-Quickstart
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction

@@ -16,7 +16,7 @@ To learn how to set up dbtAnalytics dedicated SQL pools, refer to [Microsoft Azu
 * **Authors**: Microsoft
 * **GitHub repo**: [Microsoft/dbt-fabric](https://github.com/Microsoft/dbt-fabric) [![](https://img.shields.io/github/stars/Microsoft/dbt-fabric?style=for-the-badge)](https://github.com/Microsoft/dbt-fabric)
 * **PyPI package**: `dbt-fabric` [![](https://badge.fury.io/py/dbt-fabric.svg)](https://badge.fury.io/py/dbt-fabric)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: 1.4.0 and newer
 * **dbt support**: Supported
 * **Minimum data platform version**:

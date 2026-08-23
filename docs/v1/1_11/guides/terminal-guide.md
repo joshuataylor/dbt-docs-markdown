@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt
-
-CLI
-
-Beginner
-
-Beginner
-
-[Menu ]()
-
 
 
 ## What is the terminal?

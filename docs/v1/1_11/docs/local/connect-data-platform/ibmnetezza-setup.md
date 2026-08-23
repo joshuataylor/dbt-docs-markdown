@@ -13,7 +13,7 @@ Refer to [Configuring dbt-ibm-netezza](https://github.com/IBM/nz-dbt?tab=readme-
 * **Authors**: Abhishek Jog, Sagar Soni, Ayush Mehrotra
 * **GitHub repo**: [IBM/nz-dbt](https://github.com/IBM/nz-dbt) [![](https://img.shields.io/github/stars/IBM/nz-dbt?style=for-the-badge)](https://github.com/IBM/nz-dbt)
 * **PyPI package**: `dbt-ibm-netezza` [![](https://badge.fury.io/py/dbt-ibm-netezza.svg)](https://badge.fury.io/py/dbt-ibm-netezza)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: v1.9.2 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: 11.2.3.4

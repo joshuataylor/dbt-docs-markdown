@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Troubleshooting
-
-dbt Core
-
-dbt platform
-
-Beginner
-
-[Menu ]()
-
 
 
 ## General process of debugging

@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Databricks
-
-dbt Core
-
-dbt platform
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

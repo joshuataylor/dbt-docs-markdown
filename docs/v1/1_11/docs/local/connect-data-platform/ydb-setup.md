@@ -8,7 +8,7 @@ Local development
 * **Authors**: YDB Team
 * **GitHub repo**: [ydb-platform/dbt-ydb](https://github.com/ydb-platform/dbt-ydb)[![](https://img.shields.io/github/stars/ydb-platform/dbt-ydb?style=for-the-badge)](https://github.com/ydb-platform/dbt-ydb)
 * **PyPI package**: `dbt-ydb` [![](https://badge.fury.io/py/dbt-ydb.svg)](https://badge.fury.io/py/dbt-ydb)
-* **Slack channel**: [n/a]()
+* **Slack channel**:
 * **Supported dbt Core version**: v1.8.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a

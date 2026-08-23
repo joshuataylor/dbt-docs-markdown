@@ -2,18 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Amazon
-
-Athena
-
-dbt platform
-
-Quickstart
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction
@@ -33,7 +21,7 @@ Videos for you
 
 You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
-### Prerequisites​
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have an [AWS account](https://aws.amazon.com/).
@@ -156,7 +144,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 

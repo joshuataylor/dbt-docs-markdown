@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Dremio
-
-dbt Core
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

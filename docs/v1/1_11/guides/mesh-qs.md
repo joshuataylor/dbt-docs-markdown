@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt platform
-
-Quickstart
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction
@@ -38,7 +30,7 @@ You can also watch the [YouTube video on dbt and Snowflake](https://www.youtube.
 * [Mesh best practices guide](../best-practices/how-we-mesh/mesh-4-implementation.md)
 * [Mesh FAQs](../best-practices/how-we-mesh/mesh-5-faqs.md)
 
-## Prerequisites​
+## Prerequisites
 
 To leverage Mesh, you need the following:
 

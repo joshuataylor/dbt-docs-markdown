@@ -4,12 +4,6 @@ Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
 [Back to guides](../guides.md)
 
-dbt Fusion engine
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

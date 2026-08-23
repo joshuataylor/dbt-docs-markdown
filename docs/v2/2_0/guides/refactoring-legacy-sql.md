@@ -2,12 +2,6 @@
 
 [Back to guides](../guides.md)
 
-SQL
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

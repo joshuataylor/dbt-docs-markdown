@@ -4,14 +4,6 @@ Start with a stakeholder question and analyze the data to answer that question w
 
 [Back to guides](../guides.md)
 
-Analyst
-
-dbt platform
-
-Quickstart
-
-[Menu ]()
-
 
 
 ## Introduction

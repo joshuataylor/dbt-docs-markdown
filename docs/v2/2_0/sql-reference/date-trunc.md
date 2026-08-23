@@ -8,7 +8,7 @@ Using the DATE\_TRUNC function, you can truncate to the weeks, months, years, or
 
 Overall, it’s a great function to use to help you aggregate your data into specific date parts while keeping a date format. However, the DATE\_TRUNC function isn’t your swiss army knife–it’s not able to do magic or solve all of your problems (we’re looking at you [star](https://getdbt.com/sql-foundations/star-sql-love-letter/)). Instead, DATE\_TRUNC is your standard kitchen knife—it’s simple and efficient, and you almost never start cooking (data modeling) without it.
 
-## How to use the DATE\_TRUNC function​
+## How to use the DATE\_TRUNC function
 
 For the DATE\_TRUNC function, there are two arguments you must pass in:
 
@@ -21,7 +21,7 @@ Most, if not all, modern cloud data warehouses support some type of the DATE\_TR
 
 Below, we’ll outline some of the slight differences in the implementation between some of the data warehouses.
 
-## The DATE\_TRUNC function in Snowflake and Databricks​
+## The DATE\_TRUNC function in Snowflake and Databricks
 
 In [Snowflake](https://docs.snowflake.com/en/sql-reference/functions/date_trunc.html) and [Databricks](https://docs.databricks.com/sql/language-manual/functions/date_trunc.html), you can use the DATE\_TRUNC function using the following syntax:
 
@@ -31,7 +31,7 @@ date_trunc(<date_part>, <date/time field>)
 
 In these platforms, the \<date\_part> is passed in as the first argument in the DATE\_TRUNC function.
 
-## The DATE\_TRUNC function in Google BigQuery and Amazon Redshift​
+## The DATE\_TRUNC function in Google BigQuery and Amazon Redshift
 
 In [Google BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/date_functions#date_trunc) and [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/r_DATE_TRUNC.html), the `<date_part>` is passed in as the first argument and the `<date/time field>` is the second argument:
 
@@ -41,7 +41,7 @@ date_trunc(<date/time field>, <date part>)
 
 A note on BigQuery: BigQuery’s DATE\_TRUNC function supports the truncation of date types, whereas Snowflake, Redshift, and Databricks’ `<date/time field>` can be a date or timestamp data type. BigQuery also supports DATETIME\_TRUNC and TIMESTAMP\_TRUNC functions to support truncation of more granular date/time types.
 
-## A dbt macro to remember​
+## A dbt macro to remember
 
 Why Snowflake, Amazon Redshift, Databricks, and Google BigQuery decided to use different implementations of essentially the same function is beyond us and it’s not worth the headache trying to figure that out. Instead of remembering if the `<date_part>` or the `<date/time field>` comes first, (which, let’s be honest, we can literally never remember) you can rely on a dbt Core macro to help you get away from finicky syntax.
 

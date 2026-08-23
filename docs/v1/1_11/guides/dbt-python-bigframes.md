@@ -2,20 +2,6 @@
 
 [Back to guides](../guides.md)
 
-BigQuery
-
-Google
-
-GCP
-
-BigFrames
-
-Quickstart
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

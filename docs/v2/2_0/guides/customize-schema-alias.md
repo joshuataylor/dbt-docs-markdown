@@ -2,10 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

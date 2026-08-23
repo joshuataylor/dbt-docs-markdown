@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt platform
-
-Quickstart
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction
@@ -135,7 +127,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 

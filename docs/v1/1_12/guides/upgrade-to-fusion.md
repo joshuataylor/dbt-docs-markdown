@@ -4,16 +4,6 @@ This guide helps you implement an in-place upgrade from the latest version of db
 
 [Back to guides](../guides.md)
 
-dbt Fusion engine
-
-dbt platform
-
-Upgrade
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

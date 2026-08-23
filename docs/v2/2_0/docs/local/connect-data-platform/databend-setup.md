@@ -10,7 +10,7 @@ Some [core functionality](https://github.com/databendcloud/dbt-databend#supporte
 * **Authors**: Shanjie Han
 * **GitHub repo**: [databendcloud/dbt-databend](https://github.com/databendcloud/dbt-databend) [![](https://img.shields.io/github/stars/databendcloud/dbt-databend?style=for-the-badge)](https://github.com/databendcloud/dbt-databend)
 * **PyPI package**: `dbt-databend-cloud` [![](https://badge.fury.io/py/dbt-databend-cloud.svg)](https://badge.fury.io/py/dbt-databend-cloud)
-* **Slack channel**:[]()
+* **Slack channel**:
 * **Supported dbt Core version**: v1.0.0 and newer
 * **dbt support**: Not Supported
 * **Minimum data platform version**: n/a

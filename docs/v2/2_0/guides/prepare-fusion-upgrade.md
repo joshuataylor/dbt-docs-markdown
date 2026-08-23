@@ -4,16 +4,6 @@ This guide helps you prepare for an in-place upgrade from dbt Core to the dbt Fu
 
 [Back to guides](../guides.md)
 
-dbt Fusion engine
-
-dbt platform
-
-Upgrade
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

@@ -2,18 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Semantic Layer
-
-Snowflake
-
-dbt platform
-
-Quickstart
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

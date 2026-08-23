@@ -4,10 +4,10 @@
 
 [![dbt Logo](/img/dbt-logo.svg?v=2)![dbt Logo](/img/dbt-logo-light.svg?v=2)](./index.md)
 
-* [v2]()
-* [v1]()
-* [1.12]()
-* [1.11]()
+*
+*
+*
+*
 * On dbt platform? v2 = [Fusion release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#fusion-release-tracks) v1 = [Core release tracks](https://docs.getdbt.com/docs/dbt-versions/dbt-release-tracks?version=2.0#dbt-core-release-tracks)
 
 [Docs](#)

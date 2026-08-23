@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Migration
-
-dbt Core
-
-dbt platform
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

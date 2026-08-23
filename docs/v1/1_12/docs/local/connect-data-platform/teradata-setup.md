@@ -202,19 +202,19 @@ For using cross-DB macros, teradata-utils as a macro namespace will not be used,
 
 #### examples for cross DB macros
 
-##### []()replace
+##### replace
 
 {{ dbt.replace("string\_text\_column", "old\_chars", "new\_chars") }} {{ replace('abcgef', 'g', 'd') }}
 
-##### []()date\_trunc
+##### date\_trunc
 
 {{ dbt.date\_trunc("date\_part", "date") }} {{ dbt.date\_trunc("DD", "'2018-01-05 12:00:00'") }}
 
-##### []()datediff
+##### datediff
 
 `datediff` macro in teradata supports difference between dates. Differece between timestamps is not supported.
 
-##### []()hash
+##### hash
 
 `Hash` macro needs an `md5` function implementation. Teradata doesn't support `md5` natively. You need to install a User Defined Function (UDF) and optionally specify `md5_udf` [variable](../../build/project-variables.md).
 
@@ -253,7 +253,7 @@ vars:
   md5_udf: Custom_database_name.hash_method_function
 ```
 
-##### []()last\_day
+##### last\_day
 
 `last_day` in `teradata_utils`, unlike the corresponding macro in `dbt_utils`, doesn't support `quarter` datepart.
 

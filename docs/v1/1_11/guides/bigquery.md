@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-BigQuery
-
-Platform
-
-Quickstart
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction
@@ -30,7 +20,7 @@ Videos for you
 
 You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundamentals) for free if you're interested in course learning with videos.
 
-### Prerequisites​
+### Prerequisites
 
 * You have a [dbt account](https://www.getdbt.com/signup/).
 * You have a [Google account](https://support.google.com/accounts/answer/27441?hl=en).
@@ -44,7 +34,7 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 * [Job notifications](../docs/deploy/job-notifications.md)
 * [Source freshness](../docs/deploy/source-freshness.md)
 
-## Create a new GCP project​
+## Create a new GCP project
 
 1. Go to the [BigQuery Console](https://console.cloud.google.com/bigquery) after you log in to your Google account. If you have multiple Google accounts, make sure you’re using the correct one.
 2. Create a new project from the [Manage resources page](https://console.cloud.google.com/projectcreate?previousPage=%2Fcloud-resource-manager%3Fwalkthrough_id%3Dresource-manager--create-project%26project%3D%26folder%3D%26organizationId%3D%23step_index%3D1\&walkthrough_id=resource-manager--create-project). For more information, refer to [Creating a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects#creating_a_project) in the Google Cloud docs. GCP automatically populates the Project name field for you. You can change it to be more descriptive for your use. For example, `dbt Learn - BigQuery Setup`.
@@ -95,7 +85,7 @@ In order to let dbt connect to your warehouse, you'll need to generate a keyfile
 
 3. Create a service account key for your new project from the [Service accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts?walkthrough_id=iam--create-service-account-keys\&start_index=1#step_index=1). For more information, refer to [Create a service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud docs. When downloading the JSON file, make sure to use a filename you can easily remember. For example, `dbt-user-creds.json`. For security reasons, dbt Labs recommends that you protect this JSON file like you would your identity credentials; for example, don't check the JSON file into your version control software.
 
-## Connect dbt to BigQuery​
+## Connect dbt to BigQuery
 
 1. In [dbt](../docs/platform/about-platform/access-regions-ip-addresses.md), click your account name in the left side menu.
 
@@ -143,7 +133,7 @@ To set up a managed repository:
 3. Click **Create**. It will take a few seconds for your repository to be created and imported.
 4. Once you see the "Successfully imported repository," click **Continue**.
 
-## Initialize your dbt project​ and start developing
+## Initialize your dbt project and start developing
 
 Now that you have a repository configured, you can initialize your project and start development in dbt:
 

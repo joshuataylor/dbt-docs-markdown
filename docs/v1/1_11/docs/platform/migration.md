@@ -42,7 +42,7 @@ All runs available in dbt will be migrated with your account. This includes meta
 
 The [Discovery API](../dbt-apis/discovery-api.md) will contain a subset of data after your account has been migrated. Metadata generated in the past 7 days will be migrated with your account. A maximum of 20 runs will be available when querying the [job object](../dbt-apis/discovery-schema-job.md) after migration.
 
-## Post-migration​
+## Post-migration
 
 Complete all of these items to ensure your dbt resources and jobs will continue working without interruption.
 

@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt platform
-
-Orchestration
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction

@@ -2,18 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Canvas
-
-Analyst
-
-dbt platform
-
-Model
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Introduction

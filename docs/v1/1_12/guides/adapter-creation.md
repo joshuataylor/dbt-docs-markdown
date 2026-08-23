@@ -2,12 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Adapter creation
-
-Advanced
-
-[Menu ]()
-
 
 
 dbt Core v1.x

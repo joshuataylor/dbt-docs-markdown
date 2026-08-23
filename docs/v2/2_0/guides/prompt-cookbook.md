@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt Wizard
-
-AI
-
-Best practices
-
-Beginner
-
-[Menu ]()
-
 
 
 ## Overview

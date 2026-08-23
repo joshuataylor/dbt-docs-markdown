@@ -92,7 +92,7 @@ vertica\_incremental.sql
           )
 ```
 
-### Using the `incremental_strategy` config ​parameter
+### Using the `incremental_strategy` config parameter
 
 **The `append` strategy (default)**:
 

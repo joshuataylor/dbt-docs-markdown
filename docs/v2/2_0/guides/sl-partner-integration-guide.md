@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Semantic Layer
-
-Best practices
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

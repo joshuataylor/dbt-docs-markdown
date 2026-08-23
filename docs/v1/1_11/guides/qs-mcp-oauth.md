@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt MCP
-
-AI
-
-Quickstart
-
-Beginner
-
-[Menu ]()
-
 
 
 This quickstart uses the local MCP server: it runs on your machine using `uvx dbt-mcp`, connects to your dbt platform for Semantic Layer, Discovery, and SQL, and optionally runs local dbt.

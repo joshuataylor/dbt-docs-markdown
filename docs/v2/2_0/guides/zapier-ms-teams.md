@@ -2,12 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Webhooks
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

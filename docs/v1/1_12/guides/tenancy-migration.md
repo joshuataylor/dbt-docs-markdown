@@ -2,16 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Migration
-
-Tenancy
-
-dbt platform
-
-Advanced
-
-[Menu ]()
-
 
 
 Contract change required

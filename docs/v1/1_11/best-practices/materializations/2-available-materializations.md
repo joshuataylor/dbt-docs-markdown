@@ -17,7 +17,7 @@ info
 ### Views
 
 * ✅ **The default materialization in dbt**. A starting project has no configurations defined for materializations, which means *everything* is by default built as a view.
-* 👩‍💻 **Store *only the SQL logic* of the transformation in the warehouse, *not the data***. As such, they make a great default. They build almost instantly and cost almost nothing to build.
+* 👩💻 **Store *only the SQL logic* of the transformation in the warehouse, *not the data***. As such, they make a great default. They build almost instantly and cost almost nothing to build.
 * ⏱️ Always reflect the **most up-to-date** version of the input data, as they’re run freshly every time they’re queried.
 * 👎 **Have to be processed every time they’re queried, so slower to return results than a table of the same data.** That also means they can cost more over time, especially if they contain intensive transformations and are queried often.
 

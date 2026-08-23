@@ -2,5 +2,3 @@
 
 [Back to guides](../guides.md)
 
-[Menu ]()
-

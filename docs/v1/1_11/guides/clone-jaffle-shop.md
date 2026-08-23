@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-dbt
-
-Beginner
-
-Beginner
-
-[Menu ]()
-
 
 
 ## What is Jaffle Shop?

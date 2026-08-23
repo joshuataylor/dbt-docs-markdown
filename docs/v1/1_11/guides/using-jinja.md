@@ -2,14 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Jinja
-
-dbt Core
-
-Advanced
-
-[Menu ]()
-
 
 
 ## Introduction

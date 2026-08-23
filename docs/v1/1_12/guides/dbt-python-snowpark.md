@@ -2,12 +2,6 @@
 
 [Back to guides](../guides.md)
 
-Snowflake
-
-Intermediate
-
-[Menu ]()
-
 
 
 ## Introduction
