@@ -1,14 +1,40 @@
 # dbt-docs-markdown
 
-Pre-compiled dbt documentation as plain markdown, rebuilt every two hours from the [dbt docs source](https://github.com/dbt-labs/docs.getdbt.com). Used by [Datamancer](https://datamancer.ai) to power dbt documentation in JetBrains IDEs (PyCharm, DataGrip, etc.).
+Pre-compiled dbt documentation as plain markdown, rebuilt every two hours from the [dbt docs source](https://github.com/dbt-labs/docs.getdbt.com).
 
-## The problem
+[Datamancer](https://github.com/joshuataylor/datamancer) uses it to serve dbt documentation inside JetBrains IDEs (PyCharm, DataGrip).
 
-The dbt docs site is a Docusaurus app. Its `.md` URLs used to serve raw MDX source -- import statements and JSX components (`<FAQ>`, `<VersionBlock>`, `<File>`, etc.) passed through verbatim, partials (`/snippets/`) never inlined. That part is fixed upstream now ([#9765](https://github.com/dbt-labs/docs.getdbt.com/pull/9765)): the site generates compiled markdown from the rendered HTML. What remains is versioning: the site is built once at the default version, so its `.md` reflects a single version and everything gated behind `<VersionBlock>` for other versions is absent. This repo exists to produce a complete, correctly filtered set per supported dbt version.
+Hopefully you'll find it useful in your ripgrepping!
 
-## What this repo does
+## Why this exists
 
-A GitHub Actions workflow runs every two hours and produces one set of `.md` files per supported dbt version under `docs/<product>/<version>/`:
+The dbt docs site is a Docusaurus app, and trying to use something like ripgrep is annoying.
+
+The [docs.getdbt.com](https://docs.getdbt.com) website DOES support `.md` as a file extension (e.g. https://docs.getdbt.com/docs/fusion/about-fusion.md), but I wanted a way to get the final, compiled result as plaintext (markdown).
+
+### Upstreaming Patches
+
+Most changes can be upstreamed - a few patches here remain as either experimental, but the preferred approach is to upstream every change/fix back to the [docs.getdbt.com](https://github.com/dbt-labs/docs.getdbt.com) repository, especially as the docs folks over at dbt Labs have been a pleasure to work with, and receptive to proposed changes.
+
+Until August 2026, the compiled dbt documentation needed a bunch of fixes (which I maintained in a branch), which are now upstreamed! :tada.
+
+See [Pull Requests in docs.getdbt.com](https://github.com/dbt-labs/docs.getdbt.com/issues?q=is%3Apr%20author%3A%40me%20sort%3Aupdated-desc):
+
+- [Fix whitespace inside code fences and inline code - #9832](https://github.com/dbt-labs/docs.getdbt.com/pull/9832)
+- [Strip React SSR comment markers from generated llms-txt markdown - #9772](https://github.com/dbt-labs/docs.getdbt.com/pull/9772)
+- [Remove duplicated entries in dbt-versions - #9783](https://github.com/dbt-labs/docs.getdbt.com/pull/9783)
+- [Fix broken tables in generated markdown (Loading table/Search table..) - #9769](https://github.com/dbt-labs/docs.getdbt.com/pull/9769)
+- [Give each tab panel a labelled heading in generated markdown - #9773](https://github.com/dbt-labs/docs.getdbt.com/pull/9773)
+- [Fix mistyped Constant, Term, and Lifecycle names in docs - #9776](https://github.com/dbt-labs/docs.getdbt.com/pull/9776)
+- [Close the unterminated code fence in the alias snapshot example - #9771](https://github.com/dbt-labs/docs.getdbt.com/pull/9771)
+- [Generate compiled per-page markdown from rendered HTML - #9765](https://github.com/dbt-labs/docs.getdbt.com/pull/9765)
+- [Only show supported dbt Core features in the sidebar - #9745](https://github.com/dbt-labs/docs.getdbt.com/pull/9745)
+- [Fix markdown for datamancer - #9470](https://github.com/dbt-labs/docs.getdbt.com/pull/9470)
+- [Create rehype plugin that readds markdown codeblock language to codeblocks - #8684](https://github.com/dbt-labs/docs.getdbt.com/pull/8684)
+
+## GitHub Action
+
+A GitHub Actions workflow runs every two hours and writes one set of `.md` files per supported dbt version under `docs/<product>/<version>/`:
 
 ```
 docs/
@@ -19,22 +45,38 @@ docs/
     1_11/   # dbt Core v1.11
 ```
 
-Each file is a fully rendered page: partials inlined, components expanded, with only the content appropriate for that version and product. The set of builds is derived dynamically from `dbt-versions.js` in the source repo, so new versions and products are picked up automatically.
+Every file is a fully rendered page -- partials inlined, components expanded, carrying only the content that applies to that version and product.
 
-## How it works
+The list of builds comes from `dbt-versions.js` in the source repo, so new versions and products are picked up on their own.
 
-The markdown generator itself now lives upstream: [dbt-labs/docs.getdbt.com#9765](https://github.com/dbt-labs/docs.getdbt.com/pull/9765) replaced the raw-MDX-source generator with `@signalwire/docusaurus-plugin-llms-txt`, which derives per-page `.md` from the final rendered HTML -- partials inlined, components expanded, links rewritten to be document-relative. What upstream does not do is build per version, so this repo layers two things on top:
+### Patches
 
-**1. Patch the source for static per-version output**
+- Remove `Was this page helpful?` widget at the end of every page.
+- Strip DocCard icon glyph from generated card-list Markdown, for example: https://docs.getdbt.com/category/project-configs.md
+  Before:
+    ~~~
+    ## [📄️ dbt\_project.yml](../reference/dbt_project.yml.md)
+    
+    [Reference guide for configuring the dbt\_project.yml file.](../reference/dbt_project.yml.md)
+    ~~~
 
-Before each build, the workflow applies the compare diff of
-[`feature/fix-markdown`](https://github.com/joshuataylor/docs.getdbt.com/tree/feature/fix-markdown)
-(the non-upstreamable delta, rebased onto upstream `current`; `git apply --allow-empty` tolerates the diff being empty if everything is ever merged). It currently carries:
+  After:
+    ~~~
+    ## [dbt\_project.yml](../reference/dbt_project.yml.md)
+    
+    [Reference guide for configuring the dbt\_project.yml file.](../reference/dbt_project.yml.md)
+    ~~~
+- Convert <br> to line breaks in generated Markdown, for example: https://docs.getdbt.com/reference/function-configs.md
+  Before:
+    ~~~
+    ### Function-specific configurations
+    
+    Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.<br />
+    ~~~
 
-- **VersionBlock SSR fix.** The `VersionBlock` component guards its content with a `loading` state that is always `true` during SSR and only cleared client-side, so every `<VersionBlock>` renders `null` in static HTML and version-gated content is silently absent. The patch removes the guard so SSR renders from the context version and product.
-- **`SKIP_LINK_CHECK` support.** Per-version builds gate pages out on purpose, so links to them dangle; the patch downgrades `onBrokenLinks` from `throw` to `warn` only when the workflow sets `SKIP_LINK_CHECK=true`.
-- **`data-md-hide` stripping.** A rehype plugin in the llms-txt conversion pipeline drops any element marked with a `data-md-hide` attribute from the generated markdown without touching the rendered site (first user: the "Was this page helpful?" feedback widget).
-
-**2. Build once per (product, version)**
-
-`VersionBlock` filters on both version and product name (`<VersionBlock firstVersion="2.0" product="Fusion">`). The workflow reads `dbt-versions.js` with Node.js to discover all unique (product, version) combinations, then for each: patches `VersionContext.js` to hard-code the appropriate subProduct as the default, runs a full Docusaurus build, and copies the resulting `.md` files to `docs/<name>/<version>/`.
+  After:
+    ~~~
+    ### Function-specific configurations
+    
+    Resource-specific configurations are applicable to only one dbt resource type rather than multiple resource types. You can define these settings in the project file (`dbt_project.yml`), a property file (`models/properties.yml` for models, similarly for other resources), or within the resource’s file using the `{{ config() }}` macro.
+    ~~~
