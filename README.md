@@ -14,13 +14,15 @@ The [docs.getdbt.com](https://docs.getdbt.com) website DOES support `.md` as a f
 
 ### Upstreaming Patches
 
-Most changes can be upstreamed - a few patches here remain as either experimental, but the preferred approach is to upstream every change/fix back to the [docs.getdbt.com](https://github.com/dbt-labs/docs.getdbt.com) repository, especially as the docs folks over at dbt Labs have been a pleasure to work with, and receptive to proposed changes.
+Most changes can be upstreamed - a few patches here remain as either experimental or won't be upstreamed due to the docs team having a different vision for the site.
 
-Until August 2026, the compiled dbt documentation needed a bunch of fixes (which I maintained in a branch), which are now upstreamed! :tada.
+The preferred approach is to upstream every change/fix back to the [docs.getdbt.com](https://github.com/dbt-labs/docs.getdbt.com) repository, especially as the docs folks over at dbt Labs have been a pleasure to work with, and receptive to proposed changes.
+
+Until August 2026, the compiled dbt documentation needed a bunch of fixes (which I maintained in a branch), with the following now upstreamed:
 
 See [Pull Requests in docs.getdbt.com](https://github.com/dbt-labs/docs.getdbt.com/issues?q=is%3Apr%20author%3A%40me%20sort%3Aupdated-desc):
 
-- [Fix whitespace inside code fences and inline code - #9832](https://github.com/dbt-labs/docs.getdbt.com/pull/9832)
+- [Fix <Constant> inside code fences and inline code - #9832](https://github.com/dbt-labs/docs.getdbt.com/pull/9832)
 - [Strip React SSR comment markers from generated llms-txt markdown - #9772](https://github.com/dbt-labs/docs.getdbt.com/pull/9772)
 - [Remove duplicated entries in dbt-versions - #9783](https://github.com/dbt-labs/docs.getdbt.com/pull/9783)
 - [Fix broken tables in generated markdown (Loading table/Search table..) - #9769](https://github.com/dbt-labs/docs.getdbt.com/pull/9769)
@@ -52,7 +54,7 @@ The list of builds comes from `dbt-versions.js` in the source repo, so new versi
 ### Patches
 
 - Remove `Was this page helpful?` widget at the end of every page.
-- Strip DocCard icon glyph from generated card-list Markdown, for example: https://docs.getdbt.com/category/project-configs.md
+- Strip DocCard icon glyph from generated card-list Markdown, for example: https://docs.getdbt.com/category/project-configs.md.
   Before:
     ~~~
     ## [📄️ dbt\_project.yml](../reference/dbt_project.yml.md)
@@ -66,7 +68,7 @@ The list of builds comes from `dbt-versions.js` in the source repo, so new versi
     
     [Reference guide for configuring the dbt\_project.yml file.](../reference/dbt_project.yml.md)
     ~~~
-- Convert <br> to line breaks in generated Markdown, for example: https://docs.getdbt.com/reference/function-configs.md
+- Convert <br> to line breaks in generated Markdown, for example: https://docs.getdbt.com/reference/function-configs.md.
   Before:
     ~~~
     ### Function-specific configurations
