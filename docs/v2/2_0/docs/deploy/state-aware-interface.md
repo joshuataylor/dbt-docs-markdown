@@ -19,9 +19,9 @@ When you go to your **Account home**, you'll see a chart showing the number of m
 
 You can also view the number of reused models per project in the **Accounts home** page.
 
-[![Models built and reused chart in Account home](/img/docs/dbt-platform/using-dbt-platform/account-home-chart.png?v=2 "Models built and reused chart in Account home")](#)Models built and reused chart in Account home
+![Models built and reused chart in Account home](/img/docs/dbt-platform/using-dbt-platform/account-home-chart.png?v=2 "Models built and reused chart in Account home")Models built and reused chart in Account home
 
-[![View reused models count per project in the Accounts home page](/img/docs/deploy/sao-model-reuse.png?v=2 "View reused models count per project in the Accounts home page")](#)View reused models count per project in the Accounts home page
+![View reused models count per project in the Accounts home page](/img/docs/deploy/sao-model-reuse.png?v=2 "View reused models count per project in the Accounts home page")View reused models count per project in the Accounts home page
 
 ## Model consumption view in jobs
 
@@ -32,20 +32,20 @@ Under the **Runs** tab:
 * **Recent runs**
 * **Total run duration time**
 
-[![Charts for Recent runs and Total run duration time](/img/docs/dbt-platform/using-dbt-platform/sao-runs-chart.png?v=2 "Charts for Recent runs and Total run duration time")](#)Charts for Recent runs and Total run duration time
+![Charts for Recent runs and Total run duration time](/img/docs/dbt-platform/using-dbt-platform/sao-runs-chart.png?v=2 "Charts for Recent runs and Total run duration time")Charts for Recent runs and Total run duration time
 
 Under the **Models** tab:
 
 * **Models built**
 * **Models reused**
 
-[![Charts for Models built and Models reused](/img/docs/dbt-platform/using-dbt-platform/sao-models-chart.png?v=2 "Charts for Models built and Models reused")](#)Charts for Models built and Models reused
+![Charts for Models built and Models reused](/img/docs/dbt-platform/using-dbt-platform/sao-models-chart.png?v=2 "Charts for Models built and Models reused")Charts for Models built and Models reused
 
 ## Logs view of built models
 
 When running a job, a structured logs view shows which models were built, skipped, or reused.
 
-[![Logs view of built models](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built models")](#)Logs view of built models
+![Logs view of built models](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built models")Logs view of built models
 
 1. Each model has an icon indicating its status.
 2. The **Reused** tab indicates the total number of reused models.
@@ -58,7 +58,7 @@ Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explor
 
 The **Latest status** lens shows the status from the latest execution of the resource in the current environment. When you use this lens to view your lineage, models that were reused from state-aware orchestration are tagged with **Reused**.
 
-[![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")](#)Latest status lens showing reused models
+![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")Latest status lens showing reused models
 
 To view your lineage with the **Latest status** lens:
 
@@ -77,7 +77,7 @@ State-aware orchestration uses a cached hash of both code and data state for eac
 
 * After clearing the cache, the next run rebuilds every model from scratch. Subsequent runs rely on the regenerated cache.
 
-[![Clear cache button](/img/docs/dbt-platform/using-dbt-platform/sao-clear-cache.png?v=2 "Clear cache button")](#)Clear cache button
+![Clear cache button](/img/docs/dbt-platform/using-dbt-platform/sao-clear-cache.png?v=2 "Clear cache button")Clear cache button
 
 ## Related docs
 

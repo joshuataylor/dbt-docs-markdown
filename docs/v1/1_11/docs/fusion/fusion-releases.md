@@ -72,14 +72,6 @@ dbt system update --version 2.0.0-preview.126     # Install a specific version
 
 ### All releases
 
-Search versions...
-
-Status:All (all)
-
-Channel:All (all)
-
-Showing 171 of 171 releases
-
 [v2.0.0-preview.213](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview213 "View this release in the dbt Fusion changelog")GoodDevnightlyCanary
 
 Released by: **aiguofer**Aug 21, 2026, 07:30 PM

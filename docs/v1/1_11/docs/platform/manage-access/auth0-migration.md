@@ -40,11 +40,11 @@ Below are sample steps to update. You must complete all of them to ensure uninte
 
 Here is an example of an updated SAML 2.0 setup in Okta.
 
-[![Okta configuration with new URL](/img/docs/dbt-platform/access-control/new-okta-config.png?v=2 "Okta configuration with new URL")](#)Okta configuration with new URL
+![Okta configuration with new URL](/img/docs/dbt-platform/access-control/new-okta-config.png?v=2 "Okta configuration with new URL")Okta configuration with new URL
 
 2. Save the configuration, and your SAML settings will look something like this:
 
-[![New Okta configuration completed](/img/docs/dbt-platform/access-control/new-okta-completed.png?v=2 "New Okta configuration completed")](#)New Okta configuration completed
+![New Okta configuration completed](/img/docs/dbt-platform/access-control/new-okta-completed.png?v=2 "New Okta configuration completed")New Okta configuration completed
 
 3. Toggle the `Enable new SSO authentication` option to ensure the traffic is routed correctly. *The new SSO migration action is final and cannot be undone.*
 
@@ -68,11 +68,11 @@ The new values for these fields can be found in dbt by navigating to **Account s
    * Entra ID **Identifier (Entity ID)** = dbt **Audience URI (SP Entity ID)**
    * Entra ID **Reply URL (Assertion Consumer Service URL)** = dbt **Single sign-on URL**
 
-   [![Editing the SAML configuration window in Entra ID](/img/docs/dbt-platform/access-control/edit-entra-saml.png?v=2 "Editing the SAML configuration window in Entra ID")](#)Editing the SAML configuration window in Entra ID
+   ![Editing the SAML configuration window in Entra ID](/img/docs/dbt-platform/access-control/edit-entra-saml.png?v=2 "Editing the SAML configuration window in Entra ID")Editing the SAML configuration window in Entra ID
 
 4. Save the fields and the completed configuration will look something like this:
 
-   [![Completed configuration of the SAML fields in Entra ID](/img/docs/dbt-platform/access-control/entra-id-saml.png?v=2 "Completed configuration of the SAML fields in Entra ID")](#)Completed configuration of the SAML fields in Entra ID
+   ![Completed configuration of the SAML fields in Entra ID](/img/docs/dbt-platform/access-control/entra-id-saml.png?v=2 "Completed configuration of the SAML fields in Entra ID")Completed configuration of the SAML fields in Entra ID
 
 5. Toggle the `Enable new SSO authentication` option to ensure the traffic is routed correctly. *The new SSO migration action is final and cannot be undone.*
 
@@ -86,15 +86,15 @@ Below are steps to update. You must complete all of them to ensure uninterrupted
 
 1. Click **App Registrations** on the left side menu.
 
-[![Select App Registrations](/img/docs/dbt-platform/access-control/aad-app-registration.png?v=2 "Select App Registrations")](#)Select App Registrations
+![Select App Registrations](/img/docs/dbt-platform/access-control/aad-app-registration.png?v=2 "Select App Registrations")Select App Registrations
 
 2. Select the proper **dbt** app (name may vary) from the list. From the app overview, click on the hyperlink next to **Redirect URI**
 
-[![Click the Redirect URI hyperlink](/img/docs/dbt-platform/access-control/app-overview.png?v=2 "Click the Redirect URI hyperlink")](#)Click the Redirect URI hyperlink
+![Click the Redirect URI hyperlink](/img/docs/dbt-platform/access-control/app-overview.png?v=2 "Click the Redirect URI hyperlink")Click the Redirect URI hyperlink
 
 3. In the **Web** pane with **Redirect URIs**, click **Add URI** and enter the appropriate `https://<YOUR_AUTH0_URI>/login/callback`. Save the settings and verify it is counted in the updated app overview.
 
-[![Enter new redirect URI](/img/docs/dbt-platform/access-control/redirect-URI.png?v=2 "Enter new redirect URI")](#)Enter new redirect URI
+![Enter new redirect URI](/img/docs/dbt-platform/access-control/redirect-URI.png?v=2 "Enter new redirect URI")Enter new redirect URI
 
 4. Navigate to the dbt environment and open the **Account settings**. Click the **SSO & SCIM** option from the left-side menu and click the **Edit** option from the right side of the SSO pane. The **domain** field is the domain your organization uses to login to Microsoft Entra ID. Toggle the **Enable New SSO Authentication** option and **Save**. *Once this option is enabled, it cannot be undone.*
 
@@ -110,11 +110,11 @@ Below are steps to update. You must complete all of them to ensure uninterrupted
 
 1. Open the [Google Cloud console](https://console.cloud.google.com/) and select the project with your dbt single sign-on settings. From the project page **Quick Access**, select **APIs and Services**
 
-[![Google Cloud Console](/img/docs/dbt-platform/access-control/google-cloud-sso.png?v=2 "Google Cloud Console")](#)Google Cloud Console
+![Google Cloud Console](/img/docs/dbt-platform/access-control/google-cloud-sso.png?v=2 "Google Cloud Console")Google Cloud Console
 
 2. Click **Credentials** from the left side pane and click the appropriate name from **OAuth 2.0 Client IDs**
 
-[![Select the OAuth 2.0 Client ID](/img/docs/dbt-platform/access-control/sso-project.png?v=2 "Select the OAuth 2.0 Client ID")](#)Select the OAuth 2.0 Client ID
+![Select the OAuth 2.0 Client ID](/img/docs/dbt-platform/access-control/sso-project.png?v=2 "Select the OAuth 2.0 Client ID")Select the OAuth 2.0 Client ID
 
 3. In the **Client ID for Web application** window, find the **Authorized Redirect URIs** field and click **Add URI** and enter `https://<YOUR_AUTH0_URI>/login/callback`.
 

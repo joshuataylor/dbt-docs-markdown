@@ -1,6 +1,6 @@
 # Quickstart for the dbt Fusion engine
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -147,12 +147,12 @@ The dbt VS Code extension is available in the [Visual Studio extension marketpla
 1. Navigate to the **Extensions** tab of VS Code (or Cursor).
 2. Search for `dbt` and choose the one from the publisher `dbt Labs, LLC`.
 
-   [![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")](#)Search for the extension
+   ![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")Search for the extension
 3. Click **Install**.
 4. When the prompt appears, you can register the extension or skip it. Check out the [registration](../docs/sign-in-dbt-extension.md) or [installation](../docs/install-dbt-extension.md) instructions to come back to it later.
 5. Confirm you've installed the extension by looking for the **dbt Extension** label in the status bar. If you see it, the extension was installed successfully!
 
-   [![Verify installation in the status bar.](/img/docs/extension/extension-lsp-download.png?v=2 "Verify installation in the status bar.")](#)Verify installation in the status bar.
+   ![Verify installation in the status bar.](/img/docs/extension/extension-lsp-download.png?v=2 "Verify installation in the status bar.")Verify installation in the status bar.
 
 ## Initialize the Jaffle Shop project
 
@@ -216,7 +216,7 @@ Now that your project works, open it in VS Code or Cursor and see Fusion in acti
 
 5. Locate **Lineage** and **Query Results** in the lower panel, and the **dbt icon** in the upper right corner next to your editor groups. If you see all of these, the extension is installed correctly and running!
 
-   [![The VS Code UI with the extension running.](/img/docs/extension/extension-running.png?v=2 "The VS Code UI with the extension running.")](#)The VS Code UI with the extension running.
+   ![The VS Code UI with the extension running.](/img/docs/extension/extension-running.png?v=2 "The VS Code UI with the extension running.")The VS Code UI with the extension running.
 
 Now you're ready to see some of these awesome features in action!
 
@@ -231,17 +231,17 @@ Gain valuable insights into your data transformation during each step of your de
 
 1. Locate the **table icon** for **Preview File** in the upper right corner. Click it to preview results in the **Query Results** tab.
 
-   [![Preview model query results.](/img/docs/extension/preview-query-results.png?v=2 "Preview model query results.")](#)Preview model query results.
+   ![Preview model query results.](/img/docs/extension/preview-query-results.png?v=2 "Preview model query results.")Preview model query results.
 
 2. Click **Preview CTE** above `orders as (` to preview results in the **Query Results** tab.
 
-   [![Preview CTE query results.](/img/docs/extension/preview-cte-query-results-3.png?v=2 "Preview CTE query results.")](#)Preview CTE query results.
+   ![Preview CTE query results.](/img/docs/extension/preview-cte-query-results-3.png?v=2 "Preview CTE query results.")Preview CTE query results.
 
 3. Locate the code icon for **Compile File** in between the dbt and the table icons. Clicking this icon opens a window with the compiled version of the model.
 
-   [![Compile File icon.](/img/docs/extension/compile-file-icon.png?v=2 "Compile File icon.")](#)Compile File icon.
+   ![Compile File icon.](/img/docs/extension/compile-file-icon.png?v=2 "Compile File icon.")Compile File icon.
 
-   [![Compile File results.](/img/docs/extension/compile-file.png?v=2 "Compile File results.")](#)Compile File results.
+   ![Compile File results.](/img/docs/extension/compile-file.png?v=2 "Compile File results.")Compile File results.
 
 #### Navigate your project with lineage tools
 
@@ -249,10 +249,10 @@ Almost as important as where your data is going is where it's been. The lineage 
 
 1. Open the **Lineage** tab to visualize the model-level lineage of this model.
 
-   [![Visualizing model-level lineage.](/img/docs/extension/extension-pane.png?v=2 "Visualizing model-level lineage.")](#)Visualizing model-level lineage.
+   ![Visualizing model-level lineage.](/img/docs/extension/extension-pane.png?v=2 "Visualizing model-level lineage.")Visualizing model-level lineage.
 2. Open the **View** menu, click **Command Palette** and enter `dbt: Show Column Lineage` to visualize the column-level lineage in the **Lineage** tab.
 
-   [![Show column-level lineage.](/img/docs/extension/show-cll.png?v=2 "Show column-level lineage.")](#)Show column-level lineage.
+   ![Show column-level lineage.](/img/docs/extension/show-cll.png?v=2 "Show column-level lineage.")Show column-level lineage.
 
 #### Use the power of SQL understanding
 
@@ -260,10 +260,10 @@ Code smarter, not harder. The autocomplete and context clues help avoid mistakes
 
 1. To see **Autocomplete** in action, delete `ref('stg_orders')`, and begin typing `ref(stg_` to see the subset of matching model names. Use up and down arrows to select `stg_orders`.
 
-   [![Autocomplete for a model name.](/img/docs/extension/autocomplete.png?v=2 "Autocomplete for a model name.")](#)Autocomplete for a model name.
+   ![Autocomplete for a model name.](/img/docs/extension/autocomplete.png?v=2 "Autocomplete for a model name.")Autocomplete for a model name.
 2. Hover over any `*` to see the list of column names and data types being selected.
 
-   [![Hovering over \* to see column names and data types.](/img/docs/extension/hover-star.png?v=2 "Hovering over * to see column names and data types.")](#)Hovering over \* to see column names and data types.
+   ![Hovering over \* to see column names and data types.](/img/docs/extension/hover-star.png?v=2 "Hovering over * to see column names and data types.")Hovering over \* to see column names and data types.
 
 #### Speed up common dbt commands
 
@@ -271,10 +271,10 @@ Testing, testing... is this mic on? It is and it's ready to execute your command
 
 1. The dbt icon in the top right opens a list of extension-specific commands:
 
-   [![Select a command via the dbt icon.](/img/docs/extension/run-command.png?v=2 "Select a command via the dbt icon.")](#)Select a command via the dbt icon.
+   ![Select a command via the dbt icon.](/img/docs/extension/run-command.png?v=2 "Select a command via the dbt icon.")Select a command via the dbt icon.
 2. Opening the **View** menu, clicking the **Command Palette**, and entering `>dbt:` in the command bar shows all the new commands that are available.
 
-   [![dbt commands in the command bar.](/img/docs/extension/extension-commands-all.png?v=2 "dbt commands in the command bar.")](#)dbt commands in the command bar.
+   ![dbt commands in the command bar.](/img/docs/extension/extension-commands-all.png?v=2 "dbt commands in the command bar.")dbt commands in the command bar.
 
 Try choosing some of them and see what they do 😎
 

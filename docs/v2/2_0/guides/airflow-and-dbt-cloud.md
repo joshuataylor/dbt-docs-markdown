@@ -1,6 +1,6 @@
 # Airflow and dbt
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -44,11 +44,15 @@ In this example, we’re using Homebrew to install Astro CLI. Follow the instruc
 brew install astro
 ```
 
+[Wistia video](https://fast.wistia.net/embed/iframe/uosszw1qul?seo=false\&videoFoam=true)
+
 ## Install and start Docker Desktop
 
 Docker allows us to spin up an environment with all the apps and dependencies we need for this guide.
 
 Follow the instructions [here](https://docs.docker.com/desktop/) to install Docker desktop for your own operating system. Once Docker is installed, ensure you have it up and running for the next steps.
+
+[Wistia video](https://fast.wistia.net/embed/iframe/qr84pa8k9f?seo=false\&videoFoam=true)
 
 ## Clone the airflow-dbt-cloud repository
 
@@ -91,11 +95,15 @@ For more information about cloning GitHub repositories, refer to "[Cloning a rep
 
    ![Airflow login screen](/assets/images/airflow-login-56d38c8b37cf6d5cfe9672e8274a2d19.png)
 
+[Wistia video](https://fast.wistia.net/embed/iframe/2rzsjo0uml?seo=false\&videoFoam=true)
+
 ## Create a dbt service token
 
 [Create a service token](../docs/dbt-apis/service-tokens.md) with `Job Admin` privileges from within dbt. Ensure that you save a copy of the token, as you won’t be able to access this later.
 
 As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create-a-personal-access-token) if you have a Developer, IT, or Read-only license.
+
+[Wistia video](https://fast.wistia.net/embed/iframe/amubh6qmwq?seo=false\&videoFoam=true)
 
 ## Create a dbt job
 
@@ -108,6 +116,8 @@ As an alternative, you can [create a PAT](../docs/dbt-apis/user-tokens.md#create
 ```html
 https://YOUR_ACCESS_URL/#/accounts/{account_id}/projects/{project_id}/jobs/{job_id}/
 ```
+
+[Wistia video](https://fast.wistia.net/embed/iframe/qiife5rzlp?seo=false\&videoFoam=true)
 
 ## Connect dbt to Airflow
 
@@ -138,6 +148,8 @@ Both IDs are included inside of the dbt job URL as shown in the following snippe
 ACCOUNT_ID = "16173"
 JOB_ID = "65767"
 ```
+
+[Wistia video](https://fast.wistia.net/embed/iframe/wgy7wvgqof?seo=false\&videoFoam=true)
 
 ## Run the Airflow DAG
 
@@ -174,6 +186,8 @@ airflow-dbt-cloud_e3fe3c-webserver-1    exited
 airflow-dbt-cloud_e3fe3c-scheduler-1    exited
 airflow-dbt-cloud_e3fe3c-postgres-1     exited
 ```
+
+[Wistia video](https://fast.wistia.net/embed/iframe/u83nuqegn9?seo=false\&videoFoam=true)
 
 ## Frequently asked questions
 

@@ -1,6 +1,6 @@
 # osi-paths
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 

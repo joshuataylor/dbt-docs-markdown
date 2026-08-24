@@ -1,6 +1,6 @@
 # Migrate from dbt-spark to dbt-databricks
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

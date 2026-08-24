@@ -161,7 +161,7 @@ To explore a model in your project's lineage graph in Catalog:
 2. Click the **View lineage** button.
 3. Click a model to view the description.
 
-[![Example of full lineage graph](/img/docs/collaborate/dbt-explorer/example-project-lineage-graph.png?v=2 "Example of full lineage graph")](#)Example of full lineage graph
+![Example of full lineage graph](/img/docs/collaborate/dbt-explorer/example-project-lineage-graph.png?v=2 "Example of full lineage graph")Example of full lineage graph
 
 ## Lenses
 
@@ -201,7 +201,7 @@ Example of applying the **Materialization type** *lens* on a zoomed-out lineage 
 * Ephemeral
 * Materialized View.
 
-[![Example of the Materialization type lens](/img/docs/collaborate/dbt-explorer/example-materialization-type.png?v=2 "Example of the Materialization type lens")](#)Example of the Materialization type lens
+![Example of the Materialization type lens](/img/docs/collaborate/dbt-explorer/example-materialization-type.png?v=2 "Example of the Materialization type lens")Example of the Materialization type lens
 
 Example of applying the **Test status** *lens* on a lineage graph filtered to models. In the bottom-left corner, open **Lenses** and select **Test status**. Each node displays a colored badge for its latest test status:
 
@@ -212,7 +212,7 @@ Example of applying the **Test status** *lens* on a lineage graph filtered to mo
 * Skipped
 * Reused.
 
-[![Example of the Test Status lens](/img/docs/collaborate/dbt-explorer/example-test-status.png?v=2 "Example of the Test Status lens")](#)Example of the Test Status lens
+![Example of the Test Status lens](/img/docs/collaborate/dbt-explorer/example-test-status.png?v=2 "Example of the Test Status lens")Example of the Test Status lens
 
 ## Keyword search
 
@@ -357,9 +357,9 @@ To view a model's details page in Catalog:
 
 On the **General** tab, you can review the description, latest status, and lineage graph. Select **Full Lineage** to open the full graph view.
 
-[![Example of resource details](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Example of resource details")](#)Example of resource details
+![Example of resource details](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Example of resource details")Example of resource details
 
-[![Example of downstream exposure details for Tableau.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "Example of downstream exposure details for Tableau.")](#)Example of downstream exposure details for Tableau.
+![Example of downstream exposure details for Tableau.](/img/docs/platform-integrations/auto-exposures/explorer-lineage2.png?v=2 "Example of downstream exposure details for Tableau.")Example of downstream exposure details for Tableau.
 
 ## Staging environment
 

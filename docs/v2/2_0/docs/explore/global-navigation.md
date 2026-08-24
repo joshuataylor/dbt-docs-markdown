@@ -11,6 +11,8 @@ Global navigation search varies depending on your [dbt platform](https://www.get
 * Enterprise plans — Catalog lets you search across all [dbt resources](../build/projects.md) (models, seeds, snapshots, sources, exposures, and more) in your account.
 * Starter plans (single project) — Use global navigation to search and navigate resources within your project
 
+[Loom video](https://www.loom.com/embed/ae93b3d241cd439fbe5f98f5e6872113)
+
 ## About Global navigation
 
 Global navigation in Catalog lets you search, explore, and analyze data assets across all your dbt projects and connected metadata sources—giving you a unified, account-wide view of your analytics ecosystem. With global navigation, you can:

@@ -10,7 +10,7 @@ The primary function of `set_sql_header` is fairly limited. It's intended to:
 * [Set script variables](https://cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) (BigQuery)
 * [Set temporary session parameters](./sql_header.md#set-snowflake-session-parameters-for-a-particular-model) (Snowflake)
 
-### Models
+## Models
 
 models/\<modelname>.sql
 
@@ -32,11 +32,11 @@ models:
     +sql_header: <sql-statement>
 ```
 
-### Seeds
+## Seeds
 
 This config is not implemented for seeds
 
-### Snapshots
+## Snapshots
 
 snapshots/\<filename>.sql
 
@@ -60,7 +60,7 @@ snapshots:
     +sql_header: <sql-statement>
 ```
 
-### Property file
+## Property file
 
 Setting `sql_header` in the `config` of a [generic data test](../../docs/build/data-tests.md) is available starting in dbt Core v1.12. Enable the [`require_sql_header_in_test_configs`](../global-configs/behavior-flags/require_sql_header_in_test_configs.md) flag to use `sql_header` in `properties.yml` for generic data tests.
 

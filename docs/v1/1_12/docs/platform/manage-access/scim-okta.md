@@ -24,7 +24,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
 
 4. Click **Save** and the **Provisioning** tab will now be visible.
 
-   [![Enable SCIM provisioning in Okta.](/img/docs/dbt-platform/access-control/scim-provisioned.png?v=2 "Enable SCIM provisioning in Okta.")](#)Enable SCIM provisioning in Okta.
+   ![Enable SCIM provisioning in Okta.](/img/docs/dbt-platform/access-control/scim-provisioned.png?v=2 "Enable SCIM provisioning in Okta.")Enable SCIM provisioning in Okta.
 
 5. Open the **Provisioning** tab and select **Integration**.
 
@@ -42,7 +42,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
 
 9. In the **Authorization** section, enter the token from dbt into the **Bearer** field.
 
-   [![The completed SCIM configuration in the Okta app.](/img/docs/dbt-platform/access-control/scim-okta-config.png?v=2 "The completed SCIM configuration in the Okta app.")](#)The completed SCIM configuration in the Okta app.
+   ![The completed SCIM configuration in the Okta app.](/img/docs/dbt-platform/access-control/scim-okta-config.png?v=2 "The completed SCIM configuration in the Okta app.")The completed SCIM configuration in the Okta app.
 
 10. Click **Save** to test the connection and you will be taken to the **Provisioning** tab.
 
@@ -52,7 +52,7 @@ System for Cross-Domain Identity Management (SCIM) [license mapping](./scim-mana
     * **Update User Attributes**
     * **Deactivate Users**
 
-    [![Ensure the users are properly provisioned with these settings.](/img/docs/dbt-platform/access-control/provisioning-actions.png?v=2 "Ensure the users are properly provisioned with these settings.")](#)Ensure the users are properly provisioned with these settings.
+    ![Ensure the users are properly provisioned with these settings.](/img/docs/dbt-platform/access-control/provisioning-actions.png?v=2 "Ensure the users are properly provisioned with these settings.")Ensure the users are properly provisioned with these settings.
 
 12. Click **Save** to complete the provisioning configuration.
 

@@ -1,6 +1,6 @@
 # schema
 
-### Model
+## Model
 
 Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a group of models in your project YAML file (`dbt_project.yml`), in a [SQL file config](./schema.md#models), or in a property YAML file.
 
@@ -28,7 +28,7 @@ models:
 
 This would result in the generated relations for these models being located in the `marketing` schema, so the full relation names would be `analytics.target_schema_marketing.model_name`. This is because the schema of the relation is `{{ target.schema }}_{{ schema }}`. The [definition](#definition) section explains this in more detail.
 
-### Seeds
+## Seeds
 
 Configure a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) in your `dbt_project.yml` file.
 
@@ -45,7 +45,7 @@ seeds:
 
 This would result in the generated relation being located in the `mappings` schema, so the full relation name would be `analytics.mappings.seed_name`.
 
-### Snapshots
+## Snapshots
 
 (Applies to dbt v1.9 and later)
 
@@ -78,7 +78,7 @@ snapshots:
 
 This results in the generated relation being located in the `snapshots` schema so the full relation name would be `analytics.snapshots.your_snapshot` instead of the default target schema.
 
-### Saved queries
+## Saved queries
 
 Specify a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for a [saved query](../../docs/build/saved-queries.md#parameters) in your `dbt_project.yml` or property file.
 
@@ -91,7 +91,7 @@ saved-queries:
 
 This would result in the saved query being stored in the `metrics` schema.
 
-### Test
+## Test
 
 Customize a [custom schema](../../docs/build/custom-schemas.md#understanding-custom-schemas) for storing test results in your `dbt_project.yml` file.
 

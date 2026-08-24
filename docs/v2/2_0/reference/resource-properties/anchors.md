@@ -47,7 +47,7 @@ models:
       - name: unrelated_column_d
 ```
 
-[![Behind the scenes, the alias is replaced with the object defined by the anchor.](/img/reference/resource-properties/anchor_example_expansion.png?v=2 "Behind the scenes, the alias is replaced with the object defined by the anchor.")](#)Behind the scenes, the alias is replaced with the object defined by the anchor.
+![Behind the scenes, the alias is replaced with the object defined by the anchor.](/img/reference/resource-properties/anchor_example_expansion.png?v=2 "Behind the scenes, the alias is replaced with the object defined by the anchor.")Behind the scenes, the alias is replaced with the object defined by the anchor.
 
 ### Merge syntax
 

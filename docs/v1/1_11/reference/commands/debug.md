@@ -254,4 +254,4 @@ Test the connection in the Studio IDE:
 dbt debug --connection
 ```
 
-[![Test the connection in the Studio IDE](/img/reference/dbt-debug-ide.png?v=2 "Test the connection in the Studio IDE")](#)Test the connection in the Studio IDE
+![Test the connection in the Studio IDE](/img/reference/dbt-debug-ide.png?v=2 "Test the connection in the Studio IDE")Test the connection in the Studio IDE

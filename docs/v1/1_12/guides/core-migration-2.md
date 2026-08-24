@@ -1,6 +1,6 @@
 # Move from dbt Core to the dbt platform: What you need to know
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

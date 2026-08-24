@@ -16,11 +16,11 @@ In your dbt account:
 
    However, before deleting these groups, ensure that any existing users — including yourself — are reassigned to their appropriate organizational groups. You won’t be able to delete the `Owner` group until *at least* one user is added to another group with the account admin permission set or if there is a user with an IT license. This safety ensures that an account admin is always available to manage group changes.
 
-[![Groups & Licenses page in dbt with the default groups highlighted.](/img/docs/dbt-platform/groups-and-licenses.png?v=2 "Groups & Licenses page in dbt with the default groups highlighted.")](#)Groups & Licenses page in dbt with the default groups highlighted.
+![Groups & Licenses page in dbt with the default groups highlighted.](/img/docs/dbt-platform/groups-and-licenses.png?v=2 "Groups & Licenses page in dbt with the default groups highlighted.")Groups & Licenses page in dbt with the default groups highlighted.
 
 3. Create a new or open an existing group. If it's a new group, give it a name, then scroll down to **Access & permissions**. Click **Add permission**.
 
-[![The Access & permissions section with the Add button highlighted.](/img/docs/dbt-platform/add-permissions.png?v=2 "The Access & permissions section with the Add button highlighted.")](#)The Access & permissions section with the Add button highlighted.
+![The Access & permissions section with the Add button highlighted.](/img/docs/dbt-platform/add-permissions.png?v=2 "The Access & permissions section with the Add button highlighted.")The Access & permissions section with the Add button highlighted.
 
 4. Select the **Permission set** for the group. Only the following permissions sets can have environment-level permissions configured:
 
@@ -34,11 +34,11 @@ In your dbt account:
 
    If you select a permission set that is not supported, the environment permission option will not appear.
 
-[![The view of the permissions box if there is no option for environment permissions.](/img/docs/dbt-platform/no-option.png?v=2 "The view of the permissions box if there is no option for environment permissions.")](#)The view of the permissions box if there is no option for environment permissions.
+![The view of the permissions box if there is no option for environment permissions.](/img/docs/dbt-platform/no-option.png?v=2 "The view of the permissions box if there is no option for environment permissions.")The view of the permissions box if there is no option for environment permissions.
 
 5. Select the **Environment** for group access. The default is **All environments**, but you can select multiple. If none are selected, the group will have read-only access.
 
-[![A list of available environments with the Staging and General boxes selected.](/img/docs/dbt-platform/environment-options.png?v=2 "A list of available environments with the Staging and General boxes selected.")](#)A list of available environments with the Staging and General boxes selected.
+![A list of available environments with the Staging and General boxes selected.](/img/docs/dbt-platform/environment-options.png?v=2 "A list of available environments with the Staging and General boxes selected.")A list of available environments with the Staging and General boxes selected.
 
 6. If you need the same permission set with different project scope or environment write access, click **Add permission** again and configure another row. Each row can use the same permission set with different project and environment selections.
 
@@ -50,8 +50,8 @@ Users with permissions to the environment will see all capabilities assigned to 
 
 For example, here is an overview of the **Jobs** section of the environment page if a user has been granted access:
 
-[![The jobs page with write access and the 'Create job' button visible .](/img/docs/dbt-platform/write-access.png?v=2 "The jobs page with write access and the 'Create job' button visible .")](#)The jobs page with write access and the 'Create job' button visible .
+![The jobs page with write access and the 'Create job' button visible .](/img/docs/dbt-platform/write-access.png?v=2 "The jobs page with write access and the 'Create job' button visible .")The jobs page with write access and the 'Create job' button visible .
 
 The same page if the user has not been granted environment-level permissions:
 
-[![The jobs page with read-only access and the 'Create job' button is not visible .](/img/docs/dbt-platform/read-only-access.png?v=2 "The jobs page with read-only access and the 'Create job' button is not visible .")](#)The jobs page with read-only access and the 'Create job' button is not visible .
+![The jobs page with read-only access and the 'Create job' button is not visible .](/img/docs/dbt-platform/read-only-access.png?v=2 "The jobs page with read-only access and the 'Create job' button is not visible .")The jobs page with read-only access and the 'Create job' button is not visible .

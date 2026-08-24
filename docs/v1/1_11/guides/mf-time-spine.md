@@ -1,6 +1,6 @@
 # Quickstart with MetricFlow time spine
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -23,7 +23,7 @@ And once you have a time spine, you need to configure it in YAML to tell MetricF
 
 Before you start, make sure you have:
 
-* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](../guides.md?tags=Quickstart) guide to help you get started.
+* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](https://docs.getdbt.com/guides?tags=Quickstart) guide to help you get started.
 
 ## Add a time spine SQL model
 
@@ -79,7 +79,7 @@ The time spine is a dbt model that generates a series of dates (or timestamps) a
 
 4. If developing in the Studio IDE, you can preview the model by clicking the **Preview** button:
 
-   [![Preview the time spine model in the Studio IDE](/img/mf-guide-preview-time-spine-table.png?v=2 "Preview the time spine model in the Studio IDE")](#)Preview the time spine model in the Studio IDE
+   ![Preview the time spine model in the Studio IDE](/img/mf-guide-preview-time-spine-table.png?v=2 "Preview the time spine model in the Studio IDE")Preview the time spine model in the Studio IDE
 
 ## Add YAML configuration for the time spine
 
@@ -150,7 +150,7 @@ For the time spine you created, let's run it and preview the output if you haven
 
 2. If developing in the Studio IDE, you can preview the model by clicking the **Preview** button:
 
-   [![Preview the time spine model in the Studio IDE](/img/mf-guide-preview-time-spine-table.png?v=2 "Preview the time spine model in the Studio IDE")](#)Preview the time spine model in the Studio IDE
+   ![Preview the time spine model in the Studio IDE](/img/mf-guide-preview-time-spine-table.png?v=2 "Preview the time spine model in the Studio IDE")Preview the time spine model in the Studio IDE
 
 3. Check that the model:
 
@@ -167,7 +167,7 @@ For the time spine you created, let's run it and preview the output if you haven
 
    This will output results similar to the following in the Studio IDE:
 
-   [![Validate the metrics and time spine output in the Studio IDE](/img/quickstarts/dbt-platform/validate-mf-timespine-output.png?v=2 "Validate the metrics and time spine output in the Studio IDE")](#)Validate the metrics and time spine output in the Studio IDE
+   ![Validate the metrics and time spine output in the Studio IDE](/img/quickstarts/dbt-platform/validate-mf-timespine-output.png?v=2 "Validate the metrics and time spine output in the Studio IDE")Validate the metrics and time spine output in the Studio IDE
 
 5. Double check that the results are correct and returning the expected data.
 
@@ -249,7 +249,7 @@ To support multiple granularities (like hourly, yearly, monthly), create additio
 
 If you're developing in the Studio IDE, you can preview the model by clicking the **Preview** button.
 
-[![Validate the metrics and time spine output in the Studio IDE](/img/mf-guide-query.png?v=2 "Validate the metrics and time spine output in the Studio IDE")](#)Validate the metrics and time spine output in the Studio IDE
+![Validate the metrics and time spine output in the Studio IDE](/img/mf-guide-query.png?v=2 "Validate the metrics and time spine output in the Studio IDE")Validate the metrics and time spine output in the Studio IDE
 
 Extra credit!
 
@@ -342,7 +342,7 @@ To support custom calendars (like fiscal years, fiscal quarters, and so on), cre
    dbt sl query --metrics orders --group-by metric_time__fiscal_year
    ```
 
-   [![Validate the custom calendar metrics and time spine output in the Studio IDE](/img/mf-guide-fiscal-preview.png?v=2 "Validate the custom calendar metrics and time spine output in the Studio IDE")](#)Validate the custom calendar metrics and time spine output in the Studio IDE
+   ![Validate the custom calendar metrics and time spine output in the Studio IDE](/img/mf-guide-fiscal-preview.png?v=2 "Validate the custom calendar metrics and time spine output in the Studio IDE")Validate the custom calendar metrics and time spine output in the Studio IDE
 
 ## What's next
 

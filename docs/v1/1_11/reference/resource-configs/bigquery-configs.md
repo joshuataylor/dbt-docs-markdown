@@ -36,7 +36,7 @@ When using a `datetime` or `timestamp` column to partition data, you can create 
 
 If the `data_type` is specified as a `date` and the granularity is day, dbt will supply the field as-is when configuring table partitioning.
 
-### Source code
+##### Source code
 
 bigquery\_table.sql
 
@@ -58,7 +58,7 @@ select
 from {{ ref('events') }}
 ```
 
-### Compiled code
+##### Compiled code
 
 bigquery\_table.sql
 
@@ -83,7 +83,7 @@ BigQuery supports an [older mechanism of partitioning](https://cloud.google.com/
 
 dbt will always instruct BigQuery to partition your table by the values of the column specified in `partition_by.field`. By configuring your model with `partition_by.time_ingestion_partitioning` set to `True`, dbt will use that column as the input to a `_PARTITIONTIME` pseudocolumn. Unlike with newer column-based partitioning, you must ensure that the values of your partitioning column match exactly the time-based granularity of your partitions.
 
-### Source code
+##### Source code
 
 bigquery\_table.sql
 
@@ -108,7 +108,7 @@ select
 from {{ ref('events') }}
 ```
 
-### Compiled code
+##### Compiled code
 
 bigquery\_table.sql
 
@@ -133,7 +133,7 @@ select created_date as _partitiontime, * EXCEPT(created_date) from (
 
 If the `data_type` is specified as `int64`, then a `range` key must also be provided in the `partition_by` dict. dbt will use the values provided in the `range` dict to generate the partitioning clause for the table.
 
-### Source code
+##### Source code
 
 bigquery\_table.sql
 
@@ -159,7 +159,7 @@ select
 from {{ ref('events') }}
 ```
 
-### Compiled code
+##### Compiled code
 
 bigquery\_table.sql
 
@@ -332,7 +332,7 @@ models:
         domain: finance
 ```
 
-[![Viewing labels in the BigQuery console](/img/docs/building-a-dbt-project/building-models/73eaa8a-Screen_Shot_2020-01-20_at_12.12.54_PM.png?v=2 "Viewing labels in the BigQuery console")](#)Viewing labels in the BigQuery console
+![Viewing labels in the BigQuery console](/img/docs/building-a-dbt-project/building-models/73eaa8a-Screen_Shot_2020-01-20_at_12.12.54_PM.png?v=2 "Viewing labels in the BigQuery console")Viewing labels in the BigQuery console
 
 ### Applying labels to jobs
 
@@ -1014,7 +1014,7 @@ Dataproc (`serverless` or pre-configured `cluster`) can execute Python models as
 * Enable Dataproc APIs for your project and region.
 * If using the `cluster` submission method: Create or use an existing [Dataproc cluster](https://cloud.google.com/dataproc/docs/guides/create-cluster) with the [Spark BigQuery connector initialization action](https://github.com/GoogleCloudDataproc/initialization-actions/tree/master/connectors#bigquery-connectors). (Google recommends copying the action into your own Cloud Storage bucket, rather than using the example version shown in the screenshot.)
 
-[![Add the Spark BigQuery connector as an initialization action](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-connector-initialization.png?v=2 "Add the Spark BigQuery connector as an initialization action")](#)Add the Spark BigQuery connector as an initialization action
+![Add the Spark BigQuery connector as an initialization action](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-connector-initialization.png?v=2 "Add the Spark BigQuery connector as an initialization action")Add the Spark BigQuery connector as an initialization action
 
 The following configurations are needed to run Python models on Dataproc. You can add these to your [BigQuery profile](../../docs/local/connect-data-platform/bigquery-setup.md#running-python-models-on-dataproc) or configure them on specific Python models:
 
@@ -1090,7 +1090,7 @@ Installation of third-party packages on Dataproc varies depending on whether it'
                   container_image: {HOSTNAME}/{PROJECT_ID}/{IMAGE}:{TAG}
   ```
 
-[![Adding packages to install via pip at cluster startup](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-pip-packages.png?v=2 "Adding packages to install via pip at cluster startup")](#)Adding packages to install via pip at cluster startup
+![Adding packages to install via pip at cluster startup](/img/docs/building-a-dbt-project/building-models/python-models/dataproc-pip-packages.png?v=2 "Adding packages to install via pip at cluster startup")Adding packages to install via pip at cluster startup
 
 ### Additional parameters
 

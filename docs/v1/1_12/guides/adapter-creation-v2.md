@@ -1,6 +1,6 @@
 # Contribute a dbt Core 2.0 adapter
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -41,7 +41,7 @@ As a community contributor, you're building the foundation: connect your warehou
 
 Think of your adapter contribution as the bridge between dbt Core v2.0 and your warehouse: everything dbt needs to talk to it, nothing more. The architecture diagram below shows where your work fits in the stack.
 
-[![dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse](/img/adapter-guide/adapter-creation-v2-architecture.svg?v=2 "dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse")](#)dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse
+![dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse](/img/adapter-guide/adapter-creation-v2-architecture.svg?v=2 "dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse")dbt Core v2.0 adapter architecture diagram showing the community contribution zone within the monorepo, the ADBC C ABI boundary, the ADBC driver, and the warehouse
 
 ## Step 2: Prerequisites
 
@@ -85,7 +85,7 @@ dbt Core v2.0 organizes adapter logic by *capability*, not by warehouse. There's
 
 The structural diagram below shows how the layers fit together. Your work lives in the **ADAPTER** layer: the crates that handle warehouse identity, credential resolution, relation logic, and Jinja dispatch. XDBC (driver loading and connection pooling) sits just below and has a small registration step too.
 
-[![dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers](/img/adapter-guide/adapter-creation-v2-structural.svg?v=2 "dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers")](#)dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers
+![dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers](/img/adapter-guide/adapter-creation-v2-structural.svg?v=2 "dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers")dbt Core v2.0 system layers diagram showing USER, CLI, PIPELINE, TASK RUNNER, ADAPTER (highlighted as the contribution zone), XDBC, and WAREHOUSE layers
 
 ### Crate map
 
@@ -145,7 +145,7 @@ Each failure is a concrete implementation task.
 
 No v1 adapter? Skip to [Step 4](#step-4-development-machine-setup). If you're porting, use this map to see exactly what transfers, what needs rethinking, and what dbt Labs now owns for you in v2.
 
-[![Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)](/img/adapter-guide/adapter-creation-v2-blocks.svg?v=2 "Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)")](#)Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)
+![Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)](/img/adapter-guide/adapter-creation-v2-blocks.svg?v=2 "Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)")Diagram showing which v1 adapter components map directly to v2 (green), require rethinking (purple), or are absorbed by dbt Labs or the ADBC driver (red)
 
 Most community contributors aren't building from scratch, they're porting an adapter they already maintain or use in Python for dbt Core v1. If that's you, **you have a significant head start**, and this is the most realistic path for the vast majority of contributors.
 

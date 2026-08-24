@@ -22,7 +22,7 @@ Indirect dependencies
 
 When viewing a project's lineage, Catalog shows only *directly* [referenced](../mesh/govern/project-dependencies.md) public models. It doesn't show [indirect dependencies](../../faqs/Project_ref/indirectly-reference-upstream-model.md). If a referenced model in your project depends on another upstream public model, the second-level model won't appear in Catalog, however it will appear in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) lineage view.
 
-[![View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.](/img/docs/collaborate/dbt-explorer/cross-project-lineage-parent.png?v=2 "View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.")](#)View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.
+![View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.](/img/docs/collaborate/dbt-explorer/cross-project-lineage-parent.png?v=2 "View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.")View your cross-project lineage in a parent project and the other projects that reference it by clicking the 'Relationships' tab.
 
 When viewing a downstream (child) project that imports and refs public models from upstream (parent) projects:
 
@@ -30,7 +30,7 @@ When viewing a downstream (child) project that imports and refs public models fr
 * Clicking on a model opens a side panel containing general information about the model, such as the specific dbt project that produces that model, description, package, and more.
 * Double-clicking on a model from another project opens the resource-level lineage graph of the parent project, if you have the permissions to do so.
 
-[![View a downstream (child) project that imports and refs public models from the upstream (parent) project.](/img/docs/collaborate/dbt-explorer/cross-project-child.png?v=2 "View a downstream (child) project that imports and refs public models from the upstream (parent) project.")](#)View a downstream (child) project that imports and refs public models from the upstream (parent) project.
+![View a downstream (child) project that imports and refs public models from the upstream (parent) project.](/img/docs/collaborate/dbt-explorer/cross-project-child.png?v=2 "View a downstream (child) project that imports and refs public models from the upstream (parent) project.")View a downstream (child) project that imports and refs public models from the upstream (parent) project.
 
 ## Explore the project-level lineage graph
 
@@ -47,7 +47,7 @@ To view all projects in your account as a lineage graph or list:
 
 On the account-level lineage graph, each project appears as its own node with the project name and a count of public models it exposes. Arrows between nodes show how projects depend on one another. The top toolbar includes a search bar and **List view** and lineage view toggles. Zoom controls appear in the lower right corner.
 
-[![Account-level lineage graph showing cross-project dependencies between projects.](/img/docs/collaborate/dbt-explorer/account-level-lineage.gif?v=2 "Account-level lineage graph showing cross-project dependencies between projects.")](#)Account-level lineage graph showing cross-project dependencies between projects.
+![Account-level lineage graph showing cross-project dependencies between projects.](/img/docs/collaborate/dbt-explorer/account-level-lineage.gif?v=2 "Account-level lineage graph showing cross-project dependencies between projects.")Account-level lineage graph showing cross-project dependencies between projects.
 
 From the account-level lineage graph, you can also:
 
@@ -62,7 +62,7 @@ From a project's **Overview** page, click **View lineage** to open the resource-
 * Downstream projects that reference the project's public models, shown as separate project nodes connected by dashed lines.
 * A search bar, **Lenses**, a **Resource type** filter, a resource-type legend, and zoom controls.
 
-[![Resource-level lineage graph with a selected model and the Relationships tab.](/img/docs/collaborate/dbt-explorer/multi-project-overview.gif?v=2 "Resource-level lineage graph with a selected model and the Relationships tab.")](#)Resource-level lineage graph with a selected model and the Relationships tab.
+![Resource-level lineage graph with a selected model and the Relationships tab.](/img/docs/collaborate/dbt-explorer/multi-project-overview.gif?v=2 "Resource-level lineage graph with a selected model and the Relationships tab.")Resource-level lineage graph with a selected model and the Relationships tab.
 
 When you select a model, a details panel opens on the right:
 

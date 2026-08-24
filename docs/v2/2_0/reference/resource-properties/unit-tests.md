@@ -1,6 +1,6 @@
 # About unit tests property
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 

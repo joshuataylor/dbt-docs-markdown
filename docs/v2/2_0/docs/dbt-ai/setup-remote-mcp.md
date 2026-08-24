@@ -4,7 +4,7 @@ dbt platform
 
 The remote MCP server uses an HTTP connection and makes calls to dbt-mcp hosted on the cloud-based dbt platform. The self-hosted installation is not required for remote MCP use and is ideal for data consumption use cases.
 
-[![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")](#)Remote dbt MCP server architecture
+![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")Remote dbt MCP server architecture
 
 ## When to use remote MCP
 
@@ -147,7 +147,7 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 
 ### OAuth
 
-### Claude Code
+#### Claude Code
 
 ```json
 {
@@ -160,7 +160,7 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
-### Cursor
+#### Cursor
 
 ```json
 {
@@ -174,7 +174,7 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 
 ### Token-based
 
-### Claude Code
+#### Claude Code
 
 ```json
 {
@@ -193,7 +193,7 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
-### Cursor
+#### Cursor
 
 ```json
 {
@@ -211,7 +211,7 @@ The MCP protocol is programming language and framework agnostic, so use whatever
 }
 ```
 
-### Gemini
+#### Gemini
 
 ```json
 {

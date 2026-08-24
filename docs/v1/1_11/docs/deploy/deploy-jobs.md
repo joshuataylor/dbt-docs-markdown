@@ -77,7 +77,7 @@ dbt uses [Coordinated Universal Time](https://en.wikipedia.org/wiki/Coordinated_
    * **dbt version** — By default, it’s set to inherit the [dbt version](../dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
    * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
 
-   [![Example of Advanced Settings on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/deploy-job-adv-settings.png?v=2 "Example of Advanced Settings on the Deploy Job page")](#)Example of Advanced Settings on the Deploy Job page
+   ![Example of Advanced Settings on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/deploy-job-adv-settings.png?v=2 "Example of Advanced Settings on the Deploy Job page")Example of Advanced Settings on the Deploy Job page
 
 ### Schedule days
 
@@ -139,7 +139,7 @@ To *chain* deploy jobs together:
    * You can also use the [Create Job API](https://docs.getdbt.com/dbt-cloud/api-v2#/operations/Create%20Job) to do this.
 4. In the **Completes on** option, select the job run status(es) that will [enqueue](./job-scheduler.md#scheduler-queue) the deploy job.
 
-[![Example of Trigger on job completion on the Deploy job page](/img/docs/deploy/deploy-job-completion.png?v=2 "Example of Trigger on job completion on the Deploy job page")](#)Example of Trigger on job completion on the Deploy job page
+![Example of Trigger on job completion on the Deploy job page](/img/docs/deploy/deploy-job-completion.png?v=2 "Example of Trigger on job completion on the Deploy job page")Example of Trigger on job completion on the Deploy job page
 
 5. You can set up a configuration where an upstream job triggers multiple downstream (child) jobs and jobs in other projects. You must have proper [permissions](../platform/manage-access/enterprise-permissions.md#project-role-permissions) to the project and job to configure the trigger.
 
@@ -154,7 +154,7 @@ To delete a job or multiple jobs in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete job** to delete the job.
 
-[![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")](#)Delete a job
+![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")Delete a job
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the job immediately. This action cannot be undone. However, you can create a new job with the same information if the deletion was made in error.
 6. Refresh the page, and the deleted job should now be gone. If you want to delete multiple jobs, you'll need to perform these steps for each job.
@@ -168,7 +168,7 @@ On the **Environments** page, there are two sections that provide an overview of
 * **In progress** — Lists the currently in progress jobs with information on when the run started
 * **Top jobs by models built** — Ranks jobs by the number of models built over a specific time
 
-[![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")](#)In progress jobs and Top jobs by models built
+![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")In progress jobs and Top jobs by models built
 
 ## Job settings history
 
@@ -181,7 +181,7 @@ To view the change history:
 3. Click **Settings**.
 4. Click **History**.
 
-[![Example of the job settings history.](/img/docs/deploy/job-history.png?v=2 "Example of the job settings history.")](#)Example of the job settings history.
+![Example of the job settings history.](/img/docs/deploy/job-history.png?v=2 "Example of the job settings history.")Example of the job settings history.
 
 ## Related docs
 

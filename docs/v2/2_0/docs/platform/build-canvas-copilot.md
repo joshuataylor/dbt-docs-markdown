@@ -34,7 +34,7 @@ To begin building models with natural language prompts in the Canvas:
 
    * To start over, click on the **+** icon. To close the prompt box, click **X**.
 
-   [![Enter a prompt in the dbt Copilot prompt box to build models using natural language](/img/docs/dbt-platform/copilot-generate.jpg?v=2 "Enter a prompt in the dbt Copilot prompt box to build models using natural language")](#)Enter a prompt in the dbt Copilot prompt box to build models using natural language
+   ![Enter a prompt in the dbt Copilot prompt box to build models using natural language](/img/docs/dbt-platform/copilot-generate.jpg?v=2 "Enter a prompt in the dbt Copilot prompt box to build models using natural language")Enter a prompt in the dbt Copilot prompt box to build models using natural language
 
 4. Click **Apply** to generate the model(s) in the Canvas.
 
@@ -43,7 +43,7 @@ To begin building models with natural language prompts in the Canvas:
    * White: Located in the top of the canvas and means existing set up or blank canvas that will be removed or replaced by the suggested changes.
    * Green: Located in the bottom of the canvas and means new code that will be added if you accept the suggestion.
 
-   [![Visual diff view of proposed changes](/img/docs/dbt-platform/copilot-diff.jpg?v=2 "Visual diff view of proposed changes")](#)Visual diff view of proposed changes
+   ![Visual diff view of proposed changes](/img/docs/dbt-platform/copilot-diff.jpg?v=2 "Visual diff view of proposed changes")Visual diff view of proposed changes
 
 6. Reject or accept the suggestions
 
@@ -51,7 +51,7 @@ To begin building models with natural language prompts in the Canvas:
 
 8. Confirm the results or continue building your model.
 
-   [![Use the generated operator with play icon to preview the data](/img/docs/dbt-platform/copilot-output.jpg?v=2 "Use the generated operator with play icon to preview the data")](#)Use the generated operator with play icon to preview the data
+   ![Use the generated operator with play icon to preview the data](/img/docs/dbt-platform/copilot-output.jpg?v=2 "Use the generated operator with play icon to preview the data")Use the generated operator with play icon to preview the data
 
 9. To edit the generated model, open **dbt Copilot** prompt box and type your edits.
 

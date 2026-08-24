@@ -14,13 +14,13 @@ Connect your dbt profile to Azure DevOps using OAuth:
 
 3. Go to the **Linked accounts** section in the middle of the page.
 
-   [![Azure DevOps Authorization Screen](/img/docs/dbt-platform/connecting-azure-devops/LinktoAzure.png?v=2 "Azure DevOps Authorization Screen")](#)Azure DevOps Authorization Screen
+   ![Azure DevOps Authorization Screen](/img/docs/dbt-platform/connecting-azure-devops/LinktoAzure.png?v=2 "Azure DevOps Authorization Screen")Azure DevOps Authorization Screen
 
 4. Once you're redirected to Azure DevOps, sign into your account.
 
 5. When you see the permission request screen from Azure DevOps App, click **Accept**.
 
-   [![Azure DevOps Authorization Screen](</img/docs/dbt-platform/connecting-azure-devops/OAuth Acceptance.png?v=2> "Azure DevOps Authorization Screen")](#)Azure DevOps Authorization Screen
+   ![Azure DevOps Authorization Screen](</img/docs/dbt-platform/connecting-azure-devops/OAuth Acceptance.png?v=2> "Azure DevOps Authorization Screen")Azure DevOps Authorization Screen
 
 You will be directed back to dbt, and your profile should be linked. You are now ready to develop in dbt!
 
@@ -58,7 +58,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 4. Save the changes but *don't commit*.
 5. Restart the IDE by clicking on the three dots next to the **IDE Status button** on the lower right corner of the IDE screen and select **Restart IDE**.
 
-[![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")](#)Restart the IDE by clicking the three dots on the lower right or click on the Status bar
+![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")Restart the IDE by clicking the three dots on the lower right or click on the Status bar
 
 6. Once the Studio IDE restarts, go to the **File Catalog** to delete the following files or folders (if they exist). No data will be lost:
 
@@ -80,7 +80,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 
 13. Verify the changes by making sure the files/folders in the `.gitignore` file are in italics.
 
-[![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")](#)A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
+![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
 
  Fix in the Git provider
 
@@ -162,7 +162,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
 4. Click on the **Repository** link, then click **Edit** and **Disconnect**.
 
-   [![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")](#)Disconnect and reconnect your Git repository in your dbt Account settings page.
+   ![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")Disconnect and reconnect your Git repository in your dbt Account settings page.
 
 5. Click **Confirm Disconnect**.
 

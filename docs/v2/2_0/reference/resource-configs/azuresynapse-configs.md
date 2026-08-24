@@ -8,7 +8,7 @@ Additionally, the configuration options below are available.
 
 The main index and the distribution type can be set for models that are materialized to tables.
 
-### Model config
+#### Model config
 
 models/example.sql
 
@@ -24,7 +24,7 @@ select *
 from ...
 ```
 
-### Project config
+#### Project config
 
 dbt\_project.yml
 

@@ -1,6 +1,6 @@
 # Migrate off legacy dbt versions
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -63,7 +63,7 @@ Follow these steps to delete an environment in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete** to delete the environment.
 
-[![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")](#)Delete an environment
+![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")Delete an environment
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the environment immediately. This action cannot be undone. However, you can create a new environment with the same information if the deletion was made in error.
 6. Refresh your page and the deleted environment should now be gone. To delete multiple environments, you'll need to perform these steps to delete each one.

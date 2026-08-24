@@ -43,4 +43,4 @@ Use dbt Copilot to analyze your data and get contextualized results in real time
 
 Your conversation with the agent remains even if you switch tabs within dbt Insights. However, they disappear when you navigate out of Insights or when you close your browser.
 
-[![Using dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-agent.png?v=2 "Using dbt Copilot in Insights")](#)Using dbt Copilot in Insights
+![Using dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-agent.png?v=2 "Using dbt Copilot in Insights")Using dbt Copilot in Insights

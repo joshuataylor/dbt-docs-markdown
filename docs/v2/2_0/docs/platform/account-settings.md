@@ -4,7 +4,7 @@ dbt platform
 
 The following sections describe the different **Account settings** available from your dbt account in the sidebar (under your account name on the lower left-hand side).
 
-[![Example of Account settings from the sidebar](/img/docs/dbt-platform/example-sidebar-account-settings.png?v=2 "Example of Account settings from the sidebar")](#)Example of Account settings from the sidebar
+![Example of Account settings from the sidebar](/img/docs/dbt-platform/example-sidebar-account-settings.png?v=2 "Example of Account settings from the sidebar")Example of Account settings from the sidebar
 
 ## Git repository caching [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -30,7 +30,7 @@ dbt will use the cached copy of your project's Git repo under these circumstance
 
 To use, select the **Enable repository caching** option from your account settings.
 
-[![Example of the Enable repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Enable repository caching option")](#)Example of the Enable repository caching option
+![Example of the Enable repository caching option](/img/docs/deploy/account-settings-repository-caching.png?v=2 "Example of the Enable repository caching option")Example of the Enable repository caching option
 
 ## Partial parsing
 
@@ -42,7 +42,7 @@ Partial parsing in dbt requires dbt version 1.4 or newer. The feature does have 
 
 To use, select the **Enable partial parsing between deployment runs** option from your account settings.
 
-[![Example of the Enable partial parsing between deployment runs option](/img/docs/deploy/account-settings-partial-parsing.png?v=2 "Example of the Enable partial parsing between deployment runs option")](#)Example of the Enable partial parsing between deployment runs option
+![Example of the Enable partial parsing between deployment runs option](/img/docs/deploy/account-settings-partial-parsing.png?v=2 "Example of the Enable partial parsing between deployment runs option")Example of the Enable partial parsing between deployment runs option
 
 ## Account access and enablement
 
@@ -60,7 +60,7 @@ To use Advanced CI features, your dbt account must have access to them. Ask your
 
 Once enabled, the **dbt compare** option becomes available in the CI job settings for you to select.
 
-[![The Enable account access to Advanced CI option](/img/docs/deploy/account-settings-advanced-ci.png?v=2 "The Enable account access to Advanced CI option")](#)The Enable account access to Advanced CI option
+![The Enable account access to Advanced CI option](/img/docs/deploy/account-settings-advanced-ci.png?v=2 "The Enable account access to Advanced CI option")The Enable account access to Advanced CI option
 
 ### Enable global account discovery
 
@@ -87,4 +87,4 @@ To view the change history:
 3. Click a **project name**.
 4. Click **History**.
 
-[![Example of the project history option. ](/img/docs/deploy/project-history.png?v=2 "Example of the project history option. ")](#)Example of the project history option.
+![Example of the project history option. ](/img/docs/deploy/project-history.png?v=2 "Example of the project history option. ")Example of the project history option.

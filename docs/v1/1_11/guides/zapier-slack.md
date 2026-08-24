@@ -1,6 +1,6 @@
 # Post to Slack with error context when a job fails
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

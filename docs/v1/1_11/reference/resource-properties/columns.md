@@ -1,6 +1,6 @@
 # columns
 
-### Models
+## Models
 
 models/\<filename>.yml
 
@@ -21,7 +21,7 @@ models:
         ...
 ```
 
-### Sources
+## Sources
 
 models/\<filename>.yml
 
@@ -44,7 +44,7 @@ sources:
           ...
 ```
 
-### Seeds
+## Seeds
 
 seeds/\<filename>.yml
 
@@ -65,7 +65,7 @@ seeds:
             ...
 ```
 
-### Snapshots
+## Snapshots
 
 snapshots/\<filename>.yml
 
@@ -85,7 +85,7 @@ snapshots:
       - name: <another_column>
 ```
 
-### Analyses
+## Analyses
 
 analyses/\<filename>.yml
 
@@ -118,7 +118,7 @@ Columns may optionally define a `data_type`, which is necessary for:
 
 The `quote` field can be used to enable or disable quoting for column names.
 
-### Models
+#### Models
 
 models/schema.yml
 
@@ -131,7 +131,7 @@ models:
         quote: true | false
 ```
 
-### Sources
+#### Sources
 
 models/schema.yml
 
@@ -146,7 +146,7 @@ sources:
             quote: true | false
 ```
 
-### Seeds
+#### Seeds
 
 seeds/schema.yml
 
@@ -159,7 +159,7 @@ seeds:
         quote: true | false
 ```
 
-### Snapshots
+#### Snapshots
 
 snapshots/schema.yml
 
@@ -172,7 +172,7 @@ snapshots:
         quote: true | false
 ```
 
-### Analyses
+#### Analyses
 
 analysis/schema.yml
 

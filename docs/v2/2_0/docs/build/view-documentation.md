@@ -18,9 +18,9 @@ The following sections describe how to navigate your documentation in Catalog an
 
 [Catalog](../explore/explore-projects.md) offers a dynamic, interactive way to explore your models, sources, and lineage. To access Catalog, navigate to the **Catalog** option in the dbt navigation menu.
 
-[![Example of Catalog's resource details page and its lineage.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Example of Catalog's resource details page and its lineage.")](#)Example of Catalog's resource details page and its lineage.
+![Example of Catalog's resource details page and its lineage.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Example of Catalog's resource details page and its lineage.")Example of Catalog's resource details page and its lineage.
 
-[![Access Catalog from the lineage tab in a job by double-clicking a lineage node.](/img/docs/collaborate/dbt-explorer/explorer-main-page.gif?v=2 "Access Catalog from the lineage tab in a job by double-clicking a lineage node.")](#)Access Catalog from the lineage tab in a job by double-clicking a lineage node.
+![Access Catalog from the lineage tab in a job by double-clicking a lineage node.](/img/docs/collaborate/dbt-explorer/explorer-main-page.gif?v=2 "Access Catalog from the lineage tab in a job by double-clicking a lineage node.")Access Catalog from the lineage tab in a job by double-clicking a lineage node.
 
 Catalog offers users a comprehensive suite of features to enhance data project navigation and understanding, like:
 
@@ -73,17 +73,17 @@ This writes a `site/` directory (the app, hashed assets, and a copy of the index
 
 dbt Docs provides valuable insights into your dbt Core or dbt Developer plan projects. The interface enables you to navigate to the documentation for specific models. That might look something like this:
 
-[![Auto-generated documentation for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/f2221dc-Screen_Shot_2018-08-14_at_6.29.55_PM.png?v=2 "Auto-generated documentation for a dbt model")](#)Auto-generated documentation for a dbt model
+![Auto-generated documentation for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/f2221dc-Screen_Shot_2018-08-14_at_6.29.55_PM.png?v=2 "Auto-generated documentation for a dbt model")Auto-generated documentation for a dbt model
 
 Here, you can see a representation of the project structure, a markdown description for a model, and a list of all of the columns (with documentation) in the model.
 
 From the dbt Docs page, click the green button in the bottom-right corner of the webpage to expand a "mini-map" of your DAG. This pane displays the immediate parents and children of the model that you're exploring.
 
-[![Opening the DAG mini-map](/img/docs/building-a-dbt-project/testing-and-documentation/ec77c45-Screen_Shot_2018-08-14_at_6.31.56_PM.png?v=2 "Opening the DAG mini-map")](#)Opening the DAG mini-map
+![Opening the DAG mini-map](/img/docs/building-a-dbt-project/testing-and-documentation/ec77c45-Screen_Shot_2018-08-14_at_6.31.56_PM.png?v=2 "Opening the DAG mini-map")Opening the DAG mini-map
 
 In this example, the `fct_subscription_transactions` model only has one direct parent. By clicking the "Expand" button in the top-right corner of the window, we can pivot the graph horizontally and view the full lineage for our model. This lineage is filterable using the `--select` and `--exclude` flags, which are consistent with the semantics of [model selection syntax](../../reference/node-selection/syntax.md). Further, you can right-click to interact with the DAG, jump to documentation, or share links to your graph visualization with your coworkers.
 
-[![The full lineage for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/ac97fba-Screen_Shot_2018-08-14_at_6.35.14_PM.png?v=2 "The full lineage for a dbt model")](#)The full lineage for a dbt model
+![The full lineage for a dbt model](/img/docs/building-a-dbt-project/testing-and-documentation/ac97fba-Screen_Shot_2018-08-14_at_6.35.14_PM.png?v=2 "The full lineage for a dbt model")The full lineage for a dbt model
 
 ## Deploy the documentation site
 

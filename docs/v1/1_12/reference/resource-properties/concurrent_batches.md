@@ -1,10 +1,10 @@
 # concurrent\_batches
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -13,7 +13,7 @@ models:
   +concurrent_batches: true
 ```
 
-### SQL file config
+## SQL file config
 
 models/my\_model.sql
 

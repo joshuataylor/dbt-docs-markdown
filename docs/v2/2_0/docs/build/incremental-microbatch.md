@@ -174,7 +174,7 @@ dbt will instruct the data platform to take the result of each batch query and [
 
 It does not matter whether the table already contains data for that day. Given the same input data, the resulting table is the same no matter how many times a batch is reprocessed.
 
-[![Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.](/img/docs/building-a-dbt-project/microbatch/microbatch_filters.png?v=2 "Each batch of sessions filters page_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.")](#)Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.
+![Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.](/img/docs/building-a-dbt-project/microbatch/microbatch_filters.png?v=2 "Each batch of sessions filters page_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.")Each batch of sessions filters page\_views to the matching time-bound batch, but doesn't filter sessions, performing a full scan for each batch.
 
 ## Relevant configs
 
@@ -188,7 +188,7 @@ Several configurations are relevant to microbatch models, and some are required:
 | [`lookback`](../../reference/resource-configs/lookback.md)                        | Process X batches prior to the latest bookmark to capture late-arriving records.                                                                                                                                                                                                                                                                                    | `1`     | Integer | Optional |
 | [`concurrent_batches`](../../reference/resource-properties/concurrent_batches.md) | Overrides dbt's auto detect for running batches concurrently (at the same time). Read more about [configuring concurrent batches](./parallel-batch-execution.md#configure-concurrent_batches). Setting to<br />\* `true` runs batches concurrently (in parallel).<br />\* `false` runs batches sequentially (one after the other). | `None`  | Boolean | Optional |
 
-[![The event\_time column configures the real-world time of this record](/img/docs/building-a-dbt-project/microbatch/event_time.png?v=2 "The event_time column configures the real-world time of this record")](#)The event\_time column configures the real-world time of this record
+![The event\_time column configures the real-world time of this record](/img/docs/building-a-dbt-project/microbatch/event_time.png?v=2 "The event_time column configures the real-world time of this record")The event\_time column configures the real-world time of this record
 
 ### Required configs for specific adapters
 
@@ -255,7 +255,7 @@ If you want to process data from the actual start of your dataset, you *must* ex
 
 During standard incremental runs, dbt will process batches according to the current timestamp and the configured `lookback`, with one query per batch.
 
-[![Configure a lookback to reprocess additional batches during standard incremental runs](/img/docs/building-a-dbt-project/microbatch/microbatch_lookback.png?v=2 "Configure a lookback to reprocess additional batches during standard incremental runs")](#)Configure a lookback to reprocess additional batches during standard incremental runs
+![Configure a lookback to reprocess additional batches during standard incremental runs](/img/docs/building-a-dbt-project/microbatch/microbatch_lookback.png?v=2 "Configure a lookback to reprocess additional batches during standard incremental runs")Configure a lookback to reprocess additional batches during standard incremental runs
 
 #### Opting out of auto-filtering
 
@@ -273,7 +273,7 @@ As always, dbt will process the batches between the start and end as independent
 dbt run --event-time-start "2024-09-01" --event-time-end "2024-09-04"
 ```
 
-[![Configure a lookback to reprocess additional batches during standard incremental runs](/img/docs/building-a-dbt-project/microbatch/microbatch_backfill.png?v=2 "Configure a lookback to reprocess additional batches during standard incremental runs")](#)Configure a lookback to reprocess additional batches during standard incremental runs
+![Configure a lookback to reprocess additional batches during standard incremental runs](/img/docs/building-a-dbt-project/microbatch/microbatch_backfill.png?v=2 "Configure a lookback to reprocess additional batches during standard incremental runs")Configure a lookback to reprocess additional batches during standard incremental runs
 
 ## Retry
 

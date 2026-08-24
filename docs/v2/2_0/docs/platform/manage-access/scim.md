@@ -66,7 +66,7 @@ To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 
 3. Scroll to the bottom of your SSO configuration settings and click **Enable SCIM**.
 
-   [![SCIM enabled in the configuration settings.](/img/docs/dbt-platform/access-control/enable-scim.png?v=2 "SCIM enabled in the configuration settings.")](#)SCIM enabled in the configuration settings.
+   ![SCIM enabled in the configuration settings.](/img/docs/dbt-platform/access-control/enable-scim.png?v=2 "SCIM enabled in the configuration settings.")SCIM enabled in the configuration settings.
 
 4. Record the **SCIM base URL** field for use in a later step.
 
@@ -78,17 +78,17 @@ To retrieve the necessary dbt configurations for use in Okta or Entra ID:
 
 6. In the pop-up window, give the token a name that will make it easily identifiable. Click **Save**.
 
-   [![Give your token and identifier.](/img/docs/dbt-platform/access-control/name-scim-token.png?v=2 "Give your token and identifier.")](#)Give your token and identifier.
+   ![Give your token and identifier.](/img/docs/dbt-platform/access-control/name-scim-token.png?v=2 "Give your token and identifier.")Give your token and identifier.
 
 7. Copy the token and record it securely, as *it will not be available again after you close the window*. You must create a new token if you lose the current one.
 
-   [![Give your token and identifier.](/img/docs/dbt-platform/access-control/copy-scim-token.png?v=2 "Give your token and identifier.")](#)Give your token and identifier.
+   ![Give your token and identifier.](/img/docs/dbt-platform/access-control/copy-scim-token.png?v=2 "Give your token and identifier.")Give your token and identifier.
 
 8. (Optional) Manual updates are turned off by default for all SCIM-managed entities, including the ability to invite new users manually. This ensures SCIM-managed entities stay in sync with the IdP, and we recommend keeping this setting disabled.
 
    * However, if you need to make manual updates (like update group membership for a SCIM-managed group), you can enable this setting by clicking **Allow manual updates** and confirming the **Allow manual updates** pop up. For more details on this setting, refer to [What does "Allow manual updates" mean?](./scim-faq.md?version=1.12#what-does-allow-manual-updates-mean) in the SCIM FAQ.
 
-   [![Enabling manual updates in SCIM settings.](/img/docs/dbt-platform/access-control/scim-manual-updates.png?v=2 "Enabling manual updates in SCIM settings.")](#)Enabling manual updates in SCIM settings.
+   ![Enabling manual updates in SCIM settings.](/img/docs/dbt-platform/access-control/scim-manual-updates.png?v=2 "Enabling manual updates in SCIM settings.")Enabling manual updates in SCIM settings.
 
 ## Next steps
 

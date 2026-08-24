@@ -1,6 +1,6 @@
 # Debug schema names
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -9,6 +9,8 @@
 If a model uses the [`schema` config](../reference/resource-properties/schema.md) but builds under an unexpected schema, here are some steps for debugging the issue. The full explanation of custom schemas can be found [here](../docs/build/custom-schemas.md).
 
 You can also follow along via this video:
+
+[Loom video](https://www.loom.com/embed/1c6e33b504da432dbd07c4cb7f35478e)
 
 ## Search for a macro named `generate_schema_name`
 

@@ -26,7 +26,7 @@ To set up a job to generate docs:
 2. Create a new job or select an existing job and click **Settings**.
 3. Under **Execution Settings**, select **Generate docs on run** and click **Save**.
 
-   [![Setting up a job to generate documentation](/img/docs/dbt-platform/using-dbt-platform/documentation-job-execution-settings.png?v=2 "Setting up a job to generate documentation")](#)Setting up a job to generate documentation
+   ![Setting up a job to generate documentation](/img/docs/dbt-platform/using-dbt-platform/documentation-job-execution-settings.png?v=2 "Setting up a job to generate documentation")Setting up a job to generate documentation
 
 *Note, for dbt Docs users you need to configure the job to generate docs when it runs, then manually link that job to your project. Proceed to [configure project documentation](#configure-project-documentation) so your project generates the documentation when this job runs.*
 
@@ -56,7 +56,7 @@ You configure project documentation to generate documentation when the job you s
 3. Click **Edit**.
 4. Under **Artifacts**, select the job that should generate docs when it runs and click **Save**.
 
-   [![Configuring project documentation](/img/docs/dbt-platform/using-dbt-platform/documentation-project-details.png?v=2 "Configuring project documentation")](#)Configuring project documentation
+   ![Configuring project documentation](/img/docs/dbt-platform/using-dbt-platform/documentation-project-details.png?v=2 "Configuring project documentation")Configuring project documentation
 
 Use Catalog for a richer documentation experience
 

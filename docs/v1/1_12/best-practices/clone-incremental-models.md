@@ -12,11 +12,11 @@ Imagine you've created a [Slim CI job](../docs/deploy/continuous-integration.md)
 * Run the command `dbt build --select state:modified+` to run and test all of the models you've modified and their downstream dependencies.
 * Trigger whenever a developer on your team opens a PR against the main branch.
 
-[![Example of a slim CI job with the above configurations](/img/best-practices/slim-ci-job.png?v=2 "Example of a slim CI job with the above configurations")](#)Example of a slim CI job with the above configurations
+![Example of a slim CI job with the above configurations](/img/best-practices/slim-ci-job.png?v=2 "Example of a slim CI job with the above configurations")Example of a slim CI job with the above configurations
 
 Now imagine your dbt project looks something like this in the DAG:
 
-[![Sample project DAG](/img/best-practices/dag-example.png?v=2 "Sample project DAG")](#)Sample project DAG
+![Sample project DAG](/img/best-practices/dag-example.png?v=2 "Sample project DAG")Sample project DAG
 
 When you open a pull request (PR) that modifies `dim_wizards`, your CI job will kickoff and build *only the modified models and their downstream dependencies* (in this case, `dim_wizards` and `fct_orders`) into a temporary schema that's unique to your PR.
 
@@ -49,7 +49,7 @@ dbt build --select state:modified+
 
 Because of your first clone step, the incremental models selected in your `dbt build` on the second step will run in incremental mode.
 
-[![Clone command in the CI config](/img/best-practices/clone-command.png?v=2 "Clone command in the CI config")](#)Clone command in the CI config
+![Clone command in the CI config](/img/best-practices/clone-command.png?v=2 "Clone command in the CI config")Clone command in the CI config
 
 Your CI jobs will run faster, and you're more accurately mimicking the behavior of what will happen once the PR has been merged into main.
 

@@ -32,7 +32,7 @@ Additionally, dive into mini-courses for querying the dbt Semantic Layer in your
    * Select your project and then navigate to the **Semantic Layer** settings. You'll need this to authenticate in Google Sheets in the following step.
    * You can generate your service token by clicking **Generate service token** within the Semantic Layer configuration page or navigating to **API tokens** in dbt. Alternatively, you can also create a personal access token by going to **API tokens** > **Personal tokens**.
 
-     [![Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings](/img/docs/dbt-platform/semantic-layer/sl-and-gsheets.png?v=2 "Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings")](#)Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings
+     ![Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings](/img/docs/dbt-platform/semantic-layer/sl-and-gsheets.png?v=2 "Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings")Access your Environment ID, Host, and URLs in your dbt Semantic Layer settings. Generate a service token in the Semantic Layer settings or API tokens settings
 
 4. In Google Sheets, authenticate with your Host, dbt Environment ID, and service or personal token.
 
@@ -83,7 +83,7 @@ If you would like to just query the data values without the headers, you can opt
 
 To return your results and keep any previously selected data below it intact, un-select the **Clear trailing rows** box. By default, we'll clear all trailing rows if there's stale data.
 
-[![Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.](/img/docs/dbt-platform/semantic-layer/query-builder.png?v=2 "Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.")](#)Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.
+![Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.](/img/docs/dbt-platform/semantic-layer/query-builder.png?v=2 "Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.")Run a query in the Query Builder. Use the arrow next to the Query button to select additional settings.
 
 ## Using saved selections
 

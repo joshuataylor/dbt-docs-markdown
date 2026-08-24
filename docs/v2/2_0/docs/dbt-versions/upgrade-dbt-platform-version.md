@@ -8,7 +8,7 @@ In dbt, both [jobs](../deploy/jobs.md) and [environments](../dbt-platform-enviro
 
 Navigate to the settings page of an environment, then click **Edit**. Click the **dbt version** dropdown bar and make your selection. You can select a [release track](#release-tracks) to receive ongoing updates (recommended), or a legacy version of dbt Core. Be sure to save your changes before navigating away.
 
-[![Example environment settings in dbt](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example environment settings in dbt")](#)Example environment settings in dbt
+![Example environment settings in dbt](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example environment settings in dbt")Example environment settings in dbt
 
 ### Release Tracks
 
@@ -39,7 +39,7 @@ Configure your project to use a different dbt version than what's configured in 
 
 An example of overriding the configured version to [**Latest** release track](./dbt-release-tracks.md) for the selected project:
 
-[![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")](#)Example of overriding the dbt version on your user account
+![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")Example of overriding the dbt version on your user account
 
 5. (Optional) Verify that dbt will use your override setting to build the project by invoking a `dbt build` command in the Studio IDE's command bar. Expand the **System Logs** section and find the output's first line. It should begin with `Running with dbt=` and list the version dbt is using. For users on Release tracks, the output will display `Running dbt...` instead of a specific version, reflecting the flexibility and continuous automatic updates provided by the release track functionality.
 
@@ -83,13 +83,13 @@ dbt Labs has introduced the new [dbt Fusion engine](../fusion/about-fusion.md), 
 
 * Once you upgrade your development environment(s) to `Fusion Stable`, every user will have to restart the IDE.
 
-  [![Upgrade to the Fusion engine in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Upgrade to the Fusion engine in your environment settings.")](#)Upgrade to the Fusion engine in your environment settings.
+  ![Upgrade to the Fusion engine in your environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-fusion.png?v=2 "Upgrade to the Fusion engine in your environment settings.")Upgrade to the Fusion engine in your environment settings.
 
 ### Upgrading environments to Fusion
 
 When you're ready to upgrade your project(s) to dbt Fusion engine, there are some tools available to you in the dbt platform UI to help you get started. The Fusion upgrade assistant will step you through the process of preparing and upgrading your projects.
 
-[![The Fusion upgrade assistant.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/fusion-upgrade-gui.png?v=2 "The Fusion upgrade assistant.")](#)The Fusion upgrade assistant.
+![The Fusion upgrade assistant.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/fusion-upgrade-gui.png?v=2 "The Fusion upgrade assistant.")The Fusion upgrade assistant.
 
 #### Prerequisites
 
@@ -137,7 +137,7 @@ This hides the Fusion upgrade workflows from users who don't have the [`Fusion a
 3. Select the **Fusion admin** permission set from the dropdown, then select the project(s) you want the users to access.
 4. Click **Save**.
 
-[![Assign Fusion admin to groups and projects.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/assign-fusion-admin.png?v=2 "Assign Fusion admin to groups and projects.")](#)Assign Fusion admin to groups and projects.
+![Assign Fusion admin to groups and projects.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/assign-fusion-admin.png?v=2 "Assign Fusion admin to groups and projects.")Assign Fusion admin to groups and projects.
 
 The Fusion upgrade workflows helps identify areas of the project that need to be updated and provides tools for manually resolving and autofixing any errors.
 
@@ -147,19 +147,19 @@ To begin the process of upgrading to Fusion with the assistant:
 
 1. From the project homepage or sidebar menu, click the **Start Fusion upgrade** or **Get started** button. You will be redirected to the Studio IDE.
 
-[![Start the Fusion upgrade.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the Fusion upgrade.")](#)Start the Fusion upgrade.
+![Start the Fusion upgrade.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/start-upgrade.png?v=2 "Start the Fusion upgrade.")Start the Fusion upgrade.
 
 2. At the top of the Studio IDE click **Check deprecation warnings**.
 
-[![Begin the process of parsing for deprecation warnings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Begin the process of parsing for deprecation warnings.")](#)Begin the process of parsing for deprecation warnings.
+![Begin the process of parsing for deprecation warnings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Begin the process of parsing for deprecation warnings.")Begin the process of parsing for deprecation warnings.
 
 3. dbt parses your project for the deprecations and presents a list of all deprecation warnings along with the option to **Autofix warnings**. Autofixing attempts to correct all syntax errors automatically. See [Fix deprecation warnings](../platform/studio-ide/autofix-deprecations.md) for more information.
 
-[![Begin the process of parsing for deprecation warnings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Begin the process of parsing for deprecation warnings.")](#)Begin the process of parsing for deprecation warnings.
+![Begin the process of parsing for deprecation warnings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/check-deprecations.png?v=2 "Begin the process of parsing for deprecation warnings.")Begin the process of parsing for deprecation warnings.
 
 4. Once the deprecation warnings have been resolved, click the **Enable Fusion** button. This upgrades your development environment to Fusion!
 
-[![You're now ready to upgrade to Fusion in your development environment!](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "You're now ready to upgrade to Fusion in your development environment!")](#)You're now ready to upgrade to Fusion in your development environment!
+![You're now ready to upgrade to Fusion in your development environment!](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/autofix-success.png?v=2 "You're now ready to upgrade to Fusion in your development environment!")You're now ready to upgrade to Fusion in your development environment!
 
 Now that you've upgraded your development environment to Fusion, you're ready to start the process of upgrading your Production, Staging, and General environments. Follow your organization's standard procedures and use the [release tracks](#release-tracks) to upgrade.
 
@@ -187,7 +187,7 @@ If you were using state-aware orchestration prior to June 1, 2026, you can conti
 
 Each job in dbt can be configured to inherit parameters from the environment it belongs to.
 
-[![Settings of a dbt job](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/job-settings.png?v=2 "Settings of a dbt job")](#)Settings of a dbt job
+![Settings of a dbt job](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/job-settings.png?v=2 "Settings of a dbt job")Settings of a dbt job
 
 The example job seen in the screenshot above belongs to the environment "Prod". It inherits the dbt version of its environment as shown by the **Inherited from ENVIRONMENT\_NAME (DBT\_VERSION)** selection. You may also manually override the dbt version of a specific job to be any of the current Core releases supported by Cloud by selecting another option from the dropdown.
 
@@ -252,7 +252,7 @@ Once you know what code changes you'll need to make, you can start implementing 
 * Once you have your project compiling and running on the latest version of dbt in the development environment for your `dbt-version-upgrade` branch, try replicating one of your production jobs to run off your branch's code.
 * You can do this by creating a new deployment environment for testing, setting the custom branch to 'ON' and referencing your `dbt-version-upgrade` branch. You'll also need to set the dbt version in this environment to the latest dbt Core version.
 
-[![Setting your testing environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-environment.png?v=2 "Setting your testing environment")](#)Setting your testing environment
+![Setting your testing environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/platform-upgrading-dbt-versions/upgrade-environment.png?v=2 "Setting your testing environment")Setting your testing environment
 
 * Then add a job to the new testing environment that replicates one of the production jobs your team relies on.
 

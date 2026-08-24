@@ -6,7 +6,7 @@ dbt platform
 
 When you commit changes to a branch in the Studio IDE, dbt can prompt users to open a new Pull Request for the code changes. To enable this functionality, ensure that a PR Template URL is configured in the **Repository details** page in your **Account Settings**. If this setting is blank, the Studio IDE will prompt users to merge the changes directly into their default branch.
 
-[![Configure a PR template in the 'Repository details' page.](/img/docs/collaborate/repo-details.jpg?v=2 "Configure a PR template in the 'Repository details' page.")](#)Configure a PR template in the 'Repository details' page.
+![Configure a PR template in the 'Repository details' page.](/img/docs/collaborate/repo-details.jpg?v=2 "Configure a PR template in the 'Repository details' page.")Configure a PR template in the 'Repository details' page.
 
 ### PR Template URL by git provider
 
@@ -20,13 +20,13 @@ The PR template URL supports two variables that can be used to build a URL strin
 
 A typical PR build URL looks like:
 
-### Template
+#### Template
 
 ```text
 https://github.com/dbt-labs/jaffle_shop/compare/{{destination}}..{{source}}
 ```
 
-### Rendered
+#### Rendered
 
 ```text
 https://github.com/dbt-labs/jaffle_shop/compare/master..my-branch

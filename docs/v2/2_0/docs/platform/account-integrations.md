@@ -4,7 +4,7 @@ dbt platform
 
 The following sections describe the different **Account integrations** available from your dbt account under the account **Settings** section.
 
-[![Example of Account integrations from the sidebar](/img/docs/dbt-platform/account-integrations.png?v=2 "Example of Account integrations from the sidebar")](#)Example of Account integrations from the sidebar
+![Example of Account integrations from the sidebar](/img/docs/dbt-platform/account-integrations.png?v=2 "Example of Account integrations from the sidebar")Example of Account integrations from the sidebar
 
 ## Git integrations
 
@@ -26,7 +26,7 @@ To configure a Git account integration:
 
 You can connect your dbt account to additional Git providers by importing a git repository from any valid git URL. Refer to [Import a git repository](./git/import-a-project-by-git-url.md) for more information.
 
-[![Example of the Git integration page](/img/docs/dbt-platform/account-integration-git.png?v=2 "Example of the Git integration page")](#)Example of the Git integration page
+![Example of the Git integration page](/img/docs/dbt-platform/account-integration-git.png?v=2 "Example of the Git integration page")Example of the Git integration page
 
 ## OAuth integrations
 
@@ -39,4 +39,4 @@ To configure an OAuth account integration:
 3. Under **OAuth**, click on **Link** to [connect your Slack account](../deploy/job-notifications.md#set-up-the-slack-integration).
 4. For custom OAuth providers, under **Custom OAuth integrations**, click on **Add integration** and select the [OAuth provider](./manage-access/sso-overview.md) from the list. Fill in the required fields and click **Save**.
 
-[![Example of the OAuth integration page](/img/docs/dbt-platform/account-integration-oauth.png?v=2 "Example of the OAuth integration page")](#)Example of the OAuth integration page
+![Example of the OAuth integration page](/img/docs/dbt-platform/account-integration-oauth.png?v=2 "Example of the OAuth integration page")Example of the OAuth integration page

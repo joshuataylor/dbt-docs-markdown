@@ -35,7 +35,7 @@ To create a new profile:
 2. Click **Settings**.
 3. Scroll down to the **Profiles** section and click **Create new profile**.
 
-[![Creating a profile from project settings.](/img/docs/dbt-platform/profile-from-project.png?v=2 "Creating a profile from project settings.")](#)Creating a profile from project settings.
+![Creating a profile from project settings.](/img/docs/dbt-platform/profile-from-project.png?v=2 "Creating a profile from project settings.")Creating a profile from project settings.
 
 ### From environment settings
 
@@ -48,7 +48,7 @@ To create a new profile:
 7. Click **Create profile**.
 8. Click **Save**.
 
-[![Creating a profile from the environment settings.](/img/docs/dbt-platform/profile-from-environment.png?v=2 "Creating a profile from the environment settings.")](#)Creating a profile from the environment settings.
+![Creating a profile from the environment settings.](/img/docs/dbt-platform/profile-from-environment.png?v=2 "Creating a profile from the environment settings.")Creating a profile from the environment settings.
 
 The following steps are the same regardless of which approach you take:
 
@@ -69,7 +69,7 @@ The following steps are the same regardless of which approach you take:
 
 5. Click **Save** at the top of the screen.
 
-[![Sample of a configured profile.](/img/docs/dbt-platform/profile-sample.png?v=2 "Sample of a configured profile.")](#)Sample of a configured profile.
+![Sample of a configured profile.](/img/docs/dbt-platform/profile-sample.png?v=2 "Sample of a configured profile.")Sample of a configured profile.
 
 Repeat these steps until you've created all the profiles you need for your project's deployment environments.
 

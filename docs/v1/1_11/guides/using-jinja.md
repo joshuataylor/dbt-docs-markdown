@@ -1,6 +1,6 @@
 # Use Jinja to improve your SQL code
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

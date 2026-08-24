@@ -2,7 +2,7 @@
 
 unique\_key identifies records for incremental models or snapshots, ensuring changes are captured or updated correctly.
 
-### Models
+## Models
 
 Configure the `unique_key` in the `config` block of your [incremental model's](../../docs/build/incremental-models.md) SQL file, in your `models/properties.yml` file, or in your `dbt_project.yml` file.
 
@@ -39,7 +39,7 @@ models:
       +unique_key: id
 ```
 
-### Snapshots
+## Snapshots
 
 (Applies to dbt v1.9 and later)
 
@@ -91,7 +91,7 @@ This is different for BigQuery:
 
 ### Use an `id` column as a unique key
 
-### Models
+#### Models
 
 In this example, the `id` column is the unique key for an incremental model.
 
@@ -108,7 +108,7 @@ models/my\_incremental\_model.sql
 select * from ..
 ```
 
-### Snapshots
+#### Snapshots
 
 In this example, the `id` column is used as a unique key for a snapshot.
 
@@ -141,7 +141,7 @@ snapshots:
 
 ### Use multiple unique keys
 
-### Models
+#### Models
 
 Configure multiple unique keys for an incremental model as a string representing a single column or a list of single-quoted column names that can be used together, for example, `['col1', 'col2', …]`.
 
@@ -158,7 +158,7 @@ models/my\_incremental\_model.sql
 with...
 ```
 
-### Snapshots
+#### Snapshots
 
 You can configure snapshots to use multiple unique keys for `primary_key` columns.
 

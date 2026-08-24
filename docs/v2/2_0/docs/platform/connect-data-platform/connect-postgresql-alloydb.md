@@ -14,7 +14,7 @@ The following fields are required when creating a connection:
 
 **Note**: When you set up a Postgres connection in dbt, SSL-related parameters aren't available as inputs.
 
-[![Configuring a Postgres connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Postgres connection")](#)Configuring a Postgres connection
+![Configuring a Postgres connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-connection.png?v=2 "Configuring a Postgres connection")Configuring a Postgres connection
 
 ### Authentication Parameters
 
@@ -38,7 +38,7 @@ To configure a connection using an SSH tunnel:
 3. In **Connection settings**, ensure **SSH Tunnel Enabled** is checked.
 4. Enter the hostname, username, and port for the bastion server.
 
-[![A public key is generated after saving](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-ssh-tunnel.png?v=2 "A public key is generated after saving")](#)A public key is generated after saving
+![A public key is generated after saving](/img/docs/dbt-platform/platform-configuring-dbt-platform/postgres-redshift-ssh-tunnel.png?v=2 "A public key is generated after saving")A public key is generated after saving
 
 5. Click **Save**. dbt platform generates and displays a public key.
 

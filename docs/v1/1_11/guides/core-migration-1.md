@@ -1,6 +1,6 @@
 # Move from dbt Core to the dbt platform: Get started
 
-[Back to guides](../guides.md) Total estimated time: 3-4 hours
+[Back to guides](https://docs.getdbt.com/guides) Total estimated time: 3-4 hours
 
 
 
@@ -205,7 +205,7 @@ In dbt Core, environment variables, or the [`env_var` function](../reference/dbt
 * If your dbt Core environment variables don't follow this naming convention, perform a ["find and replace"](../docs/platform/studio-ide/develop-in-studio.md#studio-ide-features) in your project to make sure all references to these environment variables contain the proper naming conventions.
 * dbt secures environment variables that enable more flexible configuration of data warehouse connections or git provider integrations, offering additional measures for sensitive values, such as prefixing keys with `DBT_ENV_SECRET`to obscure them in logs and the UI.
 
-[![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")](#)Setting project level and environment level values
+![Setting project level and environment level values](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/project-environment-view.png?v=2> "Setting project level and environment level values")Setting project level and environment level values
 
 ### dbt environment variables order of precedence
 
@@ -216,7 +216,7 @@ Environment variables in dbt are managed with a clear [order of precedence](../d
 * A project-wide default value, which can be overridden by the environment level, job level, or personal override.
 * The optional default argument supplied to the `env_var` Jinja function in the code. *Lowest precedence*
 
-[![Environment variables order of precedence](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/env-var-precdence.png?v=2> "Environment variables order of precedence")](#)Environment variables order of precedence
+![Environment variables order of precedence](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/env-var-precdence.png?v=2> "Environment variables order of precedence")Environment variables order of precedence
 
 ### Set environment variables in dbt
 
@@ -267,7 +267,7 @@ Explore these additional configurations to optimize your dbt orchestration setup
 
 Building a custom solution to efficiently check code upon pull requests is complicated. With dbt, you can enable [continuous integration / continuous deployment (CI/CD)](../docs/deploy/continuous-integration.md) and configure dbt to run your dbt projects in a temporary schema when new commits are pushed to open pull requests.
 
-[![Workflow of continuous integration in dbt](/img/docs/dbt-platform/using-dbt-platform/ci-workflow.png?v=2 "Workflow of continuous integration in dbt")](#)Workflow of continuous integration in dbt
+![Workflow of continuous integration in dbt](/img/docs/dbt-platform/using-dbt-platform/ci-workflow.png?v=2 "Workflow of continuous integration in dbt")Workflow of continuous integration in dbt
 
 This build-on-PR functionality is a great way to catch bugs before deploying to production, and an essential tool for data practitioners.
 

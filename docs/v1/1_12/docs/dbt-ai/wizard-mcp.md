@@ -184,7 +184,7 @@ The following examples show common scenarios for adding an MCP server and how to
 
 The [dbt MCP server](./about-mcp.md) gives dbt Wizard governed access to your project's models, metrics, lineage, freshness, and platform APIs. You can connect it two ways:
 
-### Self-hosted (no account required)
+#### Self-hosted (no account required)
 
 Runs on your machine through `uvx` and works with or without a dbt platform account — the best fit for development:
 
@@ -194,7 +194,7 @@ wizard mcp add dbt -- uvx dbt-mcp
 
 The self-hosted server reads its connection settings (such as `DBT_HOST`, `DBT_TOKEN`, and `DBT_PROJECT_DIR`) from environment variables, typically a `.env` file in your dbt project root. You don't need a URL. For setup, refer to [Run self-hosted dbt](./mcp-quickstart-cli.md) and [Set up self-hosted MCP](./setup-local-mcp.md).
 
-### Remote (dbt platform account)
+#### Remote (dbt platform account)
 
 Hosted on the dbt platform. Build the URL from your platform host (`https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`, for example `https://cloud.getdbt.com/api/ai/v1/mcp/`), then authenticate:
 

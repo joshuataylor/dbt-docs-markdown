@@ -15,7 +15,7 @@ The **Lineage tab** in dbt jobs displays the lineage associated with the [job ru
 * From a job, select the **Lineage tab**.
 * Double-click a node in the lineage graph to open a new tab and view its metadata in Catalog.
 
-[![Access dbt Catalog from the lineage tab by double-clicking on the lineage node.](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Access dbt Catalog from the lineage tab by double-clicking on the lineage node.")](#)Access dbt Catalog from the lineage tab by double-clicking on the lineage node.
+![Access dbt Catalog from the lineage tab by double-clicking on the lineage node.](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Access dbt Catalog from the lineage tab by double-clicking on the lineage node.")Access dbt Catalog from the lineage tab by double-clicking on the lineage node.
 
 ### Model timing tab in jobs [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -28,7 +28,7 @@ You can open Catalog from the **model timing tab** to investigate resources, dia
 * From a job, select the **model timing tab**.
 * Hover over a resource and select **View in Catalog** to open its metadata in Catalog.
 
-[![Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.](/img/docs/collaborate/dbt-explorer/explorer-from-model-timing.png?v=2 "Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.")](#)Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.
+![Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.](/img/docs/collaborate/dbt-explorer/explorer-from-model-timing.png?v=2 "Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.")Access dbt Catalog from the model timing tab by hovering over the resource and clicking 'View in Explorer'.
 
 ### dbt Insights [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -36,4 +36,4 @@ Open Catalog from [Insights](./access-dbt-insights.md) to view project lineage a
 
 To open Catalog from Insights, select the **Catalog** icon in the Query console sidebar menu, then search for the resource you want.
 
-[![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
+![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")dbt Insights integrated with dbt Catalog

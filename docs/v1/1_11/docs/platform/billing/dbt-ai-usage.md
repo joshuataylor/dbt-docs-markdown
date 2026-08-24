@@ -68,4 +68,4 @@ To view the usage in your account:
 
 3. On the billing page, click the **Copilot Actions** tab to view your usage.
 
-[![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")](#)View usage in dbt Copilot
+![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")View usage in dbt Copilot

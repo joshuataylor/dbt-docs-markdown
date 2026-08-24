@@ -19,7 +19,7 @@ You can only have one of the three MFA methods configured per user. These are en
 
 1. Navigate to the **Account settings** and under **Your profile** click on **Password & Security**. Click **Enroll** next to the preferred method.
 
-[![List of available MFA enrollment methods in dbt.](/img/docs/dbt-platform/mfa-enrollment.png?v=2 "List of available MFA enrollment methods in dbt.")](#)List of available MFA enrollment methods in dbt.
+![List of available MFA enrollment methods in dbt.](/img/docs/dbt-platform/mfa-enrollment.png?v=2 "List of available MFA enrollment methods in dbt.")List of available MFA enrollment methods in dbt.
 
 Choose the next steps based on your preferred enrollment selection:
 
@@ -27,17 +27,17 @@ Choose the next steps based on your preferred enrollment selection:
 
 2. Select the +1 country code, enter your phone number in the field, and click **Continue**.
 
-[![The phone number selection, including a dropdown for country code.](/img/docs/dbt-platform/sms-enter-phone.png?v=2 "The phone number selection, including a dropdown for country code.")](#)The phone number selection, including a dropdown for country code.
+![The phone number selection, including a dropdown for country code.](/img/docs/dbt-platform/sms-enter-phone.png?v=2 "The phone number selection, including a dropdown for country code.")The phone number selection, including a dropdown for country code.
 
 3. You will receive an SMS message with a six digit code. Enter the code in dbt.
 
-[![Enter the 6-digit code.](/img/docs/dbt-platform/enter-code.png?v=2 "Enter the 6-digit code.")](#)Enter the 6-digit code.
+![Enter the 6-digit code.](/img/docs/dbt-platform/enter-code.png?v=2 "Enter the 6-digit code.")Enter the 6-digit code.
 
  Authenticator app
 
 2. Open your preferred authentication app (like Google Authenticator) and scan the QR code.
 
-[![Example of the user generated QR code.](/img/docs/dbt-platform/scan-qr.png?v=2 "Example of the user generated QR code.")](#)Example of the user generated QR code.
+![Example of the user generated QR code.](/img/docs/dbt-platform/scan-qr.png?v=2 "Example of the user generated QR code.")Example of the user generated QR code.
 
 3. Enter the code provide for "dbt Labs: YOUR\_EMAIL\_ADDRESS" from your authenticator app into the the field in dbt.
 
@@ -45,7 +45,7 @@ Choose the next steps based on your preferred enrollment selection:
 
 2. Follow the instructions in the modal window and click **Use security key**.
 
-[![Example of the Security Key activation window.](/img/docs/dbt-platform/create-security-key.png?v=2 "Example of the Security Key activation window.")](#)Example of the Security Key activation window.
+![Example of the Security Key activation window.](/img/docs/dbt-platform/create-security-key.png?v=2 "Example of the Security Key activation window.")Example of the Security Key activation window.
 
 3. Scan the QR code or insert and touch activate your USB key to begin the process. Follow the on-screen prompts.
 

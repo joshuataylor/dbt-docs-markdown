@@ -91,14 +91,14 @@ To configure your AI provider for dbt Wizard:
 3. Under **AI providers**, click **Edit** to configure the AI integration.
 4. For each provider, select your **Key management** option from the dropdown.
 
-### OpenAI
+#### OpenAI
 
 **Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
 
-[![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
+![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")Example of the dbt Labs integration page
 
 **Managed by you** (Enterprise or Enterprise+ plans)
 
@@ -106,7 +106,7 @@ To configure your AI provider for dbt Wizard:
 2. Enter your OpenAI API key.
 3. Click **Save**.
 
-[![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")](#)Example of the OpenAI integration page
+![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")Example of the OpenAI integration page
 
 Data residency limitation
 
@@ -117,7 +117,7 @@ To use BYOK, ensure your OpenAI project doesn’t have data residency controls e
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled. Projects without project region settings use the standard OpenAI endpoint (<https://api.openai.com>) and support BYOK.
 
-### Azure AI Foundry
+#### Azure AI Foundry
 
 **Managed by you only** (Enterprise or Enterprise+ plans)
 
@@ -137,9 +137,9 @@ Supported formats include:
 * `https://<resource>.openai.azure.com/openai/deployments/<deployment>/chat/completions?api-version=<version>`
 * `https://<resource>.openai.azure.com/openai/responses?api-version=<version>`
 
-[![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")](#)Example of the Azure AI Foundry integration section
+![Example of the Azure AI Foundry integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of the Azure AI Foundry integration section")Example of the Azure AI Foundry integration section
 
-### Anthropic
+#### Anthropic
 
 **Managed by dbt Labs** (default, no setup required). Refer to [Billing](./billing.md?version=2.0#temporary-dbt-copilot-actions-bridge-through-july-1) for more information.\*
 
@@ -165,14 +165,14 @@ To configure your AI provider for dbt Copilot:
 3. Under **AI providers**, click **Edit** to configure the AI integration.
 4. For each provider, select your **Key management** option from the dropdown.
 
-### dbt Labs OpenAI
+#### dbt Labs OpenAI
 
 1. Select the toggle for **dbt Labs** to use dbt Labs' managed\* OpenAI key.
 2. Click **Save**.
 
-[![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")](#)Example of the dbt Labs integration page
+![Example of the dbt Labs integration page](/img/docs/dbt-platform/account-integration-dbtlabs.png?v=2 "Example of the dbt Labs integration page")Example of the dbt Labs integration page
 
-### OpenAI
+#### OpenAI
 
 Bringing your own OpenAI key is available for Enterprise or Enterprise+ plans.
 
@@ -180,7 +180,7 @@ Bringing your own OpenAI key is available for Enterprise or Enterprise+ plans.
 2. Enter the API key.
 3. Click **Save**.
 
-[![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")](#)Example of the OpenAI integration page
+![Example of the OpenAI integration page](/img/docs/dbt-platform/account-integration-openai.png?v=2 "Example of the OpenAI integration page")Example of the OpenAI integration page
 
 Data residency limitation
 
@@ -188,7 +188,7 @@ OpenAI projects with [data residency controls](https://platform.openai.com/docs/
 
 To use BYOK, ensure your OpenAI project doesn’t have data residency controls enabled. Projects without project region settings will use the standard OpenAI endpoint (`https://api.openai.com`) and support BYOK.
 
-### Azure OpenAI
+#### Azure OpenAI
 
 Bringing your own Azure OpenAI key is available for Enterprise or Enterprise+ plans.
 
@@ -208,7 +208,7 @@ Supported formats include:
 * `https://<resource>.openai.azure.com/openai/deployments/<deployment>/chat/completions?api-version=<version>`
 * `https://<resource>.openai.azure.com/openai/responses?api-version=<version>`
 
-[![Example of Azure OpenAI integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of Azure OpenAI integration section")](#)Example of Azure OpenAI integration section
+![Example of Azure OpenAI integration section](/img/docs/dbt-platform/account-integration-azure-manual.png?v=2 "Example of Azure OpenAI integration section")Example of Azure OpenAI integration section
 
 * For BYOK, enable the latest text generation models as well as the `text-embedding-3-small` model.
 * Ensure your project doesn't have data residency controls enabled.

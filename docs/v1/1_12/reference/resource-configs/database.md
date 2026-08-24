@@ -1,6 +1,6 @@
 # database
 
-### Model
+## Model
 
 Specify a custom database for a model in your `dbt_project.yml` file.
 
@@ -17,7 +17,7 @@ models:
 
 This would result in the generated relation being located in the `reporting` database, so the full relation name would be `reporting.finance.sales_metrics` instead of the default target database.
 
-### Seeds
+## Seeds
 
 Configure a database in your `dbt_project.yml` file.
 
@@ -34,7 +34,7 @@ seeds:
 
 This would result in the generated relation being located in the `staging` database, so the full relation name would be `staging.finance.product_categories`.
 
-### Snapshots
+## Snapshots
 
 (Applies to dbt v1.9 and later)
 
@@ -65,7 +65,7 @@ snapshots:
 
 This results in the generated relation being located in the `snapshots` database so the full relation name would be `snapshots.finance.your_snapshot` instead of the default target database.
 
-### Tests
+## Tests
 
 Customize the database for storing test results in your `dbt_project.yml` file.
 

@@ -41,7 +41,7 @@ Fill in the following fields when creating an **Apache Spark** warehouse connect
 | Auth                  | Optional, supply if using Kerberos. Not enabled by default.     | `KERBEROS`                  |
 | Kerberos Service Name | Optional, supply if using Kerberos. Not enabled by default.     | `hive`                      |
 
-[![Onehouse configuration](/img/onehouse/onehouse-dbt.png?v=2 "Onehouse configuration")](#)Onehouse configuration
+![Onehouse configuration](/img/onehouse/onehouse-dbt.png?v=2 "Onehouse configuration")Onehouse configuration
 
 ## dbt project
 

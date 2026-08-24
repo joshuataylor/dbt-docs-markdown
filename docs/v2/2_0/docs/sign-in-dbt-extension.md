@@ -67,7 +67,7 @@ Use this path if you prefer the terminal or want a single auth flow that works a
    * macOS and Linux: `~/.dbt/`
    * Windows: `C:\Users\[username]\.dbt\`
 
-   [![The Authorize VS Code Extension consent screen.](/img/docs/extension/signin-authorize-extension.png?v=2 "The Authorize VS Code Extension consent screen.")](#)The Authorize VS Code Extension consent screen.
+   ![The Authorize VS Code Extension consent screen.](/img/docs/extension/signin-authorize-extension.png?v=2 "The Authorize VS Code Extension consent screen.")The Authorize VS Code Extension consent screen.
 
 4. Return to your editor and restart the dbt VS Code extension, or open a new editor window.
 
@@ -89,7 +89,7 @@ Register to unlock the full [feature set](./dbt-extension-features.md) of the db
 
 * **From the extension:** Click the registration prompt, or open the command palette (Windows/Linux: Ctrl + Shift + P, macOS: Cmd + Shift + P) and run **dbt: Register dbt extension**.
 
-  [![The extension registration prompt in VS Code.](/img/docs/extension/registration-prompt.png?v=2 "The extension registration prompt in VS Code.")](#)The extension registration prompt in VS Code.
+  ![The extension registration prompt in VS Code.](/img/docs/extension/registration-prompt.png?v=2 "The extension registration prompt in VS Code.")The extension registration prompt in VS Code.
 
 * **From the CLI:** Run `dbt login` in your terminal.
 
@@ -101,7 +101,7 @@ After you start the flow, complete the browser steps:
 
 3. On the **Authorize dbt login** screen, review the requested access. Leave **Keep session alive** on if you want dbt to renew your session automatically, then click **Allow access**.
 
-   [![The Authorize dbt login consent screen.](/img/docs/extension/signin-authorize-extension.png?v=2 "The Authorize dbt login consent screen.")](#)The Authorize dbt login consent screen.
+   ![The Authorize dbt login consent screen.](/img/docs/extension/signin-authorize-extension.png?v=2 "The Authorize dbt login consent screen.")The Authorize dbt login consent screen.
 
 4. Return to your editor. The extension shows **Registered**. If you started from the CLI, your credentials are also saved for future CLI commands.
 
@@ -132,7 +132,7 @@ After you start the flow, complete the browser steps:
 
 4. If your account uses an authenticator app, choose a method to verify your identity, then complete the prompt.
 
-   [![The verify-your-identity screen for accounts that use an authenticator app.](/img/docs/extension/signin-verify-identity.png?v=2 "The verify-your-identity screen for accounts that use an authenticator app.")](#)The verify-your-identity screen for accounts that use an authenticator app.
+   ![The verify-your-identity screen for accounts that use an authenticator app.](/img/docs/extension/signin-verify-identity.png?v=2 "The verify-your-identity screen for accounts that use an authenticator app.")The verify-your-identity screen for accounts that use an authenticator app.
 
 5. On the **Authorize dbt login** screen, review the requested access and click **Allow access**.
 
@@ -184,7 +184,7 @@ Use this path if your workflow requires a credential file or if you want to remo
 
 3. In the **Set up your credentials** section, click **Download credentials** to get your [`dbt_cloud.yml`](../reference/dbt_cloud.yml.md) file.
 
-   [![Download the dbt\_cloud.yml file from your dbt platform account.](/img/docs/extension/download-registration-2.png?v=2 "Download the dbt_cloud.yml file from your dbt platform account.")](#)Download the dbt\_cloud.yml file from your dbt platform account.
+   ![Download the dbt\_cloud.yml file from your dbt platform account.](/img/docs/extension/download-registration-2.png?v=2 "Download the dbt_cloud.yml file from your dbt platform account.")Download the dbt\_cloud.yml file from your dbt platform account.
 
 4. Move the file into your `.dbt` directory:
 

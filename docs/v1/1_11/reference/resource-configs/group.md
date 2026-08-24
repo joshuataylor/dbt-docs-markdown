@@ -1,6 +1,6 @@
 # group
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -32,7 +32,7 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -51,7 +51,7 @@ seeds:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -87,7 +87,7 @@ select ...
 {% endsnapshot %}
 ```
 
-### Tests
+## Tests
 
 dbt\_project.yml
 
@@ -131,7 +131,7 @@ tests/\<filename>.sql
 ) }}
 ```
 
-### Analyses
+## Analyses
 
 analyses/\<filename>.yml
 
@@ -143,7 +143,7 @@ analyses:
       group: GROUP_NAME # changed to config in v1.10
 ```
 
-### Metrics
+## Metrics
 
 dbt\_project.yml
 
@@ -163,7 +163,7 @@ metrics:
       group: GROUP_NAME
 ```
 
-### Semantic models
+## Semantic models
 
 dbt\_project.yml
 
@@ -184,7 +184,7 @@ semantic_models:
       group: GROUP_NAME
 ```
 
-### Saved queries
+## Saved queries
 
 dbt\_project.yml
 

@@ -27,7 +27,7 @@
 
 #### Configuration examples
 
-### schema.yml
+##### schema.yml
 
 models/schema.yml
 
@@ -57,7 +57,7 @@ models/schema.yml
 }}
 ```
 
-### dbt\_project.yml
+##### dbt\_project.yml
 
 dbt\_project.yml
 
@@ -73,7 +73,7 @@ dbt\_project.yml
     inherited_tags: [ tag1, tag2 ]
 ```
 
-### Lake formation grants
+##### Lake formation grants
 
 ```python
 lf_grants={
@@ -185,7 +185,7 @@ The following are the supported strategies for using Iceberg incrementally:
 
 `incremental_predicates`, `delete_condition`, `update_condition` and `insert_condition` can include any column of the incremental table (`src`) or the final table (`target`). Column names must be prefixed by either `src` or `target` to prevent a `Column is ambiguous` error.
 
-### delete\_condition
+#### delete\_condition
 
 ```sql
 {{ config(
@@ -207,7 +207,7 @@ select 'A' as user_id,
        current_date as my_date
 ```
 
-### update\_condition
+#### update\_condition
 
 ```sql
 {{ config(
@@ -240,7 +240,7 @@ select * from (
 {% endif %}
 ```
 
-### insert\_condition
+#### insert\_condition
 
 ```sql
 {{ config(
@@ -397,7 +397,7 @@ The adapter supports Python models using [`spark`](https://docs.aws.amazon.com/a
 
 ### Example models
 
-### Simple pandas
+#### Simple pandas
 
 ```python
 import pandas as pd
@@ -411,7 +411,7 @@ def model(dbt, session):
     return model_df
 ```
 
-### Simple Spark
+#### Simple Spark
 
 ```python
 def model(dbt, spark_session):
@@ -424,7 +424,7 @@ def model(dbt, spark_session):
     return df
 ```
 
-### Spark incremental
+#### Spark incremental
 
 ```python
 def model(dbt, spark_session):
@@ -440,7 +440,7 @@ def model(dbt, spark_session):
     return df
 ```
 
-### Config Spark model
+#### Config Spark model
 
 ```python
 def model(dbt, spark_session):
@@ -465,7 +465,7 @@ def model(dbt, spark_session):
     return df
 ```
 
-### PySpark UDF
+#### PySpark UDF
 
 Using imported external python files:
 

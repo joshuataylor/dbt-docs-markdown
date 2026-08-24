@@ -34,7 +34,7 @@ Defining data tests is a great way to confirm that your outputs and inputs are a
 
 Creating your first data tests
 
-If you're new to dbt, we recommend that you check out our [online dbt Fundamentals course](https://learn.getdbt.com/learn/course/dbt-fundamentals/data-tests-30min/building-tests?page=1) or [quickstart guide](../../guides.md) to build your first dbt project with models and tests.
+If you're new to dbt, we recommend that you check out our [online dbt Fundamentals course](https://learn.getdbt.com/learn/course/dbt-fundamentals/data-tests-30min/building-tests?page=1) or [quickstart guide](https://docs.getdbt.com/guides) to build your first dbt project with models and tests.
 
 ## Singular data tests
 
@@ -186,7 +186,7 @@ Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 
 **Unique test**
 
-### Compiled SQL
+#### Compiled SQL
 
 ```sql
 select *
@@ -203,7 +203,7 @@ from (
 ) validation_errors
 ```
 
-### Templated SQL
+#### Templated SQL
 
 ```sql
 select *
@@ -222,7 +222,7 @@ from (
 
 **Not null test**
 
-### Compiled SQL
+##### Compiled SQL
 
 ```sql
 select *
@@ -230,7 +230,7 @@ from analytics.orders
 where order_id is null
 ```
 
-### Templated SQL
+##### Templated SQL
 
 ```sql
 select *
@@ -254,7 +254,7 @@ Normally, a data test query will calculate failures as part of its execution. If
 
 This workflow allows you to query and examine failing records much more quickly in development:
 
-[![Store test failures in the database for faster development-time debugging.](/img/docs/building-a-dbt-project/test-store-failures.gif?v=2 "Store test failures in the database for faster development-time debugging.")](#)Store test failures in the database for faster development-time debugging.
+![Store test failures in the database for faster development-time debugging.](/img/docs/building-a-dbt-project/test-store-failures.gif?v=2 "Store test failures in the database for faster development-time debugging.")Store test failures in the database for faster development-time debugging.
 
 Note that, if you choose to store data test failures:
 

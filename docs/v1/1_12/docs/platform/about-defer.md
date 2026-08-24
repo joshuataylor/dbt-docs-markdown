@@ -6,7 +6,7 @@ dbt platform
 
 Both the Studio IDE and the dbt CLI enable users to natively defer to production metadata directly in their development workflows.
 
-[![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")](#)Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
+![Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.](/img/docs/reference/defer-diagram.png?v=2 "Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.")Use 'defer' to modify end-of-pipeline models by pointing to production models, instead of running everything upstream.
 
 When using `--defer`, dbt will follow this order of execution for resolving `{{ ref() }}`(Applies to dbt v1.11 and later) and `{{ function() }}` calls.
 
@@ -41,7 +41,7 @@ To enable defer in the Studio IDE, toggle the **Defer to staging/production** bu
 
 For example, if you were to start developing on a new branch with [nothing in your development schema](../../reference/node-selection/defer.md#usage), edit a single model, and run `dbt build -s state:modified` — only the edited model runs. Any `{{ ref() }}`(Applies to dbt v1.11 and later) and `{{ function() }}` calls resolve to the staging or production location of the referenced models(Applies to dbt v1.11 and later) and user-defined functions.
 
-[![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")](#)Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
+![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
 
 ### Defer in dbt CLI
 
@@ -51,7 +51,7 @@ One key difference between using `--defer` in the dbt CLI and the Studio IDE is 
 
 The Studio IDE and dbt CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt CLI and Studio IDE) or `dbt_cloud.yml` (dbt CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
 
-[![Set the defer environment and the target name will change in the UI.](/img/docs/dbt-platform/defer-env-id.png?v=2 "Set the defer environment and the target name will change in the UI.")](#)Set the defer environment and the target name will change in the UI.
+![Set the defer environment and the target name will change in the UI.](/img/docs/dbt-platform/defer-env-id.png?v=2 "Set the defer environment and the target name will change in the UI.")Set the defer environment and the target name will change in the UI.
 
 dbt\_cloud.yml
 

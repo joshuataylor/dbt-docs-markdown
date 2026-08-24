@@ -30,7 +30,7 @@ To avoid this issue, use a case statement to ensure that `0` is returned when no
 fail_calc: "case when count(*) > 0 then sum(n_records) else 0 end"
 ```
 
-### Specific test
+## Specific test
 
 Configure a specific instance of a generic (schema) test:
 
@@ -48,7 +48,7 @@ models:
                 fail_calc: "case when count(*) > 0 then sum(n_records) else 0 end"
 ```
 
-### One-off test
+## One-off test
 
 Configure a one-off (data) test:
 
@@ -60,7 +60,7 @@ tests/\<filename>.sql
 select ...
 ```
 
-### Generic test block
+## Generic test block
 
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
@@ -76,7 +76,7 @@ select ...
 {% endtest %}
 ```
 
-### Project level
+## Project level
 
 Set the default for all tests in a package or project:
 

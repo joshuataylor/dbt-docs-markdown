@@ -1,6 +1,6 @@
 # Quickstart for dbt Core using DuckDB
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -176,7 +176,7 @@ As a last resort, deleting the database file will get you back in action (*but* 
 
 5. Wait for the codespace to finish building by waiting for the `postCreateCommand` command to complete; this can take several minutes:
 
-   [![Wait for postCreateCommand to complete](/img/codespace-quickstart/postCreateCommand.png?v=2 "Wait for postCreateCommand to complete")](#)Wait for postCreateCommand to complete
+   ![Wait for postCreateCommand to complete](/img/codespace-quickstart/postCreateCommand.png?v=2 "Wait for postCreateCommand to complete")Wait for postCreateCommand to complete
 
    When this command completes, you can start using the codespace development environment. The terminal the command ran in will close and you will get a prompt in a brand new terminal.
 
@@ -247,7 +247,7 @@ Now that you have dbt Core, DuckDB, and the Jaffle Shop data up and running, you
 * [dbt command reference](../reference/dbt-commands.md) explains the various commands available and what they do.
 * [dbt Labs courses](https://courses.getdbt.com/collections) offer a variety of beginner, intermediate, and advanced learning modules designed to help you become a dbt expert.
 * Once you see the potential of dbt and what it can do for your organization, sign up for a free trial of [dbt](https://www.getdbt.com/signup). It's the fastest and easiest way to deploy dbt today!
-* Check out the other [quickstart guides](../guides.md?tags=Quickstart) to begin integrating into your existing data warehouse.
+* Check out the other [quickstart guides](https://docs.getdbt.com/guides?tags=Quickstart) to begin integrating into your existing data warehouse.
 
 Additionally, with your new understanding of the basics of using DuckDB, consider optimizing your setup by [documenting your project](./duckdb.md#document-your-project), [commit your changes](./duckdb.md#commit-your-changes) and, [schedule a job](./duckdb.md#schedule-a-job).
 

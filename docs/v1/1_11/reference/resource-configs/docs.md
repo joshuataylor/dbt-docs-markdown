@@ -1,6 +1,6 @@
 # docs
 
-### Models
+## Models
 
 You can configure `docs` behavior for many resources at once by setting in `dbt_project.yml`. You can also use the `docs` config in `properties.yaml` files, to set or override documentation behaviors for specific resources:
 
@@ -26,11 +26,11 @@ models:
       node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-### Sources
+## Sources
 
 The `docs` config isn’t supported for sources.
 
-### Seeds
+## Seeds
 
 You can use the `docs` config in YAML files, including the `dbt_project.yml`:
 
@@ -56,7 +56,7 @@ seeds:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-### Snapshots
+## Snapshots
 
 You can use the `docs` config in YAML files, including the `dbt_project.yml`:
 
@@ -82,7 +82,7 @@ snapshots:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-### Analyses
+## Analyses
 
 You can configure `docs` for analyses in the `config` block under `analyses:` in your YAML file. Refer to [Analysis properties](../analysis-properties.md) for more information.
 
@@ -98,7 +98,7 @@ analyses:
         node_color: color_id # Use name (such as node_color: purple) or hex code with quotes (such as node_color: "#cd7f32")
 ```
 
-### Macros
+## Macros
 
 You can configure `docs` for macros in the `config` block under `macros:` in your YAML file. Refer to [Macro properties](../macro-properties.md) for more information.
 

@@ -1,6 +1,6 @@
 # Function configurations
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.11 or with the [dbt "Latest" release track](../docs/dbt-versions/dbt-release-tracks.md).
 
@@ -12,7 +12,7 @@ Resource-specific configurations are applicable to only one dbt resource type ra
 
 The following resource-specific configurations are only available to Functions:
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -23,7 +23,7 @@ functions:
     # See functions/schema.yml examples below
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 functions/schema.yml
 
@@ -55,7 +55,7 @@ Database, schema, and alias configuration
 
 Functions support `database`, `schema`, and `alias` configurations just like models. These determine where the function is created in your warehouse. The function will use the standard dbt configuration precedence (specific config > project config > target profile defaults).
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -70,7 +70,7 @@ functions:
     +meta: {<dictionary>}
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 functions/schema.yml
 

@@ -1,6 +1,6 @@
 # Productionize your dbt Databricks project
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -106,7 +106,7 @@ The [run history](../docs/deploy/run-visibility.md#run-history) dashboard in dbt
 
 The deployment monitor in dbt offers a higher-level view of your run history, enabling you to gauge the health of your data pipeline over an extended period of time. This feature includes information on run durations and success rates, allowing you to identify trends in job performance, such as increasing run times or more frequent failures. The deployment monitor also highlights jobs in progress, queued, and recent failures. To access the deployment monitor click on the dbt logo in the top left corner of the dbt UI.
 
-[![The Deployment Monitor Shows Job Status Over Time Across Environments](/img/guides/databricks-guides/deployment_monitor_dbx.png?v=2 "The Deployment Monitor Shows Job Status Over Time Across Environments")](#)The Deployment Monitor Shows Job Status Over Time Across Environments
+![The Deployment Monitor Shows Job Status Over Time Across Environments](/img/guides/databricks-guides/deployment_monitor_dbx.png?v=2 "The Deployment Monitor Shows Job Status Over Time Across Environments")The Deployment Monitor Shows Job Status Over Time Across Environments
 
 By adding [data health tiles](../docs/explore/data-tile.md) to your BI dashboards, you can give stakeholders visibility into the health of your data pipeline without leaving their preferred interface. Data tiles instill confidence in your data and help prevent unnecessary inquiries or context switching. To implement dashboard status tiles, you'll need to have dbt docs with [exposures](../docs/build/exposures.md) defined.
 

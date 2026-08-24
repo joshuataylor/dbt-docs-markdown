@@ -1,6 +1,6 @@
 # Quickstart for dbt and Snowflake
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -153,23 +153,23 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 1. On the left sidebar of the Snowflake UI, go to **Admin > Partner Connect**. Find the dbt tile under the **Data Integration** section or search for dbt in the search bar. Click the tile to connect to dbt.
 
-   [![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")](#)Snowflake Partner Connect Box
+   ![Snowflake Partner Connect Box](/img/snowflake_tutorial/snowflake_partner_connect_box.png?v=2 "Snowflake Partner Connect Box")Snowflake Partner Connect Box
 
    If you’re using the classic version of the Snowflake UI, you can click the **Partner Connect** button in the top bar of your account. From there, click on the dbt tile to open up the connect box.
 
-   [![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")](#)Snowflake Classic UI - Partner Connect
+   ![Snowflake Classic UI - Partner Connect](/img/snowflake_tutorial/snowflake_classic_ui_partner_connect.png?v=2 "Snowflake Classic UI - Partner Connect")Snowflake Classic UI - Partner Connect
 
 2. In the **Connect to dbt** popup, find the **Optional Grant** option and select the **RAW** and **ANALYTICS** databases. This will grant access for your new dbt user role to each database. Then, click **Connect**.
 
-   [![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")](#)Snowflake Classic UI - Connection Box
+   ![Snowflake Classic UI - Connection Box](/img/snowflake_tutorial/snowflake_classic_ui_connection_box.png?v=2 "Snowflake Classic UI - Connection Box")Snowflake Classic UI - Connection Box
 
-   [![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")](#)Snowflake New UI - Connection Box
+   ![Snowflake New UI - Connection Box](/img/snowflake_tutorial/snowflake_new_ui_connection_box.png?v=2 "Snowflake New UI - Connection Box")Snowflake New UI - Connection Box
 
 3. Click **Activate** when a popup appears:
 
-[![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")](#)Snowflake Classic UI - Actviation Window
+![Snowflake Classic UI - Actviation Window](/img/snowflake_tutorial/snowflake_classic_ui_activation_window.png?v=2 "Snowflake Classic UI - Actviation Window")Snowflake Classic UI - Actviation Window
 
-[![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")](#)Snowflake New UI - Activation Window
+![Snowflake New UI - Activation Window](/img/snowflake_tutorial/snowflake_new_ui_activation_window.png?v=2 "Snowflake New UI - Activation Window")Snowflake New UI - Activation Window
 
 4. After the new tab loads, you will see a form. If you already created a dbt account, you will be asked to provide an account name. If you haven't created account, you will be asked to provide an account name and password.
 
@@ -177,9 +177,9 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 6. Go to the left side menu and click your account name, then select **Account settings**, choose the "Partner Connect Trial" project, and select **snowflake** in the overview table. Select edit and update the fields **Database** and **Warehouse** to be `analytics` and `transforming`, respectively.
 
-[![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")](#)dbt - Snowflake Project Overview
+![dbt - Snowflake Project Overview](/img/snowflake_tutorial/dbt_cloud_snowflake_project_overview.png?v=2 "dbt - Snowflake Project Overview")dbt - Snowflake Project Overview
 
-[![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")](#)dbt - Update Database and Warehouse
+![dbt - Update Database and Warehouse](/img/snowflake_tutorial/dbt_cloud_update_database_and_warehouse.png?v=2 "dbt - Update Database and Warehouse")dbt - Update Database and Warehouse
 
 ### Connect manually
 
@@ -191,7 +191,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
 4. In the **Type** section, select **Snowflake**.
 
-   [![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")](#)dbt - Choose Snowflake Connection
+   ![dbt - Choose Snowflake Connection](/img/snowflake_tutorial/dbt_cloud_setup_snowflake_connection_start.png?v=2 "dbt - Choose Snowflake Connection")dbt - Choose Snowflake Connection
 
 5. Enter your **Settings** for Snowflake with:
 
@@ -205,7 +205,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
 
    * **Warehouse** — `transforming`. This tells dbt to use the transforming warehouse that was created earlier.
 
-   [![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")](#)dbt - Snowflake Account Settings
+   ![dbt - Snowflake Account Settings](/img/snowflake_tutorial/dbt_cloud_snowflake_account_settings.png?v=2 "dbt - Snowflake Account Settings")dbt - Snowflake Account Settings
 
 6. Click **Save**.
 
@@ -223,7 +223,7 @@ Using Partner Connect allows you to create a complete dbt account with your [Sno
     * **Target name** — Leave as the default.
     * **Threads** — Leave as 4. This is the number of simultaneous connects that dbt will make to build models concurrently.
 
-    [![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")](#)dbt - Snowflake User credentials
+    ![dbt - Snowflake User credentials](/img/snowflake_tutorial/dbt_cloud_snowflake_development_credentials.png?v=2 "dbt - Snowflake User credentials")dbt - Snowflake User credentials
 
 11. Click **Test connection**. This verifies that dbt can access your Snowflake account.
 
@@ -498,7 +498,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -861,13 +861,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
+![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
+![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -878,11 +878,11 @@ You can view docs directly from the IDE if you're on `Latest` or another version
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
+   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
+![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
 
 #### FAQs
 

@@ -35,7 +35,7 @@ To get started, copy the connection's redirect URI from dbt:
 3. Click the **Development connection** field to view its details and set the **OAuth method** to "Snowflake SSO".
 4. Copy the **Redirect URI** to use in the later steps.
 
-[![The OAuth method and Redirect URI inputs for a Snowflake connection in dbt.](/img/docs/dbt-platform/dbt-platform-enterprise/snowflake-oauth-redirect-uri.png?v=2 "Locate the Snowflake OAuth redirect URI")](#)Locate the Snowflake OAuth redirect URI
+![The OAuth method and Redirect URI inputs for a Snowflake connection in dbt.](/img/docs/dbt-platform/dbt-platform-enterprise/snowflake-oauth-redirect-uri.png?v=2 "Locate the Snowflake OAuth redirect URI")Locate the Snowflake OAuth redirect URI
 
 ### Create a security integration
 
@@ -97,7 +97,7 @@ To complete the creation of your connection in dbt:
 2. Edit the connection and enter the Client ID and Client Secret.
 3. Click **Save**.
 
-[![Configuring Snowflake OAuth credentials in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth credentials in dbt")](#)Configuring Snowflake OAuth credentials in dbt
+![Configuring Snowflake OAuth credentials in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth credentials in dbt")Configuring Snowflake OAuth credentials in dbt
 
 ### Authorize developer credentials
 
@@ -105,7 +105,7 @@ Once Snowflake SSO is enabled, users on the project will be able to configure th
 
 ### SSO OAuth flow diagram
 
-[![SSO OAuth flow diagram](/img/docs/dbt-platform/dbt-platform-enterprise/84427818-841b3680-abf3-11ea-8faf-693d4a39cffb.png?v=2 "SSO OAuth flow diagram")](#)SSO OAuth flow diagram
+![SSO OAuth flow diagram](/img/docs/dbt-platform/dbt-platform-enterprise/84427818-841b3680-abf3-11ea-8faf-693d4a39cffb.png?v=2 "SSO OAuth flow diagram")SSO OAuth flow diagram
 
 Once a user has authorized dbt with Snowflake via their identity provider, Snowflake will return a Refresh Token to the dbt application. dbt is then able to exchange this refresh token for an Access Token which can then be used to open a Snowflake connection and execute queries in the Studio IDE on behalf of users.
 
@@ -169,3 +169,5 @@ OAUTH_USE_SECONDARY_ROLES = 'IMPLICIT';
 For the full query example, see [Create a security integration](#create-a-security-integration).
 
 ## Learn more
+
+[Wistia video](https://fast.wistia.net/embed/iframe/2ynprkkijp?seo=false\&videoFoam=true)

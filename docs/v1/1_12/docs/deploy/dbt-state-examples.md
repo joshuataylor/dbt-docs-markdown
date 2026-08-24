@@ -6,7 +6,7 @@ These examples use the Jaffle Shop project to show side-by-side comparisons of C
 
 The following examples use this [Jaffle Shop project](https://github.com/dbt-labs/jaffle-shop) DAG as a reference. You can refer to it to understand the model lineage for each scenario.
 
-[![The Jaffle Shop DAG](/img/docs/dbt-state/dbt_state_dag.png?v=2 "The Jaffle Shop DAG")](#)The Jaffle Shop DAG
+![The Jaffle Shop DAG](/img/docs/dbt-state/dbt_state_dag.png?v=2 "The Jaffle Shop DAG")The Jaffle Shop DAG
 
 Each of the following scenarios shows how a run differs between dbt Core alone and dbt Core with dbt State, using the same command and project.
 

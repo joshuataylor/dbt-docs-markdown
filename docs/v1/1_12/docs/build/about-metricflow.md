@@ -94,7 +94,7 @@ To make this more concrete, consider the metric `order_total`, which is defined 
 
 Next, we'll compare how data practitioners currently calculate metrics with multiple queries versus how MetricFlow simplifies and streamlines the process.
 
-### Calculate with multiple queries
+#### Calculate with multiple queries
 
 The following example displays how data practitioners typically would calculate the `order_total` metric aggregated. It's also likely that analysts are asked for more details on a metric, like how much revenue came from new customers.
 
@@ -114,11 +114,11 @@ on
 group by 1, 2
 ```
 
-### Calculate with MetricFlow
+#### Calculate with MetricFlow
 
 In the following three example tabs, use MetricFlow to define a semantic model that uses `order_total` as a metric and a sample schema to create consistent and accurate results — eliminating confusion, code duplication, and streamlining your workflow.
 
-### Revenue example
+##### Revenue example
 
 (Applies to dbt v1.12 and later)
 
@@ -195,7 +195,7 @@ models:
           label: "First Order Date"
 ```
 
-### More dimensions example
+##### More dimensions example
 
 Similarly, you can add additional dimensions like `is_food_order` to your semantic models to incorporate even more dimensions to slice and dice your revenue `order_total`.
 
@@ -254,7 +254,7 @@ models:
         expr: order_total
 ```
 
-### Advanced example
+##### Advanced example
 
 Imagine an even more complex metric is needed, such as the amount of money earned each day from food orders from returning customers. Without MetricFlow, the data practitioner's original SQL might look like this:
 

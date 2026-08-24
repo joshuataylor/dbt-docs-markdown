@@ -178,7 +178,7 @@ Breaking changes include:
 * Changing unversioned, contracted models.
   * dbt also warns if a model has or had a contract but isn't versioned.
 
-### Example message for unversioned models
+#### Example message for unversioned models
 
 ```text
   Breaking Change to Unversioned Contract for contracted_model (models/contracted_models/contracted_model.sql)
@@ -196,7 +196,7 @@ Breaking changes include:
       - table -> view
 ```
 
-### Example message for versioned models
+#### Example message for versioned models
 
 ```text
 Breaking Change to Contract Error in model sometable (models/sometable.sql)

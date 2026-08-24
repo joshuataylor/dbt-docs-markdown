@@ -1,6 +1,6 @@
 # snapshot\_meta\_column\_names
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.9 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 

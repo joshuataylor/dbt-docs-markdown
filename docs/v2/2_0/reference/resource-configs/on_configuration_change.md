@@ -12,7 +12,7 @@ The `on_configuration_change` config has three settings:
   * *Note:* This could result in downstream failures as those models may depend on these unimplemented changes.
 * `fail` — Force the entire run to fail if a change is detected.
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -23,7 +23,7 @@ models:
     +on_configuration_change: apply | continue | fail
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/properties.yml
 
@@ -36,7 +36,7 @@ models:
       on_configuration_change: apply | continue | fail
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<model\_name>.sql
 

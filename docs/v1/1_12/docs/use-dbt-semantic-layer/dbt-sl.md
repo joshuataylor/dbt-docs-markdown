@@ -14,7 +14,7 @@ Refer to the [Semantic Layer FAQs](./sl-faqs.md) or [Why we need a universal sem
 
 ## Get started with the dbt Semantic Layer
 
-To define and query metrics with the dbt Semantic Layer, you must be on a [dbt Starter or Enterprise-tier](https://www.getdbt.com/pricing/) account. [](https://docs.getdbt.com/docs/platform/about-platform/access-regions-ip-addresses)Suitable for both Multi-tenant and Single-tenant accounts. Note: Single-tenant accounts should contact their account representative for necessary setup and enablement.
+To define and query metrics with the dbt Semantic Layer, you must be on a [dbt Starter or Enterprise-tier](https://www.getdbt.com/pricing/) account. Suitable for both Multi-tenant and Single-tenant accounts. Note: Single-tenant accounts should contact their account representative for necessary setup and enablement.
 
 This page points to various resources available to help you understand, configure, deploy, and integrate the Semantic Layer. The following sections contain links to specific pages that explain each aspect in detail. Use these links to navigate directly to the information you need, whether you're setting up the Semantic Layer for the first time, deploying metrics, or integrating with downstream tools.
 

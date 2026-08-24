@@ -19,7 +19,7 @@ The Recommendations overview page includes two top-level metrics measuring the t
 * **Model test coverage** — The percent of models in your project (models not from a package or imported via Mesh) with at least one dbt test configured on them.
 * **Model documentation coverage** — The percent of models in your project (models not from a package or imported via Mesh) with a description.
 
-[![Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project](/img/docs/collaborate/dbt-explorer/example-recommendations-overview.png?v=2 "Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project")](#)Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project
+![Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project](/img/docs/collaborate/dbt-explorer/example-recommendations-overview.png?v=2 "Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project")Example of the Recommendations overview page with project metrics and the recommendations for all resources in the project
 
 ## List of rules
 
@@ -44,4 +44,4 @@ The following table lists the rules currently defined in the `dbt_project_evalua
 
 Models, sources, and exposures each also have a **Recommendations** tab on their resource details page, with the specific recommendations that correspond to that resource:
 
-[![Example of the Recommendations tab ](/img/docs/collaborate/dbt-explorer/example-recommendations-tab.png?v=2 "Example of the Recommendations tab ")](#)Example of the Recommendations tab
+![Example of the Recommendations tab ](/img/docs/collaborate/dbt-explorer/example-recommendations-tab.png?v=2 "Example of the Recommendations tab ")Example of the Recommendations tab

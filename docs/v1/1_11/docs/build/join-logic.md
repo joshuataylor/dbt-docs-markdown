@@ -95,7 +95,7 @@ mf query --metrics average_purchase_price --group-by metric_time,user_id__type #
 
 These SQL examples show how MetricFlow handles both left join and full outer join scenarios in practice:
 
-### SQL example for left join
+##### SQL example for left join
 
 Using the previous example for `transactions` and `user_signup` semantic models, this shows a left join between those two semantic models.
 
@@ -113,7 +113,7 @@ group by
   user_signup.type;
 ```
 
-### SQL example for outer joins
+##### SQL example for outer joins
 
 If you have multiple `fct` models, let's say `sales` and `returns`, MetricFlow uses full outer joins to ensure all data points are captured.
 

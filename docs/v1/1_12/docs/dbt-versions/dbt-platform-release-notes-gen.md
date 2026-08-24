@@ -607,7 +607,7 @@ Release notes are grouped by date for single-tenant environments.
 
 * **Preview**: The [Developer agent](../platform/wizard-platform.md) is now in preview. Use natural language prompts to build or refactor models, and generate SQL, tests, documentation, and semantic models from scratch. For more information, refer to the [Developer agent](../platform/wizard-platform.md).
 * **Enhancement:** Delete individual [chat conversations](../platform/wizard-platform.md#availability-and-considerations) from the conversation list (**More actions** menu (three dots) > **Delete**). Deleting the open conversation clears the panel.
-* **Enhancement:** Commands run by and the [](../platform/wizard-platform.md)now appear in the Studio IDE **Commands** tab with a icon and **Run by Copilot** tooltip, so you can tell agent-run commands apart from manually run ones.
+* **Enhancement:** Commands run by and the now appear in the Studio IDE **Commands** tab with a icon and **Run by Copilot** tooltip, so you can tell agent-run commands apart from manually run ones.
 
 ### dbt platform
 

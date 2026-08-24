@@ -78,6 +78,8 @@ When you make changes to metrics, make sure to run `dbt parse` at a minimum to u
 
 Check out the following video for a short video demo of how to query or preview metrics with the dbt CLI:
 
+[Loom video](https://www.loom.com/embed/09e2b287f063497d888f4bed91469d79)
+
 ### Commands for dbt Core
 
 This section applies to dbt Core users running the dbt Core engine or users running [source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement) Fusion locally and not a dbt platform user. Commands and validations execute locally and use the `mf` prefix before the command name to execute them. For example, to list all metrics, run `mf list metrics`.

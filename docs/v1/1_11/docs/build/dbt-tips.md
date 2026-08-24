@@ -56,6 +56,6 @@ Leverage these dbt packages to streamline your workflow:
 
 ## Related docs
 
-* [Quickstart guide](../../guides.md)
+* [Quickstart guide](https://docs.getdbt.com/guides)
 * [About dbt](../platform/about-platform/dbt-platform-features.md)
 * [Develop in the Cloud](../platform/about-develop-dbt.md)

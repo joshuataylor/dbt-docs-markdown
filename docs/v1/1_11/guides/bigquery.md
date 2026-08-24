@@ -1,6 +1,6 @@
 # Quickstart for dbt and BigQuery
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -53,7 +53,7 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 
    Click **Run**, then check for results from the queries. For example:
 
-   [![Bigquery Query Results](/img/bigquery/query-results.png?v=2 "Bigquery Query Results")](#)Bigquery Query Results
+   ![Bigquery Query Results](/img/bigquery/query-results.png?v=2 "Bigquery Query Results")Bigquery Query Results
 
 3. Create new datasets from the [BigQuery Console](https://console.cloud.google.com/bigquery). For more information, refer to [Create datasets](https://cloud.google.com/bigquery/docs/datasets#create-dataset) in the Google Cloud docs. Datasets in BigQuery are equivalent to schemas in a traditional database. On the **Create dataset** page:
 
@@ -62,7 +62,7 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
    * **Enable table expiration** — Leave it unselected (the default). The default for the billing table expiration is 60 days. Because billing isn’t enabled for this project, GCP defaults to deprecating tables.
    * **Google-managed encryption key** — This option is available under **Advanced options**. Allow Google to manage encryption (the default).
 
-   [![Bigquery Create Dataset ID](/img/bigquery/create-dataset-id.png?v=2 "Bigquery Create Dataset ID")](#)Bigquery Create Dataset ID
+   ![Bigquery Create Dataset ID](/img/bigquery/create-dataset-id.png?v=2 "Bigquery Create Dataset ID")Bigquery Create Dataset ID
 
 4. After you create the `jaffle_shop` dataset, create one for `stripe` with all the same values except for **Dataset ID**.
 
@@ -114,7 +114,7 @@ In order to let dbt connect to your warehouse, you'll need to generate a keyfile
     * **Target name** — Leave as the default.
     * **Threads** — Leave as the default (6). This is the number of simultaneous connections that dbt will make to build models concurrently.
 
-    [![BigQuery User credentials](/img/bigquery/dbt_platform_bigquery_development_credentials.png?v=2 "BigQuery User credentials")](#)BigQuery User credentials
+    ![BigQuery User credentials](/img/bigquery/dbt_platform_bigquery_development_credentials.png?v=2 "BigQuery User credentials")BigQuery User credentials
 
 12. Click **Test Connection**. This verifies that dbt can access your BigQuery account.
 
@@ -431,7 +431,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -794,13 +794,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
+![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
+![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -811,11 +811,11 @@ You can view docs directly from the IDE if you're on `Latest` or another version
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
+   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
+![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
 
 #### FAQs
 

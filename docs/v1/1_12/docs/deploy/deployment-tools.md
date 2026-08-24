@@ -12,9 +12,9 @@ If your organization uses [Airflow](https://airflow.apache.org/), there are a nu
 
 Installing the [dbt Provider](https://airflow.apache.org/docs/apache-airflow-providers-dbt-cloud/stable/index.html) to orchestrate dbt jobs. This package contains multiple Hooks, Operators, and Sensors to complete various actions within dbt.
 
-[![Airflow DAG using DbtCloudRunJobOperator](/img/docs/running-a-dbt-project/airflow_dbt_connector.png?v=2 "Airflow DAG using DbtCloudRunJobOperator")](#)Airflow DAG using DbtCloudRunJobOperator
+![Airflow DAG using DbtCloudRunJobOperator](/img/docs/running-a-dbt-project/airflow_dbt_connector.png?v=2 "Airflow DAG using DbtCloudRunJobOperator")Airflow DAG using DbtCloudRunJobOperator
 
-[![dbt job triggered by Airflow](/img/docs/running-a-dbt-project/dbt_cloud_airflow_trigger.png?v=2 "dbt job triggered by Airflow")](#)dbt job triggered by Airflow
+![dbt job triggered by Airflow](/img/docs/running-a-dbt-project/dbt_cloud_airflow_trigger.png?v=2 "dbt job triggered by Airflow")dbt job triggered by Airflow
 
 ### dbt Core
 
@@ -66,39 +66,39 @@ Orchestra automatically collects metadata from your runs so you can view your db
 
 The following is an example of the run details in dbt for a job triggered by Orchestra:
 
-[![Example of Orchestra triggering a dbt job](/img/docs/running-a-dbt-project/dbt_cloud_orchestra_trigger.png?v=2 "Example of Orchestra triggering a dbt job")](#)Example of Orchestra triggering a dbt job
+![Example of Orchestra triggering a dbt job](/img/docs/running-a-dbt-project/dbt_cloud_orchestra_trigger.png?v=2 "Example of Orchestra triggering a dbt job")Example of Orchestra triggering a dbt job
 
 The following is an example of viewing lineage in Orchestra for dbt jobs:
 
-[![Example of a lineage view for dbt jobs in Orchestra](/img/docs/running-a-dbt-project/orchestra_lineage_dbt_cloud.png?v=2 "Example of a lineage view for dbt jobs in Orchestra")](#)Example of a lineage view for dbt jobs in Orchestra
+![Example of a lineage view for dbt jobs in Orchestra](/img/docs/running-a-dbt-project/orchestra_lineage_dbt_cloud.png?v=2 "Example of a lineage view for dbt jobs in Orchestra")Example of a lineage view for dbt jobs in Orchestra
 
 ## Prefect
 
 If your organization uses [Prefect](https://www.prefect.io/), the way you will run your jobs depends on the dbt version you're on, and whether you're orchestrating dbt or dbt Core jobs. Refer to the following variety of options:
 
-[![Prefect DAG using a dbt job run flow](/img/docs/running-a-dbt-project/prefect_dag_dbt_cloud.jpg?v=2 "Prefect DAG using a dbt job run flow")](#)Prefect DAG using a dbt job run flow
+![Prefect DAG using a dbt job run flow](/img/docs/running-a-dbt-project/prefect_dag_dbt_cloud.jpg?v=2 "Prefect DAG using a dbt job run flow")Prefect DAG using a dbt job run flow
 
 ### Prefect 2
 
-### dbt platform
+#### dbt platform
 
 * Use the [trigger\_dbt\_cloud\_job\_run\_and\_wait\_for\_completion](https://prefecthq.github.io/prefect-dbt/cloud/jobs/#prefect_dbt.cloud.jobs.trigger_dbt_cloud_job_run_and_wait_for_completion) flow.
 * As jobs are executing, you can poll dbt to see whether or not the job completes without failures, through the [Prefect user interface (UI)](https://docs.prefect.io/ui/overview/).
 
-### dbt Core
+#### dbt Core
 
 * Use the [trigger\_dbt\_cli\_command](https://prefecthq.github.io/prefect-dbt/cli/commands/#prefect_dbt.cli.commands.trigger_dbt_cli_command) task.
 * For details on both of these methods, see [prefect-dbt docs](https://prefecthq.github.io/prefect-dbt/).
 
 ### Prefect 1
 
-### dbt platform
+#### dbt platform
 
 * Trigger dbt jobs with the [DbtCloudRunJob](https://docs.prefect.io/api/latest/tasks/dbt.html#dbtcloudrunjob) task.
 * Running this task will generate a markdown artifact viewable in the Prefect UI.
 * The artifact will contain links to the dbt artifacts generated as a result of the job run.
 
-### dbt Core
+#### dbt Core
 
 * Use the [DbtShellTask](https://docs.prefect.io/api/latest/tasks/dbt.html#dbtshelltask) to schedule, execute, and monitor your dbt runs.
 * Use the supported [ShellTask](https://docs.prefect.io/api/latest/tasks/shell.html#shelltask) to execute dbt commands through the shell.
@@ -106,7 +106,7 @@ If your organization uses [Prefect](https://www.prefect.io/), the way you will r
 ## Related docs
 
 * [dbt plans and pricing](https://www.getdbt.com/pricing/)
-* [Quickstart guides](../../guides.md)
+* [Quickstart guides](https://docs.getdbt.com/guides)
 * [Webhooks for your jobs](./webhooks.md)
-* [Orchestration guides](../../guides.md)
+* [Orchestration guides](https://docs.getdbt.com/guides)
 * [Commands for your production deployment](https://discourse.getdbt.com/t/what-are-the-dbt-commands-you-run-in-your-production-deployment-of-dbt/366)

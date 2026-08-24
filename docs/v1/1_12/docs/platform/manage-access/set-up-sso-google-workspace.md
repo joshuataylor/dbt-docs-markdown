@@ -33,7 +33,7 @@ dbt uses a Client ID and Client Secret to authenticate users of a GSuite organiz
 | **Authorized domains** | `getdbt.com` (US multi-tenant) `getdbt.com` and `dbt.com`(US Cell 1) `dbt.com` (EMEA or AU)                                 | If deploying into a VPC, use the domain for your deployment |
 | **Scopes**             | `email, profile, openid`                                                                                                    | The default scopes are sufficient                           |
 
-[![GSuite Consent Screen configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-consent-top.png?v=2 "GSuite Consent Screen configuration")](#)GSuite Consent Screen configuration
+![GSuite Consent Screen configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-consent-top.png?v=2 "GSuite Consent Screen configuration")GSuite Consent Screen configuration
 
 6. Save the **Consent screen** settings to navigate back to the **Create OAuth client id** page.
 7. Use the following configuration values when creating your Credentials, replacing `YOUR_ACCESS_URL` and `YOUR_AUTH0_URI`, which need to be replaced with the appropriate Access URL and Auth0 URI from your [account settings](./sso-overview.md#auth0-uris).
@@ -45,7 +45,7 @@ dbt uses a Client ID and Client Secret to authenticate users of a GSuite organiz
 | **Authorized Javascript origins** | `https://YOUR_ACCESS_URL`               |
 | **Authorized Redirect URIs**      | `https://YOUR_AUTH0_URI/login/callback` |
 
-[![GSuite Credentials configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-credentials.png?v=2 "GSuite Credentials configuration")](#)GSuite Credentials configuration
+![GSuite Credentials configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-credentials.png?v=2 "GSuite Credentials configuration")GSuite Credentials configuration
 
 8. Press "Create" to create your new credentials. A popup will appear with a **Client ID** and **Client Secret**. Write these down as you will need them later!
 
@@ -53,7 +53,7 @@ dbt uses a Client ID and Client Secret to authenticate users of a GSuite organiz
 
 dbt requires that the Admin SDK is enabled in this application to request Group Membership information from the GSuite API. To enable the Admin SDK for this project, navigate to the [Admin SDK Settings page](https://console.developers.google.com/apis/api/admin.googleapis.com/overview) and ensure that the API is enabled.
 
-[![The 'Admin SDK' page](/img/docs/dbt-platform/dbt-platform-enterprise/7f36f50-Screen_Shot_2019-12-03_at_10.15.01_AM.png?v=2 "The 'Admin SDK' page")](#)The 'Admin SDK' page
+![The 'Admin SDK' page](/img/docs/dbt-platform/dbt-platform-enterprise/7f36f50-Screen_Shot_2019-12-03_at_10.15.01_AM.png?v=2 "The 'Admin SDK' page")The 'Admin SDK' page
 
 ## Configuration in dbt
 
@@ -72,13 +72,13 @@ To complete setup, follow the steps below in the dbt application.
    * **Client Secret**: Paste the Client Secret generated in the steps above
    * **Domain in GSuite**: Enter the domain name for your GSuite account (eg. `dbtlabs.com`). Only users with an email address from this domain will be able to log into your dbt account using GSuite auth. Optionally, you may specify a CSV of domains which are *all* authorized to access your dbt account (eg. `dbtlabs.com, fishtowndata.com`)
 
-   [![GSuite SSO Configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-config.png?v=2 "GSuite SSO Configuration")](#)GSuite SSO Configuration
+   ![GSuite SSO Configuration](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-config.png?v=2 "GSuite SSO Configuration")GSuite SSO Configuration
 
 4. Click **Save & Authorize** to authorize your credentials. You should be dropped into the GSuite OAuth flow and prompted to log into dbt with your work email address. If authentication is successful, you will be redirected back to the dbt application.
 
 5. On the **Credentials** page, verify that a `groups` entry is present, and that it reflects the groups you are a member of in GSuite. If you do not see a `groups` entry in the IdP attribute list, consult the following Troubleshooting steps.
 
-   [![GSuite verify groups](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-verify.png?v=2 "GSuite verify groups")](#)GSuite verify groups
+   ![GSuite verify groups](/img/docs/dbt-platform/dbt-platform-enterprise/gsuite/gsuite-sso-cloud-verify.png?v=2 "GSuite verify groups")GSuite verify groups
 
 If the verification information looks appropriate, then you have completed the configuration of GSuite SSO.
 
@@ -116,3 +116,5 @@ If OAuth verification does not complete successfully, double check that:
 For additional troubleshooting — including email verification issues, MFA double prompts, and SSO enforcement behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
 ## Learn more
+
+[Wistia video](https://fast.wistia.net/embed/iframe/xzksdgiamq?seo=false\&videoFoam=true)

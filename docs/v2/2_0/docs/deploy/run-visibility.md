@@ -14,7 +14,7 @@ dbt developers can access their run history for the last 365 days through the db
 
 dbt Labs limits self-service retrieval of run history metadata to 365 days to improve dbt's performance.
 
-[![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")](#)Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
+![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
 
 ## Job run details
 
@@ -24,7 +24,7 @@ Click **Rerun now** to rerun the job immediately.
 
 An example of a completed run with a configuration for a [job completion trigger](./deploy-jobs.md#trigger-on-job-completion):
 
-[![Example of run details](/img/docs/dbt-platform/deployment/example-job-details.png?v=2 "Example of run details")](#)Example of run details
+![Example of run details](/img/docs/dbt-platform/deployment/example-job-details.png?v=2 "Example of run details")Example of run details
 
 ### Run summary tab
 
@@ -49,7 +49,7 @@ When a job on the dbt Fusion engine finishes, selecting a step displays a struct
 
 For more information about each status, refer to [Fusion telemetry and observability](../../reference/telemetry-observability.md#node-outcome).
 
-[![Structured logs in Fusion](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in Fusion")](#)Structured logs in Fusion
+![Structured logs in Fusion](/img/docs/dbt-platform/deployment/fusion-logs.png?v=2 "Structured logs in Fusion")Structured logs in Fusion
 
 #### Downloading logs
 
@@ -63,7 +63,7 @@ To download it, go to the **Run summary** tab in the job, select a step and clic
 
 This option only appears when the step emitted an OTel log artifact. Some steps, such as `dbt deps`, don't produce one. For analysis examples, refer to [Querying telemetry data](../../reference/telemetry-observability.md#querying-telemetry-data).
 
-[![Download logs](/img/docs/dbt-platform/deployment/download-logs.png?v=2 "Download logs")](#)Download logs
+![Download logs](/img/docs/dbt-platform/deployment/download-logs.png?v=2 "Download logs")Download logs
 
 #### Log size limits
 
@@ -77,7 +77,7 @@ You can still download omitted logs. If the log file is too large, the download 
 
 View the lineage graph associated with the job run so you can better understand the dependencies and relationships of the resources in your project. To view a node's metadata directly in [Catalog](../explore/explore-projects.md), select it (double-click) from the graph.
 
-[![Example of accessing dbt Catalog from the Lineage tab](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Example of accessing dbt Catalog from the Lineage tab")](#)Example of accessing dbt Catalog from the Lineage tab
+![Example of accessing dbt Catalog from the Lineage tab](/img/docs/collaborate/dbt-explorer/explorer-from-lineage.gif?v=2 "Example of accessing dbt Catalog from the Lineage tab")Example of accessing dbt Catalog from the Lineage tab
 
 ### Model timing tab [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -101,7 +101,7 @@ Six metric tiles appear at the top of the tab:
 * **Wall clock**: The total elapsed time of the run.
 * **Latest start**: The name and start time of the last model to start in the run.
 
-[![Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.](/img/docs/dbt-platform/deployment/model-timing-metric-tiles.png?v=2 "Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.")](#)Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.
+![Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.](/img/docs/dbt-platform/deployment/model-timing-metric-tiles.png?v=2 "Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.")Metric tiles showing key run statistics like estimated critical path, peak concurrency, longest model, and more.
 
 #### Execution timeline
 
@@ -123,13 +123,13 @@ A Gantt-style timeline of all resources in the run. Hover over bars to see detai
 
 * **Search resources**: Filters the timeline to resources matching your search term.
 
-[![Execution timeline showing a Gantt-style view of all resources in the run](/img/docs/dbt-platform/deployment/model-timing-timeline.png?v=2 "Execution timeline showing a Gantt-style view of all resources in the run")](#)Execution timeline showing a Gantt-style view of all resources in the run
+![Execution timeline showing a Gantt-style view of all resources in the run](/img/docs/dbt-platform/deployment/model-timing-timeline.png?v=2 "Execution timeline showing a Gantt-style view of all resources in the run")Execution timeline showing a Gantt-style view of all resources in the run
 
 #### Concurrency over time
 
 A stacked bar chart showing model activity over the run duration. Each bar is split into **Active models** and **Queued / ready**, so you can see how many models were running versus waiting at any point in time. It also displays the peak concurrency reached during the run.
 
-[![Concurrency over time chart showing active models and queued/ready models throughout the run](/img/docs/dbt-platform/deployment/model-timing-concurrency.png?v=2 "Concurrency over time chart showing active models and queued/ready models throughout the run")](#)Concurrency over time chart showing active models and queued/ready models throughout the run
+![Concurrency over time chart showing active models and queued/ready models throughout the run](/img/docs/dbt-platform/deployment/model-timing-concurrency.png?v=2 "Concurrency over time chart showing active models and queued/ready models throughout the run")Concurrency over time chart showing active models and queued/ready models throughout the run
 
 #### Resource details
 
@@ -144,13 +144,13 @@ A paginated, searchable table listing all resources in the run. It includes the 
 * **Type**: The resource type (Model, Test, Snapshot, or Exposure), displayed as a color-coded badge.
 * **Folder**: The folder path of the resource.
 
-[![Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder](/img/docs/dbt-platform/deployment/model-timing-resource-details.png?v=2 "Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder")](#)Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder
+![Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder](/img/docs/dbt-platform/deployment/model-timing-resource-details.png?v=2 "Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder")Resource details table showing each model's start time, end time, duration, execution phase, critical path status, type, and folder
 
 ### Artifacts tab
 
 This provides a list of the artifacts generated by the job run. The files are saved and available for download.
 
-[![Example of the Artifacts tab](/img/docs/dbt-platform/example-artifacts-tab.png?v=2 "Example of the Artifacts tab")](#)Example of the Artifacts tab
+![Example of the Artifacts tab](/img/docs/dbt-platform/example-artifacts-tab.png?v=2 "Example of the Artifacts tab")Example of the Artifacts tab
 
 ### Compare tab [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
@@ -165,4 +165,4 @@ From the **Modified** section, you can view the following:
 
 To view the dependencies and relationships of the resources in your project more closely, click **View in Catalog** to launch [Catalog](../explore/explore-projects.md).
 
-[![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
+![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")Example of the Compare tab

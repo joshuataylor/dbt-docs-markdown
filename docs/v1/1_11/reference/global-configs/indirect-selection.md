@@ -50,15 +50,15 @@ Empty mode runs no tests and restricts the build to the selected node, ignoring 
 
 The following is a visualization of the impact `--indirect-selection` and the various flags have using three models, three tests, and `dbt build` as an example:
 
-[![dbt build](/img/docs/reference/indirect-selection-dbt-build.png?v=2 "dbt build")](#)dbt build
+![dbt build](/img/docs/reference/indirect-selection-dbt-build.png?v=2 "dbt build")dbt build
 
-[![Eager (default)](/img/docs/reference/indirect-selection-eager.png?v=2 "Eager (default)")](#)Eager (default)
+![Eager (default)](/img/docs/reference/indirect-selection-eager.png?v=2 "Eager (default)")Eager (default)
 
-[![Buildable](/img/docs/reference/indirect-selection-buildable.png?v=2 "Buildable")](#)Buildable
+![Buildable](/img/docs/reference/indirect-selection-buildable.png?v=2 "Buildable")Buildable
 
-[![Cautious](/img/docs/reference/indirect-selection-cautious.png?v=2 "Cautious")](#)Cautious
+![Cautious](/img/docs/reference/indirect-selection-cautious.png?v=2 "Cautious")Cautious
 
-[![Empty](/img/docs/reference/indirect-selection-empty.png?v=2 "Empty")](#)Empty
+![Empty](/img/docs/reference/indirect-selection-empty.png?v=2 "Empty")Empty
 
 For example, you can run tests that only refer to selected nodes using a CLI configuration:
 

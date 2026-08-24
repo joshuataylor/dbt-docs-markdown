@@ -19,7 +19,7 @@ To set up a project with a managed repository:
 5. Enter a name for the repository. For example, "analytics" or "dbt-models."
 6. Click **Create**.
 
-   [![Adding a managed repository](/img/docs/dbt-platform/platform-configuring-dbt-platform/managed-repo.png?v=2 "Adding a managed repository")](#)Adding a managed repository
+   ![Adding a managed repository](/img/docs/dbt-platform/platform-configuring-dbt-platform/managed-repo.png?v=2 "Adding a managed repository")Adding a managed repository
 
 ## Download managed repository
 
@@ -31,4 +31,4 @@ To download a copy of your managed repository from dbt to your local machine:
 4. Locate the **Repository** field and click the hyperlink for the repo.
 5. Below the **Deploy key** you will find the **Download repository** option. Click the button to download. If you don't see this option, you're either not assigned a [permission set](../manage-access/enterprise-permissions.md#account-permissions) with `write` access to Git repositories, or you don't have a managed repo for your project.
 
-[![The download button for a managed repo.](/img/docs/dbt-platform/platform-configuring-dbt-platform/download-managed-repo.png?v=2 "The download button for a managed repo.")](#)The download button for a managed repo.
+![The download button for a managed repo.](/img/docs/dbt-platform/platform-configuring-dbt-platform/download-managed-repo.png?v=2 "The download button for a managed repo.")The download button for a managed repo.

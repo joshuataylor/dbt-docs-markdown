@@ -32,11 +32,11 @@ note
 
 If no accounts are found for your email, contact [dbt Support](mailto:support@getdbt.com) or your account admin. You can also sign in directly at your account [**Access URL**](./access-regions-ip-addresses.md).
 
-[![Login to dbt platform using the login.dbt.com page.](/img/docs/dbt-platform/login-email-page.png?v=2 "Login to dbt platform using the login.dbt.com page.")](#)Login to dbt platform using the login.dbt.com page.
+![Login to dbt platform using the login.dbt.com page.](/img/docs/dbt-platform/login-email-page.png?v=2 "Login to dbt platform using the login.dbt.com page.")Login to dbt platform using the login.dbt.com page.
 
-[![Verify code to login to dbt platform](/img/docs/dbt-platform/login-email-verify-code.png?v=2 "Verify code to login to dbt platform")](#)Verify code to login to dbt platform
+![Verify code to login to dbt platform](/img/docs/dbt-platform/login-email-verify-code.png?v=2 "Verify code to login to dbt platform")Verify code to login to dbt platform
 
-[![Select account to login to dbt platform](/img/docs/dbt-platform/login-account-list.png?v=2 "Select account to login to dbt platform")](#)Select account to login to dbt platform
+![Select account to login to dbt platform](/img/docs/dbt-platform/login-account-list.png?v=2 "Select account to login to dbt platform")Select account to login to dbt platform
 
 ## SSO behavior
 

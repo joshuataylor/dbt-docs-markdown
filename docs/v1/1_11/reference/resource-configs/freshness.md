@@ -8,7 +8,7 @@ Fusion only
 
 Freshness model configurations are only available for the dbt Fusion engine. Refer to [Source data freshness](../../docs/build/sources.md#source-data-freshness) when using dbt Core.
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -22,7 +22,7 @@ models:
         updates_on: any | all # optional config, default is `any`
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/\<filename>.yml
 
@@ -37,7 +37,7 @@ models:
           updates_on: any | all # optional config, default is `any`
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 
@@ -180,7 +180,7 @@ You can also use custom logic with `build_after` to set different frequencies fo
 
 If you want to build every hour on just weekdays (Monday to Friday), you can use Jinja expressions in your YAML and SQL files by using [Python functions](https://docs.python.org/3/library/datetime.html#datetime.date.weekday) such as `weekday()` where Monday is `0` and Sunday is `6`. For example:
 
-### Project file
+#### Project file
 
 dbt\_project.yml
 
@@ -194,7 +194,7 @@ dbt\_project.yml
     updates_on: any
 ```
 
-### SQL file config
+#### SQL file config
 
 models/\<filename>.sql
 

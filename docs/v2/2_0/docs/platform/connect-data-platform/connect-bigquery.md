@@ -163,7 +163,7 @@ In addition to these fields, two other optional fields can be configured in a Bi
 | Timeout  | Deprecated; exists for backwards compatibility with older versions of dbt and will be removed in the future. | `300`      |
 | Location | The [location](https://cloud.google.com/bigquery/docs/locations) where dbt should create datasets.           | `US`, `EU` |
 
-[![A valid BigQuery connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/bigquery-connection.png?v=2 "A valid BigQuery connection")](#)A valid BigQuery connection
+![A valid BigQuery connection](/img/docs/dbt-platform/platform-configuring-dbt-platform/bigquery-connection.png?v=2 "A valid BigQuery connection")A valid BigQuery connection
 
 ### BigQuery OAuth
 
@@ -198,7 +198,7 @@ To customize your optional configurations in dbt:
 3. Go to **Development connection** and select **BigQuery**.
 4. Click **Edit** and then scroll down to **Optional settings**.
 
-[![BigQuery optional configuration](/img/bigquery/bigquery-optional-config.png?v=2 "BigQuery optional configuration")](#)BigQuery optional configuration
+![BigQuery optional configuration](/img/bigquery/bigquery-optional-config.png?v=2 "BigQuery optional configuration")BigQuery optional configuration
 
 The following are the optional configurations you can set in dbt:
 

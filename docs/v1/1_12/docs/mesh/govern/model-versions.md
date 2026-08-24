@@ -312,7 +312,7 @@ The [`latest_version_pointer`](../../../reference/resource-configs/latest_versio
 
 Enable this feature in your project by setting the [`latest_version_pointer_enabled_by_default`](../../../reference/global-configs/behavior-flags/latest_version_pointer_enabled_by_default.md) flag to `true` in `dbt_project.yml`, or enable it per model with the `latest_version_pointer.enabled` config:
 
-### Enable globally
+#### Enable globally
 
 dbt\_project.yml
 
@@ -321,7 +321,7 @@ flags:
   latest_version_pointer_enabled_by_default: true
 ```
 
-### Enable per model
+#### Enable per model
 
 models/schema.yml
 

@@ -17,7 +17,7 @@ Job commands are specific tasks executed by the job, and you can configure them 
 
 During a job run, the commands are "chained" together and executed as run steps. When you add a dbt command in the **Commands** section, you can expect different outcomes compared to the checkbox option.
 
-[![Configuring checkbox and commands list](/img/docs/dbt-platform/using-dbt-platform/job-commands.gif?v=2 "Configuring checkbox and commands list")](#)Configuring checkbox and commands list
+![Configuring checkbox and commands list](/img/docs/dbt-platform/using-dbt-platform/job-commands.gif?v=2 "Configuring checkbox and commands list")Configuring checkbox and commands list
 
 ### Built-in commands
 
@@ -25,7 +25,7 @@ Every job invocation automatically includes the [`dbt deps`](../../reference/com
 
 **Job outcome** — During a job run, the built-in commands are "chained" together. This means if one of the run steps in the chain fails, then the next commands aren't executed, and the entire job fails with an "Error" job status.
 
-[![A failed job that had an error during the dbt deps run step.](/img/docs/dbt-platform/using-dbt-platform/fail-dbtdeps.png?v=2 "A failed job that had an error during the dbt deps run step.")](#)A failed job that had an error during the dbt deps run step.
+![A failed job that had an error during the dbt deps run step.](/img/docs/dbt-platform/using-dbt-platform/fail-dbtdeps.png?v=2 "A failed job that had an error during the dbt deps run step.")A failed job that had an error during the dbt deps run step.
 
 ### Checkbox commands
 
@@ -47,7 +47,7 @@ Use [selectors](../../reference/node-selection/syntax.md) as a powerful way to s
 
 For users that have Advanced CI's [compare changes](./advanced-ci.md#compare-changes) feature enabled and selected the **dbt compare** checkbox, you can add custom dbt commands to optimize running the comparison (for example, to exclude specific large models, or groups of models with tags). Running comparisons on large models can significantly increase the time it takes for CI jobs to complete.
 
-[![Add custom dbt commands to when using dbt compare.](/img/docs/deploy/dbt-compare.jpg?v=2 "Add custom dbt commands to when using dbt compare.")](#)Add custom dbt commands to when using dbt compare.
+![Add custom dbt commands to when using dbt compare.](/img/docs/deploy/dbt-compare.jpg?v=2 "Add custom dbt commands to when using dbt compare.")Add custom dbt commands to when using dbt compare.
 
 The following examples highlight how you can customize the dbt compare command box:
 
@@ -75,7 +75,7 @@ During a job run, the commands are "chained" together and executed as run steps.
 
 In the following example image, the first four run steps are successful. However, if the fifth run step (`dbt run --select state:modified+ --full-refresh --fail-fast`) fails, then the next run steps aren't executed, and the entire job fails. The failed job returns a non-zero [exit code](../../reference/exit-codes.md) and "Error" job status:
 
-[![A failed job run that had an error during a run step](/img/docs/dbt-platform/using-dbt-platform/skipped-jobs.png?v=2 "A failed job run that had an error during a run step")](#)A failed job run that had an error during a run step
+![A failed job run that had an error during a run step](/img/docs/dbt-platform/using-dbt-platform/skipped-jobs.png?v=2 "A failed job run that had an error during a run step")A failed job run that had an error during a run step
 
 ## Job command failures
 

@@ -1,6 +1,6 @@
 # Trigger PagerDuty alarms when dbt jobs fail
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

@@ -40,7 +40,7 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 * **New**: [Model notifications](../deploy/model-notifications.md) are now generally available in dbt. These notifications alert model owners through email about any issues encountered by models and tests as soon as they occur while running a job.
 
-* **New**: You can now use your [Azure OpenAI key](../platform/account-integrations.md?ai-integration=azure#ai-integrations) (available in beta) to use dbt features like [](../platform/wizard-platform.md). Additionally, you can use your own [OpenAI API key](../platform/account-integrations.md?ai-integration=openai#ai-integrations) or use [dbt Labs-managed OpenAI](../platform/account-integrations.md?ai-integration=dbtlabs#ai-integrations) key. Refer to [AI integrations](../platform/account-integrations.md#ai-integrations) for more information.
+* **New**: You can now use your [Azure OpenAI key](../platform/account-integrations.md?ai-integration=azure#ai-integrations) (available in beta) to use dbt features like . Additionally, you can use your own [OpenAI API key](../platform/account-integrations.md?ai-integration=openai#ai-integrations) or use [dbt Labs-managed OpenAI](../platform/account-integrations.md?ai-integration=dbtlabs#ai-integrations) key. Refer to [AI integrations](../platform/account-integrations.md#ai-integrations) for more information.
 
 * **New**: The [`hard_deletes`](../../reference/resource-configs/hard-deletes.md) config gives you more control on how to handle deleted rows from the source. Supported options are `ignore` (default), `invalidate` (replaces the legacy `invalidate_hard_deletes=true`), and `new_record`. Note that `new_record` will create a new metadata column in the snapshot table.
 
@@ -145,7 +145,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 * **Fix**: MetricFlow updated `get_and_expire` to replace the unsupported `GETEX` command with a `GET` and conditional expiration, ensuring compatibility with Azure Redis 6.0.
 * **Enhancement**: The [dbt Semantic Layer Python SDK](../dbt-apis/sl-python.md) now supports `TimeGranularity` custom grain for metrics. This feature allows you to define custom time granularities for metrics, such as `fiscal_year` or `retail_month`, to query data using non-standard time periods.
-* **New**: Use the AI engine to generate semantic model for your models, now available in beta. automatically generates documentation, tests, and now semantic models based on the data in your model, . To learn more, refer to [](../platform/wizard-platform.md).
+* **New**: Use the AI engine to generate semantic model for your models, now available in beta. automatically generates documentation, tests, and now semantic models based on the data in your model, . To learn more, refer to .
 * **New**: Use the new recommended syntax for [defining `foreign_key` constraints](../../reference/resource-properties/constraints.md) using `refs`, available in the **Latest** release track in dbt Cloud. This will soon be released in dbt Core v1.9. This new syntax will capture dependencies and works across different environments.
 * **Enhancement**: You can now run [Semantic Layer commands](../build/metricflow-commands.md) commands in the [dbt Cloud IDE](../platform/studio-ide/develop-in-studio.md). The supported commands are `dbt sl list`, `dbt sl list metrics`, `dbt sl list dimension-values`, `dbt sl list saved-queries`, `dbt sl query`, `dbt sl list dimensions`, `dbt sl list entities`, and `dbt sl validate`.
 * **New**: Microsoft Excel, a Semantic Layer integration, is now generally available. The integration allows you to connect to Microsoft Excel to query metrics and collaborate with your team. Available for [Excel Desktop](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationId=4132ecd1-425d-982d-efb4-de94ebc83f26) or [Excel Online](https://pages.store.office.com/addinsinstallpage.aspx?assetid=WA200007100\&rs=en-US\&correlationid=4132ecd1-425d-982d-efb4-de94ebc83f26\&isWac=True). For more information, refer to [Microsoft Excel](../platform-integrations/semantic-layer/excel.md).
@@ -227,7 +227,7 @@ Documentation for new features and functionality announced at Coalesce 2024:
 
 The following features are new or enhanced as part of our [dbt Launch Showcase](https://www.getdbt.com/resources/webinars/dbt-cloud-launch-showcase) event on May 14th, 2024:
 
-* **New:** [](../platform/wizard-platform.md)is a powerful AI engine helping you generate documentation, tests, and semantic models, saving you time as you deliver high-quality data. Available in private beta for a subset of dbt Enterprise users and in the IDE. [Register your interest](https://docs.google.com/forms/d/e/1FAIpQLScPjRGyrtgfmdY919Pf3kgqI5E95xxPXz-8JoVruw-L9jVtxg/viewform) to join the private beta.
+* **New:** is a powerful AI engine helping you generate documentation, tests, and semantic models, saving you time as you deliver high-quality data. Available in private beta for a subset of dbt Enterprise users and in the IDE. [Register your interest](https://docs.google.com/forms/d/e/1FAIpQLScPjRGyrtgfmdY919Pf3kgqI5E95xxPXz-8JoVruw-L9jVtxg/viewform) to join the private beta.
 
 * **New:** The new low-code editor, now in private beta, enables less SQL-savvy analysts to create or edit dbt models through a visual, drag-and-drop experience inside of dbt. These models compile directly to SQL and are indistinguishable from other dbt models in your projects: they are version-controlled, can be accessed across projects in Mesh, and integrate with dbt Explorer and the Cloud IDE. [Register your interest](https://docs.google.com/forms/d/e/1FAIpQLScPjRGyrtgfmdY919Pf3kgqI5E95xxPXz-8JoVruw-L9jVtxg/viewform) to join the private beta.
 
@@ -290,7 +290,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   To learn more about the new setting, refer to [Release Tracks](./dbt-release-tracks.md) for details.
 
-  [![Example of the Latest setting](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example of the Latest setting")](#)Example of the Latest setting
+  ![Example of the Latest setting](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example of the Latest setting")Example of the Latest setting
 
 * **Behavior change:** Introduced the `require_resource_names_without_spaces` flag, opt-in and disabled by default. If set to `True`, dbt will raise an exception if it finds a resource name containing a space in your project or an installed package. This will become the default in a future version of dbt. Read [No spaces in resource names](../../reference/global-configs/behavior-flags/require_resource_names_without_spaces.md) for more information.
 
@@ -300,7 +300,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   You can now set up a continuous deployment (CD) workflow for your projects natively in dbt Cloud. You can now access a beta release of [Merge jobs](../deploy/merge-jobs.md), which is a new [job type](../deploy/jobs.md), that enables you to trigger dbt job runs as soon as changes (via Git pull requests) merge into production.
 
-  [![Example of creating a merge job](/img/docs/dbt-platform/using-dbt-platform/example-create-merge-job.png?v=2 "Example of creating a merge job")](#)Example of creating a merge job
+  ![Example of creating a merge job](/img/docs/dbt-platform/using-dbt-platform/example-create-merge-job.png?v=2 "Example of creating a merge job")Example of creating a merge job
 
 * **Behavior change:** Introduced the `require_explicit_package_overrides_for_builtin_materializations` flag, opt-in and disabled by default. If set to `True`, dbt will only use built-in materializations defined in the root project or within dbt, rather than implementations in packages. This will become the default in May 2024 (dbt Core v1.8 and dbt Cloud release tracks). Read [Package override for built-in materialization](../../reference/global-configs/behavior-flags/require_explicit_package_overrides_for_builtin_materializations.md) for more information.
 
@@ -343,7 +343,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   Exports are available for dbt Cloud multi-tenant [Team or Enterprise](https://www.getdbt.com/pricing/) plans on dbt versions 1.7 or newer. Refer to the [exports blog](https://www.getdbt.com/blog/announcing-exports-for-the-dbt-semantic-layer) for more details.
 
-  [![Add an environment variable to run exports in your production run.](/img/docs/dbt-platform/semantic-layer/deploy_exports.png?v=2 "Add an environment variable to run exports in your production run.")](#)Add an environment variable to run exports in your production run.
+  ![Add an environment variable to run exports in your production run.](/img/docs/dbt-platform/semantic-layer/deploy_exports.png?v=2 "Add an environment variable to run exports in your production run.")Add an environment variable to run exports in your production run.
 
 *  New: Trigger on job completion teamenterprise
 
@@ -353,7 +353,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   An example of the **Triggers** section when creating the job:
 
-  [![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")](#)Example of Triggers on the Deploy Job page
+  ![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")Example of Triggers on the Deploy Job page
 
 *  New: Latest Release Track[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
@@ -363,7 +363,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   To learn more about the new setting, refer to [Release Tracks](./dbt-release-tracks.md) for details.
 
-  [![Example of the Latest setting](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example of the Latest setting")](#)Example of the Latest setting
+  ![Example of the Latest setting](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-environment-settings.png?v=2 "Example of the Latest setting")Example of the Latest setting
 
 *  New: Override dbt version with new User development settings
 
@@ -371,7 +371,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   Use the **dbt version** dropdown to specify the version to override with. It's available on your project's credentials page in the **User development settings** section. For example:
 
-  [![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")](#)Example of overriding the dbt version on your user account
+  ![Example of overriding the dbt version on your user account](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Example of overriding the dbt version on your user account")Example of overriding the dbt version on your user account
 
 *  Enhancement: Edit in primary git branch in IDE
 
@@ -383,13 +383,13 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   Previously, the primary branch was displayed as read-only, but now the branch is displayed with a lock icon to identify it as protected:
 
-  [![Previous read-only experience](/img/docs/dbt-platform/using-dbt-platform/read-only.png?v=2 "Previous read-only experience")](#)Previous read-only experience
+  ![Previous read-only experience](/img/docs/dbt-platform/using-dbt-platform/read-only.png?v=2 "Previous read-only experience")Previous read-only experience
 
-  [![New protected experience](/img/docs/dbt-platform/using-dbt-platform/protected.png?v=2 "New protected experience")](#)New protected experience
+  ![New protected experience](/img/docs/dbt-platform/using-dbt-platform/protected.png?v=2 "New protected experience")New protected experience
 
   When you make a commit while on the primary branch, a modal window will open prompting you to create a new branch and enter a commit message:
 
-  [![Create new branch window](/img/docs/dbt-platform/using-dbt-platform/create-new-branch.png?v=2 "Create new branch window")](#)Create new branch window
+  ![Create new branch window](/img/docs/dbt-platform/using-dbt-platform/create-new-branch.png?v=2 "Create new branch window")Create new branch window
 
 * **Enhancement:** The Semantic Layer [Google Sheets integration](../platform-integrations/semantic-layer/gsheets.md) now exposes a note on the cell where the data was requested, indicating clearer data requests. The integration also now exposes a new **Time Range** option, which allows you to quickly select date ranges.
 
@@ -467,7 +467,7 @@ The following features are new or enhanced as part of our [dbt Launch Showcase](
 
   To learn more, refer to [Partial parsing](../platform/account-settings.md#partial-parsing).
 
-  [![Example of the Partial parsing option](/img/docs/deploy/account-settings-partial-parsing.png?v=2 "Example of the Partial parsing option")](#)Example of the Partial parsing option
+  ![Example of the Partial parsing option](/img/docs/deploy/account-settings-partial-parsing.png?v=2 "Example of the Partial parsing option")Example of the Partial parsing option
 
 * **Enhancement:** The YAML spec parameter `label` is now available for Semantic Layer metrics in [JDBC and GraphQL APIs](../dbt-apis/sl-api-overview.md). This means you can conveniently use `label` as a display name for your metrics when exposing them.
 

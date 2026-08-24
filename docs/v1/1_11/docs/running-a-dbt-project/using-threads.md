@@ -6,7 +6,7 @@ For example, if you specify `threads: 1`, dbt will start building only one model
 
 Here's the difference between running a project with 1 thread and 4 threads. With 1 thread, dbt builds one model at a time in dependency order. With 4 threads, dbt builds as many ready models in parallel as the graph allows, finishing much sooner.
 
-[![Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.](/img/docs/running-a-dbt-project/threads-1-vs-4-animated.gif?v=2 "Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.")](#)Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.
+![Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.](/img/docs/running-a-dbt-project/threads-1-vs-4-animated.gif?v=2 "Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.")Increase threads to parallelize builds and finish faster. The colors have different meanings: gray means waiting, orange means building, and green means done.
 
 There's no set limit of the maximum number of threads you can set – while increasing the number of threads generally decreases execution time, there are a number of things to consider:
 

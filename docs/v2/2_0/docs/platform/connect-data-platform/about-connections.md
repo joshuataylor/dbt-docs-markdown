@@ -26,9 +26,9 @@ To connect to your database in dbt:
 1. Click your account name at the bottom of the left-side menu and click **Account settings**.
 2. Select **Connections** from the top left, and from there, click **New connection**.
 
-[![Choose a connection](/img/docs/connect-data-platform/choose-a-connection.png?v=2 "Choose a connection")](#)Choose a connection
+![Choose a connection](/img/docs/connect-data-platform/choose-a-connection.png?v=2 "Choose a connection")Choose a connection
 
-These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](../../../guides.md).
+These connection instructions provide the basic fields required for configuring a data platform connection in dbt. For more detailed guides, which include demo project data, read our [Quickstart guides](https://docs.getdbt.com/guides).
 
 ### Supported authentication methods
 
@@ -51,7 +51,7 @@ Warehouse connections are an account-level resource. You can find them under **A
 
 Warehouse connections can be re-used across projects. If multiple projects all connect to the same warehouse, you should re-use the same connection to streamline your management operations. Connections are assigned to a project via an [environment](../../dbt-platform-environments.md).
 
-[![Connection model](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-new-model.png?v=2 "Connection model")](#)Connection model
+![Connection model](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-new-model.png?v=2 "Connection model")Connection model
 
 As shown in the image, a project with 2 environments can target between 1 and 2 different connections. If you want to separate your production environment from your non-production environment, assign multiple connections to a single project.
 
@@ -65,7 +65,7 @@ If your project did not previously have a development environment, you may be re
 
 However, to fully utilize the value of account-level connections, you may have to rethink how you assign and use connections across projects and environments.
 
-[![Typical connection setup post rollout](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout.png?v=2 "Typical connection setup post rollout")](#)Typical connection setup post rollout
+![Typical connection setup post rollout](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout.png?v=2 "Typical connection setup post rollout")Typical connection setup post rollout
 
 Please consider the following actions, as the steps you take will depend on the desired outcome.
 
@@ -74,7 +74,7 @@ Please consider the following actions, as the steps you take will depend on the 
   * Delete unused connections with 0 environments.
   * Rename connections with a temporary, descriptive naming scheme to better understand where each is used
 
-[![Post initial clean-up](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-2.png?v=2 "Post initial clean-up")](#)Post initial clean-up
+![Post initial clean-up](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-2.png?v=2 "Post initial clean-up")Post initial clean-up
 
 * Get granular with your connections
 
@@ -82,7 +82,7 @@ Please consider the following actions, as the steps you take will depend on the 
   * Aim to minimize the need for local overrides (like extended attributes)
   * Come to a consensus on a naming convention. We recommend you name connections after the server hostname and distinct intent/domain/configuration. It will be easier to reuse connections across projects this way
 
-[![Granularity determined](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-3.png?v=2 "Granularity determined")](#)Granularity determined
+![Granularity determined](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-3.png?v=2 "Granularity determined")Granularity determined
 
 * Deduplication (connection list + environment details — not touching extended attributes for now)
 
@@ -91,7 +91,7 @@ Please consider the following actions, as the steps you take will depend on the 
   * Deduplicate thoughtfully. If you want connections to be maintained by two different groups of users, you may want to preserve two identical connections to the same warehouse so each can evolve as each group sees fit without impacting the other group
   * Do not update extended attributes at this stage
 
-[![Connections de-duplicated](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-4.png?v=2 "Connections de-duplicated")](#)Connections de-duplicated
+![Connections de-duplicated](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-4.png?v=2 "Connections de-duplicated")Connections de-duplicated
 
 * Normalization
 
@@ -99,7 +99,7 @@ Please consider the following actions, as the steps you take will depend on the 
   * Create new connections, update relevant environments to target these connections, removing now unecessary local overrides (which may not be all of them!)
   * Test the new wiring by triggering jobs or starting Studio IDE sessions
 
-[![Connections normalized](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-5.png?v=2 "Connections normalized")](#)Connections normalized
+![Connections normalized](/img/docs/dbt-platform/platform-configuring-dbt-platform/connections-post-rollout-5.png?v=2 "Connections normalized")Connections normalized
 
 ## IP Restrictions
 

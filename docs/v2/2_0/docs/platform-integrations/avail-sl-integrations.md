@@ -38,15 +38,11 @@ The following tools integrate with the dbt Semantic Layer:
 
 [Connect Omni to the dbt Semantic Layer to query trusted metrics directly within your Omni data model.](https://docs.omni.co/integrations/dbt/semantic-layer)
 
-[](https://docs.omni.co/integrations/dbt/semantic-layer)
-
 [![](/img/icons/dot-ai.svg)](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
 
 #### [Dot](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
 
 [Enable everyone to analyze data with AI in Slack or Teams.](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
-
-[](https://docs.getdot.ai/integrations/semantic-layers/dbt-semantic-layer)
 
 [![](/img/icons/hex.svg)](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration)
 
@@ -54,15 +50,11 @@ The following tools integrate with the dbt Semantic Layer:
 
 [Check out how to connect, analyze metrics, collaborate, and discover more data possibilities.](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration)
 
-[](https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration#dbt-semantic-layer-integration)
-
 [![](/img/icons/klipfolio.svg)](https://support.klipfolio.com/hc/en-us/articles/18164546900759-PowerMetrics-Adding-dbt-Semantic-Layer-metrics)
 
 #### [Klipfolio PowerMetrics](https://support.klipfolio.com/hc/en-us/articles/18164546900759-PowerMetrics-Adding-dbt-Semantic-Layer-metrics)
 
 [Learn how to connect to a streamlined metrics catalog and deliver metric-centric analytics to business users.](https://support.klipfolio.com/hc/en-us/articles/18164546900759-PowerMetrics-Adding-dbt-Semantic-Layer-metrics)
-
-[](https://support.klipfolio.com/hc/en-us/articles/18164546900759-PowerMetrics-Adding-dbt-Semantic-Layer-metrics)
 
 [![](/img/icons/mode.svg)](https://mode.com/help/articles/supported-databases#dbt-semantic-layer)
 
@@ -70,15 +62,11 @@ The following tools integrate with the dbt Semantic Layer:
 
 [Discover how to connect, access, and get trustworthy metrics and insights.](https://mode.com/help/articles/supported-databases#dbt-semantic-layer)
 
-[](https://mode.com/help/articles/supported-databases#dbt-semantic-layer)
-
 [![](/img/icons/push.svg)](https://docs.push.ai/data-sources/semantic-layers/dbt)
 
 #### [Push.ai](https://docs.push.ai/data-sources/semantic-layers/dbt)
 
 [Explore how to connect and use metrics to power reports and insights that drive change.](https://docs.push.ai/data-sources/semantic-layers/dbt)
-
-[](https://docs.push.ai/data-sources/semantic-layers/dbt)
 
 [![](/img/icons/sigma.svg)](https://help.sigmacomputing.com/docs/configure-a-dbt-semantic-layer-integration)
 
@@ -86,15 +74,11 @@ The following tools integrate with the dbt Semantic Layer:
 
 [Connect Sigma to the dbt Semantic Layer to allow you to leverage your predefined dbt metrics in Sigma workbooks.](https://help.sigmacomputing.com/docs/configure-a-dbt-semantic-layer-integration)
 
-[](https://help.sigmacomputing.com/docs/configure-a-dbt-semantic-layer-integration)
-
 [![](/img/icons/steep.svg)](https://help.steep.app/integrations/dbt-cloud)
 
 #### [Steep](https://help.steep.app/integrations/dbt-cloud)
 
 [Connect Steep to the dbt Semantic Layer for centralized, scalable analytics.](https://help.steep.app/integrations/dbt-cloud)
-
-[](https://help.steep.app/integrations/dbt-cloud)
 
 Before you connect to these tools, you'll need to first [set up the dbt Semantic Layer](../use-dbt-semantic-layer/setup-sl.md) and [generate a service token](../dbt-apis/service-tokens.md) to create **Semantic Layer Only** and **Metadata Only** permissions.
 

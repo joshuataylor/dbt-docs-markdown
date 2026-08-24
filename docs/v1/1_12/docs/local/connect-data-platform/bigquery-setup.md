@@ -250,7 +250,7 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
 
 * Resource-level configuration:
 
-  ### Models
+  ##### Models
 
   my\_model.sql
 
@@ -268,7 +268,7 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
         job_execution_timeout_seconds: 600
   ```
 
-  ### Seeds
+  ##### Seeds
 
   ```yaml
   seeds:
@@ -279,7 +279,7 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
 
   For seeds, the timeout applies to the SQL that runs after the CSV is uploaded. The upload step uses the profile-level timeout.
 
-  ### Snapshots
+  ##### Snapshots
 
   ```yaml
   snapshots:
@@ -288,7 +288,7 @@ You can set the `job_execution_timeout_seconds` config in your BigQuery profile.
         job_execution_timeout_seconds: 600
   ```
 
-  ### Tests
+  ##### Tests
 
   ```yaml
   models:

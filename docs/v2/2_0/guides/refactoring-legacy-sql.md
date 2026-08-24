@@ -1,6 +1,6 @@
 # Refactoring legacy SQL to dbt
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -27,17 +27,19 @@ This guide is excerpted from the new dbt Learn On-demand Course, "Refactoring SQ
 
 ## Migrate your existing SQL code
 
+[Wistia video](https://fast.wistia.net/embed/iframe/5u67ik9t66?seo=false\&videoFoam=true)
+
 Your goal in this initial step is simply to use dbt to run your existing SQL transformation, with as few modifications as possible. This will give you a solid base to work from.
 
 While refactoring you'll be **moving around** a lot of logic, but ideally you won't be **changing** the logic. More changes = more auditing work, so if you come across anything you'd like to fix, try your best to card that up for another task after refactoring! We'll save the bulk of our auditing for the end when we've finalized our legacy-to-dbt model restructuring.
 
 To get going, you'll copy your legacy SQL query into your dbt project, by saving it in a `.sql` file under the `/models` directory of your project.
 
-[![Your dbt project's folder structure](/img/tutorial/refactoring/legacy-query-model.png?v=2 "Your dbt project's folder structure")](#)Your dbt project's folder structure
+![Your dbt project's folder structure](/img/tutorial/refactoring/legacy-query-model.png?v=2 "Your dbt project's folder structure")Your dbt project's folder structure
 
 Once you've copied it over, you'll want to `dbt run` to execute the query and populate the table in your warehouse.
 
-If this is your first time running dbt, you may want to start with the [Introduction to dbt](../docs/introduction.md) and the earlier sections of the [quickstart guide](../guides.md) before diving into refactoring.
+If this is your first time running dbt, you may want to start with the [Introduction to dbt](../docs/introduction.md) and the earlier sections of the [quickstart guide](https://docs.getdbt.com/guides) before diving into refactoring.
 
 This step may sound simple, but if you're porting over an existing set of SQL transformations to a new SQL dialect, you will need to consider how your legacy SQL dialect differs from your new SQL flavor, and you may need to modify your legacy code to get it to run at all.
 
@@ -48,6 +50,8 @@ Functions that you were using previously may not exist, or their syntax may shif
 If you're not migrating data warehouses at the moment, then you can keep your SQL syntax the same. You have access to the exact same SQL dialect inside of dbt that you have querying directly from your warehouse.
 
 ## Create sources from table references
+
+[Wistia video](https://fast.wistia.net/embed/iframe/m1a5p32rny?seo=false\&videoFoam=true)
 
 To query from your data warehouse, we recommend creating [sources in dbt](../docs/build/sources.md) rather than querying the database table directly.
 
@@ -65,7 +69,7 @@ If you're migrating multiple stored procedures into dbt, with sources you can se
 
 This allows you to consolidate modeling work on those base tables, rather than calling them separately in multiple places.
 
-[![Sources appear in green in your DAG in dbt docs](/img/docs/building-a-dbt-project/sources-dag.png?v=2 "Sources appear in green in your DAG in dbt docs")](#)Sources appear in green in your DAG in dbt docs
+![Sources appear in green in your DAG in dbt docs](/img/docs/building-a-dbt-project/sources-dag.png?v=2 "Sources appear in green in your DAG in dbt docs")Sources appear in green in your DAG in dbt docs
 
 #### Build the habit of analytics-as-code
 
@@ -86,6 +90,8 @@ For example, let's say you migrate from one ETL tool to another, and the new too
 ## Choose a refactoring strategy
 
 There are two ways you can choose to refactor: in-place or alongside.
+
+[Wistia video](https://fast.wistia.net/embed/iframe/5dd74bsw96?seo=false\&videoFoam=true)
 
 #### In-place refactoring
 
@@ -124,6 +130,8 @@ We generally recommend the **alongside** approach, which we'll follow in this tu
 ## Implement CTE groupings
 
 Once you choose your refactoring strategy, you'll want to do some cosmetic cleanups according to your data modeling best practices and start moving code into CTE groupings. This will give you a head start on porting SQL snippets from CTEs into modular [dbt data models](../docs/build/models.md).
+
+[Wistia video](https://fast.wistia.net/embed/iframe/di9jovovdv?seo=false\&videoFoam=true)
 
 ### What's a CTE?
 
@@ -218,11 +226,15 @@ We'll follow those structures in this walkthrough, but your team's conventions m
 
 ### Identifying staging models
 
+[Wistia video](https://fast.wistia.net/embed/iframe/f3nqj8tsde?seo=false\&videoFoam=true)
+
 To identify our [staging models](https://www.getdbt.com/analytics-engineering/modular-data-modeling-technique/#staging-models), we want to look at the things we've imported in our import CTEs.
 
 For us, that's customers, orders, and payments. We want to look at the transformations that can occur within each of these sources without needing to be joined to each other, and then we want to make components out of those so they can be our building blocks for further development.
 
 ### CTEs or intermediate models
+
+[Wistia video](https://fast.wistia.net/embed/iframe/9cu4hoiw0w?seo=false\&videoFoam=true)
 
 Our left-over logic can then be split into steps that are more easily understandable.
 
@@ -235,6 +247,8 @@ Intermediate models are optional and are not always needed, but do help when you
 Our final model accomplishes the result set we want, and it uses the components we've built. By this point we've identified what we think should stay in our final model.
 
 ## Data model auditing
+
+[Wistia video](https://fast.wistia.net/embed/iframe/dymp75cwh6?seo=false\&videoFoam=true)
 
 We'll want to audit our results using the dbt [audit\_helper package](https://hub.getdbt.com/dbt-labs/audit_helper/latest/).
 

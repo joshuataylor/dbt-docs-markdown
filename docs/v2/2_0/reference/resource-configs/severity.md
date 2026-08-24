@@ -24,7 +24,7 @@ By default, a test with `severity: warn` will only ever return a warning, and no
 
 For more information, refer to [Warnings](../global-configs/warnings.md).
 
-### Out-of-the-box generic tests
+## Out-of-the-box generic tests
 
 Configure a specific instance of an out-of-the-box generic test:
 
@@ -44,7 +44,7 @@ models:
                 warn_if: ">10"
 ```
 
-### Singular tests
+## Singular tests
 
 Configure a singular test:
 
@@ -56,7 +56,7 @@ tests/\<filename>.sql
 select ...
 ```
 
-### Custom generic tests
+## Custom generic tests
 
 Set the default for all instances of a custom generic test, by setting the config inside its test block (definition):
 
@@ -72,7 +72,7 @@ select ...
 {% endtest %}
 ```
 
-### Project level
+## Project level
 
 Set the default for all tests in a package or project:
 

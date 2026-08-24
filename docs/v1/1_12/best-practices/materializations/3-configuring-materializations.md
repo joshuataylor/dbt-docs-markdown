@@ -29,7 +29,7 @@ info
 
 * Configuring a model to materialize as a `table` is simple, and possible for both SQL and python models.
 
-### SQL
+#### SQL
 
 ```sql
 {{
@@ -41,7 +41,7 @@ info
 select ...
 ```
 
-### Python
+#### Python
 
 ```python
 def model(dbt, session):

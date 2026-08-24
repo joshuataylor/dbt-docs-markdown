@@ -1,6 +1,6 @@
 # description
 
-### Models
+## Models
 
 models/schema.yml
 
@@ -15,7 +15,7 @@ models:
         description: markdown_string
 ```
 
-### Sources
+## Sources
 
 models/schema.yml
 
@@ -34,7 +34,7 @@ sources:
             description: markdown_string
 ```
 
-### Seeds
+## Seeds
 
 seeds/schema.yml
 
@@ -49,7 +49,7 @@ seeds:
         description: markdown_string
 ```
 
-### Snapshots
+## Snapshots
 
 snapshots/schema.yml
 
@@ -64,7 +64,7 @@ snapshots:
         description: markdown_string
 ```
 
-### Analyses
+## Analyses
 
 analysis/schema.yml
 
@@ -79,7 +79,7 @@ analyses:
         description: markdown_string
 ```
 
-### Macros
+## Macros
 
 macros/schema.yml
 
@@ -94,7 +94,7 @@ macros:
         description: markdown_string
 ```
 
-### Data tests
+## Data tests
 
 (Applies to dbt v1.9 and later)
 
@@ -128,7 +128,7 @@ models:
               description: markdown_string
 ```
 
-### Unit tests
+## Unit tests
 
 models/schema.yml
 
@@ -152,7 +152,7 @@ unit_tests:
       fixture: fixture_name
 ```
 
-### Groups
+## Groups
 
 models/schema.yml
 

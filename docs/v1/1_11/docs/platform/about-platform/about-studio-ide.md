@@ -24,7 +24,7 @@ With the Cloud Studio IDE, you can:
 
 * Visualize a directed acyclic graph (DAG), and more.
 
-[![The Studio IDE in dark mode](/img/docs/dbt-platform/platform-ide/cloud-ide-v2.png?v=2 "The Studio IDE in dark mode")](#)The Studio IDE in dark mode
+![The Studio IDE in dark mode](/img/docs/dbt-platform/platform-ide/cloud-ide-v2.png?v=2 "The Studio IDE in dark mode")The Studio IDE in dark mode
 
 For more information, read the complete [Cloud Studio IDE guide](../studio-ide/develop-in-studio.md).
 

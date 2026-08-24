@@ -10,7 +10,7 @@ Note, we don’t calculate data health for non-dbt resources.
 * For accurate health data, ensure the resource is up-to-date and had a recent job run.
 * Each data health signal reflects key data health components, such as test success status, missing resource descriptions, missing tests, absence of builds in 30-day windows, [and more](#data-health-signal-criteria).
 
-[![View data health signals for your models.](/img/docs/collaborate/dbt-explorer/data-health-signal.png?v=2 "View data health signals for your models.")](#)View data health signals for your models.
+![View data health signals for your models.](/img/docs/collaborate/dbt-explorer/data-health-signal.png?v=2 "View data health signals for your models.")View data health signals for your models.
 
 ## Access data health signals
 
@@ -23,7 +23,7 @@ Access data health signals in the following places:
 * In the [DAG lineage graph](./explore-projects.md#project-lineage). Click any node to open the node details panel where you can view it and its details.
 * In [Data health tiles](./data-tile.md) through an embeddable iFrame and visible in your BI dashboard.
 
-[![Access data health signals in multiple places in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-health-signal.gif?v=2 "Access data health signals in multiple places in dbt Catalog.")](#)Access data health signals in multiple places in dbt Catalog.
+![Access data health signals in multiple places in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-health-signal.gif?v=2 "Access data health signals in multiple places in dbt Catalog.")Access data health signals in multiple places in dbt Catalog.
 
 ## Data health signal criteria
 

@@ -20,15 +20,15 @@ Each file type has its own unique linting and formatting rules. You can [customi
 
 By default, the IDE uses sqlfmt rules to format your code, making it convenient to use right away. However, if you have a file named `.sqlfluff` in the root directory of your dbt project, the IDE will default to SQLFluff rules instead.
 
-[![Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.")](#)Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.
+![Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.](/img/docs/dbt-platform/platform-ide/sqlfluff.gif?v=2 "Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.")Use SQLFluff to lint/format your SQL code, and view code errors in the Code quality tab.
 
-[![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
+![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")Use sqlfmt to format your SQL code.
 
-[![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")](#)Format YAML, Markdown, and JSON files using Prettier.
+![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")Format YAML, Markdown, and JSON files using Prettier.
 
-[![Use the Config button to select your tool.](/img/docs/dbt-platform/platform-ide/ide-sql-popup.png?v=2 "Use the Config button to select your tool.")](#)Use the Config button to select your tool.
+![Use the Config button to select your tool.](/img/docs/dbt-platform/platform-ide/ide-sql-popup.png?v=2 "Use the Config button to select your tool.")Use the Config button to select your tool.
 
-[![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
+![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
 ## Lint
 
@@ -62,7 +62,7 @@ Linting is available on all branches, including your protected primary git branc
    * **Fix**: Automatically fixes linting errors in the **File editor**. When fixing is complete, you'll see a message confirming the outcome.
    * Use the **Code quality** tab to view lint results and logs. Check the **Problems** tab for related editor diagnostics.
 
-[![Use the Lint or Fix button in the console section to lint or auto-fix your code.](/img/docs/dbt-platform/platform-ide/ide-lint-format-console.gif?v=2 "Use the Lint or Fix button in the console section to lint or auto-fix your code.")](#)Use the Lint or Fix button in the console section to lint or auto-fix your code.
+![Use the Lint or Fix button in the console section to lint or auto-fix your code.](/img/docs/dbt-platform/platform-ide/ide-lint-format-console.gif?v=2 "Use the Lint or Fix button in the console section to lint or auto-fix your code.")Use the Lint or Fix button in the console section to lint or auto-fix your code.
 
 ### Lint multiple files
 
@@ -150,7 +150,7 @@ group_by_and_order_by_style = implicit
 
 For more information on styling best practices, refer to [How we style our SQL](../../../best-practices/how-we-style/2-how-we-style-our-sql.md).
 
-[![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")](#)Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
+![Customize linting by configuring your own linting code rules, including dbtonic linting/styling.](/img/docs/dbt-platform/platform-ide/ide-sqlfluff-config.png?v=2 "Customize linting by configuring your own linting code rules, including dbtonic linting/styling.")Customize linting by configuring your own linting code rules, including dbtonic linting/styling.
 
 ## Format
 
@@ -178,7 +178,7 @@ Formatting is available on all branches, including your protected primary git br
 5. After saving, use the toolbar above the console (below the **File editor**) to select the **Format** button.
 6. The **Format** button auto-formats your code in the **File editor**. Once you've auto-formatted, you'll see a message confirming the outcome.
 
-[![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")](#)Use sqlfmt to format your SQL code.
+![Use sqlfmt to format your SQL code.](/img/docs/dbt-platform/platform-ide/sqlfmt.gif?v=2 "Use sqlfmt to format your SQL code.")Use sqlfmt to format your SQL code.
 
 ### Format YAML, Markdown, JSON
 
@@ -188,7 +188,7 @@ To format your YAML, Markdown, or JSON code, dbt integrates with [Prettier](http
 2. In the toolbar above the console (below the **File editor**), select the **Format** button to auto-format your code in the **File editor**. Use the **Code quality** tab to view format results.
 3. Once you've auto-formatted, you'll see a message confirming the outcome.
 
-[![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")](#)Format YAML, Markdown, and JSON files using Prettier.
+![Format YAML, Markdown, and JSON files using Prettier.](/img/docs/dbt-platform/platform-ide/prettier.gif?v=2 "Format YAML, Markdown, and JSON files using Prettier.")Format YAML, Markdown, and JSON files using Prettier.
 
 You can add a configuration file to customize formatting rules for YAML, Markdown, or JSON files using Prettier. The IDE looks for the configuration file based on an order of precedence. For example, it first checks for a "prettier" key in your `package.json` file.
 
@@ -202,7 +202,7 @@ To format your Python code, dbt integrates with [Black](https://black.readthedoc
 2. In the toolbar above the console (below the **File editor**), select the **Format** button to auto-format your code in the **File editor**.
 3. Once you've auto-formatted, you'll see a message confirming the outcome.
 
-[![Format Python files using Black.](/img/docs/dbt-platform/platform-ide/python-black.gif?v=2 "Format Python files using Black.")](#)Format Python files using Black.
+![Format Python files using Black.](/img/docs/dbt-platform/platform-ide/python-black.gif?v=2 "Format Python files using Black.")Format Python files using Black.
 
 ## FAQs
 

@@ -61,7 +61,7 @@ To create a state-aware job:
 
 3. Options in the **Execution settings** and **Triggers** sections:
 
-[![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")](#)Example of Triggers on the Deploy Job page
+![Example of Triggers on the Deploy Job page](/img/docs/dbt-platform/using-dbt-platform/example-triggers-section.png?v=2 "Example of Triggers on the Deploy Job page")Example of Triggers on the Deploy Job page
 
 * **Execution settings** section:
 
@@ -93,7 +93,7 @@ To create a state-aware job:
 
 You can see which models dbt builds in the run summary logs. Models that weren't rebuilt during the run are tagged as **Reused** with context about why dbt skipped rebuilding them (and saving you unnecessary compute!). You can also see the reused models under the **Reused** tab.
 
-[![Example logs for state-aware orchestration](/img/docs/dbt-platform/using-dbt-platform/SAO_logs_view.png?v=2 "Example logs for state-aware orchestration")](#)Example logs for state-aware orchestration
+![Example logs for state-aware orchestration](/img/docs/dbt-platform/using-dbt-platform/SAO_logs_view.png?v=2 "Example logs for state-aware orchestration")Example logs for state-aware orchestration
 
 ## Delete a job
 
@@ -104,7 +104,7 @@ To delete a job or multiple jobs in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete job** to delete the job.
 
-[![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")](#)Delete a job
+![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")Delete a job
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the job immediately. This action cannot be undone. However, you can create a new job with the same information if the deletion was made in error.
 6. Refresh the page, and the deleted job should now be gone. If you want to delete multiple jobs, you'll need to perform these steps for each job.
@@ -165,7 +165,7 @@ You can optionally configure state-aware orchestration when you want to fine-tun
 
   The following examples show how to configure a source so that state-aware orchestration detects new upstream data only when your custom condition is met.
 
-  ### loaded\_at\_field
+  #### loaded\_at\_field
 
   State-aware orchestration treats the source as fresh when the maximum value of the `loaded_at_field` column changes since the previous run:
 
@@ -181,7 +181,7 @@ You can optionally configure state-aware orchestration when you want to fine-tun
         loaded_at_field: _etl_loaded_at
   ```
 
-  ### loaded\_at\_query
+  #### loaded\_at\_query
 
   To define freshness with custom SQL, use `loaded_at_query`. State-aware orchestration runs the query to get a single timestamp. When that value changes compared to the previous run, the source is considered fresh.
 
@@ -228,7 +228,7 @@ When you use a `loaded_at_field` or `loaded_at_query`, state-aware orchestration
 
 To ensure late-arriving data is detected by state-aware orchestration, use `loaded_at_query` and make sure it aligns with the same lookback window used in your incremental filter. See the following samples of a lookback window and its corresponding `loaded_at_query` value:
 
-### Lookback window
+#### Lookback window
 
 ```sql
 {{
@@ -248,7 +248,7 @@ where
 {% endif %}
 ```
 
-### loaded\_at\_query
+#### loaded\_at\_query
 
 ```yaml
 loaded_at_query: |

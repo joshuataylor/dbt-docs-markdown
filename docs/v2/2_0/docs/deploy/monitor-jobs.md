@@ -17,8 +17,8 @@ This portion of our documentation will go over dbt's various capabilities that h
 
 To set up and add data health tiles to view data freshness and quality checks in your dashboard, refer to [data health tiles](../explore/data-tile.md).
 
-[![An overview of a dbt job run which contains run summary, job trigger, run duration, and more.](/img/docs/dbt-platform/deployment/deploy-scheduler.png?v=2 "An overview of a dbt job run which contains run summary, job trigger, run duration, and more.")](#)An overview of a dbt job run which contains run summary, job trigger, run duration, and more.
+![An overview of a dbt job run which contains run summary, job trigger, run duration, and more.](/img/docs/dbt-platform/deployment/deploy-scheduler.png?v=2 "An overview of a dbt job run which contains run summary, job trigger, run duration, and more.")An overview of a dbt job run which contains run summary, job trigger, run duration, and more.
 
-[![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")](#)Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
+![Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.](/img/docs/dbt-platform/deployment/run-history.png?v=2 "Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.")Run history dashboard allows you to monitor the health of your dbt project and displays jobs, job status, environment, timing, and more.
 
-[![Access logs for run steps](/img/docs/dbt-platform/deployment/access-logs.gif?v=2 "Access logs for run steps")](#)Access logs for run steps
+![Access logs for run steps](/img/docs/dbt-platform/deployment/access-logs.gif?v=2 "Access logs for run steps")Access logs for run steps

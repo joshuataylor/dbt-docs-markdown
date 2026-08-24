@@ -8,7 +8,7 @@ You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CL
 
 Install the dbt Wizard CLI by running the following commands:
 
-### macOS/Linux
+## macOS/Linux
 
 Run the following in Terminal:
 
@@ -16,7 +16,7 @@ Run the following in Terminal:
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
-### Windows
+## Windows
 
 Run the following in your Windows command line tool:
 

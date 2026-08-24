@@ -2,19 +2,11 @@
 
 Once you've caught up on everything [Fusion has to offer](./about-fusion.md), start with the path that matches how you want to use dbt.
 
-[](../local/install-dbt.md)
-
-[](../local/install-dbt.md)
-
 [![](/img/icons/dbt-bit.svg)](../local/install-dbt.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 #### Install dbt
 
 Install dbt to get Fusion from your command line.
-
-[](../about-dbt-extension.md)
-
-[](../about-dbt-extension.md)
 
 [![](/img/icons/dbt-bit.svg)](../about-dbt-extension.md)[Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 

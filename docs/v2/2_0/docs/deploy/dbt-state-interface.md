@@ -30,7 +30,7 @@ When you go to your **Account home**, you'll see a chart showing the number of m
 
 When you run a job, or when you run `dbt run` or `dbt build` locally, a structured logs view shows which models were built, skipped, or reused.
 
-[![Logs view of built models](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built models")](#)Logs view of built models
+![Logs view of built models](/img/docs/dbt-platform/using-dbt-platform/sao-logs-view.png?v=2 "Logs view of built models")Logs view of built models
 
 1. Each model has an icon indicating its status.
 2. The **Reused** tab indicates the total number of reused models.
@@ -43,7 +43,7 @@ Lineage lenses are interactive visual filters in [dbt Catalog](../explore/explor
 
 The **Latest status** lens shows the status from the latest execution of the resource in the current environment. When you use this lens to view your lineage, dbt State tags reused models with **Reused**.
 
-[![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")](#)Latest status lens showing reused models
+![Latest status lens showing reused models](/img/docs/dbt-platform/using-dbt-platform/sao-latest-status-lens.png?v=2 "Latest status lens showing reused models")Latest status lens showing reused models
 
 To view your lineage with the **Latest status** lens:
 

@@ -67,9 +67,11 @@ How declarative caching works:
 
 This video demonstrates the concept of declarative caching, how to run it using the dbt scheduler, and how fast your dashboards load as a result.
 
+[Loom video](https://www.loom.com/embed/aea82a4dee364dfdb536e7b8068684e7)
+
 Refer to the following diagram, which illustrates what happens when the Semantic Layer receives a query request:
 
-[![Overview of the declarative cache query flow](/img/docs/dbt-platform/semantic-layer/declarative-cache-query-flow.jpg?v=2 "Overview of the declarative cache query flow")](#)Overview of the declarative cache query flow
+![Overview of the declarative cache query flow](/img/docs/dbt-platform/semantic-layer/declarative-cache-query-flow.jpg?v=2 "Overview of the declarative cache query flow")Overview of the declarative cache query flow
 
 ### Declarative caching setup
 
@@ -111,7 +113,7 @@ After setting up declarative caching in your YAML configuration, you can now run
 * The cache schema and tables are created using your deployment credentials. You need to grant read access to this schema for your Semantic Layer user.
 * The cache refreshes (or rebuilds) on the same schedule as the saved query job.
 
-[![Overview of the cache creation flow.](/img/docs/dbt-platform/semantic-layer/cache-creation-flow.jpg?v=2 "Overview of the cache creation flow.")](#)Overview of the cache creation flow.
+![Overview of the cache creation flow.](/img/docs/dbt-platform/semantic-layer/cache-creation-flow.jpg?v=2 "Overview of the cache creation flow.")Overview of the cache creation flow.
 
 After a successful job run, you can go back to your dashboard to experience the speed and benefits of declarative caching.
 

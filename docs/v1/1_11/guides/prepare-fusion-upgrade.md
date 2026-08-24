@@ -2,7 +2,7 @@
 
 This guide helps you prepare for an in-place upgrade from dbt Core to the dbt Fusion engine in the dbt platform.
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -14,7 +14,7 @@ If Fusion is brand new to you, take a look at our [comprehensive documentation](
 
 ## Prerequisites
 
-This guide will cover the preparations for upgrading to the dbt Fusion engine and is intended for customers already using the dbt platform with a version of dbt Core. If you're brand new to dbt, check out our [quickstart guides](../guides.md).
+This guide will cover the preparations for upgrading to the dbt Fusion engine and is intended for customers already using the dbt platform with a version of dbt Core. If you're brand new to dbt, check out our [quickstart guides](https://docs.getdbt.com/guides).
 
 To follow the steps in this guide, you must meet the following prerequisites:
 
@@ -91,7 +91,7 @@ When enabled, only users assigned the [`Fusion admin`](../docs/platform/manage-a
 
 With the readiness experience enabled, you can monitor your project's eligibility as you work through the preparation steps below. The panel shows which jobs are eligible or ineligible for Fusion and why.
 
-[![The Fusion readiness checklist](/img/fusion/fusion-readiness.png?v=2 "The Fusion readiness checklist")](#)The Fusion readiness checklist
+![The Fusion readiness checklist](/img/fusion/fusion-readiness.png?v=2 "The Fusion readiness checklist")The Fusion readiness checklist
 
 Common ineligibility reasons include:
 
@@ -119,7 +119,7 @@ Test the **Latest** release track for your individual account without changing t
 3. In the side panel, click **Edit** and scroll to **User development settings**.
 4. Select **Latest** from the **dbt version** dropdown and click **Save**.
 
-[![Override dbt version in your account settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Override dbt version in your account settings")](#)Override dbt version in your account settings
+![Override dbt version in your account settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Override dbt version in your account settings")Override dbt version in your account settings
 
 5. Launch the Studio IDE or dbt CLI and test your normal development workflows.
 6. Verify the override is active by running any dbt command and checking the **System Logs**. The first line should show `Running with dbt=` and your selected version. If the version number is `v1.11` or higher, you're on the right path to Fusion readiness.
@@ -135,7 +135,7 @@ After successfully testing your individual development environment with the over
 3. Click the **dbt version** dropdown and select **Latest**.
 4. Click **Save** to apply the changes.
 
-[![Upgrade development environment to Latest dbt Core release track](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/select-development.png?v=2 "Upgrade development environment to Latest dbt Core release track")](#)Upgrade development environment to Latest dbt Core release track
+![Upgrade development environment to Latest dbt Core release track](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/select-development.png?v=2 "Upgrade development environment to Latest dbt Core release track")Upgrade development environment to Latest dbt Core release track
 
 Remove your override
 
@@ -208,13 +208,13 @@ Now you're ready to scan for and automatically fix deprecation warnings:
 1. Click the **three-dot menu** in the bottom right corner of the Studio IDE.
 2. Select **Check & fix deprecations**.
 
-[![Access the Studio IDE options menu](/img/docs/dbt-platform/platform-ide/ide-options-menu-with-save.png?v=2 "Access the Studio IDE options menu")](#)Access the Studio IDE options menu
+![Access the Studio IDE options menu](/img/docs/dbt-platform/platform-ide/ide-options-menu-with-save.png?v=2 "Access the Studio IDE options menu")Access the Studio IDE options menu
 
 The tool runs `dbt parse --show-all-deprecations --no-partial-parse` to identify all deprecations in your project. This may take a few moments depending on your project size.
 
 3. When parsing completes, view the results in the **Command history** panel in the bottom left.
 
-[![View command history and deprecation results](/img/docs/dbt-platform/platform-ide/command-history.png?v=2 "View command history and deprecation results")](#)View command history and deprecation results
+![View command history and deprecation results](/img/docs/dbt-platform/platform-ide/command-history.png?v=2 "View command history and deprecation results")View command history and deprecation results
 
 ### Step 3: Review and apply autofixes
 
@@ -223,17 +223,17 @@ After the deprecation scan completes, review the findings and apply automatic fi
 1. In the **Command history** panel, review the list of deprecation warnings.
 2. Click the **Autofix warnings** button to proceed.
 
-[![Click Autofix warnings to resolve deprecations automatically](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Click Autofix warnings to resolve deprecations automatically")](#)Click Autofix warnings to resolve deprecations automatically
+![Click Autofix warnings to resolve deprecations automatically](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Click Autofix warnings to resolve deprecations automatically")Click Autofix warnings to resolve deprecations automatically
 
 3. In the **Proceed with autofix** dialog, review the warning and click **Continue**.
 
-[![Confirm autofix operation](/img/docs/dbt-platform/platform-ide/proceed-with-autofix.png?v=2 "Confirm autofix operation")](#)Confirm autofix operation
+![Confirm autofix operation](/img/docs/dbt-platform/platform-ide/proceed-with-autofix.png?v=2 "Confirm autofix operation")Confirm autofix operation
 
 The tool automatically modifies your project files to resolve fixable deprecations, then runs another parse to identify any remaining warnings.
 
 4. When complete, a success message appears. Click **Review changes**.
 
-[![Autofix complete](/img/docs/dbt-platform/platform-ide/autofix-success.png?v=2 "Autofix complete")](#)Autofix complete
+![Autofix complete](/img/docs/dbt-platform/platform-ide/autofix-success.png?v=2 "Autofix complete")Autofix complete
 
 ### Step 4: Verify the changes
 
@@ -464,11 +464,11 @@ If a job has not run in the last 7 days, you must run it once for the debugging 
    * From the main menu, go to **Orchestration** → **Jobs**.
    * From the readiness panel, click **Review jobs**.
 
-   [![Shortcut to review your jobs from the readiness panel](/img/fusion/review-jobs.png?v=2 "Shortcut to review your jobs from the readiness panel")](#)Shortcut to review your jobs from the readiness panel
+   ![Shortcut to review your jobs from the readiness panel](/img/fusion/review-jobs.png?v=2 "Shortcut to review your jobs from the readiness panel")Shortcut to review your jobs from the readiness panel
 
 2. Find the Fusion eligibility icon to the right of your jobs. Click **Review job** for any job that is ineligible or has an unknown eligibility status.
 
-   [![Take action on your jobs to make them Fusion eligible.](/img/fusion/job-eligibility.png?v=2 "Take action on your jobs to make them Fusion eligible.")](#)Take action on your jobs to make them Fusion eligible.
+   ![Take action on your jobs to make them Fusion eligible.](/img/fusion/job-eligibility.png?v=2 "Take action on your jobs to make them Fusion eligible.")Take action on your jobs to make them Fusion eligible.
 
 3. Click **Debug on Fusion** and choose one of the following:
 
@@ -482,7 +482,7 @@ In the Studio IDE, run Fusion in your development environment to review project 
 
 1. Click **Debug in Studio**. dbt sets your user-level `DBT_DEVELOP_CORE_VERSION` environment variable to `latest-fusion`, then opens the Studio IDE with the **Problems** tab selected.
 
-[![Running Fusion in development](/img/fusion/fusion-ide.png?v=2 "Running Fusion in development")](#)Running Fusion in development
+![Running Fusion in development](/img/fusion/fusion-ide.png?v=2 "Running Fusion in development")Running Fusion in development
 
 2. Review the warnings or errors in the **Problems** tab.
 3. Fix the issues directly or run the [autofix tool](../docs/platform/studio-ide/autofix-deprecations.md).
@@ -520,7 +520,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 8. After you merge the changes, wait for the job to run again or run it manually on Fusion.
 
-[![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")](#)The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
+![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
 #### Run once on Fusion
 
@@ -530,11 +530,11 @@ When you are confident a job is ready for Fusion, you can run it once on the eng
 2. The job window opens and dbt runs the job on Fusion without changing other jobs or environment settings.
 3. When the job succeeds, click **Override eligibility status** to update the eligibility status.
 
-   [![Override the eligibility status of a successful job.](/img/fusion/eligibility-status.png?v=2 "Override the eligibility status of a successful job.")](#)Override the eligibility status of a successful job.
+   ![Override the eligibility status of a successful job.](/img/fusion/eligibility-status.png?v=2 "Override the eligibility status of a successful job.")Override the eligibility status of a successful job.
 
 Congratulations! You have validated Fusion eligibility for your jobs.
 
-[![Your job is now ready for Fusion!](/img/fusion/fusion-eligible.png?v=2 "Your job is now ready for Fusion!")](#)Your job is now ready for Fusion!
+![Your job is now ready for Fusion!](/img/fusion/fusion-eligible.png?v=2 "Your job is now ready for Fusion!")Your job is now ready for Fusion!
 
 ## What's next?
 

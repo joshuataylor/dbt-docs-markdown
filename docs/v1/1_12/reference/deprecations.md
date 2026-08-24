@@ -37,11 +37,11 @@ Summary of encountered deprecations:
 
 If you're using dbt, you can view deprecation warnings from the **Dashboard** area of your account.
 
-[![The deprecation warnings listed on the dbt dashboard.](/img/docs/dbt-platform/deprecation-warnings.png?v=2 "The deprecation warnings listed on the dbt dashboard.")](#)The deprecation warnings listed on the dbt dashboard.
+![The deprecation warnings listed on the dbt dashboard.](/img/docs/dbt-platform/deprecation-warnings.png?v=2 "The deprecation warnings listed on the dbt dashboard.")The deprecation warnings listed on the dbt dashboard.
 
 Click into a job to view more details and locate the deprecation warnings in the logs (or run the `parse` command with flags from the Studio IDE or dbt CLI).
 
-[![Deprecation warnings listed in the logs.](/img/docs/dbt-platform/deprecation-list.png?v=2 "Deprecation warnings listed in the logs.")](#)Deprecation warnings listed in the logs.
+![Deprecation warnings listed in the logs.](/img/docs/dbt-platform/deprecation-list.png?v=2 "Deprecation warnings listed in the logs.")Deprecation warnings listed in the logs.
 
 ### Automatic remediation
 
@@ -49,7 +49,7 @@ Some deprecations can be automatically fixed with a script. Read more about it i
 
 You can run this script directly from [Studio IDE](../docs/platform/studio-ide/autofix-deprecations.md) using the **Autofix warnings** button to resolve deprecation warnings in dbt platform.
 
-[![Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.")](#)Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.
+![Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.")Use the Autofix warnings button in the Studio IDE to address deprecation warnings in dbt platform.
 
 ### Silence deprecation warnings
 
@@ -245,7 +245,7 @@ Nest custom configs under `meta` and ensure `meta` is nested under `config` (sim
 
 The same resolution applies whether the custom key is in a model config or a generic test definition. Select the relevant tab for an example:
 
-### Model config
+##### Model config
 
 Example that results in the warning:
 
@@ -275,7 +275,7 @@ models:
             some_key: some_value
 ```
 
-### Generic test definition
+##### Generic test definition
 
 If you define a custom key directly under a test in a `tests:` block, nest it under `config.meta`.
 

@@ -60,7 +60,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
-   ### dbt platform only
+   ##### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -82,7 +82,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
-   ### dbt platform + CLI
+   ##### dbt platform + CLI
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -201,7 +201,7 @@ For default hosts, multi-cell accounts, and regions, see [Access, Regions, & IP 
 
 Then follow the tab that matches your auth method:
 
-### OAuth (remote)
+#### OAuth (remote)
 
 *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -220,16 +220,16 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 1. In your AI tool, go to its connector settings and choose to add a custom connector (in Claude Desktop, go to **Chat → Customize → Connectors**, then click **Add custom connector**).
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
 
-   [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
+   ![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")Custom connector dialog showing the dbt MCP URL
 3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
 
-   [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
+   ![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
 
-   [![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")](#)Adding a custom dbt connector in an AI tool's connector settings
+   ![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")Adding a custom dbt connector in an AI tool's connector settings
 5. That's it 🎉! Ask your tool a data question like *"What is the total revenue for the last 30 days?"* to confirm the connection.
 
-### Token-based
+#### Token-based
 
 Use token-based auth when your client doesn't yet support OAuth for HTTP MCP servers, or when you need a shared or CI-style setup.
 
@@ -308,7 +308,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
-   ### dbt platform only
+   #### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -330,7 +330,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
-   ### dbt platform + CLI
+   #### dbt platform + CLI
 
    This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -451,7 +451,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
 
 3. Add the `dbt` entry to `.mcp.json` using the tab that matches your auth method:
 
-   ### OAuth (remote)
+   #### OAuth (remote)
 
    *Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterprise+ accounts.*
 
@@ -484,7 +484,7 @@ Remote MCP OAuth is available in public beta for Starter, Enterprise, and Enterp
    claude mcp add --transport http dbt https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/
    ```
 
-   ### Token-based
+   #### Token-based
 
    ```json
    {

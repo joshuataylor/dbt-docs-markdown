@@ -2,7 +2,7 @@
 
 Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

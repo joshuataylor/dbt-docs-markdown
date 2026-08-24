@@ -1,6 +1,6 @@
 # Apache Ossie semantic layer documents
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.12 or with the [dbt "Latest" release track](../dbt-versions/dbt-release-tracks.md).
 

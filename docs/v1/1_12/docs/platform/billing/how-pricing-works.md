@@ -69,16 +69,16 @@ Viewing usage in the product is restricted to specific roles:
 
 If you have access to the **Billing** and **Usage** pages in **Account settings**, you can see an estimate of the month's usage, how your account tracks against it, and which projects are building the most models.
 
-[![To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.](/img/docs/building-a-dbt-project/billing-usage-page.jpg?v=2 "To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.")](#)To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.
+![To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.](/img/docs/building-a-dbt-project/billing-usage-page.jpg?v=2 "To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.")To view account-level estimated usage, go to 'Account settings' and then select 'Billing'.
 
 As a Starter and Developer plan user, you can see how the account is tracking against the included models built. As an Enterprise plan user, you can see how much you have drawn down from your annual commit and how much remains.
 
 On each **Project home** page, any user with project access can see how many models are built each month, with top jobs by models built available on each **Environment** page.
 
-[![Your Project home page displays how many models are built each month.](/img/docs/building-a-dbt-project/billing-project-page.jpg?v=2 "Your Project home page displays how many models are built each month.")](#)Your Project home page displays how many models are built each month.
+![Your Project home page displays how many models are built each month.](/img/docs/building-a-dbt-project/billing-project-page.jpg?v=2 "Your Project home page displays how many models are built each month.")Your Project home page displays how many models are built each month.
 
 The **Job details** page's **Insights** tab shows models built per month for that job and which take longest to build.
 
-[![View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.](/img/docs/building-a-dbt-project/billing-job-page.jpg?v=2 "View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.")](#)View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.
+![View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.](/img/docs/building-a-dbt-project/billing-job-page.jpg?v=2 "View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.")View how many models are being built per month for a particular job by going to the 'Insights' tab in the 'Job details' page.
 
 Usage data shown in dbt is only an estimate and may be delayed, and some visualizations aren't available on legacy plans. Your final monthly usage appears on your monthly statements (Starter and Enterprise-tier plans).

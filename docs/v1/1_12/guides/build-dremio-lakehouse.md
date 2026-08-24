@@ -1,6 +1,6 @@
 # Build a data lakehouse with dbt Core and Dremio Cloud
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -127,7 +127,7 @@ If the above configurations have been implemented, the output will look somethin
 
 Now that you have a running environment and a completed job, you can view the data in Dremio and expand your code. This is a snapshot of the project structure in an Studio IDE:
 
-[![Cloned repo in an IDE](/img/guides/dremio/dremio-cloned-repo.png?v=2 "Cloned repo in an IDE")](#)Cloned repo in an IDE
+![Cloned repo in an IDE](/img/guides/dremio/dremio-cloned-repo.png?v=2 "Cloned repo in an IDE")Cloned repo in an IDE
 
 ## About the schema.yml
 
@@ -140,7 +140,7 @@ The models correspond to both weather and trip data respectively and will be joi
 
 The sources can be found by navigating to the **Object Storage** section of the Dremio Cloud UI.
 
-[![NYC-weather.csv location in Dremio Cloud](/img/guides/dremio/dremio-nyc-weather.png?v=2 "NYC-weather.csv location in Dremio Cloud")](#)NYC-weather.csv location in Dremio Cloud
+![NYC-weather.csv location in Dremio Cloud](/img/guides/dremio/dremio-nyc-weather.png?v=2 "NYC-weather.csv location in Dremio Cloud")NYC-weather.csv location in Dremio Cloud
 
 ## About the models
 
@@ -154,11 +154,11 @@ The sources can be found by navigating to the **Object Storage** section of the 
 
 When you run the dbt job, it will create a **dev** space folder that has all the data assets created. This is what you will see in Dremio Cloud UI. Spaces in Dremio is a way to organize data assets which map to business units or data products.
 
-[![Dremio Cloud dev space](/img/guides/dremio/dremio-dev-space.png?v=2 "Dremio Cloud dev space")](#)Dremio Cloud dev space
+![Dremio Cloud dev space](/img/guides/dremio/dremio-dev-space.png?v=2 "Dremio Cloud dev space")Dremio Cloud dev space
 
 Open the **Application folder** and you will see the output of the simple transformation we did using dbt.
 
-[![Application folder transformation output](/img/guides/dremio/dremio-dev-application.png?v=2 "Application folder transformation output")](#)Application folder transformation output
+![Application folder transformation output](/img/guides/dremio/dremio-dev-application.png?v=2 "Application folder transformation output")Application folder transformation output
 
 ## Query the data
 
@@ -174,6 +174,6 @@ FROM dev.application."nyc_treips_with_weather"
 GROUP BY vendor_id
 ```
 
-[![Sample output from SQL query](/img/guides/dremio/dremio-test-results.png?v=2 "Sample output from SQL query")](#)Sample output from SQL query
+![Sample output from SQL query](/img/guides/dremio/dremio-test-results.png?v=2 "Sample output from SQL query")Sample output from SQL query
 
 This completes the integration setup and data is ready for business consumption.

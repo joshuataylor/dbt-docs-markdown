@@ -264,7 +264,7 @@ Use the following additional settings to customize your conversion metrics:
 * **Calculation type:** Choose between showing raw conversions or conversion rate.
 * **Constant property:** Add conditions for specific scenarios to join conversions on constant properties.
 
-### Set null conversion events to zero
+#### Set null conversion events to zero
 
 To return zero in the final data set, you can set the value of a null conversion event to zero instead of null. You can add the `fill_nulls_with` parameter to your conversion metric definition like this:
 
@@ -289,11 +289,11 @@ To return zero in the final data set, you can set the value of a null conversion
 
 This will return the following results:
 
-[![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")](#)Conversion metric with fill nulls with parameter
+![Conversion metric with fill nulls with parameter](/img/docs/dbt-platform/semantic-layer/conversion-metrics-fill-null.png?v=2 "Conversion metric with fill nulls with parameter")Conversion metric with fill nulls with parameter
 
 Refer to [Fill null values for metrics](./fill-nulls-advanced.md) for more info.
 
-### Set calculation type parameter
+#### Set calculation type parameter
 
 Use the conversion calculation parameter to either show the raw number of conversions or the conversion rate. The default value is the conversion rate.
 
@@ -318,7 +318,7 @@ You can change the default to display the number of conversions by setting the `
         window: 1 week
 ```
 
-### Set constant property
+#### Set constant property
 
 *Refer to [Amplitude's blog posts on constant properties](https://amplitude.com/blog/holding-constant) to learn about this concept.*
 

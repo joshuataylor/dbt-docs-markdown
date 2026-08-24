@@ -1,6 +1,6 @@
 # Optimize and troubleshoot dbt models on Databricks
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

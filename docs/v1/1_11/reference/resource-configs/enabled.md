@@ -1,6 +1,6 @@
 # enabled
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -21,7 +21,7 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -31,7 +31,7 @@ seeds:
     +enabled: true | false
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -69,7 +69,7 @@ select ...
 {% endsnapshot %}
 ```
 
-### Tests
+## Tests
 
 dbt\_project.yml
 
@@ -101,9 +101,9 @@ tests/\<filename>.sql
 ) }}
 ```
 
-### Unit tests
+## Unit tests
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
@@ -124,7 +124,7 @@ unit_tests:
       enabled: true | false
 ```
 
-### Sources
+## Sources
 
 dbt\_project.yml
 
@@ -148,7 +148,7 @@ sources:
           enabled: true | false
 ```
 
-### Analyses
+## Analyses
 
 analyses/\<filename>.yml
 
@@ -171,7 +171,7 @@ analyses:
   +enabled: true | false
 ```
 
-### Metrics
+## Metrics
 
 dbt\_project.yml
 
@@ -191,7 +191,7 @@ metrics:
       enabled: true | false
 ```
 
-### Exposures
+## Exposures
 
 dbt\_project.yml
 
@@ -211,7 +211,7 @@ exposures:
       enabled: true | false
 ```
 
-### Semantic models
+## Semantic models
 
 dbt\_project.yml
 
@@ -232,7 +232,7 @@ semantic_models:
       enabled: true | false
 ```
 
-### Saved queries
+## Saved queries
 
 dbt\_project.yml
 

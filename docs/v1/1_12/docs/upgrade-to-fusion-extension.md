@@ -23,7 +23,7 @@ The dbt extension provides two ways to upgrade your project to Fusion from the *
 
 The **Get started** panel has an upgrade assistant that guides you through the upgrade process in your terminal.
 
-[![The dbt extension Get started panel and upgrade assistant.](/img/docs/extension/vsce-manual-upgrade.png?v=2 "The dbt extension Get started panel and upgrade assistant.")](#)The dbt extension Get started panel and upgrade assistant.
+![The dbt extension Get started panel and upgrade assistant.](/img/docs/extension/vsce-manual-upgrade.png?v=2 "The dbt extension Get started panel and upgrade assistant.")The dbt extension Get started panel and upgrade assistant.
 
 You can start manual onboarding in either of the following ways:
 
@@ -33,7 +33,7 @@ You can start manual onboarding in either of the following ways:
 * Follow the prompts in the upgrade assistant to complete the upgrade.
 * Run `dbtf compile` to verify your project is ready for Fusion.
 
-[![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")](#)The message received when you have completed upgrading your project to the dbt Fusion engine.
+![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")The message received when you have completed upgrading your project to the dbt Fusion engine.
 
 Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
 
@@ -80,7 +80,7 @@ There are cases where dbt-autofix may not resolve all errors and requires manual
 
 The tool compiles your project with full Fusion static analysis. This checks that your SQL code is valid in the context of your warehouse's tables and columns.
 
-[![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")](#)The message received when you have completed upgrading your project to the dbt Fusion engine.
+![The message received when you have completed upgrading your project to the dbt Fusion engine.](/img/docs/extension/fusion-onboarding-complete.png?v=2 "The message received when you have completed upgrading your project to the dbt Fusion engine.")The message received when you have completed upgrading your project to the dbt Fusion engine.
 
 Once the upgrade is completed, you're ready to dive into all the features that the dbt Fusion engine has to offer!
 

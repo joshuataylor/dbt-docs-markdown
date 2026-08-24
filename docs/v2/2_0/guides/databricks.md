@@ -1,6 +1,6 @@
 # Quickstart for dbt and Databricks
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -37,25 +37,25 @@ You can check out [dbt Fundamentals](https://learn.getdbt.com/courses/dbt-fundam
 
 1. Use your existing account or [sign up for a Databricks account](https://databricks.com/). Complete the form with your user information and click **Continue**.
 
-   [![Sign up for Databricks](/img/databricks_tutorial/images/signup_form.png?v=2 "Sign up for Databricks")](#)Sign up for Databricks
+   ![Sign up for Databricks](/img/databricks_tutorial/images/signup_form.png?v=2 "Sign up for Databricks")Sign up for Databricks
 
 2. On the next screen, select your cloud provider. This tutorial uses AWS as the cloud provider, but if you use Azure or GCP internally, please select your platform. The setup process will be similar. Do not select the **Get started with Community Edition** option, as this will not provide the required compute for this guide.
 
-   [![Choose cloud provider](/img/databricks_tutorial/images/choose_provider.png?v=2 "Choose cloud provider")](#)Choose cloud provider
+   ![Choose cloud provider](/img/databricks_tutorial/images/choose_provider.png?v=2 "Choose cloud provider")Choose cloud provider
 
 3. Check your email and complete the verification process.
 
 4. After completing the verification processes, you will be brought to the first setup screen. Databricks defaults to the `Premium` plan and you can change the trial to `Enterprise` on this page.
 
-   [![Choose Databricks Plan](/img/databricks_tutorial/images/choose_plan.png?v=2 "Choose Databricks Plan")](#)Choose Databricks Plan
+   ![Choose Databricks Plan](/img/databricks_tutorial/images/choose_plan.png?v=2 "Choose Databricks Plan")Choose Databricks Plan
 
 5. Now, it's time to create your first workspace. A Databricks workspace is an environment for accessing all of your Databricks assets. The workspace organizes objects like notebooks, SQL warehouses, clusters, and more so into one place. Provide the name of your workspace, choose the appropriate AWS region, and click **Start Quickstart**. You might get the checkbox of **I have data in S3 that I want to query with Databricks**. You do not need to check this off for this tutorial.
 
-   [![Create AWS resources](/img/databricks_tutorial/images/start_quickstart.png?v=2 "Create AWS resources")](#)Create AWS resources
+   ![Create AWS resources](/img/databricks_tutorial/images/start_quickstart.png?v=2 "Create AWS resources")Create AWS resources
 
 6. By clicking on `Start Quickstart`, you will be redirected to AWS and asked to log in if you haven’t already. After logging in, you should see a page similar to this.
 
-   [![Create AWS resources](/img/databricks_tutorial/images/quick_create_stack.png?v=2 "Create AWS resources")](#)Create AWS resources
+   ![Create AWS resources](/img/databricks_tutorial/images/quick_create_stack.png?v=2 "Create AWS resources")Create AWS resources
 
 tip
 
@@ -63,13 +63,13 @@ If you get a session error and don’t get redirected to this page, you can go b
 
 7. There is no need to change any of the pre-filled out fields in the Parameters. Just add in your Databricks password under **Databricks Account Credentials**. Check off the Acknowledgement and click **Create stack**.
 
-   [![Parameters](/img/databricks_tutorial/images/parameters.png?v=2 "Parameters")](#)Parameters
+   ![Parameters](/img/databricks_tutorial/images/parameters.png?v=2 "Parameters")Parameters
 
-   [![Capabilities](/img/databricks_tutorial/images/create_stack.png?v=2 "Capabilities")](#)Capabilities
+   ![Capabilities](/img/databricks_tutorial/images/create_stack.png?v=2 "Capabilities")Capabilities
 
 8. Go back to the Databricks tab. You should see that your workspace is ready to use.
 
-   [![A Databricks Workspace](/img/databricks_tutorial/images/workspaces.png?v=2 "A Databricks Workspace")](#)A Databricks Workspace
+   ![A Databricks Workspace](/img/databricks_tutorial/images/workspaces.png?v=2 "A Databricks Workspace")A Databricks Workspace
 
 9. Now let’s jump into the workspace. Click **Open** and log into the workspace using the same login as you used to log into the account.
 
@@ -83,7 +83,7 @@ If you get a session error and don’t get redirected to this page, you can go b
 
 2. First we need a SQL warehouse. Find the drop down menu and toggle into the SQL space.
 
-   [![SQL space](/img/databricks_tutorial/images/go_to_sql.png?v=2 "SQL space")](#)SQL space
+   ![SQL space](/img/databricks_tutorial/images/go_to_sql.png?v=2 "SQL space")SQL space
 
 3. We will be setting up a SQL warehouse now. Select **SQL Warehouses** from the left hand side console. You will see that a default SQL Warehouse exists.
 
@@ -91,11 +91,11 @@ If you get a session error and don’t get redirected to this page, you can go b
 
 5. Once the SQL Warehouse is up, click **New** and then **File upload** on the dropdown menu.
 
-   [![New File Upload Using Databricks SQL](/img/databricks_tutorial/images/new_file_upload_using_databricks_SQL.png?v=2 "New File Upload Using Databricks SQL")](#)New File Upload Using Databricks SQL
+   ![New File Upload Using Databricks SQL](/img/databricks_tutorial/images/new_file_upload_using_databricks_SQL.png?v=2 "New File Upload Using Databricks SQL")New File Upload Using Databricks SQL
 
 6. Let's load the Jaffle Shop Customers data first. Drop in the `jaffle_shop_customers.csv` file into the UI.
 
-   [![Databricks Table Loader](/img/databricks_tutorial/images/databricks_table_loader.png?v=2 "Databricks Table Loader")](#)Databricks Table Loader
+   ![Databricks Table Loader](/img/databricks_tutorial/images/databricks_table_loader.png?v=2 "Databricks Table Loader")Databricks Table Loader
 
 7. Update the Table Attributes at the top:
 
@@ -111,15 +111,15 @@ If you get a session error and don’t get redirected to this page, you can go b
      * **FIRST\_NAME** = string
      * **LAST\_NAME** = string
 
-   [![Load jaffle shop customers](/img/databricks_tutorial/images/jaffle_shop_customers_upload.png?v=2 "Load jaffle shop customers")](#)Load jaffle shop customers
+   ![Load jaffle shop customers](/img/databricks_tutorial/images/jaffle_shop_customers_upload.png?v=2 "Load jaffle shop customers")Load jaffle shop customers
 
 8. Click **Create** on the bottom once you’re done.
 
 9. Now let’s do the same for `Jaffle Shop Orders` and `Stripe Payments`.
 
-   [![Load jaffle shop orders](/img/databricks_tutorial/images/jaffle_shop_orders_upload.png?v=2 "Load jaffle shop orders")](#)Load jaffle shop orders
+   ![Load jaffle shop orders](/img/databricks_tutorial/images/jaffle_shop_orders_upload.png?v=2 "Load jaffle shop orders")Load jaffle shop orders
 
-   [![Load stripe payments](/img/databricks_tutorial/images/stripe_payments_upload.png?v=2 "Load stripe payments")](#)Load stripe payments
+   ![Load stripe payments](/img/databricks_tutorial/images/stripe_payments_upload.png?v=2 "Load stripe payments")Load stripe payments
 
 10. Once that's done, make sure you can query the training data. Navigate to the `SQL Editor` through the left hand menu. This will bring you to a query editor.
 
@@ -131,7 +131,7 @@ If you get a session error and don’t get redirected to this page, you can go b
     select * from default.stripe_payments
     ```
 
-    [![Query Check](/img/databricks_tutorial/images/query_check.png?v=2 "Query Check")](#)Query Check
+    ![Query Check](/img/databricks_tutorial/images/query_check.png?v=2 "Query Check")Query Check
 
 12. To ensure any users who might be working on your dbt project has access to your object, run this command.
 
@@ -505,7 +505,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in our original query.
 
@@ -809,13 +809,13 @@ models:
 
 3. Catalog reflects **Production** by default. If your account has additional environments (for example, **Staging**), you can select them from the environment dropdown.
 
-[![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")](#)Select an environment in Catalog.
+![Select an environment in Catalog.](/img/docs/collaborate/dbt-explorer/catalog-nav-dropdown.png?v=2 "Select an environment in Catalog.")Select an environment in Catalog.
 
 4. Select your project from the file tree.
 5. Use the search bar or browse the resource list to find the `customers` model.
 6. Click the model to view its details, including the descriptions you added.
 
-[![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")](#)View your model's documentation and lineage in Catalog.
+![View your model's documentation and lineage in Catalog.](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "View your model's documentation and lineage in Catalog.")View your model's documentation and lineage in Catalog.
 
 Catalog displays your model's description, column documentation, data tests, and lineage graph. You can also see which columns are missing documentation and track test coverage across your project.
 
@@ -826,11 +826,11 @@ You can view docs directly from the IDE if you're on `Latest` or another version
 1. In the IDE, run `dbt docs generate`.
 2. From the navigation bar, click the **View docs** icon located to the right of the **branch name**.
 
-   [![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")](#)The View docs icon in the Studio IDE.
+   ![The View docs icon in the Studio IDE.](/img/docs/collaborate/dbt-explorer/docs-icon.png?v=2 "The View docs icon in the Studio IDE.")The View docs icon in the Studio IDE.
 3. From **Projects**, select your project name and expand the folders.
 4. Click **models** > **marts** > **customers**.
 
-[![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")](#)View your model's documentation in the legacy docs view.
+![View your model's documentation in the legacy docs view.](/img/docs/collaborate/dbt-explorer/legacy-docs-view.png?v=2 "View your model's documentation in the legacy docs view.")View your model's documentation in the legacy docs view.
 
 #### FAQs
 

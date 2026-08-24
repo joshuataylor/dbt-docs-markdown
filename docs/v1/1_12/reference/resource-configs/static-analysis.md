@@ -10,7 +10,7 @@ The `static_analysis` config sets how the dbt Fusion engine validates SQL before
 
 To check out which Snowflake functions are supported in Fusion in `strict` mode, refer to [Snowflake function support](./snowflake-function-support.md). For BigQuery, refer to [BigQuery function support](./bigquery-function-support.md).
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -35,7 +35,7 @@ models/model\_name.sql
 {{ config(static_analysis='strict' | 'baseline' | 'off') }}
 ```
 
-### Tests
+## Tests
 
 dbt\_project.yml
 
@@ -57,7 +57,7 @@ models:
             static_analysis: strict | baseline | off
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -76,7 +76,7 @@ seeds:
       static_analysis: strict | baseline | off
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 

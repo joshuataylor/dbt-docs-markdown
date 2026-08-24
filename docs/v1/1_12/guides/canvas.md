@@ -1,6 +1,6 @@
 # Quickstart for dbt Canvas
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -53,13 +53,13 @@ To access Canvas:
 1. Click **Canvas** on the left-side menu.
 2. From the right side, click **Create new workspace**. This will open a new workspace with a blank untitled model. You don't need to take any additional action to continue with this guide, but in scenarios where you want to create a new model, click **+Add** on the top navigation bar and click **Create new model**.
 
-[![Create a new model from the Canvas landing page.](/img/docs/dbt-platform/canvas/canvas-create-new-model.png?v=2 "Create a new model from the Canvas landing page.")](#)Create a new model from the Canvas landing page.
+![Create a new model from the Canvas landing page.](/img/docs/dbt-platform/canvas/canvas-create-new-model.png?v=2 "Create a new model from the Canvas landing page.")Create a new model from the Canvas landing page.
 
 ## Navigating the interface
 
 Canvas comprises a series of menus activated by clicking icons surrounding the border of the canvas workspace area. With none of the menu items activated, the workspace looks like this:
 
-[![The Canvas workspace screen. The number of items is defined in this section.](/img/docs/dbt-platform/canvas/canvas-screen.png?v=2 "The Canvas workspace screen. The number of items is defined in this section.")](#)The Canvas workspace screen. The number of items is defined in this section.
+![The Canvas workspace screen. The number of items is defined in this section.](/img/docs/dbt-platform/canvas/canvas-screen.png?v=2 "The Canvas workspace screen. The number of items is defined in this section.")The Canvas workspace screen. The number of items is defined in this section.
 
 Click on an icon to expand its section or execute an action depending on its purpose. The options are as follows:
 
@@ -105,7 +105,7 @@ Operators are divided into three types:
 * **Transform:** Transform operators change and shape your data.
 * **Output:** Output operators define your model name and location.
 
-[![The operator’s menu on the side of the Canvas workspace.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator’s menu on the side of the Canvas workspace.")](#)The operator’s menu on the side of the Canvas workspace.
+![The operator’s menu on the side of the Canvas workspace.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator’s menu on the side of the Canvas workspace.")The operator’s menu on the side of the Canvas workspace.
 
 Read more about the [individual operators](../docs/platform/canvas-interface.md#operators) to understand the basic purpose of each. The dbt model created by the Canvas builds off of existing models. In this guide, there will be input (source) models and an output model (what you are building) which will be *your model*.
 
@@ -115,7 +115,7 @@ The operators are drag-and-drop from their menu to the canvas, and when they are
 
 The tiles have the same basic setup with different fields depending on their function. All operators except for **Model** must be connected to another tile before configuring. Once configured, they’ll have the same basic layout.
 
-[![An operator tile with configurations filled out.](/img/docs/dbt-platform/canvas/operator-tile.png?v=2 "An operator tile with configurations filled out.")](#)An operator tile with configurations filled out.
+![An operator tile with configurations filled out.](/img/docs/dbt-platform/canvas/operator-tile.png?v=2 "An operator tile with configurations filled out.")An operator tile with configurations filled out.
 
 1. **The connectors:** Click-and-drag to the connector on another operator to link them. Some connectors have L and R markers. When implementing joins, they designate the left and right joins, respectively.
 2. **The title:** Click to change. The examples and images in this guide will use the default names.
@@ -134,13 +134,13 @@ To get started:
 2. Click **Choose a model** and then select the source `stg_models` from the dropdown.
 3. Click the **Select model** option in the window that lists the columns.
 
-[![A single model operator.](/img/docs/dbt-platform/canvas/one-model-operator.png?v=2 "A single model operator.")](#)A single model operator.
+![A single model operator.](/img/docs/dbt-platform/canvas/one-model-operator.png?v=2 "A single model operator.")A single model operator.
 
 You now have your first input model in Canvas!
 
 4. Drag a new **Input Model** operator to the canvas below the first and repeat the previous steps, but this time set the source model to `stg_order_items`.
 
-   [![Two model operators in the canvas.](/img/docs/dbt-platform/canvas/two-model-operators.png?v=2 "Two model operators in the canvas.")](#)Two model operators in the canvas.
+   ![Two model operators in the canvas.](/img/docs/dbt-platform/canvas/two-model-operators.png?v=2 "Two model operators in the canvas.")Two model operators in the canvas.
 
 Now, you have two input models and are ready to transform the data!
 
@@ -152,11 +152,11 @@ Don't see a pre-existing model you're looking for? Ask your dbt admins to ensure
 
 1. From the **Operators** menu, click **Transform** and drag the **Join** operator onto the canvas to the right of the source models.
 
-   [![A join that has not been connected to the models](/img/docs/dbt-platform/canvas/join-not-connected.png?v=2 "A join that has not been connected to the models")](#)A join that has not been connected to the models
+   ![A join that has not been connected to the models](/img/docs/dbt-platform/canvas/join-not-connected.png?v=2 "A join that has not been connected to the models")A join that has not been connected to the models
 
 2. Click and drag a line from the **+** connector below the `L` on the join border to the **+** on the `stg_orders` model. Do the same for the `R` connector to the `stg_order_items` model.
 
-   [![The join is connected to two model operators.](/img/docs/dbt-platform/canvas/join-connected.png?v=2 "The join is connected to two model operators.")](#)The join is connected to two model operators.
+   ![The join is connected to two model operators.](/img/docs/dbt-platform/canvas/join-connected.png?v=2 "The join is connected to two model operators.")The join is connected to two model operators.
 
 3. In the **Join** tile, click **Configure inputs.**
 
@@ -172,7 +172,7 @@ Don't see a pre-existing model you're looking for? Ask your dbt admins to ensure
 
 7. You've now built your join! Test it by clicking the **Play icon** in the top right corner of the join tile. Your data will populate in the **Runs and previews** pane.
 
-   [![A completed join with the sample data.](/img/docs/dbt-platform/canvas/preview-join.png?v=2 "A completed join with the sample data.")](#)A completed join with the sample data.
+   ![A completed join with the sample data.](/img/docs/dbt-platform/canvas/preview-join.png?v=2 "A completed join with the sample data.")A completed join with the sample data.
 
 tip
 
@@ -200,7 +200,7 @@ Multiple options for transforming your data include custom formulas, filters, an
    * **Column:** PRODUCT\_ID
    * **Alias:** count\_PRODUCT\_ID
 
-   [![The configured aggregation operator tile.](/img/docs/dbt-platform/canvas/aggregation.png?v=2 "The configured aggregation operator tile.")](#)The configured aggregation operator tile.
+   ![The configured aggregation operator tile.](/img/docs/dbt-platform/canvas/aggregation.png?v=2 "The configured aggregation operator tile.")The configured aggregation operator tile.
 
 6. Click the **Play icon** to preview the data. You're starting to see the results you're looking for, but the data is scattered. Let's clean it up a bit more.
 
@@ -222,7 +222,7 @@ There's a lot of data there. Dozens of customers are buying hundreds of products
 
 5. Press the **Play icon** to preview the new data.
 
-   [![The ordered data operator tile config.](/img/docs/dbt-platform/canvas/order.png?v=2 "The ordered data operator tile config.")](#)The ordered data operator tile config.
+   ![The ordered data operator tile config.](/img/docs/dbt-platform/canvas/order.png?v=2 "The ordered data operator tile config.")The ordered data operator tile config.
 
 tip
 
@@ -244,7 +244,7 @@ Now that you've built your model, you need to customize the output name and loca
 
 4. Click the **play icon** to preview your final model.
 
-[![The output model configures your final model's name and location.](/img/docs/dbt-platform/canvas/output-model.png?v=2 "The output model configures your final model's name and location.")](#)The output model configures your final model's name and location.
+![The output model configures your final model's name and location.](/img/docs/dbt-platform/canvas/output-model.png?v=2 "The output model configures your final model's name and location.")The output model configures your final model's name and location.
 
 Model locations
 
@@ -262,11 +262,11 @@ Now that you've built a model that results in the data you want, it's time to ru
 
 To run your model, you only need to click the big **Run** button. With the Canvas, there is no command line and no need to memorize a list of commands; there is only **Run**. Click it to see the results populate in the **Runs and previews** pane.
 
-[![The results of a successful run in the 'Runs and previews' pane.](/img/docs/dbt-platform/canvas/run-results.png?v=2 "The results of a successful run in the 'Runs and previews' pane.")](#)The results of a successful run in the 'Runs and previews' pane.
+![The results of a successful run in the 'Runs and previews' pane.](/img/docs/dbt-platform/canvas/run-results.png?v=2 "The results of a successful run in the 'Runs and previews' pane.")The results of a successful run in the 'Runs and previews' pane.
 
 This will [materialize](../docs/build/materializations.md) the data as a `view` in your developer schema in the database. Once the model has been merged with your project and `dbt run` is executed in your Staging or Production environments, it will be materialized as a view in related schemas.
 
-[![Preview of the transformed data in Snowflake.](/img/docs/dbt-platform/canvas/preview-data.png?v=2 "Preview of the transformed data in Snowflake.")](#)Preview of the transformed data in Snowflake.
+![Preview of the transformed data in Snowflake.](/img/docs/dbt-platform/canvas/preview-data.png?v=2 "Preview of the transformed data in Snowflake.")Preview of the transformed data in Snowflake.
 
 tip
 
@@ -276,7 +276,7 @@ Have dbt [dbt Wizard](../docs/platform/wizard-platform.md) enabled for your dbt 
 
 The models built in the Canvas are a part of your larger dbt project. They are stored in the `visual_editor` folder of your `/models` directory. This is all done automatically; you don't have to configure any paths or directories.
 
-[![Example of the Canvas model path in GitHub.](/img/docs/dbt-platform/canvas/ve-model-folder.png?v=2 "Example of the Canvas model path in GitHub.")](#)Example of the Canvas model path in GitHub.
+![Example of the Canvas model path in GitHub.](/img/docs/dbt-platform/canvas/ve-model-folder.png?v=2 "Example of the Canvas model path in GitHub.")Example of the Canvas model path in GitHub.
 
 However, it won't be created in your Git repo until you commit your first model. So, back in the model's view:
 
@@ -288,7 +288,7 @@ However, it won't be created in your Git repo until you commit your first model.
 
 The following example uses GitHub as the provider:
 
-[![Example of the screen you're taken to in GitHub when you create a pull request from Canvas.](/img/docs/dbt-platform/canvas/demo-model-github.png?v=2 "Example of the screen you're taken to in GitHub when you create a pull request from Canvas.")](#)Example of the screen you're taken to in GitHub when you create a pull request from Canvas.
+![Example of the screen you're taken to in GitHub when you create a pull request from Canvas.](/img/docs/dbt-platform/canvas/demo-model-github.png?v=2 "Example of the screen you're taken to in GitHub when you create a pull request from Canvas.")Example of the screen you're taken to in GitHub when you create a pull request from Canvas.
 
 5. Click **Create pull request** in the GitHub window.
 6. Complete the **Add a title** and **Add a description** fields. If your description is split between both, copy all the contents to the description field and give it a shorter title.

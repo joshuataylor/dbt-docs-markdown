@@ -96,7 +96,7 @@ Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-co
 
 7. Click **Run** to preview the results.
 
-[![dbt Insights with dbt Copilot](/img/docs/dbt-insights/insights-copilot.png?v=2 "dbt Insights with dbt Copilot")](#)dbt Insights with dbt Copilot
+![dbt Insights with dbt Copilot](/img/docs/dbt-insights/insights-copilot.png?v=2 "dbt Insights with dbt Copilot")dbt Insights with dbt Copilot
 
 From here, you can:
 
@@ -120,7 +120,7 @@ Using the same example, you can perform some exploratory data analysis by runnin
 * Sorting results — Click on the column header to sort the results by that column.
 * Exporting to CSV — On the top right of the table, click the download button to export the dataset.
 
-[![dbt Insights Export to CSV](/img/docs/dbt-insights/insights-export-csv.png?v=2 "dbt Insights Export to CSV")](#)dbt Insights Export to CSV
+![dbt Insights Export to CSV](/img/docs/dbt-insights/insights-export-csv.png?v=2 "dbt Insights Export to CSV")dbt Insights Export to CSV
 
 ### View details
 
@@ -130,7 +130,7 @@ View the details of the query by clicking on the **Details** tab:
 * **Connection details** — Relevant data platform connection information.
 * **Query details** — Query duration, status, column count, row count.
 
-[![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")](#)dbt Insights Details tab
+![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")dbt Insights Details tab
 
 ### Chart results
 
@@ -140,7 +140,7 @@ Visualize the chart results of the query by clicking on the **Chart** tab to:
 * Choose from **line chart, bar chart, or scatterplot**.
 * Select the axis and columns to visualize using the **Chart settings** icon.
 
-[![dbt Insights Chart tab](/img/docs/dbt-insights/insights-chart.png?v=2 "dbt Insights Chart tab")](#)dbt Insights Chart tab
+![dbt Insights Chart tab](/img/docs/dbt-insights/insights-chart.png?v=2 "dbt Insights Chart tab")dbt Insights Chart tab
 
 ### Query history
 
@@ -152,7 +152,7 @@ View the history of queries and their statuses (All, Success, Error, or Pending)
 
 The query history is stored indefinitely.
 
-[![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")](#)dbt Insights Query history icon
+![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")dbt Insights Query history icon
 
 ### Use dbt Catalog
 
@@ -167,7 +167,7 @@ This integrated view allows you and your users to maintain your query workflow, 
 
 To access Catalog, click on the **Catalog** icon in the [Query console sidebar menu](./navigate-dbt-insights.md#query-console-sidebar-menu).
 
-[![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")](#)dbt Insights integrated with dbt Catalog
+![dbt Insights integrated with dbt Catalog](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights integrated with dbt Catalog")dbt Insights integrated with dbt Catalog
 
 ### Set Jinja environment
 
@@ -178,7 +178,7 @@ Set the compilation environment to control how Jinja functions are rendered. Thi
 * Still uses the individual user credentials, so users must have appropriate access to query `PROD` and `STG`.
 * Changing the environment changes context for the Catalog view in Insights, as well as the environment context during the handoff to Catalog and Canvas. For example, switching to `Staging` in Insights and selecting **View in Catalog** will open the `Staging` view in Catalog.
 
-[![Set the environment for your Jinja context](/img/docs/dbt-insights/insights-jinja-environment.png?v=2 "Set the environment for your Jinja context")](#)Set the environment for your Jinja context
+![Set the environment for your Jinja context](/img/docs/dbt-insights/insights-jinja-environment.png?v=2 "Set the environment for your Jinja context")Set the environment for your Jinja context
 
 ## Save your Insights
 
@@ -186,7 +186,7 @@ Insights offers a robust save feature for quickly finding the queries you use mo
 
 * Click the **bookmark icon** on the right menu to manage your saved Insights. You can view your personal and shared queries
 
-  [![Manage your saved Insights](/img/docs/dbt-insights/saved-insights.png?v=2 "Manage your saved Insights")](#)Manage your saved Insights
+  ![Manage your saved Insights](/img/docs/dbt-insights/saved-insights.png?v=2 "Manage your saved Insights")Manage your saved Insights
 
 * View saved Insight details including description and creation date in the **Overview** tab.
 

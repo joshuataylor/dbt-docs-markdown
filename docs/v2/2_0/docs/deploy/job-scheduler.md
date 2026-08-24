@@ -59,7 +59,7 @@ Before the job starts executing, the scheduler checks these conditions to determ
 
 If there is an available run slot and there isn't an actively running instance of the job, the scheduler will prepare the job to run in your cloud data platform. This prep involves readying a Kubernetes pod with the right version of dbt installed, setting environment variables, loading data platform credentials, and Git provider authorization, amongst other environment-setting tasks. The time it takes to prepare the job is displayed as **Prep time** in the UI.
 
-[![An overview of a dbt job run](/img/docs/dbt-platform/deployment/deploy-scheduler.png?v=2 "An overview of a dbt job run")](#)An overview of a dbt job run
+![An overview of a dbt job run](/img/docs/dbt-platform/deployment/deploy-scheduler.png?v=2 "An overview of a dbt job run")An overview of a dbt job run
 
 ### Treatment of CI jobs
 
@@ -98,7 +98,7 @@ The dbt scheduler prevents too many job runs from clogging the queue by cancelin
 
 The scheduler prevents queue clog by canceling runs that aren't needed, ensuring there is only one run of the job in the queue at any given time. If a newer run is queued, the scheduler cancels any previously queued run for that job and displays an error message.
 
-[![The cancelled runs display an error message explaining why the run was cancelled and recommendations](/img/docs/dbt-platform/deployment/run-error-message.png?v=2 "The cancelled runs display an error message explaining why the run was cancelled and recommendations")](#)The cancelled runs display an error message explaining why the run was cancelled and recommendations
+![The cancelled runs display an error message explaining why the run was cancelled and recommendations](/img/docs/dbt-platform/deployment/run-error-message.png?v=2 "The cancelled runs display an error message explaining why the run was cancelled and recommendations")The cancelled runs display an error message explaining why the run was cancelled and recommendations
 
 To prevent over-scheduling, users will need to take action by either refactoring the job so it runs faster or modifying its [schedule](./deploy-jobs.md#schedule-days).
 

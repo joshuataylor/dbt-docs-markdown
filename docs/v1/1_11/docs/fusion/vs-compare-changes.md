@@ -19,7 +19,7 @@ info
 
 Compare changes in development is available for models only. Support for seeds, snapshots, ephemeral models, and Python models is coming soon.
 
-[![Make changes to a model and see the changes in the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Make changes to a model and see the changes in the Compare tab")](#)Make changes to a model and see the changes in the Compare tab
+![Make changes to a model and see the changes in the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Make changes to a model and see the changes in the Compare tab")Make changes to a model and see the changes in the Compare tab
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ To use compare changes in development, follow these steps:
    * Command palette: Open the VS Code command palette (Shift + Command + P (Mac) / Ctrl + Shift + P (Windows/Linux)) and search for the [**dbt: Compare changes**](vscode://dbtLabsInc/dbt.compareModel)
    * Bottom panel: Click the **Compare** tab and then click the **Compare** button.
 
-   [![Compare changes in development](/img/docs/extension/vs-compare-changes-options.png?v=2 "Compare changes in development")](#)Compare changes in development
+   ![Compare changes in development](/img/docs/extension/vs-compare-changes-options.png?v=2 "Compare changes in development")Compare changes in development
 
 4. Once you click the **Compare** button, the extension will execute a `dbt build` command to build the model you're working on and then runs the comparison. The [**Compare** tab](#compare-tab) displays the changes to the data's primary keys, rows, and columns. Clicking the tabs will display more details about the changes, like specific columns that were added or modified.
 
@@ -68,7 +68,7 @@ To use compare changes in development, follow these steps:
 
 The **Compare** tab displays the changes to the data's primary keys, rows, and columns. Clicking the tabs will display more details about the changes, like specific columns that were added or modified.
 
-[![Example of the Compare tab](/img/docs/extension/vs-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
+![Example of the Compare tab](/img/docs/extension/vs-compare-changes-tab.png?v=2 "Example of the Compare tab")Example of the Compare tab
 
 * **Overview tab**: High-level summary about the changes to the models, such as the number of primary keys that were added or removed, rows modified, and so on. It will also include the relation between models that were added or modified.
 * **Primary keys tab**: Details about the changes to the records.

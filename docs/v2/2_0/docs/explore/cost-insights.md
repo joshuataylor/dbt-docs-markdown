@@ -26,11 +26,11 @@ The Cost Insights section is available in different dbt platform areas and lets 
 * [Catalog on Model page](./explore-cost-data.md#model-performance-in-catalog)
 * [Job details page](./explore-cost-data.md#job-details)
 
-[![Cost Insights in the project dashboard](/img/docs/dbt-platform/cost-insights/cost-insights-project.png?v=2 "Cost Insights in the project dashboard")](#)Cost Insights in the project dashboard
+![Cost Insights in the project dashboard](/img/docs/dbt-platform/cost-insights/cost-insights-project.png?v=2 "Cost Insights in the project dashboard")Cost Insights in the project dashboard
 
-[![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")](#)Cost Insights in Catalog
+![Cost Insights in Catalog](/img/docs/dbt-platform/cost-insights/cost-insights-model.png?v=2 "Cost Insights in Catalog")Cost Insights in Catalog
 
-[![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")](#)Cost Insights in job details
+![Cost Insights in job details](/img/docs/dbt-platform/cost-insights/cost-insights-job.png?v=2 "Cost Insights in job details")Cost Insights in job details
 
 ## Prerequisities
 

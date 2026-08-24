@@ -31,21 +31,21 @@ To use the extension, you need the following:
 
 2. Locate the extension from the publisher `dbtLabsInc` or `dbt Labs Inc`, then click **Install**.
 
-   [![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")](#)Search for the extension
+   ![Search for the extension](/img/docs/extension/extension-marketplace.png?v=2 "Search for the extension")Search for the extension
 
 3. Open a dbt project in your editor. Make sure the project is added to your current workspace.
 
 4. Confirm that the extension is active by checking for the **dbt Extension** label in the status bar. Hover over the label to view diagnostic information.
 
-   [![If you see the 'dbt Extension' label, the extension is activated](/img/docs/extension/dbt-extension-statusbar.png?v=2 "If you see the 'dbt Extension' label, the extension is activated")](#)If you see the 'dbt Extension' label, the extension is activated
+   ![If you see the 'dbt Extension' label, the extension is activated](/img/docs/extension/dbt-extension-statusbar.png?v=2 "If you see the 'dbt Extension' label, the extension is activated")If you see the 'dbt Extension' label, the extension is activated
 
 5. After the extension activates, it automatically downloads the correct dbt Language Server (LSP) for your operating system.
 
-   [![The dbt Language Server will be installed automatically](/img/docs/extension/extension-lsp-download.png?v=2 "The dbt Language Server will be installed automatically")](#)The dbt Language Server will be installed automatically
+   ![The dbt Language Server will be installed automatically](/img/docs/extension/extension-lsp-download.png?v=2 "The dbt Language Server will be installed automatically")The dbt Language Server will be installed automatically
 
 6. If the dbt Fusion engine isn't installed, the extension prompts you to download and install it. Follow the notification steps, or [install it manually from the command line](#install-the-dbt-fusion-engine-from-the-command-line-if-you-havent-already).
 
-   [![Follow the prompt to install the dbt Fusion engine](/img/docs/extension/install-dbt-fusion-engine.png?v=2 "Follow the prompt to install the dbt Fusion engine")](#)Follow the prompt to install the dbt Fusion engine
+   ![Follow the prompt to install the dbt Fusion engine](/img/docs/extension/install-dbt-fusion-engine.png?v=2 "Follow the prompt to install the dbt Fusion engine")Follow the prompt to install the dbt Fusion engine
 
 7. Run the VS Code extension [upgrade tool](./upgrade-to-fusion-extension.md) to check whether your project is ready for Fusion and fix any errors or deprecations.
 
@@ -169,7 +169,7 @@ After the dbt Fusion engine and dbt VS Code extension are installed, the dbt log
 
 The **Get started** panel is a persistent setup companion available in VS Code and Cursor. It monitors your environment and shows the most important next action. As new Fusion releases ship or your project changes, the panel resurfaces relevant steps automatically. For more details refer to [Upgrade to Fusion](./upgrade-to-fusion-extension.md).
 
-[![The Get started panel in VS Code showing the setup steps, with the active step highlighted.](/img/docs/extension/vsce-get-started.png?v=2 "The Get started panel in VS Code showing the setup steps, with the active step highlighted.")](#)The Get started panel in VS Code showing the setup steps, with the active step highlighted.
+![The Get started panel in VS Code showing the setup steps, with the active step highlighted.](/img/docs/extension/vsce-get-started.png?v=2 "The Get started panel in VS Code showing the setup steps, with the active step highlighted.")The Get started panel in VS Code showing the setup steps, with the active step highlighted.
 
 The panel guides you through:
 
@@ -180,7 +180,7 @@ The panel guides you through:
 
 When all setup steps are complete, the panel shows a green **Extension setup complete** button.
 
-[![The Get started panel showing Extension setup complete with all four steps checked.](/img/docs/extension/vsce-get-started-complete.png?v=2 "The Get started panel showing Extension setup complete with all four steps checked.")](#)The Get started panel showing Extension setup complete with all four steps checked.
+![The Get started panel showing Extension setup complete with all four steps checked.](/img/docs/extension/vsce-get-started-complete.png?v=2 "The Get started panel showing Extension setup complete with all four steps checked.")The Get started panel showing Extension setup complete with all four steps checked.
 
 ## Next steps
 

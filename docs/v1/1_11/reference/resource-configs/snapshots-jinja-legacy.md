@@ -85,7 +85,7 @@ Snapshot "strategies" define how dbt knows if a row has changed. There are two s
 * [Timestamp](./snapshots-jinja-legacy.md?strategy=timestamp#snapshot-strategies) — Uses an `updated_at` column to determine if a row has changed.
 * [Check](./snapshots-jinja-legacy.md?strategy=check#snapshot-strategies) — Compares a list of columns between their current and historical values to determine if a row has changed. Uses the `check_cols` parameter.
 
-### Timestamp
+#### Timestamp
 
 The timestamp strategy uses an `updated_at` field to determine if a row has changed. If the configured `updated_at` column for a row is more recent than the last time the snapshot ran, then dbt will invalidate the old record and record the new one. If the timestamps are unchanged, then dbt will not take any action.
 
@@ -110,7 +110,7 @@ snapshots/timestamp\_example.sql
 {% endsnapshot %}
 ```
 
-### Check
+#### Check
 
 The check strategy is useful for tables which do not have a reliable `updated_at` column. It requires the `check_cols` parameter, which is a list of columns within the results of your snapshot query to check for changes. Alternatively, use all columns using the all value (however this may be less performant).
 

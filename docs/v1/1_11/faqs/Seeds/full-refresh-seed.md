@@ -2,7 +2,7 @@
 
 If you changed the columns of your seed, you may get a `Database Error`:
 
-### Snowflake
+## Snowflake
 
 ```shell
 $ dbt seed
@@ -25,7 +25,7 @@ Database Error in seed country_codes (seeds/country_codes.csv)
 Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
 ```
 
-### Redshift
+## Redshift
 
 ```shell
 $ dbt seed

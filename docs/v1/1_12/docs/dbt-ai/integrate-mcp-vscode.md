@@ -23,7 +23,7 @@ To get started, in VS Code:
 
 3. Ensure that **MCP** is **Enabled**
 
-[![mcp-vscode-settings](/img/mcp/vscode_mcp_enabled_image.png?v=2 "mcp-vscode-settings")](#)mcp-vscode-settings
+![mcp-vscode-settings](/img/mcp/vscode_mcp_enabled_image.png?v=2 "mcp-vscode-settings")mcp-vscode-settings
 
 4. Open the command palette `Control/Command + Shift + P`, and select either:
 
@@ -175,7 +175,7 @@ To get started, in VS Code:
    * Running the `MCP: List Servers` command from the Command Palette (Control/Command + Shift + P) and selecting the server.
    * Utilizing the keywords inline within the `mcp.json` file.
 
-[![VS Code inline management](/img/mcp/vscode_run_server_keywords_inline.png?v=2 "VS Code inline management")](#)VS Code inline management
+![VS Code inline management](/img/mcp/vscode_run_server_keywords_inline.png?v=2 "VS Code inline management")VS Code inline management
 
 Now, you can access the dbt MCP server in VS Code through interfaces like GitHub Copilot.
 

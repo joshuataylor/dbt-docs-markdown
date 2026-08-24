@@ -1,6 +1,6 @@
 # Integrate with dbt Semantic Layer using best practices
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

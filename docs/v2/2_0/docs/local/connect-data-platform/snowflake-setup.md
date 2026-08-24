@@ -98,7 +98,7 @@ The information required for configuring the Snowflake adapter can be found conv
 3. In the field with your account name, click **View account details**.
 4. Click **Config file** and select the appropriate **Warehouse** and **Database**.
 
-[![Sample config file in Snowflake.](/img/fusion/connect-adapters/snowflake-account-details.png?v=2 "Sample config file in Snowflake.")](#)Sample config file in Snowflake.
+![Sample config file in Snowflake.](/img/fusion/connect-adapters/snowflake-account-details.png?v=2 "Sample config file in Snowflake.")Sample config file in Snowflake.
 
 ## Configure Fusion
 

@@ -105,7 +105,7 @@ Leave feedback or submit a feature request for dbt or dbt Core.
 4. Confirm if you'd like dbt Labs to contact you about the feedback (optional).
 5. Click **Send Feedback**.
 
-[![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")](#)Leave feedback in dbt
+![Leave feedback in dbt](/img/docs/leave-feedback.gif?v=2 "Leave feedback in dbt")Leave feedback in dbt
 
 #### Share feedback or feature request for dbt Core
 

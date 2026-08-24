@@ -93,13 +93,13 @@ To configure project credentials in Power BI Desktop:
 
 5. Click **OK** to proceed.
 
-   [![Select DirectQuery mode](/img/docs/platform-integrations/sl-pbi/pbi-directquery.jpg?v=2 "Select DirectQuery mode")](#)Select DirectQuery mode
+   ![Select DirectQuery mode](/img/docs/platform-integrations/sl-pbi/pbi-directquery.jpg?v=2 "Select DirectQuery mode")Select DirectQuery mode
 
 6. On the next screen, paste your service or personal token and then click **Connect**.
 
 7. You should see a side pane with a few "virtual" tables. `ALL` represents all of your defined semantic layer objects. The other tables represent each of your saved queries. Select the one you want to load into your dashboard. Then click **Load**.
 
-   [![Select tables in the side panel](/img/docs/platform-integrations/sl-pbi/pbi-sidepanel.jpg?v=2 "Select tables in the side panel")](#)Select tables in the side panel
+   ![Select tables in the side panel](/img/docs/platform-integrations/sl-pbi/pbi-sidepanel.jpg?v=2 "Select tables in the side panel")Select tables in the side panel
 
 Now that you've configured the connector, you can configure published reports in the next section to use the connector.
 
@@ -109,7 +109,7 @@ After publishing a report and the first time you hit **Publish** on a given repo
 
 1. On the top right, click on **Settings > Power BI settings**.
 
-   [![Navigate to Settings > Power BI Settings](/img/docs/platform-integrations/sl-pbi/pbi-settings.jpg?v=2 "Navigate to Settings > Power BI Settings")](#)Navigate to Settings > Power BI Settings
+   ![Navigate to Settings > Power BI Settings](/img/docs/platform-integrations/sl-pbi/pbi-settings.jpg?v=2 "Navigate to Settings > Power BI Settings")Navigate to Settings > Power BI Settings
 
 2. Navigate to the **Semantic models** tab and select your report on the sidebar on the left.
 
@@ -117,17 +117,17 @@ After publishing a report and the first time you hit **Publish** on a given repo
 
    * If the Status is **Not configured correctly**, you’ll have to configure it.
 
-   [![Configure the gateway connection](/img/docs/platform-integrations/sl-pbi/pbi-gateway-cloud-connections.jpg?v=2 "Configure the gateway connection")](#)Configure the gateway connection
+   ![Configure the gateway connection](/img/docs/platform-integrations/sl-pbi/pbi-gateway-cloud-connections.jpg?v=2 "Configure the gateway connection")Configure the gateway connection
 
 4. Click on the arrow under **Actions** and then, click on **Manually add to gateway**.
 
-   [![Manually add to gateway](/img/docs/platform-integrations/sl-pbi/pbi-manual-gateway.jpg?v=2 "Manually add to gateway")](#)Manually add to gateway
+   ![Manually add to gateway](/img/docs/platform-integrations/sl-pbi/pbi-manual-gateway.jpg?v=2 "Manually add to gateway")Manually add to gateway
 
 5. Provide a name for your connection and enter your connection details.
 
    * Set the connection as **Encrypted** (Required). Failing to do so will result in the Semantic Layer servers rejecting the connection.
 
-   [![Set the connection as Encrypted](/img/docs/platform-integrations/sl-pbi/pbi-encrypted.jpg?v=2 "Set the connection as Encrypted")](#)Set the connection as Encrypted
+   ![Set the connection as Encrypted](/img/docs/platform-integrations/sl-pbi/pbi-encrypted.jpg?v=2 "Set the connection as Encrypted")Set the connection as Encrypted
 
 6. Click **Create**. This will run a connection test (unless you choose to skip it). If the connection succeeds, the connection will be saved.
 
@@ -149,7 +149,7 @@ These tables do not actually map to an underlying table in your data warehouse. 
 * Generates SQL to query your existing tables.
 * Returns data back to Power BI, which doesn’t know any of this happened.
 
-[![Power BI integration diagram](/img/docs/platform-integrations/sl-pbi/sl-pbi.jpg?v=2 "Power BI integration diagram")](#)Power BI integration diagram
+![Power BI integration diagram](/img/docs/platform-integrations/sl-pbi/sl-pbi.jpg?v=2 "Power BI integration diagram")Power BI integration diagram
 
 This allows for very flexible analytics workflows, like drag and drop metrics and slice by dimensions and entities — the Semantic Layer will generate the appropriate SQL to actually query your data source for you.
 

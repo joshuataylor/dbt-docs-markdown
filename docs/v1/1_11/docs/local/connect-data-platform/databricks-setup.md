@@ -46,7 +46,7 @@ You can use either token-based authentication or OAuth client-based authenticati
 
 The default OAuth app for dbt-databricks is auto-enabled in every account with expected settings. You can find the adapter app in [Account Console](https://accounts.cloud.databricks.com) > [Settings](https://accounts.cloud.databricks.com/settings) > [App Connections](https://accounts.cloud.databricks.com/settings/app-integrations) > dbt adapter for Databricks. If you cannot find the adapter app, dbt may be disabled in your account, please refer to this [guide](https://docs.databricks.com/en/integrations/enable-disable-oauth.html) to re-enable dbt-databricks as an OAuth app.
 
-### Token-based authentication
+#### Token-based authentication
 
 \~/.dbt/profiles.yml
 
@@ -64,7 +64,7 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
-### OAuth client-based authentication (M2M)
+#### OAuth client-based authentication (M2M)
 
 \~/.dbt/profiles.yml
 
@@ -84,7 +84,7 @@ your_profile_name:
       threads: 1_OR_MORE  # Optional, default 1
 ```
 
-### OAuth client-based authentication (U2M)
+#### OAuth client-based authentication (U2M)
 
 \~/.dbt/profiles.yml
 

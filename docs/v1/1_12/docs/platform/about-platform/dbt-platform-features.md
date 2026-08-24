@@ -110,10 +110,6 @@ dbt's [flexible plans](https://www.getdbt.com/pricing/) and features make it wel
 
 [Learn how to query data and perform exploratory data analysis using dbt Insights.](../../explore/dbt-insights.md)
 
-[](../../explore/cost-insights.md)
-
-[](../../explore/cost-insights.md)
-
 [![](/img/icons/dbt-bit.svg)](../../explore/cost-insights.md)[Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 #### Cost Insights\*

@@ -2,7 +2,7 @@
 
 Specify a custom alias for a model, data test, snapshot, or seed and give it a more user-friendly name in the database.
 
-### Models
+## Models
 
 Specify a custom alias for a model in your project YAML file (`dbt_project.yml`), properties YAML file (for example, `models/properties.yml`) config, or in a SQl file config block.
 
@@ -43,7 +43,7 @@ models/sales\_total.sql
 
 This would return `analytics.finance.sales_dashboard` in the database, instead of the default `analytics.finance.sales_total`.
 
-### Seeds
+## Seeds
 
 Configure a seed's alias in your project file (`dbt_project.yml`) or a properties file config (for example, `seeds/properties.yml`). The following examples demonstrate how to `alias` a seed named `product_categories` to `categories_data`.
 
@@ -83,7 +83,7 @@ seeds:
       +alias: country_mappings
 ```
 
-### Snapshots
+## Snapshots
 
 Configure a snapshots's alias in your project YAML file (`dbt_project.yml` ), properties YAML file (for example, `snapshots/snapshot_name.yml`), or in a SQL file config block for the model.
 
@@ -124,7 +124,7 @@ snapshots/your\_snapshot.sql
 
 This would build your snapshot to `analytics.finance.the_best_snapshot` in the database.
 
-### Tests
+## Tests
 
 Configure a data test's alias in your project YAML file (`dbt_project.yml` ), properties YAML file (for example, `models/properties.yml`) file, or in a SQL file config block for the model.
 

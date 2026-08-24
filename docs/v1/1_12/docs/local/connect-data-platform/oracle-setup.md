@@ -37,13 +37,13 @@ You can configure the driver mode using the environment variable `ORA_PYTHON_DRI
 
 The default value of `ORA_PYTHON_DRIVER_TYPE` is `thin`
 
-### Thin
+#### Thin
 
 ```bash
 export ORA_PYTHON_DRIVER_TYPE=thin # default
 ```
 
-### Thick
+#### Thick
 
 ```bash
 export ORA_PYTHON_DRIVER_TYPE=thick
@@ -55,7 +55,7 @@ In thick mode, you will need the [Oracle Instant Client libraries](https://www.o
 
 Oracle Client versions 23, 21, 19, 18, 12 and 11.2 are supported. It is recommended to use the latest client possible: Oracle’s standard client-server version interoperability allows connection to both older and newer databases.
 
-### Linux
+#### Linux
 
 1. Download an Oracle 23, 21, 19, 18, 12, or 11.2 “Basic” or “Basic Light” zip file matching your Python 64-bit or 32-bit architecture:
 
@@ -98,7 +98,7 @@ export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
 export TNS_ADMIN=/opt/oracle/your_config_dir
 ```
 
-### Windows
+#### Windows
 
 1. Download an Oracle 21, 19, 18, 12, or 11.2 “Basic” or “Basic Light” zip file: [64-bit](https://www.oracle.com/database/technologies/instant-client/winx64-64-downloads.html) or [32-bit](https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html), matching your Python architecture.
 
@@ -122,7 +122,7 @@ Note that Oracle Client versions 21c and 19c are not supported on Windows 7.
    SET PATH=C:\oracle\instantclient_19_9;%PATH%
    ```
 
-### MacOS
+#### MacOS
 
 Check the python-oracledb documentation for installation instructions on [MacOS ARM64](https://python-oracledb.readthedocs.io/en/latest/user_guide/installation.html#instant-client-scripted-installation-on-macos-arm64) or [MacOS Intel x84-64](https://python-oracledb.readthedocs.io/en/latest/user_guide/installation.html#instant-client-scripted-installation-on-macos-intel-x86-64)
 
@@ -154,7 +154,7 @@ Keep wallet files in a secure location and share them only with authorized users
 
 Unzip the wallet zip file.
 
-### Thin
+##### Thin
 
 In Thin mode, only two files from the zip are needed:
 
@@ -172,7 +172,7 @@ export TNS_ADMIN=/path/to/directory_containing_tnsnames.ora
 
 Optionally, if `ewallet.pem` file is encrypted using a wallet password, specify the password using environment variable **WALLET\_PASSWORD**
 
-### Thick
+##### Thick
 
 In Thick mode, the following files from the zip are needed:
 

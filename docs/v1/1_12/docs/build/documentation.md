@@ -11,7 +11,7 @@ Use [dbt Wizard](../platform/wizard-overview.md) to generate documentation in th
 * [Declaring properties](../../reference/configs-and-properties.md)
 * [`dbt docs` command](../../reference/commands/cmd-docs.md)
 * [`doc` Jinja function](../../reference/dbt-jinja-functions/doc.md)
-* If you're new to dbt, we recommend that you check out our [quickstart guide](../../guides.md) to build your first dbt project, complete with documentation.
+* If you're new to dbt, we recommend that you check out our [quickstart guide](https://docs.getdbt.com/guides) to build your first dbt project, complete with documentation.
 
 ## Assumed knowledge
 

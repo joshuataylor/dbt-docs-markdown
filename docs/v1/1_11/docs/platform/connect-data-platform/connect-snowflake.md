@@ -149,7 +149,7 @@ If you are creating Snowflake credentials for the first time in dbt platform, ke
 -----END ENCRYPTED PRIVATE KEY-----
 ```
 
-[![Snowflake keypair authentication](/img/docs/dbt-platform/snowflake-keypair-auth.png?v=2 "Snowflake keypair authentication")](#)Snowflake keypair authentication
+![Snowflake keypair authentication](/img/docs/dbt-platform/snowflake-keypair-auth.png?v=2 "Snowflake keypair authentication")Snowflake keypair authentication
 
 #### Fusion key pair
 
@@ -180,7 +180,7 @@ The OAuth auth method permits dbt to run development queries on behalf of a Snow
 
 For more information on configuring a Snowflake OAuth connection in dbt, please see [the docs on setting up Snowflake OAuth](../manage-access/set-up-snowflake-oauth.md).
 
-[![Configuring Snowflake OAuth connection](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth connection")](#)Configuring Snowflake OAuth connection
+![Configuring Snowflake OAuth connection](/img/docs/dbt-platform/dbt-platform-enterprise/database-connection-snowflake-oauth.png?v=2 "Configuring Snowflake OAuth connection")Configuring Snowflake OAuth connection
 
 Migrate from username and password
 
@@ -208,7 +208,7 @@ If you are still on username and password while you plan your migration, [MFA](h
   connect_retries: 0
   ```
 
-[![Configure the MFA username and password, and connect\_retries in the development environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/extended-attributes-mfa.png?v=2 "Configure the MFA username and password, and connect_retries in the development environment settings.")](#)Configure the MFA username and password, and connect\_retries in the development environment settings.
+![Configure the MFA username and password, and connect\_retries in the development environment settings.](/img/docs/dbt-platform/platform-configuring-dbt-platform/extended-attributes-mfa.png?v=2 "Configure the MFA username and password, and connect_retries in the development environment settings.")Configure the MFA username and password, and connect\_retries in the development environment settings.
 
 ## Configuration
 

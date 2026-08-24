@@ -74,7 +74,7 @@ If you've never used the terminal before, check out the [terminal guide](../../g
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
-### macOS/Linux
+#### macOS/Linux
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
@@ -82,7 +82,7 @@ curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | 
 
 This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](../dbt-ai/wizard-cli.md#uninstall) if you ever need to remove them.
 
-### Windows
+#### Windows
 
 Run the following in PowerShell:
 
@@ -125,7 +125,7 @@ To get started:
 
 Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompts.
 
-[![dbt Wizard in the dbt platform](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard in the dbt platform")](#)dbt Wizard in the dbt platform
+![dbt Wizard in the dbt platform](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard in the dbt platform")dbt Wizard in the dbt platform
 
 (Be warned, the wizard has been known to cast spells
 

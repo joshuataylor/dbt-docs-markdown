@@ -35,7 +35,7 @@ For the full list of available configs, see [dbt State configs](../../reference/
 
 The following decision tree shows how dbt State chooses the most efficient valid action for each node.
 
-[![Decision tree showing how dbt State chooses whether to rebuild, clone, or reuse a node based on state bypasses, volatile SQL handling, execution hashes, freshness, schema matches, clone eligibility, and whether fresh upstream data can still be cloned from time travel or another schema](/img/docs/deploy/run-cache-decision-tree.png?v=2 "dbt State decision tree for rebuild, clone, and reuse")](#)dbt State decision tree for rebuild, clone, and reuse
+![Decision tree showing how dbt State chooses whether to rebuild, clone, or reuse a node based on state bypasses, volatile SQL handling, execution hashes, freshness, schema matches, clone eligibility, and whether fresh upstream data can still be cloned from time travel or another schema](/img/docs/deploy/run-cache-decision-tree.png?v=2 "dbt State decision tree for rebuild, clone, and reuse")dbt State decision tree for rebuild, clone, and reuse
 
 The key idea is that dbt State only skips work when it can prove the existing object is sufficiently equivalent for the current run. If the SQL logic, relevant config, schema, or upstream freshness means the result might be different, dbt rebuilds instead.
 

@@ -10,7 +10,7 @@ You can access the Discovery API through [ad hoc queries](./discovery-querying.m
 
 For request quotas and throttling behavior, refer to [API rate limits](./rate-limits.md).
 
-[![A rich ecosystem for integration ](/img/docs/dbt-platform/discovery-api/discovery-api-figure.png?v=2 "A rich ecosystem for integration ")](#)A rich ecosystem for integration
+![A rich ecosystem for integration ](/img/docs/dbt-platform/discovery-api/discovery-api-figure.png?v=2 "A rich ecosystem for integration ")A rich ecosystem for integration
 
 You can query the dbt metadata:
 
@@ -35,7 +35,7 @@ Use the API to look at historical information like model build time to determine
 
 You can use, for example, the [model timing](../deploy/run-visibility.md#model-timing-tab) tab to help identify and optimize bottlenecks in model builds:
 
-[![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")](#)Model timing visualization in dbt
+![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")Model timing visualization in dbt
 
 ### Quality
 
@@ -49,7 +49,7 @@ Use the API to find and understand dbt assets in integrated tools using informat
 
 Data producers must manage and organize data for stakeholders, while data consumers need to quickly and confidently analyze data on a large scale to make informed decisions that improve business outcomes and reduce organizational overhead. The API is useful for discovery data experiences in catalogs, analytics, apps, and machine learning (ML) tools. It can help you understand the origin and meaning of datasets for your analysis.
 
-[![Data lineage produced by dbt](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Data lineage produced by dbt")](#)Data lineage produced by dbt
+![Data lineage produced by dbt](/img/docs/collaborate/dbt-explorer/example-model-details.png?v=2 "Data lineage produced by dbt")Data lineage produced by dbt
 
 ### Governance
 
@@ -59,7 +59,7 @@ Use the API to review who developed the models and who uses them to help establi
 
 Use the API to review dataset changes and uses by examining exposures, lineage, and dependencies. From the investigation, you can learn how to define and build more effective dbt projects. For more details, refer to [Development](./discovery-use-cases-and-examples.md#development).
 
-[![Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.")](#)Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.
+![Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.")Use exposures to embed data health tiles in your dashboards to distill trust signals for data consumers.
 
 ## Types of project state
 

@@ -1,6 +1,6 @@
 # Refresh a Mode dashboard when a job completes
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

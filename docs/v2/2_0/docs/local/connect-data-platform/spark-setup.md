@@ -59,7 +59,7 @@ your_profile_name:
 
 ### Example profiles
 
-### Thrift (binary)
+#### Thrift (binary)
 
 \~/.dbt/profiles.yml
 
@@ -76,7 +76,7 @@ spark-local-thrift-binary:
       schema: my_schema
 ```
 
-### Thrift (HTTP)
+#### Thrift (HTTP)
 
 \~/.dbt/profiles.yml
 
@@ -94,7 +94,7 @@ spark-local-thrift-http:
       schema: my_schema
 ```
 
-### AWS EMR Serverless
+#### AWS EMR Serverless
 
 \~/.dbt/profiles.yml
 
@@ -119,7 +119,7 @@ spark-emr-serverless:
         "emr-serverless.session.executionRoleArn": "arn:aws:iam::YOUR_AWS_ACCOUNT:role/YOUR_ROLE"
 ```
 
-### AWS EMR on EKS
+#### AWS EMR on EKS
 
 \~/.dbt/profiles.yml
 

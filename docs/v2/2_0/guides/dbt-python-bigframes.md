@@ -1,6 +1,6 @@
 # Using BigQuery DataFrames with dbt Python models
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -35,7 +35,7 @@ Here's what you'll build in two parts:
 
 You will set up the environments, build scalable pipelines in dbt, and execute a python model.
 
-[![Implementation of the BigFrames submission method](/img/guides/gcp-guides/gcp-bigframes-architecture.png?v=2 "Implementation of the BigFrames submission method")](#)Implementation of the BigFrames submission method
+![Implementation of the BigFrames submission method](/img/guides/gcp-guides/gcp-bigframes-architecture.png?v=2 "Implementation of the BigFrames submission method")Implementation of the BigFrames submission method
 
 **Figure 1** - Implementation of the BigFrames submission method for dbt python models
 

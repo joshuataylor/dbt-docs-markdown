@@ -1,6 +1,6 @@
 # Move from dbt Core to the dbt platform: Optimization tips
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

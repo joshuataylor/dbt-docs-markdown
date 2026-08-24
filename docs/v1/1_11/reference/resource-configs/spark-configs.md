@@ -47,7 +47,7 @@ Following the `append` strategy, dbt will perform an `insert into` statement wit
 
 Specifying `append` as the incremental strategy is optional, since it's the default strategy used when none is specified.
 
-### Source code
+#### Source code
 
 spark\_incremental.sql
 
@@ -65,7 +65,7 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-### Run code
+#### Run code
 
 spark\_incremental.sql
 
@@ -94,9 +94,9 @@ If no `partition_by` is specified, then the `insert_overwrite` strategy will ato
 * This strategy is not available when connecting via Databricks SQL endpoints (`method: odbc` + `endpoint`).
 * If connecting via a Databricks cluster + ODBC driver (`method: odbc` + `cluster`), you **must** include `set spark.sql.sources.partitionOverwriteMode DYNAMIC` in the [cluster Spark Config](https://docs.databricks.com/clusters/configure.html#spark-config) in order for dynamic partition replacement to work (`incremental_strategy: insert_overwrite` + `partition_by`).
 
-[![Databricks cluster: Spark Config](/img/reference/databricks-cluster-sparkconfig-partition-overwrite.png?v=2 "Databricks cluster: Spark Config")](#)Databricks cluster: Spark Config
+![Databricks cluster: Spark Config](/img/reference/databricks-cluster-sparkconfig-partition-overwrite.png?v=2 "Databricks cluster: Spark Config")Databricks cluster: Spark Config
 
-### Source code
+#### Source code
 
 spark\_incremental.sql
 
@@ -131,7 +131,7 @@ from events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 spark\_incremental.sql
 
@@ -172,7 +172,7 @@ insert overwrite table analytics.spark_incremental
 
 dbt will run an [atomic `merge` statement](https://docs.databricks.com/spark/latest/spark-sql/language-manual/merge-into.html) which looks nearly identical to the default merge behavior on Snowflake and BigQuery. If a `unique_key` is specified (recommended), dbt will update old records with values from new records that match on the key column. If a `unique_key` is not specified, dbt will forgo match criteria and simply insert all new records (similar to `append` strategy).
 
-### Source code
+#### Source code
 
 merge\_incremental.sql
 
@@ -202,7 +202,7 @@ from events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 target/run/merge\_incremental.sql
 

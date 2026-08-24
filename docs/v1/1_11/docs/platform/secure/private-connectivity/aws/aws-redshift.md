@@ -28,7 +28,7 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
      * On the running Redshift cluster, select the **Properties** tab.
 
-     [![Redshift Properties tab](/img/docs/dbt-platform/redshiftprivatelink1.png?v=2 "Redshift Properties tab")](#)Redshift Properties tab
+     ![Redshift Properties tab](/img/docs/dbt-platform/redshiftprivatelink1.png?v=2 "Redshift Properties tab")Redshift Properties tab
 
    * **Redshift Serverless**
 
@@ -36,13 +36,13 @@ Private connection endpoints can't connect across cloud providers (AWS, Azure, a
 
 2. In the **Granted accounts** section, click **Grant access**.
 
-[![Redshift granted accounts](/img/docs/dbt-platform/redshiftprivatelink2.png?v=2 "Redshift granted accounts")](#)Redshift granted accounts
+![Redshift granted accounts](/img/docs/dbt-platform/redshiftprivatelink2.png?v=2 "Redshift granted accounts")Redshift granted accounts
 
 3. Enter the AWS account ID: `346425330055` - *NOTE: This account ID only applies to dbt Multi-Tenant environments. For Virtual Private/Single-Tenant account IDs please contact [Support](mailto:support@getdbt.com).*
 
 4. Choose **Grant access to all VPCs** —or— (optional) contact [Support](mailto:support@getdbt.com) for the appropriate regional VPC ID to designate in the **Grant access to specific VPCs** field.
 
-[![Redshift grant access](/img/docs/dbt-platform/redshiftprivatelink3.png?v=2 "Redshift grant access")](#)Redshift grant access
+![Redshift grant access](/img/docs/dbt-platform/redshiftprivatelink3.png?v=2 "Redshift grant access")Redshift grant access
 
 5. Add the required information to the following template, and submit your request to [dbt Support](mailto:support@getdbt.com):
 
@@ -94,7 +94,7 @@ Creating an Interface VPC PrivateLink connection requires creating multiple AWS 
 
       * Use IP addresses from the Redshift cluster’s **Network Interfaces** whenever possible. While IPs listed in the **Node IP addresses** section will work, they are also more likely to change.
 
-      [![Target type: IP address](/img/docs/dbt-platform/redshiftprivatelink4.png?v=2 "Target type: IP address")](#)Target type: IP address
+      ![Target type: IP address](/img/docs/dbt-platform/redshiftprivatelink4.png?v=2 "Target type: IP address")Target type: IP address
 
       * There will likely be only one Network Interface (NI) to start, but if the cluster fails over to another availability zone (AZ), a new NI will also be created for that AZ. The NI IP from the original AZ will still work, but the new NI IP can also be added to the Target Group. If adding additional IPs, note that the NLB will also need to add the corresponding AZ. Once created, the NI(s) should stay the same (This is our observation from testing, but AWS does not officially document it).
 
@@ -102,7 +102,7 @@ Creating an Interface VPC PrivateLink connection requires creating multiple AWS 
 
       * To find the IP addresses for Redshift Serverless instance locate and copy the endpoint (only the URL listed before the port) in the Workgroup configuration section of the AWS console for the instance.
 
-      [![Redshift Serverless endpoint](/img/docs/dbt-platform/redshiftserverless.png?v=2 "Redshift Serverless endpoint")](#)Redshift Serverless endpoint
+      ![Redshift Serverless endpoint](/img/docs/dbt-platform/redshiftserverless.png?v=2 "Redshift Serverless endpoint")Redshift Serverless endpoint
 
       * From a command line run the command `nslookup <endpoint>` using the endpoint found in the previous step and use the associated IP(s) for the Target Group.
 
@@ -132,13 +132,13 @@ On the provisioned VPC endpoint service, click the **Allow principals** tab. Cli
 
 * Principal: `arn:aws:iam::346425330055:role/MTPL_Admin`
 
-[![Enter ARN](/img/docs/dbt-platform/privatelink-allow-principals.png?v=2 "Enter ARN")](#)Enter ARN
+![Enter ARN](/img/docs/dbt-platform/privatelink-allow-principals.png?v=2 "Enter ARN")Enter ARN
 
 ### 3. Obtain VPC endpoint service name
 
 Once the VPC Endpoint Service is provisioned, you can find the service name in the AWS console by navigating to **VPC** → **Endpoint Services** and selecting the appropriate endpoint service. You can copy the service name field value and include it in your communication to dbt support.
 
-[![Get service name field value](/img/docs/dbt-platform/privatelink-endpoint-service-name.png?v=2 "Get service name field value")](#)Get service name field value
+![Get service name field value](/img/docs/dbt-platform/privatelink-endpoint-service-name.png?v=2 "Get service name field value")Get service name field value
 
 ### 4. Submit your request to dbt Support
 

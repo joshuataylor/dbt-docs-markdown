@@ -1,6 +1,6 @@
 # persist\_docs
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -23,11 +23,11 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Sources
+## Sources
 
 This config is not implemented for sources.
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -39,7 +39,7 @@ seeds:
       columns: true
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -179,6 +179,6 @@ models:
 
 Run dbt and observe that the created relation and columns are annotated with your descriptions:
 
-[![Relation descriptions in BigQuery](/img/reference/persist_docs_relation.png?v=2 "Relation descriptions in BigQuery")](#)Relation descriptions in BigQuery
+![Relation descriptions in BigQuery](/img/reference/persist_docs_relation.png?v=2 "Relation descriptions in BigQuery")Relation descriptions in BigQuery
 
-[![Column descriptions in BigQuery](/img/reference/persist_docs_columns.png?v=2 "Column descriptions in BigQuery")](#)Column descriptions in BigQuery
+![Column descriptions in BigQuery](/img/reference/persist_docs_columns.png?v=2 "Column descriptions in BigQuery")Column descriptions in BigQuery

@@ -46,7 +46,7 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
    * A `.dbt` directory is a hidden folder in the root of your filesystem. It's used to store your dbt configuration files. The `.` prefix is used to create a hidden folder, which means it's not visible in Finder or File Explorer by default.
    * To view hidden files and folders, press Command + Shift + G on macOS or Ctrl + Shift + G on Windows. This opens the "Go to Folder" dialog where you can search for the `.dbt` directory.
 
-   ### Create a .dbt directory
+   #### Create a .dbt directory
 
    1. Clone your dbt project repository locally.
    2. Use the `mkdir` command followed by the name of the folder you want to create.
@@ -56,7 +56,7 @@ How you download the file depends on whether you're configuring the [dbt CLI](..
      * macOS: `mkdir ~/.dbt`
      * Windows: `mkdir %USERPROFILE%\.dbt`
 
-   ### Move the dbt\_cloud.yml file
+   #### Move the dbt\_cloud.yml file
 
    You can move the `dbt_cloud.yml` file into the `.dbt` directory using the `mv` command or by dragging and dropping the file into the `.dbt` directory by opening the Downloads folder using the "Go to Folder" dialog and then using drag-and-drop in the UI.
 

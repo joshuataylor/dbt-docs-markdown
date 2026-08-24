@@ -64,12 +64,12 @@ A [dbt account admin](../platform/manage-access/enterprise-permissions.md#permis
 4. Select the **Advanced settings** toggle and then select the **Hybrid development** checkbox. Click **Continue**.
    * The hybrid project will have a visible **Hybrid** indicator in the project list to help you identify it.
 
-[![Hybrid project new project](/img/docs/deploy/hp-new-project.jpg?v=2 "Hybrid project new project")](#)Hybrid project new project
+![Hybrid project new project](/img/docs/deploy/hp-new-project.jpg?v=2 "Hybrid project new project")Hybrid project new project
 
 5. After creating a project, create a corresponding [production environment](./deploy-environments.md#create-a-deployment-environment) and click **Save**. You will need to create a placeholder [profile](../platform/about-profiles.md) and assign it to the environment to save.
 6. (Optional) To update an existing dbt project to a hybrid project, navigate to **Account settings** and then select the **Project**. Click **Edit** and then check the **Hybrid development** checkbox.
 
-[![Hybrid project for an existing project](/img/docs/deploy/hp-existing-project.jpg?v=2 "Hybrid project for an existing project")](#)Hybrid project for an existing project
+![Hybrid project for an existing project](/img/docs/deploy/hp-existing-project.jpg?v=2 "Hybrid project for an existing project")Hybrid project for an existing project
 
 ### Generate service token and artifact upload values
 
@@ -92,7 +92,7 @@ The dbt admin should share the values with a dbt Core user.
      * dbt creates a service token with both **Job Runner** *and* **Job Viewer** permissions.
      * Note if you don't see the **Create service token** button, it's likely you don't have the necessary permissions to create a service token. Contact your dbt admin to either get the necessary permissions or create the service token for you.
 
-[![Generate hybrid project service token](/img/docs/deploy/hp-artifact-upload.png?v=2 "Generate hybrid project service token")](#)Generate hybrid project service token
+![Generate hybrid project service token](/img/docs/deploy/hp-artifact-upload.png?v=2 "Generate hybrid project service token")Generate hybrid project service token
 
 3. Make sure to copy and save the values as they're needed to configure your dbt Core project in the next step. Once the service token is created, you can't access it again.
 
@@ -161,7 +161,7 @@ Now that you've uploaded dbt Core artifacts into the dbt platform and executed a
 3. You should see a job run with the status **Success** with a `</> Artifact ingestion` indicator.
 4. Click on the job run to review the logs to confirm a successfully artifacts upload message. If there are any errors, resolve them by checking out the debug logs.
 
-[![Hybrid project job run with artifact ingestion](/img/docs/deploy/hp-artifact-job.jpg?v=2 "Hybrid project job run with artifact ingestion")](#)Hybrid project job run with artifact ingestion
+![Hybrid project job run with artifact ingestion](/img/docs/deploy/hp-artifact-job.jpg?v=2 "Hybrid project job run with artifact ingestion")Hybrid project job run with artifact ingestion
 
 ## Benefits of using Hybrid projects
 

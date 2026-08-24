@@ -2,7 +2,7 @@
 
 Start with a stakeholder question and analyze the data to answer that question without writing any SQL
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -43,13 +43,13 @@ Kimiko wonders, "How do I find data in our project that will help me answer thei
 
 She navigates to the data catalog, Catalog, by signing into dbt and clicking Catalog in the left panel. Because the question was about customers, Kimiko begins by searching for "customers" in Catalog:
 
-[![Catalog search for customers](/img/guides/analyst-qs/catalog-search.png?v=2 "Catalog search for customers")](#)Catalog search for customers
+![Catalog search for customers](/img/guides/analyst-qs/catalog-search.png?v=2 "Catalog search for customers")Catalog search for customers
 
 She finds a "customers" model, which might be what she needs. She clicks **customers** to open the model. The description reads, “Customer overview data Mart offering key details for each unique customer, one row per customer.”
 
 Next, Kimiko selects **Columns** to see which columns this model uses.
 
-[![Columns in customers table](/img/guides/analyst-qs/columns.png?v=2 "Columns in customers table")](#)Columns in customers table
+![Columns in customers table](/img/guides/analyst-qs/columns.png?v=2 "Columns in customers table")Columns in customers table
 
 She notices these columns: `customer_ID`, `customer_names`, and `first_ordered_at`.
 
@@ -61,9 +61,9 @@ But first, she decides to interact with the data to learn more.
 
 From the **Customer model page** in Catalog, Kimiko selects **Analyze data** from the **Open in...** dropdown. This enables her to query data for the Customer model. Once opened, Insights contains a query poised and ready to run.
 
-[![Select Analyze data from Catalog](/img/guides/analyst-qs/catalog-analyze-data.png?v=2 "Select Analyze data from Catalog")](#)Select Analyze data from Catalog
+![Select Analyze data from Catalog](/img/guides/analyst-qs/catalog-analyze-data.png?v=2 "Select Analyze data from Catalog")Select Analyze data from Catalog
 
-[![Open query in Insights](/img/guides/analyst-qs/query.png?v=2 "Open query in Insights")](#)Open query in Insights
+![Open query in Insights](/img/guides/analyst-qs/query.png?v=2 "Open query in Insights")Open query in Insights
 
 When Kimiko runs the query, she can look at the data underyling it. The same context she saw in Catalog she now sees in her SQL editing experience.
 
@@ -105,7 +105,7 @@ order by 1;
 
 She's happy with the results and clicks **Details** to see the AI-generated report, which includes a title and description, supplied SQL, and the compiled SQL.
 
-[![Details report tabe](/img/guides/analyst-qs/details.png?v=2 "Details report tabe")](#)Details report tabe
+![Details report tabe](/img/guides/analyst-qs/details.png?v=2 "Details report tabe")Details report tabe
 
 Once she's ready to get the insight to her stakeholder, she clicks **Chart** to view the chart prefilled with the data from the **Data** tab.
 

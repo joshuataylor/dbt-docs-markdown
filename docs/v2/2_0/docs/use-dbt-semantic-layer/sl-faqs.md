@@ -23,7 +23,7 @@ The primary value of the dbt Semantic Layer is to centralize and bring consisten
 * **Simplify your code** by not duplicating metric logic and allowing MetricFlow to perform complex calculations for you.
 * **Empower stakeholders** with rich context and flexible, yet governed experiences.
 
-[![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")](#)This diagram shows how the dbt Semantic Layer works with your data stack.
+![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")This diagram shows how the dbt Semantic Layer works with your data stack.
 
  What's the main difference between the dbt Semantic Layer and dbt Metrics?
 
@@ -96,7 +96,7 @@ If you create a table with a metric, you’ll need to create numerous other tabl
 
 With the dbt Semantic Layer, you don’t need to pre-join or build any tables; rather, you can simply add a few lines of code to your semantic model, and that data will only be computed upon request.
 
-[![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")](#)This diagram shows how the dbt Semantic Layer works with your data stack.
+![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")This diagram shows how the dbt Semantic Layer works with your data stack.
 
  Do I materialize anything when I define a semantic model?
 

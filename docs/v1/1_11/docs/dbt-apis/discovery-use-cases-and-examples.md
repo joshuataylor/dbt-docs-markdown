@@ -24,7 +24,7 @@ For performance use cases, people typically query the historical or latest appli
 
 It’s helpful to understand how long it takes to build models (tables) and tests to execute during a dbt run. Longer model build times result in higher infrastructure costs and fresh data arriving later to stakeholders. Analyses like these can be in observability tools or ad-hoc queries, like in a notebook.
 
-[![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")](#)Model timing visualization in dbt
+![Model timing visualization in dbt](/img/docs/dbt-platform/discovery-api/model-timing.png?v=2 "Model timing visualization in dbt")Model timing visualization in dbt
 
 Example query with code
 
@@ -155,9 +155,9 @@ plt.show()
 
 Plotting examples:
 
-[![The plot of runElapsedTime over time](/img/docs/dbt-platform/discovery-api/plot-of-runelapsedtime.png?v=2 "The plot of runElapsedTime over time")](#)The plot of runElapsedTime over time
+![The plot of runElapsedTime over time](/img/docs/dbt-platform/discovery-api/plot-of-runelapsedtime.png?v=2 "The plot of runElapsedTime over time")The plot of runElapsedTime over time
 
-[![The plot of executionTime over time](/img/docs/dbt-platform/discovery-api/plot-of-executiontime.png?v=2 "The plot of executionTime over time")](#)The plot of executionTime over time
+![The plot of executionTime over time](/img/docs/dbt-platform/discovery-api/plot-of-executiontime.png?v=2 "The plot of executionTime over time")The plot of executionTime over time
 
 ### What’s the latest state of each model?
 
@@ -480,13 +480,13 @@ def create_freshness_graph(models_df, sources_df):
 
 Graph example:
 
-[![A lineage graph with source freshness information](/img/docs/dbt-platform/discovery-api/lineage-graph-with-freshness-info.png?v=2 "A lineage graph with source freshness information")](#)A lineage graph with source freshness information
+![A lineage graph with source freshness information](/img/docs/dbt-platform/discovery-api/lineage-graph-with-freshness-info.png?v=2 "A lineage graph with source freshness information")A lineage graph with source freshness information
 
 ### Are my data sources fresh?
 
 Checking [source freshness](../build/sources.md#source-data-freshness) allows you to ensure that sources loaded and used in your dbt project are compliant with expectations. The API provides the latest metadata about source loading and information about the freshness check criteria.
 
-[![Source freshness page in dbt](/img/docs/dbt-platform/discovery-api/source-freshness-page.png?v=2 "Source freshness page in dbt")](#)Source freshness page in dbt
+![Source freshness page in dbt](/img/docs/dbt-platform/discovery-api/source-freshness-page.png?v=2 "Source freshness page in dbt")Source freshness page in dbt
 
 Example query
 
@@ -817,7 +817,7 @@ For development use cases, people typically query the historical or latest defin
 
 [Exposures](../build/exposures.md) provide a method to define how a model or metric is actually used in dashboards and other analytics tools and use cases. You can query an exposure’s definition to see how project nodes are used and query its upstream lineage results to understand the state of the data used in it, which powers use cases like a freshness and quality status tile.
 
-[![Embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Embed data health tiles in your dashboards to distill trust signals for data consumers.")](#)Embed data health tiles in your dashboards to distill trust signals for data consumers.
+![Embed data health tiles in your dashboards to distill trust signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Embed data health tiles in your dashboards to distill trust signals for data consumers.")Embed data health tiles in your dashboards to distill trust signals for data consumers.
 
 Example query
 

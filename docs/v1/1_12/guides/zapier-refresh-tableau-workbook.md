@@ -1,6 +1,6 @@
 # Refresh Tableau workbook with extracts after a job finishes
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

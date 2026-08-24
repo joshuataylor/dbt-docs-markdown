@@ -1,10 +1,10 @@
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # on\_error
 
-### Project file
+## Project file
 
 dbt\_project.yml
 
@@ -14,7 +14,7 @@ models:
     +on_error: skip_children | continue
 ```
 
-### Property file
+## Property file
 
 models/properties.yml
 
@@ -25,7 +25,7 @@ models:
       on_error: skip_children | continue
 ```
 
-### SQL config
+## SQL config
 
 models/\<model\_name>.sql
 

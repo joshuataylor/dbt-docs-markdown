@@ -82,17 +82,17 @@ Empty mode runs no tests and restricts the build to the selected node, ignoring 
 
 To visualize these methods, suppose you have `model_a`, `model_b`, and `model_c` and associated data tests. The following illustrates which tests will be run when you execute `dbt build` with the various indirect selection modes:
 
-[![dbt build](/img/docs/reference/indirect-selection-dbt-build.png?v=2 "dbt build")](#)dbt build
+![dbt build](/img/docs/reference/indirect-selection-dbt-build.png?v=2 "dbt build")dbt build
 
-[![Eager (default)](/img/docs/reference/indirect-selection-eager.png?v=2 "Eager (default)")](#)Eager (default)
+![Eager (default)](/img/docs/reference/indirect-selection-eager.png?v=2 "Eager (default)")Eager (default)
 
-[![Buildable](/img/docs/reference/indirect-selection-buildable.png?v=2 "Buildable")](#)Buildable
+![Buildable](/img/docs/reference/indirect-selection-buildable.png?v=2 "Buildable")Buildable
 
-[![Cautious](/img/docs/reference/indirect-selection-cautious.png?v=2 "Cautious")](#)Cautious
+![Cautious](/img/docs/reference/indirect-selection-cautious.png?v=2 "Cautious")Cautious
 
-[![Empty](/img/docs/reference/indirect-selection-empty.png?v=2 "Empty")](#)Empty
+![Empty](/img/docs/reference/indirect-selection-empty.png?v=2 "Empty")Empty
 
-### Eager mode (default)
+#### Eager mode (default)
 
 In this example, during the build process, any test that depends on the selected "orders" model or its dependent models will be executed, even if it depends other models as well.
 
@@ -101,7 +101,7 @@ dbt test --select "orders"
 dbt build --select "orders"
 ```
 
-### Buildable mode
+#### Buildable mode
 
 In this example, dbt executes tests that reference "orders" within the selected nodes (or their ancestors).
 
@@ -110,7 +110,7 @@ dbt test --select "orders" --indirect-selection=buildable
 dbt build --select "orders" --indirect-selection=buildable
 ```
 
-### Cautious mode
+#### Cautious mode
 
 In this example, only tests that depend *exclusively* on the "orders" model will be executed:
 
@@ -119,7 +119,7 @@ dbt test --select "orders" --indirect-selection=cautious
 dbt build --select "orders" --indirect-selection=cautious
 ```
 
-### Empty mode
+#### Empty mode
 
 This mode does not execute any tests, whether they are directly attached to the selected node or not.
 

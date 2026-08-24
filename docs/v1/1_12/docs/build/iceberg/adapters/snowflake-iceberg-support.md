@@ -51,7 +51,7 @@ For more information, check out the Snowflake reference for [`CREATE ICEBERG TAB
 
 First, configure a catalog with `type: horizon` in `catalogs.yml`:
 
-### New spec (beta)
+##### New spec (beta)
 
 catalogs.yml
 
@@ -68,7 +68,7 @@ catalogs:
         iceberg_version: 3  # available in v1.12+
 ```
 
-### Old spec
+##### Old spec
 
 catalogs.yml
 
@@ -124,7 +124,7 @@ After you create the external catalog integration, you can do two things:
 
 Now, we can configure that external catalog in `catalogs.yml`. Here is an example for an AWS Glue catalog:
 
-### New spec (beta)
+#### New spec (beta)
 
 catalogs.yml
 
@@ -139,7 +139,7 @@ catalogs:
         catalog_database: catalog_linked_db_glue  # name of catalog-linked database in Snowflake
 ```
 
-### Old spec
+#### Old spec
 
 catalogs.yml
 

@@ -15,7 +15,7 @@ You can use dbt and its [framework](#dbt-framework) to:
 
 Backed by a 100,000+ member [community](../community/join.md), dbt helps teams build high-quality, trustworthy data pipelines faster.
 
-[![dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.](/img/docs/platform-overview.jpg?v=2 "dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.")](#)dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.
+![dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.](/img/docs/platform-overview.jpg?v=2 "dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.")dbt works alongside your ingestion, visualization, and other data tools, so you can transform data directly in your cloud data platform.
 
 Read more about why we want to enable analysts to work more like software engineers in [The dbt Viewpoint](../community/resources/viewpoint.md). Learn how other data practitioners around the world are using dbt by [joining the dbt Community](https://www.getdbt.com/community/join-the-community).
 
@@ -55,7 +55,7 @@ The dbt platform is the fastest way to run dbt: scheduling, CI/CD, documentation
 
 Develop directly in the platform with the [Studio IDE](./platform/studio-ide/develop-in-studio.md) or connect from your local machine with the dbt VS Code extension or dbt CLI.
 
-Learn more about [dbt platform features](./platform/about-platform/dbt-platform-features.md), explore [plans and pricing](https://www.getdbt.com/pricing/), or try a [quickstart](../guides.md).
+Learn more about [dbt platform features](./platform/about-platform/dbt-platform-features.md), explore [plans and pricing](https://www.getdbt.com/pricing/), or try a [quickstart](https://docs.getdbt.com/guides).
 
 ### dbt local development
 
@@ -81,7 +81,7 @@ As a dbt user, your main focus will be on writing models (select queries) that r
 
 ## Related docs
 
-* [Quickstarts for dbt](../guides.md)
+* [Quickstarts for dbt](https://docs.getdbt.com/guides)
 * [Best practice guides](../best-practices.md)
 * [What is a dbt project?](./build/projects.md)
 * [AI and agents](./dbt-ai/about-dbt-ai.md)

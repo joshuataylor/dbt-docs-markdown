@@ -16,9 +16,9 @@ Data health tiles rely on [exposures](../build/exposures.md) to surface data hea
 * Manual — Defined [manually](../build/exposures.md#declaring-an-exposure) and explicitly in your project’s YAML files.
 * Automatic — Pulled automatically for supported dbt integrations. dbt automatically [creates and visualizes downstream exposures](../platform-integrations/downstream-exposures.md), removing the need for manual YAML definitions. These downstream exposures are stored in dbt’s metadata system, appear in [Catalog](./explore-projects.md), and behave like manual exposures, however they don’t exist in YAML files.
 
-[![Example of passing Data health tile in your dashboard.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Example of passing Data health tile in your dashboard.")](#)Example of passing Data health tile in your dashboard.
+![Example of passing Data health tile in your dashboard.](/img/docs/collaborate/dbt-explorer/data-tile-pass.png?v=2 "Example of passing Data health tile in your dashboard.")Example of passing Data health tile in your dashboard.
 
-[![Embed data health tiles in your dashboards to distill data health signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tiles.png?v=2 "Embed data health tiles in your dashboards to distill data health signals for data consumers.")](#)Embed data health tiles in your dashboards to distill data health signals for data consumers.
+![Embed data health tiles in your dashboards to distill data health signals for data consumers.](/img/docs/collaborate/dbt-explorer/data-tiles.png?v=2 "Embed data health tiles in your dashboards to distill data health signals for data consumers.")Embed data health tiles in your dashboards to distill data health signals for data consumers.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ First, be sure to enable [source freshness](../deploy/source-freshness.md) in 
 
 6. You can click the **Open in Dashboard** button in the upper right to immediately view this in your analytics tool.
 
-[![View an exposure in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-tile-exposures.png?v=2 "View an exposure in dbt Catalog.")](#)View an exposure in dbt Catalog.
+![View an exposure in dbt Catalog.](/img/docs/collaborate/dbt-explorer/data-tile-exposures.png?v=2 "View an exposure in dbt Catalog.")View an exposure in dbt Catalog.
 
 ## Embed in your dashboard
 
@@ -72,7 +72,7 @@ Follow these steps to set up your data health tile:
 3. Click on **Create service token** and give it a name.
 4. Select the [**Metadata Only**](../dbt-apis/service-tokens.md) permission. This token will be used to embed the tile in your dashboard in the later steps.
 
-[![Set up your dashboard status tile and service token to embed a data health tile](/img/docs/collaborate/dbt-explorer/data-tile-setup.png?v=2 "Set up your dashboard status tile and service token to embed a data health tile")](#)Set up your dashboard status tile and service token to embed a data health tile
+![Set up your dashboard status tile and service token to embed a data health tile](/img/docs/collaborate/dbt-explorer/data-tile-setup.png?v=2 "Set up your dashboard status tile and service token to embed a data health tile")Set up your dashboard status tile and service token to embed a data health tile
 
 5. Copy the **Metadata Only** token and save it in a secure location. You'll need it token in the next steps.
 
@@ -86,7 +86,7 @@ Follow these steps to set up your data health tile:
 
 8. In the expanded toggle, you'll see a text field where you can paste your **Metadata Only token**.
 
-[![Expand the toggle to embed data health tile into your dashboard.](/img/docs/collaborate/dbt-explorer/data-tile-example.png?v=2 "Expand the toggle to embed data health tile into your dashboard.")](#)Expand the toggle to embed data health tile into your dashboard.
+![Expand the toggle to embed data health tile into your dashboard.](/img/docs/collaborate/dbt-explorer/data-tile-example.png?v=2 "Expand the toggle to embed data health tile into your dashboard.")Expand the toggle to embed data health tile into your dashboard.
 
 9. Once you’ve pasted your token, you can select either **URL** or **iFrame** depending on which you need to add to your dashboard.
 
@@ -100,7 +100,7 @@ The following examples show how to embed the data health tile in Omni, PowerBI, 
 
 Follow these steps to embed the data health tile in [Omni](https://omni.co/):
 
-[![Embed data health tile in Omni](/img/docs/collaborate/dbt-explorer/omni-example.png?v=2 "Embed data health tile in Omni")](#)Embed data health tile in Omni
+![Embed data health tile in Omni](/img/docs/collaborate/dbt-explorer/omni-example.png?v=2 "Embed data health tile in Omni")Embed data health tile in Omni
 
 1. Create a dashboard in Omni.
 
@@ -118,14 +118,14 @@ Follow these steps to embed the data health tile in [Omni](https://omni.co/):
 
 You can embed the data health tile iFrame in PowerBI using PowerBI Pro Online, Fabric PowerBI, or PowerBI Desktop.
 
-[![Embed data health tile iFrame in PowerBI](/img/docs/collaborate/dbt-explorer/power-bi.png?v=2 "Embed data health tile iFrame in PowerBI")](#)Embed data health tile iFrame in PowerBI
+![Embed data health tile iFrame in PowerBI](/img/docs/collaborate/dbt-explorer/power-bi.png?v=2 "Embed data health tile iFrame in PowerBI")Embed data health tile iFrame in PowerBI
 
 Follow these steps to embed the data health tile in PowerBI:
 
 1. Create a dashboard in PowerBI and connect to your database to pull in the data.
 2. Create a new PowerBI measure by right-clicking on your **Data**, **More options**, and then **New measure**.
 
-[![Create a new PowerBI measure.](/img/docs/collaborate/dbt-explorer/power-bi-measure.png?v=2 "Create a new PowerBI measure.")](#)Create a new PowerBI measure.
+![Create a new PowerBI measure.](/img/docs/collaborate/dbt-explorer/power-bi-measure.png?v=2 "Create a new PowerBI measure.")Create a new PowerBI measure.
 
 3. Navigate to Catalog, select the exposure, and expand the [**Embed data health into your dashboard**](./data-tile.md#embed-in-your-dashboard) toggle.
 
@@ -137,7 +137,7 @@ Follow these steps to embed the data health tile in PowerBI:
    <iframe src='https://1234.metadata.ACCESS_URL/exposure-tile?uniqueId=exposure.EXPOSURE_NAME&environmentType=staging&environmentId=123456789&token=YOUR_METADATA_TOKEN' title='Exposure status tile' height='400'></iframe>
    ```
 
-   [![In the 'Measure tools' tab, replace your values with the iFrame code.](/img/docs/collaborate/dbt-explorer/power-bi-measure-tools.png?v=2 "In the 'Measure tools' tab, replace your values with the iFrame code.")](#)In the 'Measure tools' tab, replace your values with the iFrame code.
+   ![In the 'Measure tools' tab, replace your values with the iFrame code.](/img/docs/collaborate/dbt-explorer/power-bi-measure-tools.png?v=2 "In the 'Measure tools' tab, replace your values with the iFrame code.")In the 'Measure tools' tab, replace your values with the iFrame code.
 
 6. PowerBI desktop doesn't support HTML rendering by default, so you need to install an HTML component from the PowerBI Visuals Store.
 
@@ -149,7 +149,7 @@ Follow these steps to embed the data health tile in PowerBI:
 
 10. Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.
 
-[![Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.](/img/docs/collaborate/dbt-explorer/power-bi-final.png?v=2 "Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.")](#)Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.
+![Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.](/img/docs/collaborate/dbt-explorer/power-bi-final.png?v=2 "Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.")Drag the metric with the iFrame code into the HTML content widget in PowerBI. This should now display your data health tile.
 
 *Refer to [this tutorial](https://www.youtube.com/watch?v=SUm9Hnq8Th8) for additional information on embedding a website into your Power BI report.*
 
@@ -157,7 +157,7 @@ Follow these steps to embed the data health tile in PowerBI:
 
 Follow these steps to embed the data health tile in Tableau:
 
-[![Embed data health tile iFrame in Tableau](/img/docs/collaborate/dbt-explorer/tableau-example.png?v=2 "Embed data health tile iFrame in Tableau")](#)Embed data health tile iFrame in Tableau
+![Embed data health tile iFrame in Tableau](/img/docs/collaborate/dbt-explorer/tableau-example.png?v=2 "Embed data health tile iFrame in Tableau")Embed data health tile iFrame in Tableau
 
 1. Create a dashboard in Tableau and connect to your database to pull in the data.
 
@@ -179,7 +179,7 @@ Follow these steps to embed the data health tile in Tableau:
 
 Follow these steps to embed the data health tile in Sigma:
 
-[![Embed data health tile in Sigma](/img/docs/collaborate/dbt-explorer/sigma-example.jpg?v=2 "Embed data health tile in Sigma")](#)Embed data health tile in Sigma
+![Embed data health tile in Sigma](/img/docs/collaborate/dbt-explorer/sigma-example.jpg?v=2 "Embed data health tile in Sigma")Embed data health tile in Sigma
 
 1. Create a dashboard in Sigma and connect to your database to pull in the data.
 
@@ -209,11 +209,11 @@ In dbt, the [Discovery API](../dbt-apis/discovery-api.md) can power dashboard st
 
 The dashboard status tile looks like this:
 
-[![](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/passing-tile.jpeg?v=2)](#)
+![](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/passing-tile.jpeg?v=2)
 
 The data freshness check fails if any sources feeding into the exposure are stale. The data quality check fails if any dbt tests fail. A failure state could look like this:
 
-[![](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/failing-tile.jpeg?v=2)](#)
+![](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/failing-tile.jpeg?v=2)
 
 Clicking into **see details** from the Dashboard Status Tile takes you to a landing page where you can learn more about the specific sources, models, and tests feeding into this exposure.
 
@@ -247,7 +247,7 @@ dbt is hosted in multiple regions in the world and each region has a different a
 
 The dashboard status tile should work anywhere you can embed an iFrame. But below are some tactical tips on how to integrate with common BI tools.
 
-### Mode
+##### Mode
 
 #### Mode
 
@@ -255,7 +255,7 @@ Mode allows you to directly [edit the HTML](https://mode.com/help/articles/repor
 
 Note that Mode has also built its own [integration](https://mode.com/get-dbt/) with the dbt Discovery API!
 
-### Looker
+##### Looker
 
 #### Looker
 
@@ -263,13 +263,13 @@ Looker does not allow you to directly embed HTML and instead requires creating a
 
 * Add a [new visualization](https://fishtown.looker.com/admin/visualizations) on the visualization page for Looker admins. You can use [this URL](https://metadata.cloud.getdbt.com/static/looker-viz.js) to configure a Looker visualization powered by the iFrame. It will look like this:
 
-[![Configure a Looker visualization powered by the iFrame](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/looker-visualization.jpeg?v=2 "Configure a Looker visualization powered by the iFrame")](#)Configure a Looker visualization powered by the iFrame
+![Configure a Looker visualization powered by the iFrame](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/looker-visualization.jpeg?v=2 "Configure a Looker visualization powered by the iFrame")Configure a Looker visualization powered by the iFrame
 
 * Once you have set up your custom visualization, you can use it on any dashboard! You can configure it with the exposure name, job ID, and token relevant to that dashboard.
 
-[![](</img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/custom-looker.jpeg ?v=2>)](#)
+![](</img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/custom-looker.jpeg ?v=2>)
 
-### Tableau
+##### Tableau
 
 #### Tableau
 
@@ -287,9 +287,9 @@ dbt is hosted in multiple regions in the world and each region has a different a
 https://metadata.cloud.getdbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
 
-[![Configure Tableau by using a Web page object.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/tableau-object.png?v=2 "Configure Tableau by using a Web page object.")](#)Configure Tableau by using a Web page object.
+![Configure Tableau by using a Web page object.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/tableau-object.png?v=2 "Configure Tableau by using a Web page object.")Configure Tableau by using a Web page object.
 
-### Sigma
+##### Sigma
 
 #### Sigma
 
@@ -307,4 +307,4 @@ dbt is hosted in multiple regions in the world and each region has a different a
 https://metadata.au.dbt.com/exposure-tile?name=<exposure_name>&jobId=<job_id>&token=<metadata_only_token>
 ```
 
-[![Configure Sigma by using an embedded UI element.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/sigma-embed.gif?v=2 "Configure Sigma by using an embedded UI element.")](#)Configure Sigma by using an embedded UI element.
+![Configure Sigma by using an embedded UI element.](/img/docs/dbt-platform/using-dbt-platform/dashboard-status-tiles/sigma-embed.gif?v=2 "Configure Sigma by using an embedded UI element.")Configure Sigma by using an embedded UI element.

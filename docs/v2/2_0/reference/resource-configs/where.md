@@ -22,7 +22,7 @@ where my_column is null
 
 ### Examples
 
-### Specific test
+#### Specific test
 
 Configure a specific instance of a generic (schema) test:
 
@@ -47,11 +47,11 @@ models:
                 where: "date_column < current_date"
 ```
 
-### One-off test
+#### One-off test
 
 This config is ignored for one-off tests.
 
-### Generic test block
+#### Generic test block
 
 Set the default for all instances of a generic (schema) test, by setting the config inside its test block (definition):
 
@@ -67,7 +67,7 @@ select ...
 {% endtest %}
 ```
 
-### Project level
+#### Project level
 
 Set the default for all tests in a package or project:
 

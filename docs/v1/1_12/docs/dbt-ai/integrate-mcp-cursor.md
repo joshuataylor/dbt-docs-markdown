@@ -16,7 +16,7 @@ Choose your setup based on your workflow:
 
 Click one of the following application links with Cursor open to automatically configure your MCP server:
 
-### CLI only (dbt Core and Fusion)
+#### CLI only (dbt Core and Fusion)
 
 Self-hosted configuration for users who only want to use dbt commands with dbt Core or dbt Fusion engine (no dbt platform features).
 
@@ -33,7 +33,7 @@ After clicking:
 
 3. Save the configuration.
 
-### OAuth with dbt platform
+#### OAuth with dbt platform
 
 *OAuth with the self-hosted dbt MCP server is available for Starter, Enterprise, and Enterprise+ accounts.*
 

@@ -11,7 +11,7 @@ To delete a job or multiple jobs in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete job** to delete the job.
 
-[![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")](#)Delete a job
+![Delete a job](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-job.png?v=2 "Delete a job")Delete a job
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the job immediately. This action cannot be undone. However, you can create a new job with the same information if the deletion was made in error.
 6. Refresh the page, and the deleted job should now be gone. If you want to delete multiple jobs, you'll need to perform these steps for each job.
@@ -29,7 +29,7 @@ Follow these steps to delete an environment in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete** to delete the environment.
 
-[![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")](#)Delete an environment
+![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")Delete an environment
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the environment immediately. This action cannot be undone. However, you can create a new environment with the same information if the deletion was made in error.
 6. Refresh your page and the deleted environment should now be gone. To delete multiple environments, you'll need to perform these steps to delete each one.

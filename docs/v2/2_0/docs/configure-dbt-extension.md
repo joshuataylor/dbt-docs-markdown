@@ -47,7 +47,7 @@ In this section, we'll walk you through the steps to prepare your local setup fo
 
    * dbt platform users: Copy any environment variables from **Deploy → Environments → Environment variables** tab in dbt platform. Masked secrets are hidden. Work with your admin to get those values.
 
-   [![Environment variables tab](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/navigate-to-env-vars.png?v=2> "Environment variables tab")](#)Environment variables tab
+   ![Environment variables tab](</img/docs/dbt-platform/using-dbt-platform/Environment Variables/navigate-to-env-vars.png?v=2> "Environment variables tab")Environment variables tab
 
 ## Set environment variables locally
 
@@ -71,7 +71,7 @@ If you want to use both the VS Code extension menus and terminal to run dbt comm
 
 Define variables once at the OS or shell level to ensure they're available to all terminal sessions. Even if you close a terminal window, the variables will remain available to you.
 
-### Mac / Linux
+#### Mac / Linux
 
 1. Open your shell configuration file in a text editor using the following commands (If the file does not exist, create it using a text editor using `vi ~/.zshrc` or `vi ~/.bashrc`):
 
@@ -109,7 +109,7 @@ If you see the value printed back in the terminal, you're all set! These variabl
 * In all future terminal sessions
 * For all dbt commands run in the terminal
 
-### Windows
+#### Windows
 
 There are two ways to create persistent environment variables on Windows: through PowerShell or the System Properties.
 
@@ -168,7 +168,7 @@ To use the dbt extension menu actions/buttons, you can configure environment var
 
 To configure environment variables in VS Code/Cursor:
 
-### Open User Settings
+#### Open User Settings
 
 1. Open the [Command Palette](https://code.visualstudio.com/docs/configure/settings#_user-settings) (Cmd + Shift + P for Mac, Ctrl + Shift + P for Windows/Linux).
 2. Then select either **Preferences: Open User Settings** in the dropdown menu.
@@ -179,7 +179,7 @@ To configure environment variables in VS Code/Cursor:
 7. Reload the VS Code extension to apply the changes. Open the Command Palette and select **Developer: Reload Window**.
 8. Verify the changes by running a dbt command and checking the output.
 
-### Open .env file
+#### Open .env file
 
 1. Create a `.env` file in your current working directory (typically at the root level of your dbt project, same level as your `dbt_project.yml` file).
 
@@ -219,13 +219,13 @@ To configure environment variables in the terminal session:
 
 1. Run the following command in the terminal, replacing `DBT_ENV_VAR1` and `test1` with your own variable and value.
 
-   ### Mac / Linux
+   #### Mac / Linux
 
    ```bash
    export DBT_ENV_VAR1=test1
    ```
 
-   ### Windows Cmd
+   #### Windows Cmd
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set_1) for more information on the `set` command.
 
@@ -233,7 +233,7 @@ To configure environment variables in the terminal session:
    set DBT_ENV_VAR1=test1 
    ```
 
-   ### Windows PowerShell
+   #### Windows PowerShell
 
    Refer to [Microsoft's documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.5#use-the-variable-syntax) for more information on the `$env:` syntax.
 
@@ -250,7 +250,7 @@ After installing the dbt extension and configuring your local setup, you may wan
 1. Open the VS Code settings by pressing `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac).
 2. Search for `dbt`. On this page, you can adjust the extension's configuration options to fit your needs.
 
-[![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")](#)dbt extension settings within the VS Code settings.
+![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")dbt extension settings within the VS Code settings.
 
 The following settings are the most relevant when you install or manage the dbt Fusion engine binary yourself. Most users never need to set these because the extension downloads and manages Fusion automatically.
 

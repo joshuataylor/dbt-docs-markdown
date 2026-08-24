@@ -1,6 +1,6 @@
 # evaluate\_volatile\_sql
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -11,7 +11,7 @@ models:
       evaluate_volatile_sql: true | false
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,7 +23,7 @@ models:
         evaluate_volatile_sql: true | false
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 

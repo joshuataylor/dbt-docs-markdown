@@ -1,6 +1,6 @@
 # pre-hook & post-hook
 
-### Models
+## Models
 
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
@@ -36,7 +36,7 @@ models:
       post_hook: <sql-statement> | [<sql-statement>]
 ```
 
-### Seeds
+## Seeds
 
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
@@ -60,7 +60,7 @@ seeds:
       post_hook: <sql-statement> | [<sql-statement>]
 ```
 
-### Snapshots
+## Snapshots
 
 In these examples, we use the `|` symbol to separate two different formatting options for SQL statements in pre-hooks and post-hooks. The first option (without brackets) accepts a single SQL statement as a string, while the second (with brackets) accepts multiple SQL statements as an array of strings. Replace `SQL-STATEMENT` with your SQL.
 
@@ -178,7 +178,7 @@ To achieve this behavior, you can use one of the following syntaxes:
 
 * Important note: Do not use this syntax if you are using a database where dbt does not support transactions. This includes databases like Snowflake, BigQuery, and Spark or Databricks.
 
-### Use before\_begin and after\_commit
+#### Use before\_begin and after\_commit
 
 #### Config block: use the `before_begin` and `after_commit` helper macros
 
@@ -195,7 +195,7 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Use a dictionary
+#### Use a dictionary
 
 #### Config block: use a dictionary
 
@@ -218,7 +218,7 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Use dbt\_project.yml
+#### Use dbt\_project.yml
 
 #### `dbt_project.yml`: Use a dictionary
 

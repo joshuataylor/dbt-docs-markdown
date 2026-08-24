@@ -8,7 +8,7 @@ Insights in dbt empowers users to seamlessly explore and query data with an intu
 
 Insights in dbt integrates with [Catalog](./explore-projects.md), [Studio IDE](../platform/studio-ide/develop-in-studio.md), [Canvas](../platform/canvas.md), [dbt Copilot in Insights](./access-dbt-insights.md), and [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) to make it easier for you to perform exploratory data analysis, leverage AI-assisted tools, make faster decisions, and collaborate across teams.
 
-[![Overview of the dbt Insights and its features](/img/docs/dbt-insights/insights-main.gif?v=2 "Overview of the dbt Insights and its features")](#)Overview of the dbt Insights and its features
+![Overview of the dbt Insights and its features](/img/docs/dbt-insights/insights-main.gif?v=2 "Overview of the dbt Insights and its features")Overview of the dbt Insights and its features
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # Build, test, document, and promote adapters
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -102,7 +102,7 @@ A set of *materializations* and their corresponding helper macros defined in dbt
 
 Below is a flow diagram illustrating how a `dbt run` command works with the `dbt-postgres` adapter. It shows the relationship between `dbt-core`, `dbt-adapters`, and individual adapters.
 
-[![Diagram of adapter architecture](/img/adapter-guide/adapter-architecture-diagram.png?v=2 "Diagram of adapter architecture")](#)Diagram of adapter architecture
+![Diagram of adapter architecture](/img/adapter-guide/adapter-architecture-diagram.png?v=2 "Diagram of adapter architecture")Diagram of adapter architecture
 
 ## Prerequisites
 
@@ -1292,19 +1292,19 @@ Breaking this down:
 
 * Visually distinctive announcement - make it clear this is a release
 
-  [![title](/img/adapter-guide/1-announcement.png?v=2 "title")](#)title
+  ![title](/img/adapter-guide/1-announcement.png?v=2 "title")title
 * Short written description of what is in the release
 
-  [![description](/img/adapter-guide/2-short-description.png?v=2 "description")](#)description
+  ![description](/img/adapter-guide/2-short-description.png?v=2 "description")description
 * Links to additional resources
 
-  [![more resources](/img/adapter-guide/3-additional-resources.png?v=2 "more resources")](#)more resources
+  ![more resources](/img/adapter-guide/3-additional-resources.png?v=2 "more resources")more resources
 * Implementation instructions:
 
-  [![more installation](/img/adapter-guide/4-installation.png?v=2 "more installation")](#)more installation
+  ![more installation](/img/adapter-guide/4-installation.png?v=2 "more installation")more installation
 * Contributor recognition (if applicable)
 
-  [![thank yous](/img/adapter-guide/6-thank-contribs.png?v=2 "thank yous")](#)thank yous
+  ![thank yous](/img/adapter-guide/6-thank-contribs.png?v=2 "thank yous")thank yous
 
 ## Build a trusted adapter
 

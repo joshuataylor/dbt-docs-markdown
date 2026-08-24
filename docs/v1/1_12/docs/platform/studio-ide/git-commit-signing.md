@@ -20,7 +20,7 @@ To generate a GPG keypair in dbt, follow these steps:
 3. Enable the **Sign commits originating from this user** toggle.
 4. This will generate a GPG keypair. The private key will be used to sign all future Git commits. The public key will be displayed, allowing you to upload it to your Git provider.
 
-[![Example of profile setting Signed commits](/img/docs/dbt-platform/example-git-signed-commits-setting.png?v=2 "Example of profile setting Signed commits")](#)Example of profile setting Signed commits
+![Example of profile setting Signed commits](/img/docs/dbt-platform/example-git-signed-commits-setting.png?v=2 "Example of profile setting Signed commits")Example of profile setting Signed commits
 
 ## Upload public key to Git provider
 
@@ -31,7 +31,7 @@ To upload the public key to your Git provider, follow the detailed documentation
 
 Once you have uploaded the public key to your Git provider, your Git commits will be marked as "Verified" after you push the changes to the repository.
 
-[![Example of a verified Git commit in a Git provider.](/img/docs/dbt-platform/git-sign-verified.png?v=2 "Example of a verified Git commit in a Git provider.")](#)Example of a verified Git commit in a Git provider.
+![Example of a verified Git commit in a Git provider.](/img/docs/dbt-platform/git-sign-verified.png?v=2 "Example of a verified Git commit in a Git provider.")Example of a verified Git commit in a Git provider.
 
 ## Considerations
 

@@ -45,7 +45,7 @@ The dbt logo on the sidebar (or the **dbt Extension** text on the bottom tray) l
 * **Extension info:** Information about the extension, Fusion, and your dbt project. Includes configuration options and actions.
 * **Help:** Quick links to support, bug submissions, and documentation.
 
-[![dbt VS Code extension welcome screen.](/img/docs/extension/sidebar-menu.png?v=2 "dbt VS Code extension welcome screen.")](#)dbt VS Code extension welcome screen.
+![dbt VS Code extension welcome screen.](/img/docs/extension/sidebar-menu.png?v=2 "dbt VS Code extension welcome screen.")dbt VS Code extension welcome screen.
 
 ### Caching
 
@@ -68,7 +68,7 @@ After installation, you may want to configure the extension to better fit your d
 1. Open the VS Code settings by pressing `Ctrl+,` (Windows/Linux) or `Cmd+,` (Mac).
 2. Search for `dbt`. On this page, you can adjust the extension’s configuration options to fit your needs.
 
-[![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")](#)dbt extension settings within the VS Code settings.
+![dbt extension settings within the VS Code settings.](/img/docs/extension/dbt-extension-settings.png?v=2 "dbt extension settings within the VS Code settings.")dbt extension settings within the VS Code settings.
 
 ## Known limitations
 
@@ -94,7 +94,7 @@ The extension may occasionally conflict with other VS Code extensions that provi
 
 The YAML extension by Red Hat may erroneously flag some keys (such as `static_analysis`) in dbt YAML files as invalid in the IDE.
 
-[![Static analysis erroneously tagged as invalid](/img/docs/extension/false-yaml-error.png?v=2 "Static analysis erroneously tagged as invalid")](#)Static analysis erroneously tagged as invalid
+![Static analysis erroneously tagged as invalid](/img/docs/extension/false-yaml-error.png?v=2 "Static analysis erroneously tagged as invalid")Static analysis erroneously tagged as invalid
 
 To solve this issue, do one of the following:
 

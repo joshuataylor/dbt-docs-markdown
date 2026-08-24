@@ -1,6 +1,6 @@
 # Quickstart for dbt and Teradata
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -105,9 +105,9 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
 4. In the **Type** section, select **Teradata**.
 5. Enter your Teradata settings and click **Save**.
 
-[![dbt - Choose Teradata Connection](/img/teradata/dbt_cloud_teradata_setup_connection_start.png?v=2 "dbt - Choose Teradata Connection")](#)dbt - Choose Teradata Connection
+![dbt - Choose Teradata Connection](/img/teradata/dbt_cloud_teradata_setup_connection_start.png?v=2 "dbt - Choose Teradata Connection")dbt - Choose Teradata Connection
 
-[![dbt - Teradata Account Settings](/img/teradata/dbt_cloud_teradata_account_settings.png?v=2 "dbt - Teradata Account Settings")](#)dbt - Teradata Account Settings
+![dbt - Teradata Account Settings](/img/teradata/dbt_cloud_teradata_account_settings.png?v=2 "dbt - Teradata Account Settings")dbt - Teradata Account Settings
 
 6. Set up your personal user credentials by navigating to **Your profile** > **Credentials**.
 
@@ -121,7 +121,7 @@ If you created your Teradata Vantage database instance at <https://clearscape.te
    * **Password** — The password of Teradata database.
    * **Schema** — The default database to use.
 
-   [![dbt - Teradata User credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata User credentials")](#)dbt - Teradata User credentials
+   ![dbt - Teradata User credentials](/img/teradata/dbt_cloud_teradata_development_credentials.png?v=2 "dbt - Teradata User credentials")dbt - Teradata User credentials
 
 10. Click **Test Connection** to verify that dbt can access your Teradata Vantage instance.
 
@@ -360,7 +360,7 @@ As a best practice in SQL, you should separate logic that cleans up your data fr
 
 Now you can experiment by separating the logic out into separate models and using the [ref](../reference/dbt-jinja-functions/ref.md) function to build models on top of other models:
 
-[![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")](#)The DAG we want for our dbt project
+![The DAG we want for our dbt project](/img/dbt-dag.png?v=2 "The DAG we want for our dbt project")The DAG we want for our dbt project
 
 1. Create a new SQL file, `models/stg_customers.sql`, with the SQL from the `customers` CTE in your original query.
 

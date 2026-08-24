@@ -1,10 +1,10 @@
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.12 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
 # latest\_version\_pointer
 
-### Project file
+## Project file
 
 dbt\_project.yml
 
@@ -16,7 +16,7 @@ models:
       alias: <string>
 ```
 
-### Property file
+## Property file
 
 models/schema.yml
 
@@ -29,7 +29,7 @@ models:
         alias: <string>
 ```
 
-### SQL config
+## SQL config
 
 models/\<model\_name>.sql
 

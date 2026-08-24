@@ -22,7 +22,7 @@ The query console is the main component of Insights. It allows you to write, run
 
 4. [Query console sidebar menu](#query-console-sidebar-menu), which contains the **Catalog**, **Bookmark**, **Query history**, and **dbt Copilot** icons.
 
-[![dbt Insights main interface with blank query editor](/img/docs/dbt-insights/insights-main.png?v=2 "dbt Insights main interface with blank query editor")](#)dbt Insights main interface with blank query editor
+![dbt Insights main interface with blank query editor](/img/docs/dbt-insights/insights-main.png?v=2 "dbt Insights main interface with blank query editor")dbt Insights main interface with blank query editor
 
 ### Query console menu
 
@@ -64,11 +64,11 @@ To build a query in dbt Insights:
 
 5. Click **Run** to run your query. Results are available in the **Data** tab. You can see the SQL code generated in the **Details** tab.
 
-   [![Semantic Layer querying within dbt Insights](/img/docs/dbt-insights/insights-query-builder-interface.png?v=2 "Semantic Layer querying within dbt Insights")](#)Semantic Layer querying within dbt Insights
+   ![Semantic Layer querying within dbt Insights](/img/docs/dbt-insights/insights-query-builder-interface.png?v=2 "Semantic Layer querying within dbt Insights")Semantic Layer querying within dbt Insights
 
-   [![Results are displayed in the Data tab](/img/docs/dbt-insights/insights-query-builder.png?v=2 "Results are displayed in the Data tab")](#)Results are displayed in the Data tab
+   ![Results are displayed in the Data tab](/img/docs/dbt-insights/insights-query-builder.png?v=2 "Results are displayed in the Data tab")Results are displayed in the Data tab
 
-   [![The generated SQL code in the Details tab](/img/docs/dbt-insights/insights-query-builder-sql.png?v=2 "The generated SQL code in the Details tab")](#)The generated SQL code in the Details tab
+   ![The generated SQL code in the Details tab](/img/docs/dbt-insights/insights-query-builder-sql.png?v=2 "The generated SQL code in the Details tab")The generated SQL code in the Details tab
 
 ## Query output panel
 
@@ -90,11 +90,11 @@ The Query output panel is below the query editor and displays the results of a q
 
 * **Download** button — Allows you to export the results to CSV
 
-[![dbt Insights Data tab](/img/docs/dbt-insights/insights-chart-tab.png?v=2 "dbt Insights Data tab")](#)dbt Insights Data tab
+![dbt Insights Data tab](/img/docs/dbt-insights/insights-chart-tab.png?v=2 "dbt Insights Data tab")dbt Insights Data tab
 
-[![dbt Insights Chart tab](/img/docs/dbt-insights/insights-chart.png?v=2 "dbt Insights Chart tab")](#)dbt Insights Chart tab
+![dbt Insights Chart tab](/img/docs/dbt-insights/insights-chart.png?v=2 "dbt Insights Chart tab")dbt Insights Chart tab
 
-[![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")](#)dbt Insights Details tab
+![dbt Insights Details tab](/img/docs/dbt-insights/insights-details.png?v=2 "dbt Insights Details tab")dbt Insights Details tab
 
 ## Query console sidebar menu
 
@@ -104,7 +104,7 @@ The Query console sidebar menu and icons contains the following options:
 
 **Catalog icon** — View your project's models, columns, metrics, and more using the integrated Catalog view.
 
-[![dbt Insights dbt Catalog icon](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights dbt Catalog icon")](#)dbt Insights dbt Catalog icon
+![dbt Insights dbt Catalog icon](/img/docs/dbt-insights/insights-explorer.png?v=2 "dbt Insights dbt Catalog icon")dbt Insights dbt Catalog icon
 
 ### Bookmark
 
@@ -118,17 +118,17 @@ To save and manage bookmarks:
 
 For sharing saved Insights and version history, check out [Save your Insights](./access-dbt-insights.md#save-your-insights).
 
-[![Bookmark Query Details modal](/img/docs/dbt-insights/save-insights-modal.png?v=2 "Bookmark Query Details modal")](#)Bookmark Query Details modal
+![Bookmark Query Details modal](/img/docs/dbt-insights/save-insights-modal.png?v=2 "Bookmark Query Details modal")Bookmark Query Details modal
 
-[![Manage your query bookmarks](/img/docs/dbt-insights/manage-bookmarks.png?v=2 "Manage your query bookmarks")](#)Manage your query bookmarks
+![Manage your query bookmarks](/img/docs/dbt-insights/manage-bookmarks.png?v=2 "Manage your query bookmarks")Manage your query bookmarks
 
-[![List view of saved Insights](/img/docs/dbt-insights/view-saved-insights.png?v=2 "List view of saved Insights")](#)List view of saved Insights
+![List view of saved Insights](/img/docs/dbt-insights/view-saved-insights.png?v=2 "List view of saved Insights")List view of saved Insights
 
 ### Query history
 
 View past queries, their statuses (All, Success, Error, or Pending), start time, and duration. Search for past queries and filter by status. You can also re-run a query from the Query history.
 
-[![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")](#)dbt Insights Query history icon
+![dbt Insights Query history icon](/img/docs/dbt-insights/insights-query-history.png?v=2 "dbt Insights Query history icon")dbt Insights Query history icon
 
 ### dbt Copilot
 
@@ -168,7 +168,7 @@ Use dbt Copilot in Insights in two ways:
 
   For more information, see [dbt Copilot in Insights](../dbt-ai/analyst-agent.md).
 
-[![dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-tabs.png?v=2 "dbt Copilot in Insights")](#)dbt Copilot in Insights
+![dbt Copilot in Insights](/img/docs/dbt-insights/insights-copilot-tabs.png?v=2 "dbt Copilot in Insights")dbt Copilot in Insights
 
 ## LSP features
 
@@ -176,18 +176,18 @@ The following Language Server Protocol (LSP) features are available for projects
 
 * **Live CTE previews:** Preview a CTE’s output for faster validation and debugging.
 
-  [![Preview CTE in Insights](/img/docs/dbt-insights/preview-cte.png?v=2 "Preview CTE in Insights")](#)Preview CTE in Insights
+  ![Preview CTE in Insights](/img/docs/dbt-insights/preview-cte.png?v=2 "Preview CTE in Insights")Preview CTE in Insights
 
 * **Real-time error detection:** Automatically validate your SQL code to detect errors and surface warnings, without hitting the warehouse. This includes both dbt errors (like invalid `ref`) and SQL errors (like invalid column name or SQL syntax).
 
-  [![Live error detection](/img/docs/dbt-insights/sql-validation.png?v=2 "Live error detection")](#)Live error detection
+  ![Live error detection](/img/docs/dbt-insights/sql-validation.png?v=2 "Live error detection")Live error detection
 
 * **`ref` suggestions:** Autocomplete model names when using the `ref()` function to reference other models in your project.
 
-  [![ref suggestions in Insights](/img/docs/dbt-insights/ref-autocomplete.png?v=2 "ref suggestions in Insights")](#)ref suggestions in Insights
+  ![ref suggestions in Insights](/img/docs/dbt-insights/ref-autocomplete.png?v=2 "ref suggestions in Insights")ref suggestions in Insights
 
 * **Hover insights:** View context on tables, columns, and functions without leaving your code. Hover over any SQL element to see details like column names and data types.
 
-  [![Sample column details](/img/docs/dbt-insights/column-info.png?v=2 "Sample column details")](#)Sample column details
+  ![Sample column details](/img/docs/dbt-insights/column-info.png?v=2 "Sample column details")Sample column details
 
-  [![Sample column details](/img/docs/dbt-insights/column-hover.png?v=2 "Sample column details")](#)Sample column details
+  ![Sample column details](/img/docs/dbt-insights/column-hover.png?v=2 "Sample column details")Sample column details

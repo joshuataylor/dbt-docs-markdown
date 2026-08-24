@@ -13,7 +13,7 @@ These models compile directly to SQL and are indistinguishable from other dbt mo
 * Models can be materialized into production through [dbt orchestration](../deploy/deployments.md), or be built directly into a user's development schema.
 * Integrate with [Catalog](../explore/explore-projects.md) and the [Studio IDE](./studio-ide/develop-in-studio.md).
 
-[![Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.")](#)Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.
+![Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.")Create or edit dbt models with Canvas, enabling everyone to develop with dbt through a drag-and-drop experience inside of dbt.
 
 ## Canvas prerequisites
 

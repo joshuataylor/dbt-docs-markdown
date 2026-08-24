@@ -61,12 +61,12 @@ To orchestrate downstream exposures and see refreshes happen automatically durin
 
 4. Set the variable to **1440** minutes (24 hours) by default. This means that downstream exposures won’t refresh Tableau extracts more often than this set interval, even if the related models run more frequently.
 
-   [![Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.](/img/docs/platform-integrations/auto-exposures/active-exposures-env-var.jpg?v=2 "Set the environment variable `DBT_ACTIVE_EXPOSURES` to `1`.")](#)Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.
+   ![Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.](/img/docs/platform-integrations/auto-exposures/active-exposures-env-var.jpg?v=2 "Set the environment variable `DBT_ACTIVE_EXPOSURES` to `1`.")Set the environment variable \`DBT\_ACTIVE\_EXPOSURES\` to \`1\`.
 
 5. Run a production job on [Latest](../dbt-versions/dbt-release-tracks.md) with dbt Core. Each run can trigger a downstream exposure refresh; if a job runs before the configured interval has passed, dbt skips the downstream exposure refresh and marks it as `skipped` in the job logs.
 
 6. View downstream exposure entries in your run job logs.
 
-   [![View the downstream exposure logs in the dbt run job logs.](/img/docs/platform-integrations/auto-exposures/active-exposure-log.jpg?v=2 "View the downstream exposure logs in the dbt run job logs.")](#)View the downstream exposure logs in the dbt run job logs.
+   ![View the downstream exposure logs in the dbt run job logs.](/img/docs/platform-integrations/auto-exposures/active-exposure-log.jpg?v=2 "View the downstream exposure logs in the dbt run job logs.")View the downstream exposure logs in the dbt run job logs.
 
    * View more details in the debug logs for any troubleshooting.

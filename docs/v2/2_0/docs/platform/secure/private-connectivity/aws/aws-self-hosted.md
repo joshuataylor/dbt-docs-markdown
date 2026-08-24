@@ -17,7 +17,7 @@ AWS PrivateLink enables secure, private connectivity between dbt and your self-h
 
 The focus of this guide is not on any particular service or backend architecture, but on the [Endpoint Service](#terminology) that interconnects dbt with your self-hosted service. This process should be standard across most use cases.
 
-[![The scope of this guide](/img/docs/dbt-platform/aws-self-hosted-privatelink/scope-of-guide.png?v=2 "The scope of this guide")](#)The scope of this guide
+![The scope of this guide](/img/docs/dbt-platform/aws-self-hosted-privatelink/scope-of-guide.png?v=2 "The scope of this guide")The scope of this guide
 
 Out of scope
 
@@ -110,7 +110,7 @@ For more details, see [Update the security groups for your Network Load Balancer
 
 7. On the Endpoint Service details page, copy the **Service name** value (format: `com.amazonaws.vpce.region.vpce-svc-xxx`)
 
-[![Copy the Endpoint Service name](/img/docs/dbt-platform/aws-self-hosted-privatelink/obtain-endpoint-svc-name.png?v=2 "Copy the Endpoint Service name")](#)Copy the Endpoint Service name
+![Copy the Endpoint Service name](/img/docs/dbt-platform/aws-self-hosted-privatelink/obtain-endpoint-svc-name.png?v=2 "Copy the Endpoint Service name")Copy the Endpoint Service name
 
 ### Providing dbt Support with connection details
 

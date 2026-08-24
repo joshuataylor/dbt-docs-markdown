@@ -14,21 +14,21 @@ To find and fix deprecations:
 
 4. Select **Check & fix deprecations**.
 
-   [![Access the Studio IDE options menu to autofix deprecation warnings](/img/docs/dbt-platform/platform-ide/ide-options-menu-with-save.png?v=2 "Access the Studio IDE options menu to autofix deprecation warnings")](#)Access the Studio IDE options menu to autofix deprecation warnings
+   ![Access the Studio IDE options menu to autofix deprecation warnings](/img/docs/dbt-platform/platform-ide/ide-options-menu-with-save.png?v=2 "Access the Studio IDE options menu to autofix deprecation warnings")Access the Studio IDE options menu to autofix deprecation warnings
 
    The tool performs a `dbt parse —show-all-deprecations —no-partial-parse` to find the deprecations in your project.
 
 5. If you don't see the deprecations and the **Autofix warnings** button, click the command history in the bottom left:
 
-   [![Access recent commands to see the autofix button](/img/docs/dbt-platform/platform-ide/command-history.png?v=2 "Access recent commands to see the autofix button")](#)Access recent commands to see the autofix button
+   ![Access recent commands to see the autofix button](/img/docs/dbt-platform/platform-ide/command-history.png?v=2 "Access recent commands to see the autofix button")Access recent commands to see the autofix button
 
 6. When the command history opens, click the **Autofix warnings** button:
 
-   [![Learn what deprecations need to be auto fixed](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Learn what deprecations need to be auto fixed")](#)Learn what deprecations need to be auto fixed
+   ![Learn what deprecations need to be auto fixed](/img/docs/dbt-platform/platform-ide/autofix-button.png?v=2 "Learn what deprecations need to be auto fixed")Learn what deprecations need to be auto fixed
 
 7. When the **Proceed with autofix** dialog opens, click **Continue** to begin resolving project deprecations and start a follow-up parse to show remaining deprecations.
 
-   [![Proceed with autofix](/img/docs/dbt-platform/platform-ide/proceed-with-autofix.png?v=2 "Proceed with autofix")](#)Proceed with autofix
+   ![Proceed with autofix](/img/docs/dbt-platform/platform-ide/proceed-with-autofix.png?v=2 "Proceed with autofix")Proceed with autofix
 
 8. Once complete, a success message appears.
 
@@ -36,7 +36,7 @@ To find and fix deprecations:
 
    Click **Review changes** to verify the changes.
 
-   [![Success](/img/docs/dbt-platform/platform-ide/autofix-success.png?v=2 "Success")](#)Success
+   ![Success](/img/docs/dbt-platform/platform-ide/autofix-success.png?v=2 "Success")Success
 
 9. Click **Commit and sync** in the top left of Studio IDE to commit these changes to the project repository.
 
@@ -44,6 +44,6 @@ To find and fix deprecations:
 
 ## Related docs
 
-* [Quickstart guide](../../../guides.md)
+* [Quickstart guide](https://docs.getdbt.com/guides)
 * [About dbt](../about-platform/dbt-platform-features.md)
 * [Develop in the Cloud](./develop-in-studio.md)

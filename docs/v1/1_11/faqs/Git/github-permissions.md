@@ -12,11 +12,11 @@ A GitHub organization admin will need to update the permissions in GitHub for th
 
 2. Then go to **Integrations** and then select **Applications** to identify any necessary permission changes. Note that a GitHub repository admin may not see the same permission request.
 
-[![Navigate to Application settings to identify permission changes.](/img/docs/dbt-platform/platform-configuring-dbt-platform/github-applications.png?v=2 "Navigate to Application settings to identify permission changes.")](#)Navigate to Application settings to identify permission changes.
+![Navigate to Application settings to identify permission changes.](/img/docs/dbt-platform/platform-configuring-dbt-platform/github-applications.png?v=2 "Navigate to Application settings to identify permission changes.")Navigate to Application settings to identify permission changes.
 
 3. Click on **Review request** and then click on the **Accept new permissions** button on the next page.
 
-[![Grant access to the dbt app by accepting the new permissions.](/img/docs/dbt-platform/platform-configuring-dbt-platform/github-review-request.png?v=2 "Grant access to the dbt app by accepting the new permissions.")](#)Grant access to the dbt app by accepting the new permissions.
+![Grant access to the dbt app by accepting the new permissions.](/img/docs/dbt-platform/platform-configuring-dbt-platform/github-review-request.png?v=2 "Grant access to the dbt app by accepting the new permissions.")Grant access to the dbt app by accepting the new permissions.
 
 For more info on GitHub permissions, refer to [access permissions](https://docs.github.com/en/get-started/learning-about-github/access-permissions-on-github).
 
@@ -32,7 +32,7 @@ Disconnect the GitHub and dbt integration in dbt.
 4. In the **Repository details** page, click **Edit**.
 5. Click **Disconnect** to remove the GitHub integration.
 
-   [![Disconnect and reconnect your git repository in your dbt Account settings pages.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your git repository in your dbt Account settings pages.")](#)Disconnect and reconnect your git repository in your dbt Account settings pages.
+   ![Disconnect and reconnect your git repository in your dbt Account settings pages.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your git repository in your dbt Account settings pages.")Disconnect and reconnect your git repository in your dbt Account settings pages.
 6. Click **Confirm Disconnect**.
 7. Return to your **Project details** page and reconnect your repository by clicking the **Configure Repository** link.
 8. Click **GitHub** and select your repository.

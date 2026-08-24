@@ -12,7 +12,7 @@ You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CL
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 
-### macOS/Linux
+## macOS/Linux
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
@@ -20,7 +20,7 @@ curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | 
 
 This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](./wizard-cli.md#uninstall) if you ever need to remove them.
 
-### Windows
+## Windows
 
 Run the following in PowerShell:
 

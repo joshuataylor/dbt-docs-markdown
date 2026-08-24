@@ -4,7 +4,7 @@ dbt platform
 
 The remote MCP server connects to dbt platform using HTTP. No self-hosted installation is required — you configure your MCP client with a URL and headers instead of running `uvx dbt-mcp`.
 
-[![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")](#)Remote dbt MCP server architecture
+![Remote dbt MCP server architecture](/img/mcp/remote-dbt-mcp.jpg?v=2 "Remote dbt MCP server architecture")Remote dbt MCP server architecture
 
 ## When to use remote MCP
 
@@ -74,7 +74,7 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 Configure your MCP client with the MCP URL from the previous step. If you use token-based authentication, also add the required headers.
 
-### OAuth
+#### OAuth
 
 *Available for Starter, Enterprise, and Enterprise+ accounts*
 
@@ -95,18 +95,18 @@ The following steps show how to connect dbt as a custom connector in Claude Desk
 1. In your AI tool, go to its connector settings and choose to add a custom connector (in Claude Desktop, go to **Chat → Customize → Connectors**, then click **Add custom connector**).
 2. Enter a name (for example, `dbt`) and paste your dbt platform MCP URL (for example, `https://abc123.us1.dbt.com/api/ai/v1/mcp`), then click **Add**.
 
-   [![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")](#)Custom connector dialog showing the dbt MCP URL
+   ![Custom connector dialog showing the dbt MCP URL](/img/docs/dbt-cloud/oauth-add-custom-connector.png?v=2 "Custom connector dialog showing the dbt MCP URL")Custom connector dialog showing the dbt MCP URL
 3. Click **Connect**. The tool redirects you to dbt to complete the OAuth consent flow, where you can approve or deny individual [scopes](../platform/manage-access/connect-apps-oauth.md#scopes-and-consent).
 
-   [![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")](#)OAuth consent screen showing requested scopes and project access
+   ![OAuth consent screen showing requested scopes and project access](/img/docs/dbt-cloud/oauth-consent-screen.png?v=2 "OAuth consent screen showing requested scopes and project access")OAuth consent screen showing requested scopes and project access
 4. After you approve, the connector is added to the **Custom connectors** table and shows as connected.
 
-   [![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")](#)Adding a custom dbt connector in an AI tool's connector settings
+   ![Adding a custom dbt connector in an AI tool's connector settings](/img/docs/dbt-cloud/oauth-connectors-page.png?v=2 "Adding a custom dbt connector in an AI tool's connector settings")Adding a custom dbt connector in an AI tool's connector settings
 5. That's it 🎉! Ask your tool a data question like *"What is the total revenue for the last 30 days?"* to confirm the connection.
 
 For tools configured with a JSON file, use the tab that matches your client:
 
-### Claude Code
+##### Claude Code
 
 Add this to `.mcp.json` at your project root:
 
@@ -121,7 +121,7 @@ Add this to `.mcp.json` at your project root:
 }
 ```
 
-### Cursor
+##### Cursor
 
 Add this to `.cursor/mcp.json` (or use the Cursor deeplink in [Integrate Cursor with MCP](./integrate-mcp-cursor.md#set-up-with-remote-dbt-mcp-server)):
 
@@ -135,7 +135,7 @@ Add this to `.cursor/mcp.json` (or use the Cursor deeplink in [Integrate Cursor 
 }
 ```
 
-### VS Code
+##### VS Code
 
 Add this to `mcp.json` (run **MCP: Open Workspace Folder MCP Configuration** from the command palette). VS Code uses the `servers` key, not `mcpServers`:
 
@@ -150,7 +150,7 @@ Add this to `mcp.json` (run **MCP: Open Workspace Folder MCP Configuration** fro
 }
 ```
 
-### Token-based
+#### Token-based
 
 Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the required headers:
 
@@ -158,7 +158,7 @@ Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the r
 * **For `execute_sql` with token-based auth or Fusion tools:** Also add `x-dbt-dev-environment-id` and `x-dbt-user-id`
 * Use numeric IDs in headers, not full URLs copied from your browser.
 
-### Claude Code
+##### Claude Code
 
 ```json
 {
@@ -177,7 +177,7 @@ Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the r
 }
 ```
 
-### Cursor
+##### Cursor
 
 ```json
 {
@@ -195,7 +195,7 @@ Set the server `url` to `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/` and add the r
 }
 ```
 
-### VS Code
+##### VS Code
 
 VS Code uses the `servers` key, not `mcpServers`:
 
@@ -216,7 +216,7 @@ VS Code uses the `servers` key, not `mcpServers`:
 }
 ```
 
-### Gemini
+##### Gemini
 
 Gemini uses the `httpUrl` key instead of `url`:
 

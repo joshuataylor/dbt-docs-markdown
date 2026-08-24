@@ -8,7 +8,7 @@ You can also view the status of the CI checks (tests) directly from within the P
 
 For workflows that promote changes after a PR merges (merge jobs or other deployment triggers, including triggering jobs manually or through APIs), refer to [Continuous deployment in dbt](./continuous-deployment.md), including [merge jobs](./merge-jobs.md).
 
-[![Workflow of continuous integration in dbt](/img/docs/dbt-platform/using-dbt-platform/ci-workflow.png?v=2 "Workflow of continuous integration in dbt")](#)Workflow of continuous integration in dbt
+![Workflow of continuous integration in dbt](/img/docs/dbt-platform/using-dbt-platform/ci-workflow.png?v=2 "Workflow of continuous integration in dbt")Workflow of continuous integration in dbt
 
 Using CI helps:
 
@@ -22,7 +22,7 @@ When you [set up CI jobs](./ci-jobs.md#set-up-ci-jobs), dbt listens for a notif
 
 dbt builds and tests models, semantic models, metrics, and saved queries affected by the code change in a temporary schema, unique to the PR. This process ensures that the code builds without error and that it matches the expectations as defined by the project's dbt tests. The unique schema name follows the naming convention `dbt_cloud_pr_<job_id>_<pr_id>` (for example, `dbt_cloud_pr_1862_1704`) and can be found in the run details for the given run, as shown in the following image:
 
-[![Viewing the temporary schema name for a run triggered by a PR](/img/docs/dbt-platform/using-dbt-platform/using_ci_dbt_cloud.png?v=2 "Viewing the temporary schema name for a run triggered by a PR")](#)Viewing the temporary schema name for a run triggered by a PR
+![Viewing the temporary schema name for a run triggered by a PR](/img/docs/dbt-platform/using-dbt-platform/using_ci_dbt_cloud.png?v=2 "Viewing the temporary schema name for a run triggered by a PR")Viewing the temporary schema name for a run triggered by a PR
 
 When the CI run completes, you can view the run status directly from within the pull request. dbt updates the pull request in GitHub, GitLab, or Azure DevOps with a status message indicating the results of the run. The status message states whether the models and tests ran successfully or not.
 
@@ -70,7 +70,7 @@ The following describes the conditions when CI checks are run concurrently and w
 
 When you push a new commit to a PR, dbt enqueues a new CI run for the latest commit and cancels any CI run that is (now) stale and still in flight. This can happen when you’re pushing new commits while a CI build is still in process and not yet done. By canceling runs in a safe and deliberate way, dbt helps improve productivity and reduce data platform spend on wasteful CI runs.
 
-[![Example of an automatically canceled run](/img/docs/dbt-platform/using-dbt-platform/example-smart-cancel-job.png?v=2 "Example of an automatically canceled run")](#)Example of an automatically canceled run
+![Example of an automatically canceled run](/img/docs/dbt-platform/using-dbt-platform/example-smart-cancel-job.png?v=2 "Example of an automatically canceled run")Example of an automatically canceled run
 
 ### Run slot treatment [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 

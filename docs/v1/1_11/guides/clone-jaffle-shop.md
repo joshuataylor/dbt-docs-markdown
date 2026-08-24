@@ -1,6 +1,6 @@
 # Clone the Jaffle Shop sample project
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 
@@ -176,7 +176,7 @@ To run the project, you need a database and adapter configured in `profiles.yml`
 * [Quickstart for dbt and Redshift](./redshift.md)
 * [Quickstart for dbt Core using DuckDB](./duckdb.md): Clone [`jaffle_shop_duckdb`](https://github.com/dbt-labs/jaffle_shop_duckdb) and follow the guide.
 
-You can also browse [all guides](../guides.md) or other [example dbt projects](../faqs/Project/example-projects.md).
+You can also browse [all guides](https://docs.getdbt.com/guides) or other [example dbt projects](../faqs/Project/example-projects.md).
 
 ## Optional cleanup
 

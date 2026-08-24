@@ -1,3 +1,7 @@
+# One doc tagged with "Studio"
+
+[View all tags](../tags.md)
+
 ## [dbt Wizard in Studio IDE](../docs/dbt-ai/wizard-ide.md)
 
 Use dbt Wizard in the Studio IDE to write or refactor dbt models from natural language, validate with your dbt engine, and run against your warehouse with full project context.

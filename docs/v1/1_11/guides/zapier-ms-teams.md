@@ -1,6 +1,6 @@
 # Post to Microsoft Teams when a job finishes
 
-[Back to guides](../guides.md)
+[Back to guides](https://docs.getdbt.com/guides)
 
 
 

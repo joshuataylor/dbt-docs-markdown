@@ -15,7 +15,7 @@ Semantic models are the foundation for data definition in MetricFlow, which powe
 * Configure semantic models in a YAML file within your dbt project directory. Refer to the [best practices guide](../../best-practices/how-we-build-our-metrics/semantic-layer-1-intro.md) for more info on project structuring.
 * Organize them under a `metrics:` folder or within project sources as needed.
 
-[![A semantic model is made up of different components: Entities, Measures, and Dimensions.](/img/docs/dbt-platform/semantic-layer/semantic_foundation.jpg?v=2 "A semantic model is made up of different components: Entities, Measures, and Dimensions.")](#)A semantic model is made up of different components: Entities, Measures, and Dimensions.
+![A semantic model is made up of different components: Entities, Measures, and Dimensions.](/img/docs/dbt-platform/semantic-layer/semantic_foundation.jpg?v=2 "A semantic model is made up of different components: Entities, Measures, and Dimensions.")A semantic model is made up of different components: Entities, Measures, and Dimensions.
 
 📹 Learn about the dbt Semantic Layer with on-demand video courses!
 
@@ -205,7 +205,7 @@ semantic_model:
   primary_entity: booking_id
 ```
 
-### Entity types
+#### Entity types
 
 Here are the types of keys:
 
@@ -214,7 +214,7 @@ Here are the types of keys:
 * **Foreign** — Can have zero, one, or multiple instances of the same record. Null values may also be present.
 * **Natural** — A column or combination of columns in a table that uniquely identifies a record based on real-world data. For example, the `sales_person_id` can serve as a natural key in a `sales_person_department` dimension table.
 
-### Sample config
+#### Sample config
 
 This example shows a semantic model with three entities and their entity types: `transaction` (primary), `order` (foreign), and `user` (foreign).
 

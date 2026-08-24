@@ -28,7 +28,7 @@ The Canvas interface is composed of:
 
 The operator toolbar above the canvas contains the different transformation operators available to use. Use each operator to configure or perform specific tasks, like adding filters or joining models by dragging an operator onto the canvas. You can connect operators using the connector line, which allows you to form a complete model for your data transformation.
 
-[![Use the operator toolbar to perform different transformation operations.](/img/docs/dbt-platform/canvas/operators.png?v=2 "Use the operator toolbar to perform different transformation operations.")](#)Use the operator toolbar to perform different transformation operations.
+![Use the operator toolbar to perform different transformation operations.](/img/docs/dbt-platform/canvas/operators.png?v=2 "Use the operator toolbar to perform different transformation operations.")Use the operator toolbar to perform different transformation operations.
 
 Here the following operators are available:
 
@@ -60,7 +60,7 @@ Output operators configure the names and location of your transformed data:
 
 When you click on each operator, it opens a configuration panel. The configuration panel allows you to configure the operator, review the current model, preview changes to the model, view the SQL code for the node, and delete the operator.
 
-[![The Canvas interface that contains a node toolbar and canvas.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "The Canvas interface that contains a node toolbar and canvas.")](#)The Canvas interface that contains a node toolbar and canvas.
+![The Canvas interface that contains a node toolbar and canvas.](/img/docs/dbt-platform/canvas/canvas.png?v=2 "The Canvas interface that contains a node toolbar and canvas.")The Canvas interface that contains a node toolbar and canvas.
 
 If you have any feedback on additional operators that you might need, we'd love to hear it! Please contact your dbt Labs account team and share your thoughts.
 
@@ -74,7 +74,7 @@ Canvas has a sleek drag-and-drop interface for creating and modifying dbt SQL mo
 * Version-control your dbt models
 * \[Coming soon] Test and document your created models
 
-[![The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.")](#)The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.
+![The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.](/img/docs/dbt-platform/canvas/operators.png?v=2 "The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.")The operator toolbar allows you to select different nodes to configure or perform specific tasks, like adding filters or joining models.
 
 ### Connector
 
@@ -84,7 +84,7 @@ Connectors allow you to connect your operators to create dbt models. Once you've
 * Drag your cursor between the operator's "+" start point to the other node you want to connect to. This should create a connector line.
 * As an example, to create a join, connect one operator to the "L" (Left) and the other to the "R" (Right). The endpoints are located to the left of the operator so you can easily drag the connectors to the endpoint.
 
-[![Click and drag your cursor to connect operators.](/img/docs/dbt-platform/canvas/connector.png?v=2 "Click and drag your cursor to connect operators.")](#)Click and drag your cursor to connect operators.
+![Click and drag your cursor to connect operators.](/img/docs/dbt-platform/canvas/connector.png?v=2 "Click and drag your cursor to connect operators.")Click and drag your cursor to connect operators.
 
 ## Configuration panel
 
@@ -97,4 +97,4 @@ The configuration side panel has the following:
 * Output tab — This section allows you to preview the data for the modified source model.
 * Code — This section allows you to view the underlying SQL code for the data transformation.
 
-[![A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.](/img/docs/dbt-platform/canvas/config-panel.png?v=2 "A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.")](#)A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.
+![A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.](/img/docs/dbt-platform/canvas/config-panel.png?v=2 "A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.")A sleek drag-and-drop canvas interface that allows you to create or modify dbt SQL models.

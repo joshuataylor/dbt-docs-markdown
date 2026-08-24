@@ -48,7 +48,7 @@ The recommended way to sign in to dbt platform is <https://login.dbt.com>. Enter
 
 If you already know your account **Access URL**, you can sign in directly. Your access URL depends on your region and tenancy:
 
-[![dbt accounts](/img/docs/dbt-platform/find-account.png?v=2 "dbt accounts")](#)dbt accounts
+![dbt accounts](/img/docs/dbt-platform/find-account.png?v=2 "dbt accounts")dbt accounts
 
 * **US multi-tenant:** `ACCOUNT_PREFIX.us1.dbt.com` (for example, `abc123.us1.dbt.com`)
 * **EMEA multi-tenant:** `ACCOUNT_PREFIX.eu1.dbt.com` (for example, `abc123.eu1.dbt.com`)
@@ -78,7 +78,7 @@ dbt platform is hosted on AWS, Azure, and the Google Cloud Platform (GCP). While
 
 For dbt platform accounts with cell-based account prefixes, account API access URLs are unique per account. You can find these URLs in **Account settings**, under **Account information**.
 
-[![Access URLs in the account settings](/img/docs/dbt-platform/access-urls.png?v=2 "Access URLs in the account settings")](#)Access URLs in the account settings
+![Access URLs in the account settings](/img/docs/dbt-platform/access-urls.png?v=2 "Access URLs in the account settings")Access URLs in the account settings
 
 These URLs are unique to each account and begin with the same prefix as the URL used to [access your account](#accessing-your-account). The URLs cover the following APIs:
 

@@ -63,7 +63,7 @@ Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.c
 
 #### Configuration options
 
-### dbt platform only
+##### dbt platform only
 
 This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
 
@@ -85,7 +85,7 @@ When you use only the dbt platform, the CLI tools are automatically disabled. Yo
 
 **Note:** Replace `YOUR-ACCESS-URL` with your Access URL hostname (for example, `abc123.us1.dbt.com`). Both `abc123.us1.dbt.com` and `https://abc123.us1.dbt.com` are accepted. This enables OAuth authentication without requiring self-hosted dbt installation.
 
-### dbt platform + CLI
+##### dbt platform + CLI
 
 This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
@@ -111,7 +111,7 @@ The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can
 
 Once configured, your session connects to the dbt platform account, starts the OAuth authentication workflow, and then opens your account where you can select the project you want to reference.
 
-[![Select your dbt platform project](/img/mcp/select-project.png?v=2 "Select your dbt platform project")](#)Select your dbt platform project
+![Select your dbt platform project](/img/mcp/select-project.png?v=2 "Select your dbt platform project")Select your dbt platform project
 
 After completing OAuth setup, skip to [Test your configuration](#optional-test-your-configuration).
 
@@ -187,7 +187,7 @@ Create the `.env` file in your *dbt project root* (the same folder as `dbt_proje
 
 Pick the `.env` example that matches your setup. Only include the variables you need:
 
-### CLI only
+#### CLI only
 
 Use this if you're running dbt commands locally and don't need dbt platform features (Discovery API, Semantic Layer, etc.):
 
@@ -196,7 +196,7 @@ DBT_PROJECT_DIR=/path/to/your/dbt/project
 DBT_PATH=/path/to/your/dbt/executable
 ```
 
-### dbt platform only
+#### dbt platform only
 
 Use this if you only need dbt platform features and won't run dbt commands:
 
@@ -206,7 +206,7 @@ DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
 
-### CLI and dbt platform (most common)
+#### CLI and dbt platform (most common)
 
 Use this if you want both dbt CLI commands and dbt platform features:
 
@@ -218,7 +218,7 @@ DBT_TOKEN=dbtc_your_token
 DBT_PROD_ENV_ID=12345
 ```
 
-### All variables
+#### All variables
 
 A complete reference of all available variables. Most setups only need a subset of these — refer to the [API and SQL tool settings](#api-and-sql-tool-settings) and [dbt CLI settings](#dbt-cli-settings) tables for details on each variable.
 
@@ -237,7 +237,7 @@ DBT_PATH=/path/to/your/dbt/executable
 
 Here are some of the ways to pass environment variables. We recommend using an `.env` file with `--env-file` for most setups:
 
-### .env file with \`--env-file\`
+##### .env file with \`--env-file\`
 
 **1. `.env` file with `--env-file` (recommended)** (make sure to use an absolute path in `args`):
 
@@ -260,7 +260,7 @@ Reference the file using an absolute path in your MCP client config:
 
 Replace `/absolute/path/to/your-dbt-project` with the full path to the folder containing your `dbt_project.yml`.
 
-### Inline in the MCP client config
+##### Inline in the MCP client config
 
 **2. Inline in the MCP client config**:
 
@@ -284,7 +284,7 @@ Pass variables directly in the `env` field, replacing the values with your actua
 }
 ```
 
-### Shell environment variables
+##### Shell environment variables
 
 **3. Shell environment variables**
 

@@ -54,4 +54,4 @@ You can measure source freshness using warehouse metadata tables on supported ad
 
 ## Next steps
 
-For step-by-step setup instructions with demo project data, see our [Quickstart guides](../../../guides.md).
+For step-by-step setup instructions with demo project data, see our [Quickstart guides](https://docs.getdbt.com/guides).

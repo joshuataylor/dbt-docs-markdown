@@ -1,6 +1,6 @@
 # meta
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -33,7 +33,7 @@ The `meta` config can be defined:
 
 See [configs and properties](../configs-and-properties.md) for details.
 
-### Sources
+## Sources
 
 dbt\_project.yml
 
@@ -63,7 +63,7 @@ sources:
               meta: {<dictionary>} # changed to config in v1.10 and backported to 1.9
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -93,7 +93,7 @@ The `meta` config can be defined:
 * Under the `seeds` config in the property file (shown in in previous 'seeds/schema.yml' example)
 * Under the `seeds` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -126,7 +126,7 @@ The `meta` config can be defined:
 
 See [configs and properties](../configs-and-properties.md) for details.
 
-### Tests
+## Tests
 
 Use the `meta` field to add metadata to [generic](../../docs/build/data-tests.md#generic-data-tests) or [singular tests](../../docs/build/data-tests.md#singular-data-tests). `meta` accepts key-value pairs, is compiled into `manifest.json`, and appears in auto-generated documentation.
 
@@ -184,9 +184,9 @@ data_tests:
         owner: "analytics_team"
 ```
 
-### Unit tests
+## Unit tests
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
@@ -207,11 +207,11 @@ unit_tests:
       meta: {<dictionary>}
 ```
 
-### Analyses
+## Analyses
 
 The `meta` config is not currently supported for analyses.
 
-### Macros
+## Macros
 
 dbt\_project.yml
 
@@ -232,7 +232,7 @@ macros:
       - name: argument_name
 ```
 
-### Exposures
+## Exposures
 
 dbt\_project.yml
 
@@ -252,7 +252,7 @@ exposures:
       meta: {<dictionary>} # changed to config in v1.10
 ```
 
-### Semantic models
+## Semantic models
 
 (Applies to dbt v1.11 and earlier)
 
@@ -308,7 +308,7 @@ The `meta` config can be defined:
 * Under the `semantic-models` config in the properties file (as showin in previous `models/semantic_models.yml` example)
 * Under the `semantic-models` config in the project file (`dbt_project.yml`). See [configs and properties](../configs-and-properties.md) for details.
 
-### Metrics
+## Metrics
 
 dbt\_project.yml
 
@@ -335,7 +335,7 @@ metrics:
         my_meta_config: 'config_value'
 ```
 
-### Saved queries
+## Saved queries
 
 dbt\_project.yml
 
@@ -454,7 +454,7 @@ models:
 
 The following example shows how to assign a `meta` value to a [semantic model](../../docs/build/semantic-models.md) in the `semantic_model.yml` file and `dbt_project.yml` file:
 
-### Semantic model
+#### Semantic model
 
 ```yaml
 semantic_models:
@@ -469,7 +469,7 @@ semantic_models:
         used_in_reporting: true
 ```
 
-### dbt\_project.yml
+#### dbt\_project.yml
 
 ```yaml
 semantic-models:
@@ -482,7 +482,7 @@ semantic-models:
 
 (Applies to dbt v1.11 and earlier)
 
-### Semantic model
+#### Semantic model
 
 The following example shows how to assign a `meta` value to a [dimension](../../docs/build/dimensions.md), [entity](../../docs/build/entities.md), and [measure](../../docs/build/measures.md) in a semantic model:
 
@@ -515,7 +515,7 @@ semantic_models:
             used_in_reporting: true
 ```
 
-### dbt\_project.yml
+#### dbt\_project.yml
 
 This second example shows how to assign a `data_owner` and additional metadata value to a dimension in the `dbt_project.yml` file using the `+meta` syntax. The similar syntax can be used for entities and measures.
 
@@ -537,7 +537,7 @@ semantic-models:
 
 The following examples show how to add `meta` to [generic data tests](../../docs/build/data-tests.md#generic-data-tests) in a `properties.yml` file, and to [singular data tests](../../docs/build/data-tests.md#singular-data-tests) using `config()`. You can also set defaults in `dbt_project.yml` or `tests/properties.yml`.
 
-### Generic data test
+#### Generic data test
 
 models/properties.yml
 
@@ -553,7 +553,7 @@ models:
                   owner: "@data_team"
 ```
 
-### Singular data test
+#### Singular data test
 
 tests/assert\_order\_ids.sql
 

@@ -38,13 +38,13 @@ You can connect your dbt account to GitHub by installing the dbt application in 
 
 3. Scroll down to **Linked accounts**.
 
-[![Navigated to Linked Accounts under your profile](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-connect-1.png?v=2 "Navigated to Linked Accounts under your profile")](#)Navigated to Linked Accounts under your profile
+![Navigated to Linked Accounts under your profile](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-connect-1.png?v=2 "Navigated to Linked Accounts under your profile")Navigated to Linked Accounts under your profile
 
 4. In the **Linked accounts** section, set up your GitHub account connection to dbt by clicking **Link** to the right of GitHub. This redirects you to your account on GitHub where you will be asked to install and configure the dbt application.
 
 5. Select the GitHub organization and repositories dbt should access.
 
-   [![Installing the dbt application into a GitHub organization](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-app-install.png?v=2 "Installing the dbt application into a GitHub organization")](#)Installing the dbt application into a GitHub organization
+   ![Installing the dbt application into a GitHub organization](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-app-install.png?v=2 "Installing the dbt application into a GitHub organization")Installing the dbt application into a GitHub organization
 
 6. Assign the dbt GitHub App the following permissions:
 
@@ -64,7 +64,7 @@ You can connect your dbt account to GitHub by installing the dbt application in 
 
 If you are your GitHub organization owner, you can also configure the dbt GitHub application to have access to only select repositories. This configuration must be done in GitHub, but we provide an easy link in dbt to start this process.
 
-[![Configuring the dbt app](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/configure-github.png?v=2 "Configuring the dbt app")](#)Configuring the dbt app
+![Configuring the dbt app](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/configure-github.png?v=2 "Configuring the dbt app")Configuring the dbt app
 
 ## Authenticate your personal GitHub account
 
@@ -86,7 +86,7 @@ To connect a personal GitHub account:
 
 4. Select **Link** to begin the setup process. You’ll be redirected to GitHub, and asked to authorize dbt in a grant screen.
 
-[![Authorizing the dbt app for developers](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-auth.png?v=2 "Authorizing the dbt app for developers")](#)Authorizing the dbt app for developers
+![Authorizing the dbt app for developers](/img/docs/dbt-platform/platform-configuring-dbt-platform/connecting-github/github-auth.png?v=2 "Authorizing the dbt app for developers")Authorizing the dbt app for developers
 
 5. Once you approve authorization, you will be redirected to dbt, and you should now see your connected account.
 
@@ -126,7 +126,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 4. Save the changes but *don't commit*.
 5. Restart the IDE by clicking on the three dots next to the **IDE Status button** on the lower right corner of the IDE screen and select **Restart IDE**.
 
-[![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")](#)Restart the IDE by clicking the three dots on the lower right or click on the Status bar
+![Restart the IDE by clicking the three dots on the lower right or click on the Status bar](/img/docs/dbt-platform/platform-ide/restart-ide.png?v=2 "Restart the IDE by clicking the three dots on the lower right or click on the Status bar")Restart the IDE by clicking the three dots on the lower right or click on the Status bar
 
 6. Once the Studio IDE restarts, go to the **File Catalog** to delete the following files or folders (if they exist). No data will be lost:
 
@@ -148,7 +148,7 @@ For more info on `gitignore` syntax, refer to the [Git docs](https://git-scm.com
 
 13. Verify the changes by making sure the files/folders in the `.gitignore` file are in italics.
 
-[![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")](#)A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
+![A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).](/img/docs/dbt-platform/platform-ide/gitignore-italics.png?v=2 "A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).")A dbt project on the main branch that has properly configured gitignore folders (highlighted in italics).
 
  Fix in the Git provider
 
@@ -230,7 +230,7 @@ To migrate from one git provider to another, refer to the following steps to avo
 
 4. Click on the **Repository** link, then click **Edit** and **Disconnect**.
 
-   [![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")](#)Disconnect and reconnect your Git repository in your dbt Account settings page.
+   ![Disconnect and reconnect your Git repository in your dbt Account settings page.](/img/docs/dbt-platform/disconnect-repo.png?v=2 "Disconnect and reconnect your Git repository in your dbt Account settings page.")Disconnect and reconnect your Git repository in your dbt Account settings page.
 
 5. Click **Confirm Disconnect**.
 

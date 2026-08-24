@@ -330,7 +330,7 @@ dbt handles state comparison for seed files differently depending on their size:
 
 dbt overwrites the `manifest.json` file during parsing, which means when you reference `--state` from the `target/ directory`, you may encounter a warning indicating that the saved manifest wasn't found.
 
-[![Saved manifest not found error](/img/docs/reference/saved-manifest-not-found.png?v=2 "Saved manifest not found error")](#)Saved manifest not found error
+![Saved manifest not found error](/img/docs/reference/saved-manifest-not-found.png?v=2 "Saved manifest not found error")Saved manifest not found error
 
 During the next job run, dbt follows a sequence of steps that lead to the issue. First, it overwrites `target/manifest.json` before it can be used for change detection. Then, when dbt tries to read `target/manifest.json` again to detect changes, it finds none because the previous state has already been overwritten/erased.
 

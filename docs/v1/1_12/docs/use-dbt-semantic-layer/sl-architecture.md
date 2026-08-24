@@ -4,9 +4,9 @@ dbt platform
 
 The Semantic Layer allows you to define metrics and use various interfaces to query them. The Semantic Layer does the heavy lifting to find where the queried data exists in your data platform and generates the SQL to make the request (including performing joins).
 
-[![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")](#)This diagram shows how the dbt Semantic Layer works with your data stack.
+![This diagram shows how the dbt Semantic Layer works with your data stack.](/img/docs/dbt-platform/semantic-layer/sl-concept.png?v=2 "This diagram shows how the dbt Semantic Layer works with your data stack.")This diagram shows how the dbt Semantic Layer works with your data stack.
 
-[![The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.")](#)The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.
+![The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.](/img/docs/dbt-platform/semantic-layer/sl-architecture.jpg?v=2 "The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.")The diagram displays how your data flows using the dbt Semantic Layer and the variety of integration tools it supports.
 
 ## Components
 

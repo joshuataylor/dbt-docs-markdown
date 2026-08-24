@@ -34,9 +34,9 @@ The Studio IDE will display:
 * The file name colored in red in the **Changes** section, with a warning icon.
 * If you press commit without resolving the conflict, the Studio IDE will prompt a pop up box with a list which files need to be resolved.
 
-[![Conflicting section that needs resolution will be highlighted](/img/docs/dbt-platform/platform-ide/merge-conflict.png?v=2 "Conflicting section that needs resolution will be highlighted")](#)Conflicting section that needs resolution will be highlighted
+![Conflicting section that needs resolution will be highlighted](/img/docs/dbt-platform/platform-ide/merge-conflict.png?v=2 "Conflicting section that needs resolution will be highlighted")Conflicting section that needs resolution will be highlighted
 
-[![Pop up box when you commit without resolving the conflict](/img/docs/dbt-platform/platform-ide/commit-without-resolve.png?v=2 "Pop up box when you commit without resolving the conflict")](#)Pop up box when you commit without resolving the conflict
+![Pop up box when you commit without resolving the conflict](/img/docs/dbt-platform/platform-ide/commit-without-resolve.png?v=2 "Pop up box when you commit without resolving the conflict")Pop up box when you commit without resolving the conflict
 
 ## Resolve merge conflicts
 
@@ -49,7 +49,7 @@ You can seamlessly resolve merge conflicts that involve competing line changes i
 4. Press **Save**. You will notice the line highlights disappear and return to a plain background. This means that you've resolved the conflict successfully.
 5. Repeat this process for every file that has a merge conflict.
 
-[![Choosing lines of code to preserve](/img/docs/dbt-platform/platform-ide/resolve-conflict.png?v=2 "Choosing lines of code to preserve")](#)Choosing lines of code to preserve
+![Choosing lines of code to preserve](/img/docs/dbt-platform/platform-ide/resolve-conflict.png?v=2 "Choosing lines of code to preserve")Choosing lines of code to preserve
 
 Edit conflict files
 
@@ -64,6 +64,6 @@ When you've resolved all the merge conflicts, the last step would be to commit t
 2. The **Commit Changes** pop up box will confirm that all conflicts have been resolved. Write your commit message and click **Commit Changes**.
 3. The Studio IDE will return to its normal state and you can continue developing!
 
-[![Conflict has been resolved](/img/docs/dbt-platform/platform-ide/commit-resolve.png?v=2 "Conflict has been resolved")](#)Conflict has been resolved
+![Conflict has been resolved](/img/docs/dbt-platform/platform-ide/commit-resolve.png?v=2 "Conflict has been resolved")Conflict has been resolved
 
-[![Commit Changes pop up box to commit your changes](/img/docs/dbt-platform/platform-ide/commit-changes.png?v=2 "Commit Changes pop up box to commit your changes")](#)Commit Changes pop up box to commit your changes
+![Commit Changes pop up box to commit your changes](/img/docs/dbt-platform/platform-ide/commit-changes.png?v=2 "Commit Changes pop up box to commit your changes")Commit Changes pop up box to commit your changes

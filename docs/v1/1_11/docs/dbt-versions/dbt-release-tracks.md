@@ -74,9 +74,9 @@ The **Fallback** release track provides an emergency rollback option for account
 
 Switching to **Fallback** alerts the dbt Support team, who may reach out to help resolve the issue. This track is meant only as a temporary safety option to unblock you and not for ongoing use. Return to "Extended" or "Stable" (Fusion) / "Compatible" (dbt Core) once the issue is resolved.
 
-[![Fallback release track button in dbt platform](/img/docs/dbt-versions/rollback.png?v=2 "Fallback release track button in dbt platform")](#)Fallback release track button in dbt platform
+![Fallback release track button in dbt platform](/img/docs/dbt-versions/rollback.png?v=2 "Fallback release track button in dbt platform")Fallback release track button in dbt platform
 
-[![Fallback release track popup in dbt platform](/img/docs/dbt-versions/rollback-popup.png?v=2 "Fallback release track popup in dbt platform")](#)Fallback release track popup in dbt platform
+![Fallback release track popup in dbt platform](/img/docs/dbt-versions/rollback-popup.png?v=2 "Fallback release track popup in dbt platform")Fallback release track popup in dbt platform
 
 ### Common architectures
 

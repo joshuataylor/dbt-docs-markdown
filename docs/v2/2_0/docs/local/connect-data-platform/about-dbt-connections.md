@@ -29,4 +29,4 @@ For detailed configuration options, refer to [Connection profiles](../profiles.y
 
 ## Next steps
 
-For step-by-step setup instructions with demo project data, see our [Quickstart guides](../../../guides.md).
+For step-by-step setup instructions with demo project data, see our [Quickstart guides](https://docs.getdbt.com/guides).

@@ -27,7 +27,7 @@ Before you enable SCIM license mapping:
 
 To manage user licenses with SCIM, go to **Account settings** > **SSO & SCIM**. Under the **SCIM** section, enable the **Ignore dbt license mapping** toggle. This setting enforces license type for a user based on their SCIM attribute and disables the license mapping and manual configuration set up in dbt.
 
-[![Enable SCIM managed user license distribution.](/img/docs/dbt-platform/access-control/scim-managed-licenses.png?v=2 "Enable SCIM managed user license distribution.")](#)Enable SCIM managed user license distribution.
+![Enable SCIM managed user license distribution.](/img/docs/dbt-platform/access-control/scim-managed-licenses.png?v=2 "Enable SCIM managed user license distribution.")Enable SCIM managed user license distribution.
 
 We recommend that you complete the setup instructions for your identity provider (IdP) prior to enabling this toggle in your dbt account. Once enabled, any existing license mappings in dbt will be ignored.
 
@@ -124,11 +124,11 @@ To add the attribute for license types to your Okta environment:
 
    * **Attribute type:** Group
 
-   [![Enter the fields as they appear in the image. Ensure the cases match.](/img/docs/dbt-platform/access-control/scim-license-attributes.png?v=2 "Enter the fields as they appear in the image. Ensure the cases match.")](#)Enter the fields as they appear in the image. Ensure the cases match.
+   ![Enter the fields as they appear in the image. Ensure the cases match.](/img/docs/dbt-platform/access-control/scim-license-attributes.png?v=2 "Enter the fields as they appear in the image. Ensure the cases match.")Enter the fields as they appear in the image. Ensure the cases match.
 
 4. **Save** the attribute mapping. Users can now have license types set in their profiles and when they are being provisioned.
 
-   [![Set the license type for the user in their Okta profile.](/img/docs/dbt-platform/access-control/scim-license-provisioning.png?v=2 "Set the license type for the user in their Okta profile.")](#)Set the license type for the user in their Okta profile.
+   ![Set the license type for the user in their Okta profile.](/img/docs/dbt-platform/access-control/scim-license-provisioning.png?v=2 "Set the license type for the user in their Okta profile.")Set the license type for the user in their Okta profile.
 
 ## Automate license assignments with Okta groups
 

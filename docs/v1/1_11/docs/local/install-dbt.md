@@ -92,14 +92,14 @@ Note that this shouldn't be confused with [dbt Python models](../build/python-mo
 
 ### Create a virtual environment
 
-### Unix/macOS
+#### Unix/macOS
 
 ```shell
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-### Windows
+#### Windows
 
 ```shell
 py -m venv .venv

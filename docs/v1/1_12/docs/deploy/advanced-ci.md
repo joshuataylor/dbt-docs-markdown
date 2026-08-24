@@ -27,7 +27,7 @@ dbt reports the comparison differences in:
 * **dbt** — Shows the changes (if any) to the data's primary keys, rows, and columns in the [Compare tab](./run-visibility.md#compare-tab) from the [Job run details](./run-visibility.md#job-run-details) page.
 * **The pull request from your Git provider** — Shows a summary of the changes as a Git comment.
 
-[![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")](#)Example of the Compare tab
+![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")Example of the Compare tab
 
 #### Compare changes in development
 
@@ -55,7 +55,7 @@ This is useful in scenarios like:
 * **Subset of data in CI** — When CI builds only a [subset of data](../../best-practices/best-practice-workflows.md#limit-the-data-processed-when-in-development) (like the most recent 7 days), compare changes would interpret the excluded data as "deleted rows." Configuring `event_time` allows you to avoid this issue by limiting comparisons to the overlapping timeframe, preventing false alerts about data deletions that are just filtered out in CI.
 * **Fresher data in CI than in production** — When your CI job includes fresher data than production (because it has run more recently), compare changes would flag the additional rows as "new" data, even though they’re just fresher data in CI. With `event_time` configured, the comparison only includes the shared timeframe and correctly reflects actual changes in the data.
 
-[![event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.](/img/docs/deploy/apples_to_apples.png?v=2 "event_time ensures the same time-slice of data is accurately compared between your CI and production environments.")](#)event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.
+![event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.](/img/docs/deploy/apples_to_apples.png?v=2 "event_time ensures the same time-slice of data is accurately compared between your CI and production environments.")event\_time ensures the same time-slice of data is accurately compared between your CI and production environments.
 
 ## About the cached data
 
@@ -70,7 +70,7 @@ You control what data to use. This may include synthetic data if pre-production 
 
 If you access a CI job run that's more than 30 days old, you will not be able to see the comparison results. Instead, a message will appear indicating that the data has expired.
 
-[![Example of message about expired data in the Compare tab](/img/docs/deploy/compare-expired.png?v=2 "Example of message about expired data in the Compare tab")](#)Example of message about expired data in the Compare tab
+![Example of message about expired data in the Compare tab](/img/docs/deploy/compare-expired.png?v=2 "Example of message about expired data in the Compare tab")Example of message about expired data in the Compare tab
 
 ## Connection permissions
 
@@ -78,7 +78,7 @@ The compare changes feature uses the same credentials as the CI job, as defined 
 
 If using dynamic data masking in the data warehouse, the cached data will no longer be dynamically masked in the Advanced CI output, depending on the permissions of the users who view it. dbt Labs recommends limiting user access to unmasked data or considering using synthetic data for the Advanced CI testing functionality.
 
-[![Example of credentials in the user settings](/img/docs/deploy/compare-credentials.png?v=2 "Example of credentials in the user settings")](#)Example of credentials in the user settings
+![Example of credentials in the user settings](/img/docs/deploy/compare-credentials.png?v=2 "Example of credentials in the user settings")Example of credentials in the user settings
 
 ## Troubleshooting
 

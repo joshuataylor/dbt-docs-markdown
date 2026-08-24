@@ -1,6 +1,6 @@
 # execute\_hooks\_on\_any\_reuse
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -11,7 +11,7 @@ models:
       execute_hooks_on_any_reuse: true | false
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,7 +23,7 @@ models:
         execute_hooks_on_any_reuse: true | false
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 

@@ -24,7 +24,7 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 
 State-aware orchestration saves you compute costs and reduces runtime because when a job runs, it checks for new records and only builds the models that will change.
 
-[![Fusion powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "Fusion powered state-aware orchestration")](#)Fusion powered state-aware orchestration
+![Fusion powered state-aware orchestration](/img/docs/deploy/sao.gif?v=2 "Fusion powered state-aware orchestration")Fusion powered state-aware orchestration
 
 We built dbt's state-aware orchestration on these four core principles:
 

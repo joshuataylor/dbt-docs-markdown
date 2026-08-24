@@ -232,7 +232,7 @@ Each of these strategies has its pros and cons, which we'll discuss below. As wi
 
 Following the `append` strategy, dbt will perform an `insert into` statement with all new data. The appeal of this strategy is that it is straightforward and functional across all platforms, file types, connection methods, and Apache Spark versions. However, this strategy *cannot* update, overwrite, or delete existing data, so it is likely to insert duplicate records for many data sources.
 
-### Source code
+#### Source code
 
 databricks\_incremental.sql
 
@@ -250,7 +250,7 @@ select * from {{ ref('events') }}
 {% endif %}
 ```
 
-### Run code
+#### Run code
 
 databricks\_incremental.sql
 
@@ -281,7 +281,7 @@ When you set [`use_replace_on_for_insert_overwrite`](../global-configs/databrick
 
 If you don't specify `partition_by` or `liquid_clustered_by`, then the `insert_overwrite` strategy will atomically replace all contents of the table, overriding all existing data with only the new records. The column schema of the table remains the same, however. This can be desirable in some limited circumstances, since it minimizes downtime while the table contents are overwritten. The operation is comparable to running `truncate` and `insert` on other databases. For atomic replacement of Delta-formatted tables, use the `table` materialization (which runs `create or replace`) instead.
 
-### Source code
+#### Source code
 
 databricks\_incremental.sql
 
@@ -315,7 +315,7 @@ from new_events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 databricks\_incremental.sql
 
@@ -358,7 +358,7 @@ The Databricks adapter will run an [atomic `merge` statement](https://docs.datab
 
 Specifying `merge` as the incremental strategy is optional since it's the default strategy used when none is specified.
 
-### Source code
+#### Source code
 
 merge\_incremental.sql
 
@@ -388,7 +388,7 @@ from events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 target/run/merge\_incremental.sql
 
@@ -436,7 +436,7 @@ For more details on the meaning of each merge clause, please see [the Databricks
 
 The following is an example demonstrating the use of these new options:
 
-### Source code
+##### Source code
 
 merge\_incremental\_options.sql
 
@@ -463,7 +463,7 @@ from
     {{ ref('source_table') }} as s
 ```
 
-### Run code
+##### Run code
 
 target/run/merge\_incremental\_options.sql
 
@@ -533,7 +533,7 @@ caution
 
 `replace_where` inserts data into columns in the order provided, rather than by column name. If you reorder columns and the data is compatible with the existing schema, you may silently insert values into an unexpected column. If the incoming data is incompatible with the existing schema, you will instead receive an error.
 
-### Source code
+#### Source code
 
 replace\_where\_incremental.sql
 
@@ -563,7 +563,7 @@ from events
 group by 1
 ```
 
-### Run code
+#### Run code
 
 target/run/replace\_where\_incremental.sql
 
@@ -619,7 +619,7 @@ When using Databricks Runtime 17.1 or higher, dbt uses the efficient [`INSERT IN
 
 You can optionally use `incremental_predicates` to further filter which records are processed, providing more control over which rows are deleted and inserted.
 
-### Source code
+#### Source code
 
 delete\_insert\_incremental.sql
 
@@ -649,7 +649,7 @@ from new_events
 group by 1
 ```
 
-### Run code (DBR 17.1+)
+#### Run code (DBR 17.1+)
 
 target/run/delete\_insert\_incremental.sql
 
@@ -679,7 +679,7 @@ replace on (target.user_id <=> temp.user_id)
    from delete_insert_incremental__dbt_tmp where date_day >= date_add(current_date, -1)) as temp
 ```
 
-### Run code (DBR < 17.1)
+#### Run code (DBR < 17.1)
 
 target/run/delete\_insert\_incremental.sql
 
@@ -723,7 +723,7 @@ The Databricks adapter implements the `microbatch` strategy using `replace_where
 
 In the following example, the upstream table `events` have been annotated with an `event_time` column called `ts` in its schema file.
 
-### Source code
+#### Source code
 
 microbatch\_incremental.sql
 
@@ -750,7 +750,7 @@ from events
 group by 1, 2
 ```
 
-### Run code
+#### Run code
 
 target/run/replace\_where\_incremental.sql
 

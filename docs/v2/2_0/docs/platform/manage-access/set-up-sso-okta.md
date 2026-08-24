@@ -24,7 +24,7 @@ Note: You'll need administrator access to your Okta organization to follow this 
 
 First, log into your Okta account. Using the Admin dashboard, create a new app.
 
-[![Create a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app.png?v=2 "Create a new app")](#)Create a new app
+![Create a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app.png?v=2 "Create a new app")Create a new app
 
 On the following screen, select the following configurations:
 
@@ -33,7 +33,7 @@ On the following screen, select the following configurations:
 
 Click **Create** to continue the setup process.
 
-[![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")](#)Configure a new app
+![Configure a new app](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-1-new-app-create.png?v=2 "Configure a new app")Configure a new app
 
 ### Configure the Okta application
 
@@ -44,7 +44,7 @@ On the **General Settings** page, enter the following details::
 
 Click **Next** to continue.
 
-[![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")](#)Configure the app's General Settings
+![Configure the app's General Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-2-general-settings.png?v=2 "Configure the app's General Settings")Configure the app's General Settings
 
 ### Configure SAML Settings
 
@@ -63,7 +63,7 @@ The following steps use `YOUR_AUTH0_URI` and `YOUR_AUTH0_ENTITYID`. Replace thes
 * **Application username**: `Custom` / `user.getInternalProperty("id")`
 * **Update Application username on**: `Create and update`
 
-[![Configure the app's SAML Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-top.png?v=2 "Configure the app's SAML Settings")](#)Configure the app's SAML Settings
+![Configure the app's SAML Settings](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-top.png?v=2 "Configure the app's SAML Settings")Configure the app's SAML Settings
 
 Application username configuration
 
@@ -90,7 +90,7 @@ Expected **Group Attribute Statements**:
 
 **Note:** You may use a more restrictive Group Attribute Statement than the example shown above. For example, if all of your dbt groups start with `DBT_CLOUD_`, you may use a filter like `Starts With: DBT_CLOUD_`. **Okta only returns 100 groups for each user, so if your users belong to more than 100 IdP groups, you will need to use a more restrictive filter**. Please contact support if you have any questions.
 
-[![Configure the app's User and Group Attribute Statements](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-bottom.png?v=2 "Configure the app's User and Group Attribute Statements")](#)Configure the app's User and Group Attribute Statements
+![Configure the app's User and Group Attribute Statements](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-3-saml-settings-bottom.png?v=2 "Configure the app's User and Group Attribute Statements")Configure the app's User and Group Attribute Statements
 
 Click **Next** to continue.
 
@@ -98,15 +98,15 @@ Click **Next** to continue.
 
 Select *I'm an Okta customer adding an internal app*, and select *This is an internal app that we have created*. Click **Finish** to finish setting up the app.
 
-[![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")](#)Finishing setup in Okta
+![Finishing setup in Okta](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-4-feedback.png?v=2 "Finishing setup in Okta")Finishing setup in Okta
 
 ### View setup instructions
 
 On the next page, click **View Setup Instructions**. In the steps below, you'll supply these values in your dbt Account Settings to complete the integration between Okta and dbt.
 
-[![Viewing the configured application](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-view-instructions.png?v=2 "Viewing the configured application")](#)Viewing the configured application
+![Viewing the configured application](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-view-instructions.png?v=2 "Viewing the configured application")Viewing the configured application
 
-[![Application setup instructions](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-instructions.png?v=2 "Application setup instructions")](#)Application setup instructions
+![Application setup instructions](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-5-instructions.png?v=2 "Application setup instructions")Application setup instructions
 
 ## Configuration in dbt
 
@@ -125,7 +125,7 @@ To complete setup, follow the steps below in dbt.
 | **Identity Provider Issuer**  | Paste the **Identity Provider Issuer** shown in the Okta setup instructions                                                                                                                                                  |
 | **X.509 Certificate**         | Paste the **X.509 Certificate** shown in the Okta setup instructions;<br />**Note:** When the certificate expires, an Okta admin will have to generate a new one to be pasted into dbt for uninterrupted application access. |
 
-[![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")](#)Configuring the application in dbt
+![Configuring the application in dbt](/img/docs/dbt-platform/dbt-platform-enterprise/okta/okta-6-setup-integration.png?v=2 "Configuring the application in dbt")Configuring the application in dbt
 
 4. Click **Save** to complete setup for the Okta integration. From here, you can navigate to the URL generated for your account's *slug* to test logging in with Okta. Additionally, users added the Okta app will be able to log in to dbt from Okta directly.
 
@@ -152,3 +152,5 @@ Now that you've set up SSO with Okta, you can [set up SCIM](./scim-okta.md) to a
 For common questions and troubleshooting guidance — including issues with email verification, MFA prompts, and SSO group mapping behavior — refer to [SSO FAQs and troubleshooting](./sso-faq.md).
 
 ## Learn more
+
+[Wistia video](https://fast.wistia.net/embed/iframe/xtmk0rrk5k?seo=false\&videoFoam=true)

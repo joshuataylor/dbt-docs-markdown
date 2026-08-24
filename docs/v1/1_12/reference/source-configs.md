@@ -10,7 +10,7 @@ Sources configurations support [`enabled`](./resource-configs/enabled.md), [`eve
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-### Project YAML file
+#### Project YAML file
 
 dbt\_project.yml
 
@@ -29,7 +29,7 @@ sources:
       key: value
 ```
 
-### Properties YAML file
+#### Properties YAML file
 
 models/properties.yml
 

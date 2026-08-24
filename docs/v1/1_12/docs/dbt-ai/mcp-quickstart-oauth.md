@@ -49,7 +49,7 @@ Multi-cell and DBT\_HOST format
 
 #### Add the config to your MCP client
 
-### Claude Desktop
+##### Claude Desktop
 
 **Option A: Quick install (recommended)**
 
@@ -84,7 +84,7 @@ Config file location:
 * macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-### Claude Code
+##### Claude Code
 
 Run this command, replacing `YOUR-ACCESS-URL` with your Access URL:
 
@@ -102,7 +102,7 @@ claude mcp add dbt \
 -- uvx dbt-mcp
 ```
 
-### Cursor
+##### Cursor
 
 Click a link below with Cursor open to auto-configure, then replace the placeholder with your Access URL:
 
@@ -111,7 +111,7 @@ Click a link below with Cursor open to auto-configure, then replace the placehol
 
 After clicking, replace `YOUR-ACCESS-URL` with your actual Access URL (for example, `abc123.us1.dbt.com`) and save.
 
-### VS Code
+##### VS Code
 
 1. Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
 2. Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.
@@ -198,7 +198,7 @@ Don't include the account prefix in `DBT_HOST`. For more details, see [multi-cel
 
 Use the configuration below, replacing the placeholder values with your IDs from above. Include only the variables you need:
 
-### Claude Desktop
+#### Claude Desktop
 
 1. In Claude Desktop, go to **Settings** → **Developer** tab → **Edit Config**.
 2. Paste the following configuration, replacing the placeholder values:
@@ -229,7 +229,7 @@ Config file location:
 * macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 * Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-### Claude Code
+#### Claude Code
 
 Run this command, replacing the placeholders with your actual values:
 
@@ -243,7 +243,7 @@ claude mcp add dbt \
 
 Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; add `-e DBT_ACCOUNT_ID=...` for Admin API.
 
-### Cursor
+#### Cursor
 
 1. In Cursor, open **Settings** → **MCP** → **Edit config** (or your config file).
 2. Paste the following configuration, replacing the placeholder values:
@@ -269,7 +269,7 @@ Add `-e DBT_DEV_ENV_ID=...` and `-e DBT_USER_ID=...` if you use `execute_sql`; a
 
 3. Save the configuration.
 
-### VS Code
+#### VS Code
 
 1. Open **Settings** → **Features** → **Chat** and ensure **MCP** is enabled.
 2. Open the Command Palette (`Ctrl/Cmd + Shift + P`) and select **MCP: Open User Configuration**.

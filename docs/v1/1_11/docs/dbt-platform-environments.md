@@ -14,7 +14,7 @@ Each dbt project can have only one [development environment](#create-a-developme
 
 Use environments to customize settings for different stages of your project and streamline the execution process by using software engineering principles.
 
-[![dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.](/img/dbt-env.png?v=2 "dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.")](#)dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.
+![dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.](/img/dbt-env.png?v=2 "dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.")dbt environment hierarchy showing projects, environments, connections, and orchestration jobs.
 
 The following sections detail the different types of environments and how to intuitively configure your development environment in dbt.
 
@@ -77,7 +77,7 @@ Extended attributes allows users to set a flexible [profiles.yml](./local/profil
 
 Extended attributes are set at the environment level, and can partially override connection or environment credentials, including any custom environment variables. You can set any YAML attributes that a dbt adapter accepts in its `profiles.yml`.
 
-[![Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.")](#)Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.
+![Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.](/img/docs/dbt-platform/using-dbt-platform/extended-attributes.png?v=2 "Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.")Extended Attributes helps users add profiles.yml attributes to dbt Environment settings using a free form text box.
 
 The following code is an example of the types of attributes you can add in the **Extended Attributes** text box:
 
@@ -127,7 +127,7 @@ To create a new dbt development environment:
 4. Fill in the fields under **General Settings** and **User credentials**.
 5. Click **Save** to create the environment.
 
-[![Creating a development environment](/img/docs/dbt-platform/refresh-ide/new-development-environment-fields.png?v=2 "Creating a development environment")](#)Creating a development environment
+![Creating a development environment](/img/docs/dbt-platform/refresh-ide/new-development-environment-fields.png?v=2 "Creating a development environment")Creating a development environment
 
 ### Set user credentials
 
@@ -164,7 +164,7 @@ Follow these steps to delete an environment in dbt:
 3. Click **Settings** on the top right of the page and then click **Edit**.
 4. Scroll to the bottom of the page and click **Delete** to delete the environment.
 
-[![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")](#)Delete an environment
+![Delete an environment](/img/docs/dbt-platform/platform-configuring-dbt-platform/delete-environment.png?v=2 "Delete an environment")Delete an environment
 
 5. Confirm your action in the pop-up by clicking **Confirm delete** in the bottom right to delete the environment immediately. This action cannot be undone. However, you can create a new environment with the same information if the deletion was made in error.
 6. Refresh your page and the deleted environment should now be gone. To delete multiple environments, you'll need to perform these steps to delete each one.
@@ -178,7 +178,7 @@ On the **Environments** page, there are two sections that provide an overview of
 * **In progress** — Lists the currently in progress jobs with information on when the run started
 * **Top jobs by models built** — Ranks jobs by the number of models built over a specific time
 
-[![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")](#)In progress jobs and Top jobs by models built
+![In progress jobs and Top jobs by models built](/img/docs/deploy/in-progress-top-jobs.png?v=2 "In progress jobs and Top jobs by models built")In progress jobs and Top jobs by models built
 
 ## Environment settings history
 
@@ -191,4 +191,4 @@ To view the change history:
 3. Click **Settings**.
 4. Click **History**.
 
-[![Example of the environment history option.](/img/docs/deploy/environment-history.png?v=2 "Example of the environment history option.")](#)Example of the environment history option.
+![Example of the environment history option.](/img/docs/deploy/environment-history.png?v=2 "Example of the environment history option.")Example of the environment history option.

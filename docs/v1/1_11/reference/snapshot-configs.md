@@ -19,7 +19,7 @@ Resource-specific configurations are applicable to only one dbt resource type ra
 
 The following resource-specific configurations are only available to Snapshots:
 
-### Project file
+#### Project file
 
 (Applies to dbt v1.9 and later)
 
@@ -40,7 +40,7 @@ snapshots:
     +hard_deletes: string
 ```
 
-### Property file
+#### Property file
 
 (Applies to dbt v1.9 and later)
 
@@ -64,7 +64,7 @@ snapshots:
       dbt_valid_to_current: <string>
 ```
 
-### SQL file config
+#### SQL file config
 
 info
 
@@ -129,7 +129,7 @@ If you use one of the latest configs, such as `dbt_valid_to_current`, without mi
 
 General configurations provide broader operational settings applicable across multiple resource types. Like resource-specific configurations, these can also be set in the project file, property files, or within resource-specific files.
 
-### Project file
+#### Project file
 
 dbt\_project.yml
 
@@ -148,7 +148,7 @@ snapshots:
     +event_time: my_time_field
 ```
 
-### Property file
+#### Property file
 
 (Applies to dbt v1.9 and later)
 
@@ -170,7 +170,7 @@ snapshots:
       event_time: my_time_field
 ```
 
-### SQL file config
+#### SQL file config
 
 info
 

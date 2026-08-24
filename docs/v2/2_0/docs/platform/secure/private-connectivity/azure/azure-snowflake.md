@@ -113,13 +113,13 @@ Open the Snowflake UI and take the following steps:
 7. In the identifier box, type the Azure Link ID obtained in the previous section and press **Enter**.
 8. Click **Create Network Rule**.
 
-[![Create Network Rule](/img/docs/dbt-platform/snowflakeprivatelink2.png?v=2 "Create Network Rule")](#)Create Network Rule
+![Create Network Rule](/img/docs/dbt-platform/snowflakeprivatelink2.png?v=2 "Create Network Rule")Create Network Rule
 
 9. In the **Network Policy** tab, edit the policy to which you want to add the rule. This could be your account-level policy or one specific to the users connecting from dbt.
 
 10. Add the new rule to the allowed list and click **Update Network Policy**.
 
-[![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")](#)Update Network Policy
+![Update Network Policy](/img/docs/dbt-platform/snowflakeprivatelink3.png?v=2 "Update Network Policy")Update Network Policy
 
 ### Using SQL
 

@@ -1,6 +1,6 @@
 # require\_fresh\_data\_from
 
-### Project YAML file
+## Project YAML file
 
 dbt\_project.yml
 
@@ -11,7 +11,7 @@ models:
       require_fresh_data_from: any | all
 ```
 
-### Properties YAML file
+## Properties YAML file
 
 models/\<filename>.yml
 
@@ -23,7 +23,7 @@ models:
         require_fresh_data_from: any | all
 ```
 
-### SQL file config
+## SQL file config
 
 models/\<filename>.sql
 

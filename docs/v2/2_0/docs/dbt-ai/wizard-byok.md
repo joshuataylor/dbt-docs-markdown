@@ -150,43 +150,43 @@ Set the key as an environment variable if you want to:
 * Reuse the same key across different terminal sessions.
 * Avoid storing credentials in the dbt Wizard config directory.
 
-### OpenAI
+#### OpenAI
 
 ```bash
 export OPENAI_API_KEY="sk-..."
 ```
 
-### Anthropic
+#### Anthropic
 
 ```bash
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
-### Amazon Bedrock
+#### Amazon Bedrock
 
 ```bash
 export AWS_BEARER_TOKEN_BEDROCK="ABSK..."
 ```
 
-### Azure AI Foundry
+#### Azure AI Foundry
 
 ```bash
 export AZURE_API_KEY="..."
 ```
 
-### Google Gemini
+#### Google Gemini
 
 ```bash
 export GOOGLE_API_KEY="..."
 ```
 
-### Snowflake Cortex
+#### Snowflake Cortex
 
 ```bash
 export SNOWFLAKE_API_KEY="..."
 ```
 
-### Databricks
+#### Databricks
 
 ```bash
 export DATABRICKS_API_KEY="dapi..."

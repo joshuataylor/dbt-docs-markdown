@@ -64,9 +64,9 @@ To use the dbt Wizard, follow these steps:
 
 The following images show how dbt Wizard displays its work and outcome:
 
-[![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")](#)dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
+![dbt Wizard refactoring a model and displaying the lineage inside the chat interface.](/img/docs/dbt-platform/wizard-ide-refactor-lineage.png?v=2 "dbt Wizard refactoring a model and displaying the lineage inside the chat interface.")dbt Wizard refactoring a model and displaying the lineage inside the chat interface.
 
-[![Wizard final refactor result displayed as a diff](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard final refactor result displayed as a diff")](#)Wizard final refactor result displayed as a diff
+![Wizard final refactor result displayed as a diff](/img/docs/dbt-platform/wizard-ide-refactor-diff.png?v=2 "Wizard final refactor result displayed as a diff")Wizard final refactor result displayed as a diff
 
 For more details on the dbt Wizard and how it works, expand the following sections to open additional information.
 
@@ -81,7 +81,7 @@ The dbt Wizard panel contains:
 5. **Start new dbt Wizard chat** (top right): Starts a new chat session.
 6. **Stop** or **Enter** (bottom right): Press **Enter** to submit your prompt. Press **Stop** to stop the current session and agent processing. You cannot undo this action.
 
-[![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dbt-wizard-panel-controls-annotated.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")](#)The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
+![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dbt-wizard-panel-controls-annotated.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
 
 dbt Wizard also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
 
@@ -176,7 +176,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 8. After you merge the changes, wait for the job to run again or run it manually on Fusion.
 
-[![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")](#)The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
+![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
 For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](../fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-fusion-upgrade.md).
 

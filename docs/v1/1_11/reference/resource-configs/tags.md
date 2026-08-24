@@ -1,6 +1,6 @@
 # tags
 
-### Models
+## Models
 
 dbt\_project.yml
 
@@ -39,7 +39,7 @@ models/\<modelname>.sql
 select ...
 ```
 
-### Seeds
+## Seeds
 
 dbt\_project.yml
 
@@ -68,7 +68,7 @@ seeds:
                 tags: <string> | [<string>]
 ```
 
-### Snapshots
+## Snapshots
 
 dbt\_project.yml
 
@@ -105,7 +105,7 @@ select ...
 {% endsnapshot %}
 ```
 
-### Saved queries
+## Saved queries
 
 dbt\_project.yml
 
@@ -126,7 +126,7 @@ saved_queries:
       tags: <string> | [<string>]
 ```
 
-### Sources
+## Sources
 
 dbt\_project.yml
 
@@ -161,7 +161,7 @@ sources:
 
 Note that for backwards compatibility, `tags` is supported as a top-level key for sources, but without the capabilities of config inheritance.
 
-### Exposures
+## Exposures
 
 dbt\_project.yml
 
@@ -184,7 +184,7 @@ exposures:
 
 Note that for backwards compatibility, `tags` is supported as a top-level key for exposures, but without the capabilities of config inheritance.
 
-### Tests
+## Tests
 
 dbt\_project.yml
 

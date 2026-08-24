@@ -48,7 +48,7 @@ You can clone nodes between states in dbt using the `dbt clone` command. This is
 
   * Enable **Defer to production** by toggling the switch in the lower-right corner of the command bar.
 
-    [![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")](#)Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
+    ![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
 
   * Run the `dbt clone` command from the command bar.
 

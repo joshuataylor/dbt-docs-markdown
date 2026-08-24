@@ -1,6 +1,6 @@
 # freshness
 
-### Project file
+## Project file
 
 dbt\_project.yml
 
@@ -13,7 +13,7 @@ sources:
         period: minute | hour | day
 ```
 
-### Model YAML
+## Model YAML
 
 models/\<filename>.yml
 
@@ -287,7 +287,7 @@ sources:
 
 When running `dbt source freshness`, the following query will be run:
 
-### Compiled SQL
+#### Compiled SQL
 
 ```sql
 select
@@ -298,7 +298,7 @@ from raw.jaffle_shop.orders
 where datediff('day', _etl_loaded_at, current_timestamp) < 2
 ```
 
-### Jinja SQL
+#### Jinja SQL
 
 ```sql
 select

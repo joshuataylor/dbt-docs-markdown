@@ -1,6 +1,6 @@
 # About config property
 
-### Models
+## Models
 
 models/\<filename>.yml
 
@@ -13,7 +13,7 @@ models:
       ...
 ```
 
-### Seeds
+## Seeds
 
 seeds/\<filename>.yml
 
@@ -26,7 +26,7 @@ seeds:
       ...
 ```
 
-### Snapshots
+## Snapshots
 
 snapshots/\<filename>.yml
 
@@ -39,7 +39,7 @@ snapshots:
       ...
 ```
 
-### Tests
+## Tests
 
 \<resource\_path>/\<filename>.yml
 
@@ -67,9 +67,9 @@ snapshots:
                 ...
 ```
 
-### Unit tests
+## Unit tests
 
-💡Did you know\...
+Did you know\...
 
 Available from dbt v1.8 or with the [dbt "Latest" release track](../../docs/dbt-versions/dbt-release-tracks.md).
 
@@ -84,7 +84,7 @@ unit_tests:
       tags: <string>
 ```
 
-### Sources
+## Sources
 
 models/\<filename>.yml
 
@@ -100,7 +100,7 @@ sources:
           <source_config>: <config_value>
 ```
 
-### Metrics
+## Metrics
 
 models/\<filename>.yml
 
@@ -114,7 +114,7 @@ metrics:
       meta: {dictionary}
 ```
 
-### Exposures
+## Exposures
 
 models/\<filename>.yml
 
@@ -127,7 +127,7 @@ exposures:
       meta: {dictionary}
 ```
 
-### Semantic models
+## Semantic models
 
 (Applies to dbt v1.11 and earlier)
 
@@ -143,7 +143,7 @@ semantic_models:
       meta: {dictionary}
 ```
 
-### Saved queries
+## Saved queries
 
 models/\<filename>.yml
 
