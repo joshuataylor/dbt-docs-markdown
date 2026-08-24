@@ -46,7 +46,7 @@ To get started, in VS Code:
 
    ### dbt platform only
 
-   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
+   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt platform CLI commands.
 
    When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -68,7 +68,7 @@ To get started, in VS Code:
 
    ### dbt platform + CLI
 
-   This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
+   This option is for users who want both dbt platform CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
    The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 

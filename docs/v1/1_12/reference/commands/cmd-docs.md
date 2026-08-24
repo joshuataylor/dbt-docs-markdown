@@ -64,7 +64,7 @@ dbt docs generate --static
 
 `dbt docs serve` starts a webserver on port 8080 to serve your documentation locally and opens the documentation site in your default browser. The webserver is rooted in your `target/` directory. Run `dbt docs generate` before `dbt docs serve` because the `generate` command produces a [catalog metadata artifact](../artifacts/catalog-json.md) that the `serve` command depends on. You will see an error message if the catalog is missing.
 
-Use `dbt docs serve` if you're developing locally with the [dbt CLI](../../docs/platform/dbt-cli-installation.md) or [dbt Core](../../docs/local/install-dbt.md). The [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) doesn't support this command.
+Use `dbt docs serve` if you're developing locally with the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) or [dbt Core](../../docs/local/install-dbt.md). The [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) doesn't support this command.
 
 **Usage:**
 
@@ -92,7 +92,7 @@ You may specify a different host using the `--host` flag.
 
 Note
 
-The `--host` flag is only available in the [dbt Core](../../docs/local/install-dbt.md). It's not supported in the [dbt CLI](../../docs/platform/dbt-cli-installation.md).
+The `--host` flag is only available in the [dbt Core](../../docs/local/install-dbt.md). It's not supported in the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md).
 
 **Example**:
 

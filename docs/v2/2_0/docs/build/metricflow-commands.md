@@ -16,8 +16,8 @@ MetricFlow is a Python library that allows you to define and query metrics in yo
 
 This section applies to dbt platform users running the dbt Fusion engine, where commands and validations execute remotely in dbt platform.
 
-* Run MetricFlow commands using the `dbt sl` prefix in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt CLI](../platform/dbt-cli-installation.md) or using the [VS Code extension](../install-dbt-extension.md).
-* For CLI or VS Code/Cursor users, MetricFlow commands are embedded, which means you can immediately run them once you install the [dbt CLI](../platform/dbt-cli-installation.md) or [VS Code extension](../install-dbt-extension.md) and don't need to install MetricFlow separately.
+* Run MetricFlow commands using the `dbt sl` prefix in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt platform CLI](../platform/dbt-cli-installation.md) or using the [VS Code extension](../install-dbt-extension.md).
+* For CLI or VS Code/Cursor users, MetricFlow commands are embedded, which means you can immediately run them once you install the [dbt platform CLI](../platform/dbt-cli-installation.md) or [VS Code extension](../install-dbt-extension.md) and don't need to install MetricFlow separately.
 * Using MetricFlow with dbt platform doesn't require you to manage versioning — your dbt account will automatically manage the versioning.
 * dbt jobs support the `dbt sl validate` command to [automatically test your semantic nodes](../deploy/ci-jobs.md#semantic-validations-in-ci). You can also add MetricFlow validations with your Git provider (such as GitHub Actions) by installing MetricFlow (`python -m pip install metricflow`). This allows you to run MetricFlow commands as part of your continuous integration checks on PRs.
 
@@ -40,13 +40,13 @@ Something to note, MetricFlow `mf` commands return an error if you have a Metafo
 
 Use MetricFlow commands to retrieve metadata and query metrics. The following table lists the compatibility matrix for MetricFlow commands and where you can run them.
 
-| Development setup                                   | Engine                                            | Hosted on     | Prefix   | Notes                                                                                                                                                                                                          |
-| --------------------------------------------------- | ------------------------------------------------- | ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Studio IDE/dbt CLI or VS Code extension Fusion only | dbt Fusion engine or dbt Core engine              | dbt platform  | `dbt sl` | Remote execution; Platform manages versions.<br />VS Code extension users must have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform |
-| Open-source<br />(no dbt platform project)          | Fusion (source available) or<br />dbt Core engine | Local machine | `mf`     | Install and manage MetricFlow locally.                                                                                                                                                                         |
+| Development setup                                            | Engine                                            | Hosted on     | Prefix   | Notes                                                                                                                                                                                                          |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Studio IDE/dbt platform CLI or VS Code extension Fusion only | dbt Fusion engine or dbt Core engine              | dbt platform  | `dbt sl` | Remote execution; Platform manages versions.<br />VS Code extension users must have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform |
+| Open-source<br />(no dbt platform project)                   | Fusion (source available) or<br />dbt Core engine | Local machine | `mf`     | Install and manage MetricFlow locally.                                                                                                                                                                         |
 
 * If you’re using Fusion with dbt platform and have a [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md) file with a valid token to connect to dbt platform, run MetricFlow commands using the `dbt sl` prefix.
-  * This allows you to interact with metrics that are executed remotely on dbt platform (for example, from the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt CLI](../platform/dbt-cli-installation.md)).
+  * This allows you to interact with metrics that are executed remotely on dbt platform (for example, from the [Studio IDE](../platform/studio-ide/develop-in-studio.md) or [dbt platform CLI](../platform/dbt-cli-installation.md)).
 * If you’re using [Fusion CLI](../local/install-dbt.md?version=2) ([source available](https://www.getdbt.com/dbt-fusion-engine-license-agreement)) and aren't connected to dbt platform, install MetricFlow separately and use the `mf` prefix to run commands locally.
 * If you’re using dbt Core locally without Fusion, run MetricFlow commands using the `mf` prefix.
 
@@ -54,21 +54,21 @@ Use MetricFlow commands to retrieve metadata and query metrics. The following ta
 
 This section applies to dbt platform users running the dbt Fusion engine or dbt Core engine where commands and validations execute remotely in dbt platform.
 
-* Use the `dbt sl` prefix before the command name to execute them in the dbt platform (Studio IDE, VS Code/Cursor, dbt CLI) (like `dbt sl list metrics` to list all metrics).
+* Use the `dbt sl` prefix before the command name to execute them in the dbt platform (Studio IDE, VS Code/Cursor, dbt platform CLI) (like `dbt sl list metrics` to list all metrics).
   * For dbt platform users developing with a CLI or an editor (like VS Code), run the `dbt sl --help` command in the terminal to view a complete list of the MetricFlow commands and flags.
-* The following table lists the commands compatible with dbt platform (Studio IDE, VS Code/Cursor, dbt CLI) powered by the dbt Fusion engine or dbt Core engine:
+* The following table lists the commands compatible with dbt platform (Studio IDE, VS Code/Cursor, dbt platform CLI) powered by the dbt Fusion engine or dbt Core engine:
 
-| Command                                           | Description                                                                                                                                                                                                                                               | Studio IDE | dbt CLI | VS Code/Cursor |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------- | -------------- |
-| [`list metrics`](#list-metrics)                   | Lists metrics with dimensions.                                                                                                                                                                                                                            | ✅         | ✅      | ✅             |
-| [`list dimensions`](#list)                        | Lists unique dimensions for metrics.                                                                                                                                                                                                                      | ✅         | ✅      | ✅             |
-| [`list dimension-values`](#list-dimension-values) | List dimensions with metrics.                                                                                                                                                                                                                             | ✅         | ✅      | ✅             |
-| [`list entities`](#list-entities)                 | Lists all unique entities.                                                                                                                                                                                                                                | ✅         | ✅      | ✅             |
-| [`list saved-queries`](#list-saved-queries)       | Lists available saved queries. Use the `--show-exports` flag to display each export listed under a saved query or `--show-parameters` to show the full query parameters each saved query uses.                                                            | ✅         | ✅      | ✅             |
-| [`query`](#query)                                 | Query metrics, saved queries, and dimensions you want to see in the command line interface. Refer to [query examples](#query-examples) to query metrics and dimensions (such as querying metrics, using the `where` filter, adding an `order`, and more). | ✅         | ✅      | ✅             |
-| [`validate`](#validate)                           | Validates semantic model configurations.                                                                                                                                                                                                                  | ✅         | ✅      | ✅             |
-| [`export`](#export)                               | Runs exports for a singular saved query for testing and generating exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query.                                                        | ❌         | ✅      | ✅             |
-| [`export-all`](#export-all)                       | Runs exports for multiple saved queries at once, saving time and effort.                                                                                                                                                                                  | ❌         | ✅      | ✅             |
+| Command                                           | Description                                                                                                                                                                                                                                               | Studio IDE | dbt platform CLI | VS Code/Cursor |
+| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------- | -------------- |
+| [`list metrics`](#list-metrics)                   | Lists metrics with dimensions.                                                                                                                                                                                                                            | ✅         | ✅               | ✅             |
+| [`list dimensions`](#list)                        | Lists unique dimensions for metrics.                                                                                                                                                                                                                      | ✅         | ✅               | ✅             |
+| [`list dimension-values`](#list-dimension-values) | List dimensions with metrics.                                                                                                                                                                                                                             | ✅         | ✅               | ✅             |
+| [`list entities`](#list-entities)                 | Lists all unique entities.                                                                                                                                                                                                                                | ✅         | ✅               | ✅             |
+| [`list saved-queries`](#list-saved-queries)       | Lists available saved queries. Use the `--show-exports` flag to display each export listed under a saved query or `--show-parameters` to show the full query parameters each saved query uses.                                                            | ✅         | ✅               | ✅             |
+| [`query`](#query)                                 | Query metrics, saved queries, and dimensions you want to see in the command line interface. Refer to [query examples](#query-examples) to query metrics and dimensions (such as querying metrics, using the `where` filter, adding an `order`, and more). | ✅         | ✅               | ✅             |
+| [`validate`](#validate)                           | Validates semantic model configurations.                                                                                                                                                                                                                  | ✅         | ✅               | ✅             |
+| [`export`](#export)                               | Runs exports for a singular saved query for testing and generating exports in your development environment. You can also use the `--select` flag to specify particular exports from a saved query.                                                        | ❌         | ✅               | ✅             |
+| [`export-all`](#export-all)                       | Runs exports for multiple saved queries at once, saving time and effort.                                                                                                                                                                                  | ❌         | ✅               | ✅             |
 
 Run dbt parse to reflect metric changes
 
@@ -76,7 +76,7 @@ When you make changes to metrics, make sure to run `dbt parse` at a minimum to u
 
  How can I query or preview metrics with the dbt platform CLI?
 
-Check out the following video for a short video demo of how to query or preview metrics with the dbt CLI:
+Check out the following video for a short video demo of how to query or preview metrics with the dbt platform CLI:
 
 [Loom video](https://www.loom.com/embed/09e2b287f063497d888f4bed91469d79)
 
@@ -627,7 +627,7 @@ Keep in mind that modifying your shell configuration files can have an impact on
 
  Why is my query limited to 100 rows in the dbt platform CLI?
 
-The default `limit` for query issues from the dbt CLI is 100 rows. We set this default to prevent returning unnecessarily large data sets as the dbt CLI is typically used to query the dbt Semantic Layer during the development process, not for production reporting or to access large data sets. For most workflows, you only need to return a subset of the data.
+The default `limit` for query issues from the dbt platform CLI is 100 rows. We set this default to prevent returning unnecessarily large data sets as the dbt platform CLI is typically used to query the dbt Semantic Layer during the development process, not for production reporting or to access large data sets. For most workflows, you only need to return a subset of the data.
 
 However, you can change this limit if needed by setting the `--limit` option in your query. For example, to return 1000 rows, you can run `dbt sl list metrics --limit 1000`.
 

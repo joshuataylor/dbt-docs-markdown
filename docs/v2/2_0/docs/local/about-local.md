@@ -40,7 +40,7 @@ For data practitioners, dbt Wizard adds an AI layer that knows your project, not
 
 The dbt MCP server connects your local dbt project to AI assistants using the [Model Context Protocol](https://modelcontextprotocol.io/). It works with dbt and requires no repository clone.
 
-* **dbt CLI tools:** Run `dbt run`, `build`, `test`, `compile`, `list`, `parse`, and `show` directly from your AI assistant's chat interface.
+* **dbt platform CLI tools:** Run `dbt run`, `build`, `test`, `compile`, `list`, `parse`, and `show` directly from your AI assistant's chat interface.
 * **Local project context:** Surface model lineage, node details, and dependency graphs from your local `manifest.json` without leaving your editor.
 * **Code generation:** Auto-generate model YAML, source definitions, and staging SQL from your warehouse schema (requires the codegen toolset to be enabled).
 * **Zero-clone install:** Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and run `uvx dbt-mcp`. No repository clone needed!

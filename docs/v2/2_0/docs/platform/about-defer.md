@@ -43,9 +43,9 @@ For example, if you were to start developing on a new branch with [nothing in yo
 
 ![Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.](/img/docs/dbt-platform/defer-toggle.png?v=2 "Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.")Select the 'Defer to production' toggle on the bottom right of the command bar to enable defer in the Studio IDE.
 
-### Defer in dbt CLI
+### Defer in dbt platform CLI
 
-One key difference between using `--defer` in the dbt CLI and the Studio IDE is that `--defer` is *automatically* enabled in the dbt CLI for all invocations, compared with production artifacts. You can disable it with the `--no-defer` flag.
+One key difference between using `--defer` in the dbt platform CLI and the Studio IDE is that `--defer` is *automatically* enabled in the dbt platform CLI for all invocations, compared with production artifacts. You can disable it with the `--no-defer` flag.
 
 (Applies to dbt v2.0 and later)
 
@@ -60,7 +60,7 @@ dbt-cloud:
 
 ### Configure deferral environment ID
 
-The Studio IDE and dbt CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt CLI and Studio IDE) or `dbt_cloud.yml` (dbt CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
+The Studio IDE and dbt platform CLI both offer additional flexibility by letting you choose the source environment for deferral artifacts. You can manually set a `defer-env-id` key in either your `[dbt_project.yml](/reference/dbt_project.yml)` (dbt platform CLI and Studio IDE) or `dbt_cloud.yml` (dbt platform CLI only) file. By default, dbt will prefer metadata from the project's "Staging" environment (if defined). Otherwise, it uses "Production." For the full file reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
 
 ![Set the defer environment and the target name will change in the UI.](/img/docs/dbt-platform/defer-env-id.png?v=2 "Set the defer environment and the target name will change in the UI.")Set the defer environment and the target name will change in the UI.
 

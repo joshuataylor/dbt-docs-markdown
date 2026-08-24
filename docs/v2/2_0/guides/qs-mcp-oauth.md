@@ -139,7 +139,7 @@ Replace `YOUR-ACCESS-URL` with your Access URL (for example, `abc123.us1.dbt.com
 
 #### Optional: Add self-hosted dbt CLI commands
 
-To also run dbt CLI commands (`dbt run`, `dbt build`, `dbt test`, and more), add these two variables to your `env` block:
+To also run dbt platform CLI commands (`dbt run`, `dbt build`, `dbt test`, and more), add these two variables to your `env` block:
 
 ```json
 "DBT_PROJECT_DIR": "/path/to/your/dbt/project",

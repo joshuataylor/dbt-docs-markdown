@@ -38,9 +38,9 @@ As another example, you could `clone` your modified incremental models as the fi
 
 ## Cloning in dbt
 
-You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) and the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and relies on the [`--defer`](../node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](../../docs/platform/about-defer.md).
+You can clone nodes between states in dbt using the `dbt clone` command. This is available in the [Studio IDE](../../docs/platform/studio-ide/develop-in-studio.md) and the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) and relies on the [`--defer`](../node-selection/defer.md) feature. For more details on defer in dbt, read [Using defer in dbt](../../docs/platform/about-defer.md).
 
-* **Using dbt CLI** — The `dbt clone` command in the dbt CLI automatically includes the `--defer` flag. This means you can use the `dbt clone` command without any additional setup.
+* **Using dbt platform CLI** — The `dbt clone` command in the dbt platform CLI automatically includes the `--defer` flag. This means you can use the `dbt clone` command without any additional setup.
 
 * **Using Studio IDE** — To use the `dbt clone` command in the Studio IDE, follow these steps before running the `dbt clone` command:
 

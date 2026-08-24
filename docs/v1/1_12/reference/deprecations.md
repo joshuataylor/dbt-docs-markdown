@@ -39,7 +39,7 @@ If you're using dbt, you can view deprecation warnings from the **Dashboard** ar
 
 ![The deprecation warnings listed on the dbt dashboard.](/img/docs/dbt-platform/deprecation-warnings.png?v=2 "The deprecation warnings listed on the dbt dashboard.")The deprecation warnings listed on the dbt dashboard.
 
-Click into a job to view more details and locate the deprecation warnings in the logs (or run the `parse` command with flags from the Studio IDE or dbt CLI).
+Click into a job to view more details and locate the deprecation warnings in the logs (or run the `parse` command with flags from the Studio IDE or dbt platform CLI).
 
 ![Deprecation warnings listed in the logs.](/img/docs/dbt-platform/deprecation-list.png?v=2 "Deprecation warnings listed in the logs.")Deprecation warnings listed in the logs.
 

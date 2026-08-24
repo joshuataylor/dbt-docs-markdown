@@ -80,8 +80,8 @@ Notable features:
 * Analyst read is a project-level set.
 * Read-only access to **Connections** (account and project), **Projects**, repositories (Git repository settings), Semantic Layer configuration, **Environments**, custom environment variables, and Catalog metadata (Metadata GraphQL API).
 * No read access to jobs or runs.
-* Includes `user_credential_write`, so users can view and edit their own user credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt CLI. Read-only users still need personal user credentials on this page to run warehouse queries in analysis features such as the Semantic Layer.
-* No write access and no access to develop in the Studio IDE or dbt CLI.
+* Includes `user_credential_write`, so users can view and edit their own user credentials on **Your profile** > **Credentials** without access to the Studio IDE or dbt platform CLI. Read-only users still need personal user credentials on this page to run warehouse queries in analysis features such as the Semantic Layer.
+* No write access and no access to develop in the Studio IDE or dbt platform CLI.
 
 To access the capabilities of this permission set, you *must* add users to a group that's assigned the Analyst read permission set. Users won't have access until they're added to the group. For the setup steps, refer to [Set up read-only user access](./about-user-access.md#set-up-read-only-user-access).
 
@@ -325,7 +325,7 @@ This ensures that license restrictions are always enforced, regardless of group 
 Permissions:
 
 * **Account-level permissions** — Permissions related to the management of the dbt account. For example, billing and account settings.
-* **Project-level permissions** — Permissions related to the projects in dbt. For example, repos and access to the Studio IDE or dbt CLI.
+* **Project-level permissions** — Permissions related to the projects in dbt. For example, repos and access to the Studio IDE or dbt platform CLI.
 
 note
 
@@ -392,7 +392,7 @@ An admin can grant `user_credential_write` to any group, regardless of which per
 
 ### Project permissions
 
-The project permission sets enable you to work within the projects in various capacities. They primarily provide access to project-level permissions such as repos and the Studio IDE or dbt CLI, but may also provide some account-level permissions.
+The project permission sets enable you to work within the projects in various capacities. They primarily provide access to project-level permissions such as repos and the Studio IDE or dbt platform CLI, but may also provide some account-level permissions.
 
 Key:
 

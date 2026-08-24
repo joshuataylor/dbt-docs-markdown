@@ -76,7 +76,7 @@ If you or your org has a strict requirement to use the open-source runtime, inst
 Common issues and resolutions:
 
 * **dbt command not found:** Add the installation location to your `$PATH`.
-* **Version conflicts:** Check that no other dbt Core or dbt CLI versions are installed or active on your machine.
+* **Version conflicts:** Check that no other dbt Core or dbt platform CLI versions are installed or active on your machine.
 * **Installation permissions:** Make sure your user account can install software locally.
 
 ## FAQs

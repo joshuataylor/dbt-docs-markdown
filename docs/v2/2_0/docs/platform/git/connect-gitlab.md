@@ -6,7 +6,7 @@ Connecting your GitLab account to dbt provides convenience and another layer of 
 
 * Import new GitLab repos with a couple of clicks during dbt project setup.
 * Clone repos using HTTPS rather than SSH.
-* Carry GitLab user permissions through to dbt and dbt CLI git actions.
+* Carry GitLab user permissions through to dbt and dbt platform CLI git actions.
 * Trigger [continuous integration](../../deploy/continuous-integration.md) builds when merge requests are opened in GitLab.
 
 info
@@ -52,7 +52,7 @@ To support advanced Git workflows and multi-user commit behavior, upgrade to the
 dbt Enterprise and Enterprise+ customers have the added benefit of bringing their own GitLab OAuth application to dbt. This tier benefits from extra security, as dbt will:
 
 * Enforce user authorization with OAuth.
-* Carry GitLab's user repository permissions (read/write access) through to dbt or dbt CLI git actions.
+* Carry GitLab's user repository permissions (read/write access) through to dbt or dbt platform CLI git actions.
 
 In order to connect GitLab in dbt, a GitLab account admin must:
 
@@ -116,7 +116,7 @@ After you authorize the request, you’ll be redirected back to dbt. Your integr
 
 ### Personally authenticating with GitLab
 
-dbt developers on the Enterprise or Enterprise+ plan must each connect their GitLab profiles to dbt, as every developer's read/write access for the dbt repo is checked in the Studio IDE or dbt CLI.
+dbt developers on the Enterprise or Enterprise+ plan must each connect their GitLab profiles to dbt, as every developer's read/write access for the dbt repo is checked in the Studio IDE or dbt platform CLI.
 
 To connect a personal GitLab account:
 

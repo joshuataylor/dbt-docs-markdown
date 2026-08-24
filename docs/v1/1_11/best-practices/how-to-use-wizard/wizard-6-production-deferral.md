@@ -13,7 +13,7 @@ dbt Wizard stores per-project deferral settings in `~/.dbt/wizard/wizard_config.
 | `wizard`       | You want dbt Wizard to create and refresh a production state snapshot from a target in `profiles.yml`.             |
 | `manual`       | You already have a directory containing the production `manifest.json` and want to provide its path.               |
 | `fusion_cloud` | The dbt Fusion engine and the dbt platform manage deferral for the connected environment.                          |
-| `cloud_cli`    | The dbt CLI manages credentials and deferral through the dbt platform.                                             |
+| `cloud_cli`    | The dbt platform CLI manages credentials and deferral through the dbt platform.                                    |
 | `dbt_state`    | Your dbt State or run-cache workflow manages deferral, so dbt Wizard shouldn't create its own production snapshot. |
 | `disabled`     | You don't want deferral for this project.                                                                          |
 

@@ -223,7 +223,7 @@ For teams who prefer to isolate work based on the feature branch, you may want t
 
 note
 
-The `DBT_CLOUD_GIT_BRANCH` variable is only available within the Studio IDE and not the dbt CLI.
+The `DBT_CLOUD_GIT_BRANCH` variable is only available within the Studio IDE and not the dbt platform CLI.
 
 We’ve also seen some organizations prefer to organize their dev databases by branch name. This requires implementing similar logic in `generate_database_name()` instead of the `generate_schema_name()` macro. By default, dbt will not automatically create the databases.
 

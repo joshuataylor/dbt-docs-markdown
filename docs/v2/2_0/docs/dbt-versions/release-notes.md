@@ -181,7 +181,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **New:** The `GET /api/ide/v3/{environment_id}/status` endpoint returns the `dbt_version` and `is_fusion` status for a given environment.
 
-* **New:** The dbt CLI Python client's `create_invocation()` method now supports a `workspace` parameter, so you can run invocations against persisted workspace files on workers.
+* **New:** The dbt platform CLI Python client's `create_invocation()` method now supports a `workspace` parameter, so you can run invocations against persisted workspace files on workers.
 
 ## May 2026
 
@@ -278,7 +278,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 ## January 2026
 
-* **Enhancement:** The `defer-env-id` setting for choosing which deployment environment to defer to is [now available](../platform/about-defer.md#configure-deferral-environment-id) in the Studio IDE. Previously, this configuration only worked for the dbt CLI
+* **Enhancement:** The `defer-env-id` setting for choosing which deployment environment to defer to is [now available](../platform/about-defer.md#configure-deferral-environment-id) in the Studio IDE. Previously, this configuration only worked for the dbt platform CLI
 
 * **Beta:** The [Analyst agent](../explore/navigate-dbt-insights.md#dbt-copilot) in dbt Insights is now in beta.
 

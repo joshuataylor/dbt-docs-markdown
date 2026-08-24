@@ -42,7 +42,7 @@ metrics:
 
 ## Query your metric
 
-You can use the dbt CLI for metric validation or queries during development, via the `dbt sl` set of subcommands. Here are some useful examples:
+You can use the dbt platform CLI for metric validation or queries during development, via the `dbt sl` set of subcommands. Here are some useful examples:
 
 ```bash
 dbt sl query revenue --group-by metric_time__month

@@ -11,7 +11,7 @@ The list of project configs available in dbt.
 
 ## [dbt\_cloud.yml](../reference/dbt_cloud.yml.md)
 
-[Reference for the dbt\_cloud.yml credentials file used by the dbt CLI and dbt VS Code extension to connect to the dbt platform.](../reference/dbt_cloud.yml.md)
+[Reference for the dbt\_cloud.yml credentials file used by the dbt platform CLI and dbt VS Code extension to connect to the dbt platform.](../reference/dbt_cloud.yml.md)
 
 ## [.dbtignore](../reference/dbtignore.md)
 

@@ -10,7 +10,7 @@ dbt's [flexible plans](https://www.getdbt.com/pricing/) and features make it wel
 
 [![](/img/icons/dbt-bit.svg)](../dbt-cli-installation.md)
 
-#### [dbt CLI](../dbt-cli-installation.md)
+#### [dbt platform CLI](../dbt-cli-installation.md)
 
 [Use the CLI for the dbt platform to develop, test, run, and version control dbt projects and commands, directly from the command line.](../dbt-cli-installation.md)
 

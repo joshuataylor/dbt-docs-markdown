@@ -8,7 +8,7 @@ By default, dbt State defers to your production environment. Both sections on th
 
 By default, dbt State defers to your production environment. You only need to configure this if you want to change that behavior:
 
-* **dbt platform**: To defer to an environment other than the default (for example, staging), add `defer-env-id` to the `dbt-cloud` block in `dbt_project.yml`. Refer to [Configure Cloud CLI](../platform/dbt-cli-installation.md) for more information.
+* **dbt platform**: To defer to an environment other than the default (for example, staging), add `defer-env-id` to the `dbt-cloud` block in `dbt_project.yml`. Refer to [Configure the dbt platform CLI](../platform/dbt-cli-installation.md) for more information.
 
   dbt\_project.yml
 

@@ -52,7 +52,7 @@ dbt.invoke(["run"], select="tag:my_tag")
 * Running concurrent commands can unexpectedly interact with the data platform. For example, running `dbt run` and `dbt build` for the same models simultaneously could lead to unpredictable results.
 * Each `dbt-core` command interacts with global Python variables. To ensure safe operation, commands need to be executed in separate processes, for example by spawning subprocesses or using Celery for orchestration.
 
-For [safe parallel execution](./dbt-commands.md#available-commands), you can use the [dbt CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md), both of which do that additional work to manage concurrency (multiple processes) on your behalf.
+For [safe parallel execution](./dbt-commands.md#available-commands), you can use the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md), both of which do that additional work to manage concurrency (multiple processes) on your behalf.
 
 ## `dbtRunnerResult`
 

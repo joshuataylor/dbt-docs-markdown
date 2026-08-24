@@ -2,7 +2,7 @@
 
 Local development
 
-[The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt CLI. You can use it with or without a dbt platform account.
+[The self-hosted dbt MCP server](https://github.com/dbt-labs/dbt-mcp) runs on your machine and supports dbt Core, dbt Fusion engine, and dbt platform CLI. You can use it with or without a dbt platform account.
 
 No clone required
 
@@ -65,7 +65,7 @@ Only accounts with static subdomains (for example, `abc123` in `abc123.us1.dbt.c
 
 ##### dbt platform only
 
-This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
+This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt platform CLI commands.
 
 When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -87,7 +87,7 @@ When you use only the dbt platform, the CLI tools are automatically disabled. Yo
 
 ##### dbt platform + CLI
 
-This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
+This option is for users who want both dbt platform CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
 The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -341,7 +341,7 @@ The self-hosted dbt-mcp supports all flavors of dbt, including dbt Core and dbt 
 | Environment variable | Required | Description                                                                                                                             | Example                                                                          |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | `DBT_PROJECT_DIR`    | Required | The full path to where the repository of your dbt project is hosted locally. This is the folder containing your `dbt_project.yml` file. | macOS/Linux: `/Users/myname/reponame`<br />Windows: `C:/Users/myname/reponame`   |
-| `DBT_PATH`           | Required | The full path to your dbt executable (dbt Core/Fusion/dbt CLI). See the next section for how to find this.                              | macOS/Linux: `/opt/homebrew/bin/dbt`<br />Windows: `C:/Python39/Scripts/dbt.exe` |
+| `DBT_PATH`           | Required | The full path to your dbt executable (dbt Core/Fusion/dbt platform CLI). See the next section for how to find this.                     | macOS/Linux: `/opt/homebrew/bin/dbt`<br />Windows: `C:/Python39/Scripts/dbt.exe` |
 | `DBT_CLI_TIMEOUT`    | Optional | Configure the number of seconds before your agent will timeout dbt commands.                                                            | Defaults to 60 seconds.                                                          |
 
 ### Locating your `DBT_PATH`
@@ -396,7 +396,7 @@ All tools are available by default. Set any of these to `true` to turn off a too
 
 | Name                          | Default | Description                                                                                                                                                                         |
 | ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DISABLE_DBT_CLI`             | `false` | Disable dbt Core, dbt CLI, and dbt Fusion MCP tools.                                                                                                                                |
+| `DISABLE_DBT_CLI`             | `false` | Disable dbt Core, dbt platform CLI, and dbt Fusion MCP tools.                                                                                                                       |
 | `DISABLE_SEMANTIC_LAYER`      | `false` | Disable dbt Semantic Layer MCP tools.                                                                                                                                               |
 | `DISABLE_DISCOVERY`           | `false` | Disable dbt Discovery API MCP tools.                                                                                                                                                |
 | `DISABLE_ADMIN_API`           | `false` | Disable dbt Administrative API MCP tools.                                                                                                                                           |

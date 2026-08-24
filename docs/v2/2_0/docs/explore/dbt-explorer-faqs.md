@@ -30,7 +30,7 @@ No. Catalog and all of its features are only available as a dbt user experience.
 
 Catalog supports a production or staging [deployment environment](../deploy/deploy-environments.md) for each project you want to explore. It defaults to the latest production or staging state of a project. Users can only assign one production and one staging environment per dbt project.
 
-Support for development (dbt CLI and Studio IDE) environments is coming soon.
+Support for development (dbt platform CLI and Studio IDE) environments is coming soon.
 
  How do I get started in Catalog? How does it update?
 
@@ -68,7 +68,7 @@ A chart of models built by month is available in thedbt dashboard.
 
  Can model or column descriptions be edited within dbt?
 
-Yes. Today, you can edit descriptions in the Studio IDE or dbt CLI by changing the YAML files within the dbt project. In the future, Catalog will support more ways of editing descriptions.
+Yes. Today, you can edit descriptions in the Studio IDE or dbt platform CLI by changing the YAML files within the dbt project. In the future, Catalog will support more ways of editing descriptions.
 
  Where do recommendations come from? Can they be customized?
 

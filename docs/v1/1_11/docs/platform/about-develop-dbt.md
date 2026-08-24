@@ -12,7 +12,7 @@ Choose the option that best fits your needs:
 
 [![](/img/icons/dbt-bit.svg)](./dbt-cli-installation.md)
 
-#### [dbt CLI](./dbt-cli-installation.md)
+#### [dbt platform CLI](./dbt-cli-installation.md)
 
 [Allows you to develop and run dbt commands from your local command line or code editor against your dbt development environment.](./dbt-cli-installation.md)
 

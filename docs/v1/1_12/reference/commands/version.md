@@ -1,9 +1,9 @@
 # About dbt --version
 
-The `--version` command-line flag returns information about the currently installed version of dbt Core, the dbt CLI, or the dbt Fusion engine. This flag is not supported when invoking dbt in other dbt runtimes (for example, the IDE or scheduled runs).
+The `--version` command-line flag returns information about the currently installed version of dbt Core, the dbt platform CLI, or the dbt Fusion engine. This flag is not supported when invoking dbt in other dbt runtimes (for example, the IDE or scheduled runs).
 
 * **dbt Core** — Returns the installed version of dbt Core and the versions of all installed adapters.
-* **dbt CLI** — Returns the installed version of the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and, for the other `dbt_version` values, the *latest* version of the dbt runtime in dbt.
+* **dbt platform CLI** — Returns the installed version of the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) and, for the other `dbt_version` values, the *latest* version of the dbt runtime in dbt.
 * **dbt Fusion engine** — Returns the installed Fusion version. Because the CLI and language server ship in a single binary, they always report the same version. Refer to [Version compatibility](../../docs/dbt-versions/fusion-version-compatibility.md) for how this maps to the dbt VS Code extension.
 
 ## Versioning
@@ -29,7 +29,7 @@ Plugins:
 
 dbt CLI example:
 
-dbt CLI
+dbt platform CLI
 
 ```text
 $ dbt --version

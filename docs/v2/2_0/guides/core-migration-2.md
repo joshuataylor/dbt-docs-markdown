@@ -43,7 +43,7 @@ It's ideal for teams looking to reduce the burden of maintaining their own infra
 
 * dbt is the fastest and most reliable way to deploy dbt. It enables you to develop, test, deploy, and explore data products using a single, fully managed service. It also supports:
 
-  * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](../docs/platform/dbt-cli-installation.md))
+  * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt platform CLI](../docs/platform/dbt-cli-installation.md))
   * Out-of-the-box [CI/CD workflows](../docs/deploy/ci-jobs.md)
   * The [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) for consistent metrics
   * Domain ownership of data with multi-project [Mesh](../best-practices/how-we-mesh/mesh-1-intro.md) setups
@@ -111,7 +111,7 @@ Once the benefits of a consolidated platform are clear, move the rest of your te
 Assess the users or personas involved in the pre-move, during the move, and post-move.
 
 * **Administrators**: Plan for new [access controls](../docs/platform/manage-access/about-user-access.md) in dbt, such as deciding what teams can manage themselves and what should be standardized. Determine who will be responsible for setting up and maintaining projects, data platform connections, and environments.
-* **Data developers** (data analysts, data engineers, analytics engineers, business analysts): Determine onboarding order, workflow adaptation in dbt, training on [dbt CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) usage, and role changes.
+* **Data developers** (data analysts, data engineers, analytics engineers, business analysts): Determine onboarding order, workflow adaptation in dbt, training on [dbt platform CLI](../docs/platform/dbt-cli-installation.md) or [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) usage, and role changes.
 * **Data consumers:** Discover data insights by using [Catalog](../docs/explore/explore-projects.md) to view your project's resources (such as models, tests, and metrics) and their lineage to gain a better understanding of its latest production state. [Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
  Onboarding order
@@ -125,7 +125,7 @@ If you have multiple teams of dbt developers, think about how to start your onbo
 
 Discover how dbt can help simplify development, orchestration, and testing:
 
-* **Development**: Develop dbt models, allowing you to build, test, run, and version control your dbt projects using the dbt CLI (command line interface or code editor) or Studio IDE (browser-based).
+* **Development**: Develop dbt models, allowing you to build, test, run, and version control your dbt projects using the dbt platform CLI (command line interface or code editor) or Studio IDE (browser-based).
 
 * **Orchestration**: Create custom schedules to run your production jobs. Schedule jobs by day of the week, time of day, or a recurring interval.
 

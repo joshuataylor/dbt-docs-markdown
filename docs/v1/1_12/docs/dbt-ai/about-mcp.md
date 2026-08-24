@@ -4,7 +4,7 @@ The [dbt MCP server](https://github.com/dbt-labs/dbt-mcp) provides a standardize
 
 To help with dbt, assistants need your project metadata and, when you allow it, supported actions such as CLI runs, platform APIs, and Semantic Layer queries. The dbt MCP server exposes those to MCP clients and supports use cases such as conversational access to data, agentic automation for dbt workflows, and AI-assisted development. This page covers local and remote setups, available tools, and how to get started.
 
-The MCP server provides access to [dbt Wizard](../platform/wizard-overview.md), dbt CLI, [API](../dbt-apis/overview.md), the [Discovery API](../dbt-apis/discovery-api.md), and [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md). It provides access to private APIs, text-to-SQL, and SQL execution.
+The MCP server provides access to [dbt Wizard](../platform/wizard-overview.md), dbt platform CLI, [API](../dbt-apis/overview.md), the [Discovery API](../dbt-apis/discovery-api.md), and [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md). It provides access to private APIs, text-to-SQL, and SQL execution.
 
 For more information on MCP, have a look at [Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction).
 
@@ -19,11 +19,11 @@ For more details on the server types, refer to [Server access](#server-access).
 
 To get started, choose the quickstart that matches your setup:
 
-| I want to...                                                                                                                                         | Quickstart                                                                                           | Tool access                                       |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Query data and run dbt CLI commands locally while connected to my dbt platform account (Semantic Layer, Discovery API, Admin API, SQL, Codegen).     | [Connect to dbt platform](./mcp-quickstart-oauth.md)               | Uses [self-hosted MCP server](#local-mcp-server). |
-| Run dbt CLI commands locally, with or without a dbt platform account; with an account, also query data and explore metadata through the same server. | [Run dbt locally](./mcp-quickstart-cli.md)                         | Uses [self-hosted MCP server](#local-mcp-server). |
-| Use MCP with zero installation (query data only through dbt-hosted tools; no dbt CLI commands).                                                      | [Connect to the remote dbt MCP server](./mcp-quickstart-remote.md) | Uses [remote MCP server](#remote-mcp-server).     |
+| I want to...                                                                                                                                                  | Quickstart                                                                                           | Tool access                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| Query data and run dbt platform CLI commands locally while connected to my dbt platform account (Semantic Layer, Discovery API, Admin API, SQL, Codegen).     | [Connect to dbt platform](./mcp-quickstart-oauth.md)               | Uses [self-hosted MCP server](#local-mcp-server). |
+| Run dbt platform CLI commands locally, with or without a dbt platform account; with an account, also query data and explore metadata through the same server. | [Run dbt locally](./mcp-quickstart-cli.md)                         | Uses [self-hosted MCP server](#local-mcp-server). |
+| Use MCP with zero installation (query data only through dbt-hosted tools; no dbt platform CLI commands).                                                      | [Connect to the remote dbt MCP server](./mcp-quickstart-remote.md) | Uses [remote MCP server](#remote-mcp-server).     |
 
 To configure or disable specific tools (self-hosted MCP), see the [Environment variables reference](./mcp-environment-variables.md).
 
@@ -41,13 +41,13 @@ The self-hosted MCP server provides the best experience for development workflow
 The [self-hosted MCP server](./setup-local-mcp.md) runs on your machine and requires installing `uvx` (which installs dbt-mcp locally) and then running `uvx dbt-mcp` to start the server. You don't need to clone the repository unless you want to contribute to dbt MCP. The self-hosted MCP server provides:
 
 * Full access to dbt commands (`dbt run`, `dbt build`, `dbt test`, and more)
-* Support for dbt Core, dbt CLI, and dbt Fusion engine
+* Support for dbt Core, dbt platform CLI, and dbt Fusion engine
 * Ability to work with local dbt projects with or without a dbt platform account
 * Optional integration with dbt platform APIs for metadata discovery and Semantic Layer access
 
 ### Remote MCP server
 
-The remote MCP server from dbt offers data consumption use cases without a self-hosted setup. It doesn't support local development or dbt CLI commands; use the [self-hosted MCP server](./setup-local-mcp.md) for those workflows.
+The remote MCP server from dbt offers data consumption use cases without a self-hosted setup. It doesn't support local development or dbt platform CLI commands; use the [self-hosted MCP server](./setup-local-mcp.md) for those workflows.
 
 The [remote MCP server](./setup-remote-mcp.md) connects to the dbt platform via HTTP and requires no installation. This option is useful when:
 
@@ -70,13 +70,13 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 The dbt MCP server has access to many parts of the dbt experience related to development, deployment, and discovery. Here are the categories of tools supported based on what form of the MCP server you connect to as well as detailed information on exact commands or queries available to the LLM.
 
-Self-hosted MCP is required for dbt CLI commands, Codegen, and Administrative API; remote MCP supports Semantic Layer, SQL, Discovery, Administrative API, and Fusion tools only.
+Self-hosted MCP is required for dbt platform CLI commands, Codegen, and Administrative API; remote MCP supports Semantic Layer, SQL, Discovery, Administrative API, and Fusion tools only.
 
 Note that access to the [dbt APIs](../dbt-apis/overview.md) is limited depending on your [plan type](https://www.getdbt.com/pricing).
 
 | Tools                     | Self-hosted | Remote |
 | ------------------------- | ----------- | ------ |
-| dbt CLI commands          | ✅          | ❌     |
+| dbt platform CLI commands | ✅          | ❌     |
 | Semantic Layer            | ✅          | ✅     |
 | SQL                       | ✅          | ✅     |
 | Metadata Discovery        | ✅          | ✅     |

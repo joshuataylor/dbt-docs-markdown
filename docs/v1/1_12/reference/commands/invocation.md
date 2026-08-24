@@ -1,6 +1,6 @@
 # About dbt invocation command
 
-The `dbt invocation` command is available in the [dbt CLI](../../docs/platform/dbt-cli-installation.md) and allows you to:
+The `dbt invocation` command is available in the [dbt platform CLI](../../docs/platform/dbt-cli-installation.md) and allows you to:
 
 * List active invocations to debug long-running or hanging invocations.
 * Identify and investigate sessions causing the `Session occupied` error.
@@ -54,7 +54,7 @@ Use "dbt invocation [command] --help" for more information about a command.
 
 ### dbt invocation list
 
-The `list` command provides you with a list of active invocations in your dbt CLI. When a long-running session is active, you can use this command in a separate terminal window to view the active session to help debug the issue.
+The `list` command provides you with a list of active invocations in your dbt platform CLI. When a long-running session is active, you can use this command in a separate terminal window to view the active session to help debug the issue.
 
 ```shell
 dbt invocation list

@@ -121,7 +121,7 @@ Test the **Latest** release track for your individual account without changing t
 
 ![Override dbt version in your account settings](/img/docs/dbt-platform/platform-configuring-dbt-platform/choosing-dbt-version/example-override-version.png?v=2 "Override dbt version in your account settings")Override dbt version in your account settings
 
-5. Launch the Studio IDE or dbt CLI and test your normal development workflows.
+5. Launch the Studio IDE or dbt platform CLI and test your normal development workflows.
 6. Verify the override is active by running any dbt command and checking the **System Logs**. The first line should show `Running with dbt=` and your selected version. If the version number is `v1.11` or higher, you're on the right path to Fusion readiness.
 
 If everything works as expected, proceed to the next step to start upgrading your environments. If you encounter deprecation warnings, don't fear! We'll address those [later in this guide](./prepare-fusion-upgrade.md?step=4). If you encounter errors, revert to your previous version and refer to the [version upgrade guides](../docs/dbt-versions/core-upgrade.md) to resolve any differences between your current version and the latest available dbt Core version.
@@ -497,7 +497,7 @@ If you have access to [dbt Wizard](../docs/dbt-ai/wizard-ide.md) with [AI featur
 
 info
 
-The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
+The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.

@@ -181,12 +181,12 @@ If the Studio IDE freezes with two or more models open and the **Lineage** tab a
 
 As a proprietary product, dbt's source code isn't available for community contributions. If you want to build something in the dbt ecosystem, we encourage you to review [this article](../../../community/contributing/contributing-coding.md) about contributing to a dbt package, a plugin, dbt-core, or this documentation site. Participation in open-source is a great way to level yourself up as a developer, and give back to the community.
 
- What is the difference between developing on the Studio IDE, the dbt CLI, and dbt Core?
+ What is the difference between developing on the Studio IDE, the dbt platform CLI, and dbt Core?
 
-You can develop dbt using the web-based IDE in dbt or on the command line interface using the dbt CLI or open-source dbt Core, all of which enable you to execute dbt commands. The key distinction between the dbt CLI and dbt Core is the dbt CLI is tailored for dbt's infrastructure and integrates with all its features:
+You can develop dbt using the web-based IDE in dbt or on the command line interface using the dbt platform CLI or open-source dbt Core, all of which enable you to execute dbt commands. The key distinction between the dbt platform CLI and dbt Core is the dbt platform CLI is tailored for dbt's infrastructure and integrates with all its features:
 
 * Studio IDE: [dbt](https://docs.getdbt.com/docs/platform/about-platform/dbt-platform-features) is a web-based application that allows you to develop dbt projects with the IDE, includes a purpose-built scheduler, and provides an easier way to share your dbt documentation with your team. The IDE is a faster and more reliable way to deploy your dbt models and provides a real-time editing and execution environment for your dbt project.
 
-* dbt CLI: [The dbt CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation) allows you to run dbt commands against your dbt dbt development environment from your local command line or code editor. It supports cross-project ref, speedier, lower-cost builds, automatic deferral of build artifacts, and more.
+* dbt platform CLI: [The dbt platform CLI](https://docs.getdbt.com/docs/platform/dbt-cli-installation) allows you to run dbt commands against your dbt dbt development environment from your local command line or code editor. It supports cross-project ref, speedier, lower-cost builds, automatic deferral of build artifacts, and more.
 
 * dbt Core: dbt Core is an [open-sourced](https://github.com/dbt-labs/dbt) software that's freely available. You can build your dbt project in a code editor, and run dbt commands from the command line

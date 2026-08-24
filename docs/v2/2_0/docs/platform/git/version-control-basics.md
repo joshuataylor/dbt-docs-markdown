@@ -59,7 +59,7 @@ target/
 
 This inclusion uses a trailing slash, making these lines in the `.gitignore` file act as 'folder wildcards' that prevent any files or folders within them from being tracked by git. You can also specify additional exclusions as needed for your project.
 
-However, this global `.gitignore` *does not* apply to dbt Core and dbt CLI users directly. Therefore, if you're working with dbt Core or dbt CLI, you need to manually add the three lines mentioned previously to your project's `.gitignore` file.
+However, this global `.gitignore` *does not* apply to dbt Core and dbt platform CLI users directly. Therefore, if you're working with dbt Core or dbt platform CLI, you need to manually add the three lines mentioned previously to your project's `.gitignore` file.
 
 It's worth noting that while some git providers generate a basic `.gitignore` file when the repository is created, these often lack the necessary exclusions for dbt. This means it's important to ensure you add the three lines mentioned previously in your `.gitignore` to ensure dbt operates smoothly.
 

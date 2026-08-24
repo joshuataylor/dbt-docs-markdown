@@ -8,7 +8,7 @@ This guide explains how to install, verify, update, and uninstall the dbt Wizard
 
 )
 
-You can run the dbt Wizard CLI locally from any dbt project that uses the dbt CLI, Fusion, or dbt Core.
+You can run the dbt Wizard CLI locally from any dbt project that uses the dbt platform CLI, Fusion, or dbt Core.
 
 Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
 

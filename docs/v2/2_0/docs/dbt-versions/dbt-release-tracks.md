@@ -126,7 +126,7 @@ Switching to **Fallback** alerts the dbt Support team, who may reach out to help
 
 ### How to upgrade
 
-If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt Core, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt CLI and do your development work as usual. Everything should work as you expect.
+If you regularly develop your dbt project in dbt, and you're still running on a legacy version of dbt Core, dbt Labs recommends that you try upgrading your project in a development environment. [Override your dbt version in development](./upgrade-dbt-platform-version.md#override-dbt-version). Then, launch the Studio IDE or dbt platform CLI and do your development work as usual. Everything should work as you expect.
 
 If you do see something unexpected or surprising, revert back to the previous version and record the differences you observed. [Contact dbt support](../dbt-support.md#dbt-cloud-support) with your findings for a more detailed investigation.
 

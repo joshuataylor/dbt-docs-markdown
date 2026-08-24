@@ -26,9 +26,9 @@ How you authenticate to your data warehouse locally depends on which self-hosted
 
 ### dbt platform CLI
 
-The [dbt CLI](../docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a self-hosted CLI-only workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
+The [dbt platform CLI](../docs/platform/dbt-cli-installation.md) is the lowest-friction path for dbt platform users who want a self-hosted CLI-only workflow without VS Code. It authenticates using your dbt platform session, and your warehouse credentials are managed centrally in dbt platform and passed through automatically.
 
-For detailed installation instructions, refer to [Install the dbt CLI](../docs/platform/dbt-cli-installation.md?version=1.10). The dbt platform CLI is installed from your local command prompt.
+For detailed installation instructions, refer to [Install the dbt platform CLI](../docs/platform/dbt-cli-installation.md?version=1.10). The dbt platform CLI is installed from your local command prompt.
 
 The configuration file downloaded from your dbt platform **Account settings** will facilitate the connection and authentication with your existing credentials.
 
@@ -64,7 +64,7 @@ Environment variables you set in dbt platform apply to production runs and the S
 
 ### dbt platform CLI
 
-When you use the dbt platform CLI, dbt platform injects the same environment variables you use in production into your dbt CLI session. You don't need extra setup.
+When you use the dbt platform CLI, dbt platform injects the same environment variables you use in production into your dbt platform CLI session. You don't need extra setup.
 
 ### VS Code extension (.env file)
 

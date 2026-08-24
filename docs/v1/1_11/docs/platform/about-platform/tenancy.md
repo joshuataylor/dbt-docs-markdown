@@ -35,7 +35,7 @@ Cell-based (multi-cell) accounts are still multi-tenant SaaS. Use the multi-tena
 | --------------------------- | ---------------- | ----------------- | ------------------ | ------------------- | ---------------- | ----------------- |
 | Audit logs                  | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
 | Continuous integration jobs | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
-| dbt CLI                     | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
+| dbt platform CLI            | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
 | Studio IDE                  | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
 | dbt Wizard                  | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |
 | Catalog                     | ✅               | ✅                | ✅                 | ✅                  | ✅               | ✅                |

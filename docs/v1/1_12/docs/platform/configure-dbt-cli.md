@@ -1,8 +1,8 @@
-# Configure and use the dbt CLI
+# Configure and use the dbt platform CLI
 
 dbt platform
 
-Learn how to configure the dbt CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
+Learn how to configure the dbt platform CLI for your dbt project to run dbt commands, like `dbt environment show` to view your dbt configuration or `dbt compile` to compile your project and validate models and tests. You'll also benefit from:
 
 * Secure credential storage in the dbt platform.
 * [Automatic deferral](./about-defer.md) of build artifacts to your project's production environment.
@@ -12,15 +12,15 @@ Learn how to configure the dbt CLI for your dbt project to run dbt commands, lik
 ## Prerequisites
 
 * You must set up a project in dbt.
-  * **Note** — If you're using the dbt CLI, you can connect to your [data platform](./connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](../local/profiles.yml.md) file.
-* You must have your [personal user credentials](../dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
+  * **Note** — If you're using the dbt platform CLI, you can connect to your [data platform](./connect-data-platform/about-connections.md) directly in the dbt platform interface and don't need a [`profiles.yml`](../local/profiles.yml.md) file.
+* You must have your [personal user credentials](../dbt-platform-environments.md#set-developer-credentials) configured in **Account settings** assigned to that project. The dbt platform CLI will use these credentials, stored securely in dbt, to communicate with your data platform.
 * You must be on dbt version 1.5 or higher. Refer to [dbt versions](../dbt-versions/upgrade-dbt-platform-version.md) to upgrade.
 
-## Configure the dbt CLI
+## Configure the dbt platform CLI
 
-Once you install the dbt CLI, you need to configure it to connect to a dbt project.
+Once you install the dbt platform CLI, you need to configure it to connect to a dbt project.
 
-1. In dbt, select the project you want to configure your dbt CLI with. The project must already have a [development environment](../dbt-platform-environments.md#create-a-development-environment) set up.
+1. In dbt, select the project you want to configure your dbt platform CLI with. The project must already have a [development environment](../dbt-platform-environments.md#create-a-development-environment) set up.
 
 2. Download your `dbt_cloud.yml` credentials file and save it to your `.dbt` directory (`~/.dbt/dbt_cloud.yml` on macOS/Linux, `C:\Users\yourusername\.dbt\dbt_cloud.yml` on Windows). For download steps, the full file structure, and a field reference, refer to [`dbt_cloud.yml`](../../reference/dbt_cloud.yml.md).
 
@@ -38,22 +38,22 @@ Once you install the dbt CLI, you need to configure it to connect to a dbt proje
        project-id: PROJECT_ID
    ```
 
-5. You should now be able to [use the dbt CLI](#use-the-dbt-cli) and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
+5. You should now be able to [use the dbt platform CLI](#use-the-dbt-cli) and run [dbt commands](../../reference/dbt-commands.md) like [`dbt environment show`](../../reference/commands/dbt-environment.md?version=2.0) to view your dbt configuration details or `dbt compile` to compile models in your dbt project.
 
 With your repo recloned, you can add, edit, and sync files with your repo.
 
 ## Set environment variables
 
-To set environment variables in the dbt CLI for your dbt project:
+To set environment variables in the dbt platform CLI for your dbt project:
 
 1. From dbt, click on your account name in the left side menu and select **Account settings**.
 2. Under the **Your profile** section, select **Credentials**.
 3. Click on your project and scroll to the **Environment variables** section.
 4. Click **Edit** on the lower right and then set the user-level environment variables.
 
-## Use the dbt CLI
+## Use the dbt platform CLI
 
-The dbt CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt CLI, you can:
+The dbt platform CLI uses the same set of [dbt commands](../../reference/dbt-commands.md) and [MetricFlow commands](../build/metricflow-commands.md) as dbt Core to execute the commands you provide. For example, use the [`dbt environment`](../../reference/commands/dbt-environment.md?version=2.0) command to view your dbt configuration details. With the dbt platform CLI, you can:
 
 * Run [multiple invocations in parallel](../../reference/dbt-commands.md) and ensure [safe parallelism](../../reference/dbt-commands.md#parallel-execution), which `dbt-core` doesn't currently guarantee.
 * Automatically defer build artifacts to your project's production environment.
@@ -69,7 +69,7 @@ As a tip, most command-line tools have a `--help` flag to show available command
 
 ## Lint SQL files
 
-From the dbt CLI, you can invoke [SQLFluff](https://sqlfluff.com/), which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. Many of the same flags that you can pass to SQLFluff are available from the dbt CLI.
+From the dbt platform CLI, you can invoke [SQLFluff](https://sqlfluff.com/), which is a modular and configurable SQL linter that warns you of complex functions, syntax, formatting, and compilation errors. Many of the same flags that you can pass to SQLFluff are available from the dbt platform CLI.
 
 The available SQLFluff commands are:
 
@@ -89,7 +89,7 @@ To show detailed information on all the dbt supported commands and flags, run th
 
 #### Considerations
 
-When running `dbt sqlfluff` from the dbt CLI, the following are important behaviors to consider:
+When running `dbt sqlfluff` from the dbt platform CLI, the following are important behaviors to consider:
 
 * dbt reads the `.sqlfluff` file, if it exists, for any custom configurations you might have.
 * For continuous integration/continuous development (CI/CD) workflows, your project must have a `dbt_cloud.yml` file and you have successfully run commands from within this dbt project.
@@ -97,9 +97,9 @@ When running `dbt sqlfluff` from the dbt CLI, the following are important behavi
 
 ## Considerations
 
-The dbt CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
+The dbt platform CLI doesn't currently support relative paths in the [`packages.yml` file](../build/packages.md). Instead, use the [Studio IDE](./studio-ide/develop-in-studio.md), which supports relative paths in this scenario.
 
-Here's an example of a [local package](../build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt CLI:
+Here's an example of a [local package](../build/packages.md#local-packages) configuration in the `packages.yml` that won't work with the dbt platform CLI:
 
 ```yaml
 # repository_root/my_dbt_project_in_a_subdirectory/packages.yml
@@ -158,11 +158,11 @@ move %USERPROFILE%\Downloads\dbt_cloud.yml %USERPROFILE%\.dbt\dbt_cloud.yml
 
  How to skip artifacts from being downloaded
 
-By default, the dbt CLI downloads [all artifacts](../../reference/artifacts/dbt-artifacts.md) when you execute dbt commands. To skip these files from being downloaded, add `--download-artifacts=false` to the command you want to run. This can help improve run-time performance but might break workflows that depend on assets like the [manifest](../../reference/artifacts/manifest-json.md).
+By default, the dbt platform CLI downloads [all artifacts](../../reference/artifacts/dbt-artifacts.md) when you execute dbt commands. To skip these files from being downloaded, add `--download-artifacts=false` to the command you want to run. This can help improve run-time performance but might break workflows that depend on assets like the [manifest](../../reference/artifacts/manifest-json.md).
 
- I'm getting a \`Session occupied\` error in dbt CLI?
+ I'm getting a \`Session occupied\` error in dbt platform CLI?
 
-If you're receiving a `Session occupied` error in the dbt CLI or if you're experiencing a long-running session, you can use the `dbt invocation list` command in a separate terminal window to view the status of your active session. This helps debug the issue and identify the arguments that are causing the long-running session.
+If you're receiving a `Session occupied` error in the dbt platform CLI or if you're experiencing a long-running session, you can use the `dbt invocation list` command in a separate terminal window to view the status of your active session. This helps debug the issue and identify the arguments that are causing the long-running session.
 
 To cancel an active session, use the `Ctrl + Z` shortcut.
 

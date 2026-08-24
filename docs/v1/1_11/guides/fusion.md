@@ -116,7 +116,7 @@ info
 
 * You can install the dbt Fusion engine and use it standalone with the CLI.
 * You *cannot* use the dbt extension without Fusion installed.
-* Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt CLI or dbt Core), you can use `dbtf` as an unambiguous alias for Fusion.
+* Use `dbt` as your default command. If you already have another dbt command-line tool installed (such as the dbt platform CLI or dbt Core), you can use `dbtf` as an unambiguous alias for Fusion.
 
 The following are the essential steps from the [dbt Fusion engine](../docs/local/install-dbt.md?version=2) and [extension](../docs/install-dbt-extension.md) installation guides:
 

@@ -101,9 +101,9 @@ The Studio IDE provides a simplified interface that's accessible to all users, r
 * Mass-generating files / interacting with the file system are not available.
 * Combining/piping commands, such as `dbt run -s (bash command)`, is not available.
 
-### dbt CLI
+### dbt platform CLI
 
-The dbt CLI allows you to run dbt [commands](../reference/dbt-commands.md#available-commands) against your dbt platform development environment from your local command line. For users who seek full control over their development environment and ideal for those comfortable with the command line.
+The dbt platform CLI allows you to run dbt [commands](../reference/dbt-commands.md#available-commands) against your dbt platform development environment from your local command line. For users who seek full control over their development environment and ideal for those comfortable with the command line.
 
 When moving from dbt Core to dbt, make sure you check the `.gitignore` file contains the [necessary folders](../docs/platform/git/version-control-basics.md#the-gitignore-file). dbt Core doesn't interact with git so dbt doesn't automatically add or verify entries in the `.gitignore` file. Additionally, if the repository already contains dbt code and doesn't require initialization, dbt won't add any missing entries to the `.gitignore file`.
 

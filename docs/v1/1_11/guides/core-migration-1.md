@@ -43,7 +43,7 @@ It's ideal for teams looking to reduce the burden of maintaining their own infra
 
 * dbt is the fastest and most reliable way to deploy dbt. It enables you to develop, test, deploy, and explore data products using a single, fully managed service. Infrastructure is managed for you — no custom scripts or fragile orchestration. State-aware orchestration only builds what's changed, so you waste less compute and time. Browser-based development and dbt Wizard open up development to analysts, so you're no longer the bottleneck for every change. With end-to-end lineage, shared metric definitions, and CI that catches regressions before production, you spend less time debugging and more time building. dbt also supports:
 
-  * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt CLI](../docs/platform/dbt-cli-installation.md))
+  * Development experiences tailored to multiple personas ([Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) or [dbt platform CLI](../docs/platform/dbt-cli-installation.md))
   * Out-of-the-box [CI/CD workflows](../docs/deploy/ci-jobs.md)
   * The [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md) for consistent metrics
   * Domain ownership of data with multi-project [dbt Mesh](../best-practices/how-we-mesh/mesh-1-intro.md) setups

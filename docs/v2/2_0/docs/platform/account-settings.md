@@ -70,7 +70,7 @@ info
 
 `login.dbt.com` is currently available for multi-tenant accounts with an account-specific domain (for example, `abc123.us1.dbt.com`). Support for single-tenant accounts is coming soon. In the meantime, single-tenant users can sign in directly using their account **Access URL** (like `MY_COMPANY.us1.dbt.com`).
 
-OAuth clients such as [dbt CLI](./dbt-cli-installation.md), the [dbt VS Code extension](../about-dbt-extension.md?version=2.0), and [dbt MCP](../dbt-ai/about-mcp.md) have not yet been updated to use `login.dbt.com` and continue to authenticate through their account [**Access URL**](./about-platform/access-regions-ip-addresses.md).
+OAuth clients such as [dbt platform CLI](./dbt-cli-installation.md), the [dbt VS Code extension](../about-dbt-extension.md?version=2.0), and [dbt MCP](../dbt-ai/about-mcp.md) have not yet been updated to use `login.dbt.com` and continue to authenticate through their account [**Access URL**](./about-platform/access-regions-ip-addresses.md).
 
 Disabling this setting means users must know their [account URL](./about-platform/access-regions-ip-addresses.md#accessing-your-account) to log in; they will not see a list of accounts at login.
 

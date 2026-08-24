@@ -60,9 +60,9 @@
 
 [Use incremental models or optimize queries for job failures due to exceeded memory limits.](../faqs/Troubleshooting/job-memory-limits.md)
 
-## [Debug long-running sessions in dbt CLI](../faqs/Troubleshooting/long-sessions-dbt-cli.md)
+## [Debug long-running sessions in dbt platform CLI](../faqs/Troubleshooting/long-sessions-dbt-cli.md)
 
-[How to debug long-running sessions in dbt CLI](../faqs/Troubleshooting/long-sessions-dbt-cli.md)
+[How to debug long-running sessions in dbt platform CLI](../faqs/Troubleshooting/long-sessions-dbt-cli.md)
 
 ## [NoneType error in the IDE](../faqs/Troubleshooting/nonetype-ide-error.md)
 

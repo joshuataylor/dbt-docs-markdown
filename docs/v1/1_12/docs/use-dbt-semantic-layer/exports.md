@@ -49,7 +49,7 @@ Before you're able to run exports in development or production, you'll need to m
 
 There are two ways to run an export:
 
-* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on the dbt Fusion engine, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt CLI](../platform/dbt-cli-installation.md) outside Fusion, run `dbt sl export` or `dbt sl export-all`.
+* [Run exports in development](#exports-in-development) to test the output before production. In Studio IDE or any environment on the dbt Fusion engine, run `dbt build` instead — enable the [environment variable](#set-environment-variable) first. In the [dbt platform CLI](../platform/dbt-cli-installation.md) outside Fusion, run `dbt sl export` or `dbt sl export-all`.
 * [Run exports in production](#exports-in-production) using the [dbt job scheduler](../deploy/job-scheduler.md) to write these queries within your data platform.
 
 ## Exports in development
@@ -66,9 +66,9 @@ If your environment runs on the dbt Fusion engine (including Studio IDE), use `d
 
 ### Exports for single saved query
 
-These commands apply when you're using the dbt CLI outside Studio IDE or the dbt Fusion engine. If your environment runs on Fusion, use `dbt build` instead. For more info, check out [Run exports](#run-exports).
+These commands apply when you're using the dbt platform CLI outside Studio IDE or the dbt Fusion engine. If your environment runs on Fusion, use `dbt build` instead. For more info, check out [Run exports](#run-exports).
 
-Use the following command to run exports in the dbt CLI:
+Use the following command to run exports in the dbt platform CLI:
 
 ```bash
 dbt sl export

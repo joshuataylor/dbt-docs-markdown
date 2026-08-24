@@ -36,7 +36,7 @@ The dbt platform is a fully managed service that gives you a complete environmen
 
 * [Develop in your browser using the Studio IDE](../platform/studio-ide/develop-in-studio.md)
 * [Seamless drag-and-drop development with Canvas](../platform/canvas.md)
-* [Run dbt commands from your local command line](#dbt-local-development) using dbt VS Code extension or dbt CLI (both which integrate seamlessly with the dbt platform project(s)).
+* [Run dbt commands from your local command line](#dbt-local-development) using dbt VS Code extension or dbt platform CLI (both which integrate seamlessly with the dbt platform project(s)).
 
 For more details, see [About dbt plans](https://www.getdbt.com/pricing).
 
@@ -46,7 +46,7 @@ You can run dbt locally with the dbt Fusion engine or the dbt Core engine:
 
 * [Install dbt](../local/install-dbt.md) — Get Fusion from the command line
 * [Install the dbt VS Code extension](../about-dbt-extension.md) — Combines dbt Fusion engine performance with visual features like autocomplete, inline errors, and lineage. Includes [LSP features](../about-dbt-lsp.md) and suitable for users with dbt platform projects or running dbt locally without a dbt platform project. *Recommended for local development.*
-* [Install the dbt CLI](../platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
+* [Install the dbt platform CLI](../platform/dbt-cli-installation.md) — The dbt platform CLI, which allows you to run dbt commands against your dbt platform development environment from your local command line. Requires a dbt platform project.
 
 ## Related docs
 

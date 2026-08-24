@@ -53,7 +53,7 @@ You can use dbt in different ways depending on your needs:
 
 The dbt platform is the fastest way to run dbt: scheduling, CI/CD, documentation hosting, monitoring, and alerting, all in one place. It works with both v1 and v2, on every plan from Developer (free) through Enterprise+.
 
-Develop directly in the platform with the [Studio IDE](./platform/studio-ide/develop-in-studio.md) or connect from your local machine with the dbt VS Code extension or dbt CLI.
+Develop directly in the platform with the [Studio IDE](./platform/studio-ide/develop-in-studio.md) or connect from your local machine with the dbt VS Code extension or dbt platform CLI.
 
 Learn more about [dbt platform features](./platform/about-platform/dbt-platform-features.md), explore [plans and pricing](https://www.getdbt.com/pricing/), or try a [quickstart](https://docs.getdbt.com/guides).
 

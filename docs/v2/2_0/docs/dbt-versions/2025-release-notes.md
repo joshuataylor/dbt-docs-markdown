@@ -125,7 +125,7 @@ The following features are new or enhanced as part of [dbt's Coalesce analytics 
 * **Beta**: The dbt Fusion engine supports the BigQuery adapter in beta.
 * **New:** You can now view the history of settings changes for [projects](../platform/account-settings.md), [environments](../dbt-platform-environments.md), and [jobs](../deploy/deploy-jobs.md).
 * **New:** Added support for the latest version of BigQuery credentials in Semantic Layer and MetricFlow.
-* **New:** Snowflake External OAuth is now supported for Semantic Layer queries. Snowflake connections that use External OAuth for user credentials can now emit queries for Insights, dbt CLI, and Studio IDE through the Semantic Layer Gateway. This enables secure, identity-aware access via providers like Okta or Microsoft Entra ID.
+* **New:** Snowflake External OAuth is now supported for Semantic Layer queries. Snowflake connections that use External OAuth for user credentials can now emit queries for Insights, dbt platform CLI, and Studio IDE through the Semantic Layer Gateway. This enables secure, identity-aware access via providers like Okta or Microsoft Entra ID.
 * **New:** You can now [download your managed Git repo](../platform/git/managed-repository.md#download-managed-repository) from the dbt platform.
 * **New**: The Semantic Layer now supports Trino as a data platform. For more details, see [Set up the Semantic Layer](../use-dbt-semantic-layer/setup-sl.md).
 * **New**: The dbt Fusion engine supports Databricks in beta.

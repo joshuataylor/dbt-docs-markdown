@@ -18,11 +18,11 @@ By default, `dbt debug` validates:
 
 ## Flags
 
-Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in dbt CLI, but only `--connection` is supported in the Studio IDE.
+Most of the `dbt debug` flags apply to the dbt Core CLI. Some flags also work in dbt platform CLI, but only `--connection` is supported in the Studio IDE.
 
 * dbt Core CLI: Supports all flags.
 * Studio IDE: Only supports dbt `debug` and `dbt debug --connection`.
-* dbt CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](./dbt-environment.md?version=2.0) command to interact with your dbt environment.
+* dbt platform CLI: Only supports dbt `debug` and `dbt debug --connection`. You can also use the [`dbt environment`](./dbt-environment.md?version=2.0) command to interact with your dbt environment.
 
 `dbt debug` supports the following flags in your terminal when using the command line interface (CLI):
 

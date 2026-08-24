@@ -2,7 +2,7 @@
 
 v2 is the current generation of dbt — installing or upgrading gives you dbt Fusion engine, the default experience. dbt Core 2.0 is the Apache 2.0 foundation underneath Fusion. dbt Core v1.x (Python-based, open-source) remains on the 1.x series and follows semantic versioning; v2 uses the 2.x series. This page covers versioning for local dbt installations.
 
-If you're using the dbt platform (including the dbt CLI), you don't need to manage dbt versions yourself. [Release tracks](./dbt-versions/dbt-release-tracks.md) automatically keep you up to date and provide early access to new features.
+If you're using the dbt platform (including the dbt platform CLI), you don't need to manage dbt versions yourself. [Release tracks](./dbt-versions/dbt-release-tracks.md) automatically keep you up to date and provide early access to new features.
 
 ## dbt Fusion engine versioning
 

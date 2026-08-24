@@ -30,7 +30,7 @@ The agent comes with the following out of the box, meaning no configuration need
 
 #### Availability and considerations
 
-* **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt CLI.
+* **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt platform CLI.
 * **Engines:** Works with dbt Fusion engine and dbt Core.
 * **Conversations:** In the conversation list, open **More actions** menu (three dots) of the conversation you want to delete, then click **Delete** to remove one thread. Deleting the open thread clears the panel.
 * **Sessions:** Refreshing the same browser tab keeps your active session. A new tab, or returning after closing the tab, starts empty.
@@ -153,7 +153,7 @@ If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platfo
 
 info
 
-The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
+The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.

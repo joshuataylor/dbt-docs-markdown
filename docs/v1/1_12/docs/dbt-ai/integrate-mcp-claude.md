@@ -62,7 +62,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    ##### dbt platform only
 
-   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
+   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt platform CLI commands.
 
    When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -84,7 +84,7 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    ##### dbt platform + CLI
 
-   This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
+   This option is for users who want both dbt platform CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
    The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -310,7 +310,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    #### dbt platform only
 
-   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt CLI commands.
+   This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt platform CLI commands.
 
    When you use only the dbt platform, the CLI tools are automatically disabled. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 
@@ -332,7 +332,7 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
 
    #### dbt platform + CLI
 
-   This option is for users who want both dbt CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
+   This option is for users who want both dbt platform CLI commands and dbt platform features (Discovery API, Semantic Layer, job management).
 
    The `DBT_PROJECT_DIR` and `DBT_PATH` fields are required for CLI access. You can find the `DBT_HOST` field value in your dbt platform account information under **Access URLs**.
 

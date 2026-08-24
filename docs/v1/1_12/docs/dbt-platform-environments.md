@@ -28,14 +28,14 @@ In dbt, there are two types of environments:
   * Staging
   * Production
 
-* **Development environment** — Determines the settings used in the Studio IDE or dbt CLI, for that particular project.
+* **Development environment** — Determines the settings used in the Studio IDE or dbt platform CLI, for that particular project.
 
 Each dbt project can only have a single development environment, but can have any number of General deployment environments, one Production deployment environment and one Staging deployment environment.
 
-|                                        | Development           | General      | Production   | Staging      |
-| -------------------------------------- | --------------------- | ------------ | ------------ | ------------ |
-| **Determines settings for**            | Studio IDE or dbt CLI | dbt Job runs | dbt Job runs | dbt Job runs |
-| **How many can I have in my project?** | 1                     | Any number   | 1            | 1            |
+|                                        | Development                    | General      | Production   | Staging      |
+| -------------------------------------- | ------------------------------ | ------------ | ------------ | ------------ |
+| **Determines settings for**            | Studio IDE or dbt platform CLI | dbt Job runs | dbt Job runs | dbt Job runs |
+| **How many can I have in my project?** | 1                              | Any number   | 1            | 1            |
 
 note
 
@@ -62,7 +62,7 @@ dbt allows users to select a [release track](./dbt-versions/dbt-release-tracks.m
 
 By default, all environments will use the default branch in your repository (usually the `main` branch) when accessing your dbt code. This is overridable within each dbt Environment using the **Default to a custom branch** option. This setting will have slightly different behavior depending on the environment type:
 
-* **Development**: determines which branch in the Studio IDE or dbt CLI developers create branches from and open PRs against.
+* **Development**: determines which branch in the Studio IDE or dbt platform CLI developers create branches from and open PRs against.
 * **Deployment:** determines the branch is cloned during job executions for each environment.
 
 For more info, check out this [FAQ page on this topic](../faqs/Environments/custom-branch-settings.md)!
@@ -107,7 +107,7 @@ db_groups:
 
 #### How extended attributes work
 
-If you're developing in the [Studio IDE](./platform/studio-ide/develop-in-studio.md), [dbt CLI](./platform/dbt-cli-installation.md), or [orchestrating job runs](./deploy/deployments.md), extended attributes parses through the provided YAML and extracts the `profiles.yml` attributes. For each individual attribute:
+If you're developing in the [Studio IDE](./platform/studio-ide/develop-in-studio.md), [dbt platform CLI](./platform/dbt-cli-installation.md), or [orchestrating job runs](./deploy/deployments.md), extended attributes parses through the provided YAML and extracts the `profiles.yml` attributes. For each individual attribute:
 
 * If the attribute exists in another source (such as your project settings), it will replace its value (like environment-level values) in the profile. It also overrides any custom environment variables (if not itself wired using the syntax described for secrets above)
 
@@ -131,7 +131,7 @@ To create a new dbt development environment:
 
 ### Set user credentials
 
-To use the dbt Studio IDE or dbt CLI, each developer will need to set up [personal user credentials](./platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to your warehouse connection. Click your account name in the bottom left, select **Your profile**, then go to **Credentials**. This allows you to set separate target information and maintain individual credentials to connect to your warehouse.
+To use the dbt Studio IDE or dbt platform CLI, each developer will need to set up [personal user credentials](./platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) to your warehouse connection. Click your account name in the bottom left, select **Your profile**, then go to **Credentials**. This allows you to set separate target information and maintain individual credentials to connect to your warehouse.
 
 ## Deployment environment
 

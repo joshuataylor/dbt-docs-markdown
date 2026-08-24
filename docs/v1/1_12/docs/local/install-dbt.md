@@ -231,7 +231,7 @@ Most command-line tools, including dbt, support a `--help` flag that shows avail
   brew uninstall dbt
   ```
 
-  If `dbt --version` still finds a version after uninstalling, another install of dbt Core or dbt CLI may exist elsewhere on your `$PATH` (for example, a global or pipx install alongside a virtual environment). Check `which dbt` to confirm which install is being used, then uninstall that one too.
+  If `dbt --version` still finds a version after uninstalling, another install of dbt Core or dbt platform CLI may exist elsewhere on your `$PATH` (for example, a global or pipx install alongside a virtual environment). Check `which dbt` to confirm which install is being used, then uninstall that one too.
 
 ## Next steps
 

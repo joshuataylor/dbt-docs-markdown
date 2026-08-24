@@ -875,7 +875,7 @@ This semantic model uses simple metrics to focus on customer metrics and emphasi
 To work with metrics in dbt, you have several tools to validate or run commands. Here's how you can test and query metrics depending on your setup:
 
 * [**Studio IDE users**](#studio-ide-users) — Run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) directly in the [Studio IDE](../docs/platform/studio-ide/develop-in-studio.md) to query/preview metrics. View metrics visually in the **Lineage** tab.
-* [**dbt CLI users**](#dbt-cli-users) — The [dbt CLI](../docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
+* [**dbt platform CLI users**](#dbt-cli-users) — The [dbt platform CLI](../docs/platform/dbt-cli-installation.md) enables you to run [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) to query and preview metrics directly in your command line interface.
 * **dbt Core users** — Use the MetricFlow CLI for command execution. While this guide focuses on dbt users, dbt Core users can find detailed MetricFlow CLI setup instructions in the [MetricFlow commands](../docs/build/metricflow-commands.md#metricflow-commands) page. Note that to use the Semantic Layer, you need to have a [Starter or Enterprise-tier account](https://www.getdbt.com/).
 
 Alternatively, you can run commands with SQL client tools like DataGrip, DBeaver, or RazorSQL.
@@ -888,13 +888,13 @@ The Studio IDE **Status button** (located in the bottom right of the editor) dis
 
 Once viewed, make sure you commit and merge your changes in your project.
 
-### dbt CLI users
+### dbt platform CLI users
 
-This section is for dbt CLI users. MetricFlow commands are integrated with dbt, which means you can run MetricFlow commands as soon as you install the dbt CLI. Your account will automatically manage version control for you.
+This section is for dbt platform CLI users. MetricFlow commands are integrated with dbt, which means you can run MetricFlow commands as soon as you install the dbt platform CLI. Your account will automatically manage version control for you.
 
 Refer to the following steps to get started:
 
-1. Install the [dbt CLI](../docs/platform/dbt-cli-installation.md) (if you haven't already). Then, navigate to your dbt project directory.
+1. Install the [dbt platform CLI](../docs/platform/dbt-cli-installation.md) (if you haven't already). Then, navigate to your dbt project directory.
 2. Run a dbt command, such as `dbt parse`, `dbt run`, `dbt compile`, or `dbt build`. If you don't, you'll receive an error message that begins with: "ensure that you've ran an artifacts....".
 3. MetricFlow builds a semantic graph and generates a `semantic_manifest.json` file in dbt, which is stored in the `/target` directory. If using the Jaffle Shop example, run `dbt seed && dbt run` to ensure the required data is in your data platform before proceeding.
 

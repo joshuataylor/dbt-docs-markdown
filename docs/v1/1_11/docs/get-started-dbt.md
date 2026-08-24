@@ -2,9 +2,9 @@
 
 Begin your dbt journey by choosing how you want to develop:
 
-* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](./fusion/about-fusion.md) and [dbt Core](./local/install-dbt.md) engines.
+* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt platform CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](./fusion/about-fusion.md) and [dbt Core](./local/install-dbt.md) engines.
 * [**Self-hosted only**](#self-hosted-dbt-installations) — Use local tools like the [dbt VS Code extension](./about-dbt-extension.md) or [install dbt](./local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
-* **Local + dbt platform** — Use the VS Code extension or dbt CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
+* **Local + dbt platform** — Use the VS Code extension or dbt platform CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
 * [**dbt Wizard**](#dbt-wizard) — The AI agent for analytics engineering, available in the dbt platform and from your terminal. Grounded in your project's lineage, model health, and semantic definitions.
 
 ## The dbt platform
@@ -73,7 +73,7 @@ Choose your warehouse to get started with a quickstart:
 
 When you install dbt into your Windows, macOS, or Linux environment, you get command-line tools and the VS Code extension that enable you to transform data using analytics engineering best practices.
 
-You can use self-hosted tools with or without a dbt platform account. With an account, the VS Code extension and dbt CLI sync with your platform project for CI/CD, documentation, and more. Without an account, you run dbt entirely on your own infrastructure.
+You can use self-hosted tools with or without a dbt platform account. With an account, the VS Code extension and dbt platform CLI sync with your platform project for CI/CD, documentation, and more. Without an account, you run dbt entirely on your own infrastructure.
 
 Develop with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
 

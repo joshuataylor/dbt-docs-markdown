@@ -99,27 +99,27 @@ select 1 as id
 
 The following commands are supported:
 
-| `flags.WHICH` value | Description                                                        |
-| ------------------- | ------------------------------------------------------------------ |
-| `"build"`           | Build and test all selected resources.                             |
-| `"clean"`           | Remove artifacts like target directory and packages.               |
-| `"clone"`           | Clone models and other resources.                                  |
-| `"compile"`         | Compile SQL, but do not execute.                                   |
-| `"debug"`           | Test connections and validate configs.                             |
-| `"deps"`            | Download package dependencies.                                     |
-| `"docs"`            | Generate and serve documentation.                                  |
-| `"environment"`     | Workspace environment commands (cloud CLI).                        |
-| `"help"`            | Show help for commands and subcommands.                            |
-| `"init"`            | Bootstrap a new project.                                           |
-| `"invocation"`      | For interacting with or inspecting current invocation (cloud CLI). |
-| `"list"`            | List resources.                                                    |
-| `"parse"`           | Parse project and report errors, but don’t build/test.             |
-| `"retry"`           | Retry the last invocation from the point of failure.               |
-| `"run"`             | Execute models.                                                    |
-| `"run-operation"`   | Invoke arbitrary macros or SQL ops.                                |
-| `"seed"`            | Load CSV(s) into the database.                                     |
-| `"show"`            | Inspect resource definitions or materializations.                  |
-| `"snapshot"`        | Execute snapshots.                                                 |
-| `"source"`          | Validate freshness and inspect source definitions.                 |
-| `"test"`            | Schema and data tests.                                             |
-| `"version"`         | Display dbt version.                                               |
+| `flags.WHICH` value | Description                                                               |
+| ------------------- | ------------------------------------------------------------------------- |
+| `"build"`           | Build and test all selected resources.                                    |
+| `"clean"`           | Remove artifacts like target directory and packages.                      |
+| `"clone"`           | Clone models and other resources.                                         |
+| `"compile"`         | Compile SQL, but do not execute.                                          |
+| `"debug"`           | Test connections and validate configs.                                    |
+| `"deps"`            | Download package dependencies.                                            |
+| `"docs"`            | Generate and serve documentation.                                         |
+| `"environment"`     | Workspace environment commands (dbt platform CLI).                        |
+| `"help"`            | Show help for commands and subcommands.                                   |
+| `"init"`            | Bootstrap a new project.                                                  |
+| `"invocation"`      | For interacting with or inspecting current invocation (dbt platform CLI). |
+| `"list"`            | List resources.                                                           |
+| `"parse"`           | Parse project and report errors, but don’t build/test.                    |
+| `"retry"`           | Retry the last invocation from the point of failure.                      |
+| `"run"`             | Execute models.                                                           |
+| `"run-operation"`   | Invoke arbitrary macros or SQL ops.                                       |
+| `"seed"`            | Load CSV(s) into the database.                                            |
+| `"show"`            | Inspect resource definitions or materializations.                         |
+| `"snapshot"`        | Execute snapshots.                                                        |
+| `"source"`          | Validate freshness and inspect source definitions.                        |
+| `"test"`            | Schema and data tests.                                                    |
+| `"version"`         | Display dbt version.                                                      |
