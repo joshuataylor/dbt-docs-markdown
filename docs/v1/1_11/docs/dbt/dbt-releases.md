@@ -76,11 +76,11 @@ Released by: **kczimm**Aug 28, 2026, 08:49 PM
 
 Automated promotion
 
-[v2.0.0-preview.218](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview218 "View this release in the dbt Fusion changelog")GoodDevnightlyCanaryLatest
+[v2.0.0-preview.218](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview218 "View this release in the dbt Fusion changelog")GoodDevnightlyCanaryLatestST Monday
 
-Released by: **mishamsk**Aug 27, 2026, 11:17 PM
+Released by: **johnchappelledbt**Aug 31, 2026, 06:27 PM
 
-let conformance be!
+Automated ST promotion
 
 [v2.0.0-preview.217](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview217 "View this release in the dbt Fusion changelog")GoodDevnightly
 
@@ -114,7 +114,7 @@ planned
 
 [v2.0.0-preview.212](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview212 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stable
 
-Released by: **jeremyhutt11**Aug 26, 2026, 11:47 PM
+Released by: **johnchappelledbt**Aug 31, 2026, 06:28 PM
 
 Automated ST snapshot
 
@@ -162,7 +162,7 @@ Planned Promotion
 
 [v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
 
-Released by: **jeremyhutt11**Aug 26, 2026, 11:47 PM
+Released by: **johnchappelledbt**Aug 31, 2026, 06:28 PM
 
 Automated ST snapshot
 
@@ -216,7 +216,7 @@ Automated promotion
 
 [v2.0.0-preview.194](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview194 "View this release in the dbt Fusion changelog")GoodDevCanarystableextendedst-monday-extendedst-wednesday-extendedst-thursday-extendedfallbackst-monday-fallbackst-wednesday-fallbackst-thursday-fallback
 
-Released by: **jeremyhutt11**Aug 26, 2026, 11:47 PM
+Released by: **johnchappelledbt**Aug 31, 2026, 06:28 PM
 
 Automated ST snapshot
 
