@@ -146,7 +146,7 @@ If you have access to [dbt Wizard](../../dbt-ai/wizard-ide.md) with [AI features
 
 info
 
-The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
+The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/dbt-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.
@@ -171,7 +171,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 ![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
-For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](../../fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](../../../guides/prepare-fusion-upgrade.md).
+For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../../dbt/dbt-readiness.md) and the [Upgrade to Fusion guides](../../../guides/prepare-dbt-upgrade.md).
 
 ### Writing effective prompts
 
@@ -186,6 +186,8 @@ Good prompts include the *scope* (which models or area of the project), the *int
 For detailed guidance, patterns, and more examples across SQL, documentation, tests, and semantic models, see the [Prompt cookbook](../../../guides/prompt-cookbook.md).
 
 ## dbt Copilot in Studio IDE
+
+*The earlier version of dbt Copilot in the Studio IDE is available only to a limited set of accounts. dbt Wizard is available to all accounts and is the recommended way to develop with AI in the Studio IDE — it covers everything dbt Copilot's quick actions did, plus multi-step changes with built-in validation.*
 
 [dbt Copilot](../../dbt-ai/copilot-overview.md) provides single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
 

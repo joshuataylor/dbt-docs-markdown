@@ -33,3 +33,9 @@ Starter and Enterprise-tier customers can sign up for a free trial of the Semant
  What is the reasonable use limitation for the Semantic Layer powered by MetricFlow during the trial?
 
 Each account will be limited to 1,000 Queried Metrics per month during the trial period and may be changed at the sole discretion of dbt Labs.
+
+## dbt Wizard
+
+dbt Wizard is billed on usage: metered per token and drawn from your consumption pool. Enterprise and Enterprise+ accounts get a monthly pool; all other plans start with a 30-day trial and a $100 pool.
+
+For trials, consumption pools, spend limits, and BYOK billing, refer to [dbt Wizard billing FAQs](../dbt-ai/wizard-billing-faqs.md).

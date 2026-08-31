@@ -8,11 +8,11 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 [Learn about semantic versioning for dbt engines, and how long those versions are supported.](../dbt-versions.md)
 
-[![](/img/icons/dbt-bit.svg)](./fusion-version-compatibility.md)
+[![](/img/icons/dbt-bit.svg)](./dbt-version-compatibility.md)
 
-#### [Fusion version compatibility](./fusion-version-compatibility.md)
+#### [Fusion version compatibility](./dbt-version-compatibility.md)
 
-[Learn about version compatibility between the dbt Fusion engine, LSP, and VS Code extension.](./fusion-version-compatibility.md)
+[Learn about version compatibility between the dbt Fusion engine, LSP, and VS Code extension.](./dbt-version-compatibility.md)
 
 [![](/img/icons/dbt-bit.svg)](./dbt-release-tracks.md)
 
@@ -38,8 +38,8 @@ Whether you're using the CLI or working within the dbt platform, your environmen
 
 [Learn how to enable self-service beta and preview features for your dbt platform account.](./experimental-features.md)
 
-[![](/img/icons/dbt-bit.svg)](./core-upgrade.md)
+[![](/img/icons/dbt-bit.svg)](./dbt-upgrade.md)
 
-#### [dbt version upgrade guides](./core-upgrade.md)
+#### [dbt version upgrade guides](./dbt-upgrade.md)
 
-[All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more.](./core-upgrade.md)
+[All the information you need to prepare your projects for the next version of dbt, including Fusion. Includes guidance on new features, behavior changes, deprecations, and much more.](./dbt-upgrade.md)

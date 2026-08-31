@@ -39,7 +39,7 @@ Each dbt project can only have a single development environment, but can have an
 
 note
 
-For users familiar with development on dbt Core, each environment is roughly analogous to an entry in your `profiles.yml` file, with some additional information about your repository to ensure the proper version of code is executed. More info on dbt core environments [here](./local/dbt-core-environments.md).
+For users familiar with development on dbt Core, each environment is roughly analogous to an entry in your `profiles.yml` file, with some additional information about your repository to ensure the proper version of code is executed. More info on dbt core environments [here](./local/dbt-environments.md).
 
 ## Common environment settings
 

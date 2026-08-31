@@ -19,6 +19,7 @@
 * [Best practices2](./tags/best-practices.md)
 * [BigFrames1](./tags/big-frames.md)
 * [BigQuery4](./tags/big-query.md)
+* [billing1](./tags/billing.md)
 
 ***
 
@@ -48,7 +49,7 @@
 * [dbt Insights2](./tags/dbt-insights.md)
 * [dbt MCP2](./tags/dbt-mcp.md)
 * [dbt platform27](./tags/dbt-platform.md)
-* [dbt State18](./tags/dbt-state.md)
+* [dbt State20](./tags/dbt-state.md)
 * [dbt Wizard2](./tags/dbt-wizard.md)
 * [Dremio1](./tags/dremio.md)
 * [DuckDB2](./tags/duck-db.md)
@@ -111,7 +112,7 @@
 ## P
 
 * [Platform4](./tags/platform.md)
-* [Privacy2](./tags/privacy.md)
+* [Privacy1](./tags/privacy.md)
 
 ***
 
@@ -133,7 +134,7 @@
 * [SAO3](./tags/sao.md)
 * [scheduler7](./tags/scheduler.md)
 * [Semantic Layer42](./tags/semantic-layer.md)
-* [Snowflake6](./tags/snowflake.md)
+* [Snowflake5](./tags/snowflake.md)
 * [SQL1](./tags/sql.md)
 * [static\_analysis2](./tags/static-analysis.md)
 * [Studio1](./tags/studio.md)

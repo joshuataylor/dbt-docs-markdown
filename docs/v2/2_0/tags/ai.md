@@ -40,6 +40,10 @@ dbt Copilot is dbt's inline AI assistance experience, providing single-click gen
 
 Chat with your data using the Analyst agent powered by the dbt Semantic Layer
 
+## [dbt Wizard billing and AI access FAQs](../docs/dbt-ai/wizard-billing-faqs.md)
+
+Answers to common questions about AI being enabled by default, dbt Wizard usage, consumption pools, trials, spend limits, and BYOK billing.
+
 ## [dbt Wizard CLI configuration](../docs/dbt-ai/wizard-config.md)
 
 Full reference for both dbt Wizard configuration files — the agent runtime config and the per-project dbt Wizard settings.
@@ -55,10 +59,6 @@ Use the dbt Wizard home tab in the dbt platform for an agent-native development 
 ## [dbt Wizard in Studio IDE](../docs/dbt-ai/wizard-ide.md)
 
 Use dbt Wizard in the Studio IDE to write or refactor dbt models from natural language, validate with your dbt engine, and run against your warehouse with full project context.
-
-## [dbt Wizard in the dbt platform privacy and data](../docs/dbt-ai/wizard-platform-privacy-data.md)
-
-Understand how dbt Wizard in the dbt platform handles your privacy and data.
 
 ## [dbt Wizard use cases](../docs/dbt-ai/wizard-use-cases.md)
 

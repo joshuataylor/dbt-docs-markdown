@@ -116,7 +116,7 @@ State-aware orchestration and dbt State differ in a few ways:
 
 * **More models rebuilding than expected**: If you notice more rebuilds after you migrate, the most common causes are:
 
-  * **Views with `select *`**: dbt State can't determine which columns `select *` resolves to without querying the upstream schema, so it always rebuilds these views rather than risk reusing a stale result.
+  * **Views with `select *` on a `ref()` or `source()`**: dbt State can't determine which columns `select *` resolves to without querying the upstream schema, so it rebuilds these views rather than risk reusing a stale result. Views that use `select *` on a CTE are reused, because dbt can resolve the columns from the CTE definition. For more information, refer to [Views with `select *`](../../faqs/State/views-rebuilt.md#views-with-select).
   * **Non-determinism in Jinja-templated SQL**: Macros like `dbt_utils.get_relations_by_pattern` with `dbt_utils.union_relations` can return relations in a different order on each run, which produces different compiled SQL. dbt State detects a new hash and rebuilds the model. If that model has downstream dependencies, those models rebuild, too.
   * **Models with external sources on BigQuery**: Models that use external sources (such as Google Sheets) always rebuild because BigQuery doesn't expose modification timestamps for external sources, so dbt State can't determine freshness.
 
@@ -128,6 +128,10 @@ State-aware orchestration and dbt State differ in a few ways:
 
   * `freshness.build_after` (for example, `{count: 4, period: hour}`) skips the model unless the configured interval has elapsed *and* upstream sources have new data since the last run. A SQL change alone does not trigger a rebuild; both conditions must be met.
   * `state.lag_tolerance` (for example, `4h`) skips the model unless upstream data is newer than the model's last run by at least the configured interval. Unlike `build_after`, a detected SQL change triggers a rebuild.
+
+* **No concurrent build detection**: In most cases, dbt State handles overlapping nodes the same way as state-aware orchestration: if a node is built by Job 1 before Job 2 starts, Job 2 sees the model as already built and reuses it. If Job 1 finishes building a node after Job 2 starts — but before Job 2 builds that node — Job 2 still builds it and uses compute to re-determine there's no new data. However, if Job 2 starts building the same snapshot or incremental model before Job 1 executing the same node, both jobs can detect the same changes in their separate transactions and commit them, which can lead to duplicate records or other data corruption.
+
+  To prevent duplicate builds, ensure jobs that share the same nodes don't run at the same time — whether by configuring job schedules through the [dbt platform job scheduler](./job-scheduler.md) or an external orchestration tool (for example, Airflow or Dagster), or by avoiding manually triggered runs that overlap.
 
 * **Efficient Testing not yet available**: State-aware orchestration offers Efficient Testing (private beta); dbt State doesn't support it yet.
 

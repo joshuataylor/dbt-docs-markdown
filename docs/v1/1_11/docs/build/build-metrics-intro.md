@@ -25,11 +25,11 @@ MetricFlow allows you to:
 
 [Learn how to migrate from the legacy metrics YAML spec to the latest metrics YAML spec.](./latest-metrics-spec.md)
 
-[![](/img/icons/dbt-bit.svg)](../../guides/sl-snowflake-qs.md)
+[![](/img/icons/dbt-bit.svg)](../../guides/sl-qs.md)
 
-#### [Quickstart for the dbt Semantic Layer](../../guides/sl-snowflake-qs.md)
+#### [Quickstart for the dbt Semantic Layer](../../guides/sl-qs.md)
 
-[Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using downstream tools.](../../guides/sl-snowflake-qs.md)
+[Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using downstream tools.](../../guides/sl-qs.md)
 
 [![](/img/icons/dbt-bit.svg)](./about-metricflow.md)
 
@@ -69,7 +69,7 @@ MetricFlow allows you to:
 
 ## Related docs
 
-* [Quickstart guide with the Semantic Layer](../../guides/sl-snowflake-qs.md)
+* [Quickstart guide with the Semantic Layer](../../guides/sl-qs.md)
 * [The Semantic Layer: what's next](https://www.getdbt.com/blog/dbt-semantic-layer-whats-next/) blog
 * [Semantic Layer on-demand course](https://learn.getdbt.com/courses/semantic-layer)
 * [Semantic Layer FAQs](../use-dbt-semantic-layer/sl-faqs.md)

@@ -26,6 +26,10 @@ Install, verify, update, and uninstall the dbt Wizard CLI on your local machine.
 
 Bring your own API key to use dbt Wizard CLI. Supports OpenAI, Anthropic, AWS Bedrock, Google Gemini, Snowflake Cortex (preview), and Databricks.
 
+## [dbt Wizard billing and AI access FAQs](../docs/dbt-ai/wizard-billing-faqs.md)
+
+Answers to common questions about AI being enabled by default, dbt Wizard usage, consumption pools, trials, spend limits, and BYOK billing.
+
 ## [dbt Wizard CLI configuration](../docs/dbt-ai/wizard-config.md)
 
 Full reference for both dbt Wizard configuration files — the agent runtime config and the per-project dbt Wizard settings.
@@ -37,10 +41,6 @@ Understand what dbt Wizard CLI telemetry collects, why it is collected, and how 
 ## [dbt Wizard home tab](../docs/platform/wizard-home.md)
 
 Use the dbt Wizard home tab in the dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
-
-## [dbt Wizard in the dbt platform privacy and data](../docs/dbt-ai/wizard-platform-privacy-data.md)
-
-Understand how dbt Wizard in the dbt platform handles your privacy and data.
 
 ## [dbt Wizard use cases](../docs/dbt-ai/wizard-use-cases.md)
 

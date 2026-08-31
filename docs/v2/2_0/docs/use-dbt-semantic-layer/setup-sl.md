@@ -220,6 +220,7 @@ The following are the additional flexible configurations for Semantic Layer cred
 
 ## Next steps
 
+* If you haven't created metrics yet, follow the [Quickstart for the Semantic Layer](../../guides/sl-qs.md).
 * Now that you've set up your credentials and tokens, start querying your metrics with the [available integrations](../platform-integrations/avail-sl-integrations.md).
 * [Optimize querying performance](./sl-cache.md) using declarative caching.
 * [Validate semantic nodes in CI](../deploy/ci-jobs.md#semantic-validations-in-ci) to ensure code changes made to dbt models don't break these metrics.

@@ -286,6 +286,72 @@ data_tests:
   +store_failures: true
 ```
 
+## Tests with and without `arguments`
+
+Some generic data tests need only the test name. Others need extra inputs, which you nest under an `arguments` property (available in v1.10.5 and higher). In v2, nesting test inputs under `arguments` is required. You will get a validation error if you set test inputs as top-level properties next to the test name.
+
+### Without `arguments`
+
+Tests like `unique` and `not_null` don't need extra inputs. For example, `unique` asserts that a column has no duplicate values, and `not_null` asserts that a column has no nulls. dbt already knows the model and column from the YAML context, so you can list the test by name:
+
+models/schema.yml
+
+```yaml
+models:
+  - name: orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+```
+
+### With `arguments`
+
+Tests like `accepted_values` and `relationships` need extra inputs for the test macro. For example, `accepted_values` asserts that a column's values are in a supplied list, and `relationships` asserts that each value exists in another model (referential integrity). Nest those inputs under `arguments:`:
+
+models/schema.yml
+
+```yaml
+models:
+  - name: orders
+    columns:
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments: # available in v1.10.5 and higher. 
+                values: ['placed', 'shipped', 'completed', 'returned']
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('customers')
+                field: id
+```
+
+Use `arguments:` for inputs to the test macro (for example, `values`, `to`, and `field`). Use [`config`](../../reference/data-test-configs.md) for framework options such as `severity`, `where`, and `store_failures`.
+
+If you previously set test inputs as top-level properties next to the test name, nest them under `arguments:` instead. For details, refer to [`require_generic_test_arguments_property`](../../reference/global-configs/behavior-flags/require_generic_test_arguments_property.md) and [MissingArgumentsPropertyInGenericTestDeprecation](../../reference/deprecations.md#missingargumentspropertyingenerictestdeprecation).
+
+## Add context to failing rows
+
+Data tests return one row for each failure. The columns in your test's SQL select statement are the columns you see when you debug failures, including when you [store test failures](#storing-data-test-failures).
+
+Built-in tests often return only the failing value. To include more context per failing row, write a [singular data test](#singular-data-tests) (or a [custom generic data test](../../best-practices/writing-custom-generic-tests.md)) that selects the extra columns you want. Building on the `accepted_values` test above, here's a singular test that also captures `customer_id` for context.
+
+tests/assert\_unexpected\_order\_status.sql
+
+```sql
+select
+    order_id,
+    status,
+    customer_id
+from {{ ref('orders') }}
+where status not in ('placed', 'shipped', 'completed', 'returned')
+```
+
+When you run `dbt test --store-failures` (or set the [`store_failures`](../../reference/resource-configs/store_failures.md) config), dbt saves those rows so you can query them and inspect every selected column.
+
 ## FAQs
 
 What data tests are available for me to use in dbt?

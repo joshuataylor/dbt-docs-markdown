@@ -82,9 +82,9 @@ Available on [dbt release tracks](../dbt-versions/dbt-release-tracks.md) and dbt
 
 When [enabled for your CI job](./ci-jobs.md#set-up-ci-jobs), dbt invokes [SQLFluff](https://sqlfluff.com/). SQLFluff is a modular, configurable SQL linter. It warns you about complex functions, syntax, formatting, and compilation errors.
 
-SQLFluff and the Fusion engine
+SQLFluff and the dbt Fusion engine
 
-SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../fusion/supported-features.md#limitations).
+SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../dbt/supported-features.md#limitations).
 
 By default, SQL linting lints all the changed SQL files in your project, compared to the last deferred production state.
 

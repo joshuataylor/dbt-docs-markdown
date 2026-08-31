@@ -1,4 +1,4 @@
-# 6 docs tagged with "Snowflake"
+# 5 docs tagged with "Snowflake"
 
 [View all tags](../tags.md)
 
@@ -13,10 +13,6 @@ Leverage dbt to generate analytics and ML-ready pipelines with SQL and Python wi
 ## [Quickstart for dbt and Snowflake](../guides/snowflake.md)
 
 Introduction
-
-## [Quickstart for the dbt Semantic Layer and Snowflake](../guides/sl-snowflake-qs.md)
-
-Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using Google Sheets.
 
 ## [Snowflake configurations](../reference/resource-configs/snowflake-configs.md)
 

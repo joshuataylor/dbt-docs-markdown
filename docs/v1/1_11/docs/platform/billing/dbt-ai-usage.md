@@ -4,17 +4,46 @@ dbt platform | Starter, Enterprise, Enterprise+
 
 dbt AI usage is measured based on the number of completed AI requests, known as dbt Copilot actions. Usage limits are enforced to ensure fair access and system performance.
 
+What's changing on September 1, 2026
+
+From September 1st, 2026, there are a couple of changes coming to dbt AI features:
+
+* AI features will turn on by default for dbt platform accounts on Developer, Starter, Enterprise, and Enterprise+ plans. If your organization already opted out of AI features, they stay off.
+* dbt Wizard will move to usage-based billing for dbt managed AI. An admin will be able to turn AI features off at any time.
+
+Detailed product docs for both changes are on the way. Check back closer to September 1st for setup steps and billing details.
+
+Refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md) for more info.
+
 A defined number of dbt Copilot invocations is allocated monthly based on your [subscription plan](https://www.getdbt.com/pricing). Once the usage limit is reached, access to dbt AI will be temporarily disabled until the start of the next billing cycle.
 
-As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 13, 2026 or longer (timeline subject to change). We may extend this timeline and will provide advance notice before any changes.
+dbt Wizard has drawn from your existing dbt Copilot included action allotment as a temporary compatibility bridge. From September 1, 2026, dbt Wizard usage will be metered separately as dollar-based usage against your consumption pool. Pricing and usage are subject to change.
 
-After the temporary bridge ends, dbt Wizard usage will be metered separately. Pricing and usage are subject to change.
+### Viewing usage in the product
 
-### Usage and metering information
+To view dbt Copilot usage in your account:
+
+1. Navigate to [**Account settings**](../account-settings.md).
+
+2. Select **Billing** under the Settings header.
+
+3. On the billing page, click the **Copilot Actions** tab to view your usage.
+
+![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")View usage in dbt Copilot
+
+## dbt Wizard billing
+
+dbt Wizard is metered by dollar-based usage rather than a count of dbt Copilot actions.
+
+For trials, consumption pools, spend limits, and BYOK billing, refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md).
+
+## FAQs
 
  Temporary dbt Copilot Actions bridge (through July 13, 2026)
 
-As a temporary compatibility bridge, dbt Wizard can draw from your existing dbt Copilot included action allotment through July 13, 2026 or longer (timeline subject to change). After this temporary bridge ends, dbt Wizard usage will be metered separately.
+As a temporary compatibility bridge, dbt Wizard drew from your existing dbt Copilot included action allotment through July 13, 2026 or longer (timeline subject to change).
+
+From September 1, 2026, dbt Wizard usage is metered separately.
 
 Users that bring their own key (BYOK) aren't affected by this bridge.
 
@@ -57,15 +86,3 @@ For users enrolled on the Enterprise and Enterprise+ plans, both the billing adm
 Once usage limits are reached, attempts to perform an action in dbt Copilot triggers a banner notification indicating that the limit has been exceeded.
 
 Under Bring Your Own Key (BYOK), usage is not tracked by dbt AI and is subject to your OpenAI limits.
-
-### Viewing usage in the product
-
-To view the usage in your account:
-
-1. Navigate to [**Account settings**](../account-settings.md).
-
-2. Select **Billing** under the Settings header.
-
-3. On the billing page, click the **Copilot Actions** tab to view your usage.
-
-![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")View usage in dbt Copilot

@@ -33,7 +33,7 @@ dbt reports the comparison differences in:
 
 You can compare changes locally in development to preview data changes caused by your local edits (for example, added/removed rows or joins) directly in your editor, and without waiting on CI. Compare changes in development is available through the dbt VS Code extension, which is powered by the dbt Fusion engine.
 
-For more details on how to use this feature, see [Compare changes in local development](../fusion/vs-compare-changes.md).
+For more details on how to use this feature, see [Compare changes in local development](../dbt/vs-compare-changes.md).
 
  Differences between compare changes in development and Advanced CI compare changes
 

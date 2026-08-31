@@ -2,7 +2,7 @@
 
 Fusion only
 
-DuckDB support for `catalogs.yml` requires the [dbt Fusion engine](../../../fusion/about-fusion.md) (v2) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt Core v1.
+DuckDB support for `catalogs.yml` requires the [dbt Fusion engine](../../../introduction.md) (v2) with the `use_catalogs_v2` behavior flag enabled. It isn't available in the legacy Python `dbt-duckdb` adapter for dbt Core v1.
 
 dbt\_project.yml
 

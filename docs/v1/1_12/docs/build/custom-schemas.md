@@ -1,6 +1,6 @@
 # Custom schemas
 
-By default, all dbt models are built in the schema specified in your [environment](../dbt-platform-environments.md) (dbt platform) or [profile's target](../local/dbt-core-environments.md) (dbt Core). This default schema is called your *target schema*.
+By default, all dbt models are built in the schema specified in your [environment](../dbt-platform-environments.md) (dbt platform) or [profile's target](../local/dbt-environments.md) (dbt Core). This default schema is called your *target schema*.
 
 For projects with many models, it's common to organize them across multiple schemas. For example, you might want to:
 
@@ -192,7 +192,7 @@ In the `generate_schema_name` macro examples shown in the [built-in alternative 
 
 If your schema names are being generated incorrectly, double-check your target name in the relevant environment.
 
-For more information, consult the [managing environments in dbt Core](../local/dbt-core-environments.md) guide.
+For more information, consult the [managing environments in dbt Core](../local/dbt-environments.md) guide.
 
 ## Related docs
 

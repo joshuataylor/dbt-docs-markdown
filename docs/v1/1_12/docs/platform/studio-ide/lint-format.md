@@ -41,7 +41,7 @@ With the Studio IDE, you can seamlessly use [SQLFluff](https://sqlfluff.com/), a
 
 Linting considerations
 
-* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](../../fusion/supported-features.md#limitations).
+* The Studio IDE runs linting using the dbt Core engine, even when your development environment uses the **Fusion Stable** release track. For more information, refer to [Fusion limitations](../../dbt/supported-features.md#limitations).
 * Linting doesn't support ephemeral models in dbt v1.5 and lower. Refer to the [FAQs](#faqs) for more info.
 
 ### Enable linting

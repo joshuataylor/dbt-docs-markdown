@@ -23,11 +23,11 @@ And once you have a time spine, you need to configure it in YAML to tell MetricF
 
 Before you start, make sure you have:
 
-* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-snowflake-qs.md?step=1) or the [dbt quickstart guides](https://docs.getdbt.com/guides?tags=Quickstart) guide to help you get started.
+* A dbt project set up. If you don't have one, follow the [Semantic Layer quickstart guide](./sl-qs.md?step=1) or the [dbt quickstart guides](https://docs.getdbt.com/guides?tags=Quickstart) guide to help you get started.
 
 ## Add a time spine SQL model
 
-Let's get started by assuming you're creating a time spine from scratch. If you have a dbt project set up already and have your own time spine (like a `dim_date` type model), you can skip this step and go to [Use an existing dim\_date model](./mf-time-spine.md#using-an-existing-dim-date-model).
+Let's get started by assuming you're creating a time spine from scratch. If you have a dbt project set up already and have your own time spine (like a `dim_date` type model), you can skip this step and go to [Use an existing dim\_date model](https://docs.getdbt.com/guides/mf-time-spine?step=3#using-an-existing-dim_date-model).
 
 The time spine is a dbt model that generates a series of dates (or timestamps) at a specific granularity. In this example, let's create a daily time spine — `time_spine_daily.sql`.
 
@@ -261,7 +261,7 @@ For some extra practice, try one of the following exercises:
 
 ### Custom calendars
 
-To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [Latest release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
+To support custom calendars (like fiscal years, fiscal quarters, and so on), create an additional time spine and configure it in YAML. This feature is available in the dbt's [Latest release track](../docs/dbt-versions/dbt-release-tracks.md) or [dbt Core 1.9 and later](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md).
 
 1. Add a new SQL file named `fiscal_calendar.sql` with the following content (or use your own custom calendar and configure it in YAML):
 
@@ -357,4 +357,4 @@ Here are some additional resources to help you continue your journey:
 * [MetricFlow time spine](../docs/build/metricflow-time-spine.md)
 * [Semantic Layer](../docs/use-dbt-semantic-layer/dbt-sl.md)
 * [Build metrics](../docs/build/metrics-overview.md)
-* [Quickstart with Semantic Layer](./sl-snowflake-qs.md?step=1)
+* [Quickstart with Semantic Layer](./sl-qs.md?step=1)

@@ -134,7 +134,7 @@ MetricFlow is hosted in dbt. Requests from the [Semantic Layer APIs](../dbt-apis
 
 3. Once you've defined your metrics and semantic models, you can [configure the dbt Semantic Layer](./setup-sl.md) in dbt.
 
-Read our [dbt Semantic Layer quickstart](../../guides/sl-snowflake-qs.md) guide for more information.
+Read our [dbt Semantic Layer quickstart](../../guides/sl-qs.md) guide for more information.
 
  How does caching work in the dbt Semantic Layer?
 

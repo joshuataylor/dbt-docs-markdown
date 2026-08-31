@@ -65,10 +65,6 @@ tip
 
 Always review AI-generated content, as it may be incorrect. For prompt best practices, refer to the [Prompt cookbook](../../guides/prompt-cookbook.md).
 
-*dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
-
-Please contact dbt Support with any questions
-
 ## Get started in the dbt platform
 
 [![](/img/icons/wizard.svg)](./enable-dbt-ai.md)
@@ -106,9 +102,3 @@ Please contact dbt Support with any questions
 #### [Use MCP servers](../dbt-ai/wizard-platform-mcp.md)
 
 [Understand MCP server support in the dbt platform experience.](../dbt-ai/wizard-platform-mcp.md)
-
-[![](/img/icons/wizard.svg)](../dbt-ai/wizard-platform-privacy-data.md)
-
-#### [Data & Privacy](../dbt-ai/wizard-platform-privacy-data.md)
-
-[Understand how dbt Wizard in the dbt platform handles privacy and data.](../dbt-ai/wizard-platform-privacy-data.md)

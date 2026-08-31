@@ -22,12 +22,10 @@ sources:
     schema: <schema_name>
     loader: <string>
 
-    # requires v1.1+
-    config:
+    config: # requires v1.1+
       <source_config>: <config_value>
-      freshness:
-      # changed to config in v1.10
-      loaded_at_field: <column_name>
+      loaded_at_field: <column_name> # moved under config in v1.10
+      freshness: # moved under config in v1.10
         warn_after:
           count: <positive_integer>
           period: minute | hour | day
@@ -35,11 +33,10 @@ sources:
           count: <positive_integer>
           period: minute | hour | day
         filter: <where-condition>
-      meta: {<dictionary>} # changed to config in v1.10
-      tags: [<string>] # changed to config in v1.10
+      meta: {<dictionary>} # moved under config in v1.10
+      tags: [<string>] # moved under config in v1.10
 
-    # deprecated in v1.10
-    overrides: <string>
+    overrides: <string> # deprecated in v1.10
 
     quoting:
       database: true | false

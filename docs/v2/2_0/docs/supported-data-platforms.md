@@ -2,9 +2,22 @@
 
 dbt connects to and runs SQL against your database, warehouse, lake, or query engine. These SQL-speaking platforms are collectively referred to as *data platforms*. dbt connects with data platforms by using a dedicated adapter plugin for each. Plugins are built as Python modules that dbt Core discovers if they are installed on your system. Refer to the [Build, test, document, and promote adapters](../guides/adapter-creation.md) guide for details.
 
-You can [connect](./connect-adapters.md) to adapters and data platforms natively in dbt or install them manually using dbt Core.
+(Applies to dbt v2.0 and later)
 
-You can also further customize how dbt works with your specific data platform via configuration: see [Configuring Postgres](../reference/resource-configs/postgres-configs.md) for an example.
+## Adapter lifecycle
+
+dbt v2 is available across adapters (data warehouse connectors). Track status by adapter using the following table:
+
+| Adapter                 | Lifecycle |
+| ----------------------- | --------- |
+| Snowflake               | Preview   |
+| BigQuery                | Preview   |
+| Databricks              | Preview   |
+| Redshift                | Preview   |
+| Apache Spark (CLI only) | Beta      |
+| DuckDB (CLI only)       | Beta      |
+
+*Note that adapter lifecycle may differ between the dbt platform and local development. An adapter can reach GA in the dbt platform before it reaches GA for local use.*
 
 ## Types of Adapters
 

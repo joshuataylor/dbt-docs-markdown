@@ -15,7 +15,18 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## August 2026
 
-* **Beta**: [dbt Core 2.0](./core-upgrade/upgrading-to-v2.md) is now available in beta!
+* **Enhancement:** [dbt State](../deploy/dbt-state-about.md) now reuses views that only use `select *` on CTEs. Previously, any `select *` anywhere in a view caused a rebuild. Views that use `select *` directly on a `ref()` or `source()` still force a rebuild, because dbt cannot safely determine the output columns at parse time. For more information, refer to [Views with `select *`](../../faqs/State/views-rebuilt.md#views-with-select).
+* **Enhancement:** dbt State now fetches table metadata in the background at the start of each run, so execution doesn't stall. Any node that is ready to skip or clone proceeds immediately, without waiting for the fetch to complete. Previously, dbt waited for the entire metadata fetch to complete before any node could execute. For more details, refer to [About dbt State](../deploy/dbt-state-about.md).
+* **Enhancement:** On Snowflake, when [`metadata_warehouse`](../../reference/resource-configs/metadata-warehouse.md) is configured, dbt State now issues multiple, individual queries (one per schema) in parallel on the dedicated warehouse — faster than the single, consolidated query dbt runs by default. Without a dedicated warehouse, dbt now emits a warning if the metadata fetch takes longer than 15 seconds.
+* **New:** The [`allow_clones`](../../reference/resource-configs/allow-clones.md) profile-level setting lets you control whether dbt State can clone tables into a target environment. Previously, there was no way to disable cloning — dbt State always cloned into any environment when a matching table was found.
+* **New**: [`compare_unrendered_code`](../../reference/resource-configs/compare-unrendered-code.md) is a new dbt State config that checks the Jinja template for unrendered code changes. If dbt detects unrendered code changes, it then compares the rendered SQL. A rebuild only occurs when *both* have changed. This prevents unnecessary rebuilds for nodes that use non-deterministic macros or environment variables.
+* **New:** When dbt State is enabled, you can run `dbt state explain` (dbt Core 2.0) or `dbt-state explain` (dbt Core plugin) in the CLI after a job finishes to see why dbt State made each decision and whether each node was built, reused, or cloned. For a detailed breakdown, run the command with `--verbose -s my_node_name` to see the table analysis, query analysis, and data freshness analysis for a specific node. For more information, refer to [`dbt state explain`](../../reference/commands/state-explain.md).
+* **Enhancement:** New sessions open on the Wizard tab when available, and the Studio IDE remembers your last-used tab for each project so you can pick up where you left off.
+* **Enhancement:** A new `relationName` field on the `ModelAppliedStateNode` and `ModelAppliedStateNestedNode` GraphQL types exposes the fully-qualified, adapter-rendered relation name (for example, `"database"."schema"."model_name"`) from the last successful model build.
+* **New:** When dbt State is enabled, you can run `dbt state explain` (dbt Core 2.0) or `dbt-state explain` (dbt Core plugin) in the CLI after a job finishes to see why dbt State made each decision and whether each node was built, reused, or cloned. For a detailed breakdown, run the command with `--verbose -s my_node_name` to see the table analysis, query analysis, and data freshness analysis for a specific node. For more information, refer to [`dbt state explain`](../../reference/commands/state-explain.md).
+* **Enhancement:** New sessions open on the Wizard tab when available, and the Studio IDE remembers your last-used tab for each project so you can pick up where you left off.
+* **Enhancement:** A new `relationName` field on the `ModelAppliedStateNode` and `ModelAppliedStateNestedNode` GraphQL types exposes the fully-qualified, adapter-rendered relation name (for example, `"database"."schema"."model_name"`) from the last successful model build.
+* **Beta**: [dbt Core 2.0](./dbt-upgrade/upgrading-to-v2.md) is now available in beta!
 * **New:** The [Analyst read](../platform/manage-access/enterprise-permissions.md#analyst-read) permission set is now generally available (GA) for Enterprise plans. Analyst read is a project-level permission set that provides read-only access to analyze dbt models and project resources, and read-only users can connect to analysis features such as the [dbt MCP server](../dbt-ai/about-mcp.md).
 * **Enhancement:** [Cost Insights](../explore/cost-insights.md) now supports cost attribution for [Snowflake Adaptive Warehouses](https://docs.snowflake.com/en/user-guide/warehouses-adaptive). For setup details, refer to [Assign required permissions](../explore/set-up-cost-insights.md#assign-required-permissions).
 * **New:** The [Model timing tab](../deploy/run-visibility.md#model-timing-tab) in job run details has been redesigned with a richer, scalable view that includes metric tiles, an execution timeline with grouping and highlight controls, a concurrency-over-time chart, and a searchable resource details table.
@@ -119,12 +130,12 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 *tl;dr:* The docs are now organized around v1 and v2 for simplified docs versioning and navigation. We've clarified dbt Core and licensing, reorganized v2 content, and refreshed adapter and Fusion availability guidance. If you notice anything off or have any feedback, we'd love to hear it! Open up a [docs issue here](https://github.com/dbt-labs/docs.getdbt.com/issues).
 
 * **Enhancement**: We've updated the version switcher on the docs site. The version switcher now just shows v1 and v2. v2 is the current generation of dbt, built on Rust for a faster, richer dev experience; v1 is the Python-based generation of dbt. Refer to [dbt versions](../introduction.md#dbt-versions) for what's different between v1 and v2.
-* **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](../fusion/about-core.md) for more info.
+* **New:** We've added a dedicated page explaining dbt Core and its distributions. dbt Core 2.0 is the Rust-based open-source runtime. dbt Core v1.x is the Python-based runtime. Refer to [About dbt Core](../introduction.md) for more info.
 * **New:** Licensing across dbt Core now has its own page, so you can see what applies to your setup in one place. Refer to [dbt licensing](../dbt-licensing.md).
 * **Enhancement:** [Static analysis](../build/about-static-analysis.md) now lives with the rest of your build docs and available in v2.
-* **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](./core-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](../local/fusion-networking-requirements.md) and [Reference](../../reference/telemetry-observability.md).
-* **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](../fusion/fusion-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
-* **Enhancement:** Simplified and clarified the [Fusion feature tables](../fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
+* **Enhancement:** The Fusion upgrade readiness checklist now sits right next to the [v2 upgrade guide](./dbt-upgrade/upgrading-to-v2.md), and the networking and telemetry references moved in [local install](../local/dbt-networking-requirements.md) and [Reference](../../reference/telemetry-observability.md).
+* **Enhancement:** More adapters are closer to general availability — Snowflake, BigQuery, Databricks, and Redshift are now in **Preview**, and Spark and DuckDB are in **Beta**. Refer to [Adapter lifecycles](../dbt/dbt-availability.md?version=2.0#adapter-lifecycle) for the current status of each adapter.
+* **Enhancement:** Simplified and clarified the [Fusion feature tables](../dbt/dbt-availability.md?version=2.0#what-you-get-with-fusion) to make it easier to see what's available and how to get it.
 * **New:** Added availability badges to pages and sections so you can quickly see what applies to your setup at a glance.
 
 ## June 2026
@@ -150,7 +161,7 @@ To simplify the docs experience, clarify availability, and make it easier to fin
 
 The following features are new or enhanced as part of dbt Labs announcements at [Snowflake Summit 2026](https://www.getdbt.com/events/snowflake-summit-2026) in San Francisco from June 1–4, 2026:
 
-* **Alpha**: [dbt Core 2.0](./core-upgrade/upgrading-to-v2.md) is now available in alpha!
+* **Alpha**: [dbt Core 2.0](./dbt-upgrade/upgrading-to-v2.md) is now available in alpha!
 
   * **New**: dbt Core 2.0 is the open-source Apache 2.0 foundation that the dbt Fusion engine builds on, delivering a faster, Rust-based runtime. It ships as two distributions: `dbt-core` (OSS, Apache 2.0) and `dbt` (Fusion distribution, proprietary).
 
@@ -201,9 +212,9 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 * **Behavior change:** When you set up single sign-on (SSO) in the dbt platform, the SSO slug is now system-generated and read-only. Existing SSO configurations remain valid, but you can’t change the slug. If you delete and recreate your SSO configuration, the new configuration uses a new, system-generated slug. Refer to [Single sign-on overview](../platform/manage-access/sso-overview.md) for more information.
 * **Enhancement:** The [dbt VS Code extension](../install-dbt-extension.md?version=2.0) now supports account creation. If you sign in with an existing dbt user that doesn't have an associated dbt platform account, the registration flow prompts you to create one instead of requiring a separate workflow.
 * **Enhancement:** Delete individual [dbt Wizard chat conversations](../dbt-ai/wizard-ide.md#availability-and-considerations) from the conversation list (three dots → **Delete**). Deleting the open conversation clears the panel.
-* **New:** The Fusion + Snowflake connection experience is now generally available on the dbt platform. See our [Fusion upgrade guides](../../guides/prepare-fusion-upgrade.md?step=1) for information on enabling the upgrade workflows for your environments today!
+* **New:** The Fusion + Snowflake connection experience is now generally available on the dbt platform. See our [Fusion upgrade guides](../../guides/prepare-dbt-upgrade.md?step=1) for information on enabling the upgrade workflows for your environments today!
 * **Enhancement:** In the Discovery API [Tests object schema](../dbt-apis/discovery-schema-environment-applied-tests.md), you can now filter `environment.applied.tests` by multiple test result statuses in a single query using the new `lastKnownResults: [TestStatus]` filter field on `TestAppliedFilter`. The single-value `lastKnownResult` filter field is still supported but deprecated. Update your queries to use `lastKnownResults` going forward.
-* **Enhanced** Fusion eligibility job prompts now use a **Debug on Fusion** dropdown instead of a standalone **Run once on Fusion** button. For more information, refer to [Update your jobs](../../guides/prepare-fusion-upgrade.md?step=7).
+* **Enhanced** Fusion eligibility job prompts now use a **Debug on Fusion** dropdown instead of a standalone **Run once on Fusion** button. For more information, refer to [Update your jobs](../../guides/prepare-dbt-upgrade.md?step=7).
 * **Enhancement:** The input bar now supports arrow key history navigation. Press the up arrow at the start of the input to cycle through previous inputs, and the down arrow at the end to return to more recent ones. dbt stores up to 5 previous inputs per session.
 * **Enhancement:** Tool approval and file edit dialogs in the now support number key shortcuts (1, 2, 3) to select options. The first option is auto-focused when a dialog appears, so you can act immediately without clicking.
 
@@ -247,7 +258,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **New**: Advanced CI (dbt compare in orchestration) is now supported in the dbt Fusion engine. For more information, review [Advanced CI](../deploy/advanced-ci.md).
 
-* **Beta**: The `dbt-salesforce` adapter available in the dbt Fusion engine CLI is now in beta. For more information, refer to [Salesforce Data 360 setup](../fusion/connect-data-platform-fusion/salesforce-data-cloud-setup.md).
+* **Beta**: The `dbt-salesforce` adapter available in the dbt Fusion engine CLI is now in beta. For more information, refer to [Salesforce Data 360 setup](../local/connect-data-platform/salesforce-data-cloud-setup.md).
 
 * **Enhancement:** The Analyst permission now has the project-level access to read repositories. Review [Project access for project permissions](../platform/manage-access/enterprise-permissions.md#project-access-for-project-permissions) for more information.
 

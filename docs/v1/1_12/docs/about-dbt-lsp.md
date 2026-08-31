@@ -48,4 +48,4 @@ dbt and the language server run independently. Running a command like `dbt run` 
 
 ## Versioning
 
-The Fusion CLI and the language server ship in a single dbt Fusion engine binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which Fusion versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/fusion-version-compatibility.md).
+The Fusion CLI and the language server ship in a single dbt Fusion engine binary, so they always share the same version and can't be mismatched. The dbt VS Code extension declares which Fusion versions it supports and checks the installed binary at startup. For the compatibility matrix and how to verify binaries for manual or air-gapped installs, refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md).

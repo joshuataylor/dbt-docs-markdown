@@ -2,7 +2,7 @@
 
 [View all tags](../tags.md)
 
-## [Fusion package upgrade guide](../guides/fusion-package-compat.md)
+## [Fusion package upgrade guide](../guides/dbt-package-compat.md)
 
 Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
@@ -10,18 +10,18 @@ Learn how to upgrade your packages to be compatible with the dbt Fusion engine.
 
 Use Snowflake Horizon's open Iceberg REST catalog to access and transform one shared set of governed tables from Snowflake and DuckDB.
 
-## [Hybrid development with dbt platform and Fusion](../guides/fusion-platform-local-workflow.md)
+## [Hybrid development with dbt platform and Fusion](../guides/dbt-platform-local-workflow.md)
 
 Introduction
 
-## [Quickstart for the dbt Fusion engine](../guides/fusion.md)
+## [Quickstart for the dbt Fusion engine](../guides/dbt.md)
 
 Introduction
 
-## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-fusion-upgrade.md)
+## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-dbt-upgrade.md)
 
 Introduction
 
-## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-fusion.md)
+## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-dbt.md)
 
 Introduction

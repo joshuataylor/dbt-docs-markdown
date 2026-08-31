@@ -4,7 +4,7 @@ Local development (Applies to dbt v1.99 and earlier)
 
 Want faster dbt?
 
-Upgrade to v2 to get Fusion — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](../dbt-versions/core-upgrade/upgrading-to-v2.md).
+Upgrade to v2 to get Fusion — up to 30x faster performance, LSP features like autocomplete and inline errors, and more. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 
 ## Install dbt Core v1.x CLI
 

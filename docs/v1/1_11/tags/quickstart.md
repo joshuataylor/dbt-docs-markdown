@@ -52,11 +52,11 @@ Connecting your warehouse to dbt Core using the CLI.
 
 Learn to use dbt Core using DuckDB.
 
-## [Quickstart for the dbt Fusion engine](../guides/fusion.md)
+## [Quickstart for the dbt Fusion engine](../guides/dbt.md)
 
 Introduction
 
-## [Quickstart for the dbt Semantic Layer and Snowflake](../guides/sl-snowflake-qs.md)
+## [Quickstart for the dbt Semantic Layer](../guides/sl-qs.md)
 
 Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using Google Sheets.
 

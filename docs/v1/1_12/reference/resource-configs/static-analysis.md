@@ -4,7 +4,7 @@ static\_analysis controls how the Fusion engine analyzes SQL at compile time for
 
 info
 
-The `static_analysis` config is available in the dbt Fusion engine only. It isn't available in dbt Core and will be ignored. To upgrade to Fusion, refer to [Get started with Fusion](../../docs/fusion/get-started-fusion.md).
+The `static_analysis` config is available in the dbt Fusion engine only. It isn't available in dbt Core and will be ignored. To upgrade to Fusion, refer to [Get started with Fusion](../../docs/dbt/get-started-dbt.md).
 
 The `static_analysis` config sets how the dbt Fusion engine validates SQL before execution—using `strict` analysis, a `baseline` that balances checks with compatibility, or `off` to skip analysis when needed. You can find supported configuration locations for each resource type.
 

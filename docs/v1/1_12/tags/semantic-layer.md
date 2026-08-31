@@ -130,7 +130,7 @@ Use Power BI to query the dbt Semantic Layer and produce dashboards with trusted
 
 Learn how to use the dbt Semantic Layer Python SDK library to interact with the dbt Semantic Layer.
 
-## [Quickstart for the dbt Semantic Layer and Snowflake](../guides/sl-snowflake-qs.md)
+## [Quickstart for the dbt Semantic Layer](../guides/sl-qs.md)
 
 Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using Google Sheets.
 

@@ -40,7 +40,7 @@ To find and fix deprecations:
 
 9. Click **Commit and sync** in the top left of Studio IDE to commit these changes to the project repository.
 
-10. You are now ready to enable Fusion if you [meet the requirements](../../fusion/supported-features.md#requirements)!
+10. You are now ready to enable Fusion if you [meet the requirements](../../dbt/supported-features.md#requirements)!
 
 ## Related docs
 

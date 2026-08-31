@@ -105,7 +105,7 @@ Use the [debug](../../reference/dbt-jinja-functions/debug-method.md) command to 
 
 ## Understanding targets in profiles
 
-dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](./dbt-core-environments.md).
+dbt supports multiple targets within one profile to encourage the use of separate development and production environments as discussed in [dbt environments](./dbt-environments.md).
 
 A typical profile for an analyst using dbt locally will have a target named `dev`, and have this set as the default.
 

@@ -144,8 +144,8 @@ When a maturity date has not yet been set (shown as -), we have not yet determin
 Since behavior change flags are different from other dbt changes, it's important to understand the difference:
 
 * [Deprecation warnings](../deprecations.md) — Features in your project code that will stop working (behavior flags often control when these become errors)
-* [Deprecated CLI flags](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) — Command-line flags being removed in dbt Fusion
+* [Deprecated CLI flags](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) — Command-line flags being removed in dbt Fusion
 
 See the [Changes overview](../changes-overview.md) for a quick comparison.
 
-If you're upgrading to [dbt Fusion](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md) or [dbt Core 2.0](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md), a subset of behavior change flags are removed and their new behavior is always enabled.
+If you're upgrading to [dbt Fusion](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md) or [dbt Core 2.0](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md), a subset of behavior change flags are removed and their new behavior is always enabled.

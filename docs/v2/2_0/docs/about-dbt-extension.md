@@ -13,7 +13,7 @@ The dbt VS Code extension works with Fusion, the default free-to-use product you
 
 Try out the Fusion quickstart guide
 
-Check out the [Fusion quickstart guide](../guides/fusion.md?step=1) to try the dbt VS Code extension in action.
+Check out the [Fusion quickstart guide](../guides/dbt.md?step=1) to try the dbt VS Code extension in action.
 
 ## Navigating the dbt extension
 
@@ -41,7 +41,7 @@ When you register or sign in for advanced features, authentication is handled by
 
 The dbt logo on the sidebar (or the **dbt Extension** text on the bottom tray) launches the main menu for the extension. This menu contains helpful information and actions you can take:
 
-* **Get started button:** Launches the [Fusion upgrade](./upgrade-to-fusion-extension.md) workflow.
+* **Get started button:** Launches the [Fusion upgrade](./upgrade-to-dbt-extension.md) workflow.
 * **Extension info:** Information about the extension, Fusion, and your dbt project. Includes configuration options and actions.
 * **Help:** Quick links to support, bug submissions, and documentation.
 
@@ -57,7 +57,7 @@ The dbt extension caches important schema information from your data warehouse t
 
 ## Using the extension
 
-Your dbt environment must be using the dbt Fusion engine in order to use this extension. See [the Fusion documentation](./fusion/about-fusion.md) for more on eligibility and upgrading.
+Your dbt environment must be using the dbt Fusion engine in order to use this extension. See [the Fusion documentation](./introduction.md) for more on eligibility and upgrading.
 
 Once installed, the dbt extension automatically activates when you open any `.sql` or `.yml` file inside of a dbt project directory.
 
@@ -133,13 +133,13 @@ For more information regarding support and acceptable use of the dbt VS Code ext
 
 Developing locally as a dbt platform user?
 
-See the [Hybrid development with dbt platform and Fusion](../guides/fusion-platform-local-workflow.md) guide for how to keep credentials, environment variables, and Fusion versions in sync between your local extension and dbt platform
+See the [Hybrid development with dbt platform and Fusion](../guides/dbt-platform-local-workflow.md) guide for how to keep credentials, environment variables, and Fusion versions in sync between your local extension and dbt platform
 
-## More information about Fusion
+## More information about dbt v2
 
 * [About the dbt extension](./about-dbt-extension.md)
-* [Supported features matrix](./fusion/supported-features.md)
+* [Supported features matrix](./dbt/supported-features.md)
 * [Install dbt](./local/install-dbt.md)
-* [Quickstart for Fusion](../guides/fusion.md?step=1)
-* [Upgrade guide](./dbt-versions/core-upgrade/upgrading-to-v2.md)
-* [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [Quickstart for Fusion](../guides/dbt.md?step=1)
+* [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

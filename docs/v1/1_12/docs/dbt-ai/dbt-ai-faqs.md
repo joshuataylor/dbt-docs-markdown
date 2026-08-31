@@ -2,10 +2,6 @@
 
 Answers to common questions about dbt AI features, including dbt Wizard and dbt Copilot.
 
-*dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
-
-Please contact dbt Support with any questions
-
 dbt Wizard is an AI-powered assistant fully integrated into your dbt experience that handles the tedious tasks, speeds up workflows, and ensures consistency, helping you deliver exceptional data products faster.
 
 dbt Labs is committed to protecting your privacy and data. This page provides information about how dbt Wizard handles your data. For more information, check out the [dbt Labs AI development principles](https://www.getdbt.com/legal/ai-principles) page.
@@ -18,7 +14,7 @@ dbt Wizard is the latest and recommended agentic experience for governed data de
 
 Use dbt Wizard to investigate lineage and downstream impact, generate or refactor SQL from natural-language prompts, create [documentation](../build/documentation.md), [data tests](../build/data-tests.md), [metrics](../build/metrics-overview.md), and [semantic models](../build/semantic-models.md), and validate changes with warehouse awareness.
 
-In the dbt platform, dbt Wizard is available in experiences such as the [Studio IDE](../platform/studio-ide/develop-studio-ai.md), [Canvas](../platform/use-canvas.md), and [Insights](../explore/dbt-insights.md).
+In the dbt platform, dbt Wizard is available in the [Studio IDE](../platform/studio-ide/develop-studio-ai.md) and the [dbt Wizard home tab](../platform/wizard-home.md). dbt Copilot is available in [Canvas](../platform/use-canvas.md) and [Insights](../explore/dbt-insights.md).
 
 In the CLI, you can use dbt Wizard from your terminal for local development workflows.
 
@@ -29,7 +25,7 @@ dbt Wizard is available in the dbt platform and as a terminal CLI.
 * In the platform, you can use dbt Wizard in the [Studio IDE](./wizard-ide.md) for governed data development in dbt.
 * In the CLI, use the [dbt Wizard CLI](./about-dbt-wizard-cli.md) for local development and automation.
 
-To use dbt Wizard in the platform, you need a dbt [Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/contact), and an admin must [enable dbt Wizard](../platform/enable-dbt-ai.md) for your account.
+To use dbt Wizard in the platform, you need a dbt [Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/contact), and an admin must [enable AI features](../platform/enable-dbt-ai.md) for your account.
 
  What are the benefits of using dbt Wizard?
 
@@ -47,13 +43,13 @@ dbt Wizard is built into dbt experiences with dbt governance, privacy, and secur
 
 No, dbt Wizard and dbt Copilot are separate products.
 
-dbt Wizard is the new and recommended agentic product available in the dbt platform and as a CLI. It uses your project context to help you develop governed dbt changes faster. Think of it like a smart AI agent that has a map of your project. Instead of having to read through each file and understand the context, it can answer questions and help you develop *and* validate your changes faster.
+dbt Wizard is the latest and next generation of agentic product available in the dbt platform and as a CLI. It uses your project context to help you develop governed dbt changes faster. Think of it like a smart AI agent that has a map of your project. Instead of having to read through each file and understand the context, it can answer questions and help you develop *and* validate your changes faster.
 
-dbt Copilot features include quick-action buttons in Studio IDE, the Copilot pane in Insights and Canvas.
+dbt Copilot features for those who have access to them, include quick-action buttons in Studio IDE, the Copilot pane in Insights and Canvas.
 
  Can I use my existing dbt Copilot action allotment with dbt Wizard?
 
-Yes, as a temporary compatibility bridge through July 13, 2026 or longer (timeline subject to change).
+No, dbt Copilot actions apply only to dbt Copilot usage. Refer to [dbt Wizard billing and AI access FAQs](./wizard-billing-faqs.md).
 
 ## Availability
 
@@ -71,19 +67,17 @@ Refer to [Use dbt Wizard locally](./wizard-quickstart.md) for more information.
 
  Is dbt Wizard available for all deployment types?
 
-Yes, dbt Wizard is powered by ai-codegen-api, which is deployed everywhere including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
+Yes, dbt Wizard is deployed everywhere including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
 
 ## How it works
 
- What data/code is used to train the AI model supporting dbt Wizard?
-
-dbt Wizard is supported by several third-party pre-trained AI models at your discretion. (managed OpenAI, BYOK OpenAI, BYOK Anthropic, or BYOK Azure AI Foundry). When using managed OpenAI, our agreement with OpenAI prohibits OpenAI from retaining your data persistently. Refer to our [dbt Labs AI principles page](https://www.getdbt.com/legal/ai-principles) for more information.
-
  Which AI model providers does dbt Wizard use?
 
-In the dbt platform, dbt Wizard supports managed OpenAI, BYOK OpenAI, BYOK Anthropic, and BYOK Azure AI Foundry. By default, accounts use managed OpenAI. Enterprise-tier accounts can [bring their own provider keys](../platform/enable-dbt-ai.md#configure-ai-provider).
+* For dbt-managed inference, Wizard can be used with several frontier models including models provided by OpenAI and Anthropic as well as several open weight models either in the dbt platform or the CLI. By default, accounts use managed OpenAI.
 
-The [dbt Wizard CLI](./wizard-cli.md) supports OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview) in bring-your-own-key mode. Refer to [Configure BYOK](./wizard-byok.md) and [Supported AI providers](./wizard-byok.md#supported-ai-providers) for more information.
+* For BYOK, you can bring your own key either in [dbt platform](../platform/enable-dbt-ai.md#configure-ai-provider) or the [the CLI](./wizard-byok.md).
+
+Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
 
  Do we support BYOK (bring your own key) at the project level?
 
@@ -93,15 +87,33 @@ dbt Wizard CLI supports BYOK locally for OpenAI, Anthropic, Azure AI Foundry, AW
 
 ## Privacy and data
 
+This section covers dbt Wizard in the dbt platform. For what the CLI collects and how to opt out, refer to [dbt Wizard CLI data use and telemetry](./wizard-telemetry.md).
+
+ Does dbt Wizard access my warehouse data?
+
+dbt Wizard can run dbt commands and queries on your behalf, and every query needs your explicit permission first. When a query runs, dbt Wizard sends those results — which may include row-level data — to the AI provider so it can respond in your session.
+
+For dbt-managed AI providers, we have zero data retention (ZDR) agreements in place that prevents the provider from retaining or using this data for training. If you bring your own AI provider (BYOK), that provider's terms will govern retention and training. Always review AI output for accuracy.
+
+Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
+
  Does dbt Wizard store or use personal data?
 
-dbt Wizard stores your conversation history, including prompts, responses, and query results returned during a session, so you can revisit past chats. Conversation history is retained for 90 days, and feedback submitted on a dbt Wizard conversation is retained for 400 days.
+dbt Wizard stores your conversation history — including your prompts, responses, and any query results returned during your session — so you can revisit past chats. Conversation history is retained for 90 days; feedback you submit on a dbt Wizard conversation is retained for 400 days. You can delete your conversation history or feedback at any time in the product.
 
-You can delete your conversation history or feedback in the product at any time. You control the information you submit to dbt Wizard. dbt Labs does not use your prompts, conversation history, command results, or feedback to train AI models.
+You control the information you submit to dbt Wizard. dbt Labs does not use your prompts, conversation history, command results, or feedback to train AI models.
+
+ Is my data used by dbt Labs to train AI models?
+
+No. dbt Labs does not use customer content processed by dbt Wizard — including warehouse query results, prompts, or conversation history — for AI model training. A zero data retention (ZDR) policy is also in place with AI providers, which prevents training on the provider side as well.
+
+ Does dbt Labs share my personal data with third parties?
+
+dbt Labs only shares client personal information as needed to perform the services, under client instructions, or for legal, tax, or compliance reasons.
 
  Can dbt Wizard data be deleted upon client written request?
 
-Yes. Conversation history is retained for 90 days by default, and feedback submitted on a dbt Wizard conversation is retained for 400 days. You can delete this information in the product at any time. If a client identifies personal or sensitive information uploaded to dbt Labs systems, that data can be deleted within 30 days of a written request.
+Yes. dbt Wizard conversation history is retained for 90 days by default, feedback you submit on a dbt Wizard conversation is retained for 400 days, and you can delete this information in the product at any time. To the extent a client identifies personal or sensitive information uploaded to dbt Labs systems, that data can be deleted within 30 days of written request.
 
  Does dbt Labs own the output generated by dbt Wizard?
 

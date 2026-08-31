@@ -19,7 +19,7 @@ If you have a monorepo with several dbt projects, opening a single pull request 
 
 SQLFluff and the dbt Fusion engine
 
-SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../fusion/supported-features.md#limitations).
+SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../dbt/supported-features.md#limitations).
 
 * [Advanced CI](./advanced-ci.md) features:
   * For the [compare changes](./advanced-ci.md#compare-changes) feature, your dbt account must be on an [Enterprise-tier plan](https://www.getdbt.com/pricing/) and have enabled Advanced CI features. Please ask your [dbt administrator to enable](../platform/account-settings.md#account-access-to-advanced-ci-features) this feature for you. After enablement, the **dbt compare** option becomes available in the CI job settings.

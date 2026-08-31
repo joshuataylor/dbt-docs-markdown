@@ -248,6 +248,6 @@ Advanced capabilities are available to all users for 14 days. After the 14-day t
 
 You can use compare changes, powered by the dbt Fusion engine, in your local development environment to compare your current working copy against your `manifest.json` (for example, your last production state) directly in your editor.
 
-For more details on how to use this feature, refer to [Compare changes in local development](./fusion/vs-compare-changes.md).
+For more details on how to use this feature, refer to [Compare changes in local development](./dbt/vs-compare-changes.md).
 
 ![Example of the Compare tab](/img/docs/extension/vs-compare-changes.png?v=2 "Example of the Compare tab")Example of the Compare tab

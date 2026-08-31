@@ -34,7 +34,7 @@ Commands marked ❌ indicate write commands, commands marked ✅ indicate read c
 
 info
 
-Some commands are not yet supported in the dbt Fusion engine or have limited functionality. Refer to the [Fusion supported features](../docs/fusion/supported-features.md) page for details.
+Some commands are not yet supported in the dbt Fusion engine or have limited functionality. Refer to the [Fusion supported features](../docs/dbt/supported-features.md) page for details.
 
 | Command                                                                                  | Description                                                                                           | Parallel execution | Caveats                                                                                                                                 |
 | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |

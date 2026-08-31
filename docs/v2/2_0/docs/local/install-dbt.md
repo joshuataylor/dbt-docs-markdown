@@ -69,7 +69,7 @@ To upgrade later, run `dbt system update`.
 
 Refer to the [dbt VS Code extension docs](../about-dbt-extension.md) for more info.
 
-If you or your org has a strict requirement to use the open-source runtime, install it [here](./install-dbt-core-v2.md).
+If you or your org has a strict requirement to use the open-source runtime, install it [here](./install-dbt-v2.md).
 
 ## Troubleshooting
 
@@ -87,7 +87,7 @@ Common issues and resolutions:
 
 *  Can I download the Apache 2.0 runtime only?
 
-  Yes if you need to use the Apache 2.0 runtime, you can [install dbt Core 2.0](./install-dbt-core-v2.md), the open-source project behind Fusion.
+  Yes if you need to use the Apache 2.0 runtime, you can [install open source dbt v2](./install-dbt-v2.md), the open-source project behind Fusion.
 
 *  How do I uninstall a curl (install.sh) install?
 
@@ -115,14 +115,14 @@ Common issues and resolutions:
      source ~/.zshrc   # or source ~/.bashrc
      ```
 
-## More information about Fusion
+## More information about dbt v2
 
 * [About the dbt extension](../about-dbt-extension.md)
-* [Supported features matrix](../fusion/supported-features.md)
+* [Supported features matrix](../dbt/supported-features.md)
 * [Install dbt](./install-dbt.md)
-* [Quickstart for Fusion](../../guides/fusion.md?step=1)
-* [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md)
-* [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [Quickstart for Fusion](../../guides/dbt.md?step=1)
+* [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
 
 ## Next steps
 

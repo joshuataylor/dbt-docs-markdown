@@ -138,11 +138,11 @@ Profiles are stored separately to dbt projects to avoid checking credentials int
 
 What should I name my profile?
 
-We typically use a company name for a profile name, and then use targets to differentiate between `dev` and `prod`. Check out the docs on [environments in dbt Core](../docs/local/dbt-core-environments.md) for more information.
+We typically use a company name for a profile name, and then use targets to differentiate between `dev` and `prod`. Check out the docs on [environments in dbt Core](../docs/local/dbt-environments.md) for more information.
 
 What should I name my target?
 
-We typically use targets to differentiate between development and production runs of dbt, naming the targets `dev` and `prod`, respectively. Check out the docs on [managing environments in dbt Core](../docs/local/dbt-core-environments.md) for more information.
+We typically use targets to differentiate between development and production runs of dbt, naming the targets `dev` and `prod`, respectively. Check out the docs on [managing environments in dbt Core](../docs/local/dbt-environments.md) for more information.
 
 Can I use environment variables in my profile?
 
@@ -962,7 +962,7 @@ Why do model and source YAML files always start with \`version: 2\`?
 
 Once upon a time, the structure of these `.yml` files was very different (s/o to anyone who was using dbt back then!). Adding `version: 2` allowed us to make this structure more extensible.
 
-From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
+From [dbt Core v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#quick-hits>), the top-level `version:` key is optional in all resource YAML files. If present, only `version: 2` is supported.
 
 Also starting in v1.5, both the [`config-version: 2`](../reference/project-configs/config-version.md) and the top-level `version:` key in the `dbt_project.yml` are optional.
 

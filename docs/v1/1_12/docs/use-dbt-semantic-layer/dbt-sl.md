@@ -20,7 +20,7 @@ This page points to various resources available to help you understand, configur
 
 Refer to the following resources to get started with the Semantic Layer:
 
-* [Quickstart with the Semantic Layer](../../guides/sl-snowflake-qs.md) — Build and define metrics, set up the Semantic Layer, and query them using our first-class integrations.
+* [Quickstart with the Semantic Layer](../../guides/sl-qs.md): Build and define metrics, set up the Semantic Layer, and query them in Google Sheets and other tools.
 * [Build your metrics](../build/build-metrics-intro.md) — Use MetricFlow in dbt to centrally define your metrics.
 * [Semantic Layer FAQs](./sl-faqs.md) — Discover answers to frequently asked questions about the Semantic Layer, such as availability, integrations, and more.
 

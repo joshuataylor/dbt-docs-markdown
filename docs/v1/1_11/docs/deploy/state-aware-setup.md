@@ -27,7 +27,7 @@ Read the [Fusion Diaries](https://github.com/dbt-labs/dbt-core/discussions/categ
 To use state-aware orchestration, make sure you meet these prerequisites:
 
 * You must have a dbt [Enterprise and Enterprise+ accounts](https://www.getdbt.com/signup/) and a [Developer seat license](../platform/manage-access/seats-and-users.md).
-* You have updated the environment that will run state-aware orchestration to the dbt Fusion engine. For more information, refer to [Upgrading to dbt Fusion engine](../dbt-versions/core-upgrade/upgrading-to-v2.md).
+* You have updated the environment that will run state-aware orchestration to the dbt Fusion engine. For more information, refer to [Upgrading to dbt Fusion engine](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 * Your account must have access to state-aware orchestration. Contact your account manager to request access.
 * You must have a dbt project connected to a [data platform](../platform/connect-data-platform/about-connections.md).
 * You must have [access permission](../platform/manage-access/about-user-access.md) to view, create, modify, or run jobs.

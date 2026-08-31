@@ -78,6 +78,10 @@ The list of commands available in dbt.
 
 [The dbt source command provides subcommands that are useful when working with source data. This command provides one subcommand, dbt source freshness.](../reference/commands/source.md)
 
+## [state explain](../reference/commands/state-explain.md)
+
+[Use dbt state explain to see why dbt State made each decision after a run.](../reference/commands/state-explain.md)
+
 ## [test](../reference/commands/test.md)
 
 [dbt test runs data tests defined on models, sources, snapshots, and seeds and unit tests defined on SQL models. It expects that you have already created those resources through the appropriate commands.](../reference/commands/test.md)

@@ -2,6 +2,6 @@
 
 [View all tags](../tags.md)
 
-## [Hybrid development with dbt platform and Fusion](../guides/fusion-platform-local-workflow.md)
+## [Hybrid development with dbt platform and Fusion](../guides/dbt-platform-local-workflow.md)
 
 Introduction

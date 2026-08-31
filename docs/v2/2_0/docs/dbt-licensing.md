@@ -13,7 +13,7 @@ If you have a older project that isn’t ready to move to v2, continue using `db
 
 ## Which one should I use?
 
-For most people: Fusion. It has more [capabilities](./fusion/fusion-availability.md?version=2.0#what-you-get-with-fusion) out of the box than dbt Core 2.0 — including a built-in high-performance SQL linter — even if you never create a dbt account.
+For most people: Fusion. It has more [capabilities](./dbt/dbt-availability.md?version=2.0#what-you-get-with-fusion) out of the box than dbt Core 2.0 — including a built-in high-performance SQL linter — even if you never create a dbt account.
 
 We recommend everyone to just [install dbt](./local/install-dbt.md) and get Fusion by default.
 

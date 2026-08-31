@@ -638,4 +638,4 @@ Here are some additional resources to help you continue your journey:
 * [Implement Mesh with the Semantic Layer](../docs/use-dbt-semantic-layer/sl-faqs.md#how-can-i-implement-dbt-mesh-with-the-dbt-semantic-layer)
 * [Cross-project references](../docs/mesh/govern/project-dependencies.md#how-to-write-cross-project-ref)
 * [Catalog](../docs/explore/explore-projects.md)
-* [Hybrid development with dbt platform and Fusion](./fusion-platform-local-workflow.md) — keep your local and platform environments in sync across credentials, env vars, and Fusion versions
+* [Hybrid development with dbt platform and Fusion](./dbt-platform-local-workflow.md) — keep your local and platform environments in sync across credentials, env vars, and Fusion versions

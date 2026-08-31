@@ -28,7 +28,7 @@ Refer to the [FAQs](#faqs) for more information about managing multiple dbt plat
 
 Using the dbt platform CLI for hybrid development with Fusion?
 
-See the [Hybrid development with dbt platform and Fusion](../../guides/fusion-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
+See the [Hybrid development with dbt platform and Fusion](../../guides/dbt-platform-local-workflow.md) guide to keep credentials, environment variables, and Fusion versions in sync across your local CLI and dbt platform.
 
 ## Install dbt platform CLI
 

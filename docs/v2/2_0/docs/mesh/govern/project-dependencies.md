@@ -224,4 +224,4 @@ This behavior makes sure that Catalog only shows the immediate dependencies avai
 
 * Refer to the [Mesh](../../../best-practices/how-we-mesh/mesh-1-intro.md) guide for more guidance on how to use Mesh.
 * [Quickstart with Mesh](../../../guides/mesh-qs.md)
-* [Hybrid development with dbt platform and Fusion](../../../guides/fusion-platform-local-workflow.md) — manage credentials, env vars, deferral, and Fusion versions when developing locally against a Mesh project
+* [Hybrid development with dbt platform and Fusion](../../../guides/dbt-platform-local-workflow.md) — manage credentials, env vars, deferral, and Fusion versions when developing locally against a Mesh project

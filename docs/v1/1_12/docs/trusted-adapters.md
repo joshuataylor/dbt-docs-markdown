@@ -31,8 +31,6 @@ dbt platformdbt Core
 
 [![](https://badge.fury.io/py/dbt-spark.svg/)](https://badge.fury.io/py/dbt-spark)
 
-dbt platformdbt CoreFusion
-
 ![](/img/icons/athena.svg)
 
 #### Athena
@@ -65,8 +63,6 @@ dbt platformdbt Core
 
 [![](https://badge.fury.io/py/dbt-bigquery.svg/)](https://badge.fury.io/py/dbt-bigquery)
 
-dbt platformdbt CoreFusion
-
 ![](/img/icons/clickhouse.svg)
 
 #### ClickHouse
@@ -87,8 +83,6 @@ dbt Core
 
 [![](https://badge.fury.io/py/dbt-databricks.svg/)](https://badge.fury.io/py/dbt-databricks)
 
-dbt platformdbt CoreFusion
-
 ![](/img/icons/duckdb-seeklogo.svg)
 
 #### DuckDB
@@ -97,8 +91,6 @@ dbt platformdbt CoreFusion
 * [Install with dbt Fusion](./local/connect-data-platform/duckdb-setup.md?version=2)
 
 [![](https://badge.fury.io/py/dbt-duckdb.svg/)](https://badge.fury.io/py/dbt-duckdb)
-
-dbt CoreFusion
 
 ![](/img/icons/dremio.svg)
 
@@ -242,8 +234,6 @@ dbt platformdbt Core
 
 [![](https://badge.fury.io/py/dbt-redshift.svg/)](https://badge.fury.io/py/dbt-redshift)
 
-dbt platformdbt CoreFusion
-
 ![](/img/icons/risingwave.svg)
 
 #### RisingWave
@@ -271,8 +261,6 @@ dbt Core
 * [Install with dbt Fusion](./local/connect-data-platform/snowflake-setup.md)
 
 [![](https://badge.fury.io/py/dbt-snowflake.svg/)](https://badge.fury.io/py/dbt-snowflake)
-
-dbt platformdbt CoreFusion
 
 ![](/img/icons/starburst.svg)
 

@@ -40,7 +40,7 @@ Note that the Semantic Layer GraphQL API doesn't support `ref` to call dbt objec
 
 If you're a dbt user or partner with access to dbt and the [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md), you can [set up](../use-dbt-semantic-layer/setup-sl.md) and test this API with data from your own instance by configuring the Semantic Layer and obtaining the right GQL connection parameters described in this document.
 
-Refer to [Get started with the Semantic Layer](../../guides/sl-snowflake-qs.md) for more info.
+Refer to [Get started with the Semantic Layer](../../guides/sl-qs.md) for more info.
 
 Authentication uses either a dbt [service account token](./service-tokens.md) or a [personal access token](./user-tokens.md) passed through a header as follows. To explore the schema, you can enter this information in the "header" section.
 

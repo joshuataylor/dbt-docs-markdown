@@ -19,7 +19,7 @@ You can use a different number of threads than the value defined in your target 
 
 You will define the number of threads in your `profiles.yml` file (when developing locally with dbt Core and the dbt Fusion engine), dbt job definition, and dbt development credentials under your profile.
 
-## Fusion engine thread optimization
+## dbt Fusion engine thread optimization
 
 In the context of Fusion, a thread is an open connection to your data warehouse, not the number of parallel threads on your local machine's CPU. Data platforms vary in how many concurrent connections they allow; exceeding those limits causes the platform to reject new connections.
 
@@ -40,7 +40,7 @@ Project parsing runs separately and automatically uses all available CPUs. To di
 | **BigQuery**   | Fusion respects user-set threads to manage API rate limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                             |
 | **Redshift**   | Fusion respects user-set threads to manage concurrency limits.<br />Setting `--threads 0` (or omitting the setting) allows Fusion to dynamically optimize parallelism.                                                                                                                                                          |
 
-For more information about Fusion's approach to parallelism, refer to [the dbt Fusion engine](../fusion/about-fusion.md) page.
+For more information about Fusion's approach to parallelism, refer to [the dbt Fusion engine](../introduction.md) page.
 
 ## Related docs
 

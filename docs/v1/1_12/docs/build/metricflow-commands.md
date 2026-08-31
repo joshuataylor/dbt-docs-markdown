@@ -1,6 +1,6 @@
 # MetricFlow commands
 
-Once you define metrics in your dbt project, you can query metrics, dimensions, and dimension values, and validate your configs using the MetricFlow commands, available across the dbt Core or [dbt Fusion engine](../fusion/about-fusion.md). To upgrade to Fusion, see [Get started with Fusion](../fusion/get-started-fusion.md).
+Once you define metrics in your dbt project, you can query metrics, dimensions, and dimension values, and validate your configs using the MetricFlow commands, available across the dbt Core or [dbt Fusion engine](../introduction.md). To upgrade to Fusion, see [Get started with Fusion](../dbt/get-started-dbt.md).
 
 MetricFlow allows you to define and query metrics in your dbt project in [dbt platform](../platform/about-develop-dbt.md) or [dbt Core](../local/install-dbt.md). To experience the power of the universal [Semantic Layer](../use-dbt-semantic-layer/dbt-sl.md) and dynamically query those metrics in downstream tools, you'll need a dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) account.
 

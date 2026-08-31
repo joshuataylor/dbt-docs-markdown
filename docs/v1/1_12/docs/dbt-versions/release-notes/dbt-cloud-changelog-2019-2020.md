@@ -177,7 +177,7 @@ This release adds native support for Okta SSO and dbt v0.18.0. It also adds init
 
 ## dbt Cloud v1.1.7 \[September 3, 2020]
 
-This release adds a Release Candidate for [dbt v0.18.0](../core-upgrade.md) and includes bugfixes and improvements to the Cloud IDE and job scheduler.
+This release adds a Release Candidate for [dbt v0.18.0](../dbt-upgrade.md) and includes bugfixes and improvements to the Cloud IDE and job scheduler.
 
 #### Enhancements
 

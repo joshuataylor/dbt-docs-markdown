@@ -69,11 +69,9 @@ Notable features:
 
  Analyst read
 
-The Analyst read permission set is a project-level set designed for users who need read-only access to analyze dbt models and project resources without the ability to develop or make changes.
+The Analyst read permission set is a project-level set designed for users who need read-only access to analyze dbt models and project resources without the ability to develop or make changes. It does not change the user's license.
 
-Availability
-
-The OAuth integration that lets read-only users connect to analysis features (such as the [dbt MCP server](../../dbt-ai/about-mcp.md)) is available to use.
+On Enterprise-tier plans, you can assign Analyst read to Read-Only users. That lets those users manage their own warehouse credentials and use the [dbt MCP server](../../dbt-ai/about-mcp.md). They can connect with OAuth or a personal access token. For MCP authentication options, refer to [Connect dbt MCP server to dbt platform](../../dbt-ai/mcp-quickstart-oauth.md).
 
 Notable features:
 
@@ -111,6 +109,8 @@ Notable features:
  Cost Insights Viewer
 
 The Cost Insights Viewer permission set provides read-only access to [Cost Insights](../../explore/cost-insights.md) data with the minimum permissions needed to view estimated cost and reduction information.
+
+A Read-Only license is not enough to view Cost Insights. Assign this permission set through a group.
 
 Notable features:
 
@@ -155,7 +155,7 @@ Notable features:
 
  Fusion admin
 
-This permission set enables users to interact with Fusion upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](../../../guides/upgrade-to-fusion.md?step=1) a project to Fusion.
+This permission set enables users to interact with Fusion upgrade workflows. We recommend limiting this permission to users who are actively [working on migrating](../../../guides/upgrade-to-dbt.md?step=1) a project to Fusion.
 
 By default, all users can access the Fusion upgrade experience. When the upgrade permissions setting is enabled, only users with the **Fusion admin** or **Account admin** permission set can perform upgrades. If the setting is disabled (no check mark), upgrades are not restricted.
 

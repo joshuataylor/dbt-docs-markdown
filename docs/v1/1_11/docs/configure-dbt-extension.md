@@ -8,7 +8,7 @@ Whether you currently use dbt platform or self-host with Fusion, or you're a dbt
 * [Set environment variables locally](#set-environment-variables-locally)
 * [Configure the dbt extension](#configure-the-dbt-extension)
 
-If you're new to dbt or getting started with a new project, you can skip this page and check out our [Quickstart for the dbt Fusion engine](../guides/fusion.md?step=1) to get started with the dbt extension.
+If you're new to dbt or getting started with a new project, you can skip this page and check out our [Quickstart for the dbt Fusion engine](../guides/dbt.md?step=1) to get started with the dbt extension.
 
 The steps differ slightly depending on whether you use dbt platform or self host with Fusion.
 
@@ -254,15 +254,15 @@ After installing the dbt extension and configuring your local setup, you may wan
 
 The following settings are the most relevant when you install or manage the dbt Fusion engine binary yourself. Most users never need to set these because the extension downloads and manages Fusion automatically.
 
-| Setting                       | Description                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dbt.fusionPath`              | Path to the dbt Fusion engine binary. The extension invokes the language server through this binary (`dbt-fusion lsp`). Set this when you install Fusion manually — for example, in an [air-gapped environment](./dbt-versions/fusion-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs) — instead of letting the extension download it. |
-| `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](./dbt-versions/fusion-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                                 |
-| `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                                      |
+| Setting                       | Description                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `dbt.fusionPath`              | Path to the dbt Fusion engine binary. The extension invokes the language server through this binary (`dbt-fusion lsp`). Set this when you install Fusion manually — for example, in an [air-gapped environment](./dbt-versions/dbt-version-compatibility.md#verify-binaries-for-manual-and-air-gapped-installs) — instead of letting the extension download it. |
+| `dbt.badReleasesManifestPath` | Path to a local copy of the [known-bad-releases manifest](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Use this if you don't have outbound network access and distribute the manifest alongside your binary bundle (for example, air-gapped installations).                                                                                 |
+| `dbt.environmentVariables`    | Environment variables the extension passes to dbt. Refer to [Configure in the VS Code extension settings](#configure-in-the-vs-code-extension-settings).                                                                                                                                                                                                                                   |
 
 Upgrading from a separate language server binary
 
-Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one Fusion binary. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](./dbt-versions/fusion-version-compatibility.md) for details.
+Earlier extension versions used separate `dbt.cliPath` and `dbt.lspPath` settings for two distinct binaries. Current versions use a single `dbt.fusionPath` because the CLI and language server ship as one Fusion binary. If you previously configured `dbt.lspPath`, migrate that path to `dbt.fusionPath`. Refer to [Version compatibility](./dbt-versions/dbt-version-compatibility.md) for details.
 
 ## File associations and other extensions
 

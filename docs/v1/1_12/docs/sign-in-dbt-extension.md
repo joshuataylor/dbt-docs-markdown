@@ -46,7 +46,7 @@ There are a couple of different ways to sign in or register for a dbt platform a
 
 (Applies to dbt v1.99 and earlier)
 
-`dbt login` is available with v2 and later. To install the dbt VS Code extension, [upgrade your project to Fusion](./upgrade-to-fusion-extension.md).
+`dbt login` is available with v2 and later. To install the dbt VS Code extension, [upgrade your project to Fusion](./upgrade-to-dbt-extension.md).
 
 Use this path if you prefer the terminal or want a single auth flow that works across the CLI and the dbt VS Code extension. Running `dbt login` opens the same browser flow that the extension uses when you select **dbt: Register dbt extension** from the command palette, so completing it once authenticates both.
 
@@ -304,7 +304,7 @@ This command downloads the LSP and re-activates the extension to resolve the err
 
 If you see an error message indicating that your version of dbt is unsupported, then there is likely a problem with your environment.
 
-Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion Engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](./local/install-dbt.md?version=2)
+Check the dbt Path setting in your VS Code settings. If this path is set, ensure that it is pointing to a valid dbt Fusion engine executable. If necessary, you can also install the dbt Fusion engine directly using these instructions: [Install the Fusion CLI](./local/install-dbt.md?version=2)
 
  dbt Fusion binary not found at the configured path
 
@@ -319,7 +319,7 @@ If the extension reports that the dbt Fusion engine binary can't be found at the
 If the extension reports that the installed Fusion version isn't compatible with your dbt VS Code extension version, the two are outside the supported range.
 
 1. Run `dbt --version` to check your installed Fusion version.
-2. Compare it against the [version compatibility matrix](./dbt-versions/fusion-version-compatibility.md#compatibility-matrix) for your extension version.
+2. Compare it against the [version compatibility matrix](./dbt-versions/dbt-version-compatibility.md#compatibility-matrix) for your extension version.
 3. Update Fusion or the extension so both fall within the supported range. Use the **Download compatible version** action in the notification if it appears.
 
  dbt Fusion crashes on startup
@@ -331,7 +331,7 @@ If the extension reports that Fusion crashed on startup, confirm the binary runs
 
  A known-bad dbt Fusion version is installed
 
-If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](./dbt-versions/fusion-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
+If the extension warns that your installed Fusion version has a known regression, dbt Labs has flagged that release as [known-bad](./dbt-versions/dbt-version-compatibility.md#known-bad-releases). Update to the version named in the notification.
 
 For standalone installations:
 
@@ -339,7 +339,7 @@ For standalone installations:
 dbt system update
 ```
 
-The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](./dbt-versions/fusion-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
+The warning persists across restarts until you update. If you work in an air-gapped environment, refer to [known-bad releases](./dbt-versions/dbt-version-compatibility.md#known-bad-releases) for how to distribute the manifest locally.
 
  Addressing the 'dbt language server is not running in this workspace' error
 
@@ -364,11 +364,11 @@ This situation can be remedied by setting up an internet fallback, which will th
 
 For Azure refer to [Fallback to internet for Azure Private DNS zones](https://learn.microsoft.com/en-us/azure/dns/private-dns-fallback).
 
-## More information about Fusion
+## More information about dbt v2
 
 * [About the dbt extension](./about-dbt-extension.md)
-* [Supported features matrix](./fusion/supported-features.md)
+* [Supported features matrix](./dbt/supported-features.md)
 * [Install dbt](./local/install-dbt.md)
-* [Quickstart for Fusion](../guides/fusion.md?step=1)
-* [Upgrade guide](./dbt-versions/core-upgrade/upgrading-to-v2.md)
-* [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [Quickstart for Fusion](../guides/dbt.md?step=1)
+* [Upgrade guide](./dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)

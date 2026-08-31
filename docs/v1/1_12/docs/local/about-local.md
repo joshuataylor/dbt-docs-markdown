@@ -8,7 +8,7 @@ You can run dbt locally from your terminal with the dbt CLI, or from your code e
 
 Ready for the current version?
 
-v2 is the current generation of dbt and the recommended choice for most users — it's faster, adds richer developer tooling, and is free to use with Fusion. [Upgrade to v2](../dbt-versions/core-upgrade/upgrading-to-v2.md).
+v2 is the current generation of dbt and the recommended choice for most users — it's faster, adds richer developer tooling, and is free to use with Fusion. [Upgrade to v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md).
 
 ## Install dbt Core v1.x
 

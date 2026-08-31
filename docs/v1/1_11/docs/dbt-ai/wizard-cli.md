@@ -41,7 +41,7 @@ After running `wizard --version`, you should see something like `dbt-wizard VERS
 
 Upgrade for automatic updates
 
-Upgrade to [v2](../dbt-versions/core-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
+Upgrade to [v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
 Next up, check out the [Prerequisites](#prerequisites) and [First-run setup and onboarding](#first-run-setup-and-onboarding) sections for more details.
 

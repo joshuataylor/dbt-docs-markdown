@@ -62,7 +62,7 @@ Docs block names must be unique within your project. If you define multiple `{% 
 
 (Applies to dbt v2.0 and later)
 
-In the dbt Fusion engine, duplicate docs block names are not allowed. If duplicates are found, dbt reports the conflicting files and surfaces a warning. Rename one block so each docs block name is unique. For more information, refer to [Stricter evaluation of duplicate docs blocks](../../docs/dbt-versions/core-upgrade/upgrading-to-v2.md?version=2.0#stricter-evaluation-of-duplicate-docs-blocks).
+In the dbt Fusion engine, duplicate docs block names are not allowed. If duplicates are found, dbt reports the conflicting files and surfaces a warning. Rename one block so each docs block name is unique. For more information, refer to [Stricter evaluation of duplicate docs blocks](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md?version=2.0#stricter-evaluation-of-duplicate-docs-blocks).
 
 models/docs/example.md
 

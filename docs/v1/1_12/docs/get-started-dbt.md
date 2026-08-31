@@ -2,7 +2,7 @@
 
 Begin your dbt journey by choosing how you want to develop:
 
-* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt platform CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](./fusion/about-fusion.md) and [dbt Core](./local/install-dbt.md) engines.
+* [**dbt platform** ](#the-dbt-platform)— Develop in your browser (Studio IDE or Canvas) or use local tools (VS Code extension, dbt platform CLI) that connect to your platform account. The platform provides hosted CI/CD, documentation, and more. Supports both the [dbt Fusion engine](./introduction.md) and [dbt Core](./local/install-dbt.md) engines.
 * [**Self-hosted only**](#self-hosted-dbt-installations) — Use local tools like the [dbt VS Code extension](./about-dbt-extension.md) or [install dbt](./local/install-dbt.md) locally, to develop and run dbt on your own infrastructure. You can use local tools with or without a dbt platform account.
 * **Local + dbt platform** — Use the VS Code extension or dbt platform CLI with a dbt platform account to develop locally while leveraging platform features like CI/CD, documentation hosting, Insights, Canvas, and more.
 * [**dbt Wizard**](#dbt-wizard) — The AI agent for analytics engineering, available in the dbt platform and from your terminal. Grounded in your project's lineage, model health, and semantic definitions.
@@ -77,11 +77,11 @@ You can use self-hosted tools with or without a dbt platform account. With an ac
 
 Develop with a self-hosted installation using the dbt Fusion engine or dbt Core engine.
 
-[![](/img/icons/dbt-bit.svg)](../guides/fusion.md?step=2)
+[![](/img/icons/dbt-bit.svg)](../guides/dbt.md?step=2)
 
-#### [dbt Fusion engine from a manual install](../guides/fusion.md?step=2)
+#### [dbt Fusion engine from a manual install](../guides/dbt.md?step=2)
 
-[Learn how to install dbt Fusion and set up a project.](../guides/fusion.md?step=2)
+[Learn how to install dbt Fusion and set up a project.](../guides/dbt.md?step=2)
 
 [![](/img/icons/dbt-bit.svg)](../guides/manual-install.md)
 

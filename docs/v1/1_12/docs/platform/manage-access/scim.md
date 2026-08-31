@@ -52,7 +52,7 @@ dbt platform supports automatic license assignment with SCIM, with these differe
  Toggle options per identity provider
 
 * **Okta:** Enable the **Ignore dbt license mapping** toggle in **Account settings > SSO & SCIM** and follow the [Okta license management doc](./scim-manage-user-licenses.md).
-* **Entra ID:** Use [SSO-based Active Directory group → license mapping](./seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users.
+* **Entra ID:** Use [SSO-based Active Directory group → license mapping](./seats-and-users.md#mapped-configuration). It works alongside an active Entra ID SCIM setup. Keep the **Ignore dbt license mapping** toggle *disabled* as enabling it removes license mapping for Entra ID users. SCIM license mapping with [custom attributes](https://learn.microsoft.com/en-us/entra/fundamentals/custom-security-attributes-overview) may be possible depending on your Entra ID configuration, but it's not a supported setup — **do it at your own risk**.
 
 For more details, refer to the [Does SCIM support automatic license assignment?](./scim-faq.md#does-scim-support-automatic-license-assignment) FAQ.
 

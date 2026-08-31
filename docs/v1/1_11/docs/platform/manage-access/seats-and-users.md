@@ -30,18 +30,24 @@ There are four license types in dbt:
 
 The user's assigned license determines the specific capabilities they can access in dbt.
 
-| Functionality                                                                         | Developer or Analyst license\*\* \* | Read-Only users | IT license \* |
-| ------------------------------------------------------------------------------------- | ----------------------------------- | --------------- | ------------- |
-| Use the Studio IDE                                                                    | ✅                                  | ❌              | ❌            |
-| Use the dbt CLI                                                                       | ✅                                  | ❌              | ❌            |
-| Use Jobs                                                                              | ✅                                  | ❌              | ❌            |
-| Manage Account                                                                        | ✅                                  | ❌              | ✅            |
-| API access<br />(create personal access tokens)                                       | ✅                                  | ✅              | ✅            |
-| API access<br />(create service tokens)                                               | ✅                                  | ❌              | ❌            |
-| Use [Catalog](../../explore/explore-projects.md)               | ✅                                  | ✅              | ❌            |
-| Use [Source Freshness](../../deploy/source-freshness.md)       | ✅                                  | ✅              | ❌            |
-| Use [Docs](../../explore/build-and-view-your-docs.md)          | ✅                                  | ✅              | ❌            |
-| Receive [Job notifications](../../deploy/job-notifications.md) | ✅                                  | ✅              | ✅            |
+| Functionality                                                                         | Developer or Analyst license\*\* \* | Read-Only users                                                                                                                                     | IT license \* |
+| ------------------------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| Use the Studio IDE                                                                    | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use the dbt CLI                                                                       | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use [Canvas](../canvas.md)                         | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use [Insights](../../explore/dbt-insights.md)                  | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use [dbt Wizard](../wizard-overview.md)            | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use Jobs                                                                              | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Manage Account                                                                        | ✅                                  | ❌                                                                                                                                                  | ✅            |
+| API access<br />(create personal access tokens)                                       | ✅                                  | ✅                                                                                                                                                  | ✅            |
+| API access<br />(create service tokens)                                               | ✅                                  | ❌                                                                                                                                                  | ❌            |
+| Use [Catalog](../../explore/explore-projects.md)               | ✅                                  | ✅                                                                                                                                                  | ❌            |
+| Use [Source Freshness](../../deploy/source-freshness.md)       | ✅                                  | ✅                                                                                                                                                  | ❌            |
+| Use [Docs](../../explore/build-and-view-your-docs.md)          | ✅                                  | ✅                                                                                                                                                  | ❌            |
+| Receive [Job notifications](../../deploy/job-notifications.md) | ✅                                  | ✅                                                                                                                                                  | ✅            |
+| Use the [dbt MCP server](../../dbt-ai/about-mcp.md)            | ✅                                  | ✅ (with [Analyst read](./enterprise-permissions.md#analyst-read) permission set)                 | ❌            |
+| Manage own warehouse credentials                                                      | ✅                                  | ✅ (with [Analyst read](./enterprise-permissions.md#analyst-read) permission set)                 | ❌            |
+| Use [Cost Insights](../../explore/cost-insights.md)            | ✅                                  | ✅ (with [Cost Insights Viewer](./enterprise-permissions.md#cost-insights-viewer) permission set) | ❌            |
 
 \*The [Analyst license type](./about-user-access.md?version=1.12#licenses) is not available for new purchase.
 

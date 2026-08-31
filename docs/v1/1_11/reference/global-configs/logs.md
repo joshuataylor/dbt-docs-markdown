@@ -131,7 +131,7 @@ dbt run --quiet
 
 ### dbt list logging
 
-In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](../commands/list.md) command to include `INFO` level logs by default.
+In [dbt version 1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md#behavior-changes>), we updated the logging behavior of the [dbt list](../commands/list.md) command to include `INFO` level logs by default.
 
 You can use either of these parameters to ensure clean output that's compatible with downstream processes, such as piping results to [`jq`](https://jqlang.github.io/jq/manual/), a file, or another process:
 

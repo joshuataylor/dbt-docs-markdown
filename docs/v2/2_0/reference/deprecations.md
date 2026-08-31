@@ -6,9 +6,9 @@ note
 
 Deprecated functionality still works in the v1.10 release but is no longer supported and will be removed in a future version. Deprecations currently show as warnings but don't prevent runs and other commands (unless you've configured [warnings as errors](./global-configs/warnings.md)), but will cause errors after upgrading if not addressed.
 
-Not the same as [behavior change flags](./global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in Fusion). See the [Changes overview](./changes-overview.md) for a quick comparison.
+Not the same as [behavior change flags](./global-configs/behavior-changes.md) (which are opt-in/out flags in your `dbt_project.yml` file) or [deprecated CLI flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) (which are command-line flags being removed in Fusion). See the [Changes overview](./changes-overview.md) for a quick comparison.
 
-Upgrading to [Fusion](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
+Upgrading to [Fusion](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md)? You must resolve all deprecations listed on this page before upgrading.
 
 As dbt runs, it generates different categories of [events](./events-logging.md), one of which is *deprecations*. Deprecations are a special type of warning that lets you know that there are problems in parts of your project that will result in breaking changes in a future version of dbt. Although it's just a warning for now, it is important to resolve any deprecation warnings in your project to enable you to work with more safety, feedback, and confidence going forward.
 
@@ -32,7 +32,7 @@ Fusion and `dbt parse`
 
 When you use the dbt Fusion engine, omit `--no-partial-parse` from the command above. That flag is deprecated in Fusion and may log deprecation warning `dbt1700`. Run `dbt parse --show-all-deprecations` without `--no-partial-parse`.
 
-For more information, refer to [Deprecated flags](../docs/dbt-versions/core-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
+For more information, refer to [Deprecated flags](../docs/dbt-versions/dbt-upgrade/upgrading-to-v2.md#deprecated-flags) in the guide to upgrading to the dbt Fusion engine.
 
 ```bash
 
@@ -133,7 +133,7 @@ models:
 
 ### ConfigDataPathDeprecation
 
-In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `data-paths` has been renamed to [seed-paths](./project-configs/model-paths.md). If you receive this deprecation warning, it means that `data-paths` is still being used in your project's `dbt_project.yml`.
+In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.0.md>) `data-paths` has been renamed to [seed-paths](./project-configs/model-paths.md). If you receive this deprecation warning, it means that `data-paths` is still being used in your project's `dbt_project.yml`.
 
 Example warning:
 
@@ -151,7 +151,7 @@ Change `data-paths` to `seed-paths` in your `dbt_project.yml`.
 
 ### ConfigLogPathDeprecation
 
-[dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) specifying `log-path` in `dbt_project.yml` was deprecated. Receiving this deprecation warning means that `log-path` is still specified in your `dbt_project.yml` and it's not set to the default value `logs`.
+[dbt v1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md>) specifying `log-path` in `dbt_project.yml` was deprecated. Receiving this deprecation warning means that `log-path` is still specified in your `dbt_project.yml` and it's not set to the default value `logs`.
 
 Example:
 
@@ -173,7 +173,7 @@ Remove `log-path` from your `dbt_project.yml` and specify it via either the CLI 
 
 ### ConfigSourcePathDeprecation
 
-In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.0.md>) `source-paths` has been renamed to [model-paths](./project-configs/model-paths.md). Receiving this deprecation warning means that `source-paths` is still being used in your project's `dbt_project.yml`.
+In [dbt v1.0](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.0.md>) `source-paths` has been renamed to [model-paths](./project-configs/model-paths.md). Receiving this deprecation warning means that `source-paths` is still being used in your project's `dbt_project.yml`.
 
 Example:
 
@@ -192,7 +192,7 @@ Change `source-paths` to `model-paths` in your `dbt_project.yml`.
 
 ### ConfigTargetPathDeprecation
 
-In [dbt 1.5](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.5.md>) specifying `target-path` in `dbt_project.yml` was deprecated. Receiving this deprecation warning means that `target-path` is still specified in your `dbt_project.yml` and it's not set to the default value, `target`.
+In [dbt 1.5](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.5.md>) specifying `target-path` in `dbt_project.yml` was deprecated. Receiving this deprecation warning means that `target-path` is still specified in your `dbt_project.yml` and it's not set to the default value, `target`.
 
 Example:
 
@@ -444,7 +444,7 @@ Review your custom environment variables and ensure they don't conflict with dbt
 
 ### ExposureNameDeprecation
 
-In [dbt 1.3](<https://docs.getdbt.com/docs/dbt-versions/core-upgrade/Older versions/upgrading-to-v1.3.md#new-and-changed-documentation>), dbt began allowing only letters, numbers, and underscores in the `name` property of [exposures](./exposure-properties.md).
+In [dbt 1.3](<https://docs.getdbt.com/docs/dbt-versions/dbt-upgrade/Older versions/upgrading-to-v1.3.md#new-and-changed-documentation>), dbt began allowing only letters, numbers, and underscores in the `name` property of [exposures](./exposure-properties.md).
 
 Example:
 
@@ -496,7 +496,7 @@ If you are seeing this warning, unfortunately, there isn't much you can do at th
 
 ### MFCumulativeTypeParamsDeprecation
 
-In dbt [v1.9](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](./global-configs/behavior-flags/require_nested_cumulative_type_params.md) was deprecated.
+In dbt [v1.9](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md) implementing `window` and `time_to_grain` directly on the `type_params` of a [metric](./global-configs/behavior-flags/require_nested_cumulative_type_params.md) was deprecated.
 
 Example:
 
@@ -517,7 +517,7 @@ Nest your `window` and `time_to_grain` under the `cumulative_type_params` proper
 
 ### MFTimespineWithoutYamlConfigurationDeprecation
 
-Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine defintion](../docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
+Before dbt v1.9, the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file. In [v1.9](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md) dbt introduced the [YAML timespine defintion](../docs/build/metricflow-time-spine.md#configuring-time-spine-in-yaml) for MetricFlow. It was then decided that it would be the standard going forward. If you see this deprecation warning, you don't have a YAML timespine definition for Metricflow.
 
 Example:
 
@@ -828,7 +828,7 @@ sources:
 
 ### ResourceNamesWithSpacesDeprecation
 
-In [dbt 1.8](../docs/dbt-versions/core-upgrade/upgrading-to-v1.8.md#managing-changes-to-legacy-behaviors), allowing resource names to have spaces in them was deprecated. If you get this deprecation warning, dbt detected a resource name with a space in it.
+In [dbt 1.8](../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.8.md#managing-changes-to-legacy-behaviors), allowing resource names to have spaces in them was deprecated. If you get this deprecation warning, dbt detected a resource name with a space in it.
 
 Example:
 

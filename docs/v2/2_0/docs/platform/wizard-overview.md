@@ -22,7 +22,7 @@ For recommended workflows on real project tasks — understanding a project, val
 
 dbt Wizard is for anyone doing dbt development — from analytics engineers working in a self-hosted setup in the terminal to teams building in the dbt platform. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account.
 
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../fusion/about-fusion.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
+dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
@@ -141,7 +141,7 @@ Now that you know where to start, continue with **[Use self-hosted dbt Wizard](.
 * [Use skills in the dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
 * [Use MCP servers with dbt Wizard CLI](../dbt-ai/wizard-mcp.md) — connect the dbt Wizard CLI to more tools and context
 * [Migrate to dbt Wizard](../dbt-ai/wizard-migrate.md) — switch from Claude Code, Cursor, or another AI agent to dbt Wizard
-* [Data & Privacy in the dbt platform](../dbt-ai/wizard-platform-privacy-data.md) — understand how dbt Wizard in the dbt platform handles privacy and data
+* [Privacy and data FAQs](../dbt-ai/dbt-ai-faqs.md#privacy-and-data) — understand how dbt Wizard handles privacy and data
 
 See it in action and share your feedback
 
@@ -150,7 +150,3 @@ Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube
 We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
-
-*dbt Wizard is available in Studio IDE as a public preview feature, and as a standalone beta feature across the managed dbt platform. However, certain customers may have disabled experimental features, in which case, they can use Wizard CLI via terminal-access and will continue to have access to dbt Copilot until dbt Wizard is released as generally available to all customers. [Contact dbt Support](mailto:support@getdbt.com) with any questions.*
-
-Please contact dbt Support with any questions

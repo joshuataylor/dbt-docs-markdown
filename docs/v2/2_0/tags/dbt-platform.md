@@ -22,7 +22,7 @@ Learn about errors and the art of debugging them.
 
 Implement a CI environment for safe project validation.
 
-## [Hybrid development with dbt platform and Fusion](../guides/fusion-platform-local-workflow.md)
+## [Hybrid development with dbt platform and Fusion](../guides/dbt-platform-local-workflow.md)
 
 Introduction
 
@@ -34,15 +34,15 @@ Learn how to migrate from dbt-spark to dbt-databricks.
 
 A quickstart for moving environments and jobs off legacy dbt versions to a dbt Core release track.
 
-## [Move from dbt Core to the dbt platform: Get started](../guides/core-migration-1.md)
+## [Move from dbt Core to the dbt platform: Get started](../guides/dbt-migration-1.md)
 
 Learn how to move from dbt Core to the dbt platform and what you need to get started.
 
-## [Move from dbt Core to the dbt platform: Optimization tips](../guides/core-migration-3.md)
+## [Move from dbt Core to the dbt platform: Optimization tips](../guides/dbt-migration-3.md)
 
 Use this guide to learn how to optimize your dbt experience and get answers to common questions.
 
-## [Move from dbt Core to the dbt platform: What you need to know](../guides/core-migration-2.md)
+## [Move from dbt Core to the dbt platform: What you need to know](../guides/dbt-migration-2.md)
 
 Use this guide to understand the considerations and methods you need to move from dbt Core to the dbt platform.
 
@@ -82,11 +82,11 @@ Introduction
 
 Introduction
 
-## [Quickstart for the dbt Fusion engine](../guides/fusion.md)
+## [Quickstart for the dbt Fusion engine](../guides/dbt.md)
 
 Introduction
 
-## [Quickstart for the dbt Semantic Layer and Snowflake](../guides/sl-snowflake-qs.md)
+## [Quickstart for the dbt Semantic Layer](../guides/sl-qs.md)
 
 Use this guide to build and define metrics, set up the dbt Semantic Layer, and query them using Google Sheets.
 
@@ -98,11 +98,11 @@ Introduction
 
 Learn more about setting up your dbt project with Databricks.
 
-## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-fusion-upgrade.md)
+## [Upgrade to Fusion part 1: Preparing to upgrade](../guides/prepare-dbt-upgrade.md)
 
 Introduction
 
-## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-fusion.md)
+## [Upgrade to Fusion part 2: Making the move](../guides/upgrade-to-dbt.md)
 
 Introduction
 

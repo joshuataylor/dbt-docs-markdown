@@ -1,10 +1,18 @@
-# 18 docs tagged with "dbt State"
+# 20 docs tagged with "dbt State"
 
 [View all tags](../tags.md)
 
 ## [About dbt State](../docs/deploy/dbt-state-about.md)
 
 Learn about dbt State, its benefits, and key concepts for running only what has changed in your dbt project.
+
+## [allow\_clones](../reference/resource-configs/allow-clones.md)
+
+Configure whether dbt State makes clone decisions when running against a target.
+
+## [compare\_unrendered\_code](../reference/resource-configs/compare-unrendered-code.md)
+
+Controls whether dbt State checks both the Jinja template (unrendered code) and rendered SQL when deciding whether a model has changed.
 
 ## [Configuring deferral in dbt State](../docs/deploy/dbt-state-deferral.md)
 

@@ -6,7 +6,7 @@ The Semantic Layer offers a seamless integration with Google Sheets through a cu
 
 ## Prerequisites
 
-* You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher.
+* You have [configured the Semantic Layer](../../use-dbt-semantic-layer/setup-sl.md) and are using dbt v1.6 or higher. If you haven't created metrics yet, start with the [Quickstart for the Semantic Layer](../../../guides/sl-qs.md).
 * You need a Google account with access to Google Sheets and the ability to install Google add-ons.
 * You have a [dbt Environment ID](../../use-dbt-semantic-layer/setup-sl.md#set-up-dbt-semantic-layer).
 * You have a [service token](../../dbt-apis/service-tokens.md) or a [personal access token](../../dbt-apis/user-tokens.md) to authenticate with from a dbt account.

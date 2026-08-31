@@ -24,10 +24,20 @@ dbt State delivers efficiency gains across both production and development envir
 When you run a command like `dbt build --select +my_model`, dbt State evaluates each selected node and applies the most efficient approach it can:
 
 * **Reuse node from same schema (skip)** — dbt checks whether the object already exists in the target schema, its logic hasn't changed, and its upstream parents haven't received fresh data beyond the configured [`lag_tolerance`](../../reference/resource-configs/lag-tolerance.md). If all conditions are met, dbt skips the node entirely, as if it was never selected. For data tests, if the nodes being tested haven't changed since the last run, the previous test result is reused without re-executing the test query.
+
+  For views, if the view's logic is unchanged, dbt State reuses it even if new data has arrived upstream. Because views don't store data, new upstream data is automatically reflected when the view is queried, even without a rebuild. Note that views using `select *` on an upstream node may behave differently — refer to [Views with `select *`](../../faqs/State/views-rebuilt.md#views-with-select) for more information.
+
 * **Reuse node from different schema (clone)** — dbt State looks across all environments and jobs for a matching object with identical logic and fresh data. This includes schemas where a model was built before it ever ran in production. When multiple candidates exist, dbt State clones from the one with the freshest data, regardless of which environment it came from. For example, if a CI schema has fresher data than production and identical logic, dbt State clones from there. The node is marked as **Reused** at a fraction of the compute cost.
+
+  If you want to prevent cloning into a specific target (for example, in regulated environments), set [`allow_clones: false`](../../reference/resource-configs/allow-clones.md) on that target in `profiles.yml` or as an [extended attribute](../dbt-platform-environments.md#extended-attributes) in the dbt platform.
+
 * **Normal build** — If reuse is not possible, dbt builds the node as normal, automatically deferring any unselected upstream nodes.
 
+dbt State fetches table metadata (for example, last-modified timestamps) in the background at the start of each run. Any node ready to skip, clone, or execute proceeds immediately; nodes with an undetermined action wait for the fetch to complete.
+
 Without dbt State, every selected node rebuilds on every run regardless of whether anything has changed.
+
+To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) command.
 
 For the full list of available configs, see [dbt State configs](../../reference/resource-configs/dbt-state-configs.md).
 
@@ -107,6 +117,10 @@ How does dbt State calculate that a model has changed?
 
 dbt State only considers substantial changes to a model. Because dbt State understands the entire lineage of your models, it can see through things like whitespace and aliases to determine whether a model is the same or different across environments.
 
+By default, dbt State compares rendered SQL to detect code changes. Any change to the rendered SQL — including from non-deterministic macros or environment variables — triggers a rebuild.
+
+You can enable [`compare_unrendered_code`](../../reference/resource-configs/compare-unrendered-code.md) to also check the Jinja template (unrendered code). When enabled, a rebuild only occurs when both the template *and* the rendered SQL have changed. Non-deterministic values (for example, `{{ env_var('AIRFLOW_RUN_ID') }}` or a macro that calls `uuid()`) don't trigger rebuilds as long as the template itself is unchanged, which helps avoid unnecessary warehouse compute costs.
+
 Why is my model being rebuilt instead of reused?
 
 dbt State decides whether to reuse a model by parsing the rendered SQL into a syntax tree and comparing the hash. If the hash has changed (implying the model's logic has changed), dbt State rebuilds the model.
@@ -115,49 +129,70 @@ dbt State prioritizes safety and precision; if it can't guarantee skipping a nod
 
 The following patterns commonly cause unexpected rebuilds:
 
-* [Views with `select *`](#views-with-select-)
+* [Views with `select *`](#views-with-select)
 * [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
 * [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
 
 ## Views with `select *`
 
-dbt State always rebuilds views that use `select *` anywhere in their SQL, including inside CTEs. A common staging pattern like the following triggers this behavior:
+dbt State reuses a model when its compiled SQL matches the stored hash. When a view uses `select *` directly on a `ref()` or `source()`, dbt can't determine the column list at parse time — the upstream model or source table might have gained or lost columns since the last run. To be safe, dbt State forces a rebuild.
+
+For example, this view will be rebuilt even if `stg_orders` hasn't changed because dbt can't know at parse time whether `stg_orders` has the same columns as before:
+
+```sql
+-- stg_orders_view.sql (materialized: view)
+select * from {{ ref('stg_orders') }}
+```
+
+However, if you use `select *` on a CTE, dbt can resolve the columns from the CTE definition and safely reuse the view:
+
+```sql
+with renamed as (
+    select order_id, customer_id, order_total from {{ ref('stg_orders') }}
+)
+
+select * from renamed
+```
+
+If a CTE explicitly names its columns, a `select *` that reads from that CTE won't force a rebuild even if an earlier CTE used `select *` on a `ref()` or `source()`. The typical staging pattern is reused:
 
 ```sql
 with source as (
-    select * from {{ source("my_source", "my_table") }}
+    select * from {{ source('jaffle_shop', 'orders') }}
 ),
 
 renamed as (
     select
         id as order_id,
-        ...
+        user_id as customer_id,
+        amount as order_total
     from source
 )
 
 select * from renamed
 ```
 
-dbt State reuses a model when its compiled SQL matches the stored hash. For views with `select *`, dbt State can't determine which columns the query selects without querying the upstream schema, so it can't confirm the SQL is unchanged. It always rebuilds these views to avoid errors — if the upstream table gains a column, querying the view can fail. When dbt State rebuilds a view, it also re-runs any tests defined on the model.
-
 tip
 
-To make this view eligible for reuse, remove the imported CTE and reference the source directly with explicit column names:
-
-```sql
-select
-    id as order_id,
-    ...
-from {{ source("my_source", "my_table") }}
-```
-
-If you can't remove `select *`, you can exclude views from running with `--exclude config.materialized:view`.
+To avoid forced rebuilds, use explicit column names when selecting directly from a `ref()` or `source()`. You can also exclude views from execution using `--exclude config.materialized:view`.
 
 ## Non-deterministic Jinja templating
 
-Some macros, such as `dbt_utils.get_relations_by_pattern` (an introspective macro) combined with `dbt_utils.union_relations`, can return relations in a different order on each run. That produces different compiled SQL even when your project logic hasn't changed. dbt State detects a new hash and rebuilds the model.
+Some macros and environment variables can cause unexpected rebuilds. For example, `dbt_utils.get_relations_by_pattern` (an introspective macro) combined with `dbt_utils.union_relations` can return relations in a different order on each run, producing different rendered SQL even when your project logic hasn't changed. Similarly, environment variables that change between runs produce different rendered SQL on every run:
 
-This pattern can affect any model type, not just views. If a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
+```sql
+select '{{ env_var("AIRFLOW_RUN_ID") }}' as airflow_run_id, ...
+```
+
+Because the query result order or the environment variable's value changes, the rendered SQL differs from the stored hash on every run. dbt State treats this as a code change and rebuilds the model, even though the underlying project logic hasn't changed. This pattern can affect any model type, not just views; if a base or staging model rebuilds on every run, all of its downstream models rebuild, too.
+
+To avoid these unnecessary rebuilds, enable [`compare_unrendered_code`](../../reference/resource-configs/compare-unrendered-code.md). When enabled, dbt State checks both the Jinja template and rendered SQL; non-deterministic values that don't change the template don't trigger a rebuild. For example:
+
+```sql
+{{ config(state={"compare_unrendered_code": true}) }}
+
+select '{{ env_var("AIRFLOW_RUN_ID") }}' as airflow_run_id, ...
+```
 
 ## Models with external sources on BigQuery
 
@@ -169,11 +204,17 @@ To prevent external sources from always being considered stale, configure [`load
 
 ## How to diagnose
 
-In dbt Core v1.7–v1.12, run the `dbt-state explain` command to see why dbt State rebuilt or reused a specific model.
+After a run, use (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) to see why dbt State rebuilt, reused, or cloned a specific model. For a detailed breakdown, use the `--verbose` flag with `-s` to select your model:
 
-Experimental
+note
 
-The `dbt-state explain` command is experimental. It isn't available in the dbt Fusion engine or dbt platform yet.
+The command name differs by version: dbt Core 2.0 uses `dbt state explain` (with a space), while dbt Core v1.x uses `dbt-state explain` (with a hyphen).
+
+(Applies to dbt v1.99 and earlier)
+
+```bash
+dbt-state explain --verbose -s my_model_name
+```
 
 What happens if dbt State servers fail?
 

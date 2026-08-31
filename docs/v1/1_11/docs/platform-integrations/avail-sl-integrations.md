@@ -95,6 +95,7 @@ Before you connect to these tools, you'll need to first [set up the dbt Semantic
 
 ## Related docs
 
+* [Quickstart for the Semantic Layer](../../guides/sl-qs.md)
 * [dbt Semantic Layer APIs](https://docs.getdbt.com/docs/dbt-apis/sl-api-overview) to learn how to integrate and query your metrics in downstream tools.
 * [Semantic Layer API query syntax](../dbt-apis/sl-jdbc.md#querying-the-api-for-metric-metadata)
 * [Hex Semantic Layer cells](https://learn.hex.tech/docs/explore-data/cells/data-cells/dbt-metrics-cells) to set up SQL cells in Hex.

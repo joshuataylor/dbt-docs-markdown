@@ -113,7 +113,7 @@ Foreign key constraints accept two additional inputs:
 * `to`: A relation input, likely [`ref()`](../dbt-jinja-functions/ref.md)] and [`source()`](../dbt-jinja-functions/source.md), indicating the referenced table.
 * `to_columns`: A list of column(s) in that table containing the corresponding primary or unique key.
 
-This syntax for defining foreign keys uses `ref`, meaning it will capture dependencies and works across different environments. It's available in [dbt **Latest**](../../docs/dbt-versions/dbt-release-tracks.md) and [dbt Core v1.9+](../../docs/dbt-versions/core-upgrade/upgrading-to-v1.9.md).
+This syntax for defining foreign keys uses `ref`, meaning it will capture dependencies and works across different environments. It's available in [dbt **Latest**](../../docs/dbt-versions/dbt-release-tracks.md) and [dbt Core v1.9+](../../docs/dbt-versions/dbt-upgrade/upgrading-to-v1.9.md).
 
 Since constraints support and enforcement [varies by platform](./constraints.md#platform-specific-support), dbt offers two optional fields you can specify on any filter:
 

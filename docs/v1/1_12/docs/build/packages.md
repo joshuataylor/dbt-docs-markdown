@@ -434,13 +434,13 @@ To see the library of published dbt packages, check out the [dbt package hub](ht
 
 ## Fusion package compatibility
 
-To determine if a package is compatible with the dbt Fusion engine, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
+To determine if a package is compatible with dbt v2, visit the [dbt package hub](https://hub.getdbt.com/) and look for the Fusion-compatible badge, or review the package's [`require-dbt-version` configuration](../../reference/project-configs/require-dbt-version.md#pin-to-a-range).
 
-* Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with Fusion. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
+* Packages with a `require-dbt-version` that equals or contains `2.0.0` are compatible with dbt v2. For example, `require-dbt-version: ">=1.10.0,<3.0.0"`.
 
-  Even if a package doesn't reflect compatibility in the package hub, it may still work with Fusion. Work with package maintainers to track updates, and [thoroughly test packages](https://docs.getdbt.com/guides/fusion-package-compat?step=5) that aren't clearly compatible before deploying.
+  Even if a package doesn't reflect compatibility in the package hub, it may still work with v2. Work with package maintainers to track updates, and [thoroughly test packages](https://docs.getdbt.com/guides/dbt-package-compat?step=5) that aren't clearly compatible before deploying.
 
-* Package maintainers who would like to make their package compatible with Fusion can refer to the [Fusion package upgrade guide](../../guides/fusion-package-compat.md) for instructions.
+* Package maintainers who would like to make their package compatible with v2 can refer to the [dbt v2 package upgrade guide](../../guides/dbt-package-compat.md) for instructions.
 
 Fivetran package considerations:
 
@@ -449,23 +449,23 @@ Fivetran package considerations:
 
 #### Package compatibility messages
 
-Inconsistent Fusion warnings and `dbt-autofix` logs
+Inconsistent v2 warnings and `dbt-autofix` logs
 
-Fusion warnings and `dbt-autofix` logs may show different messages about package compatibility.
+dbt v2 warnings and `dbt-autofix` logs may show different messages about package compatibility.
 
-If you use [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) while upgrading to Fusion in the Studio IDE or dbt VS Code extension, you may see different messages about package compatibility between `dbt-autofix` and Fusion warnings.
+If you use [`dbt-autofix`](https://github.com/dbt-labs/dbt-autofix) while upgrading to v2 in the Studio IDE or dbt VS Code extension, you may see different messages about package compatibility between `dbt-autofix` and v2 warnings.
 
 Here's why:
 
-* Fusion warnings are emitted based on a package's `require-dbt-version` and whether `require-dbt-version` contains `2.0.0`.
-* Some packages are already Fusion-compatible even though package maintainers haven't yet updated `require-dbt-version`.
+* dbt v2 warnings are emitted based on a package's `require-dbt-version` and whether `require-dbt-version` contains `2.0.0`.
+* Some packages are already v2-compatible even though package maintainers haven't yet updated `require-dbt-version`.
 * `dbt-autofix` knows about these compatible packages and will not try to upgrade a package that it knows is already compatible.
 
-This means that even if you see a Fusion warning for a package that `dbt-autofix` identifies as compatible, you don't need to change the package.
+This means that even if you see a v2 warning for a package that `dbt-autofix` identifies as compatible, you don't need to change the package.
 
-The message discrepancy is temporary while we implement and roll out `dbt-autofix`'s enhanced compatibility detection to Fusion warnings.
+The message discrepancy is temporary while we implement and roll out `dbt-autofix`'s enhanced compatibility detection to v2 warnings.
 
-Here's an example of a Fusion warning in the Studio IDE that says a package isn't compatible with Fusion but `dbt-autofix` indicates it is compatible:
+Here's an example of a dbt v2 warning in the Studio IDE that says a package isn't compatible with v2 but `dbt-autofix` indicates it is compatible:
 
 ```text
 dbt1065: Package 'dbt_utils' requires dbt version [>=1.30,<2.0.0], but current version is 2.0.0-preview.72. This package may not be compatible with your dbt version. dbt(1065) [Ln 1, Col 1]

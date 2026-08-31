@@ -153,7 +153,7 @@ If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platfo
 
 info
 
-The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/fusion-package-compat?step=4) instead.
+The Fusion migration workflow is accessible through the dbt Wizard in the Studio IDE. If you're using VS Code or the dbt platform CLI, use the [autofix tool](https://docs.getdbt.com/guides/dbt-package-compat?step=4) instead.
 
 1. From the job list, click the **Review job** button for a job with a successful run.
    * If you don't see the **Review job** button, enable the **Show Fusion eligibility** toggle in the job list.
@@ -178,7 +178,7 @@ The Fusion migration workflow is accessible through the dbt Wizard in the Studio
 
 ![The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.](/img/docs/dbt-platform/fusion-migration-workflow.gif?v=2 "The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.")The Developer Agent's fusion migration workflow triaging and fixing Fusion compatibility errors in the Studio IDE.
 
-For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [Fusion readiness checklist](../fusion/fusion-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-fusion-upgrade.md).
+For more on how to prepare your project for Fusion and what to do when you hit compatibility errors, see the [dbt v2 readiness checklist](../dbt/dbt-readiness.md) and the [Upgrade to Fusion guides](../../guides/prepare-dbt-upgrade.md).
 
 ### Writing effective prompts
 
@@ -199,7 +199,7 @@ For recommended workflows on real project tasks — understanding a project, val
 ## Related docs
 
 * [About dbt Wizard in the dbt platform](../platform/wizard-platform.md)
-* [Fusion readiness checklist](../fusion/fusion-readiness.md)
+* [dbt v2 readiness checklist](../dbt/dbt-readiness.md)
 * [Develop with dbt Wizard](../platform/studio-ide/develop-studio-ai.md)
 * [Prompt cookbook](../../guides/prompt-cookbook.md)
 * [Semantic models](../build/semantic-models.md)

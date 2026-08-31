@@ -135,7 +135,7 @@ Setting `static_analysis` to `baseline` mode lets you start using Fusion immedia
 
 ## Recapping the differences between engines
 
-dbt Core v1.x and [dbt Core 2.0](../dbt-versions/core-upgrade/upgrading-to-v2.md) (currently in beta):
+dbt Core v1.x and [dbt Core 2.0](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) (currently in beta):
 
 * Renders and runs models one at a time.
 * Never runs static analysis.
@@ -295,11 +295,11 @@ With baseline mode enabled by default, static analysis is less likely to block y
 
 This is a very rare occurrence. If you encounter this situation, please [open an issue](https://github.com/dbt-labs/dbt-fusion/issues) with an example of the failing SQL so we can update our parsers.
 
-## More information about Fusion
+## More information about dbt v2
 
 * [About the dbt extension](../about-dbt-extension.md)
-* [Supported features matrix](../fusion/supported-features.md)
+* [Supported features matrix](../dbt/supported-features.md)
 * [Install dbt](../local/install-dbt.md)
-* [Quickstart for Fusion](../../guides/fusion.md?step=1)
-* [Upgrade guide](../dbt-versions/core-upgrade/upgrading-to-v2.md)
-* [Fusion license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
+* [Quickstart for Fusion](../../guides/dbt.md?step=1)
+* [Upgrade guide](../dbt-versions/dbt-upgrade/upgrading-to-v2.md)
+* [dbt v2 license agreement](https://www.getdbt.com/dbt-fusion-engine-license-agreement)
