@@ -7,7 +7,7 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | require\_batched\_execution\_for\_custom\_microbatch\_strategy | dbt **Latest** | dbt Core |
 | -------------------------------------------------------------- | -------------- | -------- |
 | Introduced                                                     | 2024.11        | 1.9.0    |
-| Matured (default → `true`)                                     | Sep 1, 2026    | 1.12.0   |
+| Matured (default → `true`)                                     | 2026.09        | 1.12.0   |
 | Removed                                                        | —              | v2.0     |
 
 The `require_batched_execution_for_custom_microbatch_strategy` flag is only relevant if you already have a custom `get_incremental_microbatch_sql` macro in your project. If you don't have a custom microbatch macro, you don't need to set this flag — dbt handles microbatching automatically for any model using the [microbatch strategy](../../../docs/build/incremental-microbatch.md#how-microbatch-compares-to-other-incremental-strategies).

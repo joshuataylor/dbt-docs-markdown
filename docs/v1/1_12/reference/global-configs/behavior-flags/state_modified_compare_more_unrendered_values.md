@@ -7,7 +7,7 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | state\_modified\_compare\_more\_unrendered\_values | dbt **Latest** | dbt Core |
 | -------------------------------------------------- | -------------- | -------- |
 | Introduced                                         | 2024.10        | 1.9.0    |
-| Matured (default → `true`)                         | Sep 1, 2026    | 1.12.0   |
+| Matured (default → `true`)                         | 2026.09        | 1.12.0   |
 | Removed                                            | —              | v2.0     |
 
 info
@@ -18,7 +18,7 @@ If the state directory was built with an older dbt version or if the `state_modi
 
 Starting in dbt Core v1.12, `state_modified_compare_more_unrendered_values` defaults to `true`, reducing false positives during `state:modified` checks, especially when configs differ by target environment (such as `prod` vs. `dev`).
 
-When enabled, the flag changes the `state:modified` comparison from using rendered values to unrendered values instead. It accomplishes this by persisting `unrendered_config` during model parsing and `unrendered_database` and `unrendered_schema` configs during source parsing.
+The flag changes the `state:modified` comparison from using rendered values to unrendered values instead, by persisting `unrendered_config` during model parsing and `unrendered_database` and `unrendered_schema` configs during source parsing.
 
 note
 
@@ -26,14 +26,14 @@ This flag requires rebuilding the state directory (manifest) to take effect.
 
 ## Impact
 
-Setting the default to `true` silently changes the `state:modified` selection set that most CI, Slim CI, and `dbt build --defer` workflows rely on. There are two ways this surfaces:
+This flag silently changes the `state:modified` selection set that most CI, Slim CI, and `dbt build --defer` workflows rely on. There are two ways this surfaces:
 
 * **False "modified" on the first run after the flag is set to `true`.** If the baseline manifest was captured before the flag is set (rendered values stored) and the current parse runs after the setting change (literal text stored), every node whose YAML config contains Jinja will appear as `state:modified`, even if nothing has changed. This causes a full rebuild on the first CI run after the upgrade.
 * **New positives going forward.** After both manifests are captured with the flag enabled, `state:modified` will catch cases where two equivalent Jinja expressions render to the same value (for example, switching from `"{{ env_var('MAT', 'view') }}"` to `view`).
 
  What to expect
 
-On the first CI or Slim CI run after the flag is set, any node whose YAML config uses Jinja (`env_var`, `var`, conditional materialization) may appear as `state:modified` even if nothing changed. This is because the baseline manifest stored rendered values while the new parse stores literal Jinja text — the two sides of the comparison differ on serialization, not on real changes.
+On the first CI or Slim CI run with this flag enabled, any node whose YAML config uses Jinja (`env_var`, `var`, conditional materialization) may appear as `state:modified` even if nothing changed. This is because the baseline manifest stored rendered values while the new parse stores literal Jinja text — the two sides of the comparison differ on serialization, not on real changes.
 
 Once your production job runs once on the **Latest** release track and generates a new baseline manifest, both sides of the `state:modified` comparison use the same format and the extra diffs disappear.
 

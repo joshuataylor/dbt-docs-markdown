@@ -20,6 +20,81 @@ dbt supports both types of endpoints, but there are several [considerations](htt
 
 Private connection endpoints can't connect across cloud providers (AWS, Azure, and GCP). For a private connection to work, both dbt and the server (like Redshift) must be hosted on the same cloud provider. For example, dbt hosted on AWS cannot connect to services hosted on Azure, and dbt hosted on Azure can’t connect to services hosted on GCP.
 
+You can set up a Redshift AWS PrivateLink endpoint in two ways:
+
+* [Self-serve private endpoints](#self-serve-private-endpoints): Create and manage Redshift PrivateLink endpoints directly in the dbt platform user interface. Currently in beta.
+* [Support-led setup](#support-led-setup): Contact dbt Support to configure your Redshift PrivateLink endpoint.
+
+The AWS-side setup is the same for both paths. You provision your AWS resources (grant access for Redshift-managed, or create the VPC endpoint service for interface-type), then either submit the request in the UI (self-serve) or email dbt Support (support-led).
+
+## Self-serve private endpoints [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+*Self-serve private endpoints are currently in beta for Redshift on AWS, and available to all eligible customers. If you don't see **Private endpoints** in your account settings, use the [Support-led setup](#support-led-setup) instead.*
+
+With self-serve, you request a Redshift PrivateLink endpoint in dbt platform without opening a support ticket. If a request fails, you can edit the request and resubmit, or delete the endpoint and retry on your own.
+
+dbt platform supports all three Redshift types through self-serve:
+
+* **Redshift Managed** — provisioned Redshift clusters (select **Redshift Managed** in the UI).
+* **Redshift Managed Serverless** — Redshift Serverless (select **Redshift Managed** in the UI, then choose **Serverless**).
+* **Redshift interface-type** (select **Redshift** in the UI).
+
+### Prerequisites
+
+* [Account admin](../../../manage-access/enterprise-permissions.md?version=2.0#account-admin) or [Project creator](../../../manage-access/enterprise-permissions.md?version=2.0#project-creator) permission sets in dbt platform. Users with an IT license can also create private endpoints.
+* Completed the AWS-side setup for your endpoint type. Follow the same steps as the [support-led setup](#support-led-setup) — grant access for [Redshift-managed](#configuring-redshift-managed-privatelink), or provision the VPC endpoint service for [interface-type](#configuring-redshift-interface-type-privatelink) — but stop before the **Submit your request to dbt Support** step and use the UI below instead.
+
+### Request a new private endpoint
+
+1. In dbt platform, go to **Account settings → Private endpoints**.
+
+2. In the **Private endpoints** table, review your existing endpoints. The table shows all private endpoints in your account (including non-Redshift ones) with details like **Name**, **Connection type**, **URL**, **Connectivity status**, and the number of **Connections** using the endpoint. You can search by **Name** or **URL**.
+
+3. To request a new endpoint, click **Request new**.
+
+4. Under **Provider type**, select the option that matches your endpoint type, then fill in the fields for that type:
+
+   #### Redshift Managed / Serverless
+
+   Select **Redshift Managed** for both provisioned Redshift clusters and Redshift Serverless.
+
+   1. In **Step 1: Choose your deployment type**, select **Provisioned** or **Serverless**.
+   2. In **Step 2: Enter your cluster details**, enter your **Cluster identifier** and **Resource owner AWS account ID**.
+   3. In **Step 3: Select your AWS region**, choose the AWS region where your Redshift cluster or workgroup is hosted.
+   4. Click **Submit request**.
+
+   ![Redshift Managed endpoint request form showing deployment type, cluster details, and AWS region fields](/img/docs/dbt-platform/redshift-managed-private-endpoint-request.png?v=2 "Redshift Managed endpoint request form showing deployment type, cluster details, and AWS region fields")Redshift Managed endpoint request form showing deployment type, cluster details, and AWS region fields
+
+   #### Redshift (interface-type)
+
+   Select **Redshift** for an interface-type endpoint.
+
+   1. In **Step 1: Enter your AWS PrivateLink service name**, enter the name of the AWS VPC endpoint service you configured for your Redshift cluster (for example, `com.amazonaws.vpce.us-east-1.vpce-svc-xxxxxxxxxxxxxxxxx`).
+   2. In **Step 2: Name your Redshift endpoint**, choose a name to identify the endpoint. This is used as the hostname prefix when it's registered.
+   3. Click **Submit request**.
+
+   ![Redshift interface-type endpoint request form showing AWS PrivateLink service name and endpoint name fields](/img/docs/dbt-platform/redshift-interface-private-endpoint-request.png?v=2 "Redshift interface-type endpoint request form showing AWS PrivateLink service name and endpoint name fields")Redshift interface-type endpoint request form showing AWS PrivateLink service name and endpoint name fields
+
+5. After submission, you'll see the request and its status in the **Private endpoints** table. Once approved, you'll be notified.
+
+6. Proceed to the **Connections** page and follow the steps in the [Create connection in dbt](#create-connection-in-dbt) section to configure PrivateLink. Once configured, the new endpoint appears under **Private endpoints → Associated connections**.
+
+DNS propagation
+
+If the connection test fails immediately after setup, this is expected — it doesn't mean something is wrong. DNS changes can take a few minutes to propagate. Wait a few minutes, then test again before contacting support.
+
+### Troubleshooting and errors
+
+If an endpoint request fails, dbt platform displays the error in a banner on the endpoint details page, along with details that are safe to share externally. Review the message, correct the underlying issue (for example, confirm dbt's AWS account has been granted access under the cluster's **Granted accounts** section), then click **Retry**.
+
+![Provisioning failed banner on a Redshift endpoint details page with a Retry button](/img/docs/dbt-platform/redshift-private-endpoint-error.png?v=2 "Provisioning failed banner on a Redshift endpoint details page with a Retry button")Provisioning failed banner on a Redshift endpoint details page with a Retry button
+
+If you see a failure state without clear next steps, collect the request details (endpoint name, creation time, and status) and contact [dbt Support](mailto:support@getdbt.com).
+
+## Support-led setup
+
+If **Private endpoints** isn't available in your account settings, configure Redshift PrivateLink by following the steps below and submitting a request to dbt Support.
+
 ## Configuring Redshift-managed PrivateLink
 
 1. Locate the **Granted accounts** section of the Redshift configuration

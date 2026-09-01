@@ -3,7 +3,7 @@
 | validate\_macro\_args      | dbt **Latest** | dbt Core |
 | -------------------------- | -------------- | -------- |
 | Introduced                 | 2025.03        | 1.10.0   |
-| Matured (default → `true`) | Sep 1, 2026    | 1.12.0   |
+| Matured (default → `true`) | 2026.09        | 1.12.0   |
 | Removed                    | —              | —        |
 
 dbt validates macro arguments using the `validate_macro_args` flag. Starting in dbt Core v1.12, this flag defaults to `true`.
@@ -25,17 +25,17 @@ macros:
         type: <string>
 ```
 
-When you set the `validate_macro_args` flag to `true`, dbt will:
+With this flag enabled (the default), dbt:
 
-* Validate macro arguments during project parsing.
-* Check that all argument names in your YAML match those in the macro definition.
-* Raise warnings if the names or types don't match.
-* Validate that the [`type` values follow the supported format](../../resource-properties/arguments.md#supported-types).
-* If no arguments are documented in the YAML, infer them from the macro and include them in the [`manifest.json` file](../../artifacts/manifest-json.md).
+* Validates macro arguments during project parsing.
+* Checks that all argument names in your YAML match those in the macro definition.
+* Raises warnings if the names or types don't match.
+* Validates that the [`type` values follow the supported format](../../resource-properties/arguments.md#supported-types).
+* If no arguments are documented in the YAML, infers them from the macro and includes them in the [`manifest.json` file](../../artifacts/manifest-json.md).
 
  When does validation occur?
 
-Macro argument validation runs during project parsing, not during macro execution. Any dbt command that parses the project will trigger validation if you enable the `validate_macro_args` flag.
+Macro argument validation runs during project parsing, not during macro execution. Any dbt command that parses the project triggers validation.
 
 * In dbt Core:
 

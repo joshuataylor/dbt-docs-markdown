@@ -17,9 +17,9 @@ If you have a monorepo with several dbt projects, opening a single pull request 
   * For both the [concurrent CI checks](./continuous-integration.md#concurrent-ci-checks) and [smart cancellation of stale builds](./continuous-integration.md#smart-cancellation) features, your dbt account must be on the [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing/).
   * [SQL linting](./continuous-integration.md#sql-linting) is available on [dbt release tracks](../dbt-versions/dbt-release-tracks.md) and to dbt [Starter, Enterprise, or Enterprise+](https://www.getdbt.com/pricing/) accounts. Refer to [Configure SQLFluff linting](./continuous-integration.md#to-configure-sqlfluff-linting) when you add SQLFluff to your project.
 
-SQLFluff and the dbt Fusion engine
+Linting on dbt v2
 
-SQLFluff linting is not yet supported for dbt platform jobs that run on the dbt Fusion engine. For more information, refer to [Fusion limitations](../dbt/supported-features.md#limitations).
+CI jobs that run on v2 automatically use the built-in [`dbt lint`](../../reference/commands/lint.md?version=2.0) command instead of SQLFluff. `dbt lint` is SQLFluff-compatible and it reads your existing `.sqlfluff` config, uses the same rule codes, and respects `-- noqa` suppression comments.
 
 * [Advanced CI](./advanced-ci.md) features:
   * For the [compare changes](./advanced-ci.md#compare-changes) feature, your dbt account must be on an [Enterprise-tier plan](https://www.getdbt.com/pricing/) and have enabled Advanced CI features. Please ask your [dbt administrator to enable](../platform/account-settings.md#account-access-to-advanced-ci-features) this feature for you. After enablement, the **dbt compare** option becomes available in the CI job settings.

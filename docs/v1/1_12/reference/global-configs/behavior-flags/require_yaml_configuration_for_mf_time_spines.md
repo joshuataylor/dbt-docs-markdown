@@ -7,12 +7,12 @@ This flag was removed in dbt Core 2.0 and in Fusion. The new behavior is always 
 | require\_yaml\_configuration\_for\_mf\_time\_spines | dbt **Latest** | dbt Core |
 | --------------------------------------------------- | -------------- | -------- |
 | Introduced                                          | 2024.10        | 1.9.0    |
-| Matured (default → `true`)                          | Sep 1, 2026    | 1.12.0   |
+| Matured (default → `true`)                          | 2026.09        | 1.12.0   |
 | Removed                                             | —              | v2.0     |
 
 In previous versions (dbt Core 1.8 and earlier), the MetricFlow time spine configuration was stored in a `metricflow_time_spine.sql` file.
 
-Starting in dbt Core v1.12, this flag defaults to `true`. When enabled, dbt suppresses the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
+Starting in dbt Core v1.12, this flag defaults to `true`, suppressing the `MFTimespineWithoutYamlConfigurationDeprecation` deprecation warning. The legacy SQL file configuration continues to work in both cases.
 
 The MetricFlow properties YAML file should have the `time_spine:` field. Refer to [MetricFlow timespine](../../../docs/build/metricflow-time-spine.md) for more details.
 
