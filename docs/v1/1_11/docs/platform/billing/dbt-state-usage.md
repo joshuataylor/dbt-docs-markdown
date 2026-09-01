@@ -6,7 +6,7 @@ Login required | Usage-based
 
 ### About free trial
 
-* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](../../deploy/dbt-state-trial.md#continuing-after-the-trial-ends).
+* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Setting up usage-based billing](../../deploy/dbt-state-trial.md#setting-up-usage-based-billing).
 * To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally.
 * Once started, you cannot pause the trial.
 * If you were using state-aware orchestration prior to June 1, 2026, your dbt State trial will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team.

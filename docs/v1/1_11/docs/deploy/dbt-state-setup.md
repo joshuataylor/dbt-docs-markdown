@@ -10,13 +10,17 @@ Before you set up dbt State, make sure you have:
 
 * **A supported dbt version**: dbt State is natively available in dbt platform and the dbt Fusion engine. It's also available as a plugin for dbt Core v1.7–1.12.
 * **A supported data platform**: Snowflake, Databricks, BigQuery, or Redshift. More warehouses are on the roadmap.
-* **A dbt State account**: Authenticate through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) to choose the right option, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](../platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
+* **A dbt platform account**: Refer to [About dbt State](./dbt-state-about.md#signing-up-for-dbt-state) for sign-up details, and [dbt State usage and pricing](../platform/billing/dbt-state-usage.md) for pricing details. Note that dbt State isn't available on [legacy Starter](../platform/billing/plans-and-billing.md#legacy-plans) plan. Please [contact dbt Labs](https://www.getdbt.com/contact) if that applies to you.
 
 ## Setting up dbt State
 
-Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt.
+Set up dbt State either in dbt platform or locally in dbt Core by using the following steps depending on how you're using dbt:
 
-### dbt platform
+* Already logged in to dbt platform and managing your account? Use **dbt Account settings**.
+* Signing up or logging in through the [dbt platform sign-up page](http://us1.dbt.com/register?_dbtsrc=dbt-state)? Use **dbt platform sign-up**.
+* Using the CLI? Use **dbt v2** or **dbt v1.7-1.12**.
+
+### dbt Account settings
 
 #### Enabling dbt State on your account
 
@@ -54,7 +58,28 @@ For next steps, see:
 * [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
 * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
 
-### Fusion
+### dbt platform sign-up
+
+1. Go to the [dbt platform sign-up page](http://us1.dbt.com/register?_dbtsrc=dbt-state) to create a new account or log in to an existing one.
+
+   * If you're new to dbt platform, enter your email address and click **Continue**.
+
+     1. Enter your name and password, and agree to the Terms of Service.
+     2. Click **Continue**.
+     3. Verify your email address.
+
+   * If you already have a dbt platform account, log in with your existing credentials.
+
+2. Agree to the dbt State Terms of Service and click **Start 30-day trial**.
+
+   Once started, you cannot pause the trial. After 30 days, you must add a credit card or enterprise contract to continue. For information about how the trial period and billing work, refer to [dbt State trial and billing](./dbt-state-trial.md).
+
+3. Go to **Orchestration** to create your environments and jobs. For next steps, see:
+
+   * [Enable dbt State on individual jobs](./dbt-state-enable-jobs.md)
+   * [Enable dbt State in Studio](./dbt-state-enable-studio.md)
+
+### v2
 
 1. Navigate to your project:
 
@@ -62,13 +87,21 @@ For next steps, see:
    cd to/your/project
    ```
 
-2. Log in to dbt State:
+2. Log in to dbt platform:
 
    ```bash
    dbt login
    ```
 
-   This opens a browser window where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). For details on authentication behavior and how it affects [`user_settings.yml`](../../reference/global-configs/user-settings.md), refer to [`dbt login` with dbt State](../../reference/commands/login.md?version=2.0#dbt-login-with-dbt-state).
+   This opens a browser window where you can log in to or create a dbt platform account.
+
+   For details on authentication behavior, refer to [`dbt login` with dbt State](../../reference/commands/login.md?version=2.0#dbt-login-with-dbt-state).
+
+3. If prompted to choose your goal, select **Set up dbt State**. The **Start your dbt State trial** dialog appears.
+
+4. Agree to the dbt State Terms of Service and click **Start 30-day trial**.
+
+   Once started, you cannot pause the trial. After 30 days, you must add a credit card or enterprise contract to continue. For information about how the trial period and billing work, refer to [dbt State trial and billing](./dbt-state-trial.md).
 
 dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
@@ -81,7 +114,7 @@ flags:
   manage_state: true
 ```
 
-### dbt Core 1.7–1.12
+### dbt v1.7-1.12
 
 dbt State is available as a plugin for dbt Core v1.7+. If you are running on dbt Core v1.9 or older, we encourage you to upgrade to a [more recent version with ongoing support](../dbt-versions.md#latest-releases).
 
@@ -106,7 +139,17 @@ To install the plugin:
    pip install dbt-state
    ```
 
-dbt State is now enabled. The first time you execute `dbt run` or `dbt build`, a browser window opens where you can log in with your dbt platform account or the [standalone dbt State app](https://app.state.dbt.com). After authenticating, dbt State runs automatically on every `dbt run` or `dbt build`.
+4. Run `dbt run` or `dbt build`
+
+   The first time you execute `dbt run` or `dbt build`, a browser window opens where you can log in to or create a dbt platform account.
+
+5. If prompted to choose your goal, select **Set up dbt State**. The **Start your dbt State trial** dialog appears.
+
+6. Agree to the dbt State Terms of Service and click **Start 30-day trial**.
+
+   Once started, you cannot pause the trial. After 30 days, you must add a credit card or enterprise contract to continue. For information about how the trial period and billing work, refer to [dbt State trial and billing](./dbt-state-trial.md).
+
+dbt State is now enabled and will run automatically on every `dbt run` or `dbt build`.
 
 The CLI flags `--manage-state` and `--no-manage-state` are not available in older dbt Core versions. Use the environment variable (`DBT_ENGINE_ENABLE_STATE`) or project flag (`enable_state`) to enable or disable dbt State.
 
@@ -130,10 +173,10 @@ For more details, refer to the [`lag_tolerance` config reference](../../referenc
 
 ## Inviting team members
 
-The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them.
+The more team members you have using dbt State, the better it gets; more team members means more opportunities to clone existing nodes rather than rebuilding them. To invite colleagues:
 
-* **For [standalone app](https://app.state.dbt.com) users**: Click the invite link in the upper-right corner of the **Users** page.
-* **For dbt platform users**: Have your colleagues run [`dbt login`](../../reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
+* From the dbt Core 2.0 CLI: Have your colleagues run [`dbt login`](../../reference/commands/login.md?version=2.0) after dbt State is enabled on the account.
+* From dbt platform: Go to **Account settings** > **Users** and click **Invite users**. For more information, refer to [Invite new users](../platform/manage-access/invite-users.md#invite-new-users).
 
 ## Debugging dbt State
 

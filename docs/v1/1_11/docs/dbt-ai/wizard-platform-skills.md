@@ -82,7 +82,7 @@ In the dbt Wizard chat panel:
 
 ## Built-in dbt skills
 
-dbt Wizard ships with skills from [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills), maintained by dbt Labs and the community. These capture analytics engineering knowledge for common workflows and are always available. The agent loads the relevant skill automatically when your prompt matches its use case.
+dbt Wizard ships with skills from [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills), maintained by dbt Labs and the community. These capture analytics engineering knowledge for common workflows and all ship bundled with dbt Wizard. You don't call them directly as the agent loads whichever one matches your prompt.
 
 For the latest catalog, refer to the [dbt Agent Skills repository](https://github.com/dbt-labs/dbt-agent-skills).
 

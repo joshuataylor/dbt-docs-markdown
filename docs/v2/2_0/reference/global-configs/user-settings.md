@@ -15,15 +15,13 @@ flags:
 
 Some dbt commands write to this file automatically. You can also edit it manually.
 
-When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state), both authentication paths write to `user_settings.yml`:
+When you run [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state), dbt writes to `user_settings.yml`:
 
 * **Log in with your dbt platform account**
 
   * In the dbt Fusion engine, the CLI prompts you before writing to `user_settings.yml`.
 
   - Setting `manage_state: true` enables dbt State locally on every `dbt run` or `dbt build`.
-
-* **Log in with the standalone dbt State app**: After you create an account, dbt automatically enables dbt State locally in `user_settings.yml`.
 
 If `user_settings.yml` already contains a value, [`dbt login`](../commands/login.md?version=2.0#dbt-login-with-dbt-state) prompts you before overwriting it.
 

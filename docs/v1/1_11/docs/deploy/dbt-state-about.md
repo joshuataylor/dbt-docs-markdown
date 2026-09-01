@@ -8,7 +8,7 @@ With dbt State, dbt first compares the logic and data of each node to previous b
 
 dbt State can reuse all node types that create relations in the database (such as models, snapshots, seeds) and data tests.
 
-dbt State works with dbt Core, the dbt platform, and dbt Fusion engine, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication either through a dbt platform account or a [standalone dbt State account](https://app.state.dbt.com). For pricing details, refer to [dbt State usage and pricing](../platform/billing/dbt-state-usage.md).
+dbt State works with dbt (v1 and v2) and the dbt platform, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication through a dbt platform account. For pricing details, refer to [dbt State usage and pricing](../platform/billing/dbt-state-usage.md).
 
 ## Benefits
 
@@ -51,16 +51,11 @@ The key idea is that dbt State only skips work when it can prove the existing ob
 
 ## Signing up for dbt State
 
-When you sign up for dbt State, you'll choose one of two paths:
+dbt State is connected to your existing dbt platform account. Your dbt State credentials are the same as your platform credentials, and dbt State has access to your platform environments and jobs.
 
-* **dbt platform account** — dbt State is connected to your existing dbt platform account. Your dbt State credentials are the same as your platform credentials, and dbt State has access to your platform environments and jobs.
-* **Standalone account ([app.state.dbt.com](https://app.state.dbt.com))** — A standalone dbt State account is independent of any dbt platform account. You manage dbt State credentials separately, and dbt State has no visibility into your platform environments or jobs.
+dbt State app retirement
 
-A standalone account makes sense if you:
-
-* Don't have a dbt platform account
-* Don't have admin permissions to enable dbt State in your dbt platform account
-* Want to test dbt State without connecting it to your dbt platform account yet
+The standalone dbt State app (`app.state.dbt.com`) is being retired and is no longer accepting new users. If you have an existing dbt State app account, [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
 
 ## FAQs
 

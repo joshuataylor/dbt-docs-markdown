@@ -48,6 +48,10 @@ Replace `YOUR_SERVICE_TOKEN` with your service token, `YOUR_ACCOUNT_HOST` with y
 
 ## OAuth client credentials
 
+dbt State app retirement
+
+The standalone dbt State app (`app.state.dbt.com`) is being retired and is no longer accepting new users. If you have an existing dbt State app account, [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
+
 If you're using the standalone [dbt State web app](https://app.state.dbt.com/), authenticate with OAuth client credentials.
 
 ### Prerequisites

@@ -13,6 +13,15 @@ Release notes are grouped by month for both multi-tenant and virtual private clo
 
 For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md).
 
+## September 2026
+
+* **New:** [dbt State](../deploy/dbt-state-about.md) onboarding and billing updates:
+
+  * **New:** New users can now sign up for a free dbt platform account and start a 30-day dbt State trial through a guided onboarding flow. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md?type=platform-signup).
+  * **New:** dbt v1.7-1.12 users who are using the dbt State plugin can now create a free dbt platform account to start a 30-day dbt State trial. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md).
+  * **New:** dbt State billing is now available for self-serve accounts. You can set up usage-based billing in the **Usage-based features** dashboard. Note that you're billed per target table that dbt State reuses each day, not per dbt platform seat. Refer to [Setting up usage-based billing](../deploy/dbt-state-trial.md#setting-up-usage-based-billing) for more information.
+  * **Behavior change**: The standalone dbt State app (`app.state.dbt.com`) is being retired and is no longer accepting new users. Existing dbt State app users should [create a free dbt platform account](http://us1.dbt.com/register?_dbtsrc=dbt-state) to continue using dbt State — your free trial will be extended upon account creation.
+
 ## August 2026
 
 * **Enhancement:** [dbt State](../deploy/dbt-state-about.md) now reuses views that only use `select *` on CTEs. Previously, any `select *` anywhere in a view caused a rebuild. Views that use `select *` directly on a `ref()` or `source()` still force a rebuild, because dbt cannot safely determine the output columns at parse time. For more information, refer to [Views with `select *`](../../faqs/State/views-rebuilt.md#views-with-select).

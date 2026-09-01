@@ -6,7 +6,7 @@ Start a dbt State trial and manage paid access from the dbt platform **Billing &
 
 ## How the trial works
 
-* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Continuing after the trial ends](./dbt-state-trial.md#continuing-after-the-trial-ends).
+* Eligible new organizations receive 30 days of free use with no usage limit. After the free period, a credit card or enterprise contract (for dbt platform managed plans) is required to continue. For more information, refer to [Setting up usage-based billing](./dbt-state-trial.md#setting-up-usage-based-billing).
 * To start a dbt State trial, you need a dbt account so you can manage dbt State usage, billing, and spend limits from one dashboard. A paid dbt platform plan is *not* required to use dbt State locally.
 * Once started, you cannot pause the trial.
 * If you were using state-aware orchestration prior to June 1, 2026, your dbt State trial will be extended beyond the standard 30-day period. If the extension isn't applied to your account, contact your account team.
@@ -15,11 +15,36 @@ Start a dbt State trial and manage paid access from the dbt platform **Billing &
 
 To start your 30-day trial, refer to the instructions in [Setting up dbt State](./dbt-state-setup.md).
 
-## Continuing after the trial ends [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
+## Setting up usage-based billing
 
-Once your trial ends, dbt notifies your billing admin — they must set up paid access to keep using dbt State.
+dbt State pricing is usage-based; you're billed per target table that dbt State reuses each day, *not* per dbt platform seat.
+
+You can set up billing during your trial or after it ends. Once your trial ends, dbt notifies your billing admin — they must set up billing to keep using dbt State.
+
+#### Managed accounts
 
 If your account has consumption spend on contract, go to the **State** tab of the **Usage-based features** page and click **Allow** to bill against your committed spend. Otherwise, [contact the dbt Labs sales team](https://www.getdbt.com/contact).
+
+#### Self-serve accounts
+
+1. Go to **Billing & Usage** > **Usage-based features**.
+2. Click **Set up billing** (if your trial is still active) or **Add billing info** (if your trial has ended).
+3. In **Add a payment method**, enter your card details and billing address.
+4. Click **Save card**.
+5. Under the **State** tab, the card you added is displayed. Click **Confirm and activate**.
+
+After setting up billing, you can optionally [set a spend alert](#setting-spend-alerts) to get notified when your monthly costs reach a threshold.
+
+## Setting spend alerts
+
+You can set a spend alert to get notified when your monthly dbt State costs reach a defined threshold.
+
+1. In your dbt platform account, click your account name in the lower-left corner above your username and click **Account settings**.
+2. Go to **Billing & Usage** > **Usage-based features**.
+3. In the **Spend alert** section, click **Set a spend alert**.
+4. Enable the toggle to receive email notifications when monthly spend reaches your threshold.
+5. In the **Alert threshold** field, enter the amount in USD that triggers the alert.
+6. Click **Save**.
 
 ## How billing works
 
@@ -44,17 +69,6 @@ You can view your DATT count in **Account settings** > **Billing & Usage** > **U
 ### Cancellation
 
 Usage is tracked through your cancellation date. You're billed at month end for usage incurred before cancellation and not charged for usage after.
-
-## Setting spend alerts
-
-You can set a spend alert to get notified when your monthly dbt State costs reach a defined threshold.
-
-1. In your dbt platform account, click your account name in the lower-left corner above your username and click **Account settings**.
-2. Go to **Billing & Usage** > **Usage-based features**.
-3. In the **Spend alert** section, click **Set a spend alert**.
-4. Enable the toggle to receive email notifications when monthly spend reaches your threshold.
-5. In the **Alert threshold** field, enter the amount in USD that triggers the alert.
-6. Click **Save**.
 
 ## Related docs
 
