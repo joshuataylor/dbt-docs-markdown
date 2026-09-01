@@ -29,6 +29,8 @@ dbt reports the comparison differences in:
 
 ![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")Example of the Compare tab
 
+![Example of Modified rows tab which shows you details of the modified rows.](/img/docs/dbt-platform/advanced-ci-modified-rows.png?v=2 "Example of Modified rows tab which shows you details of the modified rows.")Example of Modified rows tab which shows you details of the modified rows.
+
 #### Compare changes in development
 
 You can compare changes locally in development to preview data changes caused by your local edits (for example, added/removed rows or joins) directly in your editor, and without waiting on CI. Compare changes in development is available through the dbt VS Code extension, which is powered by the dbt Fusion engine.

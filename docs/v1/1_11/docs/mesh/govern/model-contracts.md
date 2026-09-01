@@ -33,7 +33,7 @@ There are some considerations to keep in mind when using model governance featur
 * Models materialized as one of the following:
 
   * `table`
-  * `view` — views offer limited support for column names and data types, but not `constraints`
+  * `view` — views offer support for column names and data types, but not `constraints`
   * `incremental` — with `on_schema_change: append_new_columns` or `on_schema_change: fail`
 
 * Certain data platforms, but the supported and [enforced `constraints`](../../../reference/resource-properties/constraints.md) vary by platform

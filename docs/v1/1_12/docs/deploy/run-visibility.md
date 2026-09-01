@@ -162,3 +162,5 @@ From the **Modified** section, you can view the following:
 To view the dependencies and relationships of the resources in your project more closely, click **View in Catalog** to launch [Catalog](../explore/explore-projects.md).
 
 ![Example of the Compare tab](/img/docs/dbt-platform/example-ci-compare-changes-tab.png?v=2 "Example of the Compare tab")Example of the Compare tab
+
+![Example of Modified rows tab which shows you details of the modified rows.](/img/docs/dbt-platform/advanced-ci-modified-rows.png?v=2 "Example of Modified rows tab which shows you details of the modified rows.")Example of Modified rows tab which shows you details of the modified rows.

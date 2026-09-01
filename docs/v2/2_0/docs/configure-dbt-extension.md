@@ -281,10 +281,6 @@ If you want to use both extensions, keep your ad hoc query files in a separate, 
 }
 ```
 
-Autocomplete not working?
-
-If column autocomplete isn't working, it's probably not your file associations. Make sure [strict static analysis](./build/about-static-analysis.md?version=2.0#configuring-static_analysis) is enabled — that's what powers column-level suggestions from your warehouse.
-
 ## Next steps
 
 Now that you've configured your local environment, you can start using the dbt extension to streamline your dbt development workflows. Check out the following resources to get started:
