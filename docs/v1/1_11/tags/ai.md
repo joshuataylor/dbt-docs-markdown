@@ -1,14 +1,10 @@
-# 34 docs tagged with "AI"
+# 35 docs tagged with "AI"
 
 [View all tags](../tags.md)
 
 ## [About AI and dbt](../docs/dbt-ai/about-dbt-ai.md)
 
 Learn about AI-powered features and agents in dbt that help you build, manage, and consume governed data at scale.
-
-## [About dbt Wizard CLI](../docs/dbt-ai/about-dbt-wizard-cli.md)
-
-The dbt Wizard CLI helps teams ship higher-quality dbt changes faster and with less risk.
 
 ## [About dbt Wizard in the dbt platform](../docs/platform/wizard-platform.md)
 
@@ -92,7 +88,15 @@ A cookbook of prompts and real-world examples to use dbt Wizard efficiently.
 
 Move project context and skills from Claude Code to dbt Wizard.
 
+## [Models and pricing](../docs/dbt-ai/pricing-billing/overview.md)
+
+The AI models dbt Wizard supports in the dbt platform and CLI, plus how model pricing works.
+
 ## [Run dbt MCP locally](../guides/qs-mcp-local.md)
+
+## [Trial and billing](../docs/dbt-ai/pricing-billing/trial-and-billing.md)
+
+Start a dbt Wizard trial, set a spend limit, and manage Wizard billing for the dbt platform and local CLI.
 
 ## [Understanding a dbt project with dbt Wizard](../best-practices/how-to-use-wizard/wizard-2-understand-project.md)
 

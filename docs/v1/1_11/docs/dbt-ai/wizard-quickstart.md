@@ -1,74 +1,57 @@
-# Use dbt Wizard locally
+# Use dbt Wizard locally [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Local development
 
 Install dbt Wizard locally and start an agentic dbt development session from your terminal.
 
-You can run the dbt Wizard CLI locally from any dbt project that uses the dbt platform CLI, Fusion, or dbt Core.
-
-Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
-
-## macOS/Linux
-
-```bash
-curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
-```
-
-This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](./wizard-cli.md#uninstall) if you ever need to remove them.
-
-## Windows
-
-Run the following in PowerShell:
-
-```powershell
-irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
-```
-
-Then verify the install and start a session:
-
-```bash
-wizard --version   # confirm the install
-wizard             # start an interactive session
-```
-
-After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](./wizard-config.md) for more details.
-
-(Applies to dbt v1.99 and earlier)
-
-Upgrade for automatic updates
-
-Upgrade to [v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
-
-By the end of this guide, you can install dbt Wizard locally, authenticate with your dbt platform credentials if applicable, complete first-run onboarding, and send your first prompt from the terminal.
-
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
-
-Be warned, the wizard has been known to cast spells
+You can run the dbt Wizard CLI locally from any project on any dbt engine. Be warned, the wizard has been known to cast spells
 
 .
 
+Wizard usage and billing
+
+From September 1st, 2026, dbt Wizard usage is metered per token against your usage credits. Enterprise and Enterprise+ accounts get monthly credits. Developer and Starter plans start with a 30-day trial and $100 in credits, as do CLI users via a free dbt account.
+
+Refer to [Trial and billing](./pricing-billing/trial-and-billing.md) for what each plan gets, spend limits, and paid access.
+
+## Prerequisites
+
+* Access to a [supported AI provider](#supported-ai-providers). Use a dbt managed provider or configure [BYOK](./wizard-byok.md) with your own provider credentials.
+* A dbt project with a built `target/` directory (run `dbt parse`, `dbt compile`, or `dbt build`)
+
+dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
+
 ## Supported AI providers
 
-#### dbt Wizard
+dbt Wizard supports [managed models](./pricing-billing/overview.md#dbt-managed-providers) (billed by dbt Labs, no key to manage) and [bring-your-own-key (BYOK)](./wizard-byok.md) models (billed directly by your provider).
 
-dbt Wizard supports different AI providers depending on where you use it.
+Here are the following AI providers supported depending on where you work. Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the full list of available models.
 
-| Provider                                                                     | dbt Wizard in dbt platform | dbt Wizard CLI                  |
-| ---------------------------------------------------------------------------- | -------------------------- | ------------------------------- |
-| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | ✓ (managed or BYOK)        | ✓ (OpenAI subscription or BYOK) |
-| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | -                          | ✓ (BYOK)                        |
-| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | -                          | ✓ (BYOK)                        |
-| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | -                          | ✓ (BYOK)                        |
-| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | -                          | ✓ (BYOK)                        |
+### dbt platform
 
-† *Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms). BYOK requires an Anthropic API key.*
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/) (default)            | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-Refer to the following pages for more information:
+### Locally (CLI)
 
-* [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
+| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | BYOK                |
+| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | BYOK                |
+| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | BYOK                |
+| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | BYOK                |
+
+You can also connect a personal OpenAI ChatGPT subscription instead of a key.
+
+†Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms).
 
 (Applies to dbt v1.99 and earlier)
 
@@ -76,88 +59,37 @@ Upgrade to the dbt Fusion engine
 
 On dbt Fusion engine (version 2.0 and later), start dbt Wizard with `wizard` and use `wizard COMMAND_NAME` for CLI commands.
 
-## Prerequisites
+## Install and set up dbt Wizard
 
-You'll need:
+(Applies to dbt v1.99 and earlier)
 
-* An OpenAI subscription, or your own API key or provider credentials for a supported provider using [BYOK](./wizard-byok.md): OpenAI, Anthropic, AWS Bedrock, Azure, Snowflake Cortex (preview), or Databricks
-* A dbt project with a built `target/` directory (run `dbt parse`, `dbt compile`, or `dbt build`)
+Upgrade for automatic updates
 
-New to the terminal?
+Upgrade to [v2](../dbt-versions/dbt-upgrade/upgrading-to-v2.md) to run dbt Wizard as `wizard` and get automatic updates.
 
-If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md). Some tips include:
+12345
 
-* Enter `/` to see the available commands or try out `/overview` to get a quick summary of your project.
-* Press `Shift+Tab` to cycle through collaboration modes.
+View all stepsNext
 
-## Complete first-run onboarding
+1
 
-The first time you start dbt Wizard in a project, it walks you through a short setup and saves your answers to [`wizard_config.toml`, `providers.json`, and `provider-auth.json`](./wizard-config.md), so you only do this once per project. You'll be asked to:
+Install the dbt Wizard CLI
 
-* Review and accept the **Terms of Use**.
-* If you have a dbt platform account, sign in through the browser authentication link when prompted and follow the steps in the browser.
-* **Trust the directory** so dbt Wizard can read your project.
-* Confirm the **path to your dbt executable or virtual environment** — point it at `/path/to/bin/dbt` or a `.venv` root (dbt Wizard uses `bin/dbt` automatically).
-* Add any **extra compile flags** to append to the startup `dbt compile -s state:modified+`, or leave empty to skip.
-* **Configure [deferral](./wizard-config.md#deferral)** — choose **Wizard** (dbt Wizard manages it), **Manual**, or **Disabled**. If you choose **Wizard**, enter the `profiles.yml` target to defer to (defaults to `prod`). On the dbt Fusion engine connected to the dbt platform, dbt Wizard instead offers to let the platform handle deferral.
-* Confirm your **detected dbt profile and target**, or customize the profile, target, or `profiles.yml` path.
-* **Configure a provider** (OpenAI subscription, OpenAI API key, Anthropic, Amazon Bedrock, Azure, Gemini, or Snowflake). Refer to [Configure BYOK](./wizard-byok.md).
+Run the install script for your operating system:
 
-To re-run any of these steps later, refer to [Re-trigger onboarding flows](./wizard-config.md#re-trigger-onboarding-flows).
-
-Set your API key without the prompt
-
-During onboarding, dbt Wizard prompts you to configure a provider interactively. To skip the API key prompt — for headless runs like `wizard exec` or to reuse your key across sessions — set it as an environment variable before starting `wizard` instead:
+macOS/Linux:
 
 ```bash
-export OPENAI_API_KEY="sk-..."                  # or ANTHROPIC_API_KEY
-export AWS_BEARER_TOKEN_BEDROCK="ABSK..."       # for Amazon Bedrock
+curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
-For AWS Bedrock and Snowflake Cortex, refer to [Configure BYOK](./wizard-byok.md).
+Windows (PowerShell):
 
-After onboarding, dbt Wizard shows a welcome screen with two sections:
-
-* **STATUS** — the dbt Wizard version, the active AI model (change it with `/model`), and your project directory.
-* **OVERVIEW** — a snapshot of your project from the [metadata engine](./wizard-how-it-works.md#native-metadata-engine): build status and a count of passing (✓), warning (⚠), and failing (✗) checks.
-
-Enter `/` to see the available [slash commands](./wizard-slash-commands.md), or try `/overview` for a summary of your project. CLI commands use the `wizard` prefix, so you can also run [subcommands](./wizard-cli-reference.md) such as `wizard exec`, `wizard review`, and `wizard resume`.
-
-Once you're set up, ask your first question in your terminal. Try some [prompts](./wizard-use-cases.md) to see how dbt Wizard works:
-
-**Understand your project:**
-
-```text
-summarize what this project does
+```powershell
+irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
 
-**Find coverage gaps:**
-
-```text
-which models in this project have no tests?
-```
-
-**Enhance coverage:**
-
-```text
-add not_null and unique tests to the primary key of stg_customers
-```
-
-**Ship changes:**
-
-```text
-commit the changes to the branch and create a pull request
-```
-
-dbt Wizard will read your project's lineage, tests, and metadata and propose changes as a diff. You approve, reject, or redirect before anything is written.
-
-Your browser does not support the video tag.
-
-dbt Wizard CLI in your terminal
-
-For refactor or change requests, dbt Wizard automatically assesses downstream impact first by reporting affected models, metrics, and tests with a severity rating before proposing any changes.
-
-When dbt Wizard manages deferral, you point it at a target in your `profiles.yml` and it compiles and defers to that target automatically, so it can validate against already-built upstream models without rebuilding everything. Refer to [Deferral and state](./wizard-how-it-works.md#deferral-and-state) and [About dbt State](../deploy/dbt-state-about.md) for details.
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with the dbt [metadata engine](./wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. For install and update details, refer to [Install dbt Wizard CLI](./wizard-cli.md); to remove them, refer to [Uninstall](./wizard-cli.md#uninstall).
 
 Best practices for using dbt Wizard
 
@@ -175,7 +107,7 @@ Use the following commands to get started:
 | `wizard review --base BRANCH` | Review diff against a base branch                                                                                               | `wizard review --base main`                   |
 | `wizard resume`               | Resume a previous session                                                                                                       | `wizard resume --last`                        |
 | `wizard apply`                | Apply the latest Wizard diff to your working directory                                                                          | `wizard apply TASK_ID`                        |
-| `wizard login` / `logout`     | Authenticate with your dbt platform account                                                                                     | `wizard login`                                |
+| `wizard login` / `logout`     | Authenticate with your dbt account                                                                                              | `wizard login`                                |
 | `wizard mcp`                  | Manage MCP server connections                                                                                                   | `wizard mcp add dbt`                          |
 | `wizard update`               | Update Wizard to the latest version                                                                                             | `wizard update`                               |
 

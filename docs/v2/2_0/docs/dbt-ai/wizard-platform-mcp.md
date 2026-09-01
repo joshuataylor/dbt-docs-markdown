@@ -1,6 +1,6 @@
 # Use MCP servers with dbt Wizard in the dbt platform
 
-dbt platform | Starter, Enterprise, Enterprise+
+dbt platform | Usage-based
 
 dbt Wizard in the dbt platform includes built-in dbt context. Custom MCP server connections are not yet supported in the platform experience.
 

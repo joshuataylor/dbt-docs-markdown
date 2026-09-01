@@ -35,7 +35,7 @@ If two custom agents use the same name, dbt Wizard uses the higher-precedence lo
 
 ## Where you can use subagents
 
-Subagents work in the [dbt Wizard CLI](./about-dbt-wizard-cli.md).
+Subagents work in the [dbt Wizard CLI](./wizard-cli.md).
 
 You can define custom agent roles, set display nicknames, and configure global limits through the `config.toml` file.
 

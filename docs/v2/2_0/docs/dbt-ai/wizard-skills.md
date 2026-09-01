@@ -176,4 +176,4 @@ Built-in skills are updated with each dbt Wizard release. Custom skills with the
 * [dbt Wizard in Studio IDE](./wizard-ide.md)
 * [Use skills in the dbt platform](./wizard-platform-skills.md)
 * [How dbt Wizard works](./wizard-how-it-works.md)
-* [dbt Wizard CLI overview](./about-dbt-wizard-cli.md)
+* [dbt Wizard CLI overview](./wizard-cli.md)

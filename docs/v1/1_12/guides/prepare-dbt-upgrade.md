@@ -493,7 +493,7 @@ To revert the `latest-fusion` override, use the dbt version control in Studio ID
 
 #### Debug in Studio with dbt Wizard [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-If you have access to [dbt Wizard](../docs/dbt-ai/wizard-ide.md) with [AI features](../docs/platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
+If you have access to [dbt Wizard](../docs/dbt-ai/wizard-ide.md) with [AI features](../docs/platform/manage-dbt-ai.md) enabled, you can use the [Fusion migration workflow](../docs/dbt-ai/wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
 info
 

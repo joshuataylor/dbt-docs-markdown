@@ -1,10 +1,6 @@
-# 26 docs tagged with "Wizard"
+# 27 docs tagged with "Wizard"
 
 [View all tags](../tags.md)
-
-## [About dbt Wizard CLI](../docs/dbt-ai/about-dbt-wizard-cli.md)
-
-The dbt Wizard CLI helps teams ship higher-quality dbt changes faster and with less risk.
 
 ## [About dbt Wizard in the dbt platform](../docs/platform/wizard-platform.md)
 
@@ -69,6 +65,14 @@ Understand the dbt Wizard agent loop, tools, project context, and approval workf
 ## [Migrate to dbt Wizard](../docs/dbt-ai/wizard-migrate.md)
 
 Move project context and skills from Claude Code to dbt Wizard.
+
+## [Models and pricing](../docs/dbt-ai/pricing-billing/overview.md)
+
+The AI models dbt Wizard supports in the dbt platform and CLI, plus how model pricing works.
+
+## [Trial and billing](../docs/dbt-ai/pricing-billing/trial-and-billing.md)
+
+Start a dbt Wizard trial, set a spend limit, and manage Wizard billing for the dbt platform and local CLI.
 
 ## [Understanding a dbt project with dbt Wizard](../best-practices/how-to-use-wizard/wizard-2-understand-project.md)
 

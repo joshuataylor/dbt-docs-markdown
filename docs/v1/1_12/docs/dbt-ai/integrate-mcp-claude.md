@@ -58,8 +58,6 @@ To open the configuration file and add or replace the dbt MCP server entry:
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
 
-   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
-
    ##### dbt platform only
 
    This option is for users who only want dbt platform features (Discovery API, Semantic Layer, job management) without self-hosted dbt platform CLI commands.
@@ -305,8 +303,6 @@ You don't need to clone the dbt-mcp repository — for self-hosted setups, insta
     Self-hosted MCP with OAuth[Starter](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
    Configuration for users who want seamless OAuth authentication with the dbt platform.
-
-   Before you begin, make sure your account admin enables AI features on your dbt platform account to use OAuth. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md) for more info.
 
    #### dbt platform only
 

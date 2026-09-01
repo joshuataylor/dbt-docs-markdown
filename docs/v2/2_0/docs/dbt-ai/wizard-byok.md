@@ -4,6 +4,45 @@ Local development
 
 You can use the dbt Wizard CLI with bring-your-own-key (BYOK), which means you supply your own credentials from a supported AI provider instead of using dbt Labs' infrastructure.
 
+The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](../platform/wizard-byok-platform.md).
+
+If you'd rather skip that upkeep, the [dbt Labs-managed option](../platform/manage-dbt-ai.md#configure-ai-provider) is ready to use with no setup, and comes with [trial and monthly usage credits](./pricing-billing/trial-and-billing.md).
+
+The "key" in BYOK is whatever credential your chosen provider uses to authenticate API requests — an API key for OpenAI or Anthropic, a bearer token for AWS Bedrock, or a token/PAT for Snowflake Cortex. When you configure a provider with that credential, dbt Wizard calls the provider's API directly using it, so:
+
+* Usage costs appear on your provider account, not your dbt Labs account.
+* Token costs are billed by whichever provider you choose.
+
+dbt Wizard supports [managed models](./pricing-billing/overview.md#dbt-managed-providers) (billed by dbt Labs, no key to manage) and [bring-your-own-key (BYOK)](./wizard-byok.md) models (billed directly by your provider).
+
+Here are the following AI providers supported depending on where you work. Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the full list of available models.
+
+## dbt platform
+
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/) (default)            | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
+
+## Locally (CLI)
+
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
+| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | BYOK                |
+| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | BYOK                |
+| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | BYOK                |
+| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | BYOK                |
+
+You can also connect a personal OpenAI ChatGPT subscription instead of a key.
+
+†Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms).
+
 See it in action and share your feedback
 
 Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube.com/watch?v=-lIzh1xQWMA).
@@ -11,36 +50,6 @@ Want to see dbt Wizard in action? Check out the [demo video](https://www.youtube
 We'd love to hear how dbt Wizard is working for you. Share your feedback by either running the `/feedback` slash command in your interactive terminal session or by going to the [#dbt-wizard](https://getdbt.slack.com/archives/C0B6KLW6T26) channel in the [dbt Community Slack](https://docs.getdbt.com/community/join?version=2.0).
 
 Thanks so much for your help in improving dbt Wizard and dbt data development!
-
-The following BYOK instructions on this page apply to the CLI only. For dbt platform BYOK setup, refer to [Configure BYOK for dbt Wizard in dbt platform](../platform/wizard-byok-platform.md).
-
-The "key" in BYOK is whatever credential your chosen provider uses to authenticate API requests — an API key for OpenAI or Anthropic, a bearer token for AWS Bedrock, or a token/PAT for Snowflake Cortex. When you configure a provider with that credential, dbt Wizard calls the provider's API directly using it, so:
-
-* Usage costs appear on your provider account, not your dbt Labs account.
-* Token costs are billed by whichever provider you choose.
-
-## Supported AI providers
-
-#### dbt Wizard
-
-dbt Wizard supports different AI providers depending on where you use it.
-
-| Provider                                                                     | dbt Wizard in dbt platform | dbt Wizard CLI                  |
-| ---------------------------------------------------------------------------- | -------------------------- | ------------------------------- |
-| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | ✓ (managed or BYOK)        | ✓ (OpenAI subscription or BYOK) |
-| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | -                          | ✓ (BYOK)                        |
-| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | -                          | ✓ (BYOK)                        |
-| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | -                          | ✓ (BYOK)                        |
-| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | -                          | ✓ (BYOK)                        |
-
-† *Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms). BYOK requires an Anthropic API key.*
-
-Refer to the following pages for more information:
-
-* [Configure dbt platform](../platform/wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](./wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
 
 ## Configure a provider
 
@@ -205,7 +214,7 @@ To persist provider credentials, use one of the following options:
 
 ## Choose an AI model
 
-You can change the AI model in the following ways:
+dbt Wizard CLI uses dbt Labs-managed models out of the box. You can switch to a BYOK model in the following ways:
 
 | Method              | Description                                                                                                                                                     | Example                                                                     |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |

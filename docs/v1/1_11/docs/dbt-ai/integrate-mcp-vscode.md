@@ -40,7 +40,7 @@ To get started, in VS Code:
 
    Self-hosted MCP with OAuth is for users who want to use the dbt platform features.
 
-   Before you begin, make sure your account admin has enabled AI features on your dbt platform account. Refer to [Enable dbt AI](../platform/enable-dbt-ai.md) for more info.
+   AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md).
 
    Choose your configuration based on your use case:
 

@@ -16,7 +16,7 @@ Make sure the following are set up before connecting from Snowflake:
 
 * **Account setup**
 
-  * Have [AI features](../platform/enable-dbt-ai.md) enabled.
+  * Have [AI features](../platform/manage-dbt-ai.md) enabled.
   * [Remote MCP OAuth enabled](./setup-remote-mcp.md). The remote MCP server is generally available, but the OAuth connection method is in public beta for Starter and Enterprise-tiered accounts.
   * A [static subdomain](../platform/about-platform/access-regions-ip-addresses.md) configured, for example `abc123` in `abc123.us1.dbt.com`. If your account doesn't have a subdomain, contact support.
 
@@ -170,7 +170,8 @@ If you reach your dbt Copilot actions limit, remote MCP tools remain unavailable
 
 * Confirm your account has a [static subdomain](../platform/about-platform/access-regions-ip-addresses.md). OAuth with MCP requires one.
 * Verify the host in `API_ALLOWED_PREFIXES`, `OAUTH_TOKEN_ENDPOINT`, `OAUTH_AUTHORIZATION_ENDPOINT`, and `OAUTH_RESOURCE_URL` all match your MCP URL host exactly, and that the integration `ENABLED = TRUE`.
-* Make sure [AI features](../platform/enable-dbt-ai.md) are enabled and that remote MCP OAuth is available for your account tier.
+* AI features are enabled by default and admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md).
+* Make sure remote MCP OAuth is available for your account tier.
 
  The agent returns no metrics or empty results
 

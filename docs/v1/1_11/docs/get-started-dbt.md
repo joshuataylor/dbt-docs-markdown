@@ -109,7 +109,7 @@ Develop with a self-hosted installation using the dbt Fusion engine or dbt Core 
 
 #### [dbt Wizard from your terminal](./dbt-ai/wizard-quickstart.md)
 
-[Install the dbt Wizard CLI to run the agent locally against any dbt project — with or without a dbt platform account. Requires an OpenAI API key (BYOK).](./dbt-ai/wizard-quickstart.md)
+[Install the dbt Wizard CLI to run the agent locally against any dbt project — with or without a dbt platform plan. Start with a free trial using dbt managed AI, or bring your own provider key.](./dbt-ai/wizard-quickstart.md)
 
 ## Related docs
 

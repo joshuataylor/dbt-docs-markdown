@@ -4,7 +4,7 @@
 
 * [Adapter creation2](./tags/adapter-creation.md)
 * [Agents2](./tags/agents.md)
-* [AI34](./tags/ai.md)
+* [AI35](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst2](./tags/analyst.md)
 * [API2](./tags/api.md)
@@ -19,7 +19,7 @@
 * [Best practices2](./tags/best-practices.md)
 * [BigFrames1](./tags/big-frames.md)
 * [BigQuery4](./tags/big-query.md)
-* [billing1](./tags/billing.md)
+* [billing2](./tags/billing.md)
 
 ***
 
@@ -203,6 +203,6 @@
 ## W
 
 * [Webhooks6](./tags/webhooks.md)
-* [Wizard26](./tags/wizard.md)
+* [Wizard27](./tags/wizard.md)
 
 ***

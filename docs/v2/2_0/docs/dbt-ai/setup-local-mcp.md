@@ -32,7 +32,6 @@ If a required variable is not set, dbt-mcp will automatically disable that tools
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/) to be able to run `dbt-mcp` and [related dependencies](https://github.com/dbt-labs/dbt-mcp/blob/main/pyproject.toml) into an isolated virtual environment.
 * Have a local dbt project (if you want to use dbt CLI commands).
-* If you're using [OAuth with dbt platform](#oauth-authentication-with-dbt-platform), your account admin has to enable AI features on your dbt platform account. Refer to [Enable dbt AI](../platform/enable-dbt-ai.md) for more info.
 
 ## Choose your auth method
 
@@ -523,6 +522,6 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 3. Restart your client and try connecting again.
 
-If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md).
+If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/manage-dbt-ai.md).
 
 For all troubleshooting topics, see [MCP troubleshooting](./mcp-troubleshooting.md).

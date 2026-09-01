@@ -12,17 +12,14 @@ dbt Copilot in Canvas has setup and AI requirements. Confirm the following befor
 
 * dbt Copilot is available in the Canvas interface. Refer to [About Canvas](./canvas.md) for setup instructions.
 * Natural language prompts in Canvas are available on [Enterprise and Enterprise+](https://www.getdbt.com/pricing) plans.
-* dbt Copilot requires AI features to be [enabled](./enable-dbt-ai.md) for your account. AI terms and conditions apply. Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#does-dbt-labs-have-terms-in-place) for details.
 * Your development environment must be on a supported [release track](../dbt-versions/dbt-release-tracks.md).
 * Refer to [Billing](./billing.md) for dbt Copilot usage limits.
 
-info
+dbt Wizard is the recommended agent for dbt work
 
-dbt Wizard is the new and recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
+dbt Wizard is the recommended AI agent for governed data development in dbt. It handles the full development lifecycle — investigation, building, validation, and shipping — grounded in your dbt project's lineage, tests, contracts, and metric definitions.
 
-dbt Copilot is separate from dbt Wizard and is dbt's inline AI assistance experience, providing single-click generation of SQL, documentation, tests, and semantic models in Studio IDE, Canvas, and Insights.
-
-Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](./billing.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
+Refer to [dbt AI FAQs](../dbt-ai/dbt-ai-faqs.md#is-dbt-wizard-the-same-as-dbt-copilot), [Billing](../dbt-ai/wizard-billing-faqs.md), and [dbt's Terms of Use](https://www.getdbt.com/terms-of-use) for more information.
 
 To begin building models with natural language prompts in the Canvas:
 

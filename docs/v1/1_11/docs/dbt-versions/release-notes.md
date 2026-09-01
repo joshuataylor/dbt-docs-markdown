@@ -15,6 +15,10 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## September 2026
 
+* **Behavior change:** AI features in the dbt platform are being enabled by default. They're already on for new accounts and are rolling out soon to existing accounts. Organizations that opted out stay off, and admins can turn AI features on or off anytime in **Account settings**. Refer to [AI features in dbt platform](../platform/manage-dbt-ai.md).
+
+* **New:** dbt Wizard now uses usage-based billing for dbt-managed AI. Usage is metered per token against your consumption pool, with monthly included usage or a trial to start and admin-set spend limits. Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) and the [Billing and access FAQs](../dbt-ai/wizard-billing-faqs.md).
+
 * **New:** [dbt State](../deploy/dbt-state-about.md) onboarding and billing updates:
 
   * **New:** New users can now sign up for a free dbt platform account and start a 30-day dbt State trial through a guided onboarding flow. For details, refer to [Setting up dbt State](../deploy/dbt-state-setup.md?type=platform-signup).
@@ -192,7 +196,7 @@ The following features are new or enhanced as part of dbt Labs announcements at 
 
 * **New**: dbt Wizard is available in dbt platform as a public preview. Introducing dbt Wizard CLI as a public beta. Purpose-built for agentic governed data development in dbt, dbt Wizard understands your project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine), unlike general-purpose coding agents.
 
-  * **New**: [Support for Anthropic as a BYOK provider for dbt AI](../platform/enable-dbt-ai.md#configure-your-ai-provider).
+  * **New**: [Support for Anthropic as a BYOK provider for dbt AI](../platform/manage-dbt-ai.md#configure-ai-provider).
   * **New**: [`dbt login`](../../reference/commands/login.md?version=2.0) is a new CLI command available in dbt Core 2.0 and later. It opens browser-based authentication and shares your login state across the CLI, dbt VS Code extension, dbt State, and dbt Wizard CLI with no separate sign-in flows needed.
 
 * **New:** OAuth client registrations now accept custom-scheme redirect URIs (for example, `cursor://` or `vscode://`), so you can build native app OAuth integrations with Cursor and VS Code.

@@ -11,13 +11,9 @@ To configure or disable specific tools, see the [Environment variables reference
 ## Prerequisites
 
 * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
-
 * A [dbt platform account](https://www.getdbt.com/signup)
-
 * For OAuth connections:
-
   * MCP OAuth is available for Starter, Enterprise, and Enterprise+ plans.
-  * An account admin has to enable AI features on your dbt platform account. Refer to [Enable AI features](../platform/enable-dbt-ai.md) for more info.
 
 ## Step 1: Choose your auth method and configure
 
@@ -400,7 +396,7 @@ For VS Code (`mcp.json`), the same fix applies — replace `uvx` with its full p
 
 3. Restart your client and try connecting again.
 
-If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/enable-dbt-ai.md).
+If these steps don't resolve the issue, confirm that AI features are enabled on your account. An account admin can enable them in **Account settings** → **Edit** → toggle on **Enable account access to dbt Wizard features**. Refer to [Enable dbt Wizard](../platform/manage-dbt-ai.md).
 
  Server not starting
 

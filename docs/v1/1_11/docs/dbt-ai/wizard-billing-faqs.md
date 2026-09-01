@@ -2,18 +2,16 @@
 
 Common questions about AI being turned on by default, how dbt Wizard usage is measured, what your usage credits covers, and how spend limits work.
 
-What's changing on September 1, 2026
+What's changing from September 1, 2026
 
-From September 1st, 2026, there are a couple of changes coming to dbt AI features:
+From September 1, 2026, a couple of things are changing for dbt AI features:
 
-* AI features will turn on by default for all new and existing accounts. If your organization has requested they remain off through an Enterprise agreement or through support, AI features will remain off. You can also disable AI features at any time after this transition.
-* dbt Wizard will move to usage-based billing for [dbt-managed AI](#dbt-managed-inference). Usage is metered per token against your consumption pool, and an admin can set a monthly spend limit in dbt platform.
-
-Detailed product docs for both changes are on the way. Check back closer to September 1st for setup steps and billing details.
+* **AI features are being enabled by default.** They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can turn AI features on or off anytime in **Account settings**.
+* **dbt Wizard is moving to usage-based billing** for [dbt-managed AI](#dbt-managed-inference). Usage is metered per token against your consumption pool, and an admin can set a monthly spend limit in dbt platform.
 
 ## AI enabled by default
 
-Starting September 1, 2026, AI features are on by default for dbt platform accounts. Turning AI on doesn't create a charge on its own — refer to [Billing FAQs](#billing-faqs) in the next section to understand how usage is metered.
+AI features are being enabled by default for dbt platform accounts. They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can turn AI features on or off anytime in **Account settings**. Turning AI on doesn't create a charge on its own — refer to [Billing FAQs](#billing-faqs) in the next section to understand how usage is metered.
 
  Which AI features are enabled by default?
 
@@ -24,13 +22,17 @@ The following surfaces are on by default:
 * dbt Copilot in dbt platform (includes Canvas and Insights).
 * Any future dbt AI features will automatically become available as well.
 
+ AI features aren't on for my account yet. How do I turn them on?
+
+AI features are already on for new accounts and are rolling out soon to existing accounts, so they may not be on for your account right away. An account admin can turn them on now in **Account settings** — refer to [Manage AI features in dbt platform](../platform/manage-dbt-ai.md). If your organization opted out, they'll remain off until an admin turns them on.
+
  I previously asked for AI to be permanently disabled. Will it turn on anyway?
 
 No. If your organization already opted out of AI features contractually or had them permanently disabled, they stay off. You don't need to do anything before September 1, 2026.
 
  Can I opt out of AI features?
 
-Yes. An account admin can turn AI off at any time in **Account settings**. Refer to [Enable AI in dbt platform](../platform/enable-dbt-ai.md) for the steps — the same toggle controls both dbt Wizard and dbt Copilot.
+Yes. An account admin can turn AI off at any time in **Account settings**. Refer to [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) for the steps — the same toggle controls both dbt Wizard and dbt Copilot.
 
  If AI is enabled by default, will I be charged automatically?
 
@@ -158,7 +160,7 @@ In the dbt platform, go to **Billing & Usage** > **Usage-based features** > **Wi
 It depends on which credits you're using:
 
 * Free dbt Wizard usage credits (The Developer and Starter trial pool, and the Enterprise and Enterprise+ monthly included usage credits) are scoped to dbt Wizard only.
-* Consumption pool add-on that you purchase covers both dbt Wizard and dbt State, so usage from either eature draws down the same account-level pool.
+* Consumption pool add-on that you purchase covers both dbt Wizard and dbt State, so usage from either feature draws down the same account-level pool.
 
 Either way, Copilot Actions are metered separately on an actions-based model and never touch your dbt Wizard consumption pool. dbt Wizard also has its own feature-level spend limit, configured separately from dbt State.
 
@@ -224,7 +226,7 @@ Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-tok
 
 ## Related docs
 
-* [Enable AI in dbt platform](../platform/enable-dbt-ai.md) to turn AI features on or off
+* [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) to turn AI features on or off
 * [How dbt Wizard works](./wizard-how-it-works.md)
 * [dbt AI usage](../platform/billing/dbt-ai-usage.md) for how dbt AI usage is metered and limited
 * [BYOK for the dbt platform](../platform/wizard-byok-platform.md) or [BYOK for the CLI](./wizard-byok.md)

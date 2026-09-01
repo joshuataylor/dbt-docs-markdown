@@ -1,6 +1,6 @@
 # Use skills with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+
+dbt platform | Usage-based
 
 Skills are reusable instructions that help dbt Wizard follow your team's SQL conventions, naming rules, modeling patterns, and workflows without repeating them in every prompt.
 

@@ -1,53 +1,80 @@
 # dbt AI: Usage metering and limiting
 
-dbt platform | Starter, Enterprise, Enterprise+
+dbt platform
 
-dbt AI usage is measured based on the number of completed AI requests, known as dbt Copilot actions. Usage limits are enforced to ensure fair access and system performance.
+dbt AI usage is metered differently depending on the feature you use:
 
 What's changing on September 1, 2026
 
-From September 1st, 2026, there are a couple of changes coming to dbt AI features:
+From September 1, 2026, a couple of things are changing for dbt AI features:
 
-* AI features will turn on by default for dbt platform accounts on Developer, Starter, Enterprise, and Enterprise+ plans. If your organization already opted out of AI features, they stay off.
-* dbt Wizard will move to usage-based billing for dbt managed AI. An admin will be able to turn AI features off at any time.
-
-Detailed product docs for both changes are on the way. Check back closer to September 1st for setup steps and billing details.
+* **AI features are being enabled by default.** They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can turn AI features on or off anytime in **Account settings**.
+* **dbt Wizard is moving to usage-based billing** for [dbt-managed AI](#dbt-managed-inference). Usage is metered per token against your consumption pool, and an admin can set a monthly spend limit in dbt platform.
 
 Refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md) for more info.
 
-A defined number of dbt Copilot invocations is allocated monthly based on your [subscription plan](https://www.getdbt.com/pricing). Once the usage limit is reached, access to dbt AI will be temporarily disabled until the start of the next billing cycle.
+| Feature                     | How it's metered                                   | What limits usage                                    |
+| --------------------------- | -------------------------------------------------- | ---------------------------------------------------- |
+| [dbt Wizard](#dbt-wizard)   | Dollar-based usage, converted from tokens          | Your consumption pool, then your monthly spend limit |
+| [dbt Copilot](#dbt-copilot) | A count of completed AI requests, known as actions | A monthly action allotment set by your plan          |
 
-dbt Wizard has drawn from your existing dbt Copilot included action allotment as a temporary compatibility bridge. From September 1, 2026, dbt Wizard usage will be metered separately as dollar-based usage against your consumption pool. Pricing and usage are subject to change.
+Bring your own key (BYOK) usage isn't metered by dbt. Your AI provider bills you directly and the usage doesn't draw from either limit.
 
-### Viewing usage in the product
+## dbt Wizard
 
-To view dbt Copilot usage in your account:
+dbt Wizard is metered by dollar-based usage rather than a count of actions. Usage is measured in tokens — prompts, project context, cached content, and generated responses all consume them — and converted into a dollar amount based on the model and token type. That amount is deducted from your consumption pool.
+
+Usage from the dbt platform and the local CLI both draw from the same account-level pool.
+
+### Usage credits by plan
+
+| Plan                                      | What you get                                                       |
+| ----------------------------------------- | ------------------------------------------------------------------ |
+| Enterprise                                | $100/month in usage credits per account, resets each billing month |
+| Enterprise+                               | $200/month in usage credits per account, resets each billing month |
+| All other plans and self hosted dbt users | One-time 30-day trial with $100 in usage credits per account       |
+
+Pools don't roll over. For eligibility, how to start a trial, and how to set up paid access afterward, refer to [Trial and billing](../../dbt-ai/pricing-billing/trial-and-billing.md).
+
+### When you reach your limit
+
+Your spend limit caps how much dbt managed dbt Wizard usage your account can consume in a billing period. You only pay for actual usage, up to the limit you choose.
+
+* If you deplete your consumption pool, usage pauses until you add paid usage or the next billing cycle starts.
+* If you reach your spend limit, usage pauses until an admin raises it or the next billing cycle starts.
+* Limits are set separately for dbt Wizard and [dbt State](../../deploy/dbt-state-about.md), but both draw from your account's overall usage-based spend.
+
+### View Wizard usage
 
 1. Navigate to [**Account settings**](../account-settings.md).
+2. Select **Billing & Usage** under the Settings header.
+3. On the **Overview** tab, check the **Consumption pool** card, or open **Usage-based features > Wizard** for usage and spend controls.
 
+You need to be an account admin or billing admin to view or change spend limits.
+
+For trials, consumption pools, spend limits, and BYOK billing, refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md).
+
+## dbt Copilot
+
+dbt Copilot usage is measured by the number of completed AI requests, known as dbt Copilot actions. A defined number of actions is allocated monthly based on your [subscription plan](https://www.getdbt.com/pricing). Once you reach the limit, dbt Copilot is temporarily disabled until the start of the next billing cycle.
+
+### View Copilot actions
+
+1. Navigate to [**Account settings**](../account-settings.md).
 2. Select **Billing** under the Settings header.
-
 3. On the billing page, click the **Copilot Actions** tab to view your usage.
 
 ![View usage in dbt Copilot](/img/docs/dbt-platform/view-usage-in-copilot.gif?v=2 "View usage in dbt Copilot")View usage in dbt Copilot
 
-## dbt Wizard billing
-
-dbt Wizard is metered by dollar-based usage rather than a count of dbt Copilot actions.
-
-For trials, consumption pools, spend limits, and BYOK billing, refer to [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md).
-
 ## FAQs
 
- Temporary dbt Copilot Actions bridge (through July 13, 2026)
+ Temporary dbt Copilot Actions bridge (ended September 1, 2026)
 
-As a temporary compatibility bridge, dbt Wizard drew from your existing dbt Copilot included action allotment through July 13, 2026 or longer (timeline subject to change).
+As a temporary compatibility bridge, dbt Wizard drew from your existing dbt Copilot included action allotment. That bridge ended on September 1, 2026, and dbt Wizard usage is now metered separately as dollar-based usage against your usage credits and consumption pool.
 
-From September 1, 2026, dbt Wizard usage is metered separately.
+Users who bring their own key (BYOK) were never affected by this bridge.
 
-Users that bring their own key (BYOK) aren't affected by this bridge.
-
- AI usage tracking by dbt Copilot actions
+ What counts as a dbt Copilot action
 
 dbt Copilot actions refer to requests made to the dbt Copilot assistant through the dbt interface. These actions are recorded and displayed on the billing page alongside other usage metrics by accessing the **Copilot Actions** tab in the **Billing** page.
 
@@ -75,7 +102,7 @@ The following table outlines the limits of dbt Copilot actions by plan per month
 
 \*\*Enterprise-tier customers on plans enrolled prior to May 1, 2025 (including legacy Business Critical) have a limit of 1,000 dbt Copilot actions per month. To get a higher allotment, move to the current [Enterprise or Enterprise+ plan](https://www.getdbt.com/pricing).
 
- Notifications when limitations are reached
+ Notifications when limits are reached
 
 When usage limits are reached, a notification appears in the UI. Additionally, an email notification is sent to the designated recipient.
 
@@ -86,3 +113,10 @@ For users enrolled on the Enterprise and Enterprise+ plans, both the billing adm
 Once usage limits are reached, attempts to perform an action in dbt Copilot triggers a banner notification indicating that the limit has been exceeded.
 
 Under Bring Your Own Key (BYOK), usage is not tracked by dbt AI and is subject to your OpenAI limits.
+
+## Related docs
+
+* [Trial and billing](../../dbt-ai/pricing-billing/trial-and-billing.md) to start a dbt Wizard trial and set a spend limit
+* [dbt Wizard billing and access FAQs](../../dbt-ai/wizard-billing-faqs.md) for common billing questions
+* [Models and pricing](../../dbt-ai/pricing-billing/overview.md) for model options and token pricing
+* [Billing](../billing.md) for general dbt platform billing

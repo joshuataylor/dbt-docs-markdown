@@ -1,12 +1,12 @@
 # About dbt Wizard
 
+Local development | dbt platform
+
 Your personal dbt agent — wherever you work.
 
 dbt Wizard is an AI agent purpose-built for governed data development in dbt. Unlike general-purpose coding agents, it understands your dbt project through a [native metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) — a structured index of lineage, model health, tests, contracts, run results, and semantic definitions.
 
-Think of it like a map of your city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout.
-
-dbt Wizard comes with the following capabilities:
+Think of it like a map of your city: dbt Wizard knows how everything connects before it starts, rather than walking every street to figure out the layout. dbt Wizard comes with:
 
 * **Project understanding:** A native dbt metadata engine for lineage, contracts, tests, and runtime context
 * **Impact awareness:** Checks upstream and downstream dependencies before you change code
@@ -14,108 +14,116 @@ dbt Wizard comes with the following capabilities:
 * **Complete workflow:** Investigate, change, validate, and review in one place
 * **Setup and governance:** Works out of the box with dbt governance built in
 
-Best practices for using dbt Wizard
+Wizard usage and billing
 
-For recommended workflows on real project tasks — understanding a project, validating changes, debugging a failed job, and more — refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md).
+From September 1st, 2026, dbt Wizard usage is metered per token against your usage credits. Enterprise and Enterprise+ accounts get monthly credits. Developer and Starter plans start with a 30-day trial and $100 in credits, as do CLI users via a free dbt account.
+
+Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for what each plan gets, spend limits, and paid access.
 
 ## Use dbt Wizard
 
-dbt Wizard is for anyone doing dbt development — from analytics engineers working in a self-hosted setup in the terminal to teams building in the dbt platform. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account.
-
-dbt Wizard is data warehouse agnostic and works with both the [dbt Fusion engine](../introduction.md) and [dbt Core](../local/install-dbt.md) — no specific engine is required.
+dbt Wizard is for anyone doing dbt development. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account. dbt Wizard is data warehouse agnostic and works on any [dbt version](../introduction.md#dbt-versions)
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
-| Where                                                                                      | Status         | AI provider keys             | Availability and cost                                                                                                                                                                         |
-| ------------------------------------------------------------------------------------------ | -------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [dbt platform — Studio IDE](../dbt-ai/wizard-ide.md)             | Public preview | Managed keys, or BYOK        | Managed usage is included with [dbt AI](./billing/dbt-ai-usage.md) by plan (not available on Developer). BYOK is available on Enterprise and Enterprise+. |
-| [dbt platform — dbt Wizard home tab](./wizard-home.md) | Public beta    | Managed keys, or BYOK        | Same as Studio IDE.                                                                                                                                                                           |
-| [Terminal (CLI)](../dbt-ai/wizard-cli.md)                        | Public beta    | BYOK, or OpenAI subscription | You pay your AI provider directly. Works with or without a dbt platform account.                                                                                                              |
+| Where                                                                                     | Status         | AI access options                         |
+| ----------------------------------------------------------------------------------------- | -------------- | ----------------------------------------- |
+| [dbt platform: Studio IDE](../dbt-ai/wizard-ide.md)             | Public preview | dbt managed or BYOK                       |
+| [dbt platform: dbt Wizard home tab](./wizard-home.md) | Public preview | dbt managed or BYOK                       |
+| [Locally: Terminal (CLI)](../dbt-ai/wizard-cli.md)              | Public beta    | dbt managed, BYOK, or OpenAI subscription |
 
-For included action limits by plan and how managed usage is metered, refer to the [Billing](./billing.md) page. To bring your own key, refer to [supported providers](#supported-ai-providers) on this page.
+## Supported providers
 
-## Supported AI providers
+dbt Wizard supports [managed models](../dbt-ai/pricing-billing/overview.md#dbt-managed-providers) (billed by dbt Labs, no key to manage) and [bring-your-own-key (BYOK)](../dbt-ai/wizard-byok.md) models (billed directly by your provider).
 
-#### dbt Wizard
+Here are the following AI providers supported depending on where you work. Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the full list of available models.
 
-dbt Wizard supports different AI providers depending on where you use it.
+### dbt platform
 
-| Provider                                                                     | dbt Wizard in dbt platform | dbt Wizard CLI                  |
-| ---------------------------------------------------------------------------- | -------------------------- | ------------------------------- |
-| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | ✓ (managed or BYOK)        | ✓ (OpenAI subscription or BYOK) |
-| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | ✓ (BYOK)                   | ✓ (BYOK)                        |
-| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | -                          | ✓ (BYOK)                        |
-| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | -                          | ✓ (BYOK)                        |
-| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | -                          | ✓ (BYOK)                        |
-| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | -                          | ✓ (BYOK)                        |
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/) (default)            | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
 
-† *Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms). BYOK requires an Anthropic API key.*
+### Locally (CLI)
 
-Refer to the following pages for more information:
+| Provider                                                                     | Access              |
+| ---------------------------------------------------------------------------- | ------------------- |
+| [OpenAI](https://openai.com/policies/row-terms-of-use/)                      | dbt managed or BYOK |
+| [Anthropic](https://www.anthropic.com/legal/consumer-terms)†                 | dbt managed or BYOK |
+| Open weight models (like DeepSeek, Kimi, and so on).                         | dbt managed         |
+| [Azure AI Foundry](https://www.microsoft.com/licensing/terms) / Azure OpenAI | BYOK                |
+| [AWS Bedrock](https://aws.amazon.com/service-terms/)                         | BYOK                |
+| [Google Gemini](https://ai.google.dev/gemini-api/terms)                      | BYOK                |
+| [Snowflake Cortex](https://www.snowflake.com/en/legal/terms-of-service/)     | BYOK                |
+| [Databricks Unity AI Gateway](https://www.databricks.com/legal/mcsa)         | BYOK                |
 
-* [Configure dbt platform](./wizard-byok-platform.md) integrations in account settings.
-* [Configure BYOK for the CLI](../dbt-ai/wizard-byok.md) by running `wizard providers configure PROVIDER_NAME` and follow the prompts.
+You can also connect a personal OpenAI ChatGPT subscription instead of a key.
 
-## Choose a dbt Wizard experience
+†Anthropic enterprise and subscription licenses (such as Claude Enterprise) aren't supported per Anthropic's [terms of service](https://www.anthropic.com/legal/consumer-terms).
 
-### Terminal Beta
+For pricing and how billing works, refer to [Models and pricing](../dbt-ai/pricing-billing/overview.md).
 
-*Available in public beta.*
+## Get started
+
+You can get started with Wizard wherever you work, whether it's the terminal or the dbt platform:
+
+* [Wizard in the CLI](#wizard-in-the-cli)
+* [Wizard in dbt platform](#wizard-in-dbt-platform)
+
+(Be warned, the wizard has been known to cast spells
+
+.)
+
+### Wizard in the CLI [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 A terminal-based agent for governed data development in dbt, whether your team uses the dbt platform or self-hosts. Bring your own key to experience the full agentic analytics engineering loop.
 
-New to the terminal?
+12
 
-If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md). Some tips include:
+View all stepsNext
 
-* Enter `/` to see the available commands or try out `/overview` to get a quick summary of your project.
-* Press `Shift+Tab` to cycle through collaboration modes.
+1
 
-Install dbt Wizard as `wizard` on your `PATH` using the curl script for your operating system:
+Install the dbt Wizard CLI
 
-#### macOS/Linux
+Run the install script for your operating system:
+
+macOS/Linux:
 
 ```bash
 curl -fsSL https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.sh | sh
 ```
 
-This installs dbt Wizard to `/usr/local/bin/wizard`, along with `dbt-index`, the [metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers. See [Uninstall](../dbt-ai/wizard-cli.md#uninstall) if you ever need to remove them.
-
-#### Windows
-
-Run the following in PowerShell:
+Windows (PowerShell):
 
 ```powershell
 irm https://public.cdn.getdbt.com/dbt-wizard/install/install-wizard.ps1 | iex
 ```
 
-Then verify the install and start a session:
+This installs dbt Wizard to `/usr/local/bin/wizard`, along with the dbt [metadata engine](../dbt-ai/wizard-how-it-works.md#native-metadata-engine) that powers dbt Wizard's project-aware answers.
 
-```bash
-wizard --version   # confirm the install
-wizard             # start an interactive session
-```
+For first-run setup and billing, refer to [Use dbt Wizard locally](../dbt-ai/wizard-quickstart.md).
 
-After running `wizard --version`, you should see something like `dbt-wizard VERSION`. Run `wizard --help` to see all available commands and flags. dbt Wizard installs default config files — refer to the [config reference](../dbt-ai/wizard-config.md) for more details.
+New to the terminal?
 
-Your browser does not support the video tag.
+If you've never used the terminal before, check out the [terminal guide](../../guides/terminal-guide.md) for for some helpful tips to help you get started!
 
-dbt Wizard CLI in your terminal
-
-### dbt platform Preview
-
-*Available in public preview.*
+### Wizard in dbt platform [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
 Leverage agentic capabilities in the home app or [Studio IDE](../dbt-ai/wizard-ide.md) for governed data development in dbt.
 
+AI features are on by default, so most accounts can jump straight in. If your account has them turned off, an admin can turn them back on in [Account settings](./manage-dbt-ai.md#manage-ai-features).
+
 To get started:
 
-1. Make sure an admin has [enabled](./enable-dbt-ai.md) dbt Wizard.
+1. Sign in to the [dbt platform](https://www.getdbt.com/signup), or create a free account if you don't have one yet.
 
-2. Navigate to the dbt Wizard icon in the left sidebar of the dbt platform.
+2. Open dbt Wizard from the **home tab** in the left sidebar, or from [Studio IDE](../dbt-ai/wizard-ide.md) to work alongside the file editor.
 
-3. Open a project in [Studio IDE](../dbt-ai/wizard-ide.md) or the home app.
+3. Start with your usage credits or a 30-day trial. Enterprise and Enterprise+ accounts get monthly usage credits; all other plans can start a trial. Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md).
 
 4. Try a prompt, such as:
 
@@ -124,16 +132,6 @@ To get started:
    * `add not_null and unique tests to the primary key of stg_customers`
 
 Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompts.
-
-![dbt Wizard in the dbt platform](/img/docs/dbt-platform/wizard-home-agent.png?v=2 "dbt Wizard in the dbt platform")dbt Wizard in the dbt platform
-
-(Be warned, the wizard has been known to cast spells
-
-.)
-
-## Next steps
-
-Now that you know where to start, continue with **[Use self-hosted dbt Wizard](../dbt-ai/wizard-quickstart.md)** for installation and onboarding, or **[Enable AI features in dbt platform](./enable-dbt-ai.md)** for the platform setup flow.
 
 ## Related docs
 

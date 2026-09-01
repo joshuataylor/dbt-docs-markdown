@@ -19,7 +19,7 @@ TOML (Tom's Obvious, Minimal Language) is a config file format. If you've writte
 \~/.dbt/wizard/config.toml
 
 ```toml
-model = "claude-sonnet-4-6"
+model = "gpt-4o"
 
 [projects."/Users/you/jaffle-shop"]
 trust_level = "trusted"
@@ -38,7 +38,7 @@ Note that `dbt_project.yml` is separate from both and controls how dbt builds yo
 
 | Goal                                      | Edit                                                               | Restart needed? |
 | ----------------------------------------- | ------------------------------------------------------------------ | --------------- |
-| Change the default AI model               | `config.toml` → `model = "claude-sonnet-4-6"`                      | Yes             |
+| Change the default AI model               | `config.toml` → `model = "gpt-4o"`                                 | Yes             |
 | Point dbt Wizard at a specific dbt binary | `wizard_config.toml` → `path`                                      | Yes             |
 | Add the dbt MCP server                    | `config.toml` → `[mcp_servers.dbt]`                                | Yes             |
 | Mark a repo as trusted                    | `config.toml` → `trust_level = "trusted"` under `[projects."..."]` | Yes             |
@@ -73,6 +73,8 @@ You can view more by running `wizard config --help`.
 
 #### AI model and API
 
+New dbt Wizard CLI installs use dbt Labs-managed models out of the box. Refer to [Configure BYOK](./wizard-byok.md) to use a different provider.
+
 | Key     | Type   | Default | Description                                                                                                                                 |
 | ------- | ------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `model` | string | —       | Default AI model for new sessions. Refer to [AI model ID format](#ai-model-id-format) below. Change interactively with `/model` in the TUI. |
@@ -103,7 +105,7 @@ command = "DBT_MCP_ENDPOINT"
 
 ### AI model ID format
 
-AI model IDs in `config.toml` use the public model ID, such as `claude-sonnet-4-6`.
+AI model IDs in `config.toml` use the public model ID, such as `gpt-4o`.
 
 To list all available AI model IDs:
 
@@ -116,7 +118,7 @@ wizard debug models
 Any key can be set as an environment variable using the `DBT_WIZARD_` prefix in `SCREAMING_SNAKE_CASE`:
 
 ```bash
-export DBT_WIZARD_MODEL=claude-sonnet-4-6
+export DBT_WIZARD_MODEL=gpt-4o
 export DBT_WIZARD_APPROVAL_POLICY=never
 export OPENAI_API_KEY=sk-...        # OpenAI (no prefix needed)
 export ANTHROPIC_API_KEY=sk-ant-... # Anthropic (no prefix needed)
@@ -131,7 +133,7 @@ export ANTHROPIC_API_KEY=sk-ant-... # Anthropic (no prefix needed)
 ### Example
 
 ```toml
-model = "claude-sonnet-4-6"
+model = "gpt-4o"
 
 [projects."/Users/you/jaffle-shop"]
 trust_level = "trusted"

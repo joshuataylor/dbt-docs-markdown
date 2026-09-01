@@ -2,9 +2,7 @@
 
 dbt Wizard helps teams develop, troubleshoot, harden, and ship trusted dbt projects faster and with less risk.
 
-Built for governed data development in dbt, dbt Wizard understands the full project, routes to the right dbt tools, and validates work with awareness of warehouse operations, including dev builds, compute costs, run time, and post-build inspection. Use dbt Wizard to investigate failed runs, debug model issues, assess downstream impact, make changes, validate results, and ship trusted data work in one place.
-
-Unlike general coding agents, dbt Wizard is aware of warehouse operations. It understands that validation can mean compiling code, building to a dev schema, considering compute and run time, and proposing what to inspect after the build completes.
+Built for governed data development in dbt, dbt Wizard understands your project, routes to the right dbt tools, and validates work with awareness of warehouse operations. Use it to investigate failed runs, debug models, assess impact, make changes, and ship trusted data work in one place.
 
 Most of how dbt Wizard works is the same in the [dbt platform](../platform/wizard-platform.md) and in the [terminal CLI](./wizard-cli.md). The following sections explain shared behavior first, then call out what differs in each environment.
 
@@ -71,7 +69,7 @@ Refer to the [Skills](./wizard-skills.md) page for more details.
 
 ## In the dbt platform
 
-Use dbt Wizard in the [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE. An admin must [enable dbt Wizard](../platform/enable-dbt-ai.md) for your account first.
+Use dbt Wizard in the [dbt platform](../platform/wizard-platform.md) from the home app or Studio IDE.
 
 ### Approval and review
 

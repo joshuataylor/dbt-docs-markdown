@@ -1,12 +1,8 @@
 # dbt Wizard in Studio IDE [Preview](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+
+dbt platform | Usage-based
 
 Use dbt Wizard in the Studio IDE to ship trusted dbt changes faster. It understands your project, answers context-grounded questions, generates models, tests, docs, and Semantic Layer definitions, and shows file diffs before changes are persisted.
-
-info
-
-dbt Wizard is in preview as of May 6, 2026 for Starter, Enterprise, and Enterprise+ plans. Enterprise and Enterprise+ customers can contact their account manager for access. Starter customers can contact [dbt Labs Support](mailto:support@getdbt.com).
 
 dbt Wizard supports the dbt development lifecycle from investigation to review. Use it to:
 
@@ -21,14 +17,18 @@ The agent comes with the following out of the box, meaning no configuration need
 * [dbt Agent Skills](https://github.com/dbt-labs/dbt-agent-skills): dbt-recommended guidance and instructions, managed by dbt Labs.
 * [dbt MCP server Product docs toolset](./mcp-available-tools.md#product-docs): Tools for searching and fetching content from dbt's official documentation.
 
+AI features are being enabled by default. They're already on for new accounts and are rolling out soon to existing accounts. If your organization opted out, they'll remain off. Admins can [turn AI off or back on and configure providers](../platform/manage-dbt-ai.md) anytime.
+
 ### Prerequisites
 
-* A Starter, Enterprise, or Enterprise+ plan
-* A [dbt account](https://www.getdbt.com/signup) and [Developer seat license](../platform/manage-access/seats-and-users.md).
+* A [dbt platform account](https://www.getdbt.com/signup) and [Developer seat license](../platform/manage-access/seats-and-users.md).
+  * [Legacy Team plans](../platform/billing/plans-and-billing.md#legacy-plans) don't have access to dbt Wizard. Move to a [Starter, Enterprise, or Enterprise+ plan](https://www.getdbt.com/pricing) to use it.
 * A [development environment](../platform/studio-ide/develop-in-studio.md#get-started-with-the-studio-ide) and credentials set up in the Studio IDE.
-* [Enabled AI features](../platform/enable-dbt-ai.md#enable-ai-features) for your account.
+* Use a supported AI provider. Refer to [Supported AI providers](../platform/wizard-platform.md#supported-ai-providers), or the [Model Provider Rate Table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the full model list and rates.
 
-#### Availability and considerations
+If dbt Wizard stops responding, your account may have used up its usage credits. Refer to [Trial and billing](./pricing-billing/trial-and-billing.md).
+
+ Availability and considerations
 
 * **Where it runs:** Supported in the [Studio IDE](../platform/studio-ide/develop-in-studio.md) only, all [deployment types](../platform/about-platform/tenancy.md?version=2.0). Not supported in VS Code or the dbt platform CLI.
 * **Engines:** Works with dbt Fusion engine and dbt Core.
@@ -54,13 +54,15 @@ To use the dbt Wizard, follow these steps:
 
 3. Select the [**Agent mode** button](./wizard-ide.md) to specify the mode for the dbt Wizard. Available modes are **Ask for approval** (default) and **Edit files automatically**.
 
-4. [Review the agent's suggestions](./wizard-ide.md) and approve or reject the changes. You can also use the **Start new dbt Wizard chat** button to start a new chat session.
+4. Select the dbt managed model you'd like to work with from the [model picker](./pricing-billing/overview.md#choose-a-model) next to the **Agent mode** button.
 
-5. [Approve dbt commands](./wizard-ide.md) when the dbt Wizard requests to run commands like `dbt compile` or `dbt build`.
+5. [Review the agent's suggestions](./wizard-ide.md) and approve or reject the changes. You can also use the **Start new dbt Wizard chat** button to start a new chat session.
 
-6. Repeat the process to build or change more models.
+6. [Approve dbt commands](./wizard-ide.md) when the dbt Wizard requests to run commands like `dbt compile` or `dbt build`.
 
-7. Commit the changes to your dbt project and open a pull request.
+7. Repeat the process to build or change more models.
+
+8. Commit the changes to your dbt project and open a pull request.
 
 The following images show how dbt Wizard displays its work and outcome:
 
@@ -76,18 +78,19 @@ The dbt Wizard panel contains:
 
 1. **Quick actions** (center): Buttons at the top of the panel for quick action prompts. When selected, the text field is pre-filled with a prompt.
 2. **Agent mode button** (bottom left): Switch between **Ask for approval** and **Edit files automatically** mode. Click the button to change modes.
-3. **dbt model context** (bottom left): Shows the currently open file. Use `@` in the text field to reference a different dbt model. Click **x** to remove the dbt model context.
-4. **Text input field** (bottom left): Type your prompt in the text field to describe what you want to build or change. Type `@` to select a dbt model as context. This scopes the agent's changes to that resource.
-5. **Start new dbt Wizard chat** (top right): Starts a new chat session.
-6. **Stop** or **Enter** (bottom right): Press **Enter** to submit your prompt. Press **Stop** to stop the current session and agent processing. You cannot undo this action.
+3. **Model picker** (bottom left): Select the dbt managed model to use for the session. Refer to [Choose a model](#choose-a-model) for the available models.
+4. **dbt model context** (bottom left): Shows the currently open file. Use `@` in the text field to reference a different dbt model. Click **x** to remove the dbt model context.
+5. **Text input field** (bottom left): Type your prompt in the text field to describe what you want to build or change. Type `@` to select a dbt model as context. This scopes the agent's changes to that resource.
+6. **Start new dbt Wizard chat** (top right): Starts a new chat session.
+7. **Stop** or **Enter** (bottom right): Press **Enter** to submit your prompt. Press **Stop** to stop the current session and agent processing. You cannot undo this action.
 
-![The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.](/img/docs/dbt-platform/dbt-wizard-panel-controls-annotated.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.")The Wizard panel in the Studio IDE showing quick-action buttons, text input field, and agent mode controls.
+![The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.](/img/docs/dbt-platform/wizard-panel.png?v=2 "The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.")The Wizard panel in the Studio IDE showing quick-action buttons, the agent mode button, the model picker, and the text input field.
 
 dbt Wizard also has a simplified wayfinder bar above the text input field. The wayfinder bar shows your current project and branch and guides you through Git tasks, such as committing files or creating a branch.
 
  Agent modes
 
-The dbt Wizard operates in two modes:
+The dbt Wizard operates in three modes:
 
 | Mode                           | Behavior                                                                                                                                                    |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -149,7 +152,7 @@ You can then choose whether to retry the command, narrow the request, or take an
 
 ### Fusion migration workflow
 
-If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platform/enable-dbt-ai.md?version=2.0#enable-dbt-wizard) enabled, you can use the [Fusion migration workflow](./wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
+If you have access to [dbt Wizard](./wizard-ide.md) with [AI features](../platform/manage-dbt-ai.md) enabled, you can use the [Fusion migration workflow](./wizard-ide.md#fusion-migration-workflow) skill. This skill can help you fix compatibility errors directly from the Studio IDE using dbt Wizard — no manual log investigation needed. It classifies every error, applies validated fixes automatically, and surfaces what's blocked.
 
 info
 
@@ -195,6 +198,16 @@ For detailed guidance, patterns, and more examples across SQL, documentation, te
 Best practices for using dbt Wizard
 
 For recommended workflows on real project tasks — understanding a project, validating changes, building Semantic Layer definitions, and more — refer to [How to use dbt Wizard in your dbt project](../../best-practices/how-to-use-wizard/wizard-1-intro.md). Most of these prompts work the same in Studio IDE.
+
+## Choose a model
+
+With dbt managed inference, you can switch between the supported managed models at any using the model picker dropdown next to the **Agent mode** control (where you choose **Ask for approval** or **Edit files automatically**).
+
+* In [Studio IDE](./wizard-ide.md) and the [dbt Wizard home tab](../platform/wizard-home.md), open the model picker dropdown next to the **Agent mode** control in the dbt Wizard panel, then select a model.
+* The picker lists the managed models available to you. Refer to the [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) for the available models and their token rates.
+* If you [bring your own key (BYOK)](./wizard-byok.md), dbt Wizard uses the provider and model you configured with your key rather than the managed model picker.
+
+![The model picker dropdown next to the Agent mode control in the Wizard panel.](/img/docs/dbt-platform/wizard-model-picker.png?v=2 "The model picker dropdown next to the Agent mode control in the Wizard panel.")The model picker dropdown next to the Agent mode control in the Wizard panel.
 
 ## Related docs
 

@@ -23,9 +23,13 @@ In the CLI, you can use dbt Wizard from your terminal for local development work
 dbt Wizard is available in the dbt platform and as a terminal CLI.
 
 * In the platform, you can use dbt Wizard in the [Studio IDE](./wizard-ide.md) for governed data development in dbt.
-* In the CLI, use the [dbt Wizard CLI](./about-dbt-wizard-cli.md) for local development and automation.
+* In the CLI, use the [dbt Wizard CLI](./wizard-cli.md) for local development and automation.
 
-To use dbt Wizard in the platform, you need a dbt [Starter, Enterprise, or Enterprise+ account](https://www.getdbt.com/contact), and an admin must [enable AI features](../platform/enable-dbt-ai.md) for your account.
+To use dbt Wizard in the platform, you need any dbt [platform account](https://www.getdbt.com/contact).
+
+All dbt platform plans have access to dbt Wizard in Studio IDE and the [home tab](../platform/wizard-home.md).
+
+AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md).
 
  What are the benefits of using dbt Wizard?
 
@@ -57,31 +61,37 @@ No, dbt Copilot actions apply only to dbt Copilot usage. Refer to [dbt Wizard bi
 
 **In the dbt platform**:
 
-When enabled by an admin, dbt Wizard is available to users with a dbt [developer license](../platform/manage-access/seats-and-users.md) on [Starter, Enterprise, and Enterprise+ accounts](https://www.getdbt.com/contact).
+When enabled by an admin, dbt Wizard is available to users with a dbt [developer license](../platform/manage-access/seats-and-users.md) on any [dbt platform account](https://www.getdbt.com/contact).
 
 **In the CLI**:
 
-For dbt Wizard CLI, bring your own API key or credentials for a supported provider using [BYOK](./wizard-byok.md): OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, or Snowflake Cortex (preview). Install and configure the CLI on your local machine. BYOK means any token costs will be billed directly by whichever provider you choose.
+dbt Wizard CLI uses dbt Labs-managed models (OpenAI, Anthropic, or open weight models), billed through dbt's spend-limit billing. You can also bring your own API key or credentials for a supported provider using [BYOK](./wizard-byok.md): OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, or Snowflake Cortex (preview). BYOK is a good backup option if you want to manage AI costs directly — token costs are billed directly by whichever provider you choose. Install and configure the CLI on your local machine.
 
 Refer to [Use dbt Wizard locally](./wizard-quickstart.md) for more information.
 
  Is dbt Wizard available for all deployment types?
 
-Yes, dbt Wizard is deployed everywhere including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
+Yes, dbt Wizard is deployed everywhere, including [multi-tenant and single-tenant deployments](../platform/about-platform/access-regions-ip-addresses.md).
 
 ## How it works
 
+ What data/code is used to train the AI model supporting dbt Wizard?
+
+dbt Wizard is supported by dbt Labs-managed models (OpenAI, Anthropic, or open weight models), or by several third-party pre-trained AI models at your discretion (BYOK OpenAI, BYOK Anthropic, BYOK Azure AI Foundry, and so on). When using managed OpenAI, our agreement with OpenAI prohibits OpenAI from retaining your data persistently. Refer to our [dbt Labs AI principles page](https://www.getdbt.com/legal/ai-principles) for more information.
+
  Which AI model providers does dbt Wizard use?
 
-* For dbt-managed inference, Wizard can be used with several frontier models including models provided by OpenAI and Anthropic as well as several open weight models either in the dbt platform or the CLI. By default, accounts use managed OpenAI.
+In the dbt platform, dbt Wizard uses a managed OpenAI model by default. dbt Labs also offers managed open weight models. On any plan, you can also [bring your own provider keys](../platform/wizard-byok-platform.md) for OpenAI, Anthropic, or Azure AI Foundry.
 
-* For BYOK, you can bring your own key either in [dbt platform](../platform/enable-dbt-ai.md#configure-ai-provider) or the [the CLI](./wizard-byok.md).
+The [dbt Wizard CLI](./wizard-cli.md) supports the same dbt Labs-managed models, or OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview) in bring-your-own-key mode. Refer to [Configure BYOK](./wizard-byok.md) and [Supported AI providers](./pricing-billing/overview.md#supported-ai-providers) for more information.
 
-Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
+For how model choice affects cost, which models draw from your consumption pool, and how BYOK billing works, refer to [dbt Wizard billing and access FAQs](./wizard-billing-faqs.md).
+
+Refer to the [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
 
  Do we support BYOK (bring your own key) at the project level?
 
-In dbt platform, the dbt Wizard BYOK option is currently an account-only configuration. However, there may be a future where we make this configurable on a project-level.
+In dbt platform, the dbt Wizard BYOK option is currently an account-only configuration. However, there may be a future where we make this configurable on a project-level. BYOK is a good option if you want to manage AI costs directly, rather than using a dbt Labs-managed model.
 
 dbt Wizard CLI supports BYOK locally for OpenAI, Anthropic, Azure AI Foundry, AWS Bedrock, Google Gemini, and Snowflake Cortex (preview).
 

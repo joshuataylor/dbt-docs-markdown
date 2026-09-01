@@ -1,6 +1,6 @@
 # Use subagents with dbt Wizard in the dbt platform [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-dbt platform | Starter, Enterprise, Enterprise+
+dbt platform | Usage-based
 
 Subagents let dbt Wizard spin up focused agents to handle parts of a larger task, such as exploring your project, making changes, or reviewing results. dbt Wizard orchestrates them and consolidates the results back into your session.
 
