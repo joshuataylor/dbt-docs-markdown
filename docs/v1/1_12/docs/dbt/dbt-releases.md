@@ -112,11 +112,11 @@ Released by: **mishamsk**Aug 26, 2026, 10:25 PM
 
 planned
 
-[v2.0.0-preview.212](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview212 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stable
+[v2.0.0-preview.212](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview212 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystablest-monday-stableLatestst-wednesday-stableextended
 
-Released by: **johnchappelledbt**Aug 31, 2026, 06:28 PM
+Released by: **agelber-dbt**Sep 1, 2026, 12:16 AM
 
-Automated ST snapshot
+Automated monthly cadence: extended ← previous month's final stable
 
 [v2.0.0-preview.210](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview210 "View this release in the dbt Fusion changelog")GoodDevnightlyCanaryLateststableST MondayST Wednesday
 
@@ -160,11 +160,11 @@ Released by: **akbog**Aug 3, 2026, 08:18 PM
 
 Planned Promotion
 
-[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extended
+[v2.0.0-preview.203](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview203 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableextendedst-wednesday-stableST Thursdayst-thursday-stablest-monday-extendedst-wednesday-extendedst-thursday-extendedfallback
 
-Released by: **johnchappelledbt**Aug 31, 2026, 06:28 PM
+Released by: **agelber-dbt**Sep 1, 2026, 12:14 AM
 
-Automated ST snapshot
+Automated monthly cadence: fallback ← previous month's extended
 
 [v2.0.0-preview.202](https://github.com/dbt-labs/dbt-core/blob/main/CHANGELOG-fusion.md#200-preview202 "View this release in the dbt Fusion changelog")GoodDevnightlyCanarystableLatestST Mondayst-monday-stableST Wednesdayst-wednesday-stableST Thursdayst-thursday-stable
 
