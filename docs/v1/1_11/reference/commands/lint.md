@@ -2,13 +2,13 @@
 
 Available in v2
 
-`dbt lint` is a high-performance SQL linter built into the dbt platform. It is SQLFluff-compatible: it reads your `.sqlfluff` config, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments.
+`dbt lint` is a high-performance SQL linter built into the dbt platform. It is SQLFluff-compatible: it reads your `.sqlfluff` config, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical: `dbt lint` and SQLFluff can return different results for the same file and config. Refer to [Rule parity with SQLFluff](#rule-parity-with-sqlfluff).
 
 You can use your existing SQLFluff config with minimal changes. dbt Labs intends to track the latest SQLFluff rule spec going forward.
 
 note
 
-`dbt lint` is part of the dbt Fusion engine. It is not the same as `dbt sqlfluff lint` on the dbt platform CLI. For SQLFluff on the platform CLI, see [Configure the dbt platform CLI](../../docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](../../docs/platform/studio-ide/lint-format.md) continues to use SQLFluff at this time.
+`dbt lint` is part of the dbt Fusion engine. It is not the same as `dbt sqlfluff lint` on the dbt platform CLI. For SQLFluff on the platform CLI, see [Configure the dbt platform CLI](../../docs/platform/configure-dbt-cli.md). [Linting in Studio IDE](../../docs/platform/studio-ide/lint-format.md) continues to use SQLFluff.
 
 ## Benchmarks
 
@@ -92,6 +92,14 @@ dbt fmt [FILE] [flags]
 ```
 
 `[FILE]` is optional. When omitted, `dbt format` formats all SQL files in your project.
+
+## Rule parity with SQLFluff
+
+`dbt lint` aims for high overlap with SQLFluff, but it doesn't guarantee rule-for-rule parity, and small differences will always exist. Layout and indentation rules, such as `LT02`, are one known area of difference.
+
+Because [linting in the Studio IDE](../../docs/platform/studio-ide/lint-format.md) still uses SQLFluff, Studio IDE **Lint file** and `dbt lint` can report different violations for the same project code. Similarly, CI jobs on a Fusion version invoke `dbt lint` instead of SQLFluff, so results from [CI jobs](../../docs/deploy/continuous-integration.md#sql-linting) can differ from your SQLFluff results.
+
+If you need SQLFluff behavior, you can either lint in the Studio IDE, which continues to run SQLFluff, or run SQLFluff locally using the standalone dbt Core engine templater. Refer to [Fusion limitations](../../docs/dbt/supported-features.md#limitations) for more information.
 
 ## Beta limitations
 

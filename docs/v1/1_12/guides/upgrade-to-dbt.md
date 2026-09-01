@@ -435,7 +435,7 @@ Rolling back to **Latest** will disable Fusion-specific features. Only rollback 
 
 ## dbt lint [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
 
-Now that your project is running on Fusion, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into Fusion. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments.
+Now that your project is running on Fusion, you have access to `dbt lint`. The `lint` command is a high-performance SQL linter built into Fusion. It is SQLFluff-compatible: it reads your existing `.sqlfluff` config file, uses the same rule codes (for example, `CP01`, `RF03`), and respects `-- noqa` suppression comments. Compatible does not mean identical. For parity expectations, refer to [Rule parity with SQLFluff](../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
 
 ### Basic usage
 

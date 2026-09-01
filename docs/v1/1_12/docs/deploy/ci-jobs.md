@@ -93,9 +93,9 @@ To make CI job creation easier, many options on the **CI job** page are set to d
 5. (optional) Options in the **Advanced settings** section:
 
    * **Environment variables** — Define [environment variables](../build/environment-variables.md) to customize the behavior of your project when this CI job runs. You can specify that a CI job is running in a *Staging* or *CI* environment by setting an environment variable and modifying your project code to behave differently, depending on the context. It's common for teams to process only a subset of data for CI runs, using environment variables to branch logic in their dbt project code.
-   * **Target name** — Define the [target name](../build/custom-target-names.md). Similar to **Environment Variables**, this option lets you customize the behavior of the project. You can use this option to specify that a CI job is running in a *Staging* or *CI* environment by setting the target name and modifying your project code to behave differently, depending on the context.
+   * **Target name** — Define the [target name](../build/custom-target-names.md). Similar to **Environment Variables**, this option lets you customize the behavior of the project. You can use this option to specify that a CI job is running in a *Staging* or *CI* environment by setting the target name and modifying your project code to behave differently, depending on the context.
    * **dbt version** — By default, it’s set to inherit the [dbt version](../dbt-versions.md) from the environment. dbt Labs strongly recommends that you don't change the default setting. This option to change the version at the job level is useful only when you upgrade a project to the next dbt version; otherwise, mismatched versions between the environment and job can lead to confusing behavior.
-   * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
+   * **Threads** — By default, it’s set to 4 [threads](../local/profiles.yml.md#understanding-threads). Increase the thread count to increase model execution concurrency.
    * **Generate docs on run** — Enable this if you want to [generate project docs](../explore/build-and-view-your-docs.md) when this job runs. This is disabled by default since testing doc generation on every CI check is not a recommended practice.
    * **Run source freshness** — Enable this option to invoke the `dbt source freshness` command before running this CI job. Refer to [Source freshness](./source-freshness.md) for more details.
 
@@ -115,7 +115,7 @@ The following is an example of a CI report in a GitHub pull request, which is sh
 
 ## Trigger a CI job with the API [Enterprise](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")[Enterprise +](https://www.getdbt.com/pricing "Go to https://www.getdbt.com/pricing")
 
-If you're not using dbt’s native Git integration with [GitHub](../platform/git/connect-github.md), [GitLab](../platform/git/connect-gitlab.md), or [Azure DevOps](../platform/git/connect-azure-devops.md), you can use the [Administrative API](../dbt-apis/admin-api.md) to trigger a CI job to run. However, dbt will not automatically delete the temporary schema for you. This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
+If you're not using dbt’s native Git integration with [GitHub](../platform/git/connect-github.md), [GitLab](../platform/git/connect-gitlab.md), or [Azure DevOps](../platform/git/connect-azure-devops.md), you can use the [Administrative API](../dbt-apis/admin-api.md) to trigger a CI job to run. However, dbt will not automatically delete the temporary schema for you. This is because automatic deletion relies on incoming webhooks from Git providers, which is only available through the native integrations.
 
 If you instead need workflows that run after a merge (not CI checks on an open pull request), refer to [Continuous deployment in dbt](./continuous-deployment.md) and [Merge jobs](./merge-jobs.md).
 

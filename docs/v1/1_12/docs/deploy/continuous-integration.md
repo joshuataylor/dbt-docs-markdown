@@ -18,7 +18,7 @@ Using CI helps:
 
 ## How CI works
 
-When you [set up CI jobs](./ci-jobs.md#set-up-ci-jobs), dbt listens for a notification from your Git provider indicating that a new PR has been opened or updated with new commits. When dbt receives one of these notifications, it enqueues a new run of the CI job.
+When you [set up CI jobs](./ci-jobs.md#set-up-ci-jobs), dbt listens for a notification from your Git provider indicating that a new PR has been opened or updated with new commits. When dbt receives one of these notifications, it enqueues a new run of the CI job.
 
 dbt builds and tests models, semantic models, metrics, and saved queries affected by the code change in a temporary schema, unique to the PR. This process ensures that the code builds without error and that it matches the expectations as defined by the project's dbt tests. The unique schema name follows the naming convention `dbt_cloud_pr_<job_id>_<pr_id>` (for example, `dbt_cloud_pr_1862_1704`) and can be found in the run details for the given run, as shown in the following image:
 
@@ -26,7 +26,7 @@ dbt builds and tests models, semantic models, metrics, and saved queries affecte
 
 When the CI run completes, you can view the run status directly from within the pull request. dbt updates the pull request in GitHub, GitLab, or Azure DevOps with a status message indicating the results of the run. The status message states whether the models and tests ran successfully or not.
 
-dbt deletes the temporary schema from your data warehouse when you close or merge the pull request. If your project has schema customization using the [generate\_schema\_name](../build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name) macro, dbt might not drop the temporary schema from your data warehouse. For more information, refer to [Troubleshooting](./ci-jobs.md#troubleshooting).
+dbt deletes the temporary schema from your data warehouse when you close or merge the pull request. If your project has schema customization using the [generate\_schema\_name](../build/custom-schemas.md#how-does-dbt-generate-a-models-schema-name) macro, dbt might not drop the temporary schema from your data warehouse. For more information, refer to [Troubleshooting](./ci-jobs.md#troubleshooting).
 
 ## Availability of features by Git provider
 
@@ -86,6 +86,8 @@ Linting on dbt v2
 
 CI jobs that run on v2 automatically use the built-in [`dbt lint`](../../reference/commands/lint.md?version=2.0) command instead of SQLFluff. `dbt lint` is SQLFluff-compatible and it reads your existing `.sqlfluff` config, uses the same rule codes, and respects `-- noqa` suppression comments.
 
+For parity expectations between `dbt lint` and SQLFluff, refer to [Rule parity with SQLFluff](../../reference/commands/lint.md?version=2.0#rule-parity-with-sqlfluff).
+
 By default, SQL linting lints all the changed SQL files in your project, compared to the last deferred production state.
 
 Note that [snapshots](../build/snapshots.md) can be defined in YAML *and* `.sql` files. Their SQL isn't lintable and can cause errors during linting.
@@ -98,11 +100,11 @@ If the linter runs into errors, you can specify whether dbt should stop running 
 
 You can optionally configure SQLFluff linting rules to override default linting behavior.
 
-* Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
+* Use [SQLFluff Configuration Files](https://docs.sqlfluff.com/en/stable/configuration/setting_configuration.html#configuration-files) to override the default linting behavior in dbt.
 
-* Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt will use them when linting.
+* Create a `.sqlfluff` configuration file in your project, add your linting rules to it, and dbt will use them when linting.
 
   * When configuring, you can use `dbt` as the templater (for example, `templater = dbt`)
   * If you’re using the Studio IDE, dbt CLI, or any other editor, refer to [Customize linting](../platform/studio-ide/lint-format.md#customize-linting) for guidance on how to add the dbt-specific (or dbtonic) linting rules we use for our own project.
 
-* For complete details, refer to [Custom Usage](https://docs.sqlfluff.com/en/stable/gettingstarted.html#custom-usage) in the SQLFluff documentation.
+* For complete details, refer to [Custom Usage](https://docs.sqlfluff.com/en/stable/gettingstarted.html#custom-usage) in the SQLFluff documentation.

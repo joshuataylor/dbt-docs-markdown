@@ -48,7 +48,7 @@ The list of commands available in dbt.
 
 ## [lint](../reference/commands/lint.md)
 
-[Use dbt lint to check your SQL files for style, correctness, and convention violations using SQLFluff-compatible rules.](../reference/commands/lint.md)
+[Use dbt lint to check your SQL files for style, correctness, and convention violations using your .sqlfluff config and SQLFluff rule codes.](../reference/commands/lint.md)
 
 ## [ls (list)](../reference/commands/list.md)
 
