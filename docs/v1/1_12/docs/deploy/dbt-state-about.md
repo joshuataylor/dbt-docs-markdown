@@ -37,7 +37,7 @@ dbt State fetches table metadata (for example, last-modified timestamps) in the 
 
 Without dbt State, every selected node rebuilds on every run regardless of whether anything has changed.
 
-To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) command.
+To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) command. If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](./dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
 
 For the full list of available configs, see [dbt State configs](../../reference/resource-configs/dbt-state-configs.md).
 

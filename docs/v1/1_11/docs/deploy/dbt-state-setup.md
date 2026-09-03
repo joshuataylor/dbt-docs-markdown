@@ -186,7 +186,7 @@ If dbt State is behaving unexpectedly, you can prepend your run command with the
 DBT_ENGINE_MANAGE_STATE=0 dbt run --target dev --select "customers"
 ```
 
-To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) command.
+To see which decision dbt State made for each node after a run and why, you can run the (Applies to dbt v1.99 and earlier) [`dbt-state explain`](../../reference/commands/state-explain.md) command. If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](./run-visibility.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
 
 ## Next steps
 

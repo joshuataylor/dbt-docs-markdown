@@ -23,6 +23,8 @@ not_null_stg_locations_location_id
 └── [Execute] data test was executed because it has no prior execution or its query changed
 ```
 
+If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
+
 ## Specifying a log file
 
 By default, (Applies to dbt v1.99 and earlier) `dbt-state explain` reads from the most recent execution. To analyze a previous run, you can use `--log-file` (or `-l`) to specify a state file from the `logs/state/` directory:

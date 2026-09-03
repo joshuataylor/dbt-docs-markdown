@@ -17,6 +17,8 @@ READY_TO_EXECUTE test.jaffle_shop.not_null_customers_customer_id - data test was
 UNKNOWN unit_test.jaffle_shop.orders.test_order_items_compute_to_bools_correctly - dbt State explain details unavailable
 ```
 
+If you use the dbt platform, the same information is available without running a command — go to the [**Explain** tab](../../docs/deploy/dbt-state-interface.md#explain-tab) on the job run details page to see the full decision breakdown for each node.
+
 ## Specifying a log file
 
 By default, (Applies to dbt v2.0 and later) `dbt state explain` reads from the most recent execution. To analyze a previous run, you can use `--log-file` (or `-l`) to specify a state file from the `logs/state/` directory:
