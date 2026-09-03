@@ -307,7 +307,9 @@ Group memberships are updated whenever a user logs into dbt via a supported SSO 
 
  Can I set up SSO without RBAC?
 
-Yes, see the documentation on [Manual Assignment](#manual-assignment) above for more information on using SSO without RBAC.
+Yes. If a group has no [SSO mappings](#sso-mappings), it stays unmanaged — dbt won't change its membership when users log in through your IdP. Admins add and remove those users manually from the **Groups & Licenses** section of **Account settings**.
+
+Add an SSO mapping to an unmanaged group and it becomes managed: from then on, dbt adjusts membership at sign-in based on the user's IdP groups.
 
  Can I configure a user's license type based on IdP attributes?
 
