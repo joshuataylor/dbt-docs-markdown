@@ -19,7 +19,15 @@ Databricks supports two methods for creating Iceberg tables in its data catalog,
 * Creating [Unity Catalog managed Iceberg tables](https://docs.databricks.com/aws/en/tables/managed). Databricks Runtime 16.4 LTS and later support this feature.
 * Enabling [Iceberg reads](https://docs.databricks.com/aws/en/delta/uniform) on Delta tables. These tables still use the Delta file format, but generate both Delta and Iceberg-compatible metadata. Databricks Runtime 14.3 LTS and later support this feature.
 
-dbt supports both creating managed Iceberg tables and Iceberg-enabled Delta tables (formerly [UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability)). The behavior flag [`use_managed_iceberg`](../../../../reference/global-configs/databricks-changes.md#use-managed-iceberg) determines whether dbt creates a managed Iceberg table or a Delta table.
+dbt supports both creating managed Iceberg tables and Iceberg-enabled Delta tables (formerly [UniForm](https://www.databricks.com/blog/delta-uniform-universal-format-lakehouse-interoperability)).
+
+(Applies to dbt v1.12 and earlier)
+
+The behavior flag [`use_managed_iceberg`](../../../../reference/global-configs/databricks-changes.md#use-managed-iceberg) determines whether dbt creates a managed Iceberg table or a Delta table.
+
+`use_uniform` has no effect in dbt v1
+
+`dbt-databricks` doesn't support the `use_uniform` catalog property yet. If you set it, the adapter logs a warning and ignores the value. Use the `use_managed_iceberg` behavior flag instead.
 
 External Iceberg compute engines can read from and write to these Iceberg tables using Unity Catalog's [Iceberg REST API endpoint](https://docs.databricks.com/aws/en/external-access/iceberg). However, Databricks only has limited support for reading from external Iceberg catalogs (and externally managed Iceberg tables) through [Databricks catalog federation](https://docs.databricks.com/aws/en/query-federation/catalog-federation) (configured outside of dbt).
 

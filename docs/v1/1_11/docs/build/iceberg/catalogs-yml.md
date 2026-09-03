@@ -56,16 +56,16 @@ That said, one "catalog" **must** always point to the same actual data (Iceberg 
 
 #### Catalog types
 
-| catalog `type`     | default for | supported by                  | Notes                                                                                         |
-| ------------------ | ----------- | ----------------------------- | --------------------------------------------------------------------------------------------- |
-| horizon            | snowflake   | snowflake, duckdb             |                                                                                               |
-| glue               | athena      | athena, snowflake, duckdb     |                                                                                               |
-| biglake\_metastore | bigquery    | bigquery, snowflake           |                                                                                               |
-| unity              | databricks  | databricks, snowflake, duckdb | Supports Iceberg (native), Delta, "Uniform" formats                                           |
-| hive\_metastore    |             | databricks                    | Supports Hudi format, in addition to Iceberg + Delta                                          |
-| ducklake           |             | duckdb                        |                                                                                               |
-| local\_filesystem  |             | duckdb                        |                                                                                               |
-| iceberg\_rest      |             | snowflake, duckdb             | In theory, this option can support any catalog that implements an Iceberg-compatible REST API |
+| catalog `type`     | default for | supported by                  | Notes                                                                                                                                                                                                      |
+| ------------------ | ----------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| horizon            | snowflake   | snowflake, duckdb             |                                                                                                                                                                                                            |
+| glue               | athena      | athena, snowflake, duckdb     |                                                                                                                                                                                                            |
+| biglake\_metastore | bigquery    | bigquery, snowflake           | Supports BigQuery [Lakehouse Runtime Catalog tables](./adapters/bigquery-iceberg-support.md#lakehouse-runtime-catalog-lrc) through the `lakehouse_catalog` config |
+| unity              | databricks  | databricks, snowflake, duckdb | Supports Iceberg (native), Delta, "Uniform" formats                                                                                                                                                        |
+| hive\_metastore    |             | databricks                    | Supports Hudi format, in addition to Iceberg + Delta                                                                                                                                                       |
+| ducklake           |             | duckdb                        |                                                                                                                                                                                                            |
+| local\_filesystem  |             | duckdb                        |                                                                                                                                                                                                            |
+| iceberg\_rest      |             | snowflake, duckdb             | In theory, this option can support any catalog that implements an Iceberg-compatible REST API                                                                                                              |
 
 #### Config inheritance
 

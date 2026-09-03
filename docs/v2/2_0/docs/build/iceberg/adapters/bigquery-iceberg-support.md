@@ -22,14 +22,16 @@ The following table outlines the configuration fields required to set up a catal
 
 Supply and nest these additional configurations, unique to BigQuery, under `config.bigquery` (in the new catalog spec) or `adapter_properties` (in the old catalog spec).
 
-| Field                   | Type   | Required | Description                                                                             | Note                                  |
-| ----------------------- | ------ | -------- | --------------------------------------------------------------------------------------- | ------------------------------------- |
-| `file_format`           | String | Yes      | The file format for the Iceberg table.                                                  | `parquet` is the only accepted value. |
-| `external_volume`       | String | Yes      | The Cloud Storage bucket where Iceberg table data is written.                           | For example, `gs://BUCKET_NAME`.      |
-| `base_location_root`    | String | No       | If provided, the input overrides the default dbt `base_location` value of `_dbt`.       | Can be set in `catalogs.yml`.         |
-| `base_location_subpath` | String | No       | An optional suffix to add to the `base_location` path that dbt automatically specifies. | Only configurable per-model.          |
-| `storage_uri`           | String | No       | If provided, the input overrides the dbt `storage_uri` value.                           | Only configurable per-model.          |
+| Field                   | Type   | Required                                                                                   | Description                                                                             | Note                                                                              |
+| ----------------------- | ------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `file_format`           | String | Yes, except for [Lakehouse Runtime Catalog (LRC)](#lakehouse-runtime-catalog-lrc) catalogs | The file format for the Iceberg table.                                                  | `parquet` is the only accepted value.                                             |
+| `external_volume`       | String | Yes, except for LRC catalogs                                                               | The Cloud Storage bucket where Iceberg table data is written.                           | For example, `gs://BUCKET_NAME`.                                                  |
+| `lakehouse_catalog`     | String | No                                                                                         | The name of the LRC that holds this catalog's tables.                                   | New spec only, and requires Fusion (v2). Set it in `catalogs.yml`, not per model. |
+| `base_location_root`    | String | No                                                                                         | If provided, the input overrides the default dbt `base_location` value of `_dbt`.       | Can be set in `catalogs.yml`.                                                     |
+| `base_location_subpath` | String | No                                                                                         | An optional suffix to add to the `base_location` path that dbt automatically specifies. | Only configurable per-model.                                                      |
+| `storage_uri`           | String | No                                                                                         | If provided, the input overrides the dbt `storage_uri` value.                           | Only configurable per-model.                                                      |
 
+* `lakehouse_catalog`: Tells dbt that this catalog's tables live in a [Lakehouse Runtime Catalog](#lakehouse-runtime-catalog-lrc), so dbt addresses them with BigQuery's four-part name. LRC catalogs don't need `external_volume` or `file_format` because the LRC derives the storage location from the namespace.
 * `base_location_root`: Specifies the prefix of the base location path within the storage bucket where Iceberg table data is written.
 * `base_location_subpath`: Specifies the suffix of the base location path within the storage bucket where Iceberg table data is written. This property can only be set in model configurations, not in `catalogs.yml`.
 * `storage_uri`: Completely overrides the storage\_uri, allowing you to specify the full path directly instead of using the catalog integration's external volume and base\_location components.
@@ -172,3 +174,86 @@ This behavior could result in future technical debt because it limits the abilit
 * Use a crawler pointed at the tables within the external storage to build a new catalog with another tool
 
 To maintain best practices, dbt enforces an input and, by default, writes your tables within a `_dbt/{SCHEMA_NAME}/{TABLE_NAME}` prefix to ensure easier object-store observability and auditability.
+
+(Applies to dbt v2.0 and later)
+
+## Lakehouse Runtime Catalog (LRC) [Beta](https://docs.getdbt.com/docs/dbt-versions/product-lifecycles "Go to https://docs.getdbt.com/docs/dbt-versions/product-lifecycles")
+
+Fusion only
+
+`lakehouse_catalog` requires the [dbt Fusion engine](../../../introduction.md) (v2) with the `use_catalogs_v2` behavior flag enabled.
+
+dbt\_project.yml
+
+```yaml
+flags:
+  use_catalogs_v2: true
+```
+
+BigQuery's [Lakehouse Runtime Catalog](https://cloud.google.com/bigquery/docs/blms-rest-catalog) (LRC) addresses a table with four parts — project, catalog, namespace, and table — but BigQuery SQL accepts only three quoted segments. dbt handles this by quoting the catalog and namespace together as the middle segment:
+
+```sql
+`{project}`.`{catalog}.{namespace}`.`{table}`
+```
+
+Set `lakehouse_catalog` on a `biglake_metastore` catalog to tell dbt that its tables live in an LRC. dbt then uses the four-part name and omits the connection clause and the `table_format` option, neither of which BigQuery accepts for LRC tables.
+
+### Prerequisites
+
+Create the LRC catalog and namespace before you run dbt. BigQuery has no SQL statement that creates them, so dbt can create only the table.
+
+Because of this, dbt attempts to create the namespace on every run against an LRC catalog, and BigQuery rejects it with the following warning:
+
+```shell
+[FailedToCreateDatabase (dbt1051)]: Failed to create schema 'sales_catalog.analytics' in database
+'my_project' in remote for model.my_project.my_lrc_model: [BigQuery] googleapi: Error 400:
+Invalid project ID 'my_project.sales_catalog'.
+```
+
+Expect this warning — it doesn't fail the run. As long as the catalog and namespace exist, dbt creates the table.
+
+### LRC example
+
+1. Add a catalog with `lakehouse_catalog` set. An LRC catalog doesn't need `external_volume` or `file_format`.
+
+catalogs.yml
+
+```yaml
+catalogs:
+  - name: my_lrc_catalog
+    type: biglake_metastore
+    table_format: iceberg
+    config:
+      bigquery:
+        lakehouse_catalog: sales_catalog
+```
+
+2. Configure a model with `catalog_name`:
+
+my\_lrc\_model.sql
+
+```sql
+
+{{
+    config(
+        materialized='table',
+        catalog_name='my_lrc_catalog'
+    )
+}}
+
+select * from {{ ref('jaffle_shop_customers') }}
+```
+
+3. Run the model: `dbt run -s my_lrc_model`. dbt generates the following DDL:
+
+```sql
+create or replace table `my_project`.`sales_catalog.analytics`.`my_lrc_model`
+  OPTIONS()
+  as (
+    select * from `my_project`.`analytics`.`jaffle_shop_customers`
+  )
+```
+
+### LRC limitations
+
+BigQuery doesn't expose LRC tables through `INFORMATION_SCHEMA`, so your queries against those views don't return them. This doesn't affect `dbt docs generate`.
