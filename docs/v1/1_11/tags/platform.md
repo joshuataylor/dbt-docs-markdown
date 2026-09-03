@@ -1,10 +1,14 @@
-# 4 docs tagged with "Platform"
+# 5 docs tagged with "Platform"
 
 [View all tags](../tags.md)
 
 ## [dbt Wizard home tab](../docs/platform/wizard-home.md)
 
 Use the dbt Wizard home tab in the dbt platform for an agent-native development workflow — iterate in natural language, review inline diffs and DAG previews, and validate changes without leaving the agent.
+
+## [Invite read-only users to dbt Wizard](../docs/platform/wizard-read-only-users.md)
+
+Invite business users to dbt Wizard with read-only licenses so they can ask questions of governed production data in Explore mode, without a developer license.
 
 ## [Quickstart for dbt and BigQuery](../guides/bigquery.md)
 

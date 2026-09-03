@@ -1,4 +1,4 @@
-# 35 docs tagged with "AI"
+# 36 docs tagged with "AI"
 
 [View all tags](../tags.md)
 
@@ -83,6 +83,10 @@ Understand the dbt Wizard agent loop, tools, project context, and approval workf
 ## [How to use prompts for dbt Wizard](../guides/prompt-cookbook.md)
 
 A cookbook of prompts and real-world examples to use dbt Wizard efficiently.
+
+## [Invite read-only users to dbt Wizard](../docs/platform/wizard-read-only-users.md)
+
+Invite business users to dbt Wizard with read-only licenses so they can ask questions of governed production data in Explore mode, without a developer license.
 
 ## [Migrate to dbt Wizard](../docs/dbt-ai/wizard-migrate.md)
 

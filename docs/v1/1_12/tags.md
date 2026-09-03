@@ -4,7 +4,7 @@
 
 * [Adapter creation2](./tags/adapter-creation.md)
 * [Agents2](./tags/agents.md)
-* [AI35](./tags/ai.md)
+* [AI36](./tags/ai.md)
 * [Amazon1](./tags/amazon.md)
 * [Analyst2](./tags/analyst.md)
 * [API2](./tags/api.md)
@@ -111,7 +111,7 @@
 
 ## P
 
-* [Platform4](./tags/platform.md)
+* [Platform5](./tags/platform.md)
 * [Privacy1](./tags/privacy.md)
 
 ***
@@ -203,6 +203,6 @@
 ## W
 
 * [Webhooks6](./tags/webhooks.md)
-* [Wizard27](./tags/wizard.md)
+* [Wizard28](./tags/wizard.md)
 
 ***

@@ -15,6 +15,8 @@ For dbt Fusion engine updates, refer to the [dbt-fusion changelog](https://githu
 
 ## September 2026
 
+* **Preview:** Explore mode is now available in the dbt Wizard [home tab](../platform/wizard-home.md#ask-questions-in-explore-mode) and [Studio IDE](../dbt-ai/wizard-ide.md#ask-questions-in-explore-mode). Explore mode lets users ask questions of governed production data in plain language, with the SQL or metric definition behind every answer. Read-only users can now be [invited](../platform/wizard-read-only-users.md) to ask questions about your data without a developer license in the Wizard home tab.
+
 * **New:** Jobs with [dbt State](../deploy/dbt-state-about.md) enabled now include an **Explain** tab on the run details page. This tab shows why dbt State rebuilt, reused, or cloned each resource in the run, so you can audit State behavior and debug unexpected decisions directly on the dbt platform. Refer to [Monitor dbt State activity](../deploy/dbt-state-interface.md#explain-tab) for more information.
 
 * **Behavior change:** The following behavior change flags on the dbt platform **Latest** release track have reached maturity, switching their default values from `false` to `true`. To preserve the previous behavior for any of these flags, set them to `false` in your `dbt_project.yml`.

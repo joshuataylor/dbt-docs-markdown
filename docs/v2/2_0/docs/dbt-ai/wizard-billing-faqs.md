@@ -224,6 +224,10 @@ Cost depends on the model and your usage pattern. dbt-managed inference is meter
 
 Refer to [Model Provider Rate table](https://www.getdbt.com/legal/dbt-wizard-token-costs-by-model) and [Service Consumption Table](https://www.getdbt.com/legal/service-consumption-table) for more information.
 
+ Does read-only user usage in Explore mode count against my consumption pool?
+
+Yes. Questions asked in [Explore mode](./wizard-ide.md#agent-modes) — including by [read-only users](../platform/wizard-read-only-users.md) — use dbt-managed inference and draw from your account's dbt Wizard consumption pool, the same as any other dbt Wizard usage.
+
 ## Related docs
 
 * [Manage AI features in dbt platform](../platform/manage-dbt-ai.md) to turn AI features on or off

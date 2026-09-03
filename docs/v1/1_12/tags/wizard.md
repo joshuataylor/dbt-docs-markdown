@@ -1,4 +1,4 @@
-# 27 docs tagged with "Wizard"
+# 28 docs tagged with "Wizard"
 
 [View all tags](../tags.md)
 
@@ -61,6 +61,10 @@ Run dbt Wizard in headless mode for scripts, CI pipelines, and automation.
 ## [How dbt Wizard works](../docs/dbt-ai/wizard-how-it-works.md)
 
 Understand the dbt Wizard agent loop, tools, project context, and approval workflow.
+
+## [Invite read-only users to dbt Wizard](../docs/platform/wizard-read-only-users.md)
+
+Invite business users to dbt Wizard with read-only licenses so they can ask questions of governed production data in Explore mode, without a developer license.
 
 ## [Migrate to dbt Wizard](../docs/dbt-ai/wizard-migrate.md)
 

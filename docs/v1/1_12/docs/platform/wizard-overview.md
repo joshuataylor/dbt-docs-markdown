@@ -13,6 +13,7 @@ Think of it like a map of your city: dbt Wizard knows how everything connects be
 * **Safe validation:** Compiles and builds changes before review
 * **Complete workflow:** Investigate, change, validate, and review in one place
 * **Setup and governance:** Works out of the box with dbt governance built in
+* **Conversational analytics:** Answers questions about production data in plain language through [Explore mode](../dbt-ai/wizard-ide.md#agent-modes), grounded in governed metric definitions
 
 Wizard usage and billing
 
@@ -22,7 +23,9 @@ Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for
 
 ## Use dbt Wizard
 
-dbt Wizard is for anyone doing dbt development. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account. dbt Wizard is data warehouse agnostic and works on any [dbt version](../introduction.md#dbt-versions)
+dbt Wizard is for anyone doing dbt development. You can use it in the platform with managed or bring-your-own-key (BYOK) credentials, or in the terminal with your own key, with or without a dbt platform account. dbt Wizard is data warehouse agnostic and works on any [dbt version](../introduction.md#dbt-versions).
+
+It's also for people who don't build data at all. In the dbt platform, [Explore mode](../dbt-ai/wizard-ide.md#agent-modes) lets [read-only users](./wizard-read-only-users.md) ask questions of production data in plain language, with no developer license and nothing to set up.
 
 The following table shows where dbt Wizard is available, the AI keys each surface uses, and how usage is billed:
 
@@ -142,6 +145,7 @@ Refer to [Use cases and examples](../dbt-ai/wizard-use-cases.md) for more prompt
 ## Related docs
 
 * [dbt Wizard in Studio IDE](../dbt-ai/wizard-ide.md) — generate docs, tests, semantic models, SQL, and delegate end-to-end model work
+* [Invite read-only users to dbt Wizard](./wizard-read-only-users.md) — let business users ask questions of production data in Explore mode, without development access
 * [Use skills in the dbt platform](../dbt-ai/wizard-platform-skills.md) — give dbt Wizard reusable instructions for your project
 * [Use MCP servers with dbt Wizard CLI](../dbt-ai/wizard-mcp.md) — connect the dbt Wizard CLI to more tools and context
 * [Migrate to dbt Wizard](../dbt-ai/wizard-migrate.md) — switch from Claude Code, Cursor, or another AI agent to dbt Wizard
