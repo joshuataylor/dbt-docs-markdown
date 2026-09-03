@@ -59,7 +59,7 @@ Our Frequently Asked Questions (FAQs) section is a space where you can find an a
 
 ## [State](../faqs/State/data-storage.md)
 
-[9 items](../faqs/State/data-storage.md)
+[10 items](../faqs/State/data-storage.md)
 
 ## [Tests](../category/tests.md)
 

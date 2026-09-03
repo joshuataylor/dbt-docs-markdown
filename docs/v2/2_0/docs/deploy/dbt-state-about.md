@@ -6,7 +6,10 @@ dbt State makes dbt smarter about what to build. Instead of rebuilding every nod
 
 With dbt State, dbt first compares the logic and data of each node to previous builds across multiple environments on every run — whether orchestrated in the dbt platform, through your own orchestrator, or in development. If the logic is the same and the data is still fresh, dbt reuses an existing object. It will either clone an existing node from elsewhere, or skip executing a model that already exists, rather than building it anew. Additionally, it will automatically defer to production state without the need to manually set the `--defer` or `--state` flags.
 
-dbt State can reuse all node types that create relations in the database (such as models, snapshots, seeds) and data tests.
+dbt State can reuse all node types that create relations in the database (such as SQL models, snapshots, seeds) and data tests. Note that the following models are not eligible for reuse:
+
+* **Python models**: dbt State builds Python models on every run, even if their code and upstream data have not changed.
+* **Models with custom materializations**: dbt State builds these models on every run because custom materializations may have side effects (for example, modifying table properties or writing to other schemas), and dbt State cannot safely determine whether skipping the run would produce the same result.
 
 dbt State works with dbt (v1 and v2) and the dbt platform, across all environments and orchestrators, making it a flexible approach regardless of how you run dbt. It requires authentication through a dbt platform account. For pricing details, refer to [dbt State usage and pricing](../platform/billing/dbt-state-usage.md).
 
@@ -93,6 +96,10 @@ dbt State works with incremental models. When you make a change to an incrementa
 
 If you want to revert to the original dbt behavior and fully refresh the incremental model, pass the [`--full-refresh` flag](../../reference/commands/run.md#refresh-incremental-models).
 
+Does dbt State support Python models?
+
+dbt State builds Python models but does not reuse them. It executes Python models on every run, even when their code and upstream data have not changed.
+
 How is data stored in dbt State?
 
 dbt State sends the following metadata to dbt Labs servers:
@@ -127,6 +134,7 @@ The following patterns commonly cause unexpected rebuilds:
 * [Views with `select *`](#views-with-select)
 * [Non-deterministic Jinja templating](#non-deterministic-jinja-templating)
 * [Models with external sources in BigQuery](#models-with-external-sources-in-bigquery)
+* [Models with custom materializations](#models-with-custom-materializations)
 
 ## Views with `select *`
 
@@ -196,6 +204,10 @@ On BigQuery, models that use external sources (such as Google Sheets) always reb
 tip
 
 To prevent external sources from always being considered stale, configure [`loaded_at_field`](../../reference/resource-properties/freshness.md#loaded_at_field) or [`loaded_at_query`](../../reference/resource-properties/freshness.md#loaded_at_query) in your source definition to point to a timestamp field. This lets dbt State query a timestamp field directly to determine freshness, rather than relying on warehouse metadata.
+
+## Models with custom materializations
+
+Models using custom materializations are always built and are never reused. Custom materializations may have side effects (for example, modifying table properties or writing to other schemas), and dbt State cannot safely determine whether skipping the run would produce the same result.
 
 ## How to diagnose
 
