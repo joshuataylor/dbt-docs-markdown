@@ -46,13 +46,13 @@ Start from **Billing & Usage**, or from the dbt Wizard prompt in Studio IDE or t
 2. Under **Settings**, click **Billing & Usage**.
 3. On the **Overview** tab, find the **dbt Wizard** card and click **Start trial**.
 
-No credit card is required. Your 30-day trial with $100 in usage credits starts right away, and you can track how much you've used anytime in **Billing & Usage**.
+No credit card is required. Your 30-day trial with $100 in usage credits starts right away. The $100 is per account and shared by everyone on it, and you can track how much you've used anytime in **Billing & Usage**.
 
 ![The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart](/img/docs/dbt-platform/wizard-billing-overview.png?v=2 "The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart")The Billing & Usage Overview page, showing dbt State and dbt Wizard cards with Start trial buttons, plus a usage-by-month chart
 
 ### Wizard CLI
 
-There's no **Start trial** button in the CLI. Logging in is what starts your trial — one command creates your free dbt account, if you don't have one, and provisions the 30-day trial with $100 in usage credits at the same time.
+There's no **Start trial** button in the CLI. Logging in is what starts your trial — one command creates your free dbt account, if you don't have one, and provisions the 30-day trial with $100 in usage credits for your account at the same time. The $100 is per account, not per user, so it's shared with anyone else on your account.
 
 1. [Install dbt Wizard](../wizard-quickstart.md).
 
@@ -88,7 +88,7 @@ What you do next depends on your plan.
 
 ### Enterprise and Enterprise+ plans
 
-There's no trial to start and no self-serve credit card flow. Your monthly usage credits are granted automatically — [contact your account team](https://www.getdbt.com/contact) to set up or adjust committed spend.
+There's no trial to start and no self-serve credit card flow. Your monthly usage credits — $100/month on Enterprise and $200/month on Enterprise+ — are granted automatically per account, not per user, and shared by everyone on the account. [Contact your account team](https://www.getdbt.com/contact) to set up or adjust committed spend.
 
 ## Manage your spend limit
 

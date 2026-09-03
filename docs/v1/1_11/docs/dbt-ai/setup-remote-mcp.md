@@ -42,10 +42,11 @@ OAuth lets you connect to the remote MCP server without copying API tokens into 
 
 ### Prerequisites
 
-* [AI features](https://docs.getdbt.com/docs/cloud/enable-dbt-copilot) enabled for your account.
 * Starter, Enterprise, or Enterprise+ account
 * An MCP client that supports OAuth for remote (HTTP) MCP servers.
 * Your **MCP URL** from **Account settings** → **Access URLs** → **MCP Endpoint URL** in dbt platform. Check out the next section [MCP URL](#mcp-url) for more information.
+
+AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md). Turning them off doesn't disable remote MCP — it only hides the [`text_to_sql` tool](./mcp-available-tools.md#tools-that-require-ai-features).
 
 ### MCP URL
 
@@ -98,15 +99,16 @@ Token-based authentication lets you connect to the remote MCP server without OAu
 
 ### Setup instructions
 
-1. AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md).
-2. Obtain the following information from dbt platform:
+AI features are enabled by default. Admins can [turn them off or back on anytime](../platform/manage-dbt-ai.md). Turning them off doesn't disable remote MCP — it only hides the [`text_to_sql` tool](./mcp-available-tools.md#tools-that-require-ai-features).
+
+1. Obtain the following information from dbt platform:
 
 * **dbt platform host**: Use this to form the full URL. For example, replace `YOUR_DBT_HOST_URL` here: `https://YOUR_DBT_HOST_URL/api/ai/v1/mcp/`. It may look like: `https://cloud.getdbt.com/api/ai/v1/mcp/`. If you have a multi-cell account, the host URL will be in the `ACCOUNT_PREFIX.us1.dbt.com` format. For more information, refer to [Access, Regions, & IP addresses](../platform/about-platform/access-regions-ip-addresses.md).
 * **Production environment ID**: From **Orchestration** → **Environments** in dbt platform. Use this to set an `x-dbt-prod-environment-id` header. Refer to [How to find your dbt MCP IDs](./mcp-find-ids.md#dbt-prod-env-id) for step-by-step instructions.
 * **Token**: Generate either a personal access token or a service token. To fully utilize remote MCP, the token must have Semantic Layer and Developer permissions.
 * If you plan to use `execute_sql` with token-based auth, you must use a [Personal Access Token (PAT)](../dbt-apis/user-tokens.md). Service tokens *do not* work for this tool. For other tools that require `x-dbt-user-id`, a PAT is also required.
 
-3. For the remote MCP, you will pass on headers through the JSON blob to configure required fields:
+2. For the remote MCP, you will pass on headers through the JSON blob to configure required fields:
 
 #### Configuration for APIs and SQL tools
 
@@ -139,7 +141,7 @@ By default, Fusion tools use the environment you set in `x-dbt-prod-environment-
 | x-dbt-disable-tools    | Optional | A comma-separated list of tools to disable. For instance: `get_all_models,text_to_sql,list_entities` |
 | x-dbt-disable-toolsets | Optional | A comma-separated list of toolsets to disable. For instance: `semantic_layer,sql,discovery`          |
 
-4. After establishing which headers you need, you can follow the [examples](https://github.com/dbt-labs/dbt-mcp/tree/main/examples) to create your own agent.
+3. After establishing which headers you need, you can follow the [examples](https://github.com/dbt-labs/dbt-mcp/tree/main/examples) to create your own agent.
 
 ## Examples
 

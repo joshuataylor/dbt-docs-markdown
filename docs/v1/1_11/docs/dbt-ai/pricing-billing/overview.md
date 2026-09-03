@@ -4,7 +4,7 @@ Learn how dbt Wizard usage is metered and how model access works across the dbt 
 
 This page covers which AI models dbt Wizard can use and how usage is priced. To start a trial, add a credit card, or set a spend limit, refer to [Trial and billing](./trial-and-billing.md).
 
-Get started with free dbt-managed usage credits — monthly usage credits included for Enterprise and Enterprise+ plans, or a 30-day free trial with $100 in credits on all other plans.
+Get started with free dbt-managed usage credits. Every credit balance is *per account, not per user*, which means everyone on your account shares the same pool. Enterprise and Enterprise+ accounts get monthly usage credits, and all other plans get a 30-day free trial with $100 in credits.
 
 There are two ways to pay for AI usage: let dbt Labs handle the models and the billing, or bring your own provider key. Here's how they compare:
 
@@ -26,7 +26,7 @@ These four terms come up on every dbt Wizard billing page:
 | Term             | What it means                                                                                                                                                                                                  |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Token            | The unit of AI model usage. How many tokens you use, and the rate you pay for them, depends on the model, the context window, the length and complexity of your prompt, and the size of the response           |
-| Usage credits    | The free balance included with your plan — trial credits on Developer and Starter, or monthly credits on Enterprise and Enterprise+. Scoped to dbt Wizard only                                                 |
+| Usage credits    | The free balance included with your plan, shared by everyone on the account, whether thats trial credits on Developer and Starter, or monthly credits on Enterprise and Enterprise+. Scoped to dbt Wizard only |
 | Consumption pool | Your overall dbt managed usage balance, including any pool you purchase once your credits run out. A purchased pool covers both dbt Wizard and dbt State. Shown as **Consumption pool** in **Billing & Usage** |
 | Spend limit      | The maximum dbt managed usage your account can consume in a billing period                                                                                                                                     |
 

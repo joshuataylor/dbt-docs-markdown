@@ -28,6 +28,10 @@ Usage from the dbt platform and the local CLI both draw from the same account-le
 
 ### Usage credits by plan
 
+All credits are account-level
+
+Usage credits are granted per account, not per user or per seat. Everyone on your account draws from the same balance, whether they use dbt Wizard in the dbt platform or the local CLI.
+
 | Plan                                      | What you get                                                       |
 | ----------------------------------------- | ------------------------------------------------------------------ |
 | Enterprise                                | $100/month in usage credits per account, resets each billing month |

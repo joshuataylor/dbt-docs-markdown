@@ -8,7 +8,7 @@ The details on this page are generally for admin tasks. If you're looking for wh
 
 Wizard usage and billing
 
-From September 1st, 2026, dbt Wizard usage is metered per token against your usage credits. Enterprise and Enterprise+ accounts get monthly credits. Developer and Starter plans start with a 30-day trial and $100 in credits, as do CLI users via a free dbt account.
+From September 1st, 2026, dbt Wizard usage is metered per token against your account's usage credits. All credit amounts are per account, not per user. Enterprise and Enterprise+ accounts get monthly credits. Developer and Starter plans start with a 30-day trial and $100 in credits, as do CLI users via a free dbt account.
 
 Refer to [Trial and billing](../dbt-ai/pricing-billing/trial-and-billing.md) for what each plan gets, spend limits, and paid access.
 
