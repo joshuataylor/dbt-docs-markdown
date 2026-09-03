@@ -9,6 +9,7 @@ Set up notifications in dbt platform to receive alerts about the outcome of a jo
   * This notification is triggered by warning-level log lines from those steps, not the job's overall run status. A job that shows "success" in the user interface can still trigger a warn notification if test or freshness steps logged warnings.
 * **Fails** option — A job run failed to complete.
 * **Is canceled** option — A job run is canceled.
+  * You may not see Slack notifications for runs canceled by dbt platform's inactivity-timeout cleanup process (which cancels runs that have been inactive for 10 minutes). To receive notifications for these cancellations, use [email notifications](#email-notifications) or [webhooks](./webhooks.md).
 
 ### Notification options
 
